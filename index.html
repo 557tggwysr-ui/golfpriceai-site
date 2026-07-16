@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GolfPrice AI — Stop overpaying for golf gear</title>
+<meta name="description" content="We track golf club, apparel and accessory prices across 20+ retailers and tell you when it's actually worth buying. AI-powered. Golfer-approved.">
+<link rel="icon" href="assets/logo-full.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="brand">
+    <img src="assets/logo-full.png" alt="GolfPrice AI logo">
+    <span class="brand-name">Golf<span>Price</span> AI</span>
+  </a>
+  <nav class="main-nav">
+    <a href="#deals">Deals</a>
+    <a href="#price-drops">Price Drops</a>
+    <a href="#trending">Trending</a>
+    <a href="#alerts">Alerts</a>
+    <a href="#about">About</a>
+  </nav>
+  <a href="#alerts" class="btn btn-primary">🔔 Get Deal Alerts</a>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>Stop overpaying<br>for <span>golf gear.</span></h1>
+        <p>We track prices 24/7 and show you when it's actually worth buying. AI-powered. Golfer-approved.</p>
+        <form class="search-bar" id="search-form">
+          <input type="text" id="search-input" placeholder="Search for clubs, balls, bags...">
+          <button type="submit" class="btn btn-primary">Find Deals</button>
+        </form>
+        <div class="trust-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Live prices from 20+ trusted retailers
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="assets/hero-golfer.png" alt="Illustration of a golfer mid-swing with the tagline Full Swing, Not full price">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="deals">
+    <div class="section-head">
+      <h2>Today's Best Golf Deals 🔥</h2>
+      <a href="#deals">View all deals →</a>
+    </div>
+    <div class="deal-grid" id="best-deals"></div>
+  </section>
+
+  <section class="section">
+    <div class="two-col">
+      <div class="panel" id="price-drops">
+        <div class="panel-head">
+          <h3>📈 Price Drops We're Watching</h3>
+          <a href="#price-drops">View all →</a>
+        </div>
+        <div id="price-drop-list"></div>
+      </div>
+      <div class="panel" id="trending">
+        <div class="panel-head">
+          <h3>📈 Trending Right Now</h3>
+          <a href="#trending">View all →</a>
+        </div>
+        <div class="tag-grid" id="trending-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter" id="alerts">
+    <div class="newsletter-copy">
+      <span style="font-size:26px;">✉️</span>
+      <div>
+        <h3>Never miss a deal worth hitting.</h3>
+        <p>Get AI-powered deal alerts straight to your inbox.</p>
+      </div>
+    </div>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit" class="btn btn-primary">Get Deal Alerts 🔔</button>
+    </form>
+  </section>
+
+  <p class="disclosure" id="about">
+    GolfPrice AI is reader-supported. When you buy through links on our site, we may earn an affiliate commission at no extra cost to you.
+    Prices and availability are updated regularly but may change on the retailer's site.
+  </p>
+
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear.</div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

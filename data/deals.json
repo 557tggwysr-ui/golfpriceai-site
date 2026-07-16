@@ -1,0 +1,81 @@
+{
+  "lastUpdated": "2026-07-16T09:00:00Z",
+  "bestDeals": [
+    {
+      "id": "ping-g430-max",
+      "badge": "BEST PRICE",
+      "name": "Ping G430 Max Driver 10.5\u00b0 Regular",
+      "image": "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=400",
+      "retailPrice": 599.99,
+      "salePrice": 449.99,
+      "savePct": 25,
+      "retailerCount": 4,
+      "rating": 4.8,
+      "affiliateUrl": "#",
+      "network": "cj"
+    },
+    {
+      "id": "scotty-cameron-newport2",
+      "badge": "PRICE DROP",
+      "name": "Scotty Cameron Newport 2 Putter",
+      "image": "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400",
+      "retailPrice": 429.00,
+      "salePrice": 329.99,
+      "savePct": 23,
+      "retailerCount": 3,
+      "rating": 4.9,
+      "affiliateUrl": "#",
+      "network": "awin"
+    },
+    {
+      "id": "taylormade-stealth-irons",
+      "badge": "HOT DEAL",
+      "name": "TaylorMade Stealth Iron Set (5-PW) Regular Flex",
+      "image": "https://images.unsplash.com/photo-1587174786160-08fdc84f5c62?w=400",
+      "retailPrice": 999.99,
+      "salePrice": 699.99,
+      "savePct": 30,
+      "retailerCount": 5,
+      "rating": 4.7,
+      "affiliateUrl": "#",
+      "network": "impact"
+    }
+  ],
+  "priceDrops": [
+    {
+      "id": "titleist-pro-v1-2023",
+      "name": "Titleist Pro V1 Golf Balls (2023)",
+      "image": "https://images.unsplash.com/photo-1592919505780-303950717480?w=100",
+      "wasPrice": 54.99,
+      "nowPrice": 44.99,
+      "dropPct": 18,
+      "affiliateUrl": "#"
+    },
+    {
+      "id": "callaway-rogue-st-max-fw",
+      "name": "Callaway Rogue ST Max Fairway Wood",
+      "image": "https://images.unsplash.com/photo-1611374243147-44a702c2f753?w=100",
+      "wasPrice": 299.99,
+      "nowPrice": 199.99,
+      "dropPct": 33,
+      "affiliateUrl": "#"
+    },
+    {
+      "id": "cleveland-rtx-zipcore",
+      "name": "Cleveland RTX ZipCore Wedge",
+      "image": "https://images.unsplash.com/photo-1592919505780-303950717480?w=100",
+      "wasPrice": 179.99,
+      "nowPrice": 129.99,
+      "dropPct": 28,
+      "affiliateUrl": "#"
+    }
+  ],
+  "trending": [
+    { "name": "Ping G430 Driver", "tag": "Hot" },
+    { "name": "Scotty Cameron Putters", "tag": "Hot" },
+    { "name": "TaylorMade Stealth Irons", "tag": "Hot" },
+    { "name": "Titleist Pro V1", "tag": "Rising" },
+    { "name": "Odyssey Jailbird Putter", "tag": "Rising" },
+    { "name": "Callaway Paradym Driver", "tag": "Rising" }
+  ]
+}
