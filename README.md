@@ -116,6 +116,21 @@ Once you're approved by any one of them:
 
 ---
 
+## Privacy Policy, Cookie Policy & cookie banner
+
+This update adds `legal/privacy-policy.html`, `legal/cookies.html`, and a
+cookie consent banner (`js/cookie-consent.js`) that appears on every page
+until a visitor accepts or declines. Both pages are linked from the site
+footer. One thing to update yourself: the contact email in both pages is
+currently a placeholder (`hello@golfpriceai.com`) — swap it for a real
+inbox you'll actually check, either by setting one up at your domain
+registrar or forwarding it to your personal email.
+
+I'm not a lawyer, and this is standard boilerplate suited to a small
+affiliate site, not a substitute for professional legal advice — if you
+plan to scale this into a serious business, it's worth a solicitor's
+once-over eventually, but this covers the basics properly for now.
+
 ## A note on the current product photos
 
 Until you complete Part 7, the cards use free, properly-licensed lifestyle

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy — GolfPrice AI</title>
+<link rel="icon" href="../assets/logo-full.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .legal { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; line-height: 1.7; }
+  .legal h1 { font-size: 30px; margin-bottom: 4px; }
+  .legal .updated { color: var(--muted); font-size: 14px; margin-bottom: 32px; }
+  .legal h2 { font-size: 19px; margin-top: 36px; }
+  .legal p, .legal li { color: #303c33; }
+  .legal a { color: var(--green); font-weight: 600; }
+  .legal table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+  .legal th, .legal td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .legal th { color: var(--muted); font-weight: 600; }
+  .manage-btn { margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="../index.html" class="brand">
+    <img src="../assets/logo-full.png" alt="GolfPrice AI logo">
+    <span class="brand-name">Golf<span>Price</span> AI</span>
+  </a>
+</header>
+
+<main class="legal">
+  <h1>Cookie Policy</h1>
+  <p class="updated">Last updated: 16 July 2026</p>
+
+  <p>Cookies are small text files a website stores in your browser. Here's exactly what
+  GolfPrice AI uses and why.</p>
+
+  <h2>Cookies we use</h2>
+  <table>
+    <tr><th>Type</th><th>Purpose</th><th>Can you opt out?</th></tr>
+    <tr><td>Essential</td><td>Remembers your cookie consent choice so we don't ask again every visit</td><td>No — needed for the site to function</td></tr>
+    <tr><td>Analytics</td><td>Helps us understand which pages and deals are useful (e.g. Google Analytics)</td><td>Yes</td></tr>
+    <tr><td>Affiliate tracking</td><td>Set by retailer partners when you click through to their site, so they can credit us for the referral</td><td>Yes, via your browser settings</td></tr>
+    <tr><td>Advertising</td><td>May be used in future to show relevant ads and measure their performance</td><td>Yes</td></tr>
+  </table>
+
+  <h2>Your choices</h2>
+  <p>When you first visit GolfPrice AI, you'll see a banner letting you accept or decline
+  non-essential cookies. You can change your mind at any time:</p>
+  <button class="btn btn-primary manage-btn" onclick="window.golfPriceCookieConsent && window.golfPriceCookieConsent.openSettings()">Manage cookie preferences</button>
+
+  <p style="margin-top:20px;">You can also block cookies entirely through your browser
+  settings, though some parts of the site may not work as well as a result.</p>
+
+  <h2>Third parties</h2>
+  <p>Some cookies are set by services we use, not by us directly — for example an email
+  newsletter provider or an analytics tool. Each of those companies has its own privacy
+  and cookie policy governing how they handle that data.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about cookies on this site? Email us at
+  <a href="mailto:hello@golfpriceai.com">hello@golfpriceai.com</a>.</p>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> GolfPrice AI · <a href="../index.html">Home</a> · <a href="cookies.html">Cookie Policy</a> · <a href="privacy-policy.html">Privacy Policy</a></div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="../js/cookie-consent.js"></script>
+</body>
+</html>
