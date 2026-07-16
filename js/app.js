@@ -14,13 +14,23 @@ function badgeClass(badge) {
   return 'badge';
 }
 
+// Until a real affiliate feed supplies licensed product photos, we show a
+// clean category icon instead of a stock photo that doesn't match the item.
+// Real feed data (see scripts/update_deals.py) will include an "image" field
+// with the retailer's own product photo — when present, we use that instead.
+function iconFor(category) {
+  const known = ['driver', 'putter', 'irons', 'wood', 'wedge', 'ball'];
+  const file = known.includes(category) ? category : 'driver';
+  return `assets/icons/${file}.svg`;
+}
+
 function renderBestDeals(deals) {
   const grid = document.getElementById('best-deals');
   grid.innerHTML = deals.map(d => `
     <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
       <div class="thumb">
         <span class="${badgeClass(d.badge)}">${d.badge}</span>
-        <img src="${d.image}" alt="${d.name}" loading="lazy">
+        <img src="${d.image || iconFor(d.category)}" alt="${d.name}" loading="lazy">
       </div>
       <div class="deal-body">
         <h3>${d.name}</h3>
@@ -44,7 +54,7 @@ function renderPriceDrops(drops) {
   const list = document.getElementById('price-drop-list');
   list.innerHTML = drops.map(d => `
     <a class="drop-row" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
-      <img src="${d.image}" alt="${d.name}" loading="lazy">
+      <img src="${d.image || iconFor(d.category)}" alt="${d.name}" loading="lazy">
       <div class="info">
         <h4>${d.name}</h4>
         <span class="was">Was ${money(d.wasPrice)}</span>

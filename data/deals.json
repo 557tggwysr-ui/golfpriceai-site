@@ -4,40 +4,40 @@
     {
       "id": "ping-g430-max",
       "badge": "BEST PRICE",
-      "name": "Ping G430 Max Driver 10.5\u00b0 Regular",
-      "image": "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=400",
+      "name": "Ping G430 Max Driver 10.5° Regular",
+      "category": "driver",
       "retailPrice": 599.99,
       "salePrice": 449.99,
       "savePct": 25,
       "retailerCount": 4,
       "rating": 4.8,
-      "affiliateUrl": "#",
+      "affiliateUrl": "https://www.google.com/search?q=Ping+G430+Max+Driver+10.5+Regular+buy",
       "network": "cj"
     },
     {
       "id": "scotty-cameron-newport2",
       "badge": "PRICE DROP",
       "name": "Scotty Cameron Newport 2 Putter",
-      "image": "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400",
+      "category": "putter",
       "retailPrice": 429.00,
       "salePrice": 329.99,
       "savePct": 23,
       "retailerCount": 3,
       "rating": 4.9,
-      "affiliateUrl": "#",
+      "affiliateUrl": "https://www.google.com/search?q=Scotty+Cameron+Newport+2+Putter+buy",
       "network": "awin"
     },
     {
       "id": "taylormade-stealth-irons",
       "badge": "HOT DEAL",
       "name": "TaylorMade Stealth Iron Set (5-PW) Regular Flex",
-      "image": "https://images.unsplash.com/photo-1587174786160-08fdc84f5c62?w=400",
+      "category": "irons",
       "retailPrice": 999.99,
       "salePrice": 699.99,
       "savePct": 30,
       "retailerCount": 5,
       "rating": 4.7,
-      "affiliateUrl": "#",
+      "affiliateUrl": "https://www.google.com/search?q=TaylorMade+Stealth+Iron+Set+5-PW+Regular+Flex+buy",
       "network": "impact"
     }
   ],
@@ -45,29 +45,29 @@
     {
       "id": "titleist-pro-v1-2023",
       "name": "Titleist Pro V1 Golf Balls (2023)",
-      "image": "https://images.unsplash.com/photo-1592919505780-303950717480?w=100",
+      "category": "ball",
       "wasPrice": 54.99,
       "nowPrice": 44.99,
       "dropPct": 18,
-      "affiliateUrl": "#"
+      "affiliateUrl": "https://www.google.com/search?q=Titleist+Pro+V1+Golf+Balls+2023+buy"
     },
     {
       "id": "callaway-rogue-st-max-fw",
       "name": "Callaway Rogue ST Max Fairway Wood",
-      "image": "https://images.unsplash.com/photo-1611374243147-44a702c2f753?w=100",
+      "category": "wood",
       "wasPrice": 299.99,
       "nowPrice": 199.99,
       "dropPct": 33,
-      "affiliateUrl": "#"
+      "affiliateUrl": "https://www.google.com/search?q=Callaway+Rogue+ST+Max+Fairway+Wood+buy"
     },
     {
       "id": "cleveland-rtx-zipcore",
       "name": "Cleveland RTX ZipCore Wedge",
-      "image": "https://images.unsplash.com/photo-1592919505780-303950717480?w=100",
+      "category": "wedge",
       "wasPrice": 179.99,
       "nowPrice": 129.99,
       "dropPct": 28,
-      "affiliateUrl": "#"
+      "affiliateUrl": "https://www.google.com/search?q=Cleveland+RTX+ZipCore+Wedge+buy"
     }
   ],
   "trending": [

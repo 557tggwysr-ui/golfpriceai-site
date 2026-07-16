@@ -16,6 +16,15 @@ you legitimate, ToS-compliant product + price data because you're a
 registered affiliate with them — this is the same data feed real deal
 sites (Slickdeals, honey, etc.) are built on.
 
+This also solves the "wrong photo, dead link" problem for good: every
+product a network's feed returns already comes with (a) the retailer's own
+licensed product photo and (b) a working, trackable affiliate link baked in.
+Once fetch_cj_deals() etc. below are wired to real API calls, every product
+written into deals.json will include real "image" and "affiliateUrl" fields
+automatically — the front-end (js/app.js) already prefers a real photo over
+the placeholder icon whenever one is present, so nothing else needs to
+change on the site itself.
+
 SETUP YOU NEED TO DO ONCE (see README.md for full steps):
 1. Get accepted into CJ Affiliate, AWIN, and/or Impact Radius as a publisher.
 2. Find each network's "Product/Content Feed" or "Advertiser API" section
