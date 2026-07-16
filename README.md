@@ -116,6 +116,16 @@ Once you're approved by any one of them:
 
 ---
 
+## A note on the current product photos
+
+Until you complete Part 7, the cards use free, properly-licensed lifestyle
+photos from Pexels (no attribution required, free for commercial use) that
+match each product's *category* — a driver photo for drivers, a putter
+photo for putters, etc. — rather than being an exact photo of that specific
+model, since only a licensed retailer feed can provide that. The moment
+Part 7 is done and a real feed is wired in, actual per-product photos take
+over automatically — nothing else needs to change.
+
 ## That's the whole thing
 
 Once Parts 1–4 are done, your site is permanently live, free, and the deal
