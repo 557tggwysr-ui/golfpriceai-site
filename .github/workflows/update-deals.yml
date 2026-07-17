@@ -19,9 +19,11 @@ jobs:
 
       - name: Run deal refresh script
         env:
-          CJ_API_KEY: ${{ secrets.CJ_API_KEY }}
-          AWIN_API_KEY: ${{ secrets.AWIN_API_KEY }}
-          IMPACT_API_KEY: ${{ secrets.IMPACT_API_KEY }}
+          CJ_API_TOKEN: ${{ secrets.CJ_API_TOKEN }}
+          CJ_CID: ${{ secrets.CJ_CID }}
+          AWIN_API_TOKEN: ${{ secrets.AWIN_API_TOKEN }}
+          AWIN_PUBLISHER_ID: ${{ secrets.AWIN_PUBLISHER_ID }}
+          AWIN_ADVERTISER_ID: ${{ secrets.AWIN_ADVERTISER_ID }}
         run: python scripts/update_deals.py
 
       - name: Commit updated deals.json
