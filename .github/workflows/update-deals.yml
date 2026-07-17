@@ -1,0 +1,33 @@
+name: Update golf deals
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run deal refresh script
+        env:
+          CJ_API_KEY: ${{ secrets.CJ_API_KEY }}
+          AWIN_API_KEY: ${{ secrets.AWIN_API_KEY }}
+          IMPACT_API_KEY: ${{ secrets.IMPACT_API_KEY }}
+        run: python scripts/update_deals.py
+
+      - name: Commit updated deals.json
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/deals.json
+          git diff --quiet --cached || git commit -m "Automated deal refresh"
+          git push
