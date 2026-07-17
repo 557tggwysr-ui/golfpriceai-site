@@ -1,11 +1,7 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 function money(n) {
-  return '$' + n.toFixed(2);
-}
-
-function starIcon() {
-  return '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+  return '£' + n.toFixed(2);
 }
 
 function iconFor(category) {
@@ -36,7 +32,6 @@ function cardHTML(d) {
         <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
         <div class="deal-foot">
           <span>Available at ${d.retailerCount} retailers</span>
-          <span class="rating">${starIcon()} ${d.rating}</span>
         </div>
       </div>
     </a>`;
@@ -64,7 +59,7 @@ function renderFilterBar(categories) {
   const bar = document.getElementById('filter-bar');
   const chips = [{ key: 'all', label: 'All' }, ...categories];
   bar.innerHTML = chips.map(c =>
-    `<button class="filter-chip${c.key === 'all' ? ' active' : ''}" data-key="${c.key}">${c.label}</button>`
+    `<button class="filter-chip${c.key === ACTIVE_CATEGORY ? ' active' : ''}" data-key="${c.key}">${c.label}</button>`
   ).join('');
   bar.querySelectorAll('.filter-chip').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -80,9 +75,14 @@ fetch('data/products.json')
   .then(r => r.json())
   .then(data => {
     ALL_PRODUCTS = data.products;
-    renderFilterBar(data.categories);
 
     const params = new URLSearchParams(window.location.search);
+    const categoryParam = params.get('category');
+    const validCategory = data.categories.some(c => c.key === categoryParam);
+    if (categoryParam && validCategory) ACTIVE_CATEGORY = categoryParam;
+
+    renderFilterBar(data.categories);
+
     const q = params.get('q');
     if (q) document.getElementById('shop-search-input').value = q;
 

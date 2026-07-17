@@ -1,11 +1,7 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 function money(n) {
-  return '$' + n.toFixed(2);
-}
-
-function starIcon() {
-  return '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+  return '£' + n.toFixed(2);
 }
 
 // Until real per-product photos flow in from an approved affiliate feed, we
@@ -46,7 +42,6 @@ function dealCardHTML(d) {
         <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
         <div class="deal-foot">
           <span>Available at ${d.retailerCount} retailers</span>
-          <span class="rating">${starIcon()} ${d.rating}</span>
         </div>
       </div>
     </a>`;

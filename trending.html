@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trending Golf Gear — GolfPrice AI</title>
+<meta name="description" content="What golfers are searching for and talking about right now.">
+<link rel="icon" href="assets/logo-full.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .trend-head { padding: 40px 0 8px; }
+  .trend-head h1 { font-size: 30px; margin: 0 0 8px; }
+  .trend-head p { color: var(--muted); margin: 0; max-width: 60ch; }
+  .trend-note {
+    background: var(--green-pale); border-radius: 10px; padding: 12px 16px;
+    font-size: 13px; color: var(--green-dark); margin: 20px 0 30px;
+  }
+  .trend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-bottom: 60px; }
+  .trend-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 20px; box-shadow: var(--shadow);
+  }
+  .trend-card .tag-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .trend-card h3 { font-size: 17px; margin: 0 0 8px; }
+  .trend-card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0 0 14px; }
+  .trend-card a.view-link { font-size: 13px; font-weight: 600; color: var(--green); }
+  @media (max-width: 900px) { .trend-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="brand">
+    <img src="assets/logo-full.png" alt="GolfPrice AI logo">
+    <span class="brand-name">Golf<span>Price</span> AI</span>
+  </a>
+  <nav class="main-nav">
+    <div class="nav-item">
+      <a href="shop.html">Clubs ▾</a>
+      <div class="dropdown">
+        <a href="shop.html?category=driver">Drivers</a>
+        <a href="shop.html?category=wood">Fairway Woods</a>
+        <a href="shop.html?category=hybrid">Hybrids</a>
+        <a href="shop.html?category=irons">Irons</a>
+        <a href="shop.html?category=wedge">Wedges</a>
+        <a href="shop.html?category=putter">Putters</a>
+      </div>
+    </div>
+    <a href="shop.html?category=apparel">Apparel</a>
+    <a href="shop.html?category=accessories">Accessories</a>
+    <a href="trending.html">Trending</a>
+    <a href="index.html#alerts">Alerts</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <a href="index.html#alerts" class="btn btn-primary">🔔 Get Deal Alerts</a>
+</header>
+
+<main class="container">
+  <div class="trend-head">
+    <h1>Trending Golf Gear 🔥</h1>
+    <p>What's getting the most attention from golfers right now.</p>
+  </div>
+
+  <p class="trend-note">
+    This list is currently curated by hand and updated periodically — it's not yet pulled from a live
+    search-interest feed. See the note at the bottom of this page for how that upgrade will work.
+  </p>
+
+  <div class="trend-grid" id="trend-grid"></div>
+
+  <p style="color:var(--muted);font-size:13px;max-width:70ch;padding-bottom:40px;">
+    <strong>How this will become fully automatic:</strong> the honest way to surface genuinely trending
+    products — without scraping social media or retailer sites, which we won't do — is via a legitimate
+    search-interest source such as the Google Trends API, or Amazon's own official Bestsellers data once
+    the Product Advertising API is unlocked. Either can be wired into this page the same way the deal
+    catalog updates automatically, without any redesign needed here.
+  </p>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
+</footer>
+
+<script src="js/trending.js"></script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>

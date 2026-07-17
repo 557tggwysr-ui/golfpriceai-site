@@ -56,6 +56,28 @@ button, input { font-family: inherit; }
 .main-nav { display: flex; gap: 32px; }
 .main-nav a { font-weight: 500; font-size: 15px; color: var(--ink); }
 .main-nav a:hover { color: var(--green); }
+.nav-item { position: relative; }
+.nav-item .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 8px;
+  min-width: 180px;
+  z-index: 60;
+}
+.nav-item:hover .dropdown { display: block; }
+.nav-item .dropdown a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.nav-item .dropdown a:hover { background: var(--green-pale); }
 
 .btn {
   display: inline-flex;
@@ -182,7 +204,11 @@ button, input { font-family: inherit; }
 .badge.hot-deal { background: #d9432e; }
 
 .deal-body { padding: 16px; }
-.deal-body h3 { font-size: 16px; margin: 0 0 10px; line-height: 1.35; }
+.deal-body h3 {
+  font-size: 16px; margin: 0 0 10px; line-height: 1.35;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden; min-height: calc(1.35em * 2);
+}
 .price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
 .retail-price { text-decoration: line-through; color: var(--muted); font-size: 14px; }
 .sale-price { font-size: 22px; font-weight: 700; color: var(--ink); }
@@ -197,16 +223,11 @@ button, input { font-family: inherit; }
   margin-bottom: 12px;
 }
 .deal-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   font-size: 13px;
   color: var(--muted);
   border-top: 1px solid var(--border);
   padding-top: 12px;
 }
-.rating { display: flex; align-items: center; gap: 4px; color: var(--ink); font-weight: 600; }
-.rating svg { color: var(--gold); }
 
 /* Two-column lower section */
 .two-col {
