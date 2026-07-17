@@ -1,10 +1,10 @@
 {
-  "lastUpdated": "2026-07-16T09:00:00Z",
+  "lastUpdated": "2026-07-17T20:39:10.039730+00:00",
   "bestDeals": [
     {
       "id": "ping-g430-max",
       "badge": "BEST PRICE",
-      "name": "Ping G430 Max Driver 10.5° Regular",
+      "name": "Ping G430 Max Driver 10.5\u00b0 Regular",
       "category": "driver",
       "image": "https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 599.99,
@@ -21,7 +21,7 @@
       "name": "Scotty Cameron Newport 2 Putter",
       "category": "putter",
       "image": "https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
-      "retailPrice": 429.00,
+      "retailPrice": 429.0,
       "salePrice": 329.99,
       "savePct": 23,
       "retailerCount": 3,
@@ -77,11 +77,29 @@
     }
   ],
   "trending": [
-    { "name": "Ping G430 Driver", "tag": "Hot" },
-    { "name": "Scotty Cameron Putters", "tag": "Hot" },
-    { "name": "TaylorMade Stealth Irons", "tag": "Hot" },
-    { "name": "Titleist Pro V1", "tag": "Rising" },
-    { "name": "Odyssey Jailbird Putter", "tag": "Rising" },
-    { "name": "Callaway Paradym Driver", "tag": "Rising" }
+    {
+      "name": "Ping G430 Driver",
+      "tag": "Hot"
+    },
+    {
+      "name": "Scotty Cameron Putters",
+      "tag": "Hot"
+    },
+    {
+      "name": "TaylorMade Stealth Irons",
+      "tag": "Hot"
+    },
+    {
+      "name": "Titleist Pro V1",
+      "tag": "Rising"
+    },
+    {
+      "name": "Odyssey Jailbird Putter",
+      "tag": "Rising"
+    },
+    {
+      "name": "Callaway Paradym Driver",
+      "tag": "Rising"
+    }
   ]
 }
