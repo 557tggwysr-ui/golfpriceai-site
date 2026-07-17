@@ -1,43 +1,48 @@
 """
-GolfPrice AI — automated deal refresh script.
+GolfPrice AI — automated catalog refresh script.
 
 WHAT THIS DOES
 --------------
 Runs on a schedule (see .github/workflows/update-deals.yml), pulls current
-product prices from your affiliate networks, picks the best deals, and
-overwrites data/deals.json. The website itself never changes — it just
-reads whatever is in that file. This is the "hands-off" pipeline.
+products from your affiliate networks, and merges them into the full
+catalog at data/products.json — adding new products, updating prices on
+existing ones (matched by name), and leaving everything else untouched.
+The website itself never changes — it just reads whatever is in that file.
+This is the "hands-off" pipeline, and it scales to hundreds of products
+without any further site changes.
 
 WHY IT USES AFFILIATE NETWORK FEEDS INSTEAD OF SCRAPING RETAILERS DIRECTLY
 ---------------------------------------------------------------------------
-Scraping golf retailer websites directly usually violates their Terms of
-Service and gets your server's IP address blocked. The networks below give
-you legitimate, ToS-compliant product + price data because you're a
-registered affiliate with them — this is the same data feed real deal
-sites (Slickdeals, honey, etc.) are built on.
+Scraping retailer websites (including Amazon) directly violates their
+Terms of Service and risks the account being banned — this script will
+never do that, regardless of how tempting a shortcut it might seem. The
+networks below give you legitimate, ToS-compliant product + price data
+because you're a registered affiliate with them.
 
 This also solves the "wrong photo, dead link" problem for good: every
 product a network's feed returns already comes with (a) the retailer's own
-licensed product photo and (b) a working, trackable affiliate link baked in.
-Once fetch_cj_deals() etc. below are wired to real API calls, every product
-written into deals.json will include real "image" and "affiliateUrl" fields
-automatically — the front-end (js/app.js) already prefers a real photo over
-the placeholder icon whenever one is present, so nothing else needs to
-change on the site itself.
+licensed product photo and (b) a working, trackable affiliate link baked
+in. The front-end (js/app.js, js/shop.js) already prefers a real photo
+over the placeholder icon whenever one is present, so nothing else needs
+to change on the site itself once real data starts flowing in.
 
-SETUP YOU NEED TO DO ONCE (see README.md for full steps):
-1. Get accepted into CJ Affiliate, AWIN, and/or Impact Radius as a publisher.
-2. Find each network's "Product/Content Feed" or "Advertiser API" section
-   and grab an API key + your unique affiliate/tracking ID.
-3. Add those as GitHub repo secrets: CJ_API_KEY, AWIN_API_KEY, IMPACT_API_KEY,
-   plus your tracking IDs (CJ_PID, AWIN_PUBLISHER_ID, IMPACT_ACCOUNT_SID).
-4. Replace the placeholder fetch_* functions below with real calls once you
-   have credentials — the network docs give you the exact endpoint. This is
-   the one piece of real coding this project still needs; happy to write
-   the exact integration with you once you've got a key from any one network.
+CURRENT STATUS (as of last update)
+-----------------------------------
+- Amazon: no live price data yet (Product Advertising API unlocks after 3
+  tracked sales) — existing Amazon search links in the catalog keep working
+  regardless; this script doesn't touch them.
+- CJ Affiliate: credentials are set, but no advertiser joined yet — returns
+  nothing until that changes.
+- AWIN: credentials are set, applications pending approval — returns
+  nothing until an AWIN_ADVERTISER_ID secret is added for an approved
+  retailer.
 
-Until you plug in real credentials, this script safely no-ops and leaves
-your current deals.json untouched, so the live site never breaks.
+SETUP YOU NEED TO DO ONCE MORE THINGS ARE APPROVED (see README.md):
+1. Once a CJ advertiser is joined, or an AWIN application is approved,
+   come back to a Claude chat and the matching fetch_* function below gets
+   finished off in a few minutes using the real API/feed docs.
+2. Nothing else changes — this script already knows how to merge whatever
+   it finds into the live catalog.
 """
 
 import json
@@ -46,7 +51,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote_plus
 
-DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "deals.json"
+DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
 
 # Your Amazon Associates tracking tag. This is safe to keep in code (not a
 # secret) — it's the public tag that appears in every affiliate link anyway.
@@ -55,10 +60,8 @@ AMAZON_ASSOCIATE_TAG = "golfpriceai-21"
 
 def amazon_search_link(product_name):
     """Builds a real, working, commission-earning Amazon link for a product
-    name. This works today even without Amazon's Product Advertising API
-    (which unlocks after 3 tracked sales) — it just won't auto-update prices
-    until the API is available, so treat it as the fallback link whenever a
-    CJ/AWIN price isn't available for that product yet."""
+    name. Works today even without the Product Advertising API — it just
+    won't carry live pricing until that unlocks."""
     return f"https://www.amazon.co.uk/s?k={quote_plus(product_name)}&tag={AMAZON_ASSOCIATE_TAG}"
 
 
@@ -69,7 +72,7 @@ def fetch_cj_deals():
     IMPORTANT: CJ only returns products from advertisers you've actually
     joined — having API credentials isn't enough on its own. Until at least
     one golf retailer shows as "joined" in your CJ account, this safely
-    returns nothing and the site falls back to Amazon links.
+    returns nothing.
     """
     token = os.environ.get("CJ_API_TOKEN")
     cid = os.environ.get("CJ_CID")
@@ -78,10 +81,10 @@ def fetch_cj_deals():
     # TODO: once you've joined a CJ advertiser, real query looks like:
     #   POST https://ads.api.cj.com/query
     #   Header: Authorization: Bearer <CJ_API_TOKEN>
-    #   Body: { "query": "{ products(companyId: \"<CJ_CID>\", keywords: \"golf driver\", limit: 5) { ... } }" }
-    # Exact field names should be checked in CJ's GraphQL explorer at
-    # developers.cj.com — come back to a Claude chat once you're joined to
-    # a retailer and this gets finished off in a few minutes.
+    #   Body: { "query": "{ products(companyId: \"<CJ_CID>\", keywords: \"golf driver\", limit: 20) { ... } }" }
+    # Each result should be mapped into the same shape as items already in
+    # products.json: id, name, category, retailPrice, salePrice, savePct,
+    # retailerCount, rating, affiliateUrl, image.
     return []
 
 
@@ -89,62 +92,77 @@ def fetch_awin_deals():
     """Pull products from AWIN's product data feed.
 
     Needs AWIN_API_TOKEN and AWIN_PUBLISHER_ID as repo secrets (already set
-    up). AWIN's data comes as a per-advertiser feed download, so this also
-    needs an AWIN_ADVERTISER_ID for each retailer you're approved with —
-    add one once your pending applications (e.g. TGW) are approved.
+    up), plus an AWIN_ADVERTISER_ID for each retailer you're approved
+    with — add one once a pending application (e.g. TGW) is approved.
     """
     token = os.environ.get("AWIN_API_TOKEN")
     if not token:
         return []
     advertiser_id = os.environ.get("AWIN_ADVERTISER_ID")
     if not advertiser_id:
-        # No approved retailer yet — nothing to pull. This will stop
-        # returning empty the moment an application is approved and its
-        # advertiser ID is added as a secret.
         return []
     # TODO: once approved, real feed download looks like:
     #   GET https://productdata.awin.com/datafeed/download/apikey/<AWIN_API_TOKEN>
     #       /language/en/cid/<advertiser_id>/format/csv
-    # Parse the returned CSV (columns include product name, price, image
-    # URL, and aw_deep_link — a working affiliate link already built in).
+    # Parse the CSV (columns include product name, price, image URL, and
+    # aw_deep_link — a working affiliate link already built in) and map
+    # each row into the same product shape used in products.json.
     return []
 
 
 def fetch_impact_deals():
-    """Placeholder: pull products from Impact's Catalog API."""
+    """Placeholder: pull products from Impact's Catalog API, once joined."""
     api_key = os.environ.get("IMPACT_API_KEY")
     if not api_key:
         return []
-    # TODO: real Impact Catalog API call goes here once you have a key.
-    # Docs: https://developer.impact.com/
+    # TODO: real Impact Catalog API call goes here once you're set up with
+    # a retailer on Impact. Docs: https://developer.impact.com/
     return []
 
 
-def rank_best_deals(all_products, top_n=3):
-    """Pick the biggest % discounts to feature as 'Today's Best Golf Deals'."""
-    ranked = sorted(all_products, key=lambda p: p.get("savePct", 0), reverse=True)
-    return ranked[:top_n]
+def categorize_placeholder(name):
+    """Very rough guess at category from a product name, used only as a
+    fallback for products arriving from a feed without one. Real feed data
+    usually includes its own category, which should be preferred."""
+    name_lower = name.lower()
+    for key in ["driver", "wood", "hybrid", "iron", "wedge", "putter", "ball",
+                "bag", "shoe", "glove", "rangefinder", "cart", "umbrella"]:
+        if key in name_lower:
+            return {"iron": "irons", "shoe": "shoes", "glove": "accessories",
+                    "rangefinder": "accessories", "cart": "accessories",
+                    "umbrella": "accessories"}.get(key, key)
+    return "accessories"
+
+
+def merge_products(catalog_products, fresh_products):
+    """Merge freshly-fetched products into the existing catalog: update
+    matching items by name, add new ones, and never delete anything that
+    isn't in the fresh batch (so a temporary feed hiccup can't wipe the
+    catalog)."""
+    by_name = {p["name"]: p for p in catalog_products}
+    for item in fresh_products:
+        if item["name"] in by_name:
+            by_name[item["name"]].update(item)
+        else:
+            by_name[item["name"]] = item
+    return list(by_name.values())
 
 
 def main():
-    current = json.loads(DATA_FILE.read_text())
+    catalog = json.loads(DATA_FILE.read_text())
 
-    products = fetch_cj_deals() + fetch_awin_deals() + fetch_impact_deals()
+    fresh = fetch_cj_deals() + fetch_awin_deals() + fetch_impact_deals()
 
-    if not products:
-        # No approved CJ/AWIN retailer feed yet — this is expected right now
-        # (applications pending). The existing Amazon links already in
-        # deals.json keep working regardless, so we just bump the timestamp
-        # and leave everything else as-is.
-        current["lastUpdated"] = datetime.now(timezone.utc).isoformat()
-        DATA_FILE.write_text(json.dumps(current, indent=2))
-        print("No approved CJ/AWIN retailer feed yet — deals.json left as-is (Amazon links still active).")
-        return
+    if fresh:
+        catalog["products"] = merge_products(catalog["products"], fresh)
+        print(f"Merged {len(fresh)} products from live feeds into the catalog "
+              f"({len(catalog['products'])} products total).")
+    else:
+        print("No approved CJ/AWIN/Impact feed yet — catalog left as-is "
+              f"({len(catalog['products'])} products, Amazon links still active).")
 
-    current["bestDeals"] = rank_best_deals(products)
-    current["lastUpdated"] = datetime.now(timezone.utc).isoformat()
-    DATA_FILE.write_text(json.dumps(current, indent=2))
-    print(f"Updated deals.json with {len(products)} products.")
+    catalog["lastUpdated"] = datetime.now(timezone.utc).isoformat()
+    DATA_FILE.write_text(json.dumps(catalog, indent=2))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,641 @@
+{
+  "lastUpdated": "2026-07-17T12:00:00Z",
+  "categories": [
+    {
+      "key": "driver",
+      "label": "Drivers"
+    },
+    {
+      "key": "wood",
+      "label": "Fairway Woods"
+    },
+    {
+      "key": "hybrid",
+      "label": "Hybrids"
+    },
+    {
+      "key": "irons",
+      "label": "Irons"
+    },
+    {
+      "key": "wedge",
+      "label": "Wedges"
+    },
+    {
+      "key": "putter",
+      "label": "Putters"
+    },
+    {
+      "key": "ball",
+      "label": "Balls"
+    },
+    {
+      "key": "bag",
+      "label": "Bags"
+    },
+    {
+      "key": "apparel",
+      "label": "Apparel"
+    },
+    {
+      "key": "shoes",
+      "label": "Shoes"
+    },
+    {
+      "key": "accessories",
+      "label": "Accessories"
+    }
+  ],
+  "products": [
+    {
+      "id": "driver-1-ping",
+      "name": "Ping G430 Max Driver 10.5\u00b0 Regular",
+      "category": "driver",
+      "retailPrice": 599.99,
+      "salePrice": 449.99,
+      "savePct": 25,
+      "retailerCount": 4,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Ping+G430+Max+Driver+10.5%C2%B0+Regular&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "driver-2-taylormade",
+      "name": "TaylorMade Qi10 Driver 9\u00b0 Stiff",
+      "category": "driver",
+      "retailPrice": 549.99,
+      "salePrice": 429.99,
+      "savePct": 22,
+      "retailerCount": 3,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=TaylorMade+Qi10+Driver+9%C2%B0+Stiff&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "driver-3-callaway",
+      "name": "Callaway Paradym Driver 10.5\u00b0 Regular",
+      "category": "driver",
+      "retailPrice": 579.99,
+      "salePrice": 459.99,
+      "savePct": 21,
+      "retailerCount": 5,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Paradym+Driver+10.5%C2%B0+Regular&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "driver-4-titleist",
+      "name": "Titleist TSR2 Driver 9\u00b0 Stiff",
+      "category": "driver",
+      "retailPrice": 599.0,
+      "salePrice": 479.0,
+      "savePct": 20,
+      "retailerCount": 3,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+TSR2+Driver+9%C2%B0+Stiff&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "wood-1-callaway",
+      "name": "Callaway Rogue ST Max Fairway Wood",
+      "category": "wood",
+      "retailPrice": 299.99,
+      "salePrice": 199.99,
+      "savePct": 33,
+      "retailerCount": 4,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Rogue+ST+Max+Fairway+Wood&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "wood-2-taylormade",
+      "name": "TaylorMade Stealth 2 Fairway Wood",
+      "category": "wood",
+      "retailPrice": 329.99,
+      "salePrice": 259.99,
+      "savePct": 21,
+      "retailerCount": 3,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=TaylorMade+Stealth+2+Fairway+Wood&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "wood-3-ping",
+      "name": "Ping G430 Fairway Wood",
+      "category": "wood",
+      "retailPrice": 319.99,
+      "salePrice": 249.99,
+      "savePct": 22,
+      "retailerCount": 4,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Ping+G430+Fairway+Wood&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "wood-4-titleist",
+      "name": "Titleist TSi2 Fairway Wood",
+      "category": "wood",
+      "retailPrice": 349.0,
+      "salePrice": 279.0,
+      "savePct": 20,
+      "retailerCount": 3,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+TSi2+Fairway+Wood&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "hybrid-1-callaway",
+      "name": "Callaway Apex Hybrid",
+      "category": "hybrid",
+      "retailPrice": 259.99,
+      "salePrice": 189.99,
+      "savePct": 27,
+      "retailerCount": 3,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Apex+Hybrid&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "hybrid-2-taylormade",
+      "name": "TaylorMade Stealth Hybrid",
+      "category": "hybrid",
+      "retailPrice": 279.99,
+      "salePrice": 209.99,
+      "savePct": 25,
+      "retailerCount": 4,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=TaylorMade+Stealth+Hybrid&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "hybrid-3-ping",
+      "name": "Ping G430 Hybrid",
+      "category": "hybrid",
+      "retailPrice": 269.99,
+      "salePrice": 199.99,
+      "savePct": 26,
+      "retailerCount": 3,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Ping+G430+Hybrid&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "hybrid-4-titleist",
+      "name": "Titleist TSi2 Hybrid",
+      "category": "hybrid",
+      "retailPrice": 289.0,
+      "salePrice": 219.0,
+      "savePct": 24,
+      "retailerCount": 3,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+TSi2+Hybrid&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "irons-1-taylormade",
+      "name": "TaylorMade Stealth Iron Set (5-PW) Regular Flex",
+      "category": "irons",
+      "retailPrice": 999.99,
+      "salePrice": 699.99,
+      "savePct": 30,
+      "retailerCount": 5,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=TaylorMade+Stealth+Iron+Set+%285-PW%29+Regular+Flex&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "irons-2-callaway",
+      "name": "Callaway Rogue ST Iron Set (5-PW)",
+      "category": "irons",
+      "retailPrice": 899.99,
+      "salePrice": 649.99,
+      "savePct": 28,
+      "retailerCount": 4,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Rogue+ST+Iron+Set+%285-PW%29&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "irons-3-ping",
+      "name": "Ping i230 Iron Set (5-PW)",
+      "category": "irons",
+      "retailPrice": 1099.99,
+      "salePrice": 849.99,
+      "savePct": 23,
+      "retailerCount": 3,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Ping+i230+Iron+Set+%285-PW%29&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "irons-4-mizuno",
+      "name": "Mizuno JPX923 Iron Set (5-PW)",
+      "category": "irons",
+      "retailPrice": 949.99,
+      "salePrice": 719.99,
+      "savePct": 24,
+      "retailerCount": 3,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Mizuno+JPX923+Iron+Set+%285-PW%29&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "wedge-1-cleveland",
+      "name": "Cleveland RTX ZipCore Wedge",
+      "category": "wedge",
+      "retailPrice": 179.99,
+      "salePrice": 129.99,
+      "savePct": 28,
+      "retailerCount": 4,
+      "rating": 4.8,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Cleveland+RTX+ZipCore+Wedge&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "wedge-2-titleist",
+      "name": "Titleist Vokey SM9 Wedge",
+      "category": "wedge",
+      "retailPrice": 189.0,
+      "salePrice": 149.0,
+      "savePct": 21,
+      "retailerCount": 5,
+      "rating": 4.8,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+Vokey+SM9+Wedge&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "wedge-3-callaway",
+      "name": "Callaway Jaws Raw Wedge",
+      "category": "wedge",
+      "retailPrice": 174.99,
+      "salePrice": 134.99,
+      "savePct": 23,
+      "retailerCount": 3,
+      "rating": 4.8,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Jaws+Raw+Wedge&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "wedge-4-ping",
+      "name": "Ping Glide 4.0 Wedge",
+      "category": "wedge",
+      "retailPrice": 169.99,
+      "salePrice": 129.99,
+      "savePct": 24,
+      "retailerCount": 3,
+      "rating": 4.8,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Ping+Glide+4.0+Wedge&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "putter-1-scotty",
+      "name": "Scotty Cameron Newport 2 Putter",
+      "category": "putter",
+      "retailPrice": 429.0,
+      "salePrice": 329.99,
+      "savePct": 23,
+      "retailerCount": 3,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Scotty+Cameron+Newport+2+Putter&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "putter-2-odyssey",
+      "name": "Odyssey White Hot OG Putter",
+      "category": "putter",
+      "retailPrice": 249.99,
+      "salePrice": 189.99,
+      "savePct": 24,
+      "retailerCount": 4,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Odyssey+White+Hot+OG+Putter&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "putter-3-ping",
+      "name": "Ping Anser Putter",
+      "category": "putter",
+      "retailPrice": 219.99,
+      "salePrice": 169.99,
+      "savePct": 23,
+      "retailerCount": 3,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Ping+Anser+Putter&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "putter-4-taylormade",
+      "name": "TaylorMade Spider GT Putter",
+      "category": "putter",
+      "retailPrice": 279.99,
+      "salePrice": 219.99,
+      "savePct": 21,
+      "retailerCount": 4,
+      "rating": 4.7,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=TaylorMade+Spider+GT+Putter&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "ball-1-titleist",
+      "name": "Titleist Pro V1 Golf Balls (2023)",
+      "category": "ball",
+      "retailPrice": 54.99,
+      "salePrice": 44.99,
+      "savePct": 18,
+      "retailerCount": 6,
+      "rating": 4.8,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+Pro+V1+Golf+Balls+%282023%29&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/4475609/pexels-photo-4475609.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "ball-2-callaway",
+      "name": "Callaway Chrome Soft Golf Balls",
+      "category": "ball",
+      "retailPrice": 49.99,
+      "salePrice": 38.99,
+      "savePct": 22,
+      "retailerCount": 5,
+      "rating": 4.8,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Chrome+Soft+Golf+Balls&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/4475609/pexels-photo-4475609.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "ball-3-taylormade",
+      "name": "TaylorMade TP5 Golf Balls",
+      "category": "ball",
+      "retailPrice": 52.99,
+      "salePrice": 41.99,
+      "savePct": 21,
+      "retailerCount": 4,
+      "rating": 4.8,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=TaylorMade+TP5+Golf+Balls&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/4475609/pexels-photo-4475609.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "ball-4-bridgestone",
+      "name": "Bridgestone Tour B Golf Balls",
+      "category": "ball",
+      "retailPrice": 47.99,
+      "salePrice": 36.99,
+      "savePct": 23,
+      "retailerCount": 4,
+      "rating": 4.8,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Bridgestone+Tour+B+Golf+Balls&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/4475609/pexels-photo-4475609.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "bag-1-titleist",
+      "name": "Titleist Players 4 Stand Bag",
+      "category": "bag",
+      "retailPrice": 229.99,
+      "salePrice": 179.99,
+      "savePct": 22,
+      "retailerCount": 3,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+Players+4+Stand+Bag&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/35320703/pexels-photo-35320703.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "bag-2-sun",
+      "name": "Sun Mountain C-130 Cart Bag",
+      "category": "bag",
+      "retailPrice": 259.99,
+      "salePrice": 199.99,
+      "savePct": 23,
+      "retailerCount": 3,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Sun+Mountain+C-130+Cart+Bag&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/35320703/pexels-photo-35320703.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "bag-3-ping",
+      "name": "Ping Hoofer Stand Bag",
+      "category": "bag",
+      "retailPrice": 219.99,
+      "salePrice": 169.99,
+      "savePct": 23,
+      "retailerCount": 4,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Ping+Hoofer+Stand+Bag&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/35320703/pexels-photo-35320703.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "bag-4-callaway",
+      "name": "Callaway Org 14 Cart Bag",
+      "category": "bag",
+      "retailPrice": 199.99,
+      "salePrice": 154.99,
+      "savePct": 23,
+      "retailerCount": 4,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Org+14+Cart+Bag&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/35320703/pexels-photo-35320703.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "apparel-1-under",
+      "name": "Under Armour Performance Golf Polo",
+      "category": "apparel",
+      "retailPrice": 44.99,
+      "salePrice": 32.99,
+      "savePct": 27,
+      "retailerCount": 5,
+      "rating": 4.5,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Under+Armour+Performance+Golf+Polo&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "apparel-2-nike",
+      "name": "Nike Dri-FIT Victory Golf Polo",
+      "category": "apparel",
+      "retailPrice": 39.99,
+      "salePrice": 29.99,
+      "savePct": 25,
+      "retailerCount": 6,
+      "rating": 4.5,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Dri-FIT+Victory+Golf+Polo&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "apparel-3-adidas",
+      "name": "Adidas Ultimate365 Golf Trousers",
+      "category": "apparel",
+      "retailPrice": 64.99,
+      "salePrice": 47.99,
+      "savePct": 26,
+      "retailerCount": 4,
+      "rating": 4.5,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Ultimate365+Golf+Trousers&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "apparel-4-footjoy",
+      "name": "FootJoy HydroLite Rain Jacket",
+      "category": "apparel",
+      "retailPrice": 129.99,
+      "salePrice": 94.99,
+      "savePct": 27,
+      "retailerCount": 3,
+      "rating": 4.5,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+HydroLite+Rain+Jacket&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+    },
+    {
+      "id": "shoes-1-footjoy",
+      "name": "FootJoy Pro SL Golf Shoes",
+      "category": "shoes",
+      "retailPrice": 169.99,
+      "salePrice": 129.99,
+      "savePct": 24,
+      "retailerCount": 4,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+Pro+SL+Golf+Shoes&tag=golfpriceai-21",
+      "source": "amazon"
+    },
+    {
+      "id": "shoes-2-adidas",
+      "name": "Adidas Tour360 22 Golf Shoes",
+      "category": "shoes",
+      "retailPrice": 179.99,
+      "salePrice": 139.99,
+      "savePct": 22,
+      "retailerCount": 3,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Tour360+22+Golf+Shoes&tag=golfpriceai-21",
+      "source": "amazon"
+    },
+    {
+      "id": "shoes-3-nike",
+      "name": "Nike Air Zoom Victory Tour Golf Shoes",
+      "category": "shoes",
+      "retailPrice": 189.99,
+      "salePrice": 149.99,
+      "savePct": 21,
+      "retailerCount": 3,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Air+Zoom+Victory+Tour+Golf+Shoes&tag=golfpriceai-21",
+      "source": "amazon"
+    },
+    {
+      "id": "shoes-4-ecco",
+      "name": "Ecco Biom C4 Golf Shoes",
+      "category": "shoes",
+      "retailPrice": 199.99,
+      "salePrice": 159.99,
+      "savePct": 20,
+      "retailerCount": 4,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Ecco+Biom+C4+Golf+Shoes&tag=golfpriceai-21",
+      "source": "amazon"
+    },
+    {
+      "id": "accessories-1-bushnell",
+      "name": "Bushnell Tour V6 Rangefinder",
+      "category": "accessories",
+      "retailPrice": 299.99,
+      "salePrice": 239.99,
+      "savePct": 20,
+      "retailerCount": 5,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Bushnell+Tour+V6+Rangefinder&tag=golfpriceai-21",
+      "source": "amazon"
+    },
+    {
+      "id": "accessories-2-footjoy",
+      "name": "FootJoy WeatherSof Golf Glove",
+      "category": "accessories",
+      "retailPrice": 19.99,
+      "salePrice": 14.99,
+      "savePct": 25,
+      "retailerCount": 6,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+WeatherSof+Golf+Glove&tag=golfpriceai-21",
+      "source": "amazon"
+    },
+    {
+      "id": "accessories-3-sun",
+      "name": "Sun Mountain Micro-Cart GX Push Cart",
+      "category": "accessories",
+      "retailPrice": 349.99,
+      "salePrice": 279.99,
+      "savePct": 20,
+      "retailerCount": 3,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Sun+Mountain+Micro-Cart+GX+Push+Cart&tag=golfpriceai-21",
+      "source": "amazon"
+    },
+    {
+      "id": "accessories-4-titleist",
+      "name": "Titleist Players Golf Umbrella",
+      "category": "accessories",
+      "retailPrice": 44.99,
+      "salePrice": 32.99,
+      "savePct": 27,
+      "retailerCount": 4,
+      "rating": 4.6,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+Players+Golf+Umbrella&tag=golfpriceai-21",
+      "source": "amazon"
+    }
+  ],
+  "trending": [
+    {
+      "name": "Ping G430 Driver",
+      "tag": "Hot"
+    },
+    {
+      "name": "Scotty Cameron Putters",
+      "tag": "Hot"
+    },
+    {
+      "name": "TaylorMade Stealth Irons",
+      "tag": "Hot"
+    },
+    {
+      "name": "Titleist Pro V1",
+      "tag": "Rising"
+    },
+    {
+      "name": "FootJoy Pro SL Shoes",
+      "tag": "Rising"
+    },
+    {
+      "name": "Callaway Paradym Driver",
+      "tag": "Rising"
+    }
+  ]
+}

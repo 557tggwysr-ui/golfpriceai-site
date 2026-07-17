@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All Deals — GolfPrice AI</title>
+<meta name="description" content="Browse every golf deal we track — clubs, apparel, bags, shoes and accessories — in one place.">
+<link rel="icon" href="assets/logo-full.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .shop-head { padding: 40px 0 20px; }
+  .shop-head h1 { font-size: 30px; margin: 0 0 8px; }
+  .shop-head p { color: var(--muted); margin: 0; }
+  .shop-search { margin: 20px 0; max-width: 420px; }
+  .shop-search input {
+    width: 100%; border: 1px solid var(--border); border-radius: 999px;
+    padding: 11px 18px; font-size: 15px; box-shadow: var(--shadow);
+  }
+  .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; }
+  .filter-chip {
+    border: 1px solid var(--border); background: #fff; border-radius: 999px;
+    padding: 8px 16px; font-size: 13px; font-weight: 600; cursor: pointer;
+  }
+  .filter-chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .shop-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding-bottom: 60px;
+  }
+  .empty-state { color: var(--muted); padding: 40px 0; text-align: center; }
+  @media (max-width: 1100px) { .shop-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 760px) { .shop-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .shop-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="brand">
+    <img src="assets/logo-full.png" alt="GolfPrice AI logo">
+    <span class="brand-name">Golf<span>Price</span> AI</span>
+  </a>
+  <nav class="main-nav">
+    <a href="shop.html">Deals</a>
+    <a href="index.html#price-drops">Price Drops</a>
+    <a href="index.html#trending">Trending</a>
+    <a href="index.html#alerts">Alerts</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <a href="index.html#alerts" class="btn btn-primary">🔔 Get Deal Alerts</a>
+</header>
+
+<main class="container">
+  <div class="shop-head">
+    <h1>Shop All Deals</h1>
+    <p>Every club, bag, and accessory we track, in one place. New items are added automatically as more retailers come online.</p>
+    <form class="shop-search" id="shop-search-form">
+      <input type="text" id="shop-search-input" placeholder="Search for clubs, balls, bags...">
+    </form>
+  </div>
+
+  <div class="filter-bar" id="filter-bar"></div>
+
+  <div class="shop-grid" id="shop-grid"></div>
+  <p class="empty-state" id="empty-state" style="display:none;">No products match your search — try a different term or category.</p>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
+</footer>
+
+<script src="js/shop.js"></script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>

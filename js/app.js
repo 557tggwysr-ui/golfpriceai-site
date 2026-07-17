@@ -8,28 +8,31 @@ function starIcon() {
   return '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
 }
 
-function badgeClass(badge) {
-  if (badge === 'PRICE DROP') return 'badge price-drop';
-  if (badge === 'HOT DEAL') return 'badge hot-deal';
-  return 'badge';
-}
-
-// Until a real affiliate feed supplies licensed product photos, we show a
-// clean category icon instead of a stock photo that doesn't match the item.
-// Real feed data (see scripts/update_deals.py) will include an "image" field
-// with the retailer's own product photo — when present, we use that instead.
+// Until real per-product photos flow in from an approved affiliate feed, we
+// show a clean category icon/photo instead of a stock image that doesn't
+// match the exact item. Real feed data will include an "image" field with
+// the retailer's own licensed product photo — when present, that's used
+// automatically instead.
 function iconFor(category) {
-  const known = ['driver', 'putter', 'irons', 'wood', 'wedge', 'ball'];
+  const known = ['driver', 'putter', 'irons', 'wood', 'hybrid', 'wedge', 'ball', 'bag', 'apparel', 'shoes', 'accessories'];
   const file = known.includes(category) ? category : 'driver';
-  return `assets/icons/${file}.svg`;
+  // hybrid reuses the wood icon/photo — close enough visually, no dedicated asset yet
+  const iconFile = file === 'hybrid' ? 'wood' : file;
+  return `assets/icons/${iconFile}.svg`;
 }
 
-function renderBestDeals(deals) {
-  const grid = document.getElementById('best-deals');
-  grid.innerHTML = deals.map(d => `
+function badgeFor(savePct) {
+  if (savePct >= 28) return { label: 'HOT DEAL', cls: 'hot-deal' };
+  if (savePct >= 20) return { label: 'PRICE DROP', cls: 'price-drop' };
+  return { label: 'BEST PRICE', cls: '' };
+}
+
+function dealCardHTML(d) {
+  const badge = badgeFor(d.savePct);
+  return `
     <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
       <div class="thumb">
-        <span class="${badgeClass(d.badge)}">${d.badge}</span>
+        <span class="badge ${badge.cls}">${badge.label}</span>
         <img src="${d.image || iconFor(d.category)}" alt="${d.name}" loading="lazy">
       </div>
       <div class="deal-body">
@@ -46,44 +49,49 @@ function renderBestDeals(deals) {
           <span class="rating">${starIcon()} ${d.rating}</span>
         </div>
       </div>
-    </a>
-  `).join('');
+    </a>`;
 }
 
-function renderPriceDrops(drops) {
-  const list = document.getElementById('price-drop-list');
-  list.innerHTML = drops.map(d => `
+function dropRowHTML(d) {
+  return `
     <a class="drop-row" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
       <img src="${d.image || iconFor(d.category)}" alt="${d.name}" loading="lazy">
       <div class="info">
         <h4>${d.name}</h4>
-        <span class="was">Was ${money(d.wasPrice)}</span>
+        <span class="was">Was ${money(d.retailPrice)}</span>
       </div>
-      <div class="now">${money(d.nowPrice)}<span class="pct">${d.dropPct}% drop</span></div>
-    </a>
-  `).join('');
+      <div class="now">${money(d.salePrice)}<span class="pct">${d.savePct}% drop</span></div>
+    </a>`;
 }
 
 function renderTrending(items) {
   const list = document.getElementById('trending-list');
+  if (!list) return;
   list.innerHTML = items.map(t => `
     <span class="tag">${t.name} <span class="${t.tag.toLowerCase()}">${t.tag === 'Hot' ? '🔥' : '📈'} ${t.tag}</span></span>
   `).join('');
 }
 
-fetch('data/deals.json')
+fetch('data/products.json')
   .then(r => r.json())
   .then(data => {
-    renderBestDeals(data.bestDeals);
-    renderPriceDrops(data.priceDrops);
-    renderTrending(data.trending);
-  })
-  .catch(err => console.error('Could not load deals.json', err));
+    const sorted = [...data.products].sort((a, b) => b.savePct - a.savePct);
 
-document.getElementById('search-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const q = document.getElementById('search-input').value.trim();
-  if (q) {
-    document.getElementById('deals').scrollIntoView({ behavior: 'smooth' });
-  }
-});
+    const bestGrid = document.getElementById('best-deals');
+    if (bestGrid) bestGrid.innerHTML = sorted.slice(0, 3).map(dealCardHTML).join('');
+
+    const dropList = document.getElementById('price-drop-list');
+    if (dropList) dropList.innerHTML = sorted.slice(3, 6).map(dropRowHTML).join('');
+
+    if (data.trending) renderTrending(data.trending);
+  })
+  .catch(err => console.error('Could not load products.json', err));
+
+const searchForm = document.getElementById('search-form');
+if (searchForm) {
+  searchForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const q = document.getElementById('search-input').value.trim();
+    window.location.href = 'shop.html' + (q ? ('?q=' + encodeURIComponent(q)) : '');
+  });
+}

@@ -131,6 +131,17 @@ affiliate site, not a substitute for professional legal advice — if you
 plan to scale this into a serious business, it's worth a solicitor's
 once-over eventually, but this covers the basics properly for now.
 
+## The full catalog & shop page
+
+The homepage still shows a curated "Today's Best Deals" — but there's now
+a full catalog too: `shop.html` browses every product across 11 categories
+(drivers, woods, hybrids, irons, wedges, putters, balls, bags, apparel,
+shoes, accessories), with category filter chips and a live search box.
+Everything reads from the single file `data/products.json` — the
+automation script merges new products into this file by name, so the
+catalog can grow to hundreds of items over time without any further
+changes to the site itself.
+
 ## A note on the current product photos
 
 Until you complete Part 7, the cards use free, properly-licensed lifestyle
