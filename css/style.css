@@ -53,10 +53,10 @@ button, input { font-family: inherit; }
 .brand-name { font-weight: 700; font-size: 20px; }
 .brand-name span { color: var(--green); }
 
-.main-nav { display: flex; gap: 32px; }
+.main-nav { display: flex; align-items: center; gap: 32px; }
 .main-nav a { font-weight: 500; font-size: 15px; color: var(--ink); }
 .main-nav a:hover { color: var(--green); }
-.nav-item { position: relative; }
+.nav-item { position: relative; display: flex; align-items: center; }
 .nav-item .dropdown {
   display: none;
   position: absolute;
@@ -308,6 +308,17 @@ button, input { font-family: inherit; }
   color: var(--muted);
   padding: 20px 0 40px;
 }
+
+.about-section { padding: 20px 0 10px; }
+.about-copy {
+  max-width: 640px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #303c33;
+}
+.about-copy p { margin: 0 0 14px; }
 
 footer {
   border-top: 1px solid var(--border);
