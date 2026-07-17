@@ -26,10 +26,10 @@ jobs:
           AWIN_ADVERTISER_ID: ${{ secrets.AWIN_ADVERTISER_ID }}
         run: python scripts/update_deals.py
 
-      - name: Commit updated deals.json
+      - name: Commit updated catalog
         run: |
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/deals.json
-          git diff --quiet --cached || git commit -m "Automated deal refresh"
+          git add data/products.json
+          git diff --quiet --cached || git commit -m "Automated catalog refresh"
           git push
