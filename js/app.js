@@ -70,7 +70,15 @@ function renderTrending(items) {
 fetch('data/products.json')
   .then(r => r.json())
   .then(data => {
-    const sorted = [...data.products].sort((a, b) => b.savePct - a.savePct);
+    // Prefer products with a real photo over icon-only ones when picking the
+    // homepage's top 3 — still genuinely the best discounts, just weighted so
+    // the hero section always leads with its best-looking cards.
+    const sorted = [...data.products].sort((a, b) => {
+      const aHasImage = a.image ? 1 : 0;
+      const bHasImage = b.image ? 1 : 0;
+      if (aHasImage !== bHasImage) return bHasImage - aHasImage;
+      return b.savePct - a.savePct;
+    });
 
     const bestGrid = document.getElementById('best-deals');
     if (bestGrid) bestGrid.innerHTML = sorted.slice(0, 3).map(dealCardHTML).join('');
