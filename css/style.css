@@ -266,7 +266,11 @@ button, input { font-family: inherit; }
 .drop-row .now { text-align: right; font-size: 14px; font-weight: 700; }
 .drop-row .now .pct { display: block; font-size: 11px; font-weight: 600; color: var(--green-dark); }
 
-.tag-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
 .tag {
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -277,7 +281,6 @@ button, input { font-family: inherit; }
   align-items: center;
   gap: 6px;
   cursor: pointer;
-  min-width: 230px;
 }
 .tag:hover { border-color: var(--green); background: var(--green-pale); }
 .tag .hot { color: #d9432e; }
