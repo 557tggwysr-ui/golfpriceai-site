@@ -284,6 +284,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   background: #f1f2ef;
 }
 .deal-card .thumb.icon-thumb {
+  background: linear-gradient(180deg, #eef2ec 0%, #e4ebe1 100%);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -375,6 +376,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .drop-row .drop-thumb { width: 44px; height: 44px; border-radius: 8px; overflow: hidden; background: #f1f2ef; flex-shrink: 0; }
 .drop-row .drop-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .drop-row .drop-thumb.icon-thumb {
+  background: linear-gradient(180deg, #eef2ec 0%, #e4ebe1 100%);
   background-size: cover;
   background-position: center;
   display: flex; align-items: center; justify-content: center;

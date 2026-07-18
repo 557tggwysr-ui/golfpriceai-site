@@ -21,33 +21,15 @@ function badgeFor(savePct) {
   return { label: 'BEST PRICE', cls: '' };
 }
 
-// Backdrop photos matched to what the icon actually represents — reusing the
-// same verified photos already grouped by theme on the Apparel/Accessories
-// hub pages, so a GPS watch sits on an active-play shot, bag gear sits on a
-// bag photo, and course-essentials items sit on a green/putting shot.
+// Only one category had a genuinely matching, verified free photo available
+// (a generic smartwatch shot — close enough to a GPS watch to be honest).
+// Everything else on this list (rangefinders, push carts, gloves, umbrellas,
+// most apparel types) turned up nothing but paid Getty/iStock content or
+// branded retailer photography after real searching — so those fall back to
+// a clean icon on a plain background rather than forcing a mismatched photo.
 const ICON_BACKDROPS = {
-  'gps-watch': 'https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'rangefinder': 'https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'sensor': 'https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'pushcart': 'https://images.pexels.com/photos/35320703/pexels-photo-35320703.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'headcover': 'https://images.pexels.com/photos/35320703/pexels-photo-35320703.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'umbrella': 'https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'accessories': 'https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'divot-tool': 'https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'alignment-sticks': 'https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'polo': 'https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'shorts': 'https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'trousers': 'https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'skort': 'https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'jacket': 'https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'hoodie': 'https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'base-layer': 'https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'cap': 'https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'sunglasses': 'https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'belt': 'https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
-  'socks': 'https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600'
+  'gps-watch': 'https://images.pexels.com/photos/9130511/pexels-photo-9130511.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600'
 };
-const DEFAULT_BACKDROP = 'https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600';
 
 function thumbHTML(d) {
   if (d.image) {
@@ -61,8 +43,8 @@ function thumbClass(d) {
 }
 function thumbStyle(d) {
   if (d.image) return '';
-  const backdrop = ICON_BACKDROPS[d.icon] || DEFAULT_BACKDROP;
-  return ` style="background-image:url('${backdrop}')"`;
+  const backdrop = ICON_BACKDROPS[d.icon];
+  return backdrop ? ` style="background-image:url('${backdrop}')"` : '';
 }
 
 function dealCardHTML(d) {
