@@ -3,54 +3,82 @@
 window.GOLFPRICE_GROUPS = {
   accessories: [
     {
-      key: "tech",
-      label: "Tech & Tracking",
-      blurb: "GPS watches, rangefinders and swing sensors for golfers who like data with their double bogeys.",
-      image: "https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=500&fit=crop&w=800",
-      types: ["gps-watch", "rangefinder", "sensor"]
+      key: "gps-watch",
+      label: "GPS Watches",
+      blurb: "Distances, hazards, shot tracking — all on your wrist.",
+      image: "assets/photos/gps-watch.png",
+      types: ["gps-watch"]
     },
     {
-      key: "bag-cart",
-      label: "Bag & Cart Gear",
-      blurb: "Push carts, headcovers and anything that keeps your kit rolling smoothly down the fairway.",
-      image: "https://images.pexels.com/photos/35320703/pexels-photo-35320703.jpeg?auto=compress&cs=tinysrgb&h=500&fit=crop&w=800",
-      types: ["pushcart", "headcover"]
+      key: "rangefinder",
+      label: "Rangefinders",
+      blurb: "Lock on. Know more. Play with confidence.",
+      image: "assets/photos/rangefinder.png",
+      types: ["rangefinder"]
+    },
+    {
+      key: "sensor",
+      label: "Smart Sensors",
+      blurb: "Data that drives real improvement.",
+      image: "assets/photos/sensor.png",
+      types: ["sensor"]
+    },
+    {
+      key: "pushcart",
+      label: "Push Carts",
+      blurb: "Lightweight, stable, built for every round.",
+      image: "assets/photos/pushcart.png",
+      types: ["pushcart"]
+    },
+    {
+      key: "headcover",
+      label: "Headcovers",
+      blurb: "Protect your clubs, show your style.",
+      image: "assets/photos/headcover.png",
+      types: ["headcover"]
     },
     {
       key: "essentials",
-      label: "Course Essentials",
-      blurb: "Umbrellas, gloves and the small stuff you only notice you need halfway down the 4th fairway.",
-      image: "https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=500&fit=crop&w=800",
+      label: "Umbrellas, Gloves & Tools",
+      blurb: "Small gear, big difference — umbrellas, gloves, divot tools and alignment sticks.",
+      image: "assets/photos/umbrella-combo.png",
       types: ["umbrella", "accessories", "divot-tool", "alignment-sticks"]
     }
   ],
   apparel: [
     {
-      key: "tops",
-      label: "Polos & Tops",
-      blurb: "The classic golf polo — smart enough for the clubhouse, forgiving enough for a bad back nine.",
-      image: "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=500&fit=crop&w=800",
+      key: "polo",
+      label: "Polo Tees",
+      blurb: "The classic golf polo — smart enough for the clubhouse.",
+      image: "assets/photos/polo.png",
       types: ["polo"]
     },
     {
       key: "bottoms",
-      label: "Trousers, Shorts & Skorts",
-      blurb: "From tailored trousers to shorts for the first sunny day of the year (however brief that turns out to be).",
-      image: "https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=500&fit=crop&w=800",
-      types: ["trousers", "shorts", "skort"]
+      label: "Bottoms",
+      blurb: "Tailored trousers for every round.",
+      image: "assets/photos/bottoms.png",
+      types: ["trousers"]
+    },
+    {
+      key: "shorts-skort",
+      label: "Shorts & Skorts",
+      blurb: "For the first sunny day of the year (however brief that turns out to be).",
+      image: "assets/photos/shorts-skort.png",
+      types: ["shorts", "skort"]
     },
     {
       key: "outerwear",
-      label: "Jackets, Hoodies & Layers",
-      blurb: "For when the forecast says 'four seasons in one round' — jackets, hoodies and base layers.",
-      image: "https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=500&fit=crop&w=800",
+      label: "Outerwear",
+      blurb: "Jackets, hoodies and base layers for four-seasons-in-one-round days.",
+      image: "assets/photos/outerwear.png",
       types: ["jacket", "hoodie", "base-layer"]
     },
     {
-      key: "headwear-extras",
+      key: "headwear",
       label: "Headwear & Extras",
-      blurb: "Caps, sunglasses, belts and socks — the finishing touches that make an outfit look intentional.",
-      image: "https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=500&fit=crop&w=800",
+      blurb: "Caps, sunglasses, belts and socks — the finishing touches.",
+      image: "assets/photos/headwear.png",
       types: ["cap", "sunglasses", "belt", "socks"]
     }
   ]
