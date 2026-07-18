@@ -23,7 +23,7 @@ function cardHTML(d) {
     <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
       <div class="thumb">
         <span class="badge ${badge.cls}">${badge.label}</span>
-        <img src="${d.image || iconFor(d.category)}" alt="${d.name}" loading="lazy">
+        <img src="${d.image || (d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category))}" alt="${d.name}" loading="lazy">
       </div>
       <div class="deal-body">
         <h3>${d.name}</h3>

@@ -441,7 +441,7 @@
       "retailerCount": 5,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Under+Armour+Performance+Golf+Polo&tag=golfpriceai-21",
       "source": "amazon",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "icon": "polo"
     },
     {
       "id": "apparel-2-nike",
@@ -453,7 +453,7 @@
       "retailerCount": 6,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Dri-FIT+Victory+Golf+Polo&tag=golfpriceai-21",
       "source": "amazon",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "icon": "polo"
     },
     {
       "id": "apparel-3-adidas",
@@ -465,7 +465,7 @@
       "retailerCount": 4,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Ultimate365+Golf+Trousers&tag=golfpriceai-21",
       "source": "amazon",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "icon": "trousers"
     },
     {
       "id": "apparel-4-footjoy",
@@ -477,7 +477,7 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+HydroLite+Rain+Jacket&tag=golfpriceai-21",
       "source": "amazon",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "icon": "jacket"
     },
     {
       "id": "shoes-1-footjoy",
@@ -532,7 +532,8 @@
       "savePct": 23,
       "retailerCount": 5,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Bushnell+Tour+V6+Rangefinder&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "rangefinder"
     },
     {
       "id": "accessories-2-footjoy",
@@ -543,7 +544,8 @@
       "savePct": 24,
       "retailerCount": 6,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+WeatherSof+Golf+Glove&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "accessories"
     },
     {
       "id": "accessories-3-sun",
@@ -554,7 +556,8 @@
       "savePct": 22,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Sun+Mountain+Micro-Cart+GX+Push+Cart&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "pushcart"
     },
     {
       "id": "accessories-4-titleist",
@@ -565,7 +568,8 @@
       "savePct": 26,
       "retailerCount": 4,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+Players+Golf+Umbrella&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "umbrella"
     },
     {
       "id": "accessories-20-garmin",
@@ -576,7 +580,8 @@
       "savePct": 17,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Garmin+Approach+S12+Golf+GPS+Watch&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "gps-watch"
     },
     {
       "id": "accessories-21-garmin",
@@ -587,7 +592,8 @@
       "savePct": 17,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Garmin+Approach+S70+Golf+GPS+Watch&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "gps-watch"
     },
     {
       "id": "accessories-22-garmin",
@@ -598,7 +604,8 @@
       "savePct": 19,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Garmin+Approach+G12+Handheld+GPS&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "gps-watch"
     },
     {
       "id": "accessories-23-bushnell",
@@ -609,7 +616,8 @@
       "savePct": 23,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Bushnell+Wingman+Mini+GPS+Speaker&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "sensor"
     },
     {
       "id": "accessories-24-precision",
@@ -620,7 +628,8 @@
       "savePct": 22,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Precision+Pro+NX9+Laser+Rangefinder&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "rangefinder"
     },
     {
       "id": "accessories-25-nikon",
@@ -631,7 +640,8 @@
       "savePct": 21,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nikon+Coolshot+Pro+II+Rangefinder&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "rangefinder"
     },
     {
       "id": "accessories-26-callaway",
@@ -642,7 +652,8 @@
       "savePct": 20,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+300+Pro+Laser+Rangefinder&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "rangefinder"
     },
     {
       "id": "accessories-27-callaway",
@@ -653,7 +664,8 @@
       "savePct": 28,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Premium+Leather+Headcover+Set+%283pc%29&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "headcover"
     },
     {
       "id": "accessories-28-taylormade",
@@ -664,7 +676,8 @@
       "savePct": 25,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=TaylorMade+Cart+Headcover+Set+%283pc%29&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "headcover"
     },
     {
       "id": "accessories-29-scotty",
@@ -675,7 +688,8 @@
       "savePct": 29,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Scotty+Cameron+Leather+Putter+Headcover&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "headcover"
     },
     {
       "id": "accessories-30-arccos",
@@ -686,7 +700,8 @@
       "savePct": 20,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Arccos+Caddie+Smart+Golf+Sensors&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "sensor"
     },
     {
       "id": "accessories-31-golf",
@@ -697,7 +712,8 @@
       "savePct": 25,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Golf+Alignment+Sticks+%28Pair%29&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "alignment-sticks"
     },
     {
       "id": "accessories-32-divot",
@@ -708,7 +724,8 @@
       "savePct": 27,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Divot+Tool+%26+Ball+Marker+Gift+Set&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "divot-tool"
     },
     {
       "id": "accessories-33-motocaddy",
@@ -719,223 +736,224 @@
       "savePct": 20,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Motocaddy+Electric+Trolley+Battery+Pack&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "pushcart"
     },
     {
       "id": "apparel-20-nike",
       "name": "Nike Golf Cap (Adjustable)",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 24.99,
       "salePrice": 18.99,
       "savePct": 24,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Golf+Cap+%28Adjustable%29&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "cap"
     },
     {
       "id": "apparel-21-adidas",
       "name": "Adidas Performance Golf Cap",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 22.99,
       "salePrice": 16.99,
       "savePct": 26,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Performance+Golf+Cap&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "cap"
     },
     {
       "id": "apparel-22-travismathew",
       "name": "TravisMathew Bucket Hat",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 34.99,
       "salePrice": 26.99,
       "savePct": 23,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=TravisMathew+Bucket+Hat&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "cap"
     },
     {
       "id": "apparel-23-nike",
       "name": "Nike Women's Dri-FIT Golf Polo",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 39.99,
       "salePrice": 29.99,
       "savePct": 25,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Women%27s+Dri-FIT+Golf+Polo&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "polo"
     },
     {
       "id": "apparel-24-adidas",
       "name": "Adidas Women's Ultimate365 Golf Skort",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 49.99,
       "salePrice": 36.99,
       "savePct": 26,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Women%27s+Ultimate365+Golf+Skort&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "skort"
     },
     {
       "id": "apparel-25-callaway",
       "name": "Callaway Men's Golf Shorts",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 44.99,
       "salePrice": 32.99,
       "savePct": 27,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Men%27s+Golf+Shorts&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "shorts"
     },
     {
       "id": "apparel-26-nike",
       "name": "Nike Golf T-Shirt",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 27.99,
       "salePrice": 20.99,
       "savePct": 25,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Golf+T-Shirt&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "polo"
     },
     {
       "id": "apparel-27-under",
       "name": "Under Armour Golf Trousers",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 54.99,
       "salePrice": 39.99,
       "savePct": 27,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Under+Armour+Golf+Trousers&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "trousers"
     },
     {
       "id": "apparel-28-titleist",
       "name": "Titleist Leather Golf Belt",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 34.99,
       "salePrice": 25.99,
       "savePct": 26,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+Leather+Golf+Belt&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "belt"
     },
     {
       "id": "apparel-29-nike",
       "name": "Nike Golf Socks (3-Pack)",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 16.99,
       "salePrice": 12.99,
       "savePct": 24,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Golf+Socks+%283-Pack%29&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "socks"
     },
     {
       "id": "apparel-30-oakley",
       "name": "Oakley Golf Sunglasses",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 129.99,
       "salePrice": 99.99,
       "savePct": 23,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Oakley+Golf+Sunglasses&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "sunglasses"
     },
     {
       "id": "apparel-31-under",
       "name": "Under Armour ColdGear Golf Base Layer",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 39.99,
       "salePrice": 29.99,
       "savePct": 25,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Under+Armour+ColdGear+Golf+Base+Layer&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "base-layer"
     },
     {
       "id": "apparel-32-adidas",
       "name": "Adidas Golf Hoodie",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 59.99,
       "salePrice": 44.99,
       "savePct": 25,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Golf+Hoodie&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "hoodie"
     },
     {
       "id": "apparel-33-puma",
       "name": "Puma Golf Hoodie",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 54.99,
       "salePrice": 39.99,
       "savePct": 27,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Puma+Golf+Hoodie&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "hoodie"
     },
     {
       "id": "apparel-34-ping",
       "name": "Ping Sensorwarm Weatherproof Jacket",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 99.99,
       "salePrice": 74.99,
       "savePct": 25,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Ping+Sensorwarm+Weatherproof+Jacket&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "jacket"
     },
     {
       "id": "apparel-35-j.lindeberg",
       "name": "J.Lindeberg Golf Trousers",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 139.99,
       "salePrice": 104.99,
       "savePct": 25,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=J.Lindeberg+Golf+Trousers&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "trousers"
     },
     {
       "id": "apparel-36-peter",
       "name": "Peter Millar Performance Polo",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 89.99,
       "salePrice": 67.99,
       "savePct": 24,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Peter+Millar+Performance+Polo&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "polo"
     },
     {
       "id": "apparel-37-footjoy",
       "name": "FootJoy Women's Golf Shorts",
       "category": "apparel",
-      "image": "https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200",
       "retailPrice": 44.99,
       "salePrice": 32.99,
       "savePct": 27,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+Women%27s+Golf+Shorts&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "icon": "shorts"
     }
   ],
   "trending": [
