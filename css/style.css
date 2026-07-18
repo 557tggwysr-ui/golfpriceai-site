@@ -277,6 +277,7 @@ button, input { font-family: inherit; }
   align-items: center;
   gap: 6px;
   cursor: pointer;
+  min-width: 230px;
 }
 .tag:hover { border-color: var(--green); background: var(--green-pale); }
 .tag .hot { color: #d9432e; }
