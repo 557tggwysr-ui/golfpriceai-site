@@ -3,29 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trending Golf Gear — GolfPrice AI</title>
-<meta name="description" content="What golfers are searching for and talking about right now.">
+<title>About — GolfPrice AI</title>
+<meta name="description" content="Why GolfPrice AI exists, and what we're trying to do about golf gear prices.">
 <link rel="icon" href="assets/logo-full.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-  .trend-head { padding: 40px 0 8px; }
-  .trend-head h1 { font-size: 30px; margin: 0 0 8px; }
-  .trend-head p { color: var(--muted); margin: 0; max-width: 60ch; }
-  .trend-note {
-    background: var(--green-pale); border-radius: 10px; padding: 12px 16px;
-    font-size: 13px; color: var(--green-dark); margin: 20px 0 30px;
+  .about-hero { padding: 48px 0 10px; text-align: center; }
+  .about-hero h1 { font-size: 32px; margin: 0; }
+  .about-hero h1 .brand-word { color: var(--green); }
+  .about-copy {
+    max-width: 640px; margin: 28px auto 0; text-align: center;
+    font-size: 16px; line-height: 1.9; color: #303c33;
   }
-  .trend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-bottom: 60px; }
-  .trend-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 20px; box-shadow: var(--shadow);
-  }
-  .trend-card .tag-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-  .trend-card h3 { font-size: 17px; margin: 0 0 8px; }
-  .trend-card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0 0 14px; }
-  .trend-card a.view-link { font-size: 13px; font-weight: 600; color: var(--green); }
-  @media (max-width: 900px) { .trend-grid { grid-template-columns: 1fr; } }
+  .about-copy p { margin: 0 0 14px; }
+  main.container { padding-bottom: 60px; }
 </style>
 </head>
 <body>
@@ -57,23 +49,23 @@
 </header>
 
 <main class="container">
-  <div class="trend-head">
-    <h1>Trending Golf Gear 🔥</h1>
-    <p>What's getting the most attention from golfers right now.</p>
+  <div class="about-hero">
+    <h1>🏌️ Why Golf<span class="brand-word">Price</span> AI Exists</h1>
   </div>
-
-  <p class="trend-note">
-    This list is curated periodically by hand when we are not chunking iron shots into the soup.
-  </p>
-
-  <div class="trend-grid" id="trend-grid"></div>
+  <div class="about-copy">
+    <p>Buying golf gear shouldn't feel like guesswork.</p>
+    <p>Prices jump around constantly, "limited-time deals" aren't always deals, and somehow your playing partner always swears they paid less.</p>
+    <p>GolfPrice AI was built to make buying golf gear simpler, smarter, and far less painful.</p>
+    <p>We track prices, spot genuine bargains, and help golfers avoid spending driver money on what should've been a 7-iron purchase.</p>
+    <p><strong>No hype. No fake discounts. Just better golf gear prices.</strong></p>
+  </div>
 </main>
 
 <footer>
   <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
 </footer>
 
-<script src="js/trending.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <script src="js/cookie-consent.js"></script>
 </body>
 </html>

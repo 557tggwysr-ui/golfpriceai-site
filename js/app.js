@@ -63,7 +63,7 @@ function renderTrending(items) {
   const list = document.getElementById('trending-list');
   if (!list) return;
   list.innerHTML = items.map(t => `
-    <span class="tag">${t.name} <span class="${t.tag.toLowerCase()}">${t.tag === 'Hot' ? '🔥' : '📈'} ${t.tag}</span></span>
+    <a class="tag" href="${t.affiliateUrl}" target="_blank" rel="sponsored noopener">${t.name} <span class="${t.tag.toLowerCase()}">${t.tag === 'Hot' ? '🔥' : '📈'} ${t.tag}</span></a>
   `).join('');
 }
 

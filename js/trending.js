@@ -19,7 +19,10 @@ fetch('data/products.json')
           </div>
           <h3>${t.name}</h3>
           <p>${t.blurb || ''}</p>
-          <a class="view-link" href="${categoryLink}">See deals in this category →</a>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a class="view-link" href="${t.affiliateUrl}" target="_blank" rel="sponsored noopener">Go fetch this deal 🏌️ →</a>
+            <a class="view-link" href="${categoryLink}" style="color:var(--muted);">or browse the category →</a>
+          </div>
         </div>`;
     }).join('');
   })

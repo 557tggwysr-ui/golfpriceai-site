@@ -276,7 +276,9 @@ button, input { font-family: inherit; }
   display: flex;
   align-items: center;
   gap: 6px;
+  cursor: pointer;
 }
+.tag:hover { border-color: var(--green); background: var(--green-pale); }
 .tag .hot { color: #d9432e; }
 .tag .rising { color: var(--green-dark); }
 
@@ -284,11 +286,11 @@ button, input { font-family: inherit; }
 .newsletter {
   background: var(--green-pale);
   border-radius: var(--radius);
-  padding: 28px 32px;
+  padding: 20px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
   margin: 40px 0 60px;
 }
@@ -302,8 +304,13 @@ button, input { font-family: inherit; }
   padding: 11px 18px;
   min-width: 220px;
 }
-.beehiiv-embed-wrap { min-width: 280px; flex: 1; max-width: 420px; }
-.beehiiv-embed-wrap iframe { border-radius: 999px !important; }
+.beehiiv-embed-wrap {
+  min-width: 260px;
+  flex: 0 1 340px;
+}
+.beehiiv-embed-wrap iframe {
+  border-radius: 12px !important;
+}
 .disclosure {
   text-align: center;
   font-size: 12px;
