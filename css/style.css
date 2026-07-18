@@ -287,11 +287,10 @@ button, input { font-family: inherit; }
   background: var(--green-pale);
   border-radius: var(--radius);
   padding: 10px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.15fr;
   gap: 20px;
-  flex-wrap: wrap;
+  align-items: center;
   margin: 40px 0 60px;
 }
 .newsletter-copy { display: flex; align-items: center; gap: 16px; }
@@ -311,16 +310,14 @@ button, input { font-family: inherit; }
   font-size: 13px;
   font-weight: 500;
   color: #35442f;
-  flex: 1 1 220px;
-  min-width: 200px;
 }
 
 .beehiiv-embed-wrap {
-  min-width: 340px;
-  flex: 0 1 440px;
+  width: 100%;
 }
 .beehiiv-embed-wrap iframe {
   border-radius: 12px !important;
+  width: 100% !important;
 }
 .disclosure {
   text-align: center;
@@ -355,5 +352,5 @@ footer a:hover { color: var(--green); }
   .deal-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; }
   .hero h1 { font-size: 32px; }
-  .newsletter { flex-direction: column; align-items: flex-start; }
+  .newsletter { grid-template-columns: 1fr; text-align: left; }
 }
