@@ -16,13 +16,24 @@ function badgeFor(savePct) {
   return { label: 'BEST PRICE', cls: '' };
 }
 
+function thumbHTML(d) {
+  if (d.image) {
+    return `<img src="${d.image}" alt="${d.name}" loading="lazy">`;
+  }
+  const iconSrc = d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category);
+  return `<span class="icon-badge"><img src="${iconSrc}" alt="${d.name}" loading="lazy"></span>`;
+}
+function thumbClass(d) {
+  return d.image ? 'thumb' : 'thumb icon-thumb';
+}
+
 function cardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
     <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
-      <div class="thumb">
+      <div class="${thumbClass(d)}">
         <span class="badge ${badge.cls}">${badge.label}</span>
-        <img src="${d.image || (d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category))}" alt="${d.name}" loading="lazy">
+        ${thumbHTML(d)}
       </div>
       <div class="deal-body">
         <h3>${d.name}</h3>
