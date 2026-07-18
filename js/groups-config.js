@@ -1,6 +1,6 @@
 // Shared group definitions for the Apparel and Accessories hub pages.
 // "types" values match each product's "icon" field in products.json.
-const GOLFPRICE_GROUPS = {
+window.GOLFPRICE_GROUPS = {
   accessories: [
     {
       key: "tech",
