@@ -99,6 +99,45 @@ button, input { font-family: inherit; }
   .main-nav { display: none; }
 }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+@media (max-width: 860px) {
+  .site-header { position: relative; flex-wrap: wrap; }
+  .nav-toggle { display: block; }
+  .main-nav {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    background: #fff;
+    border-top: 1px solid var(--border);
+    padding: 16px 4px 8px;
+    order: 3;
+  }
+  .main-nav.nav-open { display: flex; }
+  .main-nav > a, .nav-item { width: 100%; }
+  .nav-item { display: flex; flex-direction: column; align-items: flex-start; }
+  .nav-item .dropdown {
+    display: block;
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding: 4px 0 4px 16px;
+    min-width: 0;
+  }
+  .main-nav a { padding: 10px 8px; width: 100%; }
+}
+
 /* Hero */
 .hero {
   padding: 64px 0 40px;
@@ -332,6 +371,54 @@ button, input { font-family: inherit; }
   color: var(--muted);
   padding: 20px 0 40px;
 }
+
+/* Confession strip */
+.confession-strip {
+  background: var(--ink);
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 16px;
+}
+
+/* Hero quip */
+.hero-quip {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--green-dark);
+  margin: -14px 0 22px;
+}
+
+/* Section rhythm band */
+.section-band {
+  background: var(--green-pale);
+  border-radius: var(--radius);
+  padding: 8px 20px 4px;
+  margin: 10px 0 40px;
+}
+.section-band .section { padding: 20px 0 32px; }
+
+/* Fairway divider */
+.fairway-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 4px 0;
+  margin: 8px 0;
+}
+.fairway-divider svg { flex: 1; height: 20px; }
+.fairway-divider span { font-size: 18px; flex-shrink: 0; }
+
+/* About teaser strip */
+.about-teaser {
+  text-align: center;
+  padding: 24px 20px;
+  margin: 0 0 20px;
+  border-top: 1px solid var(--border);
+}
+.about-teaser p { margin: 0; font-size: 14px; color: var(--muted); }
+.about-teaser a { color: var(--green); font-weight: 600; }
 
 .about-section { padding: 20px 0 10px; }
 .about-copy {

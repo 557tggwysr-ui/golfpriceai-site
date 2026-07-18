@@ -42,7 +42,10 @@
     <a href="about.html">About</a>
   </nav>
   <a href="#alerts" class="btn btn-primary">🔔 Get Deal Alerts</a>
+  <button class="nav-toggle" aria-label="Open menu">☰</button>
 </header>
+
+<div class="confession-strip">No countdown timers. No "only 2 left!!" lies. Just real prices, and the occasional bad golf joke.</div>
 
 <main class="container">
 
@@ -51,6 +54,7 @@
       <div>
         <h1>Stop overpaying<br>for <span>golf gear.</span></h1>
         <p>We track prices 24/7 and show you when it's actually worth buying. AI-powered. Golfer-approved.</p>
+        <p class="hero-quip">We obsess over golf gear prices so you can obsess over your slice instead.</p>
         <form class="search-bar" id="search-form">
           <input type="text" id="search-input" placeholder="Search for clubs, balls, bags...">
           <button type="submit" class="btn btn-primary">Find Deals</button>
@@ -66,6 +70,12 @@
     </div>
   </section>
 
+  <div class="fairway-divider">
+    <svg viewBox="0 0 200 20" preserveAspectRatio="none"><line x1="0" y1="10" x2="200" y2="10" stroke="#c9d0c6" stroke-width="2" stroke-dasharray="6,8"/></svg>
+    <span>⛳</span>
+    <svg viewBox="0 0 200 20" preserveAspectRatio="none"><line x1="0" y1="10" x2="200" y2="10" stroke="#c9d0c6" stroke-width="2" stroke-dasharray="6,8"/></svg>
+  </div>
+
   <section class="section" id="deals">
     <div class="section-head">
       <h2>Today's Best Golf Deals 🔥</h2>
@@ -75,24 +85,31 @@
     <div class="deal-grid" id="best-deals"></div>
   </section>
 
-  <section class="section">
-    <div class="two-col">
-      <div class="panel" id="price-drops">
-        <div class="panel-head">
-          <h3>📈 Price Drops We're Watching</h3>
-          <a href="shop.html">View all →</a>
-        </div>
-        <div id="price-drop-list"></div>
-      </div>
-      <div class="panel" id="trending">
-        <div class="panel-head">
-          <h3>📈 Trending Right Now</h3>
-          <a href="trending.html">View all →</a>
-        </div>
-        <div class="tag-grid" id="trending-list"></div>
-      </div>
+  <div class="section-band">
+    <div class="fairway-divider">
+      <svg viewBox="0 0 200 20" preserveAspectRatio="none"><line x1="0" y1="10" x2="200" y2="10" stroke="#c3d6bd" stroke-width="2" stroke-dasharray="6,8"/></svg>
+      <span>🏌️</span>
+      <svg viewBox="0 0 200 20" preserveAspectRatio="none"><line x1="0" y1="10" x2="200" y2="10" stroke="#c3d6bd" stroke-width="2" stroke-dasharray="6,8"/></svg>
     </div>
-  </section>
+    <section class="section">
+      <div class="two-col">
+        <div class="panel" id="price-drops">
+          <div class="panel-head">
+            <h3>📈 Price Drops We're Watching</h3>
+            <a href="shop.html">View all →</a>
+          </div>
+          <div id="price-drop-list"></div>
+        </div>
+        <div class="panel" id="trending">
+          <div class="panel-head">
+            <h3>📈 Trending Right Now</h3>
+            <a href="trending.html">View all →</a>
+          </div>
+          <div class="tag-grid" id="trending-list"></div>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <section class="newsletter" id="alerts">
     <div class="newsletter-copy">
@@ -112,6 +129,10 @@
     </div>
   </section>
 
+  <div class="about-teaser">
+    <p>Curious why a website is this obsessed with golf gear prices? <a href="about.html">We explain ourselves →</a></p>
+  </div>
+
   <p class="disclosure">
     GolfPrice AI is reader-supported. When you buy through links on our site, we may earn an affiliate commission at no extra cost to you.
     As an Amazon Associate, we earn from qualifying purchases.
@@ -127,6 +148,7 @@
 <script src="js/app.js"></script>
 <script src="js/groups-config.js"></script>
 <script src="js/hub.js"></script>
+<script src="js/nav-mobile.js"></script>
 <script src="js/cookie-consent.js"></script>
 <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 </body>
