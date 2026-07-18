@@ -84,6 +84,11 @@ function dropRowHTML(d) {
 }
 
 function renderTrending(items) {
+  // Keep trending "name" values to ~25 characters max (including spaces) so
+  // they fit on one line inside the pill alongside the icon + Hot/Rising
+  // label without wrapping or clipping. Longest currently in use: 26 chars
+  // ("Titleist Pro V1 Golf Balls"), which is the safe upper edge — don't
+  // go meaningfully past that without checking it still fits.
   const list = document.getElementById('trending-list');
   if (!list) return;
   list.innerHTML = items.map(t => `
