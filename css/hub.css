@@ -24,4 +24,16 @@
 .hub-card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0 0 14px; }
 .hub-card .hub-link { font-size: 13px; font-weight: 600; color: var(--green); }
 
+.apparel-banner {
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 0 0 30px;
+}
+.apparel-banner h2 { font-size: 22px; margin: 0 0 10px; color: #fff; }
+.apparel-banner p { margin: 0 0 6px; color: #dbe3d7; font-size: 14px; max-width: 60ch; }
+.apparel-banner .tagline { margin: 14px 0 18px; font-size: 15px; font-weight: 600; color: #fff; }
+.apparel-banner .quip { font-weight: 400; color: #a6e08f; }
+
 @media (max-width: 900px) { .hub-grid { grid-template-columns: 1fr; } }
