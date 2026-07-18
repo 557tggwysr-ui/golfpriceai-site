@@ -29,6 +29,7 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <header class="site-header">
   <a href="index.html" class="brand">
@@ -63,7 +64,7 @@
   <button class="nav-toggle" aria-label="Open menu">☰</button>
 </header>
 
-<main class="container">
+<main class="container" id="main-content">
   <div class="trend-head">
     <h1>Trending Golf Gear 🔥</h1>
     <p>What's getting the most attention from golfers right now.</p>
@@ -73,7 +74,11 @@
     This list is curated periodically by hand when we are not chunking iron shots into the soup.
   </p>
 
-  <div class="trend-grid" id="trend-grid"></div>
+  <div class="trend-grid" id="trend-grid">
+    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+  </div>
 </main>
 
 <footer>

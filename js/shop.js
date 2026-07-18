@@ -7,8 +7,7 @@ function money(n) {
 function iconFor(category) {
   const known = ['driver', 'putter', 'irons', 'wood', 'hybrid', 'wedge', 'ball', 'bag', 'apparel', 'shoes', 'accessories'];
   const file = known.includes(category) ? category : 'driver';
-  const iconFile = file === 'hybrid' ? 'wood' : file;
-  return `assets/icons/${iconFile}.svg`;
+  return `assets/icons/${file}.svg`;
 }
 
 function badgeFor(savePct) {
@@ -89,9 +88,10 @@ fetch('data/products.json')
 
     const labelParam = params.get('label');
     if (labelParam) {
+      const categoryLabel = (data.categories.find(c => c.key === categoryParam) || {}).label || categoryParam;
       const note = document.getElementById('group-note');
       note.style.display = 'block';
-      note.innerHTML = `Showing: <strong>${labelParam}</strong> · <a href="shop.html?category=${encodeURIComponent(categoryParam || 'all')}" style="color:var(--green);font-weight:600;">clear filter ×</a>`;
+      note.innerHTML = `<a href="index.html" style="color:var(--muted);">Home</a> / <a href="${categoryParam === 'apparel' ? 'apparel.html' : 'accessories.html'}" style="color:var(--muted);">${categoryLabel}</a> / <strong>${labelParam}</strong> · <a href="shop.html?category=${encodeURIComponent(categoryParam || 'all')}" style="color:var(--green);font-weight:600;">clear filter ×</a>`;
     }
 
     renderFilterBar(data.categories);

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — GolfPrice AI</title>
+<link rel="icon" href="assets/logo-full.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .notfound { text-align: center; padding: 100px 24px; max-width: 560px; margin: 0 auto; }
+  .notfound .big { font-size: 88px; margin: 0 0 8px; }
+  .notfound h1 { font-size: 26px; margin: 0 0 12px; }
+  .notfound p { color: var(--muted); font-size: 15px; line-height: 1.6; margin: 0 0 28px; }
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <a href="index.html" class="brand">
+    <img src="assets/logo-full.png" alt="GolfPrice AI logo">
+    <span class="brand-name">Golf<span>Price</span> AI</span>
+  </a>
+</header>
+
+<main class="notfound" id="main-content">
+  <p class="big">🏌️‍♂️⛳</p>
+  <h1>That page went out of bounds.</h1>
+  <p>We searched every fairway, rough, and bunker and couldn't find it. It's probably still looking for its ball.</p>
+  <a href="index.html" class="btn btn-primary">Back to the clubhouse</a>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear.</div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

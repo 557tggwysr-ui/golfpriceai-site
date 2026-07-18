@@ -33,6 +33,7 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <header class="site-header">
   <a href="index.html" class="brand">
@@ -67,11 +68,12 @@
   <button class="nav-toggle" aria-label="Open menu">☰</button>
 </header>
 
-<main class="container">
+<main class="container" id="main-content">
   <div class="shop-head">
     <h1>Shop All Deals</h1>
     <p>Every club, bag, and accessory we track, in one place. New items are added automatically as more retailers come online.</p>
     <form class="shop-search" id="shop-search-form">
+      <label for="shop-search-input" class="sr-only">Search the full catalog</label>
       <input type="text" id="shop-search-input" placeholder="Search for clubs, balls, bags...">
     </form>
   </div>
@@ -79,7 +81,12 @@
   <div class="filter-bar" id="filter-bar"></div>
   <p id="group-note" style="display:none;color:var(--muted);font-size:14px;margin:-16px 0 20px;"></p>
 
-  <div class="shop-grid" id="shop-grid"></div>
+  <div class="shop-grid" id="shop-grid">
+    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+  </div>
   <p class="empty-state" id="empty-state" style="display:none;">Nothing here — even our AI needs a mulligan. Try another search or category.</p>
 </main>
 

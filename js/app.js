@@ -12,9 +12,7 @@ function money(n) {
 function iconFor(category) {
   const known = ['driver', 'putter', 'irons', 'wood', 'hybrid', 'wedge', 'ball', 'bag', 'apparel', 'shoes', 'accessories'];
   const file = known.includes(category) ? category : 'driver';
-  // hybrid reuses the wood icon/photo — close enough visually, no dedicated asset yet
-  const iconFile = file === 'hybrid' ? 'wood' : file;
-  return `assets/icons/${iconFile}.svg`;
+  return `assets/icons/${file}.svg`;
 }
 
 function badgeFor(savePct) {

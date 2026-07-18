@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/hub.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <header class="site-header">
   <a href="index.html" class="brand">
@@ -45,12 +46,16 @@
   <button class="nav-toggle" aria-label="Open menu">☰</button>
 </header>
 
-<main class="container">
+<main class="container" id="main-content">
   <div class="hub-head">
     <h1>Accessories</h1>
     <p>Everything that isn't a club, sorted so you're not scrolling past rangefinders to find an umbrella.</p>
   </div>
-  <div class="hub-grid" id="hub-grid"></div>
+  <div class="hub-grid" id="hub-grid">
+    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+  </div>
 </main>
 
 <footer>
