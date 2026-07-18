@@ -268,19 +268,22 @@ button, input { font-family: inherit; }
 
 .tag-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   gap: 10px;
 }
 .tag {
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 9px 16px;
+  padding: 7px 16px;
   font-size: 13px;
   font-weight: 500;
   display: flex;
   align-items: center;
   gap: 6px;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .tag:hover { border-color: var(--green); background: var(--green-pale); }
 .tag .hot { color: #d9432e; }
