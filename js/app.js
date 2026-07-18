@@ -104,11 +104,40 @@ fetch('data/products.json')
       return b.savePct - a.savePct;
     });
 
+    // Pick the top N items with no two sharing the same specific type
+    // (driver, putter, headcover, etc.) so the featured section doesn't show
+    // two headcovers or two drivers side by side. Falls back to allowing
+    // repeats only if there genuinely aren't enough distinct types.
+    function pickDiverseTop(list, count, usedKeys) {
+      const picked = [];
+      const seen = new Set(usedKeys);
+      for (const item of list) {
+        const key = item.icon || item.category;
+        if (seen.has(key)) continue;
+        picked.push(item);
+        seen.add(key);
+        if (picked.length === count) break;
+      }
+      if (picked.length < count) {
+        for (const item of list) {
+          if (picked.length === count) break;
+          if (!picked.includes(item)) picked.push(item);
+        }
+      }
+      return picked;
+    }
+
+    const bestDeals = pickDiverseTop(sorted, 4, []);
+    const bestKeys = bestDeals.map(d => d.icon || d.category);
+    const priceDrops = pickDiverseTop(
+      sorted.filter(d => !bestDeals.includes(d)), 3, bestKeys
+    );
+
     const bestGrid = document.getElementById('best-deals');
-    if (bestGrid) bestGrid.innerHTML = sorted.slice(0, 4).map(dealCardHTML).join('');
+    if (bestGrid) bestGrid.innerHTML = bestDeals.map(dealCardHTML).join('');
 
     const dropList = document.getElementById('price-drop-list');
-    if (dropList) dropList.innerHTML = sorted.slice(4, 7).map(dropRowHTML).join('');
+    if (dropList) dropList.innerHTML = priceDrops.map(dropRowHTML).join('');
 
     if (data.trending) renderTrending(data.trending);
   })
