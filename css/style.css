@@ -88,7 +88,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .skeleton-pill { height: 36px; background: #e9ebe7; border-radius: 999px; animation: skeleton-pulse 1.4s ease-in-out infinite; }
 
 .container {
-  max-width: 1180px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -266,7 +266,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 /* Deal cards */
 .deal-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 .deal-card {
@@ -524,6 +524,10 @@ footer {
 }
 footer a { text-decoration: underline; }
 footer a:hover { color: var(--green); }
+
+@media (max-width: 1100px) {
+  .deal-grid { grid-template-columns: repeat(2, 1fr); }
+}
 
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }

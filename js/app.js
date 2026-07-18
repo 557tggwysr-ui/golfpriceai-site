@@ -105,10 +105,10 @@ fetch('data/products.json')
     });
 
     const bestGrid = document.getElementById('best-deals');
-    if (bestGrid) bestGrid.innerHTML = sorted.slice(0, 3).map(dealCardHTML).join('');
+    if (bestGrid) bestGrid.innerHTML = sorted.slice(0, 4).map(dealCardHTML).join('');
 
     const dropList = document.getElementById('price-drop-list');
-    if (dropList) dropList.innerHTML = sorted.slice(3, 6).map(dropRowHTML).join('');
+    if (dropList) dropList.innerHTML = sorted.slice(4, 7).map(dropRowHTML).join('');
 
     if (data.trending) renderTrending(data.trending);
   })
