@@ -533,7 +533,8 @@
       "retailerCount": 5,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Bushnell+Tour+V6+Rangefinder&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "rangefinder"
+      "icon": "rangefinder",
+      "image": "assets/photos/rangefinder-real.jpg"
     },
     {
       "id": "accessories-2-footjoy",
@@ -581,7 +582,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Garmin+Approach+S12+Golf+GPS+Watch&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "gps-watch"
+      "icon": "gps-watch",
+      "image": "assets/photos/gps-watch-real.jpg"
     },
     {
       "id": "accessories-21-garmin",
@@ -593,7 +595,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Garmin+Approach+S70+Golf+GPS+Watch&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "gps-watch"
+      "icon": "gps-watch",
+      "image": "assets/photos/gps-watch-real.jpg"
     },
     {
       "id": "accessories-22-garmin",
@@ -605,7 +608,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Garmin+Approach+G12+Handheld+GPS&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "gps-watch"
+      "icon": "gps-watch",
+      "image": "assets/photos/gps-watch-real.jpg"
     },
     {
       "id": "accessories-23-bushnell",
@@ -617,7 +621,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Bushnell+Wingman+Mini+GPS+Speaker&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "sensor"
+      "icon": "sensor",
+      "image": "assets/photos/sensor-real.jpg"
     },
     {
       "id": "accessories-24-precision",
@@ -629,7 +634,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Precision+Pro+NX9+Laser+Rangefinder&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "rangefinder"
+      "icon": "rangefinder",
+      "image": "assets/photos/rangefinder-real.jpg"
     },
     {
       "id": "accessories-25-nikon",
@@ -641,7 +647,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nikon+Coolshot+Pro+II+Rangefinder&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "rangefinder"
+      "icon": "rangefinder",
+      "image": "assets/photos/rangefinder-real.jpg"
     },
     {
       "id": "accessories-26-callaway",
@@ -653,7 +660,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+300+Pro+Laser+Rangefinder&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "rangefinder"
+      "icon": "rangefinder",
+      "image": "assets/photos/rangefinder-real.jpg"
     },
     {
       "id": "accessories-27-callaway",
@@ -704,7 +712,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Arccos+Caddie+Smart+Golf+Sensors&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "sensor"
+      "icon": "sensor",
+      "image": "assets/photos/sensor-real.jpg"
     },
     {
       "id": "accessories-31-golf",
@@ -957,6 +966,32 @@
       "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+Women%27s+Golf+Shorts&tag=golfpriceai-21",
       "source": "amazon",
       "icon": "shorts"
+    },
+    {
+      "id": "sensor-new-shot",
+      "name": "Shot Scope H4 Smart Golf Sensors",
+      "category": "accessories",
+      "icon": "sensor",
+      "retailPrice": 199.99,
+      "salePrice": 154.99,
+      "savePct": 23,
+      "retailerCount": 3,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Shot+Scope+H4+Smart+Golf+Sensors&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "assets/photos/sensor-real.jpg"
+    },
+    {
+      "id": "sensor-new-garmin",
+      "name": "Garmin CT10 Club Tracking Sensors",
+      "category": "accessories",
+      "icon": "sensor",
+      "retailPrice": 219.99,
+      "salePrice": 174.99,
+      "savePct": 20,
+      "retailerCount": 3,
+      "affiliateUrl": "https://www.amazon.co.uk/s?k=Garmin+CT10+Club+Tracking+Sensors&tag=golfpriceai-21",
+      "source": "amazon",
+      "image": "assets/photos/sensor-real.jpg"
     }
   ],
   "trending": [
