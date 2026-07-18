@@ -3,6 +3,7 @@
 .hub-head p { color: var(--muted); margin: 0; max-width: 60ch; }
 
 .hub-grid {
+  scroll-margin-top: 100px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;

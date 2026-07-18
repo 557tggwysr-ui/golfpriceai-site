@@ -6,21 +6,21 @@ window.GOLFPRICE_GROUPS = {
       key: "gps-watch",
       label: "GPS Watches",
       blurb: "Distances, hazards, shot tracking — all on your wrist.",
-      image: "assets/photos/gps-watch-real.jpg",
+      image: "assets/photos/gps-watch-hub.png",
       types: ["gps-watch"]
     },
     {
       key: "rangefinder",
       label: "Rangefinders",
       blurb: "Lock on. Know more. Play with confidence.",
-      image: "assets/photos/rangefinder-real.jpg",
+      image: "assets/photos/rangefinder-hub.png",
       types: ["rangefinder"]
     },
     {
       key: "sensor",
       label: "Smart Sensors",
       blurb: "Data that drives real improvement.",
-      image: "assets/photos/sensor-real.jpg",
+      image: "assets/photos/sensor-hub.png",
       types: ["sensor"]
     },
     {
