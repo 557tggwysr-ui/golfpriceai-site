@@ -21,6 +21,34 @@ function badgeFor(savePct) {
   return { label: 'BEST PRICE', cls: '' };
 }
 
+// Backdrop photos matched to what the icon actually represents — reusing the
+// same verified photos already grouped by theme on the Apparel/Accessories
+// hub pages, so a GPS watch sits on an active-play shot, bag gear sits on a
+// bag photo, and course-essentials items sit on a green/putting shot.
+const ICON_BACKDROPS = {
+  'gps-watch': 'https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'rangefinder': 'https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'sensor': 'https://images.pexels.com/photos/9207654/pexels-photo-9207654.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'pushcart': 'https://images.pexels.com/photos/35320703/pexels-photo-35320703.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'headcover': 'https://images.pexels.com/photos/35320703/pexels-photo-35320703.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'umbrella': 'https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'accessories': 'https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'divot-tool': 'https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'alignment-sticks': 'https://images.pexels.com/photos/54122/pexels-photo-54122.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'polo': 'https://images.pexels.com/photos/8786045/pexels-photo-8786045.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'shorts': 'https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'trousers': 'https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'skort': 'https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'jacket': 'https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'hoodie': 'https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'base-layer': 'https://images.pexels.com/photos/6542400/pexels-photo-6542400.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'cap': 'https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'sunglasses': 'https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'belt': 'https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600',
+  'socks': 'https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600'
+};
+const DEFAULT_BACKDROP = 'https://images.pexels.com/photos/6542427/pexels-photo-6542427.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600';
+
 function thumbHTML(d) {
   if (d.image) {
     return `<img src="${d.image}" alt="${d.name}" loading="lazy">`;
@@ -31,12 +59,17 @@ function thumbHTML(d) {
 function thumbClass(d) {
   return d.image ? 'thumb' : 'thumb icon-thumb';
 }
+function thumbStyle(d) {
+  if (d.image) return '';
+  const backdrop = ICON_BACKDROPS[d.icon] || DEFAULT_BACKDROP;
+  return ` style="background-image:url('${backdrop}')"`;
+}
 
 function dealCardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
     <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
-      <div class="${thumbClass(d)}">
+      <div class="${thumbClass(d)}"${thumbStyle(d)}>
         <span class="badge ${badge.cls}">${badge.label}</span>
         ${thumbHTML(d)}
       </div>
@@ -59,7 +92,7 @@ function dealCardHTML(d) {
 function dropRowHTML(d) {
   return `
     <a class="drop-row" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
-      <div class="drop-thumb ${d.image ? '' : 'icon-thumb'}">${thumbHTML(d)}</div>
+      <div class="drop-thumb ${d.image ? '' : 'icon-thumb'}"${thumbStyle(d)}>${thumbHTML(d)}</div>
       <div class="info">
         <h4>${d.name}</h4>
         <span class="was">Was ${money(d.retailPrice)}</span>
