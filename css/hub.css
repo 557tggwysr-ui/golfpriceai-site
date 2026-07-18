@@ -1,0 +1,27 @@
+.hub-head { padding: 40px 0 24px; }
+.hub-head h1 { font-size: 30px; margin: 0 0 8px; }
+.hub-head p { color: var(--muted); margin: 0; max-width: 60ch; }
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  padding-bottom: 60px;
+}
+.hub-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease;
+}
+.hub-card:hover { transform: translateY(-3px); }
+.hub-card .hub-thumb { aspect-ratio: 16/10; background: #f1f2ef; overflow: hidden; }
+.hub-card .hub-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.hub-card .hub-body { padding: 18px 20px 22px; }
+.hub-card h3 { font-size: 17px; margin: 0 0 8px; }
+.hub-card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0 0 14px; }
+.hub-card .hub-link { font-size: 13px; font-weight: 600; color: var(--green); }
+
+@media (max-width: 900px) { .hub-grid { grid-template-columns: 1fr; } }

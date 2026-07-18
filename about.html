@@ -39,8 +39,14 @@
         <a href="shop.html?category=putter">Putters</a>
       </div>
     </div>
-    <a href="shop.html?category=apparel">Apparel</a>
-    <a href="shop.html?category=accessories">Accessories</a>
+    <div class="nav-item">
+      <a href="apparel.html">Apparel ▾</a>
+      <div class="dropdown" id="apparel-dropdown"></div>
+    </div>
+    <div class="nav-item">
+      <a href="accessories.html">Accessories ▾</a>
+      <div class="dropdown" id="accessories-dropdown"></div>
+    </div>
     <a href="trending.html">Trending</a>
     <a href="index.html#alerts">Alerts</a>
     <a href="about.html">About</a>
@@ -66,6 +72,8 @@
 </footer>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/groups-config.js"></script>
+<script src="js/hub.js"></script>
 <script src="js/cookie-consent.js"></script>
 </body>
 </html>

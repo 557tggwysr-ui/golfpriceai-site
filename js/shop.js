@@ -39,6 +39,7 @@ function cardHTML(d) {
 
 let ALL_PRODUCTS = [];
 let ACTIVE_CATEGORY = 'all';
+let ACTIVE_TYPES = null; // null = no type restriction; otherwise a Set of icon values
 
 function applyFilters() {
   const q = document.getElementById('shop-search-input').value.trim().toLowerCase();
@@ -47,8 +48,9 @@ function applyFilters() {
 
   const filtered = ALL_PRODUCTS.filter(p => {
     const matchesCategory = ACTIVE_CATEGORY === 'all' || p.category === ACTIVE_CATEGORY;
+    const matchesTypes = !ACTIVE_TYPES || ACTIVE_TYPES.has(p.icon);
     const matchesQuery = !q || p.name.toLowerCase().includes(q);
-    return matchesCategory && matchesQuery;
+    return matchesCategory && matchesTypes && matchesQuery;
   });
 
   grid.innerHTML = filtered.map(cardHTML).join('');
@@ -64,6 +66,7 @@ function renderFilterBar(categories) {
   bar.querySelectorAll('.filter-chip').forEach(btn => {
     btn.addEventListener('click', () => {
       ACTIVE_CATEGORY = btn.dataset.key;
+      ACTIVE_TYPES = null;
       bar.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       applyFilters();
@@ -80,6 +83,16 @@ fetch('data/products.json')
     const categoryParam = params.get('category');
     const validCategory = data.categories.some(c => c.key === categoryParam);
     if (categoryParam && validCategory) ACTIVE_CATEGORY = categoryParam;
+
+    const typesParam = params.get('types');
+    if (typesParam) ACTIVE_TYPES = new Set(typesParam.split(','));
+
+    const labelParam = params.get('label');
+    if (labelParam) {
+      const note = document.getElementById('group-note');
+      note.style.display = 'block';
+      note.innerHTML = `Showing: <strong>${labelParam}</strong> · <a href="shop.html?category=${encodeURIComponent(categoryParam || 'all')}" style="color:var(--green);font-weight:600;">clear filter ×</a>`;
+    }
 
     renderFilterBar(data.categories);
 
