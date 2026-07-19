@@ -8,8 +8,9 @@
   function setConsent(value) {
     try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
     hideBanner();
-    // Hook point: once you add Google Analytics / ad scripts, only load them
-    // here when value === 'accepted'. Nothing is loaded by this file itself.
+    if (value === 'accepted' && window.golfPriceLoadAnalytics) {
+      window.golfPriceLoadAnalytics();
+    }
   }
 
   function pathToRoot() {
@@ -55,7 +56,12 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    if (!getConsent()) showBanner();
+    var consent = getConsent();
+    if (!consent) {
+      showBanner();
+    } else if (consent === 'accepted' && window.golfPriceLoadAnalytics) {
+      window.golfPriceLoadAnalytics();
+    }
   });
 
   // Exposed so the "Manage cookie preferences" button on the Cookie Policy
