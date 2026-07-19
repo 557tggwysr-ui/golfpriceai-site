@@ -20,6 +20,35 @@
   .about-photo img { width: 100%; display: block; }
   .about-copy p { margin: 0 0 14px; }
   main.container { padding-bottom: 60px; }
+
+  .how-it-works {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    max-width: 900px; margin: 50px auto;
+  }
+  .how-it-works .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px 20px; text-align: center; box-shadow: var(--shadow);
+  }
+  .how-it-works .card .emoji { font-size: 28px; margin-bottom: 10px; }
+  .how-it-works .card h3 { font-size: 16px; margin: 0 0 8px; }
+  .how-it-works .card p { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.6; }
+
+  .about-section-block {
+    max-width: 640px; margin: 50px auto; text-align: center;
+  }
+  .about-section-block h2 { font-size: 20px; margin: 0 0 16px; }
+  .about-section-block p { font-size: 15px; line-height: 1.8; color: #303c33; margin: 0 0 14px; }
+
+  .about-signoff {
+    max-width: 640px; margin: 60px auto 20px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+  }
+  .about-signoff img { max-width: 220px; }
+  .about-signoff .quip {
+    background: var(--ink); color: #fff; border-radius: 999px;
+    padding: 12px 26px; font-weight: 700; font-size: 15px;
+  }
+  .about-signoff .quip span { color: var(--green); }
 </style>
 </head>
 <body>
@@ -70,6 +99,42 @@
     <p>GolfPrice AI was built to make buying golf gear simpler, smarter, and far less painful.</p>
     <p>We track prices, spot genuine bargains, and help golfers avoid spending driver money on what should've been a 7-iron purchase.</p>
     <p><strong>No hype. No fake discounts. Just better golf gear prices.</strong></p>
+  </div>
+
+  <div class="how-it-works">
+    <div class="card">
+      <div class="emoji">🔍</div>
+      <h3>We check, not guess</h3>
+      <p>Every price on this site is tracked against real retailers — not estimated, not made up.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">📉</div>
+      <h3>Real discounts only</h3>
+      <p>If something's flagged as a deal, the maths behind it is exactly what you see. No inflated "was" prices.</p>
+    </div>
+    <div class="card">
+      <div class="emoji">🚫</div>
+      <h3>Zero fake urgency</h3>
+      <p>No countdown timers. No "only 2 left!!". If it's a good deal, it doesn't need a fake clock to prove it.</p>
+    </div>
+  </div>
+
+  <div class="about-section-block">
+    <h2>How this actually started</h2>
+    <p>It began with a fairly ordinary frustration: trying to work out whether a driver "deal" was actually a deal, or just a normal price wearing a red sticker.</p>
+    <p>That meant five browser tabs, three retailer sites, and a Sunday afternoon that could've been spent, well, actually playing golf.</p>
+    <p>So GolfPrice AI does the boring bit — checking prices, constantly — so you don't have to lose an afternoon to a spreadsheet just to buy a wedge.</p>
+  </div>
+
+  <div class="about-section-block">
+    <h2>The honest bit</h2>
+    <p>GolfPrice AI is a small, independently-run project — not a giant retailer, not owned by any golf brand, and not backed by anyone with a vested interest in which driver you buy.</p>
+    <p>The catalog and retailer partnerships are growing every week. Some deals are still being tracked manually while that happens — but every single one is checked, not guessed.</p>
+  </div>
+
+  <div class="about-signoff">
+    <img src="assets/hero-golfer.png" alt="Illustration of a golfer mid-swing">
+    <div class="quip">Full Swing. <span>Not full price.</span></div>
   </div>
 </main>
 

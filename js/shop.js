@@ -76,6 +76,21 @@ function applyFilters() {
   empty.style.display = filtered.length ? 'none' : 'block';
 }
 
+function renderCategoryBanner() {
+  const el = document.getElementById('category-banner');
+  const data = window.GOLFPRICE_CATEGORY_BANNERS && window.GOLFPRICE_CATEGORY_BANNERS[ACTIVE_CATEGORY];
+  if (!data) {
+    el.innerHTML = '';
+    return;
+  }
+  el.innerHTML = `
+    <div class="theme-banner">
+      <h2>${data.icon} ${data.label}</h2>
+      <p>${data.blurb}</p>
+      <p class="tagline">${data.tagline} <span class="quip">${data.quip}</span></p>
+    </div>`;
+}
+
 function renderFilterBar(categories) {
   const bar = document.getElementById('filter-bar');
   const chips = [{ key: 'all', label: 'All' }, ...categories];
@@ -88,6 +103,7 @@ function renderFilterBar(categories) {
       ACTIVE_TYPES = null;
       bar.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      renderCategoryBanner();
       applyFilters();
     });
   });
@@ -115,6 +131,7 @@ fetch('data/products.json')
     }
 
     renderFilterBar(data.categories);
+    renderCategoryBanner();
 
     const q = params.get('q');
     if (q) document.getElementById('shop-search-input').value = q;

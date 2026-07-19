@@ -456,6 +456,18 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   padding: 20px 0 40px;
 }
 
+.theme-banner {
+  background: var(--ink);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 0 0 30px;
+}
+.theme-banner h2 { font-size: 22px; margin: 0 0 10px; color: #fff; }
+.theme-banner p { margin: 0 0 6px; color: #dbe3d7; font-size: 14px; max-width: 60ch; }
+.theme-banner .tagline { margin: 14px 0 18px; font-size: 15px; font-weight: 600; color: #fff; }
+.theme-banner .quip { font-weight: 400; color: #a6e08f; }
+
 /* Confession strip */
 .confession-strip {
   background: var(--ink);
