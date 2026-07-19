@@ -445,7 +445,8 @@
       "retailerCount": 5,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Under+Armour+Performance+Golf+Polo&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "polo"
+      "icon": "polo",
+      "image": "assets/photos/polo-white-swing.jpg"
     },
     {
       "id": "apparel-2-nike",
@@ -457,7 +458,8 @@
       "retailerCount": 6,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Dri-FIT+Victory+Golf+Polo&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "polo"
+      "icon": "polo",
+      "image": "assets/photos/polo-green-smile.jpg"
     },
     {
       "id": "apparel-3-adidas",
@@ -481,7 +483,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+HydroLite+Rain+Jacket&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "jacket"
+      "icon": "jacket",
+      "image": "assets/photos/jacket-grey-darksleeve.jpg"
     },
     {
       "id": "shoes-1-footjoy",
@@ -550,7 +553,8 @@
       "retailerCount": 6,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+WeatherSof+Golf+Glove&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "accessories"
+      "icon": "accessories",
+      "image": "assets/photos/glove-pair-ongrass.jpg"
     },
     {
       "id": "accessories-3-sun",
@@ -562,7 +566,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Sun+Mountain+Micro-Cart+GX+Push+Cart&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "pushcart"
+      "icon": "pushcart",
+      "image": "assets/photos/pushcart-loaded.jpg"
     },
     {
       "id": "accessories-4-titleist",
@@ -574,7 +579,8 @@
       "retailerCount": 4,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+Players+Golf+Umbrella&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "umbrella"
+      "icon": "umbrella",
+      "image": "assets/photos/umbrella-open-oncart.jpg"
     },
     {
       "id": "accessories-20-garmin",
@@ -678,7 +684,7 @@
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Premium+Leather+Headcover+Set+%283pc%29&tag=golfpriceai-21",
       "source": "amazon",
       "icon": "headcover",
-      "image": "https://images.pexels.com/photos/15376335/pexels-photo-15376335.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "image": "assets/photos/headcover-inbag.jpg"
     },
     {
       "id": "accessories-28-taylormade",
@@ -691,7 +697,7 @@
       "affiliateUrl": "https://www.amazon.co.uk/s?k=TaylorMade+Cart+Headcover+Set+%283pc%29&tag=golfpriceai-21",
       "source": "amazon",
       "icon": "headcover",
-      "image": "https://images.pexels.com/photos/15376335/pexels-photo-15376335.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "image": "assets/photos/headcover-ongrass.jpg"
     },
     {
       "id": "accessories-29-scotty",
@@ -704,7 +710,7 @@
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Scotty+Cameron+Leather+Putter+Headcover&tag=golfpriceai-21",
       "source": "amazon",
       "icon": "headcover",
-      "image": "https://images.pexels.com/photos/15376335/pexels-photo-15376335.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "image": "assets/photos/headcover-ongrass.jpg"
     },
     {
       "id": "accessories-30-arccos",
@@ -729,7 +735,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Golf+Alignment+Sticks+%28Pair%29&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "alignment-sticks"
+      "icon": "alignment-sticks",
+      "image": "assets/photos/sticks-crossed-ongrass.jpg"
     },
     {
       "id": "accessories-32-divot",
@@ -741,7 +748,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Divot+Tool+%26+Ball+Marker+Gift+Set&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "divot-tool"
+      "icon": "divot-tool",
+      "image": "assets/photos/divottool-plusball-ongrass.jpg"
     },
     {
       "id": "accessories-33-motocaddy",
@@ -753,7 +761,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Motocaddy+Electric+Trolley+Battery+Pack&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "pushcart"
+      "icon": "pushcart",
+      "image": "assets/photos/umbrella-closed-oncart.jpg"
     },
     {
       "id": "apparel-20-nike",
@@ -837,7 +846,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Golf+T-Shirt&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "polo"
+      "icon": "polo",
+      "image": "assets/photos/polo-white-swing.jpg"
     },
     {
       "id": "apparel-27-under",
@@ -897,7 +907,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Under+Armour+ColdGear+Golf+Base+Layer&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "base-layer"
+      "icon": "base-layer",
+      "image": "assets/photos/jacket-lightgrey-bunker.jpg"
     },
     {
       "id": "apparel-32-adidas",
@@ -909,7 +920,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Golf+Hoodie&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "hoodie"
+      "icon": "hoodie",
+      "image": "assets/photos/midlayer-green-quarterzip.jpg"
     },
     {
       "id": "apparel-33-puma",
@@ -921,7 +933,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Puma+Golf+Hoodie&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "hoodie"
+      "icon": "hoodie",
+      "image": "assets/photos/midlayer-dark-quarterzip.jpg"
     },
     {
       "id": "apparel-34-ping",
@@ -933,7 +946,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Ping+Sensorwarm+Weatherproof+Jacket&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "jacket"
+      "icon": "jacket",
+      "image": "assets/photos/midlayer-dark-quarterzip.jpg"
     },
     {
       "id": "apparel-35-j.lindeberg",
@@ -957,7 +971,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Peter+Millar+Performance+Polo&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "polo"
+      "icon": "polo",
+      "image": "assets/photos/polo-navy-walk.jpg"
     },
     {
       "id": "apparel-37-footjoy",
