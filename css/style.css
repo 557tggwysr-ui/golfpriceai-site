@@ -168,8 +168,19 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 
 @media (max-width: 860px) {
-  .site-header { position: relative; flex-wrap: wrap; }
-  .nav-toggle { display: block; }
+  .site-header { position: relative; flex-wrap: wrap; gap: 10px 8px; }
+  .nav-toggle { display: block; order: 2; }
+  .site-header .btn-primary {
+    order: 1;
+    margin-left: auto;
+    padding: 8px 10px;
+    font-size: 0;
+    gap: 0;
+  }
+  .site-header .btn-primary::before {
+    content: "🔔";
+    font-size: 18px;
+  }
   .main-nav {
     display: none;
     width: 100%;
