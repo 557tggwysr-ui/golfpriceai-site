@@ -2,6 +2,13 @@
 // is selected — matches the dark "Apparel" banner style. Each entry needs
 // copy that's genuinely specific to that product type, not generic filler.
 window.GOLFPRICE_CATEGORY_BANNERS = {
+  all: {
+    label: "Shop All Deals",
+    blurb: "Every club, bag, and accessory we track, in one place. New items are added automatically as more retailers come online.",
+    tagline: "One Search.",
+    quip: "Zero Guesswork.",
+    icon: "🛒"
+  },
   driver: {
     label: "Drivers",
     blurb: "The club that promises 280 yards and occasionally delivers 180, sideways.",
