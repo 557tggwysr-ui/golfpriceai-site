@@ -6,42 +6,42 @@ window.GOLFPRICE_GROUPS = {
       key: "gps-watch",
       label: "GPS Watches",
       blurb: "Distances, hazards, shot tracking — all on your wrist.",
-      image: "assets/photos/gps-watch-hub.png",
+      image: "assets/photos/gps-watch-hub.jpg",
       types: ["gps-watch"]
     },
     {
       key: "rangefinder",
       label: "Rangefinders",
       blurb: "Lock on. Know more. Play with confidence.",
-      image: "assets/photos/rangefinder-hub.png",
+      image: "assets/photos/rangefinder-hub.jpg",
       types: ["rangefinder"]
     },
     {
       key: "sensor",
       label: "Smart Sensors",
       blurb: "Data that drives real improvement.",
-      image: "assets/photos/sensor-hub.png",
+      image: "assets/photos/sensor-hub.jpg",
       types: ["sensor"]
     },
     {
       key: "pushcart",
       label: "Push Carts",
       blurb: "Lightweight, stable, built for every round.",
-      image: "assets/photos/pushcart.png",
+      image: "assets/photos/pushcart.jpg",
       types: ["pushcart"]
     },
     {
       key: "headcover",
       label: "Headcovers",
       blurb: "Protect your clubs, show your style.",
-      image: "assets/photos/headcover.png",
+      image: "assets/photos/headcover.jpg",
       types: ["headcover"]
     },
     {
       key: "essentials",
       label: "Umbrellas, Gloves & Tools",
       blurb: "Small gear, big difference — umbrellas, gloves, divot tools and alignment sticks.",
-      image: "assets/photos/umbrella-combo.png",
+      image: "assets/photos/umbrella-combo.jpg",
       types: ["umbrella", "accessories", "divot-tool", "alignment-sticks"]
     }
   ],
