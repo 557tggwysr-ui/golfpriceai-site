@@ -471,7 +471,8 @@
       "retailerCount": 4,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Ultimate365+Golf+Trousers&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "trousers"
+      "icon": "trousers",
+      "image": "assets/photos/trousers-cream.jpg"
     },
     {
       "id": "apparel-4-footjoy",
@@ -774,7 +775,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Golf+Cap+%28Adjustable%29&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "cap"
+      "icon": "cap",
+      "image": "assets/photos/cap-white-male.jpg"
     },
     {
       "id": "apparel-21-adidas",
@@ -786,7 +788,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Performance+Golf+Cap&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "cap"
+      "icon": "cap",
+      "image": "assets/photos/cap-white-female.jpg"
     },
     {
       "id": "apparel-22-travismathew",
@@ -798,7 +801,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=TravisMathew+Bucket+Hat&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "cap"
+      "icon": "cap",
+      "image": "assets/photos/buckethat-white-male.jpg"
     },
     {
       "id": "apparel-23-nike",
@@ -810,7 +814,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Women%27s+Dri-FIT+Golf+Polo&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "polo"
+      "icon": "polo",
+      "image": "assets/photos/polo-mint-female.jpg"
     },
     {
       "id": "apparel-24-adidas",
@@ -822,7 +827,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Women%27s+Ultimate365+Golf+Skort&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "skort"
+      "icon": "skort",
+      "image": "assets/photos/skort-white-glove.jpg"
     },
     {
       "id": "apparel-25-callaway",
@@ -834,7 +840,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Men%27s+Golf+Shorts&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "shorts"
+      "icon": "shorts",
+      "image": "assets/photos/shorts-cream-belt.jpg"
     },
     {
       "id": "apparel-26-nike",
@@ -859,7 +866,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Under+Armour+Golf+Trousers&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "trousers"
+      "icon": "trousers",
+      "image": "assets/photos/trousers-navy.jpg"
     },
     {
       "id": "apparel-28-titleist",
@@ -959,7 +967,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=J.Lindeberg+Golf+Trousers&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "trousers"
+      "icon": "trousers",
+      "image": "assets/photos/trousers-grey.jpg"
     },
     {
       "id": "apparel-36-peter",
@@ -984,7 +993,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+Women%27s+Golf+Shorts&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "shorts"
+      "icon": "shorts",
+      "image": null
     },
     {
       "id": "sensor-new-shot",

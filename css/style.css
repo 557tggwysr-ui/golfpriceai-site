@@ -538,6 +538,25 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 .about-copy p { margin: 0 0 14px; }
 
+.about-action-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 720px;
+  margin: 32px auto 0;
+}
+.about-action-photos img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+@media (max-width: 700px) {
+  .about-action-photos { grid-template-columns: 1fr; }
+  .about-action-photos img { height: 220px; }
+}
+
 footer {
   border-top: 1px solid var(--border);
   padding: 24px 0 40px;
