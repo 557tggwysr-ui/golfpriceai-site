@@ -249,7 +249,8 @@
       "retailerCount": 4,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Cleveland+RTX+ZipCore+Wedge&tag=golfpriceai-21",
       "source": "amazon",
-      "image": "https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "icon": "wedge",
+      "image": "assets/photos/wedge-real.jpg"
     },
     {
       "id": "wedge-2-titleist",
@@ -261,7 +262,8 @@
       "retailerCount": 5,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+Vokey+SM9+Wedge&tag=golfpriceai-21",
       "source": "amazon",
-      "image": "https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "icon": "wedge",
+      "image": "assets/photos/wedge-real.jpg"
     },
     {
       "id": "wedge-3-callaway",
@@ -273,7 +275,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Callaway+Jaws+Raw+Wedge&tag=golfpriceai-21",
       "source": "amazon",
-      "image": "https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "icon": "wedge",
+      "image": "assets/photos/wedge-real.jpg"
     },
     {
       "id": "wedge-4-ping",
@@ -285,7 +288,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Ping+Glide+4.0+Wedge&tag=golfpriceai-21",
       "source": "amazon",
-      "image": "https://images.pexels.com/photos/9366508/pexels-photo-9366508.jpeg?auto=compress&cs=tinysrgb&h=627&fit=crop&w=1200"
+      "icon": "wedge",
+      "image": "assets/photos/wedge-real.jpg"
     },
     {
       "id": "putter-1-scotty",
