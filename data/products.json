@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-20T17:07:53.634312+00:00",
+  "lastUpdated": "2026-07-17T12:00:00Z",
   "categories": [
     {
       "key": "driver",
@@ -496,7 +496,8 @@
       "savePct": 25,
       "retailerCount": 4,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+Pro+SL+Golf+Shoes&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "image": "assets/photos/shoes-white-pair.jpg"
     },
     {
       "id": "shoes-2-adidas",
@@ -507,7 +508,8 @@
       "savePct": 24,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Adidas+Tour360+22+Golf+Shoes&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "image": "assets/photos/shoes-white-pair.jpg"
     },
     {
       "id": "shoes-3-nike",
@@ -518,7 +520,8 @@
       "savePct": 22,
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Air+Zoom+Victory+Tour+Golf+Shoes&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "image": "assets/photos/shoes-white-pair.jpg"
     },
     {
       "id": "shoes-4-ecco",
@@ -529,7 +532,8 @@
       "savePct": 21,
       "retailerCount": 4,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Ecco+Biom+C4+Golf+Shoes&tag=golfpriceai-21",
-      "source": "amazon"
+      "source": "amazon",
+      "image": "assets/photos/shoes-white-pair.jpg"
     },
     {
       "id": "accessories-1-bushnell",
@@ -879,7 +883,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Titleist+Leather+Golf+Belt&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "belt"
+      "icon": "belt",
+      "image": "assets/photos/belt-tan-leather.jpg"
     },
     {
       "id": "apparel-29-nike",
@@ -891,7 +896,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Nike+Golf+Socks+%283-Pack%29&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "socks"
+      "icon": "socks",
+      "image": "assets/photos/socks-white-crew.jpg"
     },
     {
       "id": "apparel-30-oakley",
@@ -903,7 +909,8 @@
       "retailerCount": 3,
       "affiliateUrl": "https://www.amazon.co.uk/s?k=Oakley+Golf+Sunglasses&tag=golfpriceai-21",
       "source": "amazon",
-      "icon": "sunglasses"
+      "icon": "sunglasses",
+      "image": "assets/photos/sunglasses-onface.jpg"
     },
     {
       "id": "apparel-31-under",
@@ -994,7 +1001,7 @@
       "affiliateUrl": "https://www.amazon.co.uk/s?k=FootJoy+Women%27s+Golf+Shorts&tag=golfpriceai-21",
       "source": "amazon",
       "icon": "shorts",
-      "image": null
+      "image": "assets/photos/shorts-female-white.jpg"
     },
     {
       "id": "sensor-new-shot",
