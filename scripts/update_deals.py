@@ -202,7 +202,11 @@ def fetch_awin_clickgolf_deals():
                 return None
 
         sp = to_float("store_price")
-        sale_price = sp if sp is not None else to_float("display_price")
+        if sp is None:
+            sp = to_float("display_price")
+        if sp is None:
+            sp = to_float("search_price")
+        sale_price = sp
         if sale_price is None:
             skipped_no_price += 1
             continue
