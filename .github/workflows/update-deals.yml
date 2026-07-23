@@ -2,8 +2,9 @@ name: Update golf deals
 
 on:
   schedule:
+    # Runs every 6 hours. Change the cron expression to adjust frequency.
     - cron: '0 */6 * * *'
-  workflow_dispatch: {}
+  workflow_dispatch: {}  # lets you also trigger it manually from the GitHub Actions tab
 
 jobs:
   update:
@@ -24,6 +25,7 @@ jobs:
           AWIN_API_TOKEN: ${{ secrets.AWIN_API_TOKEN }}
           AWIN_PUBLISHER_ID: ${{ secrets.AWIN_PUBLISHER_ID }}
           AWIN_ADVERTISER_ID: ${{ secrets.AWIN_ADVERTISER_ID }}
+          AWIN_CLICKGOLF_FEED_URL: ${{ secrets.AWIN_CLICKGOLF_FEED_URL }}
         run: python scripts/update_deals.py
 
       - name: Commit updated catalog
