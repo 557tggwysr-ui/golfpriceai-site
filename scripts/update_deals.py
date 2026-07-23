@@ -162,33 +162,54 @@ def fetch_awin_clickgolf_deals():
     except OSError:
         pass  # feed wasn't actually gzipped — use as-is
 
-    text = raw.decode("utf-8", errors="replace")
+    # utf-8-sig strips a leading byte-order-mark if present — AWIN feeds
+    # sometimes include one, which otherwise silently corrupts the very
+    # first column name (e.g. "aw_deep_link" becomes "\ufeffaw_deep_link")
+    # and makes every row.get("aw_deep_link") return None.
+    text = raw.decode("utf-8-sig", errors="replace")
     reader = csv.DictReader(io.StringIO(text))
 
+    print(f"Clickgolf feed: columns found = {reader.fieldnames}")
+
     products = []
+    total_rows = 0
+    skipped_no_name = 0
+    skipped_out_of_stock = 0
+    skipped_no_price = 0
+    skipped_no_link = 0
+
     for row in reader:
+        total_rows += 1
         name = (row.get("product_name") or "").strip()
         if not name:
+            skipped_no_name += 1
             continue
 
         # Skip anything explicitly marked out of stock rather than showing
         # a "deal" nobody can actually buy.
         in_stock = (row.get("in_stock") or "").strip().lower()
         if in_stock in ("0", "false", "no"):
+            skipped_out_of_stock += 1
             continue
 
         def to_float(key):
             val = (row.get(key) or "").strip()
+            if not val:
+                return None
             try:
                 return float(val)
             except ValueError:
                 return None
 
-        sale_price = to_float("store_price") or to_float("display_price")
-        if not sale_price:
-            continue  # no usable price — skip rather than guess
+        sp = to_float("store_price")
+        sale_price = sp if sp is not None else to_float("display_price")
+        if sale_price is None:
+            skipped_no_price += 1
+            continue
 
-        old_price = to_float("rrp_price") or to_float("product_price_old")
+        old_price = to_float("rrp_price")
+        if old_price is None:
+            old_price = to_float("product_price_old")
         save_pct_raw = to_float("savings_percent")
 
         if old_price and old_price > sale_price:
@@ -205,7 +226,8 @@ def fetch_awin_clickgolf_deals():
 
         affiliate_url = (row.get("aw_deep_link") or row.get("merchant_deep_link") or "").strip()
         if not affiliate_url:
-            continue  # unusable without a working link
+            skipped_no_link += 1
+            continue
 
         image = (row.get("merchant_image_url") or "").strip()
         category = guess_category(row.get("category_name"), row.get("merchant_category"), name)
@@ -226,7 +248,11 @@ def fetch_awin_clickgolf_deals():
             product["image"] = image
         products.append(product)
 
-    print(f"Clickgolf feed: parsed {len(products)} usable, in-stock products.")
+    print(
+        f"Clickgolf feed: {total_rows} rows read, {len(products)} usable. "
+        f"Skipped — no name: {skipped_no_name}, out of stock: {skipped_out_of_stock}, "
+        f"no price: {skipped_no_price}, no link: {skipped_no_link}."
+    )
     return products
 
 
