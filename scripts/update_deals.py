@@ -133,13 +133,21 @@ GENERAL_KEYWORDS = [
 
 
 def guess_category(category_name, merchant_category, name):
-    """Category guess that trusts the retailer's own taxonomy fields first
-    (category_name / merchant_category) — checked against the FULL keyword
-    list, including club shapes. Only falls back to the free-text product
-    name when no taxonomy text is available at all, and even then only
-    matches the safe GENERAL_KEYWORDS — never club-shape words — since
-    those collide with apparel/accessory marketing names (e.g. a cap called
-    "Driver Mesh Cap" is not a golf club)."""
+    """Category guess in priority order:
+
+    1. Retailer's own taxonomy text (category_name / merchant_category),
+       checked against the full keyword list including club shapes — this
+       is the most trustworthy source when present.
+    2. The product name, checked against GENERAL_KEYWORDS (apparel/
+       accessory nouns) FIRST — if the name contains an unambiguous apparel
+       word like "cap" or "polo", that wins outright, even if a club-shape
+       word like "driver" also appears (e.g. "Driver Mesh Cap" is apparel,
+       not a club).
+    3. Only if no apparel/accessory noun was found in the name does it then
+       check the name against CLUB_SHAPE_KEYWORDS — by this point "driver"
+       etc. is very unlikely to be a stray marketing term, so it's safe to
+       trust as a real club.
+    """
     cat_text = " ".join(f for f in (category_name, merchant_category) if f).lower()
     if cat_text:
         for keyword, category in CLUB_SHAPE_KEYWORDS + GENERAL_KEYWORDS:
@@ -148,6 +156,9 @@ def guess_category(category_name, merchant_category, name):
 
     name_text = (name or "").lower()
     for keyword, category in GENERAL_KEYWORDS:
+        if keyword in name_text:
+            return category
+    for keyword, category in CLUB_SHAPE_KEYWORDS:
         if keyword in name_text:
             return category
 
