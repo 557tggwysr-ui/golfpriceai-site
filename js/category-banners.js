@@ -35,7 +35,8 @@ window.GOLFPRICE_CATEGORY_BANNERS = {
     blurb: "Precision, control, and the club most likely to end up in a lake.",
     tagline: "Aim Small.",
     quip: "Miss Small-ish.",
-    icon: "🎯"
+    icon: "🎯",
+    retailer: { name: "Clickgolf", url: "https://www.awin1.com/cread.php?s=399407&v=2849&q=188421&r=2990893" }
   },
   wedge: {
     label: "Wedges",
@@ -63,14 +64,16 @@ window.GOLFPRICE_CATEGORY_BANNERS = {
     blurb: "For carrying 14 clubs, 3 you actually use, and one broken tee.",
     tagline: "Carry Everything.",
     quip: "Use Half Of It.",
-    icon: "🎒"
+    icon: "🎒",
+    retailer: { name: "Clickgolf", url: "https://www.awin1.com/cread.php?s=399401&v=2849&q=188421&r=2990893" }
   },
   shoes: {
     label: "Golf Shoes",
     blurb: "Keeps your feet planted, even when your swing plan is not.",
     tagline: "Stay Grounded.",
     quip: "Unlike Your Drive.",
-    icon: "👟"
+    icon: "👟",
+    retailer: { name: "Clickgolf", url: "https://www.awin1.com/cread.php?s=299717&v=2849&q=118143&r=2990893" }
   },
   accessories: {
     label: "Accessories",

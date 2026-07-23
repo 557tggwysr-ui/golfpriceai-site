@@ -83,11 +83,15 @@ function renderCategoryBanner() {
     el.innerHTML = '';
     return;
   }
+  const retailerBtn = data.retailer
+    ? `<a href="${data.retailer.url}" class="btn btn-outline" rel="sponsored noopener" target="_blank">Also shop ${data.label} at ${data.retailer.name} ↗</a>`
+    : '';
   el.innerHTML = `
     <div class="theme-banner">
       <h2>${data.icon} ${data.label}</h2>
       <p>${data.blurb}</p>
       <p class="tagline">${data.tagline} <span class="quip">${data.quip}</span></p>
+      ${retailerBtn}
     </div>`;
 }
 
