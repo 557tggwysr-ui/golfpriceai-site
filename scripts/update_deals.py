@@ -140,7 +140,10 @@ GENERAL_KEYWORDS = [
     ("headcover", "accessories"),
     ("pullover", "apparel"), ("gilet", "apparel"), ("vest", "apparel"),
     ("quarterzip", "apparel"), ("quarter-zip", "apparel"), ("quarter zip", "apparel"),
+    ("1/4 zip", "apparel"), ("1/2 zip", "apparel"),
     ("midlayer", "apparel"), ("mid-layer", "apparel"), ("mid layer", "apparel"),
+    ("sweater", "apparel"), ("shirt", "apparel"), ("zip top", "apparel"),
+    ("golf top", "apparel"),
 ]
 
 
@@ -189,7 +192,7 @@ def guess_category(category_name, merchant_category, name):
 # correctly categorized but invisible on every hub sub-page, since those
 # pages filter by icon, not just by the broad category.
 ICON_KEYWORDS = [
-    ("polo", "polo"),
+    ("polo", "polo"), ("shirt", "polo"),
     ("trouser", "trousers"), ("pant", "trousers"),
     ("skort", "skort"),
     ("short", "shorts"),
@@ -197,6 +200,8 @@ ICON_KEYWORDS = [
     ("hoodie", "hoodie"),
     ("pullover", "jacket"), ("gilet", "jacket"), ("vest", "jacket"),
     ("quarterzip", "jacket"), ("quarter-zip", "jacket"), ("quarter zip", "jacket"),
+    ("1/4 zip", "jacket"), ("1/2 zip", "jacket"), ("sweater", "jacket"), ("zip top", "jacket"),
+    ("golf top", "jacket"),
     ("midlayer", "jacket"), ("mid-layer", "jacket"), ("mid layer", "jacket"),
     ("base layer", "base-layer"), ("baselayer", "base-layer"), ("thermal", "base-layer"),
     ("cap", "cap"), ("visor", "cap"), ("hat", "cap"),
