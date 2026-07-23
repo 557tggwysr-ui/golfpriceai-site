@@ -103,13 +103,24 @@ def slugify(name):
     return s[:60]
 
 
-# Rough keyword → internal category mapping for whatever category string
-# the AWIN feed sends back (merchant/category naming varies a lot between
-# retailers, so this errs on the side of simple substring matching).
-CATEGORY_KEYWORDS = [
+# Keyword → internal category mapping for whatever category string the AWIN
+# feed sends back. Split into two groups on purpose:
+#
+# CLUB_SHAPE_KEYWORDS are words like "driver", "wood", "iron" — these are
+# also common marketing/style names retailers slap on apparel and
+# accessories (e.g. "Driver Mesh Cap", "Iron Grip Glove"), so they're only
+# trusted against real category taxonomy text (category_name /
+# merchant_category), never against the free-text product name.
+#
+# GENERAL_KEYWORDS are safe to check against the product name too, since
+# they're unlikely to appear as a stray marketing term for something else.
+CLUB_SHAPE_KEYWORDS = [
     ("putter", "putter"), ("driver", "driver"), ("hybrid", "hybrid"),
     ("fairway", "wood"), ("wood", "wood"), ("wedge", "wedge"),
-    ("iron", "irons"), ("ball", "ball"), ("bag", "bag"),
+    ("iron", "irons"),
+]
+GENERAL_KEYWORDS = [
+    ("ball", "ball"), ("bag", "bag"),
     ("shoe", "shoes"), ("trouser", "apparel"), ("short", "apparel"),
     ("skort", "apparel"), ("polo", "apparel"), ("jacket", "apparel"),
     ("hoodie", "apparel"), ("cap", "apparel"), ("hat", "apparel"),
@@ -121,13 +132,25 @@ CATEGORY_KEYWORDS = [
 ]
 
 
-def guess_category(*fields):
-    """Best-effort category guess from whatever category/name text the feed
-    provides, checked in order until something matches."""
-    text = " ".join(f for f in fields if f).lower()
-    for keyword, category in CATEGORY_KEYWORDS:
-        if keyword in text:
+def guess_category(category_name, merchant_category, name):
+    """Category guess that trusts the retailer's own taxonomy fields first
+    (category_name / merchant_category) — checked against the FULL keyword
+    list, including club shapes. Only falls back to the free-text product
+    name when no taxonomy text is available at all, and even then only
+    matches the safe GENERAL_KEYWORDS — never club-shape words — since
+    those collide with apparel/accessory marketing names (e.g. a cap called
+    "Driver Mesh Cap" is not a golf club)."""
+    cat_text = " ".join(f for f in (category_name, merchant_category) if f).lower()
+    if cat_text:
+        for keyword, category in CLUB_SHAPE_KEYWORDS + GENERAL_KEYWORDS:
+            if keyword in cat_text:
+                return category
+
+    name_text = (name or "").lower()
+    for keyword, category in GENERAL_KEYWORDS:
+        if keyword in name_text:
             return category
+
     return "accessories"
 
 
@@ -252,11 +275,16 @@ def fetch_awin_clickgolf_deals():
             product["image"] = image
         products.append(product)
 
+    category_counts = {}
+    for p in products:
+        category_counts[p["category"]] = category_counts.get(p["category"], 0) + 1
+
     print(
         f"Clickgolf feed: {total_rows} rows read, {len(products)} usable. "
         f"Skipped — no name: {skipped_no_name}, out of stock: {skipped_out_of_stock}, "
         f"no price: {skipped_no_price}, no link: {skipped_no_link}."
     )
+    print(f"Clickgolf feed: category breakdown = {category_counts}")
     return products
 
 
