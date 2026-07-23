@@ -33,20 +33,29 @@ CURRENT STATUS (as of last update)
   regardless; this script doesn't touch them.
 - CJ Affiliate: credentials are set, but no advertiser joined yet — returns
   nothing until that changes.
-- AWIN: credentials are set, applications pending approval — returns
-  nothing until an AWIN_ADVERTISER_ID secret is added for an approved
-  retailer.
+- AWIN (Clickgolf): LIVE — pulls real prices, stock status, and images
+  every run from the Create-a-Feed URL stored in the AWIN_CLICKGOLF_FEED_URL
+  repo secret. A product only gets a "was" price and a save % if the feed
+  itself reports a genuine discount — nothing is invented.
+- AWIN (other retailers): credentials are set, applications pending —
+  returns nothing until an AWIN_ADVERTISER_ID secret is added for another
+  approved retailer.
 
 SETUP YOU NEED TO DO ONCE MORE THINGS ARE APPROVED (see README.md):
-1. Once a CJ advertiser is joined, or an AWIN application is approved,
+1. Once a CJ advertiser is joined, or another AWIN retailer is approved,
    come back to a Claude chat and the matching fetch_* function below gets
    finished off in a few minutes using the real API/feed docs.
 2. Nothing else changes — this script already knows how to merge whatever
    it finds into the live catalog.
 """
 
+import csv
+import gzip
+import io
 import json
 import os
+import re
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote_plus
@@ -88,12 +97,147 @@ def fetch_cj_deals():
     return []
 
 
+def slugify(name):
+    """Turns a product name into a stable, URL-safe id fragment."""
+    s = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    return s[:60]
+
+
+# Rough keyword → internal category mapping for whatever category string
+# the AWIN feed sends back (merchant/category naming varies a lot between
+# retailers, so this errs on the side of simple substring matching).
+CATEGORY_KEYWORDS = [
+    ("putter", "putter"), ("driver", "driver"), ("hybrid", "hybrid"),
+    ("fairway", "wood"), ("wood", "wood"), ("wedge", "wedge"),
+    ("iron", "irons"), ("ball", "ball"), ("bag", "bag"),
+    ("shoe", "shoes"), ("trouser", "apparel"), ("short", "apparel"),
+    ("skort", "apparel"), ("polo", "apparel"), ("jacket", "apparel"),
+    ("hoodie", "apparel"), ("cap", "apparel"), ("hat", "apparel"),
+    ("glove", "accessories"), ("sock", "apparel"), ("belt", "apparel"),
+    ("sunglass", "apparel"), ("rangefinder", "accessories"),
+    ("gps", "accessories"), ("watch", "accessories"),
+    ("cart", "accessories"), ("umbrella", "accessories"),
+    ("headcover", "accessories"),
+]
+
+
+def guess_category(*fields):
+    """Best-effort category guess from whatever category/name text the feed
+    provides, checked in order until something matches."""
+    text = " ".join(f for f in fields if f).lower()
+    for keyword, category in CATEGORY_KEYWORDS:
+        if keyword in text:
+            return category
+    return "accessories"
+
+
+def fetch_awin_clickgolf_deals():
+    """Pull real, live products + prices from the Clickgolf AWIN datafeed.
+
+    Needs AWIN_CLICKGOLF_FEED_URL as a repo secret — the manual download URL
+    generated in Awin's Toolbox > Create-a-Feed (CSV, gzip, comma-delimited),
+    configured with these columns: aw_deep_link, product_name, aw_product_id,
+    merchant_product_id, merchant_image_url, description, merchant_category,
+    search_price, store_price, merchant_deep_link, last_updated,
+    display_price, category_name, brand_name, rrp_price, savings_percent,
+    product_price_old, in_stock.
+
+    A genuine "deal" only counts here if the feed itself reports a real
+    saving (rrp_price/product_price_old higher than the current price) —
+    nothing is invented or estimated.
+    """
+    feed_url = os.environ.get("AWIN_CLICKGOLF_FEED_URL")
+    if not feed_url:
+        return []
+
+    try:
+        with urllib.request.urlopen(feed_url, timeout=60) as resp:
+            raw = resp.read()
+    except Exception as exc:
+        print(f"Clickgolf feed download failed, leaving catalog untouched: {exc}")
+        return []
+
+    try:
+        raw = gzip.decompress(raw)
+    except OSError:
+        pass  # feed wasn't actually gzipped — use as-is
+
+    text = raw.decode("utf-8", errors="replace")
+    reader = csv.DictReader(io.StringIO(text))
+
+    products = []
+    for row in reader:
+        name = (row.get("product_name") or "").strip()
+        if not name:
+            continue
+
+        # Skip anything explicitly marked out of stock rather than showing
+        # a "deal" nobody can actually buy.
+        in_stock = (row.get("in_stock") or "").strip().lower()
+        if in_stock in ("0", "false", "no"):
+            continue
+
+        def to_float(key):
+            val = (row.get(key) or "").strip()
+            try:
+                return float(val)
+            except ValueError:
+                return None
+
+        sale_price = to_float("store_price") or to_float("display_price")
+        if not sale_price:
+            continue  # no usable price — skip rather than guess
+
+        old_price = to_float("rrp_price") or to_float("product_price_old")
+        save_pct_raw = to_float("savings_percent")
+
+        if old_price and old_price > sale_price:
+            retail_price = old_price
+            save_pct = round((1 - sale_price / retail_price) * 100)
+        elif save_pct_raw and save_pct_raw > 0:
+            retail_price = round(sale_price / (1 - save_pct_raw / 100), 2)
+            save_pct = round(save_pct_raw)
+        else:
+            # No genuine discount reported by the feed — list at face value,
+            # no invented "was" price.
+            retail_price = sale_price
+            save_pct = 0
+
+        affiliate_url = (row.get("aw_deep_link") or row.get("merchant_deep_link") or "").strip()
+        if not affiliate_url:
+            continue  # unusable without a working link
+
+        image = (row.get("merchant_image_url") or "").strip()
+        category = guess_category(row.get("category_name"), row.get("merchant_category"), name)
+        product_id = f"{category}-{slugify(name)}-clickgolf"
+
+        product = {
+            "id": product_id,
+            "name": name,
+            "category": category,
+            "retailPrice": retail_price,
+            "salePrice": sale_price,
+            "savePct": max(save_pct, 0),
+            "retailerCount": 1,
+            "affiliateUrl": affiliate_url,
+            "source": "awin-clickgolf",
+        }
+        if image:
+            product["image"] = image
+        products.append(product)
+
+    print(f"Clickgolf feed: parsed {len(products)} usable, in-stock products.")
+    return products
+
+
 def fetch_awin_deals():
-    """Pull products from AWIN's product data feed.
+    """Pull products from AWIN's product data feed (general/legacy path).
 
     Needs AWIN_API_TOKEN and AWIN_PUBLISHER_ID as repo secrets (already set
     up), plus an AWIN_ADVERTISER_ID for each retailer you're approved
-    with — add one once a pending application (e.g. TGW) is approved.
+    with — add one once a pending application is approved. Clickgolf uses
+    its own dedicated fetch_awin_clickgolf_deals() above instead, since it
+    already has a configured Create-a-Feed URL.
     """
     token = os.environ.get("AWIN_API_TOKEN")
     if not token:
@@ -151,14 +295,19 @@ def merge_products(catalog_products, fresh_products):
 def main():
     catalog = json.loads(DATA_FILE.read_text())
 
-    fresh = fetch_cj_deals() + fetch_awin_deals() + fetch_impact_deals()
+    fresh = (
+        fetch_cj_deals()
+        + fetch_awin_deals()
+        + fetch_awin_clickgolf_deals()
+        + fetch_impact_deals()
+    )
 
     if fresh:
         catalog["products"] = merge_products(catalog["products"], fresh)
         print(f"Merged {len(fresh)} products from live feeds into the catalog "
               f"({len(catalog['products'])} products total).")
     else:
-        print("No approved CJ/AWIN/Impact feed yet — catalog left as-is "
+        print("No live feed data returned this run — catalog left as-is "
               f"({len(catalog['products'])} products, Amazon links still active).")
 
     catalog["lastUpdated"] = datetime.now(timezone.utc).isoformat()
