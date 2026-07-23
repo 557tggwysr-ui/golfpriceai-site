@@ -103,17 +103,26 @@ def slugify(name):
     return s[:60]
 
 
-# Keyword → internal category mapping for whatever category string the AWIN
-# feed sends back. Split into two groups on purpose:
-#
-# CLUB_SHAPE_KEYWORDS are words like "driver", "wood", "iron" — these are
-# also common marketing/style names retailers slap on apparel and
-# accessories (e.g. "Driver Mesh Cap", "Iron Grip Glove"), so they're only
-# trusted against real category taxonomy text (category_name /
-# merchant_category), never against the free-text product name.
-#
-# GENERAL_KEYWORDS are safe to check against the product name too, since
-# they're unlikely to appear as a stray marketing term for something else.
+def _has_word(text, word):
+    """Whole-word match (allowing a trailing plural s/es), not a raw
+    substring — "wood" must not match inside "Woodmark" or "Wooden", but
+    "sunglass" must still match "sunglasses" and "sock" must still match
+    "socks". This was a real bug both ways: raw substring matching filed
+    "Woodmark Pullover" into Fairway Woods, and a too-strict word boundary
+    (an earlier fix attempt) then failed to match legitimate plurals."""
+    return re.search(r"\b" + re.escape(word) + r"(e?s)?\b", text) is not None
+
+
+# Strong accessory signals that should override even a club-shape match in
+# the retailer's own category taxonomy — headcovers, tees, and similar
+# small accessories are sometimes cross-listed by retailers under their
+# matching club type (e.g. a fairway wood headcover filed under "Fairway
+# Woods" on Clickgolf's own site), which would otherwise fool step 1 below.
+ACCESSORY_OVERRIDE_WORDS = [
+    "cover", "protector", "headcover", "divot", "tee", "towel",
+    "marker", "brush", "groove",
+]
+
 CLUB_SHAPE_KEYWORDS = [
     ("putter", "putter"), ("driver", "driver"), ("hybrid", "hybrid"),
     ("fairway", "wood"), ("wood", "wood"), ("wedge", "wedge"),
@@ -129,40 +138,97 @@ GENERAL_KEYWORDS = [
     ("gps", "accessories"), ("watch", "accessories"),
     ("cart", "accessories"), ("umbrella", "accessories"),
     ("headcover", "accessories"),
+    ("pullover", "apparel"), ("gilet", "apparel"), ("vest", "apparel"),
+    ("quarterzip", "apparel"), ("quarter-zip", "apparel"), ("quarter zip", "apparel"),
+    ("midlayer", "apparel"), ("mid-layer", "apparel"), ("mid layer", "apparel"),
 ]
 
 
 def guess_category(category_name, merchant_category, name):
     """Category guess in priority order:
 
+    0. If the product name itself contains a strong "this is a small
+       accessory" signal (cover, protector, tee, etc.), trust that over
+       everything else — retailers sometimes file headcovers/tees under
+       their matching club type, which would otherwise fool step 1.
     1. Retailer's own taxonomy text (category_name / merchant_category),
-       checked against the full keyword list including club shapes — this
-       is the most trustworthy source when present.
+       checked against the full keyword list including club shapes.
     2. The product name, checked against GENERAL_KEYWORDS (apparel/
-       accessory nouns) FIRST — if the name contains an unambiguous apparel
-       word like "cap" or "polo", that wins outright, even if a club-shape
-       word like "driver" also appears (e.g. "Driver Mesh Cap" is apparel,
-       not a club).
-    3. Only if no apparel/accessory noun was found in the name does it then
-       check the name against CLUB_SHAPE_KEYWORDS — by this point "driver"
-       etc. is very unlikely to be a stray marketing term, so it's safe to
-       trust as a real club.
+       accessory nouns) first — an unambiguous word like "cap" or "polo"
+       wins even if a club-shape word like "driver" also appears.
+    3. Only then does it check the name against CLUB_SHAPE_KEYWORDS.
+
+    All matching is whole-word (see _has_word) to avoid substring false
+    positives like "wood" inside "Woodmark" or "Wooden".
     """
+    name_text = (name or "").lower()
+
+    for word in ACCESSORY_OVERRIDE_WORDS:
+        if _has_word(name_text, word):
+            return "accessories"
+
     cat_text = " ".join(f for f in (category_name, merchant_category) if f).lower()
     if cat_text:
         for keyword, category in CLUB_SHAPE_KEYWORDS + GENERAL_KEYWORDS:
-            if keyword in cat_text:
+            if _has_word(cat_text, keyword):
                 return category
 
-    name_text = (name or "").lower()
     for keyword, category in GENERAL_KEYWORDS:
-        if keyword in name_text:
+        if _has_word(name_text, keyword):
             return category
     for keyword, category in CLUB_SHAPE_KEYWORDS:
-        if keyword in name_text:
+        if _has_word(name_text, keyword):
             return category
 
     return "accessories"
+
+
+# Sub-type "icon" keywords — these match the exact values used in
+# js/groups-config.js's "types" arrays for the Apparel/Accessories hub
+# pages. Without one of these set, an apparel/accessories product is
+# correctly categorized but invisible on every hub sub-page, since those
+# pages filter by icon, not just by the broad category.
+ICON_KEYWORDS = [
+    ("polo", "polo"),
+    ("trouser", "trousers"), ("pant", "trousers"),
+    ("skort", "skort"),
+    ("short", "shorts"),
+    ("jacket", "jacket"),
+    ("hoodie", "hoodie"),
+    ("pullover", "jacket"), ("gilet", "jacket"), ("vest", "jacket"),
+    ("quarterzip", "jacket"), ("quarter-zip", "jacket"), ("quarter zip", "jacket"),
+    ("midlayer", "jacket"), ("mid-layer", "jacket"), ("mid layer", "jacket"),
+    ("base layer", "base-layer"), ("baselayer", "base-layer"), ("thermal", "base-layer"),
+    ("cap", "cap"), ("visor", "cap"), ("hat", "cap"),
+    ("sunglass", "sunglasses"),
+    ("belt", "belt"),
+    ("sock", "socks"),
+    ("gps watch", "gps-watch"), ("golf watch", "gps-watch"),
+    ("rangefinder", "rangefinder"), ("range finder", "rangefinder"),
+    ("shot tracker", "sensor"), ("arccos", "sensor"),
+    ("push cart", "pushcart"), ("pushcart", "pushcart"), ("trolley", "pushcart"),
+    ("headcover", "headcover"), ("head cover", "headcover"),
+    ("umbrella", "umbrella"),
+    ("divot", "divot-tool"),
+    ("alignment stick", "alignment-sticks"),
+    ("glove", "accessories"),
+]
+
+
+def guess_icon(category_name, merchant_category, name, category):
+    """Best-effort sub-type icon, only relevant for apparel/accessories
+    products. Returns None (no icon set) if nothing matches — the product
+    still shows up fine everywhere except a specific hub sub-page filter,
+    which is a much smaller miss than not showing up on the site at all."""
+    if category not in ("apparel", "accessories"):
+        return None
+    text = " ".join(f for f in (category_name, merchant_category, name) if f).lower()
+    for keyword, icon in ICON_KEYWORDS:
+        if _has_word(text, keyword):
+            return icon
+    if category == "accessories":
+        return "accessories"  # generic catch-all bucket, matches groups-config.js
+    return None
 
 
 def fetch_awin_clickgolf_deals():
@@ -269,6 +335,7 @@ def fetch_awin_clickgolf_deals():
 
         image = (row.get("merchant_image_url") or "").strip()
         category = guess_category(row.get("category_name"), row.get("merchant_category"), name)
+        icon = guess_icon(row.get("category_name"), row.get("merchant_category"), name, category)
         product_id = f"{category}-{slugify(name)}-clickgolf"
 
         product = {
@@ -284,11 +351,20 @@ def fetch_awin_clickgolf_deals():
         }
         if image:
             product["image"] = image
+        if icon:
+            product["icon"] = icon
         products.append(product)
 
     category_counts = {}
     for p in products:
         category_counts[p["category"]] = category_counts.get(p["category"], 0) + 1
+
+    apparel_accessories = [p for p in products if p["category"] in ("apparel", "accessories")]
+    with_icon = sum(1 for p in apparel_accessories if p.get("icon"))
+    icon_counts = {}
+    for p in apparel_accessories:
+        key = p.get("icon") or "(none)"
+        icon_counts[key] = icon_counts.get(key, 0) + 1
 
     print(
         f"Clickgolf feed: {total_rows} rows read, {len(products)} usable. "
@@ -296,6 +372,10 @@ def fetch_awin_clickgolf_deals():
         f"no price: {skipped_no_price}, no link: {skipped_no_link}."
     )
     print(f"Clickgolf feed: category breakdown = {category_counts}")
+    print(
+        f"Clickgolf feed: {with_icon}/{len(apparel_accessories)} apparel/accessories "
+        f"products got a hub-page icon assigned. Icon breakdown = {icon_counts}"
+    )
     return products
 
 
