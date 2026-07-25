@@ -9,13 +9,17 @@ function groupLink(category, group) {
   return `shop.html?category=${category}&types=${slug(types)}&label=${slug(group.label)}`;
 }
 
-// Render the current hub page's own grid of group cards
+// Render the current hub page's own grid of group cards.
+// Hub tiles NEVER fall back to an icon — a group only renders if it has a
+// real "image" photo. A group without one is simply skipped rather than
+// showing an icon or a mismatched photo (site policy, set explicitly by
+// the person building this site).
 const hubKey = document.currentScript.getAttribute('data-hub');
 if (hubKey && window.GOLFPRICE_GROUPS) {
   const groups = GOLFPRICE_GROUPS[hubKey] || [];
   const grid = document.getElementById('hub-grid');
   if (grid) {
-    grid.innerHTML = groups.map(g => `
+    grid.innerHTML = groups.filter(g => g.image).map(g => `
       <a class="hub-card" href="${groupLink(hubKey, g)}">
         <div class="hub-thumb"><img src="${g.image}" alt="${g.label}" loading="lazy"></div>
         <div class="hub-body">

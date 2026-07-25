@@ -55,30 +55,50 @@ window.GOLFPRICE_GROUPS = {
       key: "tees",
       label: "Tees",
       blurb: "The one piece of gear you'll actually lose, not break.",
-      image: "assets/photos/divottool-plusball-ongrass.jpg",
+      image: "assets/photos/tee-ongrass.jpg",
       types: ["tee"]
     },
     {
       key: "grips",
       label: "Grips",
       blurb: "Fresh grips, fewer excuses.",
-      image: "assets/photos/headcover-inbag.jpg",
+      image: "assets/photos/grips-ongrass.jpg",
       types: ["grip"]
     },
     {
       key: "towels",
       label: "Towels",
       blurb: "For clean clubs and questionable sweat management.",
-      image: "assets/photos/headcover-ongrass.jpg",
+      image: "assets/photos/towel-oncart.jpg",
       types: ["towel"]
     },
     {
       key: "essentials",
-      label: "Divot Tools & Alignment Sticks",
+      label: "Divot Tools",
       blurb: "Small gear, big difference.",
       image: "assets/photos/umbrella-open-oncart.jpg",
-      types: ["divot-tool", "alignment-sticks", "accessories"]
+      types: ["divot-tool", "accessories"]
+    },
+    {
+      key: "ball-bags",
+      label: "Ball Bags",
+      blurb: "For keeping your balls together.",
+      image: "assets/photos/ballbag-with-balls.jpg",
+      types: ["ball-bag"]
+    },
+    {
+      key: "ball-retrievers",
+      label: "Ball Retrievers",
+      blurb: "For the ones that didn't quite make it.",
+      image: "assets/photos/ball-retriever-ongrass.jpg",
+      types: ["ball-retriever"]
     }
+    // Alignment Sticks, Caddie & Shagger Sets, and Launch Monitors &
+    // Simulators are deliberately not shown as hub tiles yet — no real
+    // matching photo exists for them (site policy: never an icon, never a
+    // mismatched photo). Products in these types are still correctly
+    // tagged and reachable via the Shop page's Product Type filter; they
+    // just don't have a dedicated homepage tile until real photos come in.
   ],
   apparel: [
     {
@@ -116,5 +136,9 @@ window.GOLFPRICE_GROUPS = {
       image: "assets/photos/headwear.png",
       types: ["cap", "sunglasses", "belt", "socks"]
     }
+    // Golf Dresses and Golf Suits are deliberately not shown as hub tiles
+    // yet — no real matching photo exists (site policy: never an icon,
+    // never a mismatched photo). Products are still correctly tagged and
+    // reachable via the Shop page's Product Type filter.
   ]
 };
