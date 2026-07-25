@@ -203,20 +203,33 @@ function matchesTypeCheckboxes(p) {
   return activeTypeCheckboxes.has(p.icon);
 }
 
+// Applies every active filter EXCEPT the one named in `exclude` — this is
+// what makes the sidebar "dynamic"/cascading: e.g. computing Brand counts
+// excludes the Brand filter itself (so you can still see and switch
+// brands) but still respects whatever Product Type / Colour / Price is
+// currently selected, so the counts genuinely reflect "if I also picked
+// this, how many results" rather than always showing the full unfiltered
+// category counts.
+function matchesFilters(p, exclude) {
+  const q = searchQuery.trim().toLowerCase();
+  const matchesQuery = !q || p.name.toLowerCase().includes(q);
+  const matchesType = exclude === 'type' || matchesTypeCheckboxes(p);
+  const matchesBrand = exclude === 'brand' || activeBrands.size === 0 || activeBrands.has(extractBrand(p));
+  const matchesColour = exclude === 'colour' || activeColours.size === 0 || activeColours.has(extractColour(p));
+  const matchesPriceMin = exclude === 'price' || priceMin === null || p.salePrice >= priceMin;
+  const matchesPriceMax = exclude === 'price' || priceMax === null || p.salePrice <= priceMax;
+  return matchesQuery && matchesType && matchesBrand && matchesColour && matchesPriceMin && matchesPriceMax;
+}
+
+function scopedFor(exclude) {
+  return baseFilteredProducts().filter(p => matchesFilters(p, exclude));
+}
+
 function applyFiltersAndSort() {
   const grid = document.getElementById('shop-grid');
   const empty = document.getElementById('empty-state');
-  const q = searchQuery.trim().toLowerCase();
 
-  let filtered = baseFilteredProducts().filter(p => {
-    const matchesQuery = !q || p.name.toLowerCase().includes(q);
-    const matchesType = matchesTypeCheckboxes(p);
-    const matchesBrand = activeBrands.size === 0 || activeBrands.has(extractBrand(p));
-    const matchesColour = activeColours.size === 0 || activeColours.has(extractColour(p));
-    const matchesPriceMin = priceMin === null || p.salePrice >= priceMin;
-    const matchesPriceMax = priceMax === null || p.salePrice <= priceMax;
-    return matchesQuery && matchesType && matchesBrand && matchesColour && matchesPriceMin && matchesPriceMax;
-  });
+  let filtered = baseFilteredProducts().filter(p => matchesFilters(p, null));
 
   filtered = filtered.slice().sort((a, b) => {
     if (sortMode === 'price-asc') return a.salePrice - b.salePrice;
@@ -258,6 +271,7 @@ function renderActiveChips() {
 }
 
 function refreshAfterFilterChange() {
+  renderCategoryBanner();
   renderSidebar();
   applyFiltersAndSort();
   updateURL();
@@ -273,11 +287,19 @@ function buildOptionList(id, options, activeSet, extra) {
     </label>`).join('') + `</div>`;
 }
 
+let collapsedGroups = new Set();
+
 function renderSidebar() {
   const sidebar = document.getElementById('filter-sidebar-body');
   if (!sidebar) return;
 
-  const scoped = baseFilteredProducts();
+  // Each facet is scoped against every OTHER active filter, not just the
+  // page-level category — this is what makes selecting a Product Type
+  // immediately narrow which Brands show up, and vice versa.
+  const typeScoped = scopedFor('type');
+  const brandScoped = scopedFor('brand');
+  const colourScoped = scopedFor('colour');
+  const priceScoped = scopedFor('price');
 
   const typeOptsRaw = currentTypeOptions();
   let typeSection = '';
@@ -285,8 +307,8 @@ function renderSidebar() {
     const isTopCat = isTopCategoryTypeMode();
     const counted = typeOptsRaw.map(o => ({
       ...o,
-      count: scoped.filter(p => (isTopCat ? p.category : p.icon) === o.key).length
-    })).filter(o => o.count > 0);
+      count: typeScoped.filter(p => (isTopCat ? p.category : p.icon) === o.key).length
+    })).filter(o => o.count > 0 || activeTypeCheckboxes.has(o.key));
     typeSection = `
       <div class="filter-group" data-group-name="type">
         <div class="filter-group-head">Product Type <span class="chevron">\u25be</span></div>
@@ -295,7 +317,7 @@ function renderSidebar() {
   }
 
   const brandCounts = {};
-  scoped.forEach(p => { const b = extractBrand(p); brandCounts[b] = (brandCounts[b] || 0) + 1; });
+  brandScoped.forEach(p => { const b = extractBrand(p); brandCounts[b] = (brandCounts[b] || 0) + 1; });
   const brandOpts = Object.entries(brandCounts)
     .filter(([b]) => b !== 'Other')
     .map(([key, count]) => ({ key, label: key, count }))
@@ -306,7 +328,7 @@ function renderSidebar() {
   let colourSection = '';
   if (showColour) {
     const colourCounts = {};
-    scoped.forEach(p => { const c = extractColour(p); if (c) colourCounts[c] = (colourCounts[c] || 0) + 1; });
+    colourScoped.forEach(p => { const c = extractColour(p); if (c) colourCounts[c] = (colourCounts[c] || 0) + 1; });
     const colourOpts = Object.entries(colourCounts)
       .map(([key, count]) => ({ key, label: key, count }))
       .sort((a, b) => b.count - a.count);
@@ -317,7 +339,7 @@ function renderSidebar() {
       </div>`;
   }
 
-  const prices = scoped.map(p => p.salePrice).filter(n => typeof n === 'number');
+  const prices = priceScoped.map(p => p.salePrice).filter(n => typeof n === 'number');
   const lo = prices.length ? Math.floor(Math.min(...prices)) : 0;
   const hi = prices.length ? Math.ceil(Math.max(...prices)) : 1000;
 
@@ -340,11 +362,19 @@ function renderSidebar() {
     ${colourSection}
   `;
 
+  // Re-apply whichever sections the user had collapsed, since we just
+  // rebuilt the whole sidebar's HTML from scratch.
+  sidebar.querySelectorAll('.filter-group').forEach(g => {
+    if (collapsedGroups.has(g.dataset.groupName)) g.classList.add('collapsed');
+  });
+
   sidebar.querySelectorAll('input[type="checkbox"]').forEach(cb => {
     cb.addEventListener('change', () => {
       const group = cb.dataset.group;
       const targetSet = group === 'type' ? activeTypeCheckboxes : group === 'brand' ? activeBrands : activeColours;
       if (cb.checked) targetSet.add(cb.value); else targetSet.delete(cb.value);
+      if (group === 'type') renderCategoryBanner();
+      renderSidebar(); // rebuild so every OTHER facet's counts reflect this new selection (cascading filters)
       applyFiltersAndSort();
       updateURL();
     });
@@ -355,6 +385,7 @@ function renderSidebar() {
   function commitPrice() {
     priceMin = minInput.value ? Number(minInput.value) : null;
     priceMax = maxInput.value ? Number(maxInput.value) : null;
+    renderSidebar();
     applyFiltersAndSort();
     updateURL();
   }
@@ -362,7 +393,13 @@ function renderSidebar() {
   maxInput.addEventListener('change', commitPrice);
 
   sidebar.querySelectorAll('.filter-group-head').forEach(head => {
-    head.addEventListener('click', () => head.parentElement.classList.toggle('collapsed'));
+    head.addEventListener('click', () => {
+      const group = head.parentElement;
+      const name = group.dataset.groupName;
+      group.classList.toggle('collapsed');
+      if (group.classList.contains('collapsed')) collapsedGroups.add(name);
+      else collapsedGroups.delete(name);
+    });
   });
 }
 
@@ -377,10 +414,35 @@ function updateURL() {
   history.replaceState(null, '', '?' + params.toString());
 }
 
+function effectiveSingleCategory() {
+  // Returns the one category whose themed banner should show right now,
+  // or null if the current view spans multiple categories (so no single
+  // banner applies).
+  if (baseCategories && baseCategories.size === 1) {
+    const only = [...baseCategories][0];
+    if (only === 'apparel' || only === 'accessories') return null; // these have sub-type icons, not single-category banners in this context
+    return only;
+  }
+  if (isTopCategoryTypeMode() && activeTypeCheckboxes.size === 1) {
+    return [...activeTypeCheckboxes][0];
+  }
+  return null;
+}
+
+function bannerGroupKey() {
+  // Which banner to show when nothing has narrowed things to one specific
+  // category yet.
+  if (!baseCategories) return 'all';
+  if ([...baseCategories].every(c => CLUB_CATEGORIES.includes(c)) && baseCategories.size > 1) return 'clubs';
+  if (baseCategories.size === 1) return [...baseCategories][0];
+  return null;
+}
+
 function renderCategoryBanner() {
   const el = document.getElementById('category-banner');
-  const singleCategory = baseCategories && baseCategories.size === 1 ? [...baseCategories][0] : null;
-  const data = singleCategory && window.GOLFPRICE_CATEGORY_BANNERS && window.GOLFPRICE_CATEGORY_BANNERS[singleCategory];
+  const singleCategory = effectiveSingleCategory();
+  const key = singleCategory || bannerGroupKey();
+  const data = key && window.GOLFPRICE_CATEGORY_BANNERS && window.GOLFPRICE_CATEGORY_BANNERS[key];
   if (!data) {
     el.innerHTML = groupNoteHTML || '';
     return;

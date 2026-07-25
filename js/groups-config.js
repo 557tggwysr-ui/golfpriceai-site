@@ -41,7 +41,7 @@ window.GOLFPRICE_GROUPS = {
       key: "umbrella",
       label: "Umbrellas",
       blurb: "Because the forecast lied again.",
-      image: "assets/photos/umbrella-combo.jpg",
+      image: "assets/photos/umbrella-closed-oncart.jpg",
       types: ["umbrella"]
     },
     {

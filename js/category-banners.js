@@ -9,6 +9,20 @@ window.GOLFPRICE_CATEGORY_BANNERS = {
     quip: "Zero Guesswork.",
     icon: "🛒"
   },
+  clubs: {
+    label: "Clubs",
+    blurb: "Drivers, woods, hybrids, irons, wedges and putters — everything that actually swings.",
+    tagline: "Full Swing.",
+    quip: "Not Full Price.",
+    icon: "🏌️‍♂️"
+  },
+  apparel: {
+    label: "Apparel",
+    blurb: "Polo tees, tops, bottoms, shorts, skorts, outerwear, headwear.",
+    tagline: "Look Good.",
+    quip: "Play Better... right?",
+    icon: "👕"
+  },
   driver: {
     label: "Drivers",
     blurb: "The club that promises 280 yards and occasionally delivers 180, sideways.",

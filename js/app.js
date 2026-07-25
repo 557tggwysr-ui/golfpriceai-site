@@ -187,7 +187,7 @@ fetch('data/products.json')
       return picked;
     }
 
-    const bestDeals = pickDiverseTop(sorted, 12, [], 8);
+    const bestDeals = pickDiverseTop(sorted, 12, [], 9);
     const bestKeys = bestDeals.map(d => d.icon || d.category);
     const priceDrops = pickDiverseTop(
       sorted.filter(d => !bestDeals.includes(d)), 6, bestKeys
