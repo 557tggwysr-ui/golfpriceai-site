@@ -33,7 +33,6 @@ if (hubKey && window.GOLFPRICE_GROUPS) {
           <div class="hub-thumb-overlay">
             <div class="hub-thumb-text">
               <h4>${g.label.toUpperCase()}</h4>
-              <p>${g.blurb}</p>
             </div>
             <span class="hub-thumb-cta"><span class="hub-thumb-badge">${g.emoji || '⛳'}</span> VIEW DEALS</span>
           </div>
