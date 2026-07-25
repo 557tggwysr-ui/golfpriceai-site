@@ -235,8 +235,12 @@ def apply_post_overrides(name_text, base_category):
     # Junior/kids gear gets pulled onto its own page regardless of what
     # type of item it otherwise is (a junior driver, junior iron set,
     # junior bag all land in "junior" together) — checked before the Sets
-    # rule below since it's the more specific signal.
-    if _has_word(name_text, "junior") or "kids golf" in name_text or "us kids golf" in name_text:
+    # rule below since it's the more specific signal. "Boys"/"Girls" are
+    # included since golf retailers almost always use those specifically
+    # for junior-sized ranges, not adult products.
+    if (_has_word(name_text, "junior") or _has_word(name_text, "boys")
+            or _has_word(name_text, "girls") or "kids golf" in name_text
+            or "us kids golf" in name_text):
         return "junior"
 
     # A "set" accessory bundle (e.g. a towel/tee/marker gift set) that
