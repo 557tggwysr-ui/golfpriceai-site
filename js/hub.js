@@ -31,7 +31,7 @@ if (hubKey && window.GOLFPRICE_GROUPS) {
         <div class="hub-thumb">
           <img src="${g.image}" alt="${g.label}" loading="lazy">
           <div class="hub-thumb-overlay">
-            <div>
+            <div class="hub-thumb-text">
               <h4>${g.label.toUpperCase()}</h4>
               <p>${g.blurb}</p>
             </div>

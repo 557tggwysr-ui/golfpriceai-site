@@ -91,7 +91,7 @@ window.GOLFPRICE_GROUPS = {
       key: "essentials",
       label: "Divot Tools",
       blurb: "Small gear, big difference.",
-      image: "assets/photos/umbrella-open-oncart.jpg",
+      image: "assets/photos/divottool-plusball-ongrass.jpg",
       emoji: "🔨",
       types: ["divot-tool", "caddie-shagger", "accessories"]
     },

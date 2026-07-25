@@ -27,15 +27,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px;
-  background: linear-gradient(180deg, rgba(22,36,28,0.72) 0%, rgba(22,36,28,0.05) 45%, rgba(22,36,28,0.55) 100%);
-  color: #fff;
+  padding: 14px;
+}
+.hub-thumb-overlay .hub-thumb-text {
+  background: rgba(16,26,20,0.68);
+  border-radius: 10px;
+  padding: 10px 12px;
+  width: max-content;
+  max-width: 100%;
 }
 .hub-thumb-overlay h4 {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.3px;
+  color: #fff;
   text-shadow: 0 1px 3px rgba(0,0,0,0.35);
 }
 .hub-thumb-overlay p {
