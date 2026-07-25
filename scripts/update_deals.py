@@ -118,9 +118,13 @@ def _has_word(text, word):
 # small accessories are sometimes cross-listed by retailers under their
 # matching club type (e.g. a fairway wood headcover filed under "Fairway
 # Woods" on Clickgolf's own site), which would otherwise fool step 1 below.
+# "grip" included deliberately: a "Putter Grip" or "Driver Grip" accessory
+# is not the club itself, even though the club-shape word appears in the
+# name too.
 ACCESSORY_OVERRIDE_WORDS = [
     "cover", "protector", "headcover", "divot", "tee", "towel",
-    "marker", "brush", "groove",
+    "marker", "brush", "groove", "grip", "pouch", "wheel", "enclosure",
+    "tracker", "speaker",
 ]
 
 CLUB_SHAPE_KEYWORDS = [
@@ -133,7 +137,7 @@ GENERAL_KEYWORDS = [
     ("shoe", "shoes"), ("trouser", "apparel"), ("short", "apparel"),
     ("skort", "apparel"), ("polo", "apparel"), ("jacket", "apparel"),
     ("hoodie", "apparel"), ("cap", "apparel"), ("hat", "apparel"),
-    ("glove", "accessories"), ("sock", "apparel"), ("belt", "apparel"),
+    ("glove", "accessories"), ("mitten", "accessories"), ("sock", "apparel"), ("belt", "apparel"),
     ("sunglass", "apparel"), ("rangefinder", "accessories"),
     ("gps", "accessories"), ("watch", "accessories"),
     ("cart", "accessories"), ("umbrella", "accessories"),
@@ -141,19 +145,32 @@ GENERAL_KEYWORDS = [
     ("pullover", "apparel"), ("gilet", "apparel"), ("vest", "apparel"),
     ("quarterzip", "apparel"), ("quarter-zip", "apparel"), ("quarter zip", "apparel"),
     ("1/4 zip", "apparel"), ("1/2 zip", "apparel"),
+    ("half zip", "apparel"), ("half-zip", "apparel"),
     ("midlayer", "apparel"), ("mid-layer", "apparel"), ("mid layer", "apparel"),
     ("sweater", "apparel"), ("shirt", "apparel"), ("zip top", "apparel"),
-    ("golf top", "apparel"),
+    ("golf top", "apparel"), ("golf suit", "apparel"),
+    ("footjoy chill out", "apparel"), ("dress", "apparel"),
+    ("mat", "accessories"), ("storage", "accessories"),
+    ("travel", "accessories"), ("charger", "accessories"),
+    ("battery", "accessories"), ("drink holder", "accessories"),
+    ("bottle holder", "accessories"), ("simulator", "accessories"),
+    ("launch monitor", "accessories"),
 ]
 
 
 def guess_category(category_name, merchant_category, name):
     """Category guess in priority order:
 
-    0. If the product name itself contains a strong "this is a small
-       accessory" signal (cover, protector, tee, etc.), trust that over
-       everything else — retailers sometimes file headcovers/tees under
-       their matching club type, which would otherwise fool step 1.
+    0. If EITHER the product name OR the retailer's own category taxonomy
+       contains a strong "this is a small accessory" signal (cover,
+       protector, tee, grip, etc.), trust that over everything else.
+       Checking both matters: a retailer might file "SuperStroke Putter
+       Grip" with "Grips" only in its own category field, not repeated in
+       the product title — checking name alone would miss it and let
+       "putter" win instead. Retailers also sometimes file headcovers/tees
+       under their matching club type, which this also guards against.
+    0.5. A handful of specific two-word combinations that need to beat the
+         generic per-word matching (see apply_pre_overrides).
     1. Retailer's own taxonomy text (category_name / merchant_category),
        checked against the full keyword list including club shapes.
     2. The product name, checked against GENERAL_KEYWORDS (apparel/
@@ -165,12 +182,17 @@ def guess_category(category_name, merchant_category, name):
     positives like "wood" inside "Woodmark" or "Wooden".
     """
     name_text = (name or "").lower()
+    cat_text = " ".join(f for f in (category_name, merchant_category) if f).lower()
+    combined_text = (name_text + " " + cat_text).strip()
+
+    pre = apply_pre_overrides(combined_text)
+    if pre:
+        return pre
 
     for word in ACCESSORY_OVERRIDE_WORDS:
-        if _has_word(name_text, word):
+        if _has_word(combined_text, word):
             return "accessories"
 
-    cat_text = " ".join(f for f in (category_name, merchant_category) if f).lower()
     if cat_text:
         for keyword, category in CLUB_SHAPE_KEYWORDS + GENERAL_KEYWORDS:
             if _has_word(cat_text, keyword):
@@ -184,6 +206,46 @@ def guess_category(category_name, merchant_category, name):
             return category
 
     return "accessories"
+
+
+def apply_pre_overrides(name_text):
+    """A handful of specific rules that need to run before the general
+    keyword matching, because they combine multiple signals or need to
+    beat a keyword that would otherwise fire first. Returns a category
+    string, or None if none of these apply."""
+    # A "driving hybrid iron" (or similarly named hybrid-style iron) is
+    # functionally an iron, not a hybrid — this specific combination beats
+    # the generic "hybrid" club-shape match.
+    if _has_word(name_text, "hybrid") and _has_word(name_text, "iron"):
+        return "irons"
+
+    if _has_word(name_text, "caddie") and _has_word(name_text, "shagger"):
+        return "accessories"
+    if _has_word(name_text, "ball") and _has_word(name_text, "retriever"):
+        return "accessories"
+    if "ball bag" in name_text or "ball bags" in name_text:
+        return "accessories"
+
+    return None
+
+
+def apply_post_overrides(name_text, base_category):
+    """Rules that depend on knowing what the base category was already
+    guessed as, applied after the main guess_category logic runs."""
+    # A "set" accessory bundle (e.g. a towel/tee/marker gift set) that
+    # would otherwise land in Accessories gets its own Clubs > Sets
+    # sub-section instead — deliberately narrow: this does NOT touch
+    # genuine "Iron Set" / "Wedge Set" club listings, which are already
+    # correctly categorized as irons/wedge by the time this check runs.
+    if base_category == "accessories" and _has_word(name_text, "set"):
+        return "sets"
+
+    # A "putter" mentioned in a ball or apparel listing (rather than a
+    # real putter product) should move to the Putters section.
+    if base_category in ("ball", "apparel") and _has_word(name_text, "putter"):
+        return "putter"
+
+    return base_category
 
 
 # Sub-type "icon" keywords — these match the exact values used in
@@ -201,36 +263,85 @@ ICON_KEYWORDS = [
     ("pullover", "jacket"), ("gilet", "jacket"), ("vest", "jacket"),
     ("quarterzip", "jacket"), ("quarter-zip", "jacket"), ("quarter zip", "jacket"),
     ("1/4 zip", "jacket"), ("1/2 zip", "jacket"), ("sweater", "jacket"), ("zip top", "jacket"),
-    ("golf top", "jacket"),
+    ("golf top", "jacket"), ("footjoy chill out", "jacket"),
+    ("half zip", "jacket"), ("half-zip", "jacket"),
     ("midlayer", "jacket"), ("mid-layer", "jacket"), ("mid layer", "jacket"),
     ("base layer", "base-layer"), ("baselayer", "base-layer"), ("thermal", "base-layer"),
+    ("dress", "dress"), ("golf suit", "suit"),
     ("cap", "cap"), ("visor", "cap"), ("hat", "cap"),
     ("sunglass", "sunglasses"),
     ("belt", "belt"),
     ("sock", "socks"),
     ("gps watch", "gps-watch"), ("golf watch", "gps-watch"),
     ("rangefinder", "rangefinder"), ("range finder", "rangefinder"),
-    ("shot tracker", "sensor"), ("arccos", "sensor"),
+    ("shot tracker", "sensor"), ("arccos", "sensor"), ("tracker", "sensor"),
     ("push cart", "pushcart"), ("pushcart", "pushcart"), ("trolley", "pushcart"),
     ("headcover", "headcover"), ("head cover", "headcover"),
     ("umbrella", "umbrella"),
     ("divot", "divot-tool"),
     ("alignment stick", "alignment-sticks"),
-    ("glove", "glove"),
+    ("glove", "glove"), ("mitten", "glove"),
     ("tee", "tee"),
     ("grip", "grip"),
     ("towel", "towel"),
+    ("pouch", "pouch"),
+    ("wheel", "wheel"),
+    ("putting mat", "mat"), ("training mat", "mat"), ("hitting mat", "mat"),
+    ("enclosure", "enclosure"), ("net", "enclosure"),
+    ("storage", "storage"),
+    ("travel", "travel"),
+    ("charger", "battery-charger"), ("battery", "battery-charger"),
+    ("drink holder", "drink-holder"), ("bottle holder", "drink-holder"),
+    ("speaker", "speaker"),
+    ("launch monitor", "launch-monitor"), ("simulator", "launch-monitor"),
 ]
 
 
+def apply_icon_pre_overrides(name_text):
+    """Combo-word icon rules that need both words present, not just one —
+    can't be expressed as a single ICON_KEYWORDS entry."""
+    if _has_word(name_text, "caddie") and _has_word(name_text, "shagger"):
+        return "caddie-shagger"
+    if _has_word(name_text, "ball") and _has_word(name_text, "retriever"):
+        return "ball-retriever"
+    if "ball bag" in name_text or "ball bags" in name_text:
+        return "ball-bag"
+    return None
+
+
+BAG_TYPE_KEYWORDS = [
+    ("range bag", "range-bag"),
+    ("carry bag", "carry-bag"), ("stand bag", "carry-bag"),
+    ("shoe bag", "shoe-bag"),
+]
+
+
+def guess_bag_type(category_name, merchant_category, name):
+    """Sub-type for the Bags category — Golf Bags / Range Bags / Carry Bags
+    / Shoe Bags. Defaults to the general "golf-bag" bucket when nothing
+    more specific matches, since most cart/trolley bags won't mention a
+    specific sub-type by name."""
+    text = " ".join(f for f in (category_name, merchant_category, name) if f).lower()
+    for keyword, bag_type in BAG_TYPE_KEYWORDS:
+        if keyword in text:
+            return bag_type
+    return "golf-bag"
+
+
 def guess_icon(category_name, merchant_category, name, category):
-    """Best-effort sub-type icon, only relevant for apparel/accessories
-    products. Returns None (no icon set) if nothing matches — the product
-    still shows up fine everywhere except a specific hub sub-page filter,
-    which is a much smaller miss than not showing up on the site at all."""
+    """Best-effort sub-type icon for apparel/accessories/bag products.
+    Returns None (no icon set) if nothing matches and the category doesn't
+    have a catch-all bucket — the product still shows up fine everywhere
+    except a specific hub sub-page filter, which is a much smaller miss
+    than not showing up on the site at all."""
+    if category == "bag":
+        return guess_bag_type(category_name, merchant_category, name)
     if category not in ("apparel", "accessories"):
         return None
     text = " ".join(f for f in (category_name, merchant_category, name) if f).lower()
+    combo = apply_icon_pre_overrides(text)
+    if combo:
+        return combo
     for keyword, icon in ICON_KEYWORDS:
         if _has_word(text, keyword):
             return icon
@@ -432,8 +543,12 @@ def fetch_awin_clickgolf_deals():
             continue
 
         image = (row.get("merchant_image_url") or "").strip()
-        category = guess_category(row.get("category_name"), row.get("merchant_category"), name)
-        icon = guess_icon(row.get("category_name"), row.get("merchant_category"), name, category)
+        cat_name = row.get("category_name")
+        merch_cat = row.get("merchant_category")
+        category = guess_category(cat_name, merch_cat, name)
+        combined_text = (name.lower() + " " + " ".join(f for f in (cat_name, merch_cat) if f).lower()).strip()
+        category = apply_post_overrides(combined_text, category)
+        icon = guess_icon(cat_name, merch_cat, name, category)
         brand = extract_brand(name, row.get("brand_name"))
         colour = extract_colour(name)
         product_id = f"{category}-{slugify(name)}-clickgolf"
@@ -563,6 +678,11 @@ def main():
               f"({len(catalog['products'])} products, Amazon links still active).")
 
     catalog["products"] = backfill_catalog(catalog["products"])
+
+    existing_category_keys = {c["key"] for c in catalog.get("categories", [])}
+    if "sets" not in existing_category_keys:
+        catalog.setdefault("categories", []).append({"key": "sets", "label": "Sets"})
+        print("Added 'Sets' to the categories list.")
 
     catalog["lastUpdated"] = datetime.now(timezone.utc).isoformat()
     DATA_FILE.write_text(json.dumps(catalog, indent=2))
