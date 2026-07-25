@@ -1,40 +1,50 @@
 // Shared group definitions for the Apparel and Accessories hub pages.
 // "types" values match each product's "icon" field in products.json.
+//
+// "emoji" is a small decorative badge rendered by hub.js ON TOP OF the
+// group's real photo (matching the site's existing dark-banner emoji
+// pattern) — it is never a substitute for a photo. Every group here has a
+// real "image"; a group with no photo is simply not shown (see hub.js).
 window.GOLFPRICE_GROUPS = {
   accessories: [
     {
       key: "gps-watch",
       label: "GPS Watches",
       blurb: "Distances, hazards, shot tracking — all on your wrist.",
-      image: "assets/photos/gps-watch-hub.jpg",
+      image: "assets/photos/gps-watch-real.jpg",
+      emoji: "⌚",
       types: ["gps-watch"]
     },
     {
       key: "rangefinder",
       label: "Rangefinders",
       blurb: "Lock on. Know more. Play with confidence.",
-      image: "assets/photos/rangefinder-hub.jpg",
+      image: "assets/photos/rangefinder-real.jpg",
+      emoji: "🔭",
       types: ["rangefinder"]
     },
     {
       key: "sensor",
       label: "Smart Sensors",
       blurb: "Data that drives real improvement.",
-      image: "assets/photos/sensor-hub.jpg",
+      image: "assets/photos/sensor-real.jpg",
+      emoji: "📊",
       types: ["sensor"]
     },
     {
       key: "pushcart",
       label: "Push Carts",
       blurb: "Lightweight, stable, built for every round.",
-      image: "assets/photos/pushcart.jpg",
+      image: "assets/photos/pushcart-loaded.jpg",
+      emoji: "🛒",
       types: ["pushcart"]
     },
     {
       key: "headcover",
       label: "Headcovers",
       blurb: "Protect your clubs, show your style.",
-      image: "assets/photos/headcover.jpg",
+      image: "assets/photos/headcover-inbag.jpg",
+      emoji: "🛡️",
       types: ["headcover"]
     },
     {
@@ -42,6 +52,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Umbrellas",
       blurb: "Because the forecast lied again.",
       image: "assets/photos/umbrella-closed-oncart.jpg",
+      emoji: "☂️",
       types: ["umbrella"]
     },
     {
@@ -49,6 +60,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Gloves",
       blurb: "Grip it, don't slip it.",
       image: "assets/photos/glove-pair-ongrass.jpg",
+      emoji: "🧤",
       types: ["glove"]
     },
     {
@@ -56,6 +68,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Tees",
       blurb: "The one piece of gear you'll actually lose, not break.",
       image: "assets/photos/tee-ongrass.jpg",
+      emoji: "📍",
       types: ["tee"]
     },
     {
@@ -63,6 +76,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Grips",
       blurb: "Fresh grips, fewer excuses.",
       image: "assets/photos/grips-ongrass.jpg",
+      emoji: "🔧",
       types: ["grip"]
     },
     {
@@ -70,6 +84,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Towels",
       blurb: "For clean clubs and questionable sweat management.",
       image: "assets/photos/towel-oncart.jpg",
+      emoji: "🧺",
       types: ["towel"]
     },
     {
@@ -77,6 +92,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Divot Tools",
       blurb: "Small gear, big difference.",
       image: "assets/photos/umbrella-open-oncart.jpg",
+      emoji: "🔨",
       types: ["divot-tool", "caddie-shagger", "accessories"]
     },
     {
@@ -84,6 +100,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Ball Bags",
       blurb: "For keeping your balls together.",
       image: "assets/photos/ballbag-with-balls.jpg",
+      emoji: "🎒",
       types: ["ball-bag"]
     },
     {
@@ -91,6 +108,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Ball Retrievers",
       blurb: "For the ones that didn't quite make it.",
       image: "assets/photos/ball-retriever-ongrass.jpg",
+      emoji: "🎣",
       types: ["ball-retriever"]
     },
     {
@@ -98,6 +116,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Alignment Sticks",
       blurb: "For the practice you'll do twice a year, ambitiously.",
       image: "assets/photos/alignment-sticks-crossed.jpg",
+      emoji: "📏",
       types: ["alignment-sticks"]
     },
     {
@@ -105,6 +124,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Launch Monitors & Simulators",
       blurb: "Bring the range into the garage.",
       image: "assets/photos/launch-monitor-display.jpg",
+      emoji: "📡",
       types: ["launch-monitor"]
     }
     // Caddie & Shagger Sets fold into the Divot Tools tile above rather
@@ -116,6 +136,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Polo Tees",
       blurb: "The classic golf polo — smart enough for the clubhouse.",
       image: "assets/photos/polo.png",
+      emoji: "👕",
       types: ["polo"]
     },
     {
@@ -123,6 +144,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Bottoms",
       blurb: "Tailored trousers for every round.",
       image: "assets/photos/bottoms.png",
+      emoji: "👖",
       types: ["trousers"]
     },
     {
@@ -130,6 +152,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Shorts & Skorts",
       blurb: "For the first sunny day of the year (however brief that turns out to be).",
       image: "assets/photos/shorts-skort.png",
+      emoji: "🩳",
       types: ["shorts", "skort"]
     },
     {
@@ -137,6 +160,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Outerwear",
       blurb: "Jackets, hoodies and base layers for four-seasons-in-one-round days.",
       image: "assets/photos/outerwear.png",
+      emoji: "🧥",
       types: ["jacket", "hoodie", "base-layer"]
     },
     {
@@ -144,6 +168,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Headwear & Extras",
       blurb: "Caps, sunglasses, belts and socks — the finishing touches.",
       image: "assets/photos/headwear.png",
+      emoji: "🧢",
       types: ["cap", "sunglasses", "belt", "socks"]
     },
     {
@@ -151,6 +176,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Golf Suits",
       blurb: "For when you've committed to the whole look.",
       image: "assets/photos/golf-suit-winter-group.jpg",
+      emoji: "👔",
       types: ["suit"]
     },
     {
@@ -158,6 +184,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Golf Dresses",
       blurb: "Because not every round needs a skort.",
       image: "assets/photos/golf-dress-woman.jpg",
+      emoji: "👗",
       types: ["dress"]
     }
   ]

@@ -18,8 +18,58 @@
   transition: transform 0.15s ease;
 }
 .hub-card:hover { transform: translateY(-3px); }
-.hub-card .hub-thumb { aspect-ratio: 16/10; background: #f1f2ef; overflow: hidden; }
+.hub-card .hub-thumb { position: relative; aspect-ratio: 16/10; background: #f1f2ef; overflow: hidden; }
 .hub-card .hub-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.hub-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  background: linear-gradient(180deg, rgba(22,36,28,0.72) 0%, rgba(22,36,28,0.05) 45%, rgba(22,36,28,0.55) 100%);
+  color: #fff;
+}
+.hub-thumb-overlay h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+.hub-thumb-overlay p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #e7ede4;
+  max-width: 90%;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+.hub-thumb-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.3px;
+  border-radius: 999px;
+  padding: 6px 14px 6px 6px;
+}
+.hub-thumb-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
 .hub-card .hub-body { padding: 18px 20px 22px; }
 .hub-card h3 { font-size: 17px; margin: 0 0 8px; }
 .hub-card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0 0 14px; }

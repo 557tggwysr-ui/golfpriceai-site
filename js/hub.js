@@ -10,10 +10,17 @@ function groupLink(category, group) {
 }
 
 // Render the current hub page's own grid of group cards.
-// Hub tiles NEVER fall back to an icon — a group only renders if it has a
-// real "image" photo. A group without one is simply skipped rather than
-// showing an icon or a mismatched photo (site policy, set explicitly by
-// the person building this site).
+// Every card gets the SAME overlay treatment (title + subtitle + icon
+// badge + "View Deals" rendered live on top of the photo) — built in
+// CSS/HTML, not baked into any image file. That matters: baked-in image
+// text is exactly what caused several mismatched-label bugs earlier this
+// build (a relabeled card silently keeping its old baked text). This way
+// relabeling a card is just an edit to groups-config.js, never a new image.
+//
+// Hub tiles NEVER fall back to an icon in place of a photo — a group only
+// renders if it has a real "image". The small emoji badge below is a
+// decorative accent sitting ON TOP of a real photo (matching the site's
+// existing dark-banner emoji pattern), not a substitute for one.
 const hubKey = document.currentScript.getAttribute('data-hub');
 if (hubKey && window.GOLFPRICE_GROUPS) {
   const groups = GOLFPRICE_GROUPS[hubKey] || [];
@@ -21,7 +28,16 @@ if (hubKey && window.GOLFPRICE_GROUPS) {
   if (grid) {
     grid.innerHTML = groups.filter(g => g.image).map(g => `
       <a class="hub-card" href="${groupLink(hubKey, g)}">
-        <div class="hub-thumb"><img src="${g.image}" alt="${g.label}" loading="lazy"></div>
+        <div class="hub-thumb">
+          <img src="${g.image}" alt="${g.label}" loading="lazy">
+          <div class="hub-thumb-overlay">
+            <div>
+              <h4>${g.label.toUpperCase()}</h4>
+              <p>${g.blurb}</p>
+            </div>
+            <span class="hub-thumb-cta"><span class="hub-thumb-badge">${g.emoji || '⛳'}</span> VIEW DEALS</span>
+          </div>
+        </div>
         <div class="hub-body">
           <h3>${g.label}</h3>
           <p>${g.blurb}</p>
