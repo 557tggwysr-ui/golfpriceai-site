@@ -384,8 +384,7 @@ function renderSidebar() {
   audienceScoped.forEach(p => { const a = classifyAudience(p); audienceCounts[a] = (audienceCounts[a] || 0) + 1; });
   const audienceOrder = ['Male', 'Female', 'Junior'];
   const audienceOpts = audienceOrder
-    .map(key => ({ key, label: key, count: audienceCounts[key] || 0 }))
-    .filter(o => o.count > 0 || activeAudience.has(o.key));
+    .map(key => ({ key, label: key, count: audienceCounts[key] || 0 }));
   const audienceSection = `
     <div class="filter-group" data-group-name="audience">
       <div class="filter-group-head">Audience <span class="chevron">\u25be</span></div>
