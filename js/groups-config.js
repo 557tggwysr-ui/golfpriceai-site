@@ -38,11 +38,46 @@ window.GOLFPRICE_GROUPS = {
       types: ["headcover"]
     },
     {
-      key: "essentials",
-      label: "Umbrellas, Gloves & Tools",
-      blurb: "Small gear, big difference — umbrellas, gloves, divot tools and alignment sticks.",
+      key: "umbrella",
+      label: "Umbrellas",
+      blurb: "Because the forecast lied again.",
       image: "assets/photos/umbrella-combo.jpg",
-      types: ["umbrella", "accessories", "divot-tool", "alignment-sticks"]
+      types: ["umbrella"]
+    },
+    {
+      key: "gloves",
+      label: "Gloves",
+      blurb: "Grip it, don't slip it.",
+      image: "assets/photos/glove-pair-ongrass.jpg",
+      types: ["glove"]
+    },
+    {
+      key: "tees",
+      label: "Tees",
+      blurb: "The one piece of gear you'll actually lose, not break.",
+      image: "assets/photos/divottool-plusball-ongrass.jpg",
+      types: ["tee"]
+    },
+    {
+      key: "grips",
+      label: "Grips",
+      blurb: "Fresh grips, fewer excuses.",
+      image: "assets/photos/headcover-inbag.jpg",
+      types: ["grip"]
+    },
+    {
+      key: "towels",
+      label: "Towels",
+      blurb: "For clean clubs and questionable sweat management.",
+      image: "assets/photos/headcover-ongrass.jpg",
+      types: ["towel"]
+    },
+    {
+      key: "essentials",
+      label: "Divot Tools & Alignment Sticks",
+      blurb: "Small gear, big difference.",
+      image: "assets/photos/umbrella-open-oncart.jpg",
+      types: ["divot-tool", "alignment-sticks", "accessories"]
     }
   ],
   apparel: [

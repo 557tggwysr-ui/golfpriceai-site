@@ -19,8 +19,9 @@
     <span class="brand-name">Golf<span>Price</span> AI</span>
   </a>
   <nav class="main-nav">
+    <a href="shop.html">Shop All Deals</a>
     <div class="nav-item">
-      <a href="shop.html">Clubs ▾</a>
+      <a href="shop.html?group=clubs">Clubs ▾</a>
       <div class="dropdown">
         <a href="shop.html?category=driver">Drivers</a>
         <a href="shop.html?category=wood">Fairway Woods</a>
@@ -95,27 +96,27 @@
   <div class="section-band">
     <section class="section">
       <h2 class="sr-only">More deals and what's trending</h2>
-      <div class="two-col">
-        <div class="panel" id="price-drops">
-          <div class="panel-head">
-            <h3>📈 Price Drops We're Watching</h3>
-            <a href="shop.html">View all →</a>
-          </div>
-          <div id="price-drop-list">
-            <div class="skeleton-row"><div class="skeleton-thumb-sm"></div><div class="skeleton-line"></div></div>
-            <div class="skeleton-row"><div class="skeleton-thumb-sm"></div><div class="skeleton-line"></div></div>
-            <div class="skeleton-row"><div class="skeleton-thumb-sm"></div><div class="skeleton-line"></div></div>
-          </div>
+
+      <div class="panel" id="price-drops" style="margin-bottom:20px;">
+        <div class="panel-head">
+          <h3>📈 Price Drops We're Watching</h3>
+          <a href="shop.html">View all →</a>
         </div>
-        <div class="panel" id="trending">
-          <div class="panel-head">
-            <h3>📈 Trending Right Now</h3>
-            <a href="trending.html">View all →</a>
-          </div>
-          <div class="tag-grid" id="trending-list">
-            <div class="skeleton-pill"></div><div class="skeleton-pill"></div><div class="skeleton-pill"></div>
-            <div class="skeleton-pill"></div><div class="skeleton-pill"></div><div class="skeleton-pill"></div>
-          </div>
+        <div class="price-drop-grid" id="price-drop-list">
+          <div class="skeleton-row"><div class="skeleton-thumb-sm"></div><div class="skeleton-line"></div></div>
+          <div class="skeleton-row"><div class="skeleton-thumb-sm"></div><div class="skeleton-line"></div></div>
+          <div class="skeleton-row"><div class="skeleton-thumb-sm"></div><div class="skeleton-line"></div></div>
+        </div>
+      </div>
+
+      <div class="panel" id="trending">
+        <div class="panel-head">
+          <h3>📈 Trending Right Now</h3>
+          <a href="trending.html">View all →</a>
+        </div>
+        <div class="tag-grid" id="trending-list">
+          <div class="skeleton-pill"></div><div class="skeleton-pill"></div><div class="skeleton-pill"></div>
+          <div class="skeleton-pill"></div><div class="skeleton-pill"></div><div class="skeleton-pill"></div>
         </div>
       </div>
     </section>

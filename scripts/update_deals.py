@@ -216,7 +216,10 @@ ICON_KEYWORDS = [
     ("umbrella", "umbrella"),
     ("divot", "divot-tool"),
     ("alignment stick", "alignment-sticks"),
-    ("glove", "accessories"),
+    ("glove", "glove"),
+    ("tee", "tee"),
+    ("grip", "grip"),
+    ("towel", "towel"),
 ]
 
 
@@ -234,6 +237,96 @@ def guess_icon(category_name, merchant_category, name, category):
     if category == "accessories":
         return "accessories"  # generic catch-all bucket, matches groups-config.js
     return None
+
+
+# Kept in sync with js/shop.js's KNOWN_BRANDS — same list, same order
+# (longest/most-specific phrases first so "Scotty Cameron" matches before
+# a shorter accidental collision).
+KNOWN_BRANDS = [
+    "Scotty Cameron", "Under Armour", "Ben Sayers", "Cleveland Golf",
+    "J.Lindeberg", "Tour Edge", "Sun Mountain", "Shot Scope",
+    "TaylorMade", "Callaway", "Titleist", "Bridgestone", "Bettinardi",
+    "Evnroll", "Mizuno", "Wilson", "Srixon", "Cobra", "Honma", "XXIO",
+    "PXG", "Nike", "Adidas", "Puma", "FootJoy", "Ecco", "Oakley",
+    "Garmin", "Bushnell", "Motocaddy", "PowaKaddy", "Clicgear", "Ogio",
+    "Galvin Green", "Peter Millar", "Aspire", "Odyssey", "Ping",
+    "Woodmark", "Longridge", "Hedgehog", "Arccos", "Skechers",
+]
+
+
+def extract_brand(name, feed_brand=None):
+    """Prefer a real brand_name value from the feed if the retailer actually
+    populated it; otherwise best-effort match against KNOWN_BRANDS in the
+    product name. Matches js/shop.js's client-side fallback exactly, so
+    behavior is consistent whether or not this field made it into the
+    stored data yet."""
+    if feed_brand and feed_brand.strip():
+        return feed_brand.strip()
+    if not name:
+        return "Other"
+    lower = name.lower()
+    for brand in KNOWN_BRANDS:
+        if lower.startswith(brand.lower() + " ") or lower == brand.lower():
+            return brand
+    for brand in KNOWN_BRANDS:
+        if _has_word(lower, brand.lower()):
+            return brand
+    return "Other"
+
+
+COLOUR_KEYWORDS = [
+    "black", "white", "grey", "gray", "navy", "blue", "red", "green",
+    "yellow", "orange", "pink", "purple", "brown", "tan", "beige",
+    "silver", "gold", "khaki", "olive", "charcoal", "cream", "stone",
+]
+
+
+def extract_colour(name):
+    """Best-effort colour from the product name — picks whichever colour
+    word appears earliest in the text when more than one is present (e.g.
+    "White/Black" correctly returns White, not whichever happened to be
+    checked first in the keyword list)."""
+    if not name:
+        return None
+    lower = name.lower()
+    best_word = None
+    best_index = None
+    for colour in COLOUR_KEYWORDS:
+        match = re.search(r"\b" + colour + r"\b", lower)
+        if match and (best_index is None or match.start() < best_index):
+            best_index = match.start()
+            best_word = colour
+    if not best_word:
+        return None
+    return "Grey" if best_word == "gray" else best_word.capitalize()
+
+
+def backfill_catalog(products):
+    """Self-healing pass applied to the ENTIRE catalog every run — not just
+    freshly-fetched items. This is what lets brand/colour/icon coverage
+    improve retroactively for old hand-curated products too, without ever
+    needing to edit data/products.json by hand (which would risk
+    overwriting whatever the live automated feed has already built up)."""
+    updated = 0
+    for p in products:
+        changed = False
+        if not p.get("brand"):
+            p["brand"] = extract_brand(p.get("name", ""))
+            changed = True
+        if "colour" not in p:
+            colour = extract_colour(p.get("name", ""))
+            if colour:
+                p["colour"] = colour
+                changed = True
+        if not p.get("icon") and p.get("category") in ("apparel", "accessories"):
+            icon = guess_icon("", "", p.get("name", ""), p.get("category"))
+            if icon:
+                p["icon"] = icon
+                changed = True
+        if changed:
+            updated += 1
+    print(f"Catalog backfill: enriched {updated}/{len(products)} products with brand/colour/icon.")
+    return products
 
 
 def fetch_awin_clickgolf_deals():
@@ -341,6 +434,8 @@ def fetch_awin_clickgolf_deals():
         image = (row.get("merchant_image_url") or "").strip()
         category = guess_category(row.get("category_name"), row.get("merchant_category"), name)
         icon = guess_icon(row.get("category_name"), row.get("merchant_category"), name, category)
+        brand = extract_brand(name, row.get("brand_name"))
+        colour = extract_colour(name)
         product_id = f"{category}-{slugify(name)}-clickgolf"
 
         product = {
@@ -353,11 +448,14 @@ def fetch_awin_clickgolf_deals():
             "retailerCount": 1,
             "affiliateUrl": affiliate_url,
             "source": "awin-clickgolf",
+            "brand": brand,
         }
         if image:
             product["image"] = image
         if icon:
             product["icon"] = icon
+        if colour:
+            product["colour"] = colour
         products.append(product)
 
     category_counts = {}
@@ -463,6 +561,8 @@ def main():
     else:
         print("No live feed data returned this run — catalog left as-is "
               f"({len(catalog['products'])} products, Amazon links still active).")
+
+    catalog["products"] = backfill_catalog(catalog["products"])
 
     catalog["lastUpdated"] = datetime.now(timezone.utc).isoformat()
     DATA_FILE.write_text(json.dumps(catalog, indent=2))

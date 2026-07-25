@@ -43,7 +43,7 @@
     max-width: 640px; margin: 60px auto 20px; text-align: center;
     display: flex; flex-direction: column; align-items: center; gap: 16px;
   }
-  .about-signoff img { max-width: 220px; }
+  .about-signoff img { max-width: 220px; border-radius: var(--radius); box-shadow: var(--shadow); }
   .about-signoff .quip {
     background: var(--ink); color: #fff; border-radius: 999px;
     padding: 12px 26px; font-weight: 700; font-size: 15px;
@@ -60,8 +60,9 @@
     <span class="brand-name">Golf<span>Price</span> AI</span>
   </a>
   <nav class="main-nav">
+    <a href="shop.html">Shop All Deals</a>
     <div class="nav-item">
-      <a href="shop.html">Clubs ▾</a>
+      <a href="shop.html?group=clubs">Clubs ▾</a>
       <div class="dropdown">
         <a href="shop.html?category=driver">Drivers</a>
         <a href="shop.html?category=wood">Fairway Woods</a>

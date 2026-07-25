@@ -590,3 +590,185 @@ footer a:hover { color: var(--green); }
   .hero h1 { font-size: 32px; }
   .newsletter { grid-template-columns: 1fr; text-align: left; }
 }
+
+/* ============================================
+   Filter sidebar (Shop / Clubs / Apparel / Accessories)
+   ============================================ */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.filter-sidebar {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+}
+.filter-sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 14px;
+}
+.filter-sidebar-head h2 {
+  font-size: 16px;
+  margin: 0;
+}
+.filter-clear-all {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.filter-clear-all:hover { text-decoration: underline; }
+
+.filter-group {
+  border-top: 1px solid var(--border);
+  padding: 14px 0;
+}
+.filter-group:first-of-type { border-top: none; padding-top: 0; }
+.filter-group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--ink);
+  user-select: none;
+}
+.filter-group-head .chevron {
+  font-size: 11px;
+  color: var(--muted);
+  transition: transform 0.15s ease;
+}
+.filter-group.collapsed .chevron { transform: rotate(-90deg); }
+.filter-group.collapsed .filter-group-body { display: none; }
+
+.filter-group-body { margin-top: 10px; }
+.filter-option-list {
+  max-height: 210px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  font-size: 13px;
+  cursor: pointer;
+}
+.filter-option input[type="checkbox"] {
+  accent-color: var(--green);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+.filter-option .count { color: var(--muted); margin-left: auto; font-size: 12px; }
+.filter-option .swatch {
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 1px solid var(--border); flex-shrink: 0;
+}
+
+.price-range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.price-range-inputs input {
+  width: 70px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+.price-range-inputs span { color: var(--muted); font-size: 13px; }
+.price-slider {
+  width: 100%;
+  accent-color: var(--green);
+}
+
+.shop-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0 0 18px;
+}
+.shop-result-count { color: var(--muted); font-size: 14px; }
+.sort-select {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.active-filter-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+.active-filter-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--green-pale); color: var(--green-dark);
+  border-radius: 999px; padding: 6px 10px 6px 14px;
+  font-size: 12px; font-weight: 600;
+}
+.active-filter-chip button {
+  background: none; border: none; cursor: pointer; color: var(--green-dark);
+  font-size: 14px; line-height: 1; padding: 0;
+}
+
+.mobile-filter-toggle {
+  display: none;
+  width: 100%;
+  margin: 0 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .shop-layout { grid-template-columns: 1fr; }
+  .mobile-filter-toggle { display: block; }
+  .filter-sidebar {
+    display: none;
+    position: static;
+    margin-bottom: 20px;
+  }
+  .filter-sidebar.open { display: block; }
+}
+
+/* ============================================
+   Homepage: full-width Price Drops panel (moved
+   above Trending, now holds 6 items in a grid
+   instead of a single narrow column)
+   ============================================ */
+.price-drop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px 24px;
+}
+.price-drop-grid .drop-row { border-bottom: 1px solid var(--border); }
+@media (max-width: 900px) {
+  .price-drop-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .price-drop-grid { grid-template-columns: 1fr; }
+}

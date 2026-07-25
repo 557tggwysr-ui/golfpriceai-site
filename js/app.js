@@ -84,24 +84,39 @@ function dropRowHTML(d) {
 }
 
 function renderTrending(items) {
-  // Keep trending "name" values to ~25 characters max (including spaces) so
-  // they fit on one line inside the pill alongside the icon + Hot/Rising
-  // label without wrapping or clipping. Longest currently in use: 26 chars
-  // ("Titleist Pro V1 Golf Balls"), which is the safe upper edge — don't
-  // go meaningfully past that without checking it still fits.
   const list = document.getElementById('trending-list');
   if (!list) return;
+  // Long real product names are handled by the .tag CSS (white-space:
+  // nowrap + text-overflow: ellipsis) rather than a fixed character limit,
+  // since this list is now built dynamically from the live catalog instead
+  // of a small hand-picked, hand-shortened curated list.
   list.innerHTML = items.map(t => `
     <a class="tag" href="${t.affiliateUrl}" target="_blank" rel="sponsored noopener">${t.name} <span class="${t.tag.toLowerCase()}">${t.tag === 'Hot' ? '🔥' : '📈'} ${t.tag}</span></a>
   `).join('');
+}
+
+// Popularity is a proxy, not real purchase/click data — no live click
+// tracking exists for this static site yet (would need Google Analytics'
+// Data API wired into a scheduled job, similar to how the price feed
+// works). Weighted toward being stocked by more retailers, with discount
+// size as a secondary nudge.
+function popularityScore(p) {
+  return (p.retailerCount || 1) * 10 + (p.savePct || 0) * 2;
+}
+
+const FEMALE_KEYWORDS = ["women's", "womens", "women", "ladies", "lady's", "girls", "girl's"];
+function isFemaleProduct(name) {
+  if (!name) return false;
+  const lower = name.toLowerCase();
+  return FEMALE_KEYWORDS.some(k => new RegExp('\\b' + k.replace("'", "'?") + '\\b', 'i').test(lower));
 }
 
 fetch('data/products.json')
   .then(r => r.json())
   .then(data => {
     // Prefer products with a real photo over icon-only ones when picking the
-    // homepage's top 3 — still genuinely the best discounts, just weighted so
-    // the hero section always leads with its best-looking cards.
+    // homepage's top cards — still genuinely the best discounts, just
+    // weighted so the hero section always leads with its best-looking cards.
     const sorted = [...data.products].sort((a, b) => {
       const aHasImage = a.image ? 1 : 0;
       const bHasImage = b.image ? 1 : 0;
@@ -113,16 +128,56 @@ fetch('data/products.json')
     // (driver, putter, headcover, etc.) so the featured section doesn't show
     // two headcovers or two drivers side by side. Falls back to allowing
     // repeats only if there genuinely aren't enough distinct types.
-    function pickDiverseTop(list, count, usedKeys) {
+    //
+    // minMaleOrUnisex enforces a minimum count of non-explicitly-female
+    // items in the pick — golf skews male in participation, but women's
+    // apparel tends to carry deeper/more frequent discounts, so a pure
+    // "best discount" sort would over-represent women's items relative to
+    // the audience. This keeps the featured section broadly representative
+    // without excluding women's deals outright.
+    function pickDiverseTop(list, count, usedKeys, minMaleOrUnisex) {
       const picked = [];
       const seen = new Set(usedKeys);
-      for (const item of list) {
+      let maleOrUnisexCount = 0;
+
+      function tryPick(item) {
         const key = item.icon || item.category;
-        if (seen.has(key)) continue;
+        if (seen.has(key)) return false;
         picked.push(item);
         seen.add(key);
-        if (picked.length === count) break;
+        if (!isFemaleProduct(item.name)) maleOrUnisexCount++;
+        return true;
       }
+
+      for (const item of list) {
+        if (picked.length === count) break;
+        tryPick(item);
+      }
+
+      // If we came up short on male/unisex representation, do a second
+      // pass: swap out the lowest-ranked female-flagged pick for the next
+      // best male/unisex item not already used, repeating until the
+      // minimum is met or we run out of candidates.
+      if (minMaleOrUnisex) {
+        let guard = 0;
+        while (maleOrUnisexCount < minMaleOrUnisex && guard < count * 2) {
+          guard++;
+          const femaleIdx = [...picked].reverse().findIndex(p => isFemaleProduct(p.name));
+          if (femaleIdx === -1) break;
+          const realIdx = picked.length - 1 - femaleIdx;
+          const replacement = list.find(item =>
+            !isFemaleProduct(item.name) &&
+            !picked.includes(item) &&
+            !seen.has(item.icon || item.category)
+          );
+          if (!replacement) break;
+          seen.delete(picked[realIdx].icon || picked[realIdx].category);
+          picked[realIdx] = replacement;
+          seen.add(replacement.icon || replacement.category);
+          maleOrUnisexCount++;
+        }
+      }
+
       if (picked.length < count) {
         for (const item of list) {
           if (picked.length === count) break;
@@ -132,10 +187,10 @@ fetch('data/products.json')
       return picked;
     }
 
-    const bestDeals = pickDiverseTop(sorted, 4, []);
+    const bestDeals = pickDiverseTop(sorted, 12, [], 8);
     const bestKeys = bestDeals.map(d => d.icon || d.category);
     const priceDrops = pickDiverseTop(
-      sorted.filter(d => !bestDeals.includes(d)), 3, bestKeys
+      sorted.filter(d => !bestDeals.includes(d)), 6, bestKeys
     );
 
     const bestGrid = document.getElementById('best-deals');
@@ -144,7 +199,25 @@ fetch('data/products.json')
     const dropList = document.getElementById('price-drop-list');
     if (dropList) dropList.innerHTML = priceDrops.map(dropRowHTML).join('');
 
-    if (data.trending) renderTrending(data.trending);
+    // Trending: computed from the live catalog by popularity proxy, not
+    // the old small hand-picked list — this scales properly now that the
+    // catalog has thousands of real products instead of ~78. "Hot" vs
+    // "Rising" is a simple discount-size split, also a proxy.
+    const usedForTrending = new Set([...bestKeys]);
+    const trendingPicks = [];
+    for (const item of [...data.products].sort((a, b) => popularityScore(b) - popularityScore(a))) {
+      const key = item.icon || item.category;
+      if (usedForTrending.has(key)) continue;
+      trendingPicks.push({
+        name: item.name,
+        tag: item.savePct >= 25 ? 'Hot' : 'Rising',
+        affiliateUrl: item.affiliateUrl,
+        category: item.category,
+      });
+      usedForTrending.add(key);
+      if (trendingPicks.length === 12) break;
+    }
+    renderTrending(trendingPicks);
   })
   .catch(err => console.error('Could not load products.json', err));
 
