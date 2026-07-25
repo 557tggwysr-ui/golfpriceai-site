@@ -134,13 +134,13 @@ function popularityScore(p) {
 /* ============================================
    Category groupings
    ============================================ */
-const CLUB_CATEGORIES = ['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets'];
+const CLUB_CATEGORIES = ['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets', 'junior'];
 
 const CLUB_TYPE_OPTIONS = [
   { key: 'driver', label: 'Drivers' }, { key: 'wood', label: 'Fairway Woods' },
   { key: 'hybrid', label: 'Hybrids' }, { key: 'irons', label: 'Irons' },
   { key: 'wedge', label: 'Wedges' }, { key: 'putter', label: 'Putters' },
-  { key: 'sets', label: 'Sets' },
+  { key: 'sets', label: 'Sets' }, { key: 'junior', label: 'Junior' },
 ];
 const APPAREL_TYPE_OPTIONS = [
   { key: 'polo', label: 'Polo Tees' }, { key: 'trousers', label: 'Trousers' },
@@ -174,7 +174,7 @@ const ALL_TOP_CATEGORY_OPTIONS = [
   { key: 'driver', label: 'Drivers' }, { key: 'wood', label: 'Fairway Woods' },
   { key: 'hybrid', label: 'Hybrids' }, { key: 'irons', label: 'Irons' },
   { key: 'wedge', label: 'Wedges' }, { key: 'putter', label: 'Putters' },
-  { key: 'sets', label: 'Sets' },
+  { key: 'sets', label: 'Sets' }, { key: 'junior', label: 'Junior' },
   { key: 'ball', label: 'Balls' }, { key: 'bag', label: 'Bags' },
   { key: 'shoes', label: 'Shoes' }, { key: 'apparel', label: 'Apparel' },
   { key: 'accessories', label: 'Accessories' },

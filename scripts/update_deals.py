@@ -232,6 +232,13 @@ def apply_pre_overrides(name_text):
 def apply_post_overrides(name_text, base_category):
     """Rules that depend on knowing what the base category was already
     guessed as, applied after the main guess_category logic runs."""
+    # Junior/kids gear gets pulled onto its own page regardless of what
+    # type of item it otherwise is (a junior driver, junior iron set,
+    # junior bag all land in "junior" together) — checked before the Sets
+    # rule below since it's the more specific signal.
+    if _has_word(name_text, "junior") or "kids golf" in name_text or "us kids golf" in name_text:
+        return "junior"
+
     # A "set" accessory bundle (e.g. a towel/tee/marker gift set) that
     # would otherwise land in Accessories gets its own Clubs > Sets
     # sub-section instead — deliberately narrow: this does NOT touch
@@ -683,6 +690,9 @@ def main():
     if "sets" not in existing_category_keys:
         catalog.setdefault("categories", []).append({"key": "sets", "label": "Sets"})
         print("Added 'Sets' to the categories list.")
+    if "junior" not in existing_category_keys:
+        catalog.setdefault("categories", []).append({"key": "junior", "label": "Junior"})
+        print("Added 'Junior' to the categories list.")
 
     catalog["lastUpdated"] = datetime.now(timezone.utc).isoformat()
     DATA_FILE.write_text(json.dumps(catalog, indent=2))
