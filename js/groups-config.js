@@ -77,7 +77,7 @@ window.GOLFPRICE_GROUPS = {
       label: "Divot Tools",
       blurb: "Small gear, big difference.",
       image: "assets/photos/umbrella-open-oncart.jpg",
-      types: ["divot-tool", "accessories"]
+      types: ["divot-tool", "caddie-shagger", "accessories"]
     },
     {
       key: "ball-bags",
@@ -92,13 +92,23 @@ window.GOLFPRICE_GROUPS = {
       blurb: "For the ones that didn't quite make it.",
       image: "assets/photos/ball-retriever-ongrass.jpg",
       types: ["ball-retriever"]
+    },
+    {
+      key: "alignment-sticks",
+      label: "Alignment Sticks",
+      blurb: "For the practice you'll do twice a year, ambitiously.",
+      image: "assets/photos/alignment-sticks-crossed.jpg",
+      types: ["alignment-sticks"]
+    },
+    {
+      key: "launch-monitors",
+      label: "Launch Monitors & Simulators",
+      blurb: "Bring the range into the garage.",
+      image: "assets/photos/launch-monitor-display.jpg",
+      types: ["launch-monitor"]
     }
-    // Alignment Sticks, Caddie & Shagger Sets, and Launch Monitors &
-    // Simulators are deliberately not shown as hub tiles yet — no real
-    // matching photo exists for them (site policy: never an icon, never a
-    // mismatched photo). Products in these types are still correctly
-    // tagged and reachable via the Shop page's Product Type filter; they
-    // just don't have a dedicated homepage tile until real photos come in.
+    // Caddie & Shagger Sets fold into the Divot Tools tile above rather
+    // than getting their own — no dedicated image needed for that one.
   ],
   apparel: [
     {
@@ -135,10 +145,20 @@ window.GOLFPRICE_GROUPS = {
       blurb: "Caps, sunglasses, belts and socks — the finishing touches.",
       image: "assets/photos/headwear.png",
       types: ["cap", "sunglasses", "belt", "socks"]
+    },
+    {
+      key: "suit",
+      label: "Golf Suits",
+      blurb: "For when you've committed to the whole look.",
+      image: "assets/photos/golf-suit-winter-group.jpg",
+      types: ["suit"]
+    },
+    {
+      key: "dress",
+      label: "Golf Dresses",
+      blurb: "Because not every round needs a skort.",
+      image: "assets/photos/golf-dress-woman.jpg",
+      types: ["dress"]
     }
-    // Golf Dresses and Golf Suits are deliberately not shown as hub tiles
-    // yet — no real matching photo exists (site policy: never an icon,
-    // never a mismatched photo). Products are still correctly tagged and
-    // reachable via the Shop page's Product Type filter.
   ]
 };
