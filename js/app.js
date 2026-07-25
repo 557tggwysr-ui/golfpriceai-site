@@ -83,15 +83,24 @@ function dropRowHTML(d) {
     </a>`;
 }
 
+// Trending pills have a fixed-ish width, so a very long real product name
+// (much more common now the catalog has thousands of items instead of ~78
+// hand-shortened ones) can overflow the pill. Truncates by word count
+// rather than raw character count so it never cuts a word in half.
+function truncateWords(name, maxWords) {
+  const words = name.split(' ');
+  if (words.length <= maxWords) return name;
+  return words.slice(0, maxWords).join(' ') + '…';
+}
+
 function renderTrending(items) {
   const list = document.getElementById('trending-list');
   if (!list) return;
-  // Long real product names are handled by the .tag CSS (white-space:
-  // nowrap + text-overflow: ellipsis) rather than a fixed character limit,
-  // since this list is now built dynamically from the live catalog instead
-  // of a small hand-picked, hand-shortened curated list.
   list.innerHTML = items.map(t => `
-    <a class="tag" href="${t.affiliateUrl}" target="_blank" rel="sponsored noopener">${t.name} <span class="${t.tag.toLowerCase()}">${t.tag === 'Hot' ? '🔥' : '📈'} ${t.tag}</span></a>
+    <a class="tag" href="${t.affiliateUrl}" target="_blank" rel="sponsored noopener">
+      <span class="tag-name">${truncateWords(t.name, 5)}</span>
+      <span class="${t.tag.toLowerCase()}">${t.tag === 'Hot' ? '🔥' : '📈'} ${t.tag}</span>
+    </a>
   `).join('');
 }
 
@@ -104,94 +113,187 @@ function popularityScore(p) {
   return (p.retailerCount || 1) * 10 + (p.savePct || 0) * 2;
 }
 
-const FEMALE_KEYWORDS = ["women's", "womens", "women", "ladies", "lady's", "girls", "girl's"];
-function isFemaleProduct(name) {
-  if (!name) return false;
+// Male / Female / Junior — kept in sync with js/shop.js's classifyAudience
+// and scripts/update_deals.py's classify_audience(). Junior beats
+// Female/Male since a junior item is sometimes also described with
+// "girls"/"boys", which would otherwise misread as a gender signal.
+const JUNIOR_WORDS = ['junior', 'boys', 'girls', 'kids golf', 'us kids golf'];
+const FEMALE_WORDS = ["women's", 'womens', 'women', 'ladies', "lady's"];
+function classifyAudience(p) {
+  if (p.audience) return p.audience;
+  const name = p.name || '';
   const lower = name.toLowerCase();
-  return FEMALE_KEYWORDS.some(k => new RegExp('\\b' + k.replace("'", "'?") + '\\b', 'i').test(lower));
+  for (const word of JUNIOR_WORDS) {
+    const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
+    if (re.test(lower)) return 'Junior';
+  }
+  for (const word of FEMALE_WORDS) {
+    const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
+    if (re.test(lower)) return 'Female';
+  }
+  return 'Male';
+}
+
+// Real golf club categories — used for the "Today's Best Golf Deals"
+// minimum-clubs rule. Note: the no-duplicate-category diversity rule below
+// means at most ONE item per category can appear, so "at least 5 clubs"
+// in practice means at least 5 of these 7 distinct club types represented
+// (one driver, one iron set, etc.) — not 5 different drivers.
+const CLUB_CATEGORIES = new Set(['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets']);
+
+// Deterministic per-day shuffle: same seed (today's date) always produces
+// the same order for every visitor on the same day, but a new day produces
+// a different order — this is what makes "Today's Best Golf Deals" and
+// Trending genuinely rotate daily without needing any real backend state,
+// while still only ever drawing from a pool of genuinely good discounts.
+function seededShuffle(array, seedStr) {
+  let seed = 0;
+  for (let i = 0; i < seedStr.length; i++) seed = (seed * 31 + seedStr.charCodeAt(i)) >>> 0;
+  function rng() {
+    seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  }
+  const arr = array.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// Picks `count` items from `pool` with:
+//  - no two sharing the same specific type (driver, putter, headcover,
+//    etc.) so the section doesn't show two of basically the same thing
+//  - optionally, a minimum number of golf-club items (minClubCount)
+//  - optionally, a minimum percentage classified "Male" (minMalePercent) —
+//    golf's core audience skews male, but women's apparel tends to carry
+//    deeper/more frequent discounts, so a pure "best discount" sort would
+//    over-represent women's items relative to the audience
+// Club-minimum is enforced before the male-minimum, since satisfying it
+// tends to also help the male count (clubs are overwhelmingly male-default
+// in this catalog), reducing how many further swaps are needed.
+// Club-minimum is enforced before the male-minimum, since satisfying it
+// tends to also help the male count (clubs are overwhelmingly male-default
+// in this catalog), reducing how many further swaps are needed.
+//
+// `fallbackPool` (the full, unrestricted product list) is used specifically
+// for replacement searches during swaps — this matters because the daily
+// rotating `pool` is filtered to a top-discount slice, and if Female/Junior
+// items systematically carry bigger discounts than Male items (true here —
+// women's apparel tends to see deeper markdowns), that top-discount slice
+// could end up with too few Male candidates to hit 80% no matter how the
+// swap logic works. Searching the full catalog for replacements removes
+// that ceiling.
+function pickWithConstraints(pool, count, usedKeys, opts, fallbackPool) {
+  const searchPool = fallbackPool || pool;
+  const { minMalePercent, minClubCount } = opts || {};
+  const seen = new Set(usedKeys);
+  const picked = [];
+
+  function tryPick(item) {
+    const key = item.icon || item.category;
+    if (seen.has(key)) return false;
+    picked.push(item);
+    seen.add(key);
+    return true;
+  }
+
+  for (const item of pool) {
+    if (picked.length === count) break;
+    tryPick(item);
+  }
+
+  if (minClubCount) {
+    let guard = 0;
+    while (picked.filter(p => CLUB_CATEGORIES.has(p.category)).length < minClubCount && guard < count * 3) {
+      guard++;
+      const nonClubIdx = [...picked].reverse().findIndex(p => !CLUB_CATEGORIES.has(p.category));
+      if (nonClubIdx === -1) break;
+      const realIdx = picked.length - 1 - nonClubIdx;
+      const replacement = searchPool.find(item =>
+        CLUB_CATEGORIES.has(item.category) && !picked.includes(item) && !seen.has(item.icon || item.category)
+      );
+      if (!replacement) break;
+      seen.delete(picked[realIdx].icon || picked[realIdx].category);
+      picked[realIdx] = replacement;
+      seen.add(replacement.icon || replacement.category);
+    }
+  }
+
+  if (minMalePercent) {
+    const minMaleCount = Math.ceil(count * minMalePercent);
+    let guard = 0;
+    while (picked.filter(p => classifyAudience(p) === 'Male').length < minMaleCount && guard < count * 3) {
+      guard++;
+      const nonMaleIdx = [...picked].reverse().findIndex(p => classifyAudience(p) !== 'Male');
+      if (nonMaleIdx === -1) break;
+      const realIdx = picked.length - 1 - nonMaleIdx;
+      const replacement = searchPool.find(item =>
+        classifyAudience(item) === 'Male' && !picked.includes(item) && !seen.has(item.icon || item.category)
+      );
+      if (!replacement) break;
+      seen.delete(picked[realIdx].icon || picked[realIdx].category);
+      picked[realIdx] = replacement;
+      seen.add(replacement.icon || replacement.category);
+    }
+  }
+
+  // Fill any remaining slots with fresh, unseen keys first — this MUST
+  // respect `seen`, otherwise it can silently reintroduce a duplicate
+  // category/icon (including one already used by an earlier homepage
+  // section, since that's passed in via usedKeys).
+  if (picked.length < count) {
+    for (const item of searchPool) {
+      if (picked.length === count) break;
+      const key = item.icon || item.category;
+      if (!picked.includes(item) && !seen.has(key)) {
+        picked.push(item);
+        seen.add(key);
+      }
+    }
+  }
+  // Absolute last resort — only reached if the catalog genuinely doesn't
+  // have enough distinct categories/icons to fill every slot uniquely.
+  if (picked.length < count) {
+    for (const item of searchPool) {
+      if (picked.length === count) break;
+      if (!picked.includes(item)) picked.push(item);
+    }
+  }
+  return picked;
 }
 
 fetch('data/products.json')
   .then(r => r.json())
   .then(data => {
-    // Prefer products with a real photo over icon-only ones when picking the
-    // homepage's top cards — still genuinely the best discounts, just
-    // weighted so the hero section always leads with its best-looking cards.
-    const sorted = [...data.products].sort((a, b) => {
+    // Prefer products with a real photo over icon-only ones, then by
+    // discount size — this is the quality gate before daily rotation kicks
+    // in below, so rotation only ever surfaces genuinely good deals.
+    const qualityRanked = [...data.products].sort((a, b) => {
       const aHasImage = a.image ? 1 : 0;
       const bHasImage = b.image ? 1 : 0;
       if (aHasImage !== bHasImage) return bHasImage - aHasImage;
       return b.savePct - a.savePct;
     });
 
-    // Pick the top N items with no two sharing the same specific type
-    // (driver, putter, headcover, etc.) so the featured section doesn't show
-    // two headcovers or two drivers side by side. Falls back to allowing
-    // repeats only if there genuinely aren't enough distinct types.
-    //
-    // minMaleOrUnisex enforces a minimum count of non-explicitly-female
-    // items in the pick — golf skews male in participation, but women's
-    // apparel tends to carry deeper/more frequent discounts, so a pure
-    // "best discount" sort would over-represent women's items relative to
-    // the audience. This keeps the featured section broadly representative
-    // without excluding women's deals outright.
-    function pickDiverseTop(list, count, usedKeys, minMaleOrUnisex) {
-      const picked = [];
-      const seen = new Set(usedKeys);
-      let maleOrUnisexCount = 0;
+    // Take a generous top-quality pool, then deterministically shuffle it
+    // using today's date as the seed. Same day = same order for everyone;
+    // a new day reshuffles which of these top deals surface and in what
+    // combination — this is what makes the homepage feel like it changes
+    // daily without needing any real backend/database.
+    const todaySeed = new Date().toISOString().slice(0, 10);
+    const qualifiedPool = qualityRanked.slice(0, Math.min(80, qualityRanked.length));
+    const dailyPool = seededShuffle(qualifiedPool, todaySeed);
 
-      function tryPick(item) {
-        const key = item.icon || item.category;
-        if (seen.has(key)) return false;
-        picked.push(item);
-        seen.add(key);
-        if (!isFemaleProduct(item.name)) maleOrUnisexCount++;
-        return true;
-      }
-
-      for (const item of list) {
-        if (picked.length === count) break;
-        tryPick(item);
-      }
-
-      // If we came up short on male/unisex representation, do a second
-      // pass: swap out the lowest-ranked female-flagged pick for the next
-      // best male/unisex item not already used, repeating until the
-      // minimum is met or we run out of candidates.
-      if (minMaleOrUnisex) {
-        let guard = 0;
-        while (maleOrUnisexCount < minMaleOrUnisex && guard < count * 2) {
-          guard++;
-          const femaleIdx = [...picked].reverse().findIndex(p => isFemaleProduct(p.name));
-          if (femaleIdx === -1) break;
-          const realIdx = picked.length - 1 - femaleIdx;
-          const replacement = list.find(item =>
-            !isFemaleProduct(item.name) &&
-            !picked.includes(item) &&
-            !seen.has(item.icon || item.category)
-          );
-          if (!replacement) break;
-          seen.delete(picked[realIdx].icon || picked[realIdx].category);
-          picked[realIdx] = replacement;
-          seen.add(replacement.icon || replacement.category);
-          maleOrUnisexCount++;
-        }
-      }
-
-      if (picked.length < count) {
-        for (const item of list) {
-          if (picked.length === count) break;
-          if (!picked.includes(item)) picked.push(item);
-        }
-      }
-      return picked;
-    }
-
-    const bestDeals = pickDiverseTop(sorted, 12, [], 9);
+    const bestDeals = pickWithConstraints(dailyPool, 12, [], { minMalePercent: 0.8, minClubCount: 5 }, qualityRanked);
     const bestKeys = bestDeals.map(d => d.icon || d.category);
-    const priceDrops = pickDiverseTop(
-      sorted.filter(d => !bestDeals.includes(d)), 6, bestKeys
+
+    const priceDrops = pickWithConstraints(
+      dailyPool.filter(d => !bestDeals.includes(d)), 6, bestKeys, { minMalePercent: 0.8 }, qualityRanked
     );
+    const priceDropKeys = priceDrops.map(d => d.icon || d.category);
 
     const bestGrid = document.getElementById('best-deals');
     if (bestGrid) bestGrid.innerHTML = bestDeals.map(dealCardHTML).join('');
@@ -199,24 +301,20 @@ fetch('data/products.json')
     const dropList = document.getElementById('price-drop-list');
     if (dropList) dropList.innerHTML = priceDrops.map(dropRowHTML).join('');
 
-    // Trending: computed from the live catalog by popularity proxy, not
-    // the old small hand-picked list — this scales properly now that the
-    // catalog has thousands of real products instead of ~78. "Hot" vs
-    // "Rising" is a simple discount-size split, also a proxy.
-    const usedForTrending = new Set([...bestKeys]);
-    const trendingPicks = [];
-    for (const item of [...data.products].sort((a, b) => popularityScore(b) - popularityScore(a))) {
-      const key = item.icon || item.category;
-      if (usedForTrending.has(key)) continue;
-      trendingPicks.push({
-        name: item.name,
-        tag: item.savePct >= 25 ? 'Hot' : 'Rising',
-        affiliateUrl: item.affiliateUrl,
-        category: item.category,
-      });
-      usedForTrending.add(key);
-      if (trendingPicks.length === 12) break;
-    }
+    // Trending: same daily-rotating pool, popularity-ordered within it,
+    // also held to the 80% Male rule for the hero page as a whole. "Hot"
+    // vs "Rising" is a simple discount-size split, a proxy same as before.
+    const usedForTrending = new Set([...bestKeys, ...priceDropKeys]);
+    const trendingPool = [...dailyPool]
+      .filter(d => !bestDeals.includes(d) && !priceDrops.includes(d))
+      .sort((a, b) => popularityScore(b) - popularityScore(a));
+    const trendingRaw = pickWithConstraints(trendingPool, 12, [...usedForTrending], { minMalePercent: 0.8 }, qualityRanked);
+    const trendingPicks = trendingRaw.map(item => ({
+      name: item.name,
+      tag: item.savePct >= 25 ? 'Hot' : 'Rising',
+      affiliateUrl: item.affiliateUrl,
+      category: item.category,
+    }));
     renderTrending(trendingPicks);
   })
   .catch(err => console.error('Could not load products.json', err));

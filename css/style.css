@@ -433,9 +433,13 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   justify-content: space-between;
   gap: 10px;
   cursor: pointer;
-  white-space: nowrap;
+}
+.tag-name {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 .tag:hover { border-color: var(--green); background: var(--green-pale); }
 .tag .hot { color: #d9432e; flex-shrink: 0; }
