@@ -66,6 +66,13 @@ window.GOLFPRICE_CATEGORY_BANNERS = {
     quip: "Ignore The Advice.",
     icon: "🟢"
   },
+  sets: {
+    label: "Sets",
+    blurb: "Bundled kit for people who'd rather buy once than decide six times.",
+    tagline: "One Click.",
+    quip: "Zero Decisions.",
+    icon: "📦"
+  },
   ball: {
     label: "Golf Balls",
     blurb: "You'll lose these. Statistically, several of them today. Buy accordingly.",

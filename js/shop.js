@@ -134,12 +134,13 @@ function popularityScore(p) {
 /* ============================================
    Category groupings
    ============================================ */
-const CLUB_CATEGORIES = ['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter'];
+const CLUB_CATEGORIES = ['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets'];
 
 const CLUB_TYPE_OPTIONS = [
   { key: 'driver', label: 'Drivers' }, { key: 'wood', label: 'Fairway Woods' },
   { key: 'hybrid', label: 'Hybrids' }, { key: 'irons', label: 'Irons' },
   { key: 'wedge', label: 'Wedges' }, { key: 'putter', label: 'Putters' },
+  { key: 'sets', label: 'Sets' },
 ];
 const APPAREL_TYPE_OPTIONS = [
   { key: 'polo', label: 'Polo Tees' }, { key: 'trousers', label: 'Trousers' },
@@ -153,14 +154,27 @@ const ACCESSORIES_TYPE_OPTIONS = [
   { key: 'sensor', label: 'Smart Sensors' }, { key: 'pushcart', label: 'Push Carts' },
   { key: 'headcover', label: 'Headcovers' }, { key: 'umbrella', label: 'Umbrellas' },
   { key: 'tee', label: 'Tees' }, { key: 'grip', label: 'Grips' },
-  { key: 'towel', label: 'Towels' }, { key: 'glove', label: 'Gloves' },
+  { key: 'towel', label: 'Towels' }, { key: 'glove', label: 'Gloves & Mittens' },
   { key: 'divot-tool', label: 'Divot Tools' }, { key: 'alignment-sticks', label: 'Alignment Sticks' },
+  { key: 'ball-bag', label: 'Ball Bags' }, { key: 'ball-retriever', label: 'Ball Retrievers' },
+  { key: 'caddie-shagger', label: 'Caddie & Shagger Sets' },
+  { key: 'launch-monitor', label: 'Launch Monitors & Simulators' },
+  { key: 'pouch', label: 'Pouches' }, { key: 'wheel', label: 'Wheels' },
+  { key: 'mat', label: 'Putting & Training Mats' }, { key: 'enclosure', label: 'Covers & Enclosures' },
+  { key: 'storage', label: 'Storage' }, { key: 'travel', label: 'Travel' },
+  { key: 'battery-charger', label: 'Battery & Chargers' }, { key: 'drink-holder', label: 'Drink Holders' },
+  { key: 'speaker', label: 'Speakers' },
   { key: 'accessories', label: 'Other Accessories' },
+];
+const BAG_TYPE_OPTIONS = [
+  { key: 'golf-bag', label: 'Golf Bags' }, { key: 'range-bag', label: 'Range Bags' },
+  { key: 'carry-bag', label: 'Carry Bags' }, { key: 'shoe-bag', label: 'Shoe Bags' },
 ];
 const ALL_TOP_CATEGORY_OPTIONS = [
   { key: 'driver', label: 'Drivers' }, { key: 'wood', label: 'Fairway Woods' },
   { key: 'hybrid', label: 'Hybrids' }, { key: 'irons', label: 'Irons' },
   { key: 'wedge', label: 'Wedges' }, { key: 'putter', label: 'Putters' },
+  { key: 'sets', label: 'Sets' },
   { key: 'ball', label: 'Balls' }, { key: 'bag', label: 'Bags' },
   { key: 'shoes', label: 'Shoes' }, { key: 'apparel', label: 'Apparel' },
   { key: 'accessories', label: 'Accessories' },
@@ -189,6 +203,7 @@ function currentTypeOptions() {
   const only = [...baseCategories][0];
   if (baseCategories.size === 1 && only === 'apparel') return APPAREL_TYPE_OPTIONS;
   if (baseCategories.size === 1 && only === 'accessories') return ACCESSORIES_TYPE_OPTIONS;
+  if (baseCategories.size === 1 && only === 'bag') return BAG_TYPE_OPTIONS;
   return null;
 }
 
