@@ -232,16 +232,6 @@ def apply_pre_overrides(name_text):
 def apply_post_overrides(name_text, base_category):
     """Rules that depend on knowing what the base category was already
     guessed as, applied after the main guess_category logic runs."""
-    # Junior/kids gear gets pulled onto its own page regardless of what
-    # type of item it otherwise is (a junior driver, junior iron set,
-    # junior bag all land in "junior" together) — checked before the Sets
-    # rule below since it's the more specific signal. "Boys"/"Girls" are
-    # included since golf retailers almost always use those specifically
-    # for junior-sized ranges, not adult products.
-    if (_has_word(name_text, "junior") or _has_word(name_text, "boys")
-            or _has_word(name_text, "girls") or "kids golf" in name_text
-            or "us kids golf" in name_text):
-        return "junior"
 
     # A "set" accessory bundle (e.g. a towel/tee/marker gift set) that
     # would otherwise land in Accessories gets its own Clubs > Sets
@@ -423,6 +413,31 @@ def extract_colour(name):
     return "Grey" if best_word == "gray" else best_word.capitalize()
 
 
+# Checked in this order: Junior beats Female/Male, since a junior product
+# is sometimes also described with "girls"/"boys" which could otherwise
+# read as a gender signal — junior is the more specific, correct bucket.
+JUNIOR_WORDS = ["junior", "boys", "girls", "kids golf", "us kids golf"]
+FEMALE_WORDS = ["women's", "womens", "women", "ladies", "lady's"]
+
+
+def classify_audience(name):
+    """Male / Female / Junior filter facet. Defaults to "Male" when
+    nothing else matches — most golf gear is unisex in reality, and this
+    matches the same "male or unisex" convention already used for the
+    homepage's gender-balanced Hot Deals picks, rather than introducing a
+    fourth ambiguous "Unisex" bucket the person didn't ask for."""
+    if not name:
+        return "Male"
+    lower = name.lower()
+    for word in JUNIOR_WORDS:
+        if _has_word(lower, word):
+            return "Junior"
+    for word in FEMALE_WORDS:
+        if _has_word(lower, word):
+            return "Female"
+    return "Male"
+
+
 def backfill_catalog(products):
     """Self-healing pass applied to the ENTIRE catalog every run — not just
     freshly-fetched items. This is what lets brand/colour/icon coverage
@@ -445,9 +460,12 @@ def backfill_catalog(products):
             if icon:
                 p["icon"] = icon
                 changed = True
+        if "audience" not in p:
+            p["audience"] = classify_audience(p.get("name", ""))
+            changed = True
         if changed:
             updated += 1
-    print(f"Catalog backfill: enriched {updated}/{len(products)} products with brand/colour/icon.")
+    print(f"Catalog backfill: enriched {updated}/{len(products)} products with brand/colour/icon/audience.")
     return products
 
 
@@ -562,6 +580,7 @@ def fetch_awin_clickgolf_deals():
         icon = guess_icon(cat_name, merch_cat, name, category)
         brand = extract_brand(name, row.get("brand_name"))
         colour = extract_colour(name)
+        audience = classify_audience(name)
         product_id = f"{category}-{slugify(name)}-clickgolf"
 
         product = {
@@ -575,6 +594,7 @@ def fetch_awin_clickgolf_deals():
             "affiliateUrl": affiliate_url,
             "source": "awin-clickgolf",
             "brand": brand,
+            "audience": audience,
         }
         if image:
             product["image"] = image
@@ -694,9 +714,6 @@ def main():
     if "sets" not in existing_category_keys:
         catalog.setdefault("categories", []).append({"key": "sets", "label": "Sets"})
         print("Added 'Sets' to the categories list.")
-    if "junior" not in existing_category_keys:
-        catalog.setdefault("categories", []).append({"key": "junior", "label": "Junior"})
-        print("Added 'Junior' to the categories list.")
 
     catalog["lastUpdated"] = datetime.now(timezone.utc).isoformat()
     DATA_FILE.write_text(json.dumps(catalog, indent=2))

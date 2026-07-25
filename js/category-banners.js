@@ -73,13 +73,6 @@ window.GOLFPRICE_CATEGORY_BANNERS = {
     quip: "Zero Decisions.",
     icon: "📦"
   },
-  junior: {
-    label: "Junior",
-    blurb: "Gear built for smaller swings and bigger encouragement.",
-    tagline: "Future Champions.",
-    quip: "Current Chaos.",
-    icon: "🏌️"
-  },
   ball: {
     label: "Golf Balls",
     blurb: "You'll lose these. Statistically, several of them today. Buy accordingly.",

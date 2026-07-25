@@ -122,6 +122,28 @@ function extractColour(p) {
   return bestMatch === 'gray' ? 'Grey' : bestMatch.charAt(0).toUpperCase() + bestMatch.slice(1);
 }
 
+// Male / Female / Junior filter facet. Kept in sync with
+// scripts/update_deals.py's classify_audience(). Junior beats Female/Male
+// since a junior item is sometimes also described with "girls"/"boys",
+// which would otherwise misread as a gender signal.
+const JUNIOR_WORDS = ['junior', 'boys', 'girls', 'kids golf', 'us kids golf'];
+const FEMALE_WORDS = ["women's", 'womens', 'women', 'ladies', "lady's"];
+
+function classifyAudience(p) {
+  if (p.audience) return p.audience;
+  const name = p.name || '';
+  const lower = name.toLowerCase();
+  for (const word of JUNIOR_WORDS) {
+    const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
+    if (re.test(lower)) return 'Junior';
+  }
+  for (const word of FEMALE_WORDS) {
+    const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
+    if (re.test(lower)) return 'Female';
+  }
+  return 'Male';
+}
+
 // Popularity is a proxy, not real purchase/click data — no such data exists
 // yet for this static site. Weighted toward being stocked by more retailers
 // (a reasonable signal of a mainstream, in-demand product) with discount
@@ -134,13 +156,13 @@ function popularityScore(p) {
 /* ============================================
    Category groupings
    ============================================ */
-const CLUB_CATEGORIES = ['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets', 'junior'];
+const CLUB_CATEGORIES = ['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets'];
 
 const CLUB_TYPE_OPTIONS = [
   { key: 'driver', label: 'Drivers' }, { key: 'wood', label: 'Fairway Woods' },
   { key: 'hybrid', label: 'Hybrids' }, { key: 'irons', label: 'Irons' },
   { key: 'wedge', label: 'Wedges' }, { key: 'putter', label: 'Putters' },
-  { key: 'sets', label: 'Sets' }, { key: 'junior', label: 'Junior' },
+  { key: 'sets', label: 'Sets' },
 ];
 const APPAREL_TYPE_OPTIONS = [
   { key: 'polo', label: 'Polo Tees' }, { key: 'trousers', label: 'Trousers' },
@@ -174,7 +196,7 @@ const ALL_TOP_CATEGORY_OPTIONS = [
   { key: 'driver', label: 'Drivers' }, { key: 'wood', label: 'Fairway Woods' },
   { key: 'hybrid', label: 'Hybrids' }, { key: 'irons', label: 'Irons' },
   { key: 'wedge', label: 'Wedges' }, { key: 'putter', label: 'Putters' },
-  { key: 'sets', label: 'Sets' }, { key: 'junior', label: 'Junior' },
+  { key: 'sets', label: 'Sets' },
   { key: 'ball', label: 'Balls' }, { key: 'bag', label: 'Bags' },
   { key: 'shoes', label: 'Shoes' }, { key: 'apparel', label: 'Apparel' },
   { key: 'accessories', label: 'Accessories' },
@@ -187,6 +209,7 @@ let baseCategories = null; // Set of categories the current page/group is scoped
 let activeTypeCheckboxes = new Set(); // user-toggled sub-type checkboxes (icon values or, for "all" view, category keys)
 let activeBrands = new Set();
 let activeColours = new Set();
+let activeAudience = new Set();
 let priceMin = null;
 let priceMax = null;
 let sortMode = 'popular';
@@ -231,9 +254,10 @@ function matchesFilters(p, exclude) {
   const matchesType = exclude === 'type' || matchesTypeCheckboxes(p);
   const matchesBrand = exclude === 'brand' || activeBrands.size === 0 || activeBrands.has(extractBrand(p));
   const matchesColour = exclude === 'colour' || activeColours.size === 0 || activeColours.has(extractColour(p));
+  const matchesAudience = exclude === 'audience' || activeAudience.size === 0 || activeAudience.has(classifyAudience(p));
   const matchesPriceMin = exclude === 'price' || priceMin === null || p.salePrice >= priceMin;
   const matchesPriceMax = exclude === 'price' || priceMax === null || p.salePrice <= priceMax;
-  return matchesQuery && matchesType && matchesBrand && matchesColour && matchesPriceMin && matchesPriceMax;
+  return matchesQuery && matchesType && matchesBrand && matchesColour && matchesAudience && matchesPriceMin && matchesPriceMax;
 }
 
 function scopedFor(exclude) {
@@ -273,6 +297,7 @@ function renderActiveChips() {
   });
   activeBrands.forEach(b => chips.push({ label: b, remove: () => { activeBrands.delete(b); refreshAfterFilterChange(); } }));
   activeColours.forEach(c => chips.push({ label: c, remove: () => { activeColours.delete(c); refreshAfterFilterChange(); } }));
+  activeAudience.forEach(a => chips.push({ label: a, remove: () => { activeAudience.delete(a); refreshAfterFilterChange(); } }));
   if (priceMin !== null || priceMax !== null) {
     chips.push({
       label: `${money(priceMin || 0)} \u2013 ${money(priceMax || 99999)}`,
@@ -314,6 +339,7 @@ function renderSidebar() {
   const typeScoped = scopedFor('type');
   const brandScoped = scopedFor('brand');
   const colourScoped = scopedFor('colour');
+  const audienceScoped = scopedFor('audience');
   const priceScoped = scopedFor('price');
 
   const typeOptsRaw = currentTypeOptions();
@@ -354,6 +380,18 @@ function renderSidebar() {
       </div>`;
   }
 
+  const audienceCounts = {};
+  audienceScoped.forEach(p => { const a = classifyAudience(p); audienceCounts[a] = (audienceCounts[a] || 0) + 1; });
+  const audienceOrder = ['Male', 'Female', 'Junior'];
+  const audienceOpts = audienceOrder
+    .map(key => ({ key, label: key, count: audienceCounts[key] || 0 }))
+    .filter(o => o.count > 0 || activeAudience.has(o.key));
+  const audienceSection = `
+    <div class="filter-group" data-group-name="audience">
+      <div class="filter-group-head">Audience <span class="chevron">\u25be</span></div>
+      <div class="filter-group-body">${buildOptionList('audience', audienceOpts, activeAudience)}</div>
+    </div>`;
+
   const prices = priceScoped.map(p => p.salePrice).filter(n => typeof n === 'number');
   const lo = prices.length ? Math.floor(Math.min(...prices)) : 0;
   const hi = prices.length ? Math.ceil(Math.max(...prices)) : 1000;
@@ -364,6 +402,7 @@ function renderSidebar() {
       <div class="filter-group-head">Brand <span class="chevron">\u25be</span></div>
       <div class="filter-group-body">${buildOptionList('brand', brandOpts, activeBrands)}</div>
     </div>
+    ${audienceSection}
     <div class="filter-group" data-group-name="price">
       <div class="filter-group-head">Price <span class="chevron">\u25be</span></div>
       <div class="filter-group-body">
@@ -386,7 +425,7 @@ function renderSidebar() {
   sidebar.querySelectorAll('input[type="checkbox"]').forEach(cb => {
     cb.addEventListener('change', () => {
       const group = cb.dataset.group;
-      const targetSet = group === 'type' ? activeTypeCheckboxes : group === 'brand' ? activeBrands : activeColours;
+      const targetSet = group === 'type' ? activeTypeCheckboxes : group === 'brand' ? activeBrands : group === 'audience' ? activeAudience : activeColours;
       if (cb.checked) targetSet.add(cb.value); else targetSet.delete(cb.value);
       if (group === 'type') renderCategoryBanner();
       renderSidebar(); // rebuild so every OTHER facet's counts reflect this new selection (cascading filters)
@@ -422,6 +461,7 @@ function updateURL() {
   const params = new URLSearchParams(window.location.search);
   if (activeBrands.size) params.set('brand', [...activeBrands].join(',')); else params.delete('brand');
   if (activeColours.size) params.set('colour', [...activeColours].join(',')); else params.delete('colour');
+  if (activeAudience.size) params.set('audience', [...activeAudience].join(',')); else params.delete('audience');
   if (activeTypeCheckboxes.size) params.set('types', [...activeTypeCheckboxes].join(',')); else params.delete('types');
   if (priceMin !== null) params.set('pricemin', priceMin); else params.delete('pricemin');
   if (priceMax !== null) params.set('pricemax', priceMax); else params.delete('pricemax');
@@ -501,6 +541,9 @@ fetch('data/products.json')
     const colourParam = params.get('colour');
     if (colourParam) activeColours = new Set(colourParam.split(','));
 
+    const audienceParam = params.get('audience');
+    if (audienceParam) activeAudience = new Set(audienceParam.split(','));
+
     if (params.get('pricemin')) priceMin = Number(params.get('pricemin'));
     if (params.get('pricemax')) priceMax = Number(params.get('pricemax'));
     if (params.get('sort')) sortMode = params.get('sort');
@@ -548,6 +591,7 @@ if (clearAllBtn) {
     activeTypeCheckboxes = new Set();
     activeBrands = new Set();
     activeColours = new Set();
+    activeAudience = new Set();
     priceMin = null;
     priceMax = null;
     refreshAfterFilterChange();
