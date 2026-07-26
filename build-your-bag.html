@@ -59,12 +59,16 @@
     <div class="bag-body">
       <div class="tray" id="bag-tray"></div>
     </div>
-    <p class="bag-graphic-caption">This fills in live as you pick a bag and add accessories below.</p>
+    <p class="bag-graphic-caption">This fills in live as you pick a bag, clubs, and accessories below.</p>
   </div>
 
   <section class="bag-picker-section">
     <h2>1. Choose your bag</h2>
     <p class="section-sub">Pick one — this is the bag everything else goes in.</p>
+    <div class="picker-search">
+      <input type="text" id="bag-search" placeholder="Search all bags on the site...">
+    </div>
+    <p class="quick-picks-label" id="bag-quick-picks-label">Quick Picks <span class="quip">— Even Our AI Hates Waiting</span></p>
     <div class="bag-picker-grid" id="bag-picker-grid">
       <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
       <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
@@ -73,11 +77,33 @@
     </div>
   </section>
 
+  <section class="club-picker-section">
+    <h2>2. Add clubs</h2>
+    <p class="section-sub">Add whatever's actually in your rotation.</p>
+
+    <div class="accessory-tabs" id="club-tabs"></div>
+    <div class="picker-search">
+      <input type="text" id="club-search" placeholder="Search this club type...">
+    </div>
+    <p class="quick-picks-label" id="club-quick-picks-label">Quick Picks <span class="quip">— Even Our AI Hates Waiting</span></p>
+
+    <div class="accessory-grid" id="club-grid">
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    </div>
+  </section>
+
   <section class="accessory-picker-section">
-    <h2>2. Add accessories</h2>
+    <h2>3. Add accessories</h2>
     <p class="section-sub">Add as many or as few as you want.</p>
 
     <div class="accessory-tabs" id="accessory-tabs"></div>
+    <div class="picker-search">
+      <input type="text" id="accessory-search" placeholder="Search this accessory type...">
+    </div>
+    <p class="quick-picks-label" id="accessory-quick-picks-label">Quick Picks <span class="quip">— Even Our AI Hates Waiting</span></p>
 
     <div class="accessory-grid" id="accessory-grid">
       <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
@@ -88,7 +114,7 @@
   </section>
 
   <section class="shopping-list-section" id="shopping-list-section">
-    <h2>3. Your shopping list</h2>
+    <h2>4. Your shopping list</h2>
     <p class="section-sub">Nothing here is a real cart — every item still buys from its own retailer, since that's genuinely who's selling it.</p>
 
     <div id="shopping-list-empty" class="shopping-list-empty">
