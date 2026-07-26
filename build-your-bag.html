@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assemble Your Arsenal — GolfPrice AI</title>
+<meta name="description" content="Build your own golf bag from real, tracked prices — pick a bag, add the accessories you want, and get a shopping list with a running total.">
+<link rel="icon" href="assets/logo-full.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/bag-builder.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <a href="index.html" class="brand">
+    <img src="assets/logo-full.png" alt="GolfPrice AI logo">
+    <span class="brand-name">Golf<span>Price</span> AI</span>
+  </a>
+  <nav class="main-nav">
+    <a href="shop.html">Shop All Deals</a>
+    <div class="nav-item">
+      <a href="shop.html?group=clubs">Clubs ▾</a>
+      <div class="dropdown">
+        <a href="shop.html?category=driver">Drivers</a>
+        <a href="shop.html?category=wood">Fairway Woods</a>
+        <a href="shop.html?category=hybrid">Hybrids</a>
+        <a href="shop.html?category=irons">Irons</a>
+        <a href="shop.html?category=wedge">Wedges</a>
+        <a href="shop.html?category=putter">Putters</a>
+        <a href="shop.html?category=sets">Sets</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="apparel.html">Apparel ▾</a>
+      <div class="dropdown" id="apparel-dropdown"></div>
+    </div>
+    <div class="nav-item">
+      <a href="accessories.html">Accessories ▾</a>
+      <div class="dropdown" id="accessories-dropdown"></div>
+    </div>
+    <a href="build-your-bag.html">Assemble Your Arsenal</a>
+    <a href="trending.html">Trending</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a href="index.html#alerts" class="btn btn-primary">🔔 Get Deal Alerts</a>
+  <button class="nav-toggle" aria-label="Open menu">☰</button>
+</header>
+
+<main class="container" id="main-content">
+  <div class="theme-banner">
+    <h2>🎒 Assemble Your Arsenal</h2>
+    <p>Pick a bag, add whatever else you actually need, and we'll build you a shopping list with real prices — no guesswork, no fake bundles.</p>
+    <p class="tagline">One Bag.<span class="quip"> Zero Impulse Purchases (Probably).</span></p>
+  </div>
+
+  <div class="bag-graphic-wrap">
+    <div class="bag-body">
+      <div class="tray" id="bag-tray"></div>
+    </div>
+    <p class="bag-graphic-caption">This fills in live as you pick a bag and add accessories below.</p>
+  </div>
+
+  <section class="bag-picker-section">
+    <h2>1. Choose your bag</h2>
+    <p class="section-sub">Pick one — this is the bag everything else goes in.</p>
+    <div class="bag-picker-grid" id="bag-picker-grid">
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    </div>
+  </section>
+
+  <section class="accessory-picker-section">
+    <h2>2. Add accessories</h2>
+    <p class="section-sub">Add as many or as few as you want.</p>
+
+    <div class="accessory-tabs" id="accessory-tabs"></div>
+
+    <div class="accessory-grid" id="accessory-grid">
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    </div>
+  </section>
+
+  <section class="shopping-list-section" id="shopping-list-section">
+    <h2>3. Your shopping list</h2>
+    <p class="section-sub">Nothing here is a real cart — every item still buys from its own retailer, since that's genuinely who's selling it.</p>
+
+    <div id="shopping-list-empty" class="shopping-list-empty">
+      Your bag is empty — pick a bag and a few accessories above to get started.
+    </div>
+
+    <div class="shopping-list" id="shopping-list"></div>
+
+    <div class="shopping-list-total" id="shopping-list-total" style="display:none;">
+      <span>Total</span>
+      <strong id="shopping-list-total-amount">£0.00</strong>
+    </div>
+
+    <div class="shopping-list-actions" id="shopping-list-actions" style="display:none;">
+      <button type="button" class="btn btn-outline" id="email-list-btn">✉️ Email me this list</button>
+      <button type="button" class="btn-clear-list" id="clear-list-btn">Clear bag</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
+</footer>
+
+<script src="js/groups-config.js"></script>
+<script src="js/hub.js"></script>
+<script src="js/bag-builder.js"></script>
+<script src="js/nav-mobile.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>
