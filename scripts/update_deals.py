@@ -465,6 +465,14 @@ def backfill_catalog(products):
             if icon:
                 p["icon"] = icon
                 changed = True
+        # Safety net: a product whose category is neither apparel,
+        # accessories, nor bag should never carry a leftover sub-type icon
+        # (e.g. "grip") from before a category fix. This catches anything
+        # merge_products' None-clearing didn't reach — for instance a
+        # product that's briefly missing from one run's fresh feed.
+        if p.get("icon") and p.get("category") not in ("apparel", "accessories", "bag"):
+            del p["icon"]
+            changed = True
         if "audience" not in p:
             p["audience"] = classify_audience(p.get("name", ""))
             changed = True
@@ -603,8 +611,13 @@ def fetch_awin_clickgolf_deals():
         }
         if image:
             product["image"] = image
-        if icon:
-            product["icon"] = icon
+        # Unlike image/colour (safe to just leave stale if a transient feed
+        # gap doesn't provide one), icon is ALWAYS set — including to None
+        # when no icon applies. This is what lets merge_products actively
+        # clear a stale icon left over from before a category changed (a
+        # dict update can only add/overwrite keys present in the new data;
+        # it can never delete a key that's simply missing).
+        product["icon"] = icon
         if colour:
             product["colour"] = colour
         products.append(product)
@@ -685,13 +698,26 @@ def merge_products(catalog_products, fresh_products):
     """Merge freshly-fetched products into the existing catalog: update
     matching items by name, add new ones, and never delete anything that
     isn't in the fresh batch (so a temporary feed hiccup can't wipe the
-    catalog)."""
+    catalog).
+
+    One exception: if a fresh item explicitly sets a field to None (e.g.
+    icon, when a product's category no longer needs one), that field is
+    actively removed from the existing entry. A plain dict.update() can
+    only add/overwrite keys that are present in the new data — it can
+    never delete a key that's simply absent — so without this, a stale
+    sub-type icon from before a category fix would silently persist
+    forever even after the underlying bug was corrected.
+    """
     by_name = {p["name"]: p for p in catalog_products}
     for item in fresh_products:
         if item["name"] in by_name:
-            by_name[item["name"]].update(item)
+            existing = by_name[item["name"]]
+            existing.update(item)
+            for key, value in item.items():
+                if value is None:
+                    existing.pop(key, None)
         else:
-            by_name[item["name"]] = item
+            by_name[item["name"]] = {k: v for k, v in item.items() if v is not None}
     return list(by_name.values())
 
 
