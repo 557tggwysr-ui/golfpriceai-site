@@ -190,6 +190,11 @@ def guess_category(category_name, merchant_category, name):
         return pre
 
     for word in ACCESSORY_OVERRIDE_WORDS:
+        if word == "grip" and _has_word(combined_text, "shoe"):
+            # "Grip" is a common marketing term for shoe sole traction
+            # (e.g. "enhanced grip technology") — a real golf shoe should
+            # stay a shoe, not get swept into Accessories > Grips.
+            continue
         if _has_word(combined_text, word):
             return "accessories"
 
