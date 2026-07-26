@@ -38,10 +38,10 @@
 .tray-slot.empty .name { color: #6b7a6e; font-weight: 400; }
 .tray-empty-msg { color: #a6b0a3; font-size: 13px; text-align: center; padding: 10px; }
 
-.bag-picker-section, .accessory-picker-section, .shopping-list-section {
+.bag-picker-section, .club-picker-section, .accessory-picker-section, .shopping-list-section {
   margin: 0 0 48px;
 }
-.bag-picker-section h2, .accessory-picker-section h2, .shopping-list-section h2 {
+.bag-picker-section h2, .club-picker-section h2, .accessory-picker-section h2, .shopping-list-section h2 {
   font-size: 22px;
   margin: 0 0 6px;
 }
