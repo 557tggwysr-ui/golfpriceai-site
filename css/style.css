@@ -791,3 +791,63 @@ footer a:hover { color: var(--green); }
 @media (max-width: 700px) {
   .price-drop-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================
+   Homepage: Assemble Your Arsenal promo banner
+   ============================================ */
+.arsenal-banner {
+  display: block;
+  background: linear-gradient(135deg, var(--ink) 0%, #1f3325 60%, #234027 100%);
+  border-radius: var(--radius);
+  padding: 40px 44px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease;
+}
+.arsenal-banner:hover { transform: translateY(-2px); }
+.arsenal-banner::after {
+  content: "🏌️";
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 110px;
+  opacity: 0.12;
+  pointer-events: none;
+}
+.arsenal-banner-copy { max-width: 560px; position: relative; z-index: 1; }
+.arsenal-banner-kicker {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 5px 12px;
+  margin-bottom: 14px;
+}
+.arsenal-banner h2 {
+  font-size: 28px;
+  margin: 0 0 10px;
+  color: #fff;
+}
+.arsenal-banner p {
+  font-size: 15px;
+  color: #dbe3d7;
+  margin: 0 0 22px;
+  line-height: 1.6;
+}
+.arsenal-banner-cta {
+  display: inline-flex;
+  pointer-events: none;
+}
+@media (max-width: 700px) {
+  .arsenal-banner { padding: 32px 26px; }
+  .arsenal-banner::after { font-size: 70px; right: 12px; opacity: 0.1; }
+  .arsenal-banner h2 { font-size: 23px; }
+}
