@@ -56,11 +56,24 @@ import json
 import os
 import re
 import urllib.request
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from urllib.parse import quote_plus
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
+PRICE_HISTORY_FILE = Path(__file__).resolve().parent.parent / "data" / "price-history.json"
+
+# How far back "Deal Score" badges look when deciding whether today's price
+# is genuinely the lowest seen, and whether a discount is "verified".
+LOOKBACK_DAYS = 90
+# Safety cap on entries kept per product, regardless of date range — keeps
+# the file bounded even for a product whose price changes unusually often.
+MAX_HISTORY_ENTRIES = 120
+# How long a stored entry is kept at all before being pruned, independent
+# of the lookback window used for badge calculations (a longer raw history
+# than the badge lookback is deliberate — useful later for an actual price
+# trend chart, even though badges themselves only look at LOOKBACK_DAYS).
+MAX_HISTORY_AGE_DAYS = 365
 
 # Your Amazon Associates tracking tag. This is safe to keep in code (not a
 # secret) — it's the public tag that appears in every affiliate link anyway.
@@ -443,6 +456,148 @@ def classify_audience(name):
     return "Male"
 
 
+def load_price_history():
+    """Loads data/price-history.json, or starts a fresh empty structure if
+    it doesn't exist yet (e.g. the very first run after this feature is
+    deployed)."""
+    if PRICE_HISTORY_FILE.exists():
+        try:
+            return json.loads(PRICE_HISTORY_FILE.read_text())
+        except json.JSONDecodeError:
+            print("price-history.json was unreadable — starting fresh rather than crashing the run.")
+    return {"products": {}}
+
+
+def save_price_history(history):
+    PRICE_HISTORY_FILE.write_text(json.dumps(history, indent=2))
+
+
+def _prune_history_entries(entries, today):
+    """Drops entries older than MAX_HISTORY_AGE_DAYS and caps the list to
+    MAX_HISTORY_ENTRIES, always keeping at least the single most recent
+    entry so a product never ends up with an empty history."""
+    kept = [
+        e for e in entries
+        if (today - date.fromisoformat(e["date"])).days <= MAX_HISTORY_AGE_DAYS
+    ]
+    if not kept and entries:
+        kept = [entries[-1]]
+    if len(kept) > MAX_HISTORY_ENTRIES:
+        kept = kept[-MAX_HISTORY_ENTRIES:]
+    return kept
+
+
+def compute_price_insight(entries, current_price, today_str):
+    """Turns a product's recorded price-history entries into the small
+    summary embedded directly on the product as `priceInsight`, so the
+    front-end can render a Deal Score / Verified Discount badge without a
+    second fetch.
+
+    Deliberately conservative: a product needs at least two distinct
+    recorded price points before it claims anything about "lowest" or
+    "verified" — a single data point (day one of tracking) genuinely
+    doesn't support either claim yet, and status "new" says so honestly
+    rather than guessing.
+    """
+    if len(entries) < 2:
+        return {
+            "status": "new",
+            "trend": "stable",
+            "verifiedDiscount": False,
+            "historicalLow": current_price,
+            "historicalHigh": current_price,
+            "daysTracked": 0,
+        }
+
+    today = date.fromisoformat(today_str)
+    window_entries = [
+        e for e in entries
+        if (today - date.fromisoformat(e["date"])).days <= LOOKBACK_DAYS
+    ] or entries  # fall back to full history if the window is somehow empty
+
+    prices = [e["price"] for e in window_entries]
+    historical_low = min(prices)
+    historical_high = max(prices)
+    first_date = date.fromisoformat(entries[0]["date"])
+    days_tracked = (today - first_date).days
+
+    # A discount only counts as "verified" if a genuinely higher price was
+    # actually recorded within the lookback window — not invented, not
+    # taken from a retailer's own (sometimes unreliable, per this
+    # session's investigation) RRP claim.
+    verified_discount = historical_high > current_price * 1.05
+
+    if current_price <= historical_low + 0.01:
+        status = "lowest_tracked"
+    elif current_price >= historical_high - 0.01:
+        status = "highest_tracked"
+    else:
+        status = "typical"
+
+    # Trend vs. whatever the price was immediately before today's value.
+    if entries[-1]["date"] == today_str and len(entries) >= 2:
+        prev_price = entries[-2]["price"]
+    else:
+        prev_price = entries[-1]["price"]  # price hasn't changed since last recorded
+    if current_price < prev_price - 0.01:
+        trend = "falling"
+    elif current_price > prev_price + 0.01:
+        trend = "rising"
+    else:
+        trend = "stable"
+
+    return {
+        "status": status,
+        "trend": trend,
+        "verifiedDiscount": verified_discount,
+        "historicalLow": historical_low,
+        "historicalHigh": historical_high,
+        "daysTracked": days_tracked,
+    }
+
+
+def record_and_score_prices(catalog_products, history, today_str):
+    """For every product with a live sale price, record a price-history
+    entry — but only when the price has actually changed since the last
+    recorded value, not on every single scheduled run. This keeps the
+    history file's growth proportional to real price movement across
+    thousands of products, rather than 4x-daily duplicate noise.
+
+    Every priced product then gets a `priceInsight` summary written
+    directly onto it, computed fresh from its history.
+    """
+    today = date.fromisoformat(today_str)
+    products_history = history.setdefault("products", {})
+    scored = 0
+
+    for p in catalog_products:
+        price = p.get("salePrice")
+        if price is None:
+            continue
+        name = p["name"]
+        entries = products_history.setdefault(name, [])
+        if not entries or entries[-1]["price"] != price:
+            entries.append({"date": today_str, "price": price})
+        entries[:] = _prune_history_entries(entries, today)
+
+        p["priceInsight"] = compute_price_insight(entries, price, today_str)
+        scored += 1
+
+    # Drop history for products no longer in the catalog at all, so the
+    # file doesn't grow forever with discontinued items.
+    current_names = {p["name"] for p in catalog_products}
+    stale_names = [n for n in products_history if n not in current_names]
+    for n in stale_names:
+        del products_history[n]
+
+    print(
+        f"Price history: scored {scored} products, tracking history for "
+        f"{len(products_history)} products total"
+        + (f" (dropped {len(stale_names)} discontinued)." if stale_names else ".")
+    )
+    return history
+
+
 def backfill_catalog(products):
     """Self-healing pass applied to the ENTIRE catalog every run — not just
     freshly-fetched items. This is what lets brand/colour/icon coverage
@@ -763,6 +918,11 @@ def main():
               f"({len(catalog['products'])} products, Amazon links still active).")
 
     catalog["products"] = backfill_catalog(catalog["products"])
+
+    today_str = datetime.now(timezone.utc).date().isoformat()
+    price_history = load_price_history()
+    price_history = record_and_score_prices(catalog["products"], price_history, today_str)
+    save_price_history(price_history)
 
     existing_category_keys = {c["key"] for c in catalog.get("categories", [])}
     if "sets" not in existing_category_keys:
