@@ -16,6 +16,31 @@ function badgeFor(savePct) {
   return { label: 'BEST PRICE', cls: '' };
 }
 
+// Deal Score / Verified Discount badge — reads the `priceInsight` field
+// scripts/update_deals.py writes onto every priced product once real
+// price history has built up. Returns '' (nothing rendered) for a
+// product with no history yet, or one whose current price isn't
+// noteworthy either way — a badge only earns its place when it tells the
+// shopper something genuinely useful, not on every single card.
+// Kept in sync with the equivalent renderPriceBadge() in js/app.js.
+function renderPriceBadge(p) {
+  const insight = p.priceInsight;
+  if (!insight || insight.status === 'new') return '';
+  if (insight.status === 'lowest_tracked' && insight.verifiedDiscount) {
+    return `<span class="price-insight-badge price-insight-badge--low">Lowest price in ${insight.daysTracked} days</span>`;
+  }
+  if (insight.status === 'lowest_tracked') {
+    return `<span class="price-insight-badge price-insight-badge--low">Lowest tracked price</span>`;
+  }
+  if (insight.trend === 'rising') {
+    return `<span class="price-insight-badge price-insight-badge--rising">Price recently went up</span>`;
+  }
+  if (insight.status === 'highest_tracked') {
+    return `<span class="price-insight-badge price-insight-badge--high">Higher than usual right now</span>`;
+  }
+  return '';
+}
+
 const ICON_BACKDROPS = {
   'gps-watch': 'https://images.pexels.com/photos/9130511/pexels-photo-9130511.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600'
 };
@@ -49,6 +74,7 @@ function cardHTML(d) {
         <div class="price-row"><span class="retail-price">${money(d.retailPrice)}</span></div>
         <div class="price-row"><span class="sale-price">${money(d.salePrice)}</span></div>
         <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
+        ${renderPriceBadge(d)}
         <div class="deal-foot">
           <span>Available at ${d.retailerCount} retailers</span>
         </div>
