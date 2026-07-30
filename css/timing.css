@@ -2,30 +2,10 @@
   GolfPrice AI — "Best Time To Buy" page styles
   --------------------------------------------------
   Uses the same variables as css/style.css (loaded first on this page),
-  so it always matches the rest of the site automatically.
+  so it always matches the rest of the site automatically. The intro
+  card itself reuses the shared .theme-banner class from style.css
+  rather than a custom style here.
 */
-
-.timing-intro {
-  background: linear-gradient(135deg, var(--ink) 0%, #1f3a29 100%);
-  color: #ffffff;
-  border-radius: var(--radius);
-  padding: 40px 36px;
-  margin: 32px 0 30px;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-.timing-intro h1 {
-  font-size: 2rem;
-  margin: 0 0 14px;
-  color: #ffffff;
-}
-.timing-subtitle {
-  font-size: 1.02rem;
-  line-height: 1.6;
-  color: #dbe3d7;
-  margin: 0 auto;
-  max-width: 640px;
-}
 
 .timing-section { padding: 20px 0 10px; }
 .timing-section h2 { font-size: 20px; margin: 0 0 6px; }

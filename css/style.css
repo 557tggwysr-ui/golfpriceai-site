@@ -110,7 +110,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .brand-name { font-weight: 700; font-size: 20px; }
 .brand-name span { color: var(--green); }
 
-.main-nav { display: flex; align-items: center; gap: 18px; }
+.main-nav { display: flex; align-items: center; gap: 0; }
+.main-nav > * { padding: 0 10px; white-space: nowrap; }
+.main-nav > *:first-child { padding-left: 0; }
+.main-nav > *:last-child { padding-right: 0; }
+.main-nav > *:not(:last-child) { border-right: 1px solid var(--border); }
 .main-nav a { font-weight: 500; font-size: 14px; color: var(--ink); white-space: nowrap; }
 .main-nav a:hover { color: var(--green); }
 .nav-item { position: relative; display: flex; align-items: center; }

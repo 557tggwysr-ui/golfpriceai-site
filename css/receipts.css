@@ -5,32 +5,9 @@
   --green-dark, --green-pale, --border, --muted, --radius, --shadow), so
   this always matches the rest of the site automatically, even if the
   palette changes later. Loaded after style.css on receipts.html, so the
-  variables are already in scope.
+  variables are already in scope. The intro card itself reuses the
+  shared .theme-banner class from style.css rather than a custom style.
 */
-
-.receipts-intro {
-  background: linear-gradient(135deg, var(--ink) 0%, #1f3a29 100%);
-  color: #ffffff;
-  border-radius: var(--radius);
-  padding: 40px 36px;
-  margin: 32px 0 30px;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-
-.receipts-intro h1 {
-  font-size: 2rem;
-  margin: 0 0 14px;
-  color: #ffffff;
-}
-
-.receipts-subtitle {
-  font-size: 1.02rem;
-  line-height: 1.6;
-  color: #dbe3d7;
-  margin: 0 auto;
-  max-width: 640px;
-}
 
 .receipts-status {
   text-align: center;
