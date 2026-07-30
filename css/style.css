@@ -110,8 +110,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .brand-name { font-weight: 700; font-size: 20px; }
 .brand-name span { color: var(--green); }
 
-.main-nav { display: flex; align-items: center; gap: 32px; }
-.main-nav a { font-weight: 500; font-size: 16px; color: var(--ink); }
+.main-nav { display: flex; align-items: center; gap: 18px; }
+.main-nav a { font-weight: 500; font-size: 14px; color: var(--ink); white-space: nowrap; }
 .main-nav a:hover { color: var(--green); }
 .nav-item { position: relative; display: flex; align-items: center; }
 .nav-item .dropdown {
@@ -135,6 +135,12 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   font-size: 15px;
 }
 .nav-item .dropdown a:hover { background: var(--green-pale); }
+
+.site-header .btn-primary {
+  padding: 9px 16px;
+  font-size: 13px;
+  white-space: nowrap;
+}
 
 .btn {
   display: inline-flex;
