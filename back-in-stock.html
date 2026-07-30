@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Back In Stock Radar | GolfPrice AI</title>
+<meta name="description" content="We track real stock status too, not just prices. See what's recently sold out, and what tends to sell out fast.">
+<link rel="icon" href="assets/logo-full.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/stock-radar.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <a href="index.html" class="brand">
+    <img src="assets/logo-full.png" alt="GolfPrice AI logo">
+    <span class="brand-name">Golf<span>Price</span> AI</span>
+  </a>
+  <nav class="main-nav">
+    <a href="shop.html">Shop All Deals</a>
+    <div class="nav-item">
+      <a href="shop.html?group=clubs">Clubs ▾</a>
+      <div class="dropdown">
+        <a href="shop.html?category=driver">Drivers</a>
+        <a href="shop.html?category=wood">Fairway Woods</a>
+        <a href="shop.html?category=hybrid">Hybrids</a>
+        <a href="shop.html?category=irons">Irons</a>
+        <a href="shop.html?category=wedge">Wedges</a>
+        <a href="shop.html?category=putter">Putters</a>
+        <a href="shop.html?category=sets">Sets</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="apparel.html">Apparel ▾</a>
+      <div class="dropdown" id="apparel-dropdown"></div>
+    </div>
+    <div class="nav-item">
+      <a href="accessories.html">Accessories ▾</a>
+      <div class="dropdown" id="accessories-dropdown"></div>
+    </div>
+    <a href="build-your-bag.html">Assemble Your Arsenal</a>
+    <a href="receipts.html">Show Us The Receipts</a>
+    <a href="best-time-to-buy.html">Best Time To Buy</a>
+    <a href="back-in-stock.html">Back In Stock Radar</a>
+    <a href="trending.html">Trending</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a href="index.html#alerts" class="btn btn-primary">🔔 Get Deal Alerts</a>
+  <button class="nav-toggle" aria-label="Open menu">☰</button>
+</header>
+
+<div class="confession-strip">No countdown timers. No "only 2 left!!" lies. Just real prices, and the occasional bad golf joke.</div>
+
+<main class="container" id="main-content">
+
+  <section class="radar-intro">
+    <h1>Back In Stock Radar 📡</h1>
+    <p class="radar-subtitle">
+      We track real stock status too, not just prices. No "only 2 left" pressure
+      tactics here — just an honest list of what's actually sold out right now,
+      and what tends to sell out fast when it drops.
+    </p>
+  </section>
+
+  <section class="radar-section">
+    <h2>😔 Recently Sold Out</h2>
+    <p class="radar-section-note">These went out of stock recently. Want to know the moment they're back? Drop us a line below.</p>
+    <div id="soldout-loading" class="radar-status">Checking the shelves…</div>
+    <div id="soldout-empty" class="radar-status" hidden>Nothing recently sold out that we're tracking yet — check back soon.</div>
+    <div id="soldout-grid" class="radar-grid" hidden></div>
+  </section>
+
+  <section class="radar-section">
+    <h2>🏃 Sells Out Fast</h2>
+    <p class="radar-section-note">Still in stock right now, but these specific products have genuinely gone out of stock multiple times recently — real pattern, not manufactured urgency.</p>
+    <div id="fast-loading" class="radar-status">Checking the shelves…</div>
+    <div id="fast-empty" class="radar-status" hidden>Nothing qualifies yet — check back once we've tracked more stock history.</div>
+    <div id="fast-grid" class="radar-grid" hidden></div>
+  </section>
+
+  <p class="radar-footnote">
+    <strong>Heads up on notifications:</strong> tapping "Notify Me" opens an email to
+    us with the product pre-filled — we'll pass it along manually for now while we
+    build proper automated alerts. Not fully automatic yet, but genuinely read and
+    acted on, not a black hole.
+  </p>
+
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
+</footer>
+
+<script src="js/stock-radar.js"></script>
+<script src="js/groups-config.js"></script>
+<script src="js/hub.js"></script>
+<script src="js/nav-mobile.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>

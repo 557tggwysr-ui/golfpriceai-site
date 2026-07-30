@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Time To Buy | GolfPrice AI</title>
+<meta name="description" content="Real, product-specific price volatility — not generic 'wait for Black Friday' advice. See which prices barely move and which ones swing.">
+<link rel="icon" href="assets/logo-full.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/timing.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <a href="index.html" class="brand">
+    <img src="assets/logo-full.png" alt="GolfPrice AI logo">
+    <span class="brand-name">Golf<span>Price</span> AI</span>
+  </a>
+  <nav class="main-nav">
+    <a href="shop.html">Shop All Deals</a>
+    <div class="nav-item">
+      <a href="shop.html?group=clubs">Clubs ▾</a>
+      <div class="dropdown">
+        <a href="shop.html?category=driver">Drivers</a>
+        <a href="shop.html?category=wood">Fairway Woods</a>
+        <a href="shop.html?category=hybrid">Hybrids</a>
+        <a href="shop.html?category=irons">Irons</a>
+        <a href="shop.html?category=wedge">Wedges</a>
+        <a href="shop.html?category=putter">Putters</a>
+        <a href="shop.html?category=sets">Sets</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="apparel.html">Apparel ▾</a>
+      <div class="dropdown" id="apparel-dropdown"></div>
+    </div>
+    <div class="nav-item">
+      <a href="accessories.html">Accessories ▾</a>
+      <div class="dropdown" id="accessories-dropdown"></div>
+    </div>
+    <a href="build-your-bag.html">Assemble Your Arsenal</a>
+    <a href="receipts.html">Show Us The Receipts</a>
+    <a href="best-time-to-buy.html">Best Time To Buy</a>
+    <a href="back-in-stock.html">Back In Stock Radar</a>
+    <a href="trending.html">Trending</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a href="index.html#alerts" class="btn btn-primary">🔔 Get Deal Alerts</a>
+  <button class="nav-toggle" aria-label="Open menu">☰</button>
+</header>
+
+<div class="confession-strip">No countdown timers. No "only 2 left!!" lies. Just real prices, and the occasional bad golf joke.</div>
+
+<main class="container" id="main-content">
+
+  <section class="timing-intro">
+    <h1>Best Time To Buy ⏱️</h1>
+    <p class="timing-subtitle">
+      Not "wait for Black Friday" — that's the same advice everyone gives about
+      everything. This is each product's own real price history: does it actually
+      move around, or has it barely budged in months? You decide what to do with that.
+    </p>
+  </section>
+
+  <section class="timing-section">
+    <h2>✅ Buy Whenever — These Barely Move</h2>
+    <p class="timing-section-note">Tracked prices that have stayed steady for a while. If today's price works for you, there's no real evidence waiting will help.</p>
+    <div id="stable-loading" class="timing-status">Checking the paper trail…</div>
+    <div id="stable-empty" class="timing-status" hidden>Nothing qualifies yet — check back once we've tracked more products for longer.</div>
+    <div id="stable-grid" class="timing-grid" hidden></div>
+  </section>
+
+  <section class="timing-section">
+    <h2>👀 Worth Watching — These Swing A Lot</h2>
+    <p class="timing-section-note">These specific products change price often. Might be worth a second look before you commit — or just watch the badge do the work for you.</p>
+    <div id="volatile-loading" class="timing-status">Checking the paper trail…</div>
+    <div id="volatile-empty" class="timing-status" hidden>Nothing qualifies yet — check back once we've tracked more products for longer.</div>
+    <div id="volatile-grid" class="timing-grid" hidden></div>
+  </section>
+
+  <p class="timing-footnote">
+    <strong>How this works:</strong> every product needs at least three weeks of real
+    tracked history before we'll make any claim about it either way — no guessing off
+    a handful of data points. "Stable" and "volatile" are both about this exact
+    product's own price, not a category-wide guess or a seasonal cliché.
+  </p>
+
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
+</footer>
+
+<script src="js/timing.js"></script>
+<script src="js/groups-config.js"></script>
+<script src="js/hub.js"></script>
+<script src="js/nav-mobile.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>
