@@ -61,11 +61,32 @@ from pathlib import Path
 from urllib.parse import quote_plus
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
+
+# Accumulates data-quality findings across every fetch_* function in a
+# single run (RRP inversions, multi-retailer collisions, price-jump
+# anomalies), so main() can print one consolidated report at the end
+# instead of scattering it across each function's own output. This never
+# affects what gets written to products.json — it's visibility only.
+DATA_QUALITY_REPORT = {}
 PRICE_HISTORY_FILE = Path(__file__).resolve().parent.parent / "data" / "price-history.json"
+STOCK_HISTORY_FILE = Path(__file__).resolve().parent.parent / "data" / "stock-history.json"
 
 # How far back "Deal Score" badges look when deciding whether today's price
 # is genuinely the lowest seen, and whether a discount is "verified".
 LOOKBACK_DAYS = 90
+
+# Best Time to Buy — a product needs at least this many tracked days
+# before its price is stable/volatile enough times to say either way.
+MIN_DAYS_FOR_VOLATILITY = 21
+# Average days between price changes faster than this = "volatile".
+VOLATILE_THRESHOLD_DAYS = 10
+# Average days between price changes slower than this = "stable"
+# (anything between the two thresholds is "moderate").
+STABLE_THRESHOLD_DAYS = 30
+
+# A product that's gone from in-stock to out-of-stock at least this many
+# times within the lookback window earns a genuine "sells out fast" signal.
+SELLS_OUT_FAST_THRESHOLD = 3
 # Safety cap on entries kept per product, regardless of date range — keeps
 # the file bounded even for a product whose price changes unusually often.
 MAX_HISTORY_ENTRIES = 120
@@ -493,20 +514,40 @@ def compute_price_insight(entries, current_price, today_str):
     front-end can render a Deal Score / Verified Discount badge without a
     second fetch.
 
+    Also computes a "Best Time to Buy" volatility read: how often this
+    specific product's price actually moves, in real tracked days between
+    changes — not generic seasonal folklore, just this item's own history.
+
     Deliberately conservative: a product needs at least two distinct
     recorded price points before it claims anything about "lowest" or
     "verified" — a single data point (day one of tracking) genuinely
     doesn't support either claim yet, and status "new" says so honestly
-    rather than guessing.
+    rather than guessing. Volatility needs even more history
+    (MIN_DAYS_FOR_VOLATILITY) before it claims "stable" vs "volatile",
+    for the same reason.
     """
     if len(entries) < 2:
+        today = date.fromisoformat(today_str)
+        first_date = date.fromisoformat(entries[0]["date"])
+        days_tracked = (today - first_date).days
+        # A price that has never once changed, tracked for long enough,
+        # is genuinely "stable" — zero changes over real elapsed time is
+        # meaningful volatility data even though there's no second price
+        # point to compare against for a "lowest tracked"/verified claim.
+        if days_tracked >= MIN_DAYS_FOR_VOLATILITY:
+            volatility = "stable"
+        else:
+            volatility = "insufficient_data"
         return {
             "status": "new",
             "trend": "stable",
             "verifiedDiscount": False,
             "historicalLow": current_price,
             "historicalHigh": current_price,
-            "daysTracked": 0,
+            "daysTracked": days_tracked,
+            "volatility": volatility,
+            "avgDaysBetweenChanges": None,
+            "numChanges": 0,
         }
 
     today = date.fromisoformat(today_str)
@@ -546,6 +587,23 @@ def compute_price_insight(entries, current_price, today_str):
     else:
         trend = "stable"
 
+    # Best Time to Buy — how often THIS product's price actually changes,
+    # measured within the lookback window only (older history would skew
+    # the average toward a stale, less relevant rate of change).
+    num_changes = max(len(window_entries) - 1, 0)
+    window_span_days = (today - date.fromisoformat(window_entries[0]["date"])).days
+    if days_tracked < MIN_DAYS_FOR_VOLATILITY or num_changes == 0:
+        volatility = "insufficient_data"
+        avg_days_between_changes = None
+    else:
+        avg_days_between_changes = round(window_span_days / num_changes, 1)
+        if avg_days_between_changes < VOLATILE_THRESHOLD_DAYS:
+            volatility = "volatile"
+        elif avg_days_between_changes < STABLE_THRESHOLD_DAYS:
+            volatility = "moderate"
+        else:
+            volatility = "stable"
+
     return {
         "status": status,
         "trend": trend,
@@ -553,7 +611,20 @@ def compute_price_insight(entries, current_price, today_str):
         "historicalLow": historical_low,
         "historicalHigh": historical_high,
         "daysTracked": days_tracked,
+        "volatility": volatility,
+        "avgDaysBetweenChanges": avg_days_between_changes,
+        "numChanges": num_changes,
     }
+
+
+# A single-run price change bigger than these ratios is treated as
+# suspicious rather than trusted outright — most likely a feed glitch
+# (e.g. a missing digit, a currency mix-up, a temporarily broken row)
+# rather than a genuine same-day price move. The product's real price
+# might well be correct, but "might" isn't good enough for a page whose
+# entire premise is that a claimed discount is provably genuine.
+SUSPICIOUS_DROP_RATIO = 0.4   # new price under 40% of the previous one
+SUSPICIOUS_RISE_RATIO = 2.5   # new price over 250% of the previous one
 
 
 def record_and_score_prices(catalog_products, history, today_str):
@@ -565,10 +636,20 @@ def record_and_score_prices(catalog_products, history, today_str):
 
     Every priced product then gets a `priceInsight` summary written
     directly onto it, computed fresh from its history.
+
+    A price change big enough to look like a feed glitch rather than a
+    genuine move (see SUSPICIOUS_DROP_RATIO/SUSPICIOUS_RISE_RATIO) is
+    still recorded — the data itself is never discarded or "corrected" —
+    but its priceInsight is forced to a "flagged_anomaly" status with
+    verifiedDiscount always False, so it can't power a Deal Score badge
+    or appear on the Receipts page until the new price has been confirmed
+    stable on a later run (at which point it's just the new normal price,
+    and scores normally like anything else).
     """
     today = date.fromisoformat(today_str)
     products_history = history.setdefault("products", {})
     scored = 0
+    flagged = []
 
     for p in catalog_products:
         price = p.get("salePrice")
@@ -576,11 +657,25 @@ def record_and_score_prices(catalog_products, history, today_str):
             continue
         name = p["name"]
         entries = products_history.setdefault(name, [])
+
+        is_suspicious = False
+        if entries and entries[-1]["price"] != price:
+            prev_price = entries[-1]["price"]
+            if prev_price:
+                ratio = price / prev_price
+                if ratio < SUSPICIOUS_DROP_RATIO or ratio > SUSPICIOUS_RISE_RATIO:
+                    is_suspicious = True
+                    flagged.append((name, prev_price, price))
+
         if not entries or entries[-1]["price"] != price:
             entries.append({"date": today_str, "price": price})
         entries[:] = _prune_history_entries(entries, today)
 
-        p["priceInsight"] = compute_price_insight(entries, price, today_str)
+        insight = compute_price_insight(entries, price, today_str)
+        if is_suspicious:
+            insight["status"] = "flagged_anomaly"
+            insight["verifiedDiscount"] = False
+        p["priceInsight"] = insight
         scored += 1
 
     # Drop history for products no longer in the catalog at all, so the
@@ -595,7 +690,106 @@ def record_and_score_prices(catalog_products, history, today_str):
         f"{len(products_history)} products total"
         + (f" (dropped {len(stale_names)} discontinued)." if stale_names else ".")
     )
+    if flagged:
+        print(
+            f"Price history: {len(flagged)} product(s) had a suspiciously large "
+            f"single-run price change — recorded, but held back from any "
+            f"Verified Discount claim until confirmed stable on a later run."
+        )
+        for name, old_p, new_p in flagged[:10]:
+            print(f"  - {name}: £{old_p:.2f} -> £{new_p:.2f}")
+    DATA_QUALITY_REPORT["price_jump_anomalies"] = flagged
     return history
+
+
+def load_stock_history():
+    if STOCK_HISTORY_FILE.exists():
+        try:
+            return json.loads(STOCK_HISTORY_FILE.read_text())
+        except json.JSONDecodeError:
+            print("stock-history.json was unreadable — starting fresh rather than crashing the run.")
+    return {"products": {}}
+
+
+def save_stock_history(history):
+    STOCK_HISTORY_FILE.write_text(json.dumps(history, indent=2))
+
+
+def compute_stock_insight(entries, current_in_stock, today_str):
+    """Turns a product's recorded stock-history entries into the small
+    `stockInsight` summary embedded directly on the product — powers
+    "Recently sold out" / "Back in stock" listings and a genuine "sells
+    out fast" signal, without a second fetch.
+    """
+    today = date.fromisoformat(today_str)
+    first_date = date.fromisoformat(entries[0]["date"])
+    days_tracked = (today - first_date).days
+
+    window_entries = [
+        e for e in entries
+        if (today - date.fromisoformat(e["date"])).days <= LOOKBACK_DAYS
+    ] or entries
+
+    outage_count = 0
+    for i in range(1, len(window_entries)):
+        if window_entries[i]["inStock"] is False and window_entries[i - 1]["inStock"] is True:
+            outage_count += 1
+
+    went_out_recently = (
+        not current_in_stock and entries[-1]["date"] == today_str
+        and len(entries) >= 2 and entries[-2]["inStock"] is True
+    )
+    came_back_recently = (
+        current_in_stock and entries[-1]["date"] == today_str
+        and len(entries) >= 2 and entries[-2]["inStock"] is False
+    )
+    sells_out_fast = (
+        outage_count >= SELLS_OUT_FAST_THRESHOLD
+        and days_tracked >= MIN_DAYS_FOR_VOLATILITY
+    )
+
+    return {
+        "currentlyInStock": current_in_stock,
+        "wentOutOfStockRecently": went_out_recently,
+        "cameBackRecently": came_back_recently,
+        "outageCount90d": outage_count,
+        "daysTracked": days_tracked,
+        "sellsOutFast": sells_out_fast,
+    }
+
+
+def record_and_score_stock(catalog_products, stock_history, today_str):
+    """Same pattern as record_and_score_prices: records a stock-history
+    entry only when in-stock status actually changes, then computes a
+    stockInsight summary for every product with a known stock status."""
+    today = date.fromisoformat(today_str)
+    products_history = stock_history.setdefault("products", {})
+    scored = 0
+
+    for p in catalog_products:
+        in_stock = p.get("inStock")
+        if in_stock is None:
+            continue
+        name = p["name"]
+        entries = products_history.setdefault(name, [])
+        if not entries or entries[-1]["inStock"] != in_stock:
+            entries.append({"date": today_str, "inStock": in_stock})
+        entries[:] = _prune_history_entries(entries, today)
+
+        p["stockInsight"] = compute_stock_insight(entries, in_stock, today_str)
+        scored += 1
+
+    current_names = {p["name"] for p in catalog_products}
+    stale_names = [n for n in products_history if n not in current_names]
+    for n in stale_names:
+        del products_history[n]
+
+    print(
+        f"Stock history: scored {scored} products, tracking stock for "
+        f"{len(products_history)} products total"
+        + (f" (dropped {len(stale_names)} discontinued)." if stale_names else ".")
+    )
+    return stock_history
 
 
 def backfill_catalog(products):
@@ -693,9 +887,10 @@ def fetch_awin_clickgolf_deals():
     products = []
     total_rows = 0
     skipped_no_name = 0
-    skipped_out_of_stock = 0
+    out_of_stock_count = 0
     skipped_no_price = 0
     skipped_no_link = 0
+    rrp_inversion_names = []
 
     for row in reader:
         total_rows += 1
@@ -704,12 +899,22 @@ def fetch_awin_clickgolf_deals():
             skipped_no_name += 1
             continue
 
-        # Skip anything explicitly marked out of stock rather than showing
-        # a "deal" nobody can actually buy.
-        in_stock = (row.get("in_stock") or "").strip().lower()
-        if in_stock in ("0", "false", "no"):
-            skipped_out_of_stock += 1
-            continue
+        # IMPORTANT BEHAVIOUR CHANGE: previously, an out-of-stock row was
+        # skipped entirely — meaning it never appeared in `fresh`, and
+        # because merge_products deliberately never deletes a product
+        # that's simply absent from a given run's fresh batch, the
+        # existing catalog entry for that product was left completely
+        # untouched. In practice that meant a product that went out of
+        # stock would keep showing on the live site — same price, same
+        # "buy" link — forever, with no signal it had actually sold out,
+        # until/unless it came back in stock and reappeared in the feed.
+        # Now the row is kept and explicitly marked inStock=False instead,
+        # so the catalog (and downstream stock history) reflects real
+        # current availability rather than silently going stale.
+        in_stock_raw = (row.get("in_stock") or "").strip().lower()
+        in_stock = in_stock_raw not in ("0", "false", "no")
+        if not in_stock:
+            out_of_stock_count += 1
 
         def to_float(key):
             val = (row.get(key) or "").strip()
@@ -744,6 +949,21 @@ def fetch_awin_clickgolf_deals():
             if store_price and store_price > sale_price:
                 old_price = store_price
         save_pct_raw = to_float("savings_percent")
+
+        # Data-quality signal: a retailer-reported "was" price that's
+        # actually LOWER than (or equal to) the current selling price is a
+        # real inversion — it happened for real this session (RRP £12.99
+        # under a £24.00 search_price). The price logic below already
+        # safely ignores an old_price that isn't genuinely higher, so this
+        # can never corrupt a displayed price — but it's still worth
+        # counting and reporting, since it flags this SKU's feed data as
+        # generally untrustworthy even where it happens not to bite today.
+        raw_rrp = to_float("rrp_price")
+        raw_old = to_float("product_price_old")
+        for raw_candidate in (raw_rrp, raw_old):
+            if raw_candidate is not None and raw_candidate <= sale_price:
+                rrp_inversion_names.append(name)
+                break
 
         if old_price and old_price > sale_price:
             retail_price = old_price
@@ -786,6 +1006,7 @@ def fetch_awin_clickgolf_deals():
             "source": "awin-clickgolf",
             "brand": brand,
             "audience": audience,
+            "inStock": in_stock,
         }
         if image:
             product["image"] = image
@@ -813,14 +1034,23 @@ def fetch_awin_clickgolf_deals():
 
     print(
         f"Clickgolf feed: {total_rows} rows read, {len(products)} usable. "
-        f"Skipped — no name: {skipped_no_name}, out of stock: {skipped_out_of_stock}, "
-        f"no price: {skipped_no_price}, no link: {skipped_no_link}."
+        f"Skipped — no name: {skipped_no_name}, "
+        f"no price: {skipped_no_price}, no link: {skipped_no_link}. "
+        f"(Out of stock: {out_of_stock_count} — tracked with inStock=False, no longer skipped.)"
     )
     print(f"Clickgolf feed: category breakdown = {category_counts}")
     print(
         f"Clickgolf feed: {with_icon}/{len(apparel_accessories)} apparel/accessories "
         f"products got a hub-page icon assigned. Icon breakdown = {icon_counts}"
     )
+    if rrp_inversion_names:
+        print(
+            f"Clickgolf feed: {len(rrp_inversion_names)} row(s) reported a \"was\" price "
+            f"that wasn't actually higher than the current price (a real data-quality "
+            f"issue on the retailer's end) — safely ignored, no discount was claimed "
+            f"for these. Examples: {rrp_inversion_names[:5]}"
+        )
+    DATA_QUALITY_REPORT["rrp_inversions"] = rrp_inversion_names
     return products
 
 
@@ -872,6 +1102,53 @@ def categorize_placeholder(name):
     return "accessories"
 
 
+def dedupe_by_lowest_price(fresh_products):
+    """When more than one retailer stocks the exact same product (matched
+    by name, same as merge_products below), only the genuinely cheapest
+    offer should ever reach the catalog — never whichever fetch_*
+    function's result happened to be combined last.
+
+    This also sets `retailerCount` to the real number of distinct offers
+    seen THIS run, replacing what was previously a hardcoded 1 on every
+    Clickgolf product. Only one live retailer feed exists as of this
+    session, so this function is a no-op in practice today — but without
+    it, the day a second retailer (another AWIN advertiser, or a joined CJ
+    advertiser) starts returning a product that collides by name with an
+    existing one, a plain last-write-wins merge could silently replace a
+    genuinely cheaper price with a more expensive one. Better to have this
+    already in place and inert than to add it under pressure later.
+    """
+    by_name = {}
+    for p in fresh_products:
+        by_name.setdefault(p["name"], []).append(p)
+
+    deduped = []
+    collisions = []
+    for name, offers in by_name.items():
+        if len(offers) == 1:
+            winner = offers[0]
+            winner["retailerCount"] = 1
+        else:
+            # Keep the cheapest offer's own price/retail/discount/link
+            # together as a consistent set — never mix e.g. one retailer's
+            # sale price with another's "was" price, which could produce a
+            # nonsensical or misleading discount percentage.
+            winner = dict(min(offers, key=lambda o: o["salePrice"]))
+            winner["retailerCount"] = len(offers)
+            collisions.append((name, len(offers), winner["salePrice"]))
+        deduped.append(winner)
+
+    if collisions:
+        print(
+            f"Price dedup: {len(collisions)} product(s) were offered by more than one "
+            f"retailer this run — kept the cheapest genuine price each time."
+        )
+        for name, count, price in collisions[:10]:
+            print(f"  - {name}: {count} offers, kept £{price:.2f}")
+    DATA_QUALITY_REPORT["multi_retailer_collisions"] = collisions
+    return deduped
+
+
 def merge_products(catalog_products, fresh_products):
     """Merge freshly-fetched products into the existing catalog: update
     matching items by name, add new ones, and never delete anything that
@@ -908,6 +1185,7 @@ def main():
         + fetch_awin_clickgolf_deals()
         + fetch_impact_deals()
     )
+    fresh = dedupe_by_lowest_price(fresh)
 
     if fresh:
         catalog["products"] = merge_products(catalog["products"], fresh)
@@ -924,6 +1202,10 @@ def main():
     price_history = record_and_score_prices(catalog["products"], price_history, today_str)
     save_price_history(price_history)
 
+    stock_history = load_stock_history()
+    stock_history = record_and_score_stock(catalog["products"], stock_history, today_str)
+    save_stock_history(stock_history)
+
     existing_category_keys = {c["key"] for c in catalog.get("categories", [])}
     if "sets" not in existing_category_keys:
         catalog.setdefault("categories", []).append({"key": "sets", "label": "Sets"})
@@ -931,6 +1213,29 @@ def main():
 
     catalog["lastUpdated"] = datetime.now(timezone.utc).isoformat()
     DATA_FILE.write_text(json.dumps(catalog, indent=2))
+
+    print_data_quality_report()
+
+
+def print_data_quality_report():
+    """One consolidated summary of every data-quality signal found this
+    run, printed last so it's easy to spot at the bottom of the Actions
+    log. Purely informational — nothing here changes what was written to
+    products.json; the individual checks already handled that safely as
+    they ran."""
+    inversions = DATA_QUALITY_REPORT.get("rrp_inversions", [])
+    collisions = DATA_QUALITY_REPORT.get("multi_retailer_collisions", [])
+    jumps = DATA_QUALITY_REPORT.get("price_jump_anomalies", [])
+
+    print("\n" + "=" * 60)
+    print("Data Quality Report")
+    print("=" * 60)
+    print(f"RRP/was-price inversions (retailer's own data, safely ignored): {len(inversions)}")
+    print(f"Multi-retailer price collisions (kept the cheapest each time):  {len(collisions)}")
+    print(f"Suspicious single-run price jumps (flagged, not yet trusted):   {len(jumps)}")
+    if not (inversions or collisions or jumps):
+        print("Nothing flagged this run — feed data looked clean.")
+    print("=" * 60)
 
 
 if __name__ == "__main__":
