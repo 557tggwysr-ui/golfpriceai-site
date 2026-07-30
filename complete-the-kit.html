@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Back In Stock Radar | GolfPrice AI</title>
-<meta name="description" content="We track real stock status too, not just prices. See what's recently sold out, and what tends to sell out fast.">
+<title>Complete The Kit | GolfPrice AI</title>
+<meta name="description" content="Things that naturally go together, at their real currently-lowest prices — not a fake bundle discount, just a sensible starting point.">
 <link rel="icon" href="assets/logo-full.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/stock-radar.css">
+<link rel="stylesheet" href="css/kit.css">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to content</a>
@@ -58,36 +58,26 @@
 
 <main class="container" id="main-content">
 
-  <section class="radar-intro">
-    <h1>Back In Stock Radar 📡</h1>
-    <p class="radar-subtitle">
-      We track real stock status too, not just prices. No "only 2 left" pressure
-      tactics here — just an honest list of what's actually sold out right now,
-      and what tends to sell out fast when it drops.
+  <section class="kit-intro">
+    <h1>Complete The Kit 🧩</h1>
+    <p class="kit-subtitle">
+      Things that naturally go together — each one still at its own real,
+      currently-lowest tracked price. Not a fake "bundle discount" (there isn't
+      one — that wouldn't be honest), just a sensible starting point so you're
+      not hunting for a headcover in a separate tab.
     </p>
   </section>
 
-  <section class="radar-section">
-    <h2>😔 Recently Sold Out</h2>
-    <p class="radar-section-note">These went out of stock recently. Want to know the moment they're back? Drop us a line below.</p>
-    <div id="soldout-loading" class="radar-status">Checking the shelves…</div>
-    <div id="soldout-empty" class="radar-status" hidden>Nothing recently sold out that we're tracking yet — check back soon.</div>
-    <div id="soldout-grid" class="radar-grid" hidden></div>
-  </section>
+  <div id="kit-loading" class="kit-status">Putting the kit together…</div>
+  <div id="kit-empty" class="kit-status" hidden>Nothing fully matches right now — check back as the catalog grows.</div>
 
-  <section class="radar-section">
-    <h2>🏃 Sells Out Fast</h2>
-    <p class="radar-section-note">Still in stock right now, but these specific products have genuinely gone out of stock multiple times recently — real pattern, not manufactured urgency.</p>
-    <div id="fast-loading" class="radar-status">Checking the shelves…</div>
-    <div id="fast-empty" class="radar-status" hidden>Nothing qualifies yet — check back once we've tracked more stock history.</div>
-    <div id="fast-grid" class="radar-grid" hidden></div>
-  </section>
+  <div id="kit-list" class="kit-list" hidden></div>
 
-  <p class="radar-footnote">
-    <strong>Heads up on notifications:</strong> tapping "Notify Me" opens an email to
-    us with the product pre-filled — we'll pass it along manually for now while we
-    build proper automated alerts. Not fully automatic yet, but genuinely read and
-    acted on, not a black hole.
+  <p class="kit-footnote">
+    <strong>How this works:</strong> every item here is picked fresh each run
+    from whatever's genuinely cheapest and in stock right now — no static,
+    stale bundle sitting around from months ago. Each item buys separately
+    from its own retailer, same as everywhere else on this site.
   </p>
 
 </main>
@@ -96,7 +86,7 @@
   <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
 </footer>
 
-<script src="js/stock-radar.js"></script>
+<script src="js/kit.js"></script>
 <script src="js/groups-config.js"></script>
 <script src="js/hub.js"></script>
 <script src="js/nav-mobile.js"></script>
