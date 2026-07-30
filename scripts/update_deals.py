@@ -56,7 +56,7 @@ import json
 import os
 import re
 import urllib.request
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote_plus
 
@@ -70,6 +70,8 @@ DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
 DATA_QUALITY_REPORT = {}
 PRICE_HISTORY_FILE = Path(__file__).resolve().parent.parent / "data" / "price-history.json"
 STOCK_HISTORY_FILE = Path(__file__).resolve().parent.parent / "data" / "stock-history.json"
+INDEX_FILE = Path(__file__).resolve().parent.parent / "data" / "price-index.json"
+BUNDLE_FILE = Path(__file__).resolve().parent.parent / "data" / "bundles.json"
 
 # How far back "Deal Score" badges look when deciding whether today's price
 # is genuinely the lowest seen, and whether a discount is "verified".
@@ -1176,6 +1178,199 @@ def merge_products(catalog_products, fresh_products):
     return list(by_name.values())
 
 
+# ============================================================
+# The Fairway Index — a category-level "inflation index" for golf
+# gear, built entirely from this site's own tracked history. Records
+# one snapshot per day (average current price per category, across
+# in-stock tracked products only), then compares the latest snapshot
+# against the closest available snapshot from ~30 and ~90 days ago to
+# report a genuine, evidenced percentage change — never invented, and
+# honestly reported as unavailable until real history exists that far
+# back.
+# ============================================================
+INDEX_CATEGORIES = [
+    "driver", "wood", "hybrid", "irons", "wedge", "putter", "sets",
+    "ball", "bag", "shoes", "apparel", "accessories",
+]
+INDEX_COMPARE_WINDOWS = {"change30d": 30, "change90d": 90}
+# One snapshot/day is tiny (a dozen numbers), so this comfortably covers
+# more than two years of daily history without the file growing large.
+MAX_INDEX_SNAPSHOTS = 800
+
+
+def load_index_history():
+    if INDEX_FILE.exists():
+        try:
+            return json.loads(INDEX_FILE.read_text())
+        except json.JSONDecodeError:
+            print("price-index.json was unreadable — starting fresh rather than crashing the run.")
+    return {"snapshots": []}
+
+
+def save_index_history(history):
+    INDEX_FILE.write_text(json.dumps(history, indent=2))
+
+
+def record_index_snapshot(products, index_history, today_str):
+    """Records today's average price per category. If a snapshot for
+    today already exists (e.g. a second run on the same day), it's
+    replaced rather than duplicated — one snapshot per calendar day."""
+    snapshots = index_history.setdefault("snapshots", [])
+    if snapshots and snapshots[-1]["date"] == today_str:
+        snapshots.pop()
+
+    totals = {}
+    for p in products:
+        cat = p.get("category")
+        price = p.get("salePrice")
+        if cat not in INDEX_CATEGORIES or price is None or p.get("inStock") is False:
+            continue
+        t = totals.setdefault(cat, {"sum": 0.0, "count": 0})
+        t["sum"] += price
+        t["count"] += 1
+
+    categories_snapshot = {
+        cat: {"avgPrice": round(t["sum"] / t["count"], 2), "count": t["count"]}
+        for cat, t in totals.items() if t["count"] > 0
+    }
+    snapshots.append({"date": today_str, "categories": categories_snapshot})
+    if len(snapshots) > MAX_INDEX_SNAPSHOTS:
+        del snapshots[: len(snapshots) - MAX_INDEX_SNAPSHOTS]
+
+    index_history["snapshots"] = snapshots
+    print(f"Fairway Index: recorded {today_str} snapshot across {len(categories_snapshot)} categories.")
+    return index_history
+
+
+def _find_nearest_snapshot(snapshots, today, target_days_ago):
+    """Finds the snapshot closest to (today - target_days_ago) among
+    snapshots that are AT LEAST that old — a snapshot from yesterday
+    should never masquerade as a 90-day baseline just because it's the
+    oldest one on file yet."""
+    target_date = today - timedelta(days=target_days_ago)
+    candidates = [s for s in snapshots if date.fromisoformat(s["date"]) <= target_date]
+    if not candidates:
+        return None
+    candidates.sort(key=lambda s: abs((date.fromisoformat(s["date"]) - target_date).days))
+    return candidates[0]
+
+
+def compute_index_summary(index_history, today_str):
+    """Turns the raw snapshot history into the per-category summary the
+    Fairway Index page reads directly — genuine % change vs ~30/90 days
+    ago, or None (honestly, not a guess) if history doesn't reach back
+    that far yet."""
+    snapshots = index_history.get("snapshots", [])
+    if not snapshots:
+        return {}
+    today = date.fromisoformat(today_str)
+    latest = snapshots[-1]
+    summary = {}
+    for cat, latest_data in latest.get("categories", {}).items():
+        entry = {"currentAvg": latest_data["avgPrice"], "count": latest_data["count"]}
+        for key, days in INDEX_COMPARE_WINDOWS.items():
+            baseline = _find_nearest_snapshot(snapshots, today, days)
+            base_data = baseline.get("categories", {}).get(cat) if baseline else None
+            if base_data and base_data["avgPrice"]:
+                entry[key] = round(
+                    (latest_data["avgPrice"] - base_data["avgPrice"]) / base_data["avgPrice"] * 100, 1
+                )
+            else:
+                entry[key] = None
+        summary[cat] = entry
+    return summary
+
+
+# ============================================================
+# Complete The Kit — auto-generated, genuinely-priced pairings from
+# whatever's actually cheapest in the catalog right now. Deliberately
+# NOT framed as "bundle & save" anywhere — there's no real merged
+# discount here, just convenient grouping of items people commonly buy
+# together, each at its own already-tracked lowest real price. Framing
+# it as a "deal" would be exactly the kind of fake-discount claim this
+# site's whole brand promise exists to avoid.
+# ============================================================
+BUNDLE_TEMPLATES = [
+    {"id": "driver-headcover", "title": "🏌️ Driver + Headcover", "slots": [
+        {"label": "Driver", "category": "driver"},
+        {"label": "Headcover", "icon": "headcover"},
+    ]},
+    {"id": "irons-bag", "title": "⛳ Iron Set + Golf Bag", "slots": [
+        {"label": "Irons", "category": "irons"},
+        {"label": "Golf Bag", "category": "bag"},
+    ]},
+    {"id": "course-day-essentials", "title": "🧢 Course Day Essentials", "slots": [
+        {"label": "Glove", "icon": "glove"},
+        {"label": "Tees", "icon": "tee"},
+        {"label": "Towel", "icon": "towel"},
+    ]},
+    {"id": "putter-alignment", "title": "🎯 Putter + Alignment Sticks", "slots": [
+        {"label": "Putter", "category": "putter"},
+        {"label": "Alignment Sticks", "icon": "alignment-sticks"},
+    ]},
+    {"id": "shoes-socks", "title": "👟 Shoes + Socks", "slots": [
+        {"label": "Golf Shoes", "category": "shoes"},
+        {"label": "Socks", "icon": "socks"},
+    ]},
+    {"id": "balls-retriever", "title": "🎾 Balls + Ball Retriever", "slots": [
+        {"label": "Golf Balls", "category": "ball"},
+        {"label": "Ball Retriever", "icon": "ball-retriever"},
+    ]},
+]
+
+
+def _slot_matches(product, slot):
+    if product.get("inStock") is False or not product.get("image"):
+        return False
+    if "category" in slot and product.get("category") != slot["category"]:
+        return False
+    if "icon" in slot and product.get("icon") != slot["icon"]:
+        return False
+    return True
+
+
+def compute_bundles(products):
+    """Rebuilds every bundle from scratch each run, always picking the
+    single cheapest currently in-stock, real-photo match for each slot.
+    A template is skipped entirely (not shown with a gap) if any one of
+    its slots has no genuine match right now."""
+    bundles = []
+    for template in BUNDLE_TEMPLATES:
+        items = []
+        complete = True
+        for slot in template["slots"]:
+            candidates = [p for p in products if _slot_matches(p, slot)]
+            if not candidates:
+                complete = False
+                break
+            cheapest = min(candidates, key=lambda p: p["salePrice"])
+            items.append({
+                "slotLabel": slot["label"],
+                "id": cheapest.get("id"),
+                "name": cheapest["name"],
+                "image": cheapest.get("image"),
+                "salePrice": cheapest["salePrice"],
+                "affiliateUrl": cheapest["affiliateUrl"],
+                "brand": cheapest.get("brand"),
+            })
+        if not complete:
+            continue
+        bundles.append({
+            "id": template["id"],
+            "title": template["title"],
+            "items": items,
+            "total": round(sum(i["salePrice"] for i in items), 2),
+        })
+    return bundles
+
+
+def save_bundles(bundles):
+    BUNDLE_FILE.write_text(json.dumps(
+        {"bundles": bundles, "lastUpdated": datetime.now(timezone.utc).isoformat()},
+        indent=2,
+    ))
+
+
 def main():
     catalog = json.loads(DATA_FILE.read_text())
 
@@ -1205,6 +1400,16 @@ def main():
     stock_history = load_stock_history()
     stock_history = record_and_score_stock(catalog["products"], stock_history, today_str)
     save_stock_history(stock_history)
+
+    index_history = load_index_history()
+    index_history = record_index_snapshot(catalog["products"], index_history, today_str)
+    index_history["summary"] = compute_index_summary(index_history, today_str)
+    index_history["lastUpdated"] = datetime.now(timezone.utc).isoformat()
+    save_index_history(index_history)
+
+    bundles = compute_bundles(catalog["products"])
+    save_bundles(bundles)
+    print(f"Complete The Kit: generated {len(bundles)}/{len(BUNDLE_TEMPLATES)} bundle(s) from current lowest prices.")
 
     existing_category_keys = {c["key"] for c in catalog.get("categories", [])}
     if "sets" not in existing_category_keys:
