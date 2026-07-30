@@ -295,10 +295,17 @@ function pickWithConstraints(pool, count, usedKeys, opts, fallbackPool) {
 fetch('data/products.json')
   .then(r => r.json())
   .then(data => {
+    // Products without a known inStock value (e.g. older hand-curated
+    // entries from before stock tracking existed) are treated as
+    // available — only an explicit inStock:false excludes a product here.
+    // A product that's genuinely sold out should never be one of the
+    // "best deals" someone clicks through to, only to find it unavailable.
+    const availableProducts = data.products.filter(p => p.inStock !== false);
+
     // Prefer products with a real photo over icon-only ones, then by
     // discount size — this is the quality gate before daily rotation kicks
     // in below, so rotation only ever surfaces genuinely good deals.
-    const qualityRanked = [...data.products].sort((a, b) => {
+    const qualityRanked = [...availableProducts].sort((a, b) => {
       const aHasImage = a.image ? 1 : 0;
       const bHasImage = b.image ? 1 : 0;
       if (aHasImage !== bHasImage) return bHasImage - aHasImage;

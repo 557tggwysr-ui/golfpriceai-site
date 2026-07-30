@@ -243,7 +243,11 @@ let searchQuery = '';
 let groupNoteHTML = '';
 
 function baseFilteredProducts() {
-  return ALL_PRODUCTS.filter(p => !baseCategories || baseCategories.has(p.category));
+  // A product without a known inStock value (older entries from before
+  // stock tracking existed) is treated as available. Only an explicit
+  // inStock:false hides it — a genuinely sold-out product shouldn't be
+  // browsable as if it's a live deal.
+  return ALL_PRODUCTS.filter(p => p.inStock !== false && (!baseCategories || baseCategories.has(p.category)));
 }
 
 function currentTypeOptions() {
