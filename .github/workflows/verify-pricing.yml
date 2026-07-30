@@ -1,0 +1,25 @@
+name: Verify Pricing
+
+# Manual-only — click "Run workflow" in the Actions tab whenever you want a
+# fresh diff. This never runs on a schedule and never commits anything; it
+# only reads the feed and your current catalog, then prints a report.
+on:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run pricing verification (read-only)
+        working-directory: scripts
+        env:
+          AWIN_CLICKGOLF_FEED_URL: ${{ secrets.AWIN_CLICKGOLF_FEED_URL }}
+        run: python verify_pricing.py
