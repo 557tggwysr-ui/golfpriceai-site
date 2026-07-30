@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show Us The Receipts | GolfPrice AI</title>
+  <meta name="description" content="Real, tracked price history — not marketing spin. This week's biggest genuine golf gear price drops, proof included.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/receipts.css">
+</head>
+<body>
+
+  <header class="receipts-hero">
+    <div class="receipts-hero-inner">
+      <h1>Show Us The Receipts <span aria-hidden="true">🧾</span></h1>
+      <p class="receipts-subtitle">
+        We track every price we list, every single day. So when we say something's
+        dropped, we've actually got the paperwork — not just a retailer's word for it.
+        No countdown timers. No "was £999" that was never really £999. Just proof.
+      </p>
+    </div>
+  </header>
+
+  <main class="receipts-main">
+    <div id="receipts-loading" class="receipts-status">Pulling up the paperwork…</div>
+    <div id="receipts-empty" class="receipts-status" hidden>
+      <p><strong>Nothing to show just yet.</strong></p>
+      <p>
+        We only just started keeping receipts, so we don't have enough real history to
+        back up a "genuine drop" claim yet — and we're not about to start making things
+        up now. Check back in a week or two once the paper trail builds up.
+      </p>
+    </div>
+
+    <div id="receipts-grid" class="receipts-grid" hidden></div>
+  </main>
+
+  <footer class="receipts-footnote">
+    <p>
+      <strong>How this works, no smoke and mirrors:</strong> every few hours our system
+      checks real prices and quietly writes them down. A product only earns a spot here
+      if we've genuinely watched its price sit higher at some point in the last 90 days
+      — not because a spreadsheet somewhere claims an "RRP" that was invented for the
+      occasion.
+    </p>
+  </footer>
+
+  <script src="js/receipts.js"></script>
+</body>
+</html>
