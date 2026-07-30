@@ -1,13 +1,15 @@
 /*
   GolfPrice AI — "Show Us The Receipts" page styles
   ----------------------------------------------------
-  Brand colours reused from the rest of the site: dark ink green
-  #16301F, brand green #6FBE44. This file is self-contained and only
-  affects receipts.html — it doesn't touch or override css/style.css.
+  Uses the same CSS variables defined in css/style.css (--ink, --green,
+  --green-dark, --green-pale, --border, --muted, --radius, --shadow), so
+  this always matches the rest of the site automatically, even if the
+  palette changes later. Loaded after style.css on receipts.html, so the
+  variables are already in scope.
 */
 
 .receipts-hero {
-  background: linear-gradient(135deg, #16301F 0%, #1F4A2E 100%);
+  background: linear-gradient(135deg, var(--ink) 0%, #1f3a29 100%);
   color: #ffffff;
   padding: 56px 20px 48px;
   text-align: center;
@@ -19,16 +21,15 @@
 }
 
 .receipts-hero h1 {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 2.2rem;
   margin: 0 0 16px;
+  color: #ffffff;
 }
 
 .receipts-subtitle {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.05rem;
   line-height: 1.6;
-  color: #D9E9DC;
+  color: #dbe3d7;
   margin: 0;
 }
 
@@ -40,8 +41,7 @@
 
 .receipts-status {
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #444444;
+  color: var(--muted);
   padding: 40px 20px;
   font-size: 1rem;
   line-height: 1.6;
@@ -54,25 +54,25 @@
 }
 
 .receipt-card {
-  border: 1px solid #E4E4E4;
-  border-radius: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   overflow: hidden;
-  background: #ffffff;
+  background: var(--card);
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
+  transition: transform 0.15s ease;
 }
 
 .receipt-card:hover {
-  box-shadow: 0 6px 18px rgba(22, 48, 31, 0.12);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .receipt-card-image {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  background: #F7F9F6;
+  background: #f1f2ef;
   padding: 12px;
   box-sizing: border-box;
 }
@@ -87,29 +87,26 @@
 
 .receipt-drop-badge {
   align-self: flex-start;
-  background: #EAF7E2;
-  color: #16301F;
-  border: 1px solid #6FBE44;
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--green-pale);
+  color: var(--green-dark);
+  border: 1px solid var(--green);
   font-weight: bold;
   font-size: 0.8rem;
   padding: 3px 10px;
-  border-radius: 12px;
+  border-radius: 999px;
 }
 
 .receipt-card-name {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.95rem;
-  color: #16301F;
+  color: var(--ink);
   font-weight: bold;
   line-height: 1.35;
   margin: 0;
 }
 
 .receipt-card-brand {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
-  color: #888888;
+  color: var(--muted);
   margin: 0;
 }
 
@@ -121,23 +118,20 @@
 }
 
 .receipt-price-now {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #16301F;
+  color: var(--ink);
 }
 
 .receipt-price-was {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
-  color: #999999;
+  color: var(--muted);
   text-decoration: line-through;
 }
 
 .receipt-proof-line {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
-  color: #6FBE44;
+  color: var(--green-dark);
   font-weight: bold;
   margin: 0;
 }
@@ -146,9 +140,8 @@
   margin-top: auto;
   display: block;
   text-align: center;
-  background: #16301F;
+  background: var(--ink);
   color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   text-decoration: none;
   padding: 10px 0;
@@ -157,17 +150,15 @@
 }
 
 .receipt-buy-link:hover {
-  background: #6FBE44;
-  color: #16301F;
+  background: var(--green);
 }
 
 .receipts-footnote {
   max-width: 700px;
   margin: 20px auto 60px;
   padding: 0 20px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 0.85rem;
-  color: #888888;
+  color: var(--muted);
   line-height: 1.6;
   text-align: center;
 }
