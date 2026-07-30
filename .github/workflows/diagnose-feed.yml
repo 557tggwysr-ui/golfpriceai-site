@@ -1,0 +1,31 @@
+name: Diagnose Feed
+
+# Manual-only — click "Run workflow" and enter a product name (or part of
+# one) to inspect every raw matching row in the AWIN feed, unprocessed.
+# Read-only: never touches data/products.json.
+on:
+  workflow_dispatch:
+    inputs:
+      search_term:
+        description: "Product name (or part of it) to search for"
+        required: true
+        default: "ProDry Sport Mens"
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Inspect raw feed rows
+        working-directory: scripts
+        env:
+          AWIN_CLICKGOLF_FEED_URL: ${{ secrets.AWIN_CLICKGOLF_FEED_URL }}
+          SEARCH_TERM: ${{ github.event.inputs.search_term }}
+        run: python diagnose_feed.py
