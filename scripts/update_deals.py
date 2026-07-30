@@ -493,9 +493,22 @@ def fetch_awin_clickgolf_deals():
     display_price, category_name, brand_name, rrp_price, savings_percent,
     product_price_old, in_stock.
 
+    PRICE FIELD PRIORITY (fixed — was previously backwards):
+    "search_price" is AWIN's standard field for the actual current online
+    selling price — what a shopper is really charged. "store_price" is a
+    separate, retailer-populated field that isn't guaranteed to reflect the
+    live online price (some retailers use it for an in-store or baseline
+    reference figure instead), so it must never be trusted as the primary
+    sale price — only as a possible RRP/"was" signal when it's genuinely
+    higher than search_price and no explicit rrp_price/product_price_old
+    was given. Using store_price as the primary price previously caused
+    real products (e.g. a £8.99 FootJoy sock) to display an inflated price
+    with a false 0% discount, because store_price held a stale/mismatched
+    figure the feed happened to populate.
+
     A genuine "deal" only counts here if the feed itself reports a real
-    saving (rrp_price/product_price_old higher than the current price) —
-    nothing is invented or estimated.
+    saving (rrp_price/product_price_old/store_price higher than the current
+    price) — nothing is invented or estimated.
     """
     feed_url = os.environ.get("AWIN_CLICKGOLF_FEED_URL")
     if not feed_url:
@@ -552,11 +565,13 @@ def fetch_awin_clickgolf_deals():
             except ValueError:
                 return None
 
-        sp = to_float("store_price")
+        # FIXED: search_price is the real, current, online selling price —
+        # it must be tried first. store_price is no longer used as a sale
+        # price candidate at all (see docstring above); it's only ever
+        # considered later as a possible "was" price.
+        sp = to_float("search_price")
         if sp is None:
             sp = to_float("display_price")
-        if sp is None:
-            sp = to_float("search_price")
         sale_price = sp
         if sale_price is None:
             skipped_no_price += 1
@@ -565,6 +580,14 @@ def fetch_awin_clickgolf_deals():
         old_price = to_float("rrp_price")
         if old_price is None:
             old_price = to_float("product_price_old")
+        if old_price is None:
+            # store_price can still be a genuinely useful "was" price
+            # signal — but only if it's actually higher than the real
+            # selling price. If it's lower or equal, it tells us nothing
+            # trustworthy about a discount and is ignored entirely.
+            store_price = to_float("store_price")
+            if store_price and store_price > sale_price:
+                old_price = store_price
         save_pct_raw = to_float("savings_percent")
 
         if old_price and old_price > sale_price:
