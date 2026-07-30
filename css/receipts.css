@@ -1,0 +1,173 @@
+/*
+  GolfPrice AI — "Show Us The Receipts" page styles
+  ----------------------------------------------------
+  Brand colours reused from the rest of the site: dark ink green
+  #16301F, brand green #6FBE44. This file is self-contained and only
+  affects receipts.html — it doesn't touch or override css/style.css.
+*/
+
+.receipts-hero {
+  background: linear-gradient(135deg, #16301F 0%, #1F4A2E 100%);
+  color: #ffffff;
+  padding: 56px 20px 48px;
+  text-align: center;
+}
+
+.receipts-hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.receipts-hero h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.2rem;
+  margin: 0 0 16px;
+}
+
+.receipts-subtitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #D9E9DC;
+  margin: 0;
+}
+
+.receipts-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 20px;
+}
+
+.receipts-status {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #444444;
+  padding: 40px 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.receipts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.receipt-card {
+  border: 1px solid #E4E4E4;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.receipt-card:hover {
+  box-shadow: 0 6px 18px rgba(22, 48, 31, 0.12);
+  transform: translateY(-2px);
+}
+
+.receipt-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #F7F9F6;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.receipt-card-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.receipt-drop-badge {
+  align-self: flex-start;
+  background: #EAF7E2;
+  color: #16301F;
+  border: 1px solid #6FBE44;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.receipt-card-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  color: #16301F;
+  font-weight: bold;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.receipt-card-brand {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  color: #888888;
+  margin: 0;
+}
+
+.receipt-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.receipt-price-now {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #16301F;
+}
+
+.receipt-price-was {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  color: #999999;
+  text-decoration: line-through;
+}
+
+.receipt-proof-line {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  color: #6FBE44;
+  font-weight: bold;
+  margin: 0;
+}
+
+.receipt-buy-link {
+  margin-top: auto;
+  display: block;
+  text-align: center;
+  background: #16301F;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.receipt-buy-link:hover {
+  background: #6FBE44;
+  color: #16301F;
+}
+
+.receipts-footnote {
+  max-width: 700px;
+  margin: 20px auto 60px;
+  padding: 0 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.85rem;
+  color: #888888;
+  line-height: 1.6;
+  text-align: center;
+}
