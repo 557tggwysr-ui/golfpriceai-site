@@ -1,0 +1,142 @@
+/*
+  GolfPrice AI — "Complete The Kit" page styles
+  --------------------------------------------------
+  Uses the same variables as css/style.css (loaded first on this page).
+*/
+
+.kit-intro {
+  background: linear-gradient(135deg, var(--ink) 0%, #1f3a29 100%);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  margin: 32px 0 30px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.kit-intro h1 { font-size: 2rem; margin: 0 0 14px; color: #ffffff; }
+.kit-subtitle {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #dbe3d7;
+  margin: 0 auto;
+  max-width: 660px;
+}
+
+.kit-status {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 20px;
+  font-size: 0.95rem;
+}
+
+.kit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.kit-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+}
+
+.kit-card-title {
+  font-size: 1.1rem;
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+
+.kit-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+.kit-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+
+.kit-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #f1f2ef;
+  border-radius: 6px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.kit-item-slot {
+  font-size: 0.7rem;
+  color: var(--green-dark);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.kit-item-name {
+  font-size: 0.82rem;
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.3;
+  min-height: 2.6em;
+}
+
+.kit-item-price {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--ink);
+}
+
+.kit-item-link {
+  margin-top: auto;
+  display: block;
+  text-align: center;
+  background: var(--ink);
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 8px 0;
+  border-radius: 6px;
+  font-size: 0.82rem;
+}
+.kit-item-link:hover { background: var(--green); }
+
+.kit-total-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.kit-total-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.kit-total-amount {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--ink);
+}
+
+.kit-footnote {
+  max-width: 700px;
+  margin: 20px auto 50px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: center;
+}

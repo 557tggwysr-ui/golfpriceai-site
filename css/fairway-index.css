@@ -1,0 +1,112 @@
+/*
+  GolfPrice AI — "The Fairway Index" page styles
+  --------------------------------------------------
+  Uses the same variables as css/style.css (loaded first on this page).
+*/
+
+.fi-intro {
+  background: linear-gradient(135deg, var(--ink) 0%, #1f3a29 100%);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  margin: 32px 0 30px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.fi-intro h1 { font-size: 2rem; margin: 0 0 14px; color: #ffffff; }
+.fi-subtitle {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #dbe3d7;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.fi-status {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.fi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.fi-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+}
+
+.fi-card-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.fi-card-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+
+.fi-change-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.fi-change {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.fi-change--down {
+  background: var(--green-pale);
+  color: var(--green-dark);
+  border: 1px solid var(--green);
+}
+.fi-change--up {
+  background: #FBEAEA;
+  color: #B23A3A;
+  border: 1px solid #E08A8A;
+}
+.fi-change--flat {
+  background: #f1f2ef;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.fi-change--unknown {
+  background: #f1f2ef;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.fi-card-count {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 10px 0 0;
+}
+
+.fi-footnote {
+  max-width: 700px;
+  margin: 20px auto 50px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: center;
+}
