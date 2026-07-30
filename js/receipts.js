@@ -12,6 +12,8 @@
   gets made, full stop.
 */
 
+document.getElementById('year').textContent = new Date().getFullYear();
+
 const MAX_RESULTS = 24;
 
 async function loadReceipts() {
