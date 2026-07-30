@@ -857,19 +857,21 @@ footer a:hover { color: var(--green); }
    ------------------------------------------------
    Reuses .arsenal-banner's layout/copy/CTA rules
    (same markup pattern, added as a second class),
-   but overrides just the background so it doesn't
-   show the Arsenal bag photo behind different text.
-   No new photo exists for this banner yet, so a
-   plain brand-colour gradient is used instead —
-   swap in a url(...) here later if a real photo
-   ever gets shot/generated for it.
+   overriding just the background photo — same dark-
+   to-transparent overlay treatment as the Arsenal
+   banner, so text stays legible on the left while
+   the photo (a celebrating golfer, positioned right
+   of centre) stays visible on the right.
    ============================================ */
 .receipts-banner {
-  background-image: linear-gradient(100deg, var(--ink) 0%, #1f3a29 55%, var(--green-dark) 130%);
+  background-image: linear-gradient(100deg, var(--ink) 0%, rgba(22,36,28,0.85) 38%, rgba(22,36,28,0.35) 65%, rgba(22,36,28,0.15) 100%), url('../assets/photos/receipts-banner-golfer.jpg');
+  background-size: cover;
+  background-position: right center;
 }
 @media (max-width: 700px) {
   .receipts-banner {
-    background-image: linear-gradient(160deg, var(--ink) 0%, #1f3a29 60%, var(--green-dark) 140%);
+    background-image: linear-gradient(180deg, rgba(22,36,28,0.55) 0%, rgba(22,36,28,0.92) 75%), url('../assets/photos/receipts-banner-golfer.jpg');
+    background-position: center;
   }
 }
 
