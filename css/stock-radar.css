@@ -1,0 +1,155 @@
+/*
+  GolfPrice AI — "Back In Stock Radar" page styles
+  --------------------------------------------------
+  Uses the same variables as css/style.css (loaded first on this page),
+  so it always matches the rest of the site automatically.
+*/
+
+.radar-intro {
+  background: linear-gradient(135deg, var(--ink) 0%, #1f3a29 100%);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  margin: 32px 0 30px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.radar-intro h1 {
+  font-size: 2rem;
+  margin: 0 0 14px;
+  color: #ffffff;
+}
+.radar-subtitle {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #dbe3d7;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.radar-section { padding: 20px 0 10px; }
+.radar-section h2 { font-size: 20px; margin: 0 0 6px; }
+.radar-section-note {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 18px;
+  max-width: 70ch;
+}
+
+.radar-status {
+  text-align: center;
+  color: var(--muted);
+  padding: 24px 20px;
+  font-size: 0.95rem;
+}
+
+.radar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.radar-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease;
+}
+.radar-card:hover { transform: translateY(-3px); }
+
+.radar-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #f1f2ef;
+  padding: 12px;
+  box-sizing: border-box;
+  filter: grayscale(40%);
+  opacity: 0.85;
+}
+.radar-card.in-stock .radar-card-image {
+  filter: none;
+  opacity: 1;
+}
+
+.radar-card-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.radar-badge {
+  align-self: flex-start;
+  font-weight: bold;
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.radar-badge--soldout {
+  background: #FBEAEA;
+  color: #B23A3A;
+  border: 1px solid #E08A8A;
+}
+.radar-badge--fast {
+  background: #FDF3E3;
+  color: #7A5B1E;
+  border: 1px solid #E0B559;
+}
+
+.radar-card-name {
+  font-size: 0.92rem;
+  color: var(--ink);
+  font-weight: bold;
+  line-height: 1.35;
+  margin: 0;
+}
+.radar-card-brand {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0;
+}
+.radar-card-price {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--ink);
+  margin-top: 2px;
+}
+
+.radar-notify-link,
+.radar-buy-link {
+  margin-top: auto;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+.radar-notify-link {
+  background: var(--green-pale);
+  color: var(--green-dark);
+  border: 1px solid var(--green);
+}
+.radar-notify-link:hover { background: var(--green); color: #fff; }
+.radar-buy-link {
+  background: var(--ink);
+  color: #ffffff;
+}
+.radar-buy-link:hover { background: var(--green); }
+
+.radar-footnote {
+  max-width: 700px;
+  margin: 30px auto 50px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: center;
+}

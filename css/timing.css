@@ -1,0 +1,145 @@
+/*
+  GolfPrice AI — "Best Time To Buy" page styles
+  --------------------------------------------------
+  Uses the same variables as css/style.css (loaded first on this page),
+  so it always matches the rest of the site automatically.
+*/
+
+.timing-intro {
+  background: linear-gradient(135deg, var(--ink) 0%, #1f3a29 100%);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  margin: 32px 0 30px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.timing-intro h1 {
+  font-size: 2rem;
+  margin: 0 0 14px;
+  color: #ffffff;
+}
+.timing-subtitle {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #dbe3d7;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.timing-section { padding: 20px 0 10px; }
+.timing-section h2 { font-size: 20px; margin: 0 0 6px; }
+.timing-section-note {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 18px;
+  max-width: 70ch;
+}
+
+.timing-status {
+  text-align: center;
+  color: var(--muted);
+  padding: 24px 20px;
+  font-size: 0.95rem;
+}
+
+.timing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.timing-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease;
+}
+.timing-card:hover { transform: translateY(-3px); }
+
+.timing-card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #f1f2ef;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.timing-card-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.timing-badge {
+  align-self: flex-start;
+  font-weight: bold;
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.timing-badge--stable {
+  background: var(--green-pale);
+  color: var(--green-dark);
+  border: 1px solid var(--green);
+}
+.timing-badge--volatile {
+  background: #FDF3E3;
+  color: #7A5B1E;
+  border: 1px solid #E0B559;
+}
+
+.timing-card-name {
+  font-size: 0.92rem;
+  color: var(--ink);
+  font-weight: bold;
+  line-height: 1.35;
+  margin: 0;
+}
+.timing-card-brand {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0;
+}
+.timing-card-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--ink);
+  margin-top: 2px;
+}
+.timing-card-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.timing-buy-link {
+  margin-top: auto;
+  display: block;
+  text-align: center;
+  background: var(--ink);
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+.timing-buy-link:hover { background: var(--green); }
+
+.timing-footnote {
+  max-width: 700px;
+  margin: 30px auto 50px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  text-align: center;
+}
