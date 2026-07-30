@@ -23,6 +23,15 @@ async function loadFairwayIndex() {
   let data;
   try {
     const res = await fetch('data/price-index.json');
+    if (!res.ok) {
+      // Most likely explanation: the Index hasn't run yet (the file
+      // doesn't exist on the site yet), not a genuine network failure —
+      // show the honest "not tracking yet" state rather than an alarming
+      // error message.
+      loadingEl.hidden = true;
+      emptyEl.hidden = false;
+      return;
+    }
     data = await res.json();
   } catch (err) {
     loadingEl.textContent = "Couldn't load the Index right now — try refreshing.";

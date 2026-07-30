@@ -16,6 +16,13 @@ async function loadKit() {
   let data;
   try {
     const res = await fetch('data/bundles.json');
+    if (!res.ok) {
+      // Most likely explanation: the pipeline hasn't run with this
+      // feature deployed yet, not a genuine network failure.
+      loadingEl.hidden = true;
+      emptyEl.hidden = false;
+      return;
+    }
     data = await res.json();
   } catch (err) {
     loadingEl.textContent = "Couldn't load this right now — try refreshing.";
