@@ -846,35 +846,37 @@ def backfill_catalog(products):
     return products
 
 
-def fetch_awin_clickgolf_deals():
-    """Pull real, live products + prices from the Clickgolf AWIN datafeed.
+def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
+    """Pull real, live products + prices from any AWIN Create-a-Feed
+    retailer datafeed. Extracted this session when a second retailer
+    (Major Golf Direct) joined AWIN — this used to be a Clickgolf-only
+    function; every retailer on this shared AWIN pipeline now just needs
+    a short wrapper below (see fetch_awin_clickgolf_deals /
+    fetch_awin_majorgolf_deals) rather than a copy-pasted duplicate.
 
-    Needs AWIN_CLICKGOLF_FEED_URL as a repo secret — the manual download URL
-    generated in Awin's Toolbox > Create-a-Feed (CSV, gzip, comma-delimited),
-    configured with these columns: aw_deep_link, product_name, aw_product_id,
-    merchant_product_id, merchant_image_url, description, merchant_category,
-    search_price, store_price, merchant_deep_link, last_updated,
-    display_price, category_name, brand_name, rrp_price, savings_percent,
-    product_price_old, in_stock.
+    Needs `env_var_name` set as a repo secret — the manual download URL
+    generated in Awin's Toolbox > Create-a-Feed (CSV, gzip,
+    comma-delimited), configured with these columns: aw_deep_link,
+    product_name, aw_product_id, merchant_product_id, merchant_image_url,
+    description, merchant_category, search_price, store_price,
+    merchant_deep_link, last_updated, display_price, category_name,
+    brand_name, rrp_price, savings_percent, product_price_old, in_stock.
+    Every AWIN retailer feed uses this same column schema, so no
+    per-retailer parsing changes are needed here — just the feed URL.
 
-    PRICE FIELD PRIORITY (fixed — was previously backwards):
-    "search_price" is AWIN's standard field for the actual current online
-    selling price — what a shopper is really charged. "store_price" is a
-    separate, retailer-populated field that isn't guaranteed to reflect the
-    live online price (some retailers use it for an in-store or baseline
-    reference figure instead), so it must never be trusted as the primary
-    sale price — only as a possible RRP/"was" signal when it's genuinely
-    higher than search_price and no explicit rrp_price/product_price_old
-    was given. Using store_price as the primary price previously caused
-    real products (e.g. a £8.99 FootJoy sock) to display an inflated price
-    with a false 0% discount, because store_price held a stale/mismatched
-    figure the feed happened to populate.
+    PRICE FIELD PRIORITY: "search_price" is AWIN's standard field for the
+    actual current online selling price — what a shopper is really
+    charged. "store_price" is a separate, retailer-populated field that
+    isn't guaranteed to reflect the live online price, so it's only ever
+    used as a possible RRP/"was" signal when genuinely higher than
+    search_price and no explicit rrp_price/product_price_old was given
+    (see the FootJoy sock bug from an earlier session for why this order
+    matters).
 
     A genuine "deal" only counts here if the feed itself reports a real
-    saving (rrp_price/product_price_old/store_price higher than the current
-    price) — nothing is invented or estimated.
+    saving — nothing is invented or estimated.
     """
-    feed_url = os.environ.get("AWIN_CLICKGOLF_FEED_URL")
+    feed_url = os.environ.get(env_var_name)
     if not feed_url:
         return []
 
@@ -882,7 +884,7 @@ def fetch_awin_clickgolf_deals():
         with urllib.request.urlopen(feed_url, timeout=60) as resp:
             raw = resp.read()
     except Exception as exc:
-        print(f"Clickgolf feed download failed, leaving catalog untouched: {exc}")
+        print(f"{retailer_label} feed download failed, leaving catalog untouched: {exc}")
         return []
 
     try:
@@ -897,7 +899,7 @@ def fetch_awin_clickgolf_deals():
     text = raw.decode("utf-8-sig", errors="replace")
     reader = csv.DictReader(io.StringIO(text))
 
-    print(f"Clickgolf feed: columns found = {reader.fieldnames}")
+    print(f"{retailer_label} feed: columns found = {reader.fieldnames}")
 
     products = []
     total_rows = 0
@@ -914,18 +916,10 @@ def fetch_awin_clickgolf_deals():
             skipped_no_name += 1
             continue
 
-        # IMPORTANT BEHAVIOUR CHANGE: previously, an out-of-stock row was
-        # skipped entirely — meaning it never appeared in `fresh`, and
-        # because merge_products deliberately never deletes a product
-        # that's simply absent from a given run's fresh batch, the
-        # existing catalog entry for that product was left completely
-        # untouched. In practice that meant a product that went out of
-        # stock would keep showing on the live site — same price, same
-        # "buy" link — forever, with no signal it had actually sold out,
-        # until/unless it came back in stock and reappeared in the feed.
-        # Now the row is kept and explicitly marked inStock=False instead,
-        # so the catalog (and downstream stock history) reflects real
-        # current availability rather than silently going stale.
+        # An out-of-stock row is kept (not skipped) and explicitly marked
+        # inStock=False, so the catalog and stock history reflect real
+        # current availability rather than silently going stale — see
+        # the out-of-stock bug fixed in an earlier session.
         in_stock_raw = (row.get("in_stock") or "").strip().lower()
         in_stock = in_stock_raw not in ("0", "false", "no")
         if not in_stock:
@@ -940,10 +934,6 @@ def fetch_awin_clickgolf_deals():
             except ValueError:
                 return None
 
-        # FIXED: search_price is the real, current, online selling price —
-        # it must be tried first. store_price is no longer used as a sale
-        # price candidate at all (see docstring above); it's only ever
-        # considered later as a possible "was" price.
         sp = to_float("search_price")
         if sp is None:
             sp = to_float("display_price")
@@ -956,23 +946,11 @@ def fetch_awin_clickgolf_deals():
         if old_price is None:
             old_price = to_float("product_price_old")
         if old_price is None:
-            # store_price can still be a genuinely useful "was" price
-            # signal — but only if it's actually higher than the real
-            # selling price. If it's lower or equal, it tells us nothing
-            # trustworthy about a discount and is ignored entirely.
             store_price = to_float("store_price")
             if store_price and store_price > sale_price:
                 old_price = store_price
         save_pct_raw = to_float("savings_percent")
 
-        # Data-quality signal: a retailer-reported "was" price that's
-        # actually LOWER than (or equal to) the current selling price is a
-        # real inversion — it happened for real this session (RRP £12.99
-        # under a £24.00 search_price). The price logic below already
-        # safely ignores an old_price that isn't genuinely higher, so this
-        # can never corrupt a displayed price — but it's still worth
-        # counting and reporting, since it flags this SKU's feed data as
-        # generally untrustworthy even where it happens not to bite today.
         raw_rrp = to_float("rrp_price")
         raw_old = to_float("product_price_old")
         for raw_candidate in (raw_rrp, raw_old):
@@ -987,8 +965,6 @@ def fetch_awin_clickgolf_deals():
             retail_price = round(sale_price / (1 - save_pct_raw / 100), 2)
             save_pct = round(save_pct_raw)
         else:
-            # No genuine discount reported by the feed — list at face value,
-            # no invented "was" price.
             retail_price = sale_price
             save_pct = 0
 
@@ -1007,7 +983,7 @@ def fetch_awin_clickgolf_deals():
         brand = extract_brand(name, row.get("brand_name"))
         colour = extract_colour(name)
         audience = classify_audience(name, icon)
-        product_id = f"{category}-{slugify(name)}-clickgolf"
+        product_id = f"{category}-{slugify(name)}-{source_slug}"
 
         product = {
             "id": product_id,
@@ -1018,19 +994,13 @@ def fetch_awin_clickgolf_deals():
             "savePct": max(save_pct, 0),
             "retailerCount": 1,
             "affiliateUrl": affiliate_url,
-            "source": "awin-clickgolf",
+            "source": f"awin-{source_slug}",
             "brand": brand,
             "audience": audience,
             "inStock": in_stock,
         }
         if image:
             product["image"] = image
-        # Unlike image/colour (safe to just leave stale if a transient feed
-        # gap doesn't provide one), icon is ALWAYS set — including to None
-        # when no icon applies. This is what lets merge_products actively
-        # clear a stale icon left over from before a category changed (a
-        # dict update can only add/overwrite keys present in the new data;
-        # it can never delete a key that's simply missing).
         product["icon"] = icon
         if colour:
             product["colour"] = colour
@@ -1048,25 +1018,38 @@ def fetch_awin_clickgolf_deals():
         icon_counts[key] = icon_counts.get(key, 0) + 1
 
     print(
-        f"Clickgolf feed: {total_rows} rows read, {len(products)} usable. "
+        f"{retailer_label} feed: {total_rows} rows read, {len(products)} usable. "
         f"Skipped — no name: {skipped_no_name}, "
         f"no price: {skipped_no_price}, no link: {skipped_no_link}. "
         f"(Out of stock: {out_of_stock_count} — tracked with inStock=False, no longer skipped.)"
     )
-    print(f"Clickgolf feed: category breakdown = {category_counts}")
+    print(f"{retailer_label} feed: category breakdown = {category_counts}")
     print(
-        f"Clickgolf feed: {with_icon}/{len(apparel_accessories)} apparel/accessories "
+        f"{retailer_label} feed: {with_icon}/{len(apparel_accessories)} apparel/accessories "
         f"products got a hub-page icon assigned. Icon breakdown = {icon_counts}"
     )
     if rrp_inversion_names:
         print(
-            f"Clickgolf feed: {len(rrp_inversion_names)} row(s) reported a \"was\" price "
+            f"{retailer_label} feed: {len(rrp_inversion_names)} row(s) reported a \"was\" price "
             f"that wasn't actually higher than the current price (a real data-quality "
             f"issue on the retailer's end) — safely ignored, no discount was claimed "
             f"for these. Examples: {rrp_inversion_names[:5]}"
         )
-    DATA_QUALITY_REPORT["rrp_inversions"] = rrp_inversion_names
+    existing_inversions = DATA_QUALITY_REPORT.get("rrp_inversions", [])
+    DATA_QUALITY_REPORT["rrp_inversions"] = existing_inversions + rrp_inversion_names
     return products
+
+
+def fetch_awin_clickgolf_deals():
+    """Clickgolf — first AWIN retailer onboarded. See
+    fetch_awin_generic_feed for the shared implementation."""
+    return fetch_awin_generic_feed("Clickgolf", "AWIN_CLICKGOLF_FEED_URL", "clickgolf")
+
+
+def fetch_awin_majorgolf_deals():
+    """Major Golf Direct — second AWIN retailer onboarded. See
+    fetch_awin_generic_feed for the shared implementation."""
+    return fetch_awin_generic_feed("Major Golf Direct", "AWIN_MAJORGOLF_FEED_URL", "majorgolf")
 
 
 def fetch_awin_deals():
@@ -1391,6 +1374,7 @@ def main():
         fetch_cj_deals()
         + fetch_awin_deals()
         + fetch_awin_clickgolf_deals()
+        + fetch_awin_majorgolf_deals()
         + fetch_impact_deals()
     )
     fresh = dedupe_by_lowest_price(fresh)
