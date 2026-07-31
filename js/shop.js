@@ -163,6 +163,10 @@ function classifyAudience(p) {
     const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
     if (re.test(lower)) return 'Junior';
   }
+  // A skort or dress is unambiguously women's apparel by its sub-type,
+  // regardless of whether the product name also says "women's"/"ladies"
+  // — kept in sync with scripts/update_deals.py's classify_audience().
+  if (p.icon === 'skort' || p.icon === 'dress') return 'Female';
   for (const word of FEMALE_WORDS) {
     const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
     if (re.test(lower)) return 'Female';

@@ -123,12 +123,38 @@ function truncateWords(name, maxWords) {
 function renderTrending(items) {
   const list = document.getElementById('trending-list');
   if (!list) return;
-  list.innerHTML = items.map(t => `
+  list.innerHTML = items.map(t => {
+    const tag = t.tagInfo;
+    return `
     <a class="tag" href="${t.affiliateUrl}" target="_blank" rel="sponsored noopener">
       <span class="tag-name">${truncateWords(t.name, 5)}</span>
-      <span class="${t.tag.toLowerCase()}">${t.tag === 'Hot' ? '🔥' : '📈'} ${t.tag}</span>
+      <span class="${tag.cls}">${tag.emoji} ${tag.label}</span>
     </a>
-  `).join('');
+  `;
+  }).join('');
+}
+
+// Real, evidence-backed tag variety — every label here reflects an actual
+// signal on the product (a genuinely verified low price, a live falling
+// trend, a real repeated stock-out pattern), never an arbitrary label for
+// variety's sake alone. Checked in priority order; falls back to the
+// original Hot/Rising discount-size split if nothing more specific
+// applies, so there's always a sensible label without ever inventing one.
+function classifyTrendingTag(item) {
+  const insight = item.priceInsight;
+  if (insight && insight.status === 'lowest_tracked' && insight.verifiedDiscount) {
+    return { label: 'Verified Low', emoji: '💎', cls: 'verified-low' };
+  }
+  if (insight && insight.trend === 'falling') {
+    return { label: 'Dropping', emoji: '📉', cls: 'dropping' };
+  }
+  if (item.stockInsight && item.stockInsight.sellsOutFast) {
+    return { label: 'Sells Fast', emoji: '🏃', cls: 'sells-fast' };
+  }
+  if (item.savePct >= 28) {
+    return { label: 'Hot', emoji: '🔥', cls: 'hot' };
+  }
+  return { label: 'Rising', emoji: '📈', cls: 'rising' };
 }
 
 // Popularity is a proxy, not real purchase/click data — no live click
@@ -154,6 +180,10 @@ function classifyAudience(p) {
     const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
     if (re.test(lower)) return 'Junior';
   }
+  // A skort or dress is unambiguously women's apparel by its sub-type,
+  // regardless of whether the product name also says "women's"/"ladies"
+  // — kept in sync with scripts/update_deals.py's classify_audience().
+  if (p.icon === 'skort' || p.icon === 'dress') return 'Female';
   for (const word of FEMALE_WORDS) {
     const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
     if (re.test(lower)) return 'Female';
@@ -318,14 +348,29 @@ fetch('data/products.json')
     // combination — this is what makes the homepage feel like it changes
     // daily without needing any real backend/database.
     const todaySeed = new Date().toISOString().slice(0, 10);
-    const qualifiedPool = qualityRanked.slice(0, Math.min(80, qualityRanked.length));
+    // Widened from an earlier 80 — with an ~11,000-product catalog, the
+    // top 80 by discount alone was often dominated by whichever categories
+    // happen to carry the deepest blanket discounts (commonly
+    // apparel/accessories), leaving too few genuine club candidates to
+    // satisfy minClubCount without constant swapping — and too few
+    // day-to-day differences for real rotation to be visible at all.
+    const qualifiedPool = qualityRanked.slice(0, Math.min(250, qualityRanked.length));
     const dailyPool = seededShuffle(qualifiedPool, todaySeed);
+    // A SEPARATE daily shuffle of the full quality-ranked catalog, used
+    // only as the search source for constraint-driven swaps (club-count /
+    // male-quota replacements) below. Previously these swaps always
+    // searched the raw, fixed discount-sorted order and so always found
+    // the same single highest-discount candidate — meaning any day that
+    // needed a swap (most days, given how tight the constraints are)
+    // showed an identical replacement regardless of the date. Shuffling
+    // this too means swap-ins genuinely rotate day to day as well.
+    const shuffledFullPool = seededShuffle(qualityRanked, todaySeed + '-swap');
 
-    const bestDeals = pickWithConstraints(dailyPool, 12, [], { minMalePercent: 0.8, minClubCount: 5 }, qualityRanked);
+    const bestDeals = pickWithConstraints(dailyPool, 12, [], { minMalePercent: 0.8, minClubCount: 5 }, shuffledFullPool);
     const bestKeys = bestDeals.map(d => d.icon || d.category);
 
     const priceDrops = pickWithConstraints(
-      dailyPool.filter(d => !bestDeals.includes(d)), 6, bestKeys, { minMalePercent: 0.8 }, qualityRanked
+      dailyPool.filter(d => !bestDeals.includes(d)), 6, bestKeys, { minMalePercent: 0.8 }, shuffledFullPool
     );
     const priceDropKeys = priceDrops.map(d => d.icon || d.category);
 
@@ -336,16 +381,15 @@ fetch('data/products.json')
     if (dropList) dropList.innerHTML = priceDrops.map(dropRowHTML).join('');
 
     // Trending: same daily-rotating pool, popularity-ordered within it,
-    // also held to the 80% Male rule for the hero page as a whole. "Hot"
-    // vs "Rising" is a simple discount-size split, a proxy same as before.
+    // also held to the 80% Male rule for the hero page as a whole.
     const usedForTrending = new Set([...bestKeys, ...priceDropKeys]);
     const trendingPool = [...dailyPool]
       .filter(d => !bestDeals.includes(d) && !priceDrops.includes(d))
       .sort((a, b) => popularityScore(b) - popularityScore(a));
-    const trendingRaw = pickWithConstraints(trendingPool, 12, [...usedForTrending], { minMalePercent: 0.8 }, qualityRanked);
+    const trendingRaw = pickWithConstraints(trendingPool, 12, [...usedForTrending], { minMalePercent: 0.8 }, shuffledFullPool);
     const trendingPicks = trendingRaw.map(item => ({
       name: item.name,
-      tag: item.savePct >= 25 ? 'Hot' : 'Rising',
+      tagInfo: classifyTrendingTag(item),
       affiliateUrl: item.affiliateUrl,
       category: item.category,
     }));
