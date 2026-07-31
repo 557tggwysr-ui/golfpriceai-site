@@ -461,18 +461,31 @@ JUNIOR_WORDS = ["junior", "boys", "girls", "kids golf", "us kids golf"]
 FEMALE_WORDS = ["women's", "womens", "women", "ladies", "lady's"]
 
 
-def classify_audience(name):
+def classify_audience(name, icon=None):
     """Male / Female / Junior filter facet. Defaults to "Male" when
     nothing else matches — most golf gear is unisex in reality, and this
     matches the same "male or unisex" convention already used for the
     homepage's gender-balanced Hot Deals picks, rather than introducing a
-    fourth ambiguous "Unisex" bucket the person didn't ask for."""
+    fourth ambiguous "Unisex" bucket the person didn't ask for.
+
+    A real gap found and fixed this session: this used to check ONLY the
+    product name for gendered wording (e.g. "ladies", "women's"). But a
+    skort or a dress is unambiguously women's golf apparel by its very
+    sub-type, regardless of whether the retailer happened to also put
+    "women's" in the product title — many don't. Without this check,
+    those items silently defaulted to "Male", which meant the homepage's
+    80%-Male quota was being satisfied on paper while still visibly
+    surfacing skorts and dresses, undermining the whole point of the
+    quota.
+    """
     if not name:
         return "Male"
     lower = name.lower()
     for word in JUNIOR_WORDS:
         if _has_word(lower, word):
             return "Junior"
+    if icon in ("skort", "dress"):
+        return "Female"
     for word in FEMALE_WORDS:
         if _has_word(lower, word):
             return "Female"
@@ -825,7 +838,7 @@ def backfill_catalog(products):
             del p["icon"]
             changed = True
         if "audience" not in p:
-            p["audience"] = classify_audience(p.get("name", ""))
+            p["audience"] = classify_audience(p.get("name", ""), p.get("icon"))
             changed = True
         if changed:
             updated += 1
@@ -993,7 +1006,7 @@ def fetch_awin_clickgolf_deals():
         icon = guess_icon(cat_name, merch_cat, name, category)
         brand = extract_brand(name, row.get("brand_name"))
         colour = extract_colour(name)
-        audience = classify_audience(name)
+        audience = classify_audience(name, icon)
         product_id = f"{category}-{slugify(name)}-clickgolf"
 
         product = {
