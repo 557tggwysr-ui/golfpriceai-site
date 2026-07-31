@@ -89,6 +89,13 @@ STABLE_THRESHOLD_DAYS = 30
 # A product that's gone from in-stock to out-of-stock at least this many
 # times within the lookback window earns a genuine "sells out fast" signal.
 SELLS_OUT_FAST_THRESHOLD = 3
+
+# A same-retailer collision where the highest price is at least this many
+# times the lowest is treated as a severe, distinctly-flagged case — most
+# likely a genuine bug in the retailer's own feed export (as confirmed for
+# Callaway Apex Ti Fusion: £289–£2,339, an ~8x spread, all for the exact
+# same real product page) rather than ordinary near-duplicate listings.
+SEVERE_VARIANCE_RATIO = 2.5
 # Safety cap on entries kept per product, regardless of date range — keeps
 # the file bounded even for a product whose price changes unusually often.
 MAX_HISTORY_ENTRIES = 120
@@ -1031,6 +1038,14 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
             skipped_no_link += 1
             continue
 
+        # The retailer's own product page URL is a far more reliable
+        # identity signal than the product name for telling "genuinely
+        # the same real product, listed twice" apart from "two different
+        # real products that happen to share truncated/similar names".
+        # Internal-only — stripped out before the product ever reaches
+        # products.json, see dedupe_products().
+        merchant_page_url = (row.get("merchant_deep_link") or "").strip()
+
         image = (row.get("merchant_image_url") or "").strip()
         cat_name = row.get("category_name")
         merch_cat = row.get("merchant_category")
@@ -1058,6 +1073,7 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
             "brand": brand,
             "audience": audience,
             "inStock": in_stock,
+            "_mpu": merchant_page_url,
         }
         if image:
             product["image"] = image
@@ -1181,75 +1197,99 @@ def _median_offer(offers):
 
 
 def dedupe_products(fresh_products):
-    """Collapses same-name product collisions into one catalog entry —
-    but critically, HOW it collapses them depends on whether the
-    collision is genuine (the same product listed by more than one
-    retailer) or an artefact of one retailer's own ambiguous naming.
+    """Collapses duplicate product listings into one catalog entry.
 
-    GENUINE cross-retailer duplicate (multiple different `source` values
-    for one name): keep the cheapest — this is the correct, original
-    behaviour, and it's what protects a shopper from ever seeing a
-    higher price than what's actually available elsewhere on the site.
+    IDENTITY KEY: groups by the retailer's own product page URL
+    (`_mpu`, internal-only, stripped before returning) when available,
+    falling back to product name otherwise. A real incident this session
+    showed why name alone isn't reliable enough: ~19 separate feed rows
+    for "Callaway Apex Ti Fusion Golf Irons - Steel" all pointed to the
+    EXACT SAME real product page (confirmed via merchant_deep_link) and
+    had the identical full-set spec table in their description — yet
+    carried wildly different prices (£289 to £2,269) under fabricated-
+    looking product IDs. That's not a naming ambiguity between genuinely
+    different configurations (this session's earlier working theory) —
+    it's the retailer's feed export generating inconsistent duplicate
+    rows for one single real product. The page URL is the one field that
+    correctly reflects "this actually is the same real thing" here.
 
-    SAME-RETAILER name collision (every offer shares one `source`): this
-    is NOT a real duplicate — it means that retailer's own feed lists
-    multiple genuinely different configurations (e.g. a single
-    replacement iron alongside several full-set shaft/spec options)
-    under one identical, under-specific product name. Blindly keeping
-    the cheapest here is actively dangerous — confirmed by a real
-    incident this session where "Callaway Apex Ti Fusion Golf Irons -
-    Steel" collapsed 54 separate listings ranging £289–£2,339 down to
-    the £289 one, presenting what's almost certainly a single spare iron
-    as if it were the ~£1,700+ full set implied by the name. The median
-    offer is used instead — far more representative of the "typical"
-    real product behind an ambiguous name than either extreme.
+    GENUINE cross-retailer duplicate (multiple different `source`
+    values): keep the cheapest — correct, unchanged behaviour.
 
-    `retailerCount` is also fixed here to reflect the real number of
-    DISTINCT RETAILERS, not the raw row count — a same-retailer
-    collision with 54 rows is still only 1 retailer, not 54.
+    SAME-RETAILER collision (every offer shares one `source`): uses the
+    median price, since blindly keeping the cheapest here already proved
+    actively dangerous once. IMPORTANT HONESTY NOTE: median is a
+    defensible least-wrong estimate, not a guarantee of accuracy — for
+    the Apex Ti Fusion case specifically, it landed at £1,699 against a
+    confirmed real live price of £1,419. When a collision's price spread
+    is severe (see SEVERE_VARIANCE_RATIO), that's flagged distinctly in
+    the Data Quality Report rather than silently smoothed over, because
+    it likely reflects a genuine feed bug on the retailer's end that no
+    amount of client-side statistics can fully correct — worth reporting
+    to the retailer directly.
+
+    `retailerCount` reflects the real number of DISTINCT RETAILERS, not
+    raw row count.
     """
-    by_name = {}
+    by_key = {}
     for p in fresh_products:
-        by_name.setdefault(p["name"], []).append(p)
+        key = p.get("_mpu") or p["name"]
+        by_key.setdefault(key, []).append(p)
 
     deduped = []
     cross_retailer_collisions = []
     same_retailer_collisions = []
+    severe_variance_collisions = []
 
-    for name, offers in by_name.items():
+    for key, offers in by_key.items():
+        display_name = offers[0]["name"]
+
         if len(offers) == 1:
             winner = dict(offers[0])
             winner["retailerCount"] = 1
+            winner.pop("_mpu", None)
             deduped.append(winner)
             continue
 
         sources = sorted({o["source"] for o in offers})
 
         if len(sources) == 1:
-            # Same-retailer collision — median, not min. See docstring.
+            prices = [o["salePrice"] for o in offers]
+            variance_ratio = max(prices) / min(prices) if min(prices) > 0 else 1
             winner = dict(_median_offer(offers))
             winner["retailerCount"] = 1
-            same_retailer_collisions.append((name, sources[0], len(offers), winner["salePrice"]))
+            winner.pop("_mpu", None)
+            same_retailer_collisions.append((display_name, sources[0], len(offers), winner["salePrice"]))
+            if variance_ratio >= SEVERE_VARIANCE_RATIO:
+                severe_variance_collisions.append(
+                    (display_name, sources[0], len(offers), min(prices), max(prices), winner["salePrice"])
+                )
             deduped.append(winner)
             continue
 
-        # Genuine cross-retailer duplicate. First collapse any
-        # same-retailer collisions WITHIN each source using the same
-        # median rule, so a messy single-retailer listing set can't
-        # distort the cross-retailer "cheapest" comparison either.
+        # Genuine cross-retailer duplicate. Collapse any same-retailer
+        # collisions WITHIN each source first (median), then pick the
+        # cheapest across those per-retailer representatives.
         per_source_repr = []
         for src in sources:
             src_offers = [o for o in offers if o["source"] == src]
             if len(src_offers) > 1:
+                prices = [o["salePrice"] for o in src_offers]
+                variance_ratio = max(prices) / min(prices) if min(prices) > 0 else 1
                 rep = _median_offer(src_offers)
-                same_retailer_collisions.append((name, src, len(src_offers), rep["salePrice"]))
+                same_retailer_collisions.append((display_name, src, len(src_offers), rep["salePrice"]))
+                if variance_ratio >= SEVERE_VARIANCE_RATIO:
+                    severe_variance_collisions.append(
+                        (display_name, src, len(src_offers), min(prices), max(prices), rep["salePrice"])
+                    )
             else:
                 rep = src_offers[0]
             per_source_repr.append(rep)
 
         winner = dict(min(per_source_repr, key=lambda o: o["salePrice"]))
         winner["retailerCount"] = len(sources)
-        cross_retailer_collisions.append((name, len(sources), winner["salePrice"]))
+        winner.pop("_mpu", None)
+        cross_retailer_collisions.append((display_name, len(sources), winner["salePrice"]))
         deduped.append(winner)
 
     if cross_retailer_collisions:
@@ -1263,15 +1303,29 @@ def dedupe_products(fresh_products):
     if same_retailer_collisions:
         print(
             f"Dedup: {len(same_retailer_collisions)} product(s) had multiple listings from "
-            f"the SAME retailer sharing one identical name (a retailer-side naming gap, not "
-            f"a real duplicate) — used the median price rather than the cheapest, to avoid "
-            f"an outlier listing (e.g. a single spare club) distorting the shown price."
+            f"the SAME retailer for what's confirmed to be the same real product — used the "
+            f"median price rather than the cheapest, to avoid a single outlier listing "
+            f"distorting the shown price."
         )
         for name, source, count, price in same_retailer_collisions[:10]:
             print(f"  - {name} ({source}): {count} listings, used median £{price:.2f}")
 
+    if severe_variance_collisions:
+        print(
+            f"\n⚠️  {len(severe_variance_collisions)} product(s) had a SEVERE price spread "
+            f"(≥{SEVERE_VARIANCE_RATIO}x between lowest and highest) across duplicate listings "
+            f"of the same real product. This is likely a genuine bug in the retailer's own "
+            f"feed export, not something further client-side logic can fully correct — the "
+            f"median shown is a best-effort estimate, not a confirmed-accurate price. Worth "
+            f"spot-checking these against the retailer's live site, and worth reporting to "
+            f"the retailer directly if the pattern persists."
+        )
+        for name, source, count, lo, hi, used in severe_variance_collisions[:10]:
+            print(f"  - {name} ({source}): {count} listings, £{lo:.2f}\u2013£{hi:.2f}, used median £{used:.2f}")
+
     DATA_QUALITY_REPORT["cross_retailer_collisions"] = cross_retailer_collisions
     DATA_QUALITY_REPORT["same_retailer_name_collisions"] = same_retailer_collisions
+    DATA_QUALITY_REPORT["severe_variance_collisions"] = severe_variance_collisions
     return deduped
 
 
@@ -1556,6 +1610,7 @@ def print_data_quality_report():
     inversions = DATA_QUALITY_REPORT.get("rrp_inversions", [])
     cross_retailer = DATA_QUALITY_REPORT.get("cross_retailer_collisions", [])
     same_retailer = DATA_QUALITY_REPORT.get("same_retailer_name_collisions", [])
+    severe_variance = DATA_QUALITY_REPORT.get("severe_variance_collisions", [])
     jumps = DATA_QUALITY_REPORT.get("price_jump_anomalies", [])
 
     print("\n" + "=" * 60)
@@ -1564,6 +1619,7 @@ def print_data_quality_report():
     print(f"RRP/was-price inversions (retailer's own data, safely ignored):    {len(inversions)}")
     print(f"Cross-retailer duplicates (kept the cheapest genuine price):       {len(cross_retailer)}")
     print(f"Same-retailer name collisions (used median, not cheapest):        {len(same_retailer)}")
+    print(f"  \u21b3 of which SEVERE price spread (\u2265{SEVERE_VARIANCE_RATIO}x, likely a retailer feed bug — worth reviewing): {len(severe_variance)}")
     print(f"Suspicious single-run price jumps (flagged, not yet trusted):     {len(jumps)}")
     if not (inversions or cross_retailer or same_retailer or jumps):
         print("Nothing flagged this run — feed data looked clean.")
