@@ -443,6 +443,9 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   justify-content: space-between;
   gap: 10px;
   cursor: pointer;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 .tag-name {
   overflow: hidden;
@@ -454,6 +457,9 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .tag:hover { border-color: var(--green); background: var(--green-pale); }
 .tag .hot { color: #d9432e; flex-shrink: 0; }
 .tag .rising { color: var(--green-dark); flex-shrink: 0; }
+.tag .dropping { color: var(--green-dark); flex-shrink: 0; }
+.tag .verified-low { color: #8a6d1f; flex-shrink: 0; }
+.tag .sells-fast { color: #7A5B1E; flex-shrink: 0; }
 
 /* Newsletter */
 .newsletter {
