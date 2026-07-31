@@ -61,25 +61,57 @@ function thumbStyle(d) {
   return backdrop ? ` style="background-image:url('${backdrop}')"` : '';
 }
 
+// Fits You — populated from shop.html's ?fitFlex=&fitLoftMin=&fitLoftMax=
+// query params (set by find-your-fit.html). Null until/unless someone
+// arrives with an active fit profile in the URL.
+let ACTIVE_FIT = null;
+
+function fitsYouBadgeHTML(d) {
+  if (!ACTIVE_FIT || !d.flex) return '';
+  if (d.flex !== ACTIVE_FIT.flex) return '';
+  if (d.loft) {
+    const loftNum = parseFloat(d.loft);
+    if (!isNaN(loftNum) && (loftNum < ACTIVE_FIT.loftMin || loftNum > ACTIVE_FIT.loftMax)) return '';
+  }
+  return `<span class="fits-you-badge">✅ Fits You</span>`;
+}
+
+// Crowd-Verified Pricing — a simple, honest "something look wrong?" link
+// on every card. Uses the same zero-infrastructure mailto pattern as
+// Back In Stock Radar's notify-me button. Deliberately a SIBLING of the
+// card's own <a>, never nested inside it — nesting an anchor inside
+// another anchor is invalid HTML and breaks click behaviour.
+function reportPriceLinkHTML(d) {
+  const subject = encodeURIComponent(`Pricing issue: ${d.name}`);
+  const body = encodeURIComponent(
+    `Hi, I think there might be a pricing issue with this product:\n\n${d.name}\nShown price: ${money(d.salePrice)}\nLink: ${d.affiliateUrl}\n\nWhat's wrong: `
+  );
+  return `<a class="report-price-link" href="mailto:hello@golfpriceai.com?subject=${subject}&body=${body}">⚠️ Report a pricing issue</a>`;
+}
+
 function cardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
-    <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
-      <div class="${thumbClass(d)}"${thumbStyle(d)}>
-        <span class="badge ${badge.cls}">${badge.label}</span>
-        ${thumbHTML(d)}
-      </div>
-      <div class="deal-body">
-        <h3>${d.name}</h3>
-        <div class="price-row"><span class="retail-price">${money(d.retailPrice)}</span></div>
-        <div class="price-row"><span class="sale-price">${money(d.salePrice)}</span></div>
-        <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
-        ${renderPriceBadge(d)}
-        <div class="deal-foot">
-          <span>Available at ${d.retailerCount} retailers</span>
+    <div class="deal-card-wrap">
+      <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
+        <div class="${thumbClass(d)}"${thumbStyle(d)}>
+          <span class="badge ${badge.cls}">${badge.label}</span>
+          ${thumbHTML(d)}
         </div>
-      </div>
-    </a>`;
+        <div class="deal-body">
+          <h3>${d.name}</h3>
+          <div class="price-row"><span class="retail-price">${money(d.retailPrice)}</span></div>
+          <div class="price-row"><span class="sale-price">${money(d.salePrice)}</span></div>
+          <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
+          ${renderPriceBadge(d)}
+          ${fitsYouBadgeHTML(d)}
+          <div class="deal-foot">
+            <span>Available at ${d.retailerCount} retailers</span>
+          </div>
+        </div>
+      </a>
+      ${reportPriceLinkHTML(d)}
+    </div>`;
 }
 
 /* ============================================
@@ -585,6 +617,19 @@ fetch('data/products.json')
     if (labelParam && categoryParam) {
       const categoryLabel = (data.categories.find(c => c.key === categoryParam) || {}).label || categoryParam;
       groupNoteHTML = `<p id="group-note" style="color:var(--muted);font-size:14px;margin:8px 0 0;"><a href="index.html" style="color:var(--muted);">Home</a> / <a href="${categoryParam === 'apparel' ? 'apparel.html' : 'accessories.html'}" style="color:var(--muted);">${categoryLabel}</a> / <strong>${labelParam}</strong> \u00b7 <a href="shop.html?category=${encodeURIComponent(categoryParam)}" style="color:var(--green);font-weight:600;">clear filter \u00d7</a></p>`;
+    }
+
+    const fitFlexParam = params.get('fitFlex');
+    if (fitFlexParam) {
+      const fitLoftMinParam = params.get('fitLoftMin');
+      const fitLoftMaxParam = params.get('fitLoftMax');
+      ACTIVE_FIT = {
+        flex: fitFlexParam,
+        loftMin: fitLoftMinParam ? Number(fitLoftMinParam) : -Infinity,
+        loftMax: fitLoftMaxParam ? Number(fitLoftMaxParam) : Infinity,
+      };
+      const loftText = fitLoftMinParam ? `, ${fitLoftMinParam}\u00b0\u2013${fitLoftMaxParam}\u00b0 loft` : '';
+      groupNoteHTML += `<p id="fit-note" style="background:var(--green-pale);color:var(--green-dark);border-radius:10px;padding:10px 16px;font-size:13px;font-weight:600;margin:12px 0 0;display:inline-block;">\u2705 Showing your fit: ${fitFlexParam} flex${loftText} \u2014 <a href="shop.html" style="color:var(--green-dark);text-decoration:underline;">clear</a></p>`;
     }
 
     const sortSelect = document.getElementById('sort-select');

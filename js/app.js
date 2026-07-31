@@ -72,42 +72,61 @@ function thumbStyle(d) {
   return backdrop ? ` style="background-image:url('${backdrop}')"` : '';
 }
 
+// Crowd-Verified Pricing — same pattern as shop.js's reportPriceLinkHTML,
+// kept as a duplicate here rather than a shared import since this site
+// has no build step / module system; consistent with how other small
+// helpers (money, thumbHTML, etc.) are already duplicated between
+// app.js and shop.js.
+function reportPriceLinkHTML(d) {
+  const subject = encodeURIComponent(`Pricing issue: ${d.name}`);
+  const body = encodeURIComponent(
+    `Hi, I think there might be a pricing issue with this product:\n\n${d.name}\nShown price: ${money(d.salePrice)}\nLink: ${d.affiliateUrl}\n\nWhat's wrong: `
+  );
+  return `<a class="report-price-link" href="mailto:hello@golfpriceai.com?subject=${subject}&body=${body}">⚠️ Report a pricing issue</a>`;
+}
+
 function dealCardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
-    <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
-      <div class="${thumbClass(d)}"${thumbStyle(d)}>
-        <span class="badge ${badge.cls}">${badge.label}</span>
-        ${thumbHTML(d)}
-      </div>
-      <div class="deal-body">
-        <h3>${d.name}</h3>
-        <div class="price-row">
-          <span class="retail-price">${money(d.retailPrice)}</span>
+    <div class="deal-card-wrap">
+      <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
+        <div class="${thumbClass(d)}"${thumbStyle(d)}>
+          <span class="badge ${badge.cls}">${badge.label}</span>
+          ${thumbHTML(d)}
         </div>
-        <div class="price-row">
-          <span class="sale-price">${money(d.salePrice)}</span>
+        <div class="deal-body">
+          <h3>${d.name}</h3>
+          <div class="price-row">
+            <span class="retail-price">${money(d.retailPrice)}</span>
+          </div>
+          <div class="price-row">
+            <span class="sale-price">${money(d.salePrice)}</span>
+          </div>
+          <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
+          ${renderPriceBadge(d)}
+          <div class="deal-foot">
+            <span>Available at ${d.retailerCount} retailers</span>
+          </div>
         </div>
-        <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
-        ${renderPriceBadge(d)}
-        <div class="deal-foot">
-          <span>Available at ${d.retailerCount} retailers</span>
-        </div>
-      </div>
-    </a>`;
+      </a>
+      ${reportPriceLinkHTML(d)}
+    </div>`;
 }
 
 function dropRowHTML(d) {
   return `
-    <a class="drop-row" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
-      <div class="drop-thumb ${d.image ? '' : 'icon-thumb'}"${thumbStyle(d)}>${thumbHTML(d)}</div>
-      <div class="info">
-        <h4>${d.name}</h4>
-        <span class="was">Was ${money(d.retailPrice)}</span>
-        ${renderPriceBadge(d)}
-      </div>
-      <div class="now">${money(d.salePrice)}<span class="pct">${d.savePct}% drop</span></div>
-    </a>`;
+    <div class="drop-row-wrap">
+      <a class="drop-row" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
+        <div class="drop-thumb ${d.image ? '' : 'icon-thumb'}"${thumbStyle(d)}>${thumbHTML(d)}</div>
+        <div class="info">
+          <h4>${d.name}</h4>
+          <span class="was">Was ${money(d.retailPrice)}</span>
+          ${renderPriceBadge(d)}
+        </div>
+        <div class="now">${money(d.salePrice)}<span class="pct">${d.savePct}% drop</span></div>
+      </a>
+      ${reportPriceLinkHTML(d)}
+    </div>`;
 }
 
 // Trending pills have a fixed-ish width, so a very long real product name
