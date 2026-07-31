@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Fit | GolfPrice AI</title>
+<meta name="description" content="A quick, honest starting point for shaft flex and loft based on your swing speed and handicap — not a substitute for a real fitting, but better than guessing.">
+<link rel="icon" href="assets/logo-full.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/find-your-fit.css">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <a href="index.html" class="brand">
+    <img src="assets/logo-full.png" alt="GolfPrice AI logo">
+    <span class="brand-name">Golf<span>Price</span> AI</span>
+  </a>
+  <nav class="main-nav">
+    <a href="shop.html">Shop All Deals</a>
+    <div class="nav-item">
+      <a href="shop.html?group=clubs">Clubs ▾</a>
+      <div class="dropdown">
+        <a href="shop.html?category=driver">Drivers</a>
+        <a href="shop.html?category=wood">Fairway Woods</a>
+        <a href="shop.html?category=hybrid">Hybrids</a>
+        <a href="shop.html?category=irons">Irons</a>
+        <a href="shop.html?category=wedge">Wedges</a>
+        <a href="shop.html?category=putter">Putters</a>
+        <a href="shop.html?category=sets">Sets</a>
+        <a href="find-your-fit.html">📐 Find Your Fit</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="apparel.html">Apparel ▾</a>
+      <div class="dropdown" id="apparel-dropdown"></div>
+    </div>
+    <div class="nav-item">
+      <a href="accessories.html">Accessories ▾</a>
+      <div class="dropdown" id="accessories-dropdown"></div>
+    </div>
+    <a href="build-your-bag.html">Assemble Your Arsenal</a>
+    <a href="receipts.html">Show Us The Receipts</a>
+    <a href="best-time-to-buy.html">Best Time To Buy</a>
+    <a href="back-in-stock.html">Back In Stock Radar</a>
+    <a href="fairway-index.html">The Fairway Index</a>
+    <a href="complete-the-kit.html">Complete The Kit</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a href="index.html#alerts" class="btn btn-primary">🔔 Get Deal Alerts</a>
+  <button class="nav-toggle" aria-label="Open menu">☰</button>
+</header>
+
+<main class="container" id="main-content">
+
+  <div class="theme-banner">
+    <h2>📐 Find Your Fit</h2>
+    <p>Two quick questions, a general fitting-chart-style starting point — then we'll flag clubs on the Shop page that match, using specs pulled straight from the real product listings.</p>
+    <p class="tagline">Not A Real Fitting.<span class="quip"> Just A Better Guess Than None.</span></p>
+  </div>
+
+  <form class="fit-quiz" id="fit-quiz">
+    <div class="fit-question">
+      <label for="swing-speed">How fast do you swing? (driver clubhead speed, roughly)</label>
+      <select id="swing-speed" required>
+        <option value="" disabled selected>Choose one…</option>
+        <option value="slow">Under 70 mph</option>
+        <option value="moderate">70–90 mph</option>
+        <option value="fast">90–105 mph</option>
+        <option value="very-fast">105 mph+</option>
+        <option value="unsure">Not sure</option>
+      </select>
+    </div>
+
+    <div class="fit-question">
+      <label for="handicap-bracket">What's your handicap? (or nearest guess)</label>
+      <select id="handicap-bracket" required>
+        <option value="" disabled selected>Choose one…</option>
+        <option value="low">0–9</option>
+        <option value="mid">10–18</option>
+        <option value="high">19–28</option>
+        <option value="new">29+ / New to golf</option>
+      </select>
+    </div>
+
+    <div class="fit-question fit-checkbox-row">
+      <label>
+        <input type="checkbox" id="use-ladies-flex">
+        Use the women's flex range instead (Ladies flex tends to suit slower swing speeds better than Senior/Regular)
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary fit-submit">📐 See My Fit</button>
+  </form>
+
+  <div class="fit-result" id="fit-result" hidden>
+    <h2>Your starting point</h2>
+    <div class="fit-result-cards">
+      <div class="fit-result-card">
+        <p class="fit-result-label">Suggested flex</p>
+        <p class="fit-result-value" id="result-flex">—</p>
+      </div>
+      <div class="fit-result-card">
+        <p class="fit-result-label">Suggested loft range</p>
+        <p class="fit-result-value" id="result-loft">—</p>
+      </div>
+    </div>
+    <a href="shop.html" id="see-matching-clubs" class="btn btn-primary fit-cta">See Matching Clubs In The Shop →</a>
+    <p class="fit-disclaimer">
+      This is a general guide based on typical fitting charts — real fitting accounts for
+      tempo, transition, ball flight and a dozen other things a two-question quiz simply
+      can't. Treat it as a better starting point than guessing, not a substitute for an
+      actual fitting session.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
+</footer>
+
+<script src="js/find-your-fit.js"></script>
+<script src="js/groups-config.js"></script>
+<script src="js/hub.js"></script>
+<script src="js/nav-mobile.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>
