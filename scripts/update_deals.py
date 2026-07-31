@@ -1164,50 +1164,114 @@ def categorize_placeholder(name):
     return "accessories"
 
 
-def dedupe_by_lowest_price(fresh_products):
-    """When more than one retailer stocks the exact same product (matched
-    by name, same as merge_products below), only the genuinely cheapest
-    offer should ever reach the catalog — never whichever fetch_*
-    function's result happened to be combined last.
+def _median_offer(offers):
+    """Returns the offer whose salePrice is the statistical median among
+    a group of same-name listings — far more robust to a single outlier
+    (e.g. one individually-listed spare club dragging the group's
+    cheapest price down to a fraction of the real set price) than
+    blindly taking the minimum would be. For an even count, takes the
+    lower of the two middle offers — a small, deliberate bias toward the
+    cheaper side, consistent with the site's "don't overstate price"
+    ethos, while still being far more representative than the true min."""
+    sorted_offers = sorted(offers, key=lambda o: o["salePrice"])
+    mid = len(sorted_offers) // 2
+    if len(sorted_offers) % 2 == 1:
+        return sorted_offers[mid]
+    return sorted_offers[mid - 1]
 
-    This also sets `retailerCount` to the real number of distinct offers
-    seen THIS run, replacing what was previously a hardcoded 1 on every
-    Clickgolf product. Only one live retailer feed exists as of this
-    session, so this function is a no-op in practice today — but without
-    it, the day a second retailer (another AWIN advertiser, or a joined CJ
-    advertiser) starts returning a product that collides by name with an
-    existing one, a plain last-write-wins merge could silently replace a
-    genuinely cheaper price with a more expensive one. Better to have this
-    already in place and inert than to add it under pressure later.
+
+def dedupe_products(fresh_products):
+    """Collapses same-name product collisions into one catalog entry —
+    but critically, HOW it collapses them depends on whether the
+    collision is genuine (the same product listed by more than one
+    retailer) or an artefact of one retailer's own ambiguous naming.
+
+    GENUINE cross-retailer duplicate (multiple different `source` values
+    for one name): keep the cheapest — this is the correct, original
+    behaviour, and it's what protects a shopper from ever seeing a
+    higher price than what's actually available elsewhere on the site.
+
+    SAME-RETAILER name collision (every offer shares one `source`): this
+    is NOT a real duplicate — it means that retailer's own feed lists
+    multiple genuinely different configurations (e.g. a single
+    replacement iron alongside several full-set shaft/spec options)
+    under one identical, under-specific product name. Blindly keeping
+    the cheapest here is actively dangerous — confirmed by a real
+    incident this session where "Callaway Apex Ti Fusion Golf Irons -
+    Steel" collapsed 54 separate listings ranging £289–£2,339 down to
+    the £289 one, presenting what's almost certainly a single spare iron
+    as if it were the ~£1,700+ full set implied by the name. The median
+    offer is used instead — far more representative of the "typical"
+    real product behind an ambiguous name than either extreme.
+
+    `retailerCount` is also fixed here to reflect the real number of
+    DISTINCT RETAILERS, not the raw row count — a same-retailer
+    collision with 54 rows is still only 1 retailer, not 54.
     """
     by_name = {}
     for p in fresh_products:
         by_name.setdefault(p["name"], []).append(p)
 
     deduped = []
-    collisions = []
+    cross_retailer_collisions = []
+    same_retailer_collisions = []
+
     for name, offers in by_name.items():
         if len(offers) == 1:
-            winner = offers[0]
+            winner = dict(offers[0])
             winner["retailerCount"] = 1
-        else:
-            # Keep the cheapest offer's own price/retail/discount/link
-            # together as a consistent set — never mix e.g. one retailer's
-            # sale price with another's "was" price, which could produce a
-            # nonsensical or misleading discount percentage.
-            winner = dict(min(offers, key=lambda o: o["salePrice"]))
-            winner["retailerCount"] = len(offers)
-            collisions.append((name, len(offers), winner["salePrice"]))
+            deduped.append(winner)
+            continue
+
+        sources = sorted({o["source"] for o in offers})
+
+        if len(sources) == 1:
+            # Same-retailer collision — median, not min. See docstring.
+            winner = dict(_median_offer(offers))
+            winner["retailerCount"] = 1
+            same_retailer_collisions.append((name, sources[0], len(offers), winner["salePrice"]))
+            deduped.append(winner)
+            continue
+
+        # Genuine cross-retailer duplicate. First collapse any
+        # same-retailer collisions WITHIN each source using the same
+        # median rule, so a messy single-retailer listing set can't
+        # distort the cross-retailer "cheapest" comparison either.
+        per_source_repr = []
+        for src in sources:
+            src_offers = [o for o in offers if o["source"] == src]
+            if len(src_offers) > 1:
+                rep = _median_offer(src_offers)
+                same_retailer_collisions.append((name, src, len(src_offers), rep["salePrice"]))
+            else:
+                rep = src_offers[0]
+            per_source_repr.append(rep)
+
+        winner = dict(min(per_source_repr, key=lambda o: o["salePrice"]))
+        winner["retailerCount"] = len(sources)
+        cross_retailer_collisions.append((name, len(sources), winner["salePrice"]))
         deduped.append(winner)
 
-    if collisions:
+    if cross_retailer_collisions:
         print(
-            f"Price dedup: {len(collisions)} product(s) were offered by more than one "
-            f"retailer this run — kept the cheapest genuine price each time."
+            f"Dedup: {len(cross_retailer_collisions)} product(s) were offered by more than "
+            f"one DISTINCT RETAILER this run — kept the cheapest genuine price each time."
         )
-        for name, count, price in collisions[:10]:
-            print(f"  - {name}: {count} offers, kept £{price:.2f}")
-    DATA_QUALITY_REPORT["multi_retailer_collisions"] = collisions
+        for name, count, price in cross_retailer_collisions[:10]:
+            print(f"  - {name}: {count} retailers, kept £{price:.2f}")
+
+    if same_retailer_collisions:
+        print(
+            f"Dedup: {len(same_retailer_collisions)} product(s) had multiple listings from "
+            f"the SAME retailer sharing one identical name (a retailer-side naming gap, not "
+            f"a real duplicate) — used the median price rather than the cheapest, to avoid "
+            f"an outlier listing (e.g. a single spare club) distorting the shown price."
+        )
+        for name, source, count, price in same_retailer_collisions[:10]:
+            print(f"  - {name} ({source}): {count} listings, used median £{price:.2f}")
+
+    DATA_QUALITY_REPORT["cross_retailer_collisions"] = cross_retailer_collisions
+    DATA_QUALITY_REPORT["same_retailer_name_collisions"] = same_retailer_collisions
     return deduped
 
 
@@ -1441,7 +1505,7 @@ def main():
         + fetch_awin_majorgolf_deals()
         + fetch_impact_deals()
     )
-    fresh = dedupe_by_lowest_price(fresh)
+    fresh = dedupe_products(fresh)
 
     if fresh:
         catalog["products"] = merge_products(catalog["products"], fresh)
@@ -1490,16 +1554,18 @@ def print_data_quality_report():
     products.json; the individual checks already handled that safely as
     they ran."""
     inversions = DATA_QUALITY_REPORT.get("rrp_inversions", [])
-    collisions = DATA_QUALITY_REPORT.get("multi_retailer_collisions", [])
+    cross_retailer = DATA_QUALITY_REPORT.get("cross_retailer_collisions", [])
+    same_retailer = DATA_QUALITY_REPORT.get("same_retailer_name_collisions", [])
     jumps = DATA_QUALITY_REPORT.get("price_jump_anomalies", [])
 
     print("\n" + "=" * 60)
     print("Data Quality Report")
     print("=" * 60)
-    print(f"RRP/was-price inversions (retailer's own data, safely ignored): {len(inversions)}")
-    print(f"Multi-retailer price collisions (kept the cheapest each time):  {len(collisions)}")
-    print(f"Suspicious single-run price jumps (flagged, not yet trusted):   {len(jumps)}")
-    if not (inversions or collisions or jumps):
+    print(f"RRP/was-price inversions (retailer's own data, safely ignored):    {len(inversions)}")
+    print(f"Cross-retailer duplicates (kept the cheapest genuine price):       {len(cross_retailer)}")
+    print(f"Same-retailer name collisions (used median, not cheapest):        {len(same_retailer)}")
+    print(f"Suspicious single-run price jumps (flagged, not yet trusted):     {len(jumps)}")
+    if not (inversions or cross_retailer or same_retailer or jumps):
         print("Nothing flagged this run — feed data looked clean.")
     print("=" * 60)
 
