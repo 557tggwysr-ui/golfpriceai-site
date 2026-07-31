@@ -43,12 +43,23 @@
     max-width: 640px; margin: 60px auto 20px; text-align: center;
     display: flex; flex-direction: column; align-items: center; gap: 16px;
   }
-  .about-signoff img { max-width: 220px; border-radius: var(--radius); box-shadow: var(--shadow); }
+  .about-signoff img {
+    width: 100%;
+    max-width: 480px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
   .about-signoff .quip {
     background: var(--ink); color: #fff; border-radius: 999px;
     padding: 12px 26px; font-weight: 700; font-size: 15px;
   }
   .about-signoff .quip span { color: var(--green); }
+
+  @media (max-width: 700px) {
+    .about-signoff img { height: 220px; }
+  }
 </style>
 </head>
 <body>
