@@ -1,11 +1,20 @@
 name: Diagnose Feed
 
-# Manual-only — click "Run workflow" and enter a product name (or part of
-# one) to inspect every raw matching row in the AWIN feed, unprocessed.
-# Read-only: never touches data/products.json.
+# Manual-only — click "Run workflow", pick which retailer's feed to check,
+# and enter a product name (or part of one) to inspect every raw matching
+# row, every column, unprocessed. Read-only: never touches
+# data/products.json.
 on:
   workflow_dispatch:
     inputs:
+      retailer:
+        description: "Which retailer's feed to check"
+        required: true
+        default: "clickgolf"
+        type: choice
+        options:
+          - clickgolf
+          - majorgolf
       search_term:
         description: "Product name (or part of it) to search for"
         required: true
@@ -27,5 +36,7 @@ jobs:
         working-directory: scripts
         env:
           AWIN_CLICKGOLF_FEED_URL: ${{ secrets.AWIN_CLICKGOLF_FEED_URL }}
+          AWIN_MAJORGOLF_FEED_URL: ${{ secrets.AWIN_MAJORGOLF_FEED_URL }}
+          RETAILER: ${{ github.event.inputs.retailer }}
           SEARCH_TERM: ${{ github.event.inputs.search_term }}
         run: python diagnose_feed.py
