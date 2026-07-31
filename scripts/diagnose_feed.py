@@ -3,20 +3,30 @@ GolfPrice AI — raw feed row inspector.
 
 WHAT THIS DOES
 --------------
-Downloads the Clickgolf AWIN feed fresh and prints EVERY raw row whose
-product name contains a given search term — completely unprocessed, before
-any of our category/price logic touches it. Use this to check whether
-multiple feed rows (e.g. different sizes of the same sock) are sharing an
-identical product_name, which would explain a product landing on the wrong
-price: data/products.json merges by name, so if two rows share a name,
-only one of them can "win" and the other's price is effectively lost.
+Downloads the AWIN feed fresh and prints EVERY raw column for every row
+whose product name contains a given search term — completely unprocessed,
+before any of our category/price logic touches it.
+
+UPDATED THIS SESSION: previously only printed a fixed subset of 11 columns
+(price fields, IDs, the deep link). That subset never included
+`description` — which turned out to matter, because a real incident
+showed 54 separate Clickgolf listings sharing one identical, under-specific
+product_name ("Callaway Apex Ti Fusion Golf Irons - Steel", with prices
+ranging £289–£2,339, almost certainly different configurations like a
+single replacement iron vs. several full-set shaft/spec options). If the
+`description` field (or any other column not previously shown) actually
+distinguishes these listings, that's a real fix: append the distinguishing
+detail to the product name so these stop colliding entirely, instead of
+merging them into one median-price approximation. Now prints every column
+present in the feed, so nothing gets missed a second time.
 
 This never touches data/products.json — read-only, diagnostic only.
 
 HOW TO RUN
 ----------
 Via the "Diagnose Feed" GitHub Action (Actions tab > Diagnose Feed > Run
-workflow), entering the product name (or part of it) to search for.
+workflow). Two inputs: which retailer's feed to check, and the product
+name (or part of it) to search for.
 """
 
 import csv
@@ -26,20 +36,10 @@ import os
 import sys
 import urllib.request
 
-# Columns worth showing side by side for this kind of investigation.
-COLUMNS_TO_SHOW = [
-    "aw_product_id",
-    "merchant_product_id",
-    "product_name",
-    "search_price",
-    "store_price",
-    "display_price",
-    "rrp_price",
-    "product_price_old",
-    "savings_percent",
-    "in_stock",
-    "aw_deep_link",
-]
+FEED_URL_ENV_VARS = {
+    "clickgolf": "AWIN_CLICKGOLF_FEED_URL",
+    "majorgolf": "AWIN_MAJORGOLF_FEED_URL",
+}
 
 
 def main():
@@ -49,12 +49,18 @@ def main():
         print("No search term given — set SEARCH_TERM env var or pass as an argument.")
         return
 
-    feed_url = os.environ.get("AWIN_CLICKGOLF_FEED_URL")
-    if not feed_url:
-        print("AWIN_CLICKGOLF_FEED_URL secret not set — cannot download the feed.")
+    retailer = (os.environ.get("RETAILER") or "clickgolf").strip().lower()
+    env_var_name = FEED_URL_ENV_VARS.get(retailer)
+    if not env_var_name:
+        print(f"Unknown retailer {retailer!r} — expected one of: {list(FEED_URL_ENV_VARS)}")
         return
 
-    print(f"Downloading feed and searching for product names containing: {search_term!r}\n")
+    feed_url = os.environ.get(env_var_name)
+    if not feed_url:
+        print(f"{env_var_name} secret not set — cannot download the {retailer} feed.")
+        return
+
+    print(f"Downloading {retailer} feed and searching for product names containing: {search_term!r}\n")
 
     with urllib.request.urlopen(feed_url, timeout=60) as resp:
         raw = resp.read()
@@ -71,39 +77,42 @@ def main():
     print("=" * 90)
 
     matches = 0
-    seen_names = {}
+    seen_names = {}  # name -> list of prices, to summarise the spread at the end
     for row in reader:
         name = (row.get("product_name") or "").strip()
         if search_term.lower() not in name.lower():
             continue
         matches += 1
-        seen_names[name] = seen_names.get(name, 0) + 1
+        price = row.get("search_price") or row.get("display_price") or ""
+        seen_names.setdefault(name, []).append(price)
 
         print(f"\nMatch #{matches}")
-        for col in COLUMNS_TO_SHOW:
+        # Every column, not a fixed subset — so nothing gets missed the
+        # way `description` was missed last time.
+        for col in sorted(row.keys()):
             print(f"  {col:22s} = {row.get(col)!r}")
 
     print("\n" + "=" * 90)
     print(f"Total matching rows: {matches}")
 
-    duplicated_names = {n: c for n, c in seen_names.items() if c > 1}
+    duplicated_names = {n: prices for n, prices in seen_names.items() if len(prices) > 1}
     if duplicated_names:
         print(f"\n⚠ {len(duplicated_names)} product name(s) appear on MULTIPLE separate rows:")
-        for name, count in duplicated_names.items():
-            print(f"  - {count}x  {name}")
+        for name, prices in duplicated_names.items():
+            numeric = sorted(float(p) for p in prices if p)
+            spread = f" (£{numeric[0]:.2f} \u2013 £{numeric[-1]:.2f})" if numeric else ""
+            print(f"  - {len(prices)}x  {name}{spread}")
         print(
-            "\nThis confirms a name collision: data/products.json merges by "
-            "product name only, so when multiple rows (e.g. different sizes) "
-            "share an identical name, only one row's price survives — the "
-            "others are effectively discarded. This is very likely the cause "
-            "of the still-wrong price."
+            "\nThis confirms a name collision. IMPORTANT: check the `description` field "
+            "(and any other column) above for each matching row — if it contains real "
+            "distinguishing detail (e.g. a specific iron count, single-vs-set, shaft spec) "
+            "that the product_name itself lacks, that's the fix: append it to the name so "
+            "these listings stop colliding at all, instead of merging into one approximate "
+            "price."
         )
     else:
         print("\nNo duplicate names found among the matches above — a name "
-              "collision is NOT the explanation here. Look at the individual "
-              "row's price columns above instead; the wrong figure is likely "
-              "coming from one specific column being trusted incorrectly for "
-              "this particular row.")
+              "collision is NOT the explanation here.")
 
 
 if __name__ == "__main__":
