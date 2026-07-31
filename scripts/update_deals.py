@@ -454,6 +454,53 @@ def extract_colour(name):
     return "Grey" if best_word == "gray" else best_word.capitalize()
 
 
+# Categories where a "Fits You" spec claim actually makes sense — a
+# driver/wood/hybrid/iron/wedge/set genuinely has a loft and a shaft
+# flex a buyer cares about matching to their swing; a putter or a glove
+# does not, so those are deliberately excluded rather than guessing.
+CLUB_SPEC_CATEGORIES = {"driver", "wood", "hybrid", "irons", "wedge", "sets"}
+
+# Longest/most-specific phrases first, same convention as KNOWN_BRANDS —
+# "X-Stiff"/"Extra Stiff" must be checked before the plain "Stiff" word
+# they'd otherwise also (correctly, but redundantly) match inside.
+FLEX_KEYWORDS = [
+    ("x-stiff", "X-Stiff"), ("x stiff", "X-Stiff"), ("extra stiff", "X-Stiff"),
+    ("stiff", "Stiff"),
+    ("regular", "Regular"),
+    ("senior", "Senior"),
+    ("ladies", "Ladies"), ("lady", "Ladies"),
+    ("junior", "Junior"),
+]
+
+
+def extract_flex(name):
+    """Best-effort shaft flex from the product name, only meaningful for
+    real club categories (see CLUB_SPEC_CATEGORIES) — the caller is
+    responsible for gating by category before calling this."""
+    if not name:
+        return None
+    lower = name.lower()
+    for keyword, flex in FLEX_KEYWORDS:
+        if re.search(r"\b" + re.escape(keyword) + r"\b", lower):
+            return flex
+    return None
+
+
+def extract_loft(name):
+    """Best-effort loft angle from the product name, e.g. "10.5°" from
+    "TaylorMade Stealth Driver 10.5° Regular" or "9.5 Degree" — both the
+    degree symbol and the spelled-out word are used across different
+    retailers' naming conventions."""
+    if not name:
+        return None
+    match = re.search(r"(\d{1,2}(?:\.\d)?)\s*°", name)
+    if not match:
+        match = re.search(r"\b(\d{1,2}(?:\.\d)?)\s*(?:deg|degrees?)\b", name, re.IGNORECASE)
+    if not match:
+        return None
+    return f"{match.group(1)}°"
+
+
 # Checked in this order: Junior beats Female/Male, since a junior product
 # is sometimes also described with "girls"/"boys" which could otherwise
 # read as a gender signal — junior is the more specific, correct bucket.
@@ -840,9 +887,20 @@ def backfill_catalog(products):
         if "audience" not in p:
             p["audience"] = classify_audience(p.get("name", ""), p.get("icon"))
             changed = True
+        if p.get("category") in CLUB_SPEC_CATEGORIES:
+            if "loft" not in p:
+                loft = extract_loft(p.get("name", ""))
+                if loft:
+                    p["loft"] = loft
+                    changed = True
+            if "flex" not in p:
+                flex = extract_flex(p.get("name", ""))
+                if flex:
+                    p["flex"] = flex
+                    changed = True
         if changed:
             updated += 1
-    print(f"Catalog backfill: enriched {updated}/{len(products)} products with brand/colour/icon/audience.")
+    print(f"Catalog backfill: enriched {updated}/{len(products)} products with brand/colour/icon/audience/loft/flex.")
     return products
 
 
@@ -983,6 +1041,8 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
         brand = extract_brand(name, row.get("brand_name"))
         colour = extract_colour(name)
         audience = classify_audience(name, icon)
+        loft = extract_loft(name) if category in CLUB_SPEC_CATEGORIES else None
+        flex = extract_flex(name) if category in CLUB_SPEC_CATEGORIES else None
         product_id = f"{category}-{slugify(name)}-{source_slug}"
 
         product = {
@@ -1004,6 +1064,10 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
         product["icon"] = icon
         if colour:
             product["colour"] = colour
+        if loft:
+            product["loft"] = loft
+        if flex:
+            product["flex"] = flex
         products.append(product)
 
     category_counts = {}
