@@ -96,6 +96,17 @@ SELLS_OUT_FAST_THRESHOLD = 3
 # Callaway Apex Ti Fusion: £289–£2,339, an ~8x spread, all for the exact
 # same real product page) rather than ordinary near-duplicate listings.
 SEVERE_VARIANCE_RATIO = 2.5
+
+# A "was" price more than this many times the current sale price is
+# treated as implausible rather than a genuine discount — confirmed by a
+# real incident this session: Cobra King Tour Irons showed rrp_price
+# consistently ~6.15x the real sale_price across every duplicate row
+# (£6,993 vs £1,139, £5,994 vs £969, etc.) — an ~84% discount that simply
+# isn't real; Clickgolf's own page shows no RRP or discount at all for
+# this product. A genuine golf retail discount essentially never exceeds
+# ~65-70% off even during clearance, so 3x (a 67% discount) is used as
+# the ceiling — anything beyond that is rejected as bad data, not a deal.
+MAX_PLAUSIBLE_DISCOUNT_RATIO = 3.0
 # Safety cap on entries kept per product, regardless of date range — keeps
 # the file bounded even for a product whose price changes unusually often.
 MAX_HISTORY_ENTRIES = 120
@@ -973,6 +984,7 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
     skipped_no_price = 0
     skipped_no_link = 0
     rrp_inversion_names = []
+    implausible_rrp_names = []
 
     for row in reader:
         total_rows += 1
@@ -1026,8 +1038,20 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
                 break
 
         if old_price and old_price > sale_price:
-            retail_price = old_price
-            save_pct = round((1 - sale_price / retail_price) * 100)
+            if old_price <= sale_price * MAX_PLAUSIBLE_DISCOUNT_RATIO:
+                retail_price = old_price
+                save_pct = round((1 - sale_price / retail_price) * 100)
+            else:
+                # The "was" price is more than 3x the sale price — not a
+                # real discount, almost certainly bad/mismapped feed data
+                # (see MAX_PLAUSIBLE_DISCOUNT_RATIO docstring). Reject it
+                # rather than displaying a fake mega-discount, and treat
+                # this row the same as a genuine RRP inversion for dedup
+                # trust purposes — its price data isn't reliable either way.
+                implausible_rrp_names.append((name, old_price, sale_price))
+                row_rrp_inverted = True
+                retail_price = sale_price
+                save_pct = 0
         elif save_pct_raw and save_pct_raw > 0:
             retail_price = round(sale_price / (1 - save_pct_raw / 100), 2)
             save_pct = round(save_pct_raw)
@@ -1118,8 +1142,19 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
             f"issue on the retailer's end) — safely ignored, no discount was claimed "
             f"for these. Examples: {rrp_inversion_names[:5]}"
         )
+    if implausible_rrp_names:
+        print(
+            f"{retailer_label} feed: {len(implausible_rrp_names)} row(s) reported a \"was\" "
+            f"price more than {MAX_PLAUSIBLE_DISCOUNT_RATIO}x the sale price (an implausible "
+            f"discount, likely bad/mismapped feed data) — rejected, no discount was claimed "
+            f"for these."
+        )
+        for name, old_p, new_p in implausible_rrp_names[:5]:
+            print(f"  - {name}: claimed was £{old_p:.2f} vs sale £{new_p:.2f} ({old_p/new_p:.1f}x)")
     existing_inversions = DATA_QUALITY_REPORT.get("rrp_inversions", [])
     DATA_QUALITY_REPORT["rrp_inversions"] = existing_inversions + rrp_inversion_names
+    existing_implausible = DATA_QUALITY_REPORT.get("implausible_rrp", [])
+    DATA_QUALITY_REPORT["implausible_rrp"] = existing_implausible + implausible_rrp_names
     return products
 
 
@@ -1638,6 +1673,7 @@ def print_data_quality_report():
     products.json; the individual checks already handled that safely as
     they ran."""
     inversions = DATA_QUALITY_REPORT.get("rrp_inversions", [])
+    implausible = DATA_QUALITY_REPORT.get("implausible_rrp", [])
     cross_retailer = DATA_QUALITY_REPORT.get("cross_retailer_collisions", [])
     same_retailer = DATA_QUALITY_REPORT.get("same_retailer_name_collisions", [])
     severe_variance = DATA_QUALITY_REPORT.get("severe_variance_collisions", [])
@@ -1647,11 +1683,12 @@ def print_data_quality_report():
     print("Data Quality Report")
     print("=" * 60)
     print(f"RRP/was-price inversions (retailer's own data, safely ignored):    {len(inversions)}")
+    print(f"Implausible discounts (\u2265{MAX_PLAUSIBLE_DISCOUNT_RATIO}x sale price, rejected):          {len(implausible)}")
     print(f"Cross-retailer duplicates (kept the cheapest genuine price):       {len(cross_retailer)}")
     print(f"Same-retailer name collisions (used median, not cheapest):        {len(same_retailer)}")
     print(f"  \u21b3 of which SEVERE price spread (\u2265{SEVERE_VARIANCE_RATIO}x, likely a retailer feed bug — worth reviewing): {len(severe_variance)}")
     print(f"Suspicious single-run price jumps (flagged, not yet trusted):     {len(jumps)}")
-    if not (inversions or cross_retailer or same_retailer or jumps):
+    if not (inversions or implausible or cross_retailer or same_retailer or jumps):
         print("Nothing flagged this run — feed data looked clean.")
     print("=" * 60)
 
