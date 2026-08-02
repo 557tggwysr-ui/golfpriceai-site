@@ -215,6 +215,29 @@ function popularityScore(p) {
   return (p.retailerCount || 1) * 10 + (p.savePct || 0) * 2;
 }
 
+// "Most Popular" sort — until real sales/click data exists, brand
+// recognition is used as the primary signal: a well-known, widely
+// trusted golf brand is a genuinely reasonable stand-in for "popular"
+// in the meantime, far more so than raw discount size or retailer count
+// alone (a deep discount on an obscure brand isn't what "popular"
+// usually means to a shopper). Tier 1 = the handful of names virtually
+// every golfer recognises; Tier 2 = well-established, respected golf
+// brands; anything else (including "Other"/unbranded) falls through to
+// the existing popularityScore as a tiebreaker only.
+const BRAND_POPULARITY_TIERS = {
+  "TaylorMade": 3, "Callaway": 3, "Titleist": 3, "Ping": 3, "Nike": 3,
+  "Adidas": 3, "FootJoy": 3, "Puma": 3, "Under Armour": 3,
+  "Mizuno": 2, "Wilson": 2, "Srixon": 2, "Cobra": 2, "Cleveland Golf": 2,
+  "Odyssey": 2, "Bridgestone": 2, "Scotty Cameron": 2, "Bettinardi": 2,
+  "Garmin": 2, "Bushnell": 2, "Skechers": 2, "Ecco": 2, "Oakley": 2,
+  "PXG": 2, "XXIO": 2, "Honma": 2,
+};
+function brandPopularityTier(p) {
+  const brand = extractBrand(p);
+  if (brand in BRAND_POPULARITY_TIERS) return BRAND_POPULARITY_TIERS[brand];
+  return brand === "Other" ? 0 : 1; // a recognised-but-unranked brand still beats "Other"
+}
+
 /* ============================================
    Category groupings
    ============================================ */
@@ -340,7 +363,9 @@ function applyFiltersAndSort() {
     if (sortMode === 'price-asc') return a.salePrice - b.salePrice;
     if (sortMode === 'price-desc') return b.salePrice - a.salePrice;
     if (sortMode === 'discount') return b.savePct - a.savePct;
-    return popularityScore(b) - popularityScore(a); // 'popular' — the natural default
+    // 'popular' — brand recognition first (see BRAND_POPULARITY_TIERS),
+    // existing popularityScore only breaks ties within the same tier.
+    return (brandPopularityTier(b) - brandPopularityTier(a)) || (popularityScore(b) - popularityScore(a));
   });
 
   grid.innerHTML = filtered.map(cardHTML).join('');
