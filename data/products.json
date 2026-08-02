@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-02T20:38:44.446515+00:00",
+  "lastUpdated": "2026-08-02T20:45:57.888019+00:00",
   "categories": [
     {
       "key": "driver",
@@ -3760,9 +3760,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-ua-drive-tapered-golf-pants-black-clickgolf",
+      "id": "apparel-under-armour-ua-drive-tapered-golf-pants-black-clickgolf",
       "name": "Under Armour UA Drive Tapered Golf Pants - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 60.0,
       "salePrice": 54.99,
       "savePct": 8,
@@ -3796,9 +3796,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-ua-drive-tapered-golf-pants-blue-clickgolf",
+      "id": "apparel-under-armour-ua-drive-tapered-golf-pants-blue-clickgolf",
       "name": "Under Armour UA Drive Tapered Golf Pants - Blue",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 60.0,
       "salePrice": 39.99,
       "savePct": 33,
@@ -4047,9 +4047,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-womens-links-golf-pant-white-clickgolf",
+      "id": "apparel-under-armour-womens-links-golf-pant-white-clickgolf",
       "name": "Under Armour Womens Links Golf Pant - White",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 69.99,
       "salePrice": 33.99,
       "savePct": 51,
@@ -5395,9 +5395,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-ua-drive-golf-pants-navy-clickgolf",
+      "id": "apparel-under-armour-ua-drive-golf-pants-navy-clickgolf",
       "name": "Under Armour UA Drive Golf Pants - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 60.0,
       "salePrice": 32.99,
       "savePct": 45,
@@ -5539,9 +5539,9 @@
       }
     },
     {
-      "id": "accessories-adidas-ultimate-365-taper-golf-pant-brown-clickgolf",
+      "id": "apparel-adidas-ultimate-365-taper-golf-pant-brown-clickgolf",
       "name": "adidas Ultimate 365 Taper Golf Pant - Brown",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 55.0,
       "salePrice": 34.99,
       "savePct": 36,
@@ -8669,9 +8669,9 @@
       }
     },
     {
-      "id": "accessories-rohnisch-jessie-ladies-golf-pant-black-clickgolf",
+      "id": "apparel-rohnisch-jessie-ladies-golf-pant-black-clickgolf",
       "name": "Rohnisch Jessie Ladies Golf Pant - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 109.0,
       "salePrice": 71.25,
       "savePct": 35,
@@ -8705,9 +8705,9 @@
       }
     },
     {
-      "id": "accessories-rohnisch-jessie-ladies-golf-pant-green-clickgolf",
+      "id": "apparel-rohnisch-jessie-ladies-golf-pant-green-clickgolf",
       "name": "Rohnisch Jessie Ladies Golf Pant - Green",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 109.0,
       "salePrice": 71.25,
       "savePct": 35,
@@ -9348,9 +9348,9 @@
       }
     },
     {
-      "id": "accessories-galvin-green-elof-thermal-golf-leggings-navy-clickgolf",
+      "id": "apparel-galvin-green-elof-thermal-golf-leggings-navy-clickgolf",
       "name": "Galvin Green Elof Thermal Golf Leggings - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 65.0,
       "salePrice": 49.0,
       "savePct": 25,
@@ -9384,9 +9384,9 @@
       }
     },
     {
-      "id": "accessories-galvin-green-elof-thermal-golf-leggings-black-red-clickgolf",
+      "id": "apparel-galvin-green-elof-thermal-golf-leggings-black-red-clickgolf",
       "name": "Galvin Green Elof Thermal Golf Leggings - Black/Red",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 65.0,
       "salePrice": 49.0,
       "savePct": 25,
@@ -10621,9 +10621,9 @@
       }
     },
     {
-      "id": "sets-clicgear-hedgehog-fairway-protector-set-clickgolf",
+      "id": "accessories-clicgear-hedgehog-fairway-protector-set-clickgolf",
       "name": "Clicgear Hedgehog Fairway Protector Set",
-      "category": "sets",
+      "category": "accessories",
       "retailPrice": 59.95,
       "salePrice": 57.99,
       "savePct": 3,
@@ -10652,7 +10652,8 @@
         "outageCount90d": 0,
         "daysTracked": 0,
         "sellsOutFast": false
-      }
+      },
+      "icon": "accessories"
     },
     {
       "id": "accessories-longridge-igotcha-10-reach-executive-compact-golf-ball-retri-clickgolf",
@@ -12935,9 +12936,9 @@
       }
     },
     {
-      "id": "accessories-ua-matchplay-tapered-golf-pant-midnight-navy-clickgolf",
+      "id": "apparel-ua-matchplay-tapered-golf-pant-midnight-navy-clickgolf",
       "name": "UA Matchplay Tapered Golf Pant - Midnight Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 55.0,
       "salePrice": 49.99,
       "savePct": 9,
@@ -13245,9 +13246,9 @@
       }
     },
     {
-      "id": "accessories-nike-dri-fit-velocity-5-pocket-golf-pant-black-clickgolf",
+      "id": "apparel-nike-dri-fit-velocity-5-pocket-golf-pant-black-clickgolf",
       "name": "Nike Dri-Fit Velocity 5-Pocket Golf Pant - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 64.99,
       "salePrice": 59.99,
       "savePct": 8,
@@ -17245,9 +17246,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-ua-matchplay-tapered-golf-pant-black-clickgolf",
+      "id": "apparel-under-armour-ua-matchplay-tapered-golf-pant-black-clickgolf",
       "name": "Under Armour UA Matchplay Tapered Golf Pant - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 55.0,
       "salePrice": 49.99,
       "savePct": 9,
@@ -20392,9 +20393,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-performance-baselayer-mock-navy-clickgolf",
+      "id": "apparel-footjoy-performance-baselayer-mock-navy-clickgolf",
       "name": "FootJoy Performance Baselayer Mock - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 49.99,
       "salePrice": 49.99,
       "savePct": 0,
@@ -21166,9 +21167,9 @@
       }
     },
     {
-      "id": "accessories-stormwalker-ladies-golf-boots-black-clickgolf",
+      "id": "shoes-stormwalker-ladies-golf-boots-black-clickgolf",
       "name": "Stormwalker Ladies Golf Boots - Black",
-      "category": "accessories",
+      "category": "shoes",
       "retailPrice": 120.0,
       "salePrice": 99.0,
       "savePct": 18,
@@ -21176,7 +21177,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=42373993682&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Stormwalker-Ladies-Golf-Boots-Black.jpg",
-      "icon": "accessories",
       "brand": "FootJoy",
       "colour": "Black",
       "audience": "Female",
@@ -21307,9 +21307,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-junior-stretch-solid-pique-light-blue-clickgolf",
+      "id": "apparel-footjoy-junior-stretch-solid-pique-light-blue-clickgolf",
       "name": "FootJoy Junior Stretch Solid Pique - Light Blue",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 35.0,
       "salePrice": 29.99,
       "savePct": 14,
@@ -21317,7 +21317,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43777915398&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Junior-Stretch-Solid-Pique---Light-Blue.jpg",
-      "icon": "accessories",
+      "icon": "polo",
       "brand": "FootJoy",
       "colour": "Blue",
       "audience": "Junior",
@@ -21936,9 +21936,9 @@
       }
     },
     {
-      "id": "accessories-callaway-boys-prospin-golf-pant-sleet-grey-clickgolf",
+      "id": "apparel-callaway-boys-prospin-golf-pant-sleet-grey-clickgolf",
       "name": "Callaway Boys ProSpin Golf Pant - Sleet Grey",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 45.0,
       "salePrice": 29.99,
       "savePct": 33,
@@ -23616,9 +23616,9 @@
       }
     },
     {
-      "id": "accessories-nike-dri-fit-velocity-5-pocket-golf-pant-college-navy-clickgolf",
+      "id": "apparel-nike-dri-fit-velocity-5-pocket-golf-pant-college-navy-clickgolf",
       "name": "Nike Dri-Fit Velocity 5-Pocket Golf Pant - College Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 64.99,
       "salePrice": 59.99,
       "savePct": 8,
@@ -23759,9 +23759,9 @@
       }
     },
     {
-      "id": "accessories-wave-jacquard-chill-out-black-clickgolf",
+      "id": "apparel-wave-jacquard-chill-out-black-clickgolf",
       "name": "Wave Jacquard Chill-Out - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 82.5,
       "salePrice": 49.99,
       "savePct": 39,
@@ -23769,7 +23769,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40978166145&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Wave-Jacquard-Chill-Out-Black.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "FootJoy",
       "colour": "Black",
       "audience": "Male",
@@ -27582,9 +27582,9 @@
       }
     },
     {
-      "id": "accessories-chill-out-chambray-clickgolf",
+      "id": "apparel-chill-out-chambray-clickgolf",
       "name": "Chill Out - Chambray",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 80.0,
       "salePrice": 69.99,
       "savePct": 13,
@@ -27592,7 +27592,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44055892528&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FJ_39354_01_1000x10001.png",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "FootJoy",
       "audience": "Male",
       "inStock": true,
@@ -30481,9 +30481,9 @@
       }
     },
     {
-      "id": "accessories-ua-matchplay-tapered-golf-pant-steel-grey-clickgolf",
+      "id": "apparel-ua-matchplay-tapered-golf-pant-steel-grey-clickgolf",
       "name": "UA Matchplay Tapered Golf Pant - Steel Grey",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 55.0,
       "salePrice": 49.99,
       "savePct": 9,
@@ -31292,9 +31292,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-hyperflex-men-s-golf-boots-black-clickgolf",
+      "id": "shoes-footjoy-hyperflex-men-s-golf-boots-black-clickgolf",
       "name": "FootJoy HyperFlex Men's Golf Boots - Black",
-      "category": "accessories",
+      "category": "shoes",
       "retailPrice": 190.0,
       "salePrice": 179.0,
       "savePct": 6,
@@ -31302,7 +31302,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=42732881830&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Hyperboot-Mens-Golf-Boots-Black.jpg",
-      "icon": "accessories",
       "brand": "FootJoy",
       "colour": "Black",
       "audience": "Male",
@@ -33747,9 +33746,9 @@
       }
     },
     {
-      "id": "accessories-ua-drive-tapered-golf-pants-clickgolf",
+      "id": "apparel-ua-drive-tapered-golf-pants-clickgolf",
       "name": "UA Drive Tapered Golf Pants",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 60.0,
       "salePrice": 54.99,
       "savePct": 8,
@@ -36636,9 +36635,9 @@
       "flex": "Ladies"
     },
     {
-      "id": "accessories-footjoy-stormwalker-men-s-golf-boots-black-clickgolf",
+      "id": "shoes-footjoy-stormwalker-men-s-golf-boots-black-clickgolf",
       "name": "FootJoy Stormwalker Men's Golf Boots - Black",
-      "category": "accessories",
+      "category": "shoes",
       "retailPrice": 120.0,
       "salePrice": 99.0,
       "savePct": 18,
@@ -36646,7 +36645,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=42373991665&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Stormwalker-Mens-Golf-Boots-Black.jpg",
-      "icon": "accessories",
       "brand": "FootJoy",
       "colour": "Black",
       "audience": "Male",
@@ -38019,9 +38017,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-performance-base-layer-mock-black-clickgolf",
+      "id": "apparel-footjoy-performance-base-layer-mock-black-clickgolf",
       "name": "FootJoy Performance Base Layer Mock - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 52.5,
       "salePrice": 49.99,
       "savePct": 5,
@@ -39185,9 +39183,9 @@
       }
     },
     {
-      "id": "accessories-puma-ladies-heather-full-zip-playing-top-clickgolf",
+      "id": "apparel-puma-ladies-heather-full-zip-playing-top-clickgolf",
       "name": "Puma Ladies Heather Full Zip Playing Top",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 54.99,
       "salePrice": 29.74,
       "savePct": 46,
@@ -39195,7 +39193,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723744171&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/74735__62210.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "Puma",
       "audience": "Female",
       "inStock": true,
@@ -39328,9 +39326,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-womens-printed-dot-smooth-pique-white-charcoal-clickgolf",
+      "id": "apparel-footjoy-womens-printed-dot-smooth-pique-white-charcoal-clickgolf",
       "name": "FootJoy Womens Printed Dot Smooth Pique - White/Charcoal",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 49.99,
       "salePrice": 24.99,
       "savePct": 50,
@@ -39338,7 +39336,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231993&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/77987__89300.jpg",
-      "icon": "accessories",
+      "icon": "polo",
       "brand": "FootJoy",
       "colour": "White",
       "audience": "Female",
@@ -40037,9 +40035,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-performance-baselayer-mock-white-clickgolf",
+      "id": "apparel-footjoy-performance-baselayer-mock-white-clickgolf",
       "name": "FootJoy Performance BaseLayer Mock - White",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 52.5,
       "salePrice": 49.99,
       "savePct": 5,
@@ -40361,9 +40359,9 @@
       }
     },
     {
-      "id": "accessories-puma-boys-5-pocket-golf-pant-quarry-clickgolf",
+      "id": "apparel-puma-boys-5-pocket-golf-pant-quarry-clickgolf",
       "name": "Puma Boys 5 Pocket Golf Pant - Quarry",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 39.99,
       "salePrice": 21.24,
       "savePct": 47,
@@ -40538,9 +40536,9 @@
       "flex": "Junior"
     },
     {
-      "id": "accessories-rain-rdy-s2g-golf-boots-black-clickgolf",
+      "id": "shoes-rain-rdy-s2g-golf-boots-black-clickgolf",
       "name": "Rain.Rdy S2G Golf Boots - Black",
-      "category": "accessories",
+      "category": "shoes",
       "retailPrice": 100.0,
       "salePrice": 69.0,
       "savePct": 31,
@@ -40548,7 +40546,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=42832834706&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/adidas-Rain.Rdy-S2G-Golf-Boots---Black.jpg",
-      "icon": "accessories",
       "brand": "Adidas",
       "colour": "Black",
       "audience": "Male",
@@ -43071,9 +43068,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-ua-drive-tapered-golf-pants-midnight-navy-clickgolf",
+      "id": "apparel-under-armour-ua-drive-tapered-golf-pants-midnight-navy-clickgolf",
       "name": "Under Armour UA Drive Tapered Golf Pants - Midnight Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 60.0,
       "salePrice": 54.99,
       "savePct": 8,
@@ -43449,9 +43446,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-full-zip-zephyr-golf-windshirt-navy-clickgolf",
+      "id": "apparel-footjoy-full-zip-zephyr-golf-windshirt-navy-clickgolf",
       "name": "FootJoy Full-Zip Zephyr Golf Windshirt - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 100.0,
       "salePrice": 59.99,
       "savePct": 40,
@@ -43459,7 +43456,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40881818461&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Full-Zip-Zephyr-Golf-Windshirt-Navy.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "FootJoy",
       "colour": "Navy",
       "audience": "Male",
@@ -45891,9 +45888,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-junior-stretch-solid-pique-black-clickgolf",
+      "id": "apparel-footjoy-junior-stretch-solid-pique-black-clickgolf",
       "name": "FootJoy Junior Stretch Solid Pique - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 35.0,
       "salePrice": 29.99,
       "savePct": 14,
@@ -45901,7 +45898,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43777915333&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/118019__46498.jpg",
-      "icon": "accessories",
+      "icon": "polo",
       "brand": "FootJoy",
       "colour": "Black",
       "audience": "Junior",
@@ -50814,9 +50811,9 @@
       }
     },
     {
-      "id": "accessories-callaway-eco-hex-textured-golf-fleece-navy-clickgolf",
+      "id": "apparel-callaway-eco-hex-textured-golf-fleece-navy-clickgolf",
       "name": "Callaway Eco Hex Textured Golf Fleece - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 69.99,
       "salePrice": 50.99,
       "savePct": 27,
@@ -50824,7 +50821,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44329010029&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Eco-Hex-Textured-Golf-Fleece-Navy.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "Callaway",
       "colour": "Navy",
       "audience": "Male",
@@ -51559,9 +51556,9 @@
       }
     },
     {
-      "id": "accessories-galvin-green-elaine-thermal-ladies-golf-baselayer-black-clickgolf",
+      "id": "apparel-galvin-green-elaine-thermal-ladies-golf-baselayer-black-clickgolf",
       "name": "Galvin Green Elaine Thermal Ladies Golf Baselayer - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 99.0,
       "salePrice": 49.0,
       "savePct": 51,
@@ -51703,9 +51700,9 @@
       }
     },
     {
-      "id": "accessories-galvin-green-elmo-crew-neck-thermal-golf-base-layer-white-clickgolf",
+      "id": "apparel-galvin-green-elmo-crew-neck-thermal-golf-base-layer-white-clickgolf",
       "name": "Galvin Green Elmo Crew Neck Thermal Golf Base Layer - White",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 105.0,
       "salePrice": 65.0,
       "savePct": 38,
@@ -51881,9 +51878,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-boys-showdown-golf-pant-black-clickgolf",
+      "id": "apparel-under-armour-boys-showdown-golf-pant-black-clickgolf",
       "name": "Under Armour Boys Showdown Golf Pant - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 49.99,
       "salePrice": 26.99,
       "savePct": 46,
@@ -52907,9 +52904,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-coldgear-infrared-long-sleeve-golf-mock-base-la-clickgolf",
+      "id": "apparel-under-armour-coldgear-infrared-long-sleeve-golf-mock-base-la-clickgolf",
       "name": "Under Armour ColdGear Infrared Long Sleeve Golf Mock Base Layer - Royal Blue",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 65.0,
       "salePrice": 33.99,
       "savePct": 48,
@@ -63953,9 +63950,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-flower-bud-foulard-lisle-navy-clickgolf",
+      "id": "apparel-footjoy-flower-bud-foulard-lisle-navy-clickgolf",
       "name": "FootJoy Flower Bud Foulard Lisle - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 57.5,
       "salePrice": 34.99,
       "savePct": 39,
@@ -63963,7 +63960,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=45353015305&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Flower-Bud-Foulard-Lisle-Navy.jpg",
-      "icon": "accessories",
+      "icon": "polo",
       "brand": "FootJoy",
       "colour": "Navy",
       "audience": "Male",
@@ -64545,9 +64542,9 @@
       }
     },
     {
-      "id": "accessories-galvin-green-ethan-skintight-thermal-stretch-base-layer-blac-clickgolf",
+      "id": "apparel-galvin-green-ethan-skintight-thermal-stretch-base-layer-blac-clickgolf",
       "name": "Galvin Green Ethan SKINTIGHT Thermal Stretch Base Layer - Black/Sharkskin",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 75.0,
       "salePrice": 49.0,
       "savePct": 35,
@@ -66162,9 +66159,9 @@
       }
     },
     {
-      "id": "accessories-wave-jacquard-chill-out-blue-jay-clickgolf",
+      "id": "apparel-wave-jacquard-chill-out-blue-jay-clickgolf",
       "name": "Wave Jacquard Chill-Out - Blue Jay",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 82.5,
       "salePrice": 49.99,
       "savePct": 39,
@@ -66172,7 +66169,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40978166212&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Wave-Jacquard-Chill-Out-Blue-Jay.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "FootJoy",
       "colour": "Blue",
       "audience": "Male",
@@ -66971,9 +66968,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-jacquard-thermal-golf-chill-out-navy-clickgolf",
+      "id": "apparel-footjoy-jacquard-thermal-golf-chill-out-navy-clickgolf",
       "name": "FootJoy Jacquard Thermal Golf Chill-Out - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 89.99,
       "salePrice": 64.99,
       "savePct": 28,
@@ -66981,7 +66978,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=39149006687&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Jacquard-Thermal-Golf-Chill-Out---Navy.jpg",
-      "icon": "base-layer",
+      "icon": "jacket",
       "brand": "FootJoy",
       "colour": "Navy",
       "audience": "Male",
@@ -77936,9 +77933,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-ua-drive-tapered-golf-pants-grey-clickgolf",
+      "id": "apparel-under-armour-ua-drive-tapered-golf-pants-grey-clickgolf",
       "name": "Under Armour UA Drive Tapered Golf Pants - Grey",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 60.0,
       "salePrice": 54.99,
       "savePct": 8,
@@ -81394,9 +81391,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-glen-plaid-print-chill-out-storm-clickgolf",
+      "id": "apparel-footjoy-glen-plaid-print-chill-out-storm-clickgolf",
       "name": "FootJoy Glen Plaid Print Chill-Out - Storm",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 84.99,
       "salePrice": 50.58,
       "savePct": 40,
@@ -81404,7 +81401,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43942281918&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Glen-Plaid-Print-Chill-Out---Storm.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "FootJoy",
       "audience": "Male",
       "inStock": true,
@@ -81674,9 +81671,9 @@
       }
     },
     {
-      "id": "accessories-galvin-green-ethan-skintight-thermal-stretch-base-layer-blue-clickgolf",
+      "id": "apparel-galvin-green-ethan-skintight-thermal-stretch-base-layer-blue-clickgolf",
       "name": "Galvin Green Ethan SKINTIGHT Thermal Stretch Base Layer - Blue/Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 75.0,
       "salePrice": 49.0,
       "savePct": 35,
@@ -82564,9 +82561,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-ua-tech-golf-pant-navy-clickgolf",
+      "id": "apparel-under-armour-ua-tech-golf-pant-navy-clickgolf",
       "name": "Under Armour UA Tech Golf Pant - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 55.0,
       "salePrice": 32.99,
       "savePct": 40,
@@ -83204,9 +83201,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-mens-chill-out-green-clickgolf",
+      "id": "apparel-footjoy-mens-chill-out-green-clickgolf",
       "name": "Footjoy Mens Chill Out - Green",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 69.99,
       "salePrice": 44.99,
       "savePct": 36,
@@ -83214,7 +83211,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=35942037706&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/chill-out-green.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "FootJoy",
       "colour": "Green",
       "audience": "Male",
@@ -85823,9 +85820,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-ua-drive-tapered-golf-pants-tetra-grey-clickgolf",
+      "id": "apparel-under-armour-ua-drive-tapered-golf-pants-tetra-grey-clickgolf",
       "name": "Under Armour UA Drive Tapered Golf Pants - Tetra Grey",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 60.0,
       "salePrice": 34.99,
       "savePct": 42,
@@ -87071,9 +87068,9 @@
       }
     },
     {
-      "id": "accessories-wiggle-print-lisle-white-skyway-pink-lemonade-clickgolf",
+      "id": "apparel-wiggle-print-lisle-white-skyway-pink-lemonade-clickgolf",
       "name": "Wiggle Print Lisle - White / Skyway / Pink Lemonade",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 62.5,
       "salePrice": 37.99,
       "savePct": 39,
@@ -87081,7 +87078,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40978166319&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Wiggle-Print-Lisle-White-Skyway-Pink-Lemonade.jpg",
-      "icon": "accessories",
+      "icon": "polo",
       "brand": "FootJoy",
       "colour": "White",
       "audience": "Male",
@@ -89276,9 +89273,9 @@
       }
     },
     {
-      "id": "accessories-wave-jacquard-chill-out-navy-clickgolf",
+      "id": "apparel-wave-jacquard-chill-out-navy-clickgolf",
       "name": "Wave Jacquard Chill-Out - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 82.5,
       "salePrice": 49.99,
       "savePct": 39,
@@ -89286,7 +89283,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40978166327&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Wave-Jacquard-Chill-Out-Navy.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "FootJoy",
       "colour": "Navy",
       "audience": "Male",
@@ -89914,9 +89911,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-womens-drive-flare-golf-pant-black-clickgolf",
+      "id": "apparel-under-armour-womens-drive-flare-golf-pant-black-clickgolf",
       "name": "Under Armour Womens Drive Flare Golf Pant - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 75.0,
       "salePrice": 49.99,
       "savePct": 33,
@@ -99602,9 +99599,9 @@
       }
     },
     {
-      "id": "accessories-under-armour-womens-drive-flare-golf-pant-tetra-grey-clickgolf",
+      "id": "apparel-under-armour-womens-drive-flare-golf-pant-tetra-grey-clickgolf",
       "name": "Under Armour Womens Drive Flare Golf Pant - Tetra Grey",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 75.0,
       "salePrice": 49.99,
       "savePct": 33,
@@ -100752,9 +100749,9 @@
       }
     },
     {
-      "id": "accessories-houndstooth-geo-lisle-hibiscus-clickgolf",
+      "id": "apparel-houndstooth-geo-lisle-hibiscus-clickgolf",
       "name": "Houndstooth Geo Lisle - Hibiscus",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 57.5,
       "salePrice": 34.99,
       "savePct": 39,
@@ -100762,7 +100759,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40978166399&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Houndstooth-Geo-Lisle-Hibiscus.jpg",
-      "icon": "accessories",
+      "icon": "polo",
       "brand": "FootJoy",
       "audience": "Male",
       "inStock": true,
@@ -104218,9 +104215,9 @@
       }
     },
     {
-      "id": "accessories-footjoy-thermoseries-fleece-golf-base-layer-white-clickgolf",
+      "id": "apparel-footjoy-thermoseries-fleece-golf-base-layer-white-clickgolf",
       "name": "FootJoy ThermoSeries Fleece Golf Base Layer - White",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 64.99,
       "salePrice": 59.99,
       "savePct": 8,
@@ -104228,7 +104225,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=39135112372&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-ThermoSeries-Fleece-Golf-Base-Layer---White.jpg",
-      "icon": "base-layer",
+      "icon": "jacket",
       "brand": "FootJoy",
       "colour": "White",
       "audience": "Male",
