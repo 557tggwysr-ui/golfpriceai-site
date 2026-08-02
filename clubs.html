@@ -3,30 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trending Golf Gear — GolfPrice AI</title>
-<meta name="description" content="What golfers are searching for and talking about right now.">
+<title>Clubs — GolfPrice AI</title>
+<meta name="description" content="Golf clubs, grouped by type — drivers, woods, hybrids, irons, wedges, putters and full sets.">
 <link rel="icon" href="assets/logo-full.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<style>
-  .trend-head { padding: 40px 0 8px; }
-  .trend-head h1 { font-size: 30px; margin: 0 0 8px; }
-  .trend-head p { color: var(--muted); margin: 0; max-width: 60ch; }
-  .trend-note {
-    background: var(--green-pale); border-radius: 10px; padding: 12px 16px;
-    font-size: 13px; color: var(--green-dark); margin: 20px 0 30px;
-  }
-  .trend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-bottom: 60px; }
-  .trend-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 20px; box-shadow: var(--shadow);
-  }
-  .trend-card .tag-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-  .trend-card h3 { font-size: 17px; margin: 0 0 8px; }
-  .trend-card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0 0 14px; }
-  .trend-card a.view-link { font-size: 13px; font-weight: 600; color: var(--green); }
-  @media (max-width: 900px) { .trend-grid { grid-template-columns: 1fr; } }
-</style>
+<link rel="stylesheet" href="css/hub.css">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to content</a>
@@ -72,36 +54,75 @@
 </header>
 
 <main class="container" id="main-content">
-  <div class="trend-head">
-    <h1>Trending Golf Gear 🔥</h1>
+  <div class="hub-head">
+    <h1>Clubs</h1>
+    <p>A new driver won't fix your slice. But we can still get you a good price on one.</p>
   </div>
   <div class="theme-banner">
-    <h2>🔥 Trending</h2>
-    <p>What golfers are actually clicking on right now, so you can skip the scrolling and go straight to what's popular.</p>
-    <p class="tagline">Everyone Else Is Buying This.<span class="quip"> You're Just Late.</span></p>
-    <a href="#trend-grid" class="btn btn-primary">🔍 View Deals</a>
+    <h2>🏌️ Clubs</h2>
+    <p>Drivers, fairway woods, hybrids, irons, wedges, putters and full sets — all tracked, all real prices.</p>
+    <p class="tagline">Buy The Club.<span class="quip"> Blame Yourself Later.</span></p>
+    <a href="#clubs-browse" class="btn btn-primary">🏌️ View Deals</a>
   </div>
-
-  <p class="trend-note">
-    This list is curated periodically by hand when we are not chunking iron shots into the soup.
-  </p>
-
-  <div class="trend-grid" id="trend-grid">
+  <div class="hub-grid" id="hub-grid">
     <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
     <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
     <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
   </div>
 
-  <p class="retailer-note">Clickgolf are currently running a wider sale. <a href="https://www.awin1.com/cread.php?s=442137&v=2849&q=213063&r=2990893" rel="sponsored noopener" target="_blank" style="color:var(--green);font-weight:600;">Browse the Clickgolf sale ↗</a></p>
+  <section class="section" id="clubs-browse">
+    <div class="section-head">
+      <h2>Browse & Filter All Clubs</h2>
+    </div>
+    <form class="shop-search" id="shop-search-form">
+      <label for="shop-search-input" class="sr-only">Search clubs</label>
+      <input type="text" id="shop-search-input" placeholder="Search within clubs...">
+    </form>
+
+    <button class="mobile-filter-toggle" id="mobile-filter-toggle">🔍 Filter & Sort</button>
+
+    <div class="shop-layout">
+      <aside class="filter-sidebar" id="filter-sidebar">
+        <div class="filter-sidebar-head">
+          <h2>Filters</h2>
+          <button class="filter-clear-all" id="filter-clear-all" type="button">Clear all</button>
+        </div>
+        <div id="filter-sidebar-body"></div>
+      </aside>
+
+      <div>
+        <div class="shop-toolbar">
+          <span class="shop-result-count" id="shop-result-count"></span>
+          <select class="sort-select" id="sort-select" aria-label="Sort products">
+            <option value="popular">Most Popular</option>
+            <option value="discount">Biggest Discount</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+          </select>
+        </div>
+
+        <div class="active-filter-chips" id="active-filter-chips"></div>
+
+        <div class="shop-grid" id="shop-grid">
+          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+        </div>
+        <p class="empty-state" id="empty-state" style="display:none;">Nothing here — even our AI needs a mulligan. Try another search or category.</p>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
 </footer>
 
-<script src="js/trending.js"></script>
+<script>window.SHOP_FORCE_GROUP = 'clubs';</script>
+<script src="js/shop.js"></script>
 <script src="js/groups-config.js"></script>
-<script src="js/hub.js"></script>
+<script src="js/hub.js" data-hub="clubs"></script>
 <script src="js/nav-mobile.js"></script>
 <script src="js/analytics.js"></script>
 <script src="js/cookie-consent.js"></script>
