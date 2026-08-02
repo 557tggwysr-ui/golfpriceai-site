@@ -363,6 +363,11 @@ def apply_post_overrides(name_text, base_category):
 # correctly categorized but invisible on every hub sub-page, since those
 # pages filter by icon, not just by the broad category.
 ICON_KEYWORDS = [
+    # "Cap Sleeve" is a short-sleeve style on a top, not headwear — must
+    # be checked before the generic "cap" entry further down (which
+    # would otherwise correctly-but-wrongly match the word "cap" inside
+    # this phrase and route it to Headwear & Extras instead).
+    ("cap sleeve", "polo"),
     ("polo", "polo"), ("shirt", "polo"), ("lisle", "polo"), ("pique", "polo"),
     ("trouser", "trousers"), ("pant", "trousers"), ("jogger", "trousers"),
     ("skort", "skort"), ("skirt", "skort"),
