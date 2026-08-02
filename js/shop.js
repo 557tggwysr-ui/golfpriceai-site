@@ -366,25 +366,22 @@ const POPULAR_TOP_WINDOW = 24;
 function applyMaleQuotaToTop(sortedProducts, windowSize, minMalePercent) {
   const n = Math.min(windowSize, sortedProducts.length);
   if (n === 0) return sortedProducts;
-  const top = sortedProducts.slice(0, n);
-  const rest = sortedProducts.slice(n);
-  const minMaleCount = Math.ceil(n * minMalePercent);
 
-  let maleCountInTop = top.filter(p => classifyAudience(p) === 'Male').length;
-  let guard = 0;
-  while (maleCountInTop < minMaleCount && guard < n * 3) {
-    guard++;
-    const nonMaleIdx = [...top].reverse().findIndex(p => classifyAudience(p) !== 'Male');
-    if (nonMaleIdx === -1) break;
-    const realIdx = top.length - 1 - nonMaleIdx;
-    const maleIdxInRest = rest.findIndex(p => classifyAudience(p) === 'Male');
-    if (maleIdxInRest === -1) break; // no further Male candidates available anywhere
-    const demoted = top[realIdx];
-    top[realIdx] = rest[maleIdxInRest];
-    rest[maleIdxInRest] = demoted;
-    maleCountInTop++;
-  }
-  return top.concat(rest);
+  // Stable partition — each group keeps its existing brand-tier order.
+  const maleItems = sortedProducts.filter(p => classifyAudience(p) === 'Male');
+  const otherItems = sortedProducts.filter(p => classifyAudience(p) !== 'Male');
+
+  // Male items fill the FRONT of the window; only whatever's left over
+  // (capped at 10%) fills the tail — this is what actually guarantees
+  // "male at the top", not just "male somewhere in the top 24 on
+  // average". Capped at however many Male items genuinely exist.
+  const minMaleCount = Math.min(maleItems.length, Math.ceil(n * minMalePercent));
+  const windowMale = maleItems.slice(0, minMaleCount);
+  const windowOther = otherItems.slice(0, n - windowMale.length);
+
+  const window = windowMale.concat(windowOther);
+  const leftover = maleItems.slice(minMaleCount).concat(otherItems.slice(windowOther.length));
+  return window.concat(leftover);
 }
 
 // Accessories-specific: "a good mix" — ensures the top window represents
