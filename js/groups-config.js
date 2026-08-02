@@ -16,7 +16,7 @@ window.GOLFPRICE_GROUPS = {
       key: "driver",
       label: "Drivers",
       blurb: "Maximum distance, minimum accuracy — for some of us, anyway.",
-      // image: — needs a real photo before this tile will render.
+      image: "assets/photos/driver-head.jpg",
       emoji: "🚀",
       category: "driver",
       types: []
@@ -25,7 +25,7 @@ window.GOLFPRICE_GROUPS = {
       key: "wood",
       label: "Fairway Woods",
       blurb: "For those rare occasions you're actually on the fairway.",
-      // image: — needs a real photo before this tile will render.
+      image: "assets/photos/fairway-wood-head.jpg",
       emoji: "🌳",
       category: "wood",
       types: []
@@ -34,7 +34,7 @@ window.GOLFPRICE_GROUPS = {
       key: "hybrid",
       label: "Hybrids",
       blurb: "The club that apologises for your long irons.",
-      // image: — needs a real photo before this tile will render.
+      image: "assets/photos/hybrid-head.jpg",
       emoji: "🔀",
       category: "hybrid",
       types: []
@@ -43,7 +43,7 @@ window.GOLFPRICE_GROUPS = {
       key: "irons",
       label: "Irons",
       blurb: "Where most rounds are actually won or lost.",
-      // image: — needs a real photo before this tile will render.
+      image: "assets/photos/irons-head.jpg",
       emoji: "⛳",
       category: "irons",
       types: []
@@ -52,7 +52,7 @@ window.GOLFPRICE_GROUPS = {
       key: "wedge",
       label: "Wedges",
       blurb: "Get up, get down, get bragging rights.",
-      // image: — needs a real photo before this tile will render.
+      image: "assets/photos/wedges-trio.jpg",
       emoji: "🎯",
       category: "wedge",
       types: []
@@ -61,7 +61,7 @@ window.GOLFPRICE_GROUPS = {
       key: "putter",
       label: "Putters",
       blurb: "The most important club you'll blame the least.",
-      // image: — needs a real photo before this tile will render.
+      image: "assets/photos/putter-mallet.jpg",
       emoji: "🥅",
       category: "putter",
       types: []
@@ -70,7 +70,7 @@ window.GOLFPRICE_GROUPS = {
       key: "sets",
       label: "Sets",
       blurb: "Everything you need, minus the decision fatigue.",
-      // image: — needs a real photo before this tile will render.
+      image: "assets/photos/clubs-set-bag.jpg",
       emoji: "📦",
       category: "sets",
       types: []
@@ -205,7 +205,7 @@ window.GOLFPRICE_GROUPS = {
       key: "balls",
       label: "Golf Balls",
       blurb: "The one thing you'll buy again. And again. And again.",
-      // image: — needs a real photo before this tile will render.
+      image: "assets/photos/golf-ball-branded.jpg",
       emoji: "⚪",
       category: "ball",
       types: []
@@ -214,7 +214,7 @@ window.GOLFPRICE_GROUPS = {
       key: "travel",
       label: "Travel",
       blurb: "For getting your clubs there in one piece (mostly).",
-      // image: — needs a real photo before this tile will render.
+      image: "assets/photos/travel-bag.jpg",
       emoji: "🧳",
       types: ["travel"]
     },
@@ -222,7 +222,7 @@ window.GOLFPRICE_GROUPS = {
       key: "putting-mats",
       label: "Putting Mats",
       blurb: "Practice your putting without leaving the living room.",
-      // image: — needs a real photo before this tile will render.
+      image: "assets/photos/putting-mat.jpg",
       emoji: "🟢",
       types: ["mat"]
     }
