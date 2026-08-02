@@ -353,6 +353,78 @@ function scopedFor(exclude) {
   return baseFilteredProducts().filter(p => matchesFilters(p, exclude));
 }
 
+// How many items count as "the top of the page" for the two Most
+// Popular reordering rules below — roughly two rows of a desktop grid,
+// a reasonable stand-in for "what a visitor sees without scrolling much".
+const POPULAR_TOP_WINDOW = 24;
+
+// Apparel-specific: on top of brand-tier sorting, push the top window to
+// ~90% Male-classified items — same swap-based quota mechanic already
+// used for the homepage's Hot Deals (80% there), just applied to a
+// sorted list's leading slice instead of a fixed-size selection. Female/
+// Junior items aren't removed from the catalog, just not front-loaded.
+function applyMaleQuotaToTop(sortedProducts, windowSize, minMalePercent) {
+  const n = Math.min(windowSize, sortedProducts.length);
+  if (n === 0) return sortedProducts;
+  const top = sortedProducts.slice(0, n);
+  const rest = sortedProducts.slice(n);
+  const minMaleCount = Math.ceil(n * minMalePercent);
+
+  let maleCountInTop = top.filter(p => classifyAudience(p) === 'Male').length;
+  let guard = 0;
+  while (maleCountInTop < minMaleCount && guard < n * 3) {
+    guard++;
+    const nonMaleIdx = [...top].reverse().findIndex(p => classifyAudience(p) !== 'Male');
+    if (nonMaleIdx === -1) break;
+    const realIdx = top.length - 1 - nonMaleIdx;
+    const maleIdxInRest = rest.findIndex(p => classifyAudience(p) === 'Male');
+    if (maleIdxInRest === -1) break; // no further Male candidates available anywhere
+    const demoted = top[realIdx];
+    top[realIdx] = rest[maleIdxInRest];
+    rest[maleIdxInRest] = demoted;
+    maleCountInTop++;
+  }
+  return top.concat(rest);
+}
+
+// Accessories-specific: "a good mix" — ensures the top window represents
+// as many DISTINCT product types (icon/category) as possible, so brand-
+// tier sorting alone can't let one popular type (e.g. gloves) monopolise
+// the top of the page. Same "no two of the same type" spirit as the
+// homepage's existing pickWithConstraints diversity rule.
+function applyTypeDiversityToTop(sortedProducts, windowSize) {
+  const n = Math.min(windowSize, sortedProducts.length);
+  if (n === 0) return sortedProducts;
+  const top = sortedProducts.slice(0, n);
+  const rest = sortedProducts.slice(n);
+
+  const seenTypes = new Set();
+  const result = [];
+  const bumped = [];
+  for (const p of top) {
+    const key = p.icon || p.category;
+    if (!seenTypes.has(key)) {
+      seenTypes.add(key);
+      result.push(p);
+    } else {
+      bumped.push(p);
+    }
+  }
+  let restIdx = 0;
+  while (result.length < n && restIdx < rest.length) {
+    const candidate = rest[restIdx];
+    const key = candidate.icon || candidate.category;
+    if (!seenTypes.has(key)) {
+      seenTypes.add(key);
+      result.push(candidate);
+      rest.splice(restIdx, 1);
+    } else {
+      restIdx++;
+    }
+  }
+  return result.concat(bumped, rest);
+}
+
 function applyFiltersAndSort() {
   const grid = document.getElementById('shop-grid');
   const empty = document.getElementById('empty-state');
@@ -367,6 +439,16 @@ function applyFiltersAndSort() {
     // existing popularityScore only breaks ties within the same tier.
     return (brandPopularityTier(b) - brandPopularityTier(a)) || (popularityScore(b) - popularityScore(a));
   });
+
+  // Both reorderings below only apply to Most Popular, and only when
+  // scoped to exactly that one category — Shop/Clubs aren't touched.
+  if (sortMode === 'popular' && baseCategories && baseCategories.size === 1) {
+    if (baseCategories.has('apparel')) {
+      filtered = applyMaleQuotaToTop(filtered, POPULAR_TOP_WINDOW, 0.9);
+    } else if (baseCategories.has('accessories')) {
+      filtered = applyTypeDiversityToTop(filtered, POPULAR_TOP_WINDOW);
+    }
+  }
 
   grid.innerHTML = filtered.map(cardHTML).join('');
   empty.style.display = filtered.length ? 'none' : 'block';
