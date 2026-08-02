@@ -1018,9 +1018,11 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
 
         raw_rrp = to_float("rrp_price")
         raw_old = to_float("product_price_old")
+        row_rrp_inverted = False
         for raw_candidate in (raw_rrp, raw_old):
             if raw_candidate is not None and raw_candidate <= sale_price:
                 rrp_inversion_names.append(name)
+                row_rrp_inverted = True
                 break
 
         if old_price and old_price > sale_price:
@@ -1074,6 +1076,7 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
             "audience": audience,
             "inStock": in_stock,
             "_mpu": merchant_page_url,
+            "_rrpInverted": row_rrp_inverted,
         }
         if image:
             product["image"] = image
@@ -1196,6 +1199,30 @@ def _median_offer(offers):
     return sorted_offers[mid - 1]
 
 
+def _best_representative(offers):
+    """Picks the representative offer for a group of same-product-page
+    duplicate listings — trying to do better than plain median where
+    possible, using a real signal instead of a guess.
+
+    Confirmed by a real incident this session (Titleist Pro V1x AIM
+    balls: three duplicate rows for the identical product page, priced
+    £49.99 / £94.99 / £134.97 against a consistent £52.00 RRP): plain
+    median would have picked £94.99 — WRONG, the confirmed real price
+    was £49.99, the only one of the three whose price doesn't
+    contradict its own advertised RRP (the other two exceed their own
+    RRP by 80%+ and 160%, which no genuine sale price would ever do).
+
+    So: prefer offers whose own RRP data is internally consistent
+    (`_rrpInverted` is False) over ones that aren't, and take the
+    median only among THOSE. If none are RRP-consistent (or no RRP data
+    exists to judge by at all, as was the case for the Callaway irons
+    incident), fall back to the median of everyone — the best available
+    estimate when there's truly no way to tell.
+    """
+    clean = [o for o in offers if not o.get("_rrpInverted")]
+    return _median_offer(clean) if clean else _median_offer(offers)
+
+
 def dedupe_products(fresh_products):
     """Collapses duplicate product listings into one catalog entry.
 
@@ -1248,6 +1275,7 @@ def dedupe_products(fresh_products):
             winner = dict(offers[0])
             winner["retailerCount"] = 1
             winner.pop("_mpu", None)
+            winner.pop("_rrpInverted", None)
             deduped.append(winner)
             continue
 
@@ -1256,9 +1284,10 @@ def dedupe_products(fresh_products):
         if len(sources) == 1:
             prices = [o["salePrice"] for o in offers]
             variance_ratio = max(prices) / min(prices) if min(prices) > 0 else 1
-            winner = dict(_median_offer(offers))
+            winner = dict(_best_representative(offers))
             winner["retailerCount"] = 1
             winner.pop("_mpu", None)
+            winner.pop("_rrpInverted", None)
             same_retailer_collisions.append((display_name, sources[0], len(offers), winner["salePrice"]))
             if variance_ratio >= SEVERE_VARIANCE_RATIO:
                 severe_variance_collisions.append(
@@ -1268,15 +1297,15 @@ def dedupe_products(fresh_products):
             continue
 
         # Genuine cross-retailer duplicate. Collapse any same-retailer
-        # collisions WITHIN each source first (median), then pick the
-        # cheapest across those per-retailer representatives.
+        # collisions WITHIN each source first, then pick the cheapest
+        # across those per-retailer representatives.
         per_source_repr = []
         for src in sources:
             src_offers = [o for o in offers if o["source"] == src]
             if len(src_offers) > 1:
                 prices = [o["salePrice"] for o in src_offers]
                 variance_ratio = max(prices) / min(prices) if min(prices) > 0 else 1
-                rep = _median_offer(src_offers)
+                rep = _best_representative(src_offers)
                 same_retailer_collisions.append((display_name, src, len(src_offers), rep["salePrice"]))
                 if variance_ratio >= SEVERE_VARIANCE_RATIO:
                     severe_variance_collisions.append(
@@ -1289,6 +1318,7 @@ def dedupe_products(fresh_products):
         winner = dict(min(per_source_repr, key=lambda o: o["salePrice"]))
         winner["retailerCount"] = len(sources)
         winner.pop("_mpu", None)
+        winner.pop("_rrpInverted", None)
         cross_retailer_collisions.append((display_name, len(sources), winner["salePrice"]))
         deduped.append(winner)
 
