@@ -196,11 +196,17 @@ GENERAL_KEYWORDS = [
     ("shoe", "shoes"), ("boot", "shoes"),
     ("trouser", "apparel"), ("pant", "apparel"), ("short", "apparel"),
     ("skort", "apparel"), ("polo", "apparel"), ("jacket", "apparel"),
-    ("jogger", "apparel"), ("headwear", "apparel"),
+    ("jogger", "apparel"), ("headwear", "apparel"), ("beanie", "apparel"),
     ("base layer", "apparel"), ("baselayer", "apparel"), ("thermal", "apparel"),
     ("full zip", "apparel"), ("fleece", "apparel"),
     ("lisle", "apparel"), ("pique", "apparel"),
     ("windshirt", "apparel"),
+    # Broader catch-all beyond the specific zip phrasings above — catches
+    # any remaining "Zip" wording not already covered by a more specific
+    # match. Deliberately placed after ball/bag/glove/etc. in this list
+    # so a genuine accessory that happens to mention a zip pocket/closure
+    # still resolves via its own more specific keyword first.
+    ("zip", "apparel"),
     # "Chill Out"/"Chill-Out" turned out to be a generic Clickgolf
     # product-line name used across MULTIPLE brands, not just FootJoy —
     # the old "footjoy chill out" phrase-only match missed every one
@@ -275,6 +281,12 @@ def guess_category(category_name, merchant_category, name):
             # "Grip" is a common marketing term for shoe sole traction
             # (e.g. "enhanced grip technology") — a real golf shoe should
             # stay a shoe, not get swept into Accessories > Grips.
+            continue
+        if word == "tee" and "tee to green" in combined_text:
+            # "Tee to Green" is a real, recurring apparel brand/product
+            # line name (confirmed: it was swallowing genuine shirts and
+            # polos into Accessories, since "tee" alone reads as "this
+            # is a literal golf tee" otherwise).
             continue
         if _has_word(combined_text, word):
             return "accessories"
@@ -363,12 +375,13 @@ ICON_KEYWORDS = [
     ("golf top", "jacket"), ("footjoy chill out", "jacket"),
     ("chill out", "jacket"), ("chill-out", "jacket"),
     ("full zip", "jacket"), ("fleece", "jacket"), ("windshirt", "jacket"),
+    ("zip", "jacket"),
     ("sweatershirt", "jacket"),
     ("half zip", "jacket"), ("half-zip", "jacket"),
     ("midlayer", "jacket"), ("mid-layer", "jacket"), ("mid layer", "jacket"),
     ("base layer", "base-layer"), ("baselayer", "base-layer"), ("thermal", "base-layer"),
     ("dress", "dress"), ("golf suit", "suit"),
-    ("cap", "cap"), ("visor", "cap"), ("hat", "cap"), ("headwear", "cap"),
+    ("cap", "cap"), ("visor", "cap"), ("hat", "cap"), ("headwear", "cap"), ("beanie", "cap"),
     ("sunglass", "sunglasses"),
     ("belt", "belt"),
     ("sock", "socks"),
