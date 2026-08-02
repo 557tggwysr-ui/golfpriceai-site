@@ -185,11 +185,22 @@ CLUB_SHAPE_KEYWORDS = [
     ("putter", "putter"), ("driver", "driver"), ("hybrid", "hybrid"),
     ("fairway", "wood"), ("wood", "wood"), ("wedge", "wedge"),
     ("iron", "irons"),
+    # A "chipper" is a specialty short-game club (part putter, part
+    # wedge) — closest existing category is wedge. Was previously
+    # unmatched entirely, falling through to the generic accessories
+    # default.
+    ("chipper", "wedge"),
 ]
 GENERAL_KEYWORDS = [
     ("ball", "ball"), ("bag", "bag"),
     ("shoe", "shoes"), ("trouser", "apparel"), ("short", "apparel"),
     ("skort", "apparel"), ("polo", "apparel"), ("jacket", "apparel"),
+    ("jogger", "apparel"), ("headwear", "apparel"),
+    # A retailer product name that just says "Dozen" (no literal "ball")
+    # is, in real golf retail convention, essentially always a dozen golf
+    # balls — this was a genuine gap when "ball"/"balls" itself wasn't
+    # actually present in the title.
+    ("dozen", "ball"),
     ("hoodie", "apparel"), ("cap", "apparel"), ("hat", "apparel"),
     ("glove", "accessories"), ("mitten", "accessories"), ("sock", "apparel"), ("belt", "apparel"),
     ("sunglass", "apparel"), ("rangefinder", "accessories"),
@@ -320,7 +331,7 @@ def apply_post_overrides(name_text, base_category):
 # pages filter by icon, not just by the broad category.
 ICON_KEYWORDS = [
     ("polo", "polo"), ("shirt", "polo"),
-    ("trouser", "trousers"), ("pant", "trousers"),
+    ("trouser", "trousers"), ("pant", "trousers"), ("jogger", "trousers"),
     ("skort", "skort"), ("skirt", "skort"),
     ("short", "shorts"),
     ("jacket", "jacket"),
@@ -334,7 +345,7 @@ ICON_KEYWORDS = [
     ("midlayer", "jacket"), ("mid-layer", "jacket"), ("mid layer", "jacket"),
     ("base layer", "base-layer"), ("baselayer", "base-layer"), ("thermal", "base-layer"),
     ("dress", "dress"), ("golf suit", "suit"),
-    ("cap", "cap"), ("visor", "cap"), ("hat", "cap"),
+    ("cap", "cap"), ("visor", "cap"), ("hat", "cap"), ("headwear", "cap"),
     ("sunglass", "sunglasses"),
     ("belt", "belt"),
     ("sock", "socks"),
@@ -344,6 +355,11 @@ ICON_KEYWORDS = [
     ("push cart", "pushcart"), ("pushcart", "pushcart"), ("trolley", "pushcart"),
     ("headcover", "headcover"), ("head cover", "headcover"),
     ("umbrella", "umbrella"),
+    # "Sunbrella" is a real premium outdoor-fabric brand name commonly
+    # used in golf umbrella product titles (e.g. "Titleist Players
+    # Sunbrella Umbrella") — doesn't literally contain the word
+    # "umbrella" as a substring, so needed its own entry.
+    ("sunbrella", "umbrella"),
     ("divot", "divot-tool"),
     ("alignment stick", "alignment-sticks"),
     ("glove", "glove"), ("mitten", "glove"),
