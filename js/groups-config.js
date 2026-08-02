@@ -5,6 +5,11 @@
 // group's real photo (matching the site's existing dark-banner emoji
 // pattern) — it is never a substitute for a photo. Every group here has a
 // real "image"; a group with no photo is simply not shown (see hub.js).
+//
+// A group can optionally set "category" to link somewhere other than its
+// own hub's category — used for Golf Balls below, since balls are their
+// own real top-level category (like drivers or putters), not an
+// accessories sub-type, even though the tile lives on the Accessories page.
 window.GOLFPRICE_GROUPS = {
   accessories: [
     {
@@ -126,6 +131,35 @@ window.GOLFPRICE_GROUPS = {
       image: "assets/photos/launch-monitor-display.jpg",
       emoji: "📡",
       types: ["launch-monitor"]
+    },
+    {
+      // Balls are their own real top-level category (category: "ball"),
+      // not an accessories icon sub-type — the "category" override sends
+      // this tile's link to shop.html?category=ball directly, with no
+      // "types" filter needed, same as how Drivers/Putters/etc. work.
+      key: "balls",
+      label: "Golf Balls",
+      blurb: "The one thing you'll buy again. And again. And again.",
+      // image: — needs a real photo before this tile will render.
+      emoji: "⚪",
+      category: "ball",
+      types: []
+    },
+    {
+      key: "travel",
+      label: "Travel",
+      blurb: "For getting your clubs there in one piece (mostly).",
+      // image: — needs a real photo before this tile will render.
+      emoji: "🧳",
+      types: ["travel"]
+    },
+    {
+      key: "putting-mats",
+      label: "Putting Mats",
+      blurb: "Practice your putting without leaving the living room.",
+      // image: — needs a real photo before this tile will render.
+      emoji: "🟢",
+      types: ["mat"]
     }
     // Caddie & Shagger Sets fold into the Divot Tools tile above rather
     // than getting their own — no dedicated image needed for that one.

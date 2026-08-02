@@ -4,9 +4,19 @@ function slug(s) {
   return encodeURIComponent(s);
 }
 
-function groupLink(category, group) {
-  const types = group.types.join(',');
-  return `shop.html?category=${category}&types=${slug(types)}&label=${slug(group.label)}`;
+function groupLink(hubCategory, group) {
+  // Most groups link within their own hub's category (accessories/apparel)
+  // filtered by icon "types". A group can optionally set its own
+  // `category` to link somewhere else entirely — needed for a tile like
+  // Golf Balls sitting on the Accessories page, when balls are actually
+  // their own top-level category, not an accessories sub-type.
+  const effectiveCategory = group.category || hubCategory;
+  let url = `shop.html?category=${effectiveCategory}`;
+  if (group.types && group.types.length) {
+    url += `&types=${slug(group.types.join(','))}`;
+  }
+  url += `&label=${slug(group.label)}`;
+  return url;
 }
 
 // Render the current hub page's own grid of group cards.

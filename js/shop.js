@@ -560,6 +560,7 @@ function bannerGroupKey() {
 
 function renderCategoryBanner() {
   const el = document.getElementById('category-banner');
+  if (!el) return; // page doesn't have this element (e.g. embedded on a hub page) — nothing to do
   const singleCategory = effectiveSingleCategory();
   const key = singleCategory || bannerGroupKey();
   const data = key && window.GOLFPRICE_CATEGORY_BANNERS && window.GOLFPRICE_CATEGORY_BANNERS[key];
@@ -589,7 +590,13 @@ fetch('data/products.json')
     const categoryParam = params.get('category');
     const validCategory = data.categories.some(c => c.key === categoryParam);
 
-    if (groupParam === 'clubs') {
+    if (window.SHOP_FORCE_CATEGORY) {
+      // A page can pin the filter/grid view to one category directly —
+      // used to embed the same filter sidebar + product grid experience
+      // on apparel.html/accessories.html (set inline, before shop.js
+      // loads) without needing a shop.html?category=... redirect.
+      baseCategories = new Set([window.SHOP_FORCE_CATEGORY]);
+    } else if (groupParam === 'clubs') {
       baseCategories = new Set(CLUB_CATEGORIES);
     } else if (categoryParam && validCategory) {
       baseCategories = new Set([categoryParam]);
@@ -640,7 +647,8 @@ fetch('data/products.json')
 
     const q = params.get('q');
     if (q) {
-      document.getElementById('shop-search-input').value = q;
+      const searchInputEl = document.getElementById('shop-search-input');
+      if (searchInputEl) searchInputEl.value = q;
       searchQuery = q;
     }
 
@@ -648,11 +656,15 @@ fetch('data/products.json')
   })
   .catch(err => console.error('Could not load products.json', err));
 
-document.getElementById('shop-search-form').addEventListener('submit', e => e.preventDefault());
-document.getElementById('shop-search-input').addEventListener('input', e => {
-  searchQuery = e.target.value;
-  applyFiltersAndSort();
-});
+const shopSearchForm = document.getElementById('shop-search-form');
+if (shopSearchForm) shopSearchForm.addEventListener('submit', e => e.preventDefault());
+const shopSearchInput = document.getElementById('shop-search-input');
+if (shopSearchInput) {
+  shopSearchInput.addEventListener('input', e => {
+    searchQuery = e.target.value;
+    applyFiltersAndSort();
+  });
+}
 
 const sortSelectEl = document.getElementById('sort-select');
 if (sortSelectEl) {
