@@ -958,3 +958,22 @@ footer a:hover { color: var(--green); }
   padding: 2px 7px;
   margin: 2px 0 0;
 }
+
+/* ============================================
+   Shared product grid + search box, used by the
+   Shop page and the embedded filter sections on
+   the Apparel/Accessories hub pages. Moved here
+   from shop.html's own inline styles so more than
+   one page can use them without duplicating CSS.
+   ============================================ */
+.shop-search { margin: 20px 0; max-width: 420px; }
+.shop-search input {
+  width: 100%; border: 1px solid var(--border); border-radius: 999px;
+  padding: 11px 18px; font-size: 15px; box-shadow: var(--shadow);
+}
+.shop-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-bottom: 60px;
+}
+.empty-state { color: var(--muted); padding: 40px 0; text-align: center; }
+@media (max-width: 1300px) { .shop-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .shop-grid { grid-template-columns: 1fr; } }
