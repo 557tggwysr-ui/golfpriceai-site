@@ -204,6 +204,11 @@ GENERAL_KEYWORDS = [
     ("sweater", "apparel"), ("shirt", "apparel"), ("zip top", "apparel"),
     ("golf top", "apparel"), ("golf suit", "apparel"),
     ("footjoy chill out", "apparel"), ("dress", "apparel"),
+    # "sweatershirt" (no space) is a real recurring retailer naming quirk
+    # — word-boundary matching correctly won't match "sweater" or "shirt"
+    # as fragments fused mid-word, so it needs its own explicit entry.
+    ("sweatershirt", "apparel"),
+    ("capri", "apparel"), ("skirt", "apparel"),
     ("mat", "accessories"), ("storage", "accessories"),
     ("travel", "accessories"), ("charger", "accessories"),
     ("battery", "accessories"), ("drink holder", "accessories"),
@@ -316,7 +321,7 @@ def apply_post_overrides(name_text, base_category):
 ICON_KEYWORDS = [
     ("polo", "polo"), ("shirt", "polo"),
     ("trouser", "trousers"), ("pant", "trousers"),
-    ("skort", "skort"),
+    ("skort", "skort"), ("skirt", "skort"),
     ("short", "shorts"),
     ("jacket", "jacket"),
     ("hoodie", "hoodie"),
@@ -324,6 +329,7 @@ ICON_KEYWORDS = [
     ("quarterzip", "jacket"), ("quarter-zip", "jacket"), ("quarter zip", "jacket"),
     ("1/4 zip", "jacket"), ("1/2 zip", "jacket"), ("sweater", "jacket"), ("zip top", "jacket"),
     ("golf top", "jacket"), ("footjoy chill out", "jacket"),
+    ("sweatershirt", "jacket"),
     ("half zip", "jacket"), ("half-zip", "jacket"),
     ("midlayer", "jacket"), ("mid-layer", "jacket"), ("mid layer", "jacket"),
     ("base layer", "base-layer"), ("baselayer", "base-layer"), ("thermal", "base-layer"),
