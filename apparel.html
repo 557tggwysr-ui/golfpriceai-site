@@ -70,12 +70,58 @@
     <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
     <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
   </div>
+
+  <section class="section" id="apparel-browse">
+    <div class="section-head">
+      <h2>Browse & Filter All Apparel</h2>
+    </div>
+    <form class="shop-search" id="shop-search-form">
+      <label for="shop-search-input" class="sr-only">Search apparel</label>
+      <input type="text" id="shop-search-input" placeholder="Search within apparel...">
+    </form>
+
+    <button class="mobile-filter-toggle" id="mobile-filter-toggle">🔍 Filter & Sort</button>
+
+    <div class="shop-layout">
+      <aside class="filter-sidebar" id="filter-sidebar">
+        <div class="filter-sidebar-head">
+          <h2>Filters</h2>
+          <button class="filter-clear-all" id="filter-clear-all" type="button">Clear all</button>
+        </div>
+        <div id="filter-sidebar-body"></div>
+      </aside>
+
+      <div>
+        <div class="shop-toolbar">
+          <span class="shop-result-count" id="shop-result-count"></span>
+          <select class="sort-select" id="sort-select" aria-label="Sort products">
+            <option value="popular">Most Popular</option>
+            <option value="discount">Biggest Discount</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+          </select>
+        </div>
+
+        <div class="active-filter-chips" id="active-filter-chips"></div>
+
+        <div class="shop-grid" id="shop-grid">
+          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+        </div>
+        <p class="empty-state" id="empty-state" style="display:none;">Nothing here — even our AI needs a mulligan. Try another search or category.</p>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
 </footer>
 
+<script>window.SHOP_FORCE_CATEGORY = 'apparel';</script>
+<script src="js/shop.js"></script>
 <script src="js/groups-config.js"></script>
 <script src="js/hub.js" data-hub="apparel"></script>
 <script src="js/nav-mobile.js"></script>
