@@ -193,9 +193,20 @@ CLUB_SHAPE_KEYWORDS = [
 ]
 GENERAL_KEYWORDS = [
     ("ball", "ball"), ("bag", "bag"),
-    ("shoe", "shoes"), ("trouser", "apparel"), ("short", "apparel"),
+    ("shoe", "shoes"), ("boot", "shoes"),
+    ("trouser", "apparel"), ("pant", "apparel"), ("short", "apparel"),
     ("skort", "apparel"), ("polo", "apparel"), ("jacket", "apparel"),
     ("jogger", "apparel"), ("headwear", "apparel"),
+    ("base layer", "apparel"), ("baselayer", "apparel"), ("thermal", "apparel"),
+    ("full zip", "apparel"), ("fleece", "apparel"),
+    ("lisle", "apparel"), ("pique", "apparel"),
+    ("windshirt", "apparel"),
+    # "Chill Out"/"Chill-Out" turned out to be a generic Clickgolf
+    # product-line name used across MULTIPLE brands, not just FootJoy —
+    # the old "footjoy chill out" phrase-only match missed every one
+    # where another word (e.g. "Mens") sat between the two, or where a
+    # different brand used the same line name entirely.
+    ("chill out", "apparel"), ("chill-out", "apparel"),
     # A retailer product name that just says "Dozen" (no literal "ball")
     # is, in real golf retail convention, essentially always a dozen golf
     # balls — this was a genuine gap when "ball"/"balls" itself wasn't
@@ -313,8 +324,18 @@ def apply_post_overrides(name_text, base_category):
     # sub-section instead — deliberately narrow: this does NOT touch
     # genuine "Iron Set" / "Wedge Set" club listings, which are already
     # correctly categorized as irons/wedge by the time this check runs.
+    #
+    # Also deliberately does NOT touch an item that already has a clear,
+    # specific accessory identity (e.g. "Headcover Set (3pc)" is a real
+    # bundle of headcovers, not remotely a club set) — confirmed as a
+    # genuine mis-fire this session. Only a genuinely generic
+    # "accessories gift set" with no specific type signal should move.
     if base_category == "accessories" and _has_word(name_text, "set"):
-        return "sets"
+        has_specific_accessory_signal = any(
+            _has_word(name_text, w) for w in ACCESSORY_OVERRIDE_WORDS
+        )
+        if not has_specific_accessory_signal:
+            return "sets"
 
     # A "putter" mentioned in a ball or apparel listing (rather than a
     # real putter product) should move to the Putters section.
@@ -330,7 +351,7 @@ def apply_post_overrides(name_text, base_category):
 # correctly categorized but invisible on every hub sub-page, since those
 # pages filter by icon, not just by the broad category.
 ICON_KEYWORDS = [
-    ("polo", "polo"), ("shirt", "polo"),
+    ("polo", "polo"), ("shirt", "polo"), ("lisle", "polo"), ("pique", "polo"),
     ("trouser", "trousers"), ("pant", "trousers"), ("jogger", "trousers"),
     ("skort", "skort"), ("skirt", "skort"),
     ("short", "shorts"),
@@ -340,6 +361,8 @@ ICON_KEYWORDS = [
     ("quarterzip", "jacket"), ("quarter-zip", "jacket"), ("quarter zip", "jacket"),
     ("1/4 zip", "jacket"), ("1/2 zip", "jacket"), ("sweater", "jacket"), ("zip top", "jacket"),
     ("golf top", "jacket"), ("footjoy chill out", "jacket"),
+    ("chill out", "jacket"), ("chill-out", "jacket"),
+    ("full zip", "jacket"), ("fleece", "jacket"), ("windshirt", "jacket"),
     ("sweatershirt", "jacket"),
     ("half zip", "jacket"), ("half-zip", "jacket"),
     ("midlayer", "jacket"), ("mid-layer", "jacket"), ("mid layer", "jacket"),
