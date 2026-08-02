@@ -11,6 +11,71 @@
 // own real top-level category (like drivers or putters), not an
 // accessories sub-type, even though the tile lives on the Accessories page.
 window.GOLFPRICE_GROUPS = {
+  clubs: [
+    {
+      key: "driver",
+      label: "Drivers",
+      blurb: "Maximum distance, minimum accuracy — for some of us, anyway.",
+      // image: — needs a real photo before this tile will render.
+      emoji: "🚀",
+      category: "driver",
+      types: []
+    },
+    {
+      key: "wood",
+      label: "Fairway Woods",
+      blurb: "For those rare occasions you're actually on the fairway.",
+      // image: — needs a real photo before this tile will render.
+      emoji: "🌳",
+      category: "wood",
+      types: []
+    },
+    {
+      key: "hybrid",
+      label: "Hybrids",
+      blurb: "The club that apologises for your long irons.",
+      // image: — needs a real photo before this tile will render.
+      emoji: "🔀",
+      category: "hybrid",
+      types: []
+    },
+    {
+      key: "irons",
+      label: "Irons",
+      blurb: "Where most rounds are actually won or lost.",
+      // image: — needs a real photo before this tile will render.
+      emoji: "⛳",
+      category: "irons",
+      types: []
+    },
+    {
+      key: "wedge",
+      label: "Wedges",
+      blurb: "Get up, get down, get bragging rights.",
+      // image: — needs a real photo before this tile will render.
+      emoji: "🎯",
+      category: "wedge",
+      types: []
+    },
+    {
+      key: "putter",
+      label: "Putters",
+      blurb: "The most important club you'll blame the least.",
+      // image: — needs a real photo before this tile will render.
+      emoji: "🥅",
+      category: "putter",
+      types: []
+    },
+    {
+      key: "sets",
+      label: "Sets",
+      blurb: "Everything you need, minus the decision fatigue.",
+      // image: — needs a real photo before this tile will render.
+      emoji: "📦",
+      category: "sets",
+      types: []
+    }
+  ],
   accessories: [
     {
       key: "gps-watch",

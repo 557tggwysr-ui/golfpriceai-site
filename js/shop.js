@@ -596,7 +596,7 @@ fetch('data/products.json')
       // on apparel.html/accessories.html (set inline, before shop.js
       // loads) without needing a shop.html?category=... redirect.
       baseCategories = new Set([window.SHOP_FORCE_CATEGORY]);
-    } else if (groupParam === 'clubs') {
+    } else if (window.SHOP_FORCE_GROUP === 'clubs' || groupParam === 'clubs') {
       baseCategories = new Set(CLUB_CATEGORIES);
     } else if (categoryParam && validCategory) {
       baseCategories = new Set([categoryParam]);
