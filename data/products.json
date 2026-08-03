@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-03T20:15:35.222917+00:00",
+  "lastUpdated": "2026-08-03T20:19:30.691531+00:00",
   "categories": [
     {
       "key": "driver",
@@ -92,9 +92,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-m1-electric-golf-trolley-standard-lithium-clickgolf",
+      "id": "bag-motocaddy-m1-electric-golf-trolley-standard-lithium-clickgolf",
       "name": "Motocaddy M1 Electric Golf Trolley - Standard Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 799.99,
       "salePrice": 749.0,
       "savePct": 6,
@@ -102,7 +102,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40691361839&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TR26M1XXMS-M1-2026-Electric-Trolley-Hero.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -127,9 +127,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-m1-dhc-electric-golf-trolley-ultra-lithium-clickgolf",
+      "id": "bag-motocaddy-m1-dhc-electric-golf-trolley-ultra-lithium-clickgolf",
       "name": "Motocaddy M1 DHC Electric Golf Trolley - Ultra Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 899.99,
       "salePrice": 849.0,
       "savePct": 6,
@@ -137,7 +137,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44191794979&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TR26M1XDMS-M1-DHC-2026-Electric-Trolley-Hero-2.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -232,9 +232,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-m1-electric-golf-trolley-ultra-lithium-clickgolf",
+      "id": "bag-motocaddy-m1-electric-golf-trolley-ultra-lithium-clickgolf",
       "name": "Motocaddy M1 Electric Golf Trolley - Ultra Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 849.99,
       "salePrice": 749.0,
       "savePct": 12,
@@ -242,7 +242,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44240040279&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TR26M1XXMS-M1-2026-Electric-Trolley-Hero-2.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -302,9 +302,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-m1-dhc-electric-golf-trolley-standard-lithium-clickgolf",
+      "id": "bag-motocaddy-m1-dhc-electric-golf-trolley-standard-lithium-clickgolf",
       "name": "Motocaddy M1 DHC Electric Golf Trolley - Standard Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 849.99,
       "salePrice": 799.0,
       "savePct": 6,
@@ -312,7 +312,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43174341754&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TR26M1XDMS-M1-DHC-2026-Electric-Trolley-Hero.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -372,9 +372,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-m-tech-electric-golf-trolley-ultra-lithium-clickgolf",
+      "id": "wood-motocaddy-m-tech-electric-golf-trolley-ultra-lithium-clickgolf",
       "name": "Motocaddy M-TECH Electric Golf Trolley - Ultra Lithium",
-      "category": "accessories",
+      "category": "wood",
       "retailPrice": 1399.99,
       "salePrice": 1199.0,
       "savePct": 14,
@@ -382,7 +382,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40808972034&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TR26MTGDMT-M-Tech-Trolley-Hero.jpg",
-      "icon": "pushcart",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -407,9 +406,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-s1-electric-golf-trolley-standard-lithium-clickgolf",
+      "id": "bag-motocaddy-s1-electric-golf-trolley-standard-lithium-clickgolf",
       "name": "Motocaddy S1 Electric Golf Trolley - Standard Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 679.99,
       "salePrice": 629.0,
       "savePct": 7,
@@ -417,7 +416,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44055891474&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/S1-2025-Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -442,9 +441,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-s1-electric-golf-trolley-ultra-lithium-clickgolf",
+      "id": "bag-motocaddy-s1-electric-golf-trolley-ultra-lithium-clickgolf",
       "name": "Motocaddy S1 Electric Golf Trolley - Ultra Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 729.99,
       "salePrice": 729.0,
       "savePct": 0,
@@ -452,7 +451,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44055891475&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/S1-2025-Main-2.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -477,9 +476,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-s1-dhc-electric-golf-trolley-standard-lithium-clickgolf",
+      "id": "wood-motocaddy-s1-dhc-electric-golf-trolley-standard-lithium-clickgolf",
       "name": "Motocaddy S1 DHC Electric Golf Trolley - Standard Lithium",
-      "category": "accessories",
+      "category": "wood",
       "retailPrice": 729.99,
       "salePrice": 679.0,
       "savePct": 7,
@@ -487,7 +486,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44055891476&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/S1-DHC-2025-Main.jpg",
-      "icon": "pushcart",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -548,9 +546,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-ct6-ebs-electric-golf-trolley-18-hole-lithium-clickgolf",
+      "id": "bag-powakaddy-ct6-ebs-electric-golf-trolley-18-hole-lithium-clickgolf",
       "name": "PowaKaddy CT6 EBS Electric Golf Trolley - 18 Hole Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 849.99,
       "salePrice": 799.0,
       "savePct": 6,
@@ -558,7 +556,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=36648628637&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT6_EBS_Electric_Golf_Trolley-18-Hole_Lithium_01_Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -583,9 +581,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-ct6-ebs-electric-golf-trolley-extended-lithium-clickgolf",
+      "id": "bag-powakaddy-ct6-ebs-electric-golf-trolley-extended-lithium-clickgolf",
       "name": "PowaKaddy CT6 EBS Electric Golf Trolley - Extended Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 899.99,
       "salePrice": 849.0,
       "savePct": 6,
@@ -593,7 +591,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=36648628638&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT6_EBS_Electric_Golf_Trolley-Extended_Lithium_01_Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -689,9 +687,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-ct6-electric-golf-trolley-18-hole-lithium-clickgolf",
+      "id": "bag-powakaddy-ct6-electric-golf-trolley-18-hole-lithium-clickgolf",
       "name": "PowaKaddy CT6 Electric Golf Trolley - 18 Hole Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 799.99,
       "salePrice": 749.0,
       "savePct": 6,
@@ -699,7 +697,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723742505&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT6_Electric_Golf_Trolley-18-Hole-Lithium_01_Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -724,9 +722,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-ct6-electric-golf-trolley-extended-lithium-clickgolf",
+      "id": "bag-powakaddy-ct6-electric-golf-trolley-extended-lithium-clickgolf",
       "name": "PowaKaddy CT6 Electric Golf Trolley - Extended Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 849.99,
       "salePrice": 799.0,
       "savePct": 6,
@@ -734,7 +732,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723742507&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT6_Electric_Golf_Trolley-Extended-Lithium_01_Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -899,9 +897,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-fx3-electric-golf-trolley-18-hole-lithium-clickgolf",
+      "id": "bag-powakaddy-fx3-electric-golf-trolley-18-hole-lithium-clickgolf",
       "name": "PowaKaddy FX3 Electric Golf Trolley - 18 Hole Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 629.99,
       "salePrice": 579.0,
       "savePct": 8,
@@ -909,7 +907,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723742513&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK_FX3_Electric_Golf_Trolley-18-Hole-Lithium_Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -934,9 +932,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-fx3-electric-golf-trolley-extended-lithium-clickgolf",
+      "id": "bag-powakaddy-fx3-electric-golf-trolley-extended-lithium-clickgolf",
       "name": "PowaKaddy FX3 Electric Golf Trolley - Extended Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 679.99,
       "salePrice": 629.0,
       "savePct": 7,
@@ -944,7 +942,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723742515&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK-FX3_Electric_Golf_Trolley-Extended-Lithium_01_Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -969,9 +967,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-fx3-ebs-electric-golf-trolley-18-hole-lithium-clickgolf",
+      "id": "bag-powakaddy-fx3-ebs-electric-golf-trolley-18-hole-lithium-clickgolf",
       "name": "PowaKaddy FX3 EBS Electric Golf Trolley - 18 Hole Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 679.99,
       "salePrice": 629.0,
       "savePct": 7,
@@ -979,7 +977,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723742517&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK_FX3_EBS_Electric_Golf_Trolley-18-Hole-Lithium_01_Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -1004,9 +1002,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-fx3-ebs-black-electric-golf-trolley-extended-lithi-clickgolf",
+      "id": "bag-powakaddy-fx3-ebs-black-electric-golf-trolley-extended-lithi-clickgolf",
       "name": "PowaKaddy FX3 EBS Black Electric Golf Trolley - Extended Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 729.99,
       "salePrice": 679.0,
       "savePct": 7,
@@ -1014,7 +1012,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723742519&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FX3_EBS_Electric_Golf_Trolley-Extended-Lithium_01_Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "colour": "Black",
       "audience": "Male",
@@ -1040,9 +1038,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-fx5-electric-golf-trolley-18-hole-lithium-clickgolf",
+      "id": "bag-powakaddy-fx5-electric-golf-trolley-18-hole-lithium-clickgolf",
       "name": "PowaKaddy FX5 Electric Golf Trolley - 18 Hole Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 679.99,
       "salePrice": 629.0,
       "savePct": 7,
@@ -1050,7 +1048,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723742523&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK_FX5_Electric_Golf_Trolley-18-Hole-Lithium_01_Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -1075,9 +1073,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-fx5-electric-golf-trolley-extended-lithium-clickgolf",
+      "id": "bag-powakaddy-fx5-electric-golf-trolley-extended-lithium-clickgolf",
       "name": "PowaKaddy FX5 Electric Golf Trolley - Extended Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 729.99,
       "salePrice": 679.0,
       "savePct": 7,
@@ -1085,7 +1083,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723742525&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK_FX5_Electric_Golf_Trolley-Extended-Lithium_01_Main-2.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -2788,9 +2786,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-micra-golf-push-trolley-yellow-clickgolf",
+      "id": "ball-powakaddy-micra-golf-push-trolley-yellow-clickgolf",
       "name": "PowaKaddy MICRA Golf Push Trolley - Yellow",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 219.0,
       "salePrice": 189.0,
       "savePct": 14,
@@ -2798,7 +2796,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40643160654&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/0001s_0001_MICRA-YELLOW-FOLDED-ISO-600x600__17947-2.jpg",
-      "icon": "pushcart",
       "brand": "Powakaddy",
       "colour": "Yellow",
       "audience": "Male",
@@ -2824,9 +2821,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-micra-golf-push-trolley-blue-clickgolf",
+      "id": "ball-powakaddy-micra-golf-push-trolley-blue-clickgolf",
       "name": "PowaKaddy MICRA Golf Push Trolley - Blue",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 219.0,
       "salePrice": 189.0,
       "savePct": 14,
@@ -2834,7 +2831,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40643160655&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/pk-micra-cart-blue-folded-2.jpg",
-      "icon": "pushcart",
       "brand": "Powakaddy",
       "colour": "Blue",
       "audience": "Male",
@@ -2860,9 +2856,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-micra-golf-push-trolley-red-clickgolf",
+      "id": "ball-powakaddy-micra-golf-push-trolley-red-clickgolf",
       "name": "PowaKaddy MICRA Golf Push Trolley - Red",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 219.0,
       "salePrice": 189.0,
       "savePct": 14,
@@ -2870,7 +2866,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40643160656&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/pk-micra-cart-red-folded-2.jpg",
-      "icon": "pushcart",
       "brand": "Powakaddy",
       "colour": "Red",
       "audience": "Male",
@@ -8094,9 +8089,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-universal-fw-c2-scorecard-holder-clickgolf",
+      "id": "ball-powakaddy-universal-fw-c2-scorecard-holder-clickgolf",
       "name": "PowaKaddy Universal FW & C2 Scorecard Holder",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 27.99,
       "salePrice": 24.99,
       "savePct": 11,
@@ -8104,7 +8099,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=38883400292&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/p_g_20180__54140.jpg",
-      "icon": "accessories",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -9005,9 +8999,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-fx-ct-rx-scorecard-holder-clickgolf",
+      "id": "ball-powakaddy-fx-ct-rx-scorecard-holder-clickgolf",
       "name": "PowaKaddy FX/CT/RX Scorecard Holder",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 27.99,
       "salePrice": 24.99,
       "savePct": 11,
@@ -9015,7 +9009,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231433&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-Scorecard-Holder.jpg",
-      "icon": "accessories",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -9972,9 +9965,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-5-golf-club-package-set-60-maroon-clickgolf",
+      "id": "putter-us-kids-ul7-5-golf-club-package-set-60-maroon-clickgolf",
       "name": "US Kids UL7 5 Golf Club Package Set (60'') - Maroon",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 254.95,
       "salePrice": 254.95,
       "savePct": 0,
@@ -17025,9 +17018,9 @@
       }
     },
     {
-      "id": "accessories-rovic-rv1c-2-0-compact-golf-trolley-silver-clickgolf",
+      "id": "ball-rovic-rv1c-2-0-compact-golf-trolley-silver-clickgolf",
       "name": "Rovic RV1C 2.0 Compact Golf Trolley - Silver",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 199.0,
       "salePrice": 179.0,
       "savePct": 10,
@@ -17035,7 +17028,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43884486272&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Rovic-RV1C-2.0-Golf-Trolley-Silver-1.jpg",
-      "icon": "pushcart",
       "brand": "Rovic",
       "colour": "Silver",
       "audience": "Male",
@@ -21090,9 +21082,9 @@
       }
     },
     {
-      "id": "sets-taylormade-rbz-10-piece-package-set-ladies-clickgolf",
+      "id": "putter-taylormade-rbz-10-piece-package-set-ladies-clickgolf",
       "name": "TaylorMade RBZ 10 Piece Package Set - Ladies",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1029.0,
       "salePrice": 1029.0,
       "savePct": 0,
@@ -21650,9 +21642,9 @@
       }
     },
     {
-      "id": "accessories-rovic-rv1c-2-0-compact-golf-trolley-arctic-white-clickgolf",
+      "id": "ball-rovic-rv1c-2-0-compact-golf-trolley-arctic-white-clickgolf",
       "name": "Rovic RV1C 2.0 Compact Golf Trolley - Arctic White",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 199.0,
       "salePrice": 179.0,
       "savePct": 10,
@@ -21660,7 +21652,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43884486273&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Rovic-RV1C-2.0-Golf-Trolley-White-1.jpg",
-      "icon": "pushcart",
       "brand": "Rovic",
       "colour": "White",
       "audience": "Male",
@@ -21793,9 +21784,9 @@
       }
     },
     {
-      "id": "sets-wilson-player-fit-mens-golf-package-set-steel-graphite-clickgolf",
+      "id": "putter-wilson-player-fit-mens-golf-package-set-steel-graphite-clickgolf",
       "name": "Wilson Player Fit Mens Golf Package Set - Steel/Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 699.0,
       "salePrice": 599.0,
       "savePct": 14,
@@ -22833,9 +22824,9 @@
       }
     },
     {
-      "id": "sets-yonex-ezone-elite-4-senior-full-golf-club-package-set-graphi-clickgolf",
+      "id": "driver-yonex-ezone-elite-4-senior-full-golf-club-package-set-graphi-clickgolf",
       "name": "Yonex Ezone Elite 4 Senior Full Golf Club Package Set - Graphite",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 1206.0,
       "salePrice": 1099.0,
       "savePct": 9,
@@ -28127,9 +28118,9 @@
       }
     },
     {
-      "id": "sets-wilson-profile-men-s-golf-package-set-1-inch-longer-clickgolf",
+      "id": "putter-wilson-profile-men-s-golf-package-set-1-inch-longer-clickgolf",
       "name": "Wilson Profile Men's Golf Package Set - 1 Inch Longer",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 525.0,
       "salePrice": 479.0,
       "savePct": 9,
@@ -31004,9 +30995,9 @@
       }
     },
     {
-      "id": "sets-callaway-xr-26-golf-package-set-graphite-clickgolf",
+      "id": "putter-callaway-xr-26-golf-package-set-graphite-clickgolf",
       "name": "Callaway XR '26 Golf Package Set - Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1499.0,
       "salePrice": 1249.0,
       "savePct": 17,
@@ -31848,9 +31839,9 @@
       }
     },
     {
-      "id": "accessories-titleist-performance-neck-warmer-navy-clickgolf",
+      "id": "apparel-titleist-performance-neck-warmer-navy-clickgolf",
       "name": "Titleist Performance Neck Warmer - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 25.0,
       "salePrice": 21.0,
       "savePct": 16,
@@ -31858,7 +31849,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=42601895006&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-Performance-Neck-Warmer-Navy.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "Titleist",
       "colour": "Navy",
       "audience": "Male",
@@ -31884,9 +31875,9 @@
       }
     },
     {
-      "id": "sets-macgregor-zt1-golf-club-package-set-graphite-clickgolf",
+      "id": "putter-macgregor-zt1-golf-club-package-set-graphite-clickgolf",
       "name": "Macgregor ZT1 Golf Club Package Set - Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 479.0,
       "salePrice": 429.0,
       "savePct": 10,
@@ -32820,9 +32811,9 @@
       }
     },
     {
-      "id": "sets-wilson-x-31-advantage-men-s-golf-package-set-1-inch-longer-clickgolf",
+      "id": "putter-wilson-x-31-advantage-men-s-golf-package-set-1-inch-longer-clickgolf",
       "name": "Wilson X-31 Advantage Men's Golf Package Set - 1 Inch Longer",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 449.0,
       "salePrice": 379.0,
       "savePct": 16,
@@ -35696,9 +35687,9 @@
       }
     },
     {
-      "id": "accessories-galvin-green-candy-knitted-slipover-midnight-blue-spring-gre-clickgolf",
+      "id": "apparel-galvin-green-candy-knitted-slipover-midnight-blue-spring-gre-clickgolf",
       "name": "Galvin Green CANDY Knitted Slipover - Midnight Blue/Spring Green/White",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 64.95,
       "salePrice": 34.99,
       "savePct": 46,
@@ -35706,7 +35697,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723744005&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/24111__33712.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "Galvin Green",
       "colour": "Green",
       "audience": "Male",
@@ -36087,9 +36078,9 @@
       }
     },
     {
-      "id": "accessories-galvin-green-womens-bree-body-windstopper-clickgolf",
+      "id": "apparel-galvin-green-womens-bree-body-windstopper-clickgolf",
       "name": "Galvin Green Womens Bree Body - Windstopper",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 144.95,
       "salePrice": 71.99,
       "savePct": 50,
@@ -36097,7 +36088,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723744045&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/45746__04997.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "Galvin Green",
       "colour": "Green",
       "audience": "Female",
@@ -37008,9 +36999,9 @@
       }
     },
     {
-      "id": "sets-wilson-1200-tpx-package-set-steel-graphite-clickgolf",
+      "id": "putter-wilson-1200-tpx-package-set-steel-graphite-clickgolf",
       "name": "Wilson 1200 TPX Package Set - Steel/Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 339.0,
       "salePrice": 339.0,
       "savePct": 0,
@@ -37042,9 +37033,9 @@
       }
     },
     {
-      "id": "sets-wilson-1200-tpx-package-set-steel-graphite-1-long-clickgolf",
+      "id": "putter-wilson-1200-tpx-package-set-steel-graphite-1-long-clickgolf",
       "name": "Wilson 1200 TPX Package Set - Steel/Graphite +1\" Long",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 339.0,
       "salePrice": 339.0,
       "savePct": 0,
@@ -37076,9 +37067,9 @@
       }
     },
     {
-      "id": "sets-wilson-1200-tpx-package-set-ladies-clickgolf",
+      "id": "putter-wilson-1200-tpx-package-set-ladies-clickgolf",
       "name": "Wilson 1200 TPX Package Set - Ladies",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 339.0,
       "salePrice": 339.0,
       "savePct": 0,
@@ -37111,9 +37102,9 @@
       "flex": "Ladies"
     },
     {
-      "id": "sets-wilson-1200-tpx-package-set-graphite-clickgolf",
+      "id": "putter-wilson-1200-tpx-package-set-graphite-clickgolf",
       "name": "Wilson 1200 TPX Package Set - Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 369.0,
       "salePrice": 369.0,
       "savePct": 0,
@@ -37611,9 +37602,9 @@
       }
     },
     {
-      "id": "accessories-garmin-approach-ct10-sensors-14-pack-clickgolf",
+      "id": "putter-garmin-approach-ct10-sensors-14-pack-clickgolf",
       "name": "Garmin Approach CT10 Sensors (14-Pack)",
-      "category": "accessories",
+      "category": "putter",
       "retailPrice": 199.99,
       "salePrice": 199.0,
       "savePct": 0,
@@ -37621,7 +37612,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40200192954&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/p_82495-1532008622__84223.jpg",
-      "icon": "accessories",
       "brand": "Garmin",
       "audience": "Male",
       "inStock": true,
@@ -37646,9 +37636,9 @@
       }
     },
     {
-      "id": "accessories-garmin-approach-ct10-sensors-3-pack-clickgolf",
+      "id": "putter-garmin-approach-ct10-sensors-3-pack-clickgolf",
       "name": "Garmin Approach CT10 Sensors (3-Pack)",
-      "category": "accessories",
+      "category": "putter",
       "retailPrice": 69.99,
       "salePrice": 69.99,
       "savePct": 0,
@@ -37656,7 +37646,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40200192955&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/p_82496-1532008509__25445.jpg",
-      "icon": "accessories",
       "brand": "Garmin",
       "audience": "Male",
       "inStock": true,
@@ -38499,9 +38488,9 @@
       }
     },
     {
-      "id": "sets-taylormade-team-tm-junior-golf-package-set-7-9-years-clickgolf",
+      "id": "putter-taylormade-team-tm-junior-golf-package-set-7-9-years-clickgolf",
       "name": "TaylorMade Team TM Junior Golf Package Set, 7-9 Years",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 365.0,
       "salePrice": 365.0,
       "savePct": 0,
@@ -39031,9 +39020,9 @@
       }
     },
     {
-      "id": "sets-yonex-ezone-elite-4-ladies-full-golf-club-package-set-graphi-clickgolf",
+      "id": "driver-yonex-ezone-elite-4-ladies-full-golf-club-package-set-graphi-clickgolf",
       "name": "Yonex Ezone Elite 4 Ladies Full Golf Club Package Set - Graphite",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 1106.0,
       "salePrice": 999.0,
       "savePct": 10,
@@ -39772,9 +39761,9 @@
       }
     },
     {
-      "id": "accessories-navee-birdie-3-electric-remote-golf-trolley-extended-lithium-clickgolf",
+      "id": "wood-navee-birdie-3-electric-remote-golf-trolley-extended-lithium-clickgolf",
       "name": "NAVEE Birdie 3 Electric Remote Golf Trolley - Extended Lithium",
-      "category": "accessories",
+      "category": "wood",
       "retailPrice": 849.99,
       "salePrice": 849.99,
       "savePct": 0,
@@ -39782,7 +39771,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44743493827&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/NAV_001-Navee-Birdie-3-Remote-Hero.jpg",
-      "icon": "pushcart",
       "brand": "Navee",
       "audience": "Male",
       "inStock": true,
@@ -41138,9 +41126,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-3-club-package-set-39-pink-clickgolf",
+      "id": "putter-us-kids-ul7-3-club-package-set-39-pink-clickgolf",
       "name": "US Kids UL7 3 Club Package Set (39'') - Pink",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 124.95,
       "salePrice": 124.95,
       "savePct": 0,
@@ -41727,9 +41715,9 @@
       }
     },
     {
-      "id": "sets-callaway-junior-xj-5-piece-set-golf-package-set-level-2-5-8--clickgolf",
+      "id": "putter-callaway-junior-xj-5-piece-set-golf-package-set-level-2-5-8--clickgolf",
       "name": "Callaway Junior XJ 5-Piece Set Golf Package Set Level 2 (5-8 Years) - Black",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 399.0,
       "salePrice": 349.0,
       "savePct": 13,
@@ -42686,9 +42674,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-p1-push-golf-trolley-blue-clickgolf",
+      "id": "ball-motocaddy-p1-push-golf-trolley-blue-clickgolf",
       "name": "Motocaddy P1 Push Golf Trolley - Blue",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 189.99,
       "salePrice": 159.0,
       "savePct": 16,
@@ -42696,7 +42684,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44233908434&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/110633__65601.jpg",
-      "icon": "pushcart",
       "brand": "Motocaddy",
       "colour": "Blue",
       "audience": "Male",
@@ -42722,9 +42709,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-p1-push-golf-trolley-red-clickgolf",
+      "id": "ball-motocaddy-p1-push-golf-trolley-red-clickgolf",
       "name": "Motocaddy P1 Push Golf Trolley - Red",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 189.99,
       "salePrice": 159.0,
       "savePct": 16,
@@ -42732,7 +42719,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40826401346&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/110636__41282.jpg",
-      "icon": "pushcart",
       "brand": "Motocaddy",
       "colour": "Red",
       "audience": "Male",
@@ -42758,9 +42744,9 @@
       }
     },
     {
-      "id": "accessories-clicgear-4-5-golf-trolley-navy-clickgolf",
+      "id": "ball-clicgear-4-5-golf-trolley-navy-clickgolf",
       "name": "Clicgear 4.5 Golf Trolley - Navy",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 289.0,
       "salePrice": 279.0,
       "savePct": 3,
@@ -42768,7 +42754,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44780140311&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TRCC45NA-Clicgear-4.5-Navy-Right.jpg",
-      "icon": "pushcart",
       "brand": "Clicgear",
       "colour": "Navy",
       "audience": "Male",
@@ -42866,9 +42851,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-4-golf-club-package-set-42-yellow-clickgolf",
+      "id": "putter-us-kids-ul7-4-golf-club-package-set-42-yellow-clickgolf",
       "name": "US Kids UL7 4 Golf Club Package Set (42'') - Yellow",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 179.0,
       "salePrice": 179.0,
       "savePct": 0,
@@ -42901,9 +42886,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-4-golf-club-package-set-42-pink-clickgolf",
+      "id": "putter-us-kids-ul7-4-golf-club-package-set-42-pink-clickgolf",
       "name": "US Kids UL7 4 Golf Club Package Set (42'') - Pink",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 179.0,
       "salePrice": 179.0,
       "savePct": 0,
@@ -42936,9 +42921,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-5-club-golf-package-set-54-blue-clickgolf",
+      "id": "putter-us-kids-ul7-5-club-golf-package-set-54-blue-clickgolf",
       "name": "US Kids UL7 5 Club Golf Package Set (54'') - Blue",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 244.95,
       "salePrice": 244.95,
       "savePct": 0,
@@ -42971,9 +42956,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-5-club-golf-package-set-57-green-clickgolf",
+      "id": "putter-us-kids-ul7-5-club-golf-package-set-57-green-clickgolf",
       "name": "US Kids UL7 5 Club Golf Package Set (57'') - Green",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 244.95,
       "salePrice": 244.95,
       "savePct": 0,
@@ -43006,9 +42991,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-5-club-package-set-63-yellow-clickgolf",
+      "id": "putter-us-kids-ul7-5-club-package-set-63-yellow-clickgolf",
       "name": "US Kids UL7 5 Club Package Set (63'') - Yellow",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 254.95,
       "salePrice": 254.95,
       "savePct": 0,
@@ -46487,9 +46472,9 @@
       }
     },
     {
-      "id": "sets-ping-g440-max-men-s-bundle-golf-set-clickgolf",
+      "id": "driver-ping-g440-max-men-s-bundle-golf-set-clickgolf",
       "name": "Ping G440 Max Men's Bundle Golf Set",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 2180.0,
       "salePrice": 1899.0,
       "savePct": 13,
@@ -46734,9 +46719,9 @@
       }
     },
     {
-      "id": "accessories-longridge-ezeglide-bolt-2-auto-opening-push-trolley-grey-red-clickgolf",
+      "id": "ball-longridge-ezeglide-bolt-2-auto-opening-push-trolley-grey-red-clickgolf",
       "name": "Longridge Ezeglide Bolt 2 Auto Opening Push Trolley - Grey/Red",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 199.0,
       "salePrice": 169.0,
       "savePct": 15,
@@ -46744,7 +46729,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=36264881918&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TREZB2GR-EZEGlide-Bolt-2-Push-Cart-Blue-1.jpg",
-      "icon": "pushcart",
       "brand": "Longridge",
       "colour": "Grey",
       "audience": "Male",
@@ -46914,9 +46898,9 @@
       }
     },
     {
-      "id": "accessories-rovic-rv1c-2-0-compact-golf-trolley-charcoal-black-clickgolf",
+      "id": "ball-rovic-rv1c-2-0-compact-golf-trolley-charcoal-black-clickgolf",
       "name": "Rovic RV1C 2.0 Compact Golf Trolley - Charcoal/Black",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 199.0,
       "salePrice": 179.0,
       "savePct": 10,
@@ -46924,7 +46908,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43884486284&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Rovic-RV1C-2.0-Golf-Trolley-Charcoal-Black-1.jpg",
-      "icon": "pushcart",
       "brand": "Rovic",
       "colour": "Charcoal",
       "audience": "Male",
@@ -47228,9 +47211,9 @@
       }
     },
     {
-      "id": "sets-wilson-profile-men-s-golf-package-set-graphite-clickgolf",
+      "id": "putter-wilson-profile-men-s-golf-package-set-graphite-clickgolf",
       "name": "Wilson Profile Men's Golf Package Set - Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 549.0,
       "salePrice": 499.0,
       "savePct": 9,
@@ -47718,9 +47701,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-qb2-push-golf-trolley-graphite-clickgolf",
+      "id": "ball-motocaddy-qb2-push-golf-trolley-graphite-clickgolf",
       "name": "Motocaddy QB2 Push Golf Trolley - Graphite",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 219.99,
       "salePrice": 179.0,
       "savePct": 19,
@@ -47728,7 +47711,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43614984654&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/2025-QB2-Graphite-High-Angle.jpg",
-      "icon": "pushcart",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -47999,9 +47981,9 @@
       }
     },
     {
-      "id": "accessories-theswingplate-golf-trainer-aid-with-alignment-rods-clickgolf",
+      "id": "bag-theswingplate-golf-trainer-aid-with-alignment-rods-clickgolf",
       "name": "TheSwingPlate Golf Trainer Aid - with Alignment Rods",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 74.99,
       "salePrice": 69.99,
       "savePct": 7,
@@ -48009,7 +47991,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=41393015427&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Swing-Plate-Hero.jpg",
-      "icon": "accessories",
+      "icon": "golf-bag",
       "brand": "The Swing Plate",
       "audience": "Male",
       "inStock": true,
@@ -48173,9 +48155,9 @@
       }
     },
     {
-      "id": "sets-cobra-ds-adapt-x-mens-full-set-clickgolf",
+      "id": "driver-cobra-ds-adapt-x-mens-full-set-clickgolf",
       "name": "Cobra DS Adapt X Mens Full Set",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 1696.0,
       "salePrice": 1499.0,
       "savePct": 12,
@@ -50516,9 +50498,9 @@
       }
     },
     {
-      "id": "sets-callaway-xr-26-golf-package-set-steel-graphite-1-inch-longer-clickgolf",
+      "id": "putter-callaway-xr-26-golf-package-set-steel-graphite-1-inch-longer-clickgolf",
       "name": "Callaway XR '26 Golf Package Set - Steel/Graphite +1 Inch Longer",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1399.0,
       "salePrice": 1099.0,
       "savePct": 21,
@@ -51187,9 +51169,9 @@
       }
     },
     {
-      "id": "accessories-titleist-tour-series-desk-caddy-black-white-clickgolf",
+      "id": "bag-titleist-tour-series-desk-caddy-black-white-clickgolf",
       "name": "Titleist Tour Series Desk Caddy - Black/White",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 35.0,
       "salePrice": 32.99,
       "savePct": 6,
@@ -51197,7 +51179,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878232440&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TA23DC-01-titleist-pen-caddy-2.jpg",
-      "icon": "accessories",
+      "icon": "golf-bag",
       "brand": "Titleist",
       "colour": "Black",
       "audience": "Male",
@@ -51509,9 +51491,9 @@
       }
     },
     {
-      "id": "accessories-rohnisch-skylar-down-ladies-golf-gillet-clickgolf",
+      "id": "apparel-rohnisch-skylar-down-ladies-golf-gillet-clickgolf",
       "name": "Rohnisch Skylar Down Ladies Golf Gillet",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 129.95,
       "salePrice": 63.74,
       "savePct": 51,
@@ -51519,7 +51501,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=35506473304&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/133952-1633100055__65128.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "Rohnisch",
       "audience": "Female",
       "inStock": true,
@@ -51864,9 +51846,9 @@
       }
     },
     {
-      "id": "accessories-wishbone-cube-three-golf-push-trolley-charcoal-black-clickgolf",
+      "id": "wood-wishbone-cube-three-golf-push-trolley-charcoal-black-clickgolf",
       "name": "Wishbone Cube Three Golf Push Trolley - Charcoal/Black",
-      "category": "accessories",
+      "category": "wood",
       "retailPrice": 189.99,
       "salePrice": 169.0,
       "savePct": 11,
@@ -51874,7 +51856,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44976588585&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/wishbone-cube-3-black-hero.jpg",
-      "icon": "pushcart",
       "brand": "Wishbone",
       "colour": "Charcoal",
       "audience": "Male",
@@ -53205,9 +53186,9 @@
       }
     },
     {
-      "id": "sets-taylormade-rbz-mens-11-piece-package-set-steel-clickgolf",
+      "id": "putter-taylormade-rbz-mens-11-piece-package-set-steel-clickgolf",
       "name": "TaylorMade RBZ Mens 11 Piece Package Set - Steel",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1029.0,
       "salePrice": 1029.0,
       "savePct": 0,
@@ -53451,9 +53432,9 @@
       }
     },
     {
-      "id": "sets-taylormade-rbz-mens-11-piece-package-set-senior-graphite-clickgolf",
+      "id": "putter-taylormade-rbz-mens-11-piece-package-set-senior-graphite-clickgolf",
       "name": "TaylorMade RBZ Mens 11 Piece Package Set - Senior Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1079.0,
       "salePrice": 1079.0,
       "savePct": 0,
@@ -54049,9 +54030,9 @@
       }
     },
     {
-      "id": "sets-wilson-x-31-advantage-men-s-golf-package-set-steel-graphite-clickgolf",
+      "id": "putter-wilson-x-31-advantage-men-s-golf-package-set-steel-graphite-clickgolf",
       "name": "Wilson X-31 Advantage Men's Golf Package Set - Steel/Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 449.0,
       "salePrice": 379.0,
       "savePct": 16,
@@ -55250,9 +55231,9 @@
       }
     },
     {
-      "id": "sets-callaway-elyte-men-s-bundle-golf-set-custom-fit-clickgolf",
+      "id": "driver-callaway-elyte-men-s-bundle-golf-set-custom-fit-clickgolf",
       "name": "Callaway Elyte Men's Bundle Golf Set (Custom Fit)",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 2219.0,
       "salePrice": 1349.0,
       "savePct": 39,
@@ -58174,9 +58155,9 @@
       }
     },
     {
-      "id": "sets-titleist-gt-t-series-men-s-full-golf-set-clickgolf",
+      "id": "driver-titleist-gt-t-series-men-s-full-golf-set-clickgolf",
       "name": "Titleist GT/T-Series Men's Full Golf Set",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 2419.0,
       "salePrice": 2199.0,
       "savePct": 9,
@@ -58316,9 +58297,9 @@
       }
     },
     {
-      "id": "sets-cobra-fly-xl-2-golf-package-set-steel-stand-11-piece-stiff-clickgolf",
+      "id": "putter-cobra-fly-xl-2-golf-package-set-steel-stand-11-piece-stiff-clickgolf",
       "name": "Cobra Fly XL 2 Golf Package Set - Steel Stand (11-Piece) Stiff",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 699.0,
       "salePrice": 599.0,
       "savePct": 14,
@@ -58494,9 +58475,9 @@
       }
     },
     {
-      "id": "sets-callaway-xr-26-golf-package-set-steel-graphite-clickgolf",
+      "id": "putter-callaway-xr-26-golf-package-set-steel-graphite-clickgolf",
       "name": "Callaway XR '26 Golf Package Set - Steel/Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1399.0,
       "salePrice": 1099.0,
       "savePct": 21,
@@ -59024,9 +59005,9 @@
       }
     },
     {
-      "id": "accessories-rovic-rv1c-2-0-compact-golf-trolley-blue-clickgolf",
+      "id": "ball-rovic-rv1c-2-0-compact-golf-trolley-blue-clickgolf",
       "name": "Rovic RV1C 2.0 Compact Golf Trolley - Blue",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 199.0,
       "salePrice": 179.0,
       "savePct": 10,
@@ -59034,7 +59015,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=39116756583&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Rovic-Rovic-RV1C-2.0-Compact-Golf-Trolley---Blue.jpg",
-      "icon": "pushcart",
       "brand": "Clicgear",
       "colour": "Blue",
       "audience": "Male",
@@ -59274,9 +59254,9 @@
       }
     },
     {
-      "id": "sets-ping-g430-max-men-s-bundle-golf-set-steel-clickgolf",
+      "id": "driver-ping-g430-max-men-s-bundle-golf-set-steel-clickgolf",
       "name": "Ping G430 Max Men's Bundle Golf Set - Steel",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 1999.0,
       "salePrice": 1449.0,
       "savePct": 28,
@@ -59415,9 +59395,9 @@
       }
     },
     {
-      "id": "sets-callaway-elyte-men-s-bundle-golf-set-clickgolf",
+      "id": "driver-callaway-elyte-men-s-bundle-golf-set-clickgolf",
       "name": "Callaway Elyte Men's Bundle Golf Set",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 2052.0,
       "salePrice": 1249.0,
       "savePct": 39,
@@ -60151,9 +60131,9 @@
       }
     },
     {
-      "id": "accessories-wishbone-cube-three-golf-push-trolley-charcoal-lime-clickgolf",
+      "id": "wood-wishbone-cube-three-golf-push-trolley-charcoal-lime-clickgolf",
       "name": "Wishbone Cube Three Golf Push Trolley - Charcoal/Lime",
-      "category": "accessories",
+      "category": "wood",
       "retailPrice": 189.99,
       "salePrice": 169.0,
       "savePct": 11,
@@ -60161,7 +60141,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44976588642&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/wishbone-cube-3-black-lime-hero.jpg",
-      "icon": "pushcart",
       "brand": "Wishbone",
       "colour": "Charcoal",
       "audience": "Male",
@@ -60576,9 +60555,9 @@
       }
     },
     {
-      "id": "sets-skymax-aspire-xd1-men-s-golf-package-set-steel-graphite-clickgolf",
+      "id": "putter-skymax-aspire-xd1-men-s-golf-package-set-steel-graphite-clickgolf",
       "name": "SkyMax Aspire XD1 Men's Golf Package Set - Steel/Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 229.0,
       "salePrice": 195.0,
       "savePct": 15,
@@ -61418,9 +61397,9 @@
       }
     },
     {
-      "id": "sets-wilson-profile-mens-golf-package-set-steel-graphite-clickgolf",
+      "id": "putter-wilson-profile-mens-golf-package-set-steel-graphite-clickgolf",
       "name": "Wilson Profile Mens Golf Package Set - Steel/Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 525.0,
       "salePrice": 429.0,
       "savePct": 18,
@@ -61735,9 +61714,9 @@
       }
     },
     {
-      "id": "accessories-clicgear-4-5-golf-trolley-white-clickgolf",
+      "id": "ball-clicgear-4-5-golf-trolley-white-clickgolf",
       "name": "Clicgear 4.5 Golf Trolley - White",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 289.0,
       "salePrice": 279.0,
       "savePct": 3,
@@ -61745,7 +61724,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44780140325&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TRCC45WH-Clicgear-4.5-White-Hero.jpg",
-      "icon": "pushcart",
       "brand": "Clicgear",
       "colour": "White",
       "audience": "Male",
@@ -62186,9 +62164,9 @@
       }
     },
     {
-      "id": "sets-callaway-xt-11-piece-teenage-golf-package-set-black-clickgolf",
+      "id": "putter-callaway-xt-11-piece-teenage-golf-package-set-black-clickgolf",
       "name": "Callaway XT 11-Piece Teenage Golf Package Set - Black",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 569.0,
       "salePrice": 499.0,
       "savePct": 12,
@@ -62648,9 +62626,9 @@
       }
     },
     {
-      "id": "sets-macgregor-cg4000-men-s-golf-club-package-set-steel-clickgolf",
+      "id": "driver-macgregor-cg4000-men-s-golf-club-package-set-steel-clickgolf",
       "name": "MacGregor CG4000 Men's Golf Club Package Set - Steel",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 329.99,
       "salePrice": 329.99,
       "savePct": 0,
@@ -63033,9 +63011,9 @@
       }
     },
     {
-      "id": "accessories-bagboy-slimfold-golf-trolley-navy-clickgolf",
+      "id": "ball-bagboy-slimfold-golf-trolley-navy-clickgolf",
       "name": "BagBoy SLIMFOLD Golf Trolley - Navy",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 279.0,
       "salePrice": 259.0,
       "savePct": 7,
@@ -63043,7 +63021,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40978166209&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/BagBoy-SLIMFOLD-Golf-Trolley---Navy.jpg",
-      "icon": "pushcart",
       "brand": "BagBoy",
       "colour": "Navy",
       "audience": "Male",
@@ -63702,9 +63679,9 @@
       }
     },
     {
-      "id": "sets-wilson-x-31-advantage-ladies-golf-package-set-graphite-clickgolf",
+      "id": "putter-wilson-x-31-advantage-ladies-golf-package-set-graphite-clickgolf",
       "name": "Wilson X-31 Advantage Ladies Golf Package Set - Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 479.0,
       "salePrice": 379.0,
       "savePct": 21,
@@ -64476,9 +64453,9 @@
       }
     },
     {
-      "id": "sets-cobra-fly-xl-2-golf-package-set-left-hand-stand-11-piece-clickgolf",
+      "id": "putter-cobra-fly-xl-2-golf-package-set-left-hand-stand-11-piece-clickgolf",
       "name": "Cobra Fly XL 2 Golf Package Set - Left Hand Stand (11-Piece)",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 699.0,
       "salePrice": 599.0,
       "savePct": 14,
@@ -66700,9 +66677,9 @@
       }
     },
     {
-      "id": "sets-cobra-rad-s-full-golf-bundle-set-clickgolf",
+      "id": "driver-cobra-rad-s-full-golf-bundle-set-clickgolf",
       "name": "Cobra RAD-S Full Golf Bundle Set",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 1346.0,
       "salePrice": 999.0,
       "savePct": 26,
@@ -66874,9 +66851,9 @@
       }
     },
     {
-      "id": "sets-taylormade-qi4d-max-men-s-bundle-golf-set-steel-clickgolf",
+      "id": "driver-taylormade-qi4d-max-men-s-bundle-golf-set-steel-clickgolf",
       "name": "TaylorMade Qi4D Max Men's Bundle Golf Set - Steel",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 1996.0,
       "salePrice": 1799.0,
       "savePct": 10,
@@ -68312,9 +68289,9 @@
       }
     },
     {
-      "id": "sets-macgregor-v-max-junior-package-set-age-3-5-clickgolf",
+      "id": "putter-macgregor-v-max-junior-package-set-age-3-5-clickgolf",
       "name": "MacGregor V-Max Junior Package Set (Age 3-5)",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 129.99,
       "salePrice": 129.99,
       "savePct": 0,
@@ -68694,9 +68671,9 @@
       }
     },
     {
-      "id": "sets-yonex-ezone-elite-4-full-golf-club-package-set-steel-clickgolf",
+      "id": "driver-yonex-ezone-elite-4-full-golf-club-package-set-steel-clickgolf",
       "name": "Yonex Ezone Elite 4 Full Golf Club Package Set - Steel",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 1236.0,
       "salePrice": 1099.0,
       "savePct": 11,
@@ -68764,9 +68741,9 @@
       }
     },
     {
-      "id": "sets-wilson-player-fit-ladies-golf-package-set-graphite-clickgolf",
+      "id": "putter-wilson-player-fit-ladies-golf-package-set-graphite-clickgolf",
       "name": "Wilson Player Fit Ladies Golf Package Set - Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 799.0,
       "salePrice": 599.0,
       "savePct": 25,
@@ -68977,9 +68954,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-fw-gun-metal-electric-golf-trolley-18-hole-lithium-clickgolf",
+      "id": "bag-powakaddy-fw-gun-metal-electric-golf-trolley-18-hole-lithium-clickgolf",
       "name": "PowaKaddy FW Gun Metal Electric Golf Trolley - 18 Hole Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 549.0,
       "salePrice": 479.0,
       "savePct": 13,
@@ -68987,7 +68964,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=41933146285&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-FW-Gun-Metal-Electric-Trolley-1.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -70780,9 +70757,9 @@
       }
     },
     {
-      "id": "accessories-island-green-professional-winter-golf-clothing-bundle-black-clickgolf",
+      "id": "apparel-island-green-professional-winter-golf-clothing-bundle-black-clickgolf",
       "name": "Island Green Professional Winter Golf Clothing Bundle - Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 159.0,
       "salePrice": 69.0,
       "savePct": 57,
@@ -70790,7 +70767,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=39179682215&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/island-green-professional-pack-clothing-black.jpg",
-      "icon": "accessories",
+      "icon": "polo",
       "brand": "Island Green",
       "colour": "Green",
       "audience": "Male",
@@ -71527,9 +71504,9 @@
       }
     },
     {
-      "id": "accessories-ben-sayers-electric-golf-trolley-black-18-hole-lithium-clickgolf",
+      "id": "bag-ben-sayers-electric-golf-trolley-black-18-hole-lithium-clickgolf",
       "name": "Ben Sayers Electric Golf Trolley - Black 18 Hole Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 429.99,
       "salePrice": 349.0,
       "savePct": 19,
@@ -71537,7 +71514,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44074972102&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Ben-Sayers-Electric-Golf-Trolley-Black-18-Hole-Lithium.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Ben Sayers",
       "colour": "Black",
       "audience": "Male",
@@ -71990,9 +71967,9 @@
       }
     },
     {
-      "id": "sets-mizuno-jm-01-junior-golf-package-set-120-age-6-9-clickgolf",
+      "id": "putter-mizuno-jm-01-junior-golf-package-set-120-age-6-9-clickgolf",
       "name": "Mizuno JM 01 Junior Golf Package Set - 120 (Age 6-9)",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 449.0,
       "salePrice": 399.0,
       "savePct": 11,
@@ -72448,9 +72425,9 @@
       }
     },
     {
-      "id": "sets-skymax-aspire-junior-6-8-year-old-golf-package-set-clickgolf",
+      "id": "putter-skymax-aspire-junior-6-8-year-old-golf-package-set-clickgolf",
       "name": "SkyMax Aspire Junior 6-8 Year Old Golf Package Set",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 129.0,
       "salePrice": 119.0,
       "savePct": 8,
@@ -72937,9 +72914,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-5-club-golf-package-set-51-orange-clickgolf",
+      "id": "putter-us-kids-ul7-5-club-golf-package-set-51-orange-clickgolf",
       "name": "US Kids UL7 5 Club Golf Package Set (51'') - Orange",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 234.95,
       "salePrice": 234.95,
       "savePct": 0,
@@ -73080,9 +73057,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-fx1-electric-trolley-18-hole-lithium-clickgolf",
+      "id": "bag-powakaddy-fx1-electric-trolley-18-hole-lithium-clickgolf",
       "name": "PowaKaddy FX1 Electric Trolley 18 Hole Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 549.99,
       "salePrice": 499.0,
       "savePct": 9,
@@ -73090,7 +73067,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=41395139946&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-FX1-Electric-Golf_Trolley-18-Hole-Lithium.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -73358,9 +73335,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-fx1-electric-golf-trolley-extended-lithium-clickgolf",
+      "id": "bag-powakaddy-fx1-electric-golf-trolley-extended-lithium-clickgolf",
       "name": "PowaKaddy FX1 Electric Golf Trolley - Extended Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 599.99,
       "salePrice": 549.0,
       "savePct": 8,
@@ -73368,7 +73345,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=41395139947&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK_FX1_Electric-Trolley-Extended-2025.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -73922,9 +73899,9 @@
       }
     },
     {
-      "id": "sets-callaway-junior-xj-5-piece-set-golf-package-set-level-1-3-5--clickgolf",
+      "id": "putter-callaway-junior-xj-5-piece-set-golf-package-set-level-1-3-5--clickgolf",
       "name": "Callaway Junior XJ 5-Piece Set Golf Package Set Level 1 (3-5 Years) - Black",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 259.0,
       "salePrice": 229.0,
       "savePct": 12,
@@ -74065,9 +74042,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-qb2-push-golf-trolley-lime-clickgolf",
+      "id": "ball-motocaddy-qb2-push-golf-trolley-lime-clickgolf",
       "name": "Motocaddy QB2 Push Golf Trolley - Lime",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 219.99,
       "salePrice": 179.0,
       "savePct": 19,
@@ -74075,7 +74052,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43997220887&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/QB2-Golf-Trolley-Lime-Left.jpg",
-      "icon": "pushcart",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -74243,9 +74219,9 @@
       }
     },
     {
-      "id": "sets-taylormade-team-tm-junior-golf-package-set-10-12-years-clickgolf",
+      "id": "putter-taylormade-team-tm-junior-golf-package-set-10-12-years-clickgolf",
       "name": "TaylorMade Team TM Junior Golf Package Set, 10-12 Years",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 449.0,
       "salePrice": 449.0,
       "savePct": 0,
@@ -74488,9 +74464,9 @@
       }
     },
     {
-      "id": "sets-macgregor-v-max-junior-package-set-age-6-8-clickgolf",
+      "id": "putter-macgregor-v-max-junior-package-set-age-6-8-clickgolf",
       "name": "MacGregor V-Max Junior Package Set (Age 6-8)",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 159.99,
       "salePrice": 149.0,
       "savePct": 7,
@@ -74804,9 +74780,9 @@
       }
     },
     {
-      "id": "accessories-clicgear-4-5-golf-trolley-black-clickgolf",
+      "id": "ball-clicgear-4-5-golf-trolley-black-clickgolf",
       "name": "Clicgear 4.5 Golf Trolley - Black",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 289.0,
       "salePrice": 279.0,
       "savePct": 3,
@@ -74814,7 +74790,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44780140348&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/-91A0030-Edit-20_1200x1200.jpg",
-      "icon": "pushcart",
       "brand": "Clicgear",
       "colour": "Black",
       "audience": "Male",
@@ -75293,9 +75268,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-se-electric-golf-trolley-standard-lithium-clickgolf",
+      "id": "bag-motocaddy-se-electric-golf-trolley-standard-lithium-clickgolf",
       "name": "Motocaddy SE Electric Golf Trolley - Standard Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 549.99,
       "salePrice": 499.0,
       "savePct": 9,
@@ -75303,7 +75278,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44242524640&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TR26SENXLU-SE-26-Electric-Trolley-Hero-2.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -76817,9 +76792,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-4-club-golf-package-set-45-blue-clickgolf",
+      "id": "putter-us-kids-ul7-4-club-golf-package-set-45-blue-clickgolf",
       "name": "US Kids UL7 4 Club Golf Package Set (45'') - Blue",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 179.0,
       "salePrice": 179.0,
       "savePct": 0,
@@ -77277,9 +77252,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-3-club-golf-package-set-39-red-clickgolf",
+      "id": "putter-us-kids-ul7-3-club-golf-package-set-39-red-clickgolf",
       "name": "US Kids UL7 3 Club Golf Package Set (39'') - Red",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 124.95,
       "salePrice": 124.95,
       "savePct": 0,
@@ -77375,9 +77350,9 @@
       }
     },
     {
-      "id": "sets-macgregor-cg4000-men-s-golf-club-package-set-1-longer-steel-clickgolf",
+      "id": "driver-macgregor-cg4000-men-s-golf-club-package-set-1-longer-steel-clickgolf",
       "name": "MacGregor CG4000 Men's Golf Club Package Set - 1\" Longer Steel",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 329.99,
       "salePrice": 329.99,
       "savePct": 0,
@@ -78225,9 +78200,9 @@
       }
     },
     {
-      "id": "sets-ping-g430-max-mens-full-set-graphite-clickgolf",
+      "id": "driver-ping-g430-max-mens-full-set-graphite-clickgolf",
       "name": "Ping G430 Max Mens Full Set - Graphite",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 2099.0,
       "salePrice": 1499.0,
       "savePct": 29,
@@ -78751,9 +78726,9 @@
       }
     },
     {
-      "id": "sets-macgregor-cg4000-golf-club-package-set-ladies-clickgolf",
+      "id": "putter-macgregor-cg4000-golf-club-package-set-ladies-clickgolf",
       "name": "MacGregor CG4000 Golf Club Package Set - Ladies",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 329.99,
       "salePrice": 329.99,
       "savePct": 0,
@@ -80702,9 +80677,9 @@
       }
     },
     {
-      "id": "sets-taylormade-rbz-mens-11-piece-package-set-graphite-clickgolf",
+      "id": "putter-taylormade-rbz-mens-11-piece-package-set-graphite-clickgolf",
       "name": "TaylorMade RBZ Mens 11 Piece Package Set - Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1079.0,
       "salePrice": 1079.0,
       "savePct": 0,
@@ -81307,9 +81282,9 @@
       }
     },
     {
-      "id": "sets-srixon-zxi-mens-full-set-clickgolf",
+      "id": "driver-srixon-zxi-mens-full-set-clickgolf",
       "name": "Srixon ZXi Mens Full Set",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 2171.0,
       "salePrice": 1799.0,
       "savePct": 17,
@@ -81482,9 +81457,9 @@
       }
     },
     {
-      "id": "accessories-clicgear-4-5-golf-trolley-slate-clickgolf",
+      "id": "ball-clicgear-4-5-golf-trolley-slate-clickgolf",
       "name": "Clicgear 4.5 Golf Trolley - Slate",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 289.0,
       "salePrice": 279.0,
       "savePct": 3,
@@ -81492,7 +81467,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44780140356&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TRCC45SLA-Clicgear-4.5-Slate-Right.jpg",
-      "icon": "pushcart",
       "brand": "Clicgear",
       "audience": "Male",
       "inStock": true,
@@ -82047,9 +82021,9 @@
       }
     },
     {
-      "id": "sets-callaway-reva-11-piece-ladies-golf-package-set-black-clickgolf",
+      "id": "putter-callaway-reva-11-piece-ladies-golf-package-set-black-clickgolf",
       "name": "Callaway Reva 11-Piece Ladies Golf Package Set - Black",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1299.0,
       "salePrice": 1099.0,
       "savePct": 15,
@@ -83288,9 +83262,9 @@
       }
     },
     {
-      "id": "sets-yonex-ezone-elite-4-full-golf-club-package-set-graphite-clickgolf",
+      "id": "driver-yonex-ezone-elite-4-full-golf-club-package-set-graphite-clickgolf",
       "name": "Yonex Ezone Elite 4 Full Golf Club Package Set - Graphite",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 1236.0,
       "salePrice": 1099.0,
       "savePct": 11,
@@ -83427,9 +83401,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-rx12-ct12-scorecard-holder-clickgolf",
+      "id": "ball-powakaddy-rx12-ct12-scorecard-holder-clickgolf",
       "name": "PowaKaddy RX12 & CT12 Scorecard Holder",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 27.99,
       "salePrice": 27.99,
       "savePct": 0,
@@ -83437,7 +83411,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=42917345884&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/RX12-CT12-Scorecard-Holder.jpg",
-      "icon": "accessories",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -83710,9 +83683,9 @@
       }
     },
     {
-      "id": "accessories-wishbone-cube-three-golf-push-trolley-white-red-clickgolf",
+      "id": "wood-wishbone-cube-three-golf-push-trolley-white-red-clickgolf",
       "name": "Wishbone Cube Three Golf Push Trolley - White/Red",
-      "category": "accessories",
+      "category": "wood",
       "retailPrice": 189.99,
       "salePrice": 169.0,
       "savePct": 11,
@@ -83720,7 +83693,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44976588814&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/wishbone-cube-3-white-red-hero.jpg",
-      "icon": "pushcart",
       "brand": "Wishbone",
       "colour": "White",
       "audience": "Male",
@@ -83854,9 +83826,9 @@
       }
     },
     {
-      "id": "accessories-shot-scope-connex-golf-tracking-tags-x-16-clickgolf",
+      "id": "apparel-shot-scope-connex-golf-tracking-tags-x-16-clickgolf",
       "name": "Shot Scope Connex Golf Tracking Tags x 16",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 129.0,
       "salePrice": 69.99,
       "savePct": 46,
@@ -83864,7 +83836,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43302522358&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/shot-scope-tags-grey.jpg",
-      "icon": "accessories",
+      "icon": "shorts",
       "brand": "Shot Scope",
       "audience": "Male",
       "inStock": true,
@@ -87448,9 +87420,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-qb2-golf-push-trolley-blue-clickgolf",
+      "id": "ball-motocaddy-qb2-golf-push-trolley-blue-clickgolf",
       "name": "Motocaddy QB2 Golf Push Trolley - Blue",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 219.99,
       "salePrice": 179.0,
       "savePct": 19,
@@ -87458,7 +87430,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43997220922&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/QB2-Golf-Trolley-Blue-High.jpg",
-      "icon": "pushcart",
       "brand": "Motocaddy",
       "colour": "Blue",
       "audience": "Male",
@@ -87699,9 +87670,9 @@
       }
     },
     {
-      "id": "sets-wilson-player-fit-mens-golf-package-set-graphite-clickgolf",
+      "id": "putter-wilson-player-fit-mens-golf-package-set-graphite-clickgolf",
       "name": "Wilson Player Fit Mens Golf Package Set - Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 799.0,
       "salePrice": 649.0,
       "savePct": 19,
@@ -88303,9 +88274,9 @@
       }
     },
     {
-      "id": "accessories-ben-sayers-electric-golf-trolley-black-extended-lithium-clickgolf",
+      "id": "bag-ben-sayers-electric-golf-trolley-black-extended-lithium-clickgolf",
       "name": "Ben Sayers Electric Golf Trolley - Black Extended Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 499.99,
       "salePrice": 399.0,
       "savePct": 20,
@@ -88313,7 +88284,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=37553705461&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/156382.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Ben Sayers",
       "colour": "Black",
       "audience": "Male",
@@ -88725,9 +88696,9 @@
       }
     },
     {
-      "id": "accessories-clicgear-4-5-golf-trolley-pink-clickgolf",
+      "id": "ball-clicgear-4-5-golf-trolley-pink-clickgolf",
       "name": "Clicgear 4.5 Golf Trolley - Pink",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 289.0,
       "salePrice": 279.0,
       "savePct": 3,
@@ -88735,7 +88706,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44780140365&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TRCC45PK-Clicgear-4.5-Pink-Hero.jpg",
-      "icon": "pushcart",
       "brand": "Clicgear",
       "colour": "Pink",
       "audience": "Male",
@@ -88869,9 +88839,9 @@
       }
     },
     {
-      "id": "sets-callaway-xj-junior-8-piece-golf-package-set-9-12-years-level-clickgolf",
+      "id": "putter-callaway-xj-junior-8-piece-golf-package-set-9-12-years-level-clickgolf",
       "name": "Callaway XJ Junior 8-Piece Golf Package Set 9-12 Years (Level 3) - Blue/White",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 469.0,
       "salePrice": 399.0,
       "savePct": 15,
@@ -89011,9 +88981,9 @@
       }
     },
     {
-      "id": "sets-cobra-fly-xl-2-package-set-steel-stand-13-piece-clickgolf",
+      "id": "putter-cobra-fly-xl-2-package-set-steel-stand-13-piece-clickgolf",
       "name": "Cobra Fly XL 2 Package Set - Steel Stand (13-Piece)",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 849.0,
       "salePrice": 699.0,
       "savePct": 18,
@@ -89615,9 +89585,9 @@
       }
     },
     {
-      "id": "accessories-island-green-professional-winter-golf-clothing-bundle-navy-clickgolf",
+      "id": "apparel-island-green-professional-winter-golf-clothing-bundle-navy-clickgolf",
       "name": "Island Green Professional Winter Golf Clothing Bundle - Navy",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 159.0,
       "salePrice": 69.0,
       "savePct": 57,
@@ -89625,7 +89595,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=39179682224&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/island-green-professional-pack-clothing-blue.jpg",
-      "icon": "accessories",
+      "icon": "polo",
       "brand": "Island Green",
       "colour": "Green",
       "audience": "Male",
@@ -90388,9 +90358,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-me-remote-electric-golf-trolley-ultra-lithium-clickgolf",
+      "id": "bag-motocaddy-me-remote-electric-golf-trolley-ultra-lithium-clickgolf",
       "name": "Motocaddy ME Remote Electric Golf Trolley - Ultra Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 1049.99,
       "salePrice": 999.0,
       "savePct": 5,
@@ -90398,7 +90368,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44253857792&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TR26MEXRM7-ME-Remote-Trolley-Hero.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -90983,9 +90953,9 @@
       }
     },
     {
-      "id": "sets-callaway-quantum-max-men-s-bundle-golf-set-steel-clickgolf",
+      "id": "driver-callaway-quantum-max-men-s-bundle-golf-set-steel-clickgolf",
       "name": "Callaway Quantum Max Men's Bundle Golf Set - Steel",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 2016.0,
       "salePrice": 1799.0,
       "savePct": 11,
@@ -91554,9 +91524,9 @@
       }
     },
     {
-      "id": "accessories-bagboy-slimfold-golf-trolley-black-clickgolf",
+      "id": "ball-bagboy-slimfold-golf-trolley-black-clickgolf",
       "name": "BagBoy SLIMFOLD Golf Trolley - Black",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 279.0,
       "salePrice": 259.0,
       "savePct": 7,
@@ -91564,7 +91534,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40978166334&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/BagBoy-SLIMFOLD-Golf-Trolley---Black.jpg",
-      "icon": "pushcart",
       "brand": "BagBoy",
       "colour": "Black",
       "audience": "Male",
@@ -92791,9 +92760,9 @@
       }
     },
     {
-      "id": "sets-macgregor-cg4000-men-s-golf-club-package-set-left-hand-steel-clickgolf",
+      "id": "driver-macgregor-cg4000-men-s-golf-club-package-set-left-hand-steel-clickgolf",
       "name": "MacGregor CG4000 Men's Golf Club Package Set - Left Hand Steel",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 329.99,
       "salePrice": 329.99,
       "savePct": 0,
@@ -92969,9 +92938,9 @@
       }
     },
     {
-      "id": "accessories-adidas-cold-rdy-neck-warmer-snood-black-clickgolf",
+      "id": "wood-adidas-cold-rdy-neck-warmer-snood-black-clickgolf",
       "name": "adidas Cold.Rdy Neck Warmer Snood - Black",
-      "category": "accessories",
+      "category": "wood",
       "retailPrice": 23.0,
       "salePrice": 21.99,
       "savePct": 4,
@@ -92979,7 +92948,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=42832835718&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/adidas-Cold.Rdy-Neck-Warmer-Snood.jpg",
-      "icon": "accessories",
       "brand": "Adidas",
       "colour": "Black",
       "audience": "Male",
@@ -93253,9 +93221,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-4-club-golf-package-set-48-pink-clickgolf",
+      "id": "putter-us-kids-ul7-4-club-golf-package-set-48-pink-clickgolf",
       "name": "US Kids UL7 4 Club Golf Package Set (48'') - Pink",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 234.95,
       "salePrice": 234.95,
       "savePct": 0,
@@ -93288,9 +93256,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-4-club-golf-package-set-45-pink-clickgolf",
+      "id": "putter-us-kids-ul7-4-club-golf-package-set-45-pink-clickgolf",
       "name": "US Kids UL7 4 Club Golf Package Set (45'') - Pink",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 179.0,
       "salePrice": 179.0,
       "savePct": 0,
@@ -94059,9 +94027,9 @@
       }
     },
     {
-      "id": "accessories-bagboy-slimfold-golf-trolley-graphite-clickgolf",
+      "id": "ball-bagboy-slimfold-golf-trolley-graphite-clickgolf",
       "name": "BagBoy SLIMFOLD Golf Trolley - Graphite",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 279.0,
       "salePrice": 259.0,
       "savePct": 7,
@@ -94069,7 +94037,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40978166363&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/BagBoy-SLIMFOLD-Golf-Trolley---Graphite.jpg",
-      "icon": "pushcart",
       "brand": "BagBoy",
       "audience": "Male",
       "inStock": true,
@@ -94758,9 +94725,9 @@
       }
     },
     {
-      "id": "sets-wilson-aurora-ladies-piece-golf-package-set-graphite-clickgolf",
+      "id": "putter-wilson-aurora-ladies-piece-golf-package-set-graphite-clickgolf",
       "name": "Wilson Aurora Ladies Piece Golf Package Set - Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1099.0,
       "salePrice": 999.0,
       "savePct": 9,
@@ -94865,9 +94832,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-electric-golf-trolley-thermamitts-clickgolf",
+      "id": "apparel-powakaddy-electric-golf-trolley-thermamitts-clickgolf",
       "name": "PowaKaddy Electric Golf Trolley ThermaMitts",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 89.99,
       "salePrice": 69.99,
       "savePct": 22,
@@ -94900,9 +94867,9 @@
       }
     },
     {
-      "id": "sets-callaway-xt-11-piece-teenage-golf-package-set-blue-white-clickgolf",
+      "id": "putter-callaway-xt-11-piece-teenage-golf-package-set-blue-white-clickgolf",
       "name": "Callaway XT 11-Piece Teenage Golf Package Set - Blue/White",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 569.0,
       "salePrice": 499.0,
       "savePct": 12,
@@ -95079,9 +95046,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-4-club-golf-package-set-48-teal-clickgolf",
+      "id": "putter-us-kids-ul7-4-club-golf-package-set-48-teal-clickgolf",
       "name": "US Kids UL7 4 Club Golf Package Set (48'') - Teal",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 234.95,
       "salePrice": 234.95,
       "savePct": 0,
@@ -95183,9 +95150,9 @@
       }
     },
     {
-      "id": "sets-wilson-x-31-advantage-men-s-golf-package-set-left-hand-clickgolf",
+      "id": "putter-wilson-x-31-advantage-men-s-golf-package-set-left-hand-clickgolf",
       "name": "Wilson X-31 Advantage Men's Golf Package Set - Left Hand",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 449.0,
       "salePrice": 379.0,
       "savePct": 16,
@@ -95670,9 +95637,9 @@
       }
     },
     {
-      "id": "sets-callaway-xj-5-piece-set-5-8-years-level-2-blue-white-clickgolf",
+      "id": "putter-callaway-xj-5-piece-set-5-8-years-level-2-blue-white-clickgolf",
       "name": "Callaway XJ 5 Piece Set 5-8 Years (Level 2) - Blue/White",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 399.0,
       "salePrice": 349.0,
       "savePct": 13,
@@ -96335,9 +96302,9 @@
       }
     },
     {
-      "id": "sets-wilson-player-fit-mens-golf-package-set-left-hand-clickgolf",
+      "id": "putter-wilson-player-fit-mens-golf-package-set-left-hand-clickgolf",
       "name": "Wilson Player Fit Mens Golf Package Set - Left Hand",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 699.0,
       "salePrice": 599.0,
       "savePct": 14,
@@ -96513,9 +96480,9 @@
       }
     },
     {
-      "id": "accessories-adidas-printed-neck-snood-clickgolf",
+      "id": "apparel-adidas-printed-neck-snood-clickgolf",
       "name": "adidas Printed Neck Snood",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 21.99,
       "salePrice": 21.99,
       "savePct": 0,
@@ -96523,7 +96490,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=41430378202&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/adidas-Printed-Neck-Snood.jpg",
-      "icon": "accessories",
+      "icon": "jacket",
       "brand": "Adidas",
       "audience": "Male",
       "inStock": true,
@@ -97349,9 +97316,9 @@
       }
     },
     {
-      "id": "accessories-ben-sayers-electric-golf-trolley-black-red-18-hole-lithium-clickgolf",
+      "id": "bag-ben-sayers-electric-golf-trolley-black-red-18-hole-lithium-clickgolf",
       "name": "Ben Sayers Electric Golf Trolley - Black/Red 18 Hole Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 429.99,
       "salePrice": 349.0,
       "savePct": 19,
@@ -97359,7 +97326,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=37553705486&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Electric-Golf-Trolley---BlackRed-18-Hole-Lithium.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Ben Sayers",
       "colour": "Black",
       "audience": "Male",
@@ -98003,9 +97970,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-se-electric-golf-trolley-ultra-lithium-clickgolf",
+      "id": "bag-motocaddy-se-electric-golf-trolley-ultra-lithium-clickgolf",
       "name": "Motocaddy SE Electric Golf Trolley - Ultra Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 599.99,
       "salePrice": 549.0,
       "savePct": 8,
@@ -98013,7 +97980,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40642318534&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TR26SENXLU-SE-26-Electric-Trolley-Hero.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -98038,9 +98005,9 @@
       }
     },
     {
-      "id": "sets-ping-g-le4-ladies-full-set-clickgolf",
+      "id": "driver-ping-g-le4-ladies-full-set-clickgolf",
       "name": "Ping G Le4 Ladies Full Set",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 1982.0,
       "salePrice": 1789.0,
       "savePct": 10,
@@ -98712,9 +98679,9 @@
       }
     },
     {
-      "id": "accessories-powakaddy-rx-remote-electric-golf-trolley-xl-plus-lithium-clickgolf",
+      "id": "bag-powakaddy-rx-remote-electric-golf-trolley-xl-plus-lithium-clickgolf",
       "name": "PowaKaddy RX Remote Electric Golf Trolley - XL Plus Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 1099.99,
       "salePrice": 999.0,
       "savePct": 9,
@@ -98722,7 +98689,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=40375604156&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/PK_RX_Remote_Control_Electric_Golf_Trolley-XL_Plus_Lithium_01_Main.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Powakaddy",
       "audience": "Male",
       "inStock": true,
@@ -99264,9 +99231,9 @@
       }
     },
     {
-      "id": "sets-taylormade-rbz-mens-left-hand-11-piece-package-set-steel-clickgolf",
+      "id": "putter-taylormade-rbz-mens-left-hand-11-piece-package-set-steel-clickgolf",
       "name": "TaylorMade RBZ Mens Left Hand 11 Piece Package Set - Steel",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1029.0,
       "salePrice": 1029.0,
       "savePct": 0,
@@ -99405,9 +99372,9 @@
       }
     },
     {
-      "id": "accessories-titleist-tour-performance-golf-visor-white-black-clickgolf",
+      "id": "apparel-titleist-tour-performance-golf-visor-white-black-clickgolf",
       "name": "Titleist Tour Performance Golf Visor - White/Black",
-      "category": "accessories",
+      "category": "apparel",
       "retailPrice": 25.0,
       "salePrice": 22.99,
       "savePct": 8,
@@ -99546,9 +99513,9 @@
       }
     },
     {
-      "id": "accessories-bagboy-volt-remote-electric-golf-trolley-36-hole-lithium-clickgolf",
+      "id": "ball-bagboy-volt-remote-electric-golf-trolley-36-hole-lithium-clickgolf",
       "name": "Bagboy Volt Remote Electric Golf Trolley - 36 Hole Lithium",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 1649.0,
       "salePrice": 1499.0,
       "savePct": 9,
@@ -99556,7 +99523,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=37647704221&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/bagboy-volt-electric-golf-trolley-1.jpg",
-      "icon": "pushcart",
       "brand": "BagBoy",
       "audience": "Male",
       "inStock": true,
@@ -100739,9 +100705,9 @@
       }
     },
     {
-      "id": "accessories-taylormade-60-golf-sunbrella-clickgolf",
+      "id": "bag-taylormade-60-golf-sunbrella-clickgolf",
       "name": "TaylorMade 60\" Golf Sunbrella",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 69.99,
       "salePrice": 69.99,
       "savePct": 0,
@@ -100749,7 +100715,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=41083911190&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-60-Inch-Golf-Sunbrella.jpg",
-      "icon": "umbrella",
+      "icon": "golf-bag",
       "brand": "TaylorMade",
       "audience": "Male",
       "inStock": true,
@@ -100774,9 +100740,9 @@
       }
     },
     {
-      "id": "sets-wilson-x-31-advantage-men-s-golf-package-set-graphite-clickgolf",
+      "id": "putter-wilson-x-31-advantage-men-s-golf-package-set-graphite-clickgolf",
       "name": "Wilson X-31 Advantage Men's Golf Package Set - Graphite",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 479.0,
       "salePrice": 419.0,
       "savePct": 13,
@@ -101235,9 +101201,9 @@
       }
     },
     {
-      "id": "accessories-longridge-ezeglide-bolt-2-auto-opening-push-trolley-black-bl-clickgolf",
+      "id": "ball-longridge-ezeglide-bolt-2-auto-opening-push-trolley-black-bl-clickgolf",
       "name": "Longridge Ezeglide Bolt 2 Auto Opening Push Trolley - Black/Blue",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 199.0,
       "salePrice": 169.0,
       "savePct": 15,
@@ -101245,7 +101211,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=43884486304&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TREZB2CB-EZEGlide-Bolt-2-Puah-Cart-Blue-1.jpg",
-      "icon": "pushcart",
       "brand": "Longridge",
       "colour": "Black",
       "audience": "Male",
@@ -101271,9 +101236,9 @@
       }
     },
     {
-      "id": "sets-taylormade-team-tm-junior-golf-package-set-4-6-years-clickgolf",
+      "id": "putter-taylormade-team-tm-junior-golf-package-set-4-6-years-clickgolf",
       "name": "TaylorMade Team TM Junior Golf Package Set, 4-6 Years",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 249.0,
       "salePrice": 249.0,
       "savePct": 0,
@@ -101412,9 +101377,9 @@
       }
     },
     {
-      "id": "accessories-motocaddy-m7-remote-electric-golf-trolley-ultra-lithium-clickgolf",
+      "id": "bag-motocaddy-m7-remote-electric-golf-trolley-ultra-lithium-clickgolf",
       "name": "Motocaddy M7 Remote Electric Golf Trolley - Ultra Lithium",
-      "category": "accessories",
+      "category": "bag",
       "retailPrice": 1299.99,
       "salePrice": 1199.0,
       "savePct": 8,
@@ -101422,7 +101387,7 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44252298472&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TR26M7XRM7-M7-Remote-Electric-Trolley-Hero.jpg",
-      "icon": "pushcart",
+      "icon": "golf-bag",
       "brand": "Motocaddy",
       "audience": "Male",
       "inStock": true,
@@ -101544,9 +101509,9 @@
       }
     },
     {
-      "id": "sets-us-kids-ul7-5-club-golf-package-set-51-pink-clickgolf",
+      "id": "putter-us-kids-ul7-5-club-golf-package-set-51-pink-clickgolf",
       "name": "US Kids UL7 5 Club Golf Package Set (51'') - Pink",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 234.95,
       "salePrice": 234.95,
       "savePct": 0,
@@ -101759,9 +101724,9 @@
       }
     },
     {
-      "id": "sets-macgregor-cg4000-men-s-golf-club-package-set-graphite-clickgolf",
+      "id": "driver-macgregor-cg4000-men-s-golf-club-package-set-graphite-clickgolf",
       "name": "MacGregor CG4000 Men's Golf Club Package Set - Graphite",
-      "category": "sets",
+      "category": "driver",
       "retailPrice": 329.99,
       "salePrice": 329.99,
       "savePct": 0,
@@ -101829,9 +101794,9 @@
       }
     },
     {
-      "id": "sets-skymax-aspire-junior-9-12-year-old-golf-package-set-clickgolf",
+      "id": "putter-skymax-aspire-junior-9-12-year-old-golf-package-set-clickgolf",
       "name": "SkyMax Aspire Junior 9-12 Year Old Golf Package Set",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 129.0,
       "salePrice": 119.0,
       "savePct": 8,
@@ -102285,9 +102250,9 @@
       }
     },
     {
-      "id": "accessories-longridge-ezeglide-bolt-2-golf-push-trolley-white-clickgolf",
+      "id": "ball-longridge-ezeglide-bolt-2-golf-push-trolley-white-clickgolf",
       "name": "Longridge Ezeglide Bolt 2 Golf Push Trolley - White",
-      "category": "accessories",
+      "category": "ball",
       "retailPrice": 199.0,
       "salePrice": 169.0,
       "savePct": 15,
@@ -102295,7 +102260,6 @@
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=38663198078&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/TREZB2WH-EZEGlide-Bolt-2-Push-Cart-White.jpg",
-      "icon": "pushcart",
       "brand": "Longridge",
       "colour": "White",
       "audience": "Male",
@@ -102736,9 +102700,9 @@
       }
     },
     {
-      "id": "sets-cobra-fly-xl-2-golf-package-set-steel-stand-11-piece-regular-clickgolf",
+      "id": "putter-cobra-fly-xl-2-golf-package-set-steel-stand-11-piece-regular-clickgolf",
       "name": "Cobra Fly XL 2 Golf Package Set - Steel Stand (11-Piece) - Regular",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 699.0,
       "salePrice": 599.0,
       "savePct": 14,
@@ -103046,9 +103010,9 @@
       }
     },
     {
-      "id": "sets-callaway-junior-xj-5-8-years-6-piece-set-clickgolf",
+      "id": "putter-callaway-junior-xj-5-8-years-6-piece-set-clickgolf",
       "name": "Callaway Junior XJ 5-8 Years 6 Piece Set",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 349.0,
       "salePrice": 299.0,
       "savePct": 14,
@@ -103945,9 +103909,9 @@
       }
     },
     {
-      "id": "sets-callaway-xr-26-golf-package-set-graphite-1-inch-longer-clickgolf",
+      "id": "putter-callaway-xr-26-golf-package-set-graphite-1-inch-longer-clickgolf",
       "name": "Callaway XR '26 Golf Package Set - Graphite +1 Inch Longer",
-      "category": "sets",
+      "category": "putter",
       "retailPrice": 1499.0,
       "salePrice": 1249.0,
       "savePct": 17,
