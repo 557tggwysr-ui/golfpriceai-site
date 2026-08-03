@@ -224,7 +224,8 @@ GENERAL_KEYWORDS = [
     ("gps", "accessories"), ("watch", "accessories"),
     ("cart", "accessories"), ("umbrella", "accessories"),
     ("headcover", "accessories"),
-    ("pullover", "apparel"), ("gilet", "apparel"), ("vest", "apparel"),
+    ("pullover", "apparel"), ("gilet", "apparel"), ("gillet", "apparel"), ("vest", "apparel"),
+    ("slipover", "apparel"), ("windstopper", "apparel"),
     ("quarterzip", "apparel"), ("quarter-zip", "apparel"), ("quarter zip", "apparel"),
     ("1/4 zip", "apparel"), ("1/2 zip", "apparel"),
     ("half zip", "apparel"), ("half-zip", "apparel"),
@@ -245,7 +246,7 @@ GENERAL_KEYWORDS = [
 ]
 
 
-def guess_category(category_name, merchant_category, name):
+def guess_category(category_name, merchant_category, name, description=None):
     """Category guess in priority order:
 
     0. If EITHER the product name OR the retailer's own category taxonomy
@@ -264,6 +265,13 @@ def guess_category(category_name, merchant_category, name):
        accessory nouns) first — an unambiguous word like "cap" or "polo"
        wins even if a club-shape word like "driver" also appears.
     3. Only then does it check the name against CLUB_SHAPE_KEYWORDS.
+    4. LAST RESORT ONLY: if nothing above matched anything at all, check
+       the retailer's own product description text. Confirmed necessary
+       by a real case where "Boots" only appeared in the description,
+       never in the name or taxonomy fields — everything above this step
+       had already found nothing, so this can only add coverage for
+       previously-missed products, never override an already-correct
+       classification found by a higher-priority step.
 
     All matching is whole-word (see _has_word) to avoid substring false
     positives like "wood" inside "Woodmark" or "Wooden".
@@ -302,6 +310,14 @@ def guess_category(category_name, merchant_category, name):
     for keyword, category in CLUB_SHAPE_KEYWORDS:
         if _has_word(name_text, keyword):
             return category
+
+    # Last resort — see step 4 in the docstring. Only reached if nothing
+    # above matched anything at all.
+    if description:
+        desc_text = description.lower()
+        for keyword, category in CLUB_SHAPE_KEYWORDS + GENERAL_KEYWORDS:
+            if _has_word(desc_text, keyword):
+                return category
 
     return "accessories"
 
@@ -374,7 +390,8 @@ ICON_KEYWORDS = [
     ("short", "shorts"),
     ("jacket", "jacket"),
     ("hoodie", "hoodie"),
-    ("pullover", "jacket"), ("gilet", "jacket"), ("vest", "jacket"),
+    ("pullover", "jacket"), ("gilet", "jacket"), ("gillet", "jacket"), ("vest", "jacket"),
+    ("slipover", "jacket"), ("windstopper", "jacket"),
     ("quarterzip", "jacket"), ("quarter-zip", "jacket"), ("quarter zip", "jacket"),
     ("1/4 zip", "jacket"), ("1/2 zip", "jacket"), ("sweater", "jacket"), ("zip top", "jacket"),
     ("golf top", "jacket"), ("footjoy chill out", "jacket"),
@@ -451,7 +468,7 @@ def guess_bag_type(category_name, merchant_category, name):
     return "golf-bag"
 
 
-def guess_icon(category_name, merchant_category, name, category):
+def guess_icon(category_name, merchant_category, name, category, description=None):
     """Best-effort sub-type icon for apparel/accessories/bag products.
     Returns None (no icon set) if nothing matches and the category doesn't
     have a catch-all bucket — the product still shows up fine everywhere
@@ -468,6 +485,14 @@ def guess_icon(category_name, merchant_category, name, category):
     for keyword, icon in ICON_KEYWORDS:
         if _has_word(text, keyword):
             return icon
+    # Last resort — only reached if nothing above matched at all. Same
+    # "can only add coverage, never override" safety property as
+    # guess_category's description fallback.
+    if description and category == "apparel":
+        desc_text = description.lower()
+        for keyword, icon in ICON_KEYWORDS:
+            if _has_word(desc_text, keyword):
+                return icon
     if category == "accessories":
         return "accessories"  # generic catch-all bucket, matches groups-config.js
     return None
@@ -1138,10 +1163,11 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
         image = (row.get("merchant_image_url") or "").strip()
         cat_name = row.get("category_name")
         merch_cat = row.get("merchant_category")
-        category = guess_category(cat_name, merch_cat, name)
+        raw_description = row.get("description")
+        category = guess_category(cat_name, merch_cat, name, raw_description)
         combined_text = (name.lower() + " " + " ".join(f for f in (cat_name, merch_cat) if f).lower()).strip()
         category = apply_post_overrides(combined_text, category)
-        icon = guess_icon(cat_name, merch_cat, name, category)
+        icon = guess_icon(cat_name, merch_cat, name, category, raw_description)
         brand = extract_brand(name, row.get("brand_name"))
         colour = extract_colour(name)
         audience = classify_audience(name, icon)
