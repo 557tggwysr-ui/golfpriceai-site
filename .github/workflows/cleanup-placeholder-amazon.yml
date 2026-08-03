@@ -1,0 +1,35 @@
+name: Cleanup Placeholder Amazon Products
+
+# Manual-only, one-time cleanup — click "Run workflow" once to remove the
+# original placeholder Amazon products (see cleanup_placeholder_amazon.py
+# for exactly what gets removed and why it's safe). This DOES write and
+# commit a change to data/products.json, unlike Diagnose Feed / Verify
+# Pricing which are read-only.
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run cleanup
+        working-directory: scripts
+        run: python cleanup_placeholder_amazon.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/products.json
+          git diff --staged --quiet && echo "No changes to commit" || git commit -m "Remove placeholder Amazon products (one-time cleanup)"
+          git push
