@@ -422,6 +422,93 @@ function applyTypeDiversityToTop(sortedProducts, windowSize) {
   return result.concat(bumped, rest);
 }
 
+// ============================================
+// "Did you mean...?" search correction
+// ------------------------------------------------
+// Runs ONLY when a search returns zero results — never on every
+// keystroke, so this has no performance cost during normal typing on an
+// ~11,000-product catalog. Matches against a small, curated dictionary
+// (brand names + real product-type words) rather than every word in
+// every product name — much faster, and avoids suggesting nonsense
+// pulled from noisy free-text names/descriptions.
+// ============================================
+const SEARCH_TERM_DICTIONARY = [
+  ...KNOWN_BRANDS,
+  "driver", "drivers", "wood", "woods", "fairway", "hybrid", "hybrids",
+  "iron", "irons", "wedge", "wedges", "putter", "putters", "set", "sets",
+  "ball", "balls", "bag", "bags", "shoe", "shoes", "boot", "boots",
+  "polo", "polos", "trouser", "trousers", "pant", "pants", "jogger", "joggers",
+  "short", "shorts", "skort", "skorts", "skirt", "skirts",
+  "jacket", "jackets", "hoodie", "hoodies", "fleece", "vest", "gilet", "gillet",
+  "windstopper", "slipover", "sweater", "dress", "suit",
+  "glove", "gloves", "cap", "caps", "hat", "hats", "beanie", "beanies",
+  "sunglasses", "belt", "belts", "sock", "socks", "umbrella", "umbrellas",
+  "towel", "towels", "tee", "tees", "grip", "grips",
+  "rangefinder", "rangefinders", "watch", "watches", "gps", "sensor", "sensors",
+  "cart", "carts", "headcover", "headcovers", "mat", "mats",
+  "trolley", "trolleys",
+];
+
+function levenshteinDistance(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      dp[i][j] = a[i - 1] === b[j - 1]
+        ? dp[i - 1][j - 1]
+        : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+    }
+  }
+  return dp[m][n];
+}
+
+// Finds the closest dictionary word to a given (likely misspelled) word,
+// only accepting matches within a sensible distance relative to word
+// length — short words need a near-exact match, longer words tolerate a
+// bit more, so "polp" -> "polo" is accepted but "golf" -> "wolf" isn't.
+function nearestDictionaryWord(word) {
+  const lower = word.toLowerCase();
+  let best = null;
+  let bestDist = Infinity;
+  for (const candidate of SEARCH_TERM_DICTIONARY) {
+    const candLower = candidate.toLowerCase();
+    if (candLower === lower) return null; // already correct, no correction needed
+    const dist = levenshteinDistance(lower, candLower);
+    if (dist < bestDist) {
+      bestDist = dist;
+      best = candidate;
+    }
+  }
+  const maxAllowed = Math.max(1, Math.floor(lower.length * 0.34));
+  return bestDist > 0 && bestDist <= maxAllowed ? best : null;
+}
+
+// Only ever returns a suggestion that would ACTUALLY produce results —
+// never guesses blindly. Returns null if no correction was found, or if
+// the "corrected" query still wouldn't match anything.
+function getSpellingSuggestion(query) {
+  const words = query.trim().split(/\s+/).filter(Boolean);
+  if (words.length === 0) return null;
+
+  let changed = false;
+  const correctedWords = words.map(word => {
+    const suggestion = nearestDictionaryWord(word);
+    if (suggestion) {
+      changed = true;
+      return suggestion;
+    }
+    return word;
+  });
+  if (!changed) return null;
+
+  const correctedQuery = correctedWords.join(' ');
+  const correctedLower = correctedQuery.toLowerCase();
+  const wouldMatch = baseFilteredProducts().some(p => p.name.toLowerCase().includes(correctedLower));
+  return wouldMatch ? correctedQuery : null;
+}
+
 function applyFiltersAndSort() {
   const grid = document.getElementById('shop-grid');
   const empty = document.getElementById('empty-state');
@@ -449,6 +536,28 @@ function applyFiltersAndSort() {
 
   grid.innerHTML = filtered.map(cardHTML).join('');
   empty.style.display = filtered.length ? 'none' : 'block';
+
+  if (filtered.length === 0 && searchQuery.trim()) {
+    const suggestion = getSpellingSuggestion(searchQuery);
+    if (suggestion) {
+      empty.innerHTML = `Nothing here for "${searchQuery}" — even our AI needs a mulligan.<br>
+        Did you mean <a href="#" id="spelling-suggestion-link" style="color:var(--green);font-weight:600;">${suggestion}</a>?`;
+      const link = document.getElementById('spelling-suggestion-link');
+      if (link) {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          searchQuery = suggestion;
+          const input = document.getElementById('shop-search-input');
+          if (input) input.value = suggestion;
+          applyFiltersAndSort();
+        });
+      }
+    } else {
+      empty.textContent = "Nothing here — even our AI needs a mulligan. Try another search or category.";
+    }
+  } else if (filtered.length === 0) {
+    empty.textContent = "Nothing here — even our AI needs a mulligan. Try another search or category.";
+  }
 
   const countEl = document.getElementById('shop-result-count');
   if (countEl) countEl.textContent = `${filtered.length} product${filtered.length === 1 ? '' : 's'}`;
