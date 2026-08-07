@@ -449,6 +449,26 @@ const SEARCH_TERM_DICTIONARY = [
   "trolley", "trolleys",
 ];
 
+// Built once from the live catalog when it first loads (see the
+// products.json fetch below) — gives typo-correction coverage for real
+// product MODEL names ("Talus", "Stealth", "Rogue"...), which a small
+// hand-curated list of brands/categories could never keep up with across
+// an ~11,000-product catalog that changes every few hours.
+let CATALOG_WORD_FREQUENCY = null; // Map<word, occurrenceCount>
+const INDEX_STOPWORDS = new Set(['the', 'a', 'an', 'for', 'with', 'and', 'of', 'in', 'on', 'to', 'by']);
+
+function buildCatalogWordIndex(products) {
+  const freq = new Map();
+  for (const p of products) {
+    const words = (p.name || '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+    for (const w of words) {
+      if (w.length < 3 || INDEX_STOPWORDS.has(w) || /^\d+$/.test(w)) continue;
+      freq.set(w, (freq.get(w) || 0) + 1);
+    }
+  }
+  return freq;
+}
+
 function levenshteinDistance(a, b) {
   const m = a.length, n = b.length;
   const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
@@ -464,23 +484,40 @@ function levenshteinDistance(a, b) {
   return dp[m][n];
 }
 
-// Finds the closest dictionary word to a given (likely misspelled) word,
-// only accepting matches within a sensible distance relative to word
-// length — short words need a near-exact match, longer words tolerate a
-// bit more, so "polp" -> "polo" is accepted but "golf" -> "wolf" isn't.
+// Finds the closest match across BOTH the curated dictionary (brands +
+// category words, always trusted) and the live catalog's real vocabulary
+// (model names, weighted by how often they actually appear — a common
+// real word wins a tie over a rare/one-off one). Only accepts a match
+// within a sensible distance relative to word length, so "polp" ->
+// "polo" is accepted but "golf" -> "wolf" isn't.
 function nearestDictionaryWord(word) {
   const lower = word.toLowerCase();
   let best = null;
   let bestDist = Infinity;
+  let bestFreq = -1;
+
   for (const candidate of SEARCH_TERM_DICTIONARY) {
     const candLower = candidate.toLowerCase();
-    if (candLower === lower) return null; // already correct, no correction needed
+    if (candLower === lower) return null; // already correct
     const dist = levenshteinDistance(lower, candLower);
-    if (dist < bestDist) {
+    if (dist < bestDist || (dist === bestDist && Infinity > bestFreq)) {
       bestDist = dist;
       best = candidate;
+      bestFreq = Infinity; // curated terms are always maximally trusted
     }
   }
+  if (CATALOG_WORD_FREQUENCY) {
+    for (const [w, freq] of CATALOG_WORD_FREQUENCY) {
+      if (w === lower) return null; // already correct
+      const dist = levenshteinDistance(lower, w);
+      if (dist < bestDist || (dist === bestDist && freq > bestFreq)) {
+        bestDist = dist;
+        best = w;
+        bestFreq = freq;
+      }
+    }
+  }
+
   const maxAllowed = Math.max(1, Math.floor(lower.length * 0.34));
   return bestDist > 0 && bestDist <= maxAllowed ? best : null;
 }
@@ -797,6 +834,7 @@ fetch('data/products.json')
   .then(r => r.json())
   .then(data => {
     ALL_PRODUCTS = data.products;
+    CATALOG_WORD_FREQUENCY = buildCatalogWordIndex(ALL_PRODUCTS);
 
     const params = new URLSearchParams(window.location.search);
     const groupParam = params.get('group');
