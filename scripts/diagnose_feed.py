@@ -39,6 +39,7 @@ import urllib.request
 FEED_URL_ENV_VARS = {
     "clickgolf": "AWIN_CLICKGOLF_FEED_URL",
     "majorgolf": "AWIN_MAJORGOLF_FEED_URL",
+    "callaway": "AWIN_CALLAWAY_FEED_URL",
 }
 
 

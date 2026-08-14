@@ -1259,6 +1259,12 @@ def fetch_awin_majorgolf_deals():
     return fetch_awin_generic_feed("Major Golf Direct", "AWIN_MAJORGOLF_FEED_URL", "majorgolf")
 
 
+def fetch_awin_callaway_deals():
+    """Callaway Europe — third AWIN retailer onboarded. See
+    fetch_awin_generic_feed for the shared implementation."""
+    return fetch_awin_generic_feed("Callaway Europe", "AWIN_CALLAWAY_FEED_URL", "callaway")
+
+
 def fetch_awin_deals():
     """Pull products from AWIN's product data feed (general/legacy path).
 
@@ -1711,6 +1717,7 @@ def main():
         + fetch_awin_deals()
         + fetch_awin_clickgolf_deals()
         + fetch_awin_majorgolf_deals()
+        + fetch_awin_callaway_deals()
         + fetch_impact_deals()
     )
     fresh = dedupe_products(fresh)
