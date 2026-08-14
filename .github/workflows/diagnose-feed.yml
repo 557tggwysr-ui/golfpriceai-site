@@ -15,6 +15,7 @@ on:
         options:
           - clickgolf
           - majorgolf
+          - callaway
       search_term:
         description: "Product name (or part of it) to search for"
         required: true
@@ -37,6 +38,7 @@ jobs:
         env:
           AWIN_CLICKGOLF_FEED_URL: ${{ secrets.AWIN_CLICKGOLF_FEED_URL }}
           AWIN_MAJORGOLF_FEED_URL: ${{ secrets.AWIN_MAJORGOLF_FEED_URL }}
+          AWIN_CALLAWAY_FEED_URL: ${{ secrets.AWIN_CALLAWAY_FEED_URL }}
           RETAILER: ${{ github.event.inputs.retailer }}
           SEARCH_TERM: ${{ github.event.inputs.search_term }}
         run: python diagnose_feed.py
