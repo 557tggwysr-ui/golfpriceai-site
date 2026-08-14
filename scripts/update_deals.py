@@ -56,6 +56,7 @@ import json
 import os
 import re
 import urllib.request
+import urllib.error
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote_plus
@@ -1048,6 +1049,18 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
     try:
         with urllib.request.urlopen(feed_url, timeout=60) as resp:
             raw = resp.read()
+    except urllib.error.HTTPError as exc:
+        # AWIN's API returns a detailed JSON error body even on failures
+        # (confirmed by the earlier "Invalid fid format" bug) — reading
+        # it gives the real reason, not just a generic "HTTP Error 400"
+        # with nothing useful after it.
+        try:
+            body = exc.read().decode("utf-8", errors="replace")
+        except Exception:
+            body = "(could not read error response body)"
+        print(f"{retailer_label} feed download failed, leaving catalog untouched: HTTP {exc.code} {exc.reason}")
+        print(f"{retailer_label} feed error detail: {body}")
+        return []
     except Exception as exc:
         print(f"{retailer_label} feed download failed, leaving catalog untouched: {exc}")
         return []
