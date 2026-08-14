@@ -26,6 +26,8 @@ jobs:
           AWIN_PUBLISHER_ID: ${{ secrets.AWIN_PUBLISHER_ID }}
           AWIN_ADVERTISER_ID: ${{ secrets.AWIN_ADVERTISER_ID }}
           AWIN_CLICKGOLF_FEED_URL: ${{ secrets.AWIN_CLICKGOLF_FEED_URL }}
+          AWIN_MAJORGOLF_FEED_URL: ${{ secrets.AWIN_MAJORGOLF_FEED_URL }}
+          AWIN_CALLAWAY_FEED_URL: ${{ secrets.AWIN_CALLAWAY_FEED_URL }}
         run: python scripts/update_deals.py
 
       - name: Commit updated catalog
