@@ -1042,6 +1042,7 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
     """
     feed_url = os.environ.get(env_var_name)
     if not feed_url:
+        print(f"{retailer_label} feed: {env_var_name} secret not set or empty — skipping this retailer entirely.")
         return []
 
     try:
