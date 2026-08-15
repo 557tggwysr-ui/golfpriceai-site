@@ -242,6 +242,10 @@ function brandPopularityTier(p) {
    Category groupings
    ============================================ */
 const CLUB_CATEGORIES = ['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets'];
+// Golf Balls are a real top-level category, but genuinely useful to
+// browse alongside real accessories on the same page — same "multiple
+// categories, one browsing view" pattern already used for Clubs.
+const ACCESSORIES_GROUP_CATEGORIES = ['accessories', 'ball'];
 
 const CLUB_TYPE_OPTIONS = [
   { key: 'driver', label: 'Drivers' }, { key: 'wood', label: 'Fairway Woods' },
@@ -271,6 +275,7 @@ const ACCESSORIES_TYPE_OPTIONS = [
   { key: 'storage', label: 'Storage' }, { key: 'travel', label: 'Travel' },
   { key: 'battery-charger', label: 'Battery & Chargers' }, { key: 'drink-holder', label: 'Drink Holders' },
   { key: 'speaker', label: 'Speakers' },
+  { key: 'ball', label: 'Golf Balls' },
   { key: 'accessories', label: 'Other Accessories' },
 ];
 const BAG_TYPE_OPTIONS = [
@@ -315,6 +320,8 @@ function currentTypeOptions() {
   const only = [...baseCategories][0];
   if (baseCategories.size === 1 && only === 'apparel') return APPAREL_TYPE_OPTIONS;
   if (baseCategories.size === 1 && only === 'accessories') return ACCESSORIES_TYPE_OPTIONS;
+  if (baseCategories.size === ACCESSORIES_GROUP_CATEGORIES.length
+      && ACCESSORIES_GROUP_CATEGORIES.every(c => baseCategories.has(c))) return ACCESSORIES_TYPE_OPTIONS;
   if (baseCategories.size === 1 && only === 'bag') return BAG_TYPE_OPTIONS;
   return null;
 }
@@ -324,9 +331,20 @@ function isTopCategoryTypeMode() {
   return opts === CLUB_TYPE_OPTIONS || opts === ALL_TOP_CATEGORY_OPTIONS;
 }
 
+// Golf Balls is a genuine top-level category (like Drivers or Putters),
+// not an accessories icon sub-type — but it's still useful to browse
+// alongside real accessories, so it gets special-cased here rather than
+// checked via p.icon like every other Accessories filter option.
+function productMatchesTypeKey(p, key, isTopCat) {
+  if (isTopCat) return p.category === key;
+  if (key === 'ball') return p.category === 'ball';
+  return p.icon === key;
+}
+
 function matchesTypeCheckboxes(p) {
   if (activeTypeCheckboxes.size === 0) return true;
   if (isTopCategoryTypeMode()) return activeTypeCheckboxes.has(p.category);
+  if (activeTypeCheckboxes.has('ball') && p.category === 'ball') return true;
   return activeTypeCheckboxes.has(p.icon);
 }
 
@@ -562,11 +580,12 @@ function applyFiltersAndSort() {
   });
 
   // Both reorderings below only apply to Most Popular, and only when
-  // scoped to exactly that one category — Shop/Clubs aren't touched.
-  if (sortMode === 'popular' && baseCategories && baseCategories.size === 1) {
-    if (baseCategories.has('apparel')) {
+  // scoped to Apparel or the Accessories(+Balls) view — Shop/Clubs aren't touched.
+  if (sortMode === 'popular' && baseCategories) {
+    if (baseCategories.size === 1 && baseCategories.has('apparel')) {
       filtered = applyMaleQuotaToTop(filtered, POPULAR_TOP_WINDOW, 0.9);
-    } else if (baseCategories.has('accessories')) {
+    } else if (baseCategories.has('accessories') && !baseCategories.has('apparel')
+               && [...baseCategories].every(c => ACCESSORIES_GROUP_CATEGORIES.includes(c))) {
       filtered = applyTypeDiversityToTop(filtered, POPULAR_TOP_WINDOW);
     }
   }
@@ -664,7 +683,7 @@ function renderSidebar() {
     const isTopCat = isTopCategoryTypeMode();
     const counted = typeOptsRaw.map(o => ({
       ...o,
-      count: typeScoped.filter(p => (isTopCat ? p.category : p.icon) === o.key).length
+      count: typeScoped.filter(p => productMatchesTypeKey(p, o.key, isTopCat)).length
     })).filter(o => o.count > 0 || activeTypeCheckboxes.has(o.key));
     typeSection = `
       <div class="filter-group" data-group-name="type">
@@ -841,7 +860,11 @@ fetch('data/products.json')
     const categoryParam = params.get('category');
     const validCategory = data.categories.some(c => c.key === categoryParam);
 
-    if (window.SHOP_FORCE_CATEGORY) {
+    if (window.SHOP_FORCE_GROUP === 'accessories') {
+      // Accessories browsing includes Golf Balls too — see
+      // ACCESSORIES_GROUP_CATEGORIES for why.
+      baseCategories = new Set(ACCESSORIES_GROUP_CATEGORIES);
+    } else if (window.SHOP_FORCE_CATEGORY) {
       // A page can pin the filter/grid view to one category directly —
       // used to embed the same filter sidebar + product grid experience
       // on apparel.html/accessories.html (set inline, before shop.js
