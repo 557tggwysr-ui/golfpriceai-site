@@ -516,12 +516,23 @@ KNOWN_BRANDS = [
 
 def extract_brand(name, feed_brand=None):
     """Prefer a real brand_name value from the feed if the retailer actually
-    populated it; otherwise best-effort match against KNOWN_BRANDS in the
-    product name. Matches js/shop.js's client-side fallback exactly, so
-    behavior is consistent whether or not this field made it into the
-    stored data yet."""
+    populated it — but normalized against KNOWN_BRANDS first, since a
+    retailer's own feed can use a slightly different form of the same
+    real brand (confirmed: Callaway Europe's feed sends "Callaway Golf",
+    not "Callaway"). Trusting that verbatim would silently split one real
+    brand into two different values — "Callaway" and "Callaway Golf" —
+    meaning selecting "Callaway" in the site's Brand filter would miss
+    every Callaway Golf-sourced product entirely. Falls back to matching
+    against the product name if the feed's brand doesn't match anything
+    known, same as before."""
     if feed_brand and feed_brand.strip():
-        return feed_brand.strip()
+        feed_brand_clean = feed_brand.strip()
+        feed_brand_lower = feed_brand_clean.lower()
+        for brand in KNOWN_BRANDS:
+            brand_lower = brand.lower()
+            if feed_brand_lower == brand_lower or feed_brand_lower.startswith(brand_lower + " "):
+                return brand  # use our canonical spelling, not the feed's raw variant
+        return feed_brand_clean  # no known match — trust the feed's own value as-is
     if not name:
         return "Other"
     lower = name.lower()
