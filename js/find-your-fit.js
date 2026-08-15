@@ -59,7 +59,7 @@ form.addEventListener('submit', (e) => {
 
   resultFlexEl.textContent = flex;
   resultLoftEl.textContent = loftRange.label;
-  ctaEl.href = `shop.html?fitFlex=${encodeURIComponent(flex)}&fitLoftMin=${loftRange.min}&fitLoftMax=${loftRange.max}`;
+  ctaEl.href = `shop.html?group=clubs&fitFlex=${encodeURIComponent(flex)}&fitLoftMin=${loftRange.min}&fitLoftMax=${loftRange.max}`;
   resultEl.hidden = false;
   resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });

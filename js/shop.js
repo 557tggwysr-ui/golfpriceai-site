@@ -66,14 +66,21 @@ function thumbStyle(d) {
 // arrives with an active fit profile in the URL.
 let ACTIVE_FIT = null;
 
-function fitsYouBadgeHTML(d) {
-  if (!ACTIVE_FIT || !d.flex) return '';
-  if (d.flex !== ACTIVE_FIT.flex) return '';
-  if (d.loft) {
-    const loftNum = parseFloat(d.loft);
-    if (!isNaN(loftNum) && (loftNum < ACTIVE_FIT.loftMin || loftNum > ACTIVE_FIT.loftMax)) return '';
+// Shared by both the actual filtering (matchesFilters below) and the
+// card badge — a product only counts as "fits you" if BOTH checks pass,
+// so the two can never disagree with each other.
+function productMatchesActiveFit(p) {
+  if (!ACTIVE_FIT || !p.flex) return false;
+  if (p.flex !== ACTIVE_FIT.flex) return false;
+  if (p.loft) {
+    const loftNum = parseFloat(p.loft);
+    if (!isNaN(loftNum) && (loftNum < ACTIVE_FIT.loftMin || loftNum > ACTIVE_FIT.loftMax)) return false;
   }
-  return `<span class="fits-you-badge">✅ Fits You</span>`;
+  return true;
+}
+
+function fitsYouBadgeHTML(d) {
+  return productMatchesActiveFit(d) ? `<span class="fits-you-badge">✅ Fits You</span>` : '';
 }
 
 // Crowd-Verified Pricing — a simple, honest "something look wrong?" link
@@ -364,7 +371,8 @@ function matchesFilters(p, exclude) {
   const matchesAudience = exclude === 'audience' || activeAudience.size === 0 || activeAudience.has(classifyAudience(p));
   const matchesPriceMin = exclude === 'price' || priceMin === null || p.salePrice >= priceMin;
   const matchesPriceMax = exclude === 'price' || priceMax === null || p.salePrice <= priceMax;
-  return matchesQuery && matchesType && matchesBrand && matchesColour && matchesAudience && matchesPriceMin && matchesPriceMax;
+  const matchesFit = exclude === 'fit' || !ACTIVE_FIT || productMatchesActiveFit(p);
+  return matchesQuery && matchesType && matchesBrand && matchesColour && matchesAudience && matchesPriceMin && matchesPriceMax && matchesFit;
 }
 
 function scopedFor(exclude) {
