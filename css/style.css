@@ -110,12 +110,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .brand-name { font-weight: 700; font-size: 20px; }
 .brand-name span { color: var(--green); }
 
-.main-nav { display: flex; align-items: center; gap: 0; }
-.main-nav > * { padding: 0 10px; white-space: nowrap; }
-.main-nav > *:first-child { padding-left: 0; }
-.main-nav > *:last-child { padding-right: 0; }
-.main-nav > *:not(:last-child) { border-right: 1px solid var(--border); }
-.main-nav a { font-weight: 500; font-size: 14px; color: var(--ink); white-space: nowrap; }
+.main-nav { display: flex; align-items: center; gap: 32px; }
+.main-nav a { font-weight: 500; font-size: 16px; color: var(--ink); }
 .main-nav a:hover { color: var(--green); }
 .nav-item { position: relative; display: flex; align-items: center; }
 .nav-item .dropdown {
@@ -139,12 +135,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   font-size: 15px;
 }
 .nav-item .dropdown a:hover { background: var(--green-pale); }
-
-.site-header .btn-primary {
-  padding: 9px 16px;
-  font-size: 13px;
-  white-space: nowrap;
-}
 
 .btn {
   display: inline-flex;
@@ -310,36 +300,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   transition: transform 0.15s ease;
 }
 .deal-card:hover { transform: translateY(-3px); }
-
-/* Wraps .deal-card so the pricing-report link can sit as a sibling
-   below it, never nested inside the card's own <a> (invalid HTML). */
-.deal-card-wrap { display: flex; flex-direction: column; height: 100%; }
-.deal-card-wrap .deal-card { flex: 1; display: flex; flex-direction: column; }
-.deal-card-wrap .deal-card .deal-body { flex: 1; display: flex; flex-direction: column; }
-.deal-card-wrap .deal-card .deal-foot { margin-top: auto; }
-
-.report-price-link {
-  display: block;
-  text-align: center;
-  font-size: 11px;
-  color: var(--muted);
-  padding: 6px 4px 0;
-  text-decoration: none;
-}
-.report-price-link:hover { color: var(--green-dark); text-decoration: underline; }
-
-.fits-you-badge {
-  display: inline-block;
-  background: var(--green-pale);
-  color: var(--green-dark);
-  border: 1px solid var(--green);
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 999px;
-  margin: 4px 0 2px;
-}
-
 .deal-card .thumb {
   position: relative;
   aspect-ratio: 4/3;
@@ -427,15 +387,14 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .panel-head h3 { font-size: 16px; margin: 0; display: flex; align-items: center; gap: 8px; }
 .panel-head a { font-size: 13px; color: var(--green); font-weight: 600; }
 
-.drop-row-wrap { border-bottom: 1px solid var(--border); }
-.drop-row-wrap:last-child { border-bottom: none; }
-.drop-row-wrap .report-price-link { padding: 0 0 8px; }
 .drop-row {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 0 2px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
 }
+.drop-row:last-child { border-bottom: none; }
 .drop-row .drop-thumb { width: 44px; height: 44px; border-radius: 8px; overflow: hidden; background: #f1f2ef; flex-shrink: 0; }
 .drop-row .drop-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .drop-row .drop-thumb.icon-thumb {
@@ -474,9 +433,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   justify-content: space-between;
   gap: 10px;
   cursor: pointer;
-  min-width: 0;
-  max-width: 100%;
-  overflow: hidden;
 }
 .tag-name {
   overflow: hidden;
@@ -488,9 +444,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .tag:hover { border-color: var(--green); background: var(--green-pale); }
 .tag .hot { color: #d9432e; flex-shrink: 0; }
 .tag .rising { color: var(--green-dark); flex-shrink: 0; }
-.tag .dropping { color: var(--green-dark); flex-shrink: 0; }
-.tag .verified-low { color: #8a6d1f; flex-shrink: 0; }
-.tag .sells-fast { color: #7A5B1E; flex-shrink: 0; }
 
 /* Newsletter */
 .newsletter {
@@ -823,9 +776,9 @@ footer a:hover { color: var(--green); }
   grid-template-columns: repeat(2, 1fr);
   gap: 6px 32px;
 }
-.price-drop-grid .drop-row-wrap { border-bottom: 1px solid var(--border); }
 .price-drop-grid .drop-row {
-  padding: 18px 4px 4px;
+  border-bottom: 1px solid var(--border);
+  padding: 18px 4px;
   gap: 18px;
 }
 .price-drop-grid .drop-row .drop-thumb {
@@ -900,80 +853,63 @@ footer a:hover { color: var(--green); }
 }
 
 /* ============================================
-   Homepage: Show Us The Receipts promo banner
-   ------------------------------------------------
-   Reuses .arsenal-banner's layout/copy/CTA rules
-   (same markup pattern, added as a second class),
-   overriding just the background photo — same dark-
-   to-transparent overlay treatment as the Arsenal
-   banner, so text stays legible on the left while
-   the photo (a celebrating golfer, positioned right
-   of centre) stays visible on the right.
+   Homepage: Complete Your Look promo banner
+   (identical pattern to the Arsenal banner above,
+   just its own image, copy, and destination)
    ============================================ */
-.receipts-banner {
-  background-image: linear-gradient(100deg, var(--ink) 0%, rgba(22,36,28,0.85) 38%, rgba(22,36,28,0.35) 65%, rgba(22,36,28,0.15) 100%), url('../assets/photos/receipts-banner-golfer.jpg');
+.look-banner {
+  display: block;
+  background-image: linear-gradient(100deg, var(--ink) 0%, rgba(22,36,28,0.85) 38%, rgba(22,36,28,0.35) 65%, rgba(22,36,28,0.15) 100%), url('../assets/photos/complete-your-look-banner.jpg');
   background-size: cover;
   background-position: right center;
+  border-radius: var(--radius);
+  padding: 40px 44px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease;
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+}
+.look-banner:hover { transform: translateY(-2px); }
+.look-banner-copy { max-width: 480px; position: relative; z-index: 1; }
+.look-banner-kicker {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 5px 12px;
+  margin-bottom: 14px;
+}
+.look-banner h2 {
+  font-size: 28px;
+  margin: 0 0 10px;
+  color: #fff;
+}
+.look-banner p {
+  font-size: 15px;
+  color: #dbe3d7;
+  margin: 0 0 22px;
+  line-height: 1.6;
+}
+.look-banner-cta {
+  display: inline-flex;
+  pointer-events: none;
 }
 @media (max-width: 700px) {
-  .receipts-banner {
-    background-image: linear-gradient(180deg, rgba(22,36,28,0.55) 0%, rgba(22,36,28,0.92) 75%), url('../assets/photos/receipts-banner-golfer.jpg');
+  .look-banner {
+    padding: 28px 24px;
+    min-height: 0;
+    background-image: linear-gradient(180deg, rgba(22,36,28,0.55) 0%, rgba(22,36,28,0.92) 75%), url('../assets/photos/complete-your-look-banner.jpg');
     background-position: center;
   }
+  .look-banner-copy { max-width: 100%; }
+  .look-banner h2 { font-size: 23px; }
 }
-
-/* ============================================
-   Price History — Deal Score / Verified Discount
-   badge, shown on product cards (deal-card in
-   js/shop.js and js/app.js, drop-row in
-   js/app.js) whenever a product has a scored
-   priceInsight from scripts/update_deals.py.
-   Uses the site's existing --green/--ink
-   variables so it always matches, wherever the
-   palette is tweaked in future.
-   ============================================ */
-.price-insight-badge {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 999px;
-  margin: 6px 0 2px;
-  line-height: 1.5;
-}
-.price-insight-badge--low {
-  background: var(--green-pale);
-  color: var(--green-dark);
-  border: 1px solid var(--green);
-}
-.price-insight-badge--rising,
-.price-insight-badge--high {
-  background: #FDF3E3;
-  color: #7A5B1E;
-  border: 1px solid #E0B559;
-}
-/* Compact variant for the narrower drop-row layout */
-.drop-row .price-insight-badge {
-  font-size: 10px;
-  padding: 2px 7px;
-  margin: 2px 0 0;
-}
-
-/* ============================================
-   Shared product grid + search box, used by the
-   Shop page and the embedded filter sections on
-   the Apparel/Accessories hub pages. Moved here
-   from shop.html's own inline styles so more than
-   one page can use them without duplicating CSS.
-   ============================================ */
-.shop-search { margin: 20px 0; max-width: 420px; }
-.shop-search input {
-  width: 100%; border: 1px solid var(--border); border-radius: 999px;
-  padding: 11px 18px; font-size: 15px; box-shadow: var(--shadow);
-}
-.shop-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-bottom: 60px;
-}
-.empty-state { color: var(--muted); padding: 40px 0; text-align: center; }
-@media (max-width: 1300px) { .shop-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .shop-grid { grid-template-columns: 1fr; } }
