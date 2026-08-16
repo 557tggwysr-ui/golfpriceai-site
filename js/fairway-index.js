@@ -39,6 +39,7 @@ async function loadFairwayIndex() {
   }
 
   const summary = data.summary || {};
+  const topMovers = data.topMovers || {};
   const categories = CATEGORY_ORDER.filter(c => summary[c]);
 
   loadingEl.hidden = true;
@@ -48,10 +49,28 @@ async function loadFairwayIndex() {
   }
 
   gridEl.hidden = false;
-  gridEl.innerHTML = categories.map(cat => renderCard(cat, summary[cat])).join('');
+  gridEl.innerHTML = categories.map(cat => renderCard(cat, summary[cat], topMovers[cat] || [])).join('');
 }
 
-function renderCard(cat, entry) {
+// The CTA is only ever framed by a REAL tracked trend — falling prices
+// point at the Shop page sorted by biggest discount; rising prices point
+// at buying now before it climbs further (genuine, evidenced urgency,
+// not a manufactured countdown timer); no meaningful trend yet gets a
+// plain, honest link with no urgency framing at all.
+function trendCTA(cat, entry) {
+  const label = CATEGORY_LABELS[cat] || cat;
+  const change = (entry.change30d !== null && entry.change30d !== undefined) ? entry.change30d : entry.change90d;
+  if (change !== null && change !== undefined && change <= -2) {
+    return { text: `📉 Prices Dropping — Shop ${label} →`, href: `shop.html?category=${cat}&sort=discount`, cls: 'fi-cta--down' };
+  }
+  if (change !== null && change !== undefined && change >= 2) {
+    return { text: `📈 Rising — Buy Before It Climbs →`, href: `shop.html?category=${cat}&sort=price-asc`, cls: 'fi-cta--up' };
+  }
+  return { text: `Shop ${label} →`, href: `shop.html?category=${cat}`, cls: '' };
+}
+
+function renderCard(cat, entry, movers) {
+  const cta = trendCTA(cat, entry);
   return `
     <div class="fi-card">
       <p class="fi-card-label">${CATEGORY_LABELS[cat] || cat}</p>
@@ -61,8 +80,33 @@ function renderCard(cat, entry) {
         ${renderChange('90d', entry.change90d)}
       </div>
       <p class="fi-card-count">Tracked across ${entry.count} product${entry.count === 1 ? '' : 's'}</p>
+      ${movers.length ? renderMovers(movers) : ''}
+      <a class="fi-cta ${cta.cls}" href="${cta.href}">${cta.text}</a>
     </div>
   `;
+}
+
+function renderMovers(movers) {
+  return `
+    <div class="fi-movers">
+      <p class="fi-movers-label">Real drops behind the number:</p>
+      ${movers.map(m => `
+        <a class="fi-mover" href="${escapeHtml(m.affiliateUrl)}" target="_blank" rel="nofollow sponsored noopener">
+          <img src="${escapeHtml(m.image)}" alt="${escapeHtml(m.name)}" loading="lazy">
+          <span class="fi-mover-info">
+            <span class="fi-mover-name">${escapeHtml(m.name)}</span>
+            <span class="fi-mover-price">£${m.salePrice.toFixed(2)} <span class="fi-mover-drop">↓${m.dropPct}%</span></span>
+          </span>
+        </a>
+      `).join('')}
+    </div>
+  `;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str == null ? '' : String(str);
+  return div.innerHTML;
 }
 
 function renderChange(label, pct) {
