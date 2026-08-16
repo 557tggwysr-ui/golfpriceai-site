@@ -73,6 +73,7 @@ PRICE_HISTORY_FILE = Path(__file__).resolve().parent.parent / "data" / "price-hi
 STOCK_HISTORY_FILE = Path(__file__).resolve().parent.parent / "data" / "stock-history.json"
 INDEX_FILE = Path(__file__).resolve().parent.parent / "data" / "price-index.json"
 BUNDLE_FILE = Path(__file__).resolve().parent.parent / "data" / "bundles.json"
+OUTFIT_FILE = Path(__file__).resolve().parent.parent / "data" / "outfits.json"
 
 # How far back "Deal Score" badges look when deciding whether today's price
 # is genuinely the lowest seen, and whether a discount is "verified".
@@ -1645,6 +1646,153 @@ def compute_index_summary(index_history, today_str):
 
 
 # ============================================================
+# Complete The Look — real colour theory assembling genuine outfit
+# sets from live, currently-cheapest matching products. Same underlying
+# "pick genuinely available, currently-lowest items per slot" pattern as
+# Complete The Kit below, with a colour-compatibility check layered on
+# top so the assembled pieces actually work together, not just happen to
+# share a category.
+#
+# COLOUR THEORY, KEPT DELIBERATELY SIMPLE: real colour-wheel positions
+# for the palette already extracted on every apparel product (see
+# COLOUR_KEYWORDS above) — no new data source needed, this reuses what's
+# already there. Two colours are treated as compatible if either is a
+# neutral (goes with almost anything by convention — navy included,
+# since it functions as a neutral in golf/prep style specifically), or
+# if their hue angle is close (analogous — cohesive) or near-opposite
+# (complementary — a deliberate, confident contrast). Anything landing
+# in between (a "clashing" zone) is rejected — no outfit gets forced
+# together just to fill a slot.
+# ============================================================
+COLOUR_HUE_ANGLES = {
+    "red": 0, "brown": 40, "orange": 60, "gold": 90, "yellow": 120,
+    "khaki": 130, "olive": 150, "green": 180, "blue": 240, "purple": 300,
+    "pink": 330,
+}
+# Neutrals pair safely with virtually anything — standard styling
+# convention, and navy is included deliberately since it functions as a
+# practical neutral in golf apparel specifically (as common a "base"
+# colour as black or grey in this context).
+NEUTRAL_COLOURS = {
+    "black", "white", "grey", "gray", "navy", "beige", "silver",
+    "charcoal", "cream", "stone", "tan",
+}
+ANALOGOUS_MAX_ANGLE = 65
+COMPLEMENTARY_MIN_ANGLE = 150
+
+
+def colours_are_compatible(colour_a, colour_b):
+    """Whether two colours genuinely work together, using real colour-
+    wheel relationships rather than a guess. Same colour, or either being
+    a neutral, always passes. Otherwise checks for an analogous (close
+    hue, cohesive) or complementary (near-opposite hue, confident
+    contrast) relationship — anything else is treated as a clash and
+    rejected outright."""
+    if not colour_a or not colour_b:
+        return False
+    a, b = colour_a.lower(), colour_b.lower()
+    if a == b:
+        return True
+    if a in NEUTRAL_COLOURS or b in NEUTRAL_COLOURS:
+        return True
+    angle_a = COLOUR_HUE_ANGLES.get(a)
+    angle_b = COLOUR_HUE_ANGLES.get(b)
+    if angle_a is None or angle_b is None:
+        return False  # an unmapped colour word — don't guess, treat as incompatible
+    diff = abs(angle_a - angle_b)
+    diff = min(diff, 360 - diff)  # shortest distance around the wheel
+    return diff <= ANALOGOUS_MAX_ANGLE or diff >= COMPLEMENTARY_MIN_ANGLE
+
+
+# Each template is a set of icon-based slots. Deliberately generic
+# (never hardcoded to one audience) — a skort-containing template simply
+# never finds a match among Male-classified products, since that icon
+# only ever gets assigned to womenswear in practice, so the right
+# audience split happens naturally from the real data rather than a
+# hardcoded assumption.
+OUTFIT_TEMPLATES = [
+    {"id": "classic", "title": "🏌️ The Classic Look",
+     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Trousers", "icon": "trousers"}, {"label": "Cap", "icon": "cap"}]},
+    {"id": "weekend-casual", "title": "😎 The Weekend Casual",
+     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Shorts", "icon": "shorts"}, {"label": "Cap", "icon": "cap"}]},
+    {"id": "smart-layer", "title": "🧥 The Smart Layer",
+     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Jacket", "icon": "jacket"}, {"label": "Trousers", "icon": "trousers"}]},
+    {"id": "skort-look", "title": "⛳ The Clubhouse Ready",
+     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Skort", "icon": "skort"}, {"label": "Cap", "icon": "cap"}]},
+]
+
+
+def _outfit_slot_candidates(products, slot, audience):
+    return [
+        p for p in products
+        if p.get("category") == "apparel" and p.get("icon") == slot["icon"]
+        and p.get("audience") == audience and p.get("inStock") is not False
+        and p.get("image") and p.get("colour")
+    ]
+
+
+def compute_outfits(products):
+    """Assembles genuine outfit sets: for each template, tries each
+    audience (Male/Female/Junior) independently — an outfit never mixes
+    products from different audience classifications. Picks the
+    cheapest/most-popular item for the first slot as the colour anchor,
+    then fills every remaining slot with the cheapest genuinely
+    colour-compatible candidate. A template/audience combination that
+    can't fill every slot with a real, compatible match is skipped
+    entirely — no outfit is ever forced together."""
+    outfits = []
+    for template in OUTFIT_TEMPLATES:
+        for audience in ("Male", "Female", "Junior"):
+            first_slot = template["slots"][0]
+            anchor_candidates = _outfit_slot_candidates(products, first_slot, audience)
+            if not anchor_candidates:
+                continue
+            anchor = min(anchor_candidates, key=lambda p: p["salePrice"])
+            anchor_colour = anchor["colour"]
+
+            items = [{
+                "slotLabel": first_slot["label"], "id": anchor.get("id"), "name": anchor["name"],
+                "image": anchor.get("image"), "salePrice": anchor["salePrice"],
+                "affiliateUrl": anchor["affiliateUrl"], "brand": anchor.get("brand"),
+                "colour": anchor_colour,
+            }]
+            complete = True
+            for slot in template["slots"][1:]:
+                candidates = [
+                    p for p in _outfit_slot_candidates(products, slot, audience)
+                    if colours_are_compatible(anchor_colour, p["colour"])
+                ]
+                if not candidates:
+                    complete = False
+                    break
+                pick = min(candidates, key=lambda p: p["salePrice"])
+                items.append({
+                    "slotLabel": slot["label"], "id": pick.get("id"), "name": pick["name"],
+                    "image": pick.get("image"), "salePrice": pick["salePrice"],
+                    "affiliateUrl": pick["affiliateUrl"], "brand": pick.get("brand"),
+                    "colour": pick["colour"],
+                })
+            if not complete:
+                continue
+
+            outfits.append({
+                "id": f"{template['id']}-{audience.lower()}",
+                "title": template["title"],
+                "audience": audience,
+                "items": items,
+                "total": round(sum(i["salePrice"] for i in items), 2),
+            })
+    return outfits
+
+
+def save_outfits(outfits):
+    OUTFIT_FILE.write_text(json.dumps(
+        {"outfits": outfits, "lastUpdated": datetime.now(timezone.utc).isoformat()},
+        indent=2,
+    ))
+
+
+# ============================================================
 # Complete The Kit — auto-generated, genuinely-priced pairings from
 # whatever's actually cheapest in the catalog right now. Deliberately
 # NOT framed as "bundle & save" anywhere — there's no real merged
@@ -1775,6 +1923,11 @@ def main():
     bundles = compute_bundles(catalog["products"])
     save_bundles(bundles)
     print(f"Complete The Kit: generated {len(bundles)}/{len(BUNDLE_TEMPLATES)} bundle(s) from current lowest prices.")
+
+    outfits = compute_outfits(catalog["products"])
+    save_outfits(outfits)
+    print(f"Complete The Look: generated {len(outfits)}/{len(OUTFIT_TEMPLATES) * 3} outfit(s) "
+          f"(across up to 3 audiences per template) using real colour-theory matching.")
 
     existing_category_keys = {c["key"] for c in catalog.get("categories", [])}
     if "sets" not in existing_category_keys:
