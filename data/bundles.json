@@ -1,0 +1,164 @@
+{
+  "bundles": [
+    {
+      "id": "driver-headcover",
+      "title": "\ud83c\udfcc\ufe0f Driver + Headcover",
+      "items": [
+        {
+          "slotLabel": "Driver",
+          "id": "driver-yonex-ezone-gs-i-tech-men-s-driver-clickgolf",
+          "name": "Yonex Ezone GS i-Tech Men's Driver",
+          "image": "https://www.clickgolf.co.uk/images/product/main/151358.jpg",
+          "salePrice": 179.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878233020&a=2990893&m=2849",
+          "brand": "Yonex"
+        },
+        {
+          "slotLabel": "Headcover",
+          "id": "accessories-pom-pom-hybrid-headcover-callaway",
+          "name": "Pom Pom Hybrid Headcover",
+          "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786772497242/sits/headcovers-2018-pom-pom-hybrid/headcovers-2018-pom-pom-hybrid_15056___1.png?sfrm=png",
+          "salePrice": 13.95,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=42286339882&a=2990893&m=19186",
+          "brand": "Callaway"
+        }
+      ],
+      "total": 192.95
+    },
+    {
+      "id": "irons-bag",
+      "title": "\u26f3 Iron Set + Golf Bag",
+      "items": [
+        {
+          "slotLabel": "Irons",
+          "id": "irons-yonex-ezone-gs-golf-irons-graphite-clickgolf",
+          "name": "Yonex Ezone GS Golf Irons - Graphite",
+          "image": "https://www.clickgolf.co.uk/images/product/main/107849__81033.jpg",
+          "salePrice": 59.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=40117110579&a=2990893&m=2849",
+          "brand": "Yonex"
+        },
+        {
+          "slotLabel": "Golf Bag",
+          "id": "bag-fastfold-mission-5-accessory-rangefinder-bag-clickgolf",
+          "name": "FastFold Mission-5 Accessory/Rangefinder Bag",
+          "image": "https://www.clickgolf.co.uk/images/product/main/113135__12441.jpg",
+          "salePrice": 22.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231432&a=2990893&m=2849",
+          "brand": "FastFold"
+        }
+      ],
+      "total": 81.99
+    },
+    {
+      "id": "course-day-essentials",
+      "title": "\ud83e\udde2 Course Day Essentials",
+      "items": [
+        {
+          "slotLabel": "Glove",
+          "id": "accessories-weather-spann-junior-golf-glove-callaway",
+          "name": "Weather Spann Junior Golf Glove",
+          "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786772497242/sits/gloves-2024-weather-spann-junior/gloves-2024-weather-spann-junior_2___1.png?sfrm=png",
+          "salePrice": 12.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684791&a=2990893&m=19186",
+          "brand": "Callaway"
+        },
+        {
+          "slotLabel": "Tees",
+          "id": "accessories-longridge-plastic-castle-golf-tees-purple-39mm-1000-clickgolf",
+          "name": "Longridge Plastic Castle Golf Tees Purple 39mm (1000)",
+          "image": "https://www.clickgolf.co.uk/images/product/main/purple-39mm-golf-tees.jpg",
+          "salePrice": 22.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=35827390528&a=2990893&m=2849",
+          "brand": "Longridge"
+        },
+        {
+          "slotLabel": "Towel",
+          "id": "accessories-cart-towel-callaway",
+          "name": "Cart Towel",
+          "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786772497242/sits/towels-2020-cg-cart/towels-2020-cg-cart_12471___1.png?sfrm=png",
+          "salePrice": 19.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684648&a=2990893&m=19186",
+          "brand": "Callaway"
+        }
+      ],
+      "total": 53.99
+    },
+    {
+      "id": "putter-alignment",
+      "title": "\ud83c\udfaf Putter + Alignment Sticks",
+      "items": [
+        {
+          "slotLabel": "Putter",
+          "id": "putter-odyssey-weight-kit-callaway",
+          "name": "Odyssey Weight Kit",
+          "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786772497242/sits/weight-kit-2021-odyssey-standard/weight-kit-2021-odyssey-standard___1.png?sfrm=png",
+          "salePrice": 34.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684726&a=2990893&m=19186",
+          "brand": "Odyssey"
+        },
+        {
+          "slotLabel": "Alignment Sticks",
+          "id": "accessories-odyssey-alignment-stick-cover-callaway",
+          "name": "Odyssey Alignment Stick Cover",
+          "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786772497242/sits/training-2025-alignment-stick-cover/training-2025-alignment-stick-cover_1___1.png?sfrm=png",
+          "salePrice": 29.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=40976855966&a=2990893&m=19186",
+          "brand": "Odyssey"
+        }
+      ],
+      "total": 63.99
+    },
+    {
+      "id": "shoes-socks",
+      "title": "\ud83d\udc5f Shoes + Socks",
+      "items": [
+        {
+          "slotLabel": "Golf Shoes",
+          "id": "shoes-under-armour-womens-ua-charged-breathe-2-spikeless-golf-shoe-clickgolf",
+          "name": "Under Armour Womens UA Charged Breathe 2 Spikeless Golf Shoes - White/Navy",
+          "image": "https://www.clickgolf.co.uk/images/product/main/Under-Armour-Womens-UA-Charged-Breathe-2-Spikeless-Golf-Shoes---WhiteNavy.jpg",
+          "salePrice": 49.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=43577864654&a=2990893&m=2849",
+          "brand": "Under Armour"
+        },
+        {
+          "slotLabel": "Socks",
+          "id": "apparel-footjoy-prodry-quarter-mens-golf-socks-white-clickgolf",
+          "name": "FootJoy ProDry Quarter Mens Golf Socks - White",
+          "image": "https://www.clickgolf.co.uk/images/product/main/p_g_footjoy-quarter-sock-white-bg-1000x1000.jpg",
+          "salePrice": 21.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=44848681678&a=2990893&m=2849",
+          "brand": "FootJoy"
+        }
+      ],
+      "total": 70.99
+    },
+    {
+      "id": "balls-retriever",
+      "title": "\ud83c\udfbe Balls + Ball Retriever",
+      "items": [
+        {
+          "slotLabel": "Golf Balls",
+          "id": "ball-warbird-distance-golf-balls-dozen-callaway",
+          "name": "Warbird Distance+ Golf Balls (Dozen)",
+          "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786772497242/sits/balls-2025-warbird/balls-2025-warbird_2___1.png?sfrm=png",
+          "salePrice": 19.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684962&a=2990893&m=19186",
+          "brand": "Callaway"
+        },
+        {
+          "slotLabel": "Ball Retriever",
+          "id": "accessories-callaway-6-foot-pocket-ball-retriever-clickgolf",
+          "name": "Callaway 6 Foot Pocket Ball Retriever",
+          "image": "https://www.clickgolf.co.uk/images/product/main/36780__56104.jpg",
+          "salePrice": 24.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=41282933186&a=2990893&m=2849",
+          "brand": "Callaway"
+        }
+      ],
+      "total": 44.98
+    }
+  ],
+  "lastUpdated": "2026-08-16T13:30:37.184793+00:00"
+}
