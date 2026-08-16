@@ -1,0 +1,38 @@
+/*
+  GolfPrice AI — "Complete The Look" page styles
+  --------------------------------------------------
+  Reuses css/kit.css for the shared card/list/status layout (identical
+  pattern to Complete The Kit) — this file only adds what's new here:
+  the audience badge and the small colour swatch per item.
+*/
+
+.look-audience-badge {
+  display: inline-block;
+  background: var(--green-pale);
+  color: var(--green-dark);
+  border: 1px solid var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.look-item-colour-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.look-colour-swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  display: inline-block;
+}
