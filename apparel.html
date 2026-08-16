@@ -21,7 +21,7 @@
   <nav class="main-nav">
     <a href="shop.html">Shop All Deals</a>
     <div class="nav-item">
-      <a href="clubs.html">Clubs ▾</a>
+      <a href="shop.html?group=clubs">Clubs ▾</a>
       <div class="dropdown">
         <a href="shop.html?category=driver">Drivers</a>
         <a href="shop.html?category=wood">Fairway Woods</a>
@@ -63,7 +63,7 @@
     <h2>Apparel</h2>
     <p>Polo tees, tops, bottoms, shorts, skorts, outerwear, headwear.</p>
     <p class="tagline">Look Good. Play Better<span class="quip">... <em>right?</em></span></p>
-    <a href="#apparel-browse" class="btn btn-primary">👕 View Deals</a>
+    <a href="#hub-grid" class="btn btn-primary">👕 View Deals</a>
     <a href="https://www.awin1.com/cread.php?s=299715&v=2849&q=140642&r=2990893" class="btn btn-outline" rel="sponsored noopener" target="_blank">Also shop Clothes at Clickgolf ↗</a>
   </div>
   <div class="hub-grid" id="hub-grid">
@@ -71,58 +71,12 @@
     <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
     <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
   </div>
-
-  <section class="section" id="apparel-browse">
-    <div class="section-head">
-      <h2>Browse & Filter All Apparel</h2>
-    </div>
-    <form class="shop-search" id="shop-search-form">
-      <label for="shop-search-input" class="sr-only">Search apparel</label>
-      <input type="text" id="shop-search-input" placeholder="Search within apparel...">
-    </form>
-
-    <button class="mobile-filter-toggle" id="mobile-filter-toggle">🔍 Filter & Sort</button>
-
-    <div class="shop-layout">
-      <aside class="filter-sidebar" id="filter-sidebar">
-        <div class="filter-sidebar-head">
-          <h2>Filters</h2>
-          <button class="filter-clear-all" id="filter-clear-all" type="button">Clear all</button>
-        </div>
-        <div id="filter-sidebar-body"></div>
-      </aside>
-
-      <div>
-        <div class="shop-toolbar">
-          <span class="shop-result-count" id="shop-result-count"></span>
-          <select class="sort-select" id="sort-select" aria-label="Sort products">
-            <option value="popular">Most Popular</option>
-            <option value="discount">Biggest Discount</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-          </select>
-        </div>
-
-        <div class="active-filter-chips" id="active-filter-chips"></div>
-
-        <div class="shop-grid" id="shop-grid">
-          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-          <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-        </div>
-        <p class="empty-state" id="empty-state" style="display:none;">Nothing here — even our AI needs a mulligan. Try another search or category.</p>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
   <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
 </footer>
 
-<script>window.SHOP_FORCE_CATEGORY = 'apparel';</script>
-<script src="js/shop.js"></script>
 <script src="js/groups-config.js"></script>
 <script src="js/hub.js" data-hub="apparel"></script>
 <script src="js/nav-mobile.js"></script>
