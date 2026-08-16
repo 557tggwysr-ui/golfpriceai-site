@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-16T16:01:13.037181+00:00",
+  "lastUpdated": "2026-08-16T18:15:13.145428+00:00",
   "categories": [
     {
       "key": "driver",
@@ -12006,8 +12006,8 @@
       "name": "Cobra Ultralight 2 Golf Cart Bag - Sugared Almond/Dark Myrtle/Sunny Yellow",
       "category": "bag",
       "retailPrice": 189.0,
-      "salePrice": 144.0,
-      "savePct": 24,
+      "salePrice": 169.0,
+      "savePct": 11,
       "retailerCount": 1,
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44848681564&a=2990893&m=2849",
       "source": "awin-clickgolf",
@@ -12018,15 +12018,15 @@
       "icon": "golf-bag",
       "inStock": true,
       "priceInsight": {
-        "status": "new",
-        "trend": "stable",
+        "status": "highest_tracked",
+        "trend": "rising",
         "verifiedDiscount": false,
         "historicalLow": 144.0,
-        "historicalHigh": 144.0,
+        "historicalHigh": 169.0,
         "daysTracked": 0,
         "volatility": "insufficient_data",
         "avgDaysBetweenChanges": null,
-        "numChanges": 0
+        "numChanges": 1
       },
       "stockInsight": {
         "currentlyInStock": true,
@@ -92719,8 +92719,8 @@
       "name": "Cobra Premium Golf Stand Bag - Desert Tan",
       "category": "bag",
       "retailPrice": 249.0,
-      "salePrice": 219.0,
-      "savePct": 12,
+      "salePrice": 249.0,
+      "savePct": 0,
       "retailerCount": 1,
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44848681700&a=2990893&m=2849",
       "source": "awin-clickgolf",
@@ -92731,15 +92731,15 @@
       "audience": "Male",
       "inStock": true,
       "priceInsight": {
-        "status": "new",
-        "trend": "stable",
+        "status": "highest_tracked",
+        "trend": "rising",
         "verifiedDiscount": false,
         "historicalLow": 219.0,
-        "historicalHigh": 219.0,
+        "historicalHigh": 249.0,
         "daysTracked": 0,
         "volatility": "insufficient_data",
         "avgDaysBetweenChanges": null,
-        "numChanges": 0
+        "numChanges": 1
       },
       "stockInsight": {
         "currentlyInStock": true,
