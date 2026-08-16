@@ -1645,6 +1645,50 @@ def compute_index_summary(index_history, today_str):
     return summary
 
 
+# How many real product examples to surface under each category's trend
+# stats — deliberately small, these are meant as concrete proof of the
+# trend, not a mini shop grid.
+TOP_MOVERS_PER_CATEGORY = 2
+
+
+def compute_category_top_movers(products):
+    """Turns the Fairway Index from an abstract percentage into concrete,
+    clickable proof — the actual products whose price has moved the most
+    within each category. Reuses `priceInsight` (already computed by
+    record_and_score_prices) rather than inventing a second, separate
+    measure of "moved" — a product only qualifies if verifiedDiscount is
+    already true, meaning a genuinely higher price was actually recorded
+    for it, not a guess or an unverified retailer RRP claim."""
+    by_category = {}
+    for p in products:
+        insight = p.get("priceInsight")
+        if not insight or not insight.get("verifiedDiscount"):
+            continue
+        cat = p.get("category")
+        if cat not in INDEX_CATEGORIES or not p.get("image"):
+            continue
+        high = insight.get("historicalHigh")
+        current = p.get("salePrice")
+        if not high or not current or high <= 0:
+            continue
+        drop_pct = round((high - current) / high * 100)
+        by_category.setdefault(cat, []).append((drop_pct, p))
+
+    result = {}
+    for cat, entries in by_category.items():
+        entries.sort(key=lambda t: t[0], reverse=True)
+        top = entries[:TOP_MOVERS_PER_CATEGORY]
+        result[cat] = [
+            {
+                "name": p["name"], "image": p.get("image"), "salePrice": p["salePrice"],
+                "affiliateUrl": p["affiliateUrl"], "dropPct": drop_pct,
+            }
+            for drop_pct, p in top
+        ]
+    return result
+
+
+
 # ============================================================
 # Complete The Look — real colour theory assembling genuine outfit
 # sets from live, currently-cheapest matching products. Same underlying
@@ -1917,6 +1961,7 @@ def main():
     index_history = load_index_history()
     index_history = record_index_snapshot(catalog["products"], index_history, today_str)
     index_history["summary"] = compute_index_summary(index_history, today_str)
+    index_history["topMovers"] = compute_category_top_movers(catalog["products"])
     index_history["lastUpdated"] = datetime.now(timezone.utc).isoformat()
     save_index_history(index_history)
 
