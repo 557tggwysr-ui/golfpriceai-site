@@ -110,10 +110,25 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .brand-name { font-weight: 700; font-size: 20px; }
 .brand-name span { color: var(--green); }
 
-.main-nav { display: flex; align-items: center; gap: 32px; }
-.main-nav a { font-weight: 500; font-size: 16px; color: var(--ink); }
+.main-nav { display: flex; align-items: center; gap: 0; }
+.main-nav a { font-weight: 500; font-size: 14px; color: var(--ink); white-space: nowrap; }
 .main-nav a:hover { color: var(--green); }
 .nav-item { position: relative; display: flex; align-items: center; }
+.main-nav > a:not(:last-child),
+.main-nav > .nav-item:not(:last-child) {
+  margin-right: 16px;
+  position: relative;
+}
+.main-nav > a:not(:last-child)::after,
+.main-nav > .nav-item:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--border);
+  font-weight: 400;
+}
 .nav-item .dropdown {
   display: none;
   position: absolute;
@@ -149,8 +164,12 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .btn:hover { transform: translateY(-1px); }
-.btn-primary { background: var(--green); color: #fff; }
+.btn-primary { background: var(--green); color: #fff; white-space: nowrap; }
 .btn-primary:hover { box-shadow: 0 6px 16px rgba(63,174,41,0.35); }
+.site-header .btn-primary {
+  flex-shrink: 0;
+  padding: 10px 16px;
+}
 .btn-outline { background: transparent; color: var(--green); border: 1.5px solid var(--green); }
 .btn-outline:hover { background: var(--green-pale); }
 
