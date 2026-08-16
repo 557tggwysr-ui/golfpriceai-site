@@ -34,6 +34,16 @@ jobs:
         run: |
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/products.json
+          # Every data file the pipeline actually produces — previously
+          # only products.json was staged here, meaning price-history,
+          # stock-history, price-index, bundles, and outfits were being
+          # generated correctly every run but silently discarded, since
+          # git never tracked them. This is the fix.
+          git add data/products.json data/price-history.json data/stock-history.json data/price-index.json data/bundles.json data/outfits.json
           git diff --quiet --cached || git commit -m "Automated catalog refresh"
+          # Guards against a race condition (another run, or a manual
+          # GitHub upload, landing between checkout and push) — pulls
+          # and replays this commit on top of the latest remote state
+          # instead of failing outright, same failure seen today.
+          git pull --rebase origin main
           git push
