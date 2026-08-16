@@ -53,6 +53,7 @@ import csv
 import gzip
 import io
 import json
+import math
 import os
 import re
 import urllib.request
@@ -1763,7 +1764,32 @@ OUTFIT_TEMPLATES = [
      "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Jacket", "icon": "jacket"}, {"label": "Trousers", "icon": "trousers"}]},
     {"id": "skort-look", "title": "⛳ The Clubhouse Ready",
      "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Skort", "icon": "skort"}, {"label": "Cap", "icon": "cap"}]},
+    {"id": "rain-ready", "title": "🌧️ The Rain Ready",
+     "slots": [{"label": "Jacket", "icon": "jacket"}, {"label": "Trousers", "icon": "trousers"}, {"label": "Cap", "icon": "cap"}]},
+    {"id": "sock-game", "title": "🧦 The Full Package",
+     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Shorts", "icon": "shorts"}, {"label": "Socks", "icon": "socks"}]},
+    {"id": "sharp-dresser", "title": "🎩 The Sharp Dresser",
+     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Trousers", "icon": "trousers"}, {"label": "Belt", "icon": "belt"}]},
+    {"id": "sun-seeker", "title": "🕶️ The Sun Seeker",
+     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Shorts", "icon": "shorts"}, {"label": "Sunglasses", "icon": "sunglasses"}]},
+    {"id": "off-duty", "title": "🧥 The Off-Duty",
+     "slots": [{"label": "Hoodie", "icon": "hoodie"}, {"label": "Trousers", "icon": "trousers"}]},
+    {"id": "cold-morning", "title": "🥶 The Cold Morning",
+     "slots": [{"label": "Base Layer", "icon": "base-layer"}, {"label": "Jacket", "icon": "jacket"}, {"label": "Trousers", "icon": "trousers"}]},
+    {"id": "effortless", "title": "👗 The Effortless",
+     "slots": [{"label": "Dress", "icon": "dress"}, {"label": "Cap", "icon": "cap"}]},
 ]
+
+# Same convention as the homepage's Hot Deals/Price Drops/Trending
+# sections: Male-classified outfits should make up roughly 80% of what's
+# actually shown. Genuine Female/Junior outfits are never fabricated or
+# forced to hit this — they're simply capped so they never exceed the
+# remaining ~20%, dropping the priciest surplus ones first (cheapest
+# looks shown preferentially, consistent with the site's "don't
+# overpay" ethos). If zero genuine Male outfits exist in a given run,
+# every real Female/Junior outfit is still shown rather than showing
+# nothing at all — an honest fallback, not a forced ratio.
+OUTFIT_MALE_TARGET_RATIO = 0.8
 
 
 def _outfit_slot_candidates(products, slot, audience):
@@ -1783,7 +1809,13 @@ def compute_outfits(products):
     then fills every remaining slot with the cheapest genuinely
     colour-compatible candidate. A template/audience combination that
     can't fill every slot with a real, compatible match is skipped
-    entirely — no outfit is ever forced together."""
+    entirely — no outfit is ever forced together.
+
+    After every genuine outfit is assembled, applies the same ~80% Male
+    convention used on the homepage (see OUTFIT_MALE_TARGET_RATIO) —
+    real Female/Junior outfits beyond the ~20% allowance are held back
+    from display (cheapest ones kept first), never fabricated or forced
+    to make the ratio work in the other direction."""
     outfits = []
     for template in OUTFIT_TEMPLATES:
         for audience in ("Male", "Female", "Junior"):
@@ -1826,7 +1858,40 @@ def compute_outfits(products):
                 "items": items,
                 "total": round(sum(i["salePrice"] for i in items), 2),
             })
-    return outfits
+
+    male_outfits = [o for o in outfits if o["audience"] == "Male"]
+    other_outfits = [o for o in outfits if o["audience"] != "Male"]
+
+    if male_outfits:
+        # Solving male / (male + other) >= 0.8 for the max allowed
+        # "other" count, given the real male_outfits total.
+        # Floor, not round — "other" must never exceed the ~20% allowance,
+        # so any fractional remainder rounds down (e.g. 3 Male outfits
+        # allows 0 Other, not 1, since 1 would only be 75% Male, under
+        # target). A tiny epsilon guards against float imprecision at
+        # exact boundaries (e.g. male=4 computing to 0.999999999999998
+        # instead of a clean 1.0) without ever rounding up past the
+        # true mathematical value.
+        non_male_share = 1 - OUTFIT_MALE_TARGET_RATIO
+        max_other = math.floor((len(male_outfits) * non_male_share) / OUTFIT_MALE_TARGET_RATIO + 1e-9)
+    else:
+        # No genuine Male outfit completed this run at all — an honest
+        # fallback keeps every real Female/Junior outfit rather than
+        # showing an empty page just to force an impossible ratio.
+        max_other = len(other_outfits)
+
+    kept_other = sorted(other_outfits, key=lambda o: o["total"])[:max_other]
+    dropped_count = len(other_outfits) - len(kept_other)
+    if dropped_count > 0:
+        print(
+            f"Complete The Look: {len(outfits)} outfit(s) genuinely completed, but "
+            f"held back {dropped_count} Female/Junior look(s) to keep Male at roughly "
+            f"{int(OUTFIT_MALE_TARGET_RATIO * 100)}% of what's shown, matching the "
+            f"homepage's audience-balance convention — kept {len(kept_other)} anyway."
+        )
+
+    kept_ids = {o["id"] for o in male_outfits} | {o["id"] for o in kept_other}
+    return [o for o in outfits if o["id"] in kept_ids]
 
 
 def save_outfits(outfits):
