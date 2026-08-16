@@ -12,26 +12,6 @@
   .shop-head { padding: 40px 0 20px; }
   .shop-head h1 { font-size: 30px; margin: 0 0 8px; }
   .shop-head p { color: var(--muted); margin: 0; }
-  .shop-search { margin: 20px 0; max-width: 420px; }
-  .shop-search input {
-    width: 100%; border: 1px solid var(--border); border-radius: 999px;
-    padding: 11px 18px; font-size: 15px; box-shadow: var(--shadow);
-  }
-  /* Auto-fill instead of a fixed 3-up grid — cards were ballooning to
-     ~340px+ each at typical desktop widths since 3 columns was forced
-     no matter how much room was available. This gives each card a
-     sensible 220px minimum and lets the grid fit as many as actually
-     fit the space (4 at typical desktop widths, matching the
-     homepage's card density), scaling gracefully at any width instead
-     of needing separate hardcoded breakpoints. */
-  .shop-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-    padding-bottom: 60px;
-  }
-  .empty-state { color: var(--muted); padding: 40px 0; text-align: center; }
-  @media (max-width: 480px) { .shop-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>

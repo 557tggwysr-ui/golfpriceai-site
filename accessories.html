@@ -9,6 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/hub.css">
+<script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    if (!params.get('category')) {
+      params.set('category', 'accessories');
+      history.replaceState(null, '', '?' + params.toString());
+    }
+  })();
+</script>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to content</a>
@@ -73,6 +82,48 @@
   <p class="retailer-note">
     Looking for gloves specifically? <a href="https://www.awin1.com/cread.php?s=399405&v=2849&q=188421&r=2990893" rel="sponsored noopener" target="_blank" style="color:var(--green);font-weight:600;">Shop gloves at Clickgolf ↗</a>
   </p>
+
+  <div id="category-banner" style="display:none;"></div>
+
+  <h2 style="margin:12px 0 0;">Every Accessory We Track</h2>
+  <form class="shop-search" id="shop-search-form">
+    <label for="shop-search-input" class="sr-only">Search accessories</label>
+    <input type="text" id="shop-search-input" placeholder="Search rangefinders, gloves, bags...">
+  </form>
+
+  <button class="mobile-filter-toggle" id="mobile-filter-toggle">🔍 Filter & Sort</button>
+
+  <div class="shop-layout">
+    <aside class="filter-sidebar" id="filter-sidebar">
+      <div class="filter-sidebar-head">
+        <h2>Filters</h2>
+        <button class="filter-clear-all" id="filter-clear-all" type="button">Clear all</button>
+      </div>
+      <div id="filter-sidebar-body"></div>
+    </aside>
+
+    <div>
+      <div class="shop-toolbar">
+        <span class="shop-result-count" id="shop-result-count"></span>
+        <select class="sort-select" id="sort-select" aria-label="Sort products">
+          <option value="popular">Most Popular</option>
+          <option value="discount">Biggest Discount</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
+
+      <div class="active-filter-chips" id="active-filter-chips"></div>
+
+      <div class="shop-grid" id="shop-grid">
+        <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+        <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+      </div>
+      <p class="empty-state" id="empty-state" style="display:none;">Nothing here — even our AI needs a mulligan. Try another search.</p>
+    </div>
+  </div>
 </main>
 
 <footer>
@@ -81,6 +132,7 @@
 
 <script src="js/groups-config.js"></script>
 <script src="js/hub.js" data-hub="accessories"></script>
+<script src="js/shop.js"></script>
 <script src="js/nav-mobile.js"></script>
 <script src="js/analytics.js"></script>
 <script src="js/cookie-consent.js"></script>
