@@ -2,10 +2,17 @@
 .hub-head h1 { font-size: 30px; margin: 0 0 8px; }
 .hub-head p { color: var(--muted); margin: 0; max-width: 60ch; }
 
+/* Auto-fill instead of a fixed 3-up grid — with no sidebar to constrain
+   width (hub pages are full-container), 3 forced columns meant each
+   card ballooned to ~400px+ at typical desktop widths. 280px minimum
+   keeps the fixed-width category badge (.hub-thumb-text, 320px with
+   max-width:100%) comfortably legible while letting the grid fit more,
+   smaller cards on wide screens — 4 per row at typical desktop widths,
+   scaling down gracefully rather than needing hardcoded breakpoints. */
 .hub-grid {
   scroll-margin-top: 100px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 22px;
   padding-bottom: 60px;
 }
@@ -36,7 +43,9 @@
   /* Fixed width, not max-content: sized to fit the longest title on the
      site ("LAUNCH MONITORS & SIMULATORS", measured at ~297px including
      padding) with a safety margin for font-rendering differences across
-     browsers/OSes, so every card gets the exact same badge size. */
+     browsers/OSes, so every card gets the exact same badge size.
+     max-width:100% still protects narrower cards from overflow now
+     that the grid can shrink below 320px on small screens. */
   width: 320px;
   max-width: 100%;
 }
@@ -77,4 +86,4 @@
 .hub-card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0 0 14px; }
 .hub-card .hub-link { font-size: 13px; font-weight: 600; color: var(--green); }
 
-@media (max-width: 900px) { .hub-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .hub-grid { grid-template-columns: 1fr; } }
