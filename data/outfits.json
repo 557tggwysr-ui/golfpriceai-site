@@ -39,82 +39,6 @@
       "total": 64.24
     },
     {
-      "id": "classic-female",
-      "title": "\ud83c\udfcc\ufe0f The Classic Look",
-      "audience": "Female",
-      "items": [
-        {
-          "slotLabel": "Polo",
-          "id": "apparel-under-armour-womens-zinger-short-sleeve-polo-shirt-black-clickgolf",
-          "name": "Under Armour Womens Zinger Short Sleeve Polo Shirt - Black",
-          "image": "https://www.clickgolf.co.uk/images/product/main/143161__12029.jpg",
-          "salePrice": 21.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231119&a=2990893&m=2849",
-          "brand": "Under Armour",
-          "colour": "Black"
-        },
-        {
-          "slotLabel": "Trousers",
-          "id": "apparel-nike-womens-flex-pant-golf-trousers-wolf-grey-clickgolf",
-          "name": "Nike Womens Flex Pant Golf Trousers - Wolf Grey",
-          "image": "https://www.clickgolf.co.uk/images/product/main/78612__65011.jpg",
-          "salePrice": 29.74,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=34723744201&a=2990893&m=2849",
-          "brand": "Nike",
-          "colour": "Grey"
-        },
-        {
-          "slotLabel": "Cap",
-          "id": "apparel-ping-ladies-paulina-sensorwarm-golf-bobble-hat-navy-clickgolf",
-          "name": "Ping Ladies Paulina Sensorwarm Golf Bobble Hat - Navy",
-          "image": "https://www.clickgolf.co.uk/images/product/main/Ladies-Paulina-Sensorwarm-Golf-Bobble-Hat-Navy.jpg",
-          "salePrice": 20.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231885&a=2990893&m=2849",
-          "brand": "Ping",
-          "colour": "Navy"
-        }
-      ],
-      "total": 72.72
-    },
-    {
-      "id": "classic-junior",
-      "title": "\ud83c\udfcc\ufe0f The Classic Look",
-      "audience": "Junior",
-      "items": [
-        {
-          "slotLabel": "Polo",
-          "id": "apparel-callaway-junior-tournament-golf-polo-shirt-holly-green-clickgolf",
-          "name": "Callaway Junior Tournament Golf Polo Shirt - Holly Green",
-          "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Junior-Tournament-Golf-Polo-Shirt-Holly-Green.jpg",
-          "salePrice": 24.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=44689482792&a=2990893&m=2849",
-          "brand": "Callaway",
-          "colour": "Green"
-        },
-        {
-          "slotLabel": "Trousers",
-          "id": "apparel-under-armour-boys-showdown-golf-pant-black-clickgolf",
-          "name": "Under Armour Boys Showdown Golf Pant - Black",
-          "image": "https://www.clickgolf.co.uk/images/product/main/131392-1629284240__27060-2.jpg",
-          "salePrice": 26.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878232408&a=2990893&m=2849",
-          "brand": "Under Armour",
-          "colour": "Black"
-        },
-        {
-          "slotLabel": "Cap",
-          "id": "apparel-titleist-junior-tour-performance-golf-cap-black-white-clickgolf",
-          "name": "Titleist Junior Tour Performance Golf Cap - Black/White",
-          "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-Junior-Tour-Performance-Golf-Cap-Black-White.jpg",
-          "salePrice": 22.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=44733898800&a=2990893&m=2849",
-          "brand": "Titleist",
-          "colour": "Black"
-        }
-      ],
-      "total": 74.97
-    },
-    {
       "id": "weekend-casual-male",
       "title": "\ud83d\ude0e The Weekend Casual",
       "audience": "Male",
@@ -151,44 +75,6 @@
         }
       ],
       "total": 68.48
-    },
-    {
-      "id": "weekend-casual-female",
-      "title": "\ud83d\ude0e The Weekend Casual",
-      "audience": "Female",
-      "items": [
-        {
-          "slotLabel": "Polo",
-          "id": "apparel-under-armour-womens-zinger-short-sleeve-polo-shirt-black-clickgolf",
-          "name": "Under Armour Womens Zinger Short Sleeve Polo Shirt - Black",
-          "image": "https://www.clickgolf.co.uk/images/product/main/143161__12029.jpg",
-          "salePrice": 21.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231119&a=2990893&m=2849",
-          "brand": "Under Armour",
-          "colour": "Black"
-        },
-        {
-          "slotLabel": "Shorts",
-          "id": "apparel-under-armour-womens-links-golf-short-black-clickgolf",
-          "name": "Under Armour Womens Links Golf Short - Black",
-          "image": "https://www.clickgolf.co.uk/images/product/main/Womens-Links-Golf-Short-black.jpg",
-          "salePrice": 32.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231842&a=2990893&m=2849",
-          "brand": "Under Armour",
-          "colour": "Black"
-        },
-        {
-          "slotLabel": "Cap",
-          "id": "apparel-ping-ladies-paulina-sensorwarm-golf-bobble-hat-navy-clickgolf",
-          "name": "Ping Ladies Paulina Sensorwarm Golf Bobble Hat - Navy",
-          "image": "https://www.clickgolf.co.uk/images/product/main/Ladies-Paulina-Sensorwarm-Golf-Bobble-Hat-Navy.jpg",
-          "salePrice": 20.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231885&a=2990893&m=2849",
-          "brand": "Ping",
-          "colour": "Navy"
-        }
-      ],
-      "total": 75.97
     },
     {
       "id": "smart-layer-male",
@@ -229,29 +115,199 @@
       "total": 64.24
     },
     {
-      "id": "smart-layer-female",
-      "title": "\ud83e\udde5 The Smart Layer",
-      "audience": "Female",
+      "id": "rain-ready-male",
+      "title": "\ud83c\udf27\ufe0f The Rain Ready",
+      "audience": "Male",
+      "items": [
+        {
+          "slotLabel": "Jacket",
+          "id": "apparel-titleist-performance-neck-warmer-navy-clickgolf",
+          "name": "Titleist Performance Neck Warmer - Navy",
+          "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-Performance-Neck-Warmer-Navy.jpg",
+          "salePrice": 21.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=42601895006&a=2990893&m=2849",
+          "brand": "Titleist",
+          "colour": "Navy"
+        },
+        {
+          "slotLabel": "Trousers",
+          "id": "apparel-green-lamb-classic-performance-golf-trouser-stone-clickgolf",
+          "name": "Green Lamb Classic Performance Golf  Trouser - Stone",
+          "image": "https://www.clickgolf.co.uk/images/product/main/8187__94049.jpg",
+          "salePrice": 21.25,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231957&a=2990893&m=2849",
+          "brand": "Green Lamb",
+          "colour": "Green"
+        },
+        {
+          "slotLabel": "Cap",
+          "id": "apparel-footjoy-fashion-golf-cap-black-flint-clickgolf",
+          "name": "FootJoy Fashion Golf Cap - Black/Flint",
+          "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Fashion-Golf-Cap-Black-Flint.jpg",
+          "salePrice": 21.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=41437719387&a=2990893&m=2849",
+          "brand": "FootJoy",
+          "colour": "Black"
+        }
+      ],
+      "total": 63.25
+    },
+    {
+      "id": "sock-game-male",
+      "title": "\ud83e\udde6 The Full Package",
+      "audience": "Male",
       "items": [
         {
           "slotLabel": "Polo",
-          "id": "apparel-under-armour-womens-zinger-short-sleeve-polo-shirt-black-clickgolf",
-          "name": "Under Armour Womens Zinger Short Sleeve Polo Shirt - Black",
-          "image": "https://www.clickgolf.co.uk/images/product/main/143161__12029.jpg",
+          "id": "apparel-puma-mattr-canyon-golf-polo-red-clickgolf",
+          "name": "Puma MATTR Canyon Golf Polo - Red",
+          "image": "https://www.clickgolf.co.uk/images/product/main/141535-1646303222__34141-2.jpg",
           "salePrice": 21.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231119&a=2990893&m=2849",
-          "brand": "Under Armour",
-          "colour": "Black"
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231056&a=2990893&m=2849",
+          "brand": "Puma",
+          "colour": "Red"
         },
         {
-          "slotLabel": "Jacket",
-          "id": "apparel-swing-out-sister-womens-daisy-packable-gilet-red-clickgolf",
-          "name": "Swing Out Sister Womens Daisy Packable Gilet - Red",
-          "image": "https://www.clickgolf.co.uk/images/product/main/96858__56326.jpg",
+          "slotLabel": "Shorts",
+          "id": "apparel-proquip-dune-stretch-golf-shorts-red-clickgolf",
+          "name": "ProQuip Dune Stretch Golf Shorts - Red",
+          "image": "https://www.clickgolf.co.uk/images/product/main/p_g_proquip-dune-shorts-red.jpg",
           "salePrice": 25.49,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=35887845445&a=2990893&m=2849",
-          "brand": "Swing Out Sister",
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878233037&a=2990893&m=2849",
+          "brand": "ProQuip",
           "colour": "Red"
+        },
+        {
+          "slotLabel": "Socks",
+          "id": "apparel-footjoy-prodry-quarter-mens-golf-socks-white-clickgolf",
+          "name": "FootJoy ProDry Quarter Mens Golf Socks - White",
+          "image": "https://www.clickgolf.co.uk/images/product/main/p_g_footjoy-quarter-sock-white-bg-1000x1000.jpg",
+          "salePrice": 21.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=44848681678&a=2990893&m=2849",
+          "brand": "FootJoy",
+          "colour": "White"
+        }
+      ],
+      "total": 68.48
+    },
+    {
+      "id": "sharp-dresser-male",
+      "title": "\ud83c\udfa9 The Sharp Dresser",
+      "audience": "Male",
+      "items": [
+        {
+          "slotLabel": "Polo",
+          "id": "apparel-puma-mattr-canyon-golf-polo-red-clickgolf",
+          "name": "Puma MATTR Canyon Golf Polo - Red",
+          "image": "https://www.clickgolf.co.uk/images/product/main/141535-1646303222__34141-2.jpg",
+          "salePrice": 21.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231056&a=2990893&m=2849",
+          "brand": "Puma",
+          "colour": "Red"
+        },
+        {
+          "slotLabel": "Trousers",
+          "id": "apparel-green-lamb-classic-performance-golf-trouser-stone-clickgolf",
+          "name": "Green Lamb Classic Performance Golf  Trouser - Stone",
+          "image": "https://www.clickgolf.co.uk/images/product/main/8187__94049.jpg",
+          "salePrice": 21.25,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231957&a=2990893&m=2849",
+          "brand": "Green Lamb",
+          "colour": "Green"
+        },
+        {
+          "slotLabel": "Belt",
+          "id": "apparel-ping-stretch-webbing-golf-belt-black-clickgolf",
+          "name": "Ping Stretch Webbing Golf Belt - Black",
+          "image": "https://www.clickgolf.co.uk/images/product/main/Ping-Stretch-Webbing-Golf-Belt-Black.jpg",
+          "salePrice": 29.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=44545241472&a=2990893&m=2849",
+          "brand": "Ping",
+          "colour": "Black"
+        }
+      ],
+      "total": 73.23
+    },
+    {
+      "id": "sun-seeker-male",
+      "title": "\ud83d\udd76\ufe0f The Sun Seeker",
+      "audience": "Male",
+      "items": [
+        {
+          "slotLabel": "Polo",
+          "id": "apparel-puma-mattr-canyon-golf-polo-red-clickgolf",
+          "name": "Puma MATTR Canyon Golf Polo - Red",
+          "image": "https://www.clickgolf.co.uk/images/product/main/141535-1646303222__34141-2.jpg",
+          "salePrice": 21.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231056&a=2990893&m=2849",
+          "brand": "Puma",
+          "colour": "Red"
+        },
+        {
+          "slotLabel": "Shorts",
+          "id": "apparel-proquip-dune-stretch-golf-shorts-red-clickgolf",
+          "name": "ProQuip Dune Stretch Golf Shorts - Red",
+          "image": "https://www.clickgolf.co.uk/images/product/main/p_g_proquip-dune-shorts-red.jpg",
+          "salePrice": 25.49,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878233037&a=2990893&m=2849",
+          "brand": "ProQuip",
+          "colour": "Red"
+        },
+        {
+          "slotLabel": "Sunglasses",
+          "id": "apparel-oakley-holbrook-sunglasses-matte-black-w-prizm-dark-golf-len-clickgolf",
+          "name": "Oakley Holbrook Sunglasses - Matte Black w/Prizm Dark Golf Lens",
+          "image": "https://www.clickgolf.co.uk/images/product/main/Oakley-Holbrook-Sunglasses-Matte-Black-Prizm-Dark-Golf-Lens-8.jpg",
+          "salePrice": 89.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=45202291835&a=2990893&m=2849",
+          "brand": "Oakley",
+          "colour": "Black"
+        }
+      ],
+      "total": 136.48
+    },
+    {
+      "id": "off-duty-male",
+      "title": "\ud83e\udde5 The Off-Duty",
+      "audience": "Male",
+      "items": [
+        {
+          "slotLabel": "Hoodie",
+          "id": "apparel-mizuno-g-style-hoodie-2-0-golf-sweater-baritone-blue-clickgolf",
+          "name": "Mizuno G-Style Hoodie 2.0 Golf Sweater - Baritone Blue",
+          "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-G-Style-Hoodie-2.0-Golf-Sweater-Baritone-Blue.jpg",
+          "salePrice": 34.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=42917345715&a=2990893&m=2849",
+          "brand": "Mizuno",
+          "colour": "Blue"
+        },
+        {
+          "slotLabel": "Trousers",
+          "id": "apparel-green-lamb-classic-performance-golf-trouser-stone-clickgolf",
+          "name": "Green Lamb Classic Performance Golf  Trouser - Stone",
+          "image": "https://www.clickgolf.co.uk/images/product/main/8187__94049.jpg",
+          "salePrice": 21.25,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231957&a=2990893&m=2849",
+          "brand": "Green Lamb",
+          "colour": "Green"
+        }
+      ],
+      "total": 56.24
+    },
+    {
+      "id": "off-duty-female",
+      "title": "\ud83e\udde5 The Off-Duty",
+      "audience": "Female",
+      "items": [
+        {
+          "slotLabel": "Hoodie",
+          "id": "apparel-under-armour-women-s-storm-daytona-full-zip-hoodie-blue-clickgolf",
+          "name": "Under Armour Women's Storm Daytona Full-Zip Hoodie - Blue",
+          "image": "https://www.clickgolf.co.uk/images/product/main/134160-1632758279__32276-2.jpg",
+          "salePrice": 37.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=35505180786&a=2990893&m=2849",
+          "brand": "Under Armour",
+          "colour": "Blue"
         },
         {
           "slotLabel": "Trousers",
@@ -264,32 +320,22 @@
           "colour": "Grey"
         }
       ],
-      "total": 77.22
+      "total": 67.73
     },
     {
-      "id": "smart-layer-junior",
-      "title": "\ud83e\udde5 The Smart Layer",
+      "id": "off-duty-junior",
+      "title": "\ud83e\udde5 The Off-Duty",
       "audience": "Junior",
       "items": [
         {
-          "slotLabel": "Polo",
-          "id": "apparel-callaway-junior-tournament-golf-polo-shirt-holly-green-clickgolf",
-          "name": "Callaway Junior Tournament Golf Polo Shirt - Holly Green",
-          "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Junior-Tournament-Golf-Polo-Shirt-Holly-Green.jpg",
-          "salePrice": 24.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=44689482792&a=2990893&m=2849",
-          "brand": "Callaway",
-          "colour": "Green"
-        },
-        {
-          "slotLabel": "Jacket",
-          "id": "apparel-girls-golf-womens-long-sleeve-sweatershirt-lovely-grey-clickgolf",
-          "name": "Girls Golf (Womens) Long Sleeve Sweatershirt - Lovely Grey",
-          "image": "https://www.clickgolf.co.uk/images/product/main/70968__78061.jpg",
-          "salePrice": 33.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=34729052861&a=2990893&m=2849",
-          "brand": "Girls Golf",
-          "colour": "Grey"
+          "slotLabel": "Hoodie",
+          "id": "apparel-under-armour-boys-ua-multilogo-golf-hoodie-black-clickgolf",
+          "name": "Under Armour Boys UA MultiLogo Golf Hoodie - Black",
+          "image": "https://www.clickgolf.co.uk/images/product/main/149165__33120.jpg",
+          "salePrice": 22.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231326&a=2990893&m=2849",
+          "brand": "Under Armour",
+          "colour": "Black"
         },
         {
           "slotLabel": "Trousers",
@@ -302,46 +348,46 @@
           "colour": "Black"
         }
       ],
-      "total": 85.97
+      "total": 49.98
     },
     {
-      "id": "skort-look-female",
-      "title": "\u26f3 The Clubhouse Ready",
-      "audience": "Female",
+      "id": "cold-morning-male",
+      "title": "\ud83e\udd76 The Cold Morning",
+      "audience": "Male",
       "items": [
         {
-          "slotLabel": "Polo",
-          "id": "apparel-under-armour-womens-zinger-short-sleeve-polo-shirt-black-clickgolf",
-          "name": "Under Armour Womens Zinger Short Sleeve Polo Shirt - Black",
-          "image": "https://www.clickgolf.co.uk/images/product/main/143161__12029.jpg",
-          "salePrice": 21.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231119&a=2990893&m=2849",
+          "slotLabel": "Base Layer",
+          "id": "apparel-under-armour-coldgear-infrared-long-sleeve-golf-mock-base-la-clickgolf",
+          "name": "Under Armour ColdGear Infrared Long Sleeve Golf Mock Base Layer - Royal Blue",
+          "image": "https://www.clickgolf.co.uk/images/product/main/134334-1632911532__01323-2.jpg",
+          "salePrice": 33.99,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=35080065783&a=2990893&m=2849",
           "brand": "Under Armour",
-          "colour": "Black"
-        },
-        {
-          "slotLabel": "Skort",
-          "id": "apparel-footjoy-womens-interlock-printed-skort-blue-jay-clickgolf",
-          "name": "FootJoy Womens Interlock Printed Skort - Blue Jay",
-          "image": "https://www.clickgolf.co.uk/images/product/main/118045__17072.jpg",
-          "salePrice": 29.74,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=34729053625&a=2990893&m=2849",
-          "brand": "FootJoy",
           "colour": "Blue"
         },
         {
-          "slotLabel": "Cap",
-          "id": "apparel-ping-ladies-paulina-sensorwarm-golf-bobble-hat-navy-clickgolf",
-          "name": "Ping Ladies Paulina Sensorwarm Golf Bobble Hat - Navy",
-          "image": "https://www.clickgolf.co.uk/images/product/main/Ladies-Paulina-Sensorwarm-Golf-Bobble-Hat-Navy.jpg",
-          "salePrice": 20.99,
-          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231885&a=2990893&m=2849",
-          "brand": "Ping",
+          "slotLabel": "Jacket",
+          "id": "apparel-titleist-performance-neck-warmer-navy-clickgolf",
+          "name": "Titleist Performance Neck Warmer - Navy",
+          "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-Performance-Neck-Warmer-Navy.jpg",
+          "salePrice": 21.0,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=42601895006&a=2990893&m=2849",
+          "brand": "Titleist",
           "colour": "Navy"
+        },
+        {
+          "slotLabel": "Trousers",
+          "id": "apparel-green-lamb-classic-performance-golf-trouser-stone-clickgolf",
+          "name": "Green Lamb Classic Performance Golf  Trouser - Stone",
+          "image": "https://www.clickgolf.co.uk/images/product/main/8187__94049.jpg",
+          "salePrice": 21.25,
+          "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878231957&a=2990893&m=2849",
+          "brand": "Green Lamb",
+          "colour": "Green"
         }
       ],
-      "total": 72.72
+      "total": 76.24
     }
   ],
-  "lastUpdated": "2026-08-16T15:14:28.086765+00:00"
+  "lastUpdated": "2026-08-16T16:01:13.036641+00:00"
 }
