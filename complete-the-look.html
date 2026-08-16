@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Fairway Index | GolfPrice AI</title>
-<meta name="description" content="A real price index for golf gear, built entirely from prices we've actually tracked — which categories are trending up or down.">
+<title>Complete The Look | GolfPrice AI</title>
+<meta name="description" content="Full outfit sets, matched using real colour theory — not just thrown together because they're both on sale. Real prices, per item.">
 <link rel="icon" href="assets/logo-full.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/fairway-index.css">
+<link rel="stylesheet" href="css/kit.css">
+<link rel="stylesheet" href="css/look.css">
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to content</a>
@@ -55,29 +56,27 @@
   <button class="nav-toggle" aria-label="Open menu">☰</button>
 </header>
 
-
 <main class="container" id="main-content">
 
   <div class="theme-banner">
-    <h2>📊 The Fairway Index</h2>
-    <p>Think of it as an inflation index, but just for golf gear — built entirely from prices we've actually tracked, not survey guesswork.</p>
-    <p class="tagline">Real Numbers Only.<span class="quip"> No "Survey Says" Here.</span></p>
-    <a href="#fi-grid" class="btn btn-primary">📊 See The Trends</a>
+    <h2>👔 Complete The Look</h2>
+    <p>Full outfits, matched using actual colour theory — not just "these were both on sale so we stuck them together." If it clashes, it doesn't make the cut.</p>
+    <p class="tagline">Full Swing.<span class="quip"> Full Fit.</span></p>
+    <a href="#look-list" class="btn btn-primary">👔 See The Looks</a>
   </div>
 
-  <div id="fi-loading" class="fi-status">Crunching the numbers…</div>
-  <div id="fi-empty" class="fi-status" hidden>
-    <p><strong>Not enough history yet.</strong></p>
-    <p>The Index needs real tracked prices over real time before it can say anything meaningful — check back once we've been running a little longer.</p>
-  </div>
+  <div id="look-loading" class="kit-status">Colour-matching, one polo at a time…</div>
+  <div id="look-empty" class="kit-status" hidden>Nothing fully matches right now — check back as the catalog grows.</div>
 
-  <div id="fi-grid" class="fi-grid" hidden></div>
+  <div id="look-list" class="kit-list" hidden></div>
 
-  <p class="fi-footnote">
-    <strong>How this works:</strong> every day we record the average tracked price
-    across every in-stock product in each category. A change is only shown once a
-    genuine snapshot from that far back actually exists — no interpolating, no
-    estimating backwards.
+  <p class="kit-footnote">
+    <strong>How this works:</strong> every outfit is assembled fresh each run from whatever's
+    genuinely cheapest and colour-compatible right now, using real colour-wheel relationships
+    (same colour, safe neutrals, analogous, or complementary — never a random guess). An outfit
+    only gets published if every piece genuinely fits together — no forced pairings, no
+    "close enough." Each item still buys separately from its own retailer, same as everywhere
+    else on this site.
   </p>
 
 </main>
@@ -86,7 +85,7 @@
   <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
 </footer>
 
-<script src="js/fairway-index.js"></script>
+<script src="js/look.js"></script>
 <script src="js/groups-config.js"></script>
 <script src="js/hub.js"></script>
 <script src="js/nav-mobile.js"></script>
