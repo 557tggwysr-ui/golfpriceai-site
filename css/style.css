@@ -993,3 +993,26 @@ footer a:hover { color: var(--green); }
   .receipts-banner-copy { max-width: 100%; }
   .receipts-banner h2 { font-size: 23px; }
 }
+
+/* ============================================
+   Shared shop-grid + search box styles — used by
+   shop.html AND embedded on the Apparel/Accessories
+   hub pages below their tile grid. Previously this
+   lived only inline in shop.html, which meant hub
+   pages had no rule for it at all (a real gap, not
+   a deliberate omission). Centralising here so both
+   places stay in sync automatically.
+   ============================================ */
+.shop-search { margin: 20px 0; max-width: 420px; }
+.shop-search input {
+  width: 100%; border: 1px solid var(--border); border-radius: 999px;
+  padding: 11px 18px; font-size: 15px; box-shadow: var(--shadow);
+}
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding-bottom: 60px;
+}
+.empty-state { color: var(--muted); padding: 40px 0; text-align: center; }
+@media (max-width: 480px) { .shop-grid { grid-template-columns: 1fr; } }
