@@ -2,8 +2,8 @@
   GolfPrice AI — "Complete The Look" page styles
   --------------------------------------------------
   Reuses css/kit.css for the shared card/list/status layout (identical
-  pattern to Complete The Kit) — this file only adds what's new here:
-  the audience badge and the small colour swatch per item.
+  pattern to Complete The Kit). This file adds: the audience badge, the
+  small colour swatch per item, and the "Shop By Colour" picker section.
 */
 
 .look-audience-badge {
@@ -35,4 +35,115 @@
   border: 1px solid var(--border);
   flex-shrink: 0;
   display: inline-block;
+}
+
+/* ---------- Shop By Colour picker ---------- */
+
+.colour-shop-section {
+  margin: 0 0 48px;
+}
+
+.colour-shop-intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 20px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.colour-swatch-picker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 28px;
+  max-width: 640px;
+}
+
+.colour-swatch-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.colour-swatch-btn:hover {
+  transform: scale(1.08);
+}
+
+.colour-swatch-btn.is-selected {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px var(--green-pale);
+}
+
+.colour-swatch-dot {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+#colour-shop-heading {
+  text-align: center;
+  margin: 0 0 6px;
+}
+
+.colour-shop-group {
+  margin: 0 0 28px;
+}
+
+.colour-shop-group-title {
+  font-size: 1rem;
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.colour-shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+.colour-shop-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.colour-shop-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.colour-shop-item-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.3;
+  min-height: 2.6em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.colour-shop-item-price {
+  font-weight: 700;
+  color: var(--green-dark);
 }
