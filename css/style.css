@@ -916,17 +916,11 @@ footer a:hover { color: var(--green); }
 
 /* ============================================
    Homepage: Show Us The Receipts promo banner
-   (identical pattern to the two banners above).
-   PLACEHOLDER: no photo supplied yet — using a
-   gradient-only background so the banner still
-   displays correctly with no broken image link.
-   Once assets/photos/receipts-banner.jpg exists,
-   swap in the url(...) the same way the other two
-   banners do — no other change needed.
+   (identical pattern to the two banners above)
    ============================================ */
 .receipts-banner {
   display: block;
-  background-image: linear-gradient(100deg, var(--ink) 0%, rgba(22,36,28,0.92) 45%, rgba(47,68,47,0.85) 100%);
+  background-image: linear-gradient(100deg, var(--ink) 0%, rgba(22,36,28,0.85) 38%, rgba(22,36,28,0.35) 65%, rgba(22,36,28,0.15) 100%), url('../assets/photos/receipts-banner.jpg');
   background-size: cover;
   background-position: right center;
   border-radius: var(--radius);
@@ -974,15 +968,9 @@ footer a:hover { color: var(--green); }
   .receipts-banner {
     padding: 28px 24px;
     min-height: 0;
+    background-image: linear-gradient(180deg, rgba(22,36,28,0.55) 0%, rgba(22,36,28,0.92) 75%), url('../assets/photos/receipts-banner.jpg');
     background-position: center;
   }
   .receipts-banner-copy { max-width: 100%; }
   .receipts-banner h2 { font-size: 23px; }
 }
-
-/* Once a real photo is supplied, replace the two background-image rules
-   above with (root desktop rule):
-     background-image: linear-gradient(100deg, var(--ink) 0%, rgba(22,36,28,0.85) 38%, rgba(22,36,28,0.35) 65%, rgba(22,36,28,0.15) 100%), url('../assets/photos/receipts-banner.jpg');
-   and (mobile rule inside the @media block):
-     background-image: linear-gradient(180deg, rgba(22,36,28,0.55) 0%, rgba(22,36,28,0.92) 75%), url('../assets/photos/receipts-banner.jpg');
-   — identical pattern to .arsenal-banner and .look-banner above. */
