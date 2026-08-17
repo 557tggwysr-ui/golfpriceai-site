@@ -61,11 +61,11 @@
           "count": 1224
         },
         "bag": {
-          "avgPrice": 228.41,
+          "avgPrice": 234.44,
           "count": 483
         },
         "accessories": {
-          "avgPrice": 142.58,
+          "avgPrice": 142.78,
           "count": 507
         },
         "wood": {
@@ -93,15 +93,15 @@
           "count": 166
         },
         "putter": {
-          "avgPrice": 341.86,
+          "avgPrice": 347.09,
           "count": 344
         },
         "driver": {
-          "avgPrice": 596.48,
+          "avgPrice": 597.68,
           "count": 133
         },
         "sets": {
-          "avgPrice": 503.2,
+          "avgPrice": 527.2,
           "count": 5
         }
       }
@@ -115,13 +115,13 @@
       "change90d": null
     },
     "bag": {
-      "currentAvg": 228.41,
+      "currentAvg": 234.44,
       "count": 483,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 142.58,
+      "currentAvg": 142.78,
       "count": 507,
       "change30d": null,
       "change90d": null
@@ -163,24 +163,24 @@
       "change90d": null
     },
     "putter": {
-      "currentAvg": 341.86,
+      "currentAvg": 347.09,
       "count": 344,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 596.48,
+      "currentAvg": 597.68,
       "count": 133,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 503.2,
+      "currentAvg": 527.2,
       "count": 5,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-17T06:34:51.390680+00:00",
+  "lastUpdated": "2026-08-17T12:23:34.164930+00:00",
   "topMovers": {}
 }
