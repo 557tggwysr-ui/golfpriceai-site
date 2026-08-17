@@ -57,8 +57,8 @@
       "date": "2026-08-17",
       "categories": {
         "apparel": {
-          "avgPrice": 49.32,
-          "count": 1224
+          "avgPrice": 49.35,
+          "count": 1225
         },
         "bag": {
           "avgPrice": 234.44,
@@ -109,8 +109,8 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 49.32,
-      "count": 1224,
+      "currentAvg": 49.35,
+      "count": 1225,
       "change30d": null,
       "change90d": null
     },
@@ -181,6 +181,6 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-17T12:23:34.164930+00:00",
+  "lastUpdated": "2026-08-17T18:24:47.316941+00:00",
   "topMovers": {}
 }

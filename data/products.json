@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-17T12:23:34.198589+00:00",
+  "lastUpdated": "2026-08-17T18:24:47.350501+00:00",
   "categories": [
     {
       "key": "driver",
@@ -42132,7 +42132,7 @@
       "salePrice": 39.5,
       "savePct": 0,
       "retailerCount": 1,
-      "affiliateUrl": "https://www.awin1.com/pclick.php?p=35269854135&a=2990893&m=2849",
+      "affiliateUrl": "https://www.awin1.com/pclick.php?p=35269854133&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/103794__36649.jpg",
       "brand": "US Kids Golf",
@@ -55150,7 +55150,7 @@
       "salePrice": 64.99,
       "savePct": 19,
       "retailerCount": 1,
-      "affiliateUrl": "https://www.awin1.com/pclick.php?p=43632620772&a=2990893&m=2849",
+      "affiliateUrl": "https://www.awin1.com/pclick.php?p=43632620764&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Nike-Infinity-G-NN-Golf-Shoes-White.jpg",
       "brand": "Nike",
@@ -124189,6 +124189,42 @@
         "cameBackRecently": false,
         "outageCount90d": 0,
         "daysTracked": 1,
+        "sellsOutFast": false
+      }
+    },
+    {
+      "id": "apparel-oakley-holbrook-sunglasses-polished-black-w-prizm-sapphire-l-clickgolf",
+      "name": "Oakley Holbrook Sunglasses - Polished Black w/Prizm Sapphire Lens",
+      "category": "apparel",
+      "retailPrice": 145.0,
+      "salePrice": 89.0,
+      "savePct": 39,
+      "retailerCount": 1,
+      "affiliateUrl": "https://www.awin1.com/pclick.php?p=45640983221&a=2990893&m=2849",
+      "source": "awin-clickgolf",
+      "brand": "Oakley",
+      "audience": "Male",
+      "inStock": true,
+      "image": "https://www.clickgolf.co.uk/images/product/main/Holbrook-Sunglasses-Polished-Black-Prizm-Sapphire-Lens-8.jpg",
+      "icon": "sunglasses",
+      "colour": "Black",
+      "priceInsight": {
+        "status": "new",
+        "trend": "stable",
+        "verifiedDiscount": false,
+        "historicalLow": 89.0,
+        "historicalHigh": 89.0,
+        "daysTracked": 0,
+        "volatility": "insufficient_data",
+        "avgDaysBetweenChanges": null,
+        "numChanges": 0
+      },
+      "stockInsight": {
+        "currentlyInStock": true,
+        "wentOutOfStockRecently": false,
+        "cameBackRecently": false,
+        "outageCount90d": 0,
+        "daysTracked": 0,
         "sellsOutFast": false
       }
     }
