@@ -188,13 +188,58 @@ function renderColourResultItem(item) {
   `;
 }
 
-// Purely cosmetic — a short, honest, on-brand line explaining WHY the
-// colours were paired, shown once per outfit card. Never claims more
-// than the actual matching logic guarantees.
-function colourNoteFor(items) {
-  const colours = [...new Set(items.map(i => (i.colour || '').toLowerCase()))];
-  if (colours.length <= 1) return "Matched: one colour, zero risk.";
-  return "Matched using real colour theory — not just \"these were both in stock.\"";
+// Honest, varied subtitles matching the outfit's real colour story
+// (see scripts/update_deals.py's compute_outfits — "colourStory" is
+// the WEAKEST pairing tier across the outfit, not the best, so this
+// copy never overclaims). Several phrasings per tier, cycled by
+// position among outfits sharing that tier (not random) so whatever's
+// actually shown together on the page never repeats the same line —
+// only wraps back to an earlier phrase if a tier genuinely has more
+// outfits than it has distinct phrasings.
+const COLOUR_STORY_PHRASES = {
+  monochrome: [
+    "Matched: one colour, zero risk.",
+    "Tonal through and through — nothing left to clash.",
+    "One colour, worn with total confidence.",
+    "Head-to-toe, one shade — deliberately, not by accident.",
+  ],
+  complementary: [
+    "Bold contrast, deliberately paired — not an accident.",
+    "Complementary colours, properly considered.",
+    "Contrast done the classic way — colour-wheel opposites.",
+    "Confident contrast, not a clash.",
+  ],
+  analogous: [
+    "Neighbouring tones, easy on the eye.",
+    "Harmonious colours — nothing fighting for attention.",
+    "Adjacent hues, quietly put together.",
+    "Softly toned, genuinely considered.",
+  ],
+  neutral: [
+    "Safe, sharp, and impossible to get wrong.",
+    "Neutral-led — built to go with anything else in your bag too.",
+    "Understated by design, not by accident.",
+    "Low-key on purpose — the easy-wear option.",
+  ],
+};
+
+// Assigns each outfit's subtitle by its position among other outfits
+// sharing the same colourStory on THIS page load — guarantees no two
+// simultaneously-shown outfits repeat a phrase unless a tier's real
+// phrase pool is exhausted (only wraps around then).
+function assignColourNotes(outfits) {
+  const seenPerStory = {};
+  const notes = {};
+  for (const outfit of outfits) {
+    const story = outfit.colourStory && COLOUR_STORY_PHRASES[outfit.colourStory]
+      ? outfit.colourStory
+      : 'neutral';
+    const pool = COLOUR_STORY_PHRASES[story];
+    const index = seenPerStory[story] || 0;
+    notes[outfit.id] = pool[index % pool.length];
+    seenPerStory[story] = index + 1;
+  }
+  return notes;
 }
 
 async function loadLooks() {
@@ -227,14 +272,15 @@ async function loadLooks() {
   }
 
   listEl.hidden = false;
-  listEl.innerHTML = outfits.map(renderOutfit).join('');
+  const notes = assignColourNotes(outfits);
+  listEl.innerHTML = outfits.map(o => renderOutfit(o, notes[o.id])).join('');
 }
 
-function renderOutfit(outfit) {
+function renderOutfit(outfit, colourNote) {
   return `
     <article class="kit-card">
       <h2 class="kit-card-title">${escapeHtml(outfit.title)}<span class="look-audience-badge">${escapeHtml(outfit.audience)}</span></h2>
-      <p class="kit-status" style="padding:0;text-align:left;margin:0 0 14px;font-size:0.82rem;">${colourNoteFor(outfit.items)}</p>
+      <p class="kit-status" style="padding:0;text-align:left;margin:0 0 14px;font-size:0.82rem;">${escapeHtml(colourNote)}</p>
       <div class="kit-items">
         ${outfit.items.map(renderItem).join('')}
       </div>
