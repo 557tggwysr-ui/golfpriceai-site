@@ -114,8 +114,8 @@
           "count": 1235
         },
         "bag": {
-          "avgPrice": 234.4,
-          "count": 483
+          "avgPrice": 223.83,
+          "count": 476
         },
         "accessories": {
           "avgPrice": 142.15,
@@ -142,20 +142,20 @@
           "count": 165
         },
         "irons": {
-          "avgPrice": 764.47,
-          "count": 166
+          "avgPrice": 762.94,
+          "count": 162
         },
         "putter": {
-          "avgPrice": 346.8,
-          "count": 344
+          "avgPrice": 320.53,
+          "count": 322
         },
         "driver": {
           "avgPrice": 597.68,
           "count": 133
         },
         "sets": {
-          "avgPrice": 527.2,
-          "count": 5
+          "avgPrice": 755.34,
+          "count": 38
         }
       }
     }
@@ -168,8 +168,8 @@
       "change90d": null
     },
     "bag": {
-      "currentAvg": 234.4,
-      "count": 483,
+      "currentAvg": 223.83,
+      "count": 476,
       "change30d": null,
       "change90d": null
     },
@@ -210,14 +210,14 @@
       "change90d": null
     },
     "irons": {
-      "currentAvg": 764.47,
-      "count": 166,
+      "currentAvg": 762.94,
+      "count": 162,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 346.8,
-      "count": 344,
+      "currentAvg": 320.53,
+      "count": 322,
       "change30d": null,
       "change90d": null
     },
@@ -228,13 +228,13 @@
       "change90d": null
     },
     "sets": {
-      "currentAvg": 527.2,
-      "count": 5,
+      "currentAvg": 755.34,
+      "count": 38,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-18T19:58:10.128913+00:00",
+  "lastUpdated": "2026-08-18T20:09:28.664018+00:00",
   "topMovers": {
     "irons": [
       {
@@ -252,7 +252,7 @@
         "dropPct": 83
       }
     ],
-    "putter": [
+    "sets": [
       {
         "name": "Men's XR 13-Piece Complete Set",
         "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786945194549/sits/compsets-2026-xr-eu/compsets-2026-xr-eu_1___1.png?sfrm=png",
