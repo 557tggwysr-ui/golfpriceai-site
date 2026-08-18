@@ -1749,6 +1749,38 @@ def colours_are_compatible(colour_a, colour_b):
     return diff <= ANALOGOUS_MAX_ANGLE or diff >= COMPLEMENTARY_MIN_ANGLE
 
 
+# Ranks HOW deliberately-styled a colour pairing reads, not just whether
+# it passes the compatibility check. This is what lets outfit assembly
+# prefer a genuine same-colour or complementary pairing over "well, one
+# of them is grey so technically it's fine" — Complete The Look is meant
+# to suggest considered style pairings, not just clear the lowest bar of
+# "doesn't clash". Assumes colours_are_compatible() has already been
+# checked true; behaviour is undefined for a genuine clash.
+#   4 = same colour (deliberate monochrome)
+#   3 = complementary (classic, confident colour-wheel contrast)
+#   2 = analogous (adjacent hues, cohesive)
+#   1 = neutral-led (safe and wearable, but the least "styled" pairing —
+#       used as a fallback, never the first choice, when a genuine
+#       colour relationship is available instead)
+def pairing_quality(colour_a, colour_b):
+    a, b = colour_a.lower(), colour_b.lower()
+    if a == b:
+        return 4
+    if a in NEUTRAL_COLOURS or b in NEUTRAL_COLOURS:
+        return 1
+    angle_a = COLOUR_HUE_ANGLES.get(a)
+    angle_b = COLOUR_HUE_ANGLES.get(b)
+    if angle_a is None or angle_b is None:
+        return 1
+    diff = abs(angle_a - angle_b)
+    diff = min(diff, 360 - diff)
+    if diff >= COMPLEMENTARY_MIN_ANGLE:
+        return 3
+    if diff <= ANALOGOUS_MAX_ANGLE:
+        return 2
+    return 1
+
+
 # Each template is a set of icon-based slots. Deliberately generic
 # (never hardcoded to one audience) — a skort-containing template simply
 # never finds a match among Male-classified products, since that icon
@@ -1757,26 +1789,37 @@ def colours_are_compatible(colour_a, colour_b):
 # hardcoded assumption.
 OUTFIT_TEMPLATES = [
     {"id": "classic", "title": "🏌️ The Classic Look",
+     "palette": ["navy", "white", "black", "grey", "stone"],
      "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Trousers", "icon": "trousers"}, {"label": "Cap", "icon": "cap"}]},
     {"id": "weekend-casual", "title": "😎 The Weekend Casual",
+     "palette": ["blue", "orange", "yellow", "white", "green"],
      "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Shorts", "icon": "shorts"}, {"label": "Cap", "icon": "cap"}]},
     {"id": "smart-layer", "title": "🧥 The Smart Layer",
+     "palette": ["navy", "charcoal", "grey", "black", "white"],
      "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Jacket", "icon": "jacket"}, {"label": "Trousers", "icon": "trousers"}]},
     {"id": "skort-look", "title": "⛳ The Clubhouse Ready",
+     "palette": ["white", "navy", "black", "stone", "gold"],
      "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Skort", "icon": "skort"}, {"label": "Cap", "icon": "cap"}]},
     {"id": "rain-ready", "title": "🌧️ The Rain Ready",
+     "palette": ["black", "navy", "charcoal", "grey", "olive"],
      "slots": [{"label": "Jacket", "icon": "jacket"}, {"label": "Trousers", "icon": "trousers"}, {"label": "Cap", "icon": "cap"}]},
     {"id": "sock-game", "title": "🧦 The Full Package",
+     "palette": ["orange", "blue", "red", "yellow", "pink"],
      "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Shorts", "icon": "shorts"}, {"label": "Socks", "icon": "socks"}]},
     {"id": "sharp-dresser", "title": "🎩 The Sharp Dresser",
+     "palette": ["black", "navy", "charcoal", "grey"],
      "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Trousers", "icon": "trousers"}, {"label": "Belt", "icon": "belt"}]},
     {"id": "sun-seeker", "title": "🕶️ The Sun Seeker",
+     "palette": ["white", "yellow", "orange", "blue", "pink"],
      "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Shorts", "icon": "shorts"}, {"label": "Sunglasses", "icon": "sunglasses"}]},
     {"id": "off-duty", "title": "🧥 The Off-Duty",
+     "palette": ["grey", "black", "olive", "navy", "khaki"],
      "slots": [{"label": "Hoodie", "icon": "hoodie"}, {"label": "Trousers", "icon": "trousers"}]},
     {"id": "cold-morning", "title": "🥶 The Cold Morning",
+     "palette": ["brown", "olive", "khaki", "charcoal", "navy", "grey"],
      "slots": [{"label": "Base Layer", "icon": "base-layer"}, {"label": "Jacket", "icon": "jacket"}, {"label": "Trousers", "icon": "trousers"}]},
     {"id": "effortless", "title": "👗 The Effortless",
+     "palette": ["white", "cream", "stone", "pink", "navy"],
      "slots": [{"label": "Dress", "icon": "dress"}, {"label": "Cap", "icon": "cap"}]},
 ]
 
@@ -1804,26 +1847,77 @@ def _outfit_slot_candidates(products, slot, audience):
 def compute_outfits(products):
     """Assembles genuine outfit sets: for each template, tries each
     audience (Male/Female/Junior) independently — an outfit never mixes
-    products from different audience classifications. Picks the
-    cheapest/most-popular item for the first slot as the colour anchor,
-    then fills every remaining slot with the cheapest genuinely
-    colour-compatible candidate. A template/audience combination that
-    can't fill every slot with a real, compatible match is skipped
-    entirely — no outfit is ever forced together.
+    products from different audience classifications.
+
+    These are style suggestions, not a bargain hunt — so slot selection
+    prioritises how genuinely well-paired the colours are (see
+    pairing_quality) FIRST, with price only ever used as a tiebreaker
+    between otherwise-equally-good options, never as the primary
+    driver. Each template also has a "palette" — its own colour mood
+    matching its name (The Sun Seeker leans bright/warm-weather, The
+    Cold Morning leans warm/earthy-layered, The Sharp Dresser leans
+    dark/formal, etc.) — candidates within that palette are preferred
+    over technically-compatible-but-off-mood ones, falling back to the
+    full compatible pool only if nothing in-palette is available.
+
+    Every product used is tracked globally across the ENTIRE run (not
+    just within one outfit) and excluded from every subsequent slot
+    search, anywhere — so the same polo/trousers pairing can't end up
+    recommended in five different outfits. This does mean template
+    order matters (earlier templates get first pick of the best
+    matches) — an accepted tradeoff of guaranteeing real variety.
+
+    A template/audience combination that can't fill every slot with a
+    real, unused, compatible match is skipped entirely — no outfit is
+    ever forced together, same honesty standard as everywhere else on
+    the site.
 
     After every genuine outfit is assembled, applies the same ~80% Male
     convention used on the homepage (see OUTFIT_MALE_TARGET_RATIO) —
     real Female/Junior outfits beyond the ~20% allowance are held back
     from display (cheapest ones kept first), never fabricated or forced
     to make the ratio work in the other direction."""
+    used_product_ids = set()
+
+    def pick_anchor(candidates, palette):
+        # No colour to pair against yet, so there's no "quality" tier to
+        # sort by. Instead: prefer a candidate that's actually in the
+        # template's palette (sets the mood from the very first item),
+        # and among those, prefer a non-neutral colour — a neutral
+        # anchor collapses every downstream pairing to the low "neutral"
+        # tier regardless of what's actually picked next, wasting the
+        # whole quality-ranking system. Price is the final tiebreaker
+        # only, never the primary driver.
+        in_palette = [p for p in candidates if p["colour"].lower() in palette]
+        pool = in_palette if in_palette else candidates
+        non_neutral = [p for p in pool if p["colour"].lower() not in NEUTRAL_COLOURS]
+        final_pool = non_neutral if non_neutral else pool
+        return min(final_pool, key=lambda p: p["salePrice"])
+
+    def pick_slot_item(candidates, anchor_colour, palette):
+        # Quality first (how genuinely well the colours pair), price
+        # only as a tiebreaker — this is a style suggestion, not a
+        # bargain hunt. In-palette candidates are preferred over
+        # technically-compatible-but-off-mood ones whenever any exist.
+        in_palette = [p for p in candidates if p["colour"].lower() in palette]
+        pool = in_palette if in_palette else candidates
+        return min(
+            pool,
+            key=lambda p: (-pairing_quality(anchor_colour, p["colour"]), p["salePrice"])
+        )
+
     outfits = []
     for template in OUTFIT_TEMPLATES:
+        palette = set(template.get("palette", []))
         for audience in ("Male", "Female", "Junior"):
             first_slot = template["slots"][0]
-            anchor_candidates = _outfit_slot_candidates(products, first_slot, audience)
+            anchor_candidates = [
+                p for p in _outfit_slot_candidates(products, first_slot, audience)
+                if p.get("id") not in used_product_ids
+            ]
             if not anchor_candidates:
                 continue
-            anchor = min(anchor_candidates, key=lambda p: p["salePrice"])
+            anchor = pick_anchor(anchor_candidates, palette)
             anchor_colour = anchor["colour"]
 
             items = [{
@@ -1832,24 +1926,35 @@ def compute_outfits(products):
                 "affiliateUrl": anchor["affiliateUrl"], "brand": anchor.get("brand"),
                 "colour": anchor_colour,
             }]
+            claimed_this_outfit = [anchor.get("id")]
             complete = True
             for slot in template["slots"][1:]:
                 candidates = [
                     p for p in _outfit_slot_candidates(products, slot, audience)
-                    if colours_are_compatible(anchor_colour, p["colour"])
+                    if p.get("id") not in used_product_ids
+                    and colours_are_compatible(anchor_colour, p["colour"])
                 ]
                 if not candidates:
                     complete = False
                     break
-                pick = min(candidates, key=lambda p: p["salePrice"])
+                pick = pick_slot_item(candidates, anchor_colour, palette)
                 items.append({
                     "slotLabel": slot["label"], "id": pick.get("id"), "name": pick["name"],
                     "image": pick.get("image"), "salePrice": pick["salePrice"],
                     "affiliateUrl": pick["affiliateUrl"], "brand": pick.get("brand"),
                     "colour": pick["colour"],
                 })
+                claimed_this_outfit.append(pick.get("id"))
             if not complete:
                 continue
+
+            used_product_ids.update(claimed_this_outfit)
+
+            # The outfit's overall "colour story" is only as good as its
+            # weakest pairing — the minimum quality tier across every
+            # item vs. the anchor, not the best one, so the front-end's
+            # description of the outfit never overclaims.
+            worst_tier = min(pairing_quality(anchor_colour, i["colour"]) for i in items[1:]) if len(items) > 1 else 4
 
             outfits.append({
                 "id": f"{template['id']}-{audience.lower()}",
@@ -1857,6 +1962,7 @@ def compute_outfits(products):
                 "audience": audience,
                 "items": items,
                 "total": round(sum(i["salePrice"] for i in items), 2),
+                "colourStory": {4: "monochrome", 3: "complementary", 2: "analogous", 1: "neutral"}[worst_tier],
             })
 
     male_outfits = [o for o in outfits if o["audience"] == "Male"]
