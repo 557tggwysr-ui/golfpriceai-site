@@ -20,9 +20,23 @@ const ICON_BACKDROPS = {
   'gps-watch': 'https://images.pexels.com/photos/9130511/pexels-photo-9130511.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600'
 };
 
+// If a real product image URL is broken (dead retailer link, hotlink
+// protection, slow/failed CDN request) the browser shows its own small
+// broken-image icon — this swaps that out for the same clean icon
+// fallback already used for products with no image field at all, rather
+// than ever letting a broken-image icon reach a visitor.
+function handleImgError(imgEl, iconSrc) {
+  imgEl.onerror = null;
+  const container = imgEl.closest('.thumb, .drop-thumb');
+  if (!container) return;
+  container.classList.add('icon-thumb');
+  container.innerHTML = `<span class="icon-badge"><img src="${iconSrc}" alt="${imgEl.alt}"></span>`;
+}
+
 function thumbHTML(d) {
   if (d.image) {
-    return `<img src="${d.image}" alt="${d.name}" loading="lazy">`;
+    const fallbackIcon = d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category);
+    return `<img src="${d.image}" alt="${d.name}" loading="lazy" onerror="handleImgError(this, '${fallbackIcon}')">`;
   }
   const iconSrc = d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category);
   return `<span class="icon-badge"><img src="${iconSrc}" alt="${d.name}" loading="lazy"></span>`;

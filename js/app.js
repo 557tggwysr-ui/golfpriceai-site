@@ -21,31 +21,6 @@ function badgeFor(savePct) {
   return { label: 'BEST PRICE', cls: '' };
 }
 
-// Deal Score / Verified Discount badge — reads the `priceInsight` field
-// scripts/update_deals.py writes onto every priced product once real
-// price history has built up. Returns '' (nothing rendered) for a
-// product with no history yet, or one whose current price isn't
-// noteworthy either way — a badge only earns its place when it tells the
-// shopper something genuinely useful, not on every single card.
-// Kept in sync with the equivalent renderPriceBadge() in js/shop.js.
-function renderPriceBadge(p) {
-  const insight = p.priceInsight;
-  if (!insight || insight.status === 'new') return '';
-  if (insight.status === 'lowest_tracked' && insight.verifiedDiscount) {
-    return `<span class="price-insight-badge price-insight-badge--low">Lowest price in ${insight.daysTracked} days</span>`;
-  }
-  if (insight.status === 'lowest_tracked') {
-    return `<span class="price-insight-badge price-insight-badge--low">Lowest tracked price</span>`;
-  }
-  if (insight.trend === 'rising') {
-    return `<span class="price-insight-badge price-insight-badge--rising">Price recently went up</span>`;
-  }
-  if (insight.status === 'highest_tracked') {
-    return `<span class="price-insight-badge price-insight-badge--high">Higher than usual right now</span>`;
-  }
-  return '';
-}
-
 // Only one category had a genuinely matching, verified free photo available
 // (a generic smartwatch shot — close enough to a GPS watch to be honest).
 // Everything else on this list (rangefinders, push carts, gloves, umbrellas,
@@ -56,9 +31,26 @@ const ICON_BACKDROPS = {
   'gps-watch': 'https://images.pexels.com/photos/9130511/pexels-photo-9130511.jpeg?auto=compress&cs=tinysrgb&h=400&fit=crop&w=600'
 };
 
+// If a real product image URL is broken (dead retailer link, hotlink
+// protection, slow/failed CDN request) the browser shows its own small
+// broken-image icon — this swaps that out for the same clean icon
+// fallback already used for products with no image field at all, rather
+// than ever letting a broken-image icon reach a visitor. Kept as a
+// duplicate of shop.js's identical function — no build step / module
+// system on this site, consistent with how other small helpers are
+// already duplicated between app.js and shop.js.
+function handleImgError(imgEl, iconSrc) {
+  imgEl.onerror = null;
+  const container = imgEl.closest('.thumb, .drop-thumb');
+  if (!container) return;
+  container.classList.add('icon-thumb');
+  container.innerHTML = `<span class="icon-badge"><img src="${iconSrc}" alt="${imgEl.alt}"></span>`;
+}
+
 function thumbHTML(d) {
   if (d.image) {
-    return `<img src="${d.image}" alt="${d.name}" loading="lazy">`;
+    const fallbackIcon = d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category);
+    return `<img src="${d.image}" alt="${d.name}" loading="lazy" onerror="handleImgError(this, '${fallbackIcon}')">`;
   }
   const iconSrc = d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category);
   return `<span class="icon-badge"><img src="${iconSrc}" alt="${d.name}" loading="lazy"></span>`;
@@ -88,45 +80,38 @@ function reportPriceLinkHTML(d) {
 function dealCardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
-    <div class="deal-card-wrap">
-      <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
-        <div class="${thumbClass(d)}"${thumbStyle(d)}>
-          <span class="badge ${badge.cls}">${badge.label}</span>
-          ${thumbHTML(d)}
+    <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
+      <div class="${thumbClass(d)}"${thumbStyle(d)}>
+        <span class="badge ${badge.cls}">${badge.label}</span>
+        ${thumbHTML(d)}
+      </div>
+      <div class="deal-body">
+        <h3>${d.name}</h3>
+        <div class="price-row">
+          <span class="retail-price">${money(d.retailPrice)}</span>
         </div>
-        <div class="deal-body">
-          <h3>${d.name}</h3>
-          <div class="price-row">
-            <span class="retail-price">${money(d.retailPrice)}</span>
-          </div>
-          <div class="price-row">
-            <span class="sale-price">${money(d.salePrice)}</span>
-          </div>
-          <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
-          ${renderPriceBadge(d)}
-          <div class="deal-foot">
-            <span>Available at ${d.retailerCount} retailers</span>
-          </div>
+        <div class="price-row">
+          <span class="sale-price">${money(d.salePrice)}</span>
         </div>
-      </a>
-      ${reportPriceLinkHTML(d)}
-    </div>`;
+        <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
+        <div class="deal-foot">
+          <span>Available at ${d.retailerCount} retailers</span>
+          ${reportPriceLinkHTML(d)}
+        </div>
+      </div>
+    </a>`;
 }
 
 function dropRowHTML(d) {
   return `
-    <div class="drop-row-wrap">
-      <a class="drop-row" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
-        <div class="drop-thumb ${d.image ? '' : 'icon-thumb'}"${thumbStyle(d)}>${thumbHTML(d)}</div>
-        <div class="info">
-          <h4>${d.name}</h4>
-          <span class="was">Was ${money(d.retailPrice)}</span>
-          ${renderPriceBadge(d)}
-        </div>
-        <div class="now">${money(d.salePrice)}<span class="pct">${d.savePct}% drop</span></div>
-      </a>
-      ${reportPriceLinkHTML(d)}
-    </div>`;
+    <a class="drop-row" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
+      <div class="drop-thumb ${d.image ? '' : 'icon-thumb'}"${thumbStyle(d)}>${thumbHTML(d)}</div>
+      <div class="info">
+        <h4>${d.name}</h4>
+        <span class="was">Was ${money(d.retailPrice)}</span>
+      </div>
+      <div class="now">${money(d.salePrice)}<span class="pct">${d.savePct}% drop</span></div>
+    </a>`;
 }
 
 // Trending pills have a fixed-ish width, so a very long real product name
@@ -142,38 +127,12 @@ function truncateWords(name, maxWords) {
 function renderTrending(items) {
   const list = document.getElementById('trending-list');
   if (!list) return;
-  list.innerHTML = items.map(t => {
-    const tag = t.tagInfo;
-    return `
+  list.innerHTML = items.map(t => `
     <a class="tag" href="${t.affiliateUrl}" target="_blank" rel="sponsored noopener">
       <span class="tag-name">${truncateWords(t.name, 5)}</span>
-      <span class="${tag.cls}">${tag.emoji} ${tag.label}</span>
+      <span class="${t.tag.toLowerCase()}">${t.tag === 'Hot' ? '🔥' : '📈'} ${t.tag}</span>
     </a>
-  `;
-  }).join('');
-}
-
-// Real, evidence-backed tag variety — every label here reflects an actual
-// signal on the product (a genuinely verified low price, a live falling
-// trend, a real repeated stock-out pattern), never an arbitrary label for
-// variety's sake alone. Checked in priority order; falls back to the
-// original Hot/Rising discount-size split if nothing more specific
-// applies, so there's always a sensible label without ever inventing one.
-function classifyTrendingTag(item) {
-  const insight = item.priceInsight;
-  if (insight && insight.status === 'lowest_tracked' && insight.verifiedDiscount) {
-    return { label: 'Verified Low', emoji: '💎', cls: 'verified-low' };
-  }
-  if (insight && insight.trend === 'falling') {
-    return { label: 'Dropping', emoji: '📉', cls: 'dropping' };
-  }
-  if (item.stockInsight && item.stockInsight.sellsOutFast) {
-    return { label: 'Sells Fast', emoji: '🏃', cls: 'sells-fast' };
-  }
-  if (item.savePct >= 28) {
-    return { label: 'Hot', emoji: '🔥', cls: 'hot' };
-  }
-  return { label: 'Rising', emoji: '📈', cls: 'rising' };
+  `).join('');
 }
 
 // Popularity is a proxy, not real purchase/click data — no live click
@@ -199,10 +158,6 @@ function classifyAudience(p) {
     const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
     if (re.test(lower)) return 'Junior';
   }
-  // A skort or dress is unambiguously women's apparel by its sub-type,
-  // regardless of whether the product name also says "women's"/"ladies"
-  // — kept in sync with scripts/update_deals.py's classify_audience().
-  if (p.icon === 'skort' || p.icon === 'dress') return 'Female';
   for (const word of FEMALE_WORDS) {
     const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
     if (re.test(lower)) return 'Female';
@@ -239,29 +194,6 @@ function seededShuffle(array, seedStr) {
   return arr;
 }
 
-// Picks `count` items from `pool` with:
-//  - no two sharing the same specific type (driver, putter, headcover,
-//    etc.) so the section doesn't show two of basically the same thing
-//  - optionally, a minimum number of golf-club items (minClubCount)
-//  - optionally, a minimum percentage classified "Male" (minMalePercent) —
-//    golf's core audience skews male, but women's apparel tends to carry
-//    deeper/more frequent discounts, so a pure "best discount" sort would
-//    over-represent women's items relative to the audience
-// Club-minimum is enforced before the male-minimum, since satisfying it
-// tends to also help the male count (clubs are overwhelmingly male-default
-// in this catalog), reducing how many further swaps are needed.
-// Club-minimum is enforced before the male-minimum, since satisfying it
-// tends to also help the male count (clubs are overwhelmingly male-default
-// in this catalog), reducing how many further swaps are needed.
-//
-// `fallbackPool` (the full, unrestricted product list) is used specifically
-// for replacement searches during swaps — this matters because the daily
-// rotating `pool` is filtered to a top-discount slice, and if Female/Junior
-// items systematically carry bigger discounts than Male items (true here —
-// women's apparel tends to see deeper markdowns), that top-discount slice
-// could end up with too few Male candidates to hit 80% no matter how the
-// swap logic works. Searching the full catalog for replacements removes
-// that ceiling.
 function pickWithConstraints(pool, count, usedKeys, opts, fallbackPool) {
   const searchPool = fallbackPool || pool;
   const { minMalePercent, minClubCount } = opts || {};
@@ -316,10 +248,6 @@ function pickWithConstraints(pool, count, usedKeys, opts, fallbackPool) {
     }
   }
 
-  // Fill any remaining slots with fresh, unseen keys first — this MUST
-  // respect `seen`, otherwise it can silently reintroduce a duplicate
-  // category/icon (including one already used by an earlier homepage
-  // section, since that's passed in via usedKeys).
   if (picked.length < count) {
     for (const item of searchPool) {
       if (picked.length === count) break;
@@ -330,8 +258,6 @@ function pickWithConstraints(pool, count, usedKeys, opts, fallbackPool) {
       }
     }
   }
-  // Absolute last resort — only reached if the catalog genuinely doesn't
-  // have enough distinct categories/icons to fill every slot uniquely.
   if (picked.length < count) {
     for (const item of searchPool) {
       if (picked.length === count) break;
@@ -344,52 +270,22 @@ function pickWithConstraints(pool, count, usedKeys, opts, fallbackPool) {
 fetch('data/products.json')
   .then(r => r.json())
   .then(data => {
-    // Products without a known inStock value (e.g. older hand-curated
-    // entries from before stock tracking existed) are treated as
-    // available — only an explicit inStock:false excludes a product here.
-    // A product that's genuinely sold out should never be one of the
-    // "best deals" someone clicks through to, only to find it unavailable.
-    const availableProducts = data.products.filter(p => p.inStock !== false);
-
-    // Prefer products with a real photo over icon-only ones, then by
-    // discount size — this is the quality gate before daily rotation kicks
-    // in below, so rotation only ever surfaces genuinely good deals.
-    const qualityRanked = [...availableProducts].sort((a, b) => {
+    const qualityRanked = [...data.products].sort((a, b) => {
       const aHasImage = a.image ? 1 : 0;
       const bHasImage = b.image ? 1 : 0;
       if (aHasImage !== bHasImage) return bHasImage - aHasImage;
       return b.savePct - a.savePct;
     });
 
-    // Take a generous top-quality pool, then deterministically shuffle it
-    // using today's date as the seed. Same day = same order for everyone;
-    // a new day reshuffles which of these top deals surface and in what
-    // combination — this is what makes the homepage feel like it changes
-    // daily without needing any real backend/database.
     const todaySeed = new Date().toISOString().slice(0, 10);
-    // Widened from an earlier 80 — with an ~11,000-product catalog, the
-    // top 80 by discount alone was often dominated by whichever categories
-    // happen to carry the deepest blanket discounts (commonly
-    // apparel/accessories), leaving too few genuine club candidates to
-    // satisfy minClubCount without constant swapping — and too few
-    // day-to-day differences for real rotation to be visible at all.
-    const qualifiedPool = qualityRanked.slice(0, Math.min(250, qualityRanked.length));
+    const qualifiedPool = qualityRanked.slice(0, Math.min(80, qualityRanked.length));
     const dailyPool = seededShuffle(qualifiedPool, todaySeed);
-    // A SEPARATE daily shuffle of the full quality-ranked catalog, used
-    // only as the search source for constraint-driven swaps (club-count /
-    // male-quota replacements) below. Previously these swaps always
-    // searched the raw, fixed discount-sorted order and so always found
-    // the same single highest-discount candidate — meaning any day that
-    // needed a swap (most days, given how tight the constraints are)
-    // showed an identical replacement regardless of the date. Shuffling
-    // this too means swap-ins genuinely rotate day to day as well.
-    const shuffledFullPool = seededShuffle(qualityRanked, todaySeed + '-swap');
 
-    const bestDeals = pickWithConstraints(dailyPool, 12, [], { minMalePercent: 0.8, minClubCount: 5 }, shuffledFullPool);
+    const bestDeals = pickWithConstraints(dailyPool, 12, [], { minMalePercent: 0.8, minClubCount: 5 }, qualityRanked);
     const bestKeys = bestDeals.map(d => d.icon || d.category);
 
     const priceDrops = pickWithConstraints(
-      dailyPool.filter(d => !bestDeals.includes(d)), 6, bestKeys, { minMalePercent: 0.8 }, shuffledFullPool
+      dailyPool.filter(d => !bestDeals.includes(d)), 6, bestKeys, { minMalePercent: 0.8 }, qualityRanked
     );
     const priceDropKeys = priceDrops.map(d => d.icon || d.category);
 
@@ -399,16 +295,14 @@ fetch('data/products.json')
     const dropList = document.getElementById('price-drop-list');
     if (dropList) dropList.innerHTML = priceDrops.map(dropRowHTML).join('');
 
-    // Trending: same daily-rotating pool, popularity-ordered within it,
-    // also held to the 80% Male rule for the hero page as a whole.
     const usedForTrending = new Set([...bestKeys, ...priceDropKeys]);
     const trendingPool = [...dailyPool]
       .filter(d => !bestDeals.includes(d) && !priceDrops.includes(d))
       .sort((a, b) => popularityScore(b) - popularityScore(a));
-    const trendingRaw = pickWithConstraints(trendingPool, 12, [...usedForTrending], { minMalePercent: 0.8 }, shuffledFullPool);
+    const trendingRaw = pickWithConstraints(trendingPool, 12, [...usedForTrending], { minMalePercent: 0.8 }, qualityRanked);
     const trendingPicks = trendingRaw.map(item => ({
       name: item.name,
-      tagInfo: classifyTrendingTag(item),
+      tag: item.savePct >= 25 ? 'Hot' : 'Rising',
       affiliateUrl: item.affiliateUrl,
       category: item.category,
     }));
