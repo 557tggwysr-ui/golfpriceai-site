@@ -138,8 +138,8 @@
           "count": 113
         },
         "shoes": {
-          "avgPrice": 101.2,
-          "count": 159
+          "avgPrice": 100.79,
+          "count": 165
         },
         "irons": {
           "avgPrice": 764.47,
@@ -204,8 +204,8 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 101.2,
-      "count": 159,
+      "currentAvg": 100.79,
+      "count": 165,
       "change30d": null,
       "change90d": null
     },
@@ -234,22 +234,22 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-18T12:25:44.175874+00:00",
+  "lastUpdated": "2026-08-18T18:23:34.211694+00:00",
   "topMovers": {
     "irons": [
       {
-        "name": "Quantum Max Irons",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786945194549/sits/irons-2026-quantum-max/irons-2026-quantum-max___1.png?sfrm=png",
-        "salePrice": 835.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43716780698&a=2990893&m=19186",
-        "dropPct": 17
+        "name": "REVA RISE Irons",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786945194549/sits/irons-2025-reva-rise-womens/irons-2025-reva-rise-womens___1.png?sfrm=png",
+        "salePrice": 158.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40923491087&a=2990893&m=19186",
+        "dropPct": 84
       },
       {
-        "name": "Quantum Max OS Irons",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786945194549/sits/irons-2026-quantum-max-os/irons-2026-quantum-max-os___1.png?sfrm=png",
-        "salePrice": 835.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43716780699&a=2990893&m=19186",
-        "dropPct": 17
+        "name": "Women's Paradym Ai Smoke MAX Fast Irons",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786945194549/sits/irons-2024-paradym-ai-smoke-max-fast-womens/irons-2024-paradym-ai-smoke-max-fast-womens___1.png?sfrm=png",
+        "salePrice": 167.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43892172827&a=2990893&m=19186",
+        "dropPct": 83
       }
     ],
     "putter": [
