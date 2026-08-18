@@ -43,23 +43,12 @@
     max-width: 640px; margin: 60px auto 20px; text-align: center;
     display: flex; flex-direction: column; align-items: center; gap: 16px;
   }
-  .about-signoff img {
-    width: 100%;
-    max-width: 480px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-  }
+  .about-signoff img { max-width: 220px; border-radius: var(--radius); box-shadow: var(--shadow); }
   .about-signoff .quip {
     background: var(--ink); color: #fff; border-radius: 999px;
     padding: 12px 26px; font-weight: 700; font-size: 15px;
   }
   .about-signoff .quip span { color: var(--green); }
-
-  @media (max-width: 700px) {
-    .about-signoff img { height: 220px; }
-  }
 </style>
 </head>
 <body>
@@ -73,7 +62,7 @@
   <nav class="main-nav">
     <a href="shop.html">Shop All Deals</a>
     <div class="nav-item">
-      <a href="clubs.html">Clubs ▾</a>
+      <a href="shop.html?group=clubs">Clubs ▾</a>
       <div class="dropdown">
         <a href="shop.html?category=driver">Drivers</a>
         <a href="shop.html?category=wood">Fairway Woods</a>
@@ -99,7 +88,6 @@
     <a href="back-in-stock.html">Back In Stock Radar</a>
     <a href="fairway-index.html">The Fairway Index</a>
     <a href="complete-the-kit.html">Complete The Kit</a>
-    <a href="complete-the-look.html">Complete The Look</a>
     <a href="about.html">About</a>
   </nav>
   <a href="index.html#alerts" class="btn btn-primary">🔔 Get Deal Alerts</a>
