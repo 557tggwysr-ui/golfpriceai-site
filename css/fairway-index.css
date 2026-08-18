@@ -27,6 +27,15 @@
   background: var(--card);
   box-shadow: var(--shadow);
   padding: 18px 20px;
+  /* Grid items in the same row already stretch to equal height by
+     default (CSS Grid's align-items:stretch) — this just makes each
+     card a flex column internally so its own content can use that
+     full height, and the CTA button below can be pushed to the very
+     bottom via margin-top:auto regardless of how much (or how little)
+     content — e.g. the optional "Real drops behind the number" list —
+     sits above it in any given card. */
+  display: flex;
+  flex-direction: column;
 }
 
 .fi-card-label {
@@ -143,7 +152,11 @@
 .fi-cta {
   display: block;
   text-align: center;
-  margin-top: 14px;
+  /* auto pushes this to the bottom of the flex column, using up
+     whatever space is left over — this is what makes it land at the
+     same height across every card in a row, regardless of how much
+     content (e.g. the optional Real Drops list) sits above it. */
+  margin-top: auto;
   padding: 9px 0;
   border-radius: 6px;
   font-size: 0.85rem;
