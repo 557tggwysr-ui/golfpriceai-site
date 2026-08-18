@@ -74,7 +74,16 @@ function reportPriceLinkHTML(d) {
   const body = encodeURIComponent(
     `Hi, I think there might be a pricing issue with this product:\n\n${d.name}\nShown price: ${money(d.salePrice)}\nLink: ${d.affiliateUrl}\n\nWhat's wrong: `
   );
-  return `<a class="report-price-link" href="mailto:hello@golfpriceai.com?subject=${subject}&body=${body}">⚠️ Report a pricing issue</a>`;
+  const mailto = `mailto:hello@golfpriceai.com?subject=${subject}&body=${body}`;
+  // Must NOT be a real <a> — .deal-card is itself an <a>, and a nested
+  // <a> inside another <a> is invalid HTML. Browsers silently auto-close
+  // the outer anchor the instant they hit the nested one, which ejects
+  // everything after it (the rest of .deal-body — title, price, this
+  // link, all of it) out of the card entirely, as a stray sibling. That
+  // was the real cause of the card layout breaking. A span styled and
+  // behaving identically (click + keyboard) avoids the nested-anchor
+  // problem entirely while working exactly the same for a visitor.
+  return `<span class="report-price-link" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.location.href='${mailto}';" onkeydown="if(event.key==='Enter'){event.preventDefault();event.stopPropagation();window.location.href='${mailto}';}">⚠️ Report a pricing issue</span>`;
 }
 
 function dealCardHTML(d) {

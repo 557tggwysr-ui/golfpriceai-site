@@ -50,6 +50,24 @@ function thumbStyle(d) {
   return backdrop ? ` style="background-image:url('${backdrop}')"` : '';
 }
 
+// Crowd-Verified Pricing. Must NOT be a real <a> — .deal-card is itself
+// an <a>, and a nested <a> inside another <a> is invalid HTML. Browsers
+// silently auto-close the outer anchor the instant they hit the nested
+// one, ejecting everything after it (the rest of .deal-body — title,
+// price, this link, all of it) out of the card entirely as a stray
+// sibling, breaking the card's layout. A span styled and behaving
+// identically (click + keyboard) avoids that while working exactly the
+// same for a visitor. Kept as a duplicate of app.js's identical
+// function — no build step / module system on this site.
+function reportPriceLinkHTML(d) {
+  const subject = encodeURIComponent(`Pricing issue: ${d.name}`);
+  const body = encodeURIComponent(
+    `Hi, I think there might be a pricing issue with this product:\n\n${d.name}\nShown price: ${money(d.salePrice)}\nLink: ${d.affiliateUrl}\n\nWhat's wrong: `
+  );
+  const mailto = `mailto:hello@golfpriceai.com?subject=${subject}&body=${body}`;
+  return `<span class="report-price-link" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.location.href='${mailto}';" onkeydown="if(event.key==='Enter'){event.preventDefault();event.stopPropagation();window.location.href='${mailto}';}">⚠️ Report a pricing issue</span>`;
+}
+
 function cardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
@@ -65,6 +83,7 @@ function cardHTML(d) {
         <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
         <div class="deal-foot">
           <span>Available at ${d.retailerCount} retailers</span>
+          ${reportPriceLinkHTML(d)}
         </div>
       </div>
     </a>`;
@@ -251,6 +270,34 @@ function scopedFor(exclude) {
   return baseFilteredProducts().filter(p => matchesFilters(p, exclude));
 }
 
+// Applies the same ~80% Male convention used on the homepage and in
+// Complete The Look — but here, nothing is ever hidden or removed (this
+// is a full product catalog, not a fixed 12-slot homepage section).
+// Instead, this reorders just the first "window" of results so what a
+// visitor sees first roughly matches that 80/20 split, then lets every
+// remaining result fall back to plain popularity order untouched. Only
+// applied to the natural default view — explicit user choices (an
+// active Audience filter, or a different sort like Price/Discount)
+// always override this and are never re-biased.
+const AUDIENCE_BIAS_WINDOW = 24;
+function applyAudienceBias(sortedList) {
+  const windowSize = Math.min(AUDIENCE_BIAS_WINDOW, sortedList.length);
+  const male = sortedList.filter(p => classifyAudience(p) === 'Male');
+  const other = sortedList.filter(p => classifyAudience(p) !== 'Male');
+
+  const targetMale = Math.min(Math.ceil(windowSize * 0.8), male.length);
+  const windowMale = male.slice(0, targetMale);
+  const windowOther = other.slice(0, windowSize - windowMale.length);
+
+  const windowSet = new Set([...windowMale, ...windowOther]);
+  // Rebuild the window in its ORIGINAL popularity order (stable) so it
+  // still reads as a naturally popularity-sorted list, not visibly
+  // clustered by audience — then append everything else, untouched.
+  const window = sortedList.filter(p => windowSet.has(p));
+  const rest = sortedList.filter(p => !windowSet.has(p));
+  return [...window, ...rest];
+}
+
 function applyFiltersAndSort() {
   const grid = document.getElementById('shop-grid');
   const empty = document.getElementById('empty-state');
@@ -263,6 +310,10 @@ function applyFiltersAndSort() {
     if (sortMode === 'discount') return b.savePct - a.savePct;
     return popularityScore(b) - popularityScore(a);
   });
+
+  if (sortMode === 'popular' && activeAudience.size === 0) {
+    filtered = applyAudienceBias(filtered);
+  }
 
   grid.innerHTML = filtered.map(cardHTML).join('');
   empty.style.display = filtered.length ? 'none' : 'block';
