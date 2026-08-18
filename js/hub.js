@@ -4,19 +4,9 @@ function slug(s) {
   return encodeURIComponent(s);
 }
 
-function groupLink(hubCategory, group) {
-  // Most groups link within their own hub's category (accessories/apparel)
-  // filtered by icon "types". A group can optionally set its own
-  // `category` to link somewhere else entirely — needed for a tile like
-  // Golf Balls sitting on the Accessories page, when balls are actually
-  // their own top-level category, not an accessories sub-type.
-  const effectiveCategory = group.category || hubCategory;
-  let url = `shop.html?category=${effectiveCategory}`;
-  if (group.types && group.types.length) {
-    url += `&types=${slug(group.types.join(','))}`;
-  }
-  url += `&label=${slug(group.label)}`;
-  return url;
+function groupLink(category, group) {
+  const types = group.types.join(',');
+  return `shop.html?category=${category}&types=${slug(types)}&label=${slug(group.label)}`;
 }
 
 // Render the current hub page's own grid of group cards.
@@ -62,7 +52,12 @@ if (window.GOLFPRICE_GROUPS) {
   if (apparelDropdown) {
     apparelDropdown.innerHTML = GOLFPRICE_GROUPS.apparel.map(g =>
       `<a href="${groupLink('apparel', g)}">${g.label}</a>`
-    ).join('');
+    ).join('')
+      // Complete The Look lives here now rather than as its own top-level
+      // nav item — same pattern as Find Your Fit living inside the Clubs
+      // dropdown rather than getting its own ribbon slot. It's still
+      // fully discoverable via the homepage banner too.
+      + `<a href="complete-the-look.html">👔 Complete The Look</a>`;
   }
   const accessoriesDropdown = document.getElementById('accessories-dropdown');
   if (accessoriesDropdown) {
