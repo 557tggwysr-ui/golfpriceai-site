@@ -452,6 +452,13 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   justify-content: space-between;
   gap: 10px;
   cursor: pointer;
+  /* Without this, CSS Grid items default to min-width:auto, letting a
+     tag's content force it wider than its grid column — even though
+     .tag-name below already has min-width:0 for its own ellipsis
+     truncation, the outer grid item needs the same override, or the
+     whole row (and page) gets pushed into horizontal overflow on
+     narrow/mobile widths. */
+  min-width: 0;
 }
 .tag-name {
   overflow: hidden;
