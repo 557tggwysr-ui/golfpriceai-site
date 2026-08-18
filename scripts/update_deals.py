@@ -343,6 +343,25 @@ def apply_pre_overrides(name_text):
     if "ball bag" in name_text or "ball bags" in name_text:
         return "accessories"
 
+    # A multi-club combo/box set (e.g. "Men's XR 13-Piece Combo" — driver,
+    # irons, putter, and a bag all bundled as one product) needs to be
+    # caught here, BEFORE any single club-shape keyword gets a chance to
+    # claim it. Without this, CLUB_SHAPE_KEYWORDS checks "putter" first
+    # in its list — so a combo set that happens to mention a putter as
+    # one of its included pieces was getting miscategorized as a Putter
+    # itself, showing up in the Putters section (and its Fairway Index
+    # "real drops" list) as a genuine £1,000+ full set, not a putter.
+    # "piece" (as in "13-Piece") and "box set" are specific, safe
+    # signals with no plausible false positive. "combo" is also
+    # deliberately excluded when paired with "grip", since "Combo Grip"
+    # is a real, unrelated accessory product type.
+    if _has_word(name_text, "piece"):
+        return "sets"
+    if "box set" in name_text or "boxed set" in name_text:
+        return "sets"
+    if _has_word(name_text, "combo") and not _has_word(name_text, "grip"):
+        return "sets"
+
     return None
 
 
