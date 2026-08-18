@@ -114,12 +114,12 @@
           "count": 1235
         },
         "bag": {
-          "avgPrice": 234.44,
+          "avgPrice": 234.4,
           "count": 483
         },
         "accessories": {
-          "avgPrice": 142.78,
-          "count": 507
+          "avgPrice": 142.32,
+          "count": 509
         },
         "wood": {
           "avgPrice": 307.47,
@@ -142,11 +142,11 @@
           "count": 159
         },
         "irons": {
-          "avgPrice": 838.99,
+          "avgPrice": 764.47,
           "count": 166
         },
         "putter": {
-          "avgPrice": 347.09,
+          "avgPrice": 346.8,
           "count": 344
         },
         "driver": {
@@ -168,14 +168,14 @@
       "change90d": null
     },
     "bag": {
-      "currentAvg": 234.44,
+      "currentAvg": 234.4,
       "count": 483,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 142.78,
-      "count": 507,
+      "currentAvg": 142.32,
+      "count": 509,
       "change30d": null,
       "change90d": null
     },
@@ -210,13 +210,13 @@
       "change90d": null
     },
     "irons": {
-      "currentAvg": 838.99,
+      "currentAvg": 764.47,
       "count": 166,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 347.09,
+      "currentAvg": 346.8,
       "count": 344,
       "change30d": null,
       "change90d": null
@@ -234,6 +234,41 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-18T06:26:35.579992+00:00",
-  "topMovers": {}
+  "lastUpdated": "2026-08-18T12:25:44.175874+00:00",
+  "topMovers": {
+    "irons": [
+      {
+        "name": "Quantum Max Irons",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786945194549/sits/irons-2026-quantum-max/irons-2026-quantum-max___1.png?sfrm=png",
+        "salePrice": 835.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43716780698&a=2990893&m=19186",
+        "dropPct": 17
+      },
+      {
+        "name": "Quantum Max OS Irons",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786945194549/sits/irons-2026-quantum-max-os/irons-2026-quantum-max-os___1.png?sfrm=png",
+        "salePrice": 835.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43716780699&a=2990893&m=19186",
+        "dropPct": 17
+      }
+    ],
+    "putter": [
+      {
+        "name": "Men's XR 13-Piece Complete Set",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786945194549/sits/compsets-2026-xr-eu/compsets-2026-xr-eu_1___1.png?sfrm=png",
+        "salePrice": 1399.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43223910635&a=2990893&m=19186",
+        "dropPct": 7
+      }
+    ],
+    "bag": [
+      {
+        "name": "Fairway 14 HD stand Bag",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786945194549/sits/bags-2026-fairway-14-hd-stand/bags-2026-fairway-14-hd-stand_1___1.png?sfrm=png",
+        "salePrice": 279.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=45228697472&a=2990893&m=19186",
+        "dropPct": 7
+      }
+    ]
+  }
 }
