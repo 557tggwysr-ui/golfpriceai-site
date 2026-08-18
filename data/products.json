@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-18T18:23:34.245196+00:00",
+  "lastUpdated": "2026-08-18T19:58:10.163885+00:00",
   "categories": [
     {
       "key": "driver",
@@ -124955,6 +124955,41 @@
         "verifiedDiscount": false,
         "historicalLow": 89.99,
         "historicalHigh": 89.99,
+        "daysTracked": 0,
+        "volatility": "insufficient_data",
+        "avgDaysBetweenChanges": null,
+        "numChanges": 0
+      },
+      "stockInsight": {
+        "currentlyInStock": true,
+        "wentOutOfStockRecently": false,
+        "cameBackRecently": false,
+        "outageCount90d": 0,
+        "daysTracked": 0,
+        "sellsOutFast": false
+      }
+    },
+    {
+      "id": "accessories-ping-g-le4-ladies-golf-umbrella-plum-clickgolf",
+      "name": "Ping G Le4 Ladies Golf Umbrella - Plum",
+      "category": "accessories",
+      "retailPrice": 59.99,
+      "salePrice": 54.99,
+      "savePct": 8,
+      "retailerCount": 1,
+      "affiliateUrl": "https://www.awin1.com/pclick.php?p=45668868836&a=2990893&m=2849",
+      "source": "awin-clickgolf",
+      "brand": "Ping",
+      "audience": "Female",
+      "inStock": true,
+      "image": "https://www.clickgolf.co.uk/images/product/main/G-Le4-Ladies-Golf-Umbrella.jpg",
+      "icon": "umbrella",
+      "priceInsight": {
+        "status": "new",
+        "trend": "stable",
+        "verifiedDiscount": false,
+        "historicalLow": 54.99,
+        "historicalHigh": 54.99,
         "daysTracked": 0,
         "volatility": "insufficient_data",
         "avgDaysBetweenChanges": null,
