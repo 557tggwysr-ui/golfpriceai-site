@@ -175,11 +175,11 @@
           "count": 511
         },
         "wood": {
-          "avgPrice": 307.47,
+          "avgPrice": 306.45,
           "count": 98
         },
         "hybrid": {
-          "avgPrice": 245.55,
+          "avgPrice": 244.12,
           "count": 56
         },
         "ball": {
@@ -187,7 +187,7 @@
           "count": 249
         },
         "wedge": {
-          "avgPrice": 235.27,
+          "avgPrice": 235.11,
           "count": 113
         },
         "shoes": {
@@ -195,15 +195,15 @@
           "count": 165
         },
         "irons": {
-          "avgPrice": 762.94,
+          "avgPrice": 762.19,
           "count": 162
         },
         "putter": {
-          "avgPrice": 320.53,
-          "count": 322
+          "avgPrice": 319.85,
+          "count": 323
         },
         "driver": {
-          "avgPrice": 597.68,
+          "avgPrice": 596.56,
           "count": 133
         },
         "sets": {
@@ -233,13 +233,13 @@
       "change90d": null
     },
     "wood": {
-      "currentAvg": 307.47,
+      "currentAvg": 306.45,
       "count": 98,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 245.55,
+      "currentAvg": 244.12,
       "count": 56,
       "change30d": null,
       "change90d": null
@@ -251,7 +251,7 @@
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 235.27,
+      "currentAvg": 235.11,
       "count": 113,
       "change30d": null,
       "change90d": null
@@ -263,19 +263,19 @@
       "change90d": null
     },
     "irons": {
-      "currentAvg": 762.94,
+      "currentAvg": 762.19,
       "count": 162,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 320.53,
-      "count": 322,
+      "currentAvg": 319.85,
+      "count": 323,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 597.68,
+      "currentAvg": 596.56,
       "count": 133,
       "change30d": null,
       "change90d": null
@@ -287,8 +287,17 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-19T12:25:47.937279+00:00",
+  "lastUpdated": "2026-08-19T18:19:50.805293+00:00",
   "topMovers": {
+    "wood": [
+      {
+        "name": "Srixon ZXi Golf Fairway Woods",
+        "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXi-Fairway-Hero-Hero-Straight.jpg",
+        "salePrice": 199.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40565784327&a=2990893&m=2849",
+        "dropPct": 33
+      }
+    ],
     "irons": [
       {
         "name": "REVA RISE Irons",
@@ -303,6 +312,40 @@
         "salePrice": 167.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43892172827&a=2990893&m=19186",
         "dropPct": 83
+      }
+    ],
+    "hybrid": [
+      {
+        "name": "Srixon ZXi Golf Hybrid",
+        "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXi-Hybrid-Hero-Straight.jpg",
+        "salePrice": 169.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40633512240&a=2990893&m=2849",
+        "dropPct": 32
+      }
+    ],
+    "wedge": [
+      {
+        "name": "Cleveland RTZ Golf Wedge - Black Satin",
+        "image": "https://www.clickgolf.co.uk/images/product/main/cg-rtz-satin-black-wedge-hero.jpg",
+        "salePrice": 119.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40196328568&a=2990893&m=2849",
+        "dropPct": 5
+      },
+      {
+        "name": "Cleveland RTZ Golf Wedge - Tour Satin",
+        "image": "https://www.clickgolf.co.uk/images/product/main/cg-rtz-tour-satin-wedge-adapt-hero.jpg",
+        "salePrice": 119.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40192779135&a=2990893&m=2849",
+        "dropPct": 5
+      }
+    ],
+    "driver": [
+      {
+        "name": "Srixon ZXi Golf Driver",
+        "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXi-Driver-Hero-Straight.jpg",
+        "salePrice": 349.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40561707031&a=2990893&m=2849",
+        "dropPct": 30
       }
     ],
     "sets": [
