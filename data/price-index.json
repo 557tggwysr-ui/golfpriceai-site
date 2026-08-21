@@ -269,51 +269,51 @@
       "date": "2026-08-21",
       "categories": {
         "apparel": {
-          "avgPrice": 49.29,
+          "avgPrice": 49.28,
           "count": 1235
         },
         "bag": {
-          "avgPrice": 224.34,
-          "count": 477
+          "avgPrice": 223.41,
+          "count": 478
         },
         "accessories": {
-          "avgPrice": 141.92,
+          "avgPrice": 139.15,
           "count": 511
         },
         "wood": {
-          "avgPrice": 306.45,
+          "avgPrice": 289.64,
           "count": 98
         },
         "hybrid": {
-          "avgPrice": 244.12,
+          "avgPrice": 225.16,
           "count": 56
         },
         "ball": {
-          "avgPrice": 81.26,
+          "avgPrice": 81.04,
           "count": 249
         },
         "wedge": {
-          "avgPrice": 235.11,
+          "avgPrice": 234.63,
           "count": 113
         },
         "shoes": {
-          "avgPrice": 100.79,
+          "avgPrice": 100.19,
           "count": 165
         },
         "irons": {
-          "avgPrice": 762.19,
+          "avgPrice": 760.81,
           "count": 162
         },
         "putter": {
-          "avgPrice": 319.85,
-          "count": 323
+          "avgPrice": 308.76,
+          "count": 335
         },
         "driver": {
-          "avgPrice": 596.56,
+          "avgPrice": 578.53,
           "count": 133
         },
         "sets": {
-          "avgPrice": 755.34,
+          "avgPrice": 757.97,
           "count": 38
         }
       }
@@ -321,155 +321,247 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 49.29,
+      "currentAvg": 49.28,
       "count": 1235,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 224.34,
-      "count": 477,
+      "currentAvg": 223.41,
+      "count": 478,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 141.92,
+      "currentAvg": 139.15,
       "count": 511,
       "change30d": null,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 306.45,
+      "currentAvg": 289.64,
       "count": 98,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 244.12,
+      "currentAvg": 225.16,
       "count": 56,
       "change30d": null,
       "change90d": null
     },
     "ball": {
-      "currentAvg": 81.26,
+      "currentAvg": 81.04,
       "count": 249,
       "change30d": null,
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 235.11,
+      "currentAvg": 234.63,
       "count": 113,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 100.79,
+      "currentAvg": 100.19,
       "count": 165,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 762.19,
+      "currentAvg": 760.81,
       "count": 162,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 319.85,
-      "count": 323,
+      "currentAvg": 308.76,
+      "count": 335,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 596.56,
+      "currentAvg": 578.53,
       "count": 133,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 755.34,
+      "currentAvg": 757.97,
       "count": 38,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-21T06:30:07.878661+00:00",
+  "lastUpdated": "2026-08-21T12:27:32.968106+00:00",
   "topMovers": {
     "wood": [
       {
-        "name": "Srixon ZXi Golf Fairway Woods",
-        "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXi-Fairway-Hero-Hero-Straight.jpg",
-        "salePrice": 199.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40565784327&a=2990893&m=2849",
-        "dropPct": 33
+        "name": "Great Big Bertha Fairway Woods",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
+        "salePrice": 389.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486566&a=2990893&m=19186",
+        "dropPct": 40
+      },
+      {
+        "name": "Women's Great Big Bertha Fairway Woods",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
+        "salePrice": 389.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486567&a=2990893&m=19186",
+        "dropPct": 40
       }
     ],
     "irons": [
       {
-        "name": "REVA RISE Irons",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787117968902/sits/irons-2025-reva-rise-womens/irons-2025-reva-rise-womens___1.png?sfrm=png",
-        "salePrice": 158.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40923491087&a=2990893&m=19186",
-        "dropPct": 84
+        "name": "Big Bertha Irons",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/irons-2023-big-bertha/irons-2023-big-bertha___1.png?sfrm=png",
+        "salePrice": 134.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486562&a=2990893&m=19186",
+        "dropPct": 88
       },
       {
-        "name": "Women's Paradym Ai Smoke MAX Fast Irons",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787117968902/sits/irons-2024-paradym-ai-smoke-max-fast-womens/irons-2024-paradym-ai-smoke-max-fast-womens___1.png?sfrm=png",
-        "salePrice": 167.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43892172827&a=2990893&m=19186",
-        "dropPct": 83
+        "name": "Paradym Ai Smoke HL Irons",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/irons-2024-paradym-ai-smoke-hl/irons-2024-paradym-ai-smoke-hl___1.png?sfrm=png",
+        "salePrice": 116.9,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43892172829&a=2990893&m=19186",
+        "dropPct": 86
       }
     ],
     "hybrid": [
       {
-        "name": "Srixon ZXi Golf Hybrid",
-        "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXi-Hybrid-Hero-Straight.jpg",
-        "salePrice": 169.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40633512240&a=2990893&m=2849",
-        "dropPct": 32
+        "name": "Great Big Bertha Hybrids",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/hybrids-2023-gbb/hybrids-2023-gbb___1.png?sfrm=png",
+        "salePrice": 376.35,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486568&a=2990893&m=19186",
+        "dropPct": 35
+      },
+      {
+        "name": "Women's Great Big Bertha Hybrids",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/hybrids-2023-gbb-womens/hybrids-2023-gbb-womens___1.png?sfrm=png",
+        "salePrice": 376.35,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486569&a=2990893&m=19186",
+        "dropPct": 35
       }
     ],
     "wedge": [
       {
-        "name": "Cleveland RTZ Golf Wedge - Black Satin",
-        "image": "https://www.clickgolf.co.uk/images/product/main/cg-rtz-satin-black-wedge-hero.jpg",
-        "salePrice": 119.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40196328568&a=2990893&m=2849",
-        "dropPct": 5
+        "name": "Women's Opus Brushed Chrome Wedges",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/wedges-2024-opus-chrome-womens/wedges-2024-opus-chrome-womens____1.png?sfrm=png",
+        "salePrice": 152.15,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684926&a=2990893&m=19186",
+        "dropPct": 15
       },
       {
-        "name": "Cleveland RTZ Golf Wedge - Tour Satin",
-        "image": "https://www.clickgolf.co.uk/images/product/main/cg-rtz-tour-satin-wedge-adapt-hero.jpg",
-        "salePrice": 119.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40192779135&a=2990893&m=2849",
-        "dropPct": 5
+        "name": "Opus Brushed Chrome Wedges",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/wedges-2024-opus-chrome/wedges-2024-opus-chrome___1.png?sfrm=png",
+        "salePrice": 152.15,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684930&a=2990893&m=19186",
+        "dropPct": 15
       }
     ],
     "driver": [
       {
-        "name": "Srixon ZXi Golf Driver",
-        "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXi-Driver-Hero-Straight.jpg",
-        "salePrice": 349.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40561707031&a=2990893&m=2849",
-        "dropPct": 30
+        "name": "Great Big Bertha Drivers",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/drivers-2023-gbb/drivers-2023-gbb___1.png?sfrm=png",
+        "salePrice": 539.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486564&a=2990893&m=19186",
+        "dropPct": 40
+      },
+      {
+        "name": "Women's Great Big Bertha Drivers",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/drivers-2023-gbb-womens/drivers-2023-gbb-womens___1.png?sfrm=png",
+        "salePrice": 539.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486565&a=2990893&m=19186",
+        "dropPct": 40
       }
     ],
-    "sets": [
+    "accessories": [
       {
-        "name": "Men's XR 13-Piece Complete Set",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787117968902/sits/compsets-2026-xr-eu/compsets-2026-xr-eu_1___1.png?sfrm=png",
-        "salePrice": 1399.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43223910635&a=2990893&m=19186",
-        "dropPct": 7
+        "name": "Limited Edition Odyssey 'Odyssey Month' Blade Putter Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/headcovers-2022-odyssey-premium-blade/headcovers-2022-odyssey-premium-blade_3___1.png?sfrm=png",
+        "salePrice": 27.6,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684721&a=2990893&m=19186",
+        "dropPct": 60
+      },
+      {
+        "name": "Uptown Pom Pom X Fairway Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/headcovers-2019-uptown-pom-pom-x-fairway/headcovers-2019-uptown-pom-pom-x-fairway_6178___1.png?sfrm=png",
+        "salePrice": 6.78,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44324893168&a=2990893&m=19186",
+        "dropPct": 60
+      }
+    ],
+    "ball": [
+      {
+        "name": "Chrome Tour X 360 Triple Track Yellow Golf Balls 2024 (Dozen)",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/balls-2024-chrome-tour-x-360-triple-track-yellow/balls-2024-chrome-tour-x-360-triple-track-yellow_1446___1.png?sfrm=png",
+        "salePrice": 41.25,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44947166275&a=2990893&m=19186",
+        "dropPct": 25
+      },
+      {
+        "name": "Chrome Tour 360 Triple Track Yellow Golf Balls 2024 (Dozen)",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/balls-2024-chrome-tour-360-triple-track-yellow/balls-2024-chrome-tour-360-triple-track_1446___1.png?sfrm=png",
+        "salePrice": 41.25,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44947166277&a=2990893&m=19186",
+        "dropPct": 25
+      }
+    ],
+    "shoes": [
+      {
+        "name": "Men's Chev Star Golf Shoes",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
+        "salePrice": 44.5,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684785&a=2990893&m=19186",
+        "dropPct": 50
+      },
+      {
+        "name": "Men's Lazer Golf Shoes",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
+        "salePrice": 54.5,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44504515550&a=2990893&m=19186",
+        "dropPct": 50
+      }
+    ],
+    "apparel": [
+      {
+        "name": "Tour Authentic Reversible Beanie\u200b",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/headwear-2023-ta-reversible-beanie/headwear-2023-ta-reversible-beanie_4622___1.png?sfrm=png",
+        "salePrice": 11.5,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44512668051&a=2990893&m=19186",
+        "dropPct": 50
+      },
+      {
+        "name": "Playing Through Trucker Hat",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/headwear-2024-playing-through-trucker-adjustable-cap/headwear-2024-playing-through-trucker-adjustable-cap_20879___1.png?sfrm=png",
+        "salePrice": 13.8,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684816&a=2990893&m=19186",
+        "dropPct": 40
+      }
+    ],
+    "putter": [
+      {
+        "name": "Ai-ONE Milled Jailbird Mini T DB Putter",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/putters-2025-ai-one-milled-jailbird-mini-t-db/putters-2025-ai-one-milled-jailbird-mini-t-db___1.png?sfrm=png",
+        "salePrice": 269.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684889&a=2990893&m=19186",
+        "dropPct": 40
+      },
+      {
+        "name": "Ai-ONE Milled 2-Ball T DB Putter",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/putters-2025-ai-one-milled-2-ball-t-db/putters-2025-ai-one-milled-2-ball-t-db___1.png?sfrm=png",
+        "salePrice": 281.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684891&a=2990893&m=19186",
+        "dropPct": 40
       }
     ],
     "bag": [
       {
-        "name": "Fairway 14 HD stand Bag",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787117968902/sits/bags-2026-fairway-14-hd-stand/bags-2026-fairway-14-hd-stand_1___1.png?sfrm=png",
-        "salePrice": 279.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=45228697472&a=2990893&m=19186",
-        "dropPct": 7
+        "name": "Limited Edition May Major Staff Bag",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
+        "salePrice": 839.3,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684946&a=2990893&m=19186",
+        "dropPct": 30
       }
     ]
   }
