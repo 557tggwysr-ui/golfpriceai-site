@@ -393,7 +393,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-21T12:27:32.968106+00:00",
+  "lastUpdated": "2026-08-21T18:23:09.495376+00:00",
   "topMovers": {
     "wood": [
       {
@@ -413,18 +413,18 @@
     ],
     "irons": [
       {
+        "name": "Paradym Irons",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/irons-2023-paradym/irons-2023-paradym___1.png?sfrm=png",
+        "salePrice": 119.35,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43078506623&a=2990893&m=19186",
+        "dropPct": 90
+      },
+      {
         "name": "Big Bertha Irons",
         "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/irons-2023-big-bertha/irons-2023-big-bertha___1.png?sfrm=png",
         "salePrice": 134.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486562&a=2990893&m=19186",
         "dropPct": 88
-      },
-      {
-        "name": "Paradym Ai Smoke HL Irons",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/irons-2024-paradym-ai-smoke-hl/irons-2024-paradym-ai-smoke-hl___1.png?sfrm=png",
-        "salePrice": 116.9,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43892172829&a=2990893&m=19186",
-        "dropPct": 86
       }
     ],
     "hybrid": [
@@ -477,18 +477,18 @@
     ],
     "accessories": [
       {
-        "name": "Limited Edition Odyssey 'Odyssey Month' Blade Putter Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/headcovers-2022-odyssey-premium-blade/headcovers-2022-odyssey-premium-blade_3___1.png?sfrm=png",
-        "salePrice": 27.6,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684721&a=2990893&m=19186",
-        "dropPct": 60
+        "name": "Limited Edition 2021 July Major Blade Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
+        "salePrice": 20.7,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
+        "dropPct": 70
       },
       {
-        "name": "Uptown Pom Pom X Fairway Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/headcovers-2019-uptown-pom-pom-x-fairway/headcovers-2019-uptown-pom-pom-x-fairway_6178___1.png?sfrm=png",
-        "salePrice": 6.78,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44324893168&a=2990893&m=19186",
-        "dropPct": 60
+        "name": "Limited Edition 2020 Odyssey August Major Blade Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
+        "salePrice": 20.98,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684657&a=2990893&m=19186",
+        "dropPct": 70
       }
     ],
     "ball": [
