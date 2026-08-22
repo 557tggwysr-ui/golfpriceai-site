@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ | GolfPrice AI</title>
+<meta name="description" content="Honest answers about how GolfPrice AI tracks prices, how we make money, and why there's no fake urgency anywhere on the site.">
+<link rel="icon" href="assets/logo-full.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .faq-list { max-width: 760px; margin: 0 auto 60px; }
+  .faq-item {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow);
+  }
+  .faq-item summary {
+    font-weight: 700; font-size: 16px; cursor: pointer; list-style: none;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+"; font-size: 22px; font-weight: 400; color: var(--green); flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p { margin: 14px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How does GolfPrice AI actually track prices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We pull live product data \u2014 price, stock status, and images \u2014 directly from our retail partners' own product feeds, automatically, roughly every 6 hours. Nothing is manually typed in or estimated; every price shown is what the retailer's own feed reported at the last check."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the discounts and \"deals\" real?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We only call something a genuine drop if our own tracked price history for that exact product actually shows a higher price at some point \u2014 not because a retailer's spreadsheet claims an \"RRP\" that may never have been a real selling price. We also automatically reject implausible discounts (for example, a claimed \"was\" price several times higher than the current price), since that's usually a sign of bad data on the retailer's end, not a genuine bargain."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why doesn't GolfPrice AI use countdown timers or \"only 2 left\" messages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because we don't think manufactured urgency is honest. If a price is genuinely good, it doesn't need a fake clock ticking down to convince you. Every deal on this site stands or falls on the real numbers alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I buy products directly from GolfPrice AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. GolfPrice AI is a price-comparison site, not a retailer \u2014 we don't hold stock, take payment, or handle shipping or returns. Every \"Buy\" link takes you to the actual retailer's own website to complete the purchase, so any questions about delivery, returns, or order status go to them directly, not to us."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does GolfPrice AI make money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Through affiliate commissions. When you buy something after clicking a link from our site, we may earn a small commission from the retailer \u2014 at no extra cost to you, and it never affects which price we show or how we rank anything. We're a participant in the Amazon Associates programme and the AWIN affiliate network, among others."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is GolfPrice AI owned by or affiliated with any golf brand or retailer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. GolfPrice AI is a small, independently-run project. We're not owned by any golf equipment manufacturer, retailer, or investor with a stake in which products you buy \u2014 our only interest is tracking prices accurately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I think a price on the site is wrong \u2014 what do I do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every product card has a \"Report a pricing issue\" link right on it, which opens a pre-filled email to us with the product and price already included. We genuinely read and act on these \u2014 it's one of the main ways we catch feed errors from retailers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is a product showing as out of stock, or missing entirely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We only show stock status exactly as reported by the retailer's own feed at the last check \u2014 we don't guess. If a product isn't showing at all, it's most likely not currently included in one of our retail partners' feeds yet, rather than something we've deliberately left out."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between Complete The Kit and Complete The Look?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Complete The Kit pairs equipment and accessories that naturally go together (like a driver and a matching headcover), each still at its own real, currently-lowest tracked price. Complete The Look does the same thing for apparel, but the pairing logic is genuine colour theory \u2014 same colour, safe neutrals, analogous, or complementary hues \u2014 not just \"these happened to both be on sale.\""
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is GolfPrice AI's content written by AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The site's tone and copy are written with AI assistance, but every price, discount claim, and stock status shown comes from real tracked retailer data \u2014 not generated or guessed. The name reflects that AI helps run the tracking and the site itself, not that the prices are AI-invented."
+      }
+    }
+  ]
+}
+</script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GolfPrice AI">
+<meta property="og:title" content="FAQ | GolfPrice AI">
+<meta property="og:description" content="Honest answers about how GolfPrice AI tracks prices, how we make money, and why there is no fake urgency anywhere on the site.">
+<meta property="og:url" content="https://golfpriceai.com/faq.html">
+<meta property="og:image" content="https://golfpriceai.com/assets/social-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FAQ | GolfPrice AI">
+<meta name="twitter:description" content="Honest answers about how GolfPrice AI tracks prices, how we make money, and why there is no fake urgency anywhere on the site.">
+<meta name="twitter:image" content="https://golfpriceai.com/assets/social-share.jpg">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <a href="index.html" class="brand">
+    <img src="assets/logo-full.png" alt="GolfPrice AI logo">
+    <span class="brand-name">Golf<span>Price</span> AI</span>
+  </a>
+  <nav class="main-nav">
+    <a href="shop.html">Shop All Deals</a>
+    <div class="nav-item">
+      <a href="shop.html?group=clubs">Clubs ▾</a>
+      <div class="dropdown">
+        <a href="shop.html?category=driver">Drivers</a>
+        <a href="shop.html?category=wood">Fairway Woods</a>
+        <a href="shop.html?category=hybrid">Hybrids</a>
+        <a href="shop.html?category=irons">Irons</a>
+        <a href="shop.html?category=wedge">Wedges</a>
+        <a href="shop.html?category=putter">Putters</a>
+        <a href="shop.html?category=sets">Sets</a>
+        <a href="find-your-fit.html">📐 Find Your Fit</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="apparel.html">Apparel ▾</a>
+      <div class="dropdown" id="apparel-dropdown"></div>
+    </div>
+    <div class="nav-item">
+      <a href="accessories.html">Accessories ▾</a>
+      <div class="dropdown" id="accessories-dropdown"></div>
+    </div>
+    <a href="build-your-bag.html">Assemble Your Arsenal</a>
+    <a href="receipts.html">Show Us The Receipts</a>
+    <a href="best-time-to-buy.html">Best Time To Buy</a>
+    <a href="back-in-stock.html">Back In Stock Radar</a>
+    <a href="fairway-index.html">The Fairway Index</a>
+    <a href="complete-the-kit.html">Complete The Kit</a>
+    <a href="about.html">About</a>
+  </nav>
+  <a href="index.html#alerts" class="btn btn-primary">🔔 Get Deal Alerts</a>
+  <button class="nav-toggle" aria-label="Open menu">☰</button>
+</header>
+
+<main class="container" id="main-content">
+
+  <div class="theme-banner">
+    <h2>❓ Frequently Asked Questions</h2>
+    <p>Honest answers, same as everywhere else on this site. If your question isn't here, the "Report a pricing issue" link on any product also reaches us directly.</p>
+    <p class="tagline">No Hype.<span class="quip"> Just Answers.</span></p>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>How does GolfPrice AI actually track prices?</summary>
+      <p>We pull live product data — price, stock status, and images — directly from our retail partners&#x27; own product feeds, automatically, roughly every 6 hours. Nothing is manually typed in or estimated; every price shown is what the retailer&#x27;s own feed reported at the last check.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Are the discounts and &quot;deals&quot; real?</summary>
+      <p>We only call something a genuine drop if our own tracked price history for that exact product actually shows a higher price at some point — not because a retailer&#x27;s spreadsheet claims an &quot;RRP&quot; that may never have been a real selling price. We also automatically reject implausible discounts (for example, a claimed &quot;was&quot; price several times higher than the current price), since that&#x27;s usually a sign of bad data on the retailer&#x27;s end, not a genuine bargain.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Why doesn&#x27;t GolfPrice AI use countdown timers or &quot;only 2 left&quot; messages?</summary>
+      <p>Because we don&#x27;t think manufactured urgency is honest. If a price is genuinely good, it doesn&#x27;t need a fake clock ticking down to convince you. Every deal on this site stands or falls on the real numbers alone.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Do I buy products directly from GolfPrice AI?</summary>
+      <p>No. GolfPrice AI is a price-comparison site, not a retailer — we don&#x27;t hold stock, take payment, or handle shipping or returns. Every &quot;Buy&quot; link takes you to the actual retailer&#x27;s own website to complete the purchase, so any questions about delivery, returns, or order status go to them directly, not to us.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How does GolfPrice AI make money?</summary>
+      <p>Through affiliate commissions. When you buy something after clicking a link from our site, we may earn a small commission from the retailer — at no extra cost to you, and it never affects which price we show or how we rank anything. We&#x27;re a participant in the Amazon Associates programme and the AWIN affiliate network, among others.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is GolfPrice AI owned by or affiliated with any golf brand or retailer?</summary>
+      <p>No. GolfPrice AI is a small, independently-run project. We&#x27;re not owned by any golf equipment manufacturer, retailer, or investor with a stake in which products you buy — our only interest is tracking prices accurately.</p>
+    </details>
+    <details class="faq-item">
+      <summary>I think a price on the site is wrong — what do I do?</summary>
+      <p>Every product card has a &quot;Report a pricing issue&quot; link right on it, which opens a pre-filled email to us with the product and price already included. We genuinely read and act on these — it&#x27;s one of the main ways we catch feed errors from retailers.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Why is a product showing as out of stock, or missing entirely?</summary>
+      <p>We only show stock status exactly as reported by the retailer&#x27;s own feed at the last check — we don&#x27;t guess. If a product isn&#x27;t showing at all, it&#x27;s most likely not currently included in one of our retail partners&#x27; feeds yet, rather than something we&#x27;ve deliberately left out.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What&#x27;s the difference between Complete The Kit and Complete The Look?</summary>
+      <p>Complete The Kit pairs equipment and accessories that naturally go together (like a driver and a matching headcover), each still at its own real, currently-lowest tracked price. Complete The Look does the same thing for apparel, but the pairing logic is genuine colour theory — same colour, safe neutrals, analogous, or complementary hues — not just &quot;these happened to both be on sale.&quot;</p>
+    </details>
+    <details class="faq-item">
+      <summary>Is GolfPrice AI&#x27;s content written by AI?</summary>
+      <p>The site&#x27;s tone and copy are written with AI assistance, but every price, discount claim, and stock status shown comes from real tracked retailer data — not generated or guessed. The name reflects that AI helps run the tracking and the site itself, not that the prices are AI-invented.</p>
+    </details>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">© <span id="year"></span> GolfPrice AI · Stop overpaying for golf gear. · <a href="faq.html">FAQ</a> · <a href="legal/privacy-policy.html">Privacy Policy</a> · <a href="legal/cookies.html">Cookie Policy</a></div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/groups-config.js"></script>
+<script src="js/hub.js"></script>
+<script src="js/nav-mobile.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/cookie-consent.js"></script>
+</body>
+</html>
