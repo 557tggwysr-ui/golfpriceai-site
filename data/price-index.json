@@ -317,23 +317,76 @@
           "count": 38
         }
       }
+    },
+    {
+      "date": "2026-08-22",
+      "categories": {
+        "apparel": {
+          "avgPrice": 49.5,
+          "count": 1238
+        },
+        "bag": {
+          "avgPrice": 217.59,
+          "count": 478
+        },
+        "accessories": {
+          "avgPrice": 138.96,
+          "count": 511
+        },
+        "wood": {
+          "avgPrice": 289.64,
+          "count": 98
+        },
+        "hybrid": {
+          "avgPrice": 225.16,
+          "count": 56
+        },
+        "ball": {
+          "avgPrice": 80.36,
+          "count": 249
+        },
+        "wedge": {
+          "avgPrice": 234.63,
+          "count": 113
+        },
+        "shoes": {
+          "avgPrice": 100.19,
+          "count": 165
+        },
+        "irons": {
+          "avgPrice": 760.81,
+          "count": 162
+        },
+        "putter": {
+          "avgPrice": 305.9,
+          "count": 335
+        },
+        "driver": {
+          "avgPrice": 577.33,
+          "count": 133
+        },
+        "sets": {
+          "avgPrice": 730.34,
+          "count": 38
+        }
+      }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 49.28,
-      "count": 1235,
+      "currentAvg": 49.5,
+      "count": 1238,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 223.41,
+      "currentAvg": 217.59,
       "count": 478,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 139.15,
+      "currentAvg": 138.96,
       "count": 511,
       "change30d": null,
       "change90d": null
@@ -351,7 +404,7 @@
       "change90d": null
     },
     "ball": {
-      "currentAvg": 81.04,
+      "currentAvg": 80.36,
       "count": 249,
       "change30d": null,
       "change90d": null
@@ -375,26 +428,74 @@
       "change90d": null
     },
     "putter": {
-      "currentAvg": 308.76,
+      "currentAvg": 305.9,
       "count": 335,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 578.53,
+      "currentAvg": 577.33,
       "count": 133,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 757.97,
+      "currentAvg": 730.34,
       "count": 38,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-21T18:23:09.495376+00:00",
+  "lastUpdated": "2026-08-22T00:41:22.462097+00:00",
   "topMovers": {
+    "accessories": [
+      {
+        "name": "Limited Edition 2021 July Major Blade Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
+        "salePrice": 20.7,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
+        "dropPct": 70
+      },
+      {
+        "name": "Limited Edition 2020 Odyssey August Major Blade Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
+        "salePrice": 20.98,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684657&a=2990893&m=19186",
+        "dropPct": 70
+      }
+    ],
+    "bag": [
+      {
+        "name": "Limited Edition May Major Staff Bag",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
+        "salePrice": 839.3,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684946&a=2990893&m=19186",
+        "dropPct": 30
+      },
+      {
+        "name": "Cobra Ultralight 2 Golf Carry Stand Bag - Estate Blue/Sugared Almond/Pop Red",
+        "image": "https://www.clickgolf.co.uk/images/product/main/cobra-ultralight-2-carry-bag-estate-blue-side-view-1000x1000.png",
+        "salePrice": 99.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44848681566&a=2990893&m=2849",
+        "dropPct": 17
+      }
+    ],
+    "ball": [
+      {
+        "name": "Mizuno Pro S Golf Balls - White",
+        "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Pro-S-Golf-Balls-Box.jpg",
+        "salePrice": 34.99,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=42298182458&a=2990893&m=2849",
+        "dropPct": 56
+      },
+      {
+        "name": "Mizuno Pro X Golf Balls - White",
+        "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Pro-X-Golf-Balls-Box.jpg",
+        "salePrice": 34.99,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=42298183086&a=2990893&m=2849",
+        "dropPct": 56
+      }
+    ],
     "wood": [
       {
         "name": "Great Big Bertha Fairway Woods",
@@ -425,6 +526,38 @@
         "salePrice": 134.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486562&a=2990893&m=19186",
         "dropPct": 88
+      }
+    ],
+    "sets": [
+      {
+        "name": "Callaway Junior XJ 5-Piece Set Golf Package Set Level 1 (3-5 Years) - Black",
+        "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Leve-1-Junior-Set-Bag-Black-Hero.jpg",
+        "salePrice": 199.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=45056358642&a=2990893&m=2849",
+        "dropPct": 13
+      },
+      {
+        "name": "Callaway Junior XJ 5-Piece Set Golf Package Set Level 1 (3-5 Years) - Blue/White",
+        "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Junior-Set-Level-1-Bag-Blue-Hero.jpg",
+        "salePrice": 199.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44040786304&a=2990893&m=2849",
+        "dropPct": 13
+      }
+    ],
+    "putter": [
+      {
+        "name": "Ai-ONE Milled Jailbird Mini T DB Putter",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/putters-2025-ai-one-milled-jailbird-mini-t-db/putters-2025-ai-one-milled-jailbird-mini-t-db___1.png?sfrm=png",
+        "salePrice": 269.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684889&a=2990893&m=19186",
+        "dropPct": 40
+      },
+      {
+        "name": "Ai-ONE Milled 2-Ball T DB Putter",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/putters-2025-ai-one-milled-2-ball-t-db/putters-2025-ai-one-milled-2-ball-t-db___1.png?sfrm=png",
+        "salePrice": 281.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684891&a=2990893&m=19186",
+        "dropPct": 40
       }
     ],
     "hybrid": [
@@ -475,38 +608,6 @@
         "dropPct": 40
       }
     ],
-    "accessories": [
-      {
-        "name": "Limited Edition 2021 July Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
-        "salePrice": 20.7,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
-        "dropPct": 70
-      },
-      {
-        "name": "Limited Edition 2020 Odyssey August Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
-        "salePrice": 20.98,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684657&a=2990893&m=19186",
-        "dropPct": 70
-      }
-    ],
-    "ball": [
-      {
-        "name": "Chrome Tour X 360 Triple Track Yellow Golf Balls 2024 (Dozen)",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/balls-2024-chrome-tour-x-360-triple-track-yellow/balls-2024-chrome-tour-x-360-triple-track-yellow_1446___1.png?sfrm=png",
-        "salePrice": 41.25,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44947166275&a=2990893&m=19186",
-        "dropPct": 25
-      },
-      {
-        "name": "Chrome Tour 360 Triple Track Yellow Golf Balls 2024 (Dozen)",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/balls-2024-chrome-tour-360-triple-track-yellow/balls-2024-chrome-tour-360-triple-track_1446___1.png?sfrm=png",
-        "salePrice": 41.25,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44947166277&a=2990893&m=19186",
-        "dropPct": 25
-      }
-    ],
     "shoes": [
       {
         "name": "Men's Chev Star Golf Shoes",
@@ -537,31 +638,6 @@
         "salePrice": 13.8,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684816&a=2990893&m=19186",
         "dropPct": 40
-      }
-    ],
-    "putter": [
-      {
-        "name": "Ai-ONE Milled Jailbird Mini T DB Putter",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/putters-2025-ai-one-milled-jailbird-mini-t-db/putters-2025-ai-one-milled-jailbird-mini-t-db___1.png?sfrm=png",
-        "salePrice": 269.4,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684889&a=2990893&m=19186",
-        "dropPct": 40
-      },
-      {
-        "name": "Ai-ONE Milled 2-Ball T DB Putter",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/putters-2025-ai-one-milled-2-ball-t-db/putters-2025-ai-one-milled-2-ball-t-db___1.png?sfrm=png",
-        "salePrice": 281.4,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684891&a=2990893&m=19186",
-        "dropPct": 40
-      }
-    ],
-    "bag": [
-      {
-        "name": "Limited Edition May Major Staff Bag",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787204390750/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
-        "salePrice": 839.3,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684946&a=2990893&m=19186",
-        "dropPct": 30
       }
     ]
   }
