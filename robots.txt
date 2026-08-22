@@ -1,0 +1,42 @@
+# GolfPrice AI — robots.txt
+# Default policy: allow every crawler, including AI search/citation bots
+# and AI training bots. For a small, growing affiliate site whose whole
+# goal is visibility, being excluded from AI training data has its own
+# quiet cost (never being "known" by these models at all) — so unless
+# you'd rather draw a line between "can cite me" and "can train on me",
+# everything is left open below. Easy to restrict later if you change
+# your mind on any specific bot.
+
+User-agent: *
+Allow: /
+
+# Search/citation-purpose AI crawlers (what shows up as a live citation
+# in ChatGPT Search, Perplexity, Copilot answers)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Training-purpose AI crawlers (feeds general model knowledge, not a
+# live citation) — see note above on the allow-everything default
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Standard search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://golfpriceai.com/sitemap.xml
