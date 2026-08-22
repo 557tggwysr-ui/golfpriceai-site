@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-22T12:20:24.690543+00:00",
+  "lastUpdated": "2026-08-22T18:15:50.966699+00:00",
   "categories": [
     {
       "key": "driver",
@@ -14760,7 +14760,7 @@
       "salePrice": 159.0,
       "savePct": 33,
       "retailerCount": 1,
-      "affiliateUrl": "https://www.awin1.com/pclick.php?p=40664106547&a=2990893&m=2849",
+      "affiliateUrl": "https://www.awin1.com/pclick.php?p=40664106498&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXiU-Utility-Irons-Hero-2.jpg",
       "brand": "Srixon",
@@ -17691,7 +17691,7 @@
       "salePrice": 139.0,
       "savePct": 18,
       "retailerCount": 1,
-      "affiliateUrl": "https://www.awin1.com/pclick.php?p=44751079233&a=2990893&m=2849",
+      "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878233983&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/titleist-vokey-sm10-tour-chrome-wedge-hero-1000x1000.jpg",
       "brand": "Titleist",
@@ -47409,7 +47409,7 @@
       "salePrice": 99.0,
       "savePct": 24,
       "retailerCount": 1,
-      "affiliateUrl": "https://www.awin1.com/pclick.php?p=40202166287&a=2990893&m=2849",
+      "affiliateUrl": "https://www.awin1.com/pclick.php?p=40202166119&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/FootJoy-Fuel-Ladies-Golf-Shoes---Navy-White-Pink.jpg",
       "brand": "FootJoy",
@@ -62647,8 +62647,8 @@
       "name": "MacGregor CG4000 Men's Golf Club Package Set - Steel",
       "category": "driver",
       "retailPrice": 329.99,
-      "salePrice": 299.99,
-      "savePct": 9,
+      "salePrice": 329.99,
+      "savePct": 0,
       "retailerCount": 1,
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=44716439343&a=2990893&m=2849",
       "source": "awin-clickgolf",
@@ -62657,15 +62657,15 @@
       "audience": "Male",
       "inStock": true,
       "priceInsight": {
-        "status": "lowest_tracked",
-        "trend": "falling",
-        "verifiedDiscount": true,
+        "status": "highest_tracked",
+        "trend": "rising",
+        "verifiedDiscount": false,
         "historicalLow": 299.99,
         "historicalHigh": 329.99,
         "daysTracked": 6,
         "volatility": "insufficient_data",
         "avgDaysBetweenChanges": null,
-        "numChanges": 2
+        "numChanges": 3
       },
       "stockInsight": {
         "currentlyInStock": true,
@@ -118317,9 +118317,9 @@
       "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787335893569/sits/gloves-2019-x-spann-womens/gloves-2019-x-spann-womens_2____1.png?sfrm=png",
       "icon": "glove",
       "priceInsight": {
-        "status": "flagged_anomaly",
+        "status": "lowest_tracked",
         "trend": "falling",
-        "verifiedDiscount": false,
+        "verifiedDiscount": true,
         "historicalLow": 5.93,
         "historicalHigh": 16.95,
         "daysTracked": 6,
@@ -121138,9 +121138,9 @@
       "inStock": true,
       "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787335893569/sits/irons-2026-quantum-max-os-womens/irons-2026-quantum-max-os-womens___1.png?sfrm=png",
       "priceInsight": {
-        "status": "flagged_anomaly",
+        "status": "lowest_tracked",
         "trend": "falling",
-        "verifiedDiscount": false,
+        "verifiedDiscount": true,
         "historicalLow": 167.0,
         "historicalHigh": 1002.0,
         "daysTracked": 6,
