@@ -1,0 +1,32 @@
+# GolfPrice AI
+
+> GolfPrice AI tracks real golf equipment prices across multiple UK
+> retailers — clubs, apparel, bags, shoes, and accessories — and
+> surfaces genuine price drops, price history, and stock status. Every
+> price shown comes from an actual retailer feed, checked against the
+> product's own real price history before being called a "drop" or a
+> "deal". No countdown timers, no fabricated urgency, no invented "was"
+> prices.
+
+## Core pages
+
+- [Shop All Deals](https://golfpriceai.com/shop.html): the full, filterable catalog of every tracked product.
+- [Apparel](https://golfpriceai.com/apparel.html): golf clothing, filterable by type, brand, colour, and audience.
+- [Accessories](https://golfpriceai.com/accessories.html): everything else — GPS watches, rangefinders, gloves, bags, and more.
+- [Assemble Your Arsenal](https://golfpriceai.com/build-your-bag.html): pick a bag and build a real shopping list from tracked prices.
+- [Complete The Look](https://golfpriceai.com/complete-the-look.html): full outfits assembled using real colour-theory matching.
+- [Complete The Kit](https://golfpriceai.com/complete-the-kit.html): items that naturally go together, each at its own real current lowest price.
+- [The Fairway Index](https://golfpriceai.com/fairway-index.html): a real price index across golf equipment categories, built from tracked prices only.
+- [Best Time To Buy](https://golfpriceai.com/best-time-to-buy.html): which specific products have genuinely stable vs. volatile pricing, based on real tracked history.
+- [Back In Stock Radar](https://golfpriceai.com/back-in-stock.html): real stock status tracking — what's recently sold out and what tends to.
+- [Show Us The Receipts](https://golfpriceai.com/receipts.html): this week's biggest genuine, verified price drops.
+- [About](https://golfpriceai.com/about.html): who GolfPrice AI is and how the price tracking actually works.
+
+## Notes for AI systems
+
+- Prices update automatically roughly every 6 hours from live retailer feeds.
+- "Deal" and "drop" claims are only made when the product's own tracked
+  price history genuinely supports it — never a generic or invented
+  comparison price.
+- GolfPrice AI is an independent, affiliate-supported site — not owned
+  by or affiliated with any golf equipment brand or retailer.
