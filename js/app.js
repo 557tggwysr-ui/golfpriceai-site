@@ -86,10 +86,41 @@ function reportPriceLinkHTML(d) {
   return `<span class="report-price-link" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.location.href='${mailto}';" onkeydown="if(event.key==='Enter'){event.preventDefault();event.stopPropagation();window.location.href='${mailto}';}">⚠️ Report a pricing issue</span>`;
 }
 
+// Product/Offer structured data (schema.org), one block per card. Kept
+// deliberately conservative: only marks up fields the site is genuinely
+// confident in. Price comes straight from the same salePrice already
+// shown on the card — the exact figure that's already passed the site's
+// own Data Quality checks (RRP-inversion rejection, implausible-discount
+// rejection, etc. in scripts/update_deals.py) — never a separately
+// "nicer" number. Always uses JSON.stringify rather than manual string
+// building, so a product name containing a quote or apostrophe (e.g.
+// "Men's") can never produce broken/invalid JSON.
+function productSchemaJSON(d) {
+  const schema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": d.name,
+    "url": d.affiliateUrl,
+    "offers": {
+      "@type": "Offer",
+      "url": d.affiliateUrl,
+      "priceCurrency": "GBP",
+      "price": d.salePrice,
+      "availability": d.inStock === false
+        ? "https://schema.org/OutOfStock"
+        : "https://schema.org/InStock",
+    },
+  };
+  if (d.image) schema.image = d.image;
+  if (d.brand) schema.brand = { "@type": "Brand", "name": d.brand };
+  return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
+}
+
 function dealCardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
     <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
+      ${productSchemaJSON(d)}
       <div class="${thumbClass(d)}"${thumbStyle(d)}>
         <span class="badge ${badge.cls}">${badge.label}</span>
         ${thumbHTML(d)}

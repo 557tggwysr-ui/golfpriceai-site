@@ -68,10 +68,34 @@ function reportPriceLinkHTML(d) {
   return `<span class="report-price-link" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.location.href='${mailto}';" onkeydown="if(event.key==='Enter'){event.preventDefault();event.stopPropagation();window.location.href='${mailto}';}">⚠️ Report a pricing issue</span>`;
 }
 
+// Product/Offer structured data — identical logic to app.js's function
+// of the same name (kept as a duplicate, no build step on this site).
+function productSchemaJSON(d) {
+  const schema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": d.name,
+    "url": d.affiliateUrl,
+    "offers": {
+      "@type": "Offer",
+      "url": d.affiliateUrl,
+      "priceCurrency": "GBP",
+      "price": d.salePrice,
+      "availability": d.inStock === false
+        ? "https://schema.org/OutOfStock"
+        : "https://schema.org/InStock",
+    },
+  };
+  if (d.image) schema.image = d.image;
+  if (d.brand) schema.brand = { "@type": "Brand", "name": d.brand };
+  return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
+}
+
 function cardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
     <a class="deal-card" href="${d.affiliateUrl}" target="_blank" rel="sponsored noopener">
+      ${productSchemaJSON(d)}
       <div class="${thumbClass(d)}"${thumbStyle(d)}>
         <span class="badge ${badge.cls}">${badge.label}</span>
         ${thumbHTML(d)}
