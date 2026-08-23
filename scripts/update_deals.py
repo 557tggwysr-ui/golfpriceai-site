@@ -354,10 +354,18 @@ def apply_pre_overrides(name_text):
     # "piece" (as in "13-Piece") and "box set" are specific, safe
     # signals with no plausible false positive. "combo" is also
     # deliberately excluded when paired with "grip", since "Combo Grip"
-    # is a real, unrelated accessory product type.
+    # is a real, unrelated accessory product type. "package set" is a
+    # second, distinct wording for the exact same kind of bundled
+    # starter set (found during a real catalog audit — 59 products,
+    # mostly Wilson/Callaway/US Kids junior and adult starter sets,
+    # were showing up miscategorized as Putters or Drivers because
+    # their name never contains the word "piece" at all, just
+    # "Package Set").
     if _has_word(name_text, "piece"):
         return "sets"
     if "box set" in name_text or "boxed set" in name_text:
+        return "sets"
+    if "package set" in name_text:
         return "sets"
     if _has_word(name_text, "combo") and not _has_word(name_text, "grip"):
         return "sets"
