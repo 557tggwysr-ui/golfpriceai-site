@@ -343,6 +343,22 @@ def apply_pre_overrides(name_text):
     if "ball bag" in name_text or "ball bags" in name_text:
         return "accessories"
 
+    # Push trolleys and scorecard holders were getting miscategorized as
+    # "ball" — found via a real catalog audit, 27 products affected. Root
+    # cause: "ball" is checked early in the general keyword list, and
+    # almost every trolley's retailer taxonomy text mentions a "ball tray"
+    # (a standard trolley accessory feature) even when the word "ball"
+    # never appears in the product's own visible name — scorecard holders
+    # get caught the same way, since retailers typically bundle them
+    # under the same trolley-accessories taxonomy branch. "trolley" and
+    # "scorecard holder" are unambiguous — never a ball, whatever else
+    # the combined text happens to mention — so this is safe to catch
+    # unconditionally, before the generic "ball" keyword ever gets a look.
+    if "trolley" in name_text:
+        return "accessories"
+    if "scorecard holder" in name_text:
+        return "accessories"
+
     # A multi-club combo/box set (e.g. "Men's XR 13-Piece Combo" — driver,
     # irons, putter, and a bag all bundled as one product) needs to be
     # caught here, BEFORE any single club-shape keyword gets a chance to
