@@ -552,7 +552,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-24T12:28:53.609979+00:00",
+  "lastUpdated": "2026-08-24T18:26:35.155688+00:00",
   "topMovers": {
     "ball": [
       {
@@ -570,22 +570,6 @@
         "dropPct": 56
       }
     ],
-    "wood": [
-      {
-        "name": "Great Big Bertha Fairway Woods",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787463623351/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
-        "salePrice": 389.4,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486566&a=2990893&m=19186",
-        "dropPct": 40
-      },
-      {
-        "name": "Women's Great Big Bertha Fairway Woods",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787463623351/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
-        "salePrice": 389.4,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486567&a=2990893&m=19186",
-        "dropPct": 40
-      }
-    ],
     "irons": [
       {
         "name": "Paradym Irons",
@@ -600,6 +584,22 @@
         "salePrice": 134.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486562&a=2990893&m=19186",
         "dropPct": 88
+      }
+    ],
+    "wood": [
+      {
+        "name": "Great Big Bertha Fairway Woods",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787463623351/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
+        "salePrice": 389.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486566&a=2990893&m=19186",
+        "dropPct": 40
+      },
+      {
+        "name": "Women's Great Big Bertha Fairway Woods",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787463623351/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
+        "salePrice": 389.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486567&a=2990893&m=19186",
+        "dropPct": 40
       }
     ],
     "hybrid": [
