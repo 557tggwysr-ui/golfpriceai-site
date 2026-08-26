@@ -538,8 +538,8 @@
           "count": 1237
         },
         "accessories": {
-          "avgPrice": 169.87,
-          "count": 590
+          "avgPrice": 169.81,
+          "count": 592
         },
         "bag": {
           "avgPrice": 195.27,
@@ -554,8 +554,8 @@
           "count": 56
         },
         "ball": {
-          "avgPrice": 62.32,
-          "count": 226
+          "avgPrice": 61.28,
+          "count": 224
         },
         "wedge": {
           "avgPrice": 234.32,
@@ -570,7 +570,7 @@
           "count": 162
         },
         "putter": {
-          "avgPrice": 295.82,
+          "avgPrice": 295.64,
           "count": 287
         },
         "driver": {
@@ -592,8 +592,8 @@
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 169.87,
-      "count": 590,
+      "currentAvg": 169.81,
+      "count": 592,
       "change30d": null,
       "change90d": null
     },
@@ -616,8 +616,8 @@
       "change90d": null
     },
     "ball": {
-      "currentAvg": 62.32,
-      "count": 226,
+      "currentAvg": 61.28,
+      "count": 224,
       "change30d": null,
       "change90d": null
     },
@@ -640,7 +640,7 @@
       "change90d": null
     },
     "putter": {
-      "currentAvg": 295.82,
+      "currentAvg": 295.64,
       "count": 287,
       "change30d": null,
       "change90d": null
@@ -658,7 +658,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-26T12:31:59.227991+00:00",
+  "lastUpdated": "2026-08-26T19:38:57.960143+00:00",
   "topMovers": {
     "ball": [
       {
@@ -740,6 +740,22 @@
         "dropPct": 15
       }
     ],
+    "putter": [
+      {
+        "name": "Ai-ONE Milled Jailbird Mini T DB Putter",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/putters-2025-ai-one-milled-jailbird-mini-t-db/putters-2025-ai-one-milled-jailbird-mini-t-db___1.png?sfrm=png",
+        "salePrice": 269.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684889&a=2990893&m=19186",
+        "dropPct": 40
+      },
+      {
+        "name": "Ai-ONE Milled 2-Ball T DB Putter",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/putters-2025-ai-one-milled-2-ball-t-db/putters-2025-ai-one-milled-2-ball-t-db___1.png?sfrm=png",
+        "salePrice": 281.4,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684891&a=2990893&m=19186",
+        "dropPct": 40
+      }
+    ],
     "driver": [
       {
         "name": "Great Big Bertha Drivers",
@@ -817,22 +833,6 @@
         "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/headwear-2024-playing-through-trucker-adjustable-cap/headwear-2024-playing-through-trucker-adjustable-cap_20879___1.png?sfrm=png",
         "salePrice": 13.8,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684816&a=2990893&m=19186",
-        "dropPct": 40
-      }
-    ],
-    "putter": [
-      {
-        "name": "Ai-ONE Milled Jailbird Mini T DB Putter",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/putters-2025-ai-one-milled-jailbird-mini-t-db/putters-2025-ai-one-milled-jailbird-mini-t-db___1.png?sfrm=png",
-        "salePrice": 269.4,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684889&a=2990893&m=19186",
-        "dropPct": 40
-      },
-      {
-        "name": "Ai-ONE Milled 2-Ball T DB Putter",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/putters-2025-ai-one-milled-2-ball-t-db/putters-2025-ai-one-milled-2-ball-t-db___1.png?sfrm=png",
-        "salePrice": 281.4,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684891&a=2990893&m=19186",
         "dropPct": 40
       }
     ],
