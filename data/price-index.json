@@ -529,6 +529,59 @@
           "count": 99
         }
       }
+    },
+    {
+      "date": "2026-08-26",
+      "categories": {
+        "apparel": {
+          "avgPrice": 49.49,
+          "count": 1237
+        },
+        "accessories": {
+          "avgPrice": 169.87,
+          "count": 590
+        },
+        "bag": {
+          "avgPrice": 195.32,
+          "count": 436
+        },
+        "wood": {
+          "avgPrice": 281.65,
+          "count": 91
+        },
+        "hybrid": {
+          "avgPrice": 225.16,
+          "count": 56
+        },
+        "ball": {
+          "avgPrice": 62.32,
+          "count": 226
+        },
+        "wedge": {
+          "avgPrice": 234.63,
+          "count": 113
+        },
+        "shoes": {
+          "avgPrice": 99.76,
+          "count": 169
+        },
+        "irons": {
+          "avgPrice": 751.96,
+          "count": 162
+        },
+        "putter": {
+          "avgPrice": 295.82,
+          "count": 287
+        },
+        "driver": {
+          "avgPrice": 572.97,
+          "count": 124
+        },
+        "sets": {
+          "avgPrice": 555.46,
+          "count": 99
+        }
+      }
     }
   ],
   "summary": {
@@ -539,14 +592,14 @@
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 170.82,
-      "count": 586,
+      "currentAvg": 169.87,
+      "count": 590,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 195.58,
-      "count": 432,
+      "currentAvg": 195.32,
+      "count": 436,
       "change30d": null,
       "change90d": null
     },
@@ -575,8 +628,8 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 100.19,
-      "count": 165,
+      "currentAvg": 99.76,
+      "count": 169,
       "change30d": null,
       "change90d": null
     },
@@ -605,7 +658,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-25T18:25:07.442796+00:00",
+  "lastUpdated": "2026-08-26T00:43:21.968076+00:00",
   "topMovers": {
     "ball": [
       {
