@@ -542,7 +542,7 @@
           "count": 590
         },
         "bag": {
-          "avgPrice": 195.32,
+          "avgPrice": 195.27,
           "count": 436
         },
         "wood": {
@@ -558,15 +558,15 @@
           "count": 226
         },
         "wedge": {
-          "avgPrice": 234.63,
-          "count": 113
+          "avgPrice": 234.32,
+          "count": 114
         },
         "shoes": {
-          "avgPrice": 99.76,
-          "count": 169
+          "avgPrice": 99.65,
+          "count": 170
         },
         "irons": {
-          "avgPrice": 751.96,
+          "avgPrice": 722.41,
           "count": 162
         },
         "putter": {
@@ -578,7 +578,7 @@
           "count": 124
         },
         "sets": {
-          "avgPrice": 555.46,
+          "avgPrice": 554.45,
           "count": 99
         }
       }
@@ -598,7 +598,7 @@
       "change90d": null
     },
     "bag": {
-      "currentAvg": 195.32,
+      "currentAvg": 195.27,
       "count": 436,
       "change30d": null,
       "change90d": null
@@ -622,19 +622,19 @@
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 234.63,
-      "count": 113,
+      "currentAvg": 234.32,
+      "count": 114,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 99.76,
-      "count": 169,
+      "currentAvg": 99.65,
+      "count": 170,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 751.96,
+      "currentAvg": 722.41,
       "count": 162,
       "change30d": null,
       "change90d": null
@@ -652,13 +652,13 @@
       "change90d": null
     },
     "sets": {
-      "currentAvg": 555.46,
+      "currentAvg": 554.45,
       "count": 99,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-26T06:31:54.239290+00:00",
+  "lastUpdated": "2026-08-26T12:31:59.227991+00:00",
   "topMovers": {
     "ball": [
       {
@@ -679,30 +679,30 @@
     "irons": [
       {
         "name": "Paradym Irons",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/irons-2023-paradym/irons-2023-paradym___1.png?sfrm=png",
-        "salePrice": 119.35,
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/irons-2023-paradym/irons-2023-paradym___1.png?sfrm=png",
+        "salePrice": 110.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43078506623&a=2990893&m=19186",
-        "dropPct": 90
+        "dropPct": 91
       },
       {
-        "name": "Big Bertha Irons",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/irons-2023-big-bertha/irons-2023-big-bertha___1.png?sfrm=png",
-        "salePrice": 134.4,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486562&a=2990893&m=19186",
-        "dropPct": 88
+        "name": "Elyte Irons",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/irons-2025-elyte/irons-2025-elyte___1.png?sfrm=png",
+        "salePrice": 133.6,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684980&a=2990893&m=19186",
+        "dropPct": 87
       }
     ],
     "wood": [
       {
         "name": "Great Big Bertha Fairway Woods",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
         "salePrice": 389.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486566&a=2990893&m=19186",
         "dropPct": 40
       },
       {
         "name": "Women's Great Big Bertha Fairway Woods",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
         "salePrice": 389.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486567&a=2990893&m=19186",
         "dropPct": 40
@@ -711,14 +711,14 @@
     "hybrid": [
       {
         "name": "Great Big Bertha Hybrids",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/hybrids-2023-gbb/hybrids-2023-gbb___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/hybrids-2023-gbb/hybrids-2023-gbb___1.png?sfrm=png",
         "salePrice": 376.35,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486568&a=2990893&m=19186",
         "dropPct": 35
       },
       {
         "name": "Women's Great Big Bertha Hybrids",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/hybrids-2023-gbb-womens/hybrids-2023-gbb-womens___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/hybrids-2023-gbb-womens/hybrids-2023-gbb-womens___1.png?sfrm=png",
         "salePrice": 376.35,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486569&a=2990893&m=19186",
         "dropPct": 35
@@ -727,14 +727,14 @@
     "wedge": [
       {
         "name": "Women's Opus Brushed Chrome Wedges",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/wedges-2024-opus-chrome-womens/wedges-2024-opus-chrome-womens____1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/wedges-2024-opus-chrome-womens/wedges-2024-opus-chrome-womens____1.png?sfrm=png",
         "salePrice": 152.15,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684926&a=2990893&m=19186",
         "dropPct": 15
       },
       {
         "name": "Opus Brushed Chrome Wedges",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/wedges-2024-opus-chrome/wedges-2024-opus-chrome___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/wedges-2024-opus-chrome/wedges-2024-opus-chrome___1.png?sfrm=png",
         "salePrice": 152.15,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684930&a=2990893&m=19186",
         "dropPct": 15
@@ -743,14 +743,14 @@
     "driver": [
       {
         "name": "Great Big Bertha Drivers",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/drivers-2023-gbb/drivers-2023-gbb___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/drivers-2023-gbb/drivers-2023-gbb___1.png?sfrm=png",
         "salePrice": 539.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486564&a=2990893&m=19186",
         "dropPct": 40
       },
       {
         "name": "Women's Great Big Bertha Drivers",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/drivers-2023-gbb-womens/drivers-2023-gbb-womens___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/drivers-2023-gbb-womens/drivers-2023-gbb-womens___1.png?sfrm=png",
         "salePrice": 539.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486565&a=2990893&m=19186",
         "dropPct": 40
@@ -759,14 +759,14 @@
     "accessories": [
       {
         "name": "Limited Edition 2021 July Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
         "salePrice": 20.7,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
         "dropPct": 70
       },
       {
         "name": "Limited Edition 2020 Odyssey August Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
         "salePrice": 20.98,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684657&a=2990893&m=19186",
         "dropPct": 70
@@ -775,14 +775,14 @@
     "bag": [
       {
         "name": "Limited Edition May Major Staff Bag",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
         "salePrice": 839.3,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684946&a=2990893&m=19186",
         "dropPct": 30
       },
       {
         "name": "Limited Edition June Major Staff Bag",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/bags-2024-june-major-staff/bags-2024-june-major-staff_2___2.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/bags-2024-june-major-staff/bags-2024-june-major-staff_2___2.png?sfrm=png",
         "salePrice": 839.3,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=42161772728&a=2990893&m=19186",
         "dropPct": 30
@@ -791,14 +791,14 @@
     "shoes": [
       {
         "name": "Men's Chev Star Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
         "salePrice": 44.5,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684785&a=2990893&m=19186",
         "dropPct": 50
       },
       {
         "name": "Men's Lazer Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
         "salePrice": 54.5,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=44504515550&a=2990893&m=19186",
         "dropPct": 50
@@ -814,7 +814,7 @@
       },
       {
         "name": "Playing Through Trucker Hat",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/headwear-2024-playing-through-trucker-adjustable-cap/headwear-2024-playing-through-trucker-adjustable-cap_20879___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/headwear-2024-playing-through-trucker-adjustable-cap/headwear-2024-playing-through-trucker-adjustable-cap_20879___1.png?sfrm=png",
         "salePrice": 13.8,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684816&a=2990893&m=19186",
         "dropPct": 40
@@ -823,17 +823,26 @@
     "putter": [
       {
         "name": "Ai-ONE Milled Jailbird Mini T DB Putter",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/putters-2025-ai-one-milled-jailbird-mini-t-db/putters-2025-ai-one-milled-jailbird-mini-t-db___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/putters-2025-ai-one-milled-jailbird-mini-t-db/putters-2025-ai-one-milled-jailbird-mini-t-db___1.png?sfrm=png",
         "salePrice": 269.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684889&a=2990893&m=19186",
         "dropPct": 40
       },
       {
         "name": "Ai-ONE Milled 2-Ball T DB Putter",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787550061844/sits/putters-2025-ai-one-milled-2-ball-t-db/putters-2025-ai-one-milled-2-ball-t-db___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/putters-2025-ai-one-milled-2-ball-t-db/putters-2025-ai-one-milled-2-ball-t-db___1.png?sfrm=png",
         "salePrice": 281.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684891&a=2990893&m=19186",
         "dropPct": 40
+      }
+    ],
+    "sets": [
+      {
+        "name": "Men's XR 13-Piece Complete Set",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787652698350/sits/compsets-2026-xr-eu/compsets-2026-xr-eu_1___1.png?sfrm=png",
+        "salePrice": 1399.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43223910635&a=2990893&m=19186",
+        "dropPct": 7
       }
     ]
   }
