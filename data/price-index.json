@@ -644,11 +644,11 @@
           "count": 1238
         },
         "accessories": {
-          "avgPrice": 169.47,
+          "avgPrice": 163.99,
           "count": 594
         },
         "bag": {
-          "avgPrice": 194.2,
+          "avgPrice": 181.9,
           "count": 443
         },
         "wood": {
@@ -668,7 +668,7 @@
           "count": 114
         },
         "shoes": {
-          "avgPrice": 100.27,
+          "avgPrice": 91.58,
           "count": 173
         },
         "irons": {
@@ -680,11 +680,11 @@
           "count": 287
         },
         "driver": {
-          "avgPrice": 572.97,
+          "avgPrice": 572.57,
           "count": 124
         },
         "sets": {
-          "avgPrice": 550.79,
+          "avgPrice": 530.39,
           "count": 100
         }
       }
@@ -698,13 +698,13 @@
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 169.47,
+      "currentAvg": 163.99,
       "count": 594,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 194.2,
+      "currentAvg": 181.9,
       "count": 443,
       "change30d": null,
       "change90d": null
@@ -734,7 +734,7 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 100.27,
+      "currentAvg": 91.58,
       "count": 173,
       "change30d": null,
       "change90d": null
@@ -752,20 +752,68 @@
       "change90d": null
     },
     "driver": {
-      "currentAvg": 572.97,
+      "currentAvg": 572.57,
       "count": 124,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 550.79,
+      "currentAvg": 530.39,
       "count": 100,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-28T17:54:38.689073+00:00",
+  "lastUpdated": "2026-08-28T19:35:46.459450+00:00",
   "topMovers": {
+    "accessories": [
+      {
+        "name": "Limited Edition 2021 July Major Blade Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
+        "salePrice": 20.7,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
+        "dropPct": 70
+      },
+      {
+        "name": "Limited Edition 2020 Odyssey August Major Blade Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
+        "salePrice": 20.98,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684657&a=2990893&m=19186",
+        "dropPct": 70
+      }
+    ],
+    "bag": [
+      {
+        "name": "Limited Edition May Major Staff Bag",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
+        "salePrice": 839.3,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684946&a=2990893&m=19186",
+        "dropPct": 30
+      },
+      {
+        "name": "Limited Edition June Major Staff Bag",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/bags-2024-june-major-staff/bags-2024-june-major-staff_2___2.png?sfrm=png",
+        "salePrice": 839.3,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=42161772728&a=2990893&m=19186",
+        "dropPct": 30
+      }
+    ],
+    "shoes": [
+      {
+        "name": "Men's Chev Star Golf Shoes",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
+        "salePrice": 44.5,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684785&a=2990893&m=19186",
+        "dropPct": 50
+      },
+      {
+        "name": "Men's Lazer Golf Shoes",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
+        "salePrice": 54.5,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44504515550&a=2990893&m=19186",
+        "dropPct": 50
+      }
+    ],
     "ball": [
       {
         "name": "Mizuno Pro S Golf Balls - White",
@@ -812,6 +860,22 @@
         "salePrice": 389.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486567&a=2990893&m=19186",
         "dropPct": 40
+      }
+    ],
+    "sets": [
+      {
+        "name": "MacGregor V-Max Junior Package Set (Age 3-5)",
+        "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-V-Max-Junior-Package-Set-Age-3-5.jpg",
+        "salePrice": 99.99,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44650190321&a=2990893&m=2849",
+        "dropPct": 23
+      },
+      {
+        "name": "MacGregor V-Max Junior Package Set (Age 6-8)",
+        "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-V-Max-Junior-Package-Set-Age-6-8.jpg",
+        "salePrice": 119.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=41214976318&a=2990893&m=2849",
+        "dropPct": 20
       }
     ],
     "hybrid": [
@@ -878,54 +942,6 @@
         "dropPct": 40
       }
     ],
-    "accessories": [
-      {
-        "name": "Limited Edition 2021 July Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
-        "salePrice": 20.7,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
-        "dropPct": 70
-      },
-      {
-        "name": "Limited Edition 2020 Odyssey August Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
-        "salePrice": 20.98,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684657&a=2990893&m=19186",
-        "dropPct": 70
-      }
-    ],
-    "bag": [
-      {
-        "name": "Limited Edition May Major Staff Bag",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
-        "salePrice": 839.3,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684946&a=2990893&m=19186",
-        "dropPct": 30
-      },
-      {
-        "name": "Limited Edition June Major Staff Bag",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/bags-2024-june-major-staff/bags-2024-june-major-staff_2___2.png?sfrm=png",
-        "salePrice": 839.3,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=42161772728&a=2990893&m=19186",
-        "dropPct": 30
-      }
-    ],
-    "shoes": [
-      {
-        "name": "Men's Chev Star Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
-        "salePrice": 44.5,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684785&a=2990893&m=19186",
-        "dropPct": 50
-      },
-      {
-        "name": "Men's Lazer Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
-        "salePrice": 54.5,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44504515550&a=2990893&m=19186",
-        "dropPct": 50
-      }
-    ],
     "apparel": [
       {
         "name": "Tour Authentic Reversible Beanie\u200b",
@@ -940,15 +956,6 @@
         "salePrice": 13.8,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684816&a=2990893&m=19186",
         "dropPct": 40
-      }
-    ],
-    "sets": [
-      {
-        "name": "Men's XR 13-Piece Complete Set",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1787854199413/sits/compsets-2026-xr-eu/compsets-2026-xr-eu_1___1.png?sfrm=png",
-        "salePrice": 1399.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43223910635&a=2990893&m=19186",
-        "dropPct": 7
       }
     ]
   }
