@@ -1114,7 +1114,15 @@ def normalize_google_shopping_row(row):
         was_price = None
 
     availability_raw = (row.get("availability") or "").strip().lower()
-    in_stock = "1" if availability_raw == "in stock" else "0"
+    # Confirmed via the real feed (not the Google Merchant Center spec's
+    # documented "in stock" with a space) that Major Golf Direct's feed
+    # actually uses underscores: "in_stock" / "out_of_stock". Normalizing
+    # underscores to spaces first means this also still works correctly
+    # if a future feed genuinely does use the space-separated spec
+    # format instead — covers both without needing to guess which one
+    # any given Google-format feed actually uses.
+    availability_normalized = availability_raw.replace("_", " ")
+    in_stock = "1" if availability_normalized == "in stock" else "0"
 
     return {
         "product_name": row.get("title"),
