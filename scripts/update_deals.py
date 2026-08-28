@@ -1067,7 +1067,75 @@ def backfill_catalog(products):
     return products
 
 
-def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
+def _parse_google_shopping_price(value):
+    """Google Shopping feed prices are formatted as 'NUMBER CURRENCY'
+    (e.g. '199.99 GBP'), not a bare number like AWIN's classic feeds —
+    this strips the currency code before parsing."""
+    if not value:
+        return None
+    value = value.strip()
+    if not value:
+        return None
+    first_token = value.split()[0]
+    try:
+        return float(first_token)
+    except ValueError:
+        return None
+
+
+def normalize_google_shopping_row(row):
+    """Converts a row from a Google Merchant Center-style feed (used by
+    Major Golf Direct via AWIN's "My Google Feed" / Darwin download
+    system — a genuinely different feed format from AWIN's own classic
+    Create-a-Feed, discovered when the fid/F4356 bug turned out to be a
+    red herring and this was the real underlying cause) into the exact
+    same shape fetch_awin_generic_feed's downstream logic already
+    expects — so every existing check (RRP-inversion rejection,
+    implausible-discount rejection, categorization, brand/colour/
+    audience extraction) runs completely unchanged regardless of which
+    format the row actually came from. Nothing about the classic-format
+    path (Clickgolf, Callaway, Discount Golf Store) changes.
+
+    Google's price fields work differently to AWIN's: "price" is the
+    regular/list price, "sale_price" is the current discounted price —
+    only present when genuinely on sale. When there's no sale_price,
+    "price" IS the current selling price and no discount should be
+    claimed — mirrored here by leaving rrp_price blank in that case,
+    same as an AWIN row with no genuine "was" price.
+    """
+    price = _parse_google_shopping_price(row.get("price"))
+    sale_price = _parse_google_shopping_price(row.get("sale_price"))
+
+    if sale_price is not None:
+        current_price = sale_price
+        was_price = price
+    else:
+        current_price = price
+        was_price = None
+
+    availability_raw = (row.get("availability") or "").strip().lower()
+    in_stock = "1" if availability_raw == "in stock" else "0"
+
+    return {
+        "product_name": row.get("title"),
+        "aw_deep_link": row.get("aw_deep_link") or row.get("link"),
+        "merchant_deep_link": row.get("link"),
+        "search_price": f"{current_price}" if current_price is not None else "",
+        "display_price": f"{current_price}" if current_price is not None else "",
+        "rrp_price": f"{was_price}" if was_price is not None else "",
+        "product_price_old": "",
+        "store_price": "",
+        "savings_percent": "",
+        "category_name": row.get("product_type") or row.get("google_product_category"),
+        "merchant_category": row.get("product_type") or row.get("google_product_category"),
+        "description": row.get("description"),
+        "merchant_image_url": row.get("image_link"),
+        "brand_name": row.get("brand"),
+        "in_stock": in_stock,
+    }
+
+
+def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_format="awin_classic"):
     """Pull real, live products + prices from any AWIN Create-a-Feed
     retailer datafeed. Extracted this session when a second retailer
     (Major Golf Direct) joined AWIN — this used to be a Clickgolf-only
@@ -1146,6 +1214,8 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug):
 
     for row in reader:
         total_rows += 1
+        if feed_format == "google_shopping":
+            row = normalize_google_shopping_row(row)
         name = (row.get("product_name") or "").strip()
         if not name:
             skipped_no_name += 1
@@ -1324,9 +1394,13 @@ def fetch_awin_clickgolf_deals():
 
 
 def fetch_awin_majorgolf_deals():
-    """Major Golf Direct — second AWIN retailer onboarded. See
-    fetch_awin_generic_feed for the shared implementation."""
-    return fetch_awin_generic_feed("Major Golf Direct", "AWIN_MAJORGOLF_FEED_URL", "majorgolf")
+    """Major Golf Direct — second AWIN retailer onboarded. Uses a
+    genuinely different feed format from the other AWIN retailers — a
+    Google Merchant Center-style feed via AWIN's "My Google Feed" /
+    Darwin download system, not AWIN's own classic Create-a-Feed. See
+    normalize_google_shopping_row for the column mapping, and
+    fetch_awin_generic_feed for the shared downstream implementation."""
+    return fetch_awin_generic_feed("Major Golf Direct", "AWIN_MAJORGOLF_FEED_URL", "majorgolf", feed_format="google_shopping")
 
 
 def fetch_awin_callaway_deals():
