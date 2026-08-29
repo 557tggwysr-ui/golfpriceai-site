@@ -693,8 +693,8 @@
       "date": "2026-08-29",
       "categories": {
         "apparel": {
-          "avgPrice": 48.01,
-          "count": 4602
+          "avgPrice": 47.97,
+          "count": 4605
         },
         "accessories": {
           "avgPrice": 119.88,
@@ -717,12 +717,12 @@
           "count": 369
         },
         "wedge": {
-          "avgPrice": 165.76,
-          "count": 302
+          "avgPrice": 165.94,
+          "count": 301
         },
         "shoes": {
-          "avgPrice": 108.14,
-          "count": 1371
+          "avgPrice": 108.12,
+          "count": 1370
         },
         "irons": {
           "avgPrice": 673.09,
@@ -745,8 +745,8 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 48.01,
-      "count": 4602,
+      "currentAvg": 47.97,
+      "count": 4605,
       "change30d": null,
       "change90d": null
     },
@@ -781,14 +781,14 @@
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 165.76,
-      "count": 302,
+      "currentAvg": 165.94,
+      "count": 301,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 108.14,
-      "count": 1371,
+      "currentAvg": 108.12,
+      "count": 1370,
       "change30d": null,
       "change90d": null
     },
@@ -817,7 +817,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-29T16:19:28.771253+00:00",
+  "lastUpdated": "2026-08-29T20:11:34.878129+00:00",
   "topMovers": {
     "accessories": [
       {
