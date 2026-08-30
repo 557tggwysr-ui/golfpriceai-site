@@ -746,20 +746,20 @@
       "date": "2026-08-30",
       "categories": {
         "apparel": {
-          "avgPrice": 47.96,
-          "count": 4601
+          "avgPrice": 48.11,
+          "count": 4665
         },
         "accessories": {
           "avgPrice": 119.88,
           "count": 1448
         },
         "bag": {
-          "avgPrice": 169.54,
-          "count": 795
+          "avgPrice": 169.59,
+          "count": 794
         },
         "wood": {
-          "avgPrice": 258.2,
-          "count": 192
+          "avgPrice": 258.36,
+          "count": 191
         },
         "hybrid": {
           "avgPrice": 193.12,
@@ -770,12 +770,12 @@
           "count": 369
         },
         "wedge": {
-          "avgPrice": 165.94,
-          "count": 301
+          "avgPrice": 166.1,
+          "count": 300
         },
         "shoes": {
-          "avgPrice": 108.12,
-          "count": 1370
+          "avgPrice": 108.08,
+          "count": 1368
         },
         "irons": {
           "avgPrice": 673.09,
@@ -798,8 +798,8 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 47.96,
-      "count": 4601,
+      "currentAvg": 48.11,
+      "count": 4665,
       "change30d": null,
       "change90d": null
     },
@@ -810,14 +810,14 @@
       "change90d": null
     },
     "bag": {
-      "currentAvg": 169.54,
-      "count": 795,
+      "currentAvg": 169.59,
+      "count": 794,
       "change30d": null,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 258.2,
-      "count": 192,
+      "currentAvg": 258.36,
+      "count": 191,
       "change30d": null,
       "change90d": null
     },
@@ -834,14 +834,14 @@
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 165.94,
-      "count": 301,
+      "currentAvg": 166.1,
+      "count": 300,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 108.12,
-      "count": 1370,
+      "currentAvg": 108.08,
+      "count": 1368,
       "change30d": null,
       "change90d": null
     },
@@ -870,7 +870,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-30T02:33:20.007507+00:00",
+  "lastUpdated": "2026-08-30T10:56:06.122963+00:00",
   "topMovers": {
     "accessories": [
       {
