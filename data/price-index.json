@@ -741,12 +741,65 @@
           "count": 197
         }
       }
+    },
+    {
+      "date": "2026-08-30",
+      "categories": {
+        "apparel": {
+          "avgPrice": 47.96,
+          "count": 4601
+        },
+        "accessories": {
+          "avgPrice": 119.88,
+          "count": 1448
+        },
+        "bag": {
+          "avgPrice": 169.54,
+          "count": 795
+        },
+        "wood": {
+          "avgPrice": 258.2,
+          "count": 192
+        },
+        "hybrid": {
+          "avgPrice": 193.12,
+          "count": 114
+        },
+        "ball": {
+          "avgPrice": 51.48,
+          "count": 369
+        },
+        "wedge": {
+          "avgPrice": 165.94,
+          "count": 301
+        },
+        "shoes": {
+          "avgPrice": 108.12,
+          "count": 1370
+        },
+        "irons": {
+          "avgPrice": 673.09,
+          "count": 239
+        },
+        "putter": {
+          "avgPrice": 272.55,
+          "count": 458
+        },
+        "driver": {
+          "avgPrice": 475.17,
+          "count": 225
+        },
+        "sets": {
+          "avgPrice": 412.31,
+          "count": 197
+        }
+      }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 47.97,
-      "count": 4605,
+      "currentAvg": 47.96,
+      "count": 4601,
       "change30d": null,
       "change90d": null
     },
@@ -757,8 +810,8 @@
       "change90d": null
     },
     "bag": {
-      "currentAvg": 169.46,
-      "count": 796,
+      "currentAvg": 169.54,
+      "count": 795,
       "change30d": null,
       "change90d": null
     },
@@ -817,7 +870,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-08-29T20:11:34.878129+00:00",
+  "lastUpdated": "2026-08-30T02:33:20.007507+00:00",
   "topMovers": {
     "accessories": [
       {
