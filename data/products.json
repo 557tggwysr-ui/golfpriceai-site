@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-01T15:47:06.542743+00:00",
+  "lastUpdated": "2026-09-01T20:19:27.301072+00:00",
   "categories": [
     {
       "key": "driver",
@@ -117476,9 +117476,9 @@
       "inStock": true,
       "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788154814413/sits/irons-2025-x-forged/irons-2025-x-forged___1.png?sfrm=png",
       "priceInsight": {
-        "status": "flagged_anomaly",
+        "status": "lowest_tracked",
         "trend": "falling",
-        "verifiedDiscount": false,
+        "verifiedDiscount": true,
         "historicalLow": 217.0,
         "historicalHigh": 1519.0,
         "daysTracked": 16,
@@ -117614,9 +117614,9 @@
       "inStock": true,
       "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788154814413/sits/irons-2025-apex-ti-fusion-chrome/irons-2025-apex-ti-fusion-chrome___1.png?sfrm=png",
       "priceInsight": {
-        "status": "flagged_anomaly",
+        "status": "lowest_tracked",
         "trend": "falling",
-        "verifiedDiscount": false,
+        "verifiedDiscount": true,
         "historicalLow": 417.0,
         "historicalHigh": 2916.0,
         "daysTracked": 16,
@@ -131640,7 +131640,7 @@
       "source": "awin-majorgolf",
       "brand": "MacGregor",
       "audience": "Male",
-      "inStock": true,
+      "inStock": false,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/MacgregorVIP2TravelCoverBlk1000.jpg?v=1639493305",
       "icon": "travel",
       "colour": "Black",
@@ -131656,10 +131656,10 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": true,
-        "wentOutOfStockRecently": false,
+        "currentlyInStock": false,
+        "wentOutOfStockRecently": true,
         "cameBackRecently": false,
-        "outageCount90d": 0,
+        "outageCount90d": 1,
         "daysTracked": 4,
         "sellsOutFast": false
       }
@@ -135027,7 +135027,7 @@
       "source": "awin-majorgolf",
       "brand": "Pro Tekt",
       "audience": "Male",
-      "inStock": true,
+      "inStock": false,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/protecktravelcover.jpg?v=1775132778",
       "icon": "travel",
       "colour": "Black",
@@ -135043,10 +135043,10 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": true,
-        "wentOutOfStockRecently": false,
+        "currentlyInStock": false,
+        "wentOutOfStockRecently": true,
         "cameBackRecently": false,
-        "outageCount90d": 0,
+        "outageCount90d": 1,
         "daysTracked": 4,
         "sellsOutFast": false
       }
@@ -212155,7 +212155,7 @@
       "source": "awin-majorgolf",
       "brand": "Mizuno",
       "audience": "Male",
-      "inStock": false,
+      "inStock": true,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/2411.jpg?v=1705588898",
       "flex": "Stiff",
       "priceInsight": {
@@ -212170,9 +212170,9 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": false,
+        "currentlyInStock": true,
         "wentOutOfStockRecently": false,
-        "cameBackRecently": false,
+        "cameBackRecently": true,
         "outageCount90d": 0,
         "daysTracked": 4,
         "sellsOutFast": false
@@ -360532,7 +360532,7 @@
       "source": "awin-majorgolf",
       "brand": "Ecco",
       "audience": "Male",
-      "inStock": true,
+      "inStock": false,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/EccoBiomC5BOALeatherMen_sSpikelessGolfShoes2026-132614-61475_4.jpg?v=1771236330",
       "colour": "White",
       "priceInsight": {
@@ -360547,10 +360547,10 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": true,
-        "wentOutOfStockRecently": false,
+        "currentlyInStock": false,
+        "wentOutOfStockRecently": true,
         "cameBackRecently": false,
-        "outageCount90d": 0,
+        "outageCount90d": 1,
         "daysTracked": 4,
         "sellsOutFast": false
       }
@@ -367113,7 +367113,7 @@
       "source": "awin-majorgolf",
       "brand": "Under Armour",
       "audience": "Male",
-      "inStock": true,
+      "inStock": false,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/UnderArmourDriveJacquardMensGolfPoloShirt2026-1389846-709_4.jpg?v=1767023619",
       "icon": "polo",
       "colour": "Green",
@@ -367129,10 +367129,10 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": true,
-        "wentOutOfStockRecently": false,
+        "currentlyInStock": false,
+        "wentOutOfStockRecently": true,
         "cameBackRecently": false,
-        "outageCount90d": 0,
+        "outageCount90d": 1,
         "daysTracked": 4,
         "sellsOutFast": false
       }
@@ -381929,7 +381929,7 @@
       "source": "awin-majorgolf",
       "brand": "Adidas",
       "audience": "Male",
-      "inStock": true,
+      "inStock": false,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/adidasPerformanceTexturedGolfPolo2026-JY54711.jpg?v=1754559499",
       "icon": "polo",
       "colour": "White",
@@ -381945,10 +381945,10 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": true,
-        "wentOutOfStockRecently": false,
+        "currentlyInStock": false,
+        "wentOutOfStockRecently": true,
         "cameBackRecently": false,
-        "outageCount90d": 0,
+        "outageCount90d": 1,
         "daysTracked": 4,
         "sellsOutFast": false
       }
@@ -384639,7 +384639,7 @@
       "source": "awin-majorgolf",
       "brand": "Adidas",
       "audience": "Male",
-      "inStock": true,
+      "inStock": false,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/adidasUltimate3658.5GolfShorts2026-KC7378.jpg?v=1754913241",
       "icon": "shorts",
       "priceInsight": {
@@ -384654,10 +384654,10 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": true,
-        "wentOutOfStockRecently": false,
+        "currentlyInStock": false,
+        "wentOutOfStockRecently": true,
         "cameBackRecently": false,
-        "outageCount90d": 0,
+        "outageCount90d": 1,
         "daysTracked": 4,
         "sellsOutFast": false
       }
@@ -394508,7 +394508,7 @@
       "source": "awin-majorgolf",
       "brand": "Adidas",
       "audience": "Junior",
-      "inStock": true,
+      "inStock": false,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/adidasS2GJuniorGolfShoes2026-JR18941.jpg?v=1756381539",
       "colour": "White",
       "priceInsight": {
@@ -394523,10 +394523,10 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": true,
-        "wentOutOfStockRecently": false,
+        "currentlyInStock": false,
+        "wentOutOfStockRecently": true,
         "cameBackRecently": false,
-        "outageCount90d": 0,
+        "outageCount90d": 1,
         "daysTracked": 4,
         "sellsOutFast": false
       }
@@ -406772,7 +406772,7 @@
       "source": "awin-majorgolf",
       "brand": "Calvin Klein",
       "audience": "Male",
-      "inStock": false,
+      "inStock": true,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CalvinKleinVacationChinoGolfShorts2026C10273-PaleOlive1.jpg?v=1760343232",
       "icon": "shorts",
       "colour": "Olive",
@@ -406788,9 +406788,9 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": false,
-        "wentOutOfStockRecently": true,
-        "cameBackRecently": false,
+        "currentlyInStock": true,
+        "wentOutOfStockRecently": false,
+        "cameBackRecently": true,
         "outageCount90d": 1,
         "daysTracked": 4,
         "sellsOutFast": false
@@ -457398,7 +457398,7 @@
       "source": "awin-majorgolf",
       "brand": "Original Penguin",
       "audience": "Male",
-      "inStock": true,
+      "inStock": false,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/OriginalPenguinPlayers9GolfShorts2026-OGKBSF46-4661.jpg?v=1766047006",
       "icon": "shorts",
       "priceInsight": {
@@ -457413,10 +457413,10 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": true,
-        "wentOutOfStockRecently": false,
+        "currentlyInStock": false,
+        "wentOutOfStockRecently": true,
         "cameBackRecently": false,
-        "outageCount90d": 0,
+        "outageCount90d": 1,
         "daysTracked": 4,
         "sellsOutFast": false
       }
@@ -551279,6 +551279,76 @@
       },
       "stockInsight": {
         "currentlyInStock": true,
+        "wentOutOfStockRecently": false,
+        "cameBackRecently": false,
+        "outageCount90d": 0,
+        "daysTracked": 0,
+        "sellsOutFast": false
+      }
+    },
+    {
+      "id": "driver-lynx-golf-parallax-mini-driver-13-regular-ust-graphite-shaft-majorgolf",
+      "name": "Lynx Golf Parallax Mini Driver - 13 / Regular UST Graphite Shaft / Right Hand",
+      "category": "driver",
+      "retailPrice": 179.0,
+      "salePrice": 179.0,
+      "savePct": 0,
+      "retailerCount": 1,
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=83219&awinaffid=2990893&ued=https%3A%2F%2Fwww.majorgolfdirect.com%2Fproducts%2Flynx-golf-parallax-mini-driver%3Fvariant%3D56229804081531",
+      "source": "awin-majorgolf",
+      "brand": "Lynx Golf",
+      "audience": "Male",
+      "inStock": false,
+      "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/LynxGolfParallaxMiniDriver_2.jpg?v=1777632123",
+      "flex": "Regular",
+      "priceInsight": {
+        "status": "new",
+        "trend": "stable",
+        "verifiedDiscount": false,
+        "historicalLow": 179.0,
+        "historicalHigh": 179.0,
+        "daysTracked": 0,
+        "volatility": "insufficient_data",
+        "avgDaysBetweenChanges": null,
+        "numChanges": 0
+      },
+      "stockInsight": {
+        "currentlyInStock": false,
+        "wentOutOfStockRecently": false,
+        "cameBackRecently": false,
+        "outageCount90d": 0,
+        "daysTracked": 0,
+        "sellsOutFast": false
+      }
+    },
+    {
+      "id": "driver-lynx-golf-parallax-mini-driver-13-stiff-ust-graphite-shaft-r-majorgolf",
+      "name": "Lynx Golf Parallax Mini Driver - 13 / Stiff UST Graphite Shaft / Right Hand",
+      "category": "driver",
+      "retailPrice": 179.0,
+      "salePrice": 179.0,
+      "savePct": 0,
+      "retailerCount": 1,
+      "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=83219&awinaffid=2990893&ued=https%3A%2F%2Fwww.majorgolfdirect.com%2Fproducts%2Flynx-golf-parallax-mini-driver%3Fvariant%3D56229804114299",
+      "source": "awin-majorgolf",
+      "brand": "Lynx Golf",
+      "audience": "Male",
+      "inStock": false,
+      "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/LynxGolfParallaxMiniDriver_2.jpg?v=1777632123",
+      "flex": "Stiff",
+      "priceInsight": {
+        "status": "new",
+        "trend": "stable",
+        "verifiedDiscount": false,
+        "historicalLow": 179.0,
+        "historicalHigh": 179.0,
+        "daysTracked": 0,
+        "volatility": "insufficient_data",
+        "avgDaysBetweenChanges": null,
+        "numChanges": 0
+      },
+      "stockInsight": {
+        "currentlyInStock": false,
         "wentOutOfStockRecently": false,
         "cameBackRecently": false,
         "outageCount90d": 0,

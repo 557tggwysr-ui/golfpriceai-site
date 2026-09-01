@@ -852,12 +852,12 @@
       "date": "2026-09-01",
       "categories": {
         "apparel": {
-          "avgPrice": 48.09,
-          "count": 4638
+          "avgPrice": 48.1,
+          "count": 4635
         },
         "accessories": {
-          "avgPrice": 122.97,
-          "count": 1444
+          "avgPrice": 123.05,
+          "count": 1442
         },
         "bag": {
           "avgPrice": 175.15,
@@ -880,12 +880,12 @@
           "count": 299
         },
         "shoes": {
-          "avgPrice": 109.25,
-          "count": 1358
+          "avgPrice": 109.27,
+          "count": 1356
         },
         "irons": {
-          "avgPrice": 654.43,
-          "count": 239
+          "avgPrice": 655.01,
+          "count": 240
         },
         "putter": {
           "avgPrice": 272.55,
@@ -904,14 +904,14 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 48.09,
-      "count": 4638,
+      "currentAvg": 48.1,
+      "count": 4635,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 122.97,
-      "count": 1444,
+      "currentAvg": 123.05,
+      "count": 1442,
       "change30d": null,
       "change90d": null
     },
@@ -946,14 +946,14 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 109.25,
-      "count": 1358,
+      "currentAvg": 109.27,
+      "count": 1356,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 654.43,
-      "count": 239,
+      "currentAvg": 655.01,
+      "count": 240,
       "change30d": null,
       "change90d": null
     },
@@ -976,7 +976,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-01T15:47:06.409865+00:00",
+  "lastUpdated": "2026-09-01T20:19:27.013702+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1035,11 +1035,11 @@
         "dropPct": 87
       },
       {
-        "name": "REVA RISE Irons",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788154814413/sits/irons-2025-reva-rise-womens/irons-2025-reva-rise-womens___1.png?sfrm=png",
-        "salePrice": 158.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40923491087&a=2990893&m=19186",
-        "dropPct": 84
+        "name": "X Forged Irons",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788154814413/sits/irons-2025-x-forged/irons-2025-x-forged___1.png?sfrm=png",
+        "salePrice": 217.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43421642619&a=2990893&m=19186",
+        "dropPct": 86
       }
     ],
     "wood": [
