@@ -856,11 +856,11 @@
           "count": 4641
         },
         "accessories": {
-          "avgPrice": 120.15,
+          "avgPrice": 122.24,
           "count": 1443
         },
         "bag": {
-          "avgPrice": 169.63,
+          "avgPrice": 174.97,
           "count": 792
         },
         "wood": {
@@ -880,8 +880,8 @@
           "count": 298
         },
         "shoes": {
-          "avgPrice": 108.18,
-          "count": 1359
+          "avgPrice": 109.25,
+          "count": 1358
         },
         "irons": {
           "avgPrice": 670.16,
@@ -892,11 +892,11 @@
           "count": 458
         },
         "driver": {
-          "avgPrice": 475.96,
+          "avgPrice": 476.18,
           "count": 224
         },
         "sets": {
-          "avgPrice": 414.29,
+          "avgPrice": 423.63,
           "count": 196
         }
       }
@@ -910,13 +910,13 @@
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 120.15,
+      "currentAvg": 122.24,
       "count": 1443,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 169.63,
+      "currentAvg": 174.97,
       "count": 792,
       "change30d": null,
       "change90d": null
@@ -946,8 +946,8 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 108.18,
-      "count": 1359,
+      "currentAvg": 109.25,
+      "count": 1358,
       "change30d": null,
       "change90d": null
     },
@@ -964,19 +964,19 @@
       "change90d": null
     },
     "driver": {
-      "currentAvg": 475.96,
+      "currentAvg": 476.18,
       "count": 224,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 414.29,
+      "currentAvg": 423.63,
       "count": 196,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-01T02:42:57.318934+00:00",
+  "lastUpdated": "2026-09-01T10:48:37.028595+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1008,22 +1008,6 @@
         "salePrice": 839.3,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=42161772728&a=2990893&m=19186",
         "dropPct": 30
-      }
-    ],
-    "shoes": [
-      {
-        "name": "Men's Chev Star Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788068599764/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
-        "salePrice": 44.5,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684785&a=2990893&m=19186",
-        "dropPct": 50
-      },
-      {
-        "name": "Men's Lazer Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788068599764/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
-        "salePrice": 54.5,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44504515550&a=2990893&m=19186",
-        "dropPct": 50
       }
     ],
     "ball": [
@@ -1074,20 +1058,20 @@
         "dropPct": 40
       }
     ],
-    "sets": [
+    "shoes": [
       {
-        "name": "MacGregor V-Max Junior Package Set (Age 3-5)",
-        "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-V-Max-Junior-Package-Set-Age-3-5.jpg",
-        "salePrice": 99.99,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44650190321&a=2990893&m=2849",
-        "dropPct": 23
+        "name": "Men's Chev Star Golf Shoes",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788068599764/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
+        "salePrice": 44.5,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684785&a=2990893&m=19186",
+        "dropPct": 50
       },
       {
-        "name": "MacGregor V-Max Junior Package Set (Age 6-8)",
-        "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-V-Max-Junior-Package-Set-Age-6-8.jpg",
-        "salePrice": 119.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=41214976318&a=2990893&m=2849",
-        "dropPct": 20
+        "name": "Men's Lazer Golf Shoes",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788068599764/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
+        "salePrice": 54.5,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44504515550&a=2990893&m=19186",
+        "dropPct": 50
       }
     ],
     "hybrid": [
@@ -1120,6 +1104,22 @@
         "salePrice": 152.15,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684930&a=2990893&m=19186",
         "dropPct": 15
+      }
+    ],
+    "sets": [
+      {
+        "name": "Callaway Junior XJ 5-Piece Set Golf Package Set Level 1 (3-5 Years) - Blue/White",
+        "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Junior-Set-Level-1-Bag-Blue-Hero.jpg",
+        "salePrice": 199.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44040786304&a=2990893&m=2849",
+        "dropPct": 13
+      },
+      {
+        "name": "MacGregor ZT1 Ladies Golf Club Package Set - Graphite Cart Bag",
+        "image": "https://www.clickgolf.co.uk/images/product/main/MACSET118-Ladies-Set-Hero.jpg",
+        "salePrice": 379.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=45544320547&a=2990893&m=2849",
+        "dropPct": 10
       }
     ],
     "putter": [
