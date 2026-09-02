@@ -905,15 +905,15 @@
       "date": "2026-09-02",
       "categories": {
         "apparel": {
-          "avgPrice": 48.08,
-          "count": 4631
+          "avgPrice": 48.31,
+          "count": 4649
         },
         "accessories": {
-          "avgPrice": 123.11,
-          "count": 1441
+          "avgPrice": 123.15,
+          "count": 1442
         },
         "bag": {
-          "avgPrice": 174.92,
+          "avgPrice": 175.99,
           "count": 795
         },
         "wood": {
@@ -933,8 +933,8 @@
           "count": 296
         },
         "shoes": {
-          "avgPrice": 109.31,
-          "count": 1379
+          "avgPrice": 109.02,
+          "count": 1384
         },
         "irons": {
           "avgPrice": 655.01,
@@ -945,11 +945,11 @@
           "count": 457
         },
         "driver": {
-          "avgPrice": 474.07,
-          "count": 226
+          "avgPrice": 481.18,
+          "count": 227
         },
         "sets": {
-          "avgPrice": 418.19,
+          "avgPrice": 418.4,
           "count": 196
         }
       }
@@ -957,19 +957,19 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 48.08,
-      "count": 4631,
+      "currentAvg": 48.31,
+      "count": 4649,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 123.11,
-      "count": 1441,
+      "currentAvg": 123.15,
+      "count": 1442,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 174.92,
+      "currentAvg": 175.99,
       "count": 795,
       "change30d": null,
       "change90d": null
@@ -999,8 +999,8 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 109.31,
-      "count": 1379,
+      "currentAvg": 109.02,
+      "count": 1384,
       "change30d": null,
       "change90d": null
     },
@@ -1017,36 +1017,20 @@
       "change90d": null
     },
     "driver": {
-      "currentAvg": 474.07,
-      "count": 226,
+      "currentAvg": 481.18,
+      "count": 227,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 418.19,
+      "currentAvg": 418.4,
       "count": 196,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-02T15:39:25.928787+00:00",
+  "lastUpdated": "2026-09-02T20:18:34.546021+00:00",
   "topMovers": {
-    "accessories": [
-      {
-        "name": "Limited Edition 2021 July Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788281849410/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
-        "salePrice": 20.7,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
-        "dropPct": 70
-      },
-      {
-        "name": "Limited Edition 2020 Odyssey August Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788281849410/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
-        "salePrice": 20.98,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684657&a=2990893&m=19186",
-        "dropPct": 70
-      }
-    ],
     "bag": [
       {
         "name": "Limited Edition May Major Staff Bag",
@@ -1143,6 +1127,22 @@
         "dropPct": 40
       }
     ],
+    "accessories": [
+      {
+        "name": "Limited Edition 2021 July Major Blade Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788281849410/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
+        "salePrice": 20.7,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
+        "dropPct": 70
+      },
+      {
+        "name": "Limited Edition 2020 Odyssey August Major Blade Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788281849410/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
+        "salePrice": 20.98,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684657&a=2990893&m=19186",
+        "dropPct": 70
+      }
+    ],
     "shoes": [
       {
         "name": "Men's Chev Star Golf Shoes",
@@ -1175,22 +1175,6 @@
         "dropPct": 15
       }
     ],
-    "sets": [
-      {
-        "name": "Callaway Junior XJ 5-Piece Set Golf Package Set Level 1 (3-5 Years) - Blue/White",
-        "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Junior-Set-Level-1-Bag-Blue-Hero.jpg",
-        "salePrice": 199.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44040786304&a=2990893&m=2849",
-        "dropPct": 13
-      },
-      {
-        "name": "Callaway XJ Junior 8-Piece Golf Package Set 9-12 Years (Level 3) - Blue/White",
-        "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Junior-Set-Level-3-Bag-Blue-Hero.jpg",
-        "salePrice": 369.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44046876573&a=2990893&m=2849",
-        "dropPct": 8
-      }
-    ],
     "putter": [
       {
         "name": "Ai-ONE Milled Jailbird Mini T DB Putter",
@@ -1205,6 +1189,22 @@
         "salePrice": 281.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684891&a=2990893&m=19186",
         "dropPct": 40
+      }
+    ],
+    "sets": [
+      {
+        "name": "Callaway Junior XJ 5-Piece Set Golf Package Set Level 1 (3-5 Years) - Blue/White",
+        "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Junior-Set-Level-1-Bag-Blue-Hero.jpg",
+        "salePrice": 199.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44040786304&a=2990893&m=2849",
+        "dropPct": 13
+      },
+      {
+        "name": "Callaway XJ Junior 8-Piece Golf Package Set 9-12 Years (Level 3) - Blue/White",
+        "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Junior-Set-Level-3-Bag-Blue-Hero.jpg",
+        "salePrice": 369.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44046876573&a=2990893&m=2849",
+        "dropPct": 8
       }
     ],
     "apparel": [
