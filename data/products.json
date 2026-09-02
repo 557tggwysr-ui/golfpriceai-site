@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-02T02:04:02.402111+00:00",
+  "lastUpdated": "2026-09-02T10:13:04.972011+00:00",
   "categories": [
     {
       "key": "driver",
@@ -205261,7 +205261,7 @@
       "source": "awin-majorgolf",
       "brand": "Cleveland Golf",
       "audience": "Male",
-      "inStock": true,
+      "inStock": false,
       "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Yourparagraphtext_51.jpg?v=1774538018",
       "priceInsight": {
         "status": "new",
@@ -205275,10 +205275,10 @@
         "numChanges": 0
       },
       "stockInsight": {
-        "currentlyInStock": true,
-        "wentOutOfStockRecently": false,
+        "currentlyInStock": false,
+        "wentOutOfStockRecently": true,
         "cameBackRecently": false,
-        "outageCount90d": 0,
+        "outageCount90d": 1,
         "daysTracked": 5,
         "sellsOutFast": false
       }
