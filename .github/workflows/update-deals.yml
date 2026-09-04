@@ -30,6 +30,7 @@ jobs:
           AWIN_CALLAWAY_FEED_URL: ${{ secrets.AWIN_CALLAWAY_FEED_URL }}
           AWIN_AFFORDABLEGOLF_FEED_URL: ${{ secrets.AWIN_AFFORDABLEGOLF_FEED_URL }}
           AWIN_SCOTTSDALEGOLF_FEED_URL: ${{ secrets.AWIN_SCOTTSDALEGOLF_FEED_URL }}
+          AWIN_CALLAWAYPREOWNED_FEED_URL: ${{ secrets.AWIN_CALLAWAYPREOWNED_FEED_URL }}
         run: python scripts/update_deals.py
 
       - name: Commit updated catalog
