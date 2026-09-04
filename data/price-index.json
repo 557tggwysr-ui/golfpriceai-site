@@ -1011,132 +1011,148 @@
       "date": "2026-09-04",
       "categories": {
         "apparel": {
-          "avgPrice": 49.81,
-          "count": 4769
+          "avgPrice": 62.18,
+          "count": 17957
         },
         "accessories": {
-          "avgPrice": 123.65,
-          "count": 1452
+          "avgPrice": 104.99,
+          "count": 3005
         },
         "bag": {
-          "avgPrice": 176.24,
-          "count": 806
+          "avgPrice": 172.83,
+          "count": 1430
         },
         "wood": {
-          "avgPrice": 257.7,
-          "count": 194
+          "avgPrice": 153.16,
+          "count": 828
         },
         "hybrid": {
-          "avgPrice": 189.84,
-          "count": 118
+          "avgPrice": 117.96,
+          "count": 608
         },
         "ball": {
-          "avgPrice": 51.49,
-          "count": 369
+          "avgPrice": 45.66,
+          "count": 628
         },
         "wedge": {
-          "avgPrice": 167.6,
-          "count": 295
+          "avgPrice": 114.58,
+          "count": 826
         },
         "shoes": {
-          "avgPrice": 109.52,
-          "count": 1379
+          "avgPrice": 111.51,
+          "count": 4255
         },
         "irons": {
-          "avgPrice": 652.59,
-          "count": 241
+          "avgPrice": 422.75,
+          "count": 1180
         },
         "putter": {
-          "avgPrice": 271.57,
-          "count": 458
+          "avgPrice": 261.56,
+          "count": 1167
         },
         "driver": {
-          "avgPrice": 480.92,
-          "count": 227
+          "avgPrice": 297.41,
+          "count": 850
         },
         "sets": {
-          "avgPrice": 414.79,
-          "count": 199
+          "avgPrice": 392.63,
+          "count": 378
         }
       }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 49.81,
-      "count": 4769,
+      "currentAvg": 62.18,
+      "count": 17957,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 123.65,
-      "count": 1452,
+      "currentAvg": 104.99,
+      "count": 3005,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 176.24,
-      "count": 806,
+      "currentAvg": 172.83,
+      "count": 1430,
       "change30d": null,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 257.7,
-      "count": 194,
+      "currentAvg": 153.16,
+      "count": 828,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 189.84,
-      "count": 118,
+      "currentAvg": 117.96,
+      "count": 608,
       "change30d": null,
       "change90d": null
     },
     "ball": {
-      "currentAvg": 51.49,
-      "count": 369,
+      "currentAvg": 45.66,
+      "count": 628,
       "change30d": null,
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 167.6,
-      "count": 295,
+      "currentAvg": 114.58,
+      "count": 826,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 109.52,
-      "count": 1379,
+      "currentAvg": 111.51,
+      "count": 4255,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 652.59,
-      "count": 241,
+      "currentAvg": 422.75,
+      "count": 1180,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 271.57,
-      "count": 458,
+      "currentAvg": 261.56,
+      "count": 1167,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 480.92,
-      "count": 227,
+      "currentAvg": 297.41,
+      "count": 850,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 414.79,
-      "count": 199,
+      "currentAvg": 392.63,
+      "count": 378,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-04T16:48:10.089690+00:00",
+  "lastUpdated": "2026-09-04T17:00:55.247106+00:00",
   "topMovers": {
+    "accessories": [
+      {
+        "name": "Limited Edition 2021 July Major Blade Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788430278721/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
+        "salePrice": 20.7,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
+        "dropPct": 70
+      },
+      {
+        "name": "Limited Edition 2020 Odyssey August Major Blade Headcover",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788430278721/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
+        "salePrice": 20.98,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684657&a=2990893&m=19186",
+        "dropPct": 70
+      }
+    ],
     "bag": [
       {
         "name": "Limited Edition May Major Staff Bag",
@@ -1169,22 +1185,6 @@
         "dropPct": 35
       }
     ],
-    "ball": [
-      {
-        "name": "Mizuno Pro S Golf Balls - White",
-        "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Pro-S-Golf-Balls-Box.jpg",
-        "salePrice": 34.99,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=42298182458&a=2990893&m=2849",
-        "dropPct": 56
-      },
-      {
-        "name": "Mizuno Pro X Golf Balls - White",
-        "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Pro-X-Golf-Balls-Box.jpg",
-        "salePrice": 34.99,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=42298183086&a=2990893&m=2849",
-        "dropPct": 56
-      }
-    ],
     "irons": [
       {
         "name": "Elyte Irons",
@@ -1199,6 +1199,22 @@
         "salePrice": 217.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43421642619&a=2990893&m=19186",
         "dropPct": 86
+      }
+    ],
+    "ball": [
+      {
+        "name": "Mizuno Pro S Golf Balls - White",
+        "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Pro-S-Golf-Balls-Box.jpg",
+        "salePrice": 34.99,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=42298182458&a=2990893&m=2849",
+        "dropPct": 56
+      },
+      {
+        "name": "Mizuno Pro X Golf Balls - White",
+        "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Pro-X-Golf-Balls-Box.jpg",
+        "salePrice": 34.99,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=42298183086&a=2990893&m=2849",
+        "dropPct": 56
       }
     ],
     "wood": [
@@ -1231,22 +1247,6 @@
         "salePrice": 539.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486565&a=2990893&m=19186",
         "dropPct": 40
-      }
-    ],
-    "accessories": [
-      {
-        "name": "Limited Edition 2021 July Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788430278721/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
-        "salePrice": 20.7,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
-        "dropPct": 70
-      },
-      {
-        "name": "Limited Edition 2020 Odyssey August Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788430278721/sits/hcovers-2020-may-major-blade/hcovers-2020-may-major-blade_2___1.png?sfrm=png",
-        "salePrice": 20.98,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684657&a=2990893&m=19186",
-        "dropPct": 70
       }
     ],
     "shoes": [
