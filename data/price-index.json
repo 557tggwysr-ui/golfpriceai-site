@@ -1011,16 +1011,16 @@
       "date": "2026-09-04",
       "categories": {
         "apparel": {
-          "avgPrice": 63.03,
-          "count": 19432
+          "avgPrice": 63.04,
+          "count": 19428
         },
         "accessories": {
-          "avgPrice": 106.95,
-          "count": 3504
+          "avgPrice": 106.87,
+          "count": 3507
         },
         "bag": {
-          "avgPrice": 175.42,
-          "count": 1624
+          "avgPrice": 175.37,
+          "count": 1625
         },
         "wood": {
           "avgPrice": 146.85,
@@ -1035,16 +1035,16 @@
           "count": 698
         },
         "wedge": {
-          "avgPrice": 113.64,
-          "count": 950
+          "avgPrice": 113.73,
+          "count": 948
         },
         "shoes": {
-          "avgPrice": 111.77,
-          "count": 4413
+          "avgPrice": 111.78,
+          "count": 4414
         },
         "irons": {
-          "avgPrice": 408.7,
-          "count": 1484
+          "avgPrice": 408.88,
+          "count": 1483
         },
         "putter": {
           "avgPrice": 252.54,
@@ -1063,20 +1063,20 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.03,
-      "count": 19432,
+      "currentAvg": 63.04,
+      "count": 19428,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 106.95,
-      "count": 3504,
+      "currentAvg": 106.87,
+      "count": 3507,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 175.42,
-      "count": 1624,
+      "currentAvg": 175.37,
+      "count": 1625,
       "change30d": null,
       "change90d": null
     },
@@ -1099,20 +1099,20 @@
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 113.64,
-      "count": 950,
+      "currentAvg": 113.73,
+      "count": 948,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 111.77,
-      "count": 4413,
+      "currentAvg": 111.78,
+      "count": 4414,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 408.7,
-      "count": 1484,
+      "currentAvg": 408.88,
+      "count": 1483,
       "change30d": null,
       "change90d": null
     },
@@ -1135,7 +1135,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-04T18:12:32.719527+00:00",
+  "lastUpdated": "2026-09-04T20:03:33.483648+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1235,18 +1235,18 @@
     ],
     "driver": [
       {
+        "name": "Elyte Driver",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/31c71ff6-df8c-4030-8cf2-7e7293346f0c_LARGE_892dae52-b047-46cb-a86b-6ac801de8857.jpg?v=1788481041",
+        "salePrice": 165.0,
+        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Felyte-driver-ti-cg-cfdrmanta%3Fvariant%3D58385884119388",
+        "dropPct": 71
+      },
+      {
         "name": "Elyte Triple Diamond Driver",
         "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/a25c5a10-b876-4702-9033-2bdf9cfe468f_LARGE_7dfbfef4-4da9-4aeb-af26-c6be908b63d7.jpg?v=1788498301",
         "salePrice": 307.6,
         "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Felyte-triple-diamond-driver-rm_al08_drmantatd%3Fvariant%3D58385883824476",
         "dropPct": 49
-      },
-      {
-        "name": "Women's Big Bertha REVA Driver",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/68d2202b-1db8-4fe3-bb62-fee43f4be5d5_LARGE_5f18cbda-ccf6-4dca-9b27-15004f42211a.jpg?v=1788481040",
-        "salePrice": 239.9,
-        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fwomen-s-big-bertha-reva-driver-rm_ah24_drbbreva23%3Fvariant%3D58390620242268",
-        "dropPct": 47
       }
     ],
     "shoes": [
