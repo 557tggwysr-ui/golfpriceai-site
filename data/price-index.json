@@ -1015,8 +1015,8 @@
           "count": 4720
         },
         "accessories": {
-          "avgPrice": 121.76,
-          "count": 1440
+          "avgPrice": 121.84,
+          "count": 1439
         },
         "bag": {
           "avgPrice": 176.4,
@@ -1040,7 +1040,7 @@
         },
         "shoes": {
           "avgPrice": 109.54,
-          "count": 1382
+          "count": 1381
         },
         "irons": {
           "avgPrice": 655.01,
@@ -1069,8 +1069,8 @@
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 121.76,
-      "count": 1440,
+      "currentAvg": 121.84,
+      "count": 1439,
       "change30d": null,
       "change90d": null
     },
@@ -1106,7 +1106,7 @@
     },
     "shoes": {
       "currentAvg": 109.54,
-      "count": 1382,
+      "count": 1381,
       "change30d": null,
       "change90d": null
     },
@@ -1135,7 +1135,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-04T02:05:37.784139+00:00",
+  "lastUpdated": "2026-09-04T10:11:35.821280+00:00",
   "topMovers": {
     "bag": [
       {
