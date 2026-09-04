@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-04T15:28:07.300320+00:00",
+  "lastUpdated": "2026-09-04T16:48:10.189557+00:00",
   "categories": [
     {
       "key": "driver",
@@ -27418,8 +27418,8 @@
       "name": "Titleist Cart 14 StaDry Golf Cart Bag - Cypress/Black/Black",
       "category": "bag",
       "retailPrice": 260.0,
-      "salePrice": 219.0,
-      "savePct": 16,
+      "salePrice": 249.0,
+      "savePct": 4,
       "retailerCount": 1,
       "affiliateUrl": "https://www.awin1.com/pclick.php?p=45077500647&a=2990893&m=2849",
       "source": "awin-clickgolf",
@@ -27429,15 +27429,15 @@
       "icon": "golf-bag",
       "audience": "Male",
       "priceInsight": {
-        "status": "lowest_tracked",
-        "trend": "stable",
-        "verifiedDiscount": true,
+        "status": "highest_tracked",
+        "trend": "rising",
+        "verifiedDiscount": false,
         "historicalLow": 219.0,
         "historicalHigh": 249.0,
         "daysTracked": 19,
         "volatility": "insufficient_data",
         "avgDaysBetweenChanges": null,
-        "numChanges": 1
+        "numChanges": 2
       },
       "inStock": true,
       "stockInsight": {
@@ -63682,7 +63682,7 @@
       "salePrice": 139.0,
       "savePct": 18,
       "retailerCount": 1,
-      "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878233115&a=2990893&m=2849",
+      "affiliateUrl": "https://www.awin1.com/pclick.php?p=38878233807&a=2990893&m=2849",
       "source": "awin-clickgolf",
       "image": "https://www.clickgolf.co.uk/images/product/main/titleist-vokey-sm10-nickel-wedge-hero-1000x1000.jpg",
       "brand": "Titleist",
