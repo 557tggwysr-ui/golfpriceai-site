@@ -1143,7 +1143,38 @@ def normalize_google_shopping_row(row):
     }
 
 
-def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_format="awin_classic"):
+# Callaway Golf Preowned encodes internal SKU/grading codes directly
+# into the product title (e.g. "MAVRIK MAX 20 Fairway Wood -
+# CG|FWMAVRKMAX|AV|Right Hand|3 Wood|Stiff / Average") — confirmed via
+# a full audit of the real feed (4,169 rows, 4 Sept 2026): every single
+# title reliably has exactly one " - " separating the real model name
+# from the internal codes, and ends with " / {grade}" where {grade} is
+# one of exactly 4 real values (Average/Good/Very Good/Like New) for
+# 2,908 products, or "One-Color" for the remaining 1,261 (genuinely
+# preowned items without a specific grade recorded in the feed — never
+# fabricated, just labelled generically as "Preowned").
+PREOWNED_GRADE_VALUES = {"Average", "Good", "Very Good", "Like New"}
+
+def extract_preowned_title_and_condition(raw_title):
+    """Returns (clean_name, condition_label) from a Callaway Golf
+    Preowned-style title. condition_label is always a real, honest
+    value — either a specific verified grade, or the generic
+    "Preowned" fallback when no specific grade is present in the feed,
+    never invented."""
+    condition_label = "Preowned"
+    title = raw_title or ""
+    if " / " in title:
+        base, suffix = title.rsplit(" / ", 1)
+        suffix = suffix.strip()
+        if suffix in PREOWNED_GRADE_VALUES:
+            condition_label = suffix
+        title = base
+    if " - " in title:
+        title = title.split(" - ", 1)[0]
+    return title.strip(), condition_label
+
+
+def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_format="awin_classic", is_preowned_marketplace=False):
     """Pull real, live products + prices from any AWIN Create-a-Feed
     retailer datafeed. Extracted this session when a second retailer
     (Major Golf Direct) joined AWIN — this used to be a Clickgolf-only
@@ -1224,6 +1255,10 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_form
         total_rows += 1
         if feed_format == "google_shopping":
             row = normalize_google_shopping_row(row)
+        preowned_condition = None
+        if is_preowned_marketplace:
+            clean_name, preowned_condition = extract_preowned_title_and_condition(row.get("product_name"))
+            row["product_name"] = clean_name
         name = (row.get("product_name") or "").strip()
         if not name:
             skipped_no_name += 1
@@ -1342,6 +1377,8 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_form
         if image:
             product["image"] = image
         product["icon"] = icon
+        if preowned_condition:
+            product["condition"] = preowned_condition
         if colour:
             product["colour"] = colour
         if loft:
@@ -1430,6 +1467,20 @@ def fetch_awin_scottsdalegolf_deals():
     classic Create-a-Feed system. See fetch_awin_generic_feed for the
     shared implementation."""
     return fetch_awin_generic_feed("Scottsdale Golf", "AWIN_SCOTTSDALEGOLF_FEED_URL", "scottsdalegolf")
+
+
+def fetch_awin_callawaypreowned_deals():
+    """Callaway Golf Preowned — sixth AWIN retailer onboarded. Same
+    Google Merchant Center-style feed format as Major Golf Direct, but
+    ALSO needs its own title-cleaning/condition-extraction (see
+    extract_preowned_title_and_condition) since this retailer bakes
+    internal SKU and grading codes directly into the title field — a
+    convention specific to this one retailer, not applied to any other
+    google_shopping-format feed."""
+    return fetch_awin_generic_feed(
+        "Callaway Golf Preowned", "AWIN_CALLAWAYPREOWNED_FEED_URL", "callawaypreowned",
+        feed_format="google_shopping", is_preowned_marketplace=True,
+    )
 
 
 def fetch_awin_deals():
@@ -2248,6 +2299,7 @@ def main():
         + fetch_awin_callaway_deals()
         + fetch_awin_affordablegolf_deals()
         + fetch_awin_scottsdalegolf_deals()
+        + fetch_awin_callawaypreowned_deals()
         + fetch_impact_deals()
     )
     fresh = dedupe_products(fresh)
