@@ -1425,6 +1425,13 @@ def fetch_awin_affordablegolf_deals():
     return fetch_awin_generic_feed("Affordable Golf", "AWIN_AFFORDABLEGOLF_FEED_URL", "affordablegolf")
 
 
+def fetch_awin_scottsdalegolf_deals():
+    """Scottsdale Golf — fifth AWIN retailer onboarded, via AWIN's
+    classic Create-a-Feed system. See fetch_awin_generic_feed for the
+    shared implementation."""
+    return fetch_awin_generic_feed("Scottsdale Golf", "AWIN_SCOTTSDALEGOLF_FEED_URL", "scottsdalegolf")
+
+
 def fetch_awin_deals():
     """Pull products from AWIN's product data feed (general/legacy path).
 
@@ -2240,6 +2247,7 @@ def main():
         + fetch_awin_majorgolf_deals()
         + fetch_awin_callaway_deals()
         + fetch_awin_affordablegolf_deals()
+        + fetch_awin_scottsdalegolf_deals()
         + fetch_impact_deals()
     )
     fresh = dedupe_products(fresh)
