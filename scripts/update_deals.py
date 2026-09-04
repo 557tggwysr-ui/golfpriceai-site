@@ -1417,6 +1417,14 @@ def fetch_awin_callaway_deals():
     return fetch_awin_generic_feed("Callaway Europe", "AWIN_CALLAWAY_FEED_URL", "callaway")
 
 
+def fetch_awin_affordablegolf_deals():
+    """Affordable Golf — fourth AWIN retailer onboarded, via AWIN's
+    classic Create-a-Feed system (same URL structure — productdata.awin.com
+    — as Clickgolf and Callaway, unlike Major Golf Direct's Google-format
+    feed). See fetch_awin_generic_feed for the shared implementation."""
+    return fetch_awin_generic_feed("Affordable Golf", "AWIN_AFFORDABLEGOLF_FEED_URL", "affordablegolf")
+
+
 def fetch_awin_deals():
     """Pull products from AWIN's product data feed (general/legacy path).
 
@@ -2231,6 +2239,7 @@ def main():
         + fetch_awin_clickgolf_deals()
         + fetch_awin_majorgolf_deals()
         + fetch_awin_callaway_deals()
+        + fetch_awin_affordablegolf_deals()
         + fetch_impact_deals()
     )
     fresh = dedupe_products(fresh)
