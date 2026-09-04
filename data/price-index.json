@@ -1011,131 +1011,131 @@
       "date": "2026-09-04",
       "categories": {
         "apparel": {
-          "avgPrice": 62.18,
-          "count": 17957
+          "avgPrice": 63.03,
+          "count": 19432
         },
         "accessories": {
-          "avgPrice": 104.99,
-          "count": 3005
+          "avgPrice": 107.71,
+          "count": 3399
         },
         "bag": {
-          "avgPrice": 172.83,
-          "count": 1430
+          "avgPrice": 175.46,
+          "count": 1623
         },
         "wood": {
-          "avgPrice": 153.16,
-          "count": 828
+          "avgPrice": 158.16,
+          "count": 929
         },
         "hybrid": {
-          "avgPrice": 117.96,
-          "count": 608
+          "avgPrice": 122.28,
+          "count": 673
         },
         "ball": {
-          "avgPrice": 45.66,
-          "count": 628
+          "avgPrice": 46.04,
+          "count": 694
         },
         "wedge": {
-          "avgPrice": 114.58,
-          "count": 826
+          "avgPrice": 117.33,
+          "count": 911
         },
         "shoes": {
-          "avgPrice": 111.51,
-          "count": 4255
+          "avgPrice": 111.77,
+          "count": 4413
         },
         "irons": {
-          "avgPrice": 422.75,
-          "count": 1180
+          "avgPrice": 447.84,
+          "count": 1330
         },
         "putter": {
-          "avgPrice": 261.56,
-          "count": 1167
+          "avgPrice": 274.41,
+          "count": 1400
         },
         "driver": {
-          "avgPrice": 297.41,
-          "count": 850
+          "avgPrice": 294.78,
+          "count": 992
         },
         "sets": {
-          "avgPrice": 392.63,
-          "count": 378
+          "avgPrice": 401.32,
+          "count": 394
         }
       }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 62.18,
-      "count": 17957,
+      "currentAvg": 63.03,
+      "count": 19432,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 104.99,
-      "count": 3005,
+      "currentAvg": 107.71,
+      "count": 3399,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 172.83,
-      "count": 1430,
+      "currentAvg": 175.46,
+      "count": 1623,
       "change30d": null,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 153.16,
-      "count": 828,
+      "currentAvg": 158.16,
+      "count": 929,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 117.96,
-      "count": 608,
+      "currentAvg": 122.28,
+      "count": 673,
       "change30d": null,
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.66,
-      "count": 628,
+      "currentAvg": 46.04,
+      "count": 694,
       "change30d": null,
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 114.58,
-      "count": 826,
+      "currentAvg": 117.33,
+      "count": 911,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 111.51,
-      "count": 4255,
+      "currentAvg": 111.77,
+      "count": 4413,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 422.75,
-      "count": 1180,
+      "currentAvg": 447.84,
+      "count": 1330,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 261.56,
-      "count": 1167,
+      "currentAvg": 274.41,
+      "count": 1400,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 297.41,
-      "count": 850,
+      "currentAvg": 294.78,
+      "count": 992,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 392.63,
-      "count": 378,
+      "currentAvg": 401.32,
+      "count": 394,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-04T17:11:19.739270+00:00",
+  "lastUpdated": "2026-09-04T17:13:23.441415+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1155,17 +1155,17 @@
     ],
     "bag": [
       {
+        "name": "Mizuno Tour Staff Golf Cart Bag",
+        "image": "https://www.scottsdalegolf.co.uk/uploads/mizuno-tourstaff-cart-black-1.jpg",
+        "salePrice": 189.99,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=37724884355&a=2990893&m=813",
+        "dropPct": 52
+      },
+      {
         "name": "Limited Edition May Major Staff Bag",
         "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788430278721/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
         "salePrice": 839.3,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684946&a=2990893&m=19186",
-        "dropPct": 30
-      },
-      {
-        "name": "Limited Edition June Major Staff Bag",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788430278721/sits/bags-2024-june-major-staff/bags-2024-june-major-staff_2___2.png?sfrm=png",
-        "salePrice": 839.3,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=42161772728&a=2990893&m=19186",
         "dropPct": 30
       }
     ],
