@@ -282,6 +282,14 @@ let groupNoteHTML = '';
 // "Preowned" fallback detected for retailers like Scottsdale that just
 // mark used items with a "- Used" suffix) count as Preowned.
 function classifyCondition(p) {
+  // Inside the dedicated Preowned & Trade Ins section, every product is
+  // already preowned — a New/Preowned toggle would be meaningless (100%
+  // would always be Preowned). Show the real specific grade instead.
+  // "Preowned" (generic) still covers the ~30% of items with no grade
+  // recorded in the feed — a genuine option, not hidden from filtering.
+  if (baseSource === 'awin-callawaypreowned') {
+    return p.condition || 'Preowned';
+  }
   return p.condition ? 'Preowned' : 'New';
 }
 
@@ -493,7 +501,9 @@ function renderSidebar() {
   // the current view happens to have zero preowned items.
   const conditionCounts = {};
   conditionScoped.forEach(p => { const c = classifyCondition(p); conditionCounts[c] = (conditionCounts[c] || 0) + 1; });
-  const conditionOrder = ['New', 'Preowned'];
+  const conditionOrder = baseSource === 'awin-callawaypreowned'
+    ? ['Like New', 'Very Good', 'Good', 'Average', 'Preowned']
+    : ['New', 'Preowned'];
   const conditionOpts = conditionOrder
     .map(key => ({ key, label: key, count: conditionCounts[key] || 0 }));
   const conditionSection = `
