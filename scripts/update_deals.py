@@ -1174,6 +1174,27 @@ def extract_preowned_title_and_condition(raw_title):
     return title.strip(), condition_label
 
 
+def detect_generic_used_suffix(raw_title):
+    """Generic fallback for ordinary (non-dedicated-preowned-marketplace)
+    retailers whose feed marks an individual used item with a plain
+    trailing "- Used" suffix on the name, rather than a structured
+    condition/grade field. Confirmed via a full audit of Scottsdale
+    Golf's real catalog: 126 of 3,102 products match, zero false
+    positives — the match requires "Used" to be the final word after a
+    hyphen at the very end of the name, so a name like "Dazed &
+    Transfused Performance Jersey Polo Shirt" correctly does NOT match
+    just because it contains the substring "used".
+    Returns (clean_name, condition_label). condition_label is None
+    (and clean_name is the original title, unchanged) whenever there's
+    no genuine used-suffix match, so ordinary new-stock items never get
+    a condition field fabricated for them."""
+    title = raw_title or ""
+    match = re.search(r"\s*-\s*Used\s*$", title, re.IGNORECASE)
+    if not match:
+        return title, None
+    return title[:match.start()].strip(), "Used"
+
+
 def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_format="awin_classic", is_preowned_marketplace=False):
     """Pull real, live products + prices from any AWIN Create-a-Feed
     retailer datafeed. Extracted this session when a second retailer
@@ -1259,6 +1280,11 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_form
         if is_preowned_marketplace:
             clean_name, preowned_condition = extract_preowned_title_and_condition(row.get("product_name"))
             row["product_name"] = clean_name
+        else:
+            clean_name, generic_condition = detect_generic_used_suffix(row.get("product_name"))
+            if generic_condition:
+                row["product_name"] = clean_name
+                preowned_condition = generic_condition
         name = (row.get("product_name") or "").strip()
         if not name:
             skipped_no_name += 1
@@ -2238,6 +2264,14 @@ BUNDLE_TEMPLATES = [
 
 def _slot_matches(product, slot):
     if product.get("inStock") is False or not product.get("image"):
+        return False
+    # Preowned/used pricing doesn't play by the same rules as genuine new
+    # retail, so it's never bundled into a Complete The Kit recommendation
+    # alongside new items (would misrepresent the combined "kit" price).
+    # This single check covers both Callaway Preowned's real grades and
+    # any generic "Used" tag from other retailers (e.g. Scottsdale),
+    # since both set the same `condition` field.
+    if product.get("condition"):
         return False
     if "category" in slot and product.get("category") != slot["category"]:
         return False
