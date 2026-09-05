@@ -1064,72 +1064,72 @@
       "date": "2026-09-05",
       "categories": {
         "apparel": {
-          "avgPrice": 63.17,
-          "count": 19500
+          "avgPrice": 63.19,
+          "count": 19496
         },
         "accessories": {
-          "avgPrice": 106.21,
-          "count": 3557
+          "avgPrice": 105.85,
+          "count": 3572
         },
         "bag": {
-          "avgPrice": 175.1,
-          "count": 1643
+          "avgPrice": 175.17,
+          "count": 1642
         },
         "wood": {
           "avgPrice": 145.7,
           "count": 1097
         },
         "hybrid": {
-          "avgPrice": 116.65,
-          "count": 753
+          "avgPrice": 116.76,
+          "count": 752
         },
         "ball": {
-          "avgPrice": 45.68,
-          "count": 704
+          "avgPrice": 45.72,
+          "count": 703
         },
         "wedge": {
-          "avgPrice": 113.29,
-          "count": 957
+          "avgPrice": 113.22,
+          "count": 956
         },
         "shoes": {
           "avgPrice": 112.09,
-          "count": 4498
+          "count": 4497
         },
         "irons": {
-          "avgPrice": 409.06,
-          "count": 1499
+          "avgPrice": 409.32,
+          "count": 1498
         },
         "putter": {
           "avgPrice": 251.72,
           "count": 1607
         },
         "driver": {
-          "avgPrice": 266.2,
-          "count": 1141
+          "avgPrice": 266.4,
+          "count": 1140
         },
         "sets": {
-          "avgPrice": 401.27,
-          "count": 394
+          "avgPrice": 399.87,
+          "count": 393
         }
       }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.17,
-      "count": 19500,
+      "currentAvg": 63.19,
+      "count": 19496,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 106.21,
-      "count": 3557,
+      "currentAvg": 105.85,
+      "count": 3572,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 175.1,
-      "count": 1643,
+      "currentAvg": 175.17,
+      "count": 1642,
       "change30d": null,
       "change90d": null
     },
@@ -1140,32 +1140,32 @@
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 116.65,
-      "count": 753,
+      "currentAvg": 116.76,
+      "count": 752,
       "change30d": null,
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.68,
-      "count": 704,
+      "currentAvg": 45.72,
+      "count": 703,
       "change30d": null,
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 113.29,
-      "count": 957,
+      "currentAvg": 113.22,
+      "count": 956,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
       "currentAvg": 112.09,
-      "count": 4498,
+      "count": 4497,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 409.06,
-      "count": 1499,
+      "currentAvg": 409.32,
+      "count": 1498,
       "change30d": null,
       "change90d": null
     },
@@ -1176,19 +1176,19 @@
       "change90d": null
     },
     "driver": {
-      "currentAvg": 266.2,
-      "count": 1141,
+      "currentAvg": 266.4,
+      "count": 1140,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 401.27,
-      "count": 394,
+      "currentAvg": 399.87,
+      "count": 393,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-05T16:52:49.250808+00:00",
+  "lastUpdated": "2026-09-05T19:43:57.226539+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1224,18 +1224,18 @@
     ],
     "hybrid": [
       {
+        "name": "Callaway Big Bertha Golf Hybrid",
+        "image": "https://www.scottsdalegolf.co.uk/uploads/callaway-897081-1.JPG",
+        "salePrice": 64.99,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=36655551467&a=2990893&m=813",
+        "dropPct": 64
+      },
+      {
         "name": "Women's Paradym Ai Smoke MAX Fast Hybrid",
         "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/449f8943-77cf-44d7-930a-ed35273ecf76_LARGE_efccd4e9-463a-47d1-91a6-e4b7db0f27eb.jpg?v=1788481095",
         "salePrice": 171.36,
         "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fwomen-s-paradym-ai-smoke-max-fast-hybrid-rw_bj44_hypdmaimf%3Fvariant%3D58385692688732",
         "dropPct": 43
-      },
-      {
-        "name": "Paradym Ai Smoke Hybrid",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/ac9ac686-e93b-4031-96d5-3f747ecdecdf_LARGE_a4131adf-49f1-492e-ba06-fc5d6bd41e93.jpg?v=1788584767",
-        "salePrice": 188.92,
-        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fparadym-ai-smoke-hybrid-rm_aj41_hypdmais%3Fvariant%3D58385733747036",
-        "dropPct": 37
       }
     ],
     "irons": [
@@ -1321,7 +1321,7 @@
     "wedge": [
       {
         "name": "Opus SP Chrome Wedge",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/c708494d-fd60-4b2c-9979-207fb8b53bc4_LARGE_a634ed10-7968-444a-8e35-5aef112bd232.jpg?v=1788563911",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/c708494d-fd60-4b2c-9979-207fb8b53bc4_LARGE_3e1d4234-6dc7-4e16-a328-f4e20f3fece1.jpg?v=1788627811",
         "salePrice": 88.09,
         "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fopus-sp-chrome-wedge-rm_am42_0000000113%3Fvariant%3D58385780834652",
         "dropPct": 51
