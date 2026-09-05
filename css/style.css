@@ -1075,8 +1075,14 @@ footer a:hover { color: var(--green); }
 .partners-section h2 { font-size: 22px; margin: 0 0 6px; }
 .partners-section > p { color: var(--muted); font-size: 14px; margin: 0 0 22px; max-width: 65ch; }
 .partners-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  /* Flexbox with wrap + centering, not CSS Grid — Grid columns always
+     stretch to fill the row, which is exactly what left the lone 7th
+     card (Discount Golf Store) stuck at the left edge, narrower and
+     visually orphaned on its own row. Flexbox naturally centers
+     whatever ends up on a partial final row instead. */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
 .partner-card {
@@ -1088,6 +1094,8 @@ footer a:hover { color: var(--green); }
   display: flex;
   flex-direction: column;
   transition: transform 0.15s ease;
+  flex: 1 1 280px;
+  max-width: 320px;
 }
 .partner-card:hover { transform: translateY(-2px); }
 .partner-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
