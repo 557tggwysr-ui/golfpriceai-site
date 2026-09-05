@@ -30,7 +30,20 @@ function handleImgError(imgEl, iconSrc) {
   const container = imgEl.closest('.thumb, .drop-thumb');
   if (!container) return;
   container.classList.add('icon-thumb');
-  container.innerHTML = `<span class="icon-badge"><img src="${iconSrc}" alt="${imgEl.alt}"></span>`;
+  // Replace ONLY the <img> itself, not the whole container — the
+  // original version did container.innerHTML = ..., which wiped out
+  // any sibling badges (discount badge, condition badge) living
+  // inside the same container. Found via a real bug: every product
+  // whose image fails to load (e.g. Scottsdale Golf's entire catalog,
+  // blocked by their hotlink protection) was silently losing its
+  // discount badge along with the broken image.
+  const iconBadge = document.createElement('span');
+  iconBadge.className = 'icon-badge';
+  const iconImg = document.createElement('img');
+  iconImg.src = iconSrc;
+  iconImg.alt = imgEl.alt;
+  iconBadge.appendChild(iconImg);
+  imgEl.replaceWith(iconBadge);
 }
 
 function thumbHTML(d) {
@@ -91,6 +104,13 @@ function productSchemaJSON(d) {
   return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
 }
 
+// Preowned/condition badge — same duplicate-by-design pattern as this
+// site's other small helpers (no build step / module system).
+function conditionBadgeHTML(d) {
+  if (!d.condition) return '';
+  return `<span class="condition-badge">${d.condition}</span>`;
+}
+
 function cardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
@@ -98,6 +118,7 @@ function cardHTML(d) {
       ${productSchemaJSON(d)}
       <div class="${thumbClass(d)}"${thumbStyle(d)}>
         <span class="badge ${badge.cls}">${badge.label}</span>
+        ${conditionBadgeHTML(d)}
         ${thumbHTML(d)}
       </div>
       <div class="deal-body">
@@ -243,18 +264,32 @@ const ALL_TOP_CATEGORY_OPTIONS = [
 let ALL_PRODUCTS = [];
 
 let baseCategories = null;
+let baseSource = null;
 let activeTypeCheckboxes = new Set();
 let activeBrands = new Set();
 let activeColours = new Set();
 let activeAudience = new Set();
+let activeCondition = new Set();
 let priceMin = null;
 let priceMax = null;
 let sortMode = 'popular';
 let searchQuery = '';
 let groupNoteHTML = '';
 
+// "New" isn't a real field on most products — it's simply the absence
+// of a condition value. Only products with a genuine condition field
+// (from Callaway Golf Preowned's structured grading, or the generic
+// "Preowned" fallback detected for retailers like Scottsdale that just
+// mark used items with a "- Used" suffix) count as Preowned.
+function classifyCondition(p) {
+  return p.condition ? 'Preowned' : 'New';
+}
+
 function baseFilteredProducts() {
-  return ALL_PRODUCTS.filter(p => !baseCategories || baseCategories.has(p.category));
+  return ALL_PRODUCTS.filter(p =>
+    (!baseCategories || baseCategories.has(p.category)) &&
+    (!baseSource || p.source === baseSource)
+  );
 }
 
 function currentTypeOptions() {
@@ -285,9 +320,10 @@ function matchesFilters(p, exclude) {
   const matchesBrand = exclude === 'brand' || activeBrands.size === 0 || activeBrands.has(extractBrand(p));
   const matchesColour = exclude === 'colour' || activeColours.size === 0 || activeColours.has(extractColour(p));
   const matchesAudience = exclude === 'audience' || activeAudience.size === 0 || activeAudience.has(classifyAudience(p));
+  const matchesCondition = exclude === 'condition' || activeCondition.size === 0 || activeCondition.has(classifyCondition(p));
   const matchesPriceMin = exclude === 'price' || priceMin === null || p.salePrice >= priceMin;
   const matchesPriceMax = exclude === 'price' || priceMax === null || p.salePrice <= priceMax;
-  return matchesQuery && matchesType && matchesBrand && matchesColour && matchesAudience && matchesPriceMin && matchesPriceMax;
+  return matchesQuery && matchesType && matchesBrand && matchesColour && matchesAudience && matchesCondition && matchesPriceMin && matchesPriceMax;
 }
 
 function scopedFor(exclude) {
@@ -360,6 +396,7 @@ function renderActiveChips() {
   activeBrands.forEach(b => chips.push({ label: b, remove: () => { activeBrands.delete(b); refreshAfterFilterChange(); } }));
   activeColours.forEach(c => chips.push({ label: c, remove: () => { activeColours.delete(c); refreshAfterFilterChange(); } }));
   activeAudience.forEach(a => chips.push({ label: a, remove: () => { activeAudience.delete(a); refreshAfterFilterChange(); } }));
+  activeCondition.forEach(c => chips.push({ label: c, remove: () => { activeCondition.delete(c); refreshAfterFilterChange(); } }));
   if (priceMin !== null || priceMax !== null) {
     chips.push({
       label: `${money(priceMin || 0)} \u2013 ${money(priceMax || 99999)}`,
@@ -399,6 +436,7 @@ function renderSidebar() {
   const brandScoped = scopedFor('brand');
   const colourScoped = scopedFor('colour');
   const audienceScoped = scopedFor('audience');
+  const conditionScoped = scopedFor('condition');
   const priceScoped = scopedFor('price');
 
   const typeOptsRaw = currentTypeOptions();
@@ -450,6 +488,20 @@ function renderSidebar() {
       <div class="filter-group-body">${buildOptionList('audience', audienceOpts, activeAudience)}</div>
     </div>`;
 
+  // Same "always shown, never count-gated" treatment as Audience — a
+  // permanent global toggle rather than something that disappears when
+  // the current view happens to have zero preowned items.
+  const conditionCounts = {};
+  conditionScoped.forEach(p => { const c = classifyCondition(p); conditionCounts[c] = (conditionCounts[c] || 0) + 1; });
+  const conditionOrder = ['New', 'Preowned'];
+  const conditionOpts = conditionOrder
+    .map(key => ({ key, label: key, count: conditionCounts[key] || 0 }));
+  const conditionSection = `
+    <div class="filter-group" data-group-name="condition">
+      <div class="filter-group-head">Condition <span class="chevron">\u25be</span></div>
+      <div class="filter-group-body">${buildOptionList('condition', conditionOpts, activeCondition)}</div>
+    </div>`;
+
   const prices = priceScoped.map(p => p.salePrice).filter(n => typeof n === 'number');
   const lo = prices.length ? Math.floor(Math.min(...prices)) : 0;
   const hi = prices.length ? Math.ceil(Math.max(...prices)) : 1000;
@@ -461,6 +513,7 @@ function renderSidebar() {
       <div class="filter-group-body">${buildOptionList('brand', brandOpts, activeBrands)}</div>
     </div>
     ${audienceSection}
+    ${conditionSection}
     <div class="filter-group" data-group-name="price">
       <div class="filter-group-head">Price <span class="chevron">\u25be</span></div>
       <div class="filter-group-body">
@@ -481,7 +534,7 @@ function renderSidebar() {
   sidebar.querySelectorAll('input[type="checkbox"]').forEach(cb => {
     cb.addEventListener('change', () => {
       const group = cb.dataset.group;
-      const targetSet = group === 'type' ? activeTypeCheckboxes : group === 'brand' ? activeBrands : group === 'audience' ? activeAudience : activeColours;
+      const targetSet = group === 'type' ? activeTypeCheckboxes : group === 'brand' ? activeBrands : group === 'audience' ? activeAudience : group === 'condition' ? activeCondition : activeColours;
       if (cb.checked) targetSet.add(cb.value); else targetSet.delete(cb.value);
       if (group === 'type') renderCategoryBanner();
       renderSidebar();
@@ -518,6 +571,7 @@ function updateURL() {
   if (activeBrands.size) params.set('brand', [...activeBrands].join(',')); else params.delete('brand');
   if (activeColours.size) params.set('colour', [...activeColours].join(',')); else params.delete('colour');
   if (activeAudience.size) params.set('audience', [...activeAudience].join(',')); else params.delete('audience');
+  if (activeCondition.size) params.set('condition', [...activeCondition].join(',')); else params.delete('condition');
   if (activeTypeCheckboxes.size) params.set('types', [...activeTypeCheckboxes].join(',')); else params.delete('types');
   if (priceMin !== null) params.set('pricemin', priceMin); else params.delete('pricemin');
   if (priceMax !== null) params.set('pricemax', priceMax); else params.delete('pricemax');
@@ -547,6 +601,20 @@ function bannerGroupKey() {
 function renderCategoryBanner() {
   const el = document.getElementById('category-banner');
   if (!el) return;
+
+  if (baseSource === 'awin-callawaypreowned') {
+    el.innerHTML = `
+      <div class="theme-banner">
+        <h2>\u267b\ufe0f Preowned & Trade Ins</h2>
+        <p>These are secondhand clubs and trade-ins from Callaway Golf Preowned \u2014 kept in their own
+        section deliberately, since trade-in pricing works differently to new retail and mixing the
+        two would distort genuine price comparisons. Most items have a real condition grade
+        (Average, Good, Very Good, or Like New) shown right on the card.</p>
+        <p class="tagline">Real Secondhand Prices.<span class="quip"> Kept Separate, On Purpose.</span></p>
+      </div>` + (groupNoteHTML || '');
+    return;
+  }
+
   const singleCategory = effectiveSingleCategory();
   const key = singleCategory || bannerGroupKey();
   const data = key && window.GOLFPRICE_CATEGORY_BANNERS && window.GOLFPRICE_CATEGORY_BANNERS[key];
@@ -584,6 +652,9 @@ fetch('data/products.json')
       baseCategories = null;
     }
 
+    const sourceParam = params.get('source');
+    baseSource = sourceParam || null;
+
     const typesParam = params.get('types');
     if (typesParam) activeTypeCheckboxes = new Set(typesParam.split(','));
 
@@ -595,6 +666,9 @@ fetch('data/products.json')
 
     const audienceParam = params.get('audience');
     if (audienceParam) activeAudience = new Set(audienceParam.split(','));
+
+    const conditionParam = params.get('condition');
+    if (conditionParam) activeCondition = new Set(conditionParam.split(','));
 
     if (params.get('pricemin')) priceMin = Number(params.get('pricemin'));
     if (params.get('pricemax')) priceMax = Number(params.get('pricemax'));
@@ -644,6 +718,7 @@ if (clearAllBtn) {
     activeBrands = new Set();
     activeColours = new Set();
     activeAudience = new Set();
+    activeCondition = new Set();
     priceMin = null;
     priceMax = null;
     refreshAfterFilterChange();

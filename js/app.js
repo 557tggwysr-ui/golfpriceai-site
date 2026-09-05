@@ -44,7 +44,16 @@ function handleImgError(imgEl, iconSrc) {
   const container = imgEl.closest('.thumb, .drop-thumb');
   if (!container) return;
   container.classList.add('icon-thumb');
-  container.innerHTML = `<span class="icon-badge"><img src="${iconSrc}" alt="${imgEl.alt}"></span>`;
+  // Replace ONLY the <img> itself, not the whole container — see
+  // shop.js's identical function for the full explanation of the real
+  // bug this fixes (was silently destroying sibling badges).
+  const iconBadge = document.createElement('span');
+  iconBadge.className = 'icon-badge';
+  const iconImg = document.createElement('img');
+  iconImg.src = iconSrc;
+  iconImg.alt = imgEl.alt;
+  iconBadge.appendChild(iconImg);
+  imgEl.replaceWith(iconBadge);
 }
 
 function thumbHTML(d) {
@@ -116,6 +125,16 @@ function productSchemaJSON(d) {
   return `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
 }
 
+// Preowned/condition badge — shown alongside (never instead of) the
+// existing discount badge, top-right so they never overlap. Shows the
+// specific grade when the retailer's feed provides one (e.g. "Very
+// Good"), or the honest generic "Preowned" when it doesn't — never
+// invents a grade that isn't genuinely in the data.
+function conditionBadgeHTML(d) {
+  if (!d.condition) return '';
+  return `<span class="condition-badge">${d.condition}</span>`;
+}
+
 function dealCardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
@@ -123,6 +142,7 @@ function dealCardHTML(d) {
       ${productSchemaJSON(d)}
       <div class="${thumbClass(d)}"${thumbStyle(d)}>
         <span class="badge ${badge.cls}">${badge.label}</span>
+        ${conditionBadgeHTML(d)}
         ${thumbHTML(d)}
       </div>
       <div class="deal-body">
