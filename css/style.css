@@ -1067,3 +1067,39 @@ footer a:hover { color: var(--green); }
 }
 .empty-state { color: var(--muted); padding: 40px 0; text-align: center; }
 @media (max-width: 480px) { .shop-grid { grid-template-columns: 1fr; } }
+
+/* ============================================
+   Homepage: Our Retail Partners section
+   ============================================ */
+.partners-section { padding: 40px 0 20px; }
+.partners-section h2 { font-size: 22px; margin: 0 0 6px; }
+.partners-section > p { color: var(--muted); font-size: 14px; margin: 0 0 22px; max-width: 65ch; }
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.partner-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s ease;
+}
+.partner-card:hover { transform: translateY(-2px); }
+.partner-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.partner-emoji { font-size: 20px; }
+.partner-name { font-weight: 700; font-size: 15px; }
+.partner-desc { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 0 0 16px; flex: 1; }
+.partner-link {
+  font-size: 13px; font-weight: 600; color: var(--green);
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.partner-link:hover { color: var(--green-dark); }
+.external-tag {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;
+  color: var(--muted); background: #f1f2ef; padding: 2px 8px; border-radius: 999px; margin-left: 6px;
+}
