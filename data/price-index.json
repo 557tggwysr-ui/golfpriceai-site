@@ -1065,47 +1065,47 @@
       "categories": {
         "apparel": {
           "avgPrice": 63.17,
-          "count": 19502
+          "count": 19500
         },
         "accessories": {
-          "avgPrice": 106.17,
-          "count": 3559
+          "avgPrice": 106.21,
+          "count": 3557
         },
         "bag": {
           "avgPrice": 175.1,
           "count": 1643
         },
         "wood": {
-          "avgPrice": 146.77,
-          "count": 1067
+          "avgPrice": 145.7,
+          "count": 1097
         },
         "hybrid": {
-          "avgPrice": 116.86,
-          "count": 734
+          "avgPrice": 116.65,
+          "count": 753
         },
         "ball": {
-          "avgPrice": 45.66,
+          "avgPrice": 45.68,
           "count": 704
         },
         "wedge": {
-          "avgPrice": 113.54,
-          "count": 950
+          "avgPrice": 113.29,
+          "count": 957
         },
         "shoes": {
           "avgPrice": 112.09,
           "count": 4498
         },
         "irons": {
-          "avgPrice": 409.5,
-          "count": 1487
+          "avgPrice": 409.06,
+          "count": 1499
         },
         "putter": {
-          "avgPrice": 252.29,
-          "count": 1594
+          "avgPrice": 251.72,
+          "count": 1607
         },
         "driver": {
-          "avgPrice": 268.75,
-          "count": 1113
+          "avgPrice": 266.2,
+          "count": 1141
         },
         "sets": {
           "avgPrice": 401.27,
@@ -1117,13 +1117,13 @@
   "summary": {
     "apparel": {
       "currentAvg": 63.17,
-      "count": 19502,
+      "count": 19500,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 106.17,
-      "count": 3559,
+      "currentAvg": 106.21,
+      "count": 3557,
       "change30d": null,
       "change90d": null
     },
@@ -1134,26 +1134,26 @@
       "change90d": null
     },
     "wood": {
-      "currentAvg": 146.77,
-      "count": 1067,
+      "currentAvg": 145.7,
+      "count": 1097,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 116.86,
-      "count": 734,
+      "currentAvg": 116.65,
+      "count": 753,
       "change30d": null,
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.66,
+      "currentAvg": 45.68,
       "count": 704,
       "change30d": null,
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 113.54,
-      "count": 950,
+      "currentAvg": 113.29,
+      "count": 957,
       "change30d": null,
       "change90d": null
     },
@@ -1164,20 +1164,20 @@
       "change90d": null
     },
     "irons": {
-      "currentAvg": 409.5,
-      "count": 1487,
+      "currentAvg": 409.06,
+      "count": 1499,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 252.29,
-      "count": 1594,
+      "currentAvg": 251.72,
+      "count": 1607,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 268.75,
-      "count": 1113,
+      "currentAvg": 266.2,
+      "count": 1141,
       "change30d": null,
       "change90d": null
     },
@@ -1188,7 +1188,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-05T14:16:15.973591+00:00",
+  "lastUpdated": "2026-09-05T16:52:49.250808+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1327,11 +1327,11 @@
         "dropPct": 51
       },
       {
-        "name": "TaylorMade Hi-Toe 4 Wedge - Steel",
-        "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Hi-Toe41.jpg?v=1777950830",
-        "salePrice": 129.95,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=38771333697&a=2990893&m=82141",
-        "dropPct": 19
+        "name": "Titleist Vokey SM9 Golf Wedge Raw",
+        "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-vokey-raw-wedge.jpg",
+        "salePrice": 129.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=33141112243&a=2990893&m=813",
+        "dropPct": 24
       }
     ],
     "putter": [
