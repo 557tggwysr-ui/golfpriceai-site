@@ -1059,83 +1059,136 @@
           "count": 394
         }
       }
+    },
+    {
+      "date": "2026-09-05",
+      "categories": {
+        "apparel": {
+          "avgPrice": 63.16,
+          "count": 19502
+        },
+        "accessories": {
+          "avgPrice": 106.43,
+          "count": 3559
+        },
+        "bag": {
+          "avgPrice": 175.1,
+          "count": 1643
+        },
+        "wood": {
+          "avgPrice": 146.75,
+          "count": 1068
+        },
+        "hybrid": {
+          "avgPrice": 116.86,
+          "count": 735
+        },
+        "ball": {
+          "avgPrice": 45.66,
+          "count": 704
+        },
+        "wedge": {
+          "avgPrice": 113.55,
+          "count": 951
+        },
+        "shoes": {
+          "avgPrice": 111.76,
+          "count": 4463
+        },
+        "irons": {
+          "avgPrice": 407.82,
+          "count": 1487
+        },
+        "putter": {
+          "avgPrice": 252.3,
+          "count": 1594
+        },
+        "driver": {
+          "avgPrice": 268.62,
+          "count": 1116
+        },
+        "sets": {
+          "avgPrice": 401.27,
+          "count": 394
+        }
+      }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.04,
-      "count": 19428,
+      "currentAvg": 63.16,
+      "count": 19502,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 106.87,
-      "count": 3507,
+      "currentAvg": 106.43,
+      "count": 3559,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 175.37,
-      "count": 1625,
+      "currentAvg": 175.1,
+      "count": 1643,
       "change30d": null,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 146.85,
-      "count": 1067,
+      "currentAvg": 146.75,
+      "count": 1068,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 116.96,
-      "count": 734,
+      "currentAvg": 116.86,
+      "count": 735,
       "change30d": null,
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.91,
-      "count": 698,
+      "currentAvg": 45.66,
+      "count": 704,
       "change30d": null,
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 113.73,
-      "count": 948,
+      "currentAvg": 113.55,
+      "count": 951,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 111.78,
-      "count": 4414,
+      "currentAvg": 111.76,
+      "count": 4463,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 408.88,
-      "count": 1483,
+      "currentAvg": 407.82,
+      "count": 1487,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 252.54,
-      "count": 1592,
+      "currentAvg": 252.3,
+      "count": 1594,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 268.67,
+      "currentAvg": 268.62,
       "count": 1116,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 401.32,
+      "currentAvg": 401.27,
       "count": 394,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-04T20:03:33.483648+00:00",
+  "lastUpdated": "2026-09-05T02:06:21.553224+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1274,11 +1327,11 @@
         "dropPct": 51
       },
       {
-        "name": "Women's Opus Brushed Chrome Wedges",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788430278721/sits/wedges-2024-opus-chrome-womens/wedges-2024-opus-chrome-womens____1.png?sfrm=png",
-        "salePrice": 152.15,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684926&a=2990893&m=19186",
-        "dropPct": 15
+        "name": "TaylorMade Hi-Toe 4 Wedge - Steel",
+        "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Hi-Toe41.jpg?v=1777950830",
+        "salePrice": 129.95,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=38771333697&a=2990893&m=82141",
+        "dropPct": 19
       }
     ],
     "putter": [
