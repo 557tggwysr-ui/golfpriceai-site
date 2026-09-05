@@ -341,11 +341,11 @@ fetch('data/products.json')
     const qualifiedPool = qualityRanked.slice(0, Math.min(80, qualityRanked.length));
     const dailyPool = seededShuffle(qualifiedPool, todaySeed);
 
-    const bestDeals = pickWithConstraints(dailyPool, 12, [], { minMalePercent: 0.8, minClubCount: 5 }, qualityRanked);
+    const bestDeals = pickWithConstraints(dailyPool, 12, [], { minMalePercent: 0.85, minClubCount: 6 }, qualityRanked);
     const bestKeys = bestDeals.map(d => d.icon || d.category);
 
     const priceDrops = pickWithConstraints(
-      dailyPool.filter(d => !bestDeals.includes(d)), 6, bestKeys, { minMalePercent: 0.8 }, qualityRanked
+      dailyPool.filter(d => !bestDeals.includes(d)), 6, bestKeys, { minMalePercent: 0.85 }, qualityRanked
     );
     const priceDropKeys = priceDrops.map(d => d.icon || d.category);
 
@@ -359,7 +359,7 @@ fetch('data/products.json')
     const trendingPool = [...dailyPool]
       .filter(d => !bestDeals.includes(d) && !priceDrops.includes(d))
       .sort((a, b) => popularityScore(b) - popularityScore(a));
-    const trendingRaw = pickWithConstraints(trendingPool, 12, [...usedForTrending], { minMalePercent: 0.8 }, qualityRanked);
+    const trendingRaw = pickWithConstraints(trendingPool, 12, [...usedForTrending], { minMalePercent: 0.85 }, qualityRanked);
     const trendingPicks = trendingRaw.map(item => ({
       name: item.name,
       tag: item.savePct >= 25 ? 'Hot' : 'Rising',
