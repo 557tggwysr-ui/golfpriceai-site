@@ -1112,24 +1112,77 @@
           "count": 393
         }
       }
+    },
+    {
+      "date": "2026-09-06",
+      "categories": {
+        "apparel": {
+          "avgPrice": 63.21,
+          "count": 19508
+        },
+        "accessories": {
+          "avgPrice": 105.91,
+          "count": 3577
+        },
+        "bag": {
+          "avgPrice": 175.25,
+          "count": 1648
+        },
+        "wood": {
+          "avgPrice": 145.7,
+          "count": 1097
+        },
+        "hybrid": {
+          "avgPrice": 116.76,
+          "count": 752
+        },
+        "ball": {
+          "avgPrice": 45.68,
+          "count": 704
+        },
+        "wedge": {
+          "avgPrice": 113.22,
+          "count": 956
+        },
+        "shoes": {
+          "avgPrice": 112.11,
+          "count": 4495
+        },
+        "irons": {
+          "avgPrice": 408.81,
+          "count": 1500
+        },
+        "putter": {
+          "avgPrice": 251.59,
+          "count": 1608
+        },
+        "driver": {
+          "avgPrice": 266.23,
+          "count": 1142
+        },
+        "sets": {
+          "avgPrice": 399.87,
+          "count": 393
+        }
+      }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.19,
-      "count": 19496,
+      "currentAvg": 63.21,
+      "count": 19508,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 105.85,
-      "count": 3572,
+      "currentAvg": 105.91,
+      "count": 3577,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 175.17,
-      "count": 1642,
+      "currentAvg": 175.25,
+      "count": 1648,
       "change30d": null,
       "change90d": null
     },
@@ -1146,8 +1199,8 @@
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.72,
-      "count": 703,
+      "currentAvg": 45.68,
+      "count": 704,
       "change30d": null,
       "change90d": null
     },
@@ -1158,26 +1211,26 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.09,
-      "count": 4497,
+      "currentAvg": 112.11,
+      "count": 4495,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 409.32,
-      "count": 1498,
+      "currentAvg": 408.81,
+      "count": 1500,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 251.72,
-      "count": 1607,
+      "currentAvg": 251.59,
+      "count": 1608,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 266.4,
-      "count": 1140,
+      "currentAvg": 266.23,
+      "count": 1142,
       "change30d": null,
       "change90d": null
     },
@@ -1188,7 +1241,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-05T19:43:57.226539+00:00",
+  "lastUpdated": "2026-09-06T02:02:10.986434+00:00",
   "topMovers": {
     "accessories": [
       {
