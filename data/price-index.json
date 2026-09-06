@@ -1117,11 +1117,11 @@
       "date": "2026-09-06",
       "categories": {
         "apparel": {
-          "avgPrice": 63.21,
-          "count": 19508
+          "avgPrice": 63.27,
+          "count": 19511
         },
         "accessories": {
-          "avgPrice": 105.93,
+          "avgPrice": 105.96,
           "count": 3576
         },
         "bag": {
@@ -1153,12 +1153,12 @@
           "count": 1500
         },
         "putter": {
-          "avgPrice": 251.59,
+          "avgPrice": 251.61,
           "count": 1608
         },
         "driver": {
-          "avgPrice": 266.23,
-          "count": 1142
+          "avgPrice": 266.17,
+          "count": 1143
         },
         "sets": {
           "avgPrice": 399.87,
@@ -1169,13 +1169,13 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.21,
-      "count": 19508,
+      "currentAvg": 63.27,
+      "count": 19511,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 105.93,
+      "currentAvg": 105.96,
       "count": 3576,
       "change30d": null,
       "change90d": null
@@ -1223,14 +1223,14 @@
       "change90d": null
     },
     "putter": {
-      "currentAvg": 251.59,
+      "currentAvg": 251.61,
       "count": 1608,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 266.23,
-      "count": 1142,
+      "currentAvg": 266.17,
+      "count": 1143,
       "change30d": null,
       "change90d": null
     },
@@ -1241,7 +1241,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-06T09:56:06.991248+00:00",
+  "lastUpdated": "2026-09-06T14:39:46.181268+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1269,7 +1269,7 @@
       },
       {
         "name": "Limited Edition May Major Staff Bag",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788516678720/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788603078845/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
         "salePrice": 839.3,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684946&a=2990893&m=19186",
         "dropPct": 30
@@ -1326,14 +1326,14 @@
     "wood": [
       {
         "name": "Great Big Bertha Fairway Woods",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788516678720/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788603078845/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
         "salePrice": 389.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486566&a=2990893&m=19186",
         "dropPct": 40
       },
       {
         "name": "Women's Great Big Bertha Fairway Woods",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788516678720/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788603078845/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
         "salePrice": 389.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486567&a=2990893&m=19186",
         "dropPct": 40
@@ -1349,7 +1349,7 @@
       },
       {
         "name": "Elyte Triple Diamond Driver",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/a25c5a10-b876-4702-9033-2bdf9cfe468f_LARGE_9359e23f-4b15-4470-be77-6167c16b0208.jpg?v=1788599905",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/a25c5a10-b876-4702-9033-2bdf9cfe468f_LARGE_429b0c6f-9f1b-447e-bb86-5476f6a529dc.jpg?v=1788697134",
         "salePrice": 307.6,
         "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Felyte-triple-diamond-driver-rm_al08_drmantatd%3Fvariant%3D58385883824476",
         "dropPct": 49
@@ -1358,14 +1358,14 @@
     "shoes": [
       {
         "name": "Men's Chev Star Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788516678720/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788603078845/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
         "salePrice": 44.5,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684785&a=2990893&m=19186",
         "dropPct": 50
       },
       {
         "name": "Men's Lazer Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788516678720/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788603078845/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
         "salePrice": 54.5,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=44504515550&a=2990893&m=19186",
         "dropPct": 50
@@ -1413,7 +1413,7 @@
       },
       {
         "name": "Men's XR 13-Piece Complete Set",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788516678720/sits/compsets-2026-xr-eu/compsets-2026-xr-eu_1___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788603078845/sits/compsets-2026-xr-eu/compsets-2026-xr-eu_1___1.png?sfrm=png",
         "salePrice": 1399.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43223910635&a=2990893&m=19186",
         "dropPct": 7
@@ -1422,7 +1422,7 @@
     "apparel": [
       {
         "name": "TA Winter Headband",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788516678720/sits/headwear-2023-ta-winter-headband/headwear-2023-ta-winter-headband_10235___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788603078845/sits/headwear-2023-ta-winter-headband/headwear-2023-ta-winter-headband_10235___1.png?sfrm=png",
         "salePrice": 15.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684836&a=2990893&m=19186",
         "dropPct": 50
