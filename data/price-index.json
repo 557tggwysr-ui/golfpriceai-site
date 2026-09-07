@@ -1170,16 +1170,16 @@
       "date": "2026-09-07",
       "categories": {
         "apparel": {
-          "avgPrice": 63.25,
-          "count": 19525
+          "avgPrice": 63.26,
+          "count": 19524
         },
         "accessories": {
-          "avgPrice": 105.99,
-          "count": 3570
+          "avgPrice": 106.02,
+          "count": 3569
         },
         "bag": {
-          "avgPrice": 175.25,
-          "count": 1648
+          "avgPrice": 175.19,
+          "count": 1650
         },
         "wood": {
           "avgPrice": 145.57,
@@ -1190,28 +1190,28 @@
           "count": 751
         },
         "ball": {
-          "avgPrice": 45.65,
+          "avgPrice": 45.68,
           "count": 704
         },
         "wedge": {
-          "avgPrice": 113.21,
-          "count": 955
+          "avgPrice": 113.28,
+          "count": 956
         },
         "shoes": {
-          "avgPrice": 112.17,
-          "count": 4499
+          "avgPrice": 112.12,
+          "count": 4503
         },
         "irons": {
           "avgPrice": 406.83,
           "count": 1505
         },
         "putter": {
-          "avgPrice": 251.81,
-          "count": 1607
+          "avgPrice": 251.89,
+          "count": 1603
         },
         "driver": {
-          "avgPrice": 265.91,
-          "count": 1143
+          "avgPrice": 265.7,
+          "count": 1144
         },
         "sets": {
           "avgPrice": 400.39,
@@ -1222,20 +1222,20 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.25,
-      "count": 19525,
+      "currentAvg": 63.26,
+      "count": 19524,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 105.99,
-      "count": 3570,
+      "currentAvg": 106.02,
+      "count": 3569,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 175.25,
-      "count": 1648,
+      "currentAvg": 175.19,
+      "count": 1650,
       "change30d": null,
       "change90d": null
     },
@@ -1252,20 +1252,20 @@
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.65,
+      "currentAvg": 45.68,
       "count": 704,
       "change30d": null,
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 113.21,
-      "count": 955,
+      "currentAvg": 113.28,
+      "count": 956,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.17,
-      "count": 4499,
+      "currentAvg": 112.12,
+      "count": 4503,
       "change30d": null,
       "change90d": null
     },
@@ -1276,14 +1276,14 @@
       "change90d": null
     },
     "putter": {
-      "currentAvg": 251.81,
-      "count": 1607,
+      "currentAvg": 251.89,
+      "count": 1603,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 265.91,
-      "count": 1143,
+      "currentAvg": 265.7,
+      "count": 1144,
       "change30d": null,
       "change90d": null
     },
@@ -1294,7 +1294,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-07T16:53:18.398437+00:00",
+  "lastUpdated": "2026-09-07T20:55:48.677671+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1426,18 +1426,18 @@
     ],
     "wedge": [
       {
-        "name": "Opus SP Chrome Wedge",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/c708494d-fd60-4b2c-9979-207fb8b53bc4_LARGE_868f1f7e-d222-462d-81fa-cdc1867408c4.jpg?v=1788787829",
-        "salePrice": 88.09,
-        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fopus-sp-chrome-wedge-rm_am42_0000000113%3Fvariant%3D59046607651164",
-        "dropPct": 51
-      },
-      {
         "name": "Titleist Vokey SM9 Golf Wedge Raw",
         "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-vokey-raw-wedge.jpg",
         "salePrice": 129.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=33141112243&a=2990893&m=813",
         "dropPct": 24
+      },
+      {
+        "name": "TaylorMade Hi-Toe 4 Wedge - Steel",
+        "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Hi-Toe41.jpg?v=1777950830",
+        "salePrice": 129.95,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=38771333697&a=2990893&m=82141",
+        "dropPct": 19
       }
     ],
     "putter": [
