@@ -1218,83 +1218,136 @@
           "count": 392
         }
       }
+    },
+    {
+      "date": "2026-09-08",
+      "categories": {
+        "apparel": {
+          "avgPrice": 63.62,
+          "count": 19578
+        },
+        "accessories": {
+          "avgPrice": 106.12,
+          "count": 3580
+        },
+        "bag": {
+          "avgPrice": 174.47,
+          "count": 1678
+        },
+        "wood": {
+          "avgPrice": 141.75,
+          "count": 1192
+        },
+        "hybrid": {
+          "avgPrice": 115.12,
+          "count": 796
+        },
+        "ball": {
+          "avgPrice": 45.71,
+          "count": 703
+        },
+        "wedge": {
+          "avgPrice": 108.02,
+          "count": 1066
+        },
+        "shoes": {
+          "avgPrice": 112.14,
+          "count": 4509
+        },
+        "irons": {
+          "avgPrice": 394.25,
+          "count": 1642
+        },
+        "putter": {
+          "avgPrice": 244.15,
+          "count": 1719
+        },
+        "driver": {
+          "avgPrice": 257.6,
+          "count": 1224
+        },
+        "sets": {
+          "avgPrice": 395.65,
+          "count": 401
+        }
+      }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.26,
-      "count": 19524,
+      "currentAvg": 63.62,
+      "count": 19578,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 106.02,
-      "count": 3569,
+      "currentAvg": 106.12,
+      "count": 3580,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 175.19,
-      "count": 1650,
+      "currentAvg": 174.47,
+      "count": 1678,
       "change30d": null,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 145.57,
-      "count": 1095,
+      "currentAvg": 141.75,
+      "count": 1192,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 116.36,
-      "count": 751,
+      "currentAvg": 115.12,
+      "count": 796,
       "change30d": null,
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.68,
-      "count": 704,
+      "currentAvg": 45.71,
+      "count": 703,
       "change30d": null,
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 113.28,
-      "count": 956,
+      "currentAvg": 108.02,
+      "count": 1066,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.12,
-      "count": 4503,
+      "currentAvg": 112.14,
+      "count": 4509,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 406.83,
-      "count": 1505,
+      "currentAvg": 394.25,
+      "count": 1642,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 251.89,
-      "count": 1603,
+      "currentAvg": 244.15,
+      "count": 1719,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 265.7,
-      "count": 1144,
+      "currentAvg": 257.6,
+      "count": 1224,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 400.39,
-      "count": 392,
+      "currentAvg": 395.65,
+      "count": 401,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-07T20:55:48.677671+00:00",
+  "lastUpdated": "2026-09-08T02:10:16.829661+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1401,11 +1454,11 @@
         "dropPct": 89
       },
       {
-        "name": "Elyte Driver",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/31c71ff6-df8c-4030-8cf2-7e7293346f0c_LARGE_0ec11e75-0f57-4f5c-be71-c951d8adc093.jpg?v=1788771820",
-        "salePrice": 165.0,
-        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Felyte-driver-ti-cg-cfdrmanta%3Fvariant%3D58385884119388",
-        "dropPct": 71
+        "name": "RAZR Fit Xtreme Driver",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/51a6a700-bca9-4a76-acc7-91624065f3b7_LARGE_ace6db06-cdb6-4ee7-91bd-530f0c05c97d.jpg?v=1788772353",
+        "salePrice": 23.0,
+        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Frazr-fit-xtreme-driver-ti-cg-cfdrrazrfitx%3Fvariant%3D58385681383772",
+        "dropPct": 75
       }
     ],
     "shoes": [
@@ -1426,18 +1479,18 @@
     ],
     "wedge": [
       {
-        "name": "Titleist Vokey SM9 Golf Wedge Raw",
-        "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-vokey-raw-wedge.jpg",
-        "salePrice": 129.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=33141112243&a=2990893&m=813",
-        "dropPct": 24
+        "name": "Opus SP Chrome Wedge",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/c708494d-fd60-4b2c-9979-207fb8b53bc4_LARGE_65ef54e9-9b81-433b-adc1-371f0da3e689.jpg?v=1788805021",
+        "salePrice": 88.09,
+        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fopus-sp-chrome-wedge-rm_am42_0000000113%3Fvariant%3D59046607651164",
+        "dropPct": 51
       },
       {
-        "name": "TaylorMade Hi-Toe 4 Wedge - Steel",
-        "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Hi-Toe41.jpg?v=1777950830",
-        "salePrice": 129.95,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=38771333697&a=2990893&m=82141",
-        "dropPct": 19
+        "name": "Titleist Vokey Design SM9 Steel Mens Right Hand Lob Wedge 58* 8 Bounce M Grind Wedge - Dynamic Gold",
+        "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/sh-hc104920a_c628d3da-566b-45ce-bfd1-88d82b35dd9a.jpg?v=1788777336",
+        "salePrice": 59.95,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=45927392702&a=2990893&m=82141",
+        "dropPct": 25
       }
     ],
     "putter": [
