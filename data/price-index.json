@@ -1223,23 +1223,23 @@
       "date": "2026-09-08",
       "categories": {
         "apparel": {
-          "avgPrice": 63.7,
-          "count": 19659
+          "avgPrice": 63.71,
+          "count": 19633
         },
         "accessories": {
-          "avgPrice": 106.16,
+          "avgPrice": 106.2,
           "count": 3587
         },
         "bag": {
-          "avgPrice": 174.38,
-          "count": 1679
+          "avgPrice": 174.47,
+          "count": 1681
         },
         "wood": {
           "avgPrice": 141.75,
           "count": 1192
         },
         "hybrid": {
-          "avgPrice": 115.12,
+          "avgPrice": 115.06,
           "count": 796
         },
         "ball": {
@@ -1251,23 +1251,23 @@
           "count": 1067
         },
         "shoes": {
-          "avgPrice": 112.14,
-          "count": 4509
+          "avgPrice": 112.15,
+          "count": 4508
         },
         "irons": {
-          "avgPrice": 394.25,
+          "avgPrice": 394.2,
           "count": 1642
         },
         "putter": {
-          "avgPrice": 244.15,
-          "count": 1719
+          "avgPrice": 244.28,
+          "count": 1723
         },
         "driver": {
           "avgPrice": 257.6,
           "count": 1224
         },
         "sets": {
-          "avgPrice": 396.03,
+          "avgPrice": 395.99,
           "count": 402
         }
       }
@@ -1275,20 +1275,20 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.7,
-      "count": 19659,
+      "currentAvg": 63.71,
+      "count": 19633,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 106.16,
+      "currentAvg": 106.2,
       "count": 3587,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 174.38,
-      "count": 1679,
+      "currentAvg": 174.47,
+      "count": 1681,
       "change30d": null,
       "change90d": null
     },
@@ -1299,7 +1299,7 @@
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 115.12,
+      "currentAvg": 115.06,
       "count": 796,
       "change30d": null,
       "change90d": null
@@ -1317,20 +1317,20 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.14,
-      "count": 4509,
+      "currentAvg": 112.15,
+      "count": 4508,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 394.25,
+      "currentAvg": 394.2,
       "count": 1642,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 244.15,
-      "count": 1719,
+      "currentAvg": 244.28,
+      "count": 1723,
       "change30d": null,
       "change90d": null
     },
@@ -1341,13 +1341,13 @@
       "change90d": null
     },
     "sets": {
-      "currentAvg": 396.03,
+      "currentAvg": 395.99,
       "count": 402,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-08T15:41:27.927552+00:00",
+  "lastUpdated": "2026-09-08T20:30:40.054670+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1511,18 +1511,18 @@
     ],
     "sets": [
       {
+        "name": "MacGregor DCT 6-8 Years Old Junior Golf Package Set - 6-8 Years Old / Right Hand",
+        "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/b83ba121-cbf6-4a00-8572-fe1f5c50b99e_4000x.progressive_049b15c5-c5e4-46d7-8d71-0aafee9a1646.jpg?v=1639493205",
+        "salePrice": 89.95,
+        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=83219&awinaffid=2990893&ued=https%3A%2F%2Fwww.majorgolfdirect.com%2Fproducts%2Fmacgregor-dct-junior-6-8-years-old-golf-package-set-mgmacset075%3Fvariant%3D42043129397479",
+        "dropPct": 17
+      },
+      {
         "name": "Callaway Junior XJ 5-Piece Set Golf Package Set Level 1 (3-5 Years) - Blue/White",
         "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Junior-Set-Level-1-Bag-Blue-Hero.jpg",
         "salePrice": 199.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=44040786304&a=2990893&m=2849",
         "dropPct": 13
-      },
-      {
-        "name": "Men's XR 13-Piece Complete Set",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788759603903/sits/compsets-2026-xr-eu/compsets-2026-xr-eu_1___1.png?sfrm=png",
-        "salePrice": 1399.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=43223910635&a=2990893&m=19186",
-        "dropPct": 7
       }
     ],
     "apparel": [
