@@ -1271,83 +1271,136 @@
           "count": 402
         }
       }
+    },
+    {
+      "date": "2026-09-09",
+      "categories": {
+        "apparel": {
+          "avgPrice": 63.76,
+          "count": 19790
+        },
+        "accessories": {
+          "avgPrice": 106.48,
+          "count": 3608
+        },
+        "bag": {
+          "avgPrice": 174.77,
+          "count": 1694
+        },
+        "wood": {
+          "avgPrice": 141.35,
+          "count": 1210
+        },
+        "hybrid": {
+          "avgPrice": 114.93,
+          "count": 800
+        },
+        "ball": {
+          "avgPrice": 45.73,
+          "count": 706
+        },
+        "wedge": {
+          "avgPrice": 108.02,
+          "count": 1068
+        },
+        "shoes": {
+          "avgPrice": 112.13,
+          "count": 4546
+        },
+        "irons": {
+          "avgPrice": 399.04,
+          "count": 1656
+        },
+        "putter": {
+          "avgPrice": 244.33,
+          "count": 1725
+        },
+        "driver": {
+          "avgPrice": 256.06,
+          "count": 1240
+        },
+        "sets": {
+          "avgPrice": 395.38,
+          "count": 403
+        }
+      }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.71,
-      "count": 19633,
+      "currentAvg": 63.76,
+      "count": 19790,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 106.2,
-      "count": 3587,
+      "currentAvg": 106.48,
+      "count": 3608,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 174.47,
-      "count": 1681,
+      "currentAvg": 174.77,
+      "count": 1694,
       "change30d": null,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 141.75,
-      "count": 1192,
+      "currentAvg": 141.35,
+      "count": 1210,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 115.06,
-      "count": 796,
+      "currentAvg": 114.93,
+      "count": 800,
       "change30d": null,
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.81,
-      "count": 704,
+      "currentAvg": 45.73,
+      "count": 706,
       "change30d": null,
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 108.09,
-      "count": 1067,
+      "currentAvg": 108.02,
+      "count": 1068,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.15,
-      "count": 4508,
+      "currentAvg": 112.13,
+      "count": 4546,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 394.2,
-      "count": 1642,
+      "currentAvg": 399.04,
+      "count": 1656,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 244.28,
-      "count": 1723,
+      "currentAvg": 244.33,
+      "count": 1725,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 257.6,
-      "count": 1224,
+      "currentAvg": 256.06,
+      "count": 1240,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 395.99,
-      "count": 402,
+      "currentAvg": 395.38,
+      "count": 403,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-08T20:30:40.054670+00:00",
+  "lastUpdated": "2026-09-09T02:14:20.429448+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1496,7 +1549,7 @@
     "putter": [
       {
         "name": "Ai-ONE Milled Jailbird Mini T DB Putter",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/6bdfea90-c306-48a5-8940-c6b79b56a1ba_LARGE_662de7cd-e9e7-414b-8a98-6d27a29fbf3d.jpg?v=1788771633",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/6bdfea90-c306-48a5-8940-c6b79b56a1ba_LARGE_d649ee5d-88cf-4870-b094-807d0f086242.jpg?v=1788899894",
         "salePrice": 224.25,
         "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fai-one-milled-jailbird-mini-t-db-putter-rm_a42q_ptaionmdle_head_loft_jmtd%3Fvariant%3D59042212905308",
         "dropPct": 50
