@@ -1276,16 +1276,16 @@
       "date": "2026-09-09",
       "categories": {
         "apparel": {
-          "avgPrice": 63.77,
-          "count": 19792
+          "avgPrice": 63.73,
+          "count": 19825
         },
         "accessories": {
-          "avgPrice": 106.43,
+          "avgPrice": 106.41,
           "count": 3608
         },
         "bag": {
-          "avgPrice": 174.77,
-          "count": 1694
+          "avgPrice": 174.75,
+          "count": 1693
         },
         "wood": {
           "avgPrice": 141.35,
@@ -1300,48 +1300,48 @@
           "count": 706
         },
         "wedge": {
-          "avgPrice": 108.35,
-          "count": 1079
+          "avgPrice": 108.21,
+          "count": 1077
         },
         "shoes": {
-          "avgPrice": 112.12,
-          "count": 4546
+          "avgPrice": 112.13,
+          "count": 4547
         },
         "irons": {
-          "avgPrice": 399.04,
-          "count": 1656
+          "avgPrice": 397.38,
+          "count": 1657
         },
         "putter": {
           "avgPrice": 244.33,
           "count": 1725
         },
         "driver": {
-          "avgPrice": 256.36,
-          "count": 1241
+          "avgPrice": 256.33,
+          "count": 1242
         },
         "sets": {
-          "avgPrice": 395.38,
-          "count": 403
+          "avgPrice": 394.86,
+          "count": 404
         }
       }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.77,
-      "count": 19792,
+      "currentAvg": 63.73,
+      "count": 19825,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 106.43,
+      "currentAvg": 106.41,
       "count": 3608,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 174.77,
-      "count": 1694,
+      "currentAvg": 174.75,
+      "count": 1693,
       "change30d": null,
       "change90d": null
     },
@@ -1364,20 +1364,20 @@
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 108.35,
-      "count": 1079,
+      "currentAvg": 108.21,
+      "count": 1077,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.12,
-      "count": 4546,
+      "currentAvg": 112.13,
+      "count": 4547,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 399.04,
-      "count": 1656,
+      "currentAvg": 397.38,
+      "count": 1657,
       "change30d": null,
       "change90d": null
     },
@@ -1388,19 +1388,19 @@
       "change90d": null
     },
     "driver": {
-      "currentAvg": 256.36,
-      "count": 1241,
+      "currentAvg": 256.33,
+      "count": 1242,
       "change30d": null,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 395.38,
-      "count": 403,
+      "currentAvg": 394.86,
+      "count": 404,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-09T10:26:27.368990+00:00",
+  "lastUpdated": "2026-09-09T15:36:18.021403+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1412,7 +1412,7 @@
       },
       {
         "name": "Limited Edition 2021 July Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788430278721/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788881204709/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
         "salePrice": 20.7,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
         "dropPct": 70
@@ -1428,7 +1428,7 @@
       },
       {
         "name": "Limited Edition May Major Staff Bag",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788759603903/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788881204709/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
         "salePrice": 839.3,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684946&a=2990893&m=19186",
         "dropPct": 30
@@ -1485,14 +1485,14 @@
     "wood": [
       {
         "name": "Great Big Bertha Fairway Woods",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788759603903/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788881204709/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
         "salePrice": 389.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486566&a=2990893&m=19186",
         "dropPct": 40
       },
       {
         "name": "Women's Great Big Bertha Fairway Woods",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788759603903/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788881204709/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
         "salePrice": 389.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486567&a=2990893&m=19186",
         "dropPct": 40
@@ -1517,14 +1517,14 @@
     "shoes": [
       {
         "name": "Men's Chev Star Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788759603903/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788881204709/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
         "salePrice": 44.5,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684785&a=2990893&m=19186",
         "dropPct": 50
       },
       {
         "name": "Men's Lazer Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788759603903/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788881204709/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
         "salePrice": 54.5,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=44504515550&a=2990893&m=19186",
         "dropPct": 50
@@ -1581,14 +1581,14 @@
     "apparel": [
       {
         "name": "TA Winter Headband",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788759603903/sits/headwear-2023-ta-winter-headband/headwear-2023-ta-winter-headband_10235___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788881204709/sits/headwear-2023-ta-winter-headband/headwear-2023-ta-winter-headband_10235___1.png?sfrm=png",
         "salePrice": 15.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684836&a=2990893&m=19186",
         "dropPct": 50
       },
       {
         "name": "Tour Authentic Reversible Beanie\u200b",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788759603903/sits/headwear-2023-ta-reversible-beanie/headwear-2023-ta-reversible-beanie_4622___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788881204709/sits/headwear-2023-ta-reversible-beanie/headwear-2023-ta-reversible-beanie_4622___1.png?sfrm=png",
         "salePrice": 11.5,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=44512668051&a=2990893&m=19186",
         "dropPct": 50
