@@ -1276,11 +1276,11 @@
       "date": "2026-09-09",
       "categories": {
         "apparel": {
-          "avgPrice": 63.76,
-          "count": 19790
+          "avgPrice": 63.77,
+          "count": 19792
         },
         "accessories": {
-          "avgPrice": 106.48,
+          "avgPrice": 106.43,
           "count": 3608
         },
         "bag": {
@@ -1300,11 +1300,11 @@
           "count": 706
         },
         "wedge": {
-          "avgPrice": 108.02,
-          "count": 1068
+          "avgPrice": 108.35,
+          "count": 1079
         },
         "shoes": {
-          "avgPrice": 112.13,
+          "avgPrice": 112.12,
           "count": 4546
         },
         "irons": {
@@ -1316,8 +1316,8 @@
           "count": 1725
         },
         "driver": {
-          "avgPrice": 256.06,
-          "count": 1240
+          "avgPrice": 256.36,
+          "count": 1241
         },
         "sets": {
           "avgPrice": 395.38,
@@ -1328,13 +1328,13 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.76,
-      "count": 19790,
+      "currentAvg": 63.77,
+      "count": 19792,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 106.48,
+      "currentAvg": 106.43,
       "count": 3608,
       "change30d": null,
       "change90d": null
@@ -1364,13 +1364,13 @@
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 108.02,
-      "count": 1068,
+      "currentAvg": 108.35,
+      "count": 1079,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.13,
+      "currentAvg": 112.12,
       "count": 4546,
       "change30d": null,
       "change90d": null
@@ -1388,8 +1388,8 @@
       "change90d": null
     },
     "driver": {
-      "currentAvg": 256.06,
-      "count": 1240,
+      "currentAvg": 256.36,
+      "count": 1241,
       "change30d": null,
       "change90d": null
     },
@@ -1400,7 +1400,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-09T02:14:20.429448+00:00",
+  "lastUpdated": "2026-09-09T10:26:27.368990+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1532,18 +1532,18 @@
     ],
     "wedge": [
       {
+        "name": "Opus SP Chrome Wedge",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/c708494d-fd60-4b2c-9979-207fb8b53bc4_LARGE_04e0dd6b-e80c-4b2c-ab4c-0fc1f35bf4d5.jpg?v=1788930220",
+        "salePrice": 88.09,
+        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fopus-sp-chrome-wedge-rm_am42_0000000113%3Fvariant%3D59046607651164",
+        "dropPct": 51
+      },
+      {
         "name": "Titleist Vokey Design SM9 Steel Mens Right Hand Lob Wedge 58* 8 Bounce M Grind Wedge - Dynamic Gold",
         "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/sh-hc104920a_c628d3da-566b-45ce-bfd1-88d82b35dd9a.jpg?v=1788777336",
         "salePrice": 59.95,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=45927392702&a=2990893&m=82141",
         "dropPct": 25
-      },
-      {
-        "name": "Titleist Vokey SM9 Golf Wedge Raw",
-        "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-vokey-raw-wedge.jpg",
-        "salePrice": 129.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=33141112243&a=2990893&m=813",
-        "dropPct": 24
       }
     ],
     "putter": [
