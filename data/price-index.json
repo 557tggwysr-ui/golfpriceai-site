@@ -1277,23 +1277,23 @@
       "categories": {
         "apparel": {
           "avgPrice": 63.73,
-          "count": 19825
+          "count": 19824
         },
         "accessories": {
-          "avgPrice": 106.41,
-          "count": 3608
+          "avgPrice": 106.1,
+          "count": 3606
         },
         "bag": {
-          "avgPrice": 174.75,
-          "count": 1693
+          "avgPrice": 174.66,
+          "count": 1695
         },
         "wood": {
-          "avgPrice": 141.35,
-          "count": 1210
+          "avgPrice": 141.58,
+          "count": 1206
         },
         "hybrid": {
-          "avgPrice": 114.93,
-          "count": 800
+          "avgPrice": 115.03,
+          "count": 799
         },
         "ball": {
           "avgPrice": 45.73,
@@ -1305,7 +1305,7 @@
         },
         "shoes": {
           "avgPrice": 112.13,
-          "count": 4547
+          "count": 4548
         },
         "irons": {
           "avgPrice": 397.38,
@@ -1320,8 +1320,8 @@
           "count": 1242
         },
         "sets": {
-          "avgPrice": 394.86,
-          "count": 404
+          "avgPrice": 394.07,
+          "count": 406
         }
       }
     }
@@ -1329,31 +1329,31 @@
   "summary": {
     "apparel": {
       "currentAvg": 63.73,
-      "count": 19825,
+      "count": 19824,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 106.41,
-      "count": 3608,
+      "currentAvg": 106.1,
+      "count": 3606,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 174.75,
-      "count": 1693,
+      "currentAvg": 174.66,
+      "count": 1695,
       "change30d": null,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 141.35,
-      "count": 1210,
+      "currentAvg": 141.58,
+      "count": 1206,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 114.93,
-      "count": 800,
+      "currentAvg": 115.03,
+      "count": 799,
       "change30d": null,
       "change90d": null
     },
@@ -1371,7 +1371,7 @@
     },
     "shoes": {
       "currentAvg": 112.13,
-      "count": 4547,
+      "count": 4548,
       "change30d": null,
       "change90d": null
     },
@@ -1394,13 +1394,13 @@
       "change90d": null
     },
     "sets": {
-      "currentAvg": 394.86,
-      "count": 404,
+      "currentAvg": 394.07,
+      "count": 406,
       "change30d": null,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-09T15:36:18.021403+00:00",
+  "lastUpdated": "2026-09-09T20:13:06.565901+00:00",
   "topMovers": {
     "accessories": [
       {
