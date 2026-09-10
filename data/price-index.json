@@ -1329,47 +1329,47 @@
       "date": "2026-09-10",
       "categories": {
         "apparel": {
-          "avgPrice": 63.85,
-          "count": 19963
+          "avgPrice": 63.86,
+          "count": 19968
         },
         "accessories": {
-          "avgPrice": 105.86,
+          "avgPrice": 105.84,
           "count": 3624
         },
         "bag": {
-          "avgPrice": 174.56,
-          "count": 1702
+          "avgPrice": 174.52,
+          "count": 1701
         },
         "wood": {
-          "avgPrice": 141.29,
+          "avgPrice": 141.25,
           "count": 1213
         },
         "hybrid": {
-          "avgPrice": 114.3,
+          "avgPrice": 114.29,
           "count": 804
         },
         "ball": {
-          "avgPrice": 45.66,
-          "count": 710
+          "avgPrice": 45.95,
+          "count": 712
         },
         "wedge": {
-          "avgPrice": 107.94,
+          "avgPrice": 107.93,
           "count": 1092
         },
         "shoes": {
-          "avgPrice": 112.02,
-          "count": 4553
+          "avgPrice": 112.01,
+          "count": 4566
         },
         "irons": {
-          "avgPrice": 396.24,
+          "avgPrice": 396.21,
           "count": 1663
         },
         "putter": {
-          "avgPrice": 243.59,
-          "count": 1735
+          "avgPrice": 243.61,
+          "count": 1733
         },
         "driver": {
-          "avgPrice": 255.62,
+          "avgPrice": 254.98,
           "count": 1250
         },
         "sets": {
@@ -1381,67 +1381,67 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.85,
-      "count": 19963,
+      "currentAvg": 63.86,
+      "count": 19968,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 105.86,
+      "currentAvg": 105.84,
       "count": 3624,
       "change30d": null,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 174.56,
-      "count": 1702,
+      "currentAvg": 174.52,
+      "count": 1701,
       "change30d": null,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 141.29,
+      "currentAvg": 141.25,
       "count": 1213,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 114.3,
+      "currentAvg": 114.29,
       "count": 804,
       "change30d": null,
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.66,
-      "count": 710,
+      "currentAvg": 45.95,
+      "count": 712,
       "change30d": null,
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 107.94,
+      "currentAvg": 107.93,
       "count": 1092,
       "change30d": null,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.02,
-      "count": 4553,
+      "currentAvg": 112.01,
+      "count": 4566,
       "change30d": null,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 396.24,
+      "currentAvg": 396.21,
       "count": 1663,
       "change30d": null,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 243.59,
-      "count": 1735,
+      "currentAvg": 243.61,
+      "count": 1733,
       "change30d": null,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 255.62,
+      "currentAvg": 254.98,
       "count": 1250,
       "change30d": null,
       "change90d": null
@@ -1453,7 +1453,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-10T15:31:44.760017+00:00",
+  "lastUpdated": "2026-09-10T20:14:51.008227+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1528,11 +1528,11 @@
         "dropPct": 56
       },
       {
-        "name": "Mizuno Pro S Golf Balls White - 3 For 2 Offer",
-        "image": "https://www.clickgolf.co.uk/images/product/main/pro-s-white-3-for-2.jpg",
-        "salePrice": 39.99,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44356508836&a=2990893&m=2849",
-        "dropPct": 50
+        "name": "Wilson Staff Model X Golf Balls - White",
+        "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-08T085841.562.png?v=1756973986",
+        "salePrice": 42.95,
+        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=83219&awinaffid=2990893&ued=https%3A%2F%2Fwww.majorgolfdirect.com%2Fproducts%2Fcopy-of-wilson-staff-model-white-golf-balls-2024%3Fvariant%3D48406548611303",
+        "dropPct": 49
       }
     ],
     "wood": [
@@ -1586,7 +1586,7 @@
     "wedge": [
       {
         "name": "Opus SP Chrome Wedge",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/c708494d-fd60-4b2c-9979-207fb8b53bc4_LARGE_245caa0a-dc86-4492-afaf-5b6968da7e67.jpg?v=1789030432",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/c708494d-fd60-4b2c-9979-207fb8b53bc4_LARGE_8b8ce8a8-279a-42fc-8416-ba833cb1a0cf.jpg?v=1789049337",
         "salePrice": 88.09,
         "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fopus-sp-chrome-wedge-rm_am42_0000000113%3Fvariant%3D59046607651164",
         "dropPct": 51
