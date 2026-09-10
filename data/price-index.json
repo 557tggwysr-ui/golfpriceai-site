@@ -1329,11 +1329,11 @@
       "date": "2026-09-10",
       "categories": {
         "apparel": {
-          "avgPrice": 63.87,
-          "count": 19900
+          "avgPrice": 63.85,
+          "count": 19958
         },
         "accessories": {
-          "avgPrice": 105.99,
+          "avgPrice": 106.01,
           "count": 3618
         },
         "bag": {
@@ -1341,12 +1341,12 @@
           "count": 1701
         },
         "wood": {
-          "avgPrice": 141.74,
-          "count": 1206
+          "avgPrice": 141.58,
+          "count": 1212
         },
         "hybrid": {
           "avgPrice": 114.63,
-          "count": 803
+          "count": 804
         },
         "ball": {
           "avgPrice": 45.76,
@@ -1357,8 +1357,8 @@
           "count": 1091
         },
         "shoes": {
-          "avgPrice": 112.11,
-          "count": 4555
+          "avgPrice": 112.12,
+          "count": 4554
         },
         "irons": {
           "avgPrice": 396.3,
@@ -1369,8 +1369,8 @@
           "count": 1735
         },
         "driver": {
-          "avgPrice": 256.04,
-          "count": 1244
+          "avgPrice": 255.96,
+          "count": 1247
         },
         "sets": {
           "avgPrice": 393.69,
@@ -1381,13 +1381,13 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 63.87,
-      "count": 19900,
+      "currentAvg": 63.85,
+      "count": 19958,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 105.99,
+      "currentAvg": 106.01,
       "count": 3618,
       "change30d": null,
       "change90d": null
@@ -1399,14 +1399,14 @@
       "change90d": null
     },
     "wood": {
-      "currentAvg": 141.74,
-      "count": 1206,
+      "currentAvg": 141.58,
+      "count": 1212,
       "change30d": null,
       "change90d": null
     },
     "hybrid": {
       "currentAvg": 114.63,
-      "count": 803,
+      "count": 804,
       "change30d": null,
       "change90d": null
     },
@@ -1423,8 +1423,8 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.11,
-      "count": 4555,
+      "currentAvg": 112.12,
+      "count": 4554,
       "change30d": null,
       "change90d": null
     },
@@ -1441,8 +1441,8 @@
       "change90d": null
     },
     "driver": {
-      "currentAvg": 256.04,
-      "count": 1244,
+      "currentAvg": 255.96,
+      "count": 1247,
       "change30d": null,
       "change90d": null
     },
@@ -1453,7 +1453,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-10T02:12:20.250423+00:00",
+  "lastUpdated": "2026-09-10T10:17:25.359309+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1586,7 +1586,7 @@
     "wedge": [
       {
         "name": "Opus SP Chrome Wedge",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/c708494d-fd60-4b2c-9979-207fb8b53bc4_LARGE_04e0dd6b-e80c-4b2c-ab4c-0fc1f35bf4d5.jpg?v=1788930220",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/c708494d-fd60-4b2c-9979-207fb8b53bc4_LARGE_07f81223-f99e-40e3-a60e-422506ab5031.jpg?v=1788998923",
         "salePrice": 88.09,
         "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fopus-sp-chrome-wedge-rm_am42_0000000113%3Fvariant%3D59046607651164",
         "dropPct": 51
@@ -1609,7 +1609,7 @@
       },
       {
         "name": "Ai-ONE Milled 2-Ball T DB Putter",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/6e004b09-4c2e-4aab-a9f9-93ef89b7adce_LARGE_2d39a142-12cd-46fd-bb97-b6f9b02bd344.jpg?v=1788771684",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/6e004b09-4c2e-4aab-a9f9-93ef89b7adce_LARGE_ac2a80a8-68e8-4674-9c9a-697677578662.jpg?v=1789016682",
         "salePrice": 232.19,
         "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fai-one-milled-2-ball-t-db-putter-rm_a42q_ptai1mldle_head_loft_2btd%3Fvariant%3D59042227159388",
         "dropPct": 50
