@@ -1435,20 +1435,20 @@
       "date": "2026-09-12",
       "categories": {
         "apparel": {
-          "avgPrice": 64.45,
-          "count": 20112
+          "avgPrice": 64.43,
+          "count": 20104
         },
         "accessories": {
-          "avgPrice": 105.05,
-          "count": 3645
+          "avgPrice": 104.91,
+          "count": 3643
         },
         "bag": {
           "avgPrice": 171.91,
           "count": 1732
         },
         "wood": {
-          "avgPrice": 138.68,
-          "count": 1276
+          "avgPrice": 138.66,
+          "count": 1275
         },
         "hybrid": {
           "avgPrice": 113.17,
@@ -1463,8 +1463,8 @@
           "count": 1120
         },
         "shoes": {
-          "avgPrice": 111.95,
-          "count": 4631
+          "avgPrice": 111.93,
+          "count": 4629
         },
         "irons": {
           "avgPrice": 389.67,
@@ -1487,14 +1487,14 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 64.45,
-      "count": 20112,
+      "currentAvg": 64.43,
+      "count": 20104,
       "change30d": null,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 105.05,
-      "count": 3645,
+      "currentAvg": 104.91,
+      "count": 3643,
       "change30d": null,
       "change90d": null
     },
@@ -1505,8 +1505,8 @@
       "change90d": null
     },
     "wood": {
-      "currentAvg": 138.68,
-      "count": 1276,
+      "currentAvg": 138.66,
+      "count": 1275,
       "change30d": null,
       "change90d": null
     },
@@ -1529,8 +1529,8 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 111.95,
-      "count": 4631,
+      "currentAvg": 111.93,
+      "count": 4629,
       "change30d": null,
       "change90d": null
     },
@@ -1559,7 +1559,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-12T14:39:55.859187+00:00",
+  "lastUpdated": "2026-09-12T19:53:22.801488+00:00",
   "topMovers": {
     "accessories": [
       {
