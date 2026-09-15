@@ -1594,20 +1594,20 @@
       "date": "2026-09-15",
       "categories": {
         "apparel": {
-          "avgPrice": 64.57,
-          "count": 20170
+          "avgPrice": 64.56,
+          "count": 20180
         },
         "accessories": {
           "avgPrice": 105.31,
           "count": 3659
         },
         "bag": {
-          "avgPrice": 174.39,
-          "count": 1733
+          "avgPrice": 174.14,
+          "count": 1742
         },
         "wood": {
-          "avgPrice": 138.51,
-          "count": 1279
+          "avgPrice": 138.79,
+          "count": 1283
         },
         "hybrid": {
           "avgPrice": 113.21,
@@ -1622,11 +1622,11 @@
           "count": 1127
         },
         "shoes": {
-          "avgPrice": 112.07,
+          "avgPrice": 112.08,
           "count": 4647
         },
         "irons": {
-          "avgPrice": 389.38,
+          "avgPrice": 389.23,
           "count": 1737
         },
         "putter": {
@@ -1646,8 +1646,8 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 64.57,
-      "count": 20170,
+      "currentAvg": 64.56,
+      "count": 20180,
       "change30d": 30.9,
       "change90d": null
     },
@@ -1658,15 +1658,15 @@
       "change90d": null
     },
     "bag": {
-      "currentAvg": 174.39,
-      "count": 1733,
-      "change30d": -23.7,
+      "currentAvg": 174.14,
+      "count": 1742,
+      "change30d": -23.8,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 138.51,
-      "count": 1279,
-      "change30d": -55.0,
+      "currentAvg": 138.79,
+      "count": 1283,
+      "change30d": -54.9,
       "change90d": null
     },
     "hybrid": {
@@ -1688,13 +1688,13 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.07,
+      "currentAvg": 112.08,
       "count": 4647,
       "change30d": 10.7,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 389.38,
+      "currentAvg": 389.23,
       "count": 1737,
       "change30d": -53.6,
       "change90d": null
@@ -1718,7 +1718,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-15T15:56:04.229709+00:00",
+  "lastUpdated": "2026-09-15T20:40:12.556805+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1734,6 +1734,22 @@
         "salePrice": 20.7,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
         "dropPct": 70
+      }
+    ],
+    "apparel": [
+      {
+        "name": "TA Winter Headband",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/headwear-2023-ta-winter-headband/headwear-2023-ta-winter-headband_10235___1.png?sfrm=png",
+        "salePrice": 15.0,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684836&a=2990893&m=19186",
+        "dropPct": 50
+      },
+      {
+        "name": "Tour Authentic Reversible Beanie\u200b",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/headwear-2023-ta-reversible-beanie/headwear-2023-ta-reversible-beanie_4622___1.png?sfrm=png",
+        "salePrice": 11.5,
+        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44512668051&a=2990893&m=19186",
+        "dropPct": 50
       }
     ],
     "bag": [
@@ -1894,22 +1910,6 @@
         "salePrice": 249.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=37971101919&a=2990893&m=82141",
         "dropPct": 17
-      }
-    ],
-    "apparel": [
-      {
-        "name": "TA Winter Headband",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/headwear-2023-ta-winter-headband/headwear-2023-ta-winter-headband_10235___1.png?sfrm=png",
-        "salePrice": 15.0,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684836&a=2990893&m=19186",
-        "dropPct": 50
-      },
-      {
-        "name": "Tour Authentic Reversible Beanie\u200b",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/headwear-2023-ta-reversible-beanie/headwear-2023-ta-reversible-beanie_4622___1.png?sfrm=png",
-        "salePrice": 11.5,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=44512668051&a=2990893&m=19186",
-        "dropPct": 50
       }
     ]
   }
