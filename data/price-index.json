@@ -1642,36 +1642,89 @@
           "count": 418
         }
       }
+    },
+    {
+      "date": "2026-09-16",
+      "categories": {
+        "apparel": {
+          "avgPrice": 64.6,
+          "count": 20215
+        },
+        "accessories": {
+          "avgPrice": 105.07,
+          "count": 3661
+        },
+        "bag": {
+          "avgPrice": 174.18,
+          "count": 1754
+        },
+        "wood": {
+          "avgPrice": 138.35,
+          "count": 1292
+        },
+        "hybrid": {
+          "avgPrice": 113.13,
+          "count": 849
+        },
+        "ball": {
+          "avgPrice": 45.97,
+          "count": 714
+        },
+        "wedge": {
+          "avgPrice": 105.88,
+          "count": 1147
+        },
+        "shoes": {
+          "avgPrice": 111.91,
+          "count": 4706
+        },
+        "irons": {
+          "avgPrice": 388.09,
+          "count": 1739
+        },
+        "putter": {
+          "avgPrice": 241.01,
+          "count": 1782
+        },
+        "driver": {
+          "avgPrice": 250.73,
+          "count": 1327
+        },
+        "sets": {
+          "avgPrice": 394.09,
+          "count": 420
+        }
+      }
     }
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 64.56,
-      "count": 20180,
+      "currentAvg": 64.6,
+      "count": 20215,
       "change30d": 30.9,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 105.31,
-      "count": 3659,
-      "change30d": -26.1,
+      "currentAvg": 105.07,
+      "count": 3661,
+      "change30d": -26.4,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 174.14,
-      "count": 1742,
-      "change30d": -23.8,
+      "currentAvg": 174.18,
+      "count": 1754,
+      "change30d": -25.7,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 138.79,
-      "count": 1283,
-      "change30d": -54.9,
+      "currentAvg": 138.35,
+      "count": 1292,
+      "change30d": -55.0,
       "change90d": null
     },
     "hybrid": {
-      "currentAvg": 113.21,
-      "count": 844,
+      "currentAvg": 113.13,
+      "count": 849,
       "change30d": -53.9,
       "change90d": null
     },
@@ -1682,43 +1735,43 @@
       "change90d": null
     },
     "wedge": {
-      "currentAvg": 106.53,
-      "count": 1127,
-      "change30d": -54.3,
+      "currentAvg": 105.88,
+      "count": 1147,
+      "change30d": -54.6,
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 112.08,
-      "count": 4647,
-      "change30d": 10.7,
+      "currentAvg": 111.91,
+      "count": 4706,
+      "change30d": 10.5,
       "change90d": null
     },
     "irons": {
-      "currentAvg": 389.23,
-      "count": 1737,
-      "change30d": -53.6,
+      "currentAvg": 388.09,
+      "count": 1739,
+      "change30d": -53.7,
       "change90d": null
     },
     "putter": {
-      "currentAvg": 241.36,
-      "count": 1775,
-      "change30d": -29.4,
+      "currentAvg": 241.01,
+      "count": 1782,
+      "change30d": -30.6,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 250.61,
-      "count": 1319,
+      "currentAvg": 250.73,
+      "count": 1327,
       "change30d": -58.0,
       "change90d": null
     },
     "sets": {
-      "currentAvg": 395.29,
-      "count": 418,
-      "change30d": -21.4,
+      "currentAvg": 394.09,
+      "count": 420,
+      "change30d": -25.2,
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-15T20:40:12.556805+00:00",
+  "lastUpdated": "2026-09-16T02:27:52.526448+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1761,11 +1814,11 @@
         "dropPct": 52
       },
       {
-        "name": "Limited Edition May Major Staff Bag",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/bags-2024-may-major-staff/bags-2024-may-major-staff_1___2.png?sfrm=png",
-        "salePrice": 839.3,
-        "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684946&a=2990893&m=19186",
-        "dropPct": 30
+        "name": "Mizuno Tour Staff Mid Bag 2025 - Staff Colours - White / Blue",
+        "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MizunoTourStaffMidBag2025-StaffColours_1.jpg?v=1788352805",
+        "salePrice": 199.0,
+        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=83219&awinaffid=2990893&ued=https%3A%2F%2Fwww.majorgolfdirect.com%2Fproducts%2Fmizuno-tour-staff-mid-bag-2025-staff-colours%3Fvariant%3D56401750524283",
+        "dropPct": 38
       }
     ],
     "hybrid": [
