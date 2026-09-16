@@ -1647,20 +1647,20 @@
       "date": "2026-09-16",
       "categories": {
         "apparel": {
-          "avgPrice": 64.6,
-          "count": 20213
+          "avgPrice": 64.61,
+          "count": 20211
         },
         "accessories": {
-          "avgPrice": 105.07,
-          "count": 3661
+          "avgPrice": 104.54,
+          "count": 3712
         },
         "bag": {
-          "avgPrice": 174.09,
-          "count": 1755
+          "avgPrice": 173.98,
+          "count": 1758
         },
         "wood": {
-          "avgPrice": 138.35,
-          "count": 1292
+          "avgPrice": 138.3,
+          "count": 1291
         },
         "hybrid": {
           "avgPrice": 113.13,
@@ -1683,12 +1683,12 @@
           "count": 1739
         },
         "putter": {
-          "avgPrice": 241.01,
+          "avgPrice": 240.78,
           "count": 1782
         },
         "driver": {
-          "avgPrice": 250.73,
-          "count": 1327
+          "avgPrice": 250.67,
+          "count": 1326
         },
         "sets": {
           "avgPrice": 394.09,
@@ -1699,26 +1699,26 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 64.6,
-      "count": 20213,
+      "currentAvg": 64.61,
+      "count": 20211,
       "change30d": 30.9,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 105.07,
-      "count": 3661,
-      "change30d": -26.4,
+      "currentAvg": 104.54,
+      "count": 3712,
+      "change30d": -26.8,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 174.09,
-      "count": 1755,
-      "change30d": -25.7,
+      "currentAvg": 173.98,
+      "count": 1758,
+      "change30d": -25.8,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 138.35,
-      "count": 1292,
+      "currentAvg": 138.3,
+      "count": 1291,
       "change30d": -55.0,
       "change90d": null
     },
@@ -1753,15 +1753,15 @@
       "change90d": null
     },
     "putter": {
-      "currentAvg": 241.01,
+      "currentAvg": 240.78,
       "count": 1782,
       "change30d": -30.6,
       "change90d": null
     },
     "driver": {
-      "currentAvg": 250.73,
-      "count": 1327,
-      "change30d": -58.0,
+      "currentAvg": 250.67,
+      "count": 1326,
+      "change30d": -58.1,
       "change90d": null
     },
     "sets": {
@@ -1771,7 +1771,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-16T10:30:54.280177+00:00",
+  "lastUpdated": "2026-09-16T15:48:07.697184+00:00",
   "topMovers": {
     "accessories": [
       {
@@ -1783,7 +1783,7 @@
       },
       {
         "name": "Limited Edition 2021 July Major Blade Headcover",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789467078845/sits/hcovers-2021-july-blade/hcovers-2021-july-blade_3165___1.png?sfrm=png",
         "salePrice": 20.7,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684654&a=2990893&m=19186",
         "dropPct": 70
@@ -1792,14 +1792,14 @@
     "apparel": [
       {
         "name": "TA Winter Headband",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/headwear-2023-ta-winter-headband/headwear-2023-ta-winter-headband_10235___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789467078845/sits/headwear-2023-ta-winter-headband/headwear-2023-ta-winter-headband_10235___1.png?sfrm=png",
         "salePrice": 15.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684836&a=2990893&m=19186",
         "dropPct": 50
       },
       {
         "name": "Tour Authentic Reversible Beanie\u200b",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/headwear-2023-ta-reversible-beanie/headwear-2023-ta-reversible-beanie_4622___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789467078845/sits/headwear-2023-ta-reversible-beanie/headwear-2023-ta-reversible-beanie_4622___1.png?sfrm=png",
         "salePrice": 11.5,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=44512668051&a=2990893&m=19186",
         "dropPct": 50
@@ -1840,14 +1840,14 @@
     "irons": [
       {
         "name": "Paradym Irons",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/irons-2023-paradym/irons-2023-paradym___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789467078845/sits/irons-2023-paradym/irons-2023-paradym___1.png?sfrm=png",
         "salePrice": 119.35,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43078506623&a=2990893&m=19186",
         "dropPct": 90
       },
       {
         "name": "Big Bertha Irons",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/irons-2023-big-bertha/irons-2023-big-bertha___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789467078845/sits/irons-2023-big-bertha/irons-2023-big-bertha___1.png?sfrm=png",
         "salePrice": 158.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486562&a=2990893&m=19186",
         "dropPct": 86
@@ -1872,14 +1872,14 @@
     "wood": [
       {
         "name": "Great Big Bertha Fairway Woods",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789467078845/sits/fwoods-2023-gbb/fwoods-2023-gbb___1.png?sfrm=png",
         "salePrice": 389.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486566&a=2990893&m=19186",
         "dropPct": 40
       },
       {
         "name": "Women's Great Big Bertha Fairway Woods",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789467078845/sits/fwoods-2023-gbb-womens/fwoods-2023-gbb-womens___1.png?sfrm=png",
         "salePrice": 389.4,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=43207486567&a=2990893&m=19186",
         "dropPct": 40
@@ -1901,17 +1901,33 @@
         "dropPct": 75
       }
     ],
+    "putter": [
+      {
+        "name": "Ai-ONE Milled 2-Ball T DB Putter",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/6e004b09-4c2e-4aab-a9f9-93ef89b7adce_LARGE_ac2a80a8-68e8-4674-9c9a-697677578662.jpg?v=1789016682",
+        "salePrice": 232.19,
+        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fai-one-milled-2-ball-t-db-putter-rm_a42q_ptai1mldle_head_loft_2btd%3Fvariant%3D59042227159388",
+        "dropPct": 50
+      },
+      {
+        "name": "Ai-ONE Milled Rossie V T DB Putter",
+        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/50a01117-c1d8-4adf-86e1-fa9bc37e33d6_LARGE_7b065252-bfe4-4fe1-ba9e-bede41bb0e84.jpg?v=1789016655",
+        "salePrice": 232.19,
+        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fai-one-milled-rossie-v-t-db-putter-rm_a42q_ptai1mldle_head_loft_rvtd%3Fvariant%3D59042206253404",
+        "dropPct": 48
+      }
+    ],
     "shoes": [
       {
         "name": "Men's Chev Star Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789467078845/sits/footwear-2024-chev-star/footwear-2024-chev-star_2578___1.png?sfrm=png",
         "salePrice": 44.5,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=40534684785&a=2990893&m=19186",
         "dropPct": 50
       },
       {
         "name": "Men's Lazer Golf Shoes",
-        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789399788847/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
+        "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1789467078845/sits/footwear-2024-lazer/footwear-2024-lazer_2609___1.png?sfrm=png",
         "salePrice": 54.5,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=44504515550&a=2990893&m=19186",
         "dropPct": 50
@@ -1931,22 +1947,6 @@
         "salePrice": 129.0,
         "affiliateUrl": "https://www.awin1.com/pclick.php?p=33141112243&a=2990893&m=813",
         "dropPct": 24
-      }
-    ],
-    "putter": [
-      {
-        "name": "Ai-ONE Milled 2-Ball T DB Putter",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/6e004b09-4c2e-4aab-a9f9-93ef89b7adce_LARGE_ac2a80a8-68e8-4674-9c9a-697677578662.jpg?v=1789016682",
-        "salePrice": 232.19,
-        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fai-one-milled-2-ball-t-db-putter-rm_a42q_ptai1mldle_head_loft_2btd%3Fvariant%3D59042227159388",
-        "dropPct": 50
-      },
-      {
-        "name": "Ai-ONE Milled Rossie V T DB Putter",
-        "image": "https://cdn.shopify.com/s/files/1/1017/4060/9884/files/50a01117-c1d8-4adf-86e1-fa9bc37e33d6_LARGE_7b065252-bfe4-4fe1-ba9e-bede41bb0e84.jpg?v=1789016655",
-        "salePrice": 232.19,
-        "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=19187&awinaffid=2990893&ued=https%3A%2F%2Fuk.callawaygolfpreowned.com%2Fproducts%2Fai-one-milled-rossie-v-t-db-putter-rm_a42q_ptai1mldle_head_loft_rvtd%3Fvariant%3D59042206253404",
-        "dropPct": 48
       }
     ],
     "sets": [
