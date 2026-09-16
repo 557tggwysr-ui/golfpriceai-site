@@ -1647,28 +1647,28 @@
       "date": "2026-09-16",
       "categories": {
         "apparel": {
-          "avgPrice": 64.61,
-          "count": 20211
+          "avgPrice": 64.62,
+          "count": 20214
         },
         "accessories": {
-          "avgPrice": 104.54,
+          "avgPrice": 104.51,
           "count": 3712
         },
         "bag": {
-          "avgPrice": 173.98,
+          "avgPrice": 174.0,
           "count": 1758
         },
         "wood": {
-          "avgPrice": 138.3,
-          "count": 1291
+          "avgPrice": 138.35,
+          "count": 1292
         },
         "hybrid": {
           "avgPrice": 113.13,
           "count": 849
         },
         "ball": {
-          "avgPrice": 45.91,
-          "count": 715
+          "avgPrice": 45.86,
+          "count": 716
         },
         "wedge": {
           "avgPrice": 105.88,
@@ -1684,7 +1684,7 @@
         },
         "putter": {
           "avgPrice": 240.78,
-          "count": 1782
+          "count": 1781
         },
         "driver": {
           "avgPrice": 250.67,
@@ -1699,26 +1699,26 @@
   ],
   "summary": {
     "apparel": {
-      "currentAvg": 64.61,
-      "count": 20211,
+      "currentAvg": 64.62,
+      "count": 20214,
       "change30d": 30.9,
       "change90d": null
     },
     "accessories": {
-      "currentAvg": 104.54,
+      "currentAvg": 104.51,
       "count": 3712,
       "change30d": -26.8,
       "change90d": null
     },
     "bag": {
-      "currentAvg": 173.98,
+      "currentAvg": 174.0,
       "count": 1758,
       "change30d": -25.8,
       "change90d": null
     },
     "wood": {
-      "currentAvg": 138.3,
-      "count": 1291,
+      "currentAvg": 138.35,
+      "count": 1292,
       "change30d": -55.0,
       "change90d": null
     },
@@ -1729,9 +1729,9 @@
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.91,
-      "count": 715,
-      "change30d": -43.5,
+      "currentAvg": 45.86,
+      "count": 716,
+      "change30d": -43.6,
       "change90d": null
     },
     "wedge": {
@@ -1754,7 +1754,7 @@
     },
     "putter": {
       "currentAvg": 240.78,
-      "count": 1782,
+      "count": 1781,
       "change30d": -30.6,
       "change90d": null
     },
@@ -1771,7 +1771,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-16T15:48:07.697184+00:00",
+  "lastUpdated": "2026-09-16T20:40:19.856405+00:00",
   "topMovers": {
     "accessories": [
       {
