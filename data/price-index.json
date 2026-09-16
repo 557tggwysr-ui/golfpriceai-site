@@ -1648,15 +1648,15 @@
       "categories": {
         "apparel": {
           "avgPrice": 64.6,
-          "count": 20215
+          "count": 20213
         },
         "accessories": {
           "avgPrice": 105.07,
           "count": 3661
         },
         "bag": {
-          "avgPrice": 174.18,
-          "count": 1754
+          "avgPrice": 174.09,
+          "count": 1755
         },
         "wood": {
           "avgPrice": 138.35,
@@ -1667,16 +1667,16 @@
           "count": 849
         },
         "ball": {
-          "avgPrice": 45.97,
-          "count": 714
+          "avgPrice": 45.91,
+          "count": 715
         },
         "wedge": {
           "avgPrice": 105.88,
           "count": 1147
         },
         "shoes": {
-          "avgPrice": 111.91,
-          "count": 4706
+          "avgPrice": 111.9,
+          "count": 4709
         },
         "irons": {
           "avgPrice": 388.09,
@@ -1700,7 +1700,7 @@
   "summary": {
     "apparel": {
       "currentAvg": 64.6,
-      "count": 20215,
+      "count": 20213,
       "change30d": 30.9,
       "change90d": null
     },
@@ -1711,8 +1711,8 @@
       "change90d": null
     },
     "bag": {
-      "currentAvg": 174.18,
-      "count": 1754,
+      "currentAvg": 174.09,
+      "count": 1755,
       "change30d": -25.7,
       "change90d": null
     },
@@ -1729,9 +1729,9 @@
       "change90d": null
     },
     "ball": {
-      "currentAvg": 45.97,
-      "count": 714,
-      "change30d": -43.4,
+      "currentAvg": 45.91,
+      "count": 715,
+      "change30d": -43.5,
       "change90d": null
     },
     "wedge": {
@@ -1741,8 +1741,8 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 111.91,
-      "count": 4706,
+      "currentAvg": 111.9,
+      "count": 4709,
       "change30d": 10.5,
       "change90d": null
     },
@@ -1771,7 +1771,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-16T02:27:52.526448+00:00",
+  "lastUpdated": "2026-09-16T10:30:54.280177+00:00",
   "topMovers": {
     "accessories": [
       {
