@@ -1807,15 +1807,15 @@
       "categories": {
         "apparel": {
           "avgPrice": 64.94,
-          "count": 20415
+          "count": 20412
         },
         "accessories": {
           "avgPrice": 103.49,
           "count": 3774
         },
         "bag": {
-          "avgPrice": 170.24,
-          "count": 1788
+          "avgPrice": 170.27,
+          "count": 1787
         },
         "wood": {
           "avgPrice": 138.55,
@@ -1834,8 +1834,8 @@
           "count": 1153
         },
         "shoes": {
-          "avgPrice": 111.64,
-          "count": 4813
+          "avgPrice": 111.68,
+          "count": 4808
         },
         "irons": {
           "avgPrice": 392.77,
@@ -1859,7 +1859,7 @@
   "summary": {
     "apparel": {
       "currentAvg": 64.94,
-      "count": 20415,
+      "count": 20412,
       "change30d": 31.8,
       "change90d": null
     },
@@ -1870,8 +1870,8 @@
       "change90d": null
     },
     "bag": {
-      "currentAvg": 170.24,
-      "count": 1788,
+      "currentAvg": 170.27,
+      "count": 1787,
       "change30d": -24.1,
       "change90d": null
     },
@@ -1900,8 +1900,8 @@
       "change90d": null
     },
     "shoes": {
-      "currentAvg": 111.64,
-      "count": 4813,
+      "currentAvg": 111.68,
+      "count": 4808,
       "change30d": 10.8,
       "change90d": null
     },
@@ -1930,7 +1930,7 @@
       "change90d": null
     }
   },
-  "lastUpdated": "2026-09-19T15:04:00.818544+00:00",
+  "lastUpdated": "2026-09-19T19:47:21.893312+00:00",
   "topMovers": {
     "accessories": [
       {
