@@ -61,6 +61,7 @@ import urllib.error
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote_plus
+from xml.sax.saxutils import escape as xml_escape
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
 
@@ -75,6 +76,8 @@ STOCK_HISTORY_FILE = Path(__file__).resolve().parent.parent / "data" / "stock-hi
 INDEX_FILE = Path(__file__).resolve().parent.parent / "data" / "price-index.json"
 BUNDLE_FILE = Path(__file__).resolve().parent.parent / "data" / "bundles.json"
 CURATED_VIEWS_FILE = Path(__file__).resolve().parent.parent / "data" / "curated-views.json"
+DEALS_FEED_RSS_FILE = Path(__file__).resolve().parent.parent / "data" / "deals-feed.xml"
+DEALS_FEED_JSON_FILE = Path(__file__).resolve().parent.parent / "data" / "deals-feed.json"
 LITE_DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products-lite.json"
 APPAREL_LITE_FILE = Path(__file__).resolve().parent.parent / "data" / "apparel-lite.json"
 OUTFIT_FILE = Path(__file__).resolve().parent.parent / "data" / "outfits.json"
@@ -2615,6 +2618,128 @@ def save_apparel_lite_catalog(catalog):
     APPAREL_LITE_FILE.write_text(json.dumps(lite))
 
 
+
+# ============================================================
+# Public deals feed (RSS 2.0 + JSON Feed 1.1)
+#
+# Why this exists: a real, machine-readable feed lets other sites, deal
+# aggregators, newsletter writers, and AI answer engines discover and
+# cite GolfPrice AI's genuinely verified deals automatically, without
+# needing to already know the site exists -- a real, low-effort
+# discovery channel distinct from search ranking.
+#
+# Same honesty rule as Show Us The Receipts: a product only qualifies
+# if priceInsight.verifiedDiscount is true, meaning GolfPrice AI's own
+# tracked history recorded a real higher price -- never an unverified
+# retailer RRP claim. The feed is deliberately larger than the 24 shown
+# on-site (50), since external consumers pick and choose from it rather
+# than displaying the whole thing verbatim.
+#
+# Each item links back to a real, live GolfPrice AI page for that exact
+# product (a search-filtered Shop All Deals view), not straight to the
+# retailer's affiliate URL. A raw affiliate-link feed would let other
+# sites/readers bypass golfpriceai.com entirely -- the whole point of
+# this feed is to be found by people who don't know the site exists,
+# which means the link needs to land them ON it.
+# ============================================================
+
+DEALS_FEED_SIZE = 50
+
+
+def compute_deals_feed_items(products):
+    candidates = [p for p in products if p.get("priceInsight", {}).get("verifiedDiscount") and p.get("image")]
+    scored = []
+    for p in candidates:
+        insight = p["priceInsight"]
+        drop_pct = round(((insight["historicalHigh"] - p["salePrice"]) / insight["historicalHigh"]) * 100)
+        scored.append((drop_pct, p))
+    scored.sort(key=lambda t: -t[0])
+    return scored[:DEALS_FEED_SIZE]
+
+
+def _feed_site_link(product):
+    return f"https://golfpriceai.com/shop.html?q={quote_plus(product['name'])}"
+
+
+def _feed_item_title(drop_pct, p):
+    insight = p["priceInsight"]
+    return f"{p['name']} — £{p['salePrice']:.2f} (was £{insight['historicalHigh']:.2f}, {drop_pct}% off)"
+
+
+def _feed_item_description(drop_pct, p):
+    insight = p["priceInsight"]
+    return (f"Genuinely tracked price drop, not a claimed RRP — GolfPrice AI recorded a real "
+            f"historical high of £{insight['historicalHigh']:.2f} for this item, now down to "
+            f"£{p['salePrice']:.2f} ({drop_pct}% off). Compare prices across UK golf retailers at GolfPrice AI.")
+
+
+def _feed_image_mime_type(url):
+    lower = (url or "").lower().split("?")[0]
+    if lower.endswith(".png"):
+        return "image/png"
+    if lower.endswith(".webp"):
+        return "image/webp"
+    if lower.endswith(".gif"):
+        return "image/gif"
+    return "image/jpeg"
+
+
+def build_deals_rss(items, generated_at_rfc822):
+    parts = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<rss version="2.0"><channel>',
+        '<title>GolfPrice AI — Verified Deals</title>',
+        '<link>https://golfpriceai.com/</link>',
+        '<description>Genuinely verified golf gear price drops, tracked across UK retailers. '
+        'A product only appears here if we recorded a real higher price ourselves — never an '
+        'unverified retailer RRP claim.</description>',
+        f'<lastBuildDate>{generated_at_rfc822}</lastBuildDate>',
+    ]
+    for drop_pct, p in items:
+        parts.append("<item>")
+        parts.append(f"<title>{xml_escape(_feed_item_title(drop_pct, p))}</title>")
+        parts.append(f"<link>{xml_escape(_feed_site_link(p))}</link>")
+        parts.append(f'<guid isPermaLink="false">{xml_escape(p["id"])}</guid>')
+        parts.append(f"<description>{xml_escape(_feed_item_description(drop_pct, p))}</description>")
+        parts.append(f'<enclosure url="{xml_escape(p["image"])}" type="{_feed_image_mime_type(p["image"])}"/>')
+        parts.append(f"<pubDate>{generated_at_rfc822}</pubDate>")
+        parts.append("</item>")
+    parts.append("</channel></rss>")
+    return "\n".join(parts)
+
+
+def build_deals_json_feed(items, generated_at_iso):
+    feed_items = []
+    for drop_pct, p in items:
+        feed_items.append({
+            "id": p["id"],
+            "url": _feed_site_link(p),
+            "title": _feed_item_title(drop_pct, p),
+            "content_text": _feed_item_description(drop_pct, p),
+            "image": p.get("image"),
+            "date_published": generated_at_iso,
+        })
+    return {
+        "version": "https://jsonfeed.org/version/1.1",
+        "title": "GolfPrice AI — Verified Deals",
+        "home_page_url": "https://golfpriceai.com/",
+        "feed_url": "https://golfpriceai.com/data/deals-feed.json",
+        "description": "Genuinely verified golf gear price drops, tracked across UK retailers. "
+                        "A product only appears here if we recorded a real higher price ourselves — "
+                        "never an unverified retailer RRP claim.",
+        "items": feed_items,
+    }
+
+
+def save_deals_feed(products):
+    items = compute_deals_feed_items(products)
+    now_rfc822 = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
+    now_iso = datetime.now(timezone.utc).isoformat()
+    DEALS_FEED_RSS_FILE.write_text(build_deals_rss(items, now_rfc822))
+    DEALS_FEED_JSON_FILE.write_text(json.dumps(build_deals_json_feed(items, now_iso)))
+    return len(items)
+
+
 def compute_bundles(products):
     """Rebuilds every bundle from scratch each run, always picking the
     single cheapest currently in-stock, real-photo match for each slot.
@@ -2730,6 +2855,9 @@ def main():
     save_curated_views(catalog["products"])
     save_lite_catalog(catalog)
     save_apparel_lite_catalog(catalog)
+
+    feed_count = save_deals_feed(catalog["products"])
+    print(f"Public deals feed: {feed_count} genuinely verified deals published (RSS + JSON Feed).")
 
     print_data_quality_report()
 
