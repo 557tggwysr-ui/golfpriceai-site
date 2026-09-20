@@ -688,12 +688,25 @@ footer a:hover { color: var(--green); }
   padding: 20px;
   position: sticky;
   top: 20px;
+  /* Cap the whole sidebar to the viewport height (minus the sticky
+     top offset and some breathing room) so a long filter list scrolls
+     WITHIN itself instead of extending the sidebar past the screen
+     and dragging the whole page down with it when you scroll it. */
+  max-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
 }
 .filter-sidebar-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 0 14px;
+  flex-shrink: 0;
+}
+#filter-sidebar-body {
+  overflow-y: auto;
+  min-height: 0; /* required for a flex child to actually shrink and scroll, not just grow */
+  padding-right: 4px; /* keeps content clear of the scrollbar */
 }
 .filter-sidebar-head h2 {
   font-size: 16px;
@@ -832,8 +845,13 @@ footer a:hover { color: var(--green); }
     display: none;
     position: static;
     margin-bottom: 20px;
+    /* Same self-contained scrolling on mobile -- the toggle-open panel
+       is no longer position:sticky, but it can still get taller than
+       the screen, so it needs its own scroll boundary here too rather
+       than relying on the (now absent) viewport-relative sticky cap. */
+    max-height: 70vh;
   }
-  .filter-sidebar.open { display: block; }
+  .filter-sidebar.open { display: flex; }
 }
 
 /* ============================================
@@ -1067,6 +1085,29 @@ footer a:hover { color: var(--green); }
 }
 .empty-state { color: var(--muted); padding: 40px 0; text-align: center; }
 @media (max-width: 480px) { .shop-grid { grid-template-columns: 1fr; } }
+
+.shop-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 24px 0 40px;
+}
+.page-btn {
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--ink);
+}
+.page-btn:hover:not([disabled]) { border-color: var(--green); color: var(--green); }
+.page-btn.active { background: var(--green); border-color: var(--green); color: #fff; }
+.page-btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+.page-ellipsis { color: var(--muted); padding: 0 4px; }
 
 /* ============================================
    Homepage: Our Retail Partners section
