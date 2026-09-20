@@ -276,6 +276,17 @@ let sortMode = 'popular';
 let searchQuery = '';
 let groupNoteHTML = '';
 
+// Shop All Deals (no category/source narrowing) previously rendered
+// every matching product into the DOM in one go -- up to ~46,000 cards,
+// each with an embedded image and its own inline JSON-LD schema block.
+// That's what actually made the page slow/janky, far more than the
+// initial data fetch: building and laying out tens of thousands of DOM
+// nodes at once. Paginating the RENDER (not the underlying filter/sort,
+// which still runs over the full matching set so counts stay accurate)
+// cuts that to one page's worth of real DOM work at a time.
+const PAGE_SIZE = 60;
+let currentPage = 1;
+
 // "New" isn't a real field on most products — it's simply the absence
 // of a condition value. Only products with a genuine condition field
 // (from Callaway Golf Preowned's structured grading, or the generic
@@ -334,8 +345,12 @@ function matchesFilters(p, exclude) {
   return matchesQuery && matchesType && matchesBrand && matchesColour && matchesAudience && matchesCondition && matchesPriceMin && matchesPriceMax;
 }
 
-function scopedFor(exclude) {
-  return baseFilteredProducts().filter(p => matchesFilters(p, exclude));
+function scopedFor(exclude, base) {
+  // Accepts a precomputed base list so callers doing several scopedFor()
+  // calls in a row (renderSidebar does six) don't each independently
+  // re-scan the full catalog just to reapply the same category/source
+  // narrowing -- that part never changes within one render.
+  return (base || baseFilteredProducts()).filter(p => matchesFilters(p, exclude));
 }
 
 // Applies the same ~80% Male convention used on the homepage and in
@@ -366,7 +381,7 @@ function applyAudienceBias(sortedList) {
   return [...window, ...rest];
 }
 
-function applyFiltersAndSort() {
+function applyFiltersAndSort(resetPage = true) {
   const grid = document.getElementById('shop-grid');
   const empty = document.getElementById('empty-state');
 
@@ -383,13 +398,53 @@ function applyFiltersAndSort() {
     filtered = applyAudienceBias(filtered);
   }
 
-  grid.innerHTML = filtered.map(cardHTML).join('');
+  if (resetPage) currentPage = 1;
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  currentPage = Math.min(Math.max(1, currentPage), totalPages);
+  const pageStart = (currentPage - 1) * PAGE_SIZE;
+  const pageItems = filtered.slice(pageStart, pageStart + PAGE_SIZE);
+
+  grid.innerHTML = pageItems.map(cardHTML).join('');
   empty.style.display = filtered.length ? 'none' : 'block';
 
   const countEl = document.getElementById('shop-result-count');
   if (countEl) countEl.textContent = `${filtered.length} product${filtered.length === 1 ? '' : 's'}`;
 
+  renderPagination(totalPages);
   renderActiveChips();
+}
+
+function goToPage(n) {
+  currentPage = n;
+  applyFiltersAndSort(false);
+  const grid = document.getElementById('shop-grid');
+  if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderPagination(totalPages) {
+  const el = document.getElementById('shop-pagination');
+  if (!el) return;
+  if (totalPages <= 1) { el.innerHTML = ''; return; }
+
+  // Keep it to a handful of page links (current +/- 2) plus first/last,
+  // rather than potentially hundreds of page-number buttons on the
+  // unfiltered catalog.
+  const pages = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1, currentPage - 2, currentPage + 2]);
+  const sorted = [...pages].filter(n => n >= 1 && n <= totalPages).sort((a, b) => a - b);
+
+  let html = `<button type="button" class="page-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? 'disabled' : ''}>\u2039 Prev</button>`;
+  let prev = 0;
+  sorted.forEach(n => {
+    if (prev && n - prev > 1) html += `<span class="page-ellipsis">\u2026</span>`;
+    html += `<button type="button" class="page-btn ${n === currentPage ? 'active' : ''}" data-page="${n}">${n}</button>`;
+    prev = n;
+  });
+  html += `<button type="button" class="page-btn" data-page="${currentPage + 1}" ${currentPage === totalPages ? 'disabled' : ''}>Next \u203a</button>`;
+
+  el.innerHTML = html;
+  el.querySelectorAll('.page-btn:not([disabled])').forEach(btn => {
+    btn.addEventListener('click', () => goToPage(Number(btn.dataset.page)));
+  });
 }
 
 function renderActiveChips() {
@@ -440,12 +495,13 @@ function renderSidebar() {
   const sidebar = document.getElementById('filter-sidebar-body');
   if (!sidebar) return;
 
-  const typeScoped = scopedFor('type');
-  const brandScoped = scopedFor('brand');
-  const colourScoped = scopedFor('colour');
-  const audienceScoped = scopedFor('audience');
-  const conditionScoped = scopedFor('condition');
-  const priceScoped = scopedFor('price');
+  const base = baseFilteredProducts();
+  const typeScoped = scopedFor('type', base);
+  const brandScoped = scopedFor('brand', base);
+  const colourScoped = scopedFor('colour', base);
+  const audienceScoped = scopedFor('audience', base);
+  const conditionScoped = scopedFor('condition', base);
+  const priceScoped = scopedFor('price', base);
 
   const typeOptsRaw = currentTypeOptions();
   let typeSection = '';
@@ -512,9 +568,17 @@ function renderSidebar() {
       <div class="filter-group-body">${buildOptionList('condition', conditionOpts, activeCondition)}</div>
     </div>`;
 
-  const prices = priceScoped.map(p => p.salePrice).filter(n => typeof n === 'number');
-  const lo = prices.length ? Math.floor(Math.min(...prices)) : 0;
-  const hi = prices.length ? Math.ceil(Math.max(...prices)) : 1000;
+  // Plain loop rather than Math.min(...prices)/Math.max(...prices) --
+  // spreading tens of thousands of numbers as call arguments is both
+  // slower and, in some browsers, can hit a real call-stack limit on
+  // the unfiltered full-catalog view.
+  let lo = Infinity, hi = -Infinity;
+  priceScoped.forEach(p => {
+    if (typeof p.salePrice !== 'number') return;
+    if (p.salePrice < lo) lo = p.salePrice;
+    if (p.salePrice > hi) hi = p.salePrice;
+  });
+  if (lo === Infinity) { lo = 0; hi = 1000; } else { lo = Math.floor(lo); hi = Math.ceil(hi); }
 
   sidebar.innerHTML = `
     ${typeSection}

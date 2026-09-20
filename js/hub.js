@@ -5,8 +5,20 @@ function slug(s) {
 }
 
 function groupLink(category, group) {
-  const types = group.types.join(',');
-  return `shop.html?category=${category}&types=${slug(types)}&label=${slug(group.label)}`;
+  // A group can override its own top-level category (e.g. "Golf Balls"
+  // living in the Accessories dropdown but really belonging to the real
+  // "ball" product category, or every club-type tile on clubs.html
+  // needing its own real category rather than the literal string
+  // "clubs") — group.category is that override when present. Previously
+  // this always used the hub's own key regardless, which silently sent
+  // Golf Balls to category=accessories (zero real matches) and every
+  // tile on clubs.html to the non-existent category=clubs.
+  const realCategory = group.category || category;
+  const params = new URLSearchParams();
+  params.set('category', realCategory);
+  if (group.types && group.types.length) params.set('types', group.types.join(','));
+  params.set('label', group.label);
+  return `shop.html?${params.toString()}`;
 }
 
 // Render the current hub page's own grid of group cards.
