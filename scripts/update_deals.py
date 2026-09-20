@@ -1790,7 +1790,7 @@ def load_index_history():
 
 
 def save_index_history(history):
-    INDEX_FILE.write_text(json.dumps(history, indent=2))
+    INDEX_FILE.write_text(json.dumps(history))
 
 
 def record_index_snapshot(products, index_history, today_str):
@@ -2220,7 +2220,6 @@ def compute_outfits(products):
 def save_outfits(outfits):
     OUTFIT_FILE.write_text(json.dumps(
         {"outfits": outfits, "lastUpdated": datetime.now(timezone.utc).isoformat()},
-        indent=2,
     ))
 
 
@@ -2318,7 +2317,6 @@ def compute_bundles(products):
 def save_bundles(bundles):
     BUNDLE_FILE.write_text(json.dumps(
         {"bundles": bundles, "lastUpdated": datetime.now(timezone.utc).isoformat()},
-        indent=2,
     ))
 
 
@@ -2379,7 +2377,12 @@ def main():
         print("Added 'Sets' to the categories list.")
 
     catalog["lastUpdated"] = datetime.now(timezone.utc).isoformat()
-    DATA_FILE.write_text(json.dumps(catalog, indent=2))
+    # Minified (no indent) rather than pretty-printed: this file is never
+    # read by a human, only fetched and JSON.parse'd by the browser on
+    # every page load. Confirmed via the real live file: indentation alone
+    # was adding ~24% pure whitespace (58MB -> 44MB) with zero functional
+    # difference in the data.
+    DATA_FILE.write_text(json.dumps(catalog))
 
     print_data_quality_report()
 
