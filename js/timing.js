@@ -1,39 +1,29 @@
 /*
   GolfPrice AI — "Best Time To Buy" page logic
   --------------------------------------------------
-  Reads data/products.json and splits products into two lists using the
-  `priceInsight.volatility` field scripts/update_deals.py now computes:
-  "stable" (price rarely changes) or "volatile" (changes often) — both
-  based purely on that specific product's own tracked history, never a
-  category-wide guess.
+  Reads the small, precomputed data/curated-views.json (built every 6
+  hours by scripts/update_deals.py's compute_timing_view) instead of
+  downloading the entire multi-MB catalog just to find 24 items in it.
+  The selection logic — "stable" vs "volatile" by each product's own
+  tracked history — is unchanged; it just runs once in the pipeline now
+  instead of in every visitor's browser.
 */
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const MAX_PER_SECTION = 12;
-
 async function loadTiming() {
-  let data;
+  let views;
   try {
-    const res = await fetch('data/products.json');
-    data = await res.json();
+    const res = await fetch('data/curated-views.json');
+    views = await res.json();
   } catch (err) {
     document.getElementById('stable-loading').textContent = "Couldn't load this right now — try refreshing.";
     document.getElementById('volatile-loading').textContent = '';
     return;
   }
 
-  const products = data.products || [];
-
-  const stable = products
-    .filter(p => p.priceInsight && p.priceInsight.volatility === 'stable' && p.image)
-    .sort((a, b) => (b.priceInsight.daysTracked || 0) - (a.priceInsight.daysTracked || 0))
-    .slice(0, MAX_PER_SECTION);
-
-  const volatile = products
-    .filter(p => p.priceInsight && p.priceInsight.volatility === 'volatile' && p.image)
-    .sort((a, b) => (a.priceInsight.avgDaysBetweenChanges || 999) - (b.priceInsight.avgDaysBetweenChanges || 999))
-    .slice(0, MAX_PER_SECTION);
+  const stable = (views.timing && views.timing.stable) || [];
+  const volatile = (views.timing && views.timing.volatile) || [];
 
   renderSection('stable', stable, 'stable');
   renderSection('volatile', volatile, 'volatile');
@@ -54,10 +44,9 @@ function renderSection(prefix, items, kind) {
 }
 
 function renderCard(p, kind) {
-  const insight = p.priceInsight;
   const badgeLabel = kind === 'stable'
-    ? `Steady for ${insight.daysTracked}+ days`
-    : `Changes every ~${insight.avgDaysBetweenChanges} days`;
+    ? `Steady for ${p.daysTracked}+ days`
+    : `Changes every ~${p.avgDaysBetweenChanges} days`;
   const badgeClass = kind === 'stable' ? 'timing-badge--stable' : 'timing-badge--volatile';
   const note = kind === 'stable'
     ? "Hasn't moved — safe to buy whenever suits you."

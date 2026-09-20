@@ -1,45 +1,32 @@
 /*
   GolfPrice AI — "Show Us The Receipts" page logic
   ----------------------------------------------------
-  Reads data/products.json (already live on the site) and surfaces the
-  biggest genuine price drops, using the `priceInsight` field that
-  scripts/update_deals.py now writes onto every priced product.
-
-  A product only appears here if priceInsight.verifiedDiscount is true —
-  meaning our own tracked history actually recorded a higher price at some
-  point in the last 90 days, independent of whatever a retailer's feed
-  claims. No history yet (priceInsight.status === "new") means no claim
-  gets made, full stop.
+  Reads the small, precomputed data/curated-views.json (built every 6
+  hours by scripts/update_deals.py's compute_receipts_view) instead of
+  downloading the entire multi-MB catalog just to find 24 items in it.
+  The selection logic itself — verifiedDiscount only, biggest drop % —
+  is unchanged; it just runs once in the pipeline now instead of in
+  every visitor's browser. See scripts/update_deals.py for the full
+  reasoning and how this was verified against the original logic.
 */
 
 document.getElementById('year').textContent = new Date().getFullYear();
-
-const MAX_RESULTS = 24;
 
 async function loadReceipts() {
   const loadingEl = document.getElementById("receipts-loading");
   const emptyEl = document.getElementById("receipts-empty");
   const gridEl = document.getElementById("receipts-grid");
 
-  let data;
+  let views;
   try {
-    const res = await fetch("data/products.json");
-    data = await res.json();
+    const res = await fetch("data/curated-views.json");
+    views = await res.json();
   } catch (err) {
     loadingEl.textContent = "Couldn't load the receipts right now — try refreshing the page.";
     return;
   }
 
-  const products = (data.products || [])
-    .filter(p => p.priceInsight && p.priceInsight.verifiedDiscount && p.image)
-    .map(p => {
-      const insight = p.priceInsight;
-      const dropAmount = insight.historicalHigh - p.salePrice;
-      const dropPct = Math.round((dropAmount / insight.historicalHigh) * 100);
-      return { ...p, _dropAmount: dropAmount, _dropPct: dropPct };
-    })
-    .sort((a, b) => b._dropPct - a._dropPct)
-    .slice(0, MAX_RESULTS);
+  const products = views.receipts || [];
 
   loadingEl.hidden = true;
 
@@ -53,9 +40,8 @@ async function loadReceipts() {
 }
 
 function renderCard(p) {
-  const insight = p.priceInsight;
   const now = `£${p.salePrice.toFixed(2)}`;
-  const was = `£${insight.historicalHigh.toFixed(2)}`;
+  const was = `£${p.historicalHigh.toFixed(2)}`;
 
   return `
     <article class="receipt-card">
@@ -68,7 +54,7 @@ function renderCard(p) {
           <span class="receipt-price-now">${now}</span>
           <span class="receipt-price-was">${was}</span>
         </div>
-        <p class="receipt-proof-line">Tracked ${insight.daysTracked} days — genuinely this cheap</p>
+        <p class="receipt-proof-line">Tracked ${p.daysTracked} days — genuinely this cheap</p>
         <a class="receipt-buy-link" href="${escapeHtml(p.affiliateUrl)}" target="_blank" rel="nofollow sponsored noopener">
           Grab It →
         </a>

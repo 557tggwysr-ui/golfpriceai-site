@@ -88,7 +88,13 @@ let CATALOG_CACHE = null;
 
 async function loadCatalog() {
   if (CATALOG_CACHE) return CATALOG_CACHE;
-  const res = await fetch('data/products.json');
+  // Complete The Look only ever matches within category === "apparel" —
+  // never the other ~50% of the catalog — so it fetches the dedicated
+  // apparel-only file instead of the full one. Confirmed on the real
+  // catalog: apparel-lite.json (apparel only, plus dropping the
+  // priceInsight/stockInsight fields this page never uses either) comes
+  // to roughly a quarter the size of the full catalog.
+  const res = await fetch('data/apparel-lite.json');
   if (!res.ok) throw new Error('Catalog fetch failed');
   const data = await res.json();
   CATALOG_CACHE = data.products || [];

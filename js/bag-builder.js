@@ -335,7 +335,15 @@ function renderAll() {
   renderBagGraphic();
 }
 
-fetch('data/products.json')
+// Assemble Your Arsenal needs live, arbitrary text search across every
+// category — that can't be precomputed ahead of time the way the
+// homepage/Receipts/Back In Stock/Best Time To Buy curated lists can.
+// It still gets a real size win though: data/products-lite.json is the
+// same full breadth of products as data/products.json, minus the
+// priceInsight/stockInsight fields this page never uses (confirmed —
+// neither field is referenced anywhere else in this file), which alone
+// cuts the download by roughly 39% on the real catalog.
+fetch('data/products-lite.json')
   .then(r => r.json())
   .then(data => {
     ALL_PRODUCTS = data.products;
@@ -343,7 +351,7 @@ fetch('data/products.json')
     renderAccessoryTabs();
     renderAll();
   })
-  .catch(err => console.error('Could not load products.json', err));
+  .catch(err => console.error('Could not load products-lite.json', err));
 
 // Search inputs — debounce-free since this is client-side filtering over
 // an already-loaded array, not a network request.

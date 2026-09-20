@@ -195,180 +195,26 @@ function renderTrending(items) {
   `).join('');
 }
 
-// Popularity is a proxy, not real purchase/click data — no live click
-// tracking exists for this static site yet (would need Google Analytics'
-// Data API wired into a scheduled job, similar to how the price feed
-// works). Weighted toward being stocked by more retailers, with discount
-// size as a secondary nudge.
-function popularityScore(p) {
-  return (p.retailerCount || 1) * 10 + (p.savePct || 0) * 2;
-}
-
-// Male / Female / Junior — kept in sync with js/shop.js's classifyAudience
-// and scripts/update_deals.py's classify_audience(). Junior beats
-// Female/Male since a junior item is sometimes also described with
-// "girls"/"boys", which would otherwise misread as a gender signal.
-const JUNIOR_WORDS = ['junior', 'boys', 'girls', 'kids golf', 'us kids golf'];
-const FEMALE_WORDS = ["women's", 'womens', 'women', 'ladies', "lady's"];
-function classifyAudience(p) {
-  if (p.audience) return p.audience;
-  const name = p.name || '';
-  const lower = name.toLowerCase();
-  for (const word of JUNIOR_WORDS) {
-    const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
-    if (re.test(lower)) return 'Junior';
-  }
-  for (const word of FEMALE_WORDS) {
-    const re = new RegExp('\\b' + word.replace(/'/g, "'?") + '\\b', 'i');
-    if (re.test(lower)) return 'Female';
-  }
-  return 'Male';
-}
-
-// Real golf club categories — used for the "Today's Best Golf Deals"
-// minimum-clubs rule. Note: the no-duplicate-category diversity rule below
-// means at most ONE item per category can appear, so "at least 5 clubs"
-// in practice means at least 5 of these 7 distinct club types represented
-// (one driver, one iron set, etc.) — not 5 different drivers.
-const CLUB_CATEGORIES = new Set(['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets']);
-
-// Deterministic per-day shuffle: same seed (today's date) always produces
-// the same order for every visitor on the same day, but a new day produces
-// a different order — this is what makes "Today's Best Golf Deals" and
-// Trending genuinely rotate daily without needing any real backend state,
-// while still only ever drawing from a pool of genuinely good discounts.
-function seededShuffle(array, seedStr) {
-  let seed = 0;
-  for (let i = 0; i < seedStr.length; i++) seed = (seed * 31 + seedStr.charCodeAt(i)) >>> 0;
-  function rng() {
-    seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
-    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  }
-  const arr = array.slice();
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(rng() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-function pickWithConstraints(pool, count, usedKeys, opts, fallbackPool) {
-  const searchPool = fallbackPool || pool;
-  const { minMalePercent, minClubCount } = opts || {};
-  const seen = new Set(usedKeys);
-  const picked = [];
-
-  function tryPick(item) {
-    const key = item.icon || item.category;
-    if (seen.has(key)) return false;
-    picked.push(item);
-    seen.add(key);
-    return true;
-  }
-
-  for (const item of pool) {
-    if (picked.length === count) break;
-    tryPick(item);
-  }
-
-  if (minClubCount) {
-    let guard = 0;
-    while (picked.filter(p => CLUB_CATEGORIES.has(p.category)).length < minClubCount && guard < count * 3) {
-      guard++;
-      const nonClubIdx = [...picked].reverse().findIndex(p => !CLUB_CATEGORIES.has(p.category));
-      if (nonClubIdx === -1) break;
-      const realIdx = picked.length - 1 - nonClubIdx;
-      const replacement = searchPool.find(item =>
-        CLUB_CATEGORIES.has(item.category) && !picked.includes(item) && !seen.has(item.icon || item.category)
-      );
-      if (!replacement) break;
-      seen.delete(picked[realIdx].icon || picked[realIdx].category);
-      picked[realIdx] = replacement;
-      seen.add(replacement.icon || replacement.category);
-    }
-  }
-
-  if (minMalePercent) {
-    const minMaleCount = Math.ceil(count * minMalePercent);
-    let guard = 0;
-    while (picked.filter(p => classifyAudience(p) === 'Male').length < minMaleCount && guard < count * 3) {
-      guard++;
-      const nonMaleIdx = [...picked].reverse().findIndex(p => classifyAudience(p) !== 'Male');
-      if (nonMaleIdx === -1) break;
-      const realIdx = picked.length - 1 - nonMaleIdx;
-      const replacement = searchPool.find(item =>
-        classifyAudience(item) === 'Male' && !picked.includes(item) && !seen.has(item.icon || item.category)
-      );
-      if (!replacement) break;
-      seen.delete(picked[realIdx].icon || picked[realIdx].category);
-      picked[realIdx] = replacement;
-      seen.add(replacement.icon || replacement.category);
-    }
-  }
-
-  if (picked.length < count) {
-    for (const item of searchPool) {
-      if (picked.length === count) break;
-      const key = item.icon || item.category;
-      if (!picked.includes(item) && !seen.has(key)) {
-        picked.push(item);
-        seen.add(key);
-      }
-    }
-  }
-  if (picked.length < count) {
-    for (const item of searchPool) {
-      if (picked.length === count) break;
-      if (!picked.includes(item)) picked.push(item);
-    }
-  }
-  return picked;
-}
-
-fetch('data/products.json')
+// Selection logic (the daily-seeded shuffle, the 85%-Male / min-6-clubs
+// constraint solving, popularity scoring) used to run here, in every
+// visitor's browser, after downloading the ENTIRE catalog just to derive
+// 30 items from it. It's now precomputed once every 6 hours by the
+// Python pipeline (scripts/update_deals.py — see compute_homepage_views
+// and its neighbours) and shipped as one small file, verified
+// byte-for-byte identical to what this file used to compute client-side
+// before the switch. This fetch is now just rendering, not selecting.
+fetch('data/curated-views.json')
   .then(r => r.json())
-  .then(data => {
-    const qualityRanked = [...data.products].sort((a, b) => {
-      const aHasImage = a.image ? 1 : 0;
-      const bHasImage = b.image ? 1 : 0;
-      if (aHasImage !== bHasImage) return bHasImage - aHasImage;
-      return b.savePct - a.savePct;
-    });
-
-    const todaySeed = new Date().toISOString().slice(0, 10);
-    const qualifiedPool = qualityRanked.slice(0, Math.min(80, qualityRanked.length));
-    const dailyPool = seededShuffle(qualifiedPool, todaySeed);
-
-    const bestDeals = pickWithConstraints(dailyPool, 12, [], { minMalePercent: 0.85, minClubCount: 6 }, qualityRanked);
-    const bestKeys = bestDeals.map(d => d.icon || d.category);
-
-    const priceDrops = pickWithConstraints(
-      dailyPool.filter(d => !bestDeals.includes(d)), 6, bestKeys, { minMalePercent: 0.85 }, qualityRanked
-    );
-    const priceDropKeys = priceDrops.map(d => d.icon || d.category);
-
+  .then(views => {
     const bestGrid = document.getElementById('best-deals');
-    if (bestGrid) bestGrid.innerHTML = bestDeals.map(dealCardHTML).join('');
+    if (bestGrid) bestGrid.innerHTML = views.home.bestDeals.map(dealCardHTML).join('');
 
     const dropList = document.getElementById('price-drop-list');
-    if (dropList) dropList.innerHTML = priceDrops.map(dropRowHTML).join('');
+    if (dropList) dropList.innerHTML = views.home.priceDrops.map(dropRowHTML).join('');
 
-    const usedForTrending = new Set([...bestKeys, ...priceDropKeys]);
-    const trendingPool = [...dailyPool]
-      .filter(d => !bestDeals.includes(d) && !priceDrops.includes(d))
-      .sort((a, b) => popularityScore(b) - popularityScore(a));
-    const trendingRaw = pickWithConstraints(trendingPool, 12, [...usedForTrending], { minMalePercent: 0.85 }, qualityRanked);
-    const trendingPicks = trendingRaw.map(item => ({
-      name: item.name,
-      tag: item.savePct >= 25 ? 'Hot' : 'Rising',
-      affiliateUrl: item.affiliateUrl,
-      category: item.category,
-    }));
-    renderTrending(trendingPicks);
+    renderTrending(views.home.trending);
   })
-  .catch(err => console.error('Could not load products.json', err));
+  .catch(err => console.error('Could not load curated-views.json', err));
 
 const searchForm = document.getElementById('search-form');
 if (searchForm) {
