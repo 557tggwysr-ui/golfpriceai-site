@@ -1,0 +1,43 @@
+name: Update golf deals
+
+on:
+  schedule:
+    # Runs every 6 hours. Change the cron expression to adjust frequency.
+    - cron: '0 */6 * * *'
+  workflow_dispatch: {}  # lets you also trigger it manually from the GitHub Actions tab
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run deal refresh script
+        env:
+          CJ_API_TOKEN: ${{ secrets.CJ_API_TOKEN }}
+          CJ_CID: ${{ secrets.CJ_CID }}
+          AWIN_API_TOKEN: ${{ secrets.AWIN_API_TOKEN }}
+          AWIN_PUBLISHER_ID: ${{ secrets.AWIN_PUBLISHER_ID }}
+          AWIN_ADVERTISER_ID: ${{ secrets.AWIN_ADVERTISER_ID }}
+          AWIN_CLICKGOLF_FEED_URL: ${{ secrets.AWIN_CLICKGOLF_FEED_URL }}
+          AWIN_MAJORGOLF_FEED_URL: ${{ secrets.AWIN_MAJORGOLF_FEED_URL }}
+          AWIN_CALLAWAY_FEED_URL: ${{ secrets.AWIN_CALLAWAY_FEED_URL }}
+          AWIN_AFFORDABLEGOLF_FEED_URL: ${{ secrets.AWIN_AFFORDABLEGOLF_FEED_URL }}
+          AWIN_SCOTTSDALEGOLF_FEED_URL: ${{ secrets.AWIN_SCOTTSDALEGOLF_FEED_URL }}
+          AWIN_CALLAWAYPREOWNED_FEED_URL: ${{ secrets.AWIN_CALLAWAYPREOWNED_FEED_URL }}
+        run: python scripts/update_deals.py
+
+      - name: Commit updated catalog
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/products.json data/price-history.json data/stock-history.json data/price-index.json data/bundles.json data/outfits.json data/curated-views.json data/products-lite.json data/apparel-lite.json
+          git diff --quiet --cached || git commit -m "Automated catalog refresh"
+          git pull --rebase
+          git push
