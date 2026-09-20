@@ -708,6 +708,126 @@ function renderCategoryBanner() {
     </div>` + (groupNoteHTML || '');
 }
 
+// SEO: dynamic canonical URL + title + meta description per view.
+//
+// Real problem this fixes: an audit of Google Search Console found 25
+// pages flagged "Duplicate without user-selected canonical" -- shop.html
+// is one template reused across 30+ different query-string combinations
+// (nav dropdowns, hub-page grids, homepage banners), every one of them
+// previously sharing the exact same static title and description. With
+// no canonical tag anywhere on the site either, Google had no signal to
+// tell these apart and was leaving almost all of them unindexed.
+//
+// The fix has two parts, and both matter -- a canonical tag alone just
+// picks a survivor among identical-looking pages, it doesn't make any
+// of them worth indexing on their own:
+//   1. Genuinely distinct, search-worthy views (a real top-level
+//      category like Drivers, the whole Clubs umbrella, the Preowned
+//      view) get a SELF-referencing canonical plus their own real
+//      title/description, informed by how people actually search for
+//      this (checked real competitor titles: "[Category] Deals UK",
+//      "Compare [Category] Prices", "[Category] Sale" are the dominant
+//      patterns -- so titles follow that shape rather than generic
+//      internal naming).
+//   2. Narrower on-site refinements (a specific accessory sub-type, a
+//      brand/colour/price filter, a single retailer's view, a search
+//      query) are on-site navigation, not distinct search intents --
+//      these canonicalize back to their parent category page instead of
+//      trying to rank on their own.
+//
+// Category copy is honest, not hyped, consistent with the rest of the
+// site: real comparison, real tracked prices, no invented "up to X%"
+// claims here.
+const CATEGORY_SEO = {
+  driver:   { label: 'Golf Drivers', desc: 'Compare golf driver prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  wood:     { label: 'Fairway Woods', desc: 'Compare fairway wood prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  hybrid:   { label: 'Golf Hybrids', desc: 'Compare golf hybrid prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  irons:    { label: 'Golf Irons', desc: 'Compare golf iron prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  wedge:    { label: 'Golf Wedges', desc: 'Compare golf wedge prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  putter:   { label: 'Golf Putters', desc: 'Compare golf putter prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  sets:     { label: 'Golf Club Sets', desc: 'Compare golf club set prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  ball:     { label: 'Golf Balls', desc: 'Compare golf ball prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  bag:      { label: 'Golf Bags', desc: 'Compare golf bag prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  apparel:  { label: 'Golf Apparel', desc: 'Compare golf clothing and apparel prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  shoes:    { label: 'Golf Shoes', desc: 'Compare golf shoe prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+  accessories: { label: 'Golf Accessories', desc: 'Compare golf accessory prices across UK retailers in one place — real tracked prices, genuine discounts only.' },
+};
+
+function setMeta(canonicalUrl, title, description) {
+  let link = document.querySelector('link[rel="canonical"]');
+  if (!link) {
+    link = document.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    document.head.appendChild(link);
+  }
+  link.setAttribute('href', canonicalUrl);
+
+  if (title) document.title = title;
+
+  if (description) {
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'description');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', description);
+  }
+}
+
+function updateSeoMeta(params, categoryParam, validCategory, groupParam) {
+  const BASE = 'https://golfpriceai.com/shop.html';
+  const hasDeeperFacet = ['types', 'brand', 'colour', 'audience', 'condition', 'pricemin', 'pricemax', 'label'].some(k => params.get(k))
+    || (params.get('sort') && params.get('sort') !== 'popular')
+    || params.get('q');
+  const sourceParam = params.get('source');
+
+  // Preowned & Trade Ins is a genuinely distinct, real search intent
+  // (people search "used golf clubs UK" / "preowned golf clubs") --
+  // worth its own indexed page, unlike a single-retailer browse view.
+  if (sourceParam === 'awin-callawaypreowned' && !hasDeeperFacet) {
+    setMeta(
+      `${BASE}?source=awin-callawaypreowned`,
+      'Preowned & Trade-In Golf Clubs UK — GolfPrice AI',
+      'Genuine preowned and trade-in golf clubs from UK retailers, with real condition grading — compared in one place.'
+    );
+    return;
+  }
+
+  // Any other retailer-specific view, or any deeper facet (a search
+  // query, a brand/colour/price filter, a narrow accessory sub-type)
+  // is on-site navigation, not a distinct search intent -- canonicalize
+  // back to the relevant category (or bare Shop All Deals) rather than
+  // letting Google try to index every narrow combination separately.
+  if (sourceParam || hasDeeperFacet) {
+    const parentUrl = (categoryParam && validCategory) ? `${BASE}?category=${encodeURIComponent(categoryParam)}` : BASE;
+    setMeta(parentUrl, null, null);
+    return;
+  }
+
+  if (groupParam === 'clubs') {
+    setMeta(
+      `${BASE}?group=clubs`,
+      'Golf Clubs Deals UK — Compare Real Prices | GolfPrice AI',
+      'Compare golf club prices across UK retailers — drivers, irons, putters and more, all in one place. Real tracked prices, genuine discounts only.'
+    );
+    return;
+  }
+
+  if (categoryParam && validCategory && CATEGORY_SEO[categoryParam]) {
+    const c = CATEGORY_SEO[categoryParam];
+    setMeta(
+      `${BASE}?category=${encodeURIComponent(categoryParam)}`,
+      `${c.label} Deals UK — Compare Real Prices | GolfPrice AI`,
+      c.desc
+    );
+    return;
+  }
+
+  // Bare Shop All Deals -- self-canonical, existing static title/description left as-is.
+  setMeta(BASE, null, null);
+}
+
 fetch('data/products.json')
   .then(r => r.json())
   .then(data => {
@@ -728,6 +848,8 @@ fetch('data/products.json')
 
     const sourceParam = params.get('source');
     baseSource = sourceParam || null;
+
+    updateSeoMeta(params, categoryParam, validCategory, groupParam);
 
     const typesParam = params.get('types');
     if (typesParam) activeTypeCheckboxes = new Set(typesParam.split(','));
