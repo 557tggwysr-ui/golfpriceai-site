@@ -1,0 +1,56 @@
+{
+ "name": "Titleist GT2 Driver",
+ "brand": "Titleist",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/titleist-gt2-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 299.95,
+   "options": 8
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 399.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 579.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 299.95,
+  "high": 399.0,
+  "average": 315.71,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    399.0
+   ],
+   [
+    "2026-09-04",
+    299.95
+   ],
+   [
+    "2026-10-10",
+    299.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

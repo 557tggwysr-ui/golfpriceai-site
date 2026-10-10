@@ -1,0 +1,60 @@
+{
+ "name": "TaylorMade P790 Irons",
+ "brand": "TaylorMade",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/taylormade-p790-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 734.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 734.95,
+   "options": 6
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 1029.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1059.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 734.95,
+  "high": 1059.0,
+  "average": 843.65,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    1059.0
+   ],
+   [
+    "2026-08-28",
+    1049.0
+   ],
+   [
+    "2026-09-04",
+    734.95
+   ],
+   [
+    "2026-10-10",
+    734.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

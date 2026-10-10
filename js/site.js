@@ -76,9 +76,11 @@
     var path = location.pathname.replace(/\/index\.html$/, '/');
     var params = new URLSearchParams(location.search);
     var cat = params.get('category');
-    var section = null;
+    // Pages can name their section directly (the /prices/ pages do).
+    var section = document.body.getAttribute('data-section') || null;
     var clubCats = ['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets'];
-    if (/\/(clubs|find-your-fit)\.html$/.test(path) || params.get('group') === 'clubs' ||
+    if (section) { /* already known */ }
+    else if (/\/(clubs|find-your-fit)\.html$/.test(path) || params.get('group') === 'clubs' ||
         clubCats.indexOf(cat) !== -1 || params.get('source') === 'awin-callawaypreowned') section = 'clubs';
     else if (/\/apparel\.html$/.test(path) || cat === 'apparel' || cat === 'shoes') section = 'apparel';
     else if (/\/accessories\.html$/.test(path) || cat === 'accessories' || cat === 'ball' || cat === 'bag') section = 'accessories';

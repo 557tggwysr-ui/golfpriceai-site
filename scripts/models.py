@@ -244,6 +244,9 @@ BALL_PACK_RULES = [
     (re.compile(r"\b(15 ?(ball|pack|pk))\b", re.I), 15),
     (re.compile(r"\b(dozen|12 ?(ball|pack|pk|balls))\b", re.I), 12),
 ]
+BALL_NOT_BALLS_RX = re.compile(
+    r"\b(mark(er|ers|ing)|align|alignment|stencil|liner|system|retriever|holder|pouch|towel|tube|"
+    r"display|dispenser|pick ?up|cleaner|washer|bucket|rake)\b", re.I)
 RECYCLED_RX = re.compile(r"\b(rewashed|refurbished|recycled|lake balls?|pearl grade|a[- ]grade|b[- ]grade)\b", re.I)
 
 
@@ -282,6 +285,9 @@ def _model_type(p):
             return ("club", "irons", "Irons")
         return ("club", cat, CLUB_TYPE_LABEL[cat])
     if cat == "ball":
+        # Ball markers, liners, retrievers and the like filed under balls.
+        if BALL_NOT_BALLS_RX.search(name):
+            return None
         return ("ball", "ball", "Golf Balls")
     if cat == "bag" and price >= ACCESSORY_MIN_PRICE:
         return ("bag", "bag", "Golf Bag")
@@ -506,23 +512,58 @@ def build_models(products, price_history, today_str):
         groups[key].append(p)
         meta[key] = (group, type_key, type_label, brand, tokens)
 
-    models, review = [], []
-    for key, listings in groups.items():
+    # Two groupings that end up with the same display name are the same
+    # product described two ways ("Elyte Mini Driver" / "Elyte Mini Graphite
+    # ... Mini Driver"): merge them so one model never has two pages.
+    def _display_for(key):
         group, type_key, type_label, brand, tokens = meta[key]
+        words = [brand] + _display_tokens(tokens, groups[key]) + [type_label]
+        deduped = []
+        for w in " ".join(words).split():
+            if not deduped or deduped[-1].lower() != w.lower():
+                deduped.append(w)
+        return " ".join(deduped).strip()
+
+    merged, merged_meta, displays = defaultdict(list), {}, {}
+    for key in sorted(groups, key=lambda k: -len(groups[k])):
+        display = _display_for(key)
+        mkey = (_slugify(display.replace("+", " plus")), meta[key][1])
+        merged[mkey].extend(groups[key])
+        if mkey not in merged_meta:
+            merged_meta[mkey] = meta[key]
+            displays[mkey] = display
+
+    models, review = [], []
+    for mkey, listings in merged.items():
+        group, type_key, type_label, brand, tokens = merged_meta[mkey]
         new = [p for p in listings if _is_new(p)]
         new_in_stock = [p for p in new if p.get("inStock", True)]
         used = [p for p in listings if not _is_new(p) and p.get("inStock", True)]
         if not new_in_stock:
             continue
 
-        display = " ".join([brand] + _display_tokens(tokens, listings) + [type_label]).strip()
-        slug = _slugify(display)
+        display = displays[mkey]
+        slug = _slugify(display.replace("+", " plus"))
 
-        # Golf balls compare fairly only per dozen.
+        # Golf balls compare fairly only per dozen. A listing that doesn't
+        # state its pack size is taken as a dozen, unless that would make it
+        # far dearer per dozen than the same ball in packs that do say (then
+        # it's almost certainly a multi-dozen pack, and is left out).
+        ball_ref = None
+        if type_key == "ball":
+            stated = [p["salePrice"] / n * 12 for p in new_in_stock
+                      if (n := ball_pack_size(p["name"], assume_dozen=False))]
+            ball_ref = statistics.median(stated) if stated else None
+
         def unit_price(p):
             if type_key == "ball":
                 size = ball_pack_size(p["name"])
-                return round(p["salePrice"] / size * 12, 2) if size else None
+                if not size:
+                    return None
+                per = round(p["salePrice"] / size * 12, 2)
+                if ball_ref and ball_pack_size(p["name"], assume_dozen=False) is None and per > ball_ref * 1.4:
+                    return None
+                return per
             return p["salePrice"]
 
         priced = [(unit_price(p), p) for p in new_in_stock]
@@ -535,6 +576,17 @@ def build_models(products, price_history, today_str):
                                f"{len(odd)} ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
                                "listings": len(odd)})
             priced = [(u, p) for u, p in priced if u >= med * 0.6]
+        # A listing far below the rest of its model is almost always a feed
+        # error or a different product sharing the name (e.g. £49.95 for a
+        # £229 driver). Never let one become the headline price.
+        if type_key != "ball" and len(priced) >= 3:
+            med = statistics.median(u for u, _ in priced)
+            odd = [p for u, p in priced if u < med * 0.4]
+            if odd:
+                review.append({"model": " ".join([brand] + tokens), "issue":
+                               f"{len(odd)} listing(s) under 40% of the model's typical price; left out as a likely feed error",
+                               "listings": len(odd)})
+                priced = [(u, p) for u, p in priced if u >= med * 0.4]
         if not priced:
             continue
         min_price, cheapest = min(priced, key=lambda x: x[0])
@@ -546,11 +598,15 @@ def build_models(products, price_history, today_str):
 
         if type_key == "ball":
             def per_dozen(p):
+                if unit_price(p) is None:
+                    return None
                 size = ball_pack_size(p["name"])
                 return 12 / size if size else None
             series, first_seen = _daily_series(new, history, today, per_dozen)
         else:
-            series, first_seen = _daily_series(new, history, today)
+            keep = {id(p) for _, p in priced}
+            dropped_ids = {id(p) for p in new_in_stock} - keep
+            series, first_seen = _daily_series([p for p in new if id(p) not in dropped_ids], history, today)
         events = _events(series, first_seen, history) if series else []
         history_days = len(series) if series else max(
             [(p.get("priceInsight") or {}).get("daysTracked") or 0 for p in new] or [0]
@@ -598,13 +654,16 @@ def build_models(products, price_history, today_str):
             "verdict": verdict,
             "gate": gate,
             "listingIds": [p["id"] for _, p in sorted(priced, key=lambda x: x[0])],
+            "preownedIds": [p["id"] for p in sorted(used, key=lambda p: p["salePrice"])][:10],
         })
 
     # Two different models must never share a page address.
-    slug_counts = Counter(m["slug"] for m in models)
-    for m in models:
-        if slug_counts[m["slug"]] > 1:
-            m["slug"] = f"{m['slug']}-{_slugify(m['type'])}"
+    # Busiest model keeps the plain address; any other gets -2, -3...
+    seen = Counter()
+    for m in sorted(models, key=lambda m: -m["listingCount"]):
+        seen[m["slug"]] += 1
+        if seen[m["slug"]] > 1:
+            m["slug"] = f"{m['slug']}-{seen[m['slug']]}"
     models.sort(key=lambda m: (not m["gate"]["passes"], m["group"], m["type"], m["name"]))
     return models, review
 

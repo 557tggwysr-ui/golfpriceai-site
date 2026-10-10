@@ -1,0 +1,25 @@
+{
+  "_about": "Controls the /prices/ pages. mode: off | pilot | live. In pilot mode only the models and hubs listed here are built, and every page carries noindex until you approve the pilot. Switching mode to live builds every model that passes the quality gate, plus all hubs, indexable and in the sitemap.",
+  "mode": "pilot",
+  "pilot": [
+    "taylormade-qi35-driver",
+    "callaway-elyte-driver",
+    "titleist-gt2-driver",
+    "callaway-elyte-fairway-wood",
+    "taylormade-qi4d-fairway-wood",
+    "ping-g430-hybrid",
+    "taylormade-qi4d-hybrid",
+    "ping-g430-irons",
+    "taylormade-p790-irons",
+    "titleist-vokey-sm11-tour-chrome-wedge",
+    "callaway-opus-brushed-chrome-wedge",
+    "odyssey-ai-one-square-2-square-max-putter",
+    "scotty-cameron-phantom-5-5-putter",
+    "garmin-approach-s50-gps-watch",
+    "powakaddy-ct6-electric-trolley",
+    "titleist-pro-v1-golf-balls",
+    "callaway-chrome-soft-golf-balls",
+    "taylormade-tp5-golf-balls"
+  ],
+  "hubs": ["drivers", "golf-balls"]
+}

@@ -2877,6 +2877,9 @@ def main():
         model_list, model_review = models.build_models(catalog["products"], price_history, today_str)
         models.save_models(model_list, model_review, category_changes, dropped_unpriced, today_str)
         models.save_search_suggest(model_list, catalog["products"], today_str)
+        # Static price-history pages under /prices/ (see data/price-pages.json).
+        import price_pages
+        price_pages.build(model_list, catalog["products"], today_str)
     except Exception as exc:  # noqa: BLE001 - report and carry on
         print(f"WARNING: model grouping failed this run and was skipped: {exc!r}")
 

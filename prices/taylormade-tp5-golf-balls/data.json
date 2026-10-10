@@ -1,0 +1,57 @@
+{
+ "name": "TaylorMade TP5 Golf Balls",
+ "brand": "TaylorMade",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/taylormade-tp5-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 35.99,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 35.99,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 39.96,
+   "options": 4
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 44.95,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 44.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 35.99,
+  "high": 35.99,
+  "average": 35.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    35.99
+   ],
+   [
+    "2026-10-10",
+    35.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

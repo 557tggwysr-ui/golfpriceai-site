@@ -1,0 +1,60 @@
+{
+ "name": "Ping G430 Hybrid",
+ "brand": "Ping",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/ping-g430-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 154.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 154.95,
+   "options": 14
+  },
+  {
+   "name": "Clickgolf",
+   "from": 209.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 269.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 154.95,
+  "high": 209.0,
+  "average": 174.0,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    209.0
+   ],
+   [
+    "2026-09-04",
+    159.95
+   ],
+   [
+    "2026-09-12",
+    154.95
+   ],
+   [
+    "2026-10-10",
+    154.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 29 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

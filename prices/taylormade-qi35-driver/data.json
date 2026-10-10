@@ -1,0 +1,51 @@
+{
+ "name": "TaylorMade Qi35 Driver",
+ "brand": "TaylorMade",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/taylormade-qi35-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 279.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 279.95,
+   "options": 21
+  },
+  {
+   "name": "Clickgolf",
+   "from": 389.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 279.95,
+  "high": 389.0,
+  "average": 316.95,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    389.0
+   ],
+   [
+    "2026-09-04",
+    279.95
+   ],
+   [
+    "2026-10-10",
+    279.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

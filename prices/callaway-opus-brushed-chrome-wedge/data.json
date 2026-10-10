@@ -1,0 +1,58 @@
+{
+ "name": "Callaway Opus Brushed Chrome Wedge",
+ "brand": "Callaway",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/callaway-opus-brushed-chrome-wedge/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.0,
+ "lowestAt": [
+  "Clickgolf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 119.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 119.0,
+   "options": 9
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 119.95,
+   "options": 2
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 152.15,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 119.0,
+  "high": 119.0,
+  "average": 119.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    119.0
+   ],
+   [
+    "2026-10-10",
+    119.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

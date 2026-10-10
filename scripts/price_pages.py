@@ -1,0 +1,943 @@
+"""Price-history pages: one static HTML page per model under /prices/<slug>/,
+plus category hubs, written fresh on every pipeline run.
+
+Everything on these pages comes from GolfPrice AI's own data: the live
+catalogue and the price history we record every 6 hours. Nothing is copied
+from retailers and nothing is invented (no reviews, no ratings, no specs).
+
+Which pages get built is controlled by data/price-pages.json:
+
+  {"mode": "pilot", "pilot": [model slugs], "hubs": [hub slugs]}
+      Only the listed pages are built, and they carry a noindex tag so
+      Google ignores them while they're being reviewed.
+
+  {"mode": "live", ...}
+      Every model that passes the quality gate gets a page, plus every hub,
+      all indexable and listed in the sitemap.
+
+Files are only rewritten when their content changes, so a page's commit
+history matches its real price changes.
+"""
+import html
+import json
+import re
+from collections import Counter, defaultdict
+from datetime import date, datetime, timezone
+from pathlib import Path
+
+import site_chrome
+
+ROOT = Path(__file__).resolve().parent.parent
+PRICES_DIR = ROOT / "prices"
+CONFIG_FILE = ROOT / "data" / "price-pages.json"
+SITE = "https://golfpriceai.com"
+
+RETAILERS = {
+    "awin-clickgolf": "Clickgolf",
+    "awin-affordablegolf": "Affordable Golf",
+    "awin-majorgolf": "Major Golf Direct",
+    "awin-scottsdalegolf": "Scottsdale Golf",
+    "awin-callaway": "Callaway Golf",
+    "awin-callawaypreowned": "Callaway Golf Preowned",
+}
+
+# type -> (hub slug, plural label, singular noun, nav section)
+TYPES = {
+    "driver": ("drivers", "Drivers", "driver", "clubs"),
+    "wood": ("fairway-woods", "Fairway woods", "fairway wood", "clubs"),
+    "hybrid": ("hybrids", "Hybrids", "hybrid", "clubs"),
+    "irons": ("irons", "Iron sets", "iron set", "clubs"),
+    "wedge": ("wedges", "Wedges", "wedge", "clubs"),
+    "putter": ("putters", "Putters", "putter", "clubs"),
+    "ball": ("golf-balls", "Golf balls", "golf ball", "accessories"),
+    "bag": ("golf-bags", "Golf bags", "golf bag", "accessories"),
+    "gps-watch": ("gps-watches", "GPS watches", "GPS watch", "accessories"),
+    "rangefinder": ("rangefinders", "Rangefinders", "rangefinder", "accessories"),
+    "electric-trolley": ("electric-trolleys", "Electric trolleys", "electric trolley", "accessories"),
+    "launch-monitor": ("launch-monitors", "Launch monitors", "launch monitor", "accessories"),
+}
+HUB_TYPES = {v[0]: k for k, v in TYPES.items()}
+CLUB_TYPES = {"driver", "wood", "hybrid", "irons", "wedge", "putter"}
+TYPE_ICON = {"driver": "driver", "wood": "wood", "hybrid": "hybrid", "irons": "irons", "wedge": "wedge",
+             "putter": "putter", "ball": "ball", "gps-watch": "gps-watch", "rangefinder": "rangefinder",
+             "electric-trolley": "pushcart", "bag": "accessories", "launch-monitor": "sensor"}
+SHOP_CATEGORY = {"driver": "driver", "wood": "wood", "hybrid": "hybrid", "irons": "irons", "wedge": "wedge",
+                 "putter": "putter", "ball": "ball", "bag": "bag"}
+
+
+# ---------------------------------------------------------------- formatting
+def esc(s):
+    return html.escape(str(s), quote=True)
+
+
+def money(n):
+    return f"£{n:,.2f}"
+
+
+def long_date(d):
+    d = d if isinstance(d, date) else date.fromisoformat(d)
+    return f"{d.day} {d.strftime('%b %Y')}"
+
+
+def short_date(d):
+    d = d if isinstance(d, date) else date.fromisoformat(d)
+    return f"{d.day} {d.strftime('%b')}"
+
+
+def plural(n, word, many=None):
+    return f"{n:,} {word if n == 1 else (many or word + 's')}"
+
+
+def join_words(items):
+    items = list(items)
+    if len(items) <= 1:
+        return "".join(items)
+    return ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def retailer_name(src):
+    return RETAILERS.get(src, src.replace("awin-", "").title())
+
+
+# ---------------------------------------------------------------- reading listing details
+LEFT_RX = re.compile(r"\b(left hand|left-hand|lh)\b", re.I)
+LOFT_RX = re.compile(r"\b(\d{1,2}(?:\.\d)?)\s?(?:\*|°|deg\b)", re.I)
+WEDGE_LOFT_RX = re.compile(r"\b(4[6-9]|5\d|6[0-4])(?:\.\d{2})?\s?(?:\*|°|deg\b|/|\.\d{2}\b)", re.I)
+FLEX_RX = [("Extra stiff", r"\b(extra stiff|x-?stiff|tour x)\b"), ("Stiff", r"\bstiff\b"),
+           ("Regular", r"\bregular\b"), ("Senior", r"\b(senior|a-?flex|lite)\b"), ("Ladies", r"\bladies\b")]
+SET_SEQ = ["3", "4", "5", "6", "7", "8", "9", "PW", "GW", "SW", "LW"]
+SET_RX = re.compile(r"\b([3-9])\s?-\s?(PW|GW|AW|SW|LW|[4-9])\b", re.I)
+EXTRA_RX = re.compile(r"\+\s?(AW|GW|SW|LW|\d{2}\s?\*?)", re.I)
+BATTERY_RX = re.compile(r"\b(18|27|36)[ -]?hole\b|\b(extended)\b", re.I)
+
+
+def iron_set(name):
+    m = SET_RX.search(name)
+    if not m:
+        return None
+    start, end = m.group(1), m.group(2).upper().replace("AW", "GW")
+    if end not in SET_SEQ:
+        return None
+    count = SET_SEQ.index(end) - SET_SEQ.index(start) + 1 + len(EXTRA_RX.findall(name))
+    label = f"{m.group(1)}-{m.group(2).upper()}"
+    extras = [x.upper().replace(" ", "") for x in EXTRA_RX.findall(name)]
+    if extras:
+        label += "+" + "+".join(extras)
+    return f"{label} ({count} clubs)" if count > 1 else None
+
+
+def listing_options(p, type_key):
+    """The configuration facts a shopper picks between, read from the name."""
+    name = p.get("name", "")
+    out = {}
+    if type_key in CLUB_TYPES:
+        out["Hand"] = "Left" if LEFT_RX.search(name) else "Right"
+        if type_key in ("driver", "wood", "hybrid"):
+            m = LOFT_RX.search(name)
+            if m:
+                out["Loft"] = f"{m.group(1)}°"
+        if type_key == "wedge":
+            m = WEDGE_LOFT_RX.search(name)
+            if m:
+                out["Loft"] = f"{m.group(1)}°"
+        if type_key != "putter":
+            for label, rx in FLEX_RX:
+                if re.search(rx, name, re.I):
+                    out["Flex"] = label
+                    break
+        if type_key == "irons":
+            s = iron_set(name)
+            if s:
+                out["Set makeup"] = s
+            if re.search(r"\bgraphite\b", name, re.I):
+                out["Shaft"] = "Graphite"
+            elif re.search(r"\bsteel\b", name, re.I):
+                out["Shaft"] = "Steel"
+    elif type_key == "electric-trolley":
+        m = BATTERY_RX.search(name)
+        if m:
+            out["Battery"] = "36 hole" if m.group(2) else f"{m.group(1)} hole"
+        out["Version"] = "With GPS" if re.search(r"\bgps\b", name, re.I) else "Standard"
+    elif type_key in ("gps-watch", "rangefinder", "bag", "ball"):
+        if p.get("colour"):
+            out["Colour"] = p["colour"].title()
+        if type_key == "rangefinder" and re.search(r"\bslope\b", name, re.I):
+            out["Slope"] = "With slope"
+    return out
+
+
+# ---------------------------------------------------------------- model view
+class Model:
+    def __init__(self, m, products_by_id, today):
+        self.m = m
+        self.today = today
+        self.name = m["name"]
+        self.slug = m["slug"]
+        self.type = m["type"]
+        self.hub_slug, self.hub_label, self.noun, self.section = TYPES[self.type]
+        self.is_ball = self.type == "ball"
+        self.listings = [products_by_id[i] for i in m.get("listingIds", []) if i in products_by_id]
+        self.preowned = [products_by_id[i] for i in m.get("preownedIds", []) if i in products_by_id]
+        self.low_price = m["minPrice"]
+        self.history = [(date.fromisoformat(d), p) for d, p in m.get("history") or []]
+        self.days = m.get("historyDays") or 0
+
+    # price of one listing in the unit the page compares (per dozen for balls)
+    def unit(self, p):
+        if self.is_ball:
+            from models import ball_pack_size
+            size = ball_pack_size(p["name"])
+            return round(p["salePrice"] / size * 12, 2) if size else None
+        return p["salePrice"]
+
+    def pack_note(self, p):
+        if not self.is_ball:
+            return ""
+        from models import ball_pack_size
+        stated = ball_pack_size(p["name"], assume_dozen=False)
+        if stated is None:
+            return "pack size not stated"
+        if stated == 48 and re.search(r"4 for 3", p["name"], re.I):
+            return "4 dozen for the price of 3"
+        return {3: "3-ball sleeve", 6: "6-ball pack", 12: "12-ball pack", 15: "15-ball pack",
+                24: "2 dozen", 36: "3 dozen", 48: "4 dozen"}.get(stated, f"{stated} balls")
+
+    def priced(self):
+        rows = [(self.unit(p), p) for p in self.listings]
+        return [(u, p) for u, p in rows if u is not None and u >= self.low_price - 0.005]
+
+    def retailer_rows(self):
+        by = defaultdict(list)
+        for u, p in self.priced():
+            by[p["source"]].append((u, p))
+        rows = []
+        for src, items in by.items():
+            items.sort(key=lambda x: x[0])
+            u, cheapest = items[0]
+            names = {p["name"] for _, p in items}
+            rows.append({
+                "retailer": retailer_name(src),
+                "price": u,
+                "from": len({x for x, _ in items}) > 1,
+                "options": len(names),
+                "url": cheapest["affiliateUrl"],
+                "listing": cheapest,
+                "note": self.pack_note(cheapest),
+            })
+        rows.sort(key=lambda r: (r["price"], r["retailer"]))
+        return rows
+
+    def option_groups(self):
+        groups = defaultdict(lambda: defaultdict(list))
+        for u, p in self.priced():
+            for k, v in listing_options(p, self.type).items():
+                groups[k][v].append((u, p))
+        order = ["Set makeup", "Hand", "Loft", "Flex", "Shaft", "Battery", "Version", "Slope", "Colour"]
+        out = []
+        for k in order:
+            if k not in groups or (len(groups[k]) < 2 and k not in ("Hand",)):
+                continue
+            vals = []
+            for v, items in groups[k].items():
+                srcs = {p["source"] for _, p in items}
+                vals.append({"value": v, "count": len({p["name"] for _, p in items}), "from": min(u for u, _ in items),
+                             "retailers": len(srcs)})
+            if k == "Loft":
+                vals.sort(key=lambda x: float(x["value"].rstrip("°")))
+            elif k == "Set makeup":
+                vals.sort(key=lambda x: x["from"])
+            else:
+                vals.sort(key=lambda x: -x["count"])
+            out.append((k, vals[:10]))
+        return out
+
+    def left_handed(self):
+        lefts = [(u, p) for u, p in self.priced() if LEFT_RX.search(p["name"])]
+        if not lefts:
+            return None
+        return {"count": len({p["name"] for _, p in lefts}), "from": min(u for u, _ in lefts),
+                "retailers": sorted({retailer_name(p["source"]) for _, p in lefts})}
+
+    def image(self):
+        for _, p in sorted(self.priced(), key=lambda x: x[0]):
+            if p.get("image"):
+                return p["image"]
+        return None
+
+    def per(self):
+        return " per dozen" if self.is_ball else ""
+
+    # -------------------------------------------------------------- history facts
+    def series_daily(self):
+        """Expand the change-point history into one price per day."""
+        if not self.history:
+            return []
+        out = []
+        pts = self.history
+        for i, (d, p) in enumerate(pts):
+            end = pts[i + 1][0] if i + 1 < len(pts) else self.today
+            cur = d
+            while cur < end or (i + 1 == len(pts) and cur <= end):
+                out.append((cur, p))
+                cur = date.fromordinal(cur.toordinal() + 1)
+        return out
+
+    def facts(self):
+        daily = self.series_daily()
+        if not daily:
+            return None
+        prices = [p for _, p in daily]
+        current = prices[-1]
+        changes = sum(1 for a, b in zip(prices, prices[1:]) if a != b)
+        since = daily[-1][0]
+        for d, p in reversed(daily):
+            if p != current:
+                break
+            since = d
+        return {
+            "first": daily[0][0], "days": len(daily), "low": min(prices), "high": max(prices),
+            "avg": round(sum(prices) / len(prices), 2), "changes": changes, "current": current,
+            "since": since,
+        }
+
+    def events(self):
+        return [dict(e, date=date.fromisoformat(e["date"])) for e in self.m.get("events") or []]
+
+    def verdict(self):
+        f = self.facts()
+        v = self.m.get("verdict") or {}
+        label = v.get("label", "tracking")
+        if not f or f["days"] < 30:
+            return ("tracking", "Tracking started",
+                    f"We've tracked the {self.name} for {plural(f['days'] if f else 0, 'day')}; a verdict appears at 30 days.")
+        cur, low, high, days = f["current"], f["low"], f["high"], f["days"]
+        held = (self.today - f["since"]).days + 1
+        if label == "good":
+            cuts = [e for e in self.events() if e["kind"] == "price_cut"]
+            why = f" after a price cut on {short_date(cuts[-1]['date'])}" if cuts else ""
+            return ("good", "Good time to buy",
+                    f"{money(cur)}{self.per()} is the lowest price in {days} days of tracking{why}.")
+        if label == "wait":
+            rises = [e for e in self.events() if e["kind"] == "price_rise"]
+            when = f" It went up on {short_date(rises[-1]['date'])}." if rises else ""
+            return ("wait", f"Wait if you can: {money(cur - low)} above its tracked low",
+                    f"It was {money(low)}{self.per()} earlier in our {days} days of tracking.{when} "
+                    f"Deal alerts will tell you if it comes back down.")
+        if cur <= low:
+            body = (f"The cheapest option has been {money(cur)}{self.per()} since {short_date(f['since'])}, "
+                    f"the lowest in {days} days of tracking." if held < days else
+                    f"The cheapest option has held at {money(cur)}{self.per()} for all {days} days we've tracked it.")
+            return ("typical", f"Typical price: steady for {plural(held, 'day')}", body + " No sign of a drop coming.")
+        return ("typical", "Typical price",
+                f"{money(cur)}{self.per()} today. Over {days} days it has ranged from {money(low)} to {money(high)}.")
+
+
+# ---------------------------------------------------------------- chart
+def nice_ticks(lo, hi, n=4):
+    span = hi - lo or max(hi * 0.1, 1)
+    raw = span / (n - 1)
+    mag = 10 ** len(str(int(raw))) / 10 if raw >= 1 else 1
+    for m in (1, 2, 2.5, 5, 10):
+        step = m * mag
+        if step >= raw:
+            break
+    start = (lo // step) * step
+    ticks = []
+    t = start
+    while t < hi + step * 0.999:
+        ticks.append(round(t, 2))
+        t += step
+    if len(ticks) < 2:
+        ticks.append(ticks[-1] + step)
+    return ticks
+
+
+def chart_svg(model, phone=False):
+    daily = model.series_daily()
+    if len(daily) < 2:
+        return ""
+    # Two drawings of the same chart: a wide one, and a narrow one whose
+    # text stays readable when a phone shrinks it to fit.
+    W, H, L, R, T, B = (380, 250, 50, 10, 20, 34) if phone else (1000, 270, 64, 24, 24, 44)
+    d0, d1 = daily[0][0], daily[-1][0]
+    span_days = max((d1 - d0).days, 1)
+    prices = [p for _, p in daily]
+    ticks = nice_ticks(min(prices) * 0.97, max(prices) * 1.03)
+    ylo, yhi = ticks[0], ticks[-1]
+
+    def x(d):
+        return L + (W - L - R) * (d - d0).days / span_days
+
+    def y(p):
+        return T + (H - T - B) * (1 - (p - ylo) / (yhi - ylo))
+
+    path = f"M{x(daily[0][0]):.1f} {y(daily[0][1]):.1f}"
+    for (da, pa), (db, pb) in zip(daily, daily[1:]):
+        if pb != pa:
+            path += f" H{x(db):.1f} V{y(pb):.1f}"
+    path += f" H{x(d1):.1f}"
+
+    grid = "".join(f'<line x1="{L}" x2="{W - R}" y1="{y(t):.1f}" y2="{y(t):.1f}"/>' for t in ticks)
+    ylabels = "".join(f'<text x="{L - 10}" y="{y(t) + 4:.1f}">£{t:,.0f}</text>' for t in ticks)
+    # x labels: first day, the 1st of each month, today
+    xl = [(d0, "start")]
+    m = date(d0.year, d0.month, 1)
+    while True:
+        m = date(m.year + (m.month // 12), m.month % 12 + 1, 1)
+        if m >= d1:
+            break
+        if (m - d0).days > span_days * (0.2 if phone else 0.12) and (d1 - m).days > span_days * (0.2 if phone else 0.08):
+            xl.append((m, "middle"))
+    xl.append((d1, "end"))
+    xlabels = "".join(f'<text x="{x(d):.1f}" y="{H - 14}" text-anchor="{a}">{short_date(d)}</text>' for d, a in xl)
+
+    # Explain the biggest move, so a new cheaper retailer isn't mistaken for a price cut.
+    note = ""
+    evs = [e for e in model.events() if d0 < e["date"] <= d1]
+    if evs:
+        e = max(evs, key=lambda e: abs(e["to"] - e["from"]))
+        ex = x(e["date"])
+        text = {"new_listing": ("A cheaper listing appeared", "Not a price cut"),
+                "price_cut": (f"Price cut: {money(e['from'])} to {money(e['to'])}", "A retailer lowered its price"),
+                "price_rise": (f"Price rise: {money(e['from'])} to {money(e['to'])}", "The cheapest option went up")}[e["kind"]]
+        anchor, tx = ("start", ex + 8) if ex < W * (0.5 if phone else 0.62) else ("end", ex - 8)
+        if phone:
+            text = (text[0].split(":")[0] if e["kind"] != "new_listing" else "Cheaper listing", text[1] if e["kind"] == "new_listing" else "")
+        # Put the note in whichever half of the chart the line isn't in.
+        # The text sits right of the marker (after the change) or left of it
+        # (before), so check the line's level on that side.
+        level = e["to"] if anchor == "start" else e["from"]
+        ty = T + 18 if y(level) > (T + H - B) / 2 else H - B - 30
+        note = (f'<line x1="{ex:.1f}" x2="{ex:.1f}" y1="{T}" y2="{H - B}" stroke="#16241c" stroke-width="1" stroke-dasharray="4 4"/>'
+                f'<text x="{tx:.1f}" y="{ty}" text-anchor="{anchor}" font-weight="600" fill="#16241c">{short_date(e["date"])}: {esc(text[0])}</text>'
+                f'<text x="{tx:.1f}" y="{ty + 18}" text-anchor="{anchor}" fill="#5b665f">{esc(text[1])}</text>')
+    last_y = y(daily[-1][1])
+    label_y = last_y - 12 if last_y > T + 50 else last_y + 22
+    desc = (f"Cheapest {model.name} price each day from {short_date(d0)} to {short_date(d1)}: "
+            f"low {money(min(prices))}, high {money(max(prices))}, today {money(prices[-1])}.")
+    cls = "pp-chart pp-chart-m" if phone else "pp-chart pp-chart-d"
+    return f"""<svg class="{cls}" viewBox="0 0 {W} {H}" role="img" aria-label="{esc(desc)}">
+<g stroke="#eef0ec" stroke-width="1">{grid}</g>
+<g font-size="13" fill="#5b665f" text-anchor="end">{ylabels}</g>
+<g font-size="13" fill="#5b665f">{xlabels}</g>
+<g font-size="13">{note}</g>
+<path d="{path}" fill="none" stroke="#3fae29" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="{x(d1):.1f}" cy="{last_y:.1f}" r="5" fill="#3fae29"/>
+<text x="{x(d1) - 8:.1f}" y="{label_y:.1f}" font-size="13" font-weight="700" fill="#2f8a1f" text-anchor="end">{money(prices[-1])} today</text>
+</svg>"""
+
+
+# ---------------------------------------------------------------- shared page parts
+ICON_BELL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0112 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 003.4 0"></path></svg>'
+VERDICT_ICON = {
+    "good": '<path d="M12 5v14M6 13l6 6 6-6"></path>',
+    "wait": '<path d="M12 19V5M6 11l6-6 6 6"></path>',
+    "typical": '<path d="M4 12h16"></path>',
+    "tracking": '<circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path>',
+}
+
+
+def page_shell(*, title, description, canonical, body, section, schema, noindex, extra_head=""):
+    robots = '<meta name="robots" content="noindex, follow">\n' if noindex else ""
+    schema_html = "".join(
+        f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False, separators=(",", ":"))}</script>\n'
+        for s in schema)
+    return f"""<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(title)}</title>
+<meta name="description" content="{esc(description)}">
+{robots}<link rel="canonical" href="{canonical}">
+<link rel="icon" href="/assets/logo-full.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/prices.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GolfPrice AI">
+<meta property="og:title" content="{esc(title)}">
+<meta property="og:description" content="{esc(description)}">
+<meta property="og:url" content="{canonical}">
+<meta property="og:image" content="{SITE}/assets/social-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+{extra_head}{schema_html}</head>
+<body data-section="{section}">
+<a href="#main-content" class="skip-link">Skip to content</a>
+{site_chrome.header_html()}
+<main id="main-content" class="pp">
+{body}
+</main>
+{site_chrome.footer_html()}
+<script src="/js/analytics.js"></script>
+<script src="/js/cookie-consent.js"></script>
+<script src="/js/site.js" defer></script>
+</body>
+</html>
+"""
+
+
+def breadcrumb(items):
+    """items: list of (label, url or None). Returns (html, schema)."""
+    parts, schema = [], []
+    for i, (label, url) in enumerate(items):
+        if url and i < len(items) - 1:
+            parts.append(f'<a href="{url}">{esc(label)}</a>')
+        else:
+            parts.append(f'<span{" aria-current=\"page\"" if i == len(items) - 1 else ""}>{esc(label)}</span>')
+        entry = {"@type": "ListItem", "position": i + 1, "name": label}
+        if url:
+            entry["item"] = SITE + url
+        schema.append(entry)
+    html_ = '<nav class="pp-crumbs" aria-label="Breadcrumb">' + '<span class="pp-sep">›</span>'.join(parts) + "</nav>"
+    return html_, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": schema}
+
+
+def method_note(today):
+    return f"""<section class="pp-method">
+  <p>Prices on this page were checked on {long_date(today)}. We check every listing at the retailers we track every 6 hours and keep our own record of every price, which is where the history and the verdict come from. Prices can change on the retailer's site, so check there before you buy. <a href="/about.html">How we track prices</a>.</p>
+  <p>GolfPrice AI is reader-supported: when you buy through our links we may earn a commission, at no extra cost to you. It never changes the order or the verdict.</p>
+</section>"""
+
+
+# ---------------------------------------------------------------- model page
+def model_link(m, built, today_hint=None):
+    """Where a mention of another model should point: its page if it has
+    one, otherwise a shop search that finds it."""
+    if m["slug"] in built:
+        return f"/prices/{m['slug']}/"
+    cat = SHOP_CATEGORY.get(m["type"], "accessories")
+    q = re.sub(r"[^a-z0-9.]+", "+", m["name"].lower()).strip("+")
+    return f"/shop.html?category={cat}&amp;q={q}"
+
+
+def related(m, all_models, limit=4):
+    same_type = [x for x in all_models if x["type"] == m["type"] and x["slug"] != m["slug"] and x["gate"]["passes"]]
+    price = m["minPrice"]
+    brand_sibs = sorted([x for x in same_type if x["brand"] == m["brand"]], key=lambda x: abs(x["minPrice"] - price))[:2]
+    others = sorted([x for x in same_type if x["brand"] != m["brand"] and abs(x["minPrice"] - price) <= price * 0.25],
+                    key=lambda x: (-len(x["retailers"]), abs(x["minPrice"] - price)))
+    picks, brands = [], set()
+    for x in others:
+        if x["brand"] not in brands:
+            picks.append(x)
+            brands.add(x["brand"])
+        if len(picks) >= limit - len(brand_sibs):
+            break
+    out = [("Same brand", x) for x in brand_sibs] + [("Similar price", x) for x in picks]
+    return out[:limit]
+
+
+def build_model_page(model, all_models, built, hubs_built, today, noindex):
+    m, name = model.m, model.name
+    rows = model.retailer_rows()
+    if not rows:
+        return None
+    f = model.facts()
+    low = rows[0]
+    per = model.per()
+    n_ret = len(rows)
+    vlabel, vtitle, vtext = model.verdict()
+    hub_url = f"/prices/{model.hub_slug}/" if model.hub_slug in hubs_built else None
+
+    crumbs_html, crumbs_schema = breadcrumb([
+        ("Home", "/"), ("Prices", "/prices/"), (model.hub_label, hub_url), (m["brand"], None),
+        (name.replace(m["brand"] + " ", "", 1), None)])
+
+    cheapest_at = [r["retailer"] for r in rows if abs(r["price"] - low["price"]) < 0.005]
+    if len(cheapest_at) == n_ret and n_ret > 1:
+        where = f"the same at all {n_ret} retailers we track"
+    elif len(cheapest_at) > 1:
+        where = f"at {join_words(cheapest_at)}"
+    else:
+        where = f"at {low['retailer']}"
+    if len(cheapest_at) == n_ret and n_ret > 1:
+        answer = (f"On {long_date(today)} the lowest new UK price for the {esc(name)} is "
+                  f"<strong>{money(low['price'])}{per}</strong>, the same at all {n_ret} retailers we track.")
+    else:
+        answer = (f"On {long_date(today)} the lowest new UK price for the {esc(name)} is "
+                  f"<strong>{money(low['price'])}{per}</strong> {where}, across "
+                  f"{plural(model.m['listingCount'], 'listing')} at {plural(n_ret, 'retailer')}.")
+    if model.type == "irons":
+        makeup = listing_options(low["listing"], "irons").get("Set makeup")
+        if makeup:
+            answer += f" That price is for a {esc(makeup.replace(' (', ' set (', 1))}; prices depend on how many clubs are in the set."
+    rrp = m.get("rrp")
+    rrp_html = f'<span class="pp-rrp">Retailer\'s RRP {money(rrp)}</span>' if rrp and not model.is_ball else ""
+
+    img = model.image()
+    img_html = (f'<img src="{esc(img)}" alt="{esc(name)}" width="440" height="400" loading="eager" '
+                f'referrerpolicy="no-referrer" onerror="this.parentNode.classList.add(\'pp-photo-none\');this.remove()">'
+                if img else "")
+
+    # Where to buy
+    trs = []
+    for i, r in enumerate(rows):
+        price = ("from " if r["from"] else "") + money(r["price"]) + per
+        note = f'<span class="pp-sub">{esc(r["note"])}</span>' if r["note"] else ""
+        trs.append(f"""<tr>
+  <th scope="row">{esc(r['retailer'])}</th>
+  <td class="pp-price">{price}{note}</td>
+  <td>{plural(r['options'], 'option')}</td>
+  <td class="pp-stock">In stock</td>
+  <td><a class="pp-shop{' pp-shop-main' if i == 0 else ''}" href="{esc(r['url'])}" target="_blank" rel="sponsored nofollow noopener">Shop<span class="sr-only"> at {esc(r['retailer'])}</span></a></td>
+</tr>""")
+    same_note = ""
+    if len(cheapest_at) == n_ret and n_ret > 1:
+        same_note = '<p class="pp-small">Same price at every retailer today, so pick the one you prefer.</p>'
+    if model.is_ball:
+        same_note += ('<p class="pp-small">Every price is converted to a price per dozen so sleeves, 12-packs and '
+                      'multi-buys compare fairly. Where a retailer doesn\'t state the pack size we assume a dozen.</p>')
+
+    # Options
+    opt_html = ""
+    groups = model.option_groups()
+    if groups:
+        blocks = []
+        for k, vals in groups:
+            chips = "".join(
+                f'<span class="pp-chip">{esc(v["value"])} <em>{v["count"]} · from {money(v["from"])}</em></span>' for v in vals)
+            blocks.append(f'<div class="pp-optgroup"><div class="pp-label">{esc(k)}</div><div class="pp-chips">{chips}</div></div>')
+        opt_html = f"""<div class="pp-col">
+  <h2>Options available</h2>
+  <div class="pp-card pp-options">{''.join(blocks)}</div>
+</div>"""
+
+    # History
+    hist_html = ""
+    if f:
+        hist_html = f"""<section class="pp-block">
+  <h2>{esc(name)} price history</h2>
+  <p class="pp-small">Cheapest new price available each day{per} · {plural(f['days'], 'day')} tracked · low {money(f['low'])} · high {money(f['high'])} · average {money(f['avg'])} · {plural(f['changes'], 'price change')}</p>
+  <div class="pp-card pp-chart-wrap">{chart_svg(model)}{chart_svg(model, phone=True)}</div>
+</section>"""
+
+    # Pre-owned
+    pre_html = ""
+    if model.preowned:
+        items = []
+        for p in model.preowned[:4]:
+            cond = p.get("condition") or ("Preowned" if p.get("source") == "awin-callawaypreowned" else "Used")
+            items.append(f"""<li><a href="{esc(p['affiliateUrl'])}" target="_blank" rel="sponsored nofollow noopener">
+  <span>{esc(p['name'])}</span><span class="pp-sub">{esc(cond)} · {esc(retailer_name(p['source']))}</span><strong>{money(p['salePrice'])}</strong></a></li>""")
+        pre_html = f"""<section class="pp-block">
+  <h2>Pre-owned and ex-demo {esc(name)}</h2>
+  <p class="pp-small">Kept separate from the new prices above, because condition changes what a fair price is.</p>
+  <ul class="pp-card pp-list">{''.join(items)}</ul>
+</section>"""
+
+    # Questions, answered from the data
+    qs = []
+    others = [r for r in rows if r is not low][:2]
+    also = (" Also at " + join_words(f"{r['retailer']} from {money(r['price'])}" for r in others) + ".") if others else ""
+    if len(cheapest_at) == n_ret and n_ret > 1:
+        a1 = f"It's {money(low['price'])}{per} at all {n_ret} retailers we track today: {join_words(cheapest_at)}."
+    else:
+        a1 = f"{low['retailer']}, from {money(low['price'])}{per} today.{also}"
+    qs.append((f"Where's the cheapest place to buy the {name}?", a1))
+
+    evs = model.events()
+    cuts = [e for e in evs if e["kind"] == "price_cut"]
+    rises = [e for e in evs if e["kind"] == "price_rise"]
+    adds = [e for e in evs if e["kind"] == "new_listing"]
+    if cuts:
+        e = cuts[-1]
+        a2 = f"Yes. On {long_date(e['date'])} the cheapest price fell from {money(e['from'])} to {money(e['to'])}{per}."
+    elif adds and f and f["current"] < f["high"]:
+        e = adds[-1]
+        a2 = (f"Not as a price cut. The cheapest price fell from {money(e['from'])} to {money(e['to'])}{per} on "
+              f"{long_date(e['date'])} because a cheaper listing appeared, not because a retailer lowered its price.")
+    elif rises:
+        e = rises[-1]
+        a2 = f"No, it has gone up. On {long_date(e['date'])} the cheapest price rose from {money(e['from'])} to {money(e['to'])}{per}."
+    elif f:
+        a2 = f"No. The cheapest price has held at {money(f['current'])}{per} for all {f['days']} days we've tracked it."
+    else:
+        a2 = "We've only just started tracking it, so there's no history yet."
+    if m.get("verifiedDrops"):
+        a2 += (f" {plural(m['verifiedDrops'], 'individual listing')} {'shows' if m['verifiedDrops'] == 1 else 'show'} "
+               f"a genuine drop against our own price history.")
+    qs.append((f"Has the {name} price dropped?", a2))
+
+    if f:
+        a3 = f"{vtitle}. {vtext}"
+        if "ranged from" not in vtext and f["high"] > f["low"]:
+            a3 += f" Over {f['days']} days it has ranged from {money(f['low'])} to {money(f['high'])}{per}."
+        qs.append((f"Is {money(low['price'])} a good price for the {name}?", a3))
+
+    if model.type in CLUB_TYPES:
+        lh = model.left_handed()
+        if lh:
+            qs.append((f"Is there a left-handed {name}?",
+                       f"Yes: {plural(lh['count'], 'left-handed option')} from {money(lh['from'])}, at {join_words(lh['retailers'])}."))
+        else:
+            qs.append((f"Is there a left-handed {name}?",
+                       "Not at the retailers we track right now. We'll show it here as soon as one lists it."))
+    if model.is_ball:
+        qs.append((f"How much is the {name} per dozen?",
+                   f"From {money(low['price'])} per dozen at {low['retailer']}. We convert sleeves, 12-packs and "
+                   f"multi-buys to a per-dozen price so every pack compares fairly."))
+    sets = dict(groups).get("Set makeup")
+    if sets:
+        qs.append((f"Which {name} set makeups can I buy?",
+                   "; ".join(f"{v['value']} from {money(v['from'])}" for v in sets[:4]) + "."))
+    colours = dict(groups).get("Colour")
+    if colours and not model.is_ball:
+        qs.append((f"Which colours can I get the {name} in?",
+                   join_words(f"{v['value']} ({plural(v['retailers'], 'retailer')})" for v in colours) + "."))
+    if model.preowned:
+        pm = min(p["salePrice"] for p in model.preowned)
+        qs.append((f"Can I buy the {name} pre-owned?",
+                   f"Yes: {plural(len(model.preowned), 'pre-owned or ex-demo listing')} from {money(pm)}."))
+    q_html = "".join(f'<div class="pp-card pp-q"><h3>{esc(q)}</h3><p>{esc(a)}</p></div>' for q, a in qs)
+
+    # Related
+    rel = related(m, all_models)
+    rel_html = ""
+    if rel:
+        cards = "".join(f"""<a class="pp-card pp-rel" href="{model_link(x, built)}">
+  <span class="pp-tag">{tag}</span><span class="pp-rel-name">{esc(x['name'])}</span>
+  <span class="pp-rel-price">from {money(x['minPrice'])}{' per dozen' if x['type'] == 'ball' else ''}</span>
+  <span class="pp-sub">{plural(len(x['retailers']), 'retailer')}</span></a>""" for tag, x in rel)
+        rel_html = f"""<section class="pp-block">
+  <h2>Worth comparing</h2>
+  <div class="pp-rel-grid">{cards}</div>
+</section>"""
+
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="pp-top">
+  <div class="pp-photo" style="--pp-icon:url('/assets/icons/{TYPE_ICON.get(model.type, 'accessories')}.svg')">{img_html}</div>
+  <div class="pp-summary">
+    <h1>{esc(name)} price UK</h1>
+    <p class="pp-answer">{answer}</p>
+    <div class="pp-from"><span class="pp-sub">from</span><span class="pp-big">{money(low['price'])}</span>{'<span class="pp-sub">per dozen</span>' if per else ''}{rrp_html}</div>
+    <div class="pp-verdict pp-v-{vlabel}">
+      <span class="pp-v-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{VERDICT_ICON[vlabel]}</svg></span>
+      <div><strong>{esc(vtitle)}</strong><span>{esc(vtext)}</span></div>
+    </div>
+    <div class="pp-ctas">
+      <a class="pp-btn" href="{esc(low['url'])}" target="_blank" rel="sponsored nofollow noopener">Shop from {money(low['price'])}{per}</a>
+      <a class="pp-btn pp-btn-alt" href="/#alerts">{ICON_BELL}Get deal alerts</a>
+    </div>
+    <p class="pp-disclose">We may earn a commission if you buy through these links. It never changes the prices or the verdict.</p>
+  </div>
+</section>
+<div class="pp-two">
+  <div class="pp-col pp-col-main">
+    <h2>Where to buy the {esc(name)}</h2>
+    <div class="pp-card pp-table-wrap"><table class="pp-table">
+      <thead><tr><th scope="col">Retailer</th><th scope="col">Price{' per dozen' if per else ''}</th><th scope="col">Options</th><th scope="col">Stock</th><th scope="col"><span class="sr-only">Link</span></th></tr></thead>
+      <tbody>{''.join(trs)}</tbody>
+    </table></div>
+    {same_note}
+  </div>
+  {opt_html}
+</div>
+{hist_html}
+{pre_html}
+<section class="pp-block">
+  <h2>Questions about the {esc(name)}</h2>
+  <div class="pp-q-grid">{q_html}</div>
+</section>
+{rel_html}
+{method_note(today)}
+<p class="pp-small pp-data">The facts on this page as data: <a href="/prices/{model.slug}/data.json">data.json</a></p>
+</div>"""
+
+    title = f"{name} Price UK: from {money(low['price'])}{per}"
+    if model.is_ball:
+        desc = (f"Every UK {name} price, converted to per dozen so pack sizes compare fairly. "
+                f"From {money(low['price'])} per dozen today. Updated every 6 hours.")
+    else:
+        desc = (f"Lowest UK price today across {plural(n_ret, 'retailer')}, plus "
+                f"{plural(f['days'] if f else 0, 'day')} of price history. See if now's a good time to buy the {name}.")
+    canonical = f"{SITE}/prices/{model.slug}/"
+    product = {
+        "@context": "https://schema.org", "@type": "Product", "name": name,
+        "brand": {"@type": "Brand", "name": m["brand"]}, "url": canonical,
+        "offers": {"@type": "AggregateOffer", "priceCurrency": "GBP", "lowPrice": round(low["price"], 2),
+                   "highPrice": round(max(r["price"] for r in rows), 2), "offerCount": m["listingCount"],
+                   "availability": "https://schema.org/InStock"},
+    }
+    if img:
+        product["image"] = img
+    if model.is_ball:
+        product["offers"]["description"] = "Prices per dozen balls"
+    page = page_shell(title=title, description=desc, canonical=canonical, body=body, section=model.section,
+                      schema=[product, crumbs_schema], noindex=noindex)
+
+    data = {
+        "name": name, "brand": m["brand"], "type": model.noun, "url": canonical, "checked": today.isoformat(),
+        "currency": "GBP", "unit": "per dozen" if model.is_ball else "each",
+        "lowestNewPrice": low["price"], "lowestAt": cheapest_at,
+        "retailers": [{"name": r["retailer"], "from": r["price"], "options": r["options"]} for r in rows],
+        "history": {"daysTracked": f["days"], "low": f["low"], "high": f["high"], "average": f["avg"],
+                    "priceChanges": f["changes"], "series": m.get("history")} if f else None,
+        "verdict": {"label": vlabel, "summary": vtitle},
+        "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+    }
+    return page, json.dumps(data, ensure_ascii=False, indent=1)
+
+
+# ---------------------------------------------------------------- hub page
+def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
+    type_key = HUB_TYPES[hub_slug]
+    _, label, noun, section = TYPES[type_key]
+    ms = sorted([m for m in all_models if m["type"] == type_key and m["gate"]["passes"]], key=lambda m: m["minPrice"])
+    if not ms:
+        return None
+    per = " per dozen" if type_key == "ball" else ""
+    retailers = {s for m in ms for s in m["retailers"]}
+    good = [m for m in ms if (m.get("verdict") or {}).get("label") == "good"]
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), (label, None)])
+    answer = (f"On {long_date(today)} we track {plural(len(ms), noun)} at {plural(len(retailers), 'UK retailer')}, "
+              f"from <strong>{money(ms[0]['minPrice'])}{per}</strong> ({esc(ms[0]['name'])}) to "
+              f"{money(ms[-1]['minPrice'])}{per}.")
+    if good:
+        answer += f" {len(good)} of them {'is' if len(good) == 1 else 'are'} at the lowest price we've tracked."
+    vlab = {"good": "Good time to buy", "wait": "Wait if you can", "typical": "Typical price", "tracking": "Tracking"}
+    trs = "".join(f"""<tr data-price="{m['minPrice']}" data-name="{esc(m['name'].lower())}" data-ret="{len(m['retailers'])}">
+  <th scope="row"><a href="{model_link(m, built)}">{esc(m['name'])}</a></th>
+  <td class="pp-price">{money(m['minPrice'])}{per}</td>
+  <td>{len(m['retailers'])}</td>
+  <td><span class="pp-vtag pp-v-{(m.get('verdict') or {}).get('label', 'tracking')}">{vlab.get((m.get('verdict') or {}).get('label', 'tracking'))}</span></td>
+</tr>""" for m in ms)
+    others = [h for h in hubs_built if h != hub_slug]
+    other_html = ""
+    if others:
+        links = "".join(f'<a class="pp-chip" href="/prices/{h}/">{TYPES[HUB_TYPES[h]][1]}</a>' for h in others)
+        other_html = f'<section class="pp-block"><h2>More price guides</h2><div class="pp-chips">{links}</div></section>'
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="pp-hub-top">
+  <h1>{esc(noun[0].upper() + noun[1:])} prices UK</h1>
+  <p class="pp-answer">{answer}</p>
+  <p class="pp-disclose">We may earn a commission if you buy through links on these pages. It never changes the order or the verdicts.</p>
+</section>
+<section class="pp-block">
+  <div class="pp-sort" role="group" aria-label="Sort">
+    <span>Sort:</span>
+    <button type="button" data-sort="price" aria-pressed="true">Lowest price</button>
+    <button type="button" data-sort="ret" aria-pressed="false">Most retailers</button>
+    <button type="button" data-sort="name" aria-pressed="false">A to Z</button>
+  </div>
+  <div class="pp-card pp-table-wrap"><table class="pp-table pp-hub-table">
+    <thead><tr><th scope="col">Model</th><th scope="col">From</th><th scope="col">Retailers</th><th scope="col">Verdict</th></tr></thead>
+    <tbody id="pp-hub-rows">{trs}</tbody>
+  </table></div>
+  <p class="pp-small">Lowest new, in-stock price{per} for each model, checked every 6 hours. Verdicts compare today's price with the model's own tracked history.</p>
+</section>
+{other_html}
+{method_note(today)}
+</div>
+<script>
+(function () {{
+  var body = document.getElementById('pp-hub-rows');
+  var rows = Array.prototype.slice.call(body.children);
+  document.querySelectorAll('.pp-sort button').forEach(function (b) {{
+    b.addEventListener('click', function () {{
+      var k = b.getAttribute('data-sort');
+      rows.sort(function (x, y) {{
+        if (k === 'price') return x.dataset.price - y.dataset.price;
+        if (k === 'ret') return (y.dataset.ret - x.dataset.ret) || (x.dataset.price - y.dataset.price);
+        return x.dataset.name < y.dataset.name ? -1 : 1;
+      }});
+      rows.forEach(function (r) {{ body.appendChild(r); }});
+      document.querySelectorAll('.pp-sort button').forEach(function (o) {{ o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); }});
+    }});
+  }});
+}})();
+</script>"""
+    canonical = f"{SITE}/prices/{hub_slug}/"
+    item_list = {"@context": "https://schema.org", "@type": "ItemList", "name": f"{noun[0].upper() + noun[1:]} prices UK",
+                 "numberOfItems": len(ms),
+                 "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": m["name"],
+                                      **({"url": SITE + f"/prices/{m['slug']}/"} if m["slug"] in built else {})}
+                                     for i, m in enumerate(ms)]}
+    title_noun = " ".join(w if w.isupper() else w.capitalize() for w in noun.split())
+    title = f"{title_noun} Prices UK: from {money(ms[0]['minPrice'])}{per}"
+    desc = (f"{plural(len(ms), noun)} tracked across UK retailers, lowest first, with each one's price history "
+            f"and a verdict on whether now's a good time to buy.")
+    return page_shell(title=title, description=desc, canonical=canonical, body=body, section=section,
+                      schema=[item_list, crumbs_schema], noindex=noindex)
+
+
+def build_index_page(all_models, hubs_built, today, noindex):
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", None)])
+    cards = []
+    for h in hubs_built:
+        t = HUB_TYPES[h]
+        ms = [m for m in all_models if m["type"] == t and m["gate"]["passes"]]
+        if ms:
+            cards.append(f"""<a class="pp-card pp-rel" href="/prices/{h}/"><span class="pp-rel-name">{TYPES[t][1]}</span>
+<span class="pp-sub">{plural(len(ms), 'model')} tracked · from {money(min(m['minPrice'] for m in ms))}{' per dozen' if t == 'ball' else ''}</span></a>""")
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="pp-hub-top">
+  <h1>UK golf price guides</h1>
+  <p class="pp-answer">Every price guide is built from our own record of UK golf prices, checked every 6 hours since August 2026: the lowest price today, where to buy it, and whether now's a good time.</p>
+</section>
+<section class="pp-block"><div class="pp-rel-grid">{''.join(cards)}</div></section>
+{method_note(today)}
+</div>"""
+    return page_shell(title="UK Golf Price Guides | GolfPrice AI",
+                      description="Price guides for golf clubs, balls and accessories, built from our own UK price tracking: today's lowest price, price history and a verdict.",
+                      canonical=f"{SITE}/prices/", body=body, section="", schema=[crumbs_schema], noindex=noindex)
+
+
+# ---------------------------------------------------------------- writing
+def _write(path, text):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists() and path.read_text(encoding="utf-8") == text:
+        return False
+    path.write_text(text, encoding="utf-8")
+    return True
+
+
+def load_config():
+    if CONFIG_FILE.exists():
+        return json.loads(CONFIG_FILE.read_text())
+    return {"mode": "off"}
+
+
+def build(models_list, products, today_str):
+    """Called from update_deals.py after the models are built."""
+    cfg = load_config()
+    mode = cfg.get("mode", "off")
+    if mode == "off":
+        return []
+    today = date.fromisoformat(today_str)
+    by_id = {p["id"]: p for p in products}
+    passing = [m for m in models_list if m["gate"]["passes"] and m["type"] in TYPES]
+    if mode == "pilot":
+        wanted = cfg.get("pilot", [])
+        chosen = [m for m in passing if m["slug"] in wanted]
+        missing = sorted(set(wanted) - {m["slug"] for m in chosen})
+        if missing:
+            print(f"Price pages: pilot model(s) not passing the gate this run, skipped: {', '.join(missing)}")
+        hubs = [h for h in cfg.get("hubs", []) if h in HUB_TYPES]
+    else:
+        chosen = passing
+        hubs = sorted({TYPES[m["type"]][0] for m in passing})
+    noindex = mode != "live"
+    built = {m["slug"] for m in chosen}
+    changed = []
+    for m in chosen:
+        out = build_model_page(Model(m, by_id, today), passing, built, set(hubs), today, noindex)
+        if not out:
+            continue
+        page, data = out
+        if _write(PRICES_DIR / m["slug"] / "index.html", page):
+            changed.append(f"/prices/{m['slug']}/")
+        _write(PRICES_DIR / m["slug"] / "data.json", data)
+    for h in hubs:
+        page = build_hub_page(h, passing, built, hubs, today, noindex)
+        if page and _write(PRICES_DIR / h / "index.html", page):
+            changed.append(f"/prices/{h}/")
+    if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex)):
+        changed.append("/prices/")
+    print(f"Price pages ({mode}): {len(built)} model page(s), {len(hubs)} hub(s); {len(changed)} changed this run.")
+    return changed

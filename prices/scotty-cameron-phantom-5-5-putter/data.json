@@ -1,0 +1,56 @@
+{
+ "name": "Scotty Cameron Phantom 5.5 Putter",
+ "brand": "Scotty Cameron",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-5-5-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 329.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 329.95,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 429.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 449.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 329.95,
+  "high": 449.0,
+  "average": 370.34,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    449.0
+   ],
+   [
+    "2026-09-04",
+    329.95
+   ],
+   [
+    "2026-10-10",
+    329.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}
