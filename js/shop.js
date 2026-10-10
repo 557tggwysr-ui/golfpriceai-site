@@ -310,11 +310,21 @@ function classifyCondition(p) {
 // Trade Ins section (?source=awin-callawaypreowned). Mixed in with new
 // stock they'd drag "lowest price" sorts and filters towards used clubs.
 const PREOWNED_SOURCE = 'awin-callawaypreowned';
+const USED_GRADES = ['Preowned', 'Used', 'Like New', 'Very Good', 'Good', 'Average'];
+
+// Some Callaway Preowned stock arrives through the main Callaway feed with a
+// used grade attached; it belongs in the Preowned section too.
+function isPreownedPartner(p) {
+  return p.source === PREOWNED_SOURCE ||
+    (p.source === 'awin-callaway' && USED_GRADES.includes(p.condition));
+}
 
 function baseFilteredProducts() {
   return ALL_PRODUCTS.filter(p =>
     (!baseCategories || baseCategories.has(p.category)) &&
-    (baseSource ? p.source === baseSource : p.source !== PREOWNED_SOURCE)
+    (baseSource === PREOWNED_SOURCE ? isPreownedPartner(p)
+      : baseSource ? p.source === baseSource && !isPreownedPartner(p)
+      : !isPreownedPartner(p))
   );
 }
 
