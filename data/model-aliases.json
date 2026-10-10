@@ -1,0 +1,4 @@
+{
+  "_about": "Extra name rules for grouping retailer listings into one model. Each entry is [pattern, replacement], applied to lower-cased product names before grouping (regular expressions). Built-in rules live in scripts/models.py; add new ones here when the weekly model-review list shows a model split in two.",
+  "rename": []
+}
