@@ -584,11 +584,6 @@
    "to": "putter"
   },
   {
-   "name": "TaylorMade Golf Qi10 Ladies 5 Hybrid Right Hand Pre Owned No Headcover",
-   "from": "accessories",
-   "to": "hybrid"
-  },
-  {
    "name": "Mizuno G-Style Long Sleeve Golf Crew Neck 2.0 2026 - Lava Smoke - Lava Smoke / M",
    "from": "wood",
    "to": "apparel"
@@ -694,16 +689,6 @@
    "to": "putter"
   },
   {
-   "name": "Zebra Golf AIT1 Putter NO Cover - 34 / Right Hand",
-   "from": "accessories",
-   "to": "putter"
-  },
-  {
-   "name": "Srixon Golf ZX Mark II Fairway Wood - 5 Wood NO COVER / Regular HZRDUS 5.5 / Left Hand",
-   "from": "accessories",
-   "to": "wood"
-  },
-  {
    "name": "Ping Gold Putter Printed Polo Shirt - Navy Multi Navy Multi / S",
    "from": "putter",
    "to": "apparel"
@@ -715,11 +700,6 @@
   },
   {
    "name": "Ping Gold Putter Printed Polo Shirt - Spring Blue Multi Spring Blue Multi / XXL",
-   "from": "putter",
-   "to": "apparel"
-  },
-  {
-   "name": "Ping Gold Putter Printed Polo Shirt - White/Navy Multi White/Navy Multi / XXL",
    "from": "putter",
    "to": "apparel"
   },
@@ -914,11 +894,6 @@
    "to": "putter"
   },
   {
-   "name": "Scotty Cameron Super Select Delmar Mens Left Hand Putter 34\" Mid-Mallet - Scotty Cameron Grip",
-   "from": "accessories",
-   "to": "putter"
-  },
-  {
    "name": "Scotty Cameron Special Select Newport 2.5 Mens Right Hand Putter 33\" Blade - Scotty Cameron Grip",
    "from": "accessories",
    "to": "putter"
@@ -935,11 +910,6 @@
   },
   {
    "name": "Yes! C-Groove Callie-12 Mens Left Hand Putter 34\" Blade - Yes!",
-   "from": "accessories",
-   "to": "putter"
-  },
-  {
-   "name": "Yes! C-Groove Valerie Steel Mens Right Hand Putter -",
    "from": "accessories",
    "to": "putter"
   },
@@ -977,11 +947,6 @@
    "name": "PING Gold Putter Polo Shirt",
    "from": "putter",
    "to": "apparel"
-  },
-  {
-   "name": "Yes! C-Groove Victoria Steel Mens Right Hand Putter 34* -",
-   "from": "accessories",
-   "to": "putter"
   },
   {
    "name": "MacGregor Golf V-Max Speed Ladies Fairway Wood NO Headcover - 3 Wood / Ladies Flex / Right Hand",
@@ -1055,6 +1020,9 @@
   }
  ],
  "droppedUnpriced": [
+  "Srixon Golf ZXi5+ Gen 2 Forged Irons - Online Custom Fit",
+  "Srixon Golf ZXi7 Gen 2 Forged Irons - Online Custom Fit",
+  "Srixon Golf ZXi5 Gen 2 Forged Irons - Online Custom Fit",
   "Callaway Apex Ai 200 Golf Irons Steel (Custom)",
   "Callaway Apex Ai 300 Golf Irons Steel (Custom)",
   "Callaway Apex CB 24 Golf Irons Steel (Custom)",
@@ -1084,9 +1052,6 @@
   "Titleist T100 Golf Irons Graphite (Custom)",
   "Titleist T150 Golf Irons Graphite (Custom)",
   "Titleist T150 Golf Irons Steel (Custom)",
-  "Titleist T200 Golf Irons Graphite (Custom)",
-  "Srixon Golf ZXi5+ Gen 2 Forged Irons - Online Custom Fit",
-  "Srixon Golf ZXi7 Gen 2 Forged Irons - Online Custom Fit",
-  "Srixon Golf ZXi5 Gen 2 Forged Irons - Online Custom Fit"
+  "Titleist T200 Golf Irons Graphite (Custom)"
  ]
 }
