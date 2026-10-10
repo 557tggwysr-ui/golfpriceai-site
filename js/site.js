@@ -203,7 +203,7 @@
       indexPromise = fetch('/data/search-suggest.json')
         .then(function (r) { return r.ok ? r.json() : { m: [] }; })
         .then(function (d) {
-          index = (d.m || []).map(function (m) { return { name: m[0], type: m[1], n: m[2], q: m[3] || m[0].toLowerCase().replace(/[^a-z0-9.]+/g, ' ').trim(), lc: m[0].toLowerCase() }; });
+          index = (d.m || []).map(function (m) { return { name: m[0], type: m[1], n: m[2], q: m[3] || m[0].toLowerCase().replace(/[^a-z0-9.]+/g, ' ').trim(), lc: m[0].toLowerCase(), page: m[4] || null }; });
           return index;
         })
         .catch(function () { index = []; return index; });
@@ -271,7 +271,9 @@
         html += '<div class="gp-suggest-head">Products</div>';
         html += prods.map(function (m) {
           var cat = TYPE_CATEGORY[m.type];
-          return '<a class="gp-suggest-row" role="option" href="/shop.html?' + (cat ? 'category=' + cat + '&amp;' : '') + 'q=' + encodeURIComponent(m.q) + '" data-kind="product">' +
+          var href = m.page ? '/prices/' + m.page + '/'
+            : '/shop.html?' + (cat ? 'category=' + cat + '&amp;' : '') + 'q=' + encodeURIComponent(m.q);
+          return '<a class="gp-suggest-row" role="option" href="' + href + '" data-kind="' + (m.page ? 'price-page' : 'product') + '">' +
             '<span>' + boldTokens(m.name, tokens) + '</span><span>' + esc(TYPE_LABEL[m.type] || '') + '</span></a>';
         }).join('');
       }

@@ -306,10 +306,15 @@ function classifyCondition(p) {
   return p.condition ? 'Preowned' : 'New';
 }
 
+// Callaway Preowned listings only ever appear in their own Preowned &
+// Trade Ins section (?source=awin-callawaypreowned). Mixed in with new
+// stock they'd drag "lowest price" sorts and filters towards used clubs.
+const PREOWNED_SOURCE = 'awin-callawaypreowned';
+
 function baseFilteredProducts() {
   return ALL_PRODUCTS.filter(p =>
     (!baseCategories || baseCategories.has(p.category)) &&
-    (!baseSource || p.source === baseSource)
+    (baseSource ? p.source === baseSource : p.source !== PREOWNED_SOURCE)
   );
 }
 

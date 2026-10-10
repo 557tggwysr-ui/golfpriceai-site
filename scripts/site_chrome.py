@@ -97,6 +97,8 @@ def menu():
          '<path d="M12 12m-2 0a2 2 0 104 0 2 2 0 10-4 0M5 12a7 7 0 0114 0M2 12a10 10 0 0120 0"></path>'),
         ("The Fairway Index", "Are golf prices rising or falling, by category.", "/fairway-index.html",
          '<path d="M3 17l6-6 4 4 8-8M15 7h6v6"></path>'),
+        ("Price guides", "Every model's lowest UK price, with its history.", "/prices/",
+         '<path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"></path>'),
     ]
     return {
         "clubs": {"label": "Clubs", "hub": "/clubs.html", "all": "All clubs", "items": clubs, "extra": clubs_extra},
@@ -228,10 +230,11 @@ def footer_html():
                   ("Accessories", "/accessories.html"), ("Preowned and trade-ins", "/shop.html?source=awin-callawaypreowned"),
                   ("Find Your Fit", "/find-your-fit.html")]),
         ("Deal Tools", [(n, u) for n, _, u, _ in m["tools"]]),
-        ("Price guides", [("Drivers", _shop("driver", "Drivers")), ("Irons", _shop("irons", "Irons")),
-                          ("Putters", _shop("putter", "Putters")), ("Golf balls", _shop("ball", "Golf Balls")),
-                          ("Trending now", "/trending.html")]),
-        ("About", [("About us", "/about.html"), ("FAQ", "/faq.html"), ("RSS feed", "/data/deals-feed.xml"),
+        ("Price guides", [("Drivers", "/prices/drivers/"), ("Irons", "/prices/irons/"),
+                          ("Putters", "/prices/putters/"), ("Golf balls", "/prices/golf-balls/"),
+                          ("GPS watches", "/prices/gps-watches/"), ("Electric trolleys", "/prices/electric-trolleys/"),
+                          ("All price guides", "/prices/")]),
+        ("About", [("About us", "/about.html"), ("How we track prices", "/about.html"), ("FAQ", "/faq.html"), ("RSS feed", "/data/deals-feed.xml"),
                    ("Privacy policy", "/legal/privacy-policy.html"), ("Cookie policy", "/legal/cookies.html")]),
     ]
     col_html = "".join(f"""

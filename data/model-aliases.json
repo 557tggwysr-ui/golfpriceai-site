@@ -1,4 +1,26 @@
 {
-  "_about": "Extra name rules for grouping retailer listings into one model. Each entry is [pattern, replacement], applied to lower-cased product names before grouping (regular expressions). Built-in rules live in scripts/models.py; add new ones here when the weekly model-review list shows a model split in two.",
-  "rename": []
+  "_about": "Hand-kept fixes for the model grouping. 'rename': [pattern, replacement] pairs applied to listing names before grouping (e.g. to merge two spellings of one model). 'names': {current web address: corrected display name} for models whose automatic name reads badly. Only rename a model BEFORE its page is published: web addresses must never change afterwards.",
+  "rename": [
+    [
+      "\\bchase dry 14\\b",
+      "chase 14 dry waterproof"
+    ]
+  ],
+  "names": {
+    "cleveland-hb-soft-2-1-putter": "Cleveland HB Soft 2 #1 Putter",
+    "cleveland-hb-soft-2-11-putter": "Cleveland HB Soft 2 #11 Putter",
+    "cleveland-hb-soft-2-15-putter": "Cleveland HB Soft 2 #15 Putter",
+    "cleveland-hb-soft-2-8s-putter": "Cleveland HB Soft 2 #8S Putter",
+    "callaway-chrome-tour-triple-diamond-triple-golf-balls": "Callaway Chrome Tour Triple Diamond Triple Track Golf Balls",
+    "cleveland-halo-xl-hy-fairway-wood": "Cleveland Halo XL Hy-Wood",
+    "odyssey-ai-dual-jailbird-mini-1-2-putter": "Odyssey Ai-DUAL Jailbird Mini 1/2 Ball Putter",
+    "odyssey-ai-dual-square-2-square-jailbird-putter": "Odyssey Ai-DUAL Square 2 Square Jailbird OS Putter",
+    "odyssey-ai-one-square-2-square-double-putter": "Odyssey Ai-ONE Square 2 Square Double Wide Putter",
+    "motocaddy-series-cart-golf-bag": "Motocaddy Club Series Cart Golf Bag",
+    "callaway-limited-chrome-tour-major-series-golf-balls": "Callaway Chrome Tour Major Series Limited Edition Golf Balls",
+    "cleveland-sole-full-face-tour-satin-wedge": "Cleveland Smart Sole Full Face Tour Satin Wedge",
+    "cleveland-sole-full-face-wedge": "Cleveland Smart Sole Full Face Wedge",
+    "big-max-dri-lite-silencio-3-organiser-golf-bag": "Big Max Dri Lite Silencio 3 Organiser Cart Golf Bag",
+    "callaway-carry-plus-pencil-carry-golf-bag": "Callaway Carry+ Pencil Golf Bag"
+  }
 }

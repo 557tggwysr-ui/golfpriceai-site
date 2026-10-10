@@ -130,8 +130,8 @@ def audit_categories(products):
 
         # Ex-demo / pre-owned clubs listed by new-goods retailers are kept,
         # but marked so they never count as a "new" price on a model page.
-        if not p.get("condition") and re.search(r"\b(ex[ -]?demo|pre ?owned)\b", name, re.I):
-            p["condition"] = "Ex-demo" if re.search(r"ex[ -]?demo", name, re.I) else "Preowned"
+        if not p.get("condition") and re.search(r"\b(ex[ -]?demo|x[ -]demo|pre ?owned)\b", name, re.I):
+            p["condition"] = "Ex-demo" if re.search(r"\b(ex|x)[ -]?demo", name, re.I) else "Preowned"
 
     if changes:
         print(f"Category audit: fixed {len(changes)} misfiled product(s).")
@@ -204,6 +204,15 @@ def load_aliases():
         except (ValueError, OSError):
             print("model-aliases.json was unreadable; using built-in aliases only.")
     return [(re.compile(a, re.I), b) for a, b in rules]
+
+
+def load_name_fixes():
+    if ALIASES_FILE.exists():
+        try:
+            return json.loads(ALIASES_FILE.read_text()).get("names", {})
+        except (ValueError, OSError):
+            pass
+    return {}
 
 
 ACCESSORY_TYPES = [
@@ -613,6 +622,16 @@ def build_models(products, price_history, today_str):
         )
         verdict = _verdict(series, events, cheapest["salePrice"], today) if series else None
         gate = _gate(group, new_in_stock, retailers, history_days, min_price)
+        # One retailer far cheaper than the others usually means old or used
+        # stock sold as "new", or a different product with the same name.
+        # Hold the page back until someone has looked.
+        mins = [r["min"] for r in retailers.values() if r["min"]]
+        if len(mins) >= 2 and max(mins) / min(mins) > 2.5:
+            gate["passes"] = False
+            gate["reasons"].append("retailer prices differ by more than 2.5x: held back for review")
+            review.append({"model": " ".join([brand] + tokens), "issue":
+                           f"cheapest retailer £{min(mins):,.2f} vs dearest £{max(mins):,.2f}: check for used stock or a different product",
+                           "listings": len(listings)})
 
         prices = [u for u, _ in priced]
         if not tokens:
@@ -658,6 +677,15 @@ def build_models(products, price_history, today_str):
         })
 
     # Two different models must never share a page address.
+    # Hand-written name corrections from data/model-aliases.json ("names"),
+    # for the few names the automatic grouping gets awkward ("Hy-Wood").
+    fixes = load_name_fixes()
+    for m in models:
+        fix = fixes.get(m["slug"])
+        if fix:
+            m["name"] = fix
+            m["slug"] = _slugify(fix.replace("+", " plus").replace("#", " "))
+
     # Busiest model keeps the plain address; any other gets -2, -3...
     seen = Counter()
     for m in sorted(models, key=lambda m: -m["listingCount"]):
@@ -698,6 +726,10 @@ def save_search_suggest(models, products, today_str):
     shop page (which matches every word typed). Single irons are left out:
     they would bury the iron sets people actually search for."""
     names = {p["id"]: re.sub(r"[^a-z0-9.]+", " ", p["name"].lower()) for p in products}
+    try:
+        live_pages = json.loads((DATA_DIR / "price-pages.json").read_text()).get("mode") == "live"
+    except (OSError, ValueError):
+        live_pages = False
     rows = []
     for m in models:
         if not m.get("name") or m["type"] == "single-iron":
@@ -715,7 +747,10 @@ def save_search_suggest(models, products, today_str):
         # Leave the search words out when they're just the name, to keep the file small.
         if q == " ".join(re.sub(r"[^a-z0-9.]+", " ", m["name"].lower()).split()):
             q = ""
-        rows.append([m["name"], m["type"], m.get("listingCount", len(listing_names)), q])
+        row = [m["name"], m["type"], m.get("listingCount", len(listing_names)), q]
+        if live_pages and m["gate"]["passes"]:
+            row.append(m["slug"])
+        rows.append(row)
     rows.sort(key=lambda r: -r[2])
     SUGGEST_FILE.write_text(json.dumps({"lastUpdated": today_str, "m": rows}, separators=(",", ":")))
     print(f"Search suggestions: {len(rows)} model names.")

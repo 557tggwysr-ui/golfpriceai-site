@@ -903,15 +903,159 @@ def load_config():
     return {"mode": "off"}
 
 
+# ---------------------------------------------------------------- old /products/ pages
+OLD_PRODUCTS_DIR = ROOT / "products"
+_TYPE_WORDS = [("putter", r"\bputter"), ("wedge", r"\bwedge"), ("hybrid", r"\b(hybrid|rescue)"), ("irons", r"\birons?\b"),
+               ("wood", r"\b(fairway|wood)"), ("driver", r"\bdriver"), ("ball", r"\bballs?\b"), ("bag", r"\bbag\b"),
+               ("gps-watch", r"\bwatch"), ("rangefinder", r"rangefinder"), ("electric-trolley", r"trolley")]
+_GENERIC = {"golf", "balls", "ball", "bag", "fairway", "wood", "woods", "irons", "iron", "driver", "hybrid", "putter",
+            "wedge", "wedges", "watch", "gps", "rangefinder", "laser", "electric", "trolley", "cart", "stand"}
+_NOISE = {"graphite", "steel", "mens", "men", "s", "womens", "ladies", "2024", "2025", "2026", "satin", "chrome", "the", "golf"}
+
+
+def forward_old_product_pages(models_list, products, live_slugs):
+    """The 200 product pages from the first version of the site no longer
+    update. Each becomes a tiny page that forwards to the matching price
+    guide (or a shop search), so old links and bookmarks still work."""
+    if not OLD_PRODUCTS_DIR.exists():
+        return 0
+    by_name = {}
+    for p in products:
+        by_name.setdefault(p["name"].strip().lower(), p)
+    page_for = {}
+    for m in models_list:
+        if m["slug"] in live_slugs:
+            for i in m.get("listingIds", []) + m.get("preownedIds", []):
+                page_for[i] = m["slug"]
+    changed = 0
+    for f in sorted(OLD_PRODUCTS_DIR.glob("*.html")):
+        text = f.read_text(encoding="utf-8")
+        found = re.search(r'"name": "(.*?)"', text) or re.search(r"<title>(.*?) \| GolfPrice AI</title>", text)
+        if not found:
+            continue
+        name = html.unescape(found.group(1))
+        p = by_name.get(name.strip().lower())
+        slug = page_for.get(p["id"]) if p else None
+        if not slug:
+            words = set(re.findall(r"[a-z0-9]+", name.lower()))
+            kind = next((t for t, rx in _TYPE_WORDS if re.search(rx, name, re.I)), None)
+            for m in models_list:
+                if m["slug"] not in live_slugs or m["type"] != kind:
+                    continue
+                brand = set(re.findall(r"[a-z0-9]+", m["brand"].lower()))
+                mw = set(re.findall(r"[a-z0-9]+", m["name"].lower())) - _GENERIC - brand
+                if mw and mw <= words and not (words - mw - _GENERIC - _NOISE - brand):
+                    slug = m["slug"]
+                    break
+        if slug:
+            target, label = f"/prices/{slug}/", "its price guide"
+        else:
+            q = re.sub(r"[^a-z0-9]+", "+", name.lower()).strip("+")
+            target, label = f"/shop.html?q={q}", "today's prices in the shop"
+        page = f"""<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<title>{esc(name)} | GolfPrice AI</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="{esc(SITE + target)}">
+<meta http-equiv="refresh" content="0; url={esc(target)}">
+<script>location.replace({json.dumps(target)});</script>
+</head>
+<body>
+<p>This page has moved. See <a href="{esc(target)}">{esc(name)}: {label}</a>.</p>
+</body>
+</html>
+"""
+        if _write(f, page):
+            changed += 1
+    return changed
+
+
+# Filled in by build(): listing id -> its model page address, so other parts
+# of the pipeline (the deals feed) can link to the price page.
+PAGE_FOR_LISTING = {}
+INDEXNOW_LIST = Path("/tmp/indexnow-urls.txt")
+SITEMAP_PRICES = ROOT / "sitemap-prices.xml"
+SITEMAP_PAGES = ROOT / "sitemap-pages.xml"
+SITEMAP_INDEX = ROOT / "sitemap.xml"
+STATIC_PAGES = ["", "shop.html", "clubs.html", "apparel.html", "accessories.html", "build-your-bag.html",
+                "complete-the-look.html", "complete-the-kit.html", "find-your-fit.html", "fairway-index.html",
+                "best-time-to-buy.html", "back-in-stock.html", "receipts.html", "trending.html", "about.html",
+                "faq.html", "legal/privacy-policy.html", "legal/cookies.html"]
+
+
+def last_price_change(m):
+    """The day this model's cheapest price last changed (or tracking began)."""
+    hist = m.get("history") or []
+    last = hist[0][0] if hist else None
+    for (d0, p0), (d1, p1) in zip(hist, hist[1:]):
+        if p1 != p0:
+            last = d1
+    return last
+
+
+def _facts_only(data_json):
+    """data.json without the 'checked' date: what changed in the prices."""
+    try:
+        d = json.loads(data_json)
+        d.pop("checked", None)
+        return json.dumps(d, sort_keys=True)
+    except ValueError:
+        return data_json
+
+
+def retired_page(slug, name, hub_slug, today):
+    hub = TYPES[HUB_TYPES[hub_slug]][1] if hub_slug in HUB_TYPES else "price guides"
+    hub_url = f"/prices/{hub_slug}/" if hub_slug in HUB_TYPES else "/prices/"
+    body = f"""<div class="pp-wrap">
+<section class="pp-hub-top">
+  <h1>{esc(name)} price UK</h1>
+  <p class="pp-answer">As of {long_date(today)}, none of the UK retailers we track has the {esc(name)} in stock, so we've stopped showing prices for it.</p>
+  <p><a class="pp-btn" href="{hub_url}">See {esc(hub.lower())} we track today</a></p>
+</section>
+{method_note(today)}
+</div>"""
+    return page_shell(title=f"{name} Price UK | GolfPrice AI", description=f"The {name} is no longer stocked by the UK retailers we track.",
+                      canonical=f"{SITE}/prices/{slug}/", body=body, section="", schema=[], noindex=True)
+
+
+def write_sitemaps(entries, today):
+    """sitemap.xml becomes an index of two sitemaps: the site's own pages and
+    the price pages. Each price page's date is the day its prices last
+    changed, which is the only date search engines trust."""
+    def urlset(rows):
+        lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+        for loc, lastmod in rows:
+            lm = f"<lastmod>{lastmod}</lastmod>" if lastmod else ""
+            lines.append(f"  <url><loc>{SITE}/{loc}</loc>{lm}</url>")
+        lines.append("</urlset>")
+        return "\n".join(lines) + "\n"
+
+    _write(SITEMAP_PAGES, urlset([(p, None) for p in STATIC_PAGES]))
+    _write(SITEMAP_PRICES, urlset(sorted(entries)))
+    newest = max((lm for _, lm in entries if lm), default=today.isoformat())
+    index = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+             f"  <sitemap><loc>{SITE}/sitemap-pages.xml</loc></sitemap>",
+             f"  <sitemap><loc>{SITE}/sitemap-prices.xml</loc><lastmod>{newest}</lastmod></sitemap>",
+             "</sitemapindex>"]
+    _write(SITEMAP_INDEX, "\n".join(index) + "\n")
+
+
 def build(models_list, products, today_str):
     """Called from update_deals.py after the models are built."""
     cfg = load_config()
     mode = cfg.get("mode", "off")
+    PRICES_DIR.mkdir(exist_ok=True)
     if mode == "off":
         return []
     today = date.fromisoformat(today_str)
     by_id = {p["id"]: p for p in products}
+    by_slug = {m["slug"]: m for m in models_list if m["type"] in TYPES}
     passing = [m for m in models_list if m["gate"]["passes"] and m["type"] in TYPES]
+    existing = {d.name for d in PRICES_DIR.iterdir() if d.is_dir() and d.name not in HUB_TYPES}
     if mode == "pilot":
         wanted = cfg.get("pilot", [])
         chosen = [m for m in passing if m["slug"] in wanted]
@@ -920,24 +1064,67 @@ def build(models_list, products, today_str):
             print(f"Price pages: pilot model(s) not passing the gate this run, skipped: {', '.join(missing)}")
         hubs = [h for h in cfg.get("hubs", []) if h in HUB_TYPES]
     else:
-        chosen = passing
+        chosen = list(passing)
+        # Once published, a page stays while its model is still on sale
+        # somewhere, so it doesn't flick in and out of Google.
+        chosen_slugs = {m["slug"] for m in chosen}
+        for slug in existing - chosen_slugs:
+            m = by_slug.get(slug)
+            if m and m.get("listingIds"):
+                chosen.append(m)
         hubs = sorted({TYPES[m["type"]][0] for m in passing})
     noindex = mode != "live"
     built = {m["slug"] for m in chosen}
-    changed = []
+    changed, price_changed, sitemap = [], [], []
+    PAGE_FOR_LISTING.clear()
     for m in chosen:
         out = build_model_page(Model(m, by_id, today), passing, built, set(hubs), today, noindex)
         if not out:
             continue
         page, data = out
+        url = f"/prices/{m['slug']}/"
+        data_path = PRICES_DIR / m["slug"] / "data.json"
+        old_facts = _facts_only(data_path.read_text(encoding="utf-8")) if data_path.exists() else None
         if _write(PRICES_DIR / m["slug"] / "index.html", page):
-            changed.append(f"/prices/{m['slug']}/")
-        _write(PRICES_DIR / m["slug"] / "data.json", data)
+            changed.append(url)
+        _write(data_path, data)
+        if old_facts != _facts_only(data):
+            price_changed.append(url)
+        sitemap.append((f"prices/{m['slug']}/", last_price_change(m)))
+        for lid in m.get("listingIds", []):
+            PAGE_FOR_LISTING[lid] = SITE + url
+    if mode == "live":
+        # A model that has vanished from every retailer: say so plainly
+        # rather than leave old prices up.
+        for slug in existing - built:
+            old = PRICES_DIR / slug / "index.html"
+            if old.exists() and "none of the UK retailers we track has" not in old.read_text(encoding="utf-8"):
+                name = re.search(r"<h1>(.*?) price UK</h1>", old.read_text(encoding="utf-8"))
+                try:
+                    noun = json.loads((PRICES_DIR / slug / "data.json").read_text(encoding="utf-8")).get("type")
+                except (OSError, ValueError):
+                    noun = None
+                hub = next((v[0] for v in TYPES.values() if v[2] == noun), "")
+                _write(old, retired_page(slug, html.unescape(name.group(1)) if name else slug.replace("-", " ").title(), hub, today))
+                changed.append(f"/prices/{slug}/")
     for h in hubs:
         page = build_hub_page(h, passing, built, hubs, today, noindex)
         if page and _write(PRICES_DIR / h / "index.html", page):
             changed.append(f"/prices/{h}/")
+        hub_models = [m for m in passing if TYPES[m["type"]][0] == h]
+        sitemap.append((f"prices/{h}/", max((last_price_change(m) or "") for m in hub_models) or None))
     if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex)):
         changed.append("/prices/")
-    print(f"Price pages ({mode}): {len(built)} model page(s), {len(hubs)} hub(s); {len(changed)} changed this run.")
+    sitemap.append(("prices/", max((lm or "" for _, lm in sitemap), default=None) or None))
+    if mode == "live":
+        forwarded = forward_old_product_pages(models_list, products, built)
+        if forwarded:
+            print(f"Old product pages: {forwarded} forwarding page(s) updated.")
+        write_sitemaps(sitemap, today)
+        # Tell Bing and the other IndexNow engines only about pages whose
+        # prices actually changed (sent after the files are published).
+        urls = sorted(set(price_changed + ([f"/prices/{h}/" for h in hubs] + ["/prices/"] if price_changed else [])))
+        INDEXNOW_LIST.write_text("\n".join(SITE + u for u in urls) + ("\n" if urls else ""))
+    print(f"Price pages ({mode}): {len(built)} model page(s), {len(hubs)} hub(s); {len(changed)} page file(s) changed, "
+          f"{len(price_changed)} with new prices.")
     return changed

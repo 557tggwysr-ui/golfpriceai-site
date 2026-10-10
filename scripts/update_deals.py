@@ -64,6 +64,7 @@ from urllib.parse import quote_plus
 from xml.sax.saxutils import escape as xml_escape
 
 import models  # scripts/models.py: category audit, £0 clean-up, model grouping
+import price_pages  # scripts/price_pages.py: static /prices/ pages, sitemaps
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
 
@@ -2471,6 +2472,16 @@ HOME_CARD_FIELDS = ["id", "name", "image", "icon", "category", "retailPrice", "s
                      "savePct", "retailerCount", "affiliateUrl", "condition", "brand", "inStock"]
 
 
+PREOWNED_ONLY_SOURCES = {"awin-callawaypreowned"}
+
+
+def new_stock_only(products):
+    """Callaway Preowned listings belong only in the Preowned & Trade Ins
+    section of the shop. Every other list, view and feed uses new stock, so
+    used clubs never skew "lowest price" lists."""
+    return [p for p in products if p.get("source") not in PREOWNED_ONLY_SOURCES]
+
+
 def compute_homepage_views(products):
     quality_ranked = sorted(products, key=lambda p: (0 if p.get("image") else 1, -(p.get("savePct") or 0)))
     today_seed = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -2598,6 +2609,7 @@ def compute_timing_view(products):
 
 
 def save_curated_views(products):
+    products = new_stock_only(products)
     views = {
         "lastUpdated": datetime.now(timezone.utc).isoformat(),
         "home": compute_homepage_views(products),
@@ -2621,7 +2633,7 @@ def save_lite_catalog(catalog):
     zero effect on what either page actually needs to render."""
     lite_products = [
         {k: v for k, v in p.items() if k not in LITE_CATALOG_DROP_FIELDS}
-        for p in catalog["products"]
+        for p in new_stock_only(catalog["products"])
     ]
     lite = {
         "lastUpdated": catalog.get("lastUpdated"),
@@ -2686,6 +2698,11 @@ def compute_deals_feed_items(products):
 
 
 def _feed_site_link(product):
+    # The product's price page when it has one, so every republished feed
+    # item points people (and links) at the pages we want found.
+    page = price_pages.PAGE_FOR_LISTING.get(product.get("id"))
+    if page:
+        return page
     return f"https://golfpriceai.com/shop.html?q={quote_plus(product['name'])}"
 
 
@@ -2852,11 +2869,11 @@ def main():
     index_history = load_index_history()
     index_history = record_index_snapshot(catalog["products"], index_history, today_str)
     index_history["summary"] = compute_index_summary(index_history, today_str)
-    index_history["topMovers"] = compute_category_top_movers(catalog["products"])
+    index_history["topMovers"] = compute_category_top_movers(new_stock_only(catalog["products"]))
     index_history["lastUpdated"] = datetime.now(timezone.utc).isoformat()
     save_index_history(index_history)
 
-    bundles = compute_bundles(catalog["products"])
+    bundles = compute_bundles(new_stock_only(catalog["products"]))
     save_bundles(bundles)
     print(f"Complete The Kit: generated {len(bundles)}/{len(BUNDLE_TEMPLATES)} bundle(s) from current lowest prices.")
 
@@ -2878,7 +2895,6 @@ def main():
         models.save_models(model_list, model_review, category_changes, dropped_unpriced, today_str)
         models.save_search_suggest(model_list, catalog["products"], today_str)
         # Static price-history pages under /prices/ (see data/price-pages.json).
-        import price_pages
         price_pages.build(model_list, catalog["products"], today_str)
     except Exception as exc:  # noqa: BLE001 - report and carry on
         print(f"WARNING: model grouping failed this run and was skipped: {exc!r}")
@@ -2902,7 +2918,7 @@ def main():
     save_lite_catalog(catalog)
     save_apparel_lite_catalog(catalog)
 
-    feed_count = save_deals_feed(catalog["products"])
+    feed_count = save_deals_feed(new_stock_only(catalog["products"]))
     print(f"Public deals feed: {feed_count} genuinely verified deals published (RSS + JSON Feed).")
 
     print_data_quality_report()

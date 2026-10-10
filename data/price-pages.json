@@ -1,6 +1,6 @@
 {
   "_about": "Controls the /prices/ pages. mode: off | pilot | live. In pilot mode only the models and hubs listed here are built, and every page carries noindex until you approve the pilot. Switching mode to live builds every model that passes the quality gate, plus all hubs, indexable and in the sitemap.",
-  "mode": "pilot",
+  "mode": "live",
   "pilot": [
     "taylormade-qi35-driver",
     "callaway-elyte-driver",
