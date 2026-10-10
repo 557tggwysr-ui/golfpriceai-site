@@ -1,4 +1,8 @@
 # GolfPrice AI — robots.txt
+# /products/ holds 200 old product pages that are no longer updated (some
+# show out-of-date prices). They stay hidden from crawlers until they are
+# replaced by the new /prices/ model pages.
+#
 # Default policy: allow every crawler, including AI search/citation bots
 # and AI training bots. For a small, growing affiliate site whose whole
 # goal is visibility, being excluded from AI training data has its own
@@ -9,34 +13,43 @@
 
 User-agent: *
 Allow: /
+Disallow: /products/
 
 # Search/citation-purpose AI crawlers (what shows up as a live citation
 # in ChatGPT Search, Perplexity, Copilot answers)
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /products/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /products/
 
 # Training-purpose AI crawlers (feeds general model knowledge, not a
 # live citation) — see note above on the allow-everything default
 User-agent: GPTBot
 Allow: /
+Disallow: /products/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /products/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /products/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /products/
 
 # Standard search engines
 User-agent: Googlebot
 Allow: /
+Disallow: /products/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /products/
 
 Sitemap: https://golfpriceai.com/sitemap.xml
