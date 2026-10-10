@@ -21,5 +21,18 @@
     "callaway-chrome-soft-golf-balls",
     "taylormade-tp5-golf-balls"
   ],
-  "hubs": ["drivers", "golf-balls"]
+  "hubs": [
+    "drivers",
+    "fairway-woods",
+    "hybrids",
+    "irons",
+    "wedges",
+    "putters",
+    "golf-balls",
+    "golf-bags",
+    "gps-watches",
+    "rangefinders",
+    "electric-trolleys",
+    "launch-monitors"
+  ]
 }
