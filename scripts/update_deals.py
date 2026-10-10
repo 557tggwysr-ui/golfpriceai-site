@@ -63,6 +63,8 @@ from pathlib import Path
 from urllib.parse import quote_plus
 from xml.sax.saxutils import escape as xml_escape
 
+import models  # scripts/models.py: category audit, £0 clean-up, model grouping
+
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
 
 # Accumulates data-quality findings across every fetch_* function in a
@@ -2805,6 +2807,11 @@ def main():
         print("No live feed data returned this run — catalog left as-is "
               f"({len(catalog['products'])} products, Amazon links still active).")
 
+    # Fix misfiled products and drop £0 listings BEFORE anything is
+    # enriched or recorded, so a feed glitch never reaches price history.
+    category_changes = models.audit_categories(catalog["products"])
+    catalog["products"], dropped_unpriced = models.drop_unpriced(catalog["products"])
+
     catalog["products"] = backfill_catalog(catalog["products"])
 
     today_str = datetime.now(timezone.utc).date().isoformat()
@@ -2836,6 +2843,15 @@ def main():
     if "sets" not in existing_category_keys:
         catalog.setdefault("categories", []).append({"key": "sets", "label": "Sets"})
         print("Added 'Sets' to the categories list.")
+
+    # One record per real-world model (all lofts, flexes, hands and
+    # retailers of e.g. the TaylorMade Qi35 Driver), for the price pages.
+    # Wrapped so a problem here can never stop the main catalog refresh.
+    try:
+        model_list, model_review = models.build_models(catalog["products"], price_history, today_str)
+        models.save_models(model_list, model_review, category_changes, dropped_unpriced, today_str)
+    except Exception as exc:  # noqa: BLE001 - report and carry on
+        print(f"WARNING: model grouping failed this run and was skipped: {exc!r}")
 
     catalog["lastUpdated"] = datetime.now(timezone.utc).isoformat()
     # Minified (no indent) rather than pretty-printed: this file is never
