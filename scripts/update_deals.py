@@ -2475,11 +2475,23 @@ HOME_CARD_FIELDS = ["id", "name", "image", "icon", "category", "retailPrice", "s
 PREOWNED_ONLY_SOURCES = {"awin-callawaypreowned"}
 
 
+USED_GRADES = {"Preowned", "Used", "Like New", "Very Good", "Good", "Average"}
+
+
+def is_preowned_partner(p):
+    """Callaway Preowned stock. Some of it arrives under the main Callaway
+    feed with a used grade attached (same product name as the new club), so
+    a graded Callaway listing counts as pre-owned too."""
+    return p.get("source") in PREOWNED_ONLY_SOURCES or (
+        p.get("source") == "awin-callaway" and p.get("condition") in USED_GRADES)
+
+
 def new_stock_only(products):
     """Callaway Preowned listings belong only in the Preowned & Trade Ins
     section of the shop. Every other list, view and feed uses new stock, so
-    used clubs never skew "lowest price" lists."""
-    return [p for p in products if p.get("source") not in PREOWNED_ONLY_SOURCES]
+    used clubs never skew "lowest price" lists (or borrow a new club's
+    price history and look like a 90% drop)."""
+    return [p for p in products if not is_preowned_partner(p)]
 
 
 def compute_homepage_views(products):
@@ -2549,8 +2561,47 @@ def compute_home_stats(products):
 RECEIPT_FIELDS = ["id", "name", "image", "brand", "salePrice", "affiliateUrl"]
 
 
+BIG_DROP_PCT = 60
+BIG_DROP_MIN_DAYS_AT_HIGH = 14
+_HISTORY_CACHE = {}
+
+
+def credible_drop(p):
+    """A drop of 60% or more only counts if the higher price really stood
+    for at least 14 days. A high that lasted a day or two at the start of
+    tracking is nearly always a different product sharing the name (a full
+    set vs one iron, new vs pre-owned), not a genuine price cut."""
+    insight = p.get("priceInsight") or {}
+    high = insight.get("historicalHigh")
+    if not high or not p.get("salePrice"):
+        return False
+    if (high - p["salePrice"]) / high * 100 < BIG_DROP_PCT:
+        return True
+    if "products" not in _HISTORY_CACHE:
+        try:
+            _HISTORY_CACHE["products"] = json.loads(PRICE_HISTORY_FILE.read_text()).get("products", {})
+        except (OSError, ValueError):
+            _HISTORY_CACHE["products"] = {}
+    entries = sorted(_HISTORY_CACHE["products"].get(p["name"]) or [], key=lambda e: e["date"])
+    if not entries:
+        return False
+    today = datetime.now(timezone.utc).date()
+    days_at_high = 0
+    for i, e in enumerate(entries):
+        if abs(e["price"] - high) < 0.01:
+            start = datetime.fromisoformat(e["date"]).date()
+            end = datetime.fromisoformat(entries[i + 1]["date"]).date() if i + 1 < len(entries) else today
+            days_at_high += (end - start).days
+    # Prices that keep flipping between the high and today's price are two
+    # products sharing a name, not a cut.
+    flips = sum(1 for a, b in zip(entries, entries[1:])
+                if abs(a["price"] - high) < 0.01 and abs(b["price"] - p["salePrice"]) < 0.01)
+    return days_at_high >= BIG_DROP_MIN_DAYS_AT_HIGH and flips <= 1
+
+
 def compute_receipts_view(products):
-    candidates = [p for p in products if p.get("priceInsight", {}).get("verifiedDiscount") and p.get("image")]
+    candidates = [p for p in products if p.get("priceInsight", {}).get("verifiedDiscount") and p.get("image")
+                  and credible_drop(p)]
     scored = []
     for p in candidates:
         insight = p["priceInsight"]
@@ -2687,7 +2738,8 @@ DEALS_FEED_SIZE = 50
 
 
 def compute_deals_feed_items(products):
-    candidates = [p for p in products if p.get("priceInsight", {}).get("verifiedDiscount") and p.get("image")]
+    candidates = [p for p in products if p.get("priceInsight", {}).get("verifiedDiscount") and p.get("image")
+                  and credible_drop(p)]
     scored = []
     for p in candidates:
         insight = p["priceInsight"]
