@@ -34,6 +34,7 @@ from pathlib import Path
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 MODELS_FILE = DATA_DIR / "models.json"
 REVIEW_FILE = DATA_DIR / "model-review.json"
+SUGGEST_FILE = DATA_DIR / "search-suggest.json"
 ALIASES_FILE = DATA_DIR / "model-aliases.json"
 
 CLUB_CATS = {"driver", "wood", "hybrid", "irons", "wedge", "putter"}
@@ -627,3 +628,35 @@ def save_models(models, review, category_changes, dropped, today_str):
           f"({', '.join(f'{k} {v}' for k, v in sorted(by_type.items()))}).")
     print(f"Model review list: {len(review)} uncertain grouping(s), "
           f"{len(category_changes)} category fix(es), {len(dropped)} unpriced listing(s) dropped.")
+
+
+def save_search_suggest(models, products, today_str):
+    """A small list of model names for the search box's suggestions.
+
+    Each entry is [name, type, listing count, search words]. The search
+    words are only the words of the model name that appear in EVERY one of
+    its listings' names, so clicking a suggestion always finds them on the
+    shop page (which matches every word typed). Single irons are left out:
+    they would bury the iron sets people actually search for."""
+    names = {p["id"]: re.sub(r"[^a-z0-9.]+", " ", p["name"].lower()) for p in products}
+    rows = []
+    for m in models:
+        if not m.get("name") or m["type"] == "single-iron":
+            continue
+        listing_names = [names[i] for i in m.get("listingIds", []) if i in names]
+        if not listing_names:
+            continue
+        words = []
+        for w in re.sub(r"[^a-z0-9.]+", " ", m["name"].lower()).split():
+            if w not in words and all((" " + w + " ") in (" " + n + " ") or w in n.split() for n in listing_names):
+                words.append(w)
+        if not words:
+            continue
+        q = " ".join(words)
+        # Leave the search words out when they're just the name, to keep the file small.
+        if q == " ".join(re.sub(r"[^a-z0-9.]+", " ", m["name"].lower()).split()):
+            q = ""
+        rows.append([m["name"], m["type"], m.get("listingCount", len(listing_names)), q])
+    rows.sort(key=lambda r: -r[2])
+    SUGGEST_FILE.write_text(json.dumps({"lastUpdated": today_str, "m": rows}, separators=(",", ":")))
+    print(f"Search suggestions: {len(rows)} model names.")

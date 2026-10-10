@@ -1,0 +1,195 @@
+/* =====================================================================
+   GolfPrice AI — homepage only (hero, Clubhouse Doors tiles, banners)
+   ===================================================================== */
+
+/* ---------------------------------------------------------------- hero */
+.gp-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: 48px;
+  align-items: center;
+  padding-top: 44px;
+}
+.gp-hero-copy { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.gp-hero h1 {
+  margin: 0;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+}
+.gp-hero h1 span { color: var(--gp-green); }
+.gp-hero-lede { margin: 0; font-size: 17px; line-height: 1.55; color: var(--gp-text-2); max-width: 52ch; }
+.gp-hero-search { z-index: 20; }
+.gp-proof { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 14px; font-weight: 600; color: var(--gp-green-dark); }
+.gp-proof svg { flex: 0 0 auto; }
+.gp-hero-art { height: 360px; border-radius: 20px; overflow: hidden; background: #f3f4f1; }
+.gp-hero-art img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------------------------------------------------------------- section heads */
+.gp-sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.gp-sec-head h2, .gp-smart h2 { margin: 0; font-family: 'Poppins', 'Inter', sans-serif; font-size: 20px; font-weight: 700; }
+.gp-sec-note { font-size: 13px; color: var(--gp-text-3); }
+
+/* ---------------------------------------------------------------- Clubhouse Doors */
+.gp-doors { padding-top: 40px; }
+.gp-door-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.gp-door {
+  position: relative;
+  height: 300px;
+  border-radius: 18px;
+  overflow: hidden;
+  color: #fff;
+  background: #2b3a30;
+  box-shadow: 0 10px 28px rgba(22, 36, 28, 0.16);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.gp-door:hover { transform: translateY(-3px); box-shadow: 0 16px 36px rgba(22, 36, 28, 0.22); }
+.gp-door > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.gp-door:hover > img { transform: scale(1.03); }
+.gp-door::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(22, 36, 28, 0.10) 0%, rgba(22, 36, 28, 0.35) 40%, rgba(22, 36, 28, 0.93) 100%);
+  pointer-events: none;
+}
+.gp-door-link { position: absolute; inset: 0; z-index: 2; border-radius: 18px; }
+.gp-door-pill {
+  position: absolute; top: 18px; left: 18px; z-index: 3; pointer-events: none;
+  display: flex; align-items: center; gap: 7px;
+  background: #fff; color: var(--gp-ink);
+  border-radius: 999px; padding: 6px 12px 6px 10px; font-size: 12px; font-weight: 700;
+}
+.gp-door-pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gp-green); }
+.gp-door-pill[hidden] { display: none; }
+.gp-door-body {
+  position: absolute; left: 22px; right: 22px; bottom: 20px; z-index: 3;
+  display: flex; flex-direction: column; gap: 8px;
+  pointer-events: none;
+}
+.gp-door h3 { margin: 0; font-family: 'Poppins', 'Inter', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; color: #fff; }
+.gp-door-quip { margin: 0; font-size: 14px; line-height: 1.45; color: #e3ebdf; }
+.gp-door-count { display: none; }
+.gp-door-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 4px; }
+.gp-door-chips { display: flex; flex-wrap: wrap; gap: 6px; pointer-events: auto; }
+.gp-door-chips a {
+  font-size: 12px; font-weight: 600; color: #fff;
+  padding: 5px 10px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.28);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+}
+.gp-door-chips a:hover { background: #fff; color: var(--gp-ink); }
+.gp-door-arrow {
+  flex: 0 0 44px; height: 44px; border-radius: 50%; background: var(--gp-green);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.18s ease;
+}
+.gp-door:hover .gp-door-arrow { transform: translateX(3px); }
+
+#deals { padding-top: 48px; }
+#deals .section-head h2 { font-size: 22px; }
+
+/* ---------------------------------------------------------------- Smarter ways to shop */
+.gp-smart { padding: 8px 0 40px; }
+.gp-smart h2 { font-size: 22px; margin-bottom: 16px; }
+.gp-smart-track {
+  max-width: 1320px; margin: 0 auto; padding: 0 24px;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;
+}
+.gp-banner {
+  position: relative; display: block; height: 330px;
+  border-radius: 18px; overflow: hidden; color: #fff;
+  background: #2b3a30;
+  box-shadow: 0 10px 28px rgba(22, 36, 28, 0.16);
+  transition: transform 0.18s ease;
+}
+.gp-banner:hover { transform: translateY(-3px); color: #fff; }
+.gp-banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.gp-banner::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(22, 36, 28, 0.05) 0%, rgba(22, 36, 28, 0.55) 45%, rgba(22, 36, 28, 0.95) 100%);
+}
+.gp-banner-body { position: absolute; left: 24px; right: 24px; bottom: 22px; z-index: 1; display: flex; flex-direction: column; gap: 9px; }
+.gp-banner-kicker {
+  align-self: flex-start; background: var(--gp-green); color: #fff;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;
+  border-radius: 999px; padding: 5px 11px;
+}
+.gp-banner-title { font-family: 'Poppins', 'Inter', sans-serif; font-size: 24px; font-weight: 800; line-height: 1.1; }
+.gp-banner-line { font-size: 14px; line-height: 1.45; color: #dbe3d7; }
+.gp-banner-cta {
+  align-self: flex-start; margin-top: 4px; background: var(--gp-green); color: #fff;
+  font-weight: 700; font-size: 14px; padding: 11px 16px; border-radius: 10px;
+}
+.gp-dots { display: none; }
+
+[id] { scroll-margin-top: 90px; }
+
+/* ---------------------------------------------------------------- tablet */
+@media (max-width: 1079px) {
+  .gp-hero { gap: 32px; }
+  .gp-hero h1 { font-size: 40px; }
+  .gp-door { height: 260px; }
+  .gp-door h3 { font-size: 26px; }
+  .gp-door-chips a:nth-child(n+3) { display: none; }
+}
+
+@media (max-width: 900px) {
+  .deal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------------------------------------------------------------- phone */
+@media (max-width: 760px) {
+  .gp-hero { grid-template-columns: 1fr; padding-top: 22px; gap: 0; }
+  .gp-hero-copy { gap: 12px; }
+  .gp-hero h1 { font-size: 30px; line-height: 1.1; letter-spacing: 0; }
+  .gp-hero-lede { font-size: 14px; line-height: 1.5; }
+  .gp-hero-art { display: none; }
+  .gp-hero-search { padding: 5px 5px 5px 12px; border-radius: 12px; }
+  .gp-hero-search .gp-search-go { padding: 12px 14px; font-size: 14px; border-radius: 9px; }
+  .gp-hero-chips { flex-wrap: nowrap; overflow-x: auto; margin-right: -16px; padding-right: 16px; scrollbar-width: none; }
+  .gp-hero-chips::-webkit-scrollbar { display: none; }
+  .gp-hero-chips .gp-chips-label { display: none; }
+  .gp-hero-chips .gp-chip { flex: 0 0 auto; padding: 8px 13px; }
+  .gp-proof { align-items: flex-start; font-size: 12px; line-height: 1.45; }
+
+  .gp-doors { padding-top: 24px; }
+  .gp-sec-head { margin-bottom: 10px; }
+  .gp-sec-head h2 { font-size: 16px; }
+  .gp-sec-note { display: none; }
+  .gp-door-grid { gap: 8px; }
+  .gp-door { height: 172px; border-radius: 14px; box-shadow: 0 6px 16px rgba(22, 36, 28, 0.16); }
+  .gp-door-link { border-radius: 14px; }
+  .gp-door::after { background: linear-gradient(180deg, rgba(22, 36, 28, 0.05) 0%, rgba(22, 36, 28, 0.30) 45%, rgba(22, 36, 28, 0.94) 100%); }
+  .gp-door-pill, .gp-door-quip, .gp-door-foot { display: none !important; }
+  .gp-door-body { left: 10px; right: 10px; bottom: 10px; gap: 3px; }
+  .gp-door h3 { font-size: 15px; line-height: 1.1; }
+  .gp-door-count { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: #e3ebdf; }
+  .gp-door-count::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #5fd14a; }
+  .gp-door-count[hidden] { display: none; }
+
+  #deals { padding-top: 28px; }
+  #deals .section-head { margin-bottom: 14px; }
+  #deals .section-head h2 { font-size: 18px; }
+  .deal-grid { gap: 10px; }
+  .deal-grid > :nth-child(n+7) { display: none; }
+
+  .gp-smart { padding: 22px 0 28px; }
+  .gp-smart h2 { font-size: 18px; margin-bottom: 10px; }
+  .gp-smart .container { padding: 0 16px; }
+  .gp-smart-track {
+    display: flex; gap: 10px; padding: 0 16px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 16px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .gp-smart-track::-webkit-scrollbar { display: none; }
+  .gp-banner { flex: 0 0 82%; max-width: 330px; height: 300px; border-radius: 16px; scroll-snap-align: start; box-shadow: none; }
+  .gp-banner-body { left: 18px; right: 18px; bottom: 18px; gap: 7px; }
+  .gp-banner-title { font-size: 21px; }
+  .gp-banner-line { font-size: 13px; }
+  .gp-banner-cta { font-size: 13px; padding: 10px 14px; border-radius: 9px; }
+  .gp-dots { display: flex; justify-content: center; gap: 6px; padding-top: 12px; }
+  .gp-dots span { width: 6px; height: 6px; border-radius: 3px; background: #c9d0c6; transition: width 0.2s ease, background 0.2s ease; }
+  .gp-dots span.is-on { width: 18px; background: var(--gp-ink); }
+}

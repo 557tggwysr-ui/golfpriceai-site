@@ -2506,6 +2506,32 @@ def compute_homepage_views(products):
         "bestDeals": [_trim(p, HOME_CARD_FIELDS) for p in best_deals],
         "priceDrops": [_trim(p, HOME_CARD_FIELDS) for p in price_drops],
         "trending": trending,
+        "stats": compute_home_stats(products),
+    }
+
+
+HOME_TILE_GROUPS = {
+    "clubs": {"driver", "wood", "hybrid", "irons", "wedge", "putter", "sets"},
+    "apparel": {"apparel", "shoes"},
+    "accessories": {"accessories", "bag", "ball"},
+}
+
+
+def compute_home_stats(products):
+    """The live numbers on the homepage: genuine drops per category tile
+    (verified against our own price history, in stock today) and the
+    proof line under the search box (products tracked, retailers)."""
+    drops = {key: 0 for key in HOME_TILE_GROUPS}
+    for p in products:
+        if not (p.get("priceInsight") or {}).get("verifiedDiscount") or p.get("inStock") is False:
+            continue
+        for key, cats in HOME_TILE_GROUPS.items():
+            if p.get("category") in cats:
+                drops[key] += 1
+    return {
+        "genuineDrops": drops,
+        "products": len(products),
+        "retailers": len({p.get("source") for p in products if p.get("source")}),
     }
 
 
@@ -2850,6 +2876,7 @@ def main():
     try:
         model_list, model_review = models.build_models(catalog["products"], price_history, today_str)
         models.save_models(model_list, model_review, category_changes, dropped_unpriced, today_str)
+        models.save_search_suggest(model_list, catalog["products"], today_str)
     except Exception as exc:  # noqa: BLE001 - report and carry on
         print(f"WARNING: model grouping failed this run and was skipped: {exc!r}")
 

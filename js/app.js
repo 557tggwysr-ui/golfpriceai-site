@@ -1,4 +1,5 @@
-document.getElementById('year').textContent = new Date().getFullYear();
+var yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 function money(n) {
   return '£' + n.toFixed(2);
@@ -50,6 +51,8 @@ function handleImgError(imgEl, iconSrc) {
   const iconBadge = document.createElement('span');
   iconBadge.className = 'icon-badge';
   const iconImg = document.createElement('img');
+  // Some product types have no icon drawn yet: fall back to the general one.
+  iconImg.onerror = function () { this.onerror = null; this.src = 'assets/icons/accessories.svg'; };
   iconImg.src = iconSrc;
   iconImg.alt = imgEl.alt;
   iconBadge.appendChild(iconImg);
@@ -62,7 +65,7 @@ function thumbHTML(d) {
     return `<img src="${d.image}" alt="${d.name}" loading="lazy" onerror="handleImgError(this, '${fallbackIcon}')">`;
   }
   const iconSrc = d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category);
-  return `<span class="icon-badge"><img src="${iconSrc}" alt="${d.name}" loading="lazy"></span>`;
+  return `<span class="icon-badge"><img src="${iconSrc}" alt="${d.name}" loading="lazy" onerror="this.onerror=null;this.src='assets/icons/accessories.svg'"></span>`;
 }
 function thumbClass(d) {
   return d.image ? 'thumb' : 'thumb icon-thumb';
@@ -155,7 +158,7 @@ function dealCardHTML(d) {
         </div>
         <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
         <div class="deal-foot">
-          <span>Available at ${d.retailerCount} retailers</span>
+          <span>Available at ${d.retailerCount} ${d.retailerCount === 1 ? 'retailer' : 'retailers'}</span>
           ${reportPriceLinkHTML(d)}
         </div>
       </div>
@@ -213,6 +216,7 @@ fetch('data/curated-views.json')
     if (dropList) dropList.innerHTML = views.home.priceDrops.map(dropRowHTML).join('');
 
     renderTrending(views.home.trending);
+    renderHomeStats(views.home.stats);
   })
   .catch(err => console.error('Could not load curated-views.json', err));
 
@@ -224,3 +228,45 @@ if (searchForm) {
     window.location.href = 'shop.html' + (q ? ('?q=' + encodeURIComponent(q)) : '');
   });
 }
+
+// Live numbers on the homepage tiles ("527 genuine drops") and the proof
+// line under the search box. Both come from the 6-hourly data refresh, so
+// they're never typed in by hand. If the data hasn't loaded, the tile
+// pills simply stay hidden rather than showing a stale number.
+function renderHomeStats(stats) {
+  if (!stats) return;
+  const fmt = n => Number(n).toLocaleString('en-GB');
+  Object.keys(stats.genuineDrops || {}).forEach(key => {
+    const n = stats.genuineDrops[key];
+    if (!n) return;
+    document.querySelectorAll(`[data-drops="${key}"]`).forEach(el => { el.textContent = `${fmt(n)} genuine drops`; el.hidden = false; });
+    document.querySelectorAll(`[data-drops-short="${key}"]`).forEach(el => { el.textContent = `${fmt(n)} drops`; el.hidden = false; });
+  });
+  const p = document.getElementById('proof-products');
+  if (p && stats.products) p.textContent = fmt(stats.products);
+  const r = document.getElementById('proof-retailers');
+  if (r && stats.retailers) r.textContent = stats.retailers;
+}
+
+// Phone: the "Smarter ways to shop" cards swipe sideways; keep the little
+// dots under them in step with whichever card is showing.
+(function () {
+  const track = document.getElementById('smart-track');
+  const dots = document.getElementById('smart-dots');
+  if (!track || !dots) return;
+  const cards = Array.from(track.children);
+  const marks = Array.from(dots.children);
+  let ticking = false;
+  track.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      const left = track.scrollLeft;
+      let best = 0;
+      cards.forEach((c, i) => { if (Math.abs(c.offsetLeft - track.offsetLeft - 16 - left) < Math.abs(cards[best].offsetLeft - track.offsetLeft - 16 - left)) best = i; });
+      if (left + track.clientWidth >= track.scrollWidth - 4) best = cards.length - 1;
+      marks.forEach((m, i) => m.classList.toggle('is-on', i === best));
+    });
+  }, { passive: true });
+})();

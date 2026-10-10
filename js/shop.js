@@ -40,6 +40,8 @@ function handleImgError(imgEl, iconSrc) {
   const iconBadge = document.createElement('span');
   iconBadge.className = 'icon-badge';
   const iconImg = document.createElement('img');
+  // Some product types have no icon drawn yet: fall back to the general one.
+  iconImg.onerror = function () { this.onerror = null; this.src = 'assets/icons/accessories.svg'; };
   iconImg.src = iconSrc;
   iconImg.alt = imgEl.alt;
   iconBadge.appendChild(iconImg);
@@ -52,7 +54,7 @@ function thumbHTML(d) {
     return `<img src="${d.image}" alt="${d.name}" loading="lazy" onerror="handleImgError(this, '${fallbackIcon}')">`;
   }
   const iconSrc = d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category);
-  return `<span class="icon-badge"><img src="${iconSrc}" alt="${d.name}" loading="lazy"></span>`;
+  return `<span class="icon-badge"><img src="${iconSrc}" alt="${d.name}" loading="lazy" onerror="this.onerror=null;this.src='assets/icons/accessories.svg'"></span>`;
 }
 function thumbClass(d) {
   return d.image ? 'thumb' : 'thumb icon-thumb';
@@ -127,7 +129,7 @@ function cardHTML(d) {
         <div class="price-row"><span class="sale-price">${money(d.salePrice)}</span></div>
         <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
         <div class="deal-foot">
-          <span>Available at ${d.retailerCount} retailers</span>
+          <span>Available at ${d.retailerCount} ${d.retailerCount === 1 ? 'retailer' : 'retailers'}</span>
           ${reportPriceLinkHTML(d)}
         </div>
       </div>
@@ -333,8 +335,12 @@ function matchesTypeCheckboxes(p) {
 }
 
 function matchesFilters(p, exclude) {
-  const q = searchQuery.trim().toLowerCase();
-  const matchesQuery = !q || p.name.toLowerCase().includes(q);
+  // Every word typed must appear somewhere in the name, in any order — so
+  // "qi35 driver" finds "TaylorMade Qi35 Max Driver". Always finds at least
+  // everything the old exact-phrase match found.
+  const words = searchQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const lowerName = words.length ? p.name.toLowerCase() : '';
+  const matchesQuery = words.every(w => lowerName.includes(w));
   const matchesType = exclude === 'type' || matchesTypeCheckboxes(p);
   const matchesBrand = exclude === 'brand' || activeBrands.size === 0 || activeBrands.has(extractBrand(p));
   const matchesColour = exclude === 'colour' || activeColours.size === 0 || activeColours.has(extractColour(p));
@@ -873,7 +879,7 @@ fetch('data/products.json')
     const labelParam = params.get('label');
     if (labelParam && categoryParam) {
       const categoryLabel = (data.categories.find(c => c.key === categoryParam) || {}).label || categoryParam;
-      groupNoteHTML = `<p id="group-note" style="color:var(--muted);font-size:14px;margin:8px 0 0;"><a href="index.html" style="color:var(--muted);">Home</a> / <a href="${categoryParam === 'apparel' ? 'apparel.html' : 'accessories.html'}" style="color:var(--muted);">${categoryLabel}</a> / <strong>${labelParam}</strong> \u00b7 <a href="shop.html?category=${encodeURIComponent(categoryParam)}" style="color:var(--green);font-weight:600;">clear filter \u00d7</a></p>`;
+      groupNoteHTML = `<p id="group-note" style="color:var(--muted);font-size:14px;margin:8px 0 0;"><a href="index.html" style="color:var(--muted);">Home</a> / <a href="${CLUB_CATEGORIES.includes(categoryParam) ? 'clubs.html' : (categoryParam === 'apparel' || categoryParam === 'shoes') ? 'apparel.html' : 'accessories.html'}" style="color:var(--muted);">${CLUB_CATEGORIES.includes(categoryParam) ? 'Clubs' : categoryLabel}</a> / <strong>${labelParam}</strong> \u00b7 <a href="shop.html?category=${encodeURIComponent(categoryParam)}" style="color:var(--green);font-weight:600;">clear filter \u00d7</a></p>`;
     }
 
     const sortSelect = document.getElementById('sort-select');
