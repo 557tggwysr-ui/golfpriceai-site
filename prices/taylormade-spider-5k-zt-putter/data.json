@@ -1,0 +1,55 @@
+{
+ "name": "TaylorMade Spider 5K-ZT Putter",
+ "brand": "TaylorMade",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/taylormade-spider-5k-zt-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 399.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 399.0,
+   "options": 9
+  },
+  {
+   "name": "Clickgolf",
+   "from": 449.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 399.0,
+  "high": 449.0,
+  "average": 416.24,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    449.0
+   ],
+   [
+    "2026-09-04",
+    399.95
+   ],
+   [
+    "2026-09-20",
+    399.0
+   ],
+   [
+    "2026-10-10",
+    399.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

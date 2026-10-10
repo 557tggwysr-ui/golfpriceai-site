@@ -1,0 +1,62 @@
+{
+ "name": "TaylorMade Tour Response Stripe Golf Balls",
+ "brand": "TaylorMade",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/taylormade-tour-response-stripe-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 28.49,
+ "lowestAt": [
+  "Affordable Golf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 28.49,
+   "options": 9
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 28.49,
+   "options": 7
+  },
+  {
+   "name": "Clickgolf",
+   "from": 29.99,
+   "options": 4
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 29.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 28.49,
+  "high": 29.99,
+  "average": 28.81,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    29.99
+   ],
+   [
+    "2026-08-28",
+    28.49
+   ],
+   [
+    "2026-10-10",
+    28.49
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

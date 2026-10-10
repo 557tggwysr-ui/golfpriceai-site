@@ -1,0 +1,91 @@
+{
+ "name": "PowaKaddy CT8 Electric Trolley",
+ "brand": "PowaKaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/powakaddy-ct8-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 949.0,
+ "lowestAt": [
+  "Clickgolf",
+  "Major Golf Direct",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 949.0,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 949.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 949.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 999.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 899.0,
+  "high": 949.0,
+  "average": 940.07,
+  "priceChanges": 8,
+  "series": [
+   [
+    "2026-08-16",
+    949.0
+   ],
+   [
+    "2026-08-28",
+    899.0
+   ],
+   [
+    "2026-09-01",
+    949.0
+   ],
+   [
+    "2026-09-11",
+    899.0
+   ],
+   [
+    "2026-09-14",
+    949.0
+   ],
+   [
+    "2026-09-19",
+    899.0
+   ],
+   [
+    "2026-09-21",
+    949.0
+   ],
+   [
+    "2026-09-24",
+    899.0
+   ],
+   [
+    "2026-09-25",
+    949.0
+   ],
+   [
+    "2026-10-10",
+    949.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £50.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

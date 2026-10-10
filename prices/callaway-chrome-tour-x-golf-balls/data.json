@@ -1,0 +1,69 @@
+{
+ "name": "Callaway Chrome Tour X Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-chrome-tour-x-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 44.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 44.99,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 46.95,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 47.95,
+   "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 51.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 44.99,
+  "high": 51.99,
+  "average": 46.68,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-08-16",
+    49.99
+   ],
+   [
+    "2026-08-21",
+    51.99
+   ],
+   [
+    "2026-08-28",
+    47.95
+   ],
+   [
+    "2026-09-04",
+    44.99
+   ],
+   [
+    "2026-10-10",
+    44.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

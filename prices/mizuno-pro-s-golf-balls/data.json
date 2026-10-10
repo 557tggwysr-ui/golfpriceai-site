@@ -1,0 +1,52 @@
+{
+ "name": "Mizuno Pro S Golf Balls",
+ "brand": "Mizuno",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/mizuno-pro-s-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 34.99,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 34.99,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 34.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 34.99,
+  "high": 39.99,
+  "average": 35.53,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    39.99
+   ],
+   [
+    "2026-08-22",
+    34.99
+   ],
+   [
+    "2026-10-10",
+    34.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 50 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

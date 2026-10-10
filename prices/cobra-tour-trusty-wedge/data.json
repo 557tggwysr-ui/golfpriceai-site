@@ -1,0 +1,48 @@
+{
+ "name": "Cobra Tour Trusty Wedge",
+ "brand": "Cobra",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/cobra-tour-trusty-wedge/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 89.99,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 89.99,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 89.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 89.99,
+  "high": 89.99,
+  "average": 89.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    89.99
+   ],
+   [
+    "2026-10-10",
+    89.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

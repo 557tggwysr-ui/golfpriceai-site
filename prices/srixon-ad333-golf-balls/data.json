@@ -1,0 +1,61 @@
+{
+ "name": "Srixon AD333 Golf Balls",
+ "brand": "Srixon",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/srixon-ad333-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 19.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 19.95,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 20.0,
+   "options": 5
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 21.99,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 22.99,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 19.95,
+  "high": 20.0,
+  "average": 19.96,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    20.0
+   ],
+   [
+    "2026-08-28",
+    19.95
+   ],
+   [
+    "2026-10-10",
+    19.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

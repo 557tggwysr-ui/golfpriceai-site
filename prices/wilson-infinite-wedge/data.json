@@ -1,0 +1,51 @@
+{
+ "name": "Wilson Infinite Wedge",
+ "brand": "Wilson",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/wilson-infinite-wedge/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 94.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 94.95,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 99.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 94.95,
+  "high": 99.0,
+  "average": 98.2,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    99.0
+   ],
+   [
+    "2026-09-30",
+    94.95
+   ],
+   [
+    "2026-10-10",
+    94.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

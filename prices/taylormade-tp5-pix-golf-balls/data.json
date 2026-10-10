@@ -1,0 +1,47 @@
+{
+ "name": "TaylorMade TP5 Pix Golf Balls",
+ "brand": "TaylorMade",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/taylormade-tp5-pix-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 47.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 47.95,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 49.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 47.95,
+  "high": 47.95,
+  "average": 47.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    47.95
+   ],
+   [
+    "2026-10-10",
+    47.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

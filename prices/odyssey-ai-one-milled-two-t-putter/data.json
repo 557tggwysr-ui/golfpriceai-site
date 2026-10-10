@@ -1,0 +1,60 @@
+{
+ "name": "Odyssey Ai-ONE Milled Two T Putter",
+ "brand": "Odyssey",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-two-t-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 179.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 179.95,
+   "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 269.4,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 399.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 179.95,
+  "high": 449.0,
+  "average": 232.72,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    449.0
+   ],
+   [
+    "2026-08-21",
+    269.4
+   ],
+   [
+    "2026-09-08",
+    179.95
+   ],
+   [
+    "2026-10-10",
+    179.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 33 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

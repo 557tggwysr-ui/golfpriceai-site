@@ -1,0 +1,55 @@
+{
+ "name": "Ping G425 Max Driver",
+ "brand": "Ping",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/ping-g425-max-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 239.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 239.95,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 329.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 239.95,
+  "high": 329.0,
+  "average": 256.33,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-09-04",
+    329.0
+   ],
+   [
+    "2026-09-08",
+    249.95
+   ],
+   [
+    "2026-10-03",
+    239.95
+   ],
+   [
+    "2026-10-10",
+    239.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,61 @@
+{
+ "name": "Shot Scope Pro L2 Laser Rangefinder",
+ "brand": "Shot Scope",
+ "type": "rangefinder",
+ "url": "https://golfpriceai.com/prices/shot-scope-pro-l2-laser-rangefinder/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 149.95,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 149.99,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 149.99,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 149.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 129.0,
+  "high": 149.95,
+  "average": 139.1,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    129.0
+   ],
+   [
+    "2026-09-14",
+    149.95
+   ],
+   [
+    "2026-10-10",
+    149.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £20.95 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

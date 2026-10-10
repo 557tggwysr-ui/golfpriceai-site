@@ -1,0 +1,48 @@
+{
+ "name": "Titleist TruFeel AIM 360 Golf Balls",
+ "brand": "Titleist",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/titleist-trufeel-aim-360-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 24.99,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 24.99,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 24.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 24.99,
+  "high": 24.99,
+  "average": 24.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    24.99
+   ],
+   [
+    "2026-10-10",
+    24.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

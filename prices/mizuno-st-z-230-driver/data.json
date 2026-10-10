@@ -1,0 +1,55 @@
+{
+ "name": "Mizuno ST-Z 230 Driver",
+ "brand": "Mizuno",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/mizuno-st-z-230-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 159.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 159.95,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 289.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 159.95,
+  "high": 249.0,
+  "average": 195.34,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    249.0
+   ],
+   [
+    "2026-09-04",
+    169.95
+   ],
+   [
+    "2026-10-03",
+    159.95
+   ],
+   [
+    "2026-10-10",
+    159.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

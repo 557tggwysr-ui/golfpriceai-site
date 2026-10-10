@@ -1,0 +1,52 @@
+{
+ "name": "Odyssey Ai-DUAL 2-Ball DB Putter",
+ "brand": "Odyssey",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/odyssey-ai-dual-2-ball-db-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 229.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 229.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 229.95,
+   "options": 2
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 299.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 229.0,
+  "high": 229.0,
+  "average": 229.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    229.0
+   ],
+   [
+    "2026-10-10",
+    229.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

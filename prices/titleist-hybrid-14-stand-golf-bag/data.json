@@ -1,0 +1,80 @@
+{
+ "name": "Titleist Hybrid 14 Stand Golf Bag",
+ "brand": "Titleist",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/titleist-hybrid-14-stand-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 239.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 239.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 239.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 214.0,
+  "high": 239.0,
+  "average": 232.75,
+  "priceChanges": 8,
+  "series": [
+   [
+    "2026-08-16",
+    239.0
+   ],
+   [
+    "2026-08-28",
+    214.0
+   ],
+   [
+    "2026-09-02",
+    239.0
+   ],
+   [
+    "2026-09-11",
+    214.0
+   ],
+   [
+    "2026-09-14",
+    239.0
+   ],
+   [
+    "2026-09-19",
+    214.0
+   ],
+   [
+    "2026-09-21",
+    239.0
+   ],
+   [
+    "2026-09-24",
+    214.0
+   ],
+   [
+    "2026-09-28",
+    239.0
+   ],
+   [
+    "2026-10-10",
+    239.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £25.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

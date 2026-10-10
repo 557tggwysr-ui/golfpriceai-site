@@ -1,0 +1,47 @@
+{
+ "name": "Cobra Darkspeed X Fairway Wood",
+ "brand": "Cobra",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/cobra-darkspeed-x-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 139.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 139.95,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 269.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 119.95,
+  "high": 119.95,
+  "average": 119.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    119.95
+   ],
+   [
+    "2026-10-10",
+    119.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,48 @@
+{
+ "name": "PXG Hawk Putter",
+ "brand": "PXG",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/pxg-hawk-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 249.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 249.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 249.0,
+  "high": 249.0,
+  "average": 249.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    249.0
+   ],
+   [
+    "2026-10-10",
+    249.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

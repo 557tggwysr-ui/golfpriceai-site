@@ -1,0 +1,47 @@
+{
+ "name": "Callaway Chrome Tour Major Series Limited Edition Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-chrome-tour-major-series-limited-edition-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 47.99,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 47.99,
+   "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 55.0,
+   "options": 5
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 47.99,
+  "high": 47.99,
+  "average": 47.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    47.99
+   ],
+   [
+    "2026-10-10",
+    47.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

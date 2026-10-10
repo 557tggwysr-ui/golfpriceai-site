@@ -1,0 +1,76 @@
+{
+ "name": "Wilson Alpine Cart Golf Bag",
+ "brand": "Wilson",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/wilson-alpine-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 129.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 129.95,
+   "options": 7
+  },
+  {
+   "name": "Clickgolf",
+   "from": 189.0,
+   "options": 5
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 189.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 129.95,
+  "high": 189.0,
+  "average": 147.22,
+  "priceChanges": 6,
+  "series": [
+   [
+    "2026-08-16",
+    164.0
+   ],
+   [
+    "2026-08-17",
+    189.0
+   ],
+   [
+    "2026-08-22",
+    164.0
+   ],
+   [
+    "2026-08-24",
+    189.0
+   ],
+   [
+    "2026-08-28",
+    169.0
+   ],
+   [
+    "2026-09-01",
+    189.0
+   ],
+   [
+    "2026-09-04",
+    129.95
+   ],
+   [
+    "2026-10-10",
+    129.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

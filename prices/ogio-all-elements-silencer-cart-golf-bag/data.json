@@ -1,0 +1,100 @@
+{
+ "name": "Ogio All Elements Silencer Cart Golf Bag",
+ "brand": "Ogio",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/ogio-all-elements-silencer-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 279.0,
+ "lowestAt": [
+  "Clickgolf",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 279.0,
+   "options": 8
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 279.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 249.0,
+  "high": 279.0,
+  "average": 268.82,
+  "priceChanges": 13,
+  "series": [
+   [
+    "2026-08-16",
+    249.0
+   ],
+   [
+    "2026-08-17",
+    279.0
+   ],
+   [
+    "2026-08-22",
+    249.0
+   ],
+   [
+    "2026-08-24",
+    279.0
+   ],
+   [
+    "2026-08-28",
+    249.0
+   ],
+   [
+    "2026-09-01",
+    279.0
+   ],
+   [
+    "2026-09-11",
+    249.0
+   ],
+   [
+    "2026-09-14",
+    279.0
+   ],
+   [
+    "2026-09-19",
+    249.0
+   ],
+   [
+    "2026-09-21",
+    279.0
+   ],
+   [
+    "2026-09-24",
+    249.0
+   ],
+   [
+    "2026-09-28",
+    279.0
+   ],
+   [
+    "2026-10-02",
+    249.0
+   ],
+   [
+    "2026-10-05",
+    279.0
+   ],
+   [
+    "2026-10-10",
+    279.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,51 @@
+{
+ "name": "Callaway Paradym Driver",
+ "brand": "Callaway",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/callaway-paradym-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 199.95,
+   "options": 4
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 399.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 199.95,
+  "high": 214.95,
+  "average": 201.57,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    214.95
+   ],
+   [
+    "2026-09-08",
+    199.95
+   ],
+   [
+    "2026-10-10",
+    199.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 33 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

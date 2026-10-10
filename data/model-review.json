@@ -2,9 +2,19 @@
  "lastUpdated": "2026-10-10",
  "uncertainGroupings": [
   {
+   "model": "TaylorMade milled grind 5",
+   "issue": "cheapest retailer \u00a3179.00 vs dearest \u00a3499.00: check for used stock or a different product",
+   "listings": 30
+  },
+  {
    "model": "TaylorMade Hi-Toe 4 Wedge",
    "issue": "price spread \u00a3129.95 to \u00a3447.00: may mix different products",
    "listings": 23
+  },
+  {
+   "model": "Srixon soft feel",
+   "issue": "cheapest retailer \u00a319.99 vs dearest \u00a368.97: check for used stock or a different product",
+   "listings": 22
   },
   {
    "model": "Srixon Soft Feel Golf Balls",
@@ -22,6 +32,11 @@
    "listings": 18
   },
   {
+   "model": "TaylorMade qi10 ls",
+   "issue": "cheapest retailer \u00a3199.95 vs dearest \u00a3529.00: check for used stock or a different product",
+   "listings": 18
+  },
+  {
    "model": "Wilson staff duo soft",
    "issue": "7 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
    "listings": 7
@@ -32,9 +47,19 @@
    "listings": 14
   },
   {
+   "model": "TaylorMade stealth",
+   "issue": "cheapest retailer \u00a379.95 vs dearest \u00a3229.00: check for used stock or a different product",
+   "listings": 13
+  },
+  {
    "model": "Yonex ezone elite",
    "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 2
+  },
+  {
+   "model": "Yonex ezone elite",
+   "issue": "cheapest retailer \u00a369.95 vs dearest \u00a3199.00: check for used stock or a different product",
+   "listings": 12
   },
   {
    "model": "Callaway quantum max",
@@ -64,6 +89,11 @@
   {
    "model": "Wilson Staff Model Blade Irons",
    "issue": "price spread \u00a3349.95 to \u00a31,109.00: may mix different products",
+   "listings": 9
+  },
+  {
+   "model": "Callaway big bertha",
+   "issue": "cheapest retailer \u00a319.95 vs dearest \u00a3244.30: check for used stock or a different product",
    "listings": 9
   },
   {
@@ -107,9 +137,19 @@
    "listings": 3
   },
   {
+   "model": "Cobra darkspeed",
+   "issue": "cheapest retailer \u00a3259.95 vs dearest \u00a3729.00: check for used stock or a different product",
+   "listings": 8
+  },
+  {
    "model": "Cobra Darkspeed Irons",
    "issue": "price spread \u00a3259.95 to \u00a3819.00: may mix different products",
    "listings": 8
+  },
+  {
+   "model": "Cobra king tour",
+   "issue": "cheapest retailer \u00a3359.95 vs dearest \u00a3949.00: check for used stock or a different product",
+   "listings": 7
   },
   {
    "model": "Yonex ezone elite 4",
@@ -137,9 +177,24 @@
    "listings": 7
   },
   {
+   "model": "Mizuno st-g",
+   "issue": "cheapest retailer \u00a3149.95 vs dearest \u00a3499.00: check for used stock or a different product",
+   "listings": 7
+  },
+  {
    "model": "Mizuno ST-G Driver",
    "issue": "price spread \u00a3149.95 to \u00a3499.00: may mix different products",
    "listings": 7
+  },
+  {
+   "model": "Yonex ezone gs i-tech",
+   "issue": "cheapest retailer \u00a394.95 vs dearest \u00a3249.00: check for used stock or a different product",
+   "listings": 7
+  },
+  {
+   "model": "Callaway x hot",
+   "issue": "cheapest retailer \u00a334.95 vs dearest \u00a3119.99: check for used stock or a different product",
+   "listings": 8
   },
   {
    "model": "Callaway X Hot Fairway Wood",
@@ -187,6 +242,11 @@
    "listings": 6
   },
   {
+   "model": "Mizuno pro 245",
+   "issue": "cheapest retailer \u00a3409.95 vs dearest \u00a31,289.00: check for used stock or a different product",
+   "listings": 6
+  },
+  {
    "model": "Mizuno Pro 245 Irons",
    "issue": "price spread \u00a3409.95 to \u00a31,289.00: may mix different products",
    "listings": 6
@@ -195,6 +255,11 @@
    "model": "TaylorMade kalea",
    "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 2
+  },
+  {
+   "model": "Callaway x hot",
+   "issue": "cheapest retailer \u00a334.95 vs dearest \u00a389.00: check for used stock or a different product",
+   "listings": 6
   },
   {
    "model": "Titleist t100",
@@ -209,6 +274,11 @@
   {
    "model": "Wilson Staff Model ZM Wedge",
    "issue": "price spread \u00a399.95 to \u00a3357.00: may mix different products",
+   "listings": 5
+  },
+  {
+   "model": "Titleist 620 cb",
+   "issue": "cheapest retailer \u00a3319.95 vs dearest \u00a3942.00: check for used stock or a different product",
    "listings": 5
   },
   {
@@ -230,6 +300,11 @@
    "model": "XXIO x",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
+  },
+  {
+   "model": "Ping anser",
+   "issue": "cheapest retailer \u00a319.95 vs dearest \u00a3269.00: check for used stock or a different product",
+   "listings": 5
   },
   {
    "model": "Ping Anser Putter",
@@ -262,6 +337,11 @@
    "listings": 1
   },
   {
+   "model": "Callaway great big bertha",
+   "issue": "cheapest retailer \u00a3149.95 vs dearest \u00a3389.40: check for used stock or a different product",
+   "listings": 4
+  },
+  {
    "model": "MacGregor V Foil Chrome Wedge",
    "issue": "price spread \u00a339.99 to \u00a3129.00: may mix different products",
    "listings": 4
@@ -277,8 +357,18 @@
    "listings": 4
   },
   {
+   "model": "Vega mizar tour",
+   "issue": "cheapest retailer \u00a3299.95 vs dearest \u00a31,494.00: check for used stock or a different product",
+   "listings": 4
+  },
+  {
    "model": "Vega Mizar Tour Irons",
    "issue": "price spread \u00a3299.95 to \u00a31,494.00: may mix different products",
+   "listings": 4
+  },
+  {
+   "model": "Mizuno clk",
+   "issue": "cheapest retailer \u00a324.95 vs dearest \u00a3159.00: check for used stock or a different product",
    "listings": 4
   },
   {
@@ -290,6 +380,21 @@
    "model": "Cobra Air-X 2.0 Irons",
    "issue": "price spread \u00a339.95 to \u00a3429.95: may mix different products",
    "listings": 5
+  },
+  {
+   "model": "Cleveland launcher xl halo",
+   "issue": "cheapest retailer \u00a374.95 vs dearest \u00a3209.00: check for used stock or a different product",
+   "listings": 4
+  },
+  {
+   "model": "Ping scottsdale anser",
+   "issue": "cheapest retailer \u00a389.95 vs dearest \u00a3229.00: check for used stock or a different product",
+   "listings": 3
+  },
+  {
+   "model": "Wilson profile",
+   "issue": "cheapest retailer \u00a339.99 vs dearest \u00a3295.00: check for used stock or a different product",
+   "listings": 3
   },
   {
    "model": "Wilson Profile Irons",
@@ -327,6 +432,11 @@
    "listings": 2
   },
   {
+   "model": "Yonex ezone gs",
+   "issue": "cheapest retailer \u00a359.00 vs dearest \u00a3539.95: check for used stock or a different product",
+   "listings": 2
+  },
+  {
    "model": "Yonex Ezone GS Irons",
    "issue": "price spread \u00a359.00 to \u00a3539.95: may mix different products",
    "listings": 2
@@ -347,6 +457,11 @@
    "listings": 2
   },
   {
+   "model": "Vega svp vdc",
+   "issue": "cheapest retailer \u00a3549.95 vs dearest \u00a32,520.00: check for used stock or a different product",
+   "listings": 2
+  },
+  {
    "model": "Vega SVP VDC Irons",
    "issue": "price spread \u00a3549.95 to \u00a32,520.00: may mix different products",
    "listings": 2
@@ -364,6 +479,11 @@
   {
    "model": "Sukira Hybrid",
    "issue": "no model name: held back until an alias names it",
+   "listings": 2
+  },
+  {
+   "model": "Vega vdc",
+   "issue": "cheapest retailer \u00a3469.95 vs dearest \u00a31,494.00: check for used stock or a different product",
    "listings": 2
   },
   {

@@ -1,0 +1,56 @@
+{
+ "name": "Cleveland Zipcore XL Irons",
+ "brand": "Cleveland",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/cleveland-zipcore-xl-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 399.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 399.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 399.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 349.0,
+  "high": 399.0,
+  "average": 392.75,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    399.0
+   ],
+   [
+    "2026-09-11",
+    349.0
+   ],
+   [
+    "2026-09-18",
+    399.0
+   ],
+   [
+    "2026-10-10",
+    399.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £50.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

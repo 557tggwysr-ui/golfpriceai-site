@@ -1,0 +1,55 @@
+{
+ "name": "Ping G440 Max Fairway Wood",
+ "brand": "Ping",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/ping-g440-max-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 259.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 259.95,
+   "options": 6
+  },
+  {
+   "name": "Clickgolf",
+   "from": 319.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 259.95,
+  "high": 319.0,
+  "average": 281.41,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    319.0
+   ],
+   [
+    "2026-09-04",
+    279.95
+   ],
+   [
+    "2026-09-08",
+    259.95
+   ],
+   [
+    "2026-10-10",
+    259.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 33 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,51 @@
+{
+ "name": "TaylorMade Stealth 2 Hybrid",
+ "brand": "TaylorMade",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/taylormade-stealth-2-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 89.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 89.95,
+   "options": 5
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 169.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 89.95,
+  "high": 99.95,
+  "average": 92.11,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    99.95
+   ],
+   [
+    "2026-09-12",
+    89.95
+   ],
+   [
+    "2026-10-10",
+    89.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

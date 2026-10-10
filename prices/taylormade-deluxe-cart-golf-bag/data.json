@@ -1,0 +1,61 @@
+{
+ "name": "TaylorMade Deluxe Cart Golf Bag",
+ "brand": "TaylorMade",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/taylormade-deluxe-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 189.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 189.0,
+   "options": 5
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 199.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 229.0,
+   "options": 5
+  },
+  {
+   "name": "Clickgolf",
+   "from": 234.99,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 189.0,
+  "high": 234.99,
+  "average": 198.86,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    234.99
+   ],
+   [
+    "2026-08-28",
+    189.0
+   ],
+   [
+    "2026-10-10",
+    189.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

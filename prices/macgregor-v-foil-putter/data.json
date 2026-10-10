@@ -1,0 +1,47 @@
+{
+ "name": "MacGregor V-Foil Putter",
+ "brand": "MacGregor",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/macgregor-v-foil-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 39.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 39.95,
+   "options": 3
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 44.99,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 39.95,
+  "high": 39.95,
+  "average": 39.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    39.95
+   ],
+   [
+    "2026-10-10",
+    39.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

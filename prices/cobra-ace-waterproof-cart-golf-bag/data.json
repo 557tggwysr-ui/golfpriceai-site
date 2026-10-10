@@ -1,0 +1,104 @@
+{
+ "name": "Cobra Ace Waterproof Cart Golf Bag",
+ "brand": "Cobra",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 189.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 189.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 189.95,
+   "options": 3
+  },
+  {
+   "name": "Clickgolf",
+   "from": 199.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 174.0,
+  "high": 199.0,
+  "average": 186.95,
+  "priceChanges": 13,
+  "series": [
+   [
+    "2026-08-16",
+    174.0
+   ],
+   [
+    "2026-08-17",
+    199.0
+   ],
+   [
+    "2026-08-22",
+    174.0
+   ],
+   [
+    "2026-08-24",
+    199.0
+   ],
+   [
+    "2026-08-28",
+    179.0
+   ],
+   [
+    "2026-09-01",
+    189.0
+   ],
+   [
+    "2026-09-11",
+    179.0
+   ],
+   [
+    "2026-09-14",
+    189.0
+   ],
+   [
+    "2026-09-19",
+    179.0
+   ],
+   [
+    "2026-09-21",
+    189.0
+   ],
+   [
+    "2026-09-24",
+    179.0
+   ],
+   [
+    "2026-09-28",
+    189.0
+   ],
+   [
+    "2026-10-02",
+    179.0
+   ],
+   [
+    "2026-10-05",
+    189.0
+   ],
+   [
+    "2026-10-10",
+    189.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £15.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

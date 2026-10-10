@@ -1,0 +1,51 @@
+{
+ "name": "Ping G440 SFT Fairway Wood",
+ "brand": "Ping",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/ping-g440-sft-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 199.95,
+   "options": 3
+  },
+  {
+   "name": "Clickgolf",
+   "from": 319.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 199.95,
+  "high": 319.0,
+  "average": 301.99,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    319.0
+   ],
+   [
+    "2026-10-03",
+    199.95
+   ],
+   [
+    "2026-10-10",
+    199.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

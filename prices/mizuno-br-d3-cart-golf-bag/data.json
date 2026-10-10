@@ -1,0 +1,63 @@
+{
+ "name": "Mizuno BR-D3 Cart Golf Bag",
+ "brand": "Mizuno",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/mizuno-br-d3-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 119.0,
+   "options": 5
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 119.95,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 119.0,
+  "high": 139.0,
+  "average": 122.21,
+  "priceChanges": 4,
+  "series": [
+   [
+    "2026-08-16",
+    119.0
+   ],
+   [
+    "2026-08-17",
+    139.0
+   ],
+   [
+    "2026-08-22",
+    119.0
+   ],
+   [
+    "2026-08-24",
+    139.0
+   ],
+   [
+    "2026-08-28",
+    119.0
+   ],
+   [
+    "2026-10-10",
+    119.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

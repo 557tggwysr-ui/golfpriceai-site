@@ -1,0 +1,68 @@
+{
+ "name": "Cobra Premium Stand Golf Bag",
+ "brand": "Cobra",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/cobra-premium-stand-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 219.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 219.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 229.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 249.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 219.0,
+  "high": 249.0,
+  "average": 223.82,
+  "priceChanges": 4,
+  "series": [
+   [
+    "2026-08-16",
+    219.0
+   ],
+   [
+    "2026-08-17",
+    249.0
+   ],
+   [
+    "2026-08-22",
+    219.0
+   ],
+   [
+    "2026-08-24",
+    249.0
+   ],
+   [
+    "2026-08-28",
+    219.0
+   ],
+   [
+    "2026-10-10",
+    219.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

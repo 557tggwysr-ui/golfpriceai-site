@@ -1,0 +1,74 @@
+{
+ "name": "Mizuno JPX ONE Fairway Wood",
+ "brand": "Mizuno",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/mizuno-jpx-one-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 239.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 239.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 239.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 239.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 239.0,
+  "high": 299.0,
+  "average": 270.07,
+  "priceChanges": 5,
+  "series": [
+   [
+    "2026-08-16",
+    299.0
+   ],
+   [
+    "2026-08-28",
+    279.0
+   ],
+   [
+    "2026-09-10",
+    269.0
+   ],
+   [
+    "2026-09-25",
+    259.0
+   ],
+   [
+    "2026-09-26",
+    249.0
+   ],
+   [
+    "2026-09-29",
+    239.0
+   ],
+   [
+    "2026-10-10",
+    239.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

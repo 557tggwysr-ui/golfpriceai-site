@@ -1,0 +1,55 @@
+{
+ "name": "Bushnell iON Elite Rangefinder",
+ "brand": "Bushnell",
+ "type": "rangefinder",
+ "url": "https://golfpriceai.com/prices/bushnell-ion-elite-rangefinder/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 159.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 159.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 169.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 139.95,
+  "high": 159.0,
+  "average": 150.16,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    159.0
+   ],
+   [
+    "2026-09-05",
+    139.95
+   ],
+   [
+    "2026-10-01",
+    159.0
+   ],
+   [
+    "2026-10-10",
+    159.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £19.05 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

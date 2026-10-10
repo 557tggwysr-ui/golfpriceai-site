@@ -1,0 +1,60 @@
+{
+ "name": "TaylorMade Qi4D Max Fairway Wood",
+ "brand": "TaylorMade",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/taylormade-qi4d-max-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 219.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 219.95,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 319.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 319.0,
+   "options": 6
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 219.95,
+  "high": 319.0,
+  "average": 283.56,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    319.0
+   ],
+   [
+    "2026-09-04",
+    299.95
+   ],
+   [
+    "2026-09-25",
+    219.95
+   ],
+   [
+    "2026-10-10",
+    219.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

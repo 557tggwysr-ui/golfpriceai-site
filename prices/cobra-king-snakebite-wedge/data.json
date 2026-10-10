@@ -1,0 +1,47 @@
+{
+ "name": "Cobra King Snakebite Wedge",
+ "brand": "Cobra",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/cobra-king-snakebite-wedge/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 99.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 99.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 129.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 99.0,
+  "high": 99.0,
+  "average": 99.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    99.0
+   ],
+   [
+    "2026-10-10",
+    99.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

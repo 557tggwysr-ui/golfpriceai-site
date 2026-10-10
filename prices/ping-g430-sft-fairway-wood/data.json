@@ -1,0 +1,60 @@
+{
+ "name": "Ping G430 SFT Fairway Wood",
+ "brand": "Ping",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/ping-g430-sft-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 214.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 214.95,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 249.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 299.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 214.95,
+  "high": 249.0,
+  "average": 227.57,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    249.0
+   ],
+   [
+    "2026-09-04",
+    229.95
+   ],
+   [
+    "2026-09-08",
+    214.95
+   ],
+   [
+    "2026-10-10",
+    214.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 33 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

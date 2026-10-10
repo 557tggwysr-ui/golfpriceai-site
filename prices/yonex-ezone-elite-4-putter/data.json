@@ -1,0 +1,47 @@
+{
+ "name": "Yonex Ezone Elite 4 Putter",
+ "brand": "Yonex",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/yonex-ezone-elite-4-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 129.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 129.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 129.95,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 129.0,
+  "high": 129.0,
+  "average": 129.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    129.0
+   ],
+   [
+    "2026-10-10",
+    129.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,66 @@
+{
+ "name": "Bushnell Pro X3+ Laser Rangefinder",
+ "brand": "Bushnell",
+ "type": "rangefinder",
+ "url": "https://golfpriceai.com/prices/bushnell-pro-x3-plus-laser-rangefinder/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 529.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 529.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 529.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 549.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 549.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 479.0,
+  "high": 529.0,
+  "average": 504.0,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    529.0
+   ],
+   [
+    "2026-08-28",
+    479.0
+   ],
+   [
+    "2026-09-25",
+    529.0
+   ],
+   [
+    "2026-10-10",
+    529.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £50.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

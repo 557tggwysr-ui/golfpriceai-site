@@ -1,0 +1,55 @@
+{
+ "name": "Callaway Paradym X Fairway Wood",
+ "brand": "Callaway",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/callaway-paradym-x-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 119.95,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 249.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 119.95,
+  "high": 249.0,
+  "average": 168.93,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-09-04",
+    249.0
+   ],
+   [
+    "2026-09-12",
+    179.95
+   ],
+   [
+    "2026-09-25",
+    119.95
+   ],
+   [
+    "2026-10-10",
+    119.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

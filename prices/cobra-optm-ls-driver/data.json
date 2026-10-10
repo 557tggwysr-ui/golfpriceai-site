@@ -1,0 +1,51 @@
+{
+ "name": "Cobra OPTM LS Driver",
+ "brand": "Cobra",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/cobra-optm-ls-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 469.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 469.95,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 479.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 469.95,
+  "high": 479.0,
+  "average": 473.02,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    479.0
+   ],
+   [
+    "2026-09-04",
+    469.95
+   ],
+   [
+    "2026-10-10",
+    469.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,48 @@
+{
+ "name": "MacGregor ZT Plus Driving Irons",
+ "brand": "MacGregor",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/macgregor-zt-plus-driving-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 69.95,
+ "lowestAt": [
+  "Affordable Golf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 69.95,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 69.95,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 69.95,
+  "high": 69.95,
+  "average": 69.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    69.95
+   ],
+   [
+    "2026-10-10",
+    69.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

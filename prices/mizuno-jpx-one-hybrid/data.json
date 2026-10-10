@@ -1,0 +1,66 @@
+{
+ "name": "Mizuno JPX ONE Hybrid",
+ "brand": "Mizuno",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/mizuno-jpx-one-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 209.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 209.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 209.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 209.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 209.0,
+  "high": 265.0,
+  "average": 230.11,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-08-16",
+    265.0
+   ],
+   [
+    "2026-08-28",
+    249.0
+   ],
+   [
+    "2026-09-04",
+    219.95
+   ],
+   [
+    "2026-09-25",
+    209.0
+   ],
+   [
+    "2026-10-10",
+    209.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,56 @@
+{
+ "name": "Titleist GT4 Driver",
+ "brand": "Titleist",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/titleist-gt4-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 339.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 339.95,
+   "options": 7
+  },
+  {
+   "name": "Clickgolf",
+   "from": 399.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 579.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 339.95,
+  "high": 399.0,
+  "average": 359.98,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    399.0
+   ],
+   [
+    "2026-09-04",
+    339.95
+   ],
+   [
+    "2026-10-10",
+    339.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

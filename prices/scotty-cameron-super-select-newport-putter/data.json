@@ -1,0 +1,51 @@
+{
+ "name": "Scotty Cameron Super Select Newport Putter",
+ "brand": "Scotty Cameron",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/scotty-cameron-super-select-newport-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 239.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 239.95,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 429.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 239.95,
+  "high": 429.0,
+  "average": 388.12,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    429.0
+   ],
+   [
+    "2026-10-03",
+    239.95
+   ],
+   [
+    "2026-10-10",
+    239.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

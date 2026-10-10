@@ -1,0 +1,59 @@
+{
+ "name": "Ben Sayers M8 Fairway Wood",
+ "brand": "Ben Sayers",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/ben-sayers-m8-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 29.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 29.95,
+   "options": 3
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 44.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 19.95,
+  "high": 44.95,
+  "average": 31.65,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-08-28",
+    44.95
+   ],
+   [
+    "2026-09-04",
+    29.95
+   ],
+   [
+    "2026-09-22",
+    19.95
+   ],
+   [
+    "2026-09-25",
+    29.95
+   ],
+   [
+    "2026-10-10",
+    29.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £10.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

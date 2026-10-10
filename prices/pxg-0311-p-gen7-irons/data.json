@@ -1,0 +1,47 @@
+{
+ "name": "PXG 0311 P GEN7 Irons",
+ "brand": "PXG",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/pxg-0311-p-gen7-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 429.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 429.95,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 899.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 169.0,
+  "high": 169.0,
+  "average": 169.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    169.0
+   ],
+   [
+    "2026-10-10",
+    169.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

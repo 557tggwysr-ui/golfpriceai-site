@@ -1,0 +1,51 @@
+{
+ "name": "Callaway X Forged Irons",
+ "brand": "Callaway",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/callaway-x-forged-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 999.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 999.95,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1229.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 999.95,
+  "high": 1229.0,
+  "average": 1077.66,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    1229.0
+   ],
+   [
+    "2026-09-04",
+    999.95
+   ],
+   [
+    "2026-10-10",
+    999.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

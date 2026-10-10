@@ -1,0 +1,55 @@
+{
+ "name": "GolfBuddy Shot Mate Launch Monitor",
+ "brand": "GolfBuddy",
+ "type": "launch monitor",
+ "url": "https://golfpriceai.com/prices/golfbuddy-shot-mate-launch-monitor/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 149.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 149.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 145.0,
+  "high": 149.0,
+  "average": 148.27,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-28",
+    149.0
+   ],
+   [
+    "2026-09-25",
+    145.0
+   ],
+   [
+    "2026-10-03",
+    149.0
+   ],
+   [
+    "2026-10-10",
+    149.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

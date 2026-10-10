@@ -1,0 +1,51 @@
+{
+ "name": "Garmin Approach J1 GPS Watch",
+ "brand": "Garmin",
+ "type": "GPS watch",
+ "url": "https://golfpriceai.com/prices/garmin-approach-j1-gps-watch/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 309.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 309.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 310.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 309.0,
+  "high": 310.0,
+  "average": 309.34,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    310.0
+   ],
+   [
+    "2026-09-04",
+    309.0
+   ],
+   [
+    "2026-10-10",
+    309.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

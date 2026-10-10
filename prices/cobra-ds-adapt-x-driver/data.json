@@ -1,0 +1,56 @@
+{
+ "name": "Cobra DS-Adapt X Driver",
+ "brand": "Cobra",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/cobra-ds-adapt-x-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 249.95,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 329.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 329.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 249.95,
+  "high": 329.0,
+  "average": 276.77,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    329.0
+   ],
+   [
+    "2026-09-04",
+    249.95
+   ],
+   [
+    "2026-10-10",
+    249.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,47 @@
+{
+ "name": "Mizuno Pro S-1 Irons",
+ "brand": "Mizuno",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/mizuno-pro-s-1-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1289.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 1289.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 1499.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 1289.0,
+  "high": 1289.0,
+  "average": 1289.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    1289.0
+   ],
+   [
+    "2026-10-10",
+    1289.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

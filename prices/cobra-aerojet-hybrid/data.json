@@ -1,0 +1,47 @@
+{
+ "name": "Cobra Aerojet Hybrid",
+ "brand": "Cobra",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/cobra-aerojet-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 74.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 74.95,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 139.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 74.95,
+  "high": 74.95,
+  "average": 74.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    74.95
+   ],
+   [
+    "2026-10-10",
+    74.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

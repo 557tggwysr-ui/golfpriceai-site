@@ -1,0 +1,84 @@
+{
+ "name": "Ogio Shadow Stand Golf Bag",
+ "brand": "Ogio",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/ogio-shadow-stand-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 279.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 279.0,
+   "options": 8
+  },
+  {
+   "name": "Clickgolf",
+   "from": 329.0,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 369.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 249.0,
+  "high": 329.0,
+  "average": 287.75,
+  "priceChanges": 8,
+  "series": [
+   [
+    "2026-08-16",
+    299.0
+   ],
+   [
+    "2026-08-17",
+    329.0
+   ],
+   [
+    "2026-08-22",
+    299.0
+   ],
+   [
+    "2026-08-24",
+    329.0
+   ],
+   [
+    "2026-08-28",
+    304.0
+   ],
+   [
+    "2026-09-01",
+    329.0
+   ],
+   [
+    "2026-09-04",
+    279.0
+   ],
+   [
+    "2026-09-22",
+    249.0
+   ],
+   [
+    "2026-10-01",
+    279.0
+   ],
+   [
+    "2026-10-10",
+    279.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,51 @@
+{
+ "name": "Cleveland CBZ Tour Satin Wedge",
+ "brand": "Cleveland",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/cleveland-cbz-tour-satin-wedge/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 124.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 124.95,
+   "options": 10
+  },
+  {
+   "name": "Clickgolf",
+   "from": 149.0,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 124.95,
+  "high": 149.0,
+  "average": 130.1,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    149.0
+   ],
+   [
+    "2026-08-28",
+    124.95
+   ],
+   [
+    "2026-10-10",
+    124.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

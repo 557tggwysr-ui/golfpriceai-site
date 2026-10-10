@@ -1,0 +1,89 @@
+{
+ "name": "PowaKaddy FX1 Electric Trolley",
+ "brand": "PowaKaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/powakaddy-fx1-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 489.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 489.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 499.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 499.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 549.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 469.0,
+  "high": 499.0,
+  "average": 487.57,
+  "priceChanges": 8,
+  "series": [
+   [
+    "2026-08-16",
+    499.0
+   ],
+   [
+    "2026-08-28",
+    469.0
+   ],
+   [
+    "2026-09-01",
+    489.0
+   ],
+   [
+    "2026-09-11",
+    469.0
+   ],
+   [
+    "2026-09-14",
+    489.0
+   ],
+   [
+    "2026-09-19",
+    469.0
+   ],
+   [
+    "2026-09-21",
+    489.0
+   ],
+   [
+    "2026-09-24",
+    469.0
+   ],
+   [
+    "2026-09-25",
+    489.0
+   ],
+   [
+    "2026-10-10",
+    489.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

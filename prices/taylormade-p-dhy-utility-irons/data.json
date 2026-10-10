@@ -1,0 +1,48 @@
+{
+ "name": "TaylorMade P DHY Utility Irons",
+ "brand": "TaylorMade",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/taylormade-p-dhy-utility-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 229.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 229.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 229.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 229.0,
+  "high": 229.0,
+  "average": 229.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    229.0
+   ],
+   [
+    "2026-10-10",
+    229.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

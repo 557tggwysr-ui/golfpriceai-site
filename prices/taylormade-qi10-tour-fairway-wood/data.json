@@ -1,0 +1,47 @@
+{
+ "name": "TaylorMade Qi10 Tour Fairway Wood",
+ "brand": "TaylorMade",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/taylormade-qi10-tour-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 219.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 219.95,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 379.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 189.95,
+  "high": 189.95,
+  "average": 189.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    189.95
+   ],
+   [
+    "2026-10-10",
+    189.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

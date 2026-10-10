@@ -1,0 +1,47 @@
+{
+ "name": "Srixon Distance Golf Balls",
+ "brand": "Srixon",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/srixon-distance-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 14.5,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 14.5,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 14.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 14.5,
+  "high": 14.5,
+  "average": 14.5,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    14.5
+   ],
+   [
+    "2026-10-10",
+    14.5
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

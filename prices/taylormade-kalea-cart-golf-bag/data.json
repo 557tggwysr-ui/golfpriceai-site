@@ -1,0 +1,87 @@
+{
+ "name": "TaylorMade Kalea Cart Golf Bag",
+ "brand": "TaylorMade",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/taylormade-kalea-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 189.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 189.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 189.95,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 169.0,
+  "high": 189.0,
+  "average": 183.29,
+  "priceChanges": 10,
+  "series": [
+   [
+    "2026-08-16",
+    189.0
+   ],
+   [
+    "2026-08-28",
+    169.0
+   ],
+   [
+    "2026-09-01",
+    189.0
+   ],
+   [
+    "2026-09-11",
+    169.0
+   ],
+   [
+    "2026-09-14",
+    189.0
+   ],
+   [
+    "2026-09-19",
+    169.0
+   ],
+   [
+    "2026-09-21",
+    189.0
+   ],
+   [
+    "2026-09-24",
+    169.0
+   ],
+   [
+    "2026-09-28",
+    189.0
+   ],
+   [
+    "2026-10-02",
+    169.0
+   ],
+   [
+    "2026-10-05",
+    189.0
+   ],
+   [
+    "2026-10-10",
+    189.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

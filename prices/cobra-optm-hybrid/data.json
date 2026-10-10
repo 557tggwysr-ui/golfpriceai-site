@@ -1,0 +1,54 @@
+{
+ "name": "Cobra OPTM Hybrid",
+ "brand": "Cobra",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/cobra-optm-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 249.0,
+   "options": 3
+  },
+  {
+   "name": "Clickgolf",
+   "from": 249.0,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 249.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 249.0,
+  "high": 249.0,
+  "average": 249.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    249.0
+   ],
+   [
+    "2026-10-10",
+    249.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

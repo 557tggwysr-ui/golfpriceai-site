@@ -1,0 +1,57 @@
+{
+ "name": "Titleist AVX Golf Balls",
+ "brand": "Titleist",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/titleist-avx-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 39.99,
+ "lowestAt": [
+  "Major Golf Direct",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 39.99,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 39.99,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 42.99,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 39.96,
+  "high": 39.99,
+  "average": 39.96,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    39.99
+   ],
+   [
+    "2026-09-04",
+    39.96
+   ],
+   [
+    "2026-10-10",
+    39.96
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

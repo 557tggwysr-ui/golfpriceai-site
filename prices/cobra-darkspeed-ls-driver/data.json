@@ -1,0 +1,47 @@
+{
+ "name": "Cobra Darkspeed LS Driver",
+ "brand": "Cobra",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 199.95,
+   "options": 4
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 419.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 199.95,
+  "high": 199.95,
+  "average": 199.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    199.95
+   ],
+   [
+    "2026-10-10",
+    199.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,51 @@
+{
+ "name": "Callaway Paradym Ai Smoke Irons",
+ "brand": "Callaway",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/callaway-paradym-ai-smoke-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 399.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 399.95,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 809.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 399.95,
+  "high": 569.0,
+  "average": 426.84,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    569.0
+   ],
+   [
+    "2026-09-04",
+    399.95
+   ],
+   [
+    "2026-10-10",
+    399.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

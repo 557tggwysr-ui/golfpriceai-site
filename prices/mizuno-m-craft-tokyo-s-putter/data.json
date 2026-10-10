@@ -1,0 +1,55 @@
+{
+ "name": "Mizuno M.craft Tokyo S Putter",
+ "brand": "Mizuno",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/mizuno-m-craft-tokyo-s-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 239.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 239.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 279.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 239.0,
+  "high": 279.0,
+  "average": 257.57,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    279.0
+   ],
+   [
+    "2026-08-28",
+    259.0
+   ],
+   [
+    "2026-09-25",
+    239.0
+   ],
+   [
+    "2026-10-10",
+    239.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

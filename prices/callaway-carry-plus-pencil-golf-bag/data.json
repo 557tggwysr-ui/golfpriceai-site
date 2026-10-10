@@ -1,0 +1,47 @@
+{
+ "name": "Callaway Carry+ Pencil Golf Bag",
+ "brand": "Callaway",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/callaway-carry-plus-pencil-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 109.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 109.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 109.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 109.0,
+  "high": 109.0,
+  "average": 109.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    109.0
+   ],
+   [
+    "2026-10-10",
+    109.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

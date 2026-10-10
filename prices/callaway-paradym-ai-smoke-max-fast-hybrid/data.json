@@ -1,0 +1,51 @@
+{
+ "name": "Callaway Paradym Ai Smoke Max Fast Hybrid",
+ "brand": "Callaway",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-fast-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 149.95,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 269.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 149.95,
+  "high": 269.0,
+  "average": 217.52,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    269.0
+   ],
+   [
+    "2026-09-25",
+    149.95
+   ],
+   [
+    "2026-10-10",
+    149.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

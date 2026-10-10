@@ -1,0 +1,92 @@
+{
+ "name": "PowaKaddy CT6 EBS Electric Trolley",
+ "brand": "PowaKaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/powakaddy-ct6-ebs-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 799.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf",
+  "Major Golf Direct",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 799.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 799.0,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 799.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 799.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 749.0,
+  "high": 799.0,
+  "average": 790.07,
+  "priceChanges": 8,
+  "series": [
+   [
+    "2026-08-16",
+    799.0
+   ],
+   [
+    "2026-08-28",
+    749.0
+   ],
+   [
+    "2026-09-01",
+    799.0
+   ],
+   [
+    "2026-09-11",
+    749.0
+   ],
+   [
+    "2026-09-14",
+    799.0
+   ],
+   [
+    "2026-09-19",
+    749.0
+   ],
+   [
+    "2026-09-21",
+    799.0
+   ],
+   [
+    "2026-09-24",
+    749.0
+   ],
+   [
+    "2026-09-25",
+    799.0
+   ],
+   [
+    "2026-10-10",
+    799.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £50.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

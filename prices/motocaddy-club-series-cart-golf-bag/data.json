@@ -1,0 +1,52 @@
+{
+ "name": "Motocaddy Club Series Cart Golf Bag",
+ "brand": "Motocaddy",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/motocaddy-club-series-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 149.0,
+   "options": 3
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 149.95,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 169.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 149.0,
+  "high": 149.0,
+  "average": 149.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    149.0
+   ],
+   [
+    "2026-10-10",
+    149.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

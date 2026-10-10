@@ -1,0 +1,55 @@
+{
+ "name": "L.A.B. Golf DF3 Putter",
+ "brand": "L.A.B. Golf",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/l-a-b-golf-df3-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 339.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 339.95,
+   "options": 6
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 539.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 339.95,
+  "high": 399.95,
+  "average": 369.14,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-09-04",
+    399.95
+   ],
+   [
+    "2026-09-16",
+    379.95
+   ],
+   [
+    "2026-09-25",
+    339.95
+   ],
+   [
+    "2026-10-10",
+    339.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

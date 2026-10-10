@@ -1,0 +1,65 @@
+{
+ "name": "Callaway Quantum Max Driver",
+ "brand": "Callaway",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/callaway-quantum-max-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 399.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 399.95,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 529.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 529.0,
+   "options": 2
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 599.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 399.95,
+  "high": 529.0,
+  "average": 463.02,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    529.0
+   ],
+   [
+    "2026-09-04",
+    489.95
+   ],
+   [
+    "2026-09-16",
+    399.95
+   ],
+   [
+    "2026-10-10",
+    399.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,55 @@
+{
+ "name": "Cobra RADSPEED-S Fairway Wood",
+ "brand": "Cobra",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/cobra-radspeed-s-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 119.95,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 179.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 119.95,
+  "high": 179.0,
+  "average": 162.13,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-28",
+    169.0
+   ],
+   [
+    "2026-09-24",
+    179.0
+   ],
+   [
+    "2026-10-03",
+    119.95
+   ],
+   [
+    "2026-10-10",
+    119.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

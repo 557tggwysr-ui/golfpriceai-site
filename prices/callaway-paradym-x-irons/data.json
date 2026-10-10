@@ -1,0 +1,51 @@
+{
+ "name": "Callaway Paradym X Irons",
+ "brand": "Callaway",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/callaway-paradym-x-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 449.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 449.95,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 729.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 449.95,
+  "high": 729.0,
+  "average": 510.29,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    729.0
+   ],
+   [
+    "2026-09-12",
+    449.95
+   ],
+   [
+    "2026-10-10",
+    449.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 29 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

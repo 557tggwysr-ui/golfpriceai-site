@@ -1,0 +1,103 @@
+{
+ "name": "Ogio Featherlite Stand Golf Bag",
+ "brand": "Ogio",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/ogio-featherlite-stand-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 199.95,
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 209.0,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 184.0,
+  "high": 209.0,
+  "average": 197.91,
+  "priceChanges": 14,
+  "series": [
+   [
+    "2026-08-16",
+    184.0
+   ],
+   [
+    "2026-08-17",
+    209.0
+   ],
+   [
+    "2026-08-22",
+    184.0
+   ],
+   [
+    "2026-08-24",
+    209.0
+   ],
+   [
+    "2026-08-28",
+    189.0
+   ],
+   [
+    "2026-09-01",
+    209.0
+   ],
+   [
+    "2026-09-04",
+    199.95
+   ],
+   [
+    "2026-09-11",
+    189.0
+   ],
+   [
+    "2026-09-14",
+    199.95
+   ],
+   [
+    "2026-09-19",
+    189.0
+   ],
+   [
+    "2026-09-21",
+    199.95
+   ],
+   [
+    "2026-09-24",
+    189.0
+   ],
+   [
+    "2026-09-28",
+    199.95
+   ],
+   [
+    "2026-10-02",
+    189.0
+   ],
+   [
+    "2026-10-05",
+    199.95
+   ],
+   [
+    "2026-10-10",
+    199.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £15.95 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

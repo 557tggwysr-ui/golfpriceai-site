@@ -1,0 +1,56 @@
+{
+ "name": "Titleist T100 Irons",
+ "brand": "Titleist",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/titleist-t100-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 579.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 579.95,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 1069.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1189.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 579.95,
+  "high": 1189.0,
+  "average": 786.59,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    1189.0
+   ],
+   [
+    "2026-09-04",
+    579.95
+   ],
+   [
+    "2026-10-10",
+    579.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,85 @@
+{
+ "name": "Motocaddy M5 Electric Trolley",
+ "brand": "Motocaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/motocaddy-m5-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 949.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 949.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 979.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 999.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 1099.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 949.0,
+  "high": 999.0,
+  "average": 962.39,
+  "priceChanges": 7,
+  "series": [
+   [
+    "2026-08-16",
+    949.0
+   ],
+   [
+    "2026-08-17",
+    999.0
+   ],
+   [
+    "2026-08-22",
+    949.0
+   ],
+   [
+    "2026-08-24",
+    999.0
+   ],
+   [
+    "2026-08-28",
+    949.0
+   ],
+   [
+    "2026-09-01",
+    999.0
+   ],
+   [
+    "2026-09-04",
+    979.0
+   ],
+   [
+    "2026-09-09",
+    949.0
+   ],
+   [
+    "2026-10-10",
+    949.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 32 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

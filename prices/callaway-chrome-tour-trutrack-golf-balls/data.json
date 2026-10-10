@@ -1,0 +1,51 @@
+{
+ "name": "Callaway Chrome Tour TruTrack Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-chrome-tour-trutrack-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 44.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 44.99,
+   "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 49.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 44.99,
+  "high": 49.99,
+  "average": 46.69,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    49.99
+   ],
+   [
+    "2026-09-04",
+    44.99
+   ],
+   [
+    "2026-10-10",
+    44.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

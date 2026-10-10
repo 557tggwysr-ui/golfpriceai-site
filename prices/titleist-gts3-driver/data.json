@@ -1,0 +1,48 @@
+{
+ "name": "Titleist GTS3 Driver",
+ "brand": "Titleist",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/titleist-gts3-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 629.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 629.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 629.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 629.0,
+  "high": 629.0,
+  "average": 629.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    629.0
+   ],
+   [
+    "2026-10-10",
+    629.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

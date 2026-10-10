@@ -1,0 +1,55 @@
+{
+ "name": "Wilson Profile Hybrid",
+ "brand": "Wilson",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/wilson-profile-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 54.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 54.95,
+   "options": 3
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 59.95,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 54.95,
+  "high": 59.99,
+  "average": 56.43,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-28",
+    59.99
+   ],
+   [
+    "2026-09-04",
+    59.95
+   ],
+   [
+    "2026-09-10",
+    54.95
+   ],
+   [
+    "2026-10-10",
+    54.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,87 @@
+{
+ "name": "Callaway Quantum Staff Stand Golf Bag",
+ "brand": "Callaway",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/callaway-quantum-staff-stand-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 399.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 399.0,
+   "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 449.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 369.0,
+  "high": 399.0,
+  "average": 390.43,
+  "priceChanges": 10,
+  "series": [
+   [
+    "2026-08-16",
+    399.0
+   ],
+   [
+    "2026-08-28",
+    369.0
+   ],
+   [
+    "2026-09-01",
+    399.0
+   ],
+   [
+    "2026-09-11",
+    369.0
+   ],
+   [
+    "2026-09-14",
+    399.0
+   ],
+   [
+    "2026-09-19",
+    369.0
+   ],
+   [
+    "2026-09-21",
+    399.0
+   ],
+   [
+    "2026-09-24",
+    369.0
+   ],
+   [
+    "2026-09-28",
+    399.0
+   ],
+   [
+    "2026-10-02",
+    369.0
+   ],
+   [
+    "2026-10-05",
+    399.0
+   ],
+   [
+    "2026-10-10",
+    399.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

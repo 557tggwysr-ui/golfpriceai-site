@@ -1,0 +1,51 @@
+{
+ "name": "Callaway Paradym Ai Smoke Max Fast Driver",
+ "brand": "Callaway",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-fast-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 279.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 279.95,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 499.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 279.95,
+  "high": 499.0,
+  "average": 404.28,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    499.0
+   ],
+   [
+    "2026-09-25",
+    279.95
+   ],
+   [
+    "2026-10-10",
+    279.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

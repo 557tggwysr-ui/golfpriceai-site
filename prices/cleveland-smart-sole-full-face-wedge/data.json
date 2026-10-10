@@ -1,0 +1,48 @@
+{
+ "name": "Cleveland Smart Sole Full Face Wedge",
+ "brand": "Cleveland",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/cleveland-smart-sole-full-face-wedge/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.0,
+ "lowestAt": [
+  "Clickgolf",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 119.0,
+   "options": 4
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 119.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 119.0,
+  "high": 119.0,
+  "average": 119.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    119.0
+   ],
+   [
+    "2026-10-10",
+    119.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

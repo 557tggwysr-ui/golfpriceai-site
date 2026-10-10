@@ -1,0 +1,48 @@
+{
+ "name": "TaylorMade Qi4D Max Hybrid",
+ "brand": "TaylorMade",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/taylormade-qi4d-max-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 269.0,
+ "lowestAt": [
+  "Clickgolf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 269.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 269.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 269.0,
+  "high": 269.0,
+  "average": 269.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    269.0
+   ],
+   [
+    "2026-10-10",
+    269.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

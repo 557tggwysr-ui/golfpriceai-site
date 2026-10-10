@@ -1,0 +1,48 @@
+{
+ "name": "Yonex Ezone Elite 4 Irons",
+ "brand": "Yonex",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/yonex-ezone-elite-4-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 599.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 599.0,
+   "options": 3
+  },
+  {
+   "name": "Clickgolf",
+   "from": 599.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 599.0,
+  "high": 599.0,
+  "average": 599.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    599.0
+   ],
+   [
+    "2026-10-10",
+    599.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

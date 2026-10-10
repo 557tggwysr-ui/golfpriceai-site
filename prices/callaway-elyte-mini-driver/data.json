@@ -1,0 +1,51 @@
+{
+ "name": "Callaway Elyte Mini Driver",
+ "brand": "Callaway",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/callaway-elyte-mini-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 309.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 309.95,
+   "options": 3
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 329.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 289.95,
+  "high": 329.0,
+  "average": 296.16,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    329.0
+   ],
+   [
+    "2026-09-04",
+    289.95
+   ],
+   [
+    "2026-10-10",
+    289.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

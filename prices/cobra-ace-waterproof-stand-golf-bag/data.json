@@ -1,0 +1,107 @@
+{
+ "name": "Cobra Ace Waterproof Stand Golf Bag",
+ "brand": "Cobra",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-stand-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 179.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 179.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 179.95,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 154.0,
+  "high": 179.0,
+  "average": 171.14,
+  "priceChanges": 15,
+  "series": [
+   [
+    "2026-08-16",
+    154.0
+   ],
+   [
+    "2026-08-17",
+    179.0
+   ],
+   [
+    "2026-08-22",
+    154.0
+   ],
+   [
+    "2026-08-24",
+    179.0
+   ],
+   [
+    "2026-08-28",
+    159.0
+   ],
+   [
+    "2026-09-01",
+    179.0
+   ],
+   [
+    "2026-09-11",
+    159.0
+   ],
+   [
+    "2026-09-14",
+    179.0
+   ],
+   [
+    "2026-09-19",
+    159.0
+   ],
+   [
+    "2026-09-21",
+    179.0
+   ],
+   [
+    "2026-09-22",
+    169.95
+   ],
+   [
+    "2026-09-24",
+    159.0
+   ],
+   [
+    "2026-09-28",
+    169.95
+   ],
+   [
+    "2026-10-01",
+    179.0
+   ],
+   [
+    "2026-10-02",
+    159.0
+   ],
+   [
+    "2026-10-05",
+    179.0
+   ],
+   [
+    "2026-10-10",
+    179.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £25.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

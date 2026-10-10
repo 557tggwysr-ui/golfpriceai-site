@@ -1,0 +1,79 @@
+{
+ "name": "Motocaddy M7 Remote Electric Trolley",
+ "brand": "Motocaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/motocaddy-m7-remote-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1149.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 1149.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 1199.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 1049.0,
+  "high": 1199.0,
+  "average": 1171.68,
+  "priceChanges": 8,
+  "series": [
+   [
+    "2026-08-16",
+    1049.0
+   ],
+   [
+    "2026-08-17",
+    1199.0
+   ],
+   [
+    "2026-08-22",
+    1049.0
+   ],
+   [
+    "2026-08-24",
+    1199.0
+   ],
+   [
+    "2026-09-19",
+    1119.0
+   ],
+   [
+    "2026-09-21",
+    1199.0
+   ],
+   [
+    "2026-09-24",
+    1119.0
+   ],
+   [
+    "2026-09-28",
+    1199.0
+   ],
+   [
+    "2026-09-29",
+    1149.0
+   ],
+   [
+    "2026-10-10",
+    1149.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

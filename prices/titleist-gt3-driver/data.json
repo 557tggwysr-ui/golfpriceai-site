@@ -1,0 +1,47 @@
+{
+ "name": "Titleist GT3 Driver",
+ "brand": "Titleist",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/titleist-gt3-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 279.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 279.95,
+   "options": 11
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 579.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 279.95,
+  "high": 279.95,
+  "average": 279.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    279.95
+   ],
+   [
+    "2026-10-10",
+    279.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

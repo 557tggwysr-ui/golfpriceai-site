@@ -1,0 +1,87 @@
+{
+ "name": "Ping Traverse 244 Cart Golf Bag",
+ "brand": "Ping",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/ping-traverse-244-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 169.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 169.0,
+   "options": 6
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 169.95,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 149.0,
+  "high": 169.0,
+  "average": 162.93,
+  "priceChanges": 10,
+  "series": [
+   [
+    "2026-08-16",
+    169.0
+   ],
+   [
+    "2026-08-28",
+    149.0
+   ],
+   [
+    "2026-09-02",
+    169.0
+   ],
+   [
+    "2026-09-11",
+    149.0
+   ],
+   [
+    "2026-09-14",
+    169.0
+   ],
+   [
+    "2026-09-19",
+    149.0
+   ],
+   [
+    "2026-09-21",
+    169.0
+   ],
+   [
+    "2026-09-24",
+    149.0
+   ],
+   [
+    "2026-09-28",
+    169.0
+   ],
+   [
+    "2026-10-02",
+    149.0
+   ],
+   [
+    "2026-10-05",
+    169.0
+   ],
+   [
+    "2026-10-10",
+    169.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

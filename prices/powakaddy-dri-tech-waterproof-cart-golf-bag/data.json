@@ -1,0 +1,72 @@
+{
+ "name": "PowaKaddy Dri-TECH Waterproof Cart Golf Bag",
+ "brand": "PowaKaddy",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/powakaddy-dri-tech-waterproof-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 249.0,
+   "options": 7
+  },
+  {
+   "name": "Clickgolf",
+   "from": 249.0,
+   "options": 6
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 219.0,
+  "high": 249.0,
+  "average": 237.21,
+  "priceChanges": 6,
+  "series": [
+   [
+    "2026-08-16",
+    249.0
+   ],
+   [
+    "2026-08-28",
+    219.0
+   ],
+   [
+    "2026-09-03",
+    249.0
+   ],
+   [
+    "2026-09-11",
+    219.0
+   ],
+   [
+    "2026-09-14",
+    249.0
+   ],
+   [
+    "2026-09-19",
+    219.0
+   ],
+   [
+    "2026-10-02",
+    249.0
+   ],
+   [
+    "2026-10-10",
+    249.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

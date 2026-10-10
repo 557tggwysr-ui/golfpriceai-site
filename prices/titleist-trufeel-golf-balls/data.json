@@ -1,0 +1,52 @@
+{
+ "name": "Titleist TruFeel Golf Balls",
+ "brand": "Titleist",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/titleist-trufeel-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 24.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 24.95,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 24.99,
+   "options": 5
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 24.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 24.95,
+  "high": 24.95,
+  "average": 24.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    24.95
+   ],
+   [
+    "2026-10-10",
+    24.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

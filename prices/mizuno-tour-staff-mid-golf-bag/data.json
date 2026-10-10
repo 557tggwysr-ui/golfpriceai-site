@@ -1,0 +1,60 @@
+{
+ "name": "Mizuno Tour Staff Mid Golf Bag",
+ "brand": "Mizuno",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/mizuno-tour-staff-mid-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 199.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 319.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 379.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 39,
+  "low": 199.0,
+  "high": 319.0,
+  "average": 218.74,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-09-02",
+    319.0
+   ],
+   [
+    "2026-09-03",
+    249.0
+   ],
+   [
+    "2026-09-16",
+    199.0
+   ],
+   [
+    "2026-10-10",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

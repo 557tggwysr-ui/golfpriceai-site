@@ -1,0 +1,47 @@
+{
+ "name": "Callaway Paradym X Hybrid",
+ "brand": "Callaway",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/callaway-paradym-x-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 129.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 129.0,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 199.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 129.0,
+  "high": 129.0,
+  "average": 129.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    129.0
+   ],
+   [
+    "2026-10-10",
+    129.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

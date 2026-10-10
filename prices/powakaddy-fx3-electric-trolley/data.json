@@ -1,0 +1,85 @@
+{
+ "name": "PowaKaddy FX3 Electric Trolley",
+ "brand": "PowaKaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/powakaddy-fx3-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 579.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 579.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 579.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 599.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 549.0,
+  "high": 579.0,
+  "average": 573.64,
+  "priceChanges": 8,
+  "series": [
+   [
+    "2026-08-16",
+    579.0
+   ],
+   [
+    "2026-08-28",
+    549.0
+   ],
+   [
+    "2026-09-01",
+    579.0
+   ],
+   [
+    "2026-09-11",
+    549.0
+   ],
+   [
+    "2026-09-14",
+    579.0
+   ],
+   [
+    "2026-09-19",
+    549.0
+   ],
+   [
+    "2026-09-21",
+    579.0
+   ],
+   [
+    "2026-09-24",
+    549.0
+   ],
+   [
+    "2026-09-25",
+    579.0
+   ],
+   [
+    "2026-10-10",
+    579.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

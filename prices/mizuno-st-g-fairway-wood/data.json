@@ -1,0 +1,47 @@
+{
+ "name": "Mizuno ST-G Fairway Wood",
+ "brand": "Mizuno",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/mizuno-st-g-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 129.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 129.95,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 269.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 129.95,
+  "high": 129.95,
+  "average": 129.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    129.95
+   ],
+   [
+    "2026-10-10",
+    129.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

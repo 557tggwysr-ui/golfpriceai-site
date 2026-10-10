@@ -1,0 +1,89 @@
+{
+ "name": "Wilson Feather Stand Golf Bag",
+ "brand": "Wilson",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/wilson-feather-stand-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 124.95,
+ "lowestAt": [
+  "Affordable Golf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 124.95,
+   "options": 3
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 124.95,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 124.99,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 109.99,
+  "high": 124.95,
+  "average": 119.51,
+  "priceChanges": 9,
+  "series": [
+   [
+    "2026-08-28",
+    109.99
+   ],
+   [
+    "2026-09-01",
+    124.95
+   ],
+   [
+    "2026-09-11",
+    109.99
+   ],
+   [
+    "2026-09-14",
+    124.95
+   ],
+   [
+    "2026-09-19",
+    109.99
+   ],
+   [
+    "2026-09-21",
+    124.95
+   ],
+   [
+    "2026-09-24",
+    109.99
+   ],
+   [
+    "2026-09-28",
+    124.95
+   ],
+   [
+    "2026-10-02",
+    109.99
+   ],
+   [
+    "2026-10-05",
+    124.95
+   ],
+   [
+    "2026-10-10",
+    124.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £14.96 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

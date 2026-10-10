@@ -1,0 +1,60 @@
+{
+ "name": "Wilson Dynapwr Forged Irons",
+ "brand": "Wilson",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/wilson-dynapwr-forged-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 479.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 479.95,
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 799.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 799.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 479.95,
+  "high": 799.0,
+  "average": 590.79,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    799.0
+   ],
+   [
+    "2026-09-04",
+    484.95
+   ],
+   [
+    "2026-10-03",
+    479.95
+   ],
+   [
+    "2026-10-10",
+    479.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 8 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

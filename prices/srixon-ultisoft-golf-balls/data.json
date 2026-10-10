@@ -1,0 +1,51 @@
+{
+ "name": "Srixon UltiSoft Golf Balls",
+ "brand": "Srixon",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/srixon-ultisoft-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 19.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 19.99,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 22.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 19.99,
+  "high": 22.99,
+  "average": 20.4,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    22.99
+   ],
+   [
+    "2026-09-09",
+    19.99
+   ],
+   [
+    "2026-10-10",
+    19.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 32 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

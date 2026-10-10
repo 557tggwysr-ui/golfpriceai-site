@@ -1,0 +1,89 @@
+{
+ "name": "Motocaddy M1 DHC Electric Trolley",
+ "brand": "Motocaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/motocaddy-m1-dhc-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 779.0,
+ "lowestAt": [
+  "Clickgolf",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 779.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 779.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 849.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 749.0,
+  "high": 799.0,
+  "average": 777.39,
+  "priceChanges": 9,
+  "series": [
+   [
+    "2026-08-16",
+    799.0
+   ],
+   [
+    "2026-08-28",
+    749.0
+   ],
+   [
+    "2026-09-01",
+    799.0
+   ],
+   [
+    "2026-09-04",
+    779.0
+   ],
+   [
+    "2026-09-11",
+    749.0
+   ],
+   [
+    "2026-09-14",
+    779.0
+   ],
+   [
+    "2026-09-19",
+    749.0
+   ],
+   [
+    "2026-09-21",
+    779.0
+   ],
+   [
+    "2026-09-24",
+    749.0
+   ],
+   [
+    "2026-09-28",
+    779.0
+   ],
+   [
+    "2026-10-10",
+    779.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

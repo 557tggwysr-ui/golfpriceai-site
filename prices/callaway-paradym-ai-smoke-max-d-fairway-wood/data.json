@@ -1,0 +1,55 @@
+{
+ "name": "Callaway Paradym Ai Smoke Max D Fairway Wood",
+ "brand": "Callaway",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-d-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 265.3,
+ "lowestAt": [
+  "Callaway Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Callaway Golf",
+   "from": 265.3,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 319.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 179.0,
+  "high": 379.0,
+  "average": 207.64,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    379.0
+   ],
+   [
+    "2026-08-21",
+    265.3
+   ],
+   [
+    "2026-08-28",
+    179.0
+   ],
+   [
+    "2026-10-10",
+    179.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

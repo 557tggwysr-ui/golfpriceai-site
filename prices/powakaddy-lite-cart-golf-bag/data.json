@@ -1,0 +1,88 @@
+{
+ "name": "PowaKaddy Lite Cart Golf Bag",
+ "brand": "PowaKaddy",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/powakaddy-lite-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 109.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 109.95,
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 129.0,
+   "options": 3
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 129.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 109.0,
+  "high": 129.0,
+  "average": 114.48,
+  "priceChanges": 9,
+  "series": [
+   [
+    "2026-08-16",
+    129.0
+   ],
+   [
+    "2026-08-28",
+    109.0
+   ],
+   [
+    "2026-09-02",
+    129.0
+   ],
+   [
+    "2026-09-04",
+    109.95
+   ],
+   [
+    "2026-09-11",
+    109.0
+   ],
+   [
+    "2026-09-14",
+    109.95
+   ],
+   [
+    "2026-09-19",
+    109.0
+   ],
+   [
+    "2026-09-21",
+    109.95
+   ],
+   [
+    "2026-09-24",
+    109.0
+   ],
+   [
+    "2026-09-28",
+    109.95
+   ],
+   [
+    "2026-10-10",
+    109.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

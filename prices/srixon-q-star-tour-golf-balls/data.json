@@ -1,0 +1,48 @@
+{
+ "name": "Srixon Q Star Tour Golf Balls",
+ "brand": "Srixon",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/srixon-q-star-tour-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 29.99,
+ "lowestAt": [
+  "Clickgolf",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 29.99,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 29.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 29.99,
+  "high": 29.99,
+  "average": 29.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    29.99
+   ],
+   [
+    "2026-10-10",
+    29.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

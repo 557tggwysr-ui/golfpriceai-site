@@ -1,0 +1,68 @@
+{
+ "name": "Motocaddy Pro Series Cart Golf Bag",
+ "brand": "Motocaddy",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/motocaddy-pro-series-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 179.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 179.0,
+   "options": 4
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 179.95,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 189.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 159.0,
+  "high": 179.0,
+  "average": 177.21,
+  "priceChanges": 4,
+  "series": [
+   [
+    "2026-08-16",
+    179.0
+   ],
+   [
+    "2026-09-19",
+    159.0
+   ],
+   [
+    "2026-09-21",
+    179.0
+   ],
+   [
+    "2026-09-24",
+    159.0
+   ],
+   [
+    "2026-09-27",
+    179.0
+   ],
+   [
+    "2026-10-10",
+    179.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

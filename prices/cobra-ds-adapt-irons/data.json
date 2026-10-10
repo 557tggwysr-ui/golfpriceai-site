@@ -1,0 +1,56 @@
+{
+ "name": "Cobra DS-Adapt Irons",
+ "brand": "Cobra",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/cobra-ds-adapt-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 489.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 489.95,
+   "options": 3
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 549.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 589.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 114.0,
+  "high": 619.0,
+  "average": 222.21,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    619.0
+   ],
+   [
+    "2026-08-28",
+    114.0
+   ],
+   [
+    "2026-10-10",
+    114.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

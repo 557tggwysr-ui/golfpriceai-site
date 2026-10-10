@@ -1,0 +1,52 @@
+{
+ "name": "Srixon Z-Star Diamond Golf Balls",
+ "brand": "Srixon",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/srixon-z-star-diamond-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 29.99,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 29.99,
+   "options": 3
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 38.99,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 39.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 29.99,
+  "high": 29.99,
+  "average": 29.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    29.99
+   ],
+   [
+    "2026-10-10",
+    29.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,48 @@
+{
+ "name": "Ping G740 Irons",
+ "brand": "Ping",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/ping-g740-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1049.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 1049.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1049.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 1049.0,
+  "high": 1049.0,
+  "average": 1049.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    1049.0
+   ],
+   [
+    "2026-10-10",
+    1049.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,47 @@
+{
+ "name": "Ping G425 Max Fairway Wood",
+ "brand": "Ping",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/ping-g425-max-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 154.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 154.95,
+   "options": 4
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 219.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 139.95,
+  "high": 139.95,
+  "average": 139.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    139.95
+   ],
+   [
+    "2026-10-10",
+    139.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

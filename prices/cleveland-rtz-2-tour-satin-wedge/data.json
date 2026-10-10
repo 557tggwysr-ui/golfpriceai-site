@@ -1,0 +1,47 @@
+{
+ "name": "Cleveland RTZ 2 Tour Satin Wedge",
+ "brand": "Cleveland",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/cleveland-rtz-2-tour-satin-wedge/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 139.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 139.0,
+   "options": 6
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 139.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 139.0,
+  "high": 139.0,
+  "average": 139.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    139.0
+   ],
+   [
+    "2026-10-10",
+    139.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

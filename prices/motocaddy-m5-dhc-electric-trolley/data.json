@@ -1,0 +1,97 @@
+{
+ "name": "Motocaddy M5 DHC Electric Trolley",
+ "brand": "Motocaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/motocaddy-m5-dhc-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 999.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 999.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 1029.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 1099.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 1149.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 999.0,
+  "high": 1049.0,
+  "average": 1020.96,
+  "priceChanges": 10,
+  "series": [
+   [
+    "2026-08-16",
+    1049.0
+   ],
+   [
+    "2026-08-28",
+    999.0
+   ],
+   [
+    "2026-09-01",
+    1049.0
+   ],
+   [
+    "2026-09-04",
+    1029.0
+   ],
+   [
+    "2026-09-11",
+    999.0
+   ],
+   [
+    "2026-09-14",
+    1029.0
+   ],
+   [
+    "2026-09-19",
+    999.0
+   ],
+   [
+    "2026-09-21",
+    1029.0
+   ],
+   [
+    "2026-09-24",
+    999.0
+   ],
+   [
+    "2026-09-28",
+    1029.0
+   ],
+   [
+    "2026-09-29",
+    999.0
+   ],
+   [
+    "2026-10-10",
+    999.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,61 @@
+{
+ "name": "Callaway Quantum Max Hybrid",
+ "brand": "Callaway",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/callaway-quantum-max-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 244.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 244.95,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 269.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 269.0,
+   "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 309.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 244.95,
+  "high": 269.0,
+  "average": 253.11,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    269.0
+   ],
+   [
+    "2026-09-04",
+    244.95
+   ],
+   [
+    "2026-10-10",
+    244.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

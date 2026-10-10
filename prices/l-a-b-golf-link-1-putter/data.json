@@ -1,0 +1,51 @@
+{
+ "name": "L.A.B. Golf Link.1 Putter",
+ "brand": "L.A.B. Golf",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/l-a-b-golf-link-1-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 299.95,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 539.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 299.95,
+  "high": 329.95,
+  "average": 326.71,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    329.95
+   ],
+   [
+    "2026-10-07",
+    299.95
+   ],
+   [
+    "2026-10-10",
+    299.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

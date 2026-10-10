@@ -1,0 +1,73 @@
+{
+ "name": "TaylorMade Pro Cart Golf Bag",
+ "brand": "TaylorMade",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/taylormade-pro-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 119.0,
+   "options": 5
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 139.0,
+   "options": 5
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 139.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 139.95,
+   "options": 5
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 119.0,
+  "high": 139.0,
+  "average": 122.75,
+  "priceChanges": 4,
+  "series": [
+   [
+    "2026-08-16",
+    129.0
+   ],
+   [
+    "2026-08-17",
+    139.0
+   ],
+   [
+    "2026-08-22",
+    129.0
+   ],
+   [
+    "2026-08-24",
+    139.0
+   ],
+   [
+    "2026-08-28",
+    119.0
+   ],
+   [
+    "2026-10-10",
+    119.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

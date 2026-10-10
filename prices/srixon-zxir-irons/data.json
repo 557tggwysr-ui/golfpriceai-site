@@ -1,0 +1,60 @@
+{
+ "name": "Srixon ZXiR Irons",
+ "brand": "Srixon",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/srixon-zxir-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 799.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 799.95,
+   "options": 4
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 879.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1109.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 799.95,
+  "high": 1109.0,
+  "average": 876.06,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    1109.0
+   ],
+   [
+    "2026-08-28",
+    879.0
+   ],
+   [
+    "2026-09-04",
+    799.95
+   ],
+   [
+    "2026-10-10",
+    799.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

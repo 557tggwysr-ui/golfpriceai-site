@@ -1,0 +1,60 @@
+{
+ "name": "Cobra Signature Stand Golf Bag",
+ "brand": "Cobra",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/cobra-signature-stand-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 109.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf",
+  "Major Golf Direct",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 109.0,
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 109.0,
+   "options": 3
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 109.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 109.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 109.0,
+  "high": 109.0,
+  "average": 109.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    109.0
+   ],
+   [
+    "2026-10-10",
+    109.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

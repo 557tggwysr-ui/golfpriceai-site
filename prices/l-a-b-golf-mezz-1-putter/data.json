@@ -1,0 +1,51 @@
+{
+ "name": "L.A.B. Golf Mezz.1 Putter",
+ "brand": "L.A.B. Golf",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/l-a-b-golf-mezz-1-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 299.95,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 449.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 259.95,
+  "high": 289.95,
+  "average": 269.68,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    289.95
+   ],
+   [
+    "2026-09-16",
+    259.95
+   ],
+   [
+    "2026-10-10",
+    259.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,91 @@
+{
+ "name": "PowaKaddy FX3 EBS Electric Trolley",
+ "brand": "PowaKaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/powakaddy-fx3-ebs-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 629.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 629.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 629.0,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 629.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 649.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 579.0,
+  "high": 629.0,
+  "average": 620.07,
+  "priceChanges": 8,
+  "series": [
+   [
+    "2026-08-16",
+    629.0
+   ],
+   [
+    "2026-08-28",
+    579.0
+   ],
+   [
+    "2026-09-01",
+    629.0
+   ],
+   [
+    "2026-09-11",
+    579.0
+   ],
+   [
+    "2026-09-14",
+    629.0
+   ],
+   [
+    "2026-09-19",
+    579.0
+   ],
+   [
+    "2026-09-21",
+    629.0
+   ],
+   [
+    "2026-09-24",
+    579.0
+   ],
+   [
+    "2026-09-25",
+    629.0
+   ],
+   [
+    "2026-10-10",
+    629.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £50.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

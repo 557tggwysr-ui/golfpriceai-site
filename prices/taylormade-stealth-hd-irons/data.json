@@ -1,0 +1,47 @@
+{
+ "name": "TaylorMade Stealth HD Irons",
+ "brand": "TaylorMade",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/taylormade-stealth-hd-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 249.95,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 529.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 249.95,
+  "high": 249.95,
+  "average": 249.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    249.95
+   ],
+   [
+    "2026-10-10",
+    249.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,47 @@
+{
+ "name": "Swinglogic SLX Hybrid Mini Launch Monitor",
+ "brand": "Swinglogic",
+ "type": "launch monitor",
+ "url": "https://golfpriceai.com/prices/swinglogic-slx-hybrid-mini-launch-monitor/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 157.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 157.95,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 159.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 157.95,
+  "high": 157.95,
+  "average": 157.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    157.95
+   ],
+   [
+    "2026-10-10",
+    157.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

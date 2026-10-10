@@ -1,0 +1,51 @@
+{
+ "name": "TaylorMade Kalea Premier Hybrid",
+ "brand": "TaylorMade",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/taylormade-kalea-premier-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 69.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 69.95,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 165.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 69.95,
+  "high": 79.95,
+  "average": 72.11,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    79.95
+   ],
+   [
+    "2026-09-12",
+    69.95
+   ],
+   [
+    "2026-10-10",
+    69.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

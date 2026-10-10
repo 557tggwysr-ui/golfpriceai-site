@@ -1,0 +1,57 @@
+{
+ "name": "Callaway Opus Platinum Chrome Wedge",
+ "brand": "Callaway",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/callaway-opus-platinum-chrome-wedge/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 149.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 159.95,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 199.0,
+   "options": 3
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 229.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 149.0,
+  "high": 149.0,
+  "average": 149.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    149.0
+   ],
+   [
+    "2026-10-10",
+    149.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

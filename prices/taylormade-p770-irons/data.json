@@ -1,0 +1,60 @@
+{
+ "name": "TaylorMade P770 Irons",
+ "brand": "TaylorMade",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/taylormade-p770-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 799.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 799.95,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 1029.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1249.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 799.95,
+  "high": 1249.0,
+  "average": 1038.2,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    1249.0
+   ],
+   [
+    "2026-09-04",
+    1029.0
+   ],
+   [
+    "2026-09-25",
+    799.95
+   ],
+   [
+    "2026-10-10",
+    799.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

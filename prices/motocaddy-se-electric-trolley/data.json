@@ -1,0 +1,80 @@
+{
+ "name": "Motocaddy SE Electric Trolley",
+ "brand": "Motocaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/motocaddy-se-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 479.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 479.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 499.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 549.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 469.0,
+  "high": 499.0,
+  "average": 485.96,
+  "priceChanges": 7,
+  "series": [
+   [
+    "2026-08-16",
+    499.0
+   ],
+   [
+    "2026-09-09",
+    479.0
+   ],
+   [
+    "2026-09-11",
+    469.0
+   ],
+   [
+    "2026-09-14",
+    479.0
+   ],
+   [
+    "2026-09-19",
+    469.0
+   ],
+   [
+    "2026-09-21",
+    479.0
+   ],
+   [
+    "2026-09-24",
+    469.0
+   ],
+   [
+    "2026-09-28",
+    479.0
+   ],
+   [
+    "2026-10-10",
+    479.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

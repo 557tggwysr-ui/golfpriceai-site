@@ -1,0 +1,47 @@
+{
+ "name": "Ping Traverse Cart Golf Bag",
+ "brand": "Ping",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/ping-traverse-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 109.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 109.95,
+   "options": 4
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 189.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 109.95,
+  "high": 109.95,
+  "average": 109.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    109.95
+   ],
+   [
+    "2026-10-10",
+    109.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

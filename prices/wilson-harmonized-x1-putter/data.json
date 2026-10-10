@@ -1,0 +1,51 @@
+{
+ "name": "Wilson Harmonized X1 Putter",
+ "brand": "Wilson",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/wilson-harmonized-x1-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 39.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 39.95,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 49.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 39.95,
+  "high": 49.95,
+  "average": 42.45,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    49.95
+   ],
+   [
+    "2026-09-08",
+    39.95
+   ],
+   [
+    "2026-10-10",
+    39.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 33 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

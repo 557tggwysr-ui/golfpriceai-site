@@ -1,0 +1,60 @@
+{
+ "name": "Wilson Duo Soft Golf Balls",
+ "brand": "Wilson",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/wilson-duo-soft-golf-balls/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 19.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 19.95,
+   "options": 6
+  },
+  {
+   "name": "Clickgolf",
+   "from": 22.99,
+   "options": 6
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 24.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 19.95,
+  "high": 22.99,
+  "average": 20.62,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    22.99
+   ],
+   [
+    "2026-08-28",
+    19.99
+   ],
+   [
+    "2026-09-19",
+    19.95
+   ],
+   [
+    "2026-10-10",
+    19.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

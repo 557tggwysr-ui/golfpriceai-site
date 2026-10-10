@@ -1,0 +1,47 @@
+{
+ "name": "Wilson Harmonized Chipper Wedge",
+ "brand": "Wilson",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/wilson-harmonized-chipper-wedge/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 44.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 44.95,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 49.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 44.95,
+  "high": 44.95,
+  "average": 44.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    44.95
+   ],
+   [
+    "2026-10-10",
+    44.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

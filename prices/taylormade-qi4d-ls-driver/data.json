@@ -1,0 +1,56 @@
+{
+ "name": "TaylorMade Qi4D LS Driver",
+ "brand": "TaylorMade",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/taylormade-qi4d-ls-driver/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 459.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 459.95,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 549.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 549.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 459.95,
+  "high": 549.0,
+  "average": 490.16,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    549.0
+   ],
+   [
+    "2026-09-04",
+    459.95
+   ],
+   [
+    "2026-10-10",
+    459.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

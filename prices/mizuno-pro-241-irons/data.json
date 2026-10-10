@@ -1,0 +1,47 @@
+{
+ "name": "Mizuno Pro 241 Irons",
+ "brand": "Mizuno",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/mizuno-pro-241-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 539.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 539.95,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 1109.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 539.95,
+  "high": 539.95,
+  "average": 539.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    539.95
+   ],
+   [
+    "2026-10-10",
+    539.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

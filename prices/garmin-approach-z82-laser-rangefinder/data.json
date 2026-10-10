@@ -1,0 +1,51 @@
+{
+ "name": "Garmin Approach Z82 Laser Rangefinder",
+ "brand": "Garmin",
+ "type": "rangefinder",
+ "url": "https://golfpriceai.com/prices/garmin-approach-z82-laser-rangefinder/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 499.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 499.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 549.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 479.0,
+  "high": 499.0,
+  "average": 494.14,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    479.0
+   ],
+   [
+    "2026-09-13",
+    499.0
+   ],
+   [
+    "2026-10-10",
+    499.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

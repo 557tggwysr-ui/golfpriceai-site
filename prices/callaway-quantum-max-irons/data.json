@@ -1,0 +1,61 @@
+{
+ "name": "Callaway Quantum Max Irons",
+ "brand": "Callaway",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/callaway-quantum-max-irons/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 749.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 749.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 764.95,
+   "options": 6
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 1002.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 1048.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 149.0,
+  "high": 749.0,
+  "average": 277.57,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    749.0
+   ],
+   [
+    "2026-08-28",
+    149.0
+   ],
+   [
+    "2026-10-10",
+    149.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

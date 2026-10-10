@@ -1,0 +1,55 @@
+{
+ "name": "Srixon Friday Cart Golf Bag",
+ "brand": "Srixon",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/srixon-friday-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 149.0,
+   "options": 4
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 149.95,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 139.95,
+  "high": 149.0,
+  "average": 147.15,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-28",
+    149.0
+   ],
+   [
+    "2026-09-22",
+    139.95
+   ],
+   [
+    "2026-10-01",
+    149.0
+   ],
+   [
+    "2026-10-10",
+    149.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £9.05 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

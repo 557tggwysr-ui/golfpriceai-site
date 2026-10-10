@@ -1,0 +1,89 @@
+{
+ "name": "Wilson Feather Cart Golf Bag",
+ "brand": "Wilson",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/wilson-feather-cart-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 129.0,
+ "lowestAt": [
+  "Clickgolf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 129.0,
+   "options": 4
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 129.0,
+   "options": 5
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 129.95,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 109.0,
+  "high": 129.0,
+  "average": 121.73,
+  "priceChanges": 9,
+  "series": [
+   [
+    "2026-08-28",
+    109.0
+   ],
+   [
+    "2026-09-01",
+    129.0
+   ],
+   [
+    "2026-09-11",
+    109.0
+   ],
+   [
+    "2026-09-14",
+    129.0
+   ],
+   [
+    "2026-09-19",
+    109.0
+   ],
+   [
+    "2026-09-21",
+    129.0
+   ],
+   [
+    "2026-09-24",
+    109.0
+   ],
+   [
+    "2026-09-28",
+    129.0
+   ],
+   [
+    "2026-10-02",
+    109.0
+   ],
+   [
+    "2026-10-05",
+    129.0
+   ],
+   [
+    "2026-10-10",
+    129.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,64 @@
+{
+ "name": "Srixon ZXi Hybrid",
+ "brand": "Srixon",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/srixon-zxi-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 139.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 139.95,
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 169.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 187.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 139.95,
+  "high": 249.0,
+  "average": 161.59,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-08-16",
+    249.0
+   ],
+   [
+    "2026-08-19",
+    169.0
+   ],
+   [
+    "2026-09-04",
+    159.95
+   ],
+   [
+    "2026-09-25",
+    139.95
+   ],
+   [
+    "2026-10-10",
+    139.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

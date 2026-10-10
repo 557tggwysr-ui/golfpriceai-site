@@ -1,0 +1,55 @@
+{
+ "name": "Yonex Ezone Elite Hybrid",
+ "brand": "Yonex",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/yonex-ezone-elite-hybrid/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 129.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 129.95,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 159.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 129.95,
+  "high": 159.0,
+  "average": 146.59,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    159.0
+   ],
+   [
+    "2026-09-04",
+    149.95
+   ],
+   [
+    "2026-09-23",
+    129.95
+   ],
+   [
+    "2026-10-10",
+    129.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,52 @@
+{
+ "name": "Motocaddy S1 Electric Trolley",
+ "brand": "Motocaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/motocaddy-s1-electric-trolley/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 629.0,
+ "lowestAt": [
+  "Clickgolf",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 629.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 629.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 595.0,
+  "high": 629.0,
+  "average": 602.29,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    629.0
+   ],
+   [
+    "2026-08-28",
+    595.0
+   ],
+   [
+    "2026-10-10",
+    595.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

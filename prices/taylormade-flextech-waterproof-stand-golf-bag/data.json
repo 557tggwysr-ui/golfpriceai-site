@@ -1,0 +1,93 @@
+{
+ "name": "TaylorMade FlexTech Waterproof Stand Golf Bag",
+ "brand": "TaylorMade",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/taylormade-flextech-waterproof-stand-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Clickgolf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 199.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 199.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 199.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 179.0,
+  "high": 199.0,
+  "average": 193.29,
+  "priceChanges": 10,
+  "series": [
+   [
+    "2026-08-16",
+    199.0
+   ],
+   [
+    "2026-08-28",
+    179.0
+   ],
+   [
+    "2026-09-01",
+    199.0
+   ],
+   [
+    "2026-09-11",
+    179.0
+   ],
+   [
+    "2026-09-14",
+    199.0
+   ],
+   [
+    "2026-09-19",
+    179.0
+   ],
+   [
+    "2026-09-21",
+    199.0
+   ],
+   [
+    "2026-09-24",
+    179.0
+   ],
+   [
+    "2026-09-28",
+    199.0
+   ],
+   [
+    "2026-10-02",
+    179.0
+   ],
+   [
+    "2026-10-05",
+    199.0
+   ],
+   [
+    "2026-10-10",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

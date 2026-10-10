@@ -1,0 +1,60 @@
+{
+ "name": "Garmin Approach S70 GPS Watch",
+ "brand": "Garmin",
+ "type": "GPS watch",
+ "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 499.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 499.0,
+   "options": 3
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 529.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 549.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 469.0,
+  "high": 529.0,
+  "average": 497.64,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-28",
+    529.0
+   ],
+   [
+    "2026-09-04",
+    469.0
+   ],
+   [
+    "2026-09-13",
+    499.0
+   ],
+   [
+    "2026-10-10",
+    499.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

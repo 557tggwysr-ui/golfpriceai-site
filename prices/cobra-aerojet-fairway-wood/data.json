@@ -1,0 +1,47 @@
+{
+ "name": "Cobra Aerojet Fairway Wood",
+ "brand": "Cobra",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/cobra-aerojet-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 99.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 99.95,
+   "options": 5
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 129.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 99.95,
+  "high": 99.95,
+  "average": 99.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    99.95
+   ],
+   [
+    "2026-10-10",
+    99.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

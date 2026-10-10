@@ -1,0 +1,47 @@
+{
+ "name": "TaylorMade TP Reserve M21 Putter",
+ "brand": "TaylorMade",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/taylormade-tp-reserve-m21-putter/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 169.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 169.95,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 379.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 169.95,
+  "high": 169.95,
+  "average": 169.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    169.95
+   ],
+   [
+    "2026-10-10",
+    169.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 37 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,51 @@
+{
+ "name": "Titleist GT3 Fairway Wood",
+ "brand": "Titleist",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/titleist-gt3-fairway-wood/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 199.95,
+   "options": 6
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 349.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 169.95,
+  "high": 209.95,
+  "average": 178.6,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    209.95
+   ],
+   [
+    "2026-09-12",
+    169.95
+   ],
+   [
+    "2026-10-10",
+    169.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 29 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

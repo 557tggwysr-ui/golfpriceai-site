@@ -1,0 +1,63 @@
+{
+ "name": "Cobra Ultradry Pro Stand Golf Bag",
+ "brand": "Cobra",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/cobra-ultradry-pro-stand-golf-bag/",
+ "checked": "2026-10-10",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 179.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 179.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 189.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 179.0,
+  "high": 189.0,
+  "average": 180.88,
+  "priceChanges": 4,
+  "series": [
+   [
+    "2026-08-16",
+    184.0
+   ],
+   [
+    "2026-08-17",
+    189.0
+   ],
+   [
+    "2026-08-22",
+    184.0
+   ],
+   [
+    "2026-08-24",
+    189.0
+   ],
+   [
+    "2026-08-28",
+    179.0
+   ],
+   [
+    "2026-10-10",
+    179.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}
