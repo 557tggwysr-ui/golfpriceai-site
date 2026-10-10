@@ -2,84 +2,9 @@
  "lastUpdated": "2026-10-10",
  "uncertainGroupings": [
   {
-   "model": "Titleist Tour Soft Golf Balls",
-   "issue": "price spread \u00a331.96 to \u00a3400.00: may mix different products",
-   "listings": 7
-  },
-  {
-   "model": "Ping i230 Irons",
-   "issue": "price spread \u00a3149.00 to \u00a3659.95: may mix different products",
-   "listings": 4
-  },
-  {
-   "model": "Mizuno Pro T-1 Wedge",
-   "issue": "price spread \u00a3149.00 to \u00a3477.00: may mix different products",
-   "listings": 6
-  },
-  {
-   "model": "Titleist T100 Irons",
-   "issue": "price spread \u00a3299.95 to \u00a31,189.00: may mix different products",
-   "listings": 5
-  },
-  {
-   "model": "TaylorMade Qi Max Irons",
-   "issue": "price spread \u00a3149.00 to \u00a31,295.00: may mix different products",
-   "listings": 10
-  },
-  {
-   "model": "Titleist T350 Irons",
-   "issue": "price spread \u00a3219.00 to \u00a31,269.00: may mix different products",
-   "listings": 6
-  },
-  {
-   "model": "Callaway Apex Ti Fusion Plated Irons",
-   "issue": "price spread \u00a3417.00 to \u00a31,669.00: may mix different products",
-   "listings": 4
-  },
-  {
-   "model": "Callaway Quantum Max Irons",
-   "issue": "price spread \u00a3149.00 to \u00a31,499.00: may mix different products",
-   "listings": 11
-  },
-  {
    "model": "TaylorMade Hi-Toe 4 Wedge",
    "issue": "price spread \u00a3129.95 to \u00a3447.00: may mix different products",
    "listings": 23
-  },
-  {
-   "model": "Cobra DS-Adapt Max Irons",
-   "issue": "price spread \u00a3199.95 to \u00a3619.00: may mix different products",
-   "listings": 8
-  },
-  {
-   "model": "Wilson DYNAPWR Max Irons",
-   "issue": "price spread \u00a399.00 to \u00a3739.00: may mix different products",
-   "listings": 8
-  },
-  {
-   "model": "Wilson Staff Model ZM Wedge",
-   "issue": "price spread \u00a399.95 to \u00a3357.00: may mix different products",
-   "listings": 5
-  },
-  {
-   "model": "Yonex Ezone Elite 4 Irons",
-   "issue": "price spread \u00a399.00 to \u00a3699.00: may mix different products",
-   "listings": 7
-  },
-  {
-   "model": "Ping G Le4 Irons",
-   "issue": "price spread \u00a3169.00 to \u00a3849.00: may mix different products",
-   "listings": 2
-  },
-  {
-   "model": "TaylorMade Qi Max HL Irons",
-   "issue": "price spread \u00a3149.00 to \u00a3999.00: may mix different products",
-   "listings": 6
-  },
-  {
-   "model": "Cleveland CBZ Tour Satin Wedge",
-   "issue": "price spread \u00a3124.95 to \u00a3417.00: may mix different products",
-   "listings": 18
   },
   {
    "model": "Srixon Soft Feel Golf Balls",
@@ -87,14 +12,74 @@
    "listings": 22
   },
   {
-   "model": "Mizuno Pro T-3 Wedge",
-   "issue": "price spread \u00a3149.00 to \u00a3477.00: may mix different products",
+   "model": "TaylorMade Stealth Irons",
+   "issue": "price spread \u00a3254.95 to \u00a3779.00: may mix different products",
+   "listings": 19
+  },
+  {
+   "model": "Cleveland CBZ Tour Satin Wedge",
+   "issue": "price spread \u00a3124.95 to \u00a3417.00: may mix different products",
+   "listings": 18
+  },
+  {
+   "model": "Wilson staff duo soft",
+   "issue": "7 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
    "listings": 7
   },
   {
-   "model": "Cleveland HiBore XL Driver",
-   "issue": "price spread \u00a349.95 to \u00a3229.00: may mix different products",
-   "listings": 4
+   "model": "Srixon AD333 Golf Balls",
+   "issue": "price spread \u00a319.95 to \u00a368.97: may mix different products",
+   "listings": 14
+  },
+  {
+   "model": "Yonex ezone elite",
+   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 2
+  },
+  {
+   "model": "Callaway quantum max",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "TaylorMade qi max",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "AffordableGolf affordable in store gift card",
+   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 2
+  },
+  {
+   "model": "AffordableGolf AFFORDABLE IN STORE GIFT CARD Putter",
+   "issue": "price spread \u00a330.00 to \u00a31,000.00: may mix different products",
+   "listings": 10
+  },
+  {
+   "model": "Callaway elyte",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Wilson Staff Model Blade Irons",
+   "issue": "price spread \u00a3349.95 to \u00a31,109.00: may mix different products",
+   "listings": 9
+  },
+  {
+   "model": "Callaway Big Bertha Fairway Wood",
+   "issue": "price spread \u00a319.95 to \u00a3244.30: may mix different products",
+   "listings": 9
+  },
+  {
+   "model": "Cobra DS-Adapt Max Irons",
+   "issue": "price spread \u00a3199.95 to \u00a3619.00: may mix different products",
+   "listings": 8
+  },
+  {
+   "model": "Wilson dynapwr max",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
   },
   {
    "model": "Wilson Staff Model CB Irons",
@@ -102,19 +87,84 @@
    "listings": 8
   },
   {
+   "model": "Cleveland RTZ Wedge",
+   "issue": "price spread \u00a3119.00 to \u00a3417.00: may mix different products",
+   "listings": 8
+  },
+  {
+   "model": "Srixon Z-Star Diamond Golf Balls",
+   "issue": "price spread \u00a329.99 to \u00a3128.97: may mix different products",
+   "listings": 8
+  },
+  {
+   "model": "Cobra baffler",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Wilson profile",
+   "issue": "3 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 3
+  },
+  {
+   "model": "Cobra Darkspeed Irons",
+   "issue": "price spread \u00a3259.95 to \u00a3819.00: may mix different products",
+   "listings": 8
+  },
+  {
+   "model": "Yonex ezone elite 4",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Mizuno Pro T-3 Wedge",
+   "issue": "price spread \u00a3149.00 to \u00a3477.00: may mix different products",
+   "listings": 7
+  },
+  {
    "model": "Cleveland Sole Full Face Wedge",
    "issue": "price spread \u00a3119.00 to \u00a3357.00: may mix different products",
    "listings": 7
   },
   {
-   "model": "Srixon AD333 Golf Balls",
-   "issue": "price spread \u00a319.95 to \u00a3126.00: may mix different products",
-   "listings": 14
+   "model": "Srixon z-star",
+   "issue": "3 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
+   "listings": 3
   },
   {
-   "model": "Titleist 620 CB Irons",
-   "issue": "price spread \u00a3319.95 to \u00a31,099.00: may mix different products",
-   "listings": 5
+   "model": "Ben Sayers Electric Trolley",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 7
+  },
+  {
+   "model": "Mizuno ST-G Driver",
+   "issue": "price spread \u00a3149.95 to \u00a3499.00: may mix different products",
+   "listings": 7
+  },
+  {
+   "model": "Callaway X Hot Fairway Wood",
+   "issue": "price spread \u00a334.95 to \u00a3119.99: may mix different products",
+   "listings": 8
+  },
+  {
+   "model": "TaylorMade Hybrid",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 7
+  },
+  {
+   "model": "Mizuno Pro T-1 Wedge",
+   "issue": "price spread \u00a3149.00 to \u00a3477.00: may mix different products",
+   "listings": 6
+  },
+  {
+   "model": "Titleist t350",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "TaylorMade qi max hl",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
   },
   {
    "model": "Mizuno pro x",
@@ -127,69 +177,9 @@
    "listings": 2
   },
   {
-   "model": "Cleveland RTZ Wedge",
-   "issue": "price spread \u00a3119.00 to \u00a3417.00: may mix different products",
-   "listings": 8
-  },
-  {
-   "model": "Callaway Elyte Irons",
-   "issue": "price spread \u00a3129.00 to \u00a31,139.00: may mix different products",
-   "listings": 9
-  },
-  {
-   "model": "Yonex Ezone Elite Fairway Wood",
-   "issue": "price spread \u00a349.95 to \u00a3199.00: may mix different products",
-   "listings": 12
-  },
-  {
-   "model": "Yonex Ezone GS Irons",
-   "issue": "price spread \u00a359.00 to \u00a3539.95: may mix different products",
-   "listings": 2
-  },
-  {
-   "model": "Wilson Tour Velocity Distance Golf Balls",
-   "issue": "price spread \u00a314.39 to \u00a350.00: may mix different products",
-   "listings": 2
-  },
-  {
-   "model": "Srixon z-star diamond",
-   "issue": "1 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
+   "model": "Callaway apex pro",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
-  },
-  {
-   "model": "Srixon Z-Star Diamond Golf Balls",
-   "issue": "price spread \u00a338.99 to \u00a3128.97: may mix different products",
-   "listings": 8
-  },
-  {
-   "model": "Srixon z-star",
-   "issue": "3 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
-   "listings": 3
-  },
-  {
-   "model": "Wilson Staff Model Blade Irons",
-   "issue": "price spread \u00a3349.95 to \u00a31,109.00: may mix different products",
-   "listings": 9
-  },
-  {
-   "model": "Cleveland Zipcore XL Irons",
-   "issue": "price spread \u00a369.00 to \u00a3479.00: may mix different products",
-   "listings": 5
-  },
-  {
-   "model": "Ben Sayers Electric Trolley",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 7
-  },
-  {
-   "model": "Ping G730 Irons",
-   "issue": "price spread \u00a3139.00 to \u00a31,129.00: may mix different products",
-   "listings": 4
-  },
-  {
-   "model": "Callaway Apex Pro Irons",
-   "issue": "price spread \u00a3150.00 to \u00a31,049.00: may mix different products",
-   "listings": 6
   },
   {
    "model": "Cleveland RTZ 2 Wedge",
@@ -197,14 +187,79 @@
    "listings": 6
   },
   {
-   "model": "Cobra Baffler Hybrid",
-   "issue": "price spread \u00a349.95 to \u00a3169.95: may mix different products",
-   "listings": 8
+   "model": "Mizuno Pro 245 Irons",
+   "issue": "price spread \u00a3409.95 to \u00a31,289.00: may mix different products",
+   "listings": 6
   },
   {
-   "model": "Callaway Big Bertha Fairway Wood",
-   "issue": "price spread \u00a319.95 to \u00a3244.30: may mix different products",
-   "listings": 9
+   "model": "TaylorMade kalea",
+   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 2
+  },
+  {
+   "model": "Titleist t100",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Callaway opus sp",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Wilson Staff Model ZM Wedge",
+   "issue": "price spread \u00a399.95 to \u00a3357.00: may mix different products",
+   "listings": 5
+  },
+  {
+   "model": "Titleist 620 CB Irons",
+   "issue": "price spread \u00a3319.95 to \u00a31,099.00: may mix different products",
+   "listings": 5
+  },
+  {
+   "model": "Cleveland zipcore xl",
+   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 2
+  },
+  {
+   "model": "TaylorMade spider tour",
+   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 2
+  },
+  {
+   "model": "XXIO x",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Ping Anser Putter",
+   "issue": "price spread \u00a319.95 to \u00a3269.00: may mix different products",
+   "listings": 5
+  },
+  {
+   "model": "TaylorMade Burner Fairway Wood",
+   "issue": "price spread \u00a314.95 to \u00a349.95: may mix different products",
+   "listings": 5
+  },
+  {
+   "model": "Ping i230",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Callaway apex ti fusion plated",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Cleveland hibore xl",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Ping g730",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
   },
   {
    "model": "MacGregor V Foil Chrome Wedge",
@@ -212,14 +267,29 @@
    "listings": 4
   },
   {
-   "model": "Masters Golf Golf Balls",
-   "issue": "no model name: held back until an alias names it",
+   "model": "Yonex ezone gs i-tech",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
   },
   {
-   "model": "Wilson Profile Fairway Wood",
-   "issue": "price spread \u00a319.95 to \u00a379.99: may mix different products",
-   "listings": 8
+   "model": "L.A.B. Golf Putter",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 4
+  },
+  {
+   "model": "Vega Mizar Tour Irons",
+   "issue": "price spread \u00a3299.95 to \u00a31,494.00: may mix different products",
+   "listings": 4
+  },
+  {
+   "model": "Mizuno CLK Hybrid",
+   "issue": "price spread \u00a324.95 to \u00a3159.00: may mix different products",
+   "listings": 4
+  },
+  {
+   "model": "Cobra Air-X 2.0 Irons",
+   "issue": "price spread \u00a339.95 to \u00a3429.95: may mix different products",
+   "listings": 5
   },
   {
    "model": "Wilson Profile Irons",
@@ -227,18 +297,78 @@
    "listings": 3
   },
   {
+   "model": "Aldila Stiff Fairway Wood",
+   "issue": "price spread \u00a339.99 to \u00a3129.99: may mix different products",
+   "listings": 3
+  },
+  {
+   "model": "True Temper Extra Stiff Hybrid",
+   "issue": "price spread \u00a334.99 to \u00a3109.99: may mix different products",
+   "listings": 3
+  },
+  {
+   "model": "Second Chance Ltd second chance practice lake",
+   "issue": "1 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
+   "listings": 1
+  },
+  {
+   "model": "XXIO Fairway Wood",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 3
+  },
+  {
+   "model": "Ping b60",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Ping G Le4 Irons",
+   "issue": "price spread \u00a3169.00 to \u00a3849.00: may mix different products",
+   "listings": 2
+  },
+  {
+   "model": "Yonex Ezone GS Irons",
+   "issue": "price spread \u00a359.00 to \u00a3539.95: may mix different products",
+   "listings": 2
+  },
+  {
    "model": "Wilson Staff Practice Golf Balls",
    "issue": "price spread \u00a37.97 to \u00a374.50: may mix different products",
    "listings": 2
   },
   {
-   "model": "TaylorMade Stealth Irons",
-   "issue": "price spread \u00a3254.95 to \u00a3779.00: may mix different products",
-   "listings": 19
-  },
-  {
    "model": "Masters Fairway Wood",
    "issue": "no model name: held back until an alias names it",
+   "listings": 2
+  },
+  {
+   "model": "True Temper Driver",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 2
+  },
+  {
+   "model": "Vega SVP VDC Irons",
+   "issue": "price spread \u00a3549.95 to \u00a32,520.00: may mix different products",
+   "listings": 2
+  },
+  {
+   "model": "Lynx Predator Hybrid",
+   "issue": "price spread \u00a329.95 to \u00a399.95: may mix different products",
+   "listings": 2
+  },
+  {
+   "model": "Cleveland Halo Hybrid",
+   "issue": "price spread \u00a319.95 to \u00a379.95: may mix different products",
+   "listings": 2
+  },
+  {
+   "model": "Sukira Hybrid",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 2
+  },
+  {
+   "model": "Vega VDC Irons",
+   "issue": "price spread \u00a3469.95 to \u00a31,494.00: may mix different products",
    "listings": 2
   },
   {
@@ -252,44 +382,9 @@
    "listings": 1
   },
   {
-   "model": "SoftSpikes Golf Balls",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 1
-  },
-  {
-   "model": "TaylorMade Spider Tour Putter",
-   "issue": "price spread \u00a394.95 to \u00a3299.00: may mix different products",
-   "listings": 5
-  },
-  {
-   "model": "Mizuno ST-G Driver",
-   "issue": "price spread \u00a3149.95 to \u00a3499.00: may mix different products",
-   "listings": 7
-  },
-  {
-   "model": "AffordableGolf AFFORDABLE IN STORE GIFT CARD Putter",
-   "issue": "price spread \u00a310.00 to \u00a31,000.00: may mix different products",
-   "listings": 10
-  },
-  {
-   "model": "Mizuno Pro 245 Irons",
-   "issue": "price spread \u00a3409.95 to \u00a31,289.00: may mix different products",
-   "listings": 6
-  },
-  {
-   "model": "Cobra Darkspeed Irons",
-   "issue": "price spread \u00a3259.95 to \u00a3819.00: may mix different products",
-   "listings": 8
-  },
-  {
    "model": "Aldila Hybrid",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
-  },
-  {
-   "model": "Aldila Stiff Fairway Wood",
-   "issue": "price spread \u00a339.99 to \u00a3129.99: may mix different products",
-   "listings": 3
   },
   {
    "model": "Matrix Driver",
@@ -300,16 +395,6 @@
    "model": "Mitsubishi Fairway Wood",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
-  },
-  {
-   "model": "True Temper Extra Stiff Hybrid",
-   "issue": "price spread \u00a334.99 to \u00a3109.99: may mix different products",
-   "listings": 3
-  },
-  {
-   "model": "True Temper Driver",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 2
   },
   {
    "model": "True Temper Fairway Wood",
@@ -327,59 +412,9 @@
    "listings": 1
   },
   {
-   "model": "TaylorMade Kalea Hybrid",
-   "issue": "price spread \u00a334.95 to \u00a3199.00: may mix different products",
-   "listings": 6
-  },
-  {
-   "model": "Yonex Ezone GS i-Tech Irons",
-   "issue": "price spread \u00a349.99 to \u00a3875.00: may mix different products",
-   "listings": 4
-  },
-  {
-   "model": "Wilson staff duo soft",
-   "issue": "7 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
-   "listings": 7
-  },
-  {
-   "model": "Second Chance Ltd second chance practice lake",
-   "issue": "1 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
-   "listings": 1
-  },
-  {
-   "model": "Vega SVP VDC Irons",
-   "issue": "price spread \u00a3549.95 to \u00a32,520.00: may mix different products",
-   "listings": 2
-  },
-  {
-   "model": "L.A.B. Golf Putter",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 4
-  },
-  {
-   "model": "Vega Mizar Tour Irons",
-   "issue": "price spread \u00a3299.95 to \u00a31,494.00: may mix different products",
-   "listings": 4
-  },
-  {
-   "model": "Lynx Predator Hybrid",
-   "issue": "price spread \u00a329.95 to \u00a399.95: may mix different products",
-   "listings": 2
-  },
-  {
-   "model": "XXIO Fairway Wood",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 3
-  },
-  {
    "model": "Golf Craft Putter",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
-  },
-  {
-   "model": "Mizuno CLK Hybrid",
-   "issue": "price spread \u00a324.95 to \u00a3159.00: may mix different products",
-   "listings": 4
   },
   {
    "model": "Sakuari Irons",
@@ -392,29 +427,9 @@
    "listings": 1
   },
   {
-   "model": "Callaway X Hot Fairway Wood",
-   "issue": "price spread \u00a334.95 to \u00a3119.99: may mix different products",
-   "listings": 7
-  },
-  {
-   "model": "Cobra Air-X 2.0 Irons",
-   "issue": "price spread \u00a339.95 to \u00a3429.95: may mix different products",
-   "listings": 4
-  },
-  {
    "model": "Cleveland Hybrid",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
-  },
-  {
-   "model": "Cleveland Halo Hybrid",
-   "issue": "price spread \u00a319.95 to \u00a379.95: may mix different products",
-   "listings": 2
-  },
-  {
-   "model": "Sukira Hybrid",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 2
   },
   {
    "model": "Lady Hogan Putter",
@@ -427,32 +442,12 @@
    "listings": 1
   },
   {
-   "model": "Ping B60 Putter",
-   "issue": "price spread \u00a339.95 to \u00a3280.00: may mix different products",
-   "listings": 3
-  },
-  {
    "model": "KBS Hybrid",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
   },
   {
-   "model": "Ping Anser Putter",
-   "issue": "price spread \u00a319.95 to \u00a3269.00: may mix different products",
-   "listings": 5
-  },
-  {
    "model": "PuttLink Golf Balls",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 1
-  },
-  {
-   "model": "Vega VDC Irons",
-   "issue": "price spread \u00a3469.95 to \u00a31,494.00: may mix different products",
-   "listings": 2
-  },
-  {
-   "model": "Longridge Golf Balls",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
   },
@@ -465,16 +460,6 @@
    "model": "Oximity Driver",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
-  },
-  {
-   "model": "TaylorMade Hybrid",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 7
-  },
-  {
-   "model": "TaylorMade Burner Fairway Wood",
-   "issue": "price spread \u00a314.95 to \u00a349.95: may mix different products",
-   "listings": 5
   },
   {
    "model": "Slazenger Irons",
