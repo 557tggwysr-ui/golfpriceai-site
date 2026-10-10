@@ -9,6 +9,8 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"  # no __pycache__ folders left behind
     permissions:
       contents: write
     steps:
@@ -33,11 +35,26 @@ jobs:
           AWIN_CALLAWAYPREOWNED_FEED_URL: ${{ secrets.AWIN_CALLAWAYPREOWNED_FEED_URL }}
         run: python scripts/update_deals.py
 
-      - name: Commit updated catalog
+      - name: Commit updated catalog and price pages
         run: |
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/products.json data/price-history.json data/stock-history.json data/price-index.json data/bundles.json data/outfits.json data/curated-views.json data/products-lite.json data/apparel-lite.json data/deals-feed.xml data/deals-feed.json data/models.json data/model-review.json data/search-suggest.json prices
+          # Everything the refresh writes: data files, price pages, forwarded
+          # old pages and the sitemaps.
+          git add -A data prices products sitemap.xml sitemap-pages.xml sitemap-prices.xml
           git diff --quiet --cached || git commit -m "Automated catalog refresh"
           git pull --rebase
           git push
+
+      - name: Check every generated file was published
+        run: |
+          # Lesson learned: files that are generated but never added to git
+          # silently never go live. Fail loudly instead.
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "::error::The refresh created or changed files that were not published:"
+            git status --porcelain
+            exit 1
+          fi
+
+      - name: Tell Bing about changed price pages (IndexNow)
+        run: python scripts/indexnow.py
