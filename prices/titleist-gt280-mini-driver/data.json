@@ -6,19 +6,19 @@
  "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 359.95,
+ "lowestNewPrice": 439.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Major Golf Direct"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 359.95,
-   "options": 6
-  },
-  {
    "name": "Major Golf Direct",
    "from": 439.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 459.0,
    "options": 1
   },
   {
@@ -29,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 57,
-  "low": 359.95,
+  "low": 439.0,
   "high": 459.0,
-  "average": 402.02,
-  "priceChanges": 3,
+  "average": 443.21,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -43,22 +43,14 @@
     439.0
    ],
    [
-    "2026-09-08",
-    379.95
-   ],
-   [
-    "2026-09-25",
-    359.95
-   ],
-   [
     "2026-10-11",
-    359.95
+    439.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 45 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

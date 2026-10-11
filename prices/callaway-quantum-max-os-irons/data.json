@@ -17,11 +17,6 @@
    "options": 2
   },
   {
-   "name": "Affordable Golf",
-   "from": 799.95,
-   "options": 3
-  },
-  {
    "name": "Callaway Golf",
    "from": 1002.0,
    "options": 1
@@ -30,6 +25,11 @@
    "name": "Major Golf Direct",
    "from": 1048.0,
    "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 1349.0,
+   "options": 2
   }
  ],
  "history": {

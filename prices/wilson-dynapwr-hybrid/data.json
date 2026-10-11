@@ -14,7 +14,7 @@
   {
    "name": "Affordable Golf",
    "from": 119.95,
-   "options": 2
+   "options": 1
   },
   {
    "name": "Clickgolf",
@@ -31,7 +31,7 @@
   "daysTracked": 57,
   "low": 119.95,
   "high": 199.0,
-  "average": 137.7,
+  "average": 141.83,
   "priceChanges": 2,
   "series": [
    [
@@ -43,7 +43,7 @@
     129.0
    ],
    [
-    "2026-09-04",
+    "2026-09-30",
     119.95
    ],
    [
@@ -53,8 +53,8 @@
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 38 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

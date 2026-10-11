@@ -6,16 +6,11 @@
  "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.95,
+ "lowestNewPrice": 269.4,
  "lowestAt": [
-  "Affordable Golf"
+  "Callaway Golf"
  ],
  "retailers": [
-  {
-   "name": "Affordable Golf",
-   "from": 179.95,
-   "options": 1
-  },
   {
    "name": "Callaway Golf",
    "from": 269.4,
@@ -29,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 57,
-  "low": 179.95,
+  "low": 269.4,
   "high": 449.0,
-  "average": 231.8,
-  "priceChanges": 2,
+  "average": 285.15,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -43,18 +38,14 @@
     269.4
    ],
    [
-    "2026-09-08",
-    179.95
-   ],
-   [
     "2026-10-11",
-    179.95
+    269.4
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 34 days"
+  "summary": "Typical price: steady for 52 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

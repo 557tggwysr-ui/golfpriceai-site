@@ -6,16 +6,11 @@
  "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.95,
+ "lowestNewPrice": 280.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Scottsdale Golf"
  ],
  "retailers": [
-  {
-   "name": "Affordable Golf",
-   "from": 179.95,
-   "options": 1
-  },
   {
    "name": "Scottsdale Golf",
    "from": 280.0,
@@ -24,18 +19,18 @@
  ],
  "history": {
   "daysTracked": 38,
-  "low": 179.95,
-  "high": 179.95,
-  "average": 179.95,
+  "low": 280.0,
+  "high": 280.0,
+  "average": 280.0,
   "priceChanges": 0,
   "series": [
    [
     "2026-09-04",
-    179.95
+    280.0
    ],
    [
     "2026-10-11",
-    179.95
+    280.0
    ]
   ]
  },

@@ -6,15 +6,15 @@
  "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.95,
+ "lowestNewPrice": 329.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 249.95,
-   "options": 13
+   "from": 329.0,
+   "options": 4
   },
   {
    "name": "Clickgolf",
@@ -34,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 57,
-  "low": 249.95,
+  "low": 329.0,
   "high": 339.0,
-  "average": 290.69,
-  "priceChanges": 2,
+  "average": 332.33,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -45,21 +45,17 @@
    ],
    [
     "2026-09-04",
-    279.95
-   ],
-   [
-    "2026-09-25",
-    249.95
+    329.0
    ],
    [
     "2026-10-11",
-    249.95
+    329.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 38 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

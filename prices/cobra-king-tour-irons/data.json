@@ -1,0 +1,56 @@
+{
+ "name": "Cobra King Tour Irons",
+ "brand": "Cobra",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/cobra-king-tour-irons/",
+ "checked": "2026-10-11",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 779.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 779.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 799.0,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 949.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 779.0,
+  "high": 809.0,
+  "average": 789.0,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    809.0
+   ],
+   [
+    "2026-09-04",
+    779.0
+   ],
+   [
+    "2026-10-11",
+    779.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 38 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

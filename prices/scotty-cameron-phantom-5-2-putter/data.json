@@ -14,7 +14,7 @@
   {
    "name": "Affordable Golf",
    "from": 329.0,
-   "options": 2
+   "options": 1
   },
   {
    "name": "Clickgolf",
@@ -26,16 +26,12 @@
   "daysTracked": 57,
   "low": 329.0,
   "high": 449.0,
-  "average": 376.9,
-  "priceChanges": 2,
+  "average": 392.16,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
     449.0
-   ],
-   [
-    "2026-09-04",
-    369.95
    ],
    [
     "2026-09-15",
