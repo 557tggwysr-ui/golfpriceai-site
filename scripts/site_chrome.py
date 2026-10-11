@@ -124,7 +124,7 @@ def _esc(s):
 # ---------------------------------------------------------------- header
 def _search_form(form_id, placeholder="Search clubs, balls, brands...", button=True, extra_class=""):
     btn = '<button type="submit" class="gp-search-go">Find Deals</button>' if button else ""
-    return f"""<form class="gp-search {extra_class}" action="/shop.html" method="get" role="search" data-suggest>
+    return f"""<form class="gp-search {extra_class}" action="/search.html" method="get" role="search" data-suggest>
       {_svg(ICON_SEARCH, 20, "#5b665f")}
       <label for="{form_id}" class="sr-only">Search golf gear</label>
       <input id="{form_id}" name="q" type="search" placeholder="{placeholder}" autocomplete="off" enterkeyhint="search">
@@ -260,7 +260,7 @@ def footer_html():
 
 
 # ---------------------------------------------------------------- page rewriting
-PAGES = ["index.html", "shop.html", "clubs.html", "apparel.html", "accessories.html", "about.html", "faq.html",
+PAGES = ["index.html", "search.html", "shop.html", "clubs.html", "apparel.html", "accessories.html", "about.html", "faq.html",
          "back-in-stock.html", "best-time-to-buy.html", "build-your-bag.html", "complete-the-kit.html",
          "complete-the-look.html", "fairway-index.html", "find-your-fit.html", "receipts.html", "trending.html",
          "404.html", "legal/cookies.html", "legal/privacy-policy.html"]

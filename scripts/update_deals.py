@@ -66,6 +66,7 @@ from xml.sax.saxutils import escape as xml_escape
 import models  # scripts/models.py: category audit, £0 clean-up, model grouping
 import price_pages  # scripts/price_pages.py: static /prices/ pages, sitemaps
 import identity  # scripts/identity.py: one listing = retailer + name
+import search_index  # scripts/search_index.py: data/search/ for the search page
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
 
@@ -2960,6 +2961,9 @@ def main():
         models.save_search_suggest(model_list, catalog["products"], today_str)
         # Static price-history pages under /prices/ (see data/price-pages.json).
         price_pages.build(model_list, catalog["products"], today_str)
+        # The search page's small per-category index (data/search/).
+        live = {d.name for d in price_pages.PRICES_DIR.iterdir() if d.is_dir() and d.name not in price_pages.HUB_TYPES}
+        search_index.build(catalog["products"], model_list, live, credible_drop)
     except Exception as exc:  # noqa: BLE001 - report and carry on
         print(f"WARNING: model grouping failed this run and was skipped: {exc!r}")
 

@@ -260,9 +260,22 @@
       rows.forEach(function (r, k) { r.classList.toggle('is-active', k === i); });
       activeIdx = i;
     }
+    function renderRecent() {
+      var recent = [];
+      try { recent = JSON.parse(localStorage.getItem('gp_recent_searches') || '[]'); } catch (e) { recent = []; }
+      if (!recent.length) { close(); return; }
+      box.innerHTML = '<div class="gp-suggest-head">Your recent searches</div>' + recent.map(function (r) {
+        return '<a class="gp-suggest-row" role="option" href="/search.html?q=' + encodeURIComponent(r) + '" data-kind="recent"><span>' + esc(r) + '</span><span></span></a>';
+      }).join('');
+      rows = Array.prototype.slice.call(box.querySelectorAll('a'));
+      activeIdx = -1;
+      box.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+    }
     function render() {
       var q = input.value.trim();
       lastQ = q;
+      if (!q) { renderRecent(); return; }
       if (q.length < 2) { close(); return; }
       var tokens = norm(q).split(' ').filter(Boolean);
       var prods = findProducts(q), cats = findCategories(q);
@@ -283,7 +296,7 @@
           return '<a class="gp-suggest-row" role="option" href="' + esc(c[1]) + '" data-kind="category"><span>' + esc(c[0]) + '</span><span>All brands</span></a>';
         }).join('');
       }
-      html += '<a class="gp-suggest-all" role="option" href="/shop.html?q=' + encodeURIComponent(q) + '">See all results for &ldquo;' + esc(q) + '&rdquo; &rarr;</a>';
+      html += '<a class="gp-suggest-all" role="option" href="/search.html?q=' + encodeURIComponent(q) + '">See all results for &ldquo;' + esc(q) + '&rdquo; &rarr;</a>';
       box.innerHTML = html;
       rows = Array.prototype.slice.call(box.querySelectorAll('a'));
       activeIdx = -1;
@@ -294,7 +307,7 @@
     input.setAttribute('role', 'combobox');
     input.setAttribute('aria-autocomplete', 'list');
     input.setAttribute('aria-expanded', 'false');
-    input.addEventListener('focus', loadIndex);
+    input.addEventListener('focus', function () { loadIndex(); if (!input.value.trim()) renderRecent(); });
     input.addEventListener('input', function () {
       if (index) render(); else loadIndex().then(render);
     });
