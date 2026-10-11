@@ -483,11 +483,17 @@ def breadcrumb(items):
     """items: list of (label, url or None). Returns (html, schema)."""
     parts, schema = [], []
     for i, (label, url) in enumerate(items):
-        if url and i < len(items) - 1:
+        last = i == len(items) - 1
+        if url and not last:
             parts.append(f'<a href="{url}">{esc(label)}</a>')
         else:
-            parts.append(f'<span{" aria-current=\"page\"" if i == len(items) - 1 else ""}>{esc(label)}</span>')
-        entry = {"@type": "ListItem", "position": i + 1, "name": label}
+            parts.append(f'<span{" aria-current=\"page\"" if last else ""}>{esc(label)}</span>')
+        # Google needs a link for every step except the last, so steps
+        # without a page of their own (the brand on a model page) are shown
+        # but left out of the structured data.
+        if not url and not last:
+            continue
+        entry = {"@type": "ListItem", "position": len(schema) + 1, "name": label}
         if url:
             entry["item"] = SITE + url
         schema.append(entry)
