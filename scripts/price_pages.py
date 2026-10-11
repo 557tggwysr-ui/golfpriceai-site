@@ -1031,7 +1031,7 @@ SITEMAP_INDEX = ROOT / "sitemap.xml"
 STATIC_PAGES = ["", "shop.html", "clubs.html", "apparel.html", "accessories.html", "build-your-bag.html",
                 "complete-the-look.html", "complete-the-kit.html", "find-your-fit.html", "fairway-index.html",
                 "best-time-to-buy.html", "back-in-stock.html", "receipts.html", "trending.html", "about.html",
-                "faq.html", "price-check.html", "legal/privacy-policy.html", "legal/cookies.html"]
+                "faq.html", "price-check.html", "ai.html", "legal/privacy-policy.html", "legal/cookies.html"]
 
 
 def last_price_change(m):

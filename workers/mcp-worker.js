@@ -96,6 +96,9 @@ async function handle(msg) {
     if (method === 'tools/call') {
       const name = params && params.name, args = (params && params.arguments) || {};
       let text;
+      // Usage count for Cloudflare's Workers Logs: the tool name only, never
+      // what was asked, so nothing personal is kept.
+      console.log(JSON.stringify({ event: 'tool_call', tool: name }));
       if (name === 'search_golf_prices') text = await searchPrices(args);
       else if (name === 'get_golf_price') text = await getPrice(args);
       else if (name === 'golf_price_drops') text = await drops(args);

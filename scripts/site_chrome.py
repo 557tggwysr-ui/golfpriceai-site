@@ -91,6 +91,8 @@ def menu():
          '<path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>'),
         ("Price Drops Today", "Genuine drops only, updated every 6 hours.", "/prices/drops/",
          '<path d="M3 7l6 6 4-4 8 8M21 11v6h-6"></path>'),
+        ("GolfPrice AI In ChatGPT & Claude", "Ask your AI assistant for live UK prices.", "/ai.html",
+         '<path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3zM18 15l.9 2.1L21 18l-2.1.9L18 21l-.9-2.1L15 18l2.1-.9L18 15z"></path>'),
         ("Complete The Look", "Outfits matched by colour, priced piece by piece.", "/complete-the-look.html",
          '<path d="M8.5 3L4 5.5l1.8 4.2L8 8.8V21h8V8.8l2.2.9L20 5.5 15.5 3c-.7 1.6-2 2.4-3.5 2.4S9.2 4.6 8.5 3z"></path>'),
         ("Best Time To Buy", "Which prices hold steady and which ones swing.", "/best-time-to-buy.html",
@@ -267,7 +269,7 @@ def footer_html():
 PAGES = ["index.html", "search.html", "shop.html", "clubs.html", "apparel.html", "accessories.html", "about.html", "faq.html",
          "back-in-stock.html", "best-time-to-buy.html", "build-your-bag.html", "complete-the-kit.html",
          "complete-the-look.html", "fairway-index.html", "find-your-fit.html", "receipts.html", "trending.html",
-         "404.html", "price-check.html", "alerts-confirmed.html", "alerts-unsubscribed.html",
+         "404.html", "price-check.html", "ai.html", "alerts-confirmed.html", "alerts-unsubscribed.html",
          "legal/cookies.html", "legal/privacy-policy.html"]
 
 HEADER_RE = re.compile(r"<header class=\"(?:site-header|gp-header)\".*?</header>\s*(?:<div class=\"gp-menu\".*?</nav>\s*<div class=\"gp-menu-foot\">.*?</div>\s*</div>)?", re.S)
