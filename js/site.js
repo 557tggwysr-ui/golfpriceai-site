@@ -402,6 +402,8 @@
         form.classList.add('is-done');
         say(res.status === 'added'
           ? 'Done: it’s on your alert list. Nothing to confirm, you’re already signed up.'
+          : res.status === 'added-digest'
+          ? 'Done: you’ll get the Friday email. Nothing to confirm, you’re already signed up.'
           : 'Nearly there: check your inbox for a confirmation email from GolfPrice AI and click the button in it. Nothing is sent until you do.', 'ok');
         if (window.gtag) gtag('event', 'alert_signup', { model: form.getAttribute('data-model') || 'general', status: res.status });
       })

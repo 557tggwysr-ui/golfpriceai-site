@@ -173,6 +173,8 @@
       show('Alert stopped.', '<p>You won’t get any more emails about the ' + esc(name || 'that model') + '. Any other alerts you’ve set are unchanged.</p>',
         slug ? '<a class="al-btn alt" href="/prices/' + slug + '/">Changed your mind? Back to the price page</a>' : null);
     });
+  } else if (status === 'digest') {
+    show('Friday email stopped.', '<p>You won’t get the Friday “Genuine Drops” email any more. Any price alerts you’ve set for particular models carry on as before.</p>');
   } else if (status === 'ok') {
     show('You’re unsubscribed.', '<p>You won’t get any more emails from GolfPrice AI. We’ve removed your alerts and taken you off our mailing list.</p>' +
       '<p>Sorry to see you go. The prices are still here whenever you need them.</p>');

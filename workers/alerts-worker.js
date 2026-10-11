@@ -9,9 +9,12 @@
  *                       opt-in). Confirmed subscribers adding another model
  *                       are updated straight away.
  *   GET  /confirm       The link in that email. Adds the person to the
- *                       Brevo list with their watched model(s).
+ *                       Brevo list with their watched model(s). A sign-up
+ *                       with no model (homepage, search) is for the Friday
+ *                       "Genuine Drops" email: DIGEST = yes.
  *   GET  /unsubscribe   ?e=email&s=signature[&m=model]  One click: stop
- *                       all alerts, or just one model's. POST does the
+ *                       all alerts, or just one model's (m=friday-email
+ *                       stops only the Friday email). POST does the
  *                       same for email apps' built-in Unsubscribe button.
  *
  * Settings (Cloudflare: Worker > Settings > Variables and Secrets):
@@ -28,6 +31,7 @@ const BREVO = 'https://api.brevo.com/v3';
 const EMAIL_RX = /^[^\s@]{1,64}@[^\s@]{1,190}\.[a-z]{2,24}$/i;
 const SLUG_RX = /^[a-z0-9-]{3,100}$/;
 const CONFIRM_DAYS = 7;
+const DIGEST_SLUG = 'friday-email'; // in unsubscribe links: stop the Friday email only
 
 export default {
   async fetch(request, env) {
@@ -64,11 +68,14 @@ async function subscribe(request, env, cors) {
   const existing = await brevo(env, 'GET', `/contacts/${encodeURIComponent(email)}`);
   const listId = Number(env.LIST_ID || 3);
   if (existing.ok && (existing.data.listIds || []).includes(listId) && !existing.data.emailBlacklisted) {
+    await ensureAttributes(env);
     if (model) {
       const watch = mergeWatch(existing.data.attributes && existing.data.attributes.WATCHLIST, model);
       await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { WATCHLIST: watch } });
+    } else {
+      await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { DIGEST: 'yes' } });
     }
-    return json({ ok: true, status: 'added' }, 200, cors);
+    return json({ ok: true, status: model ? 'added' : 'added-digest' }, 200, cors);
   }
 
   const payload = b64url(JSON.stringify({ e: email, m: model, t: Date.now() }));
@@ -77,7 +84,7 @@ async function subscribe(request, env, cors) {
   const sent = await brevo(env, 'POST', '/smtp/email', {
     sender: { name: 'GolfPrice AI', email: env.SENDER_EMAIL || 'alerts@golfpriceai.com' },
     to: [{ email }],
-    subject: model ? `Confirm your price alert for the ${modelName || 'model you picked'}` : 'Confirm your GolfPrice AI deal alerts',
+    subject: model ? `Confirm your price alert for the ${modelName || 'model you picked'}` : 'Confirm your GolfPrice AI Friday email',
     htmlContent: confirmEmail(link, modelName),
     tags: ['confirm'],
   });
@@ -97,6 +104,7 @@ async function confirm(url, env) {
   const existing = await brevo(env, 'GET', `/contacts/${encodeURIComponent(data.e)}`);
   const watch = mergeWatch(existing.ok && existing.data.attributes ? existing.data.attributes.WATCHLIST : '', data.m);
   const attributes = { WATCHLIST: watch, CONSENT_AT: new Date().toISOString().slice(0, 19) + 'Z' };
+  if (!data.m) attributes.DIGEST = 'yes';
   if (existing.ok) {
     await brevo(env, 'PUT', `/contacts/${encodeURIComponent(data.e)}`, { attributes, listIds: [listId], emailBlacklisted: false });
   } else {
@@ -121,6 +129,10 @@ async function unsubscribe(url, env, oneClick) {
   if (!email || !(await verify(env, email, s))) return Response.redirect(`${site}/alerts-unsubscribed.html?status=invalid`, 302);
   const existing = await brevo(env, 'GET', `/contacts/${encodeURIComponent(email)}`);
   if (!existing.ok) return Response.redirect(`${site}/alerts-unsubscribed.html?status=ok`, 302);
+  if (model === DIGEST_SLUG) {
+    await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { DIGEST: 'no' } });
+    return Response.redirect(`${site}/alerts-unsubscribed.html?status=digest`, 302);
+  }
   if (model && SLUG_RX.test(model)) {
     const left = String((existing.data.attributes || {}).WATCHLIST || '').split(',').filter((x) => x && x !== model).join(',');
     await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { WATCHLIST: left } });
@@ -140,7 +152,7 @@ function mergeWatch(current, model) {
 }
 
 async function ensureAttributes(env) {
-  for (const name of ['WATCHLIST', 'CONSENT_AT']) {
+  for (const name of ['WATCHLIST', 'CONSENT_AT', 'DIGEST']) {
     // Fails harmlessly with 400 when the attribute already exists.
     await brevo(env, 'POST', `/contacts/attributes/normal/${name}`, { type: 'text' });
   }
@@ -204,7 +216,7 @@ async function tooMany(ip) {
 function confirmEmail(link, modelName) {
   const what = modelName
     ? `a price alert for the <strong>${escapeHtml(modelName)}</strong>. We’ll email you when its UK price genuinely drops`
-    : `GolfPrice AI deal alerts: genuine UK golf price drops, checked against our own price history`;
+    : `the GolfPrice AI Friday email: the week’s genuine UK golf price drops, checked against our own price history`;
   return `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#f7f8f6;font-family:Arial,Helvetica,sans-serif;color:#16241c">
 <div style="max-width:520px;margin:0 auto;padding:28px 20px">
 <p style="font-size:22px;font-weight:bold;margin:0 0 18px">Golf<span style="color:#3fae29">Price</span> AI</p>

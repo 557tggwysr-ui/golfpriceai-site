@@ -414,7 +414,12 @@ def _daily_series(listings, history, today, multiplier=None):
     first_seen = {}
     per_listing = {}
     for p in listings:
-        entries = history.get(f"{p.get('source', '')}|{p['name']}") or []
+        # Keyed by retailer + name: two retailers often use the identical
+        # product name, and keying by name alone let one listing's history
+        # overwrite the other's (Oct 2026: a Ping driver's chart ignored a
+        # month at £379 at one retailer and showed a fake £549 -> £369 drop).
+        key = f"{p.get('source', '')}|{p['name']}"
+        entries = history.get(key) or []
         if not entries:
             continue
         entries = sorted(entries, key=lambda e: e["date"])
@@ -423,8 +428,8 @@ def _daily_series(listings, history, today, multiplier=None):
             if not m:
                 continue
             entries = [{"date": e["date"], "price": round(e["price"] * m, 2)} for e in entries]
-        first_seen[p["name"]] = date.fromisoformat(entries[0]["date"])
-        per_listing[p["name"]] = entries
+        first_seen[key] = date.fromisoformat(entries[0]["date"])
+        per_listing[key] = entries
     if not per_listing:
         return [], first_seen
     start = min(first_seen.values())

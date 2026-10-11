@@ -123,8 +123,14 @@ def subscribers(key):
         for c in batch:
             if c.get("emailBlacklisted"):
                 continue
-            watch = [s.strip() for s in str((c.get("attributes") or {}).get("WATCHLIST") or "").split(",") if s.strip()]
-            out.append({"email": c["email"].lower(), "watch": watch})
+            attrs = c.get("attributes") or {}
+            watch = [s.strip() for s in str(attrs.get("WATCHLIST") or "").split(",") if s.strip()]
+            digest = str(attrs.get("DIGEST") or "").lower()
+            # The Friday email: anyone who asked for it (DIGEST yes), plus
+            # early sign-ups from before that attribute existed who signed
+            # up for general alerts rather than one model.
+            out.append({"email": c["email"].lower(), "watch": watch,
+                        "digest": digest == "yes" or (not digest and not watch)})
         offset += len(batch)
         if len(batch) < 500 or offset >= (data.get("count") or 0):
             return out
