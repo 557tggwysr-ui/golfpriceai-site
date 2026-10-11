@@ -1031,7 +1031,7 @@ SITEMAP_INDEX = ROOT / "sitemap.xml"
 STATIC_PAGES = ["", "shop.html", "clubs.html", "apparel.html", "accessories.html", "build-your-bag.html",
                 "complete-the-look.html", "complete-the-kit.html", "find-your-fit.html", "fairway-index.html",
                 "best-time-to-buy.html", "back-in-stock.html", "receipts.html", "trending.html", "about.html",
-                "faq.html", "legal/privacy-policy.html", "legal/cookies.html"]
+                "faq.html", "price-check.html", "legal/privacy-policy.html", "legal/cookies.html"]
 
 
 def last_price_change(m):
@@ -1188,7 +1188,8 @@ def build(models_list, products, today_str):
         d_changed, d_sitemap, _ = drops_page.build(passing, built, today)
         changed += d_changed
         sitemap += d_sitemap
-        seasonal_links = [("/prices/drops/", "Price drops today", "Genuine drops only, updated every 6 hours")] + list(seasonal_links)
+        seasonal_links = [("/prices/drops/", "Price drops today", "Genuine drops only, updated every 6 hours"),
+                          ("/price-check.html", "Is this a good price?", "Check any price against our own history")] + list(seasonal_links)
     if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex, seasonal_links, brand_counts)):
         changed.append("/prices/")
     sitemap.append(("prices/", max((lm or "" for _, lm in sitemap), default=None) or None))

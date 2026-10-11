@@ -1,0 +1,41 @@
+/* "Is this a good price?" checker (price-check.html, js/price-check.js) */
+.pc-form { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: 14px; align-items: end; padding: 18px; margin-top: 22px; }
+.pc-field { position: relative; display: flex; flex-direction: column; gap: 6px; }
+.pc-field label { font-size: 13px; font-weight: 700; }
+.pc-field label span { font-weight: 400; color: var(--gp-text-3); }
+.pc-field input { font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid #d5dad2; border-radius: 10px; background: #fff; width: 100%; }
+.pc-field input:focus { outline: 2px solid var(--gp-green); outline-offset: 1px; border-color: var(--gp-green); }
+.pc-money { display: flex; align-items: center; border: 1px solid #d5dad2; border-radius: 10px; background: #fff; padding-left: 12px; }
+.pc-money span { font-weight: 700; color: var(--gp-text-2); }
+.pc-money input { border: 0; padding-left: 6px; }
+.pc-money:focus-within { outline: 2px solid var(--gp-green); outline-offset: 1px; }
+.pc-money input:focus { outline: none; }
+.pc-go { padding: 13px 22px; }
+.pc-list { position: absolute; top: 100%; left: 0; right: 0; z-index: 20; margin: 4px 0 0; padding: 6px; list-style: none; background: #fff;
+  border: 1px solid var(--gp-line); border-radius: 12px; box-shadow: 0 12px 28px rgba(22, 36, 28, .14); max-height: 320px; overflow: auto; }
+.pc-list li { padding: 10px 12px; border-radius: 8px; cursor: pointer; font-size: 15px; }
+.pc-list li:hover, .pc-list li.is-active { background: var(--gp-pale); }
+.pc-list li.pc-none { cursor: default; color: var(--gp-text-3); font-size: 14px; }
+.pc-hint { margin-top: 8px; }
+.pc-result { margin-top: 24px; }
+.pc-card { padding: 22px; }
+.pc-card h2 { margin: 0 0 14px; }
+.pc-verdict { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 12px; margin-bottom: 18px; background: #eef0ec; }
+.pc-verdict strong { font-size: 18px; }
+.pc-verdict span { line-height: 1.5; color: var(--gp-text-2); }
+.pc-verdict.pc-good { background: #e3f4dc; } .pc-verdict.pc-good strong { color: var(--gp-green-dark); }
+.pc-verdict.pc-fair { background: #fff4d6; } .pc-verdict.pc-fair strong { color: #8a5a00; }
+.pc-verdict.pc-high { background: #fde8e6; } .pc-verdict.pc-high strong { color: #b42318; }
+.pc-verdict.pc-check { background: #fff4d6; } .pc-verdict.pc-check strong { color: #8a5a00; }
+.pc-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.pc-stats div { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border: 1px solid var(--gp-line); border-radius: 12px; }
+.pc-stats span { font-size: 13px; color: var(--gp-text-3); }
+.pc-stats strong { font-size: 20px; }
+.pc-stats em { font-style: normal; font-size: 13px; color: var(--gp-text-2); }
+.pc-spark { display: block; width: 100%; height: 60px; margin: 16px 0 4px; }
+.pc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 10px; }
+@media (max-width: 760px) {
+  .pc-form { grid-template-columns: 1fr; }
+  .pc-stats { grid-template-columns: 1fr; }
+  .pc-actions .pp-btn { flex: 1 1 100%; }
+}

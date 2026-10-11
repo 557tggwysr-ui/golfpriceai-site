@@ -87,6 +87,10 @@ def menu():
          '<path d="M6 7h12l-1 14H7L6 7zM9 7V5a3 3 0 016 0v2"></path>'),
         ("Show Us The Receipts", "This week's biggest genuine price drops, with proof.", "/receipts.html",
          '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3zM9 8h6M9 12h6"></path>'),
+        ("Is This A Good Price?", "Check any price against our own history.", "/price-check.html",
+         '<path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>'),
+        ("Price Drops Today", "Genuine drops only, updated every 6 hours.", "/prices/drops/",
+         '<path d="M3 7l6 6 4-4 8 8M21 11v6h-6"></path>'),
         ("Complete The Look", "Outfits matched by colour, priced piece by piece.", "/complete-the-look.html",
          '<path d="M8.5 3L4 5.5l1.8 4.2L8 8.8V21h8V8.8l2.2.9L20 5.5 15.5 3c-.7 1.6-2 2.4-3.5 2.4S9.2 4.6 8.5 3z"></path>'),
         ("Best Time To Buy", "Which prices hold steady and which ones swing.", "/best-time-to-buy.html",
@@ -263,7 +267,7 @@ def footer_html():
 PAGES = ["index.html", "search.html", "shop.html", "clubs.html", "apparel.html", "accessories.html", "about.html", "faq.html",
          "back-in-stock.html", "best-time-to-buy.html", "build-your-bag.html", "complete-the-kit.html",
          "complete-the-look.html", "fairway-index.html", "find-your-fit.html", "receipts.html", "trending.html",
-         "404.html", "alerts-confirmed.html", "alerts-unsubscribed.html",
+         "404.html", "price-check.html", "alerts-confirmed.html", "alerts-unsubscribed.html",
          "legal/cookies.html", "legal/privacy-policy.html"]
 
 HEADER_RE = re.compile(r"<header class=\"(?:site-header|gp-header)\".*?</header>\s*(?:<div class=\"gp-menu\".*?</nav>\s*<div class=\"gp-menu-foot\">.*?</div>\s*</div>)?", re.S)
