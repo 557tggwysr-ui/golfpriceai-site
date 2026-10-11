@@ -74,7 +74,11 @@
     if (filter === 'all') top = DATA.deals.filter(function (d) { return d.slug === DATA.featured; })[0];
     if (!top) top = list.slice().sort(function (a, b) { return b.pct - a.pct; })[0];
     feature.innerHTML = top ? featureCard(top) : '';
+    // Full rows only: 6 or 3 cards (3 across on desktop). On 2-across screens
+    // an odd count drops its last card (see .is-odd in home.css).
     var rest = list.filter(function (d) { return d !== top; }).slice(0, 6);
+    if (rest.length >= 3) rest = rest.slice(0, rest.length - rest.length % 3);
+    grid.classList.toggle('is-odd', rest.length % 2 === 1);
     grid.innerHTML = rest.length ? rest.map(card).join('') :
       '<p class="gp-deals-empty">No other genuine drops in this category today. <a href="/prices/drops/">See every drop this week</a>.</p>';
   }
@@ -89,7 +93,7 @@
     d.deals.forEach(function (x) { groups[x.group] = (groups[x.group] || 0) + 1; });
     Array.prototype.forEach.call(chips.querySelectorAll('button'), function (b) {
       var f = b.getAttribute('data-f');
-      if (f !== 'all' && !groups[f]) b.hidden = true;
+      if (f !== 'all' && (groups[f] || 0) < 4) b.hidden = true; // needs a Deal of the day + a row of 3
       b.addEventListener('click', function () {
         filter = f;
         Array.prototype.forEach.call(chips.querySelectorAll('button'), function (o) { o.setAttribute('aria-pressed', o === b ? 'true' : 'false'); });

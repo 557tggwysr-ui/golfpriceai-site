@@ -280,7 +280,8 @@
 .gp-deals-note a { color: inherit; }
 .gp-deals-empty { grid-column: 1 / -1; color: var(--gp-text-2); margin: 0; }
 @media (max-width: 1080px) { .gp-deal-feature .gp-deal-body { grid-template-columns: 1fr; } }
-@media (max-width: 900px) { .gp-deal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .gp-deal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gp-deal-grid.is-odd > .gp-deal-card:last-child { display: none; } }
 @media (max-width: 720px) {
   .gp-deal-feature { grid-template-columns: 1fr; }
   .gp-deal-feature .gp-deal-photo { height: auto; min-height: 0; aspect-ratio: 16 / 10; border-right: 0; border-bottom: 1px solid var(--gp-line); }

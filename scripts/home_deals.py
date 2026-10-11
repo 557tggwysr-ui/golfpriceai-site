@@ -26,6 +26,7 @@ from seasonal_pages import BRAND_RANK, brand_rank
 
 OUT = ROOT / "data" / "home-deals.json"
 MIN_POUNDS, MIN_PCT, MAX_PCT, WINDOW_DAYS = 5.0, 0.03, 0.60, 30
+GROUP_TARGET = 7  # Deal of the day + 6 cards per category chip
 FLOOR = {"driver": 120, "wood": 80, "hybrid": 70, "irons": 250, "wedge": 50, "putter": 80, "ball": 15,
          "bag": 60, "gps-watch": 80, "rangefinder": 80, "electric-trolley": 200, "launch-monitor": 100}
 GROUP = {"driver": "clubs", "wood": "clubs", "hybrid": "clubs", "irons": "clubs", "wedge": "clubs", "putter": "clubs",
@@ -79,8 +80,9 @@ def build(passing, built, products, today):
     def score(d):
         return (d["pct"] + (8 if d["lowest"] else 0) + min(d["retailers"], 4) * 2 - brand_rank(d["name"]) * 0.2)
 
+    ranked = sorted(drops, key=score, reverse=True) + sorted(lows, key=score, reverse=True)
     picked, per_type, per_brand = [], {}, {}
-    for d in sorted(drops, key=score, reverse=True) + sorted(lows, key=score, reverse=True):
+    for d in ranked:
         if per_type.get(d["type"], 0) >= 2 or per_brand.get(d["brand"], 0) >= 2:
             continue
         if not d["was"] and len([x for x in picked if x["was"]]) >= 7:
@@ -90,6 +92,22 @@ def build(passing, built, products, today):
         picked.append(d)
         if len(picked) == 24:
             break
+    # Each category chip shows a Deal of the day plus a full row (or two) of
+    # three cards, so top every category up to GROUP_TARGET: more genuine drops
+    # first (allowing 3 per type and brand), then models at their lowest
+    # tracked price. These go at the end so the "All" view is unchanged.
+    for g in sorted(set(GROUP.values())):
+        have = [d for d in picked if d["group"] == g]
+        for cap in (2, 3):
+            for d in ranked:
+                if len(have) >= GROUP_TARGET:
+                    break
+                if d["group"] != g or d in picked:
+                    continue
+                if sum(x["type"] == d["type"] for x in have) >= cap or sum(x["brand"] == d["brand"] for x in have) >= cap:
+                    continue
+                have.append(d)
+                picked.append(d)
     # A different "Deal of the day" each day, from the top few.
     seed = int(hashlib.sha1(today.isoformat().encode()).hexdigest(), 16)
     top = [d for d in picked[:5] if d["was"]] or picked[:1]
