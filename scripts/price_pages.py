@@ -1106,7 +1106,7 @@ def build(models_list, products, today_str):
     passing = [m for m in models_list if m["gate"]["passes"] and m["type"] in TYPES]
     from seasonal_pages import SEASONAL_SLUGS
     existing = {d.name for d in PRICES_DIR.iterdir()
-                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name not in ("brands", "drops")}
+                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name not in ("brands", "drops", "data")}
     if mode == "pilot":
         wanted = cfg.get("pilot", [])
         chosen = [m for m in passing if m["slug"] in wanted]
@@ -1188,8 +1188,13 @@ def build(models_list, products, today_str):
         d_changed, d_sitemap, _ = drops_page.build(passing, built, today)
         changed += d_changed
         sitemap += d_sitemap
+        import open_data
+        o_changed, o_sitemap = open_data.build(passing, built, today)
+        changed += o_changed
+        sitemap += o_sitemap
         seasonal_links = [("/prices/drops/", "Price drops today", "Genuine drops only, updated every 6 hours"),
-                          ("/price-check.html", "Is this a good price?", "Check any price against our own history")] + list(seasonal_links)
+                          ("/price-check.html", "Is this a good price?", "Check any price against our own history")] + list(seasonal_links) \
+            + [("/prices/data/", "Open price data", "Free CSV downloads, updated every 6 hours")]
     if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex, seasonal_links, brand_counts)):
         changed.append("/prices/")
     sitemap.append(("prices/", max((lm or "" for _, lm in sitemap), default=None) or None))
