@@ -1106,7 +1106,7 @@ def build(models_list, products, today_str):
     passing = [m for m in models_list if m["gate"]["passes"] and m["type"] in TYPES]
     from seasonal_pages import SEASONAL_SLUGS
     existing = {d.name for d in PRICES_DIR.iterdir()
-                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name not in ("brands", "drops", "data")}
+                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name not in ("brands", "drops", "data", "watch")}
     if mode == "pilot":
         wanted = cfg.get("pilot", [])
         chosen = [m for m in passing if m["slug"] in wanted]
@@ -1192,8 +1192,13 @@ def build(models_list, products, today_str):
         o_changed, o_sitemap = open_data.build(passing, built, today)
         changed += o_changed
         sitemap += o_sitemap
+        import price_watch
+        w_changed, w_sitemap, has_watch = price_watch.build(passing, built, today)
+        changed += w_changed
+        sitemap += w_sitemap
         seasonal_links = [("/prices/drops/", "Price drops today", "Genuine drops only, updated every 6 hours"),
                           ("/price-check.html", "Is this a good price?", "Check any price against our own history")] + list(seasonal_links) \
+            + ([("/prices/watch/", "UK golf price watch", "Monthly: what got cheaper, and what didn’t")] if has_watch else []) \
             + [("/prices/data/", "Open price data", "Free CSV downloads, updated every 6 hours")]
     if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex, seasonal_links, brand_counts)):
         changed.append("/prices/")
