@@ -268,7 +268,7 @@ def footer_html():
 # ---------------------------------------------------------------- page rewriting
 PAGES = ["index.html", "search.html", "shop.html", "clubs.html", "apparel.html", "accessories.html", "about.html", "faq.html",
          "back-in-stock.html", "best-time-to-buy.html", "build-your-bag.html", "complete-the-kit.html",
-         "complete-the-look.html", "fairway-index.html", "find-your-fit.html", "receipts.html", "trending.html",
+         "complete-the-look.html", "fairway-index.html", "find-your-fit.html", "receipts.html",
          "404.html", "price-check.html", "ai.html", "alerts-confirmed.html", "alerts-unsubscribed.html",
          "legal/cookies.html", "legal/privacy-policy.html"]
 
