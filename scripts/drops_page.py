@@ -101,5 +101,14 @@ def build(models, built, today):
                       description="Every genuine UK golf price drop in the last week on drivers, irons, putters, balls, rangefinders and more, checked against our own price history every 6 hours.",
                       canonical=f"{SITE}/prices/drops/", body=body, section="", schema=[item_list, crumbs_schema], noindex=False)
     changed = ["/prices/drops/"] if _write(PRICES_DIR / "drops" / "index.html", page) else []
+    # The same list as data, for the AI-assistant connector and anyone else.
+    import json
+    _write(PRICES_DIR / "drops" / "data.json", json.dumps({
+        "checked": now_uk.isoformat(timespec="minutes"), "currency": "GBP",
+        "rule": "Lowest new, in-stock price fell by at least £5 and 3% and is still at that price",
+        "drops": [{"model": r["m"]["name"], "model_id": r["m"]["slug"], "date": r["date"].isoformat(),
+                   "was": r["from"], "now": r["to"], "unit": "per dozen" if r["m"]["type"] == "ball" else "each",
+                   "lowest_tracked": (r["m"].get("verdict") or {}).get("label") == "good",
+                   "url": f"{SITE}/prices/{r['m']['slug']}/"} for r in rows]}, indent=1))
     print(f"Price drops page: {len(fresh)} in the last 48 hours, {len(older)} earlier this week.")
     return changed, [("prices/drops/", today.isoformat())], len(fresh)

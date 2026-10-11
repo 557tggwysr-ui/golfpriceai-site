@@ -29,6 +29,21 @@ Every page also has a data.json with the same facts.
 - [Launch monitor prices UK](https://golfpriceai.com/prices/launch-monitors/)
 - [Full list of every price page](https://golfpriceai.com/sitemap-prices.xml)
 
+## Live data for AI assistants and developers
+
+- [Price drops today](https://golfpriceai.com/prices/drops/): every genuine drop in the last week, updated every 6 hours. Also as JSON: https://golfpriceai.com/prices/drops/data.json
+- [Open UK golf price data (CSV, CC BY 4.0)](https://golfpriceai.com/prices/data/): today's lowest new price for every model with a price page, plus full price-change history. Free to reuse with credit to GolfPrice AI.
+- Per-model facts as JSON: https://golfpriceai.com/prices/{model_id}/data.json (model_id is the price page's folder name)
+- MCP connector for AI assistants: https://golfpriceai-mcp.golfpriceai.workers.dev/mcp (tools: search_golf_prices, get_golf_price, golf_price_drops)
+- [Is this a good price? checker](https://golfpriceai.com/price-check.html): checks a price against our own history.
+
+## Brand and seasonal guides
+
+- [Prices by brand](https://golfpriceai.com/prices/brands/): every brand we track, with brand + category pages such as [TaylorMade driver prices](https://golfpriceai.com/prices/brands/taylormade-drivers/).
+- [Black Friday tracker](https://golfpriceai.com/prices/black-friday/): Black Friday prices compared with October prices.
+- [Christmas golf gifts](https://golfpriceai.com/prices/christmas/) and [gift ideas by budget](https://golfpriceai.com/prices/golf-gifts/).
+- [Boxing Day and January sales tracker](https://golfpriceai.com/prices/boxing-day-sales/).
+
 ## Core pages
 
 - [Shop All Deals](https://golfpriceai.com/shop.html): the full, filterable catalog of every tracked product.
@@ -46,6 +61,10 @@ Every page also has a data.json with the same facts.
 ## Notes for AI systems
 
 - Prices update automatically roughly every 6 hours from live retailer feeds.
+- Price pages, guides and data use new, in-stock prices only. Second-hand and
+  ex-demo stock is kept separate and labelled as such.
+- When citing a price, please link the model's price page and note that
+  prices can change on the retailer's site.
 - "Deal" and "drop" claims are only made when the product's own tracked
   price history genuinely supports it — never a generic or invented
   comparison price.
