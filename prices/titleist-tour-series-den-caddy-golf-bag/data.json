@@ -18,30 +18,30 @@
   },
   {
    "name": "Affordable Golf",
-   "from": 159.95,
-   "options": 1
+   "from": 139.95,
+   "options": 2
   }
  ],
  "history": {
   "daysTracked": 38,
-  "low": 124.99,
-  "high": 124.99,
-  "average": 124.99,
-  "priceChanges": 0,
+  "low": 139.95,
+  "high": 159.95,
+  "average": 159.42,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
-    124.99
+    159.95
    ],
    [
     "2026-10-11",
-    124.99
+    139.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 38 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

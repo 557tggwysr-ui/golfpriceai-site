@@ -6,17 +6,15 @@
  "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1249.0,
+ "lowestNewPrice": 1199.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 1249.0,
-   "options": 1
+   "from": 1199.0,
+   "options": 2
   },
   {
    "name": "Clickgolf",

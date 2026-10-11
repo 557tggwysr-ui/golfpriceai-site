@@ -72,6 +72,11 @@
    "listings": 1
   },
   {
+   "model": "Callaway elyte x",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
    "model": "AffordableGolf affordable in store gift card",
    "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 2
@@ -83,8 +88,8 @@
   },
   {
    "model": "Callaway elyte",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
+   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 2
   },
   {
    "model": "Wilson Staff Model Blade Irons",
@@ -175,6 +180,11 @@
    "model": "Ben Sayers Electric Trolley",
    "issue": "no model name: held back until an alias names it",
    "listings": 7
+  },
+  {
+   "model": "Callaway paradym ai-smoke",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
   },
   {
    "model": "Mizuno st-g",
@@ -287,6 +297,11 @@
    "listings": 5
   },
   {
+   "model": "Callaway x forged",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
    "model": "Cleveland zipcore xl",
    "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 2
@@ -333,6 +348,11 @@
   },
   {
    "model": "Ping g730",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Callaway paradym",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
   },
@@ -392,6 +412,11 @@
    "listings": 3
   },
   {
+   "model": "Callaway paradym ai-smoke hl",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
    "model": "Wilson profile",
    "issue": "cheapest retailer \u00a339.99 vs dearest \u00a3295.00: check for used stock or a different product",
    "listings": 3
@@ -439,6 +464,11 @@
   {
    "model": "Yonex Ezone GS Irons",
    "issue": "price spread \u00a359.00 to \u00a3539.95: may mix different products",
+   "listings": 2
+  },
+  {
+   "model": "Callaway paradym ai-smoke max fast",
+   "issue": "cheapest retailer \u00a3116.90 vs dearest \u00a3349.95: check for used stock or a different product",
    "listings": 2
   },
   {
@@ -1122,6 +1152,11 @@
    "name": "Yes! C-Groove Victoria Mens Right Hand Putter - Yes!",
    "from": "accessories",
    "to": "putter"
+  },
+  {
+   "name": "PowaKaddy Push Cart Umbrella Holder",
+   "from": "sets",
+   "to": "accessories"
   }
  ],
  "droppedUnpriced": [

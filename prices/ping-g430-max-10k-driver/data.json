@@ -1,0 +1,52 @@
+{
+ "name": "Ping G430 MAX 10K Driver",
+ "brand": "Ping",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/ping-g430-max-10k-driver/",
+ "checked": "2026-10-11",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 369.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 369.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 379.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 549.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 38,
+  "low": 369.0,
+  "high": 549.0,
+  "average": 544.26,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    549.0
+   ],
+   [
+    "2026-10-11",
+    369.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

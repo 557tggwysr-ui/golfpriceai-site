@@ -1,0 +1,47 @@
+{
+ "name": "Callaway Big Bertha Irons",
+ "brand": "Callaway",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/callaway-big-bertha-irons/",
+ "checked": "2026-10-11",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 99.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 99.95,
+   "options": 3
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 134.4,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 34,
+  "low": 99.95,
+  "high": 99.95,
+  "average": 99.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-08",
+    99.95
+   ],
+   [
+    "2026-10-11",
+    99.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 34 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

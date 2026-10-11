@@ -20,13 +20,18 @@
    "name": "Clickgolf",
    "from": 179.99,
    "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 179.99,
+   "options": 1
   }
  ],
  "history": {
   "daysTracked": 57,
   "low": 149.0,
-  "high": 179.95,
-  "average": 164.2,
+  "high": 179.99,
+  "average": 164.22,
   "priceChanges": 1,
   "series": [
    [
@@ -35,17 +40,17 @@
    ],
    [
     "2026-09-14",
-    179.95
+    179.99
    ],
    [
     "2026-10-11",
-    179.95
+    179.99
    ]
   ]
  },
  "verdict": {
   "label": "wait",
-  "summary": "Wait if you can: £30.95 above its tracked low"
+  "summary": "Wait if you can: £30.99 above its tracked low"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

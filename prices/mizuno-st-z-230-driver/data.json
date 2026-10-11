@@ -14,7 +14,12 @@
   {
    "name": "Affordable Golf",
    "from": 159.95,
-   "options": 3
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 249.0,
+   "options": 1
   },
   {
    "name": "Scottsdale Golf",
@@ -23,16 +28,12 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 38,
   "low": 159.95,
-  "high": 249.0,
-  "average": 194.72,
-  "priceChanges": 2,
+  "high": 169.95,
+  "average": 167.58,
+  "priceChanges": 1,
   "series": [
-   [
-    "2026-08-16",
-    249.0
-   ],
    [
     "2026-09-04",
     169.95

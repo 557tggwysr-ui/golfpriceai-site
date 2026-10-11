@@ -6,12 +6,16 @@
  "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 39.99,
+ "lowestNewPrice": 39.96,
  "lowestAt": [
-  "Major Golf Direct",
-  "Scottsdale Golf"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 39.96,
+   "options": 5
+  },
   {
    "name": "Major Golf Direct",
    "from": 39.99,
@@ -21,11 +25,6 @@
    "name": "Scottsdale Golf",
    "from": 39.99,
    "options": 1
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 42.99,
-   "options": 4
   }
  ],
  "history": {

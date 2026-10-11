@@ -1,0 +1,51 @@
+{
+ "name": "Callaway Paradym Ai Smoke Hybrid",
+ "brand": "Callaway",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/callaway-paradym-ai-smoke-hybrid/",
+ "checked": "2026-10-11",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 149.95,
+   "options": 5
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 200.33,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 38,
+  "low": 149.95,
+  "high": 154.95,
+  "average": 152.71,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    154.95
+   ],
+   [
+    "2026-09-25",
+    149.95
+   ],
+   [
+    "2026-10-11",
+    149.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 17 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

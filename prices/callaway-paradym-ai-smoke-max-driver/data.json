@@ -6,19 +6,24 @@
  "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 269.95,
+ "lowestNewPrice": 249.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 269.95,
-   "options": 1
+   "from": 249.95,
+   "options": 7
   },
   {
    "name": "Major Golf Direct",
    "from": 299.0,
+   "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 398.3,
    "options": 1
   },
   {

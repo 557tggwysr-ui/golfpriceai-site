@@ -1,0 +1,47 @@
+{
+ "name": "Odyssey Ai-ONE 1 CH Putter",
+ "brand": "Odyssey",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/odyssey-ai-one-1-ch-putter/",
+ "checked": "2026-10-11",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 216.75,
+ "lowestAt": [
+  "Callaway Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Callaway Golf",
+   "from": 216.75,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 249.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 38,
+  "low": 216.75,
+  "high": 249.0,
+  "average": 248.15,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    249.0
+   ],
+   [
+    "2026-10-11",
+    216.75
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}
