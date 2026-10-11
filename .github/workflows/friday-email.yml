@@ -1,0 +1,39 @@
+name: Friday Genuine Drops email
+
+on:
+  schedule:
+    # 4pm UK time every Friday. Two times because GitHub schedules run in
+    # UTC: 15:00 UTC is 4pm in summer (BST), 16:00 UTC is 4pm in winter. The
+    # script only sends once a week, so the second run does nothing.
+    - cron: '0 15 * * 5'
+    - cron: '0 16 * * 5'
+  workflow_dispatch: {}
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Send the Friday email
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          ALERTS_SECRET: ${{ secrets.ALERTS_SECRET }}
+        run: |
+          python scripts/digest.py
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/alerts-state.json 2>/dev/null || true
+          if ! git diff --quiet --cached; then
+            git commit -m "Friday email sent"
+            git pull --rebase
+            git push
+          fi

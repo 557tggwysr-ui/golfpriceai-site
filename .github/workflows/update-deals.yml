@@ -61,9 +61,10 @@ jobs:
 
       - name: Send price-drop alerts and the Friday email
         # After the pages are live, so the links in the emails show the new
-        # prices. The Friday "Genuine Drops" email goes on the first run on a
-        # Friday from 06:00 UTC, once a week. Saves only model prices and
-        # counts (no emails) to data/alerts-state.json.
+        # prices. The Friday "Genuine Drops" email has its own workflow at
+        # 4pm UK time (friday-email.yml); this only sends it if that failed.
+        # Saves only model prices and counts (no emails) to
+        # data/alerts-state.json.
         continue-on-error: true
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
