@@ -234,7 +234,7 @@
 .gp-deal-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(22, 36, 28, .10); color: var(--gp-ink); }
 .gp-deal-photo { position: relative; display: block; flex: 0 0 auto; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: #fff;
   border-bottom: 1px solid var(--gp-line); }
-.gp-deal-photo img { position: absolute; top: 14px; left: 14px; width: calc(100% - 28px); height: calc(100% - 28px); max-width: none;
+.gp-deal-photo img { position: absolute; top: 42px; left: 14px; width: calc(100% - 28px); height: calc(100% - 54px); max-width: none;
   object-fit: contain; }
 .gp-deal-ph { display: none; position: absolute; inset: 0; place-items: center; font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--gp-text-3); }
 .gp-deal-photo.is-missing { background: var(--gp-pale); }
@@ -260,7 +260,8 @@
 /* Deal of the day: photo | details | price chart (stacks on smaller screens) */
 .gp-deal-feature { display: grid; grid-template-columns: 260px minmax(0, 1fr); margin-bottom: 16px; border-radius: 16px; }
 .gp-deal-feature .gp-deal-photo { aspect-ratio: auto; height: 100%; min-height: 230px; border-bottom: 0; border-right: 1px solid var(--gp-line); }
-.gp-deal-feature .gp-deal-photo img { top: 20px; left: 20px; width: calc(100% - 40px); height: calc(100% - 40px); }
+.gp-deal-feature .gp-deal-photo img { top: 48px; left: 20px; width: calc(100% - 40px); height: calc(100% - 68px); }
+.gp-deal-feature .gp-deal-badge { left: 14px; top: 14px; }
 .gp-deal-feature .gp-deal-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 20px 32px; align-items: center;
   padding: 24px 28px; }
 .gp-deal-info { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
@@ -290,6 +291,10 @@
 @media (max-width: 460px) {
   .gp-deal-grid { gap: 10px; }
   .gp-deal-body { padding: 10px 11px 12px; }
+  .gp-deal-badge { left: 8px; top: 8px; font-size: 11px; padding: 3px 8px; }
+  .gp-deal-photo img { top: 34px; left: 10px; width: calc(100% - 20px); height: calc(100% - 42px); }
+  .gp-deal-feature .gp-deal-badge { left: 10px; top: 10px; }
+  .gp-deal-feature .gp-deal-photo img { top: 40px; left: 14px; width: calc(100% - 28px); height: calc(100% - 52px); }
   .gp-deal-price strong { font-size: 18px; }
   .gp-deal-foot b { display: none; }
 }
