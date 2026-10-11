@@ -1,0 +1,87 @@
+{
+ "checked": "2026-10-11T14:23+01:00",
+ "currency": "GBP",
+ "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
+ "drops": [
+  {
+   "model": "Odyssey Ai-ONE 1 CH Putter",
+   "model_id": "odyssey-ai-one-1-ch-putter",
+   "date": "2026-10-11",
+   "was": 249.0,
+   "now": 216.75,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-ai-one-1-ch-putter/"
+  },
+  {
+   "model": "Bushnell Tour V6 Laser Rangefinder",
+   "model_id": "bushnell-tour-v6-laser-rangefinder",
+   "date": "2026-10-11",
+   "was": 279.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-tour-v6-laser-rangefinder/"
+  },
+  {
+   "model": "TaylorMade Spider Tour Double Bend Putter",
+   "model_id": "taylormade-spider-tour-double-bend-putter",
+   "date": "2026-10-11",
+   "was": 299.0,
+   "now": 269.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-spider-tour-double-bend-putter/"
+  },
+  {
+   "model": "Ping Blueprint S Irons",
+   "model_id": "ping-blueprint-s-irons",
+   "date": "2026-10-11",
+   "was": 1259.0,
+   "now": 1175.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-blueprint-s-irons/"
+  },
+  {
+   "model": "Srixon ZXi Driver",
+   "model_id": "srixon-zxi-driver",
+   "date": "2026-10-09",
+   "was": 329.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-zxi-driver/"
+  },
+  {
+   "model": "Titleist GT1 Driver",
+   "model_id": "titleist-gt1-driver",
+   "date": "2026-10-08",
+   "was": 499.0,
+   "now": 449.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gt1-driver/"
+  },
+  {
+   "model": "SkyCaddie LX5 GPS Watch",
+   "model_id": "skycaddie-lx5-gps-watch",
+   "date": "2026-10-07",
+   "was": 249.0,
+   "now": 199.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/skycaddie-lx5-gps-watch/"
+  },
+  {
+   "model": "Mizuno BR-D3 25 Stand Golf Bag",
+   "model_id": "mizuno-br-d3-25-stand-golf-bag",
+   "date": "2026-10-07",
+   "was": 139.0,
+   "now": 119.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-br-d3-25-stand-golf-bag/"
+  }
+ ]
+}
