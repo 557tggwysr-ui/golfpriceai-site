@@ -162,9 +162,10 @@
     </div>
   </section>
 
-  <!-- Seasonal banner: switches itself by date (Black Friday 1 Nov to 1 Dec,
-       Christmas 2 to 24 Dec, Boxing Day sales 25 Dec to 10 Jan), hidden the
-       rest of the year. Preview any time with ?season=bf, xmas or boxing. -->
+  <!-- Seasonal banner: switches itself by date (Winter golf in October, Black
+       Friday 1 Nov to 1 Dec, Christmas 2 to 24 Dec, Boxing Day sales 25 Dec to
+       10 Jan, Winter golf again 11 Jan to end of Feb), hidden the rest of the
+       year. Preview any time with ?season=winter, bf, xmas or boxing. -->
   <div class="container"><a class="gp-season" id="gp-season" href="/prices/" hidden>
     <span class="gp-season-kicker" id="gp-season-kicker"></span>
     <span class="gp-season-text"><strong id="gp-season-title"></strong><span id="gp-season-line"></span></span>
@@ -174,11 +175,12 @@
   (function () {
     var now = new Date(), y = now.getFullYear(), m = now.getMonth() + 1, d = now.getDate();
     function bfDay(year) { var n1 = new Date(year, 10, 1), thu = 1 + ((4 - n1.getDay() + 7) % 7); return thu + 22; }
-    var bf = bfDay(y), season = (location.search.match(/[?&]season=(bf|xmas|boxing)/) || [])[1];
+    var bf = bfDay(y), season = (location.search.match(/[?&]season=(bf|xmas|boxing|winter)/) || [])[1];
     if (!season) {
       if (m === 11 || (m === 12 && d <= 1)) season = 'bf';
       else if (m === 12 && d >= 2 && d <= 24) season = 'xmas';
       else if ((m === 12 && d >= 25) || (m === 1 && d <= 10)) season = 'boxing';
+      else if (m === 10 || m === 1 || m === 2) season = 'winter';
     }
     if (!season) return;
     var daysToBf = Math.ceil((new Date(y, 10, bf) - now) / 864e5);
@@ -190,7 +192,9 @@
       xmas: ['Christmas ' + y, 'Golf gifts at their lowest price', 'Gift ideas from under £25, with live UK prices and the ones at their lowest we’ve tracked.',
              'Find a gift', '/prices/christmas/'],
       boxing: ['Boxing Day sales', 'Is it really cheaper? We checked.', 'Every sale price compared with what it cost in early December.',
-               'See the real deals', '/prices/boxing-day-sales/']
+               'See the real deals', '/prices/boxing-day-sales/'],
+      winter: ['Winter golf', 'Stay dry, stay warm, keep playing', 'Waterproofs, thermals and winter gloves at live UK prices. We flag the ones at the lowest price we’ve tracked.',
+               'Gear up for winter', '/prices/winter-golf/']
     }[season];
     var a = document.getElementById('gp-season');
     document.getElementById('gp-season-kicker').textContent = c[0];
@@ -198,6 +202,7 @@
     document.getElementById('gp-season-line').textContent = c[2];
     document.getElementById('gp-season-cta').textContent = c[3] + ' →';
     a.href = c[4];
+    if (season === 'winter') a.classList.add('is-winter');
     a.hidden = false;
   })();
   </script>

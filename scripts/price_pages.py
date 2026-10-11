@@ -1184,6 +1184,12 @@ def build(models_list, products, today_str):
         s_changed, s_sitemap, seasonal_links = seasonal_pages.build(passing, built, products, today)
         changed += s_changed
         sitemap += s_sitemap
+        import winter_page
+        w_changed, w_sitemap = winter_page.build(passing, built, products, today)
+        changed += w_changed
+        sitemap += w_sitemap
+        if w_sitemap:
+            seasonal_links.append(("/prices/winter-golf/", "Winter golf gear", "Waterproofs, thermals and gloves at live prices"))
         import drops_page
         d_changed, d_sitemap, _ = drops_page.build(passing, built, today)
         changed += d_changed

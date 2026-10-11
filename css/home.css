@@ -212,6 +212,16 @@
 .gp-season-text strong { font-family: 'Poppins', 'Inter', sans-serif; font-size: 20px; line-height: 1.2; }
 .gp-season-text span { font-size: 14px; line-height: 1.45; color: #dbe3d7; }
 .gp-season-cta { flex: 0 0 auto; background: var(--gp-green); color: #fff; font-weight: 700; font-size: 14px; padding: 11px 16px; border-radius: 10px; }
+/* Winter: the frosty-fairway photo fades in on the right behind the copy. */
+.gp-season.is-winter { min-height: 170px; padding: 24px 26px;
+  background: linear-gradient(90deg, #16241c 0%, rgba(22, 36, 28, .92) 30%, rgba(22, 36, 28, .45) 60%, rgba(22, 36, 28, .05) 100%),
+              url('/assets/photos/winter-frost.jpg') 50% 36% / cover no-repeat, #16241c; }
+.gp-season.is-winter .gp-season-text { max-width: 560px; }
+.gp-season.is-winter .gp-season-cta { margin-left: auto; }
+@media (max-width: 700px) {
+  .gp-season.is-winter { background: linear-gradient(180deg, rgba(22, 36, 28, .55) 0%, #16241c 62%),
+              url('/assets/photos/winter-frost.jpg') 70% 40% / cover no-repeat, #16241c; padding-top: 110px; }
+}
 @media (max-width: 700px) {
   .gp-season { flex-direction: column; align-items: flex-start; gap: 10px; padding: 16px; }
   .gp-season-text strong { font-size: 18px; }
