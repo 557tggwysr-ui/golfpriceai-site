@@ -56,11 +56,16 @@
   function featureCard(d) {
     var line = (d.lowest ? 'The lowest price in the ' + d.days + ' days we’ve tracked it' : 'Genuinely cheaper than it was') +
       ', at the cheapest of ' + d.retailers + ' UK retailer' + (d.retailers === 1 ? '' : 's') + '.';
+    var series = d.series || [], first = series.length ? series[0] : null;
+    var hi = Math.max.apply(null, series.map(function (s) { return s[1]; }).concat([d.now]));
+    var chart = '<span class="gp-deal-chart"><span class="gp-deal-chart-head"><span>Lowest new UK price</span><span>' +
+      (first ? 'since ' + day(first[0]) : '') + '</span></span>' + spark(d, 96) +
+      '<span class="gp-deal-chart-foot"><span>High ' + money(hi) + '</span><span>Today <b>' + money(d.now) + '</b></span></span></span>';
     return '<a class="gp-deal-card gp-deal-feature" href="/prices/' + esc(d.slug) + '/" data-slug="' + esc(d.slug) + '">' + photo(d) +
-      '<span class="gp-deal-body"><span class="gp-deal-kicker">Deal of the day</span><span class="gp-deal-brand">' + esc(d.brand) + '</span>' +
+      '<span class="gp-deal-body"><span class="gp-deal-info"><span class="gp-deal-kicker">Deal of the day</span><span class="gp-deal-brand">' + esc(d.brand) + '</span>' +
       '<span class="gp-deal-name">' + esc(short(d)) + '</span>' + priceLine(d, true) +
-      '<span class="gp-deal-line">' + line + '</span>' + spark(d, 74) +
-      '<span class="gp-deal-cta">Compare all ' + d.retailers + ' prices →</span></span></a>';
+      '<span class="gp-deal-line">' + line + '</span>' +
+      '<span class="gp-deal-cta">Compare all ' + d.retailers + ' prices →</span></span>' + chart + '</span></a>';
   }
 
   function render() {
