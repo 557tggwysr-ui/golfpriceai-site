@@ -282,6 +282,9 @@ def _base_name(name):
     return base
 
 
+CALLAWAY_PER_IRON_BELOW = 450
+
+
 def _model_type(p):
     """Returns (group, type_key, type_label) or None if out of scope."""
     cat = p.get("category")
@@ -290,6 +293,13 @@ def _model_type(p):
     if cat in CLUB_CATS:
         if cat == "irons":
             if SINGLE_IRON_RX.search(name) and not re.search(r"\b\d\s?-\s?(pw|gw|aw|sw|\d)\b", name, re.I):
+                return ("club", "single-iron", "Single Iron")
+            # Callaway's own feed prices most iron models per iron ("Big
+            # Bertha Irons" £134.40, against about £600+ for a set), with no
+            # sign of it in the name. No new Callaway iron set costs under
+            # £450, so below that it's a single-iron price.
+            if p.get("source") == "awin-callaway" and price < CALLAWAY_PER_IRON_BELOW \
+                    and not re.search(r"\bset\b|piece", name, re.I):
                 return ("club", "single-iron", "Single Iron")
             return ("club", "irons", "Irons")
         return ("club", cat, CLUB_TYPE_LABEL[cat])
@@ -374,7 +384,7 @@ def _display_tokens(tokens, listings):
 def _is_new(p):
     if p.get("source") in PREOWNED_SOURCES:
         return False
-    if p.get("condition") in USED_CONDITIONS or p.get("condition") == "Ex-demo":
+    if p.get("condition"):  # any condition at all means second-hand
         return False
     if re.search(r"\bused\b\s*$", p.get("name", ""), re.I):
         return False

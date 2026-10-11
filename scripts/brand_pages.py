@@ -234,6 +234,19 @@ def build_brands_index(brand_counts, today):
                       canonical=f"{SITE}/prices/brands/", body=body, section="", schema=[crumbs_schema], noindex=False)
 
 
+def gone_page(slug, today):
+    body = f"""<div class="pp-wrap">
+<section class="pp-hub-top">
+  <h1>No prices to show here right now</h1>
+  <p class="pp-answer">As of {long_date(today)}, none of the models on this page is new and in stock at the UK retailers we track, so we’ve stopped showing prices for it.</p>
+  <p><a class="pp-btn" href="/prices/brands/">See every brand we track</a></p>
+</section>
+{method_note(today)}
+</div>"""
+    return page_shell(title="No current prices | GolfPrice AI", description="No current prices for this page.",
+                      canonical=f"{SITE}/prices/brands/{slug}/", body=body, section="", schema=[], noindex=True)
+
+
 # ---------------------------------------------------------------- planning and entry point
 def plan(passing):
     """Which brand and brand+category pages exist this run. Used by the model
@@ -301,6 +314,14 @@ def build(passing, built, today, brand_pages, type_pages):
         if _write(BRANDS_DIR / s / "index.html", page):
             changed.append(f"/prices/brands/{s}/")
         sitemap.append((f"prices/brands/{s}/", lastmod([m for v in by_type.values() for m in v])))
+    # A brand page whose models have all gone (or failed the checks) says so
+    # plainly instead of leaving old prices up.
+    live = {s for s in type_pages.values()} | {brand_slug(b) for b in counts}
+    if BRANDS_DIR.exists():
+        for d in BRANDS_DIR.iterdir():
+            if d.is_dir() and d.name not in live and (d / "index.html").exists():
+                if _write(d / "index.html", gone_page(d.name, today)):
+                    changed.append(f"/prices/brands/{d.name}/")
     if counts:
         if _write(BRANDS_DIR / "index.html", build_brands_index(counts, today)):
             changed.append("/prices/brands/")

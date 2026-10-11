@@ -32,8 +32,8 @@ AUDIENCE = {"Male": "M", "Female": "F", "Junior": "J"}
 
 
 def _is_preowned_partner(p):
-    return p.get("source") in PREOWNED_SOURCES or (
-        p.get("source") == "awin-callaway" and p.get("condition") in USED_GRADES)
+    # Any second-hand listing (see is_preowned_partner in update_deals.py).
+    return p.get("source") in PREOWNED_SOURCES or bool(p.get("condition"))
 
 
 def _words(text):

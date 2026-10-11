@@ -312,11 +312,12 @@ function classifyCondition(p) {
 const PREOWNED_SOURCE = 'awin-callawaypreowned';
 const USED_GRADES = ['Preowned', 'Used', 'Like New', 'Very Good', 'Good', 'Average'];
 
-// Some Callaway Preowned stock arrives through the main Callaway feed with a
-// used grade attached; it belongs in the Preowned section too.
+// Every second-hand listing, from any retailer, lives only in this section:
+// Callaway Preowned, plus anything with a condition (Affordable Golf and
+// Scottsdale "Used", Major Golf "Ex-demo", Callaway grades). New stock never
+// carries a condition.
 function isPreownedPartner(p) {
-  return p.source === PREOWNED_SOURCE ||
-    (p.source === 'awin-callaway' && USED_GRADES.includes(p.condition));
+  return p.source === PREOWNED_SOURCE || !!p.condition;
 }
 
 function baseFilteredProducts() {
@@ -579,7 +580,7 @@ function renderSidebar() {
   const conditionCounts = {};
   conditionScoped.forEach(p => { const c = classifyCondition(p); conditionCounts[c] = (conditionCounts[c] || 0) + 1; });
   const conditionOrder = baseSource === 'awin-callawaypreowned'
-    ? ['Like New', 'Very Good', 'Good', 'Average', 'Preowned']
+    ? ['Like New', 'Very Good', 'Good', 'Average', 'Used', 'Ex-demo', 'Preowned']
     : ['New', 'Preowned'];
   const conditionOpts = conditionOrder
     .map(key => ({ key, label: key, count: conditionCounts[key] || 0 }));
@@ -701,10 +702,10 @@ function renderCategoryBanner() {
     el.innerHTML = `
       <div class="theme-banner">
         <h2>\u267b\ufe0f Preowned & Trade Ins</h2>
-        <p>These are secondhand clubs and trade-ins from Callaway Golf Preowned \u2014 kept in their own
-        section deliberately, since trade-in pricing works differently to new retail and mixing the
-        two would distort genuine price comparisons. Most items have a real condition grade
-        (Average, Good, Very Good, or Like New) shown right on the card.</p>
+        <p>Second-hand clubs, ex-demo stock and trade-ins from multiple UK retailers \u2014 kept in their own
+        section deliberately, since used prices work differently to new retail and mixing the
+        two would distort genuine price comparisons. Each card shows its condition: a grade where the
+        retailer gives one (Like New to Average), otherwise Used or Ex-demo.</p>
         <p class="tagline">Real Secondhand Prices.<span class="quip"> Kept Separate, On Purpose.</span></p>
       </div>` + (groupNoteHTML || '');
     return;

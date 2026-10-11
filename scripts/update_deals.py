@@ -1184,6 +1184,32 @@ def extract_preowned_title_and_condition(raw_title):
     return title.strip(), condition_label
 
 
+# Affordable Golf sells thousands of second-hand clubs alongside new stock
+# and its feed doesn't say which is which. Every second-hand item's photo is
+# named after its stock code, starting "sh-" ("sh-ek74643a.jpg"); no new item's
+# is. Checked across their whole feed (Oct 2026): 4,698 listings, all
+# second-hand, matching their "Second Hand" pages on the website.
+AFFORDABLE_SECONDHAND_IMAGE = re.compile(r"/sh-[^/]*$", re.I)
+
+
+def is_affordable_secondhand(p):
+    image = (p.get("image") or "").split("?")[0]
+    return p.get("source") == "awin-affordablegolf" and bool(AFFORDABLE_SECONDHAND_IMAGE.search(image))
+
+
+def mark_secondhand(products):
+    """Run on the whole catalogue every time, so a second-hand listing is
+    labelled even on a run where its retailer's feed failed to download."""
+    n = 0
+    for p in products:
+        if not p.get("condition") and is_affordable_secondhand(p):
+            p["condition"] = "Used"
+            n += 1
+    if n:
+        print(f"Second-hand: labelled {n} Affordable Golf second-hand listing(s) as Used.")
+    return products
+
+
 def detect_generic_used_suffix(raw_title):
     """Generic fallback for ordinary (non-dedicated-preowned-marketplace)
     retailers whose feed marks an individual used item with a plain
@@ -1413,6 +1439,8 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_form
         if image:
             product["image"] = image
         product["icon"] = icon
+        if not preowned_condition and is_affordable_secondhand(product):
+            preowned_condition = "Used"
         if preowned_condition:
             product["condition"] = preowned_condition
         if colour:
@@ -2484,11 +2512,12 @@ USED_GRADES = {"Preowned", "Used", "Like New", "Very Good", "Good", "Average"}
 
 
 def is_preowned_partner(p):
-    """Callaway Preowned stock. Some of it arrives under the main Callaway
-    feed with a used grade attached (same product name as the new club), so
-    a graded Callaway listing counts as pre-owned too."""
-    return p.get("source") in PREOWNED_ONLY_SOURCES or (
-        p.get("source") == "awin-callaway" and p.get("condition") in USED_GRADES)
+    """Second-hand stock from any retailer: Callaway Preowned, plus anything
+    carrying a condition (Callaway grades, Affordable Golf and Scottsdale
+    "Used", Major Golf "Ex-demo"/"Preowned"). New stock never has one. All of
+    it lives only in the Preowned and trade-ins section (Oct 2026 decision),
+    so used prices never sit in "lowest price" lists."""
+    return p.get("source") in PREOWNED_ONLY_SOURCES or bool(p.get("condition"))
 
 
 def new_stock_only(products):
@@ -2708,7 +2737,7 @@ def save_apparel_lite_catalog(catalog):
     about a quarter the size of the original full catalog."""
     apparel_lite = [
         {k: v for k, v in p.items() if k not in LITE_CATALOG_DROP_FIELDS}
-        for p in catalog["products"] if p.get("category") == "apparel"
+        for p in new_stock_only(catalog["products"]) if p.get("category") == "apparel"
     ]
     lite = {"lastUpdated": catalog.get("lastUpdated"), "products": apparel_lite}
     APPAREL_LITE_FILE.write_text(json.dumps(lite))
@@ -2919,6 +2948,7 @@ def main():
     catalog["products"], dropped_unpriced = models.drop_unpriced(catalog["products"])
 
     catalog["products"] = backfill_catalog(catalog["products"])
+    mark_secondhand(catalog["products"])
     identity.count_retailers(catalog["products"])
     identity.assign_unique_ids(catalog["products"])
 
