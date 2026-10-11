@@ -1,7 +1,8 @@
 """The Friday "Genuine Drops" email.
 
-Sent once a week, on the first update run on a Friday from 06:00 UTC
-(07:00 UK summer time, 06:00 winter), to everyone on the Brevo alerts list
+Sent once a week at about 4pm UK time on Friday (the friday-email workflow
+runs at 15:00 and 16:00 UTC so it's 4pm in both summer and winter time; a
+later Friday run is the fallback), to everyone on the Brevo alerts list
 who asked for it: people who signed up on the homepage or search page.
 People who only asked to watch one model were promised no newsletter, so
 they don't get it.
@@ -26,6 +27,7 @@ import json
 import os
 import sys
 from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 import alerts
@@ -42,7 +44,8 @@ LOOKBACK_DAYS = 60
 MAX_CHANGES = 4
 MAX_DROP_PCT = 0.60
 MAX_ITEMS = 8
-SEND_FROM_HOUR_UTC = 6
+SEND_FROM_HOUR_UK = 16
+UK = ZoneInfo("Europe/London")
 DIGEST_SLUG = "friday-email"  # must match DIGEST_SLUG in workers/alerts-worker.js
 
 
@@ -165,7 +168,8 @@ def subject(picks):
 # ---------------------------------------------------------------- main
 def due(state, now):
     week = now.strftime("%G-W%V")
-    return now.weekday() == 4 and now.hour >= SEND_FROM_HOUR_UTC and (state.get("digest") or {}).get("week") != week
+    uk = now.astimezone(UK)
+    return uk.weekday() == 4 and uk.hour >= SEND_FROM_HOUR_UK and (state.get("digest") or {}).get("week") != week
 
 
 def main(argv):
