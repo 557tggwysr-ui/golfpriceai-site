@@ -414,7 +414,7 @@ def _daily_series(listings, history, today, multiplier=None):
     first_seen = {}
     per_listing = {}
     for p in listings:
-        entries = history.get(p["name"]) or []
+        entries = history.get(f"{p.get('source', '')}|{p['name']}") or []
         if not entries:
             continue
         entries = sorted(entries, key=lambda e: e["date"])

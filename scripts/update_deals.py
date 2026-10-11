@@ -65,6 +65,7 @@ from xml.sax.saxutils import escape as xml_escape
 
 import models  # scripts/models.py: category audit, £0 clean-up, model grouping
 import price_pages  # scripts/price_pages.py: static /prices/ pages, sitemaps
+import identity  # scripts/identity.py: one listing = retailer + name
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
 
@@ -890,7 +891,7 @@ def record_and_score_prices(catalog_products, history, today_str):
         if price is None:
             continue
         name = p["name"]
-        entries = products_history.setdefault(name, [])
+        entries = products_history.setdefault(identity.listing_key(p), [])
 
         is_suspicious = False
         if entries and entries[-1]["price"] != price:
@@ -914,7 +915,7 @@ def record_and_score_prices(catalog_products, history, today_str):
 
     # Drop history for products no longer in the catalog at all, so the
     # file doesn't grow forever with discontinued items.
-    current_names = {p["name"] for p in catalog_products}
+    current_names = {identity.listing_key(p) for p in catalog_products}
     stale_names = [n for n in products_history if n not in current_names]
     for n in stale_names:
         del products_history[n]
@@ -1004,8 +1005,7 @@ def record_and_score_stock(catalog_products, stock_history, today_str):
         in_stock = p.get("inStock")
         if in_stock is None:
             continue
-        name = p["name"]
-        entries = products_history.setdefault(name, [])
+        entries = products_history.setdefault(identity.listing_key(p), [])
         if not entries or entries[-1]["inStock"] != in_stock:
             entries.append({"date": today_str, "inStock": in_stock})
         entries[:] = _prune_history_entries(entries, today)
@@ -1013,7 +1013,7 @@ def record_and_score_stock(catalog_products, stock_history, today_str):
         p["stockInsight"] = compute_stock_insight(entries, in_stock, today_str)
         scored += 1
 
-    current_names = {p["name"] for p in catalog_products}
+    current_names = {identity.listing_key(p) for p in catalog_products}
     stale_names = [n for n in products_history if n not in current_names]
     for n in stale_names:
         del products_history[n]
@@ -1643,7 +1643,10 @@ def dedupe_products(fresh_products):
     """
     by_key = {}
     for p in fresh_products:
-        key = p.get("_mpu") or p["name"]
+        # One listing = one retailer's product. Identical names at two
+        # different retailers are two listings, never merged (since Oct 2026;
+        # merging them made them share one price history).
+        key = (p.get("source"), p.get("_mpu") or p["name"])
         by_key.setdefault(key, []).append(p)
 
     deduped = []
@@ -1756,17 +1759,18 @@ def merge_products(catalog_products, fresh_products):
     sub-type icon from before a category fix would silently persist
     forever even after the underlying bug was corrected.
     """
-    by_name = {p["name"]: p for p in catalog_products}
+    by_key = {identity.listing_key(p): p for p in catalog_products}
     for item in fresh_products:
-        if item["name"] in by_name:
-            existing = by_name[item["name"]]
+        key = identity.listing_key(item)
+        if key in by_key:
+            existing = by_key[key]
             existing.update(item)
-            for key, value in item.items():
+            for k, value in item.items():
                 if value is None:
-                    existing.pop(key, None)
+                    existing.pop(k, None)
         else:
-            by_name[item["name"]] = {k: v for k, v in item.items() if v is not None}
-    return list(by_name.values())
+            by_key[key] = {k: v for k, v in item.items() if v is not None}
+    return list(by_key.values())
 
 
 # ============================================================
@@ -2582,7 +2586,7 @@ def credible_drop(p):
             _HISTORY_CACHE["products"] = json.loads(PRICE_HISTORY_FILE.read_text()).get("products", {})
         except (OSError, ValueError):
             _HISTORY_CACHE["products"] = {}
-    entries = sorted(_HISTORY_CACHE["products"].get(p["name"]) or [], key=lambda e: e["date"])
+    entries = sorted(_HISTORY_CACHE["products"].get(identity.listing_key(p)) or [], key=lambda e: e["date"])
     if not entries:
         return False
     today = datetime.now(timezone.utc).date()
@@ -2881,6 +2885,12 @@ def save_bundles(bundles):
 def main():
     catalog = json.loads(DATA_FILE.read_text())
 
+    # One-off (Oct 2026): move both history files from name keys to
+    # retailer + name keys, using the catalogue as it was before this run.
+    identity.migrate_history_file(PRICE_HISTORY_FILE, catalog["products"], "price")
+    identity.migrate_history_file(STOCK_HISTORY_FILE, catalog["products"], "stock")
+    identity.clean_mixed_records(catalog["products"])
+
     fresh = (
         fetch_cj_deals()
         + fetch_awin_deals()
@@ -2908,6 +2918,8 @@ def main():
     catalog["products"], dropped_unpriced = models.drop_unpriced(catalog["products"])
 
     catalog["products"] = backfill_catalog(catalog["products"])
+    identity.count_retailers(catalog["products"])
+    identity.assign_unique_ids(catalog["products"])
 
     today_str = datetime.now(timezone.utc).date().isoformat()
     price_history = load_price_history()
