@@ -59,16 +59,18 @@ jobs:
       - name: Tell Bing about changed price pages (IndexNow)
         run: python scripts/indexnow.py
 
-      - name: Send price-drop alert emails
-        # After the pages are live, so the link in the email shows the new
-        # price. Skips itself until the Brevo secrets are added. Saves only
-        # model prices (no emails) to data/alerts-state.json.
+      - name: Send price-drop alerts and the Friday email
+        # After the pages are live, so the links in the emails show the new
+        # prices. The Friday "Genuine Drops" email goes on the first run on a
+        # Friday from 06:00 UTC, once a week. Saves only model prices and
+        # counts (no emails) to data/alerts-state.json.
         continue-on-error: true
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
           ALERTS_SECRET: ${{ secrets.ALERTS_SECRET }}
         run: |
           python scripts/alerts.py
+          python scripts/digest.py
           git add data/alerts-state.json 2>/dev/null || true
           if ! git diff --quiet --cached; then
             git commit -m "Alert reference prices"
