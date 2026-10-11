@@ -889,8 +889,13 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
                       schema=[item_list, crumbs_schema], noindex=noindex)
 
 
-def build_index_page(all_models, hubs_built, today, noindex):
+def build_index_page(all_models, hubs_built, today, noindex, seasonal_links=()):
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", None)])
+    seasonal_html = ""
+    if seasonal_links:
+        sc = "".join(f'<a class="pp-card pp-rel" href="{u}"><span class="pp-rel-name">{esc(t)}</span><span class="pp-sub">{esc(d)}</span></a>'
+                     for u, t, d in seasonal_links)
+        seasonal_html = f'<section class="pp-block"><h2>Seasonal guides</h2><div class="pp-rel-grid">{sc}</div></section>'
     cards = []
     for h in hubs_built:
         t = HUB_TYPES[h]
@@ -905,6 +910,7 @@ def build_index_page(all_models, hubs_built, today, noindex):
   <p class="pp-answer">Every price guide is built from our own record of UK golf prices, checked every 6 hours since August 2026: the lowest price today, where to buy it, and whether now's a good time.</p>
 </section>
 <section class="pp-block"><div class="pp-rel-grid">{''.join(cards)}</div></section>
+{seasonal_html}
 {method_note(today)}
 </div>"""
     return page_shell(title="UK Golf Price Guides | GolfPrice AI",
@@ -1079,7 +1085,9 @@ def build(models_list, products, today_str):
     by_id = {p["id"]: p for p in products}
     by_slug = {m["slug"]: m for m in models_list if m["type"] in TYPES}
     passing = [m for m in models_list if m["gate"]["passes"] and m["type"] in TYPES]
-    existing = {d.name for d in PRICES_DIR.iterdir() if d.is_dir() and d.name not in HUB_TYPES}
+    from seasonal_pages import SEASONAL_SLUGS
+    existing = {d.name for d in PRICES_DIR.iterdir()
+                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS}
     if mode == "pilot":
         wanted = cfg.get("pilot", [])
         chosen = [m for m in passing if m["slug"] in wanted]
@@ -1137,7 +1145,13 @@ def build(models_list, products, today_str):
             changed.append(f"/prices/{h}/")
         hub_models = [m for m in passing if TYPES[m["type"]][0] == h]
         sitemap.append((f"prices/{h}/", max((last_price_change(m) or "") for m in hub_models) or None))
-    if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex)):
+    seasonal_links = []
+    if mode == "live":
+        import seasonal_pages
+        s_changed, s_sitemap, seasonal_links = seasonal_pages.build(passing, built, products, today)
+        changed += s_changed
+        sitemap += s_sitemap
+    if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex, seasonal_links)):
         changed.append("/prices/")
     sitemap.append(("prices/", max((lm or "" for _, lm in sitemap), default=None) or None))
     if mode == "live":

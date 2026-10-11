@@ -158,3 +158,26 @@ a.pp-chip:hover { border-color: var(--gp-green); color: var(--gp-green-dark); }
 .pp-alert h2 { margin: 0 0 6px; }
 .pp-alert-copy p { margin: 0; color: var(--gp-text-2); line-height: 1.5; }
 @media (max-width: 760px) { .pp-alert { grid-template-columns: 1fr; padding: 18px 16px; } }
+
+/* ---------------------------------------------------------------- seasonal pages
+   Black Friday tracker and gift guides (scripts/seasonal_pages.py) */
+.sb-kicker { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--gp-green-dark); background: var(--gp-pale); border-radius: 999px; padding: 5px 11px; }
+.sb-table td { white-space: nowrap; }
+.sb-table .sb-type { display: block; margin-top: 2px; font-weight: 400; }
+.sb-down { color: var(--gp-green-dark); font-weight: 700; }
+.sb-up { color: #b42318; font-weight: 700; }
+.sb-empty { padding: 18px 20px; margin: 0; color: var(--gp-text-2); }
+.sg-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+.sg-card { display: flex; flex-direction: column; gap: 4px; padding: 12px; color: var(--gp-ink); text-decoration: none; }
+.sg-card:hover { border-color: var(--gp-green); }
+.sg-img { display: block; aspect-ratio: 1 / 1; background: #fff; border-radius: 10px; overflow: hidden; margin-bottom: 6px; }
+.sg-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.sg-img.sg-noimg { background: var(--gp-pale) url('/assets/logo-full.png') center / 50% no-repeat; opacity: .5; }
+.sg-name { font-weight: 600; font-size: 14px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.sg-price { font-weight: 800; font-size: 16px; }
+.sg-badge { align-self: flex-start; margin-top: 4px; font-size: 11px; font-weight: 700; color: var(--gp-green-dark); background: #e3f4dc; border-radius: 999px; padding: 3px 8px; }
+.sg-budgets { align-items: center; }
+.pp-chip.sg-on { background: var(--gp-ink); color: #fff; border-color: var(--gp-ink); }
+@media (max-width: 1100px) { .sg-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .sg-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .sb-table td, .sb-table th { font-size: 14px; } }
