@@ -1106,7 +1106,7 @@ def build(models_list, products, today_str):
     passing = [m for m in models_list if m["gate"]["passes"] and m["type"] in TYPES]
     from seasonal_pages import SEASONAL_SLUGS
     existing = {d.name for d in PRICES_DIR.iterdir()
-                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name != "brands"}
+                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name not in ("brands", "drops")}
     if mode == "pilot":
         wanted = cfg.get("pilot", [])
         chosen = [m for m in passing if m["slug"] in wanted]
@@ -1184,6 +1184,11 @@ def build(models_list, products, today_str):
         s_changed, s_sitemap, seasonal_links = seasonal_pages.build(passing, built, products, today)
         changed += s_changed
         sitemap += s_sitemap
+        import drops_page
+        d_changed, d_sitemap, _ = drops_page.build(passing, built, today)
+        changed += d_changed
+        sitemap += d_sitemap
+        seasonal_links = [("/prices/drops/", "Price drops today", "Genuine drops only, updated every 6 hours")] + list(seasonal_links)
     if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex, seasonal_links, brand_counts)):
         changed.append("/prices/")
     sitemap.append(("prices/", max((lm or "" for _, lm in sitemap), default=None) or None))
@@ -1194,7 +1199,8 @@ def build(models_list, products, today_str):
         write_sitemaps(sitemap, today)
         # Tell Bing and the other IndexNow engines only about pages whose
         # prices actually changed (sent after the files are published).
-        urls = sorted(set(price_changed + ([f"/prices/{h}/" for h in hubs] + ["/prices/"] if price_changed else [])))
+        urls = sorted(set(price_changed + ([f"/prices/{h}/" for h in hubs] + ["/prices/", "/prices/drops/"]
+                                           if price_changed else [])))
         INDEXNOW_LIST.write_text("\n".join(SITE + u for u in urls) + ("\n" if urls else ""))
     print(f"Price pages ({mode}): {len(built)} model page(s), {len(hubs)} hub(s); {len(changed)} page file(s) changed, "
           f"{len(price_changed)} with new prices.")
