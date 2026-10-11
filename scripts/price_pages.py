@@ -57,6 +57,10 @@ TYPES = {
     "launch-monitor": ("launch-monitors", "Launch monitors", "launch monitor", "accessories"),
 }
 HUB_TYPES = {v[0]: k for k, v in TYPES.items()}
+# Filled each run by build() from brand_pages.plan(): model slug -> its
+# brand + category page, and category -> [(brand, page url)] for the hubs.
+BRAND_LINK = {}
+BRAND_CHIPS = {}
 CLUB_TYPES = {"driver", "wood", "hybrid", "irons", "wedge", "putter"}
 TYPE_ICON = {"driver": "driver", "wood": "wood", "hybrid": "hybrid", "irons": "irons", "wedge": "wedge",
              "putter": "putter", "ball": "ball", "gps-watch": "gps-watch", "rangefinder": "rangefinder",
@@ -572,7 +576,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     hub_url = f"/prices/{model.hub_slug}/" if model.hub_slug in hubs_built else None
 
     crumbs_html, crumbs_schema = breadcrumb([
-        ("Home", "/"), ("Prices", "/prices/"), (model.hub_label, hub_url), (m["brand"], None),
+        ("Home", "/"), ("Prices", "/prices/"), (model.hub_label, hub_url), (m["brand"], BRAND_LINK.get(m["slug"])),
         (name.replace(m["brand"] + " ", "", 1), None)])
 
     cheapest_at = [r["retailer"] for r in rows if abs(r["price"] - low["price"]) < 0.005]
@@ -837,9 +841,12 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
 </tr>""" for m in ms)
     others = [h for h in hubs_built if h != hub_slug]
     other_html = ""
+    if BRAND_CHIPS.get(type_key):
+        bchips = "".join(f'<a class="pp-chip" href="{u}">{esc(b)}</a>' for b, u in BRAND_CHIPS[type_key])
+        other_html += f'<section class="pp-block"><h2>{esc(label)} by brand</h2><div class="pp-chips">{bchips}</div></section>'
     if others:
         links = "".join(f'<a class="pp-chip" href="/prices/{h}/">{TYPES[HUB_TYPES[h]][1]}</a>' for h in others)
-        other_html = f'<section class="pp-block"><h2>More price guides</h2><div class="pp-chips">{links}</div></section>'
+        other_html += f'<section class="pp-block"><h2>More price guides</h2><div class="pp-chips">{links}</div></section>'
     body = f"""<div class="pp-wrap">
 {crumbs_html}
 <section class="pp-hub-top">
@@ -895,13 +902,19 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
                       schema=[item_list, crumbs_schema], noindex=noindex)
 
 
-def build_index_page(all_models, hubs_built, today, noindex, seasonal_links=()):
+def build_index_page(all_models, hubs_built, today, noindex, seasonal_links=(), brand_counts=None):
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", None)])
     seasonal_html = ""
     if seasonal_links:
         sc = "".join(f'<a class="pp-card pp-rel" href="{u}"><span class="pp-rel-name">{esc(t)}</span><span class="pp-sub">{esc(d)}</span></a>'
                      for u, t, d in seasonal_links)
         seasonal_html = f'<section class="pp-block"><h2>Seasonal guides</h2><div class="pp-rel-grid">{sc}</div></section>'
+    if brand_counts:
+        from brand_pages import brand_slug
+        top = sorted(brand_counts.items(), key=lambda x: -x[1])[:16]
+        chips = "".join(f'<a class="pp-chip" href="/prices/brands/{brand_slug(b)}/">{esc(b)} <em>{n}</em></a>' for b, n in top)
+        seasonal_html += (f'<section class="pp-block"><h2>By brand</h2><div class="pp-chips">{chips}'
+                          f'<a class="pp-chip" href="/prices/brands/">All {len(brand_counts)} brands →</a></div></section>')
     cards = []
     for h in hubs_built:
         t = HUB_TYPES[h]
@@ -1093,7 +1106,7 @@ def build(models_list, products, today_str):
     passing = [m for m in models_list if m["gate"]["passes"] and m["type"] in TYPES]
     from seasonal_pages import SEASONAL_SLUGS
     existing = {d.name for d in PRICES_DIR.iterdir()
-                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS}
+                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name != "brands"}
     if mode == "pilot":
         wanted = cfg.get("pilot", [])
         chosen = [m for m in passing if m["slug"] in wanted]
@@ -1114,6 +1127,16 @@ def build(models_list, products, today_str):
     noindex = mode != "live"
     built = {m["slug"] for m in chosen}
     changed, price_changed, sitemap = [], [], []
+    import brand_pages
+    b_pages, t_pages = brand_pages.plan(passing) if mode == "live" else ({}, {})
+    BRAND_LINK.clear()
+    BRAND_CHIPS.clear()
+    for m in passing:
+        link = brand_pages.crumb_link(m, t_pages, b_pages)
+        if link:
+            BRAND_LINK[m["slug"]] = link
+    for (b, t), slug in sorted(t_pages.items(), key=lambda x: x[0][0].lower()):
+        BRAND_CHIPS.setdefault(t, []).append((b, f"/prices/brands/{slug}/"))
     PAGE_FOR_LISTING.clear()
     for m in chosen:
         out = build_model_page(Model(m, by_id, today), passing, built, set(hubs), today, noindex)
@@ -1152,12 +1175,16 @@ def build(models_list, products, today_str):
         hub_models = [m for m in passing if TYPES[m["type"]][0] == h]
         sitemap.append((f"prices/{h}/", max((last_price_change(m) or "") for m in hub_models) or None))
     seasonal_links = []
+    brand_counts = {}
     if mode == "live":
+        b_changed, b_sitemap, brand_counts = brand_pages.build(passing, built, today, b_pages, t_pages)
+        changed += b_changed
+        sitemap += b_sitemap
         import seasonal_pages
         s_changed, s_sitemap, seasonal_links = seasonal_pages.build(passing, built, products, today)
         changed += s_changed
         sitemap += s_sitemap
-    if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex, seasonal_links)):
+    if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex, seasonal_links, brand_counts)):
         changed.append("/prices/")
     sitemap.append(("prices/", max((lm or "" for _, lm in sitemap), default=None) or None))
     if mode == "live":
