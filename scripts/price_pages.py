@@ -1188,6 +1188,8 @@ def build(models_list, products, today_str):
         d_changed, d_sitemap, _ = drops_page.build(passing, built, today)
         changed += d_changed
         sitemap += d_sitemap
+        import home_deals
+        home_deals.build(passing, built, products, today)
         import open_data
         o_changed, o_sitemap = open_data.build(passing, built, today)
         changed += o_changed

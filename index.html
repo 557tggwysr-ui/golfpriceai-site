@@ -254,18 +254,27 @@
   </section>
 
 <div class="container">
-  <section class="section" id="deals">
-    <div class="section-head">
-      <h2>Today's Best Golf Deals</h2>
-      <a href="/shop.html">View all deals →</a>
+  <section class="section gp-deals" id="deals" aria-labelledby="deals-title">
+    <div class="gp-deals-head">
+      <div>
+        <h2 id="deals-title">Today's genuine price drops</h2>
+        <p>Checked against our own price history every 6 hours. No RRP games.</p>
+      </div>
+      <a href="/prices/drops/">See all price drops →</a>
     </div>
-    <p style="color:var(--muted);font-size:13px;margin:-10px 0 16px;">Prices shown are indicative — always check the retailer's page for the current price before buying.</p>
-    <div class="deal-grid" id="best-deals">
-      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
+    <div class="gp-deals-chips" id="deal-chips" role="group" aria-label="Category" hidden>
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="clubs" aria-pressed="false">Clubs</button>
+      <button type="button" data-f="tech" aria-pressed="false">Golf tech</button>
+      <button type="button" data-f="bags" aria-pressed="false">Bags, balls &amp; trolleys</button>
+    </div>
+    <div id="deal-feature"></div>
+    <div class="gp-deal-grid" id="deal-grid">
       <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
       <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
       <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
     </div>
+    <p class="gp-deals-note">Prices can change on the retailer's site, so check before you buy. Spotted something wrong? Email <a href="mailto:hello@golfpriceai.com?subject=Pricing%20issue">hello@golfpriceai.com</a>.</p>
   </section>
 </div>
 
@@ -448,6 +457,7 @@
 </footer>
 
 <script src="js/app.js"></script>
+<script src="js/home-deals.js"></script>
 <script src="js/groups-config.js"></script>
 <script src="js/hub.js"></script>
 <script src="js/analytics.js"></script>

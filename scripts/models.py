@@ -283,6 +283,7 @@ def _base_name(name):
 
 
 CALLAWAY_PER_IRON_BELOW = 450
+ANY_PER_IRON_BELOW = 120
 
 
 def _model_type(p):
@@ -298,6 +299,9 @@ def _model_type(p):
             # Bertha Irons" £134.40, against about £600+ for a set), with no
             # sign of it in the name. No new Callaway iron set costs under
             # £450, so below that it's a single-iron price.
+            # Any retailer: no new iron set costs under £120, so that's one iron.
+            if price < ANY_PER_IRON_BELOW and not re.search(r"\bset\b|piece", name, re.I):
+                return ("club", "single-iron", "Single Iron")
             if p.get("source") == "awin-callaway" and price < CALLAWAY_PER_IRON_BELOW \
                     and not re.search(r"\bset\b|piece", name, re.I):
                 return ("club", "single-iron", "Single Iron")
