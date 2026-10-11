@@ -1,0 +1,46 @@
+name: Most compared ranking
+
+# Once a day, asks Google Analytics which price pages were viewed most this
+# week and saves the ranking (model names and positions only) to
+# data/most-compared-ranks.json. The 6-hourly "Update golf deals" run turns
+# that into the homepage "Most compared this week" list with current prices.
+# Needs the GA4_PROPERTY_ID and GA4_SA_KEY secrets; does nothing without them.
+
+on:
+  schedule:
+    - cron: '20 4 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  rank:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install the Google sign-in library
+        run: pip install google-auth requests
+
+      - name: Fetch this week's ranking
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GA4_SA_KEY: ${{ secrets.GA4_SA_KEY }}
+        run: python scripts/most_compared.py fetch
+
+      - name: Save it
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/most-compared-ranks.json 2>/dev/null || true
+          if ! git diff --quiet --cached; then
+            git commit -m "Most compared ranking"
+            git pull --rebase
+            git push
+          fi
