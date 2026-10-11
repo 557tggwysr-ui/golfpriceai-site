@@ -344,3 +344,34 @@ footer.gp-footer {
   .gp-search-go { padding: 12px 14px; font-size: 14px; }
   .gp-search { padding-left: 12px; }
 }
+
+/* ------------------------------------------------------------ deal alert forms
+   One form style for the homepage, price pages and search. Behaviour: the
+   "deal alerts" block in js/site.js. */
+.gp-alert-form { width: 100%; max-width: 460px; }
+.gp-af-label { display: block; font-size: 13px; font-weight: 600; color: var(--gp-ink); margin: 0 0 6px; }
+.gp-af-row { display: flex; gap: 8px; }
+.gp-af-row input {
+  flex: 1 1 auto; min-width: 0; font: inherit; font-size: 16px; /* 16px stops iPhones zooming in */
+  padding: 11px 14px; border: 1px solid #d5dad2; border-radius: 10px; background: #fff; color: var(--gp-ink);
+}
+.gp-af-row input:focus { outline: 2px solid var(--gp-green); outline-offset: 1px; border-color: var(--gp-green); }
+.gp-af-btn {
+  flex: 0 0 auto; font: inherit; font-weight: 700; font-size: 15px; cursor: pointer;
+  padding: 11px 18px; border: 0; border-radius: 10px; background: var(--gp-green); color: #fff;
+}
+.gp-af-btn:hover { background: var(--gp-green-dark); }
+.gp-af-btn:disabled { opacity: .6; cursor: wait; }
+.gp-af-small { margin: 8px 0 0; font-size: 12.5px; line-height: 1.45; color: var(--gp-text-3); }
+.gp-af-small a { color: inherit; text-decoration: underline; }
+.gp-af-msg { margin: 8px 0 0; font-size: 14px; line-height: 1.45; min-height: 0; }
+.gp-af-msg:empty { display: none; }
+.gp-af-msg.is-error { color: #b42318; }
+.gp-af-msg.is-ok { color: var(--gp-green-dark); font-weight: 600; }
+.gp-alert-form.is-done .gp-af-row, .gp-alert-form.is-done .gp-af-label, .gp-alert-form.is-done .gp-af-small { display: none; }
+/* Honeypot: hidden from people, filled in by spam bots. */
+.gp-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
+@media (max-width: 420px) {
+  .gp-af-row { flex-direction: column; }
+  .gp-af-btn { width: 100%; }
+}

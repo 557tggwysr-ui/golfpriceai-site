@@ -263,7 +263,8 @@ def footer_html():
 PAGES = ["index.html", "search.html", "shop.html", "clubs.html", "apparel.html", "accessories.html", "about.html", "faq.html",
          "back-in-stock.html", "best-time-to-buy.html", "build-your-bag.html", "complete-the-kit.html",
          "complete-the-look.html", "fairway-index.html", "find-your-fit.html", "receipts.html", "trending.html",
-         "404.html", "legal/cookies.html", "legal/privacy-policy.html"]
+         "404.html", "alerts-confirmed.html", "alerts-unsubscribed.html",
+         "legal/cookies.html", "legal/privacy-policy.html"]
 
 HEADER_RE = re.compile(r"<header class=\"(?:site-header|gp-header)\".*?</header>\s*(?:<div class=\"gp-menu\".*?</nav>\s*<div class=\"gp-menu-foot\">.*?</div>\s*</div>)?", re.S)
 FOOTER_RE = re.compile(r"<footer[ >].*?</footer>", re.S)

@@ -370,4 +370,53 @@
       link_area: card.className ? String(card.className).split(' ')[0] : 'link'
     });
   }, true);
+
+  /* ------------------------------------------------------------ deal alerts */
+  // Any <form class="gp-alert-form"> on any page (homepage, price pages, the
+  // search page's "no results" box) posts here. data-model / data-model-name
+  // on the form say which model to watch; without them it's a general
+  // sign-up. The worker sends a "please confirm" email first.
+  var ALERTS_URL = 'https://golfpriceai-alerts.golfpriceai.workers.dev';
+  document.addEventListener('submit', function (e) {
+    var form = e.target;
+    if (!form.classList || !form.classList.contains('gp-alert-form')) return;
+    e.preventDefault();
+    var input = form.querySelector('input[type=email]');
+    var btn = form.querySelector('button[type=submit]');
+    var msg = form.querySelector('.gp-af-msg');
+    var hp = form.querySelector('input[name=website]');
+    var email = (input.value || '').trim();
+    function say(text, kind) { msg.textContent = text; msg.className = 'gp-af-msg' + (kind ? ' is-' + kind : ''); }
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { say('Please enter a full email address.', 'error'); input.focus(); return; }
+    btn.disabled = true;
+    say('Sending…');
+    fetch(ALERTS_URL + '/subscribe', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ email: email, model: form.getAttribute('data-model') || '',
+        modelName: form.getAttribute('data-model-name') || '', website: hp ? hp.value : '' })
+    }).then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (res) {
+        btn.disabled = false;
+        if (!res.ok) { say(res.error || 'Something went wrong. Please try again in a minute.', 'error'); return; }
+        form.classList.add('is-done');
+        say(res.status === 'added'
+          ? 'Done: it’s on your alert list. Nothing to confirm, you’re already signed up.'
+          : 'Nearly there: check your inbox for a confirmation email from GolfPrice AI and click the button in it. Nothing is sent until you do.', 'ok');
+        if (window.gtag) gtag('event', 'alert_signup', { model: form.getAttribute('data-model') || 'general', status: res.status });
+      })
+      .catch(function () { btn.disabled = false; say('Couldn’t reach the alert service. Please check your connection and try again.', 'error'); });
+  });
+
+  // "Email me when it drops" buttons jump to the form and put the cursor in it.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href="#price-alert"]');
+    if (!a) return;
+    var box = document.getElementById('price-alert');
+    if (!box) return;
+    e.preventDefault();
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    var i = box.querySelector('input[type=email]');
+    if (i) setTimeout(function () { i.focus({ preventScroll: true }); }, 350);
+  });
 })();

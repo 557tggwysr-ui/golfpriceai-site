@@ -151,3 +151,10 @@ a.pp-chip:hover { border-color: var(--gp-green); color: var(--gp-green-dark); }
   .pp-chart-d { display: none; }
   .pp-chart-m { display: block; }
 }
+
+/* "Email me when it drops" box (form styles live in site.css) */
+.pp-alert { margin-top: 40px; padding: 22px 24px; background: var(--gp-pale); border-radius: 14px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 20px 32px; align-items: center; }
+.pp-alert h2 { margin: 0 0 6px; }
+.pp-alert-copy p { margin: 0; color: var(--gp-text-2); line-height: 1.5; }
+@media (max-width: 760px) { .pp-alert { grid-template-columns: 1fr; padding: 18px 16px; } }

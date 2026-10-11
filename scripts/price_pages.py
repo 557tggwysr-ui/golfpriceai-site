@@ -322,7 +322,7 @@ class Model:
             when = f" It went up on {short_date(rises[-1]['date'])}." if rises else ""
             return ("wait", f"Wait if you can: {money(cur - low)} above its tracked low",
                     f"It was {money(low)}{self.per()} earlier in our {days} days of tracking.{when} "
-                    f"Deal alerts will tell you if it comes back down.")
+                    f"Set a price alert and we’ll email you if it comes back down.")
         if cur <= low:
             body = (f"The cheapest option has been {money(cur)}{self.per()} since {short_date(f['since'])}, "
                     f"the lowest in {days} days of tracking." if held < days else
@@ -530,6 +530,29 @@ def related(m, all_models, limit=4):
     return out[:limit]
 
 
+def alert_form(model):
+    """The "Email me when it drops" box. Posting it is handled by js/site.js;
+    the emails come from scripts/alerts.py using the rule described here, so
+    keep the two in step."""
+    per = " per dozen" if model.is_ball else ""
+    return f"""<section class="pp-block pp-alert" id="price-alert">
+  <div class="pp-alert-copy">
+    <h2>Email me when the {esc(model.name)} drops</h2>
+    <p>We’ll email you when the lowest new price{per} drops by at least £5 (or 3%, whichever is bigger). It’s {money(model.low_price)} today. No newsletter, no spam, and you can stop it in one click.</p>
+  </div>
+  <form class="gp-alert-form" data-model="{esc(model.slug)}" data-model-name="{esc(model.name)}" novalidate>
+    <label class="gp-af-label" for="pp-alert-email">Your email</label>
+    <div class="gp-af-row">
+      <input id="pp-alert-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+      <button type="submit" class="gp-af-btn">Email me</button>
+    </div>
+    <div class="gp-hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
+    <p class="gp-af-small">New to alerts? We’ll email you once to confirm first. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
+    <p class="gp-af-msg" role="status" aria-live="polite"></p>
+  </form>
+</section>"""
+
+
 def build_model_page(model, all_models, built, hubs_built, today, noindex):
     m, name = model.m, model.name
     rows = model.retailer_rows()
@@ -720,7 +743,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     </div>
     <div class="pp-ctas">
       <a class="pp-btn" href="{esc(low['url'])}" target="_blank" rel="sponsored nofollow noopener">Shop from {money(low['price'])}{per}</a>
-      <a class="pp-btn pp-btn-alt" href="/#alerts">{ICON_BELL}Get deal alerts</a>
+      <a class="pp-btn pp-btn-alt" href="#price-alert">{ICON_BELL}Email me when it drops</a>
     </div>
     <p class="pp-disclose">We may earn a commission if you buy through these links. It never changes the prices or the verdict.</p>
   </div>
@@ -737,6 +760,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
   {opt_html}
 </div>
 {hist_html}
+{alert_form(model)}
 {pre_html}
 <section class="pp-block">
   <h2>Questions about the {esc(name)}</h2>

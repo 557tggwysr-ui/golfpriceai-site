@@ -397,7 +397,13 @@
     return '<div class="sr-empty"><h2>No exact match for “' + esc(state.q) + '”</h2>' +
       '<p>None of the UK retailers we track list that right now' + (state.closest ? '. Here are the closest we do track.' : '.') + '</p>' +
       (state.closest || '') +
-      '<div class="sr-empty-alert"><strong>Waiting for it to appear?</strong><span>Get deal alerts and we’ll tell you when prices worth knowing about land.</span><a class="sr-btn" href="/#alerts">Get deal alerts</a></div>' +
+      '<div class="sr-empty-alert"><strong>Waiting for it to appear?</strong><span>Get our short Friday email with the week’s genuine UK price drops.</span>' +
+      '<form class="gp-alert-form" novalidate><label class="gp-af-label sr-only" for="sr-alert-email">Your email</label>' +
+      '<div class="gp-af-row"><input id="sr-alert-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>' +
+      '<button type="submit" class="gp-af-btn">Sign me up</button></div>' +
+      '<div class="gp-hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>' +
+      '<p class="gp-af-small">We’ll email you once to confirm first. Unsubscribe in one click. <a href="/legal/privacy-policy.html">Privacy policy</a></p>' +
+      '<p class="gp-af-msg" role="status" aria-live="polite"></p></form></div>' +
       '<p class="sr-browse">Or browse: ' + browse.join(' · ') + '</p></div>';
   }
 

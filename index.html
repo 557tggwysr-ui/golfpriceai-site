@@ -295,17 +295,24 @@
       <span style="font-size:26px;">✉️</span>
       <div>
         <h3>Never miss a deal worth hitting.</h3>
-        <p>Get AI-powered deal alerts straight to your inbox.</p>
+        <p>A short Friday email with the week’s genuine UK price drops, checked against our own price history. Watching one club? Every price page has an “Email me when it drops” button.</p>
       </div>
     </div>
     <div class="newsletter-benefits">
-      <span>🔔 One email. Zero spam.</span>
+      <span>🔔 One email a week. Zero spam.</span>
       <span>⛳ Deals sharper than your short game</span>
       <span>🚫 Unsubscribe faster than a 3-putt</span>
     </div>
-    <div class="beehiiv-embed-wrap">
-      <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="08a6b8b2-cb3d-492f-aa66-c96fa331ea37"></script>
-    </div>
+    <form class="gp-alert-form" novalidate>
+      <label class="gp-af-label" for="home-alert-email">Your email</label>
+      <div class="gp-af-row">
+        <input id="home-alert-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+        <button type="submit" class="gp-af-btn">Sign me up</button>
+      </div>
+      <div class="gp-hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <p class="gp-af-small">We’ll email you once to confirm first. Unsubscribe in one click. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
+      <p class="gp-af-msg" role="status" aria-live="polite"></p>
+    </form>
   </section>
 
   <div class="about-teaser">
@@ -402,7 +409,6 @@
 <script src="js/hub.js"></script>
 <script src="js/analytics.js"></script>
 <script src="js/cookie-consent.js"></script>
-<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 <script src="/js/site.js" defer></script>
 </body>
 </html>
