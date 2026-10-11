@@ -23,12 +23,16 @@
   }
  ],
  "history": {
-  "daysTracked": 38,
+  "daysTracked": 57,
   "low": 499.95,
-  "high": 499.95,
-  "average": 499.95,
-  "priceChanges": 0,
+  "high": 1175.0,
+  "average": 724.97,
+  "priceChanges": 1,
   "series": [
+   [
+    "2026-08-16",
+    1175.0
+   ],
    [
     "2026-09-04",
     499.95

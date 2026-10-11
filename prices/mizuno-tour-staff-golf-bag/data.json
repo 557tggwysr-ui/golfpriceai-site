@@ -28,29 +28,29 @@
   }
  ],
  "history": {
-  "daysTracked": 38,
-  "low": 199.95,
-  "high": 449.0,
-  "average": 337.58,
+  "daysTracked": 57,
+  "low": 189.99,
+  "high": 399.0,
+  "average": 259.66,
   "priceChanges": 1,
   "series": [
    [
-    "2026-09-04",
-    449.0
+    "2026-08-16",
+    399.0
    ],
    [
-    "2026-09-25",
-    199.95
+    "2026-09-04",
+    189.99
    ],
    [
     "2026-10-11",
-    199.95
+    189.99
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 38 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

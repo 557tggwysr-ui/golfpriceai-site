@@ -29,19 +29,23 @@
   }
  ],
  "history": {
-  "daysTracked": 45,
+  "daysTracked": 57,
   "low": 449.0,
-  "high": 499.0,
-  "average": 471.89,
+  "high": 479.0,
+  "average": 464.26,
   "priceChanges": 2,
   "series": [
+   [
+    "2026-08-16",
+    479.0
+   ],
    [
     "2026-08-28",
     449.0
    ],
    [
-    "2026-09-21",
-    499.0
+    "2026-09-25",
+    479.0
    ],
    [
     "2026-10-11",
@@ -50,8 +54,8 @@
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
