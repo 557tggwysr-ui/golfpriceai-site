@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-quantum-triple-diamond-driver/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 479.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 479.95,
   "high": 569.0,
-  "average": 510.16,
+  "average": 509.63,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     479.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     479.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 37 days"
+  "summary": "Typical price: steady for 38 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

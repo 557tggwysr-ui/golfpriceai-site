@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/mizuno-jpx-923-forged-irons/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 699.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 37,
+  "daysTracked": 38,
   "low": 649.95,
   "high": 759.0,
-  "average": 661.74,
+  "average": 661.43,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     649.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     649.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 33 days"
+  "summary": "Typical price: steady for 34 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

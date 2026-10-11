@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-paradym-triple-diamond-driver/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 37,
+  "daysTracked": 38,
   "low": 219.95,
   "high": 399.0,
-  "average": 264.34,
+  "average": 263.17,
   "priceChanges": 2,
   "series": [
    [
@@ -42,14 +42,14 @@
     219.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     219.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 8 days"
+  "summary": "Typical price: steady for 9 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

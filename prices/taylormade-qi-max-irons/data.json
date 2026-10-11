@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-qi-max-irons/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 719.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 719.95,
   "high": 949.0,
-  "average": 794.38,
+  "average": 793.08,
   "priceChanges": 2,
   "series": [
    [
@@ -47,14 +47,14 @@
     719.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     719.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 33 days"
+  "summary": "Typical price: steady for 34 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

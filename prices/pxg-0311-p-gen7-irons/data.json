@@ -3,7 +3,7 @@
  "brand": "PXG",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/pxg-0311-p-gen7-irons/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 429.95,
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 44,
+  "daysTracked": 45,
   "low": 169.0,
   "high": 169.0,
   "average": 169.0,
@@ -34,14 +34,14 @@
     169.0
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     169.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 44 days"
+  "summary": "Typical price: steady for 45 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

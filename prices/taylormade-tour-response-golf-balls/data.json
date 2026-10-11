@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-tour-response-golf-balls/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 28.49,
@@ -35,7 +35,7 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 28.49,
   "high": 28.49,
   "average": 28.49,
@@ -46,14 +46,14 @@
     28.49
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     28.49
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 56 days"
+  "summary": "Typical price: steady for 57 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

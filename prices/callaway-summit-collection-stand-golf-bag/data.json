@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-summit-collection-stand-golf-bag/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 259.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 259.95,
   "high": 349.0,
-  "average": 294.74,
+  "average": 294.13,
   "priceChanges": 3,
   "series": [
    [
@@ -51,14 +51,14 @@
     259.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     259.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 33 days"
+  "summary": "Typical price: steady for 34 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-qi-hl-irons/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 739.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 37,
+  "daysTracked": 38,
   "low": 739.95,
   "high": 858.0,
-  "average": 752.71,
+  "average": 752.38,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     739.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     739.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 33 days"
+  "summary": "Typical price: steady for 34 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

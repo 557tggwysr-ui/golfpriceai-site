@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/titleist-gt2-driver/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 299.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 44,
+  "daysTracked": 45,
   "low": 299.95,
   "high": 399.0,
-  "average": 315.71,
+  "average": 315.36,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     299.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     299.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 37 days"
+  "summary": "Typical price: steady for 38 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

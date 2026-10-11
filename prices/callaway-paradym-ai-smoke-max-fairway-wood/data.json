@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-fairway-wood/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 149.95,
   "high": 379.0,
-  "average": 210.28,
+  "average": 209.22,
   "priceChanges": 4,
   "series": [
    [
@@ -55,14 +55,14 @@
     149.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     149.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 29 days"
+  "summary": "Typical price: steady for 30 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

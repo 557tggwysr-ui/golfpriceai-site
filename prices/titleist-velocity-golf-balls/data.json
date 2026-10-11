@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/titleist-velocity-golf-balls/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 24.99,
@@ -19,7 +19,7 @@
   {
    "name": "Affordable Golf",
    "from": 26.99,
-   "options": 4
+   "options": 6
   },
   {
    "name": "Scottsdale Golf",
@@ -28,7 +28,7 @@
   }
  ],
  "history": {
-  "daysTracked": 44,
+  "daysTracked": 45,
   "low": 24.99,
   "high": 24.99,
   "average": 24.99,
@@ -39,14 +39,14 @@
     24.99
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     24.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 44 days"
+  "summary": "Typical price: steady for 45 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

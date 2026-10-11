@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-max-putter/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 189.95,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 189.95,
   "high": 199.0,
-  "average": 196.41,
+  "average": 196.3,
   "priceChanges": 1,
   "series": [
    [
@@ -48,14 +48,14 @@
     189.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     189.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 16 days"
+  "summary": "Typical price: steady for 17 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

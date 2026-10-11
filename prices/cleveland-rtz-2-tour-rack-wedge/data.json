@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/cleveland-rtz-2-tour-rack-wedge/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 37,
+  "daysTracked": 38,
   "low": 139.0,
   "high": 149.0,
-  "average": 141.97,
+  "average": 141.89,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     139.0
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     139.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 26 days"
+  "summary": "Typical price: steady for 27 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

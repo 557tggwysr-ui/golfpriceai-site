@@ -3,7 +3,7 @@
  "brand": "L.A.B. Golf",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/l-a-b-golf-link-1-putter/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 299.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 37,
+  "daysTracked": 38,
   "low": 299.95,
   "high": 329.95,
-  "average": 326.71,
+  "average": 326.0,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     299.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     299.95
    ]
   ]

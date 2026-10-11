@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/cleveland-halo-xl-lite-fairway-wood/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 124.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 119.95,
   "high": 149.0,
-  "average": 132.24,
+  "average": 132.02,
   "priceChanges": 2,
   "series": [
    [
@@ -42,14 +42,14 @@
     119.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     119.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 29 days"
+  "summary": "Typical price: steady for 30 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

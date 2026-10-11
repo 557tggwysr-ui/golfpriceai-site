@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/ping-g430-hybrid/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 154.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 154.95,
   "high": 209.0,
-  "average": 174.0,
+  "average": 173.67,
   "priceChanges": 2,
   "series": [
    [
@@ -47,14 +47,14 @@
     154.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     154.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 29 days"
+  "summary": "Typical price: steady for 30 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

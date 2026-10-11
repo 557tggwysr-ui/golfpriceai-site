@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/taylormade-qi4d-driver/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 349.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 349.95,
   "high": 549.0,
-  "average": 438.91,
+  "average": 437.35,
   "priceChanges": 2,
   "series": [
    [
@@ -47,7 +47,7 @@
     349.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     349.95
    ]
   ]

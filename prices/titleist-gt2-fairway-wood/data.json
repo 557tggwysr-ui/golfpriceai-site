@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/titleist-gt2-fairway-wood/",
- "checked": "2026-10-10",
+ "checked": "2026-10-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.95,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 169.95,
   "high": 249.0,
-  "average": 198.91,
+  "average": 198.41,
   "priceChanges": 2,
   "series": [
    [
@@ -52,14 +52,14 @@
     169.95
    ],
    [
-    "2026-10-10",
+    "2026-10-11",
     169.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 33 days"
+  "summary": "Typical price: steady for 34 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
