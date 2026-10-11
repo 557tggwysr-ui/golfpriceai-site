@@ -1,4 +1,4 @@
-"""Seasonal price pages: the Black Friday tracker and the golf gift guides.
+"""Seasonal price pages: Black Friday, Christmas, Boxing Day and gift guides.
 
 Built every run alongside the other price pages (called from
 price_pages.build), from the same data, so they never go stale:
@@ -9,6 +9,12 @@ price_pages.build), from the same data, so they never go stale:
                                  which is the honest test of a Black Friday
                                  "deal". Changes what it says by date: before,
                                  during and after the Black Friday fortnight.
+  /prices/christmas/             Gift ideas at the lowest price we've tracked,
+                                 plus what's still cheaper than before Black
+                                 Friday (from the day after Black Friday).
+  /prices/boxing-day-sales/      Same idea as Black Friday: sale prices
+                                 compared with what each model cost from 1 to
+                                 20 December. Live 26 Dec to 15 Jan.
   /prices/golf-gifts/            Gift guide overview.
   /prices/golf-gifts-under-25/   Gift ideas by budget. Big-ticket items link
   /prices/golf-gifts-under-50/   to their price pages; small things (gloves,
@@ -93,40 +99,40 @@ def black_friday_date(year):
     return first_thu + timedelta(days=21, hours=0) + timedelta(days=1)
 
 
-def october_baseline(m, year, today):
+def baseline_price(m, start, end, today):
+    """Median of the model's daily lowest price between two dates (inclusive),
+    using only days before today. None if fewer than 7 days are known."""
     days = daily_prices(m.get("history"), today)
-    octo = [p for d, p in days.items() if d.year == year and d.month == 10 and d < today]
-    if len(octo) < 7:
+    window = [p for d, p in days.items() if start <= d <= end and d < today]
+    if len(window) < 7:
         return None
-    return round(statistics.median(octo), 2)
+    return round(statistics.median(window), 2)
 
 
-def build_black_friday(models, built, today):
-    year = today.year
-    bf = black_friday_date(year)
-    cyber = bf + timedelta(days=3)
-    live_from, live_to = bf - timedelta(days=14), cyber + timedelta(days=1)
-    phase = "before" if today < live_from else ("live" if today <= live_to else "after")
-
+def compare_rows(models, built, today, start, end):
     rows = []
     for m in models:
         if m["slug"] not in built:
             continue
-        base = october_baseline(m, year, today)
+        base = baseline_price(m, start, end, today)
         if not base:
             continue
         now = float(m["minPrice"])
-        # A price that has more than halved or jumped 50%+ since October is
-        # far more likely a feed change (e.g. one iron vs a full set) than a
-        # real price move: leave it out rather than show a false story.
+        # A price that has more than halved or jumped 50%+ since the baseline
+        # is far more likely a feed change (e.g. one iron vs a full set) than
+        # a real price move: leave it out rather than show a false story.
         if not 0.5 <= now / base <= 1.5:
             continue
         rows.append({"m": m, "base": base, "now": now, "diff": now - base, "pct": round((base - now) / base * 100)})
-    deals = sorted([r for r in rows if r["base"] - r["now"] >= max(5, r["base"] * 0.05)
-                    and r["now"] >= r["base"] * 0.4], key=lambda r: (-r["pct"], -(r["base"] - r["now"])))
-    raised = sorted([r for r in rows if r["now"] - r["base"] >= max(5, r["base"] * 0.05) and today.month >= 11],
+    deals = sorted([r for r in rows if r["base"] - r["now"] >= max(5, r["base"] * 0.05)],
+                   key=lambda r: (-r["pct"], -(r["base"] - r["now"])))
+    raised = sorted([r for r in rows if r["now"] - r["base"] >= max(5, r["base"] * 0.05)],
                     key=lambda r: -(r["now"] - r["base"]))
-    # The models people most often look for: lots of retailers, big brands.
+    return rows, deals, raised
+
+
+def watch_list(rows, per_type=3):
+    """The models people most often look for: lots of retailers, big brands."""
     by_type = defaultdict(list)
     for r in rows:
         by_type[r["m"]["type"]].append(r)
@@ -140,21 +146,39 @@ def build_black_friday(models, built, today):
                 continue
             per_brand[b] += 1
             picked.append(r)
-            if len(picked) == 3:
+            if len(picked) == per_type:
                 break
         watch += picked
     watch.sort(key=lambda r: (list(TYPES).index(r["m"]["type"]), r["now"]))
+    return watch
 
-    def table(rs, show_saving=True):
-        trs = "".join(f"""<tr>
+
+def compare_table(rs, base_label):
+    trs = "".join(f"""<tr>
   <th scope="row"><a href="/prices/{r['m']['slug']}/">{esc(r['m']['name'])}</a><span class="pp-sub sb-type">{esc(TYPES[r['m']['type']][2])}</span></th>
   <td>{money(r['base'])}{per(r['m'])}</td>
   <td class="pp-price">{money(r['now'])}{per(r['m'])}</td>
-  <td>{_change(r) if show_saving else ''}</td>
+  <td>{_change(r)}</td>
 </tr>""" for r in rs)
-        return f"""<div class="pp-card pp-table-wrap"><table class="pp-table sb-table">
-<thead><tr><th scope="col">Model</th><th scope="col">October price</th><th scope="col">Today</th><th scope="col">Change</th></tr></thead>
+    return f"""<div class="pp-card pp-table-wrap"><table class="pp-table sb-table">
+<thead><tr><th scope="col">Model</th><th scope="col">{esc(base_label)}</th><th scope="col">Today</th><th scope="col">Change</th></tr></thead>
 <tbody>{trs}</tbody></table></div>"""
+
+
+def build_black_friday(models, built, today):
+    year = today.year
+    bf = black_friday_date(year)
+    cyber = bf + timedelta(days=3)
+    live_from, live_to = bf - timedelta(days=14), cyber + timedelta(days=1)
+    phase = "before" if today < live_from else ("live" if today <= live_to else "after")
+
+    rows, deals, raised = compare_rows(models, built, today, date(year, 10, 1), date(year, 10, 31))
+    if today.month < 11:
+        raised = []
+    watch = watch_list(rows)
+
+    def table(rs, show_saving=True):
+        return compare_table(rs, "October price")
 
     bf_txt = f"Friday {bf.day} November {year}"
     if phase == "before":
@@ -238,6 +262,168 @@ def _change(r):
     if r["now"] - r["base"] >= 0.005:
         return f'<span class="sb-up">+{money(r["now"] - r["base"])}</span>'
     return '<span class="pp-sub">Same</span>'
+
+
+# ---------------------------------------------------------------- Boxing Day and January sales
+def build_boxing_day(models, built, today):
+    year = today.year - 1 if today.month == 1 else today.year
+    boxing = date(year, 12, 26)
+    base_start, base_end = date(year, 12, 1), date(year, 12, 20)
+    live_to = date(year + 1, 1, 15)
+    phase = "before" if today < boxing else ("live" if today <= live_to else "after")
+    rows, deals, raised = compare_rows(models, built, today, base_start, base_end)
+    if phase == "before":
+        raised = []
+    watch = watch_list(rows)
+    day = boxing.strftime("%A")
+    if phase == "before":
+        answer = (f"Boxing Day {year} is <strong>{day} 26 December</strong>. We’ll compare every Boxing Day and January sale "
+                  f"price with what it cost from 1 to 20 December, which we record every 6 hours, so you can see which "
+                  f"“sale” prices are genuinely lower.")
+        deals_h, deals_empty = "Already cheaper than early December", (
+            "We start recording December prices on 1 December." if today < base_start + timedelta(days=7)
+            else "Nothing yet. No model we track is meaningfully cheaper than its early-December price.")
+    elif phase == "live":
+        answer = (f"The Boxing Day and January sales are on. "
+                  + (f"Right now <strong>{plural(len(deals), 'model')}</strong> we track "
+                     f"{'is' if len(deals) == 1 else 'are'} genuinely cheaper than in early December." if deals else
+                     "So far none of the models we track is meaningfully cheaper than its early-December price."))
+        deals_h, deals_empty = "Real sale prices: cheaper than early December", "None yet."
+    else:
+        answer = (f"The {year} Boxing Day and January sales are over. "
+                  + (f"{plural(len(deals), 'model')} we track {'is' if len(deals) == 1 else 'are'} still cheaper than in "
+                     f"early December." if deals else "None of the models we track is still cheaper than in early December."))
+        deals_h, deals_empty = "Still cheaper than early December", "Nothing is meaningfully cheaper any more."
+    deals_html = compare_table(deals[:40], "Early December") if deals else f'<p class="pp-card sb-empty">{deals_empty}</p>'
+    raised_html = f"""<section class="pp-block">
+  <h2>Watch out: dearer than in early December</h2>
+  <p class="pp-small">These cost more now than they did in early December. A sale that brings them back down isn’t a saving.</p>
+  {compare_table(raised[:15], "Early December")}
+</section>""" if raised else ""
+    watch_html = f"""<section class="pp-block">
+  <h2>Prices we’re watching</h2>
+  <p class="pp-small">The most widely stocked models in each category, with the early-December price we measure the sales against.</p>
+  {compare_table(watch, "Early December")}
+</section>""" if watch else ""
+    faq_html, faq_schema = faq_block([
+        (f"When are the Boxing Day golf sales in {year}?",
+         f"Boxing Day is {day} 26 December {year}. Many UK retailers start their sales online on Boxing Day or a day or two "
+         f"before, and some run well into January. We check prices every 6 hours throughout."),
+        ("How do you know a Boxing Day golf deal is real?",
+         "We compare the sale price with the model’s early-December price: the median of the lowest new, in-stock price we "
+         "recorded from 1 to 20 December. A retailer’s own “was” price is not used."),
+        ("What counts as cheaper on this page?",
+         "At least £5 and 5% below the early-December price."),
+    ])
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), ("Boxing Day sales", None)])
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="pp-hub-top">
+  <span class="sb-kicker">Boxing Day {year}</span>
+  <h1>Golf Boxing Day and January sales {year} (UK): what’s really cheaper</h1>
+  <p class="pp-answer">{answer}</p>
+  <p class="pp-disclose">We may earn a commission if you buy through links on these pages. It never changes what’s listed or the order.</p>
+</section>
+<section class="pp-block">
+  <h2>{deals_h}</h2>
+  <p class="pp-small">Early December: the median lowest new, in-stock price we recorded from 1 to 20 December. Today: the lowest now, checked every 6 hours.</p>
+  {deals_html}
+</section>
+{raised_html}
+{watch_html}
+<section class="pp-block"><div class="pp-chips"><a class="pp-chip" href="/prices/black-friday/">Black Friday tracker</a><a class="pp-chip" href="/prices/christmas/">Christmas gift deals</a><a class="pp-chip" href="/prices/golf-gifts/">Gift ideas by budget</a></div></section>
+{signup_box("Get the real deals by email", "Our Friday email lists the week’s genuine price drops, checked against our own price history.")}
+{faq_html}
+{method_note(today)}
+</div>"""
+    title = f"Golf Boxing Day Sales {year} UK: What's Really Cheaper | GolfPrice AI"
+    desc = (f"Boxing Day and January {year + 1} golf sales checked against the prices we recorded in early December. "
+            f"See what's genuinely cheaper on clubs, balls, rangefinders and more.")
+    return page_shell(title=title, description=desc, canonical=f"{SITE}/prices/boxing-day-sales/", body=body,
+                      section="", schema=[crumbs_schema, faq_schema], noindex=False), len(deals)
+
+
+# ---------------------------------------------------------------- Christmas
+GIFT_MODEL_TYPES = {"ball", "gps-watch", "rangefinder", "launch-monitor", "putter", "wedge", "hybrid", "driver", "bag"}
+
+
+def build_christmas(models, built, today, gift_slugs):
+    year = today.year
+    xmas = date(year, 12, 25)
+    lowest = [m for m in models if m["slug"] in built and m["type"] in GIFT_MODEL_TYPES
+              and (m.get("verdict") or {}).get("label") == "good"]
+    lowest.sort(key=lambda m: (brand_rank(m["name"]), -len(m["retailers"]), m["minPrice"]))
+    picks, per_brand = [], defaultdict(int)
+    for m in lowest:
+        b = brand_rank(m["name"])
+        if per_brand[b] >= 2:
+            continue
+        per_brand[b] += 1
+        picks.append(m)
+        if len(picks) == 12:
+            break
+    cards = "".join(model_card(m) for m in picks)
+
+    bf = black_friday_date(year)
+    bf_html = ""
+    if today > bf:
+        _, deals, _ = compare_rows(models, built, today, date(year, 10, 1), date(year, 10, 31))
+        if deals:
+            bf_html = f"""<section class="pp-block">
+  <h2>Still cheaper than before Black Friday</h2>
+  <p class="pp-small">Compared with what each one cost in October. <a href="/prices/black-friday/">See the full Black Friday tracker</a>.</p>
+  {compare_table(deals[:10], "October price")}
+</section>"""
+    if today > xmas:
+        answer = (f"Christmas {year} is over, but these are still at the lowest prices we’ve tracked, handy if you’ve "
+                  f"got money or vouchers to spend. The <a href=\"/prices/boxing-day-sales/\">Boxing Day sales tracker</a> "
+                  f"shows which sale prices are real.")
+    else:
+        days_to = (xmas - today).days
+        countdown = f"{plural(days_to, 'day')} to Christmas. " if days_to <= 100 else ""
+        answer = (f"{countdown}<strong>{plural(len(lowest), 'golf gift idea')}</strong> "
+                  f"{'is' if len(lowest) == 1 else 'are'} at the lowest price we’ve tracked right now, checked against our own "
+                  f"price history, not a retailer’s “was” price.")
+    balls = sorted(float(m["minPrice"]) for m in models if m["type"] == "ball" and m["slug"] in built)
+    budget_cards = "".join(f"""<a class="pp-card pp-rel" href="/prices/{s}/"><span class="pp-rel-name">{esc(GIFT_PAGES[s]['h1'])}</span>
+<span class="pp-sub">{esc(GIFT_PAGES[s]['intro'])}</span></a>""" for s in gift_slugs)
+    faq_html, faq_schema = faq_block([
+        ("What golf gifts can I get for under £25?",
+         (f"A dozen golf balls start at {money(balls[0])}, and gloves, towels, tees and socks are all well under £25. "
+          if balls else "Gloves, towels, tees and socks are all well under £25. ")
+         + "See our golf gifts under £25 for live prices."),
+        (f"Should I wait for Black Friday to buy golf Christmas presents?",
+         f"Black Friday {year} is Friday {bf.day} November. Some prices do drop then, but not all of them. Our Black Friday "
+         f"tracker compares those prices with October, so you can see whether waiting paid off for the gift you want."),
+        ("When do I need to order for Christmas delivery?",
+         "Each retailer sets its own last order dates, so check their delivery page before you order. Popular gifts can "
+         "sell out in December even when the price is right."),
+        ("Are any of these second-hand?", "No. Everything on this page is new stock from UK retailers."),
+    ])
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), ("Christmas", None)])
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="pp-hub-top">
+  <span class="sb-kicker">Christmas {year}</span>
+  <h1>Golf Christmas gifts {year} (UK): at their lowest price right now</h1>
+  <p class="pp-answer">{answer}</p>
+  <p class="pp-disclose">We may earn a commission if you buy through links on these pages. It never changes the price or what we pick.</p>
+</section>
+<section class="pp-block">
+  <h2>At the lowest price we’ve tracked</h2>
+  {'<div class="sg-grid">' + cards + '</div>' if cards else '<p class="pp-card sb-empty">Nothing is at its lowest tracked price today. Try the budget guides below.</p>'}
+</section>
+{bf_html}
+<section class="pp-block"><h2>Gift ideas by budget</h2><div class="pp-rel-grid">{budget_cards}</div></section>
+{signup_box("Buying for Christmas?", "Our Friday email lists the week’s genuine price drops, so you can catch the right moment to buy.")}
+{faq_html}
+{method_note(today)}
+</div>"""
+    title = f"Golf Christmas Gifts {year} UK: Best Prices Right Now | GolfPrice AI"
+    desc = (f"Golf Christmas gift ideas at the lowest prices we've tracked, from balls and gloves to GPS watches and "
+            f"rangefinders. Live UK prices, checked every 6 hours.")
+    return page_shell(title=title, description=desc, canonical=f"{SITE}/prices/christmas/", body=body, section="",
+                      schema=[crumbs_schema, faq_schema], noindex=False), len(lowest)
 
 
 # ---------------------------------------------------------------- gift guides
@@ -453,7 +639,7 @@ def build_gift_index(built_slugs, today):
 
 
 # ---------------------------------------------------------------- entry point
-SEASONAL_SLUGS = ["black-friday", "golf-gifts"] + list(GIFT_PAGES)
+SEASONAL_SLUGS = ["black-friday", "boxing-day-sales", "christmas", "golf-gifts"] + list(GIFT_PAGES)
 
 
 def build(passing, built, products, today):
@@ -473,10 +659,24 @@ def build(passing, built, products, today):
             if _write(PRICES_DIR / slug / "index.html", page):
                 changed.append(f"/prices/{slug}/")
             sitemap.append((f"prices/{slug}/", today.isoformat()))
+    for m in passing:
+        if m.get("_image") is None and m["type"] in GIFT_MODEL_TYPES:
+            m["_image"] = next((images[i] for i in m.get("listingIds", []) if images.get(i)), None)
+    page, n_xmas = build_christmas(passing, built, today, made)
+    if _write(PRICES_DIR / "christmas" / "index.html", page):
+        changed.append("/prices/christmas/")
+    sitemap.append(("prices/christmas/", today.isoformat()))
+    links.append(("/prices/christmas/", f"Christmas {today.year}", "Golf gifts at the lowest prices we’ve tracked"))
+    page, n_box = build_boxing_day(passing, built, today)
+    if _write(PRICES_DIR / "boxing-day-sales" / "index.html", page):
+        changed.append("/prices/boxing-day-sales/")
+    sitemap.append(("prices/boxing-day-sales/", today.isoformat()))
+    links.append(("/prices/boxing-day-sales/", "Boxing Day sales", "Sale prices checked against early December"))
     if made:
         if _write(PRICES_DIR / "golf-gifts" / "index.html", build_gift_index(made, today)):
             changed.append("/prices/golf-gifts/")
         sitemap.append(("prices/golf-gifts/", today.isoformat()))
         links.append(("/prices/golf-gifts/", "Golf gift ideas", "By budget, from under £25 to £100 and up"))
-    print(f"Seasonal pages: Black Friday ({n_deals} model(s) cheaper than October), {len(made)} gift page(s).")
+    print(f"Seasonal pages: Black Friday ({n_deals} model(s) cheaper than October), Christmas ({n_xmas} gift(s) at "
+          f"their lowest), Boxing Day ({n_box} cheaper than early December), {len(made)} gift page(s).")
     return changed, sitemap, links

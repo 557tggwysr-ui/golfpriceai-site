@@ -159,6 +159,46 @@
     </div>
   </section>
 
+  <!-- Seasonal banner: switches itself by date (Black Friday 1 Nov to 1 Dec,
+       Christmas 2 to 24 Dec, Boxing Day sales 25 Dec to 10 Jan), hidden the
+       rest of the year. Preview any time with ?season=bf, xmas or boxing. -->
+  <div class="container"><a class="gp-season" id="gp-season" href="/prices/" hidden>
+    <span class="gp-season-kicker" id="gp-season-kicker"></span>
+    <span class="gp-season-text"><strong id="gp-season-title"></strong><span id="gp-season-line"></span></span>
+    <span class="gp-season-cta" id="gp-season-cta"></span>
+  </a></div>
+  <script>
+  (function () {
+    var now = new Date(), y = now.getFullYear(), m = now.getMonth() + 1, d = now.getDate();
+    function bfDay(year) { var n1 = new Date(year, 10, 1), thu = 1 + ((4 - n1.getDay() + 7) % 7); return thu + 22; }
+    var bf = bfDay(y), season = (location.search.match(/[?&]season=(bf|xmas|boxing)/) || [])[1];
+    if (!season) {
+      if (m === 11 || (m === 12 && d <= 1)) season = 'bf';
+      else if (m === 12 && d >= 2 && d <= 24) season = 'xmas';
+      else if ((m === 12 && d >= 25) || (m === 1 && d <= 10)) season = 'boxing';
+    }
+    if (!season) return;
+    var daysToBf = Math.ceil((new Date(y, 10, bf) - now) / 864e5);
+    var c = {
+      bf: ['Black Friday ' + y, 'Real deals only. We checked them against October.',
+           daysToBf > 0 ? daysToBf + (daysToBf === 1 ? ' day' : ' days') + ' to go. We know what every price did in October, so the fakes stand out.'
+                        : 'Every Black Friday price compared with what it cost in October. No made-up “was” prices.',
+           'See what’s really cheaper', '/prices/black-friday/'],
+      xmas: ['Christmas ' + y, 'Golf gifts at their lowest price', 'Gift ideas from under £25, with live UK prices and the ones at their lowest we’ve tracked.',
+             'Find a gift', '/prices/christmas/'],
+      boxing: ['Boxing Day sales', 'Is it really cheaper? We checked.', 'Every sale price compared with what it cost in early December.',
+               'See the real deals', '/prices/boxing-day-sales/']
+    }[season];
+    var a = document.getElementById('gp-season');
+    document.getElementById('gp-season-kicker').textContent = c[0];
+    document.getElementById('gp-season-title').textContent = c[1];
+    document.getElementById('gp-season-line').textContent = c[2];
+    document.getElementById('gp-season-cta').textContent = c[3] + ' →';
+    a.href = c[4];
+    a.hidden = false;
+  })();
+  </script>
+
   <section class="gp-doors container" aria-labelledby="doors-title">
     <div class="gp-sec-head">
       <h2 id="doors-title">Jump straight in</h2>
