@@ -57,34 +57,14 @@
    "listings": 10
   },
   {
-   "model": "Wilson dynapwr max",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
-  },
-  {
    "model": "Cleveland RTZ Wedge",
    "issue": "price spread \u00a3119.00 to \u00a3417.00: may mix different products",
-   "listings": 8
-  },
-  {
-   "model": "Callaway elyte",
-   "issue": "cheapest retailer \u00a3129.00 vs dearest \u00a31,139.00: check for used stock or a different product",
-   "listings": 8
-  },
-  {
-   "model": "Callaway Elyte Irons",
-   "issue": "price spread \u00a3129.00 to \u00a31,139.00: may mix different products",
    "listings": 8
   },
   {
    "model": "Srixon Z-Star Diamond Golf Balls",
    "issue": "price spread \u00a329.99 to \u00a3128.97: may mix different products",
    "listings": 8
-  },
-  {
-   "model": "Yonex ezone elite 4",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
   },
   {
    "model": "Mizuno Pro T-3 Wedge",
@@ -94,6 +74,16 @@
   {
    "model": "Cleveland Sole Full Face Wedge",
    "issue": "price spread \u00a3119.00 to \u00a3357.00: may mix different products",
+   "listings": 7
+  },
+  {
+   "model": "Callaway elyte",
+   "issue": "cheapest retailer \u00a3129.00 vs dearest \u00a31,139.00: check for used stock or a different product",
+   "listings": 7
+  },
+  {
+   "model": "Callaway Elyte Irons",
+   "issue": "price spread \u00a3129.00 to \u00a31,139.00: may mix different products",
    "listings": 7
   },
   {
@@ -147,11 +137,6 @@
    "listings": 5
   },
   {
-   "model": "Cleveland zipcore xl",
-   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 2
-  },
-  {
    "model": "Ping g730",
    "issue": "cheapest retailer \u00a3139.00 vs dearest \u00a31,129.00: check for used stock or a different product",
    "listings": 4
@@ -167,24 +152,9 @@
    "listings": 4
   },
   {
-   "model": "Yonex ezone gs i-tech",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
-  },
-  {
    "model": "L.A.B. Golf Putter",
    "issue": "no model name: held back until an alias names it",
    "listings": 4
-  },
-  {
-   "model": "Wilson profile",
-   "issue": "cheapest retailer \u00a339.99 vs dearest \u00a3295.00: check for used stock or a different product",
-   "listings": 3
-  },
-  {
-   "model": "Wilson Profile Irons",
-   "issue": "price spread \u00a339.99 to \u00a3295.00: may mix different products",
-   "listings": 3
   },
   {
    "model": "Aldila Stiff Fairway Wood",
