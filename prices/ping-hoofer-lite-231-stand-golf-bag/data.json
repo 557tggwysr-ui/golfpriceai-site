@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-hoofer-lite-231-stand-golf-bag/",
- "checked": "2026-10-11",
+ "checked": "2026-10-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.95,
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 38,
+  "daysTracked": 39,
   "low": 159.95,
   "high": 159.95,
   "average": 159.95,
@@ -34,14 +34,14 @@
     159.95
    ],
    [
-    "2026-10-11",
+    "2026-10-12",
     159.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 38 days"
+  "summary": "Typical price: steady for 39 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

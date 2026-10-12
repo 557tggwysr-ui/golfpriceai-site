@@ -1,8 +1,18 @@
 {
- "checked": "2026-10-11T22:16+01:00",
+ "checked": "2026-10-12T04:23+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Bushnell Tour V6 Shift Laser Rangefinder",
+   "model_id": "bushnell-tour-v6-shift-laser-rangefinder",
+   "date": "2026-10-12",
+   "was": 329.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-tour-v6-shift-laser-rangefinder/"
+  },
   {
    "model": "Odyssey Ai-ONE 1 CH Putter",
    "model_id": "odyssey-ai-one-1-ch-putter",

@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-elyte-mini-driver/",
- "checked": "2026-10-11",
+ "checked": "2026-10-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 45,
+  "daysTracked": 46,
   "low": 329.0,
   "high": 329.0,
   "average": 329.0,
@@ -29,14 +29,14 @@
     329.0
    ],
    [
-    "2026-10-11",
+    "2026-10-12",
     329.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 45 days"
+  "summary": "Typical price: steady for 46 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cobra-darkspeed-x-driver/",
- "checked": "2026-10-11",
+ "checked": "2026-10-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 419.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 38,
+  "daysTracked": 39,
   "low": 419.0,
   "high": 419.0,
   "average": 419.0,
@@ -29,14 +29,14 @@
     419.0
    ],
    [
-    "2026-10-11",
+    "2026-10-12",
     419.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 38 days"
+  "summary": "Typical price: steady for 39 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

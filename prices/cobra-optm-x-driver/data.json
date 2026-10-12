@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cobra-optm-x-driver/",
- "checked": "2026-10-11",
+ "checked": "2026-10-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 479.0,
@@ -24,7 +24,7 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 479.0,
   "high": 479.0,
   "average": 479.0,
@@ -35,14 +35,14 @@
     479.0
    ],
    [
-    "2026-10-11",
+    "2026-10-12",
     479.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "summary": "Typical price: steady for 58 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

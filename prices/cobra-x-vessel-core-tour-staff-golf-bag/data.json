@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/cobra-x-vessel-core-tour-staff-golf-bag/",
- "checked": "2026-10-11",
+ "checked": "2026-10-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 329.0,
   "high": 429.0,
-  "average": 348.47,
+  "average": 348.14,
   "priceChanges": 4,
   "series": [
    [
@@ -50,14 +50,14 @@
     329.0
    ],
    [
-    "2026-10-11",
+    "2026-10-12",
     329.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 45 days"
+  "summary": "Typical price: steady for 46 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

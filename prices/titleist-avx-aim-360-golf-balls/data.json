@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/titleist-avx-aim-360-golf-balls/",
- "checked": "2026-10-11",
+ "checked": "2026-10-12",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 42.99,
@@ -24,7 +24,7 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 42.99,
   "high": 42.99,
   "average": 42.99,
@@ -35,14 +35,14 @@
     42.99
    ],
    [
-    "2026-10-11",
+    "2026-10-12",
     42.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "summary": "Typical price: steady for 58 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
