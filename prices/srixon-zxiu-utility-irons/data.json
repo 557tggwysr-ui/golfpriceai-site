@@ -1,0 +1,51 @@
+{
+ "name": "Srixon ZXiU Utility Irons",
+ "brand": "Srixon",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/srixon-zxiu-utility-irons/",
+ "checked": "2026-10-12",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 159.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 159.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 249.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 58,
+  "low": 159.0,
+  "high": 219.0,
+  "average": 162.1,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    219.0
+   ],
+   [
+    "2026-08-19",
+    159.0
+   ],
+   [
+    "2026-10-12",
+    159.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 55 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

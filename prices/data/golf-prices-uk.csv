@@ -17,9 +17,9 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-12,macgregor-zt-plus-driver,MacGregor ZT Plus Driver,MacGregor,driver,139.00,each,2,46,139.00,139.00,typical,https://golfpriceai.com/prices/macgregor-zt-plus-driver/
 2026-10-12,mizuno-jpx-one-driver,Mizuno JPX ONE Driver,Mizuno,driver,429.00,each,3,58,379.00,529.00,wait,https://golfpriceai.com/prices/mizuno-jpx-one-driver/
 2026-10-12,ping-g430-max-10k-driver,Ping G430 MAX 10K Driver,Ping,driver,369.00,each,3,39,369.00,449.00,typical,https://golfpriceai.com/prices/ping-g430-max-10k-driver/
-2026-10-12,srixon-zxi-max-driver,Srixon ZXI Max Driver,Srixon,driver,329.00,each,2,58,329.00,499.00,typical,https://golfpriceai.com/prices/srixon-zxi-max-driver/
 2026-10-12,srixon-zxi-driver,Srixon ZXi Driver,Srixon,driver,299.00,each,3,58,299.00,499.00,good,https://golfpriceai.com/prices/srixon-zxi-driver/
 2026-10-12,srixon-zxi-ls-driver,Srixon ZXi LS Driver,Srixon,driver,329.00,each,2,58,329.00,499.00,typical,https://golfpriceai.com/prices/srixon-zxi-ls-driver/
+2026-10-12,srixon-zxi-max-driver,Srixon ZXi Max Driver,Srixon,driver,329.00,each,2,58,329.00,499.00,typical,https://golfpriceai.com/prices/srixon-zxi-max-driver/
 2026-10-12,taylormade-qi35-driver,TaylorMade Qi35 Driver,TaylorMade,driver,349.00,each,2,58,349.00,389.00,good,https://golfpriceai.com/prices/taylormade-qi35-driver/
 2026-10-12,taylormade-qi4d-driver,TaylorMade Qi4D Driver,TaylorMade,driver,549.00,each,3,58,549.00,549.00,typical,https://golfpriceai.com/prices/taylormade-qi4d-driver/
 2026-10-12,taylormade-qi4d-max-driver,TaylorMade Qi4D Max Driver,TaylorMade,driver,549.00,each,2,58,549.00,549.00,typical,https://golfpriceai.com/prices/taylormade-qi4d-max-driver/
@@ -113,6 +113,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-12,srixon-zxi7-irons,Srixon ZXi7 Irons,Srixon,iron set,599.00,each,2,58,599.00,899.00,good,https://golfpriceai.com/prices/srixon-zxi7-irons/
 2026-10-12,srixon-zxir-hl-irons,Srixon ZXiR HL Irons,Srixon,iron set,949.00,each,2,58,899.00,949.00,wait,https://golfpriceai.com/prices/srixon-zxir-hl-irons/
 2026-10-12,srixon-zxir-irons,Srixon ZXiR Irons,Srixon,iron set,879.00,each,3,58,879.00,1109.00,typical,https://golfpriceai.com/prices/srixon-zxir-irons/
+2026-10-12,srixon-zxiu-utility-irons,Srixon ZXiU Utility Irons,Srixon,iron set,159.00,each,2,58,159.00,219.00,typical,https://golfpriceai.com/prices/srixon-zxiu-utility-irons/
 2026-10-12,taylormade-p-dhy-utility-irons,TaylorMade P DHY Utility Irons,TaylorMade,iron set,229.00,each,2,39,229.00,229.00,typical,https://golfpriceai.com/prices/taylormade-p-dhy-utility-irons/
 2026-10-12,taylormade-p-udi-utility-irons,TaylorMade P UDI Utility Irons,TaylorMade,iron set,229.00,each,2,39,229.00,229.00,typical,https://golfpriceai.com/prices/taylormade-p-udi-utility-irons/
 2026-10-12,taylormade-p770-irons,TaylorMade P770 Irons,TaylorMade,iron set,1029.00,each,3,58,1029.00,1249.00,typical,https://golfpriceai.com/prices/taylormade-p770-irons/

@@ -62,6 +62,16 @@
    "listings": 8
   },
   {
+   "model": "Callaway elyte",
+   "issue": "cheapest retailer \u00a3129.00 vs dearest \u00a31,139.00: check for used stock or a different product",
+   "listings": 8
+  },
+  {
+   "model": "Callaway Elyte Irons",
+   "issue": "price spread \u00a3129.00 to \u00a31,139.00: may mix different products",
+   "listings": 8
+  },
+  {
    "model": "Srixon Z-Star Diamond Golf Balls",
    "issue": "price spread \u00a329.99 to \u00a3128.97: may mix different products",
    "listings": 8
@@ -74,16 +84,6 @@
   {
    "model": "Cleveland Sole Full Face Wedge",
    "issue": "price spread \u00a3119.00 to \u00a3357.00: may mix different products",
-   "listings": 7
-  },
-  {
-   "model": "Callaway elyte",
-   "issue": "cheapest retailer \u00a3129.00 vs dearest \u00a31,139.00: check for used stock or a different product",
-   "listings": 7
-  },
-  {
-   "model": "Callaway Elyte Irons",
-   "issue": "price spread \u00a3129.00 to \u00a31,139.00: may mix different products",
    "listings": 7
   },
   {
@@ -777,6 +777,21 @@
    "name": "PowaKaddy Push Cart Umbrella Holder",
    "from": "sets",
    "to": "accessories"
+  },
+  {
+   "name": "TaylorMade Spider 5K ZT Mens Right Hand Putter 36\" Mallet KBS Tour GPS - Super Stroke Tour 2.0XL",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Yes! C-Groove Victoria Mens Right Hand Putter 34\" Mallet - Scotty Cameron",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Yes! C-Groove Tracy II Mens Right Hand Putter 34\" Blade - Yes!",
+   "from": "accessories",
+   "to": "putter"
   }
  ],
  "droppedUnpriced": [
