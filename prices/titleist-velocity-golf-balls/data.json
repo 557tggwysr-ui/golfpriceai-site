@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/titleist-velocity-golf-balls/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 24.99,
@@ -28,7 +28,7 @@
   }
  ],
  "history": {
-  "daysTracked": 46,
+  "daysTracked": 47,
   "low": 24.99,
   "high": 24.99,
   "average": 24.99,
@@ -39,14 +39,14 @@
     24.99
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     24.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 46 days"
+  "summary": "Typical price: steady for 47 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

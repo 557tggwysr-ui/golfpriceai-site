@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/wilson-dynapwr-max-fairway-wood/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -24,10 +24,10 @@
   }
  ],
  "history": {
-  "daysTracked": 58,
+  "daysTracked": 59,
   "low": 149.0,
   "high": 229.0,
-  "average": 172.45,
+  "average": 172.05,
   "priceChanges": 1,
   "series": [
    [
@@ -39,14 +39,14 @@
     149.0
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     149.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 41 days"
+  "summary": "Typical price: steady for 42 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

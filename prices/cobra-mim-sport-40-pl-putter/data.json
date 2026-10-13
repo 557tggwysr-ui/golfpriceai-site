@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/cobra-mim-sport-40-pl-putter/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 53,
+  "daysTracked": 54,
   "low": 219.0,
   "high": 229.0,
-  "average": 220.32,
+  "average": 220.3,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     219.0
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     219.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 46 days"
+  "summary": "Typical price: steady for 47 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

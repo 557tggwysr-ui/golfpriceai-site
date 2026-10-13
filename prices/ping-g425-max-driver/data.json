@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g425-max-driver/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 39,
+  "daysTracked": 40,
   "low": 329.0,
   "high": 329.0,
   "average": 329.0,
@@ -29,14 +29,14 @@
     329.0
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     329.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 39 days"
+  "summary": "Typical price: steady for 40 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

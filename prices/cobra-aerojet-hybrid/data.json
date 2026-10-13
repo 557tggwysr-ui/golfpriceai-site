@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/cobra-aerojet-hybrid/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 39,
+  "daysTracked": 40,
   "low": 149.0,
   "high": 149.0,
   "average": 149.0,
@@ -29,14 +29,14 @@
     149.0
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     149.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 39 days"
+  "summary": "Typical price: steady for 40 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

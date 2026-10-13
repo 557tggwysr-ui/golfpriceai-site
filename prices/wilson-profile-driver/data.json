@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/wilson-profile-driver/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 79.95,
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 46,
+  "daysTracked": 47,
   "low": 79.95,
   "high": 79.99,
   "average": 79.96,
@@ -38,14 +38,14 @@
     79.95
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     79.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 39 days"
+  "summary": "Typical price: steady for 40 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

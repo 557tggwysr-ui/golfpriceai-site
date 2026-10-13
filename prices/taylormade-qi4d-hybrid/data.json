@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/taylormade-qi4d-hybrid/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -30,7 +30,7 @@
   }
  ],
  "history": {
-  "daysTracked": 58,
+  "daysTracked": 59,
   "low": 269.0,
   "high": 269.0,
   "average": 269.0,
@@ -41,14 +41,14 @@
     269.0
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     269.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 58 days"
+  "summary": "Typical price: steady for 59 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

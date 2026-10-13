@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/srixon-zxi-hybrid/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 58,
+  "daysTracked": 59,
   "low": 169.0,
   "high": 249.0,
-  "average": 173.14,
+  "average": 173.07,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     169.0
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     169.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 55 days"
+  "summary": "Typical price: steady for 56 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

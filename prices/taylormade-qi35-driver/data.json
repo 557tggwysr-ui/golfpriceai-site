@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/taylormade-qi35-driver/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 349.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 58,
+  "daysTracked": 59,
   "low": 349.0,
   "high": 389.0,
-  "average": 369.69,
+  "average": 369.34,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     349.0
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     349.0
    ]
   ]

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g440-max-driver/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 529.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 58,
+  "daysTracked": 59,
   "low": 479.0,
   "high": 529.0,
-  "average": 521.24,
+  "average": 521.37,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     529.0
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     529.0
    ]
   ]

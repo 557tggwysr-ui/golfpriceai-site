@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-elyte-x-driver/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 58,
+  "daysTracked": 59,
   "low": 329.0,
   "high": 339.0,
-  "average": 333.83,
+  "average": 333.75,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     329.0
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     329.0
    ]
   ]

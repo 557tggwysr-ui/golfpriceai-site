@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-m5-electric-trolley/",
- "checked": "2026-10-12",
+ "checked": "2026-10-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 949.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 58,
+  "daysTracked": 59,
   "low": 949.0,
   "high": 999.0,
-  "average": 961.93,
+  "average": 961.71,
   "priceChanges": 7,
   "series": [
    [
@@ -72,14 +72,14 @@
     949.0
    ],
    [
-    "2026-10-12",
+    "2026-10-13",
     949.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 34 days"
+  "summary": "Typical price: steady for 35 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
