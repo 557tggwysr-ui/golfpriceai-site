@@ -1,0 +1,46 @@
+{
+ "name": "Ping Hooferlite Together Stand Golf Bag",
+ "brand": "Ping",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/ping-hooferlite-together-stand-golf-bag/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 169.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 169.0,
+   "options": 13
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 169.0,
+  "high": 189.0,
+  "average": 173.0,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    189.0
+   ],
+   [
+    "2026-08-28",
+    169.0
+   ],
+   [
+    "2026-10-14",
+    169.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 48 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

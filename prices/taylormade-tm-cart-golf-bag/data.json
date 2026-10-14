@@ -1,0 +1,82 @@
+{
+ "name": "TaylorMade TM Cart Golf Bag",
+ "brand": "TaylorMade",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/taylormade-tm-cart-golf-bag/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 179.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 179.0,
+   "options": 6
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 159.0,
+  "high": 179.0,
+  "average": 173.67,
+  "priceChanges": 10,
+  "series": [
+   [
+    "2026-08-16",
+    179.0
+   ],
+   [
+    "2026-08-28",
+    159.0
+   ],
+   [
+    "2026-09-01",
+    179.0
+   ],
+   [
+    "2026-09-11",
+    159.0
+   ],
+   [
+    "2026-09-14",
+    179.0
+   ],
+   [
+    "2026-09-19",
+    159.0
+   ],
+   [
+    "2026-09-21",
+    179.0
+   ],
+   [
+    "2026-09-24",
+    159.0
+   ],
+   [
+    "2026-09-28",
+    179.0
+   ],
+   [
+    "2026-10-02",
+    159.0
+   ],
+   [
+    "2026-10-05",
+    179.0
+   ],
+   [
+    "2026-10-14",
+    179.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

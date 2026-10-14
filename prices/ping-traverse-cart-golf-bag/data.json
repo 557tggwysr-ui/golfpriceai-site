@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-traverse-cart-golf-bag/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.95,
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 40,
+  "daysTracked": 41,
   "low": 169.95,
   "high": 169.95,
   "average": 169.95,
@@ -34,14 +34,14 @@
     169.95
    ],
    [
-    "2026-10-13",
+    "2026-10-14",
     169.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 40 days"
+  "summary": "Typical price: steady for 41 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

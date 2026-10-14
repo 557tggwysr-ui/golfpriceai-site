@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/macgregor-zt-plus-driver/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 139.0,
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 47,
+  "daysTracked": 48,
   "low": 139.0,
   "high": 139.0,
   "average": 139.0,
@@ -34,14 +34,14 @@
     139.0
    ],
    [
-    "2026-10-13",
+    "2026-10-14",
     139.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 47 days"
+  "summary": "Typical price: steady for 48 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -1,0 +1,42 @@
+{
+ "name": "Navee Birdie 3 Remote Electric Trolley",
+ "brand": "Navee",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/navee-birdie-3-remote-electric-trolley/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 849.99,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 849.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 849.99,
+  "high": 849.99,
+  "average": 849.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    849.99
+   ],
+   [
+    "2026-10-14",
+    849.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

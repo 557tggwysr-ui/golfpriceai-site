@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-chase-14-cart-golf-bag/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.0,
@@ -19,7 +19,7 @@
   {
    "name": "Affordable Golf",
    "from": 149.95,
-   "options": 2
+   "options": 3
   },
   {
    "name": "Major Golf Direct",
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 59,
+  "daysTracked": 60,
   "low": 129.0,
   "high": 149.0,
-  "average": 132.56,
+  "average": 132.5,
   "priceChanges": 4,
   "series": [
    [
@@ -55,14 +55,14 @@
     129.0
    ],
    [
-    "2026-10-13",
+    "2026-10-14",
     129.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 47 days"
+  "summary": "Typical price: steady for 48 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

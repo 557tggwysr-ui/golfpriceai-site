@@ -1,0 +1,42 @@
+{
+ "name": "Wilson Staff Infinite Putter",
+ "brand": "Wilson",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/wilson-staff-infinite-putter/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 109.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 109.0,
+   "options": 13
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 109.0,
+  "high": 109.0,
+  "average": 109.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    109.0
+   ],
+   [
+    "2026-10-14",
+    109.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -3,17 +3,17 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-darkspeed-irons/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 429.0,
+ "lowestNewPrice": 449.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 429.0,
+   "from": 449.0,
    "options": 2
   },
   {
@@ -23,11 +23,11 @@
   }
  ],
  "history": {
-  "daysTracked": 40,
+  "daysTracked": 41,
   "low": 429.0,
-  "high": 439.0,
-  "average": 430.75,
-  "priceChanges": 1,
+  "high": 449.0,
+  "average": 431.2,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -38,14 +38,14 @@
     429.0
    ],
    [
-    "2026-10-13",
-    429.0
+    "2026-10-14",
+    449.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 33 days"
+  "summary": "Typical price"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

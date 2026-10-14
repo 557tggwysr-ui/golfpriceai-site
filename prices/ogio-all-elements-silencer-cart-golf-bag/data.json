@@ -3,7 +3,7 @@
  "brand": "Ogio",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ogio-all-elements-silencer-cart-golf-bag/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 59,
+  "daysTracked": 60,
   "low": 229.0,
   "high": 279.0,
-  "average": 268.49,
+  "average": 267.83,
   "priceChanges": 14,
   "series": [
    [
@@ -87,6 +87,10 @@
    ],
    [
     "2026-10-13",
+    229.0
+   ],
+   [
+    "2026-10-14",
     229.0
    ]
   ]

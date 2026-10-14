@@ -1,0 +1,82 @@
+{
+ "name": "Ping DLX 224 Cart Golf Bag",
+ "brand": "Ping",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/ping-dlx-224-cart-golf-bag/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 239.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 239.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 239.0,
+  "high": 269.0,
+  "average": 253.0,
+  "priceChanges": 10,
+  "series": [
+   [
+    "2026-08-16",
+    249.0
+   ],
+   [
+    "2026-08-17",
+    269.0
+   ],
+   [
+    "2026-08-22",
+    249.0
+   ],
+   [
+    "2026-08-24",
+    269.0
+   ],
+   [
+    "2026-08-28",
+    239.0
+   ],
+   [
+    "2026-09-01",
+    269.0
+   ],
+   [
+    "2026-09-11",
+    239.0
+   ],
+   [
+    "2026-09-14",
+    269.0
+   ],
+   [
+    "2026-09-19",
+    239.0
+   ],
+   [
+    "2026-09-21",
+    269.0
+   ],
+   [
+    "2026-09-24",
+    239.0
+   ],
+   [
+    "2026-10-14",
+    239.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

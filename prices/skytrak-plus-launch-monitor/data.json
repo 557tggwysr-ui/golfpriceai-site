@@ -1,0 +1,42 @@
+{
+ "name": "SkyTrak + Launch Monitor",
+ "brand": "SkyTrak",
+ "type": "launch monitor",
+ "url": "https://golfpriceai.com/prices/skytrak-plus-launch-monitor/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 2695.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 2695.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 2695.0,
+  "high": 2695.0,
+  "average": 2695.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    2695.0
+   ],
+   [
+    "2026-10-14",
+    2695.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

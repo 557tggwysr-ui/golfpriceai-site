@@ -3,7 +3,7 @@
  "brand": "Ogio",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ogio-fuse-stand-golf-bag/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 59,
+  "daysTracked": 60,
   "low": 169.0,
   "high": 199.0,
-  "average": 184.77,
+  "average": 184.51,
   "priceChanges": 16,
   "series": [
    [
@@ -100,6 +100,10 @@
    ],
    [
     "2026-10-13",
+    169.0
+   ],
+   [
+    "2026-10-14",
     169.0
    ]
   ]

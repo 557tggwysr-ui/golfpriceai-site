@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-tour-staff-golf-bag/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 189.99,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 59,
+  "daysTracked": 60,
   "low": 189.99,
   "high": 399.0,
-  "average": 257.3,
+  "average": 256.18,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     189.99
    ],
    [
-    "2026-10-13",
+    "2026-10-14",
     189.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 40 days"
+  "summary": "Typical price: steady for 41 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

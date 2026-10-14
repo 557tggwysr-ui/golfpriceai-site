@@ -1,0 +1,46 @@
+{
+ "name": "Callaway Limited Chrome Soft Truvis Team Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-limited-chrome-soft-truvis-team-golf-balls/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 44.0,
+ "lowestAt": [
+  "Callaway Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Callaway Golf",
+   "from": 44.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 44.0,
+  "high": 55.0,
+  "average": 44.92,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    55.0
+   ],
+   [
+    "2026-08-21",
+    44.0
+   ],
+   [
+    "2026-10-14",
+    44.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 55 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

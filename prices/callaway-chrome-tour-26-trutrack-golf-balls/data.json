@@ -1,0 +1,42 @@
+{
+ "name": "Callaway Chrome Tour 26 TruTrack Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-chrome-tour-26-trutrack-golf-balls/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 92.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 92.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 92.0,
+  "high": 92.0,
+  "average": 92.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    92.0
+   ],
+   [
+    "2026-10-14",
+    92.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

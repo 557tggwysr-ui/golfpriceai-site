@@ -1,0 +1,42 @@
+{
+ "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
+ "brand": "Srixon",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 47.49,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 47.49,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 47.49,
+  "high": 47.49,
+  "average": 47.49,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    47.49
+   ],
+   [
+    "2026-10-14",
+    47.49
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

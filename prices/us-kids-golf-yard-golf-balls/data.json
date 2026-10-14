@@ -1,0 +1,42 @@
+{
+ "name": "US Kids Golf Yard Golf Balls",
+ "brand": "US Kids Golf",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/us-kids-golf-yard-golf-balls/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 39.5,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 39.5,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 39.5,
+  "high": 39.5,
+  "average": 39.5,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    39.5
+   ],
+   [
+    "2026-10-14",
+    39.5
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

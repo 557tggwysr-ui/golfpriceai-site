@@ -1,0 +1,42 @@
+{
+ "name": "Callaway Axle DNA Backpack Golf Bag",
+ "brand": "Callaway",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/callaway-axle-dna-backpack-golf-bag/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.0,
+ "lowestAt": [
+  "Callaway Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Callaway Golf",
+   "from": 119.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 119.0,
+  "high": 119.0,
+  "average": 119.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    119.0
+   ],
+   [
+    "2026-10-14",
+    119.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

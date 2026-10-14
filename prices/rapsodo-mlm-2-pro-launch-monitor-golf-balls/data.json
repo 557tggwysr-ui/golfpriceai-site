@@ -1,0 +1,42 @@
+{
+ "name": "Rapsodo MLM 2 Pro Launch Monitor Golf Balls",
+ "brand": "Rapsodo",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/rapsodo-mlm-2-pro-launch-monitor-golf-balls/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 549.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 549.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 549.0,
+  "high": 549.0,
+  "average": 549.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    549.0
+   ],
+   [
+    "2026-10-14",
+    549.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

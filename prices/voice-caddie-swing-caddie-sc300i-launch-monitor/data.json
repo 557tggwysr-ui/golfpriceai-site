@@ -1,0 +1,42 @@
+{
+ "name": "Voice Caddie Swing Caddie SC300I Launch Monitor",
+ "brand": "Voice Caddie",
+ "type": "launch monitor",
+ "url": "https://golfpriceai.com/prices/voice-caddie-swing-caddie-sc300i-launch-monitor/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 389.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 389.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 389.0,
+  "high": 389.0,
+  "average": 389.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    389.0
+   ],
+   [
+    "2026-10-14",
+    389.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

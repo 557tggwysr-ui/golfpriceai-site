@@ -1,0 +1,42 @@
+{
+ "name": "TaylorMade Tour Response Stripe Neon Golf Balls",
+ "brand": "TaylorMade",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/taylormade-tour-response-stripe-neon-golf-balls/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 39.99,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 39.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 39.99,
+  "high": 39.99,
+  "average": 39.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    39.99
+   ],
+   [
+    "2026-10-14",
+    39.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

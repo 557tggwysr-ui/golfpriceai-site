@@ -3,17 +3,17 @@
  "brand": "Mizuno",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/mizuno-st-g-fairway-wood/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 139.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 149.0,
+   "from": 139.95,
    "options": 1
   },
   {
@@ -23,11 +23,11 @@
   }
  ],
  "history": {
-  "daysTracked": 40,
-  "low": 149.0,
+  "daysTracked": 41,
+  "low": 139.95,
   "high": 159.0,
-  "average": 151.0,
-  "priceChanges": 1,
+  "average": 150.73,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -38,14 +38,14 @@
     149.0
    ],
    [
-    "2026-10-13",
-    149.0
+    "2026-10-14",
+    139.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 32 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

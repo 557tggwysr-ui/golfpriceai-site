@@ -1,0 +1,42 @@
+{
+ "name": "Callaway Limited Chrome Tour Coastal Summer Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-coastal-summer-golf-balls/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 55.0,
+ "lowestAt": [
+  "Callaway Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Callaway Golf",
+   "from": 55.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 55.0,
+  "high": 55.0,
+  "average": 55.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    55.0
+   ],
+   [
+    "2026-10-14",
+    55.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

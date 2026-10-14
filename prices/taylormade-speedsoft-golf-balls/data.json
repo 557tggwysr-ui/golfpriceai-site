@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-speedsoft-golf-balls/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 23.95,
@@ -28,7 +28,7 @@
   }
  ],
  "history": {
-  "daysTracked": 59,
+  "daysTracked": 60,
   "low": 23.95,
   "high": 24.99,
   "average": 24.16,
@@ -43,14 +43,14 @@
     23.95
    ],
    [
-    "2026-10-13",
+    "2026-10-14",
     23.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 47 days"
+  "summary": "Typical price: steady for 48 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

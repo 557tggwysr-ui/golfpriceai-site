@@ -1,0 +1,46 @@
+{
+ "name": "Ping Pioneer 224 Cart Golf Bag",
+ "brand": "Ping",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/ping-pioneer-224-cart-golf-bag/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 179.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 179.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 179.0,
+  "high": 199.0,
+  "average": 183.0,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    199.0
+   ],
+   [
+    "2026-08-28",
+    179.0
+   ],
+   [
+    "2026-10-14",
+    179.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 48 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,42 @@
+{
+ "name": "Callaway E R C Soft Truvis Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-e-r-c-soft-truvis-golf-balls/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 48.0,
+ "lowestAt": [
+  "Callaway Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Callaway Golf",
+   "from": 48.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 48.0,
+  "high": 48.0,
+  "average": 48.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    48.0
+   ],
+   [
+    "2026-10-14",
+    48.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/ping-g425-irons/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 599.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 40,
+  "daysTracked": 41,
   "low": 599.0,
   "high": 599.0,
   "average": 599.0,
@@ -29,14 +29,14 @@
     599.0
    ],
    [
-    "2026-10-13",
+    "2026-10-14",
     599.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 40 days"
+  "summary": "Typical price: steady for 41 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

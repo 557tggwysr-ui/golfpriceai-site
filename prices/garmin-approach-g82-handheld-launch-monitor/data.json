@@ -1,0 +1,42 @@
+{
+ "name": "Garmin Approach G82 Handheld Launch Monitor",
+ "brand": "Garmin",
+ "type": "launch monitor",
+ "url": "https://golfpriceai.com/prices/garmin-approach-g82-handheld-launch-monitor/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 520.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 520.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 520.0,
+  "high": 520.0,
+  "average": 520.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    520.0
+   ],
+   [
+    "2026-10-14",
+    520.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

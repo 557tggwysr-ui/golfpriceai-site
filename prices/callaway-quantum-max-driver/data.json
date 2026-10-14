@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-quantum-max-driver/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 529.0,
@@ -29,7 +29,7 @@
   }
  ],
  "history": {
-  "daysTracked": 59,
+  "daysTracked": 60,
   "low": 529.0,
   "high": 529.0,
   "average": 529.0,
@@ -40,14 +40,14 @@
     529.0
    ],
    [
-    "2026-10-13",
+    "2026-10-14",
     529.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 59 days"
+  "summary": "Typical price: steady for 60 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

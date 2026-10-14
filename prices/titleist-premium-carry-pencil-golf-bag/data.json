@@ -1,0 +1,74 @@
+{
+ "name": "Titleist Premium Carry Pencil Golf Bag",
+ "brand": "Titleist",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/titleist-premium-carry-pencil-golf-bag/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 109.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 109.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 94.0,
+  "high": 109.0,
+  "average": 105.75,
+  "priceChanges": 8,
+  "series": [
+   [
+    "2026-08-16",
+    109.0
+   ],
+   [
+    "2026-08-28",
+    94.0
+   ],
+   [
+    "2026-09-01",
+    109.0
+   ],
+   [
+    "2026-09-11",
+    94.0
+   ],
+   [
+    "2026-09-14",
+    109.0
+   ],
+   [
+    "2026-09-19",
+    94.0
+   ],
+   [
+    "2026-09-21",
+    109.0
+   ],
+   [
+    "2026-09-24",
+    94.0
+   ],
+   [
+    "2026-09-28",
+    109.0
+   ],
+   [
+    "2026-10-14",
+    109.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £15.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

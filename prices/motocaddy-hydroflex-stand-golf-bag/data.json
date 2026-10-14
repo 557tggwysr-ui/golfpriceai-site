@@ -1,0 +1,42 @@
+{
+ "name": "Motocaddy HydroFLEX Stand Golf Bag",
+ "brand": "Motocaddy",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/motocaddy-hydroflex-stand-golf-bag/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 159.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 159.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 159.0,
+  "high": 159.0,
+  "average": 159.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    159.0
+   ],
+   [
+    "2026-10-14",
+    159.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

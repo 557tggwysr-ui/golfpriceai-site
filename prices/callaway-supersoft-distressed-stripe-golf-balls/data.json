@@ -1,0 +1,42 @@
+{
+ "name": "Callaway Supersoft Distressed Stripe Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-supersoft-distressed-stripe-golf-balls/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 24.99,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 24.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 24.99,
+  "high": 24.99,
+  "average": 24.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    24.99
+   ],
+   [
+    "2026-10-14",
+    24.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

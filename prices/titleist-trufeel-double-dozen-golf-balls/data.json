@@ -1,0 +1,42 @@
+{
+ "name": "Titleist TruFeel Double Dozen Golf Balls",
+ "brand": "Titleist",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/titleist-trufeel-double-dozen-golf-balls/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 44.99,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 44.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 44.99,
+  "high": 44.99,
+  "average": 44.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    44.99
+   ],
+   [
+    "2026-10-14",
+    44.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

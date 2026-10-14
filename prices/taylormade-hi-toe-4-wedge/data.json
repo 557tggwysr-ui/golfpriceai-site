@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/taylormade-hi-toe-4-wedge/",
- "checked": "2026-10-13",
+ "checked": "2026-10-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 59,
+  "daysTracked": 60,
   "low": 129.95,
   "high": 159.0,
-  "average": 139.8,
+  "average": 139.63,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     129.95
    ],
    [
-    "2026-10-13",
+    "2026-10-14",
     129.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 39 days"
+  "summary": "Typical price: steady for 40 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

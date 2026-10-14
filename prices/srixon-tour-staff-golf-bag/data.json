@@ -1,0 +1,42 @@
+{
+ "name": "Srixon Tour Staff Golf Bag",
+ "brand": "Srixon",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/srixon-tour-staff-golf-bag/",
+ "checked": "2026-10-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 429.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 429.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 429.0,
+  "high": 429.0,
+  "average": 429.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    429.0
+   ],
+   [
+    "2026-10-14",
+    429.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}
