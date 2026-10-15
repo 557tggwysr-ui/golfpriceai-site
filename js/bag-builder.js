@@ -303,28 +303,161 @@ function renderShoppingList() {
   });
 }
 
-function renderBagGraphic() {
-  const tray = document.getElementById('bag-tray');
-  if (!tray) return;
-  const items = currentListItems();
+// ============================================================
+// "Your bag" card (rebuilt Oct 2026). An illustrated stand bag that
+// draws what's been picked (a head per club, an iron set adds 7, kit
+// hanging off the side) beside a tidy list where the names and prices
+// live, so long names never get squashed into the drawing. Also counts
+// clubs against golf's 14-club limit.
+// ============================================================
+const AB_INK = '#16241c', AB_STEEL = '#cfd5ce', AB_SHAFT = '#8e988f';
 
-  if (!items.length) {
-    tray.innerHTML = `<p class="tray-empty-msg">Empty so far — pick a bag, some clubs, and a few accessories below.</p>`;
-    return;
+function abEsc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+// How many of the 14 clubs a pick uses. An iron set is usually 7 (4-PW);
+// a single iron (house rule: under £120, or under £450 from Callaway's
+// own feed, or named as single/utility) counts as one.
+function abIsIronSet(p) {
+  if (p.category !== 'irons') return false;
+  if (/\b(single|utility|driving iron|individual)\b/i.test(p.name || '')) return false;
+  if (p.salePrice < 120) return false;
+  if ((p.source || '').indexOf('callaway') !== -1 && p.source !== 'awin-callawaypreowned' && p.salePrice < 450) return false;
+  return true;
+}
+function abSlots(p) { return abIsIronSet(p) ? 7 : 1; }
+function abClubType(p) { return p.category === 'irons' ? 'irons' : p.category; }
+
+// Only clubs added since the last draw drop in; the rest stay still.
+let abSeenIds = null;
+function abHeads(clubs) {
+  // Putter and wedges on the left of the fan, woods on the right (the
+  // bag leans left, so the tall headcovers stay inside the picture).
+  const order = { putter: 0, wedge: 1, irons: 2, hybrid: 3, wood: 4, driver: 5 };
+  const out = [];
+  clubs.slice().sort((a, b) => (order[abClubType(a)] ?? 2) - (order[abClubType(b)] ?? 2)).forEach(c => {
+    const fresh = abSeenIds !== null && !abSeenIds.has(c.id);
+    for (let i = 0; i < abSlots(c); i++) out.push({ t: abClubType(c), fresh });
+  });
+  // Too many to draw: drop iron heads first, so woods and putter always show.
+  while (out.length > 16) { const k = out.map(h => h.t).lastIndexOf('irons'); if (k === -1) break; out.splice(k, 1); }
+  return out.slice(0, 16);
+}
+
+function abHeadSVG(type, x, y, ang) {
+  let g;
+  if (type === 'driver' || type === 'wood' || type === 'hybrid') {
+    const w = type === 'driver' ? 26 : type === 'wood' ? 22 : 19, h = w * 1.25;
+    const col = type === 'driver' ? AB_INK : type === 'wood' ? '#2f8a1f' : '#6b7a6e';
+    g = `<rect x="${-w / 2}" y="${-h}" width="${w}" height="${h + 6}" rx="${w / 2}" fill="${col}" stroke="${AB_INK}" stroke-width="1.5"/>` +
+      `<rect x="${-w / 2}" y="-7" width="${w}" height="5" fill="#fff" opacity=".9"/>` +
+      `<circle cx="0" cy="${-h - 4}" r="5" fill="#fff" stroke="${AB_INK}" stroke-width="1.2"/>`;
+  } else if (type === 'putter') {
+    g = `<path d="M2 0 h-20 a10 10 0 0 1 -10 -10 v-1 a4 4 0 0 1 4 -4 h24 a2 2 0 0 1 2 2 z" fill="${AB_STEEL}" stroke="${AB_INK}" stroke-width="1.6"/>` +
+      `<path d="M-20 -8 h14" stroke="#3fae29" stroke-width="2.4" stroke-linecap="round"/>`;
+  } else {
+    const w = type === 'wedge' ? 17 : 14, col = type === 'wedge' ? '#eef1ed' : AB_STEEL;
+    g = `<path d="M2 0 L${-w} -3 Q${-w - 3} -4 ${-w - 2} -8 L${-w + 1} -14 Q${-w + 3} -16 ${-w + 6} -15 L2 -8 z" fill="${col}" stroke="${AB_INK}" stroke-width="1.5"/>`;
   }
+  return `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${ang.toFixed(1)})">${g}</g>`;
+}
 
-  // 3 slots per row, wraps to as many rows as needed for whatever's picked.
-  const rows = [];
-  for (let i = 0; i < items.length; i += 3) rows.push(items.slice(i, i + 3));
+function abClubsSVG(hs) {
+  const n = hs.length;
+  const LEN = { driver: 122, wood: 114, hybrid: 106, wedge: 84, putter: 98 };
+  return hs.map((h, i) => {
+    const t = h.t;
+    const f = n === 1 ? 0 : i / (n - 1) - 0.5;
+    const ang = f * Math.min(46, 14 + n * 2.4);
+    const len = t === 'irons' ? 88 + (i % 2) * 8 : (LEN[t] || 92);
+    const bx = 110 + f * 64, by = 118;
+    const rad = ang * Math.PI / 180, tx = bx + Math.sin(rad) * len, ty = by - Math.cos(rad) * len;
+    return `<g${h.fresh ? ' class="ab-club"' : ''}><line x1="${bx.toFixed(1)}" y1="${by + 6}" x2="${tx.toFixed(1)}" y2="${ty.toFixed(1)}" stroke="${AB_SHAFT}" stroke-width="2.4" stroke-linecap="round"/>${abHeadSVG(t, tx, ty, ang)}</g>`;
+  }).join('');
+}
 
-  tray.innerHTML = rows.map(row => `
-    <div class="tray-row">
-      ${row.map(p => `
-        <div class="tray-slot">
-          <div class="name">${p.name}</div>
-          <div class="price">${money(p.salePrice)}</div>
-        </div>`).join('')}
-    </div>`).join('');
+function abKitType(p) {
+  if (p.icon === 'umbrella') return 'umbrella';
+  if (p.icon === 'towel') return 'towel';
+  if (p.icon === 'rangefinder' || p.icon === 'gps-watch') return 'rangefinder';
+  return 'other';
+}
+function abKitSVG(kit) {
+  const types = {};
+  kit.forEach(k => { types[abKitType(k)] = (types[abKitType(k)] || 0) + 1; });
+  let out = '';
+  if (types.umbrella) out += `<g><path d="M162 128 l7 -9 l7 9 v150 a7 7 0 0 1 -14 0 z" fill="#2b3a30" stroke="${AB_INK}" stroke-width="1.5"/><path d="M162 160 h14 M162 200 h14" stroke="#3fae29" stroke-width="3"/><path d="M169 284 v12 a6 6 0 0 1 -12 0" fill="none" stroke="${AB_INK}" stroke-width="3" stroke-linecap="round"/></g>`;
+  if (types.towel) out += `<g><circle cx="58" cy="150" r="6" fill="none" stroke="${AB_INK}" stroke-width="3"/><path d="M44 156 h28 l4 58 h-36 z" fill="#fff" stroke="${AB_INK}" stroke-width="1.8"/><path d="M42 202 h33" stroke="#3fae29" stroke-width="4"/><path d="M42 214 v5 M48 214 v5 M54 214 v5 M60 214 v5 M66 214 v5 M72 214 v5" stroke="${AB_INK}" stroke-width="1.2"/></g>`;
+  if (types.rangefinder) out += `<g><rect x="96" y="244" width="40" height="30" rx="7" fill="${AB_INK}"/><circle cx="106" cy="259" r="7" fill="${AB_STEEL}"/><rect x="118" y="252" width="12" height="5" rx="2.5" fill="#3fae29"/></g>`;
+  const extra = kit.length - (types.umbrella ? 1 : 0) - (types.towel ? 1 : 0) - (types.rangefinder ? 1 : 0);
+  if (extra > 0) out += `<g><path d="M146 150 v12" stroke="${AB_INK}" stroke-width="2"/><rect x="132" y="162" width="28" height="34" rx="5" fill="#fff8e6" stroke="${AB_INK}" stroke-width="1.8"/><circle cx="146" cy="170" r="2.5" fill="${AB_INK}"/><text x="146" y="189" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="${AB_INK}">+${extra}</text></g>`;
+  return out;
+}
+
+function abBagSVG(bag, clubs, kit) {
+  const hs = abHeads(clubs);
+  if (!bag) {
+    return `<svg viewBox="-20 -46 260 406" role="img" aria-label="An empty bag outline">` +
+      `<path d="M62 128 Q62 116 76 114 H144 Q158 116 158 128 L154 312 Q154 334 132 334 H88 Q66 334 66 312 Z" fill="none" stroke="#9aa39b" stroke-width="3" stroke-dasharray="8 7"/>` +
+      `<ellipse cx="110" cy="122" rx="48" ry="9" fill="none" stroke="#9aa39b" stroke-width="3" stroke-dasharray="8 7"/>` +
+      (hs.length ? `<g transform="rotate(-5 110 340)">${abClubsSVG(hs)}</g>` : '') +
+      `<text x="110" y="226" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#5b665f">Pick a bag</text>` +
+      `<text x="110" y="246" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#5b665f">and watch it fill up</text></svg>`;
+  }
+  const label = `Your bag with ${hs.length} club${hs.length === 1 ? '' : 's'} and ${kit.length} accessor${kit.length === 1 ? 'y' : 'ies'}`;
+  return `<svg viewBox="-20 -46 260 406" role="img" aria-label="${label}">` +
+    `<g transform="rotate(-5 110 340)">` +
+      `<path d="M84 250 L44 350 M136 250 L176 350" stroke="#5d6b61" stroke-width="5" stroke-linecap="round"/>` +
+      abClubsSVG(hs) +
+      `<path d="M62 128 Q62 116 76 114 H144 Q158 116 158 128 L154 312 Q154 334 132 334 H88 Q66 334 66 312 Z" fill="#2f8a1f" stroke="${AB_INK}" stroke-width="4"/>` +
+      `<ellipse cx="110" cy="122" rx="48" ry="9" fill="${AB_INK}"/>` +
+      `<path d="M66 150 H154" stroke="${AB_INK}" stroke-width="2.5"/>` +
+      `<rect x="78" y="168" width="64" height="58" rx="12" fill="#26762a" stroke="${AB_INK}" stroke-width="2.5"/>` +
+      `<path d="M86 184 h48" stroke="${AB_INK}" stroke-width="2" stroke-dasharray="4 4"/>` +
+      `<rect x="84" y="284" width="52" height="30" rx="9" fill="#26762a" stroke="${AB_INK}" stroke-width="2.5"/>` +
+      `<path d="M156 150 C196 176 196 262 154 294" fill="none" stroke="${AB_INK}" stroke-width="8" stroke-linecap="round"/>` +
+      `<rect x="70" y="316" width="80" height="12" rx="6" fill="${AB_INK}"/>` +
+      abKitSVG(kit) +
+    `</g></svg>`;
+}
+
+const AB_CLUB_LABEL = { driver: 'Driver', wood: 'Fairway wood', hybrid: 'Hybrid', wedge: 'Wedge', putter: 'Putter' };
+function abRow(p, sub) {
+  const img = p.image
+    ? `<img src="${abEsc(p.image)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`
+    : '';
+  return `<li class="ab-row"><span class="ab-thumb" aria-hidden="true">${img}</span>` +
+    `<span class="ab-txt"><span class="ab-name">${abEsc(p.name)}</span>${sub ? `<span class="ab-sub">${abEsc(sub)}</span>` : ''}</span>` +
+    `<span class="ab-price">${money(p.salePrice)}</span></li>`;
+}
+
+function renderBagGraphic() {
+  const el = document.getElementById('arsenal-bag');
+  if (!el) return;
+  const bag = state.bagId ? findById(state.bagId) : null;
+  const clubs = state.clubIds.map(findById).filter(Boolean);
+  const kit = state.accessoryIds.map(findById).filter(Boolean);
+  const used = clubs.reduce((s, c) => s + abSlots(c), 0);
+  const total = (bag ? bag.salePrice : 0) + clubs.concat(kit).reduce((s, x) => s + x.salePrice, 0);
+  let bar = '';
+  for (let i = 0; i < 14; i++) bar += `<i class="${i < Math.min(used, 14) ? (used > 14 ? 'over' : 'on') : ''}"></i>`;
+  const clubSub = c => abIsIronSet(c) ? 'Iron set, about 7 clubs' : (c.category === 'irons' ? 'Single iron' : AB_CLUB_LABEL[c.category] || '');
+  const svg = abBagSVG(bag, clubs, kit);
+  abSeenIds = new Set(clubs.map(c => c.id));
+  el.innerHTML =
+    `<div class="ab-stage">${svg}<div class="ab-ground"></div></div>` +
+    `<div class="ab-side">` +
+      `<div class="ab-head"><h2>Your bag</h2><span class="ab-total"><small>Total</small>${money(total)}</span></div>` +
+      `<div class="ab-meter"><span>Clubs</span><span class="ab-bar" role="img" aria-label="${used} of 14 clubs">${bar}</span>` +
+        `<span><b>${used}</b> of 14${used > 14 ? ' · over the limit' : ''}</span></div>` +
+      `<div class="ab-groups">` +
+        `<div class="ab-group wide"><h3>Bag</h3>${bag ? `<ul class="ab-list">${abRow(bag)}</ul>` : '<p class="ab-empty">No bag yet. Pick one in step 1.</p>'}</div>` +
+        `<div class="ab-group"><h3>Clubs</h3>${clubs.length ? `<ul class="ab-list">${clubs.map(c => abRow(c, clubSub(c))).join('')}</ul>` : '<p class="ab-empty">No clubs yet. Add them in step 2.</p>'}</div>` +
+        `<div class="ab-group"><h3>Accessories</h3>${kit.length ? `<ul class="ab-list">${kit.map(k => abRow(k)).join('')}</ul>` : '<p class="ab-empty">Nothing yet. Add them in step 3.</p>'}</div>` +
+      `</div>` +
+      `<div class="ab-foot"><a href="#shopping-list-section">See your shopping list ↓</a><span>Each item buys from its own retailer.</span></div>` +
+    `</div>`;
 }
 
 function renderAll() {
