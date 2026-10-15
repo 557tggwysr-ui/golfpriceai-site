@@ -45,6 +45,7 @@ function renderBundle(bundle) {
   return `
     <article class="kit-card">
       <h2 class="kit-card-title">${escapeHtml(bundle.title)}</h2>
+      ${bundle.blurb ? `<p class="kit-card-blurb">${escapeHtml(bundle.blurb)}</p>` : ''}
       <div class="kit-items">
         ${bundle.items.map(renderItem).join('')}
       </div>
@@ -57,13 +58,21 @@ function renderBundle(bundle) {
 }
 
 function renderItem(item) {
+  // The main club/device comes from a price guide, so it also gets a
+  // "Compare prices" link and a "today's lowest price" note.
+  const compare = item.pricePage
+    ? `<a class="kit-item-compare" href="${escapeHtml(item.pricePage)}">Compare prices</a>`
+    : '';
+  const lowNote = item.pricePage ? `<span class="kit-item-note">Today's lowest price</span>` : '';
   return `
-    <div class="kit-item">
+    <div class="kit-item${item.hero ? ' kit-item-hero' : ''}">
       <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy">
       <span class="kit-item-slot">${escapeHtml(item.slotLabel)}</span>
       <span class="kit-item-name">${escapeHtml(item.name)}</span>
       <span class="kit-item-price">£${item.salePrice.toFixed(2)}</span>
+      ${lowNote}
       <a class="kit-item-link" href="${escapeHtml(item.affiliateUrl)}" target="_blank" rel="nofollow sponsored noopener">Buy →</a>
+      ${compare}
     </div>
   `;
 }

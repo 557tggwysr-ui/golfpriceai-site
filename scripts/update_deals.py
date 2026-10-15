@@ -2274,54 +2274,6 @@ def save_outfits(outfits):
 # it as a "deal" would be exactly the kind of fake-discount claim this
 # site's whole brand promise exists to avoid.
 # ============================================================
-BUNDLE_TEMPLATES = [
-    {"id": "driver-headcover", "title": "🏌️ Driver + Headcover", "slots": [
-        {"label": "Driver", "category": "driver"},
-        {"label": "Headcover", "icon": "headcover"},
-    ]},
-    {"id": "irons-bag", "title": "⛳ Iron Set + Golf Bag", "slots": [
-        {"label": "Irons", "category": "irons"},
-        {"label": "Golf Bag", "category": "bag"},
-    ]},
-    {"id": "course-day-essentials", "title": "🧢 Course Day Essentials", "slots": [
-        {"label": "Glove", "icon": "glove"},
-        {"label": "Tees", "icon": "tee"},
-        {"label": "Towel", "icon": "towel"},
-    ]},
-    {"id": "putter-alignment", "title": "🎯 Putter + Alignment Sticks", "slots": [
-        {"label": "Putter", "category": "putter"},
-        {"label": "Alignment Sticks", "icon": "alignment-sticks"},
-    ]},
-    {"id": "shoes-socks", "title": "👟 Shoes + Socks", "slots": [
-        {"label": "Golf Shoes", "category": "shoes"},
-        {"label": "Socks", "icon": "socks"},
-    ]},
-    {"id": "balls-retriever", "title": "🎾 Balls + Ball Retriever", "slots": [
-        {"label": "Golf Balls", "category": "ball"},
-        {"label": "Ball Retriever", "icon": "ball-retriever"},
-    ]},
-]
-
-
-def _slot_matches(product, slot):
-    if product.get("inStock") is False or not product.get("image"):
-        return False
-    # Preowned/used pricing doesn't play by the same rules as genuine new
-    # retail, so it's never bundled into a Complete The Kit recommendation
-    # alongside new items (would misrepresent the combined "kit" price).
-    # This single check covers both Callaway Preowned's real grades and
-    # any generic "Used" tag from other retailers (e.g. Scottsdale),
-    # since both set the same `condition` field.
-    if product.get("condition"):
-        return False
-    if "category" in slot and product.get("category") != slot["category"]:
-        return False
-    if "icon" in slot and product.get("icon") != slot["icon"]:
-        return False
-    return True
-
-
-
 # ============================================================
 # Curated homepage/tool-page views, precomputed here instead of
 # client-side.
@@ -2871,35 +2823,360 @@ def save_deals_feed(products):
     return len(items)
 
 
+# ============================================================
+# Complete The Kit (data/bundles.json)
+#
+# Rebuilt 15 Oct 2026 after customer feedback. The old version took the
+# single cheapest product whose category matched, which put a £1.99 grip
+# in as "the putter", a gym sack in as "the irons" and a spike wrench in
+# as "the shoes".
+#
+# How it works now:
+#   * The main ("hero") club or device comes ONLY from models that have a
+#     live price page (data/models.json + /prices/<slug>/index.html), from
+#     a known brand, in a realistic price band, at its cheapest in-stock
+#     new listing right now. So "the putter" is always a real putter.
+#   * Add-ons are matched on item type AND name words, from known brands
+#     where that brand range exists, inside a sensible price band. Within
+#     the band we favour known brands and a mid-band price, not the
+#     cheapest filler.
+#   * Never: second-hand, junior, practice/recycled balls, out of stock,
+#     no photo. A product is used once across the whole page.
+#   * A kit is hidden for the run (not padded with junk) if any slot has
+#     no proper match.
+#   * The picks rotate daily among the best few, so the page doesn't go
+#     stale, but stay the same all day.
+# ============================================================
+import hashlib
+
+KIT_JUNIOR_WORDS = ("junior", "youth", "kids", "kid's", "boys", "girls", "child")
+KIT_BAD_BALL_WORDS = ("practice", "recycled", "refurb", "lake", "pearl grade", "used", "x-out", "xout",
+                      "foam", "plastic", "almost golf", "airflow", "range ball")
+KIT_PREMIUM_BALL_WORDS = ("pro v1", "pro v1x", "prov1", "tp5", "chrome tour", "chrome soft", "z-star", "zstar",
+                          "tour b", "avx", "tour response", "tp5x", "q-star tour")
+# Accessory makers that aren't in the main brand list but are the normal,
+# sensible choice for a few small items (tees, spike wrenches, mats).
+KIT_SPECIALIST_BRANDS = ("masters", "longridge", "puttout", "wellputt", "pride", "skins golf",
+                         "zebra", "foremat", "northern golf", "softspikes", "champ", "pro-tekt")
+
+
+def _kit_words(text):
+    return f" {re.sub(r'[^a-z0-9+]+', ' ', (text or '').lower())} "
+
+
+def _kit_has(text, *words):
+    t = _kit_words(text)
+    return any(_kit_words(w) in t for w in words)
+
+
+def _kit_brand_rank(p):
+    import seasonal_pages
+    return min(seasonal_pages.brand_rank(p.get("brand")), seasonal_pages.brand_rank(p.get("name")))
+
+
+def _kit_is_specialist(p):
+    s = f"{p.get('brand') or ''} {p.get('name') or ''}".lower()
+    return any(s.startswith(b) or f" {b} " in f" {s} " for b in KIT_SPECIALIST_BRANDS)
+
+
+def _kit_ok_listing(p):
+    """The checks every single pick has to pass, hero or add-on."""
+    if p.get("inStock") is False or not p.get("image") or not p.get("affiliateUrl"):
+        return False
+    if is_preowned_partner(p) or "/sh-" in (p.get("image") or ""):
+        return False
+    if p.get("audience") == "Junior" or _kit_has(p.get("name"), *KIT_JUNIOR_WORDS):
+        return False
+    return (p.get("salePrice") or 0) > 0
+
+
+def _kit_base(p):
+    return (p.get("name") or "").split(" - ")[0].strip().lower()
+
+
+def _kit_display_name(p):
+    """Drops the size off the end of apparel/shoe names ("... - Black / 9")
+    and keeps the product name and colour."""
+    name = p.get("name") or ""
+    parts = name.split(" - ")
+    if len(parts) > 1 and "/" in parts[-1]:
+        last = parts[-1].split("/")[0].strip()
+        parts = parts[:-1] + ([last] if last and last.lower() not in parts[-2].lower() else [])
+    # "Umbrella - Black - Black" -> "Umbrella - Black"
+    tidy = []
+    for part in parts:
+        if not tidy or part.strip().lower() != tidy[-1].strip().lower():
+            tidy.append(part)
+    return " - ".join(tidy)
+
+
+def _kit_rotate(ranked, key, n=4):
+    """Picks one of the top n, the same one all day, a different one most
+    days. Nothing random between runs on the same day."""
+    if not ranked:
+        return None
+    top = ranked[:n]
+    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    h = int(hashlib.md5(f"{day}:{key}".encode()).hexdigest(), 16)
+    return top[h % len(top)]
+
+
+# --- the hero: a real model with a live price page --------------------------
+def _kit_live_models():
+    models_file = Path(__file__).resolve().parent.parent / "data" / "models.json"
+    if not models_file.exists():
+        return []
+    prices_dir = Path(__file__).resolve().parent.parent / "prices"
+    out = []
+    for m in json.loads(models_file.read_text()).get("models", []):
+        if m.get("preowned"):
+            continue
+        if not (prices_dir / m["slug"] / "index.html").exists():
+            continue
+        out.append(m)
+    return out
+
+
+def _kit_iron_set_ok(model, listing):
+    """House rule: irons under £120 anywhere, or under £450 in the
+    Callaway feed, are single irons, not sets."""
+    price = listing["salePrice"]
+    if price < 120:
+        return False
+    if "callaway" in (listing.get("source") or "").lower() and price < 450:
+        return False
+    return not _kit_has(model["name"], "utility", "driving iron", "single", "crossover", "ut")
+
+
+def _kit_pick_hero(slot, live_models, by_id, used):
+    ranked = []
+    for m in live_models:
+        if m.get("type") != slot["type"]:
+            continue
+        if _kit_has(m["name"], *KIT_JUNIOR_WORDS):
+            continue
+        if slot.get("words") and not _kit_has(m["name"], *slot["words"]):
+            continue
+        if slot.get("not_words") and _kit_has(m["name"], *slot["not_words"]):
+            continue
+        brank = _kit_brand_rank({"brand": m.get("brand"), "name": m["name"]})
+        if brank >= 99:
+            continue
+        listings = [by_id[i] for i in m.get("listingIds", []) if i in by_id and _kit_ok_listing(by_id[i])]
+        if slot["type"] == "ball":
+            listings = [p for p in listings if not _kit_has(p["name"], *KIT_BAD_BALL_WORDS)]
+        if not listings:
+            continue
+        best = min(listings, key=lambda p: p["salePrice"])
+        lo, hi = slot["band"]
+        if not (lo <= best["salePrice"] <= hi):
+            continue
+        if slot["type"] == "irons" and not _kit_iron_set_ok(m, best):
+            continue
+        if best["id"] in used or _kit_base(best) in used:
+            continue
+        # Score: known brand first, then "at or near its own tracked low",
+        # then more retailers, then a verified drop.
+        at_low = 1 if m.get("low") and best["salePrice"] <= m["low"] * 1.02 else 0
+        retailers = len(m.get("retailers") or {})
+        score = (min(brank, 20) // 5, -at_low, -min(retailers, 3), -(m.get("verifiedDrops") or 0), brank)
+        ranked.append((score, m, best))
+    ranked.sort(key=lambda r: r[0])
+    pick = _kit_rotate(ranked, slot["label"])
+    if not pick:
+        return None
+    _, m, best = pick
+    return {
+        "slotLabel": slot["label"],
+        "id": best.get("id"),
+        "name": m["name"],
+        "image": best.get("image"),
+        "salePrice": best["salePrice"],
+        "affiliateUrl": best["affiliateUrl"],
+        "brand": m.get("brand") or best.get("brand"),
+        "pricePage": f"/prices/{m['slug']}/",
+        "retailerCount": len(m.get("retailers") or {}),
+        "hero": True,
+    }
+
+
+# --- add-ons: matched by type and name, in a sensible price band ------------
+def _kit_slot_candidates(slot, products, hero):
+    lo, hi = slot["band"]
+    out = []
+    for p in products:
+        if not _kit_ok_listing(p):
+            continue
+        if slot.get("icons") and p.get("icon") not in slot["icons"]:
+            continue
+        if slot.get("categories") and p.get("category") not in slot["categories"]:
+            continue
+        name = p.get("name") or ""
+        if slot.get("words") and not _kit_has(name, *slot["words"]):
+            continue
+        if slot.get("not_words") and _kit_has(name, *slot["not_words"]):
+            continue
+        if slot.get("audience") and p.get("audience") != slot["audience"]:
+            continue
+        if not (lo <= p["salePrice"] <= hi):
+            continue
+        brank = _kit_brand_rank(p)
+        if slot.get("brands") == "known" and brank >= 99:
+            continue
+        if slot.get("brands") == "known+specialist" and brank >= 99 and not _kit_is_specialist(p):
+            continue
+        out.append(p)
+    return out
+
+
+def _kit_pick_addon(slot, products, hero, used):
+    cands = [p for p in _kit_slot_candidates(slot, products, hero)
+             if p["id"] not in used and _kit_base(p) not in used]
+    if not cands:
+        return None
+    lo, hi = slot["band"]
+    target = slot.get("target", (lo + hi) / 2)
+    hero_brand = ((hero or {}).get("brand") or "").lower()
+    seen, ranked = set(), []
+    for p in cands:
+        base = _kit_base(p)
+        if base in seen:
+            continue
+        seen.add(base)
+        brank = _kit_brand_rank(p)
+        matches_hero = 1 if slot.get("match_hero_brand") and hero_brand and \
+            (hero_brand in (p.get("brand") or "").lower() or hero_brand in (p.get("name") or "").lower()) else 0
+        score = (-matches_hero, 0 if brank < 99 else 1, abs(p["salePrice"] - target) / max(target, 1), brank)
+        ranked.append((score, p))
+    ranked.sort(key=lambda r: r[0])
+    # Rotate only among equally good picks (same brand-match and brand tier).
+    best_tier = ranked[0][0][:2]
+    ranked = [r for r in ranked if r[0][:2] == best_tier]
+    pick = _kit_rotate([p for _, p in ranked], f"{slot['label']}:{(hero or {}).get('id')}")
+    return {
+        "slotLabel": slot["label"],
+        "id": pick.get("id"),
+        "name": _kit_display_name(pick),
+        "image": pick.get("image"),
+        "salePrice": pick["salePrice"],
+        "affiliateUrl": pick["affiliateUrl"],
+        "brand": pick.get("brand"),
+    }
+
+
+HEADCOVER_NOT = ("fairway", "hybrid", "putter", "iron", "rescue", "wood cover", "3 wood", "5 wood", "women's",
+                 "ladies", "set")
+
+BUNDLE_TEMPLATES = [
+    {"id": "driver-headcover-tees", "title": "🏌️ Driver + Headcover + Tees",
+     "blurb": "A real driver at its lowest price, a matching headcover to keep it pristine, and tees.",
+     "slots": [
+         {"label": "Driver", "hero": True, "type": "driver", "band": (150, 600)},
+         {"label": "Headcover", "icons": ("headcover",), "words": ("driver",), "not_words": HEADCOVER_NOT,
+          "band": (12, 60), "target": 30, "brands": "known", "match_hero_brand": True},
+         {"label": "Tees", "icons": ("tee",), "words": ("tees", "tee"),
+          "not_words": ("bag", "duffle", "holder", "pencil", "towel", "glove"),
+          "band": (2.5, 12), "target": 5, "brands": "known+specialist"},
+     ]},
+    {"id": "putter-alignment-mat", "title": "🎯 Putter + Alignment Sticks + Putting Mat",
+     "blurb": "Everything for holing more putts: a real putter, alignment sticks and a mat for the living room.",
+     "slots": [
+         {"label": "Putter", "hero": True, "type": "putter", "band": (90, 450)},
+         {"label": "Alignment Sticks", "words": ("alignment sticks", "alignment stick", "alignment rods",
+                                                  "tour rodz", "drill stix", "drill-stix", "alignment stix"),
+          "not_words": ("cover", "headcover", "ball", "balls", "mirror", "trainer aid"),
+          "band": (8, 40), "target": 20, "brands": "known+specialist"},
+         {"label": "Putting Mat", "words": ("putting mat",), "not_words": ("trainer",),
+          "band": (25, 150), "target": 60, "brands": "known+specialist"},
+     ]},
+    {"id": "rangefinder-battery", "title": "📏 Laser Rangefinder + Spare Battery",
+     "blurb": "A real laser rangefinder at its lowest price, plus the spare CR2 battery you'll wish you'd packed.",
+     "slots": [
+         {"label": "Rangefinder", "hero": True, "type": "rangefinder", "band": (120, 450),
+          "words": ("laser",), "not_words": ("gps", "watch", "handheld")},
+         {"label": "Spare Battery", "words": ("cr2",), "band": (3, 15), "target": 5,
+          "brands": "known+specialist"},
+     ]},
+    {"id": "winter-warm-up", "title": "❄️ Winter Warm-Up: Mitts + Beanie + Hand Warmers",
+     "blurb": "For frosty mornings when the 7am tee time felt like a good idea at the time.",
+     "months": (10, 11, 12, 1, 2, 3),
+     "slots": [
+         {"label": "Winter Mitts", "words": ("mitts", "mittens", "mitt"),
+          "not_words": ("trolley", "pushcart", "handle"), "audience": "Male",
+          "band": (14, 45), "target": 25, "brands": "known"},
+         {"label": "Beanie", "icons": ("cap",), "words": ("beanie", "bobble"),
+          "not_words": ("gift set", "neck warmer", "snood", "set"), "audience": "Male",
+          "band": (12, 32), "target": 20, "brands": "known"},
+         {"label": "Hand Warmers", "words": ("hand warmer", "handwarmer", "hand warmers", "handwarmers"),
+          "not_words": ("neck", "body"), "band": (1, 15), "target": 5, "brands": "known+specialist"},
+     ]},
+    {"id": "premium-balls-marker-towel", "title": "⛳ Premium Balls + Ball Marker + Towel",
+     "blurb": "Tour-level balls at today's lowest price, something to mark them with and a towel to keep them clean.",
+     "slots": [
+         {"label": "Premium Golf Balls", "hero": True, "type": "ball", "band": (30, 65),
+          "words": KIT_PREMIUM_BALL_WORDS, "not_words": KIT_BAD_BALL_WORDS},
+         {"label": "Ball Marker", "words": ("ball marker", "ball markers"),
+          "not_words": ("cap", "hat", "glove", "pen", "pens", "holder", "clip"),
+          "band": (4, 20), "target": 10, "brands": "known+specialist"},
+         {"label": "Towel", "icons": ("towel",), "band": (10, 30), "target": 18, "brands": "known"},
+     ]},
+    {"id": "bag-umbrella-towel", "title": "🎒 Bag + Umbrella + Towel",
+     "blurb": "A proper bag at its lowest price, plus the umbrella and towel every UK round needs.",
+     "slots": [
+         {"label": "Golf Bag", "hero": True, "type": "bag", "band": (120, 320),
+          "not_words": ("travel", "cover", "tour staff", "staff bag", "pencil", "women's", "ladies")},
+         {"label": "Umbrella", "icons": ("umbrella",), "band": (25, 60), "target": 38, "brands": "known"},
+         {"label": "Towel", "icons": ("towel",), "band": (10, 30), "target": 18, "brands": "known"},
+     ]},
+    {"id": "shoes-socks-wrench", "title": "👟 Shoes + Socks + Spike Wrench",
+     "blurb": "Proper golf shoes from a big name, socks to go with them and the wrench for swapping spikes.",
+     "slots": [
+         {"label": "Golf Shoes", "categories": ("shoes",), "icons": (None,), "audience": "Male",
+          "words": ("golf shoes", "golf shoe", "spikeless", "spiked", "golf boot"),
+          "not_words": ("trainer", "trainers", "sandal", "slide", "wrench", "bag", "spikes only", "laces"),
+          "band": (70, 180), "target": 115, "brands": "known"},
+         {"label": "Socks", "icons": ("socks",), "audience": "Male", "not_words": ("training", "running"),
+          "band": (6, 20), "target": 11, "brands": "known"},
+         {"label": "Spike Wrench", "words": ("wrench", "spike tool", "spike key", "cleat tool"),
+          "band": (2.5, 15), "target": 9, "brands": "known+specialist"},
+     ]},
+]
+
+
 def compute_bundles(products):
-    """Rebuilds every bundle from scratch each run, always picking the
-    single cheapest currently in-stock, real-photo match for each slot.
-    A template is skipped entirely (not shown with a gap) if any one of
-    its slots has no genuine match right now."""
+    """Rebuilds every kit from scratch each run (see the notes above).
+    The hero comes from live price-page models (data/models.json from the
+    previous run, at TODAY'S listing prices); add-ons from today's
+    catalogue. A kit with any unfillable slot is skipped for the run."""
+    by_id = {p.get("id"): p for p in products if p.get("id")}
+    live_models = _kit_live_models()
+    month = datetime.now(timezone.utc).month
+    used = set()
     bundles = []
     for template in BUNDLE_TEMPLATES:
-        items = []
-        complete = True
-        for slot in template["slots"]:
-            candidates = [p for p in products if _slot_matches(p, slot)]
-            if not candidates:
-                complete = False
-                break
-            cheapest = min(candidates, key=lambda p: p["salePrice"])
-            items.append({
-                "slotLabel": slot["label"],
-                "id": cheapest.get("id"),
-                "name": cheapest["name"],
-                "image": cheapest.get("image"),
-                "salePrice": cheapest["salePrice"],
-                "affiliateUrl": cheapest["affiliateUrl"],
-                "brand": cheapest.get("brand"),
-            })
-        if not complete:
+        if template.get("months") and month not in template["months"]:
             continue
+        items, hero, picked_keys = [], None, set()
+        for slot in template["slots"]:
+            taken = used | picked_keys
+            item = (_kit_pick_hero(slot, live_models, by_id, taken) if slot.get("hero")
+                    else _kit_pick_addon(slot, products, hero, taken))
+            if not item:
+                print(f"Complete The Kit: skipped '{template['id']}' today (no proper {slot['label']}).")
+                items = None
+                break
+            if slot.get("hero"):
+                hero = item
+            items.append(item)
+            src = by_id.get(item["id"]) or {}
+            picked_keys |= {item["id"], _kit_base(src)}
+        if not items:
+            continue
+        used |= picked_keys
         bundles.append({
             "id": template["id"],
             "title": template["title"],
+            "blurb": template.get("blurb", ""),
             "items": items,
             "total": round(sum(i["salePrice"] for i in items), 2),
         })
