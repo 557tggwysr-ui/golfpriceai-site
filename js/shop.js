@@ -217,6 +217,130 @@ function popularityScore(p) {
   return (p.retailerCount || 1) * 10 + (p.savePct || 0) * 2;
 }
 
+// ============================================================
+// "Featured" order (default since Oct 2026). Customers said the first
+// items on Clubs/Apparel/Accessories pages were cheap, generic things.
+// Featured favours: well-known brands, current (2025/2026) models,
+// genuine price drops measured against OUR price history, products sold
+// by more than one retailer, and a realistic price for that kind of
+// item. Junior, unbranded, out-of-stock and "£2 filler" items drop
+// down, and repeat sizes/colours of the same product are spread out so
+// the first rows show different things. Nothing is hidden: it's only an
+// order. Price and discount sorts are untouched.
+// ============================================================
+const FEATURED_TOP_BRANDS = [
+  'titleist', 'taylormade', 'callaway', 'ping', 'footjoy', 'srixon', 'cobra', 'mizuno', 'odyssey',
+  'scotty cameron', 'cleveland', 'bushnell', 'garmin', 'shot scope', 'skycaddie', 'motocaddy',
+  'under armour', 'nike', 'adidas', 'puma', 'galvin green', 'proquip', 'ecco', 'oakley', 'wilson',
+  'big max', 'sun mountain', 'ogio', 'vessel', 'bridgestone', 'pxg', 'peter millar', 'g/fore',
+  'j lindeberg', 'j.lindeberg', 'travismathew', 'oscar jacobson', 'lyle & scott', 'calvin klein',
+  'powakaddy', 'stewart golf', 'l.a.b. golf', 'evnroll', 'bettinardi', 'glenmuir', 'castore',
+];
+const FEATURED_JUNIOR_RX = /\b(junior|juniors|youth|kids|kid's|boys|girls|child|children's|toddler|us kids)\b/i;
+
+// Current club and ball families (2025/2026 launches seen in the feeds)
+// get a nudge up; families several seasons old get a small nudge down.
+// Update these lists each launch season.
+const FEATURED_CURRENT_RX = /\b(qi35|qi4d|elyte|quantum|g440|gt1|gt2|gt3|gt4|gt280|zxi|ds-adapt|optm|jpx one|dynapwr|ai-one|ai-dual|sm11|sm10|spider tour|pro v1x?|tp5x?|chrome tour|chrome soft|z-star|tour b|t100|t150|t250|t350|p790|p770|p7cb|p7mb|i240|s159|apex|studio style|phantom)\b/i;
+const FEATURED_OLD_RX = /\b(stealth|sim2?|m[1-6]|rogue|epic|mavrik|g425|g410|g400|tsi\d|ts\d|ltdx|radspeed|speedzone|zx5|zx7|st-x|st-z|st-g|paradym)\b/i;
+const FEATURED_COLOUR_RX = /\b(white|yellow|orange|pink|black|green|blue|red|matte|matt|optic|lime)\b/gi;
+
+function featuredBase(p) {
+  // One "product" for spreading repeats: name before " - ", without
+  // colour words or offer wording ("3 For 2 Offer", "(Dozen)").
+  return (p.name || '').split(' - ')[0].toLowerCase()
+    .replace(/\(.*?\)/g, ' ').replace(/\b\d\s*for\s*\d\b.*$/, ' ').replace(/\boffer\b/g, ' ')
+    .replace(FEATURED_COLOUR_RX, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function featuredBrandTier(p) {
+  const b = (extractBrand(p) || '').toLowerCase();
+  const name = (p.name || '').toLowerCase();
+  if (FEATURED_TOP_BRANDS.some(t => b === t || b.startsWith(t) || name.startsWith(t + ' '))) return 2;
+  if (b && b !== 'other') return 1;
+  return 0;
+}
+
+// Same rule as the site's "genuine price drop": at least £5 AND 3%,
+// under 60%, against our own tracked high, and still at the lower price.
+function featuredGenuineDrop(p) {
+  const ins = p.priceInsight;
+  if (!ins || !ins.verifiedDiscount || !ins.historicalHigh) return false;
+  const drop = ins.historicalHigh - p.salePrice;
+  const pct = drop / ins.historicalHigh;
+  return drop >= 5 && pct >= 0.03 && pct < 0.6;
+}
+
+// Context for one list: typical price of each item type (median of the
+// known-brand items), and how many retailers sell each product.
+function featuredContext(list) {
+  const byKind = {};
+  const sources = {};
+  for (const p of list) {
+    const kind = p.icon || p.category;
+    (byKind[kind] = byKind[kind] || []).push(p.salePrice);
+    const base = featuredBase(p);
+    (sources[base] = sources[base] || new Set()).add(p.source);
+  }
+  const median = {};
+  for (const k in byKind) {
+    const a = byKind[k].sort((x, y) => x - y);
+    median[k] = a[Math.floor(a.length / 2)];
+  }
+  return { median, sources };
+}
+
+function featuredScore(p, ctx) {
+  let score = 0;
+  const tier = featuredBrandTier(p);
+  score += tier === 2 ? 30 : tier === 1 ? 12 : 0;
+  const name = p.name || '';
+  if (/\b2026\b/.test(name)) score += 10;
+  else if (/\b2025\b/.test(name)) score += 8;
+  else if (/\b20(1\d|2[0-4])\b/.test(name)) score -= 6;
+  if (FEATURED_CURRENT_RX.test(name)) score += 10;
+  else if (FEATURED_OLD_RX.test(name)) score -= 6;
+  if (featuredGenuineDrop(p)) score += 20;
+  const retailers = Math.max(p.retailerCount || 1, (ctx.sources[featuredBase(p)] || new Set()).size);
+  if (retailers >= 2) score += 10;
+  const typical = ctx.median[p.icon || p.category];
+  if (typical) {
+    const ratio = p.salePrice / typical;
+    if (ratio >= 0.5 && ratio <= 2.5) score += 10;
+    else if (ratio < 0.3) score -= 25;   // £2 filler next to proper kit
+    else if (ratio < 0.5) score -= 8;
+    else if (ratio > 6) score -= 25;     // probably filed under the wrong type
+  }
+  if (classifyAudience(p) === 'Junior' || FEATURED_JUNIOR_RX.test(name)) score -= 40;
+  if (p.inStock === false) score -= 50;
+  if (p.condition) score -= 50;
+  if (!p.image) score -= 30;
+  return score;
+}
+
+function featuredSort(list) {
+  const ctx = featuredContext(list);
+  const scored = list.map(p => ({ p, s: featuredScore(p, ctx) + popularityScore(p) / 100 }));
+  scored.sort((a, b) => b.s - a.s || a.p.salePrice - b.p.salePrice);
+  // Spread repeats: each further size/colour of a product already shown
+  // drops back a lot, and each further item from the same brand a
+  // little, so the first rows show a real mix.
+  const seen = {};
+  const brandSeen = {};
+  for (const x of scored) {
+    const base = featuredBase(x.p);
+    const n = seen[base] || 0;
+    x.s -= n * 25;
+    seen[base] = n + 1;
+    const brand = (extractBrand(x.p) || '').toLowerCase();
+    const nb = brandSeen[brand] || 0;
+    x.s -= Math.min(nb * 4, 24);
+    brandSeen[brand] = nb + 1;
+  }
+  scored.sort((a, b) => b.s - a.s || a.p.salePrice - b.p.salePrice);
+  return scored.map(x => x.p);
+}
+
 const CLUB_CATEGORIES = ['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets'];
 
 const CLUB_TYPE_OPTIONS = [
@@ -274,7 +398,7 @@ let activeAudience = new Set();
 let activeCondition = new Set();
 let priceMin = null;
 let priceMax = null;
-let sortMode = 'popular';
+let sortMode = 'featured';
 let searchQuery = '';
 let groupNoteHTML = '';
 
@@ -409,14 +533,18 @@ function applyFiltersAndSort(resetPage = true) {
 
   let filtered = baseFilteredProducts().filter(p => matchesFilters(p, null));
 
-  filtered = filtered.slice().sort((a, b) => {
-    if (sortMode === 'price-asc') return a.salePrice - b.salePrice;
-    if (sortMode === 'price-desc') return b.salePrice - a.salePrice;
-    if (sortMode === 'discount') return b.savePct - a.savePct;
-    return popularityScore(b) - popularityScore(a);
-  });
+  if (sortMode === 'featured') {
+    filtered = featuredSort(filtered);
+  } else {
+    filtered = filtered.slice().sort((a, b) => {
+      if (sortMode === 'price-asc') return a.salePrice - b.salePrice;
+      if (sortMode === 'price-desc') return b.salePrice - a.salePrice;
+      if (sortMode === 'discount') return b.savePct - a.savePct;
+      return popularityScore(b) - popularityScore(a);
+    });
+  }
 
-  if (sortMode === 'popular' && activeAudience.size === 0) {
+  if ((sortMode === 'popular' || sortMode === 'featured') && activeAudience.size === 0) {
     filtered = applyAudienceBias(filtered);
   }
 
@@ -671,7 +799,7 @@ function updateURL() {
   if (activeTypeCheckboxes.size) params.set('types', [...activeTypeCheckboxes].join(',')); else params.delete('types');
   if (priceMin !== null) params.set('pricemin', priceMin); else params.delete('pricemin');
   if (priceMax !== null) params.set('pricemax', priceMax); else params.delete('pricemax');
-  if (sortMode !== 'popular') params.set('sort', sortMode); else params.delete('sort');
+  if (sortMode !== 'featured') params.set('sort', sortMode); else params.delete('sort');
   history.replaceState(null, '', '?' + params.toString());
 }
 
@@ -800,7 +928,7 @@ function setMeta(canonicalUrl, title, description) {
 function updateSeoMeta(params, categoryParam, validCategory, groupParam) {
   const BASE = 'https://golfpriceai.com/shop.html';
   const hasDeeperFacet = ['types', 'brand', 'colour', 'audience', 'condition', 'pricemin', 'pricemax', 'label'].some(k => params.get(k))
-    || (params.get('sort') && params.get('sort') !== 'popular')
+    || (params.get('sort') && params.get('sort') !== 'featured')
     || params.get('q');
   const sourceParam = params.get('source');
 
