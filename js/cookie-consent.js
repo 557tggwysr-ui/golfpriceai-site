@@ -14,8 +14,11 @@
   }
 
   function pathToRoot() {
-    // Works whether the page is at / or /legal/, so links always resolve.
-    return location.pathname.indexOf('/legal/') !== -1 ? '../' : './';
+    // Always the site root. The old relative version ('./' or '../')
+    // broke on price pages (/prices/<model>/), where "Learn more" pointed
+    // at /prices/<model>/legal/cookies.html, a page that doesn't exist
+    // (Google Search Console flagged it as a 404, Oct 2026).
+    return '/';
   }
 
   function buildBanner() {
