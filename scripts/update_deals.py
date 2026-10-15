@@ -1206,8 +1206,18 @@ def mark_secondhand(products):
         if not p.get("condition") and is_affordable_secondhand(p):
             p["condition"] = "Used"
             n += 1
+    # Oct 2026: Scottsdale's used clubs ("... Golf Driver - Used") were
+    # reaching search and shop pages without a condition, because the
+    # "- Used" check only ran on freshly fetched titles. Label them here too.
+    m = 0
+    for p in products:
+        if not p.get("condition") and re.search(r"\s-\s*Used\s*$", p.get("name") or "", re.IGNORECASE):
+            p["condition"] = "Used"
+            m += 1
     if n:
         print(f"Second-hand: labelled {n} Affordable Golf second-hand listing(s) as Used.")
+    if m:
+        print(f"Second-hand: labelled {m} listing(s) ending in '- Used' as Used.")
     return products
 
 

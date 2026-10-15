@@ -22,12 +22,12 @@
     ball: { label: 'Golf balls', words: ['ball', 'balls'] },
     bag: { label: 'Golf bags', words: ['bag', 'bags'] },
     shoes: { label: 'Golf shoes', words: ['shoe', 'shoes', 'trainers', 'spikeless'] },
-    apparel: { label: 'Clothing', words: ['polo', 'polos', 'shirt', 'shirts', 'trousers', 'jacket', 'jackets', 'hoodie', 'jumper', 'cap', 'caps', 'hat', 'hats', 'shorts', 'skort', 'gilet', 'clothing', 'apparel', 'top', 'tops', 'midlayer', 'waterproof', 'waterproofs', 'beanie', 'socks', 'belt', 'dress', 'quarter'] },
+    apparel: { label: 'Clothing', words: ['polo', 'polos', 'shirt', 'shirts', 'trousers', 'jacket', 'jackets', 'hoodie', 'jumper', 'cap', 'caps', 'hat', 'hats', 'shorts', 'skort', 'gilet', 'clothing', 'apparel', 'top', 'tops', 'midlayer', 'beanie', 'socks', 'belt', 'dress', 'quarter'] },
     accessories: { label: 'Accessories', words: ['rangefinder', 'rangefinders', 'watch', 'watches', 'gps', 'trolley', 'trolleys', 'glove', 'gloves', 'tee', 'tees', 'umbrella', 'towel', 'headcover', 'headcovers', 'grip', 'grips', 'monitor', 'simulator', 'trolley', 'cart', 'speaker', 'marker'] }
   };
   // Words that pick a category but also narrow the names (a "polo" search
   // should find polos, not all clothing).
-  var KEEP_AS_TEXT = { polo: 1, polos: 1, shirt: 1, shirts: 1, trousers: 1, jacket: 1, jackets: 1, hoodie: 1, jumper: 1, cap: 1, caps: 1, hat: 1, hats: 1, shorts: 1, skort: 1, gilet: 1, beanie: 1, socks: 1, belt: 1, dress: 1, rangefinder: 1, rangefinders: 1, watch: 1, watches: 1, trolley: 1, trolleys: 1, glove: 1, gloves: 1, tee: 1, tees: 1, umbrella: 1, towel: 1, headcover: 1, headcovers: 1, grip: 1, grips: 1, monitor: 1, simulator: 1, waterproof: 1, waterproofs: 1, midlayer: 1, quarter: 1, speaker: 1, marker: 1, cart: 1, spikeless: 1, rescue: 1 };
+  var KEEP_AS_TEXT = { polo: 1, polos: 1, shirt: 1, shirts: 1, trousers: 1, jacket: 1, jackets: 1, hoodie: 1, jumper: 1, cap: 1, caps: 1, hat: 1, hats: 1, shorts: 1, skort: 1, gilet: 1, beanie: 1, socks: 1, belt: 1, dress: 1, rangefinder: 1, rangefinders: 1, watch: 1, watches: 1, trolley: 1, trolleys: 1, glove: 1, gloves: 1, tee: 1, tees: 1, umbrella: 1, towel: 1, headcover: 1, headcovers: 1, grip: 1, grips: 1, monitor: 1, simulator: 1, midlayer: 1, quarter: 1, speaker: 1, marker: 1, cart: 1, spikeless: 1, rescue: 1 };
   var WORD_TO_CAT = {};
   Object.keys(CATS).forEach(function (c) { CATS[c].words.forEach(function (w) { WORD_TO_CAT[w] = c; }); });
   var CLUBS = ['driver', 'wood', 'hybrid', 'irons', 'wedge', 'putter', 'sets'];
@@ -35,10 +35,54 @@
   var BRANDS = ['taylormade', 'callaway', 'titleist', 'ping', 'cobra', 'mizuno', 'srixon', 'cleveland', 'wilson', 'odyssey', 'scotty', 'footjoy', 'adidas', 'nike', 'puma', 'under', 'galvin', 'motocaddy', 'powakaddy', 'garmin', 'bushnell', 'bridgestone', 'yonex', 'pxg', 'macgregor', 'ogio', 'sunday', 'big', 'ecco', 'skechers', 'oscar', 'peter', 'j.lindeberg', 'lab', 'evnroll', 'shot', 'skycaddie', 'vega', 'benross', 'ben', 'stewart', 'clicgear', 'sun'];
   var BRAND_LABEL = { taylormade: 'TaylorMade', pxg: 'PXG', footjoy: 'FootJoy', powakaddy: 'PowaKaddy', skycaddie: 'SkyCaddie', macgregor: 'MacGregor', ogio: 'Ogio' };
 
-  function parse(raw) {
+  /* Oct 2026: smarter search. Skill level ("mid handicap", "beginner",
+     "forgiving"), "premium", winter/waterproof gear, and common misspellings.
+     These were previously searched as literal words ("handicap"), which
+     matched nothing. */
+  // Well-known misspellings, fixed before anything else (exact=1 in the
+  // URL turns this off, from the "search what I typed" button).
+  var ALIASES = { rouge: 'rogue', camron: 'cameron', cameroon: 'cameron', camaron: 'cameron', scottie: 'scotty', calloway: 'callaway', callway: 'callaway', callowey: 'callaway', titlist: 'titleist', titelist: 'titleist', tittleist: 'titleist', taylermade: 'taylormade', tayormade: 'taylormade', srixion: 'srixon', mizumo: 'mizuno', odessey: 'odyssey', odysey: 'odyssey', footjoys: 'footjoy', garman: 'garmin', bushnel: 'bushnell', motocaddie: 'motocaddy', powakaddie: 'powakaddy' };
+  var PHRASE_FIX = [[/\btaylor ?made\b/g, 'taylormade'], [/\bpro ?v ?1 ?x\b/g, 'pro v1x'], [/\bpro ?v ?1\b/g, 'pro v1'], [/\btp ?5 ?x\b/g, 'tp5x'], [/\btp ?5\b/g, 'tp5'], [/\bqi ?35\b/g, 'qi35'], [/\bg ?(4[0-4]0|425)\b/g, 'g$1'], [/\bfoot ?joy\b/g, 'footjoy'], [/\bsky ?caddie\b/g, 'skycaddie'], [/\bz ?star\b/g, 'z-star']];
+  // Gear groups: any one of these words in the name counts.
+  var GEAR = {
+    winter: { label: 'Winter gear', phrase: 'winter', words: ['winter', 'wintersof', 'thermal', 'thermo', 'thermoseries', 'insulated', 'insula', 'mitt', 'mitts', 'mitten', 'mittens', 'beanie', 'bobble', 'snood', 'fleece', 'coldgear', 'cold.rdy', 'coldrdy', 'sensorwarm', 'arctic', 'warm', 'lined', 'padded', 'quilted', 'neck warmer', 'hand warmer', 'handwarmer'] },
+    waterproof: { label: 'Waterproof', phrase: 'waterproof', words: ['waterproof', 'waterproofs', 'rain', 'gore-tex', 'goretex', 'gore', 'hydrolite', 'hydroseries', 'stormfit', 'storm', 'paclite', 'climaproof', 'rain.rdy', 'h2no', 'stadry', 'sensordry', 'dryjoys', 'weathersof', 'all weather'] }
+  };
+  // Forgiving ("game improvement") and better-player model names, by type.
+  var GI_RX = {
+    driver: /\b(max|10k|hl|sft|draw|launcher|halo|xl|big bertha|ultralite|lite|offset|max d|max-d|d)\b/i,
+    wood: /\b(max|hl|sft|draw|launcher|halo|xl|big bertha|ultralite|lite|offset|hy-wood|hywood|d)\b/i,
+    hybrid: /\b(max|hl|sft|draw|launcher|halo|xl|big bertha|ultralite|lite|offset|os|d)\b/i,
+    irons: /\b(max|hl|os|hot metal|t350|t300|zx4|elyte x|dcb|launcher|halo|xl|big bertha|g4[0-4]0|g425|dynapwr|xr|ultralite|lite|hd|full-face|full face|one length|cavity|qi)\b/i,
+    wedge: /\b(cbx|full face|full-face|zipcore xl|launcher|smart sole|halo|xl|cavity|glide)\b/i,
+    putter: /\b(mallet|spider|2-ball|two ball|jailbird|fang|ten|seven|7s|phantom 11|zero torque|lab|df|mezz|squareback|high moi|tyne|ketsch|defender|ds72|anser 2d)\b/i,
+    sets: /\b(package|complete|starter|beginner|halo|launcher|xl|ultralite|dynapwr|ignite)\b/i
+  };
+  var PLAYERS_RX = /\b(blade|blades|mb|muscle ?back|t100|t150|p7mb|p7cb|p7tw|p770|p790|mp-?\d+|pro 24[135]|pro 22[135]|blueprint|i240|i230|i530|zx7|zx5|apex pro|apex mb|apex cb|tour|ls|tsr4|gt3|gt4|triple diamond|tour-?x|forged)\b/i;
+
+  function parse(raw, exact) {
     var q = ' ' + raw.toLowerCase().replace(/[’']/g, "'") + ' ';
-    var out = { cats: [], hand: null, audience: null, flex: null, loft: null, setOnly: false, min: null, max: null, drops: false, cheap: false, words: [], brand: null };
+    var out = { cats: [], hand: null, audience: null, flex: null, loft: null, setOnly: false, min: null, max: null, drops: false, cheap: false, words: [], brand: null,
+      skill: null, skillWho: null, premium: false, gear: [], fixed: {} };
     var m;
+    if (!exact) {
+      PHRASE_FIX.forEach(function (f) { q = q.replace(f[0], f[1]); });
+      q = q.replace(/[a-z]+/g, function (w) { if (ALIASES[w]) { out.fixed[w] = ALIASES[w]; return ALIASES[w]; } return w; });
+    }
+    if ((m = q.match(/\b(high[ -]?handicap(?:pers?|s)?|beginners?|newbies?|starters?|learners?|novices?|improvers?)\b/))) {
+      out.skill = 'gi'; out.skillWho = /^high/.test(m[1]) ? 'high-handicappers' : 'beginners'; q = q.replace(m[0], ' ');
+    } else if ((m = q.match(/\bmid[ -]?handicap(?:pers?|s)?\b/))) {
+      out.skill = 'gi'; out.skillWho = 'mid-handicappers'; q = q.replace(m[0], ' ');
+    } else if ((m = q.match(/\b(low[ -]?handicap(?:pers?|s)?|single[ -]figures?|scratch(?: golfers?)?|better players?|good players?|advanced)\b/))) {
+      out.skill = 'players'; out.skillWho = /^(low|single|scratch)/.test(m[1]) ? 'low-handicappers' : 'better players'; q = q.replace(m[0], ' ');
+    }
+    if ((m = q.match(/\b(forgiving|most forgiving|game[ -]improvement|super game improvement|easy to hit|easiest to hit|slicers?|fix my slice)\b/))) {
+      out.skill = out.skill || 'gi'; q = q.replace(m[0], ' ');
+    }
+    q = q.replace(/\bhandicap(?:pers?|s)?\b/g, ' ');
+    if ((m = q.match(/\b(premium|high[ -]end|top[ -]end|luxury|best quality|top of the range)\b/))) { out.premium = true; q = q.replace(m[0], ' '); }
+    if ((m = q.match(/\b(winter|cold weather|cold|thermal)\b/))) { out.gear.push('winter'); q = q.replace(m[0], ' '); }
+    if ((m = q.match(/\b(waterproofs?|rain|wet weather)\b/))) { out.gear.push('waterproof'); q = q.replace(m[0], ' '); }
     if ((m = q.match(/(?:£\s*)?(\d+)\s*(?:-|to)\s*£\s*(\d+)/)) || (m = q.match(/between\s*£?\s*(\d+)\s*(?:and|-|to)\s*£?\s*(\d+)/))) {
       out.min = +m[1]; out.max = +m[2]; q = q.replace(m[0], ' ');
     }
@@ -82,7 +126,7 @@
   function getJSON(url) { return fetch(url).then(function (r) { if (!r.ok) throw new Error(url); return r.json(); }); }
   function loadTerms() { return TERMS ? Promise.resolve(TERMS) : getJSON('/data/search/terms.json').then(function (t) { TERMS = t; return t; }); }
   function loadShard(cat) {
-    if (!SHARDS[cat]) SHARDS[cat] = getJSON('/data/search/' + cat + '.json').then(function (d) { d.cat = cat; return d; });
+    if (!SHARDS[cat]) SHARDS[cat] = getJSON('/data/search/' + cat + '.json').then(function (d) { d.cat = cat; d.rows.forEach(function (r) { r._cat = cat; }); return d; });
     return SHARDS[cat];
   }
 
@@ -142,11 +186,21 @@
     if (p.loft && row[8] !== p.loft) return false;
     if (p.setOnly && !(row[10] || (model && model[4] === 'irons'))) return false;
     if (p.partsOk === false && PARTS_RX.test(row[1])) return false;
+    if (p.practiceOk === false && row._cat === 'ball' && PRACTICE_RX.test(row[1])) return false;
     if (p.min !== null && row[2] < p.min) return false;
     if (p.max !== null && row[2] > p.max) return false;
     if (p.drops && !(flags & F_DROP)) return false;
     if (state.brandFilter && (row[7] || '').toLowerCase() !== state.brandFilter) return false;
     if (state.retailerFilter !== null && row[4] !== state.retailerFilter) return false;
+    if (p.gear && p.gear.length) {
+      if (!row._w) { row._w = nameWords(row[1] + ' ' + row[7] + ' ' + (model ? model[1] : '')); row._j = row._w.join(''); }
+      var low = row[1].toLowerCase();
+      for (var g = 0; g < p.gear.length; g++) {
+        var gw = GEAR[p.gear[g]].words, hit = false;
+        for (var k = 0; k < gw.length && !hit; k++) hit = gw[k].indexOf(' ') !== -1 || gw[k].indexOf('.') !== -1 ? low.indexOf(gw[k]) !== -1 : row._w.indexOf(gw[k]) !== -1;
+        if (!hit) return false;
+      }
+    }
     if (p.words.length) {
       if (!row._w) { row._w = nameWords(row[1] + ' ' + row[7] + ' ' + (model ? model[1] : '')); row._j = row._w.join(''); }
       for (var i = 0; i < p.words.length; i++) { if (!wordMatches(p.words[i], row._w, row._j)) return false; }
@@ -155,6 +209,8 @@
   }
 
   // Spares and add-ons that share a product's name ("Rangefinder ... Battery").
+  // Practice, foam and plastic balls only show when the search asks for them.
+  var PRACTICE_RX = /\b(practice|foam|airflow|plastic|range balls?|jelly|almost golf|training balls?)\b/i;
   var PARTS_RX = /\b(batter(y|ies)|case|strap|band|charger|cable|mount|holder|screen protector|replacement|spare|adapter|clip|skin|cover|bracket|wheel|seat|umbrella holder|sleeve)\b/i;
 
   /* ---------------------------------------------------------------- state + run */
@@ -166,16 +222,26 @@
     if (!keepFilters) { state.brandFilter = null; state.retailerFilter = null; state.shown = 20; }
     $('sr-q').value = q;
     document.title = q ? 'Search: ' + q + ' | GolfPrice AI' : 'Search | GolfPrice AI';
-    var p = state.parsed = parse(q);
+    var p = state.parsed = parse(q, state.exact);
     // Searching "rangefinder" shouldn't lead with rangefinder batteries,
     // unless the search itself asks for a part.
     p.partsOk = PARTS_RX.test(q);
+    p.practiceOk = PRACTICE_RX.test(q);
     if (p.cheap && state.sort === 'best') state.sort = 'price';
     $('sr-status').textContent = 'Searching…';
     return loadTerms().then(function () {
       state.corrected = null;
+      Object.keys(p.fixed || {}).forEach(function (k) { state.corrected = state.corrected || {}; state.corrected[k] = p.fixed[k]; });
+      // "qi 35", "v 1": join a split word when the joined word is a real one.
+      var merged = [];
+      p.words.forEach(function (w) {
+        var prev = merged[merged.length - 1];
+        if (prev && TERMS.words[prev + w] && (w.length <= 2 || /^\d+$/.test(w) || !TERMS.words[w] || !TERMS.words[prev])) merged[merged.length - 1] = prev + w;
+        else merged.push(w);
+      });
+      p.words = merged;
       var cats = p.cats.slice();
-      if (p.words.length) {
+      if (p.words.length && !state.exact) {
         var fixed = p.words.map(function (w) {
           if (catsForWord(w).length) return w;
           var c = correct(w);
@@ -191,6 +257,8 @@
           }
         }
       }
+      if (!cats.length && p.skill) cats = CLUBS.slice();
+      if (!cats.length && p.gear.length && !p.words.length) cats = p.gear.indexOf('waterproof') !== -1 ? ['apparel', 'accessories', 'shoes', 'bag'] : ['apparel', 'accessories', 'shoes'];
       if (!cats.length) cats = p.words.length ? [] : CLUBS.concat(['ball']);
       return Promise.all(cats.map(loadShard));
     }).then(function (shards) {
@@ -240,6 +308,12 @@
         - (PARTS_RX.test(name) ? 4 : 0)
         + (p.setOnly && g.rows.some(function (r) { return r[10]; }) ? 4 : 0)
         - (p.setOnly && /utility|driving iron/.test(name) ? 4 : 0);
+      if (p.skill) {
+        var gi = (GI_RX[g.shard.cat] || /$^/).test(name), pl = PLAYERS_RX.test(name);
+        g.fits = p.skill === 'gi' ? gi && !pl : pl && !gi;
+        g.score += g.fits ? 8 : (p.skill === 'gi' ? (pl ? -6 : 0) : (gi ? -6 : 0));
+      }
+      if (p.premium) g.score += Math.log(1 + g.from) * 1.5 + (g.model && g.model[2] ? 2 : 0) - (g.from < 20 ? 4 : 0);
     });
     var sorters = {
       best: function (a, b) { return b.score - a.score || a.from - b.from; },
@@ -270,8 +344,60 @@
     else if (p.max !== null) out.push(chip('Under £' + p.max, 'price'));
     else if (p.min !== null) out.push(chip('Over £' + p.min, 'price'));
     if (p.drops) out.push(chip('Genuine drops only', 'drops'));
+    if (p.skill) out.push(chip(p.skill === 'gi' ? 'Forgiving' : 'Better-player models', 'skill'));
+    if (p.premium) out.push(chip('Premium first', 'premium'));
+    (p.gear || []).forEach(function (k) { out.push(chip(GEAR[k].label, 'gear:' + k)); });
     p.words.forEach(function (w) { out.push(chip('“' + w + '”', 'word:' + w)); });
     return out.join('');
+  }
+
+  // One plain sentence: "Showing forgiving irons for mid-handicappers,
+  // under £500." Only when the search had more in it than plain words.
+  var KEEP_PLURAL = { glove: 'gloves', polo: 'polos', shirt: 'shirts', jacket: 'jackets', hoodie: 'hoodies', cap: 'caps', hat: 'hats', trouser: 'trousers', short: 'shorts', beanie: 'beanies', sock: 'socks', belt: 'belts', tee: 'tees', towel: 'towels', umbrella: 'umbrellas', grip: 'grips', headcover: 'headcovers', rangefinder: 'rangefinders', watch: 'GPS watches', trolley: 'trolleys', midlayer: 'midlayers', skort: 'skorts', jumper: 'jumpers', gilet: 'gilets' };
+  function cap(w) { return BRAND_LABEL[w] || (/\d/.test(w) && w.length <= 5 ? w.toUpperCase() : w.charAt(0).toUpperCase() + w.slice(1)); }
+  function intentLine() {
+    var p = state.parsed;
+    var hasIntent = p.skill || p.premium || (p.gear && p.gear.length) || p.min !== null || p.max !== null || p.hand || p.audience || p.cheap || state.corrected;
+    if (!hasIntent) return '';
+    var nounWords = [], otherWords = [];
+    p.words.forEach(function (w) { (KEEP_PLURAL[w] ? nounWords : otherWords).push(w); });
+    var noun;
+    if (nounWords.length) noun = nounWords.map(function (w) { return KEEP_PLURAL[w]; }).join(' and ');
+    else if (p.cats.length === 1) noun = CATS[p.cats[0]].label.toLowerCase();
+    else if (p.cats.length && p.cats.every(function (c) { return CLUBS.indexOf(c) !== -1; })) noun = 'clubs';
+    else if (p.skill && !p.cats.length) noun = 'clubs';
+    else noun = 'gear';
+    var adj = [];
+    if (p.skill === 'gi') adj.push('forgiving');
+    if (p.skill === 'players') adj.push('better-player');
+    if (p.premium) adj.push('premium');
+    (p.gear || []).forEach(function (k) { adj.push(GEAR[k].phrase); });
+    if (p.hand === 'L') adj.unshift('left-handed');
+    var what = adj.concat(otherWords.map(cap)).concat([noun]).join(' ');
+    var bits = [];
+    var who = [];
+    if (p.skillWho) who.push(p.skillWho);
+    if (p.audience === 'F') who.push('ladies');
+    if (p.audience === 'J') who.push('juniors');
+    if (who.length) bits.push('for <strong>' + esc(who.join(', ')) + '</strong>');
+    if (p.min !== null && p.max !== null) bits.push('<strong>£' + p.min + ' to £' + p.max + '</strong>');
+    else if (p.max !== null) bits.push('<strong>under £' + p.max + '</strong>');
+    else if (p.min !== null) bits.push('<strong>over £' + p.min + '</strong>');
+    var line = 'Showing <strong>' + esc(what) + '</strong>' + (bits.length ? ' ' + bits.join(', ') : '') + '.';
+    if (p.skill === 'gi') line += ' Game-improvement models first.';
+    if (p.skill === 'players') line += ' Better-player models first.';
+    if (p.cheap) line += ' Lowest prices first.';
+    if (p.premium) line += ' Top brands and models first.';
+    var btn = '<button type="button" class="sr-intent-clear" data-act="clear-intent">Clear ✕</button>';
+    if (state.corrected) {
+      var typed = Object.keys(state.corrected);
+      line += ' You typed ' + typed.map(function (k) { return '“' + esc(k) + '”'; }).join(', ') + ', so we searched for ' +
+        typed.map(function (k) { return '<strong>' + esc(cap(state.corrected[k])) + '</strong>'; }).join(', ') + '.';
+      if (!(p.skill || p.premium || (p.gear && p.gear.length) || p.min !== null || p.max !== null || p.hand || p.audience || p.cheap)) {
+        btn = '<a class="sr-intent-clear" href="/search.html?q=' + encodeURIComponent(state.q) + '&exact=1">Search what I typed</a>';
+      }
+    }
+    return '<div class="sr-intent"><p>' + line + '</p>' + btn + '</div>';
   }
 
   function variantLabel(r, g) {
@@ -436,7 +562,9 @@
       corr = '<p class="sr-corrected">Showing results for ' + Object.keys(state.corrected).map(function (k) { return '<strong>' + esc(state.corrected[k]) + '</strong>'; }).join(', ') +
         ' (you typed ' + Object.keys(state.corrected).map(function (k) { return '“' + esc(k) + '”'; }).join(', ') + ')</p>';
     }
-    $('sr-understood').innerHTML = (understood() ? '<span class="sr-label">We read that as:</span>' + understood() : '') + corr;
+    var intent = intentLine();
+    if (intent) corr = '';
+    $('sr-understood').innerHTML = intent + (understood() ? '<span class="sr-label">We read that as:</span>' + understood() : '') + corr;
     if (!n) {
       state.closest = findClosest();
       $('sr-title').textContent = 'No exact match';
@@ -475,6 +603,9 @@
     else if (key === 'set') p.setOnly = false;
     else if (key === 'price') { p.min = null; p.max = null; }
     else if (key === 'drops') p.drops = false;
+    else if (key === 'skill') { p.skill = null; p.skillWho = null; }
+    else if (key === 'premium') p.premium = false;
+    else if (key.indexOf('gear:') === 0) { var gk = key.slice(5); p.gear = p.gear.filter(function (x) { return x !== gk; }); }
     else if (key.indexOf('word:') === 0) { var w = key.slice(5); p.words = p.words.filter(function (x) { return x !== w; }); }
     // Removing a category may need other category files.
     var need = p.cats.length ? p.cats : (p.words.length ? null : CLUBS.concat(['ball']));
@@ -497,6 +628,15 @@
     }
     if (t.hasAttribute('data-drop')) { dropConstraint(t.getAttribute('data-drop')); return; }
     var a = t.getAttribute('data-act'), p = state.parsed, v = a.split(':')[1];
+    if (a === 'clear-intent') {
+      // Keep what they searched for, drop everything we read into it.
+      p.skill = null; p.skillWho = null; p.premium = false; p.gear = []; p.hand = null; p.audience = null;
+      p.flex = null; p.loft = null; p.min = null; p.max = null; p.drops = false; p.cheap = false;
+      state.corrected = null; state.sort = 'best'; state.shown = 20;
+      var need = p.cats.length ? p.cats : CLUBS.concat(['ball']);
+      Promise.all(need.map(loadShard)).then(function (s) { state.shards = s; rerender(); });
+      return;
+    }
     if (a.indexOf('hand:') === 0) p.hand = p.hand === v ? null : v;
     else if (a.indexOf('aud:') === 0) p.audience = p.audience === v ? null : v;
     else if (a.indexOf('flex:') === 0) p.flex = p.flex === v ? null : v;
@@ -521,6 +661,7 @@
     history.pushState({ q: q }, '', '/search.html?q=' + encodeURIComponent(q));
     if (window.gtag) gtag('event', 'search', { search_term: q });
     state.sort = 'best';
+    state.exact = false;
     run(q);
   });
   window.addEventListener('popstate', function () { run(new URLSearchParams(location.search).get('q') || ''); });
@@ -535,6 +676,7 @@
     } catch (e) { /* storage blocked: fine */ }
   }
 
+  state.exact = new URLSearchParams(location.search).get('exact') === '1';
   var q0 = new URLSearchParams(location.search).get('q') || '';
   if (q0) run(q0);
   else {

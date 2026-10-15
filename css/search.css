@@ -17,6 +17,19 @@
   font-size: 16px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center;
 }
 .sr-chip button:hover { background: #d8ecd0; }
+/* Oct 2026: one-line summary of what the search understood */
+.sr-intent {
+  flex-basis: 100%; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  background: var(--gp-pale); border: 1px solid #cfe7c6; border-radius: 12px; padding: 10px 12px 10px 14px;
+}
+.sr-intent p { margin: 0; flex: 1 1 240px; min-width: 0; font-size: 15px; line-height: 1.45; color: var(--gp-text, #16241c); }
+.sr-intent strong { color: var(--gp-green-dark); }
+.sr-intent-clear {
+  font: 700 13px inherit; font-family: inherit; background: #fff; color: #16241c; border: 1px solid var(--gp-line);
+  border-radius: 999px; padding: 7px 12px; cursor: pointer; white-space: nowrap; text-decoration: none;
+}
+.sr-intent-clear:hover { border-color: var(--gp-green-dark); }
+.sr-intent-clear:focus-visible { outline: 2px solid var(--gp-green-dark); outline-offset: 2px; }
 .sr-corrected { flex-basis: 100%; margin: 4px 0 0; font-size: 14px; color: var(--gp-text-2); }
 
 .sr-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 28px; align-items: start; padding-top: 18px; }
