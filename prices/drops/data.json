@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-15T17:00+01:00",
+ "checked": "2026-10-15T19:55+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -32,6 +32,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/caddytalk-cube-laser-rangefinder/"
+  },
+  {
+   "model": "Big Max Dri Lite Hybrid Tour 2 Golf Bag",
+   "model_id": "big-max-dri-lite-hybrid-tour-2-golf-bag",
+   "date": "2026-10-15",
+   "was": 209.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/"
   },
   {
    "model": "Ogio All Elements Hybrid Stand Golf Bag",
