@@ -381,7 +381,7 @@
 /* ---------- Deal Tools banner under "Jump straight in" (Oct 2026) ----------
    3:1 photo with a plain left half for the text. Phones swap to the 3:2
    version (via <picture>) with the text over the lower part. */
-.gp-toolsband { padding-top: 4px; padding-bottom: 36px; }
+.gp-toolsband { padding-top: 40px; padding-bottom: 40px; }
 .gp-tb {
   position: relative; display: block; aspect-ratio: 3 / 1; max-width: 100%;
   border-radius: 18px; overflow: hidden; color: #fff; text-decoration: none; background: #2b3a30;
@@ -411,7 +411,7 @@
   .gp-tb-line { font-size: 14px; }
 }
 @media (max-width: 700px) {
-  .gp-toolsband { padding-bottom: 24px; }
+  .gp-toolsband { padding-top: 28px; padding-bottom: 28px; }
   .gp-tb { aspect-ratio: 4 / 3; border-radius: 16px; }
   .gp-tb img { object-position: 60% 50%; }
   .gp-tb::after { background: linear-gradient(180deg, rgba(22, 36, 28, 0) 25%, rgba(22, 36, 28, 0.75) 55%, rgba(22, 36, 28, 0.95) 100%); }
