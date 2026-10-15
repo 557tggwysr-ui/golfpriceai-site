@@ -3,18 +3,17 @@
  "brand": "Cleveland",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/cleveland-halo-xl-hy-wood/",
- "checked": "2026-10-14",
+ "checked": "2026-10-15",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 119.95,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 149.0,
+   "from": 119.95,
    "options": 4
   },
   {
@@ -24,11 +23,11 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 119.95,
   "high": 149.0,
-  "average": 145.61,
-  "priceChanges": 2,
+  "average": 145.19,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -43,14 +42,14 @@
     149.0
    ],
    [
-    "2026-10-14",
-    149.0
+    "2026-10-15",
+    119.95
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £29.05 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

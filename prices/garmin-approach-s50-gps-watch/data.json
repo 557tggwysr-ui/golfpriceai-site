@@ -3,7 +3,7 @@
  "brand": "Garmin",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/garmin-approach-s50-gps-watch/",
- "checked": "2026-10-14",
+ "checked": "2026-10-15",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 349.0,
@@ -30,10 +30,10 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 319.0,
   "high": 349.0,
-  "average": 334.0,
+  "average": 334.25,
   "priceChanges": 2,
   "series": [
    [
@@ -49,7 +49,7 @@
     349.0
    ],
    [
-    "2026-10-14",
+    "2026-10-15",
     349.0
    ]
   ]

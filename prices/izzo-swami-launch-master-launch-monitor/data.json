@@ -3,7 +3,7 @@
  "brand": "Izzo",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/izzo-swami-launch-master-launch-monitor/",
- "checked": "2026-10-14",
+ "checked": "2026-10-15",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 249.0,
   "high": 249.0,
   "average": 249.0,
@@ -29,14 +29,14 @@
     249.0
    ],
    [
-    "2026-10-14",
+    "2026-10-15",
     249.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "summary": "Typical price: steady for 61 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

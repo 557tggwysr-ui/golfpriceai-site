@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/macgregor-zt-plus-hybrid/",
- "checked": "2026-10-14",
+ "checked": "2026-10-15",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 74.95,
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 48,
+  "daysTracked": 49,
   "low": 74.95,
   "high": 74.95,
   "average": 74.95,
@@ -34,14 +34,14 @@
     74.95
    ],
    [
-    "2026-10-14",
+    "2026-10-15",
     74.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "summary": "Typical price: steady for 49 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

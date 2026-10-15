@@ -1,8 +1,18 @@
 {
- "checked": "2026-10-14T22:07+01:00",
+ "checked": "2026-10-15T03:27+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Cleveland Halo XL Hy-Wood",
+   "model_id": "cleveland-halo-xl-hy-wood",
+   "date": "2026-10-15",
+   "was": 149.0,
+   "now": 119.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cleveland-halo-xl-hy-wood/"
+  },
   {
    "model": "Ogio All Elements Hybrid Stand Golf Bag",
    "model_id": "ogio-all-elements-hybrid-stand-golf-bag",
@@ -142,26 +152,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/titleist-gt1-driver/"
-  },
-  {
-   "model": "SkyCaddie LX5 GPS Watch",
-   "model_id": "skycaddie-lx5-gps-watch",
-   "date": "2026-10-07",
-   "was": 249.0,
-   "now": 199.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/skycaddie-lx5-gps-watch/"
-  },
-  {
-   "model": "Mizuno BR-D3 25 Stand Golf Bag",
-   "model_id": "mizuno-br-d3-25-stand-golf-bag",
-   "date": "2026-10-07",
-   "was": 139.0,
-   "now": 119.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-br-d3-25-stand-golf-bag/"
   }
  ]
 }

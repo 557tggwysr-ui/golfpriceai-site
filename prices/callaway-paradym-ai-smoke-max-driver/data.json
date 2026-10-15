@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-driver/",
- "checked": "2026-10-14",
+ "checked": "2026-10-15",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 299.0,
@@ -28,7 +28,7 @@
   }
  ],
  "history": {
-  "daysTracked": 48,
+  "daysTracked": 49,
   "low": 299.0,
   "high": 299.0,
   "average": 299.0,
@@ -39,14 +39,14 @@
     299.0
    ],
    [
-    "2026-10-14",
+    "2026-10-15",
     299.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "summary": "Typical price: steady for 49 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

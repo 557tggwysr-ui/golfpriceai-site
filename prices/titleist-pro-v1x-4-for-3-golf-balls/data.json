@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/titleist-pro-v1x-4-for-3-golf-balls/",
- "checked": "2026-10-14",
+ "checked": "2026-10-15",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 37.49,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 37.49,
   "high": 37.49,
   "average": 37.49,
@@ -29,14 +29,14 @@
     37.49
    ],
    [
-    "2026-10-14",
+    "2026-10-15",
     37.49
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "summary": "Typical price: steady for 61 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

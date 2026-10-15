@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-golf-balls/",
- "checked": "2026-10-14",
+ "checked": "2026-10-15",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 26.99,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 26.99,
   "high": 26.99,
   "average": 26.99,
@@ -29,14 +29,14 @@
     26.99
    ],
    [
-    "2026-10-14",
+    "2026-10-15",
     26.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "summary": "Typical price: steady for 61 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

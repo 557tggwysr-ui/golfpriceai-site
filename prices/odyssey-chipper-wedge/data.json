@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/odyssey-chipper-wedge/",
- "checked": "2026-10-14",
+ "checked": "2026-10-15",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.0,
@@ -24,7 +24,7 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 129.0,
   "high": 129.0,
   "average": 129.0,
@@ -35,14 +35,14 @@
     129.0
    ],
    [
-    "2026-10-14",
+    "2026-10-15",
     129.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "summary": "Typical price: steady for 61 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

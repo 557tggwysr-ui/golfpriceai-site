@@ -3,7 +3,7 @@
  "brand": "Garmin",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/garmin-approach-z30-laser-rangefinder/",
- "checked": "2026-10-14",
+ "checked": "2026-10-15",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 48,
+  "daysTracked": 49,
   "low": 329.0,
   "high": 329.95,
-  "average": 329.69,
+  "average": 329.68,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     329.0
    ],
    [
-    "2026-10-14",
+    "2026-10-15",
     329.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 13 days"
+  "summary": "Typical price: steady for 14 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
