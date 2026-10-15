@@ -1,0 +1,61 @@
+/*
+  GolfPrice AI — Deal Tools hub (/deal-tools.html)
+  --------------------------------------------------
+  Same page frame as the Clubs/Apparel/Accessories hubs (css/hub.css for
+  the heading, css/style.css for the banner). The tiles are portrait
+  photos with the name, one line and a button over the plain lower part
+  of each photo. 12 tools: 4 per row on desktop, 3 on tablets, 2 on
+  phones, so every row is full.
+*/
+.dt-grid {
+  scroll-margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  padding: 8px 0 64px;
+}
+.dt-tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  max-width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #2b3a30;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 8px 22px rgba(22, 36, 28, 0.14);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.dt-tile:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(22, 36, 28, 0.2); color: #fff; }
+.dt-tile:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
+.dt-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dt-tile::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(22, 36, 28, 0) 35%, rgba(22, 36, 28, 0.7) 62%, rgba(22, 36, 28, 0.94) 100%);
+}
+.dt-tile-body {
+  position: absolute; left: 18px; right: 18px; bottom: 18px; z-index: 1;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.dt-kicker {
+  align-self: flex-start; background: var(--green); color: #fff;
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;
+  border-radius: 999px; padding: 4px 10px;
+}
+.dt-title { font-family: 'Poppins', 'Inter', sans-serif; font-size: 19px; font-weight: 800; line-height: 1.15; text-wrap: balance; }
+.dt-line { font-size: 13.5px; line-height: 1.45; color: #dbe3d7; }
+.dt-cta { align-self: flex-start; margin-top: 4px; font-size: 13px; font-weight: 700; border-bottom: 2px solid var(--green); padding-bottom: 2px; }
+
+@media (max-width: 1000px) { .dt-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .dt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .dt-tile { border-radius: 14px; }
+  .dt-tile-body { left: 12px; right: 12px; bottom: 12px; gap: 5px; }
+  .dt-title { font-size: 15.5px; }
+  .dt-line { font-size: 12px; }
+  .dt-kicker { font-size: 9.5px; padding: 3px 8px; }
+  .dt-cta { font-size: 12px; }
+}
+@media (max-width: 360px) { .dt-line { display: none; } }
+@media (prefers-reduced-motion: reduce) { .dt-tile { transition: none; } }

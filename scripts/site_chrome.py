@@ -97,6 +97,8 @@ def menu():
          '<path d="M8.5 3L4 5.5l1.8 4.2L8 8.8V21h8V8.8l2.2.9L20 5.5 15.5 3c-.7 1.6-2 2.4-3.5 2.4S9.2 4.6 8.5 3z"></path>'),
         ("Best Time To Buy", "Which prices hold steady and which ones swing.", "/best-time-to-buy.html",
          '<path d="M12 7v5l3 3M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>'),
+        ("Find Your Fit", "Eight quick taps to the flex and clubs that suit you.", "/find-your-fit.html",
+         '<path d="M12 3v18M3 12h18M12 12m-5 0a5 5 0 1010 0 5 5 0 10-10 0"></path>'),
         ("Complete The Kit", "Gear that goes together, at today's lowest prices.", "/complete-the-kit.html",
          '<path d="M4 7h16v13H4zM9 7V4h6v3M4 12h16"></path>'),
         ("Back In Stock Radar", "What's sold out, and what sells out fast.", "/back-in-stock.html",
@@ -172,7 +174,7 @@ def header_html():
       <div class="gp-drop gp-mega">
         <div class="gp-tools">{tools}
         </div>
-        <div class="gp-mega-foot"><span>Every tool runs on prices we track ourselves, every 6 hours.</span><a href="/about.html">How we track prices &rarr;</a></div>
+        <div class="gp-mega-foot"><span>Every tool runs on prices we track ourselves, every 6 hours.</span><a href="/deal-tools.html">All deal tools &rarr;</a></div>
       </div>
     </div>""")
 
@@ -212,7 +214,7 @@ def menu_html(m=None):
     sections.append(f"""
       <div class="gp-acc">
         <button type="button" class="gp-acc-btn" aria-expanded="false">Deal Tools{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
-        <div class="gp-acc-body gp-acc-tools" hidden>{tools}</div>
+        <div class="gp-acc-body gp-acc-tools" hidden>{tools}<a class="gp-acc-all" href="/deal-tools.html">All deal tools &rarr;</a></div>
       </div>""")
     return f"""<div class="gp-menu" id="gp-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <div class="gp-menu-head">
@@ -235,7 +237,7 @@ def footer_html():
         ("Shop", [("All deals", "/shop.html"), ("Clubs", "/clubs.html"), ("Apparel", "/apparel.html"),
                   ("Accessories", "/accessories.html"), ("Preowned and trade-ins", "/shop.html?source=awin-callawaypreowned"),
                   ("Find Your Fit", "/find-your-fit.html")]),
-        ("Deal Tools", [(n, u) for n, _, u, _ in m["tools"]]),
+        ("Deal Tools", [("All deal tools", "/deal-tools.html")] + [(n, u) for n, _, u, _ in m["tools"] if u != "/find-your-fit.html"]),
         ("Price guides", [("Drivers", "/prices/drivers/"), ("Irons", "/prices/irons/"),
                           ("Putters", "/prices/putters/"), ("Golf balls", "/prices/golf-balls/"),
                           ("GPS watches", "/prices/gps-watches/"), ("Electric trolleys", "/prices/electric-trolleys/"),
@@ -266,7 +268,7 @@ def footer_html():
 
 
 # ---------------------------------------------------------------- page rewriting
-PAGES = ["index.html", "search.html", "shop.html", "clubs.html", "apparel.html", "accessories.html", "about.html", "faq.html",
+PAGES = ["index.html", "search.html", "shop.html", "clubs.html", "apparel.html", "accessories.html", "deal-tools.html", "about.html", "faq.html",
          "back-in-stock.html", "best-time-to-buy.html", "build-your-bag.html", "complete-the-kit.html",
          "complete-the-look.html", "fairway-index.html", "find-your-fit.html", "receipts.html",
          "404.html", "price-check.html", "ai.html", "alerts-confirmed.html", "alerts-unsubscribed.html",

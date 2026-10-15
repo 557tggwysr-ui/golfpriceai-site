@@ -1028,7 +1028,7 @@ INDEXNOW_LIST = Path("/tmp/indexnow-urls.txt")
 SITEMAP_PRICES = ROOT / "sitemap-prices.xml"
 SITEMAP_PAGES = ROOT / "sitemap-pages.xml"
 SITEMAP_INDEX = ROOT / "sitemap.xml"
-STATIC_PAGES = ["", "shop.html", "clubs.html", "apparel.html", "accessories.html", "build-your-bag.html",
+STATIC_PAGES = ["", "shop.html", "clubs.html", "apparel.html", "accessories.html", "deal-tools.html", "build-your-bag.html",
                 "complete-the-look.html", "complete-the-kit.html", "find-your-fit.html", "fairway-index.html",
                 "best-time-to-buy.html", "back-in-stock.html", "receipts.html", "about.html",
                 "faq.html", "price-check.html", "ai.html", "legal/privacy-policy.html", "legal/cookies.html"]
