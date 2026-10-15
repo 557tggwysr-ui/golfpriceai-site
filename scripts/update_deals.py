@@ -68,6 +68,7 @@ import models  # scripts/models.py: category audit, £0 clean-up, model grouping
 import price_pages  # scripts/price_pages.py: static /prices/ pages, sitemaps
 import identity  # scripts/identity.py: one listing = retailer + name
 import search_index  # scripts/search_index.py: data/search/ for the search page
+import product_types  # scripts/product_types.py: fixes clothing/accessory types from the product name
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
 
@@ -3562,6 +3563,9 @@ def main():
 
     catalog["products"] = backfill_catalog(catalog["products"])
     mark_secondhand(catalog["products"])
+    type_changes = product_types.fix_types(catalog["products"], classify_audience)
+    if type_changes:
+        print(f"Product types: corrected {len(type_changes)} clothing/accessory listing(s) from their own names.")
     identity.count_retailers(catalog["products"])
     identity.assign_unique_ids(catalog["products"])
 
