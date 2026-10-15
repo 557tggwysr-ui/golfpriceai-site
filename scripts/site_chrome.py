@@ -170,7 +170,7 @@ def header_html():
                     for n, line, u, icon in m["tools"])
     items.append(f"""
     <div class="gp-nav-item" data-section="tools">
-      <button type="button" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Deal Tools{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</button>
+      <a href="/deal-tools.html" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Deal Tools{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
       <div class="gp-drop gp-mega">
         <div class="gp-tools">{tools}
         </div>
