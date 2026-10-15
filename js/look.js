@@ -279,15 +279,39 @@ async function loadLooks() {
 
   listEl.hidden = false;
   const notes = assignColourNotes(outfits);
-  listEl.innerHTML = outfits.map(o => renderOutfit(o, notes[o.id])).join('');
+  listEl.innerHTML = outfits.map(o => renderOutfit(o, o.blurb || notes[o.id])).join('');
+  setupLookFilter(outfits);
+}
+
+// Men's / Women's filter buttons above the looks (Oct 2026). Only shown
+// when both kinds of look are on the page today.
+function setupLookFilter(outfits) {
+  const el = document.getElementById('look-filter');
+  if (!el) return;
+  const womens = outfits.filter(o => o.audience === 'Female').length;
+  const mens = outfits.length - womens;
+  if (!womens || !mens) return;
+  el.innerHTML = `
+    <button type="button" data-f="all" aria-pressed="true">All looks</button>
+    <button type="button" data-f="mens" aria-pressed="false">Men's (${mens})</button>
+    <button type="button" data-f="womens" aria-pressed="false">Women's (${womens})</button>`;
+  el.hidden = false;
+  el.addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    el.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+    document.querySelectorAll('#look-list .kit-card').forEach(card => {
+      card.hidden = !(btn.dataset.f === 'all' || card.dataset.aud === btn.dataset.f);
+    });
+  });
 }
 
 function renderOutfit(outfit, colourNote) {
   return `
-    <article class="kit-card">
-      <h2 class="kit-card-title">${escapeHtml(outfit.title)}<span class="look-audience-badge">${escapeHtml(outfit.audience)}</span></h2>
-      <p class="kit-status" style="padding:0;text-align:left;margin:0 0 14px;font-size:0.82rem;">${escapeHtml(colourNote)}</p>
-      <div class="kit-items">
+    <article class="kit-card" data-aud="${outfit.audience === 'Female' ? 'womens' : 'mens'}">
+      <h2 class="kit-card-title">${escapeHtml(outfit.title)}<span class="look-audience-badge">${escapeHtml(outfit.audienceLabel || outfit.audience)}</span></h2>
+      <p class="kit-card-blurb">${escapeHtml(colourNote)}</p>
+      <div class="kit-items look-items-${outfit.items.length}">
         ${outfit.items.map(renderItem).join('')}
       </div>
       <div class="kit-total-row">

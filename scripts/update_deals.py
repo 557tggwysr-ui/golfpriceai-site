@@ -51,6 +51,7 @@ SETUP YOU NEED TO DO ONCE MORE THINGS ARE APPROVED (see README.md):
 
 import csv
 import gzip
+import hashlib
 import io
 import json
 import math
@@ -2040,223 +2041,548 @@ def pairing_quality(colour_a, colour_b):
     return 1
 
 
-# Each template is a set of icon-based slots. Deliberately generic
-# (never hardcoded to one audience) — a skort-containing template simply
-# never finds a match among Male-classified products, since that icon
-# only ever gets assigned to womenswear in practice, so the right
-# audience split happens naturally from the real data rather than a
-# hardcoded assumption.
+# ============================================================
+# Complete The Look (data/outfits.json)
+#
+# Rebuilt 15 Oct 2026 after customer feedback: "The Classic Look" showed
+# twice, the same navy Nilsson polo was in 4 looks (its size variants
+# weren't treated as one product) and junior items got in.
+#
+# How it works now:
+#   * About 24 named looks, each with its own rules: which item types,
+#     a colour palette, a price level, style words to require or prefer,
+#     an audience (men's/unisex or women's) and, for some, a season.
+#   * Item types are matched on the feed's icon AND the words in the
+#     name, because the icon alone is unreliable (some hoodies are
+#     tagged as trousers, some jumpers as polos).
+#   * Every product appears ONCE across the whole page: sizes and
+#     colours of the same item count as the same product (name before
+#     " - "). No junior, no second-hand, in stock, real photo.
+#   * Colours still have to work together (the colour-wheel rules
+#     above), on top of each look's own palette.
+#   * Looks with scarce ingredients (knit vests, bucket hats, Christmas
+#     jumpers...) choose first; the page order is set separately.
+#   * A look that can't be filled properly is hidden for the run, never
+#     padded out. Picks rotate daily among the best few.
+# ============================================================
+
+LOOK_JUNIOR_WORDS = ("junior", "youth", "kids", "kid's", "boys", "girls", "child", "toddler")
+LOOK_PREMIUM_BRANDS = ("peter millar", "g/fore", "j lindeberg", "galvin green", "travismathew", "kjus",
+                       "boss", "malbon", "castore", "ralph lauren", "rlx", "lyle & scott", "oscar jacobson",
+                       "original penguin", "calvin klein", "psycho bunny", "greyson", "holderness")
+LOOK_APPAREL_BRANDS = LOOK_PREMIUM_BRANDS + (
+    "adidas", "footjoy", "under armour", "ping", "puma", "callaway", "nike", "proquip", "stuburt", "mizuno",
+    "glenmuir", "titleist", "taylormade", "sunderland", "reflo", "island green", "forelson", "oakley",
+    "wilson", "cobra", "rohnisch", "ashworth", "abacus", "srixon", "ecco", "skechers", "cutter & buck",
+    "ben hogan", "farah", "ellesse", "green lamb", "swing out sister", "tommy hilfiger", "greg norman",
+    "nilsson", "druids", "sunice", "zerofit", "2undr", "vega", "spurk", "lija")
+
+# Every item type a look can ask for: feed icons/categories it may come
+# from, words the name must contain, words that rule it out, and a
+# normal price band with a "sweet spot" price.
+LOOK_KINDS = {
+    "polo": {"icons": ("polo",), "words": ("polo", "shirt"),
+             "not": ("hoodie", "jumper", "sweater", "zip", "jacket", "vest", "pullover", "trouser", "short",
+                     "skort", "dress", "layer", "crew neck", "crewneck", "long sleeve", "sweatshirt"),
+             "band": (20, 95), "target": 45},
+    "print-polo": {"icons": ("polo",), "words": ("print", "printed", "floral", "tropical", "palm", "paisley",
+                                                 "hawaiian", "aloha", "camo", "geo"),
+                   "also": ("polo", "shirt"),
+                   "not": ("hoodie", "jumper", "zip", "jacket", "vest", "trouser", "short", "skort", "dress",
+                           "layer", "long sleeve"),
+                   "band": (20, 95), "target": 45},
+    "trousers": {"icons": ("trousers",), "words": ("trouser", "trousers", "pant", "pants", "chino", "chinos"),
+                 "not": ("short", "hoodie", "jacket", "polo", "skort", "jogger", "rain", "waterproof",
+                         "thermal", "base layer", "sweat", "track"),
+                 "band": (30, 120), "target": 60},
+    "joggers": {"icons": ("trousers",), "words": ("jogger", "joggers"), "not": ("short", "hoodie", "jacket"),
+                "band": (25, 120), "target": 55},
+    "rain-trousers": {"icons": ("trousers",), "words": ("waterproof", "rain", "gore-tex", "goretex", "hydro",
+                                                       "storm", "paclite"),
+                      "also": ("trouser", "trousers", "pant", "pants"), "not": ("short", "jacket", "suit"),
+                      "band": (30, 200), "target": 80},
+    "warm-trousers": {"icons": ("trousers",), "words": ("thermal", "thermo", "winter", "warm", "fleece",
+                                                       "insulated", "lined"),
+                      "also": ("trouser", "trousers", "pant", "pants"), "not": ("short", "jacket"),
+                      "band": (30, 150), "target": 70},
+    "shorts": {"icons": ("shorts",), "words": ("short", "shorts"),
+               "not": ("skort", "trouser", "polo", "zip", "sleeve", "base layer"),
+               "band": (20, 75), "target": 40},
+    "print-shorts": {"icons": ("shorts",), "words": ("print", "printed", "floral", "tropical", "palm", "camo",
+                                                    "pattern", "check"),
+                     "also": ("short", "shorts"), "not": ("skort", "trouser", "polo"),
+                     "band": (20, 80), "target": 45},
+    "skort": {"icons": ("skort",), "words": ("skort", "skirt"), "band": (25, 90), "target": 50},
+    "midlayer": {"icons": ("jacket", "polo"), "words": ("1/4 zip", "quarter zip", "half zip", "1/2 zip",
+                                                         "mid layer", "midlayer", "pullover", "sweater", "jumper",
+                                                         "crew neck", "crewneck", "knit", "cardigan"),
+                 "not": ("vest", "gilet", "slipover", "hoodie", "hoody", "trouser", "short", "rain",
+                         "waterproof", "christmas", "festive", "sleeveless", "base layer", "baselayer"),
+                 "band": (35, 140), "target": 70},
+    "knit-vest": {"icons": ("jacket", "polo"), "words": ("knit vest", "knitted vest", "sweater vest", "slipover",
+                                                         "knit golf vest", "full zip knit vest"),
+                  "band": (40, 180), "target": 85},
+    "gilet": {"icons": ("jacket",), "words": ("vest", "gilet"),
+              "not": ("knit", "knitted", "slipover", "sweater vest", "base"),
+              "band": (40, 200), "target": 80},
+    "wind-layer": {"icons": ("jacket",), "words": ("wind", "windproof", "windbreaker", "wind.rdy"),
+                   "not": ("vest", "gilet", "trouser", "polo"), "band": (40, 220), "target": 90},
+    "rain-jacket": {"icons": ("jacket",), "words": ("waterproof", "rain", "gore-tex", "goretex", "hydrolite",
+                                                   "hydroseries", "paclite", "storm"),
+                    "also": ("jacket", "top", "smock", "anorak"),
+                    "not": ("vest", "gilet", "trouser", "bag", "umbrella", "suit", "short"),
+                    "band": (50, 320), "target": 140},
+    "warm-jacket": {"icons": ("jacket",), "words": ("thermal", "thermo", "insulated", "padded", "quilted",
+                                                   "puffer", "fleece", "winter"),
+                    "not": ("vest", "gilet", "trouser", "polo", "snood"),
+                    "band": (50, 250), "target": 110},
+    "hoodie": {"icons": ("hoodie",), "words": ("hoodie", "hoody", "hooded"),
+               "not": ("trouser", "jogger", "polo", "jacket", "waterproof"), "band": (30, 110), "target": 55},
+    "base-layer": {"icons": ("base-layer", "jacket", "polo"), "words": ("base layer", "baselayer",
+                                                                         "thermal top", "mock neck", "mock"),
+                   "not": ("trouser", "legging", "short", "vest", "snood", "neck warmer"),
+                   "band": (15, 70), "target": 35},
+    "christmas-jumper": {"icons": ("jacket", "polo", "accessories", None), "words": ("christmas", "festive"),
+                         "also": ("jumper", "sweater", "pullover", "knit"), "band": (30, 120), "target": 60},
+    "cap": {"icons": ("cap",), "words": ("cap",), "not": ("bucket", "beanie", "visor", "bobble", "marker",
+                                                         "clip"), "band": (12, 35), "target": 22},
+    "bucket-hat": {"icons": ("cap",), "words": ("bucket",), "band": (14, 45), "target": 25},
+    "beanie": {"icons": ("cap",), "words": ("beanie", "bobble"), "not": ("gift set", "set"),
+               "band": (12, 35), "target": 20},
+    "visor": {"icons": ("cap",), "words": ("visor",), "band": (12, 35), "target": 20},
+    "snood": {"icons": ("accessories", "jacket", "base-layer", "cap"), "words": ("snood", "neck warmer",
+                                                                               "neckwarmer"),
+              "not": ("gift set",), "band": (10, 35), "target": 20},
+    "mitts": {"icons": ("glove", "accessories", "base-layer", "jacket"), "words": ("mitts", "mittens", "mitt"),
+              "not": ("trolley", "pushcart"), "band": (14, 45), "target": 25},
+    "belt": {"icons": ("belt",), "words": ("belt",), "band": (15, 70), "target": 30},
+    "socks": {"icons": ("socks",), "words": ("sock", "socks"), "not": ("training", "running"),
+              "band": (6, 22), "target": 11},
+    "sunglasses": {"icons": ("sunglasses",), "words": ("sunglasses", "glasses", "eyewear", "shades"),
+                   "band": (20, 180), "target": 60},
+    "shoes": {"categories": ("shoes",), "words": ("golf shoe", "golf shoes", "spikeless", "spiked", "golf boot"),
+              "not": ("trainer", "trainers", "sandal", "slide", "wrench", "bag", "laces", "spikes only"),
+              "band": (60, 190), "target": 110},
+}
+
+BOLD_COLOURS = ("red", "orange", "yellow", "gold", "green", "blue", "purple", "pink")
+NEUTRAL_LIST = ("black", "white", "grey", "navy", "charcoal", "stone", "beige", "cream", "silver", "tan")
+
+# Price levels scale each kind's normal band and sweet spot.
+LOOK_PRICE_LEVELS = {
+    "budget":  {"band": (0.4, 0.75), "target": 0.5},
+    "mid":     {"band": (1.0, 1.0), "target": 1.0},
+    "smart":   {"band": (1.0, 1.4), "target": 1.25},
+    "premium": {"band": (1.4, 2.6), "target": 2.0},
+}
+
+
+def _look_slot(label, kind, **extra):
+    return {"label": label, "kind": kind, **extra}
+
+
+# Order here = the order looks choose their products (scarcest first).
+# "show" sets the order on the page.
 OUTFIT_TEMPLATES = [
-    {"id": "classic", "title": "🏌️ The Classic Look",
-     "palette": ["navy", "white", "black", "grey", "stone"],
-     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Trousers", "icon": "trousers"}, {"label": "Cap", "icon": "cap"}]},
-    {"id": "weekend-casual", "title": "😎 The Weekend Casual",
-     "palette": ["blue", "orange", "yellow", "white", "green"],
-     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Shorts", "icon": "shorts"}, {"label": "Cap", "icon": "cap"}]},
-    {"id": "smart-layer", "title": "🧥 The Smart Layer",
-     "palette": ["navy", "charcoal", "grey", "black", "white"],
-     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Jacket", "icon": "jacket"}, {"label": "Trousers", "icon": "trousers"}]},
-    {"id": "skort-look", "title": "⛳ The Clubhouse Ready",
-     "palette": ["white", "navy", "black", "stone", "gold"],
-     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Skort", "icon": "skort"}, {"label": "Cap", "icon": "cap"}]},
-    {"id": "rain-ready", "title": "🌧️ The Rain Ready",
-     "palette": ["black", "navy", "charcoal", "grey", "olive"],
-     "slots": [{"label": "Jacket", "icon": "jacket"}, {"label": "Trousers", "icon": "trousers"}, {"label": "Cap", "icon": "cap"}]},
-    {"id": "sock-game", "title": "🧦 The Full Package",
-     "palette": ["orange", "blue", "red", "yellow", "pink"],
-     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Shorts", "icon": "shorts"}, {"label": "Socks", "icon": "socks"}]},
-    {"id": "sharp-dresser", "title": "🎩 The Sharp Dresser",
-     "palette": ["black", "navy", "charcoal", "grey"],
-     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Trousers", "icon": "trousers"}, {"label": "Belt", "icon": "belt"}]},
-    {"id": "sun-seeker", "title": "🕶️ The Sun Seeker",
-     "palette": ["white", "yellow", "orange", "blue", "pink"],
-     "slots": [{"label": "Polo", "icon": "polo"}, {"label": "Shorts", "icon": "shorts"}, {"label": "Sunglasses", "icon": "sunglasses"}]},
-    {"id": "off-duty", "title": "🧥 The Off-Duty",
-     "palette": ["grey", "black", "olive", "navy", "khaki"],
-     "slots": [{"label": "Hoodie", "icon": "hoodie"}, {"label": "Trousers", "icon": "trousers"}]},
-    {"id": "cold-morning", "title": "🥶 The Cold Morning",
-     "palette": ["brown", "olive", "khaki", "charcoal", "navy", "grey"],
-     "slots": [{"label": "Base Layer", "icon": "base-layer"}, {"label": "Jacket", "icon": "jacket"}, {"label": "Trousers", "icon": "trousers"}]},
-    {"id": "effortless", "title": "👗 The Effortless",
-     "palette": ["white", "cream", "stone", "pink", "navy"],
-     "slots": [{"label": "Dress", "icon": "dress"}, {"label": "Cap", "icon": "cap"}]},
+    {"id": "christmas-jumper-round", "show": 23, "title": "🎄 The Christmas Jumper Round",
+     "blurb": "One round a year where the dress code is 'festive'. Make it count.",
+     "months": (12,), "palette": None, "price": "mid",
+     "slots": [_look_slot("Christmas Jumper", "christmas-jumper", any_colour=True), _look_slot("Trousers", "trousers"),
+               _look_slot("Beanie", "beanie")]},
+    {"id": "old-money", "tonal": True, "show": 13, "title": "⛵ The Old Money",
+     "blurb": "Cream, navy and a knitted vest. Looks like the family has owned the course since 1890.",
+     "palette": ("cream", "navy", "white", "stone", "beige", "grey", "charcoal", "green", "red", "blue"),
+     "price": "smart", "prefer_brands": LOOK_PREMIUM_BRANDS + ("glenmuir", "footjoy", "proquip"),
+     "avoid_words": ("print", "printed", "camo", "floral", "geo", "graphic", "tropical"),
+     "slots": [_look_slot("Knitted Vest", "knit-vest"), _look_slot("Polo", "polo", palette=("white", "cream", "navy", "stone", "beige")),
+               _look_slot("Trousers", "trousers", palette=("navy", "stone", "beige", "cream", "grey", "charcoal"))]},
+    {"id": "florida-dad", "show": 10, "title": "🌴 The Florida Dad",
+     "blurb": "Loud print, short shorts, bucket hat. Has opinions about the clubhouse burger.",
+     "palette": None, "price": "mid", "anchor_bold": True,
+     "slots": [_look_slot("Printed Polo", "print-polo"),
+               _look_slot("Shorts", "shorts", palette=BOLD_COLOURS + ("white", "stone", "beige")),
+               _look_slot("Bucket Hat", "bucket-hat")]},
+    {"id": "range-rat", "tonal": True, "show": 19, "title": "🏌️ The Range Rat",
+     "blurb": "Joggers, hoodie, cap. Here to hit 200 balls and not talk to anyone.",
+     "palette": ("black", "grey", "charcoal", "navy", "white", "green", "blue", "olive"), "price": "mid",
+     "slots": [_look_slot("Hoodie", "hoodie"), _look_slot("Joggers", "joggers"), _look_slot("Cap", "cap")]},
+    {"id": "frost-delay", "tonal": True, "show": 22, "title": "🥶 The 7am Frost Delay",
+     "blurb": "Thermal everything. You'll be warm while everyone else stands about in the car park.",
+     "palette": ("black", "navy", "charcoal", "grey", "green", "blue", "olive"), "price": "mid",
+     "slots": [_look_slot("Base Layer", "base-layer"), _look_slot("Insulated Layer", "warm-jacket"),
+               _look_slot("Winter Trousers", "warm-trousers"), _look_slot("Mitts", "mitts")]},
+    {"id": "links-warrior", "show": 17, "title": "🌬️ The Links Warrior",
+     "blurb": "Windproof layers and a beanie for when the 1st tee is basically a wind tunnel.",
+     "palette": ("navy", "black", "charcoal", "grey", "green", "olive", "blue", "red"), "price": "mid",
+     "slots": [_look_slot("Wind Layer", "wind-layer"), _look_slot("Trousers", "trousers"),
+               _look_slot("Beanie", "beanie"), _look_slot("Snood", "snood")]},
+    {"id": "tour-tryhard", "show": 15, "title": "🏆 The Tour Tryhard",
+     "blurb": "Head to toe in one brand. Plays off 24, dresses like he's on the Ryder Cup team.",
+     "palette": None, "price": "smart", "one_brand": True,
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Trousers", "trousers"), _look_slot("Cap", "cap"),
+               _look_slot("Belt", "belt")]},
+    {"id": "monochrome-assassin", "tonal": True, "show": 12, "title": "🖤 The Monochrome Assassin",
+     "blurb": "All black, no fuss. Says nothing, takes your money on the 18th.",
+     "palette": ("black",), "price": "smart",
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Trousers", "trousers"), _look_slot("Cap", "cap"),
+               _look_slot("Belt", "belt")]},
+    {"id": "big-spender", "show": 11, "title": "💸 The Big Spender",
+     "blurb": "Premium labels, top of the price range. The swing is optional.",
+     "palette": ("navy", "white", "black", "grey", "charcoal", "stone", "beige", "blue", "green"),
+     "price": "premium", "brands": LOOK_PREMIUM_BRANDS,
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Mid Layer", "midlayer"), _look_slot("Trousers", "trousers")]},
+    {"id": "ladies-captain", "show": 8, "title": "💐 The Ladies' Captain", "audience": "Female",
+     "blurb": "Polished, coordinated and clubhouse-ready. Also running the committee meeting afterwards.",
+     "palette": ("white", "navy", "black", "grey", "stone", "beige", "cream", "pink", "blue"), "price": "smart",
+     "avoid_words": ("print", "printed", "camo", "floral", "geo", "graphic", "tropical"),
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Skort or Trousers", "skort", alt_kind="trousers"),
+               _look_slot("Visor or Cap", "visor", alt_kind="cap")]},
+    {"id": "power-fader", "show": 14, "title": "⚡ The Power Fader", "audience": "Female",
+     "blurb": "Sporty, modern and one bold colour. The drive goes left to right on purpose.",
+     "palette": BOLD_COLOURS + ("white", "black", "navy"), "price": "mid", "anchor_bold": True,
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Skort or Shorts", "skort", alt_kind="shorts"),
+               _look_slot("Cap", "cap", alt_kind="visor")]},
+    {"id": "retro-revival", "show": 16, "title": "📼 The Retro Revival",
+     "blurb": "Bold colours straight out of an 80s pro shop. Mullet sold separately.",
+     "palette": BOLD_COLOURS + ("white", "navy", "black"), "price": "mid", "anchor_bold": True,
+     "prefer_words": ("retro", "heritage", "stripe", "striped", "block", "vintage", "classic", "throwback"),
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Trousers", "trousers"), _look_slot("Cap", "cap"),
+               _look_slot("Socks", "socks")]},
+    {"id": "scandi-minimalist", "tonal": True, "show": 18, "title": "❄️ The Scandi Minimalist",
+     "blurb": "Muted neutrals, clean lines, nothing shouty. Probably brought a flask of oat latte.",
+     "palette": ("grey", "stone", "beige", "cream", "charcoal", "white", "black", "silver"), "price": "smart",
+     "prefer_brands": ("j lindeberg", "galvin green", "oscar jacobson", "kjus", "rohnisch", "abacus"),
+     "slots": [_look_slot("Mid Layer", "midlayer"), _look_slot("Trousers", "trousers"), _look_slot("Cap", "cap")]},
+    {"id": "society-day-hero", "show": 20, "title": "🍺 The Society Day Hero",
+     "blurb": "Smart enough for the clubhouse, comfy enough for the 19th hole that follows.",
+     "avoid_words": ("print", "printed", "camo", "floral", "geo", "graphic", "tropical"),
+     "palette": ("navy", "white", "grey", "stone", "blue", "green", "charcoal"), "price": "mid",
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Quarter Zip", "midlayer"),
+               _look_slot("Trousers", "trousers"), _look_slot("Belt", "belt")]},
+    {"id": "first-tee", "show": 21, "title": "🌱 The First Tee",
+     "blurb": "Everything a beginner needs to look the part without spending a fortune.",
+     "palette": ("navy", "black", "white", "grey", "blue", "green"), "price": "budget", "any_brand": True,
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Trousers", "trousers", contrast=True), _look_slot("Cap", "cap")]},
+    # The nine originals, cleaned up.
+    {"id": "classic", "show": 1, "title": "🏌️ The Classic Look",
+     "blurb": "Polo, trousers, cap. Never wrong, never out of date.",
+     "palette": ("navy", "white", "black", "grey", "stone"), "price": "mid", "avoid_words": ("print", "printed", "camo", "floral", "geo", "graphic", "tropical"),
+     "slots": [_look_slot("Polo", "polo", palette=("navy", "white", "grey", "stone")),
+               _look_slot("Trousers", "trousers", contrast=True), _look_slot("Cap", "cap")]},
+    {"id": "rain-ready", "show": 4, "title": "🌧️ The Rain Ready",
+     "blurb": "Proper waterproofs and a bucket hat, because it's the UK and it's always about to rain.",
+     "palette": ("black", "navy", "charcoal", "grey", "olive", "blue", "green"), "price": "mid",
+     "slots": [_look_slot("Waterproof Jacket", "rain-jacket"), _look_slot("Waterproof Trousers", "rain-trousers"),
+               _look_slot("Bucket Hat", "bucket-hat", alt_kind="cap")]},
+    {"id": "cold-morning", "show": 9, "title": "🧣 The Cold Morning",
+     "blurb": "Layers that keep you warm for the first nine and come off by the turn.",
+     "palette": ("navy", "charcoal", "grey", "black", "olive", "green", "brown", "khaki"), "price": "mid",
+     "slots": [_look_slot("Base Layer", "base-layer"), _look_slot("Mid Layer", "midlayer"),
+               _look_slot("Trousers", "trousers"), _look_slot("Beanie", "beanie")]},
+    {"id": "smart-layer", "show": 3, "title": "🧥 The Smart Layer",
+     "blurb": "A crisp polo under a quarter zip. Smart from the car park to the clubhouse.",
+     "avoid_words": ("print", "printed", "camo", "floral", "geo", "graphic", "tropical"),
+     "palette": ("navy", "charcoal", "grey", "black", "white", "blue"), "price": "mid",
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Quarter Zip", "midlayer", contrast=True),
+               _look_slot("Trousers", "trousers")]},
+    {"id": "sharp-dresser", "show": 6, "title": "🎩 The Sharp Dresser",
+     "blurb": "Dark, tailored and finished with a proper belt. Dress for the handicap you want.",
+     "palette": ("black", "navy", "charcoal", "grey", "white"), "price": "smart", "avoid_words": ("print", "printed", "camo", "floral", "geo", "graphic", "tropical"),
+     "slots": [_look_slot("Polo", "polo", palette=("black", "navy", "charcoal", "grey")),
+               _look_slot("Trousers", "trousers", palette=("black", "navy", "charcoal", "grey")),
+               _look_slot("Belt", "belt"), _look_slot("Golf Shoes", "shoes")]},
+    {"id": "off-duty", "show": 7, "title": "😌 The Off-Duty",
+     "blurb": "Hoodie, trousers, cap. For the casual nine after work.",
+     "palette": ("grey", "black", "olive", "navy", "khaki", "charcoal", "green"), "price": "mid",
+     "slots": [_look_slot("Hoodie", "hoodie"), _look_slot("Trousers", "trousers"), _look_slot("Cap", "cap")]},
+    {"id": "full-package", "show": 5, "title": "🧦 The Full Package",
+     "blurb": "Cap to shoes, socks included. One less thing to think about on the 1st tee.",
+     "palette": ("navy", "white", "black", "grey", "blue", "green", "red"), "price": "mid",
+     "slots": [_look_slot("Cap", "cap"), _look_slot("Polo", "polo"), _look_slot("Trousers", "trousers", contrast=True),
+               _look_slot("Golf Shoes", "shoes")]},
+    {"id": "weekend-casual", "show": 2, "title": "😎 The Weekend Casual",
+     "blurb": "Polo, shorts and a cap for a relaxed Saturday nine.",
+     "palette": ("blue", "green", "white", "navy", "grey", "red", "pink"), "price": "mid", "anchor_bold": True,
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Shorts", "shorts"), _look_slot("Cap", "cap")]},
+    {"id": "sun-seeker", "show": 24, "title": "🕶️ The Sun Seeker",
+     "blurb": "Light colours, shorts and shades. For the three sunny days the UK gets each year.",
+     "palette": ("white", "blue", "pink", "yellow", "orange", "green", "grey", "navy"), "price": "mid",
+     "slots": [_look_slot("Polo", "polo"), _look_slot("Shorts", "shorts"), _look_slot("Sunglasses", "sunglasses", any_colour=True)]},
 ]
 
-# Same convention as the homepage's Hot Deals/Price Drops/Trending
-# sections: Male-classified outfits should make up roughly 80% of what's
-# actually shown. Genuine Female/Junior outfits are never fabricated or
-# forced to hit this — they're simply capped so they never exceed the
-# remaining ~20%, dropping the priciest surplus ones first (cheapest
-# looks shown preferentially, consistent with the site's "don't
-# overpay" ethos). If zero genuine Male outfits exist in a given run,
-# every real Female/Junior outfit is still shown rather than showing
-# nothing at all — an honest fallback, not a forced ratio.
-OUTFIT_MALE_TARGET_RATIO = 0.8
 
 
-def _outfit_slot_candidates(products, slot, audience):
-    return [
-        p for p in products
-        if p.get("category") == "apparel" and p.get("icon") == slot["icon"]
-        and p.get("audience") == audience and p.get("inStock") is not False
-        and p.get("image") and p.get("colour")
-    ]
+# The feed's own "colour" field is read from anywhere in the name, so
+# "Galvin Green ... - Black" comes out as Green and "Wine" isn't
+# recognised at all. Complete The Look reads colour from the variant
+# part of the name (after " - "), with golf-retail colour names mapped
+# to plain ones. Unknown colour = not used in a colour-matched slot.
+LOOK_COLOUR_WORDS = [
+    # longest phrases first
+    ("off white", "cream"), ("off-white", "cream"), ("collegiate navy", "navy"), ("dark navy", "navy"),
+    ("jet black", "black"), ("true navy", "navy"), ("fairway green", "green"), ("british racing green", "green"),
+    ("oxford blue", "navy"), ("steel blue", "blue"), ("light grey", "grey"), ("dark grey", "charcoal"),
+    ("black", "black"), ("onyx", "black"), ("white", "white"), ("ivory", "cream"), ("ecru", "cream"),
+    ("cream", "cream"), ("oatmeal", "beige"), ("sand", "beige"), ("beige", "beige"), ("camel", "tan"),
+    ("tan", "tan"), ("khaki", "khaki"), ("stone", "stone"), ("putty", "stone"), ("taupe", "stone"),
+    ("navy", "navy"), ("midnight", "navy"), ("ink", "navy"), ("grey", "grey"), ("gray", "grey"),
+    ("heather", "grey"), ("slate", "grey"), ("steel", "grey"), ("ash", "grey"), ("silver", "silver"),
+    ("pewter", "grey"), ("charcoal", "charcoal"), ("graphite", "charcoal"), ("carbon", "charcoal"),
+    ("asphalt", "charcoal"), ("gunmetal", "charcoal"), ("blue", "blue"), ("royal", "blue"), ("cobalt", "blue"),
+    ("teal", "blue"), ("aqua", "blue"), ("turquoise", "blue"), ("sky", "blue"), ("red", "red"),
+    ("wine", "red"), ("burgundy", "red"), ("maroon", "red"), ("cardinal", "red"), ("scarlet", "red"),
+    ("claret", "red"), ("crimson", "red"), ("green", "green"), ("lime", "green"), ("forest", "green"),
+    ("sage", "green"), ("mint", "green"), ("emerald", "green"), ("olive", "olive"), ("yellow", "yellow"),
+    ("lemon", "yellow"), ("mustard", "yellow"), ("gold", "gold"), ("orange", "orange"), ("tango", "orange"),
+    ("rust", "orange"), ("coral", "pink"), ("pink", "pink"), ("fuchsia", "pink"), ("magenta", "pink"),
+    ("rose", "pink"), ("purple", "purple"), ("violet", "purple"), ("lilac", "purple"), ("lavender", "purple"),
+    ("plum", "purple"), ("brown", "brown"), ("chocolate", "brown"), ("mocha", "brown"),
+]
+LOOK_BRAND_COLOUR_TRAPS = ("galvin green", "green lamb", "greyson", "blue tees", "black clover", "red bull")
+
+
+def _look_colours(p):
+    """All plain colours in the product's variant text, in order."""
+    name = (p.get("name") or "").lower()
+    for trap in LOOK_BRAND_COLOUR_TRAPS:
+        name = name.replace(trap, " ")
+    parts = re.split(r"\s-\s|\s-(?=\s?\w)|-\s", name, maxsplit=1)
+    text = parts[1] if len(parts) > 1 else parts[0]
+    found = []
+    for word, plain in LOOK_COLOUR_WORDS:
+        for m in re.finditer(r"\b" + re.escape(word) + r"\b", text):
+            found.append((m.start(), plain))
+            text = text[:m.start()] + " " * len(word) + text[m.end():]
+    found.sort()
+    out = []
+    for _, plain in found:
+        if plain not in out:
+            out.append(plain)
+    return out
+
+
+def _look_display_name(p):
+    name = _kit_display_name(p)
+    head, sep, tail = name.rpartition(" - ")
+    if sep:  # sizes only ever sit in the variant part: "Black / 38\" / Long" -> "Black"
+        tail = re.sub(r"\s+/\s*(\d[^/]*|XXS|XS|S|M|L|XL|XXL|XXXL|S/M|M/L|L/XL|One Size)(\s*/.*)?$", "", tail,
+                      flags=re.I)
+        name = head + sep + tail
+    head, sep, tail = name.rpartition(" - ")
+    # "Collegiate Navy Collegiate Navy" -> "Collegiate Navy"
+    words = tail.split()
+    if sep and len(words) % 2 == 0 and words[:len(words) // 2] == words[len(words) // 2:]:
+        name = head + sep + " ".join(words[:len(words) // 2])
+    return name.strip()
+
+
+def _look_words(text):
+    return f" {re.sub(r'[^a-z0-9/&+.]+', ' ', (text or '').lower())} "
+
+
+def _look_has(text, words):
+    t = _look_words(text)
+    return any(_look_words(w) in t for w in words)
+
+
+def _look_base(p):
+    return (p.get("name") or "").split(" - ")[0].strip().lower()
+
+
+def _look_brand(p):
+    """A normalised brand name, so 'Castore Golf' and 'Castore' match."""
+    b = (p.get("brand") or "").strip().lower()
+    for known in LOOK_APPAREL_BRANDS:
+        if b.startswith(known) or (p.get("name") or "").lower().startswith(known):
+            return known
+    return b
+
+
+def _look_ok(p, audience):
+    if p.get("inStock") is False or not p.get("image") or not p.get("affiliateUrl"):
+        return False
+    if is_preowned_partner(p) or "/sh-" in (p.get("image") or ""):
+        return False
+    if p.get("audience") == "Junior" or _look_has(p.get("name"), LOOK_JUNIOR_WORDS):
+        return False
+    if p.get("audience") != audience:
+        return False
+    return (p.get("salePrice") or 0) > 0
+
+
+def _look_kind_match(p, kind_name):
+    kind = LOOK_KINDS[kind_name]
+    if kind.get("categories"):
+        if p.get("category") not in kind["categories"]:
+            return False
+    elif p.get("icon") not in kind["icons"]:
+        return False
+    name = p.get("name") or ""
+    if not _look_has(name, kind["words"]):
+        return False
+    if kind.get("also") and not _look_has(name, kind["also"]):
+        return False
+    return not (kind.get("not") and _look_has(name, kind["not"]))
+
+
+def _look_band(kind_name, level):
+    kind, lv = LOOK_KINDS[kind_name], LOOK_PRICE_LEVELS[level]
+    lo, hi = kind["band"]
+    return lo * lv["band"][0], hi * lv["band"][1], kind["target"] * lv["target"]
+
+
+def _look_rotate(items, key, n=3):
+    if not items:
+        return None
+    top = items[:n]
+    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    return top[int(hashlib.md5(f"{day}:{key}".encode()).hexdigest(), 16) % len(top)]
+
+
+def _look_pick(pool, template, slot, kind_name, anchor_colour, used, brand=None):
+    level = template.get("price", "mid")
+    lo, hi, target = _look_band(kind_name, level)
+    palette = slot.get("palette") or template.get("palette")
+    allowed_brands = template.get("brands")
+    prefer_brands = template.get("prefer_brands") or ()
+    prefer_words = template.get("prefer_words") or ()
+    ranked, seen = [], set()
+    for p in pool:
+        if not _look_kind_match(p, kind_name):
+            continue
+        base = _look_base(p)
+        if base in used or base in seen:
+            continue
+        price = p["salePrice"]
+        if not (lo <= price <= hi):
+            continue
+        colours = _look_colours(p)
+        colour = colours[0] if colours else ""
+        if not slot.get("any_colour"):
+            if not colour:
+                continue
+            if palette and colour not in palette:
+                continue
+            if len(palette or ()) == 1 and colours != [palette[0]]:
+                continue  # all-black means all black, not black/white
+            if anchor_colour and not colours_are_compatible(anchor_colour, colour):
+                continue
+        if template.get("avoid_words") and _look_has(p.get("name"), template["avoid_words"]):
+            continue
+        b = _look_brand(p)
+        if allowed_brands and b not in allowed_brands:
+            continue
+        if not template.get("any_brand") and not allowed_brands and b not in LOOK_APPAREL_BRANDS:
+            continue
+        if brand and b != brand:
+            continue
+        if template.get("anchor_bold") and anchor_colour is None and colour not in BOLD_COLOURS \
+                and kind_name not in ("print-polo",):
+            continue
+        seen.add(base)
+        quality = pairing_quality(anchor_colour, colour) if anchor_colour and colour and not slot.get("any_colour") else 2
+        if anchor_colour and colour and not template.get("tonal"):
+            # Most looks read better with some contrast than head-to-toe
+            # one colour: any compatible different colour beats a repeat.
+            quality = 2 if colour == anchor_colour else 3
+        if slot.get("contrast") and anchor_colour and colour == anchor_colour:
+            quality = 0  # this slot should break up the colour, not repeat it
+        # The first item sets the look's colour: favour the palette's lead
+        # colours, so not every look ends up black.
+        lead = (palette.index(colour) // 2) if (anchor_colour is None and palette and colour in palette) else 0
+        score = (
+            0 if (not prefer_brands or b in prefer_brands) else 1,
+            0 if (not prefer_words or _look_has(p.get("name"), prefer_words)) else 1,
+            lead,
+            -quality,
+            abs(price - target) / max(target, 1),
+        )
+        ranked.append((score, p))
+    ranked.sort(key=lambda r: r[0])
+    if not ranked:
+        return None
+    best = ranked[0][0][:4]
+    pool_best = [p for s, p in ranked if s[:4] == best]
+    return _look_rotate(pool_best, f"{template['id']}:{slot['label']}")
+
+
+def _look_try(template, pools, used, brand=None):
+    audience = template.get("audience", "Male")
+    pool = pools[audience]
+    items, taken, anchor_colour = [], set(), None
+    for slot in template["slots"]:
+        pick, kind_used = None, None
+        for kind_name in (slot["kind"], slot.get("alt_kind")):
+            if not kind_name:
+                continue
+            pick = _look_pick(pool, template, slot, kind_name, anchor_colour, used | taken, brand)
+            if pick:
+                kind_used = kind_name
+                break
+        if not pick:
+            return None, slot["label"]
+        pick_colours = _look_colours(pick)
+        colour = pick_colours[0] if pick_colours else ""
+        if anchor_colour is None and colour and not slot.get("any_colour"):
+            anchor_colour = colour
+        taken.add(_look_base(pick))
+        label = slot["label"]
+        if " or " in label:  # "Skort or Trousers" -> what was actually picked
+            label = {"skort": "Skort", "trousers": "Trousers", "shorts": "Shorts", "visor": "Visor",
+                     "cap": "Cap"}.get(kind_used, label)
+        if kind_used == "cap" and slot["kind"] == "bucket-hat":
+            label = "Cap"
+        items.append({
+            "slotLabel": label, "id": pick.get("id"), "name": _look_display_name(pick),
+            "image": pick.get("image"), "salePrice": pick["salePrice"], "affiliateUrl": pick["affiliateUrl"],
+            "brand": pick.get("brand"), "colour": colour.title() if colour else "",
+        })
+    return items, None
 
 
 def compute_outfits(products):
-    """Assembles genuine outfit sets: for each template, tries each
-    audience (Male/Female/Junior) independently — an outfit never mixes
-    products from different audience classifications.
-
-    These are style suggestions, not a bargain hunt — so slot selection
-    prioritises how genuinely well-paired the colours are (see
-    pairing_quality) FIRST, with price only ever used as a tiebreaker
-    between otherwise-equally-good options, never as the primary
-    driver. Each template also has a "palette" — its own colour mood
-    matching its name (The Sun Seeker leans bright/warm-weather, The
-    Cold Morning leans warm/earthy-layered, The Sharp Dresser leans
-    dark/formal, etc.) — candidates within that palette are preferred
-    over technically-compatible-but-off-mood ones, falling back to the
-    full compatible pool only if nothing in-palette is available.
-
-    Every product used is tracked globally across the ENTIRE run (not
-    just within one outfit) and excluded from every subsequent slot
-    search, anywhere — so the same polo/trousers pairing can't end up
-    recommended in five different outfits. This does mean template
-    order matters (earlier templates get first pick of the best
-    matches) — an accepted tradeoff of guaranteeing real variety.
-
-    A template/audience combination that can't fill every slot with a
-    real, unused, compatible match is skipped entirely — no outfit is
-    ever forced together, same honesty standard as everywhere else on
-    the site.
-
-    After every genuine outfit is assembled, applies the same ~80% Male
-    convention used on the homepage (see OUTFIT_MALE_TARGET_RATIO) —
-    real Female/Junior outfits beyond the ~20% allowance are held back
-    from display (cheapest ones kept first), never fabricated or forced
-    to make the ratio work in the other direction."""
-    used_product_ids = set()
-
-    def pick_anchor(candidates, palette):
-        # No colour to pair against yet, so there's no "quality" tier to
-        # sort by. Instead: prefer a candidate that's actually in the
-        # template's palette (sets the mood from the very first item),
-        # and among those, prefer a non-neutral colour — a neutral
-        # anchor collapses every downstream pairing to the low "neutral"
-        # tier regardless of what's actually picked next, wasting the
-        # whole quality-ranking system. Price is the final tiebreaker
-        # only, never the primary driver.
-        in_palette = [p for p in candidates if p["colour"].lower() in palette]
-        pool = in_palette if in_palette else candidates
-        non_neutral = [p for p in pool if p["colour"].lower() not in NEUTRAL_COLOURS]
-        final_pool = non_neutral if non_neutral else pool
-        return min(final_pool, key=lambda p: p["salePrice"])
-
-    def pick_slot_item(candidates, anchor_colour, palette):
-        # Quality first (how genuinely well the colours pair), price
-        # only as a tiebreaker — this is a style suggestion, not a
-        # bargain hunt. In-palette candidates are preferred over
-        # technically-compatible-but-off-mood ones whenever any exist.
-        in_palette = [p for p in candidates if p["colour"].lower() in palette]
-        pool = in_palette if in_palette else candidates
-        return min(
-            pool,
-            key=lambda p: (-pairing_quality(anchor_colour, p["colour"]), p["salePrice"])
-        )
-
-    outfits = []
+    """Builds every look in OUTFIT_TEMPLATES (see the notes above).
+    Products are used once across the whole page."""
+    pools = {aud: [p for p in products if p.get("category") in ("apparel", "accessories", "shoes")
+                   and _look_ok(p, aud)] for aud in ("Male", "Female")}
+    month = datetime.now(timezone.utc).month
+    used, outfits = set(), []
     for template in OUTFIT_TEMPLATES:
-        palette = set(template.get("palette", []))
-        for audience in ("Male", "Female", "Junior"):
-            first_slot = template["slots"][0]
-            anchor_candidates = [
-                p for p in _outfit_slot_candidates(products, first_slot, audience)
-                if p.get("id") not in used_product_ids
-            ]
-            if not anchor_candidates:
-                continue
-            anchor = pick_anchor(anchor_candidates, palette)
-            anchor_colour = anchor["colour"]
-
-            items = [{
-                "slotLabel": first_slot["label"], "id": anchor.get("id"), "name": anchor["name"],
-                "image": anchor.get("image"), "salePrice": anchor["salePrice"],
-                "affiliateUrl": anchor["affiliateUrl"], "brand": anchor.get("brand"),
-                "colour": anchor_colour,
-            }]
-            claimed_this_outfit = [anchor.get("id")]
-            complete = True
-            for slot in template["slots"][1:]:
-                candidates = [
-                    p for p in _outfit_slot_candidates(products, slot, audience)
-                    if p.get("id") not in used_product_ids
-                    and colours_are_compatible(anchor_colour, p["colour"])
-                ]
-                if not candidates:
-                    complete = False
+        if template.get("months") and month not in template["months"]:
+            continue
+        if template.get("one_brand"):
+            # Try each well-known brand in turn (rotating daily), keep the
+            # first that can dress the whole look.
+            brands = [b for b in LOOK_APPAREL_BRANDS[:30]]
+            day = datetime.now(timezone.utc).toordinal()
+            brands = brands[day % len(brands):] + brands[:day % len(brands)]
+            items, missing = None, "a single brand"
+            for b in brands:
+                items, _ = _look_try(template, pools, used, brand=b)
+                if items:
                     break
-                pick = pick_slot_item(candidates, anchor_colour, palette)
-                items.append({
-                    "slotLabel": slot["label"], "id": pick.get("id"), "name": pick["name"],
-                    "image": pick.get("image"), "salePrice": pick["salePrice"],
-                    "affiliateUrl": pick["affiliateUrl"], "brand": pick.get("brand"),
-                    "colour": pick["colour"],
-                })
-                claimed_this_outfit.append(pick.get("id"))
-            if not complete:
-                continue
-
-            used_product_ids.update(claimed_this_outfit)
-
-            # The outfit's overall "colour story" is only as good as its
-            # weakest pairing — the minimum quality tier across every
-            # item vs. the anchor, not the best one, so the front-end's
-            # description of the outfit never overclaims.
-            worst_tier = min(pairing_quality(anchor_colour, i["colour"]) for i in items[1:]) if len(items) > 1 else 4
-
-            outfits.append({
-                "id": f"{template['id']}-{audience.lower()}",
-                "title": template["title"],
-                "audience": audience,
-                "items": items,
-                "total": round(sum(i["salePrice"] for i in items), 2),
-                "colourStory": {4: "monochrome", 3: "complementary", 2: "analogous", 1: "neutral"}[worst_tier],
-            })
-
-    male_outfits = [o for o in outfits if o["audience"] == "Male"]
-    other_outfits = [o for o in outfits if o["audience"] != "Male"]
-
-    if male_outfits:
-        # Solving male / (male + other) >= 0.8 for the max allowed
-        # "other" count, given the real male_outfits total.
-        # Floor, not round — "other" must never exceed the ~20% allowance,
-        # so any fractional remainder rounds down (e.g. 3 Male outfits
-        # allows 0 Other, not 1, since 1 would only be 75% Male, under
-        # target). A tiny epsilon guards against float imprecision at
-        # exact boundaries (e.g. male=4 computing to 0.999999999999998
-        # instead of a clean 1.0) without ever rounding up past the
-        # true mathematical value.
-        non_male_share = 1 - OUTFIT_MALE_TARGET_RATIO
-        max_other = math.floor((len(male_outfits) * non_male_share) / OUTFIT_MALE_TARGET_RATIO + 1e-9)
-    else:
-        # No genuine Male outfit completed this run at all — an honest
-        # fallback keeps every real Female/Junior outfit rather than
-        # showing an empty page just to force an impossible ratio.
-        max_other = len(other_outfits)
-
-    kept_other = sorted(other_outfits, key=lambda o: o["total"])[:max_other]
-    dropped_count = len(other_outfits) - len(kept_other)
-    if dropped_count > 0:
-        print(
-            f"Complete The Look: {len(outfits)} outfit(s) genuinely completed, but "
-            f"held back {dropped_count} Female/Junior look(s) to keep Male at roughly "
-            f"{int(OUTFIT_MALE_TARGET_RATIO * 100)}% of what's shown, matching the "
-            f"homepage's audience-balance convention — kept {len(kept_other)} anyway."
-        )
-
-    kept_ids = {o["id"] for o in male_outfits} | {o["id"] for o in kept_other}
-    return [o for o in outfits if o["id"] in kept_ids]
+        else:
+            items, missing = _look_try(template, pools, used)
+        if not items:
+            print(f"Complete The Look: skipped '{template['id']}' today (no proper {missing}).")
+            continue
+        used |= {_look_base({"name": i["name"]}) for i in items}
+        used |= {_look_base(p) for p in products if p.get("id") in {i["id"] for i in items}}
+        audience = template.get("audience", "Male")
+        outfits.append({
+            "id": template["id"],
+            "title": template["title"],
+            "blurb": template.get("blurb", ""),
+            "audience": audience,
+            "audienceLabel": "Women's" if audience == "Female" else "Men's",
+            "show": template.get("show", 99),
+            "items": items,
+            "total": round(sum(i["salePrice"] for i in items), 2),
+        })
+    outfits.sort(key=lambda o: o["show"])
+    for o in outfits:
+        o.pop("show", None)
+    return outfits
 
 
 def save_outfits(outfits):
@@ -3251,8 +3577,8 @@ def main():
 
     outfits = compute_outfits(catalog["products"])
     save_outfits(outfits)
-    print(f"Complete The Look: generated {len(outfits)}/{len(OUTFIT_TEMPLATES) * 3} outfit(s) "
-          f"(across up to 3 audiences per template) using real colour-theory matching.")
+    print(f"Complete The Look: generated {len(outfits)}/{len(OUTFIT_TEMPLATES)} look(s), "
+          f"each product used once across the page.")
 
     existing_category_keys = {c["key"] for c in catalog.get("categories", [])}
     if "sets" not in existing_category_keys:
