@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-15T11:35+01:00",
+ "checked": "2026-10-15T17:00+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -12,6 +12,26 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cleveland-halo-xl-hy-wood/"
+  },
+  {
+   "model": "Voice Caddie SC4 Pro Simulator + Launch Monitor",
+   "model_id": "voice-caddie-sc4-pro-simulator-plus-launch-monitor",
+   "date": "2026-10-15",
+   "was": 599.0,
+   "now": 549.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/voice-caddie-sc4-pro-simulator-plus-launch-monitor/"
+  },
+  {
+   "model": "CaddyTalk Cube Laser Rangefinder",
+   "model_id": "caddytalk-cube-laser-rangefinder",
+   "date": "2026-10-15",
+   "was": 249.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/caddytalk-cube-laser-rangefinder/"
   },
   {
    "model": "Ogio All Elements Hybrid Stand Golf Bag",
