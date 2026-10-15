@@ -120,10 +120,21 @@ def fix_types(products, classify_audience=None):
     name clearly says they're something else. Returns a list of
     (id, name, old, new) for the run log and the review report."""
     changes = []
+    apparel_icons = {icon for c, icon in TYPE_WORDS.values() if c == "apparel"}
     for p in products:
         cat = p.get("category")
         if cat not in ("apparel", "accessories"):
             continue
+        # Clothing that a retailer filed in its accessories feed (T-shirts
+        # like "Nike Golf Tee" already typed as tops): move it to Apparel.
+        named = name_type(p.get("name"))
+        # A single "Tee" already typed as a top is a T-shirt ("Nike Golf Tee"),
+        # not a golf tee; "Tees" (plural) stays with the golf tees.
+        tshirt = named and named[2] == "tee" and p.get("icon") == "polo"
+        if cat == "accessories" and p.get("icon") in apparel_icons and (tshirt or not (named and named[0] == "accessories")):
+            old = (cat, p.get("icon"))
+            p["category"] = cat = "apparel"
+            changes.append((p.get("id"), p.get("name"), old, (cat, p.get("icon"))))
         got = name_type(p.get("name"))
         if not got:
             # Typed as tees only because of a brand or phrase ("Blue Tees
