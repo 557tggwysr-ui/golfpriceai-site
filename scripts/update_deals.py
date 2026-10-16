@@ -69,6 +69,7 @@ import price_pages  # scripts/price_pages.py: static /prices/ pages, sitemaps
 import identity  # scripts/identity.py: one listing = retailer + name
 import search_index  # scripts/search_index.py: data/search/ for the search page
 import product_types  # scripts/product_types.py: fixes clothing/accessory types from the product name
+import retailer_images  # scripts/retailer_images.py: real Scottsdale photo addresses
 
 DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "products.json"
 
@@ -1542,7 +1543,15 @@ def fetch_awin_scottsdalegolf_deals():
     """Scottsdale Golf — fifth AWIN retailer onboarded, via AWIN's
     classic Create-a-Feed system. See fetch_awin_generic_feed for the
     shared implementation."""
-    return fetch_awin_generic_feed("Scottsdale Golf", "AWIN_SCOTTSDALEGOLF_FEED_URL", "scottsdalegolf")
+    products = fetch_awin_generic_feed("Scottsdale Golf", "AWIN_SCOTTSDALEGOLF_FEED_URL", "scottsdalegolf")
+    # Scottsdale's feed gives old photo addresses that 404 for many items:
+    # look up the real ones (see scripts/retailer_images.py).
+    try:
+        fixed, reads, missing = retailer_images.fix_scottsdale_images(products)
+        print(f"Scottsdale photos: {fixed} corrected ({reads} product page(s) read this run, {missing} still to do or not found).")
+    except Exception as exc:
+        print(f"Scottsdale photos: couldn't correct this run ({exc}).")
+    return products
 
 
 def fetch_awin_callawaypreowned_deals():
