@@ -184,6 +184,14 @@
           '<a class="al-btn" href="/prices/">Browse price guides</a><a class="al-btn alt" href="/shop.html">Shop all deals</a>');
       }
     });
+  } else if (status === 'stock') {
+    show('You’re on the list.', '<p>We’ll email you once, as soon as it’s back in stock at one of the UK retailers we track. Any size or colour counts, so check yours on the retailer’s page.</p>' +
+      '<p>We check every 6 hours. In the meantime, try not to buy a lookalike out of impatience.</p>',
+      '<a class="al-btn" href="/back-in-stock.html">Back In Stock Radar</a><a class="al-btn alt" href="/prices/">Browse price guides</a>');
+  } else if (status === 'bag') {
+    show('Your bag is on watch.', '<p>We’ll email you when any of the items in your bag genuinely drops in price: by at least £5 (or 3%, whichever is bigger).</p>' +
+      '<p>Every alert has a one-click link to stop it, item by item.</p>',
+      '<a class="al-btn" href="/build-your-bag.html">Back to your bag</a><a class="al-btn alt" href="/prices/">More price guides</a>');
   } else if (status === 'expired') {
     show('That link has expired.', '<p>Confirmation links work for 7 days. Just sign up again and we’ll send a fresh one.</p>');
   } else if (status === 'error') {

@@ -11,7 +11,49 @@
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-const NOTIFY_EMAIL = 'hello@golfpriceai.com';
+// "Notify me" posts to the alerts worker: one email when the product (or
+// any size or colour of it) is back, sent by scripts/alerts.py after the
+// person confirms their address.
+const ALERTS_URL = 'https://golfpriceai-alerts.golfpriceai.workers.dev';
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest && e.target.closest('[data-notify]');
+  if (!btn) return;
+  const form = btn.nextElementSibling;
+  const open = form.hidden;
+  form.hidden = !open;
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (open) form.querySelector('input[type=email]').focus();
+});
+
+document.addEventListener('submit', (e) => {
+  const form = e.target;
+  if (!form.classList || !form.classList.contains('radar-notify-form')) return;
+  e.preventDefault();
+  const input = form.querySelector('input[type=email]');
+  const btn = form.querySelector('button[type=submit]');
+  const msg = form.querySelector('.radar-notify-msg');
+  const email = (input.value || '').trim();
+  const say = (text, kind) => { msg.textContent = text; msg.className = 'radar-notify-msg' + (kind ? ' is-' + kind : ''); };
+  if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { say('Please enter a full email address.', 'error'); input.focus(); return; }
+  btn.disabled = true;
+  say('Sending…');
+  fetch(ALERTS_URL + '/subscribe', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ email, stock: form.getAttribute('data-stock'), website: form.querySelector('input[name=website]').value }),
+  }).then((r) => r.json().catch(() => ({ ok: false })))
+    .then((res) => {
+      btn.disabled = false;
+      if (!res.ok) { say(res.error || 'Something went wrong. Please try again in a minute.', 'error'); return; }
+      input.hidden = true; btn.hidden = true;
+      say(res.status === 'added-stock'
+        ? 'Done. We’ll email you once when it’s back.'
+        : 'Nearly there: check your inbox and confirm, then we’ll email you once when it’s back.', 'ok');
+      if (window.gtag) gtag('event', 'stock_alert_signup', { status: res.status });
+    })
+    .catch(() => { btn.disabled = false; say('Couldn’t reach the alert service. Please try again.', 'error'); });
+});
 
 async function loadStockRadar() {
   let views;
@@ -59,11 +101,14 @@ function renderCard(p, kind) {
     actionHTML = `<a class="radar-buy-link" href="${escapeHtml(p.affiliateUrl)}" target="_blank" rel="nofollow sponsored noopener">See It →</a>`;
   } else if (kind === 'soldout') {
     badgeHTML = `<span class="radar-badge radar-badge--soldout">Sold out ${whenText(p.changed)}</span>`;
-    const subject = encodeURIComponent(`Notify me when back in stock: ${p.name}`);
-    const body = encodeURIComponent(
-      `Hi, please let me know when this is back in stock:\n\n${p.name}\n\nMy email: `
-    );
-    actionHTML = `<a class="radar-notify-link" href="mailto:${NOTIFY_EMAIL}?subject=${subject}&body=${body}">🔔 Notify Me</a>`;
+    actionHTML = `<button type="button" class="radar-notify-link" data-notify aria-expanded="false">🔔 Notify me</button>
+      <form class="radar-notify-form" data-stock="${escapeHtml(p.id || '')}" hidden novalidate>
+        <label class="sr-only" for="rn-${escapeHtml(p.id || '')}">Your email</label>
+        <input id="rn-${escapeHtml(p.id || '')}" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+        <span class="radar-hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></span>
+        <button type="submit">Email me when it’s back</button>
+        <p class="radar-notify-msg" role="status" aria-live="polite"></p>
+      </form>`;
   } else {
     badgeHTML = `<span class="radar-badge radar-badge--fast">Sold out ${p.outageCount90d}x recently</span>`;
     actionHTML = `<a class="radar-buy-link" href="${escapeHtml(p.affiliateUrl)}" target="_blank" rel="nofollow sponsored noopener">Grab It →</a>`;

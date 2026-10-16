@@ -18,6 +18,12 @@ How it works
   * If the price instead sits clearly above the reference for 7 days, that
     becomes the new normal and the reference moves up to it.
 
+Back-in-stock alerts ("Notify me" on the Back In Stock Radar)
+  * The contact's STOCKWATCH attribute holds product ids. Each run, if that
+    product (or any size or colour of it at the same retailer) is in stock,
+    one email goes out and the id is removed from STOCKWATCH, so it's a
+    one-off alert.
+
 What is stored where
   * Emails and watch lists live only in Brevo. Nothing personal is written to
     this public repository: alerts-state.json holds model slugs, prices and
@@ -45,6 +51,7 @@ from price_pages import retailer_name
 
 ROOT = Path(__file__).resolve().parent.parent
 MODELS_FILE = ROOT / "data" / "models.json"
+PRODUCTS_FILE = ROOT / "data" / "products.json"
 STATE_FILE = ROOT / "data" / "alerts-state.json"
 PRICES_DIR = ROOT / "prices"
 
@@ -129,8 +136,9 @@ def subscribers(key):
             # The Friday email: anyone who asked for it (DIGEST yes), plus
             # early sign-ups from before that attribute existed who signed
             # up for general alerts rather than one model.
-            out.append({"email": c["email"].lower(), "watch": watch,
-                        "digest": digest == "yes" or (not digest and not watch)})
+            stock = [s.strip() for s in str(attrs.get("STOCKWATCH") or "").split(",") if s.strip()]
+            out.append({"email": c["email"].lower(), "watch": watch, "stock": stock,
+                        "digest": digest == "yes" or (not digest and not watch and not stock)})
         offset += len(batch)
         if len(batch) < 500 or offset >= (data.get("count") or 0):
             return out
@@ -221,8 +229,9 @@ def email_html(email, items, secret):
     everything = unsubscribe_link(secret, email)
     return f"""<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#f7f8f6;font-family:Arial,Helvetica,sans-serif;color:#16241c">
 <div style="max-width:560px;margin:0 auto;padding:28px 16px">
-<p style="font-size:22px;font-weight:bold;margin:0 0 18px">Golf<span style="color:#3fae29">Price</span> AI</p>
-<p style="font-size:15px;line-height:1.5;margin:0 0 16px">A price you’re watching has dropped. We check every 6 hours, and only email when the lowest new, in-stock price falls by at least £5 (or 3%).</p>
+<p style="font-size:22px;font-weight:bold;margin:0 0 4px">Golf<span style="color:#3fae29">Price</span> AI</p>
+<p style="font-size:12px;color:#5b665f;margin:0 0 18px">Full Swing. Not full price.</p>
+<p style="font-size:15px;line-height:1.5;margin:0 0 16px">A price you’re watching has dropped. Your wallet will be pleased; your handicap, sadly, is unaffected. We check every 6 hours, and only email when the lowest new, in-stock price falls by at least £5 (or 3%).</p>
 {''.join(blocks)}
 <p style="font-size:12px;color:#5b665f;line-height:1.5;margin:18px 0 0">Prices change on retailers’ sites, so check before you buy. We may earn a commission if you buy through our links; it never changes the price.<br>
 No countdown timers. No fake discounts. <a href="{everything}" style="color:#5b665f">Unsubscribe from all GolfPrice AI emails</a>.</p>
@@ -250,6 +259,122 @@ def send(key, secret, email, items):
         print(f"Alerts: send failed ({status}): {data.get('message', '')}")
         return False
     return True
+
+
+# ---------------------------------------------------------------- back in stock
+def _base(name):
+    return (name or "").split(" - ")[0].strip().lower()
+
+
+def check_stock(state, wanted):
+    """{product id: details} for watched products that are in stock now.
+    Remembers each watched product's name and retailer (not who watches
+    it), so a size or colour coming back still counts after the original
+    listing has left the feed."""
+    known = state.setdefault("stock", {})
+    if not wanted:
+        state["stock"] = {}
+        return {}
+    products = json.loads(PRODUCTS_FILE.read_text()).get("products", [])
+    by_id = {p["id"]: p for p in products if p.get("id")}
+    in_stock = defaultdict(list)
+    for p in products:
+        if p.get("inStock") is not False and p.get("affiliateUrl") and not p.get("condition"):
+            in_stock[(p.get("source"), _base(p.get("name")))].append(p)
+    models = {}
+    for m in json.loads(MODELS_FILE.read_text()).get("models", []):
+        if (m.get("gate") or {}).get("passes") and (PRICES_DIR / m["slug"] / "index.html").exists():
+            for lid in m.get("listingIds") or []:
+                models[lid] = m["slug"]
+    back = {}
+    for pid in sorted(wanted):
+        p = by_id.get(pid)
+        if p:
+            known[pid] = {"base": _base(p.get("name")), "source": p.get("source"), "name": p["name"].split(" - ")[0].strip()}
+        info = known.get(pid)
+        if not info:
+            continue  # never seen it: nothing to match on yet
+        if p and p.get("inStock") is not False:
+            hit = p
+        else:
+            options = in_stock.get((info["source"], info["base"])) or []
+            hit = min(options, key=lambda x: x.get("salePrice") or 1e9) if options else None
+        if hit:
+            back[pid] = {"id": pid, "name": info["name"], "price": float(hit.get("salePrice") or 0),
+                         "retailer": retailer_name(hit.get("source") or ""), "link": hit["affiliateUrl"],
+                         "image": hit.get("image") or "", "slug": models.get(hit["id"], "")}
+    for pid in list(known):
+        if pid not in wanted:
+            del known[pid]
+    return back
+
+
+def stock_email_html(email, items, secret):
+    blocks = []
+    for d in items:
+        img = (f'<img src="{html.escape(d["image"])}" alt="" width="120" style="display:block;width:120px;max-width:40%;height:auto;'
+               f'border-radius:10px;background:#fff;margin:0 auto 12px">') if d["image"] else ""
+        compare = (f'<p style="margin:10px 0 0;font-size:13px"><a href="{SITE}/prices/{d["slug"]}/?utm_source=stock-alert&amp;utm_medium=email" '
+                   f'style="color:#2f8a1f">Compare every retailer’s price</a></p>') if d["slug"] else ""
+        blocks.append(f"""<div style="background:#fff;border:1px solid #e7e9e5;border-radius:14px;padding:20px;margin:0 0 14px;text-align:center">
+{img}<p style="margin:0 0 6px;font-size:18px;font-weight:bold;color:#16241c">{html.escape(d['name'])}</p>
+<p style="margin:0 0 16px;font-size:15px;color:#16241c">Back in stock at {html.escape(d['retailer'])}, from <strong style="font-size:20px">{money(d['price'])}</strong></p>
+<a href="{html.escape(d['link'])}" style="display:inline-block;background:#3fae29;color:#fff;text-decoration:none;font-weight:bold;padding:12px 18px;border-radius:10px">See it at {html.escape(d['retailer'])}</a>
+{compare}</div>""")
+    everything = unsubscribe_link(secret, email)
+    intro = ("Good news: something you asked us to watch is back on the shelf. Less good news: you’ve officially run out of excuses."
+             if len(items) == 1 else
+             f"Good news: {len(items)} things you asked us to watch are back on the shelf. Your bag may want a word.")
+    return f"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#f7f8f6;font-family:Arial,Helvetica,sans-serif;color:#16241c">
+<div style="max-width:560px;margin:0 auto;padding:28px 16px">
+<p style="font-size:22px;font-weight:bold;margin:0 0 4px">Golf<span style="color:#3fae29">Price</span> AI</p>
+<p style="font-size:12px;color:#5b665f;margin:0 0 18px">Full Swing. Not full price.</p>
+<p style="font-size:15px;line-height:1.5;margin:0 0 16px">{intro}</p>
+{''.join(blocks)}
+<p style="font-size:13px;line-height:1.5;color:#4a554e;margin:0">Sizes and colours vary, so check yours on the retailer’s page. This was a one-off alert: we won’t email you about {'this product' if len(items) == 1 else 'these'} again.</p>
+<p style="font-size:12px;color:#5b665f;line-height:1.55;margin:18px 0 0">Prices and stock change on retailers’ sites, so check before you buy. We may earn a commission if you buy through our links; it never changes the price.<br>
+No countdown timers. No fake discounts. <a href="{everything}" style="color:#5b665f">Unsubscribe from all GolfPrice AI emails</a>.</p>
+</div></body></html>"""
+
+
+def send_stock(key, secret, email, items):
+    subject = (f"Back in stock: {items[0]['name']}" if len(items) == 1
+               else f"{len(items)} things on your wish list are back in stock")
+    status, data = brevo(key, "POST", "/smtp/email", {
+        "sender": SENDER, "to": [{"email": email}], "subject": subject,
+        "htmlContent": stock_email_html(email, items, secret),
+        "headers": {"List-Unsubscribe": f"<{unsubscribe_link(secret, email)}>",
+                    "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"},
+        "tags": ["back-in-stock"],
+    })
+    if status not in (200, 201, 202):
+        print(f"Stock alerts: send failed ({status}): {data.get('message', '')}")
+        return False
+    return True
+
+
+def run_stock_alerts(key, secret, state, subs, room):
+    """Sends back-in-stock emails (at most `room`). Returns emails sent."""
+    wanted = {pid for s in subs for pid in s["stock"]}
+    back = check_stock(state, wanted)
+    sent = failed = held = 0
+    for s in subs:
+        items = [back[pid] for pid in s["stock"] if pid in back]
+        if not items:
+            continue
+        if sent >= room:
+            held += 1
+            continue
+        if send_stock(key, secret, s["email"], items):
+            sent += 1
+            left = ",".join(pid for pid in s["stock"] if pid not in back)
+            brevo(key, "PUT", f"/contacts/{urllib.parse.quote(s['email'])}", {"attributes": {"STOCKWATCH": left}})
+        else:
+            failed += 1
+    print(f"Stock alerts: {len(wanted)} product(s) watched, {len(back)} back in stock; {sent} email(s) sent"
+          + (f", {failed} failed (retrying next run)" if failed else "")
+          + (f", {held} held back by the daily limit" if held else "") + ".")
+    return sent
 
 
 # ---------------------------------------------------------------- main
@@ -300,7 +425,12 @@ def main():
     for slug, d in drops.items():
         if delivered[slug] or not watchers[slug]:
             state["models"][slug] = {"ref": d["now"], "refDate": today}
-    state["sent"] = {today: sent_today + sent}  # keep only today's count
+    stock_sent = 0
+    try:
+        stock_sent = run_stock_alerts(key, secret, state, subs, max(0, DAILY_CAP - sent_today - sent))
+    except Exception as e:  # never stop the price alerts over this
+        print(f"Stock alerts: skipped this run ({e}).")
+    state["sent"] = {today: sent_today + sent + stock_sent}  # keep only today's count
     save_state(state)
     print(f"Alerts: {len(drops)} model(s) dropped; {sent} email(s) sent"
           + (f", {failed} failed (retrying next run)" if failed else "")

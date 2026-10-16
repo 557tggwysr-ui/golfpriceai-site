@@ -519,23 +519,50 @@ if (clearBtn) {
   });
 }
 
+// "Email me this list": the alerts worker emails the bag. The page only
+// sends product ids; the worker looks up names, prices and links itself.
+const ALERTS_URL = 'https://golfpriceai-alerts.golfpriceai.workers.dev';
 const emailBtn = document.getElementById('email-list-btn');
-if (emailBtn) {
+const emailBox = document.getElementById('list-email');
+const emailForm = document.getElementById('list-email-form');
+if (emailBtn && emailBox && emailForm) {
+  const input = document.getElementById('list-email-input');
+  const send = document.getElementById('list-email-send');
+  const watch = document.getElementById('list-email-watch');
+  const msg = document.getElementById('list-email-msg');
+  const say = (text, kind) => { msg.textContent = text; msg.className = 'list-email-msg' + (kind ? ' is-' + kind : ''); };
+
   emailBtn.addEventListener('click', () => {
+    const open = emailBox.hidden;
+    emailBox.hidden = !open;
+    emailBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) { say(''); input.focus(); }
+  });
+
+  emailForm.addEventListener('submit', (e) => {
+    e.preventDefault();
     const items = currentListItems();
-    if (!items.length) return;
-    const total = items.reduce((sum, p) => sum + p.salePrice, 0);
-    const lines = items.map(p => `${p.name} — ${money(p.salePrice)}\n${p.affiliateUrl}`);
-    const body = [
-      "Here's the bag I put together on GolfPrice AI:",
-      '',
-      ...lines,
-      '',
-      `Total: ${money(total)}`,
-      '',
-      'Built at https://golfpriceai.com/build-your-bag.html',
-    ].join('\n');
-    const subject = 'My GolfPrice AI Bag';
-    window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const email = (input.value || '').trim();
+    if (!items.length) { say('Your bag is empty. Add something first.', 'error'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { say('Please enter a full email address.', 'error'); input.focus(); return; }
+    send.disabled = true;
+    say('Sending…');
+    fetch(ALERTS_URL + '/send-list', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ email, ids: items.map(p => p.id), watch: watch.checked,
+        website: emailForm.querySelector('input[name=website]').value }),
+    }).then(r => r.json().catch(() => ({ ok: false })))
+      .then(res => {
+        send.disabled = false;
+        if (!res.ok) { say(res.error || 'Something went wrong. Please try again in a minute.', 'error'); return; }
+        let text = 'Sent! Check your inbox for your bag (and your junk folder, just in case).';
+        if (res.watch === 'check-email') text += ' We’ve also sent a confirmation email for the price alerts: one click and they’re on.';
+        else if (res.watch === 'added') text += ' Price alerts are on for the items we track.';
+        else if (res.watch === 'no-models') text += ' None of these items have a price guide yet, so there’s nothing to set alerts on for now.';
+        say(text, 'ok');
+        if (window.gtag) gtag('event', 'bag_list_emailed', { items: items.length, watch: !!watch.checked });
+      })
+      .catch(() => { send.disabled = false; say('Couldn’t reach our email service. Please check your connection and try again.', 'error'); });
   });
 }

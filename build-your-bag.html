@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="canonical" href="https://golfpriceai.com/build-your-bag.html">
-<link rel="stylesheet" href="css/bag-builder.css?v=20261015">
+<link rel="stylesheet" href="css/bag-builder.css?v=20261016">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="Assemble Your Arsenal — GolfPrice AI">
@@ -201,8 +201,22 @@
     </div>
 
     <div class="shopping-list-actions" id="shopping-list-actions" style="display:none;">
-      <button type="button" class="btn btn-outline" id="email-list-btn">✉️ Email me this list</button>
+      <button type="button" class="btn btn-outline" id="email-list-btn" aria-expanded="false" aria-controls="list-email">✉️ Email me this list</button>
       <button type="button" class="btn-clear-list" id="clear-list-btn">Clear bag</button>
+    </div>
+
+    <div class="list-email" id="list-email" hidden>
+      <form id="list-email-form" novalidate>
+        <label class="list-email-label" for="list-email-input">Where shall we send it?</label>
+        <div class="list-email-row">
+          <input id="list-email-input" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+          <button type="submit" class="btn btn-primary" id="list-email-send">Send my list</button>
+        </div>
+        <label class="list-email-check"><input type="checkbox" id="list-email-watch"> Also email me when any of these drop in price</label>
+        <span class="list-email-hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></span>
+        <p class="list-email-msg" id="list-email-msg" role="status" aria-live="polite"></p>
+        <p class="list-email-small">One email with your list, prices and links. We won’t add you to anything unless you tick the box and confirm. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
+      </form>
     </div>
   </section>
 </main>
@@ -241,7 +255,7 @@
 
 <script src="js/groups-config.js?v=20261016"></script>
 <script src="js/hub.js"></script>
-<script src="js/bag-builder.js?v=20261016"></script>
+<script src="js/bag-builder.js?v=20261016b"></script>
 <script src="js/analytics.js"></script>
 <script src="js/cookie-consent.js"></script>
 <script src="/js/site.js" defer></script>

@@ -1210,6 +1210,11 @@ def build(models_list, products, today_str):
             sitemap += c_sitemap
         except Exception as e:  # never stop the main build
             print(f"Clothing guides skipped: {e}")
+        try:
+            import email_lookup
+            email_lookup.build(products, passing, built)
+        except Exception as e:  # never stop the main build
+            print(f"Email lookup skipped: {e}")
         import drops_page
         d_changed, d_sitemap, _ = drops_page.build(passing, built, today)
         changed += d_changed
