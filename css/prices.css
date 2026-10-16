@@ -220,3 +220,20 @@ a.pp-chip:hover { border-color: var(--gp-green); color: var(--gp-green-dark); }
 .pp-check { margin: 4px 0 0; font-size: 14px; color: var(--gp-text-3); }
 .pp-check a { color: var(--gp-green-dark); font-weight: 600; }
 .sb-table .sb-alert { display: inline-block; margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--gp-green-dark); }
+
+/* ---------------------------------------------------------------- clothing guides
+   /prices/golf-shoes/ and friends (scripts/clothing_pages.py) */
+.cg-chips { margin-top: 4px; }
+.cg-item[hidden], .cg-more[hidden], .cg-none[hidden] { display: none !important; }
+button.pp-chip { font: inherit; font-size: 14px; cursor: pointer; }
+button.pp-chip:hover { border-color: var(--gp-green); }
+button.pp-chip:focus-visible { outline: 3px solid var(--gp-green); outline-offset: 2px; }
+.cg-more { font-weight: 600; }
+.cg-types { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.cg-type { background: var(--gp-pale); border-radius: 14px; padding: 16px; min-width: 0; }
+.cg-type h3 { font-size: 16px; margin: 0 0 6px; }
+.cg-type p { margin: 0; font-size: 14px; color: var(--gp-text-2); line-height: 1.5; }
+.cg-type b { color: var(--gp-ink); }
+.cg-faq { display: grid; gap: 8px; max-width: 820px; }
+@media (max-width: 860px) { .cg-types { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .cg-types { grid-template-columns: 1fr; } }

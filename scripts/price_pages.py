@@ -903,13 +903,17 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
                       schema=[item_list, crumbs_schema], noindex=noindex)
 
 
-def build_index_page(all_models, hubs_built, today, noindex, seasonal_links=(), brand_counts=None):
+def build_index_page(all_models, hubs_built, today, noindex, seasonal_links=(), brand_counts=None, clothing_links=()):
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", None)])
     seasonal_html = ""
+    if clothing_links:
+        cc = "".join(f'<a class="pp-card pp-rel" href="{u}"><span class="pp-rel-name">{esc(t)}</span><span class="pp-sub">{esc(d)}</span></a>'
+                     for u, t, d in clothing_links)
+        seasonal_html += f'<section class="pp-block"><h2>Golf clothing, shoes and gloves</h2><div class="pp-rel-grid">{cc}</div></section>'
     if seasonal_links:
         sc = "".join(f'<a class="pp-card pp-rel" href="{u}"><span class="pp-rel-name">{esc(t)}</span><span class="pp-sub">{esc(d)}</span></a>'
                      for u, t, d in seasonal_links)
-        seasonal_html = f'<section class="pp-block"><h2>Seasonal guides</h2><div class="pp-rel-grid">{sc}</div></section>'
+        seasonal_html += f'<section class="pp-block"><h2>Seasonal guides</h2><div class="pp-rel-grid">{sc}</div></section>'
     if brand_counts:
         from brand_pages import brand_slug
         top = sorted(brand_counts.items(), key=lambda x: -x[1])[:16]
@@ -1183,6 +1187,7 @@ def build(models_list, products, today_str):
         hub_models = [m for m in passing if TYPES[m["type"]][0] == h]
         sitemap.append((f"prices/{h}/", max((last_price_change(m) or "") for m in hub_models) or None))
     seasonal_links = []
+    clothing_links = []
     brand_counts = {}
     if mode == "live":
         b_changed, b_sitemap, brand_counts = brand_pages.build(passing, built, today, b_pages, t_pages)
@@ -1198,6 +1203,13 @@ def build(models_list, products, today_str):
         sitemap += w_sitemap
         if w_sitemap:
             seasonal_links.append(("/prices/winter-golf/", "Winter golf gear", "Waterproofs, thermals and gloves at live prices"))
+        try:
+            import clothing_pages
+            c_changed, c_sitemap, clothing_links = clothing_pages.build(products, today)
+            changed += c_changed
+            sitemap += c_sitemap
+        except Exception as e:  # never stop the main build
+            print(f"Clothing guides skipped: {e}")
         import drops_page
         d_changed, d_sitemap, _ = drops_page.build(passing, built, today)
         changed += d_changed
@@ -1220,7 +1232,7 @@ def build(models_list, products, today_str):
                           ("/price-check.html", "Is this a good price?", "Check any price against our own history")] + list(seasonal_links) \
             + ([("/prices/watch/", "UK golf price watch", "Monthly: what got cheaper, and what didn’t")] if has_watch else []) \
             + [("/prices/data/", "Open price data", "Free CSV downloads, updated every 6 hours")]
-    if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex, seasonal_links, brand_counts)):
+    if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex, seasonal_links, brand_counts, clothing_links)):
         changed.append("/prices/")
     sitemap.append(("prices/", max((lm or "" for _, lm in sitemap), default=None) or None))
     if mode == "live":
