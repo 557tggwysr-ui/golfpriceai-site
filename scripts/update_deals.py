@@ -1418,7 +1418,9 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_form
         # products.json, see dedupe_products().
         merchant_page_url = (row.get("merchant_deep_link") or "").strip()
 
-        image = (row.get("merchant_image_url") or "").strip()
+        # Usually merchant_image_url; for Scottsdale's broken old addresses,
+        # another image column from the same feed if there is one.
+        image = retailer_images.choose_image(row)
         cat_name = row.get("category_name")
         merch_cat = row.get("merchant_category")
         raw_description = row.get("description")
@@ -1544,13 +1546,8 @@ def fetch_awin_scottsdalegolf_deals():
     classic Create-a-Feed system. See fetch_awin_generic_feed for the
     shared implementation."""
     products = fetch_awin_generic_feed("Scottsdale Golf", "AWIN_SCOTTSDALEGOLF_FEED_URL", "scottsdalegolf")
-    # Scottsdale's feed gives old photo addresses that 404 for many items:
-    # look up the real ones (see scripts/retailer_images.py).
-    try:
-        fixed, reads, missing = retailer_images.fix_scottsdale_images(products)
-        print(f"Scottsdale photos: {fixed} corrected ({reads} product page(s) read this run, {missing} still to do or not found).")
-    except Exception as exc:
-        print(f"Scottsdale photos: couldn't correct this run ({exc}).")
+    if products:
+        print(retailer_images.report(products))
     return products
 
 
