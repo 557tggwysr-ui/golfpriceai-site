@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-king-tour-irons/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 779.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 779.0,
   "high": 809.0,
-  "average": 788.34,
+  "average": 788.19,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     779.0
    ],
    [
-    "2026-10-15",
+    "2026-10-16",
     779.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 42 days"
+  "summary": "Typical price: steady for 43 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

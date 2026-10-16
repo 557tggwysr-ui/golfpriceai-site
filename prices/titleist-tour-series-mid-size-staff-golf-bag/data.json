@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/titleist-tour-series-mid-size-staff-golf-bag/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 209.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 209.0,
   "high": 239.0,
-  "average": 214.25,
+  "average": 214.16,
   "priceChanges": 2,
   "series": [
    [
@@ -37,14 +37,14 @@
     209.0
    ],
    [
-    "2026-10-15",
+    "2026-10-16",
     209.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 35 days"
+  "summary": "Typical price: steady for 36 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/callaway-quantum-max-os-hybrid/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -29,7 +29,7 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 269.0,
   "high": 269.0,
   "average": 269.0,
@@ -40,14 +40,14 @@
     269.0
    ],
    [
-    "2026-10-15",
+    "2026-10-16",
     269.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 61 days"
+  "summary": "Typical price: steady for 62 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

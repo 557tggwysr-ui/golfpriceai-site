@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/ping-g430-irons/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 599.0,
@@ -29,7 +29,7 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 599.0,
   "high": 599.0,
   "average": 599.0,
@@ -40,14 +40,14 @@
     599.0
    ],
    [
-    "2026-10-15",
+    "2026-10-16",
     599.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 61 days"
+  "summary": "Typical price: steady for 62 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

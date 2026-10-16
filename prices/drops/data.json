@@ -1,8 +1,38 @@
 {
- "checked": "2026-10-15T22:14+01:00",
+ "checked": "2026-10-16T03:21+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Square Golf Indoor Launch Monitor",
+   "model_id": "square-golf-indoor-launch-monitor",
+   "date": "2026-10-16",
+   "was": 679.0,
+   "now": 552.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/square-golf-indoor-launch-monitor/"
+  },
+  {
+   "model": "Callaway Chase 14 Dry Waterproof Stand Golf Bag",
+   "model_id": "callaway-chase-14-dry-waterproof-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 229.0,
+   "now": 189.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-chase-14-dry-waterproof-stand-golf-bag/"
+  },
+  {
+   "model": "Callaway Org 14 HD Waterproof Cart Golf Bag",
+   "model_id": "callaway-org-14-hd-waterproof-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 239.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-org-14-hd-waterproof-cart-golf-bag/"
+  },
   {
    "model": "Cleveland Halo XL Hy-Wood",
    "model_id": "cleveland-halo-xl-hy-wood",
@@ -162,26 +192,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/srixon-zxi-driver/"
-  },
-  {
-   "model": "Garmin Approach R50 Launch Monitor",
-   "model_id": "garmin-approach-r50-launch-monitor",
-   "date": "2026-10-08",
-   "was": 4299.99,
-   "now": 3879.99,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/garmin-approach-r50-launch-monitor/"
-  },
-  {
-   "model": "Titleist GT1 Driver",
-   "model_id": "titleist-gt1-driver",
-   "date": "2026-10-08",
-   "was": 499.0,
-   "now": 449.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/titleist-gt1-driver/"
   }
  ]
 }

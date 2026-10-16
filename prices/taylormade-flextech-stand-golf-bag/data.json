@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-flextech-stand-golf-bag/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -19,7 +19,7 @@
   {
    "name": "Affordable Golf",
    "from": 169.95,
-   "options": 8
+   "options": 9
   },
   {
    "name": "Clickgolf",
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 129.95,
   "high": 179.0,
-  "average": 160.51,
+  "average": 160.65,
   "priceChanges": 11,
   "series": [
    [
@@ -88,7 +88,7 @@
     169.0
    ],
    [
-    "2026-10-15",
+    "2026-10-16",
     169.0
    ]
   ]

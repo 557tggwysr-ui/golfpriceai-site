@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-tour-x-360-triple-golf-balls/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 41.25,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 41.25,
   "high": 55.0,
-  "average": 42.38,
+  "average": 42.36,
   "priceChanges": 1,
   "series": [
    [
@@ -33,14 +33,14 @@
     41.25
    ],
    [
-    "2026-10-15",
+    "2026-10-16",
     41.25
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 56 days"
+  "summary": "Typical price: steady for 57 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

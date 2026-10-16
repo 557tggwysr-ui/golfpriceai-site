@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/cobra-baffler-hybrid/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -29,7 +29,7 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 169.0,
   "high": 169.0,
   "average": 169.0,
@@ -40,14 +40,14 @@
     169.0
    ],
    [
-    "2026-10-15",
+    "2026-10-16",
     169.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 61 days"
+  "summary": "Typical price: steady for 62 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

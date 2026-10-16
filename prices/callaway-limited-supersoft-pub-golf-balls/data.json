@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-limited-supersoft-pub-golf-balls/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 29.99,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 29.99,
   "high": 29.99,
   "average": 29.99,
@@ -29,14 +29,14 @@
     29.99
    ],
    [
-    "2026-10-15",
+    "2026-10-16",
     29.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 61 days"
+  "summary": "Typical price: steady for 62 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

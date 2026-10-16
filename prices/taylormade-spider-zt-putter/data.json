@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/taylormade-spider-zt-putter/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 449.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 49,
+  "daysTracked": 50,
   "low": 449.0,
   "high": 449.0,
   "average": 449.0,
@@ -29,14 +29,14 @@
     449.0
    ],
    [
-    "2026-10-15",
+    "2026-10-16",
     449.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 49 days"
+  "summary": "Typical price: steady for 50 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

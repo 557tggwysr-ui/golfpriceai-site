@@ -3,7 +3,7 @@
  "brand": "CaddyTalk",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/caddytalk-cube-laser-rangefinder/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 229.0,
   "high": 249.0,
-  "average": 248.67,
+  "average": 248.35,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-10-15",
+    229.0
+   ],
+   [
+    "2026-10-16",
     229.0
    ]
   ]

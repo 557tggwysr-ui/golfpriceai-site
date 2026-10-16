@@ -3,7 +3,7 @@
  "brand": "Shot Scope",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/shot-scope-pro-zr-laser-rangefinder/",
- "checked": "2026-10-15",
+ "checked": "2026-10-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 42,
+  "daysTracked": 43,
   "low": 229.0,
   "high": 299.99,
-  "average": 247.59,
+  "average": 247.16,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     229.0
    ],
    [
-    "2026-10-15",
+    "2026-10-16",
     229.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 31 days"
+  "summary": "Typical price: steady for 32 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
