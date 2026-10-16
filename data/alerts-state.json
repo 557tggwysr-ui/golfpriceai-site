@@ -1,5 +1,9 @@
 {
  "about": "Price-drop alert reference prices per model. No personal data.",
+ "digest": {
+  "sent": 1,
+  "week": "2026-W42"
+ },
  "models": {
   "titleist-pro-v1-golf-balls": {
    "ref": 49.99,
@@ -7,6 +11,6 @@
   }
  },
  "sent": {
-  "2026-10-16": 0
+  "2026-10-16": 1
  }
 }
