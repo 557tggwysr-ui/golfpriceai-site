@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-16T17:06+01:00",
+ "checked": "2026-10-16T20:05+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -24,6 +24,576 @@
    "url": "https://golfpriceai.com/prices/callaway-chase-14-dry-waterproof-stand-golf-bag/"
   },
   {
+   "model": "Wilson Feather Cart Golf Bag",
+   "model_id": "wilson-feather-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 129.0,
+   "now": 109.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-feather-cart-golf-bag/"
+  },
+  {
+   "model": "Motocaddy Protekta Cart Golf Bag",
+   "model_id": "motocaddy-protekta-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 239.0,
+   "now": 209.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-protekta-cart-golf-bag/"
+  },
+  {
+   "model": "Callaway Chase 14 Dry Waterproof Cart Golf Bag",
+   "model_id": "callaway-chase-14-dry-waterproof-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 169.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-chase-14-dry-waterproof-cart-golf-bag/"
+  },
+  {
+   "model": "Callaway Chase Stand Golf Bag",
+   "model_id": "callaway-chase-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 129.0,
+   "now": 114.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-chase-stand-golf-bag/"
+  },
+  {
+   "model": "Cobra Ultralight 2 Cart Golf Bag",
+   "model_id": "cobra-ultralight-2-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 169.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/cobra-ultralight-2-cart-golf-bag/"
+  },
+  {
+   "model": "Ping Traverse 244 Cart Golf Bag",
+   "model_id": "ping-traverse-244-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 169.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-traverse-244-cart-golf-bag/"
+  },
+  {
+   "model": "Wilson Alpine Dry Waterproof Cart Golf Bag",
+   "model_id": "wilson-alpine-dry-waterproof-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 225.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-alpine-dry-waterproof-cart-golf-bag/"
+  },
+  {
+   "model": "Wilson Feather Stand Golf Bag",
+   "model_id": "wilson-feather-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 124.95,
+   "now": 109.99,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-feather-stand-golf-bag/"
+  },
+  {
+   "model": "Wilson I-Lock Organiser Cart Golf Bag",
+   "model_id": "wilson-i-lock-organiser-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 169.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/wilson-i-lock-organiser-cart-golf-bag/"
+  },
+  {
+   "model": "Cobra Ace Waterproof Stand Golf Bag",
+   "model_id": "cobra-ace-waterproof-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 179.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-stand-golf-bag/"
+  },
+  {
+   "model": "Mizuno BR-DRI Waterproof Stand Golf Bag",
+   "model_id": "mizuno-br-dri-waterproof-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 189.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/mizuno-br-dri-waterproof-stand-golf-bag/"
+  },
+  {
+   "model": "Ping Hoofer 231 Stand Golf Bag",
+   "model_id": "ping-hoofer-231-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 179.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-hoofer-231-stand-golf-bag/"
+  },
+  {
+   "model": "TaylorMade Kalea Cart Golf Bag",
+   "model_id": "taylormade-kalea-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 189.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-kalea-cart-golf-bag/"
+  },
+  {
+   "model": "TaylorMade TM Cart Golf Bag",
+   "model_id": "taylormade-tm-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 179.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-tm-cart-golf-bag/"
+  },
+  {
+   "model": "Wilson Alpine Cart Golf Bag",
+   "model_id": "wilson-alpine-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 189.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/wilson-alpine-cart-golf-bag/"
+  },
+  {
+   "model": "Wilson Talus 14 Way Stand Golf Bag",
+   "model_id": "wilson-talus-14-way-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 179.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/wilson-talus-14-way-stand-golf-bag/"
+  },
+  {
+   "model": "Callaway Chase Dry Waterproof Stand Golf Bag",
+   "model_id": "callaway-chase-dry-waterproof-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 149.0,
+   "now": 134.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-chase-dry-waterproof-stand-golf-bag/"
+  },
+  {
+   "model": "Callaway Par 3 HD Waterproof Pencil Golf Bag",
+   "model_id": "callaway-par-3-hd-waterproof-pencil-golf-bag",
+   "date": "2026-10-16",
+   "was": 149.0,
+   "now": 134.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-par-3-hd-waterproof-pencil-golf-bag/"
+  },
+  {
+   "model": "Callaway Par 3 HD Waterproof Stand Golf Bag",
+   "model_id": "callaway-par-3-hd-waterproof-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 149.0,
+   "now": 134.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-par-3-hd-waterproof-stand-golf-bag/"
+  },
+  {
+   "model": "Mizuno Tour Light Weight Stand Golf Bag",
+   "model_id": "mizuno-tour-light-weight-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 199.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/mizuno-tour-light-weight-stand-golf-bag/"
+  },
+  {
+   "model": "Ping Hoofer 14 231 Stand Golf Bag",
+   "model_id": "ping-hoofer-14-231-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 199.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-hoofer-14-231-stand-golf-bag/"
+  },
+  {
+   "model": "Ping Hoofer Tour 244 Stand Golf Bag",
+   "model_id": "ping-hoofer-tour-244-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 249.0,
+   "now": 224.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-hoofer-tour-244-stand-golf-bag/"
+  },
+  {
+   "model": "Ping Pioneer 244 Cart Golf Bag",
+   "model_id": "ping-pioneer-244-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 199.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-pioneer-244-cart-golf-bag/"
+  },
+  {
+   "model": "TaylorMade FlexTech Waterproof Stand Golf Bag",
+   "model_id": "taylormade-flextech-waterproof-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 199.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-flextech-waterproof-stand-golf-bag/"
+  },
+  {
+   "model": "Ping Reserve Stand Golf Bag",
+   "model_id": "ping-reserve-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 279.0,
+   "now": 254.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-reserve-stand-golf-bag/"
+  },
+  {
+   "model": "TaylorMade Storm Dry Waterproof Stand Golf Bag",
+   "model_id": "taylormade-storm-dry-waterproof-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 219.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-storm-dry-waterproof-stand-golf-bag/"
+  },
+  {
+   "model": "Callaway Quantum Staff Stand Golf Bag",
+   "model_id": "callaway-quantum-staff-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 399.0,
+   "now": 369.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-staff-stand-golf-bag/"
+  },
+  {
+   "model": "Cobra Ultralight 2 Carry Golf Bag",
+   "model_id": "cobra-ultralight-2-carry-golf-bag",
+   "date": "2026-10-16",
+   "was": 119.0,
+   "now": 109.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/cobra-ultralight-2-carry-golf-bag/"
+  },
+  {
+   "model": "Cobra Ultralight 2 Carry Stand Golf Bag",
+   "model_id": "cobra-ultralight-2-carry-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 119.0,
+   "now": 109.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/cobra-ultralight-2-carry-stand-golf-bag/"
+  },
+  {
+   "model": "Ping 243 Tour Staff Golf Bag",
+   "model_id": "ping-243-tour-staff-golf-bag",
+   "date": "2026-10-16",
+   "was": 399.0,
+   "now": 369.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-243-tour-staff-golf-bag/"
+  },
+  {
+   "model": "TaylorMade Qi4D Tour Stand Golf Bag",
+   "model_id": "taylormade-qi4d-tour-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 329.0,
+   "now": 304.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-qi4d-tour-stand-golf-bag/"
+  },
+  {
+   "model": "Callaway Quantum Staff Tour Golf Bag",
+   "model_id": "callaway-quantum-staff-tour-golf-bag",
+   "date": "2026-10-16",
+   "was": 449.0,
+   "now": 419.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-staff-tour-golf-bag/"
+  },
+  {
+   "model": "Cobra X Vessel Core Tour Stand Golf Bag",
+   "model_id": "cobra-x-vessel-core-tour-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 349.0,
+   "now": 324.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/cobra-x-vessel-core-tour-stand-golf-bag/"
+  },
+  {
+   "model": "Motocaddy SE Electric Trolley",
+   "model_id": "motocaddy-se-electric-trolley",
+   "date": "2026-10-16",
+   "was": 479.0,
+   "now": 449.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-se-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy FW Gun Metal Electric Trolley",
+   "model_id": "powakaddy-fw-gun-metal-electric-trolley",
+   "date": "2026-10-16",
+   "was": 479.0,
+   "now": 449.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-fw-gun-metal-electric-trolley/"
+  },
+  {
+   "model": "Callaway Org 14 Cart Golf Bag",
+   "model_id": "callaway-org-14-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 189.95,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-org-14-cart-golf-bag/"
+  },
+  {
+   "model": "Mizuno Tour Stand Golf Bag",
+   "model_id": "mizuno-tour-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 249.0,
+   "now": 234.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/mizuno-tour-stand-golf-bag/"
+  },
+  {
+   "model": "TaylorMade FlexTech Stand Golf Bag",
+   "model_id": "taylormade-flextech-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 169.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/taylormade-flextech-stand-golf-bag/"
+  },
+  {
+   "model": "PowaKaddy CT10 EBS Electric Trolley",
+   "model_id": "powakaddy-ct10-ebs-electric-trolley",
+   "date": "2026-10-16",
+   "was": 1029.0,
+   "now": 979.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct10-ebs-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy CT10 Electric Trolley",
+   "model_id": "powakaddy-ct10-electric-trolley",
+   "date": "2026-10-16",
+   "was": 979.0,
+   "now": 929.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct10-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy FX3 EBS Electric Trolley",
+   "model_id": "powakaddy-fx3-ebs-electric-trolley",
+   "date": "2026-10-16",
+   "was": 629.0,
+   "now": 599.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/powakaddy-fx3-ebs-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy FX3 Electric Trolley",
+   "model_id": "powakaddy-fx3-electric-trolley",
+   "date": "2026-10-16",
+   "was": 579.0,
+   "now": 549.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-fx3-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy FX5 Electric Trolley",
+   "model_id": "powakaddy-fx5-electric-trolley",
+   "date": "2026-10-16",
+   "was": 629.0,
+   "now": 599.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/powakaddy-fx5-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy RX Remote Electric Trolley",
+   "model_id": "powakaddy-rx-remote-electric-trolley",
+   "date": "2026-10-16",
+   "was": 999.0,
+   "now": 949.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-rx-remote-electric-trolley/"
+  },
+  {
+   "model": "Cobra Ace Waterproof Cart Golf Bag",
+   "model_id": "cobra-ace-waterproof-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 189.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-cart-golf-bag/"
+  },
+  {
+   "model": "Cobra Ultradry Pro Cart Golf Bag",
+   "model_id": "cobra-ultradry-pro-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 209.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-ultradry-pro-cart-golf-bag/"
+  },
+  {
+   "model": "Mizuno Tour Golf Bag",
+   "model_id": "mizuno-tour-golf-bag",
+   "date": "2026-10-16",
+   "was": 219.0,
+   "now": 209.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-tour-golf-bag/"
+  },
+  {
+   "model": "Ping Hoofer Monsoon 231 Waterproof Stand Golf Bag",
+   "model_id": "ping-hoofer-monsoon-231-waterproof-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 209.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-hoofer-monsoon-231-waterproof-stand-golf-bag/"
+  },
+  {
+   "model": "Ping Pioneer Monsoon 231 Waterproof Cart Golf Bag",
+   "model_id": "ping-pioneer-monsoon-231-waterproof-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 219.0,
+   "now": 209.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-pioneer-monsoon-231-waterproof-cart-golf-bag/"
+  },
+  {
+   "model": "Wilson I-Lock DRY Organiser Waterproof Cart Golf Bag",
+   "model_id": "wilson-i-lock-dry-organiser-waterproof-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 199.0,
+   "now": 189.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-i-lock-dry-organiser-waterproof-cart-golf-bag/"
+  },
+  {
+   "model": "Motocaddy M1 DHC Electric Trolley",
+   "model_id": "motocaddy-m1-dhc-electric-trolley",
+   "date": "2026-10-16",
+   "was": 779.0,
+   "now": 749.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-m1-dhc-electric-trolley/"
+  },
+  {
+   "model": "Motocaddy S1 DHC Electric Trolley",
+   "model_id": "motocaddy-s1-dhc-electric-trolley",
+   "date": "2026-10-16",
+   "was": 679.0,
+   "now": 649.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/motocaddy-s1-dhc-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy CT12 EBS Electric Trolley",
+   "model_id": "powakaddy-ct12-ebs-electric-trolley",
+   "date": "2026-10-16",
+   "was": 1299.0,
+   "now": 1249.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct12-ebs-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy CT6 EBS Electric Trolley",
+   "model_id": "powakaddy-ct6-ebs-electric-trolley",
+   "date": "2026-10-16",
+   "was": 799.0,
+   "now": 769.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct6-ebs-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy CT6 Electric Trolley",
+   "model_id": "powakaddy-ct6-electric-trolley",
+   "date": "2026-10-16",
+   "was": 749.0,
+   "now": 719.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct6-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy FX1 Electric Trolley",
+   "model_id": "powakaddy-fx1-electric-trolley",
+   "date": "2026-10-16",
+   "was": 489.0,
+   "now": 469.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-fx1-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy RX10 Remote Electric Trolley",
+   "model_id": "powakaddy-rx10-remote-electric-trolley",
+   "date": "2026-10-16",
+   "was": 1299.0,
+   "now": 1249.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/powakaddy-rx10-remote-electric-trolley/"
+  },
+  {
    "model": "Callaway Org 14 HD Waterproof Cart Golf Bag",
    "model_id": "callaway-org-14-hd-waterproof-cart-golf-bag",
    "date": "2026-10-16",
@@ -32,6 +602,86 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-org-14-hd-waterproof-cart-golf-bag/"
+  },
+  {
+   "model": "Motocaddy M-TECH Cart Golf Bag",
+   "model_id": "motocaddy-m-tech-cart-golf-bag",
+   "date": "2026-10-16",
+   "was": 259.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-m-tech-cart-golf-bag/"
+  },
+  {
+   "model": "TaylorMade FlexTech SuperLite Stand Golf Bag",
+   "model_id": "taylormade-flextech-superlite-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 159.95,
+   "now": 154.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/taylormade-flextech-superlite-stand-golf-bag/"
+  },
+  {
+   "model": "TaylorMade Pro Stand Golf Bag",
+   "model_id": "taylormade-pro-stand-golf-bag",
+   "date": "2026-10-16",
+   "was": 129.0,
+   "now": 124.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-pro-stand-golf-bag/"
+  },
+  {
+   "model": "Motocaddy M5 DHC Electric Trolley",
+   "model_id": "motocaddy-m5-dhc-electric-trolley",
+   "date": "2026-10-16",
+   "was": 999.0,
+   "now": 969.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-m5-dhc-electric-trolley/"
+  },
+  {
+   "model": "Motocaddy M5 Electric Trolley",
+   "model_id": "motocaddy-m5-electric-trolley",
+   "date": "2026-10-16",
+   "was": 949.0,
+   "now": 919.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-m5-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy CT8 EBS Gun Metal Electric Trolley",
+   "model_id": "powakaddy-ct8-ebs-gun-metal-electric-trolley",
+   "date": "2026-10-16",
+   "was": 999.0,
+   "now": 969.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct8-ebs-gun-metal-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy CT8 Electric Trolley",
+   "model_id": "powakaddy-ct8-electric-trolley",
+   "date": "2026-10-16",
+   "was": 949.0,
+   "now": 919.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct8-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy RX12 Remote Electric Trolley",
+   "model_id": "powakaddy-rx12-remote-electric-trolley",
+   "date": "2026-10-16",
+   "was": 1499.0,
+   "now": 1449.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/powakaddy-rx12-remote-electric-trolley/"
   },
   {
    "model": "Cleveland Halo XL Hy-Wood",
