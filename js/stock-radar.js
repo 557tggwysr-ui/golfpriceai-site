@@ -19,14 +19,17 @@ async function loadStockRadar() {
     const res = await fetch('data/curated-views.json');
     views = await res.json();
   } catch (err) {
-    document.getElementById('soldout-loading').textContent = "Couldn't load this right now — try refreshing.";
+    document.getElementById('back-loading').textContent = "Couldn't load this right now — try refreshing.";
+    document.getElementById('soldout-loading').textContent = '';
     document.getElementById('fast-loading').textContent = '';
     return;
   }
 
+  const backInStock = (views.stockRadar && views.stockRadar.backInStock) || [];
   const soldOut = (views.stockRadar && views.stockRadar.soldOut) || [];
   const sellsOutFast = (views.stockRadar && views.stockRadar.sellsOutFast) || [];
 
+  renderSection('back', backInStock, 'back');
   renderSection('soldout', soldOut, 'soldout');
   renderSection('fast', sellsOutFast, 'fast');
 }
@@ -46,13 +49,16 @@ function renderSection(prefix, items, kind) {
 }
 
 function renderCard(p, kind) {
-  const cardClass = kind === 'fast' ? 'radar-card in-stock' : 'radar-card';
+  const cardClass = kind === 'soldout' ? 'radar-card' : 'radar-card in-stock';
 
   let badgeHTML = '';
   let actionHTML = '';
 
-  if (kind === 'soldout') {
-    badgeHTML = `<span class="radar-badge radar-badge--soldout">Currently sold out</span>`;
+  if (kind === 'back') {
+    badgeHTML = `<span class="radar-badge radar-badge--back">Back in stock ${whenText(p.changed)}</span>`;
+    actionHTML = `<a class="radar-buy-link" href="${escapeHtml(p.affiliateUrl)}" target="_blank" rel="nofollow sponsored noopener">See It →</a>`;
+  } else if (kind === 'soldout') {
+    badgeHTML = `<span class="radar-badge radar-badge--soldout">Sold out ${whenText(p.changed)}</span>`;
     const subject = encodeURIComponent(`Notify me when back in stock: ${p.name}`);
     const body = encodeURIComponent(
       `Hi, please let me know when this is back in stock:\n\n${p.name}\n\nMy email: `
@@ -71,10 +77,22 @@ function renderCard(p, kind) {
         <p class="radar-card-brand">${escapeHtml(p.brand || '')}</p>
         <p class="radar-card-name">${escapeHtml(p.name)}</p>
         <div class="radar-card-price">£${p.salePrice.toFixed(2)}</div>
+        ${kind === 'back' && p.options > 1 ? `<p class="radar-card-note">${p.options} sizes or colours back</p>` : ''}
         ${actionHTML}
       </div>
     </article>
   `;
+}
+
+// "today", "yesterday" or "on 14 Oct" (dates are UK days from the pipeline).
+function whenText(day) {
+  if (!day) return '';
+  const d = new Date(day + 'T12:00:00');
+  const now = new Date(); now.setHours(12, 0, 0, 0);
+  const diff = Math.round((now - d) / 86400000);
+  if (diff <= 0) return 'today';
+  if (diff === 1) return 'yesterday';
+  return 'on ' + d.getDate() + ' ' + d.toLocaleString('en-GB', { month: 'short' });
 }
 
 function escapeHtml(str) {

@@ -49,6 +49,7 @@ SETUP YOU NEED TO DO ONCE MORE THINGS ARE APPROVED (see README.md):
    it finds into the live catalog.
 """
 
+import collections
 import csv
 import gzip
 import hashlib
@@ -105,7 +106,10 @@ STABLE_THRESHOLD_DAYS = 30
 
 # A product that's gone from in-stock to out-of-stock at least this many
 # times within the lookback window earns a genuine "sells out fast" signal.
-SELLS_OUT_FAST_THRESHOLD = 3
+# (Was 3 until 16 Oct 2026; nothing had sold out 3 times yet, so the
+# section was always empty. Twice in 90 days is still a real pattern, and
+# the card says exactly how many times.)
+SELLS_OUT_FAST_THRESHOLD = 2
 
 # A same-retailer collision where the highest price is at least this many
 # times the lowest is treated as a severe, distinctly-flagged case — most
@@ -994,6 +998,9 @@ def compute_stock_insight(entries, current_in_stock, today_str):
         "outageCount90d": outage_count,
         "daysTracked": days_tracked,
         "sellsOutFast": sells_out_fast,
+        # When the stock status last changed, and what it was before, for
+        # the Back In Stock Radar's "back in stock" and "sold out" lists.
+        "lastChange": entries[-1]["date"] if len(entries) >= 2 else None,
     }
 
 
@@ -2949,24 +2956,93 @@ def compute_receipts_view(products):
 
 
 STOCK_FIELDS = ["id", "name", "image", "brand", "salePrice", "affiliateUrl"]
+RADAR_RECENT_DAYS = {"back": 7, "out": 14}
+RADAR_MAX = 12
+RADAR_SECONDHAND_RX = re.compile(r"\b(recycled|refurbished|lake balls?|pre-?owned|used)\b", re.I)
 
 
-def compute_stock_radar_view(products):
-    sold_out = [_trim(p, STOCK_FIELDS) for p in products
-                if p.get("stockInsight", {}).get("currentlyInStock") is False and p.get("image")][:12]
+def _radar_glitch_days(products):
+    """Days when a retailer's whole feed flipped at once (e.g. 28 Aug 2026,
+    when about 6,700 Major Golf listings 'came back' together after a feed
+    hiccup). Those aren't real restocks, so they're left out."""
+    per_source, flips = collections.Counter(), collections.Counter()
+    for p in products:
+        per_source[p.get("source")] += 1
+        day = (p.get("stockInsight") or {}).get("lastChange")
+        if day:
+            flips[(p.get("source"), day)] += 1
+    return {k for k, n in flips.items() if n >= 300 or n >= 0.2 * per_source[k[0]]}
 
-    fast_candidates = [p for p in products
-                        if p.get("stockInsight", {}).get("sellsOutFast")
-                        and p.get("stockInsight", {}).get("currentlyInStock")
-                        and p.get("image")]
-    fast_candidates.sort(key=lambda p: -p["stockInsight"]["outageCount90d"])
-    sells_out_fast = []
-    for p in fast_candidates[:12]:
+
+def _radar_ok(p):
+    """New, adult, photographed listings only (second-hand stock belongs
+    in Preowned; no junior items in picks)."""
+    return (p.get("image") and not p.get("condition") and p.get("audience") != "Junior"
+            and p.get("salePrice") and not RADAR_SECONDHAND_RX.search(p.get("name", "")))
+
+
+def _radar_group(products, today, days, glitches):
+    """One card per product: sizes, colours and other options of the same
+    product (the name before " - ") are grouped, newest change first."""
+    groups = {}
+    for p in products:
+        si = p.get("stockInsight") or {}
+        day = si.get("lastChange")
+        if not day or (p.get("source"), day) in glitches:
+            continue
+        if (today - date.fromisoformat(day)).days > days:
+            continue
+        base, _, option = p["name"].partition(" - ")
+        g = groups.setdefault(base.strip().lower(), {"p": p, "base": base.strip(), "day": day, "options": []})
+        if day > g["day"] or (day == g["day"] and p.get("salePrice", 0) > g["p"].get("salePrice", 0)):
+            g["p"], g["day"] = p, day
+        if option:
+            g["options"].append(option.strip())
+    out = []
+    for g in sorted(groups.values(), key=lambda g: (g["day"], g["p"].get("salePrice", 0)), reverse=True)[:RADAR_MAX]:
+        item = _trim(g["p"], STOCK_FIELDS)
+        item["name"] = g["base"]
+        item["changed"] = g["day"]
+        item["options"] = len(g["options"])
+        out.append(item)
+    return out
+
+
+def compute_stock_radar_view(products, today_str=None):
+    today = date.fromisoformat(today_str) if today_str else date.today()
+    glitches = _radar_glitch_days(products)
+    ok = [p for p in products if _radar_ok(p) and p.get("stockInsight")]
+
+    back = _radar_group([p for p in ok if p["stockInsight"].get("currentlyInStock")],
+                        today, RADAR_RECENT_DAYS["back"], glitches)
+    # "Sold out" means sold out everywhere we track it: if any size, colour
+    # or retailer still has it in stock, it isn't listed.
+    in_stock_bases = {p["name"].partition(" - ")[0].strip().lower() for p in products
+                      if p.get("inStock") is not False}
+    sold_out = _radar_group([p for p in ok if p["stockInsight"].get("currentlyInStock") is False
+                             and p["name"].partition(" - ")[0].strip().lower() not in in_stock_bases],
+                            today, RADAR_RECENT_DAYS["out"], glitches)
+
+    fast_candidates = [p for p in ok
+                       if p["stockInsight"].get("sellsOutFast") and p["stockInsight"].get("currentlyInStock")]
+    fast_candidates.sort(key=lambda p: (-p["stockInsight"]["outageCount90d"], -(p.get("salePrice") or 0)))
+    sells_out_fast, seen = [], set()
+    for p in fast_candidates:
+        base = p["name"].partition(" - ")[0].strip()
+        if base.lower() in seen:
+            continue
+        seen.add(base.lower())
         item = _trim(p, STOCK_FIELDS)
+        item["name"] = base
         item["outageCount90d"] = p["stockInsight"]["outageCount90d"]
         sells_out_fast.append(item)
+        if len(sells_out_fast) == RADAR_MAX:
+            break
 
-    return {"soldOut": sold_out, "sellsOutFast": sells_out_fast}
+    print(f"Back In Stock Radar: {len(back)} back in stock, {len(sold_out)} recently sold out, "
+          f"{len(sells_out_fast)} sell out fast"
+          + (f" (ignored {len(glitches)} whole-feed stock change(s))." if glitches else "."))
+    return {"backInStock": back, "soldOut": sold_out, "sellsOutFast": sells_out_fast}
 
 
 TIMING_FIELDS = ["id", "name", "image", "brand", "salePrice", "affiliateUrl"]

@@ -133,3 +133,11 @@
   line-height: 1.6;
   text-align: center;
 }
+
+/* Back In Stock list (16 Oct 2026) */
+.radar-badge--back {
+  background: #EAF6E6;
+  color: #23701A;
+  border: 1px solid #8CCB7E;
+}
+.radar-card-note { margin: 0 0 8px; font-size: 13px; color: var(--muted); }

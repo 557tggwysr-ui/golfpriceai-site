@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="canonical" href="https://golfpriceai.com/back-in-stock.html">
-<link rel="stylesheet" href="css/stock-radar.css">
+<link rel="stylesheet" href="css/stock-radar.css?v=20261016b">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="Back In Stock Radar | GolfPrice AI">
@@ -130,14 +130,22 @@
 
   <div class="theme-banner">
     <h2>📡 Back In Stock Radar</h2>
-    <p>We track real stock status too, not just prices — no "only 2 left" pressure tactics, just an honest list of what's actually sold out right now.</p>
+    <p>We track real stock status too, not just prices — no "only 2 left" pressure tactics, just an honest list of what's just come back, what's sold out right now, and what keeps selling out.</p>
     <p class="tagline">Sold Out Isn't Forever.<span class="quip"> We're Watching So You Don't Have To.</span></p>
-    <a href="#soldout-grid" class="btn btn-primary">📡 See What's Sold Out</a>
+    <a href="#back" class="btn btn-primary">📡 See What's Back In Stock</a>
   </div>
+
+  <section class="radar-section" id="back">
+    <h2>✅ Back In Stock</h2>
+    <p class="radar-section-note">These were sold out and have come back in the last 7 days. Where a product comes in sizes or colours, we show it once and say how many are back.</p>
+    <div id="back-loading" class="radar-status">Checking the shelves…</div>
+    <div id="back-empty" class="radar-status" hidden>Nothing has come back in stock in the last 7 days. We check every 6 hours.</div>
+    <div id="back-grid" class="radar-grid" hidden></div>
+  </section>
 
   <section class="radar-section">
     <h2>😔 Recently Sold Out</h2>
-    <p class="radar-section-note">These went out of stock recently. Want to know the moment they're back? Drop us a line below.</p>
+    <p class="radar-section-note">These sold out in the last 14 days, in every size and colour, at every UK retailer we track. Want to know the moment they're back? Drop us a line.</p>
     <div id="soldout-loading" class="radar-status">Checking the shelves…</div>
     <div id="soldout-empty" class="radar-status" hidden>Nothing recently sold out that we're tracking yet — check back soon.</div>
     <div id="soldout-grid" class="radar-grid" hidden></div>
@@ -145,7 +153,7 @@
 
   <section class="radar-section">
     <h2>🏃 Sells Out Fast</h2>
-    <p class="radar-section-note">Still in stock right now, but these specific products have genuinely gone out of stock multiple times recently — real pattern, not manufactured urgency.</p>
+    <p class="radar-section-note">In stock right now, but these have genuinely sold out at least twice in the last 90 days. A real pattern, not manufactured urgency.</p>
     <div id="fast-loading" class="radar-status">Checking the shelves…</div>
     <div id="fast-empty" class="radar-status" hidden>Nothing qualifies yet — check back once we've tracked more stock history.</div>
     <div id="fast-grid" class="radar-grid" hidden></div>
@@ -192,7 +200,7 @@
   </div>
 </footer>
 
-<script src="js/stock-radar.js?v=20261016"></script>
+<script src="js/stock-radar.js?v=20261016b"></script>
 <script src="js/groups-config.js?v=20261016"></script>
 <script src="js/hub.js"></script>
 <script src="js/analytics.js"></script>
