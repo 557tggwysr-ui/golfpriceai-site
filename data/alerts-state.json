@@ -8,10 +8,25 @@
   "titleist-pro-v1-golf-balls": {
    "ref": 49.99,
    "refDate": "2026-10-11"
+  },
+  "yonex-ezone-gs-i-tech-driver": {
+   "ref": 179.95,
+   "refDate": "2026-10-16"
   }
  },
  "sent": {
   "2026-10-16": 1
  },
- "stock": {}
+ "stock": {
+  "apparel-adidas-rain-rdy-waterproof-golf-jacket-hn4128-black-m-majorgolf": {
+   "base": "adidas rain.rdy waterproof golf jacket hn4128",
+   "name": "adidas RAIN.RDY Waterproof Golf Jacket HN4128",
+   "source": "awin-majorgolf"
+  },
+  "ball-callaway-chrome-soft-triple-track-360-golf-balls-white-white-majorgolf": {
+   "base": "callaway chrome soft triple track 360 golf balls",
+   "name": "Callaway Chrome Soft Triple Track 360 Golf Balls",
+   "source": "awin-majorgolf"
+  }
+ }
 }
