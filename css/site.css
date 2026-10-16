@@ -375,3 +375,21 @@ footer.gp-footer {
   .gp-af-row { flex-direction: column; }
   .gp-af-btn { width: 100%; }
 }
+
+/* seo-guide */
+.gp-guide { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px; margin: 48px auto 56px; padding-top: 36px; border-top: 1px solid #e3e6e0; }
+.gp-guide h2 { font-family: 'Poppins', 'Inter', sans-serif; font-size: 24px; line-height: 1.25; margin: 0 0 12px; }
+.gp-guide h3 { font-family: 'Poppins', 'Inter', sans-serif; font-size: 17px; margin: 22px 0 10px; }
+.gp-guide-faq h3 { margin-top: 0; }
+.gp-guide p { color: #4a554e; line-height: 1.65; margin: 0 0 12px; max-width: 68ch; }
+.gp-guide a { color: #23701a; font-weight: 600; }
+.gp-guide-links { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; }
+.gp-guide-links li { margin: 0; }
+.gp-guide-links a { text-decoration: none; }
+.gp-guide-links a:hover { text-decoration: underline; }
+.gp-guide-links a::after { content: " \2192"; }
+.gp-guide-q { border: 1px solid #e3e6e0; border-radius: 12px; background: #fff; margin-bottom: 8px; }
+.gp-guide-q summary { cursor: pointer; padding: 12px 16px; font-weight: 600; color: #14211a; list-style-position: inside; }
+.gp-guide-q p { padding: 0 16px 14px; margin: 0; font-size: 14.5px; }
+@media (max-width: 860px) { .gp-guide { grid-template-columns: 1fr; gap: 18px; margin: 32px auto 40px; } }
+@media (max-width: 520px) { .gp-guide-links { grid-template-columns: 1fr; } .gp-guide h2 { font-size: 21px; } }
