@@ -459,7 +459,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/prices.css">
+<link rel="stylesheet" href="/css/prices.css?v=20261016">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -756,6 +756,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
       <a class="pp-btn pp-btn-alt" href="#price-alert">{ICON_BELL}Email me when it drops</a>
     </div>
     <p class="pp-disclose">We may earn a commission if you buy through these links. It never changes the prices or the verdict.</p>
+    <p class="pp-check">Seen it somewhere else? <a href="/price-check.html?m={esc(model.slug)}">Check if that price is any good →</a></p>
   </div>
 </section>
 <div class="pp-two">
@@ -1082,6 +1083,13 @@ def write_sitemaps(entries, today):
         lines.append("</urlset>")
         return "\n".join(lines) + "\n"
 
+    # One line per page: if a page is listed twice (e.g. a brand page that
+    # also comes from another builder), keep its newest date.
+    best = {}
+    for loc, lastmod in entries:
+        if loc not in best or (lastmod or "") > (best[loc] or ""):
+            best[loc] = lastmod
+    entries = list(best.items())
     _write(SITEMAP_PAGES, urlset([(p, None) for p in STATIC_PAGES]))
     _write(SITEMAP_PRICES, urlset(sorted(entries)))
     newest = max((lm for _, lm in entries if lm), default=today.isoformat())

@@ -45,7 +45,7 @@ def when(d, today):
 
 def table(rows, today):
     trs = "".join(f"""<tr>
-  <th scope="row"><a href="/prices/{r['m']['slug']}/">{esc(r['m']['name'])}</a><span class="pp-sub sb-type">{esc(TYPES[r['m']['type']][2])}{' · <span class="sb-down">lowest we’ve tracked</span>' if (r['m'].get('verdict') or {}).get('label') == 'good' else ''}</span></th>
+  <th scope="row"><a href="/prices/{r['m']['slug']}/">{esc(r['m']['name'])}</a><span class="pp-sub sb-type">{esc(TYPES[r['m']['type']][2])}{' · <span class="sb-down">lowest we’ve tracked</span>' if (r['m'].get('verdict') or {}).get('label') == 'good' else ''}</span><a class="sb-alert" href="/prices/{r['m']['slug']}/#price-alert">Email me if it drops again</a></th>
   <td><s>{money(r['from'])}</s></td>
   <td class="pp-price">{money(r['to'])}{' per dozen' if r['m']['type'] == 'ball' else ''}</td>
   <td><span class="sb-down">−{money(r['fall'])} ({r['pct']}%)</span></td>
@@ -86,7 +86,7 @@ def build(models, built, today):
 </section>
 <section class="pp-block">
   <h2>In the last 48 hours</h2>
-  <p class="pp-small">A drop counts when the lowest new, in-stock price falls by at least £5 and 3% and stays there. Was: the price just before the drop.</p>
+  <p class="pp-small">A drop counts when the lowest new, in-stock price falls by at least £5 and 3% and stays there. Was: the price just before the drop. Want to hear about the next one? Tap “Email me if it drops again” under any model.</p>
   {fresh_html}
 </section>
 {older_html}

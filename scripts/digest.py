@@ -112,6 +112,43 @@ def listing_images():
     return {p["id"]: p.get("image") for p in products if p.get("image")}
 
 
+# ---------------------------------------------------------------- tool spotlight
+# One deal tool at the bottom of each Friday email, a different one each
+# week, in this order (starting the week of 19 Oct 2026, then round again).
+TOOL_SPOTLIGHT = [
+    ("Is this a good price?", "/price-check.html", "good-price-wide.jpg",
+     "Seen a price somewhere? Type it in and we’ll tell you if it’s good, fair or high, against every price we’ve recorded."),
+    ("Back In Stock Radar", "/back-in-stock.html", "back-in-stock-wide.jpg",
+     "See what’s just come back in stock, what’s sold out, and which gear sells out fastest."),
+    ("Assemble Your Arsenal", "/build-your-bag.html", "../arsenal-banner-bag.jpg",
+     "Pick your clubs, watch your bag fill up, and see the cheapest total across multiple UK retailers."),
+    ("Find Your Fit", "/find-your-fit.html", "find-your-fit-wide.jpg",
+     "Eight quick questions about your game, then the specs to look for and three models that fit."),
+    ("Best Time To Buy", "/best-time-to-buy.html", "best-time-to-buy-wide.jpg",
+     "Which gear barely moves in price, and which swings enough to be worth waiting for."),
+    ("Complete the Kit", "/complete-the-kit.html", "complete-the-kit-wide.jpg",
+     "Ready-made kits, like a driver with a headcover and tees, at the best prices we can find."),
+    ("GolfPrice AI in ChatGPT & Claude", "/ai.html", "ai-assistant-wide.jpg",
+     "Ask ChatGPT or Claude for live UK golf prices, straight from our data."),
+]
+SPOTLIGHT_START = date(2026, 10, 19)
+
+
+def tool_spotlight(today):
+    name, path, photo, text = TOOL_SPOTLIGHT[((today - SPOTLIGHT_START).days // 7) % len(TOOL_SPOTLIGHT)]
+    url = (f"{SITE}{path}?utm_source=friday-email&utm_medium=email&utm_campaign=genuine-drops"
+           f"&utm_content=tool-spotlight")
+    src = f"{SITE}/assets/photos/tools/{photo}".replace("/tools/../", "/")
+    return f"""<div style="background:#fff;border:1px solid #e7e9e5;border-radius:14px;overflow:hidden;margin:24px 0 0">
+<a href="{url}"><img src="{src}" alt="" width="528" style="display:block;width:100%;height:auto;border:0"></a>
+<div style="padding:18px 20px 20px">
+<p style="font-size:12px;font-weight:bold;letter-spacing:.04em;text-transform:uppercase;color:#2f8a1f;margin:0 0 6px">Deal tool of the week</p>
+<p style="font-size:18px;font-weight:bold;margin:0 0 6px">{html.escape(name)}</p>
+<p style="font-size:14px;line-height:1.5;color:#3d4a42;margin:0 0 14px">{html.escape(text)} Free, no sign-up.</p>
+<a href="{url}" style="display:inline-block;background:#16241c;color:#fff;text-decoration:none;font-weight:bold;padding:10px 18px;border-radius:10px;font-size:14px">Try {html.escape(name)}</a>
+</div></div>"""
+
+
 # ---------------------------------------------------------------- writing
 def link(slug, part):
     return f"{SITE}/prices/{slug}/?utm_source=friday-email&utm_medium=email&utm_campaign=genuine-drops&utm_content={part}"
@@ -153,6 +190,7 @@ def email_html(picks, today, stop_digest, stop_all):
 <div style="background:#f2f7ef;border-radius:12px;padding:14px 16px;margin:24px 0 0;font-size:13px;line-height:1.5">
 <strong>How we pick these:</strong> down at least £5 and 5% on a week ago, at its lowest price in 60 days (or since we started tracking it), and not a price that keeps bouncing up and down. If nothing qualifies, we don’t send anything.
 </div>
+{tool_spotlight(today)}
 <p style="font-size:12px;color:#5b665f;line-height:1.55;margin:20px 0 0">Prices change on retailers’ sites, so check before you buy. We may earn a commission if you buy through our links; it never changes the price or what we pick.<br>
 No countdown timers. No fake discounts.<br>
 <a href="{stop_digest}" style="color:#5b665f">Stop the Friday email</a> · <a href="{stop_all}" style="color:#5b665f">Unsubscribe from all GolfPrice AI emails</a></p>

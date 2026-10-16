@@ -215,3 +215,8 @@ a.pp-chip:hover { border-color: var(--gp-green); color: var(--gp-green-dark); }
   .wg-kit li span { grid-column: 1 / -1; }
   .wg-group-head h2 { font-size: 24px; }
 }
+
+/* Cross-links to other deal tools (16 Oct 2026) */
+.pp-check { margin: 4px 0 0; font-size: 14px; color: var(--gp-text-3); }
+.pp-check a { color: var(--gp-green-dark); font-weight: 600; }
+.sb-table .sb-alert { display: inline-block; margin-top: 4px; font-size: 13px; font-weight: 600; color: var(--gp-green-dark); }
