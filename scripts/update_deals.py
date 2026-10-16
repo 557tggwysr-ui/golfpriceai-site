@@ -1453,6 +1453,10 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_form
         }
         if image:
             product["image"] = image
+        elif retailer_images.needs_fixing(row.get("merchant_image_url")):
+            # Scottsdale photo that no longer exists: clear any old address
+            # kept from earlier runs (None removes it in merge_products).
+            product["image"] = None
         product["icon"] = icon
         if not preowned_condition and is_affordable_secondhand(product):
             preowned_condition = "Used"
