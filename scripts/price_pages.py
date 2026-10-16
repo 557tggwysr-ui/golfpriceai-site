@@ -1219,6 +1219,11 @@ def build(models_list, products, today_str):
         d_changed, d_sitemap, _ = drops_page.build(passing, built, today)
         changed += d_changed
         sitemap += d_sitemap
+        try:
+            import social_feed
+            social_feed.build(passing, built, products, today)
+        except Exception as e:  # never stop the main build
+            print(f"Social feed skipped: {e}")
         import home_deals
         home_deals.build(passing, built, products, today)
         import home_pulse
