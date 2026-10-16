@@ -235,11 +235,6 @@
    "model": "KBS Hybrid",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
-  },
-  {
-   "model": "PuttLink Golf Balls",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 1
   }
  ],
  "categoryFixes": [
@@ -347,36 +342,6 @@
    "name": "Mizuno G-Style Long Sleeve Golf Crew Neck 2.0 2026 - Lava Smoke - Lava Smoke / XL",
    "from": "wood",
    "to": "apparel"
-  },
-  {
-   "name": "Odyssey Golf Ai-Dual Seven DB Pistol Grip Putter - 34\" / Right Hand",
-   "from": "accessories",
-   "to": "putter"
-  },
-  {
-   "name": "Odyssey Golf Ai-Dual Seven S Pistol Grip Putter - 34\" / Right Hand",
-   "from": "accessories",
-   "to": "putter"
-  },
-  {
-   "name": "Odyssey Golf Ai-Dual Double Wide DB Pistol Grip Putter - 34\" / Right Hand",
-   "from": "accessories",
-   "to": "putter"
-  },
-  {
-   "name": "Odyssey Golf Ai-Dual Jailbird Mini DB Pistol Grip Putter - 34\" / Right Hand",
-   "from": "accessories",
-   "to": "putter"
-  },
-  {
-   "name": "Odyssey Golf Ai-Dual 1/2 Ball Seven S Pistol Grip Putter - 34\" / Right Hand",
-   "from": "accessories",
-   "to": "putter"
-  },
-  {
-   "name": "Odyssey Golf Ai-Dual 1/2 Ball Jailbird Mini DB Pistol Grip Putter - 34\" / Right Hand",
-   "from": "accessories",
-   "to": "putter"
   },
   {
    "name": "TaylorMade Qi35 Max Lite Hybrid Ladies Right Hand No5 Ex Demo No Headcover",
@@ -782,6 +747,36 @@
    "name": "PowaKaddy FX/CT/RX Umbrella Holder 2026 - Black",
    "from": "sets",
    "to": "accessories"
+  },
+  {
+   "name": "Odyssey Golf Ai-Dual Seven DB Pistol Grip Putter - 34 / Right Hand",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf Ai-Dual Seven S Pistol Grip Putter - 34 / Right Hand",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf Ai-Dual Double Wide DB Pistol Grip Putter - 34 / Right Hand",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf Ai-Dual Jailbird Mini DB Pistol Grip Putter - 34 / Right Hand",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf Ai-Dual 1/2 Ball Seven S Pistol Grip Putter - 34 / Right Hand",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf Ai-Dual 1/2 Ball Jailbird Mini DB Pistol Grip Putter - 34 / Right Hand",
+   "from": "accessories",
+   "to": "putter"
   }
  ],
  "droppedUnpriced": [

@@ -1,0 +1,51 @@
+{
+ "name": "Mizuno M-Craft Osaka P Putter",
+ "brand": "Mizuno",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/mizuno-m-craft-osaka-p-putter/",
+ "checked": "2026-10-16",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 239.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 239.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 259.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 62,
+  "low": 239.0,
+  "high": 259.0,
+  "average": 251.9,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    259.0
+   ],
+   [
+    "2026-09-25",
+    239.0
+   ],
+   [
+    "2026-10-16",
+    239.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

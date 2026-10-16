@@ -71,6 +71,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-16,mizuno-jpx-925-fli-hi-hybrid,Mizuno JPX 925 Fli-Hi Hybrid,Mizuno,hybrid,159.00,each,2,62,159.00,159.00,typical,https://golfpriceai.com/prices/mizuno-jpx-925-fli-hi-hybrid/
 2026-10-16,mizuno-jpx-one-hybrid,Mizuno JPX ONE Hybrid,Mizuno,hybrid,209.00,each,3,62,209.00,265.00,good,https://golfpriceai.com/prices/mizuno-jpx-one-hybrid/
 2026-10-16,ping-g430-hybrid,Ping G430 Hybrid,Ping,hybrid,209.00,each,3,62,209.00,209.00,typical,https://golfpriceai.com/prices/ping-g430-hybrid/
+2026-10-16,taylormade-qi10-hybrid,TaylorMade Qi10 Hybrid,TaylorMade,hybrid,149.95,each,2,43,139.00,179.00,typical,https://golfpriceai.com/prices/taylormade-qi10-hybrid/
 2026-10-16,taylormade-qi4d-hybrid,TaylorMade Qi4D Hybrid,TaylorMade,hybrid,269.00,each,3,62,269.00,269.00,typical,https://golfpriceai.com/prices/taylormade-qi4d-hybrid/
 2026-10-16,taylormade-qi4d-max-hybrid,TaylorMade Qi4D Max Hybrid,TaylorMade,hybrid,269.00,each,2,62,269.00,269.00,typical,https://golfpriceai.com/prices/taylormade-qi4d-max-hybrid/
 2026-10-16,taylormade-qi4d-max-lite-hybrid,TaylorMade Qi4D Max Lite Hybrid,TaylorMade,hybrid,269.00,each,2,62,269.00,269.00,typical,https://golfpriceai.com/prices/taylormade-qi4d-max-lite-hybrid/
@@ -167,12 +168,20 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-16,cleveland-hb-soft-2-1-putter,Cleveland HB Soft 2 #1 Putter,Cleveland,putter,109.00,each,2,62,109.00,119.00,typical,https://golfpriceai.com/prices/cleveland-hb-soft-2-1-putter/
 2026-10-16,cleveland-hb-soft-2-15-putter,Cleveland HB Soft 2 #15 Putter,Cleveland,putter,119.00,each,2,62,109.00,159.00,typical,https://golfpriceai.com/prices/cleveland-hb-soft-2-15-putter/
 2026-10-16,cleveland-hb-soft-2-8s-putter,Cleveland HB Soft 2 #8S Putter,Cleveland,putter,109.00,each,2,62,109.00,119.00,typical,https://golfpriceai.com/prices/cleveland-hb-soft-2-8s-putter/
+2026-10-16,cobra-3dp-tour-agera-sb-putter,Cobra 3DP Tour Agera SB Putter,Cobra,putter,299.00,each,2,57,299.00,299.00,typical,https://golfpriceai.com/prices/cobra-3dp-tour-agera-sb-putter/
 2026-10-16,cobra-3dp-tour-supernova-sb-putter,Cobra 3DP Tour Supernova SB Putter,Cobra,putter,299.00,each,2,57,299.00,299.00,typical,https://golfpriceai.com/prices/cobra-3dp-tour-supernova-sb-putter/
+2026-10-16,cobra-mim-blazer-sb-putter,Cobra MIM Blazer SB Putter,Cobra,putter,219.00,each,2,57,219.00,229.00,typical,https://golfpriceai.com/prices/cobra-mim-blazer-sb-putter/
+2026-10-16,cobra-mim-camino-sb-putter,Cobra MIM Camino SB Putter,Cobra,putter,219.00,each,2,57,219.00,229.00,typical,https://golfpriceai.com/prices/cobra-mim-camino-sb-putter/
+2026-10-16,cobra-mim-nova-sb-putter,Cobra MIM Nova SB Putter,Cobra,putter,219.00,each,2,57,219.00,229.00,typical,https://golfpriceai.com/prices/cobra-mim-nova-sb-putter/
 2026-10-16,cobra-mim-sport-40-pl-putter,Cobra MIM Sport 40 PL Putter,Cobra,putter,219.00,each,2,57,219.00,229.00,typical,https://golfpriceai.com/prices/cobra-mim-sport-40-pl-putter/
+2026-10-16,cobra-mim-stingray-sb-putter,Cobra MIM Stingray SB Putter,Cobra,putter,219.00,each,2,57,219.00,229.00,typical,https://golfpriceai.com/prices/cobra-mim-stingray-sb-putter/
+2026-10-16,cobra-mim-widesport-40-sb-putter,Cobra MIM Widesport 40 SB Putter,Cobra,putter,219.00,each,2,57,219.00,229.00,typical,https://golfpriceai.com/prices/cobra-mim-widesport-40-sb-putter/
 2026-10-16,macgregor-v-foil-putter,MacGregor V-Foil Putter,MacGregor,putter,39.95,each,2,50,39.95,39.95,typical,https://golfpriceai.com/prices/macgregor-v-foil-putter/
+2026-10-16,mizuno-m-craft-osaka-p-putter,Mizuno M-Craft Osaka P Putter,Mizuno,putter,239.00,each,2,62,239.00,259.00,good,https://golfpriceai.com/prices/mizuno-m-craft-osaka-p-putter/
 2026-10-16,mizuno-m-craft-tokyo-s-putter,Mizuno M.craft Tokyo S Putter,Mizuno,putter,239.00,each,2,62,239.00,279.00,good,https://golfpriceai.com/prices/mizuno-m-craft-tokyo-s-putter/
 2026-10-16,odyssey-ai-dual-square-2-square-jailbird-os-putter,Odyssey Ai-DUAL Square 2 Square Jailbird OS Putter,Odyssey,putter,229.00,each,3,62,229.00,259.00,typical,https://golfpriceai.com/prices/odyssey-ai-dual-square-2-square-jailbird-os-putter/
 2026-10-16,odyssey-ai-dual-square-2-square-max-putter,Odyssey Ai-DUAL Square 2 Square Max Putter,Odyssey,putter,259.00,each,2,62,259.00,259.00,typical,https://golfpriceai.com/prices/odyssey-ai-dual-square-2-square-max-putter/
+2026-10-16,odyssey-ai-dual-square-2-square-seven-putter,Odyssey Ai-Dual Square 2 Square Seven Putter,Odyssey,putter,229.00,each,2,62,229.00,259.00,typical,https://golfpriceai.com/prices/odyssey-ai-dual-square-2-square-seven-putter/
 2026-10-16,odyssey-ai-one-1-ch-putter,Odyssey Ai-ONE 1 CH Putter,Odyssey,putter,216.75,each,2,43,216.75,249.00,good,https://golfpriceai.com/prices/odyssey-ai-one-1-ch-putter/
 2026-10-16,odyssey-ai-one-milled-seven-t-db-putter,Odyssey Ai-ONE Milled Seven T DB Putter,Odyssey,putter,291.85,each,2,62,291.85,449.00,typical,https://golfpriceai.com/prices/odyssey-ai-one-milled-seven-t-db-putter/
 2026-10-16,odyssey-ai-one-square-2-square-double-wide-putter,Odyssey Ai-ONE Square 2 Square Double Wide Putter,Odyssey,putter,231.20,each,2,62,231.20,289.00,typical,https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-double-wide-putter/
@@ -250,7 +259,6 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-16,mizuno-rb-max-golf-balls,Mizuno RB Max Golf Balls,Mizuno,golf ball,24.99,per dozen,2,62,24.99,24.99,typical,https://golfpriceai.com/prices/mizuno-rb-max-golf-balls/
 2026-10-16,pxg-xtreme-tour-golf-balls,PXG Xtreme Tour Golf Balls,PXG,golf ball,29.75,per dozen,2,50,27.25,29.75,wait,https://golfpriceai.com/prices/pxg-xtreme-tour-golf-balls/
 2026-10-16,pinnacle-distance-15-golf-balls,Pinnacle Distance 15- Golf Balls,Pinnacle,golf ball,54.00,per dozen,1,62,54.00,54.00,typical,https://golfpriceai.com/prices/pinnacle-distance-15-golf-balls/
-2026-10-16,rapsodo-mlm-2-pro-launch-monitor-golf-balls,Rapsodo MLM 2 Pro Launch Monitor Golf Balls,Rapsodo,golf ball,549.00,per dozen,1,62,549.00,549.00,typical,https://golfpriceai.com/prices/rapsodo-mlm-2-pro-launch-monitor-golf-balls/
 2026-10-16,srixon-ad333-golf-balls,Srixon AD333 Golf Balls,Srixon,golf ball,19.95,per dozen,4,62,19.95,20.00,typical,https://golfpriceai.com/prices/srixon-ad333-golf-balls/
 2026-10-16,srixon-distance-golf-balls,Srixon Distance Golf Balls,Srixon,golf ball,14.50,per dozen,2,50,14.50,14.50,typical,https://golfpriceai.com/prices/srixon-distance-golf-balls/
 2026-10-16,srixon-limited-z-star-diamond-2-dozen-golf-balls,Srixon Limited Z-star Diamond 2 Dozen Golf Balls,Srixon,golf ball,47.49,per dozen,1,62,47.49,47.49,typical,https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/
@@ -297,7 +305,6 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-16,titleist-trufeel-golf-balls,Titleist TruFeel Golf Balls,Titleist,golf ball,24.95,per dozen,3,50,24.95,24.95,typical,https://golfpriceai.com/prices/titleist-trufeel-golf-balls/
 2026-10-16,titleist-velocity-aim-performance-golf-balls,Titleist Velocity AIM Performance Golf Balls,Titleist,golf ball,26.99,per dozen,2,62,26.99,26.99,typical,https://golfpriceai.com/prices/titleist-velocity-aim-performance-golf-balls/
 2026-10-16,titleist-velocity-golf-balls,Titleist Velocity Golf Balls,Titleist,golf ball,24.99,per dozen,3,50,24.99,24.99,typical,https://golfpriceai.com/prices/titleist-velocity-golf-balls/
-2026-10-16,us-kids-golf-yard-golf-balls,US Kids Golf Yard Golf Balls,US Kids Golf,golf ball,39.50,per dozen,1,62,39.50,39.50,typical,https://golfpriceai.com/prices/us-kids-golf-yard-golf-balls/
 2026-10-16,wilson-duo-soft-golf-balls,Wilson Duo Soft Golf Balls,Wilson,golf ball,19.95,per dozen,3,62,19.95,22.99,good,https://golfpriceai.com/prices/wilson-duo-soft-golf-balls/
 2026-10-16,wilson-duo-soft-trk360-golf-balls,Wilson Duo Soft TRK360 Golf Balls,Wilson,golf ball,22.99,per dozen,1,62,22.99,22.99,typical,https://golfpriceai.com/prices/wilson-duo-soft-trk360-golf-balls/
 2026-10-16,wilson-staff-model-golf-balls,Wilson Staff Model Golf Balls,Wilson,golf ball,44.99,per dozen,2,50,44.99,44.99,typical,https://golfpriceai.com/prices/wilson-staff-model-golf-balls/
@@ -314,7 +321,6 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-16,big-max-dri-lite-seven-g-stand-golf-bag,Big Max Dri Lite Seven G Stand Golf Bag,Big Max,golf bag,104.95,each,3,50,104.95,104.95,typical,https://golfpriceai.com/prices/big-max-dri-lite-seven-g-stand-golf-bag/
 2026-10-16,big-max-dri-lite-silencio-3-organiser-cart-golf-bag,Big Max Dri Lite Silencio 3 Organiser Cart Golf Bag,Big Max,golf bag,209.00,each,2,50,209.00,219.00,good,https://golfpriceai.com/prices/big-max-dri-lite-silencio-3-organiser-cart-golf-bag/
 2026-10-16,big-max-dri-lite-tour-2-golf-bag,Big Max Dri Lite Tour 2 Golf Bag,Big Max,golf bag,189.00,each,2,50,189.00,189.00,typical,https://golfpriceai.com/prices/big-max-dri-lite-tour-2-golf-bag/
-2026-10-16,callaway-axle-dna-backpack-golf-bag,Callaway Axle DNA Backpack Golf Bag,Callaway,golf bag,119.00,each,1,62,119.00,119.00,typical,https://golfpriceai.com/prices/callaway-axle-dna-backpack-golf-bag/
 2026-10-16,callaway-carry-plus-pencil-stand-golf-bag,Callaway Carry Plus Pencil Stand Golf Bag,Callaway,golf bag,109.00,each,1,62,94.00,109.00,wait,https://golfpriceai.com/prices/callaway-carry-plus-pencil-stand-golf-bag/
 2026-10-16,callaway-carry-plus-pencil-golf-bag,Callaway Carry+ Pencil Golf Bag,Callaway,golf bag,109.00,each,2,50,109.00,109.00,typical,https://golfpriceai.com/prices/callaway-carry-plus-pencil-golf-bag/
 2026-10-16,callaway-carry-plus-stand-carry-golf-bag,Callaway Carry+ Stand Carry Golf Bag,Callaway,golf bag,139.00,each,1,62,139.00,139.00,typical,https://golfpriceai.com/prices/callaway-carry-plus-stand-carry-golf-bag/
@@ -330,7 +336,6 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-16,callaway-fairway-c-hd-stand-golf-bag,Callaway Fairway C HD Stand Golf Bag,Callaway,golf bag,219.00,each,2,62,219.00,249.00,typical,https://golfpriceai.com/prices/callaway-fairway-c-hd-stand-golf-bag/
 2026-10-16,callaway-fairway-c-hd-waterproof-stand-golf-bag,Callaway Fairway C HD Waterproof Stand Golf Bag,Callaway,golf bag,199.00,each,2,62,199.00,219.00,typical,https://golfpriceai.com/prices/callaway-fairway-c-hd-waterproof-stand-golf-bag/
 2026-10-16,callaway-fairway-c-stand-golf-bag,Callaway Fairway C Stand Golf Bag,Callaway,golf bag,149.00,each,4,62,149.00,179.00,typical,https://golfpriceai.com/prices/callaway-fairway-c-stand-golf-bag/
-2026-10-16,callaway-gambit-dna-backpack-golf-bag,Callaway Gambit DNA Backpack Golf Bag,Callaway,golf bag,129.00,each,1,62,129.00,129.00,typical,https://golfpriceai.com/prices/callaway-gambit-dna-backpack-golf-bag/
 2026-10-16,callaway-limited-june-major-staff-golf-bag,Callaway Limited June Major Staff Golf Bag,Callaway,golf bag,839.30,each,1,62,839.30,1199.00,typical,https://golfpriceai.com/prices/callaway-limited-june-major-staff-golf-bag/
 2026-10-16,callaway-limited-may-major-staff-golf-bag,Callaway Limited May Major Staff Golf Bag,Callaway,golf bag,839.30,each,1,62,839.30,1199.00,typical,https://golfpriceai.com/prices/callaway-limited-may-major-staff-golf-bag/
 2026-10-16,callaway-org-14-cart-golf-bag,Callaway Org 14 Cart Golf Bag,Callaway,golf bag,189.95,each,4,62,179.00,199.00,wait,https://golfpriceai.com/prices/callaway-org-14-cart-golf-bag/
@@ -341,7 +346,6 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-16,callaway-par-3-hd-waterproof-stand-golf-bag,Callaway Par 3 HD Waterproof Stand Golf Bag,Callaway,golf bag,149.00,each,1,62,134.00,149.00,wait,https://golfpriceai.com/prices/callaway-par-3-hd-waterproof-stand-golf-bag/
 2026-10-16,callaway-quantum-staff-stand-golf-bag,Callaway Quantum Staff Stand Golf Bag,Callaway,golf bag,399.00,each,2,62,369.00,399.00,wait,https://golfpriceai.com/prices/callaway-quantum-staff-stand-golf-bag/
 2026-10-16,callaway-quantum-staff-tour-golf-bag,Callaway Quantum Staff Tour Golf Bag,Callaway,golf bag,449.00,each,1,62,419.00,449.00,wait,https://golfpriceai.com/prices/callaway-quantum-staff-tour-golf-bag/
-2026-10-16,callaway-renegade-dna-backpack-golf-bag,Callaway Renegade DNA Backpack Golf Bag,Callaway,golf bag,139.00,each,1,62,139.00,139.00,typical,https://golfpriceai.com/prices/callaway-renegade-dna-backpack-golf-bag/
 2026-10-16,callaway-summit-collection-stand-golf-bag,Callaway Summit Collection Stand Golf Bag,Callaway,golf bag,349.00,each,2,62,324.00,349.00,wait,https://golfpriceai.com/prices/callaway-summit-collection-stand-golf-bag/
 2026-10-16,cobra-ace-waterproof-cart-golf-bag,Cobra Ace Waterproof Cart Golf Bag,Cobra,golf bag,189.00,each,3,62,174.00,199.00,wait,https://golfpriceai.com/prices/cobra-ace-waterproof-cart-golf-bag/
 2026-10-16,cobra-ace-waterproof-stand-golf-bag,Cobra Ace Waterproof Stand Golf Bag,Cobra,golf bag,179.00,each,2,62,154.00,179.00,wait,https://golfpriceai.com/prices/cobra-ace-waterproof-stand-golf-bag/
@@ -445,15 +449,12 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-16,taylormade-tour-stand-golf-bag,TaylorMade Tour Stand Golf Bag,TaylorMade,golf bag,349.00,each,2,43,349.00,349.00,typical,https://golfpriceai.com/prices/taylormade-tour-stand-golf-bag/
 2026-10-16,taylormade-us-open-major-tour-staff-golf-bag,TaylorMade US Open Major Tour Staff Golf Bag,TaylorMade,golf bag,549.00,each,1,62,549.00,549.00,typical,https://golfpriceai.com/prices/taylormade-us-open-major-tour-staff-golf-bag/
 2026-10-16,titleist-cart-golf-bag,Titleist Cart Golf Bag,Titleist,golf bag,149.00,each,4,62,149.00,179.00,typical,https://golfpriceai.com/prices/titleist-cart-golf-bag/
-2026-10-16,titleist-glove-mini-rolling-duffel-golf-bag,Titleist Glove Mini Rolling Duffel Golf Bag,Titleist,golf bag,299.00,each,1,62,299.00,299.00,typical,https://golfpriceai.com/prices/titleist-glove-mini-rolling-duffel-golf-bag/
-2026-10-16,titleist-glove-rolling-duffel-golf-bag,Titleist Glove Rolling Duffel Golf Bag,Titleist,golf bag,379.00,each,1,62,379.00,379.00,typical,https://golfpriceai.com/prices/titleist-glove-rolling-duffel-golf-bag/
 2026-10-16,titleist-hybrid-14-stadry-stand-golf-bag,Titleist Hybrid 14 StaDry Stand Golf Bag,Titleist,golf bag,289.00,each,1,62,264.00,289.00,wait,https://golfpriceai.com/prices/titleist-hybrid-14-stadry-stand-golf-bag/
 2026-10-16,titleist-hybrid-14-stand-golf-bag,Titleist Hybrid 14 Stand Golf Bag,Titleist,golf bag,239.00,each,2,62,214.00,239.00,wait,https://golfpriceai.com/prices/titleist-hybrid-14-stand-golf-bag/
 2026-10-16,titleist-linkslegend-carry-golf-bag,Titleist LINKSLEGEND Carry Golf Bag,Titleist,golf bag,149.00,each,1,62,149.00,200.00,good,https://golfpriceai.com/prices/titleist-linkslegend-carry-golf-bag/
 2026-10-16,titleist-linkslegend-members-stand-golf-bag,Titleist LINKSLEGEND Members Stand Golf Bag,Titleist,golf bag,319.00,each,1,62,319.00,350.00,good,https://golfpriceai.com/prices/titleist-linkslegend-members-stand-golf-bag/
 2026-10-16,titleist-players-4-stand-golf-bag,Titleist Players 4 Stand Golf Bag,Titleist,golf bag,159.00,each,4,62,159.00,219.00,typical,https://golfpriceai.com/prices/titleist-players-4-stand-golf-bag/
 2026-10-16,titleist-players-5-stadry-stand-golf-bag,Titleist Players 5 StaDry Stand Golf Bag,Titleist,golf bag,249.00,each,2,50,249.00,249.00,typical,https://golfpriceai.com/prices/titleist-players-5-stadry-stand-golf-bag/
-2026-10-16,titleist-players-rolling-spinner-duffle-golf-bag,Titleist Players Rolling Spinner Duffle Golf Bag,Titleist,golf bag,169.00,each,1,62,169.00,169.00,typical,https://golfpriceai.com/prices/titleist-players-rolling-spinner-duffle-golf-bag/
 2026-10-16,titleist-players-s4-stadry-stand-golf-bag,Titleist Players S4 StaDry Stand Golf Bag,Titleist,golf bag,224.00,each,2,62,204.00,229.00,wait,https://golfpriceai.com/prices/titleist-players-s4-stadry-stand-golf-bag/
 2026-10-16,titleist-players-s4-stand-golf-bag,Titleist Players S4 Stand Golf Bag,Titleist,golf bag,159.00,each,3,62,159.00,179.00,typical,https://golfpriceai.com/prices/titleist-players-s4-stand-golf-bag/
 2026-10-16,titleist-players-s5-stadry-stand-golf-bag,Titleist Players S5 StaDry Stand Golf Bag,Titleist,golf bag,289.00,each,1,62,264.00,289.00,wait,https://golfpriceai.com/prices/titleist-players-s5-stadry-stand-golf-bag/
@@ -545,6 +546,8 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-10-16,golfbuddy-shot-mate-launch-monitor,GolfBuddy Shot Mate Launch Monitor,GolfBuddy,launch monitor,149.00,each,2,50,145.00,149.00,typical,https://golfpriceai.com/prices/golfbuddy-shot-mate-launch-monitor/
 2026-10-16,izzo-swami-launch-master-launch-monitor,Izzo Swami Launch Master Launch Monitor,Izzo,launch monitor,249.00,each,1,62,249.00,249.00,typical,https://golfpriceai.com/prices/izzo-swami-launch-master-launch-monitor/
 2026-10-16,rapsodo-mlm-1-launch-monitor,Rapsodo MLM 1 Launch Monitor,Rapsodo,launch monitor,229.00,each,1,62,229.00,229.00,typical,https://golfpriceai.com/prices/rapsodo-mlm-1-launch-monitor/
+2026-10-16,rapsodo-mlm-2-pro-launch-monitor,Rapsodo MLM 2 Pro Launch Monitor,Rapsodo,launch monitor,549.00,each,1,62,549.00,549.00,typical,https://golfpriceai.com/prices/rapsodo-mlm-2-pro-launch-monitor/
+2026-10-16,rapsodo-mlm2pro-mobile-launch-monitor,Rapsodo MLM2PRO Mobile Launch Monitor,Rapsodo,launch monitor,549.00,each,2,50,549.00,549.00,typical,https://golfpriceai.com/prices/rapsodo-mlm2pro-mobile-launch-monitor/
 2026-10-16,shot-scope-lm1-launch-monitor,Shot Scope LM1 Launch Monitor,Shot Scope,launch monitor,199.00,each,3,62,189.00,199.00,wait,https://golfpriceai.com/prices/shot-scope-lm1-launch-monitor/
 2026-10-16,skytrak-plus-launch-monitor,SkyTrak + Launch Monitor,SkyTrak,launch monitor,2695.00,each,1,62,2695.00,2695.00,typical,https://golfpriceai.com/prices/skytrak-plus-launch-monitor/
 2026-10-16,square-golf-indoor-launch-monitor,Square Golf Indoor Launch Monitor,Square Golf,launch monitor,552.00,each,2,43,552.00,699.00,good,https://golfpriceai.com/prices/square-golf-indoor-launch-monitor/
