@@ -9,7 +9,7 @@ function popularityScore(p) {
 }
 
 function thumbHTML(p) {
-  if (p.image) return `<img src="${p.image}" alt="${p.name}" loading="lazy">`;
+  if (p.image) return `<img src="${p.image}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer">`;
   const known = ['driver', 'putter', 'irons', 'wood', 'hybrid', 'wedge', 'ball', 'bag', 'apparel', 'shoes', 'accessories'];
   const iconFile = p.icon && known.includes(p.icon) ? p.icon : (known.includes(p.category) ? p.category : 'accessories');
   return `<img src="assets/icons/${iconFile}.svg" alt="${p.name}" loading="lazy">`;

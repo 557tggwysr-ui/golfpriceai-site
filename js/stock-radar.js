@@ -65,7 +65,7 @@ function renderCard(p, kind) {
 
   return `
     <article class="${cardClass}">
-      <img class="radar-card-image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy">
+      <img class="radar-card-image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" referrerpolicy="no-referrer">
       <div class="radar-card-body">
         ${badgeHTML}
         <p class="radar-card-brand">${escapeHtml(p.brand || '')}</p>

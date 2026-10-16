@@ -182,7 +182,7 @@ function renderColourResultItem(item) {
   const swatchHex = COLOUR_SWATCH_HEX[(item.colour || '').toLowerCase()] || '#ccc';
   return `
     <div class="colour-shop-item">
-      <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy">
+      <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" referrerpolicy="no-referrer">
       <span class="colour-shop-item-name">${escapeHtml(item.name)}</span>
       <span class="look-item-colour-row">
         <span class="look-colour-swatch" style="background:${swatchHex}"></span>
@@ -326,7 +326,7 @@ function renderItem(item) {
   const swatchHex = COLOUR_SWATCH_HEX[(item.colour || '').toLowerCase()] || '#ccc';
   return `
     <div class="kit-item">
-      <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy">
+      <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" referrerpolicy="no-referrer">
       <span class="kit-item-slot">${escapeHtml(item.slotLabel)}</span>
       <span class="kit-item-name">${escapeHtml(item.name)}</span>
       <span class="look-item-colour-row">

@@ -92,7 +92,7 @@ function renderMovers(movers) {
       <p class="fi-movers-label">Real drops behind the number:</p>
       ${movers.map(m => `
         <a class="fi-mover" href="${escapeHtml(m.affiliateUrl)}" target="_blank" rel="nofollow sponsored noopener">
-          <img src="${escapeHtml(m.image)}" alt="${escapeHtml(m.name)}" loading="lazy">
+          <img src="${escapeHtml(m.image)}" alt="${escapeHtml(m.name)}" loading="lazy" referrerpolicy="no-referrer">
           <span class="fi-mover-info">
             <span class="fi-mover-name">${escapeHtml(m.name)}</span>
             <span class="fi-mover-price">£${m.salePrice.toFixed(2)} <span class="fi-mover-drop">↓${m.dropPct}%</span></span>

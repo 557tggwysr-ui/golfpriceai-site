@@ -66,7 +66,7 @@ function renderItem(item) {
   const lowNote = item.pricePage ? `<span class="kit-item-note">Today's lowest price</span>` : '';
   return `
     <div class="kit-item${item.hero ? ' kit-item-hero' : ''}">
-      <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy">
+      <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy" referrerpolicy="no-referrer">
       <span class="kit-item-slot">${escapeHtml(item.slotLabel)}</span>
       <span class="kit-item-name">${escapeHtml(item.name)}</span>
       <span class="kit-item-price">£${item.salePrice.toFixed(2)}</span>

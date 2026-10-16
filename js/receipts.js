@@ -45,7 +45,7 @@ function renderCard(p) {
 
   return `
     <article class="receipt-card">
-      <img class="receipt-card-image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy">
+      <img class="receipt-card-image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" referrerpolicy="no-referrer">
       <div class="receipt-card-body">
         <span class="receipt-drop-badge">${p._dropPct}% off, receipts included</span>
         <p class="receipt-card-brand">${escapeHtml(p.brand || "")}</p>

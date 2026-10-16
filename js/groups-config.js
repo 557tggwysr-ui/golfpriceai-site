@@ -163,7 +163,7 @@ window.GOLFPRICE_GROUPS = {
       blurb: "Small gear, big difference.",
       image: "assets/photos/divottool-plusball-ongrass.jpg",
       emoji: "🔨",
-      types: ["divot-tool", "caddie-shagger", "accessories"]
+      types: ["divot-tool"]
     },
     {
       key: "ball-bags",

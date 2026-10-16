@@ -54,7 +54,7 @@ function renderCard(p, kind) {
 
   return `
     <article class="timing-card">
-      <img class="timing-card-image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy">
+      <img class="timing-card-image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" referrerpolicy="no-referrer">
       <div class="timing-card-body">
         <span class="timing-badge ${badgeClass}">${badgeLabel}</span>
         <p class="timing-card-brand">${escapeHtml(p.brand || '')}</p>

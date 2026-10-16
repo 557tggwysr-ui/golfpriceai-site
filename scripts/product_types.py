@@ -30,6 +30,7 @@ FALSE_FRIENDS = [
     r"golf pride", r"lamkin grip", r"bag boy", r"bagboy", r"shot scope", r"hat trick",
     r"glove it", r"towel ring", r"polo ralph lauren", r"ralph lauren polo",
     r"belt loop", r"belt clip", r"with belt", r"\+ ?belt", r"short game", r"shorts? game",
+    r"club glove",   # Titleist's travel-bag range, not a glove
 ]
 FALSE_FRIENDS_RX = re.compile(r"\b(?:" + "|".join(FALSE_FRIENDS) + r")\b", re.I)
 
@@ -53,6 +54,15 @@ TYPE_WORDS = {
     "cardigan": ("apparel", "jacket"), "crewneck": ("apparel", "jacket"), "crew neck": ("apparel", "jacket"),
     "sweatshirt": ("apparel", "jacket"), "sweat": ("apparel", "jacket"), "fleece": ("apparel", "jacket"),
     "windshirt": ("apparel", "jacket"), "windbreaker": ("apparel", "jacket"), "midlayer": ("apparel", "jacket"),
+    "wind shirt": ("apparel", "jacket"), "wind breaker": ("apparel", "jacket"), "rain shirt": ("apparel", "jacket"),
+    "rain top": ("apparel", "jacket"), "waterproof top": ("apparel", "jacket"), "windproof top": ("apparel", "jacket"),
+    "wind top": ("apparel", "jacket"), "romper": ("apparel", "dress"), "jumpsuit": ("apparel", "dress"),
+    "overshirt": ("apparel", "jacket"), "shacket": ("apparel", "jacket"), "down shirt": ("apparel", "jacket"),
+    "shirt jacket": ("apparel", "jacket"),
+    "compression sleeve": ("apparel", "base-layer"), "compression sleeves": ("apparel", "base-layer"),
+    "sleeves": ("apparel", "base-layer"), "arm sleeves": ("apparel", "base-layer"),
+    "baseball cap": ("apparel", "cap"), "dad hat": ("apparel", "cap"), "trucker cap": ("apparel", "cap"),
+    "compression vest": ("apparel", "base-layer"), "base layer vest": ("apparel", "base-layer"),
     "mid layer": ("apparel", "jacket"), "mid-layer": ("apparel", "jacket"), "1/4 zip": ("apparel", "jacket"),
     "quarter zip": ("apparel", "jacket"), "1/2 zip": ("apparel", "jacket"), "half zip": ("apparel", "jacket"),
     "full zip": ("apparel", "jacket"), "zip top": ("apparel", "jacket"), "golf top": ("apparel", "jacket"),
@@ -82,6 +92,8 @@ TYPE_WORDS = {
     "travel cover": ("accessories", "travel"), "travel bag": ("accessories", "travel"), "duffle": ("accessories", "travel"),
     "duffle bag": ("accessories", "travel"), "duffel bag": ("accessories", "travel"), "holdall": ("accessories", "travel"),
     "backpack": ("accessories", "travel"), "kit bag": ("accessories", "travel"), "boot bag": ("accessories", "travel"),
+    "traveler": ("accessories", "travel"), "traveller": ("accessories", "travel"), "duffel": ("accessories", "travel"),
+    "rolling duffle bag": ("accessories", "travel"), "rolling duffel bag": ("accessories", "travel"),
     "ball marker": ("accessories", "accessories"), "ball markers": ("accessories", "accessories"),
     "marker": ("accessories", "accessories"), "holder": ("accessories", "accessories"), "clip": ("accessories", "accessories"),
     "brush": ("accessories", "accessories"), "cleaner": ("accessories", "accessories"),
@@ -91,9 +103,12 @@ TYPE_RX = re.compile(r"(?<![a-z0-9])(?:" + "|".join(re.escape(w) for w in _WORDS
 
 # A few words are too vague to overrule what the retailer said on their own.
 WEAK = {"short", "sweat", "cap", "hat", "clip", "holder", "brush", "cleaner", "marker", "ball marker", "ball markers",
-        "vest", "shirt", "shirts", "tee", "tees"}
+        "shirt", "shirts", "tee", "tees"}
 # "Opti Grip" and "Thermal Grip" are gloves: a glove is never moved to grips.
 NEVER = {("glove", "grip")}
+# Words that can retype clothing but never pull an accessory into clothing
+# ("Trolley Rear Wheel Sleeves" are not arm sleeves).
+NO_CROSS = {"sleeves"}
 
 
 def name_type(name):
@@ -115,14 +130,81 @@ def name_type(name):
     return cat, icon, word
 
 
+# ---------------------------------------------------------------- golf balls
+# The Golf Balls section had launch monitors "with free balls", rescues,
+# putters, a rangefinder, stand bags, practice nets and training aids in it,
+# because retailers filed them under balls. Judge each by its own name: the
+# main product is the part before " - ", "with", "+" or "&" (so "Launch
+# Monitor + 3 Golf Balls" is a launch monitor).
+BALL_RX = re.compile(r"\b(balls?|dozen|pro ?v ?1x?|tp5x?|chrome (soft|tour)|z-?star|tour b|society pack)\b", re.I)
+MAIN_CUT_RX = re.compile(r"\s(?:with|\+|&|incl\.?|including)\s|\bfree\b", re.I)   # not "plus": "Distance Plus" is a ball
+# (pattern, category, icon, needs a real club price). Checked in order.
+BALL_MOVES = [
+    (r"launch monitor|simulator", "accessories", "launch-monitor", False),
+    (r"range ?r?finder|rangerfinder", "accessories", "rangefinder", False),
+    (r"gps watch|golf watch", "accessories", "gps-watch", False),
+    (r"tracking|club tags?|tracker|game improvement pack", "accessories", "sensor", False),
+    (r"\b(rescue|hybrid)\b", "hybrid", None, True),
+    (r"\b(putter|mallet)\b|\b2-ball\b|\bptm", "putter", None, True),   # Odyssey "2-Ball" putters
+    (r"\bdriver\b", "driver", None, True),
+    (r"stand ?bag|cart ?bag|carry ?bag|golf bag", "bag", "golf-bag", False),
+    (r"\bnets?\b|\bcage\b|enclosure", "accessories", "enclosure", False),
+    (r"putting mat|putt matt?|\bmatt?\b|turf|sand pad", "accessories", "mat", False),
+    (r"alignment (rods?|sticks?|stix|tool)|drill.?stix", "accessories", "alignment-sticks", False),
+    (r"pick ?-?up|clikka|retriever|ball tube", "accessories", "ball-retriever", False),
+    (r"trainer|training aid|mirror|returner|putting cup|hoops|bunker buddy|swing solution|smart ?(golf )?ball",
+     "accessories", "accessories", False),
+]
+BALL_MOVES = [(re.compile(rx, re.I), c, i, club) for rx, c, i, club in BALL_MOVES]
+
+
+def ball_main_product(name):
+    head = (name or "").split(" - ")[0]
+    return MAIN_CUT_RX.split(head)[0]
+
+
+def fix_balls(products):
+    changes = []
+    for p in products:
+        if p.get("category") != "ball":
+            continue
+        main = ball_main_product(p.get("name"))
+        target = None
+        for rx, cat, icon, club in BALL_MOVES:
+            if rx.search(main):
+                if club and (p.get("salePrice") or 0) < 40:
+                    continue
+                target = (cat, icon)
+                break
+        if not target and not BALL_RX.search(main):
+            target = ("accessories", "accessories")   # kits, gift sets, scorecards
+        if not target:
+            continue
+        old = ("ball", p.get("icon"))
+        p["category"] = target[0]
+        if target[1]:
+            p["icon"] = target[1]
+        else:
+            p.pop("icon", None)
+        changes.append((p.get("id"), p.get("name"), old, target))
+    return changes
+
+
 def fix_types(products, classify_audience=None):
     """Corrects category/icon on clothing and accessory listings whose own
     name clearly says they're something else. Returns a list of
     (id, name, old, new) for the run log and the review report."""
-    changes = []
+    changes = fix_balls(products)
     apparel_icons = {icon for c, icon in TYPE_WORDS.values() if c == "apparel"}
     for p in products:
         cat = p.get("category")
+        # Travel bags filed as golf bags ("Club Glove Rolling Duffel Bag").
+        if cat == "bag":
+            got = name_type(p.get("name"))
+            if got and got[1] == "travel":
+                changes.append((p.get("id"), p.get("name"), (cat, p.get("icon")), ("accessories", "travel")))
+                p["category"], p["icon"] = "accessories", "travel"
+            continue
         if cat not in ("apparel", "accessories"):
             continue
         # Clothing that a retailer filed in its accessories feed (T-shirts
@@ -156,6 +238,8 @@ def fix_types(products, classify_audience=None):
         if word in WEAK and new_cat != cat:
             continue
         if (p.get("icon"), new_icon) in NEVER:
+            continue
+        if word in NO_CROSS and new_cat != cat:
             continue
         p["category"], p["icon"] = new_cat, new_icon
         if classify_audience and p.get("audience") != "Junior":

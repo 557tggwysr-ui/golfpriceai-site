@@ -62,7 +62,7 @@ function handleImgError(imgEl, iconSrc) {
 function thumbHTML(d) {
   if (d.image) {
     const fallbackIcon = d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category);
-    return `<img src="${d.image}" alt="${d.name}" loading="lazy" onerror="handleImgError(this, '${fallbackIcon}')">`;
+    return `<img src="${d.image}" alt="${d.name}" loading="lazy" referrerpolicy="no-referrer" onerror="handleImgError(this, '${fallbackIcon}')">`;
   }
   const iconSrc = d.icon ? `assets/icons/${d.icon}.svg` : iconFor(d.category);
   return `<span class="icon-badge"><img src="${iconSrc}" alt="${d.name}" loading="lazy" onerror="this.onerror=null;this.src='assets/icons/accessories.svg'"></span>`;
