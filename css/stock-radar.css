@@ -148,6 +148,7 @@
 
 /* Back-in-stock alert form inside a sold-out card (16 Oct 2026) */
 .radar-notify-form { display: grid; gap: 8px; margin-top: 10px; }
+.radar-notify-form[hidden] { display: none; }
 .radar-notify-form input[type=email] { width: 100%; box-sizing: border-box; padding: 10px 12px; border: 1px solid var(--border, #dfe3dc); border-radius: 6px; font: inherit; font-size: 0.9rem; }
 .radar-notify-form button { padding: 10px 0; border: 0; border-radius: 6px; background: var(--ink); color: #fff; font: inherit; font-weight: bold; font-size: 0.9rem; cursor: pointer; }
 .radar-notify-form button:hover { background: var(--green); }
