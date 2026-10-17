@@ -76,6 +76,12 @@
       share('Hint, hint… ' + (name ? name + '’s' : 'my') + ' golf wishlist, with today’s best UK prices on GolfPrice AI:', listUrl(wish, name));
       track('drop_hint', { items: wish.length });
     });
+    bar.querySelector('.gf-clear').addEventListener('click', function () {
+      if (!window.confirm('Clear your wishlist? This removes every saved gift.')) return;
+      wish = [];
+      store(wish); paint();
+      track('wishlist_clear');
+    });
   }
   paint();
 

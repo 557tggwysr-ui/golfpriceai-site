@@ -307,7 +307,7 @@ def build_black_friday(models, built, today, images=None):
 {method_note(today)}
 </div>
 <script src="/js/clothing-guide.js?v=20261017b" defer></script>
-<script src="/js/gift-finder.js?v=20261018b" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018c" defer></script>"""
     title = f"Golf Black Friday Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
     desc = (f"Black Friday {year} golf deals that are genuinely cheaper than in October, with the saving on each. "
             f"Drivers, putters, bags, rangefinders and more, checked every 6 hours.")
@@ -711,6 +711,7 @@ def wish_bar():
   <span class="gf-bar-count">Your wishlist: <b>0</b></span>
   <label class="gf-bar-name"><span>Your first name (optional)</span><input type="text" maxlength="20" autocomplete="given-name" placeholder="e.g. Sam"></label>
   <button type="button" class="gp-af-btn gf-send">Send it as a hint</button>
+  <button type="button" class="gf-clear">Clear list</button>
 </div>"""
 
 
@@ -733,7 +734,7 @@ def build_wishlist_page(today):
 <section class="pp-block"><p>Buying for a golfer and want more ideas? <a href="/prices/golf-gifts/">Try the gift finder</a>.</p></section>
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018b" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018c" defer></script>"""
     return page_shell(title="A golf wishlist for you | GolfPrice AI",
                       description="Hint, hint: a golfer’s wishlist, with today’s lowest UK prices and whether it’s a good time to buy.",
                       canonical=f"{SITE}/prices/golf-gifts/wishlist/", body=body, section="", schema=[crumbs_schema],
@@ -780,7 +781,7 @@ def build_gift_page(slug, cfg, models, built, products, images, today, all_slugs
 <section class="pp-block"><p class="pp-small">How we pick: well-known brands, in stock and new, one per brand where we can so you get a real choice, ordered by price and value, never by brand. Clubs, balls and gadgets link to our price pages so you can compare every retailer; smaller items link straight to the cheapest retailer we found.</p></section>
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018b" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018c" defer></script>"""
     title = f"{cfg['h1']} (UK, {today.year}): {total} Ideas at Today's Prices | GolfPrice AI"
     desc = (f"{cfg['h1']}: {total} ideas from UK retailers, with live prices checked every 6 hours. "
             f"New stock only, from brands golfers actually use.")
@@ -854,7 +855,7 @@ def build_gift_index(built_slugs, today, items):
 {faq_html}
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018b" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018c" defer></script>"""
     return page_shell(title=f"Golf Gift Ideas UK {today.year}: Gift Finder at Live Prices | GolfPrice AI",
                       description="Golf gift ideas for non-golfers: a 3-question gift finder, “gift-safe” picks that need no sizes, and live UK prices checked every 6 hours.",
                       canonical=f"{SITE}/prices/golf-gifts/", body=body, section="", schema=[crumbs_schema, faq_schema], noindex=False)
