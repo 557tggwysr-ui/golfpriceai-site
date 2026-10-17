@@ -831,7 +831,9 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     if model.is_ball:
         product["offers"]["description"] = "Prices per dozen balls"
     page = page_shell(title=title, description=desc, canonical=canonical, body=body, section=model.section,
-                      og_image=(m.get("_image") or img or None),
+                      og_image=(m.get("_card") or m.get("_image") or img or None),
+                      extra_head=('<meta property="og:image:width" content="1200">\n'
+                                  '<meta property="og:image:height" content="630">\n') if m.get("_card") else "",
                       schema=[product, crumbs_schema], noindex=noindex)
 
     data = {
@@ -1228,6 +1230,8 @@ def build(models_list, products, today_str):
     for (b, t), slug in sorted(t_pages.items(), key=lambda x: x[0][0].lower()):
         BRAND_CHIPS.setdefault(t, []).append((b, f"/prices/brands/{slug}/"))
     PAGE_FOR_LISTING.clear()
+    import share_cards
+    changed_cards = share_cards.build(chosen, built, SITE)
     for m in chosen:
         out = build_model_page(Model(m, by_id, today), passing, built, set(hubs), today, noindex)
         if not out:
