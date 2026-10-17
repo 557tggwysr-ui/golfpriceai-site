@@ -466,7 +466,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/prices.css?v=20261016">
+<link rel="stylesheet" href="/css/prices.css?v=20261017">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -910,16 +910,58 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
                       schema=[item_list, crumbs_schema], noindex=noindex)
 
 
+# Photos for the price-guide index cards (17 Oct 2026): the site's own
+# photos, reused from the hub pages and Deal Tools. A section only switches
+# to photo cards when every card in it has a photo, so it never looks
+# half-finished; drop the named file into assets/photos/ and it appears.
+INDEX_PHOTOS = {
+    "/prices/drivers/": "driver-head.jpg", "/prices/fairway-woods/": "fairway-wood-head.jpg",
+    "/prices/hybrids/": "hybrid-head.jpg", "/prices/irons/": "irons-head.jpg", "/prices/wedges/": "wedges-trio.jpg",
+    "/prices/putters/": "putter-mallet.jpg", "/prices/golf-balls/": "golf-ball-branded.jpg",
+    "/prices/golf-bags/": "golfbag-with-clubs.jpg", "/prices/gps-watches/": "gps-watch-real.jpg",
+    "/prices/rangefinders/": "rangefinder-real.jpg", "/prices/electric-trolleys/": "pushcart-loaded.jpg",
+    "/prices/launch-monitors/": "launch-monitor-display.jpg", "/prices/golf-package-sets/": "clubs-set-bag.jpg",
+    "/prices/junior-golf-sets/": "junior-golf-set.jpg",
+    "/prices/golf-shoes/": "shoes-white-pair.jpg", "/prices/golf-polo-shirts/": "polo-navy-walk.jpg",
+    "/prices/golf-jackets/": "jacket-grey-darksleeve.jpg", "/prices/golf-mid-layers/": "midlayer-green-quarterzip.jpg",
+    "/prices/golf-trousers/": "trousers-navy.jpg", "/prices/golf-shorts/": "shorts-cream-belt.jpg",
+    "/prices/golf-gloves/": "glove-pair-ongrass.jpg",
+    "/prices/drops/": "tools/price-drops-wide.jpg", "/price-check.html": "tools/good-price-wide.jpg",
+    "/prices/winter-golf/": "winter-jacket.jpg", "/prices/data/": "tools/fairway-index-wide.jpg",
+    "/prices/black-friday/": "black-friday.jpg", "/prices/christmas/": "christmas.jpg",
+    "/prices/boxing-day-sales/": "boxing-day.jpg", "/prices/golf-gifts/": "golf-gifts.jpg",
+}
+
+
+def _index_photo(url):
+    f = INDEX_PHOTOS.get(url)
+    return f"/assets/photos/{f}" if f and (ROOT / "assets" / "photos" / f).exists() else None
+
+
+INDEX_FALLBACK = {}  # url -> a product photo, filled by build() for hubs without their own photo yet
+
+
+def _index_cards(items):
+    """items: (url, title, subtitle html). Photo cards if every one has a
+    photo (a hub may borrow a product photo until its own arrives)."""
+    photos = [_index_photo(u) for u, _, _ in items]
+    shots = [(ph, "") if ph else (INDEX_FALLBACK.get(u), " pp-rel-product") for (u, _, _), ph in zip(items, photos)]
+    if items and all(ph for ph, _ in shots):
+        return "".join(f'<a class="pp-card pp-rel pp-rel-photo" href="{u}"><span class="pp-rel-img{cls}"><img src="{esc(ph)}" alt="" loading="lazy" width="400" height="250"{' referrerpolicy="no-referrer"' if cls else ""}></span>'
+                       f'<span class="pp-rel-body"><span class="pp-rel-name">{esc(t)}</span><span class="pp-sub">{d}</span></span></a>'
+                       for (u, t, d), (ph, cls) in zip(items, shots))
+    return "".join(f'<a class="pp-card pp-rel" href="{u}"><span class="pp-rel-name">{esc(t)}</span><span class="pp-sub">{d}</span></a>'
+                   for u, t, d in items)
+
+
 def build_index_page(all_models, hubs_built, today, noindex, seasonal_links=(), brand_counts=None, clothing_links=()):
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", None)])
     seasonal_html = ""
     if clothing_links:
-        cc = "".join(f'<a class="pp-card pp-rel" href="{u}"><span class="pp-rel-name">{esc(t)}</span><span class="pp-sub">{esc(d)}</span></a>'
-                     for u, t, d in clothing_links)
+        cc = _index_cards([(u, t, esc(d)) for u, t, d in clothing_links])
         seasonal_html += f'<section class="pp-block"><h2>Golf clothing, shoes and gloves</h2><div class="pp-rel-grid">{cc}</div></section>'
     if seasonal_links:
-        sc = "".join(f'<a class="pp-card pp-rel" href="{u}"><span class="pp-rel-name">{esc(t)}</span><span class="pp-sub">{esc(d)}</span></a>'
-                     for u, t, d in seasonal_links)
+        sc = _index_cards([(u, t, esc(d)) for u, t, d in seasonal_links])
         seasonal_html += f'<section class="pp-block"><h2>Seasonal guides</h2><div class="pp-rel-grid">{sc}</div></section>'
     if brand_counts:
         from brand_pages import brand_slug
@@ -927,13 +969,14 @@ def build_index_page(all_models, hubs_built, today, noindex, seasonal_links=(), 
         chips = "".join(f'<a class="pp-chip" href="/prices/brands/{brand_slug(b)}/">{esc(b)} <em>{n}</em></a>' for b, n in top)
         seasonal_html += (f'<section class="pp-block"><h2>By brand</h2><div class="pp-chips">{chips}'
                           f'<a class="pp-chip" href="/prices/brands/">All {len(brand_counts)} brands →</a></div></section>')
-    cards = []
+    items = []
     for h in hubs_built:
         t = HUB_TYPES[h]
         ms = [m for m in all_models if m["type"] == t and m["gate"]["passes"]]
         if ms:
-            cards.append(f"""<a class="pp-card pp-rel" href="/prices/{h}/"><span class="pp-rel-name">{TYPES[t][1]}</span>
-<span class="pp-sub">{plural(len(ms), 'model')} tracked · from {money(min(m['minPrice'] for m in ms))}{' per dozen' if t == 'ball' else ''}</span></a>""")
+            items.append((f"/prices/{h}/", TYPES[t][1],
+                          f"{plural(len(ms), 'model')} tracked · from {money(min(m['minPrice'] for m in ms))}{' per dozen' if t == 'ball' else ''}"))
+    cards = [_index_cards(items)]
     body = f"""<div class="pp-wrap">
 {crumbs_html}
 <section class="pp-hub-top">
@@ -1187,6 +1230,15 @@ def build(models_list, products, today_str):
                 hub = next((v[0] for v in TYPES.values() if v[2] == noun), "")
                 _write(old, retired_page(slug, html.unescape(name.group(1)) if name else slug.replace("-", " ").title(), hub, today))
                 changed.append(f"/prices/{slug}/")
+    INDEX_FALLBACK.clear()
+    for h in hubs:
+        if not _index_photo(f"/prices/{h}/"):
+            ms = sorted((m for m in passing if TYPES[m["type"]][0] == h), key=lambda m: -m.get("listingCount", 0))
+            for m in ms:
+                img = next((by_id[i]["image"] for i in m.get("listingIds", []) if i in by_id and by_id[i].get("image")), None)
+                if img:
+                    INDEX_FALLBACK[f"/prices/{h}/"] = img
+                    break
     for h in hubs:
         if h in GUIDE_HUBS:
             import sets_pages
@@ -1228,7 +1280,8 @@ def build(models_list, products, today_str):
         except Exception as e:  # never stop the main build
             print(f"Email lookup skipped: {e}")
         import drops_page
-        d_changed, d_sitemap, _ = drops_page.build(passing, built, today)
+        d_changed, d_sitemap, _ = drops_page.build(passing, built, today,
+                                                   {p["id"]: p["image"] for p in products if p.get("image")})
         changed += d_changed
         sitemap += d_sitemap
         try:

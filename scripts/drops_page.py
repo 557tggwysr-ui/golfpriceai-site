@@ -43,9 +43,19 @@ def when(d, today):
     return "Today" if n == 0 else "Yesterday" if n == 1 else f"{d.day} {d.strftime('%b')}"
 
 
-def table(rows, today):
+def _thumb(m, images):
+    img = next((images[i] for i in m.get("listingIds", []) if images.get(i)), None)
+    if not img:
+        return ""
+    return (f'<a class="sb-thumb" href="/prices/{m["slug"]}/" tabindex="-1" aria-hidden="true">'
+            f'<img src="{esc(img)}" alt="" loading="lazy" width="52" height="52" referrerpolicy="no-referrer" '
+            f'onerror="this.parentNode.remove()"></a>')
+
+
+def table(rows, today, images=None):
+    images = images or {}
     trs = "".join(f"""<tr>
-  <th scope="row"><a href="/prices/{r['m']['slug']}/">{esc(r['m']['name'])}</a><span class="pp-sub sb-type">{esc(TYPES[r['m']['type']][2])}{' · <span class="sb-down">lowest we’ve tracked</span>' if (r['m'].get('verdict') or {}).get('label') == 'good' else ''}</span><a class="sb-alert" href="/prices/{r['m']['slug']}/#price-alert">Email me if it drops again</a></th>
+  <th scope="row">{_thumb(r['m'], images)}<a href="/prices/{r['m']['slug']}/">{esc(r['m']['name'])}</a><span class="pp-sub sb-type">{esc(TYPES[r['m']['type']][2])}{' · <span class="sb-down">lowest we’ve tracked</span>' if (r['m'].get('verdict') or {}).get('label') == 'good' else ''}</span><a class="sb-alert" href="/prices/{r['m']['slug']}/#price-alert">Email me if it drops again</a></th>
   <td><s>{money(r['from'])}</s></td>
   <td class="pp-price">{money(r['to'])}{' per dozen' if r['m']['type'] == 'ball' else ''}</td>
   <td><span class="sb-down">−{money(r['fall'])} ({r['pct']}%)</span></td>
@@ -56,24 +66,24 @@ def table(rows, today):
 <tbody>{trs}</tbody></table></div>"""
 
 
-def build(models, built, today):
+def build(models, built, today, images=None):
     rows = recent_drops(models, built, today)
     fresh = [r for r in rows if (today - r["date"]).days <= 1]
     older = [r for r in rows if (today - r["date"]).days > 1]
     now_uk = datetime.now(timezone.utc).astimezone(UK)
     stamp = f"{now_uk.strftime('%H:00')} on {long_date(today)}"
     if fresh:
-        top = max(fresh, key=lambda r: r["pct"])
+        top = max([r for r in fresh if r["m"]["type"] != "junior-set"] or fresh, key=lambda r: r["pct"])
         answer = (f"<strong>{plural(len(fresh), 'genuine price drop')}</strong> in the last 48 hours on the golf gear we "
                   f"track, the biggest on the {esc(top['m']['name'])}: down {money(top['fall'])} to {money(top['to'])}. "
                   f"Checked against our own price history, updated every 6 hours (last at {stamp}).")
     else:
         answer = (f"No genuine price drops in the last 48 hours on the golf gear we track (last checked at {stamp}). "
                   f"{plural(len(older), 'drop')} from earlier this week {'is' if len(older) == 1 else 'are'} still live below.")
-    fresh_html = table(fresh, today) if fresh else '<p class="pp-card sb-empty">Nothing new in the last 48 hours. Prices are checked every 6 hours, so check back later.</p>'
+    fresh_html = table(fresh, today, images) if fresh else '<p class="pp-card sb-empty">Nothing new in the last 48 hours. Prices are checked every 6 hours, so check back later.</p>'
     older_html = f"""<section class="pp-block">
   <h2>Earlier this week, still at the lower price</h2>
-  {table(older[:60], today)}
+  {table(older[:60], today, images)}
 </section>""" if older else ""
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), ("Price drops today", None)])
     body = f"""<div class="pp-wrap">
