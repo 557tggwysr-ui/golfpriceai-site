@@ -322,3 +322,5 @@ button.pp-chip:focus-visible { outline: 3px solid var(--gp-green); outline-offse
 @media (max-width: 560px) { .bf-thumb, .bf-thumb a, .pp-thumb, .pp-thumb a, .pp-thumb span { width: 44px; height: 44px; } }
 .gf-clear { min-height: 44px; padding: 0 12px; border: 0; background: none; color: var(--gp-text-3); font: 600 14px Inter, sans-serif; text-decoration: underline; cursor: pointer; }
 .gf-clear:hover { color: var(--gp-ink); }
+button.pp-btn { font: inherit; font-weight: 700; cursor: pointer; }
+button.pp-btn svg { flex: none; }

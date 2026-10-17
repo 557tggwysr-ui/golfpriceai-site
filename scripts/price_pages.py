@@ -439,6 +439,7 @@ def chart_svg(model, phone=False):
 
 
 # ---------------------------------------------------------------- shared page parts
+ICON_SHARE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>'
 ICON_BELL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0112 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 003.4 0"></path></svg>'
 VERDICT_ICON = {
     "good": '<path d="M12 5v14M6 13l6 6 6-6"></path>',
@@ -488,7 +489,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/prices.css?v=20261018d">
+<link rel="stylesheet" href="/css/prices.css?v=20261018e">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -768,6 +769,14 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
   <div class="pp-rel-grid">{cards}</div>
 </section>"""
 
+    _p = money(low['price']) + (" per dozen" if per else "")
+    _is = "are" if name.lower().endswith(("balls", "irons", "wedges", "shoes", "gloves", "sets")) else "is"
+    if m.get("_card"):
+        share_text = f"The {name} {_is} {_p} today, the lowest price GolfPrice AI has tracked:"
+    elif vlabel == "good":
+        share_text = f"The {name} {_is} {_p} today, a good price according to GolfPrice AI:"
+    else:
+        share_text = f"Compare UK prices for the {name}, from {_p} today on GolfPrice AI:"
     body = f"""<div class="pp-wrap">
 {crumbs_html}
 <section class="pp-top">
@@ -783,6 +792,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     <div class="pp-ctas">
       <a class="pp-btn" href="{esc(low['url'])}" target="_blank" rel="sponsored nofollow noopener">Shop from {money(low['price'])}{per}</a>
       <a class="pp-btn pp-btn-alt" href="#price-alert">{ICON_BELL}Email me when it drops</a>
+      <button type="button" class="pp-btn pp-btn-alt gp-share" data-text="{esc(share_text)}">{ICON_SHARE}Share this deal</button>
     </div>
     <p class="pp-disclose">We may earn a commission if you buy through these links. It never changes the prices or the verdict.</p>
     <p class="pp-check">Seen it somewhere else? <a href="/price-check.html?m={esc(model.slug)}">Check if that price is any good →</a></p>
@@ -809,7 +819,8 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
 {rel_html}
 {method_note(today)}
 <p class="pp-small pp-data">The facts on this page as data: <a href="/prices/{model.slug}/data.json">data.json</a></p>
-</div>"""
+</div>
+<script src="/js/gift-finder.js?v=20261018d" defer></script>"""
 
     title = f"{name} Price UK: from {money(low['price'])}{per}"
     if model.is_ball:
