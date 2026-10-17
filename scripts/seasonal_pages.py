@@ -300,7 +300,7 @@ def build_black_friday(models, built, today, images=None):
 {method_note(today)}
 </div>
 <script src="/js/clothing-guide.js?v=20261018" defer></script>
-<script src="/js/gift-finder.js?v=20261018c" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018d" defer></script>"""
     title = f"Golf Black Friday Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
     desc = (f"Black Friday {year} golf deals that are genuinely cheaper than in October, with the saving on each. "
             f"Drivers, putters, bags, rangefinders and more, checked every 6 hours.")
@@ -727,10 +727,10 @@ def build_wishlist_page(today):
 <section class="pp-block"><p>Buying for a golfer and want more ideas? <a href="/prices/golf-gifts/">Try the gift finder</a>.</p></section>
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018c" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018d" defer></script>"""
     return page_shell(title="A golf wishlist for you | GolfPrice AI",
                       description="Hint, hint: a golfer’s wishlist, with today’s lowest UK prices and whether it’s a good time to buy.",
-                      canonical=f"{SITE}/prices/golf-gifts/wishlist/", body=body, section="", schema=[crumbs_schema],
+                      canonical=f"{SITE}/wishlist/", body=body, section="", schema=[crumbs_schema],
                       noindex=True, og_image="/assets/photos/golf-gifts.jpg",
                       extra_head='<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="750">\n'
                                  '<meta property="og:image:alt" content="Golf gifts: balls, tees, a glove and a wrapped present">\n')
@@ -774,7 +774,7 @@ def build_gift_page(slug, cfg, models, built, products, images, today, all_slugs
 <section class="pp-block"><p class="pp-small">How we pick: well-known brands, in stock and new, one per brand where we can so you get a real choice, ordered by price and value, never by brand. Clubs, balls and gadgets link to our price pages so you can compare every retailer; smaller items link straight to the cheapest retailer we found.</p></section>
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018c" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018d" defer></script>"""
     title = f"{cfg['h1']} (UK, {today.year}): {total} Ideas at Today's Prices | GolfPrice AI"
     desc = (f"{cfg['h1']}: {total} ideas from UK retailers, with live prices checked every 6 hours. "
             f"New stock only, from brands golfers actually use.")
@@ -848,7 +848,7 @@ def build_gift_index(built_slugs, today, items):
 {faq_html}
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018c" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018d" defer></script>"""
     return page_shell(title=f"Golf Gift Ideas UK {today.year}: Gift Finder at Live Prices | GolfPrice AI",
                       description="Golf gift ideas for non-golfers: a 3-question gift finder, “gift-safe” picks that need no sizes, and live UK prices checked every 6 hours.",
                       canonical=f"{SITE}/prices/golf-gifts/", body=body, section="", schema=[crumbs_schema, faq_schema], noindex=False)
@@ -892,7 +892,11 @@ def build(passing, built, products, today):
     if made:
         if _write(PRICES_DIR / "golf-gifts" / "index.html", build_gift_index(made, today, gift_items)):
             changed.append("/prices/golf-gifts/")
-        _write(PRICES_DIR / "golf-gifts" / "wishlist" / "index.html", build_wishlist_page(today))
+        # Shared wishlists live at the short address golfpriceai.com/wishlist/ ;
+        # the older address keeps working for links already sent.
+        wl = build_wishlist_page(today)
+        _write(PRICES_DIR.parent / "wishlist" / "index.html", wl)
+        _write(PRICES_DIR / "golf-gifts" / "wishlist" / "index.html", wl)
         # Data for shared wishlists (/prices/golf-gifts/wishlist/?i=...): product details only, no personal data.
         gifts = {it["key"]: {k: it[k] for k in ("name", "price", "per", "href", "ext", "img", "check", "verdict", "sub")}
                  for it in gift_items}

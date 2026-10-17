@@ -9,7 +9,7 @@
    The page works without this script; only these extras need it. */
 (function () {
   var KEY = 'gpWishlist';
-  var BASE = location.origin + '/prices/golf-gifts/wishlist/';
+  var BASE = location.origin + '/wishlist/';
 
   function load() {
     try { var v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v.slice(0, 30) : []; }
