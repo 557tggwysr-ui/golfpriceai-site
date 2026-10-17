@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install picture tools (for share cards)
+        run: pip install --quiet pillow
+
       - name: Run deal refresh script
         env:
           CJ_API_TOKEN: ${{ secrets.CJ_API_TOKEN }}
@@ -41,7 +44,7 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           # Everything the refresh writes: data files, price pages, forwarded
           # old pages and the sitemaps.
-          git add -A data prices products wishlist sitemap.xml sitemap-pages.xml sitemap-prices.xml
+          git add -A data prices products wishlist assets/cards sitemap.xml sitemap-pages.xml sitemap-prices.xml
           git diff --quiet --cached || git commit -m "Automated catalog refresh"
           git pull --rebase
           git push
