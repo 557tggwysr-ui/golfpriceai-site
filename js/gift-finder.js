@@ -26,9 +26,7 @@
     }
   }
   function listUrl(keys, name) {
-    var u = BASE + '?i=' + keys.join(',');
-    if (name) u += '&for=' + encodeURIComponent(name);
-    return u + '&utm_source=hint&utm_medium=share';
+    return BASE + '?' + (name ? 'for=' + encodeURIComponent(name) + '&' : '') + 'i=' + keys.join(',');
   }
 
   // ---------------------------------------------------------- page sharing
@@ -75,7 +73,7 @@
     bar.querySelector('.gf-send').addEventListener('click', function () {
       if (!wish.length) return;
       var name = (bar.querySelector('input').value || '').trim().replace(/[^A-Za-zÀ-ɏ' -]/g, '').slice(0, 20);
-      share('Hint, hint… here’s my golf wishlist, with today’s best UK prices:', listUrl(wish, name));
+      share('Hint, hint… ' + (name ? name + '’s' : 'my') + ' golf wishlist, with today’s best UK prices on GolfPrice AI:', listUrl(wish, name));
       track('drop_hint', { items: wish.length });
     });
   }

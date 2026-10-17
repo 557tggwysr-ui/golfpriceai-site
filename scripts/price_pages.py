@@ -448,7 +448,8 @@ VERDICT_ICON = {
 }
 
 
-def page_shell(*, title, description, canonical, body, section, schema, noindex, extra_head=""):
+def page_shell(*, title, description, canonical, body, section, schema, noindex, extra_head="",
+               og_image="/assets/social-share.jpg"):
     robots = '<meta name="robots" content="noindex, follow">\n' if noindex else ""
     schema_html = "".join(
         f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False, separators=(",", ":"))}</script>\n'
@@ -466,13 +467,13 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/prices.css?v=20261018">
+<link rel="stylesheet" href="/css/prices.css?v=20261018b">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{SITE}/assets/social-share.jpg">
+<meta property="og:image" content="{SITE}{og_image}">
 <meta name="twitter:card" content="summary_large_image">
 {extra_head}{schema_html}</head>
 <body data-section="{section}">

@@ -185,19 +185,28 @@ def _mark_lows(rows, today):
         r["low"] = bool(prev) and r["now"] <= min(prev) + 0.005
 
 
+def _bf_thumb(r):
+    img = r["m"].get("_image")
+    if not img:
+        return '<td class="bf-thumb" aria-hidden="true"></td>'
+    return (f'<td class="bf-thumb" aria-hidden="true"><a href="/prices/{r["m"]["slug"]}/" tabindex="-1"><img src="{esc(img)}" alt="" '
+            f'loading="lazy" width="56" height="56" referrerpolicy="no-referrer" onerror="this.remove()"></a></td>')
+
+
 def deals_table(rs):
     trs = "".join(f"""<tr class="cg-item" data-tags="{TYPES[r['m']['type']][0]}">
   <th scope="row"><a href="/prices/{r['m']['slug']}/">{esc(r['m']['name'])}</a>{'<span class="bf-low">Lowest we’ve tracked</span>' if r.get('low') else ''}<span class="pp-sub sb-type">{esc(TYPES[r['m']['type']][2])}</span></th>
+  {_bf_thumb(r)}
   <td>{money(r['base'])}{per(r['m'])}</td>
   <td class="pp-price">{money(r['now'])}{per(r['m'])}</td>
   <td class="bf-save">{money(r['base'] - r['now'])} ({r['pct']}%)</td>
 </tr>""" for r in rs)
     return f"""<div class="pp-card pp-table-wrap"><table class="pp-table sb-table">
-<thead><tr><th scope="col">Model</th><th scope="col">October price</th><th scope="col">Today</th><th scope="col">You save</th></tr></thead>
+<thead><tr><th scope="col">Model</th><td class="bf-thumb"></td><th scope="col">October price</th><th scope="col">Today</th><th scope="col">You save</th></tr></thead>
 <tbody class="cg-list" data-show="40">{trs}</tbody></table></div>"""
 
 
-def build_black_friday(models, built, today):
+def build_black_friday(models, built, today, images=None):
     year = today.year
     bf = black_friday_date(year)
     cyber = bf + timedelta(days=3)
@@ -206,6 +215,9 @@ def build_black_friday(models, built, today):
 
     rows, deals, _ = compare_rows(models, built, today, date(year, 10, 1), date(year, 10, 31))
     _mark_lows(deals, today)
+    for r in deals:
+        r["m"]["_image"] = r["m"].get("_image") or next(
+            (images[i] for i in r["m"].get("listingIds", []) if (images or {}).get(i)), None)
     deals = _lead_order(deals)
     lows = sum(1 for r in deals if r["low"])
     watch = watch_list(rows)
@@ -295,7 +307,7 @@ def build_black_friday(models, built, today):
 {method_note(today)}
 </div>
 <script src="/js/clothing-guide.js?v=20261017b" defer></script>
-<script src="/js/gift-finder.js?v=20261018" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018b" defer></script>"""
     title = f"Golf Black Friday Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
     desc = (f"Black Friday {year} golf deals that are genuinely cheaper than in October, with the saving on each. "
             f"Drivers, putters, bags, rangefinders and more, checked every 6 hours.")
@@ -721,11 +733,13 @@ def build_wishlist_page(today):
 <section class="pp-block"><p>Buying for a golfer and want more ideas? <a href="/prices/golf-gifts/">Try the gift finder</a>.</p></section>
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018" defer></script>"""
-    return page_shell(title="A Golf Wishlist for You | GolfPrice AI",
-                      description="A golfer's wishlist with today's lowest UK prices, checked every 6 hours.",
+<script src="/js/gift-finder.js?v=20261018b" defer></script>"""
+    return page_shell(title="A golf wishlist for you | GolfPrice AI",
+                      description="Hint, hint: a golfer’s wishlist, with today’s lowest UK prices and whether it’s a good time to buy.",
                       canonical=f"{SITE}/prices/golf-gifts/wishlist/", body=body, section="", schema=[crumbs_schema],
-                      noindex=True)
+                      noindex=True, og_image="/assets/photos/golf-gifts.jpg",
+                      extra_head='<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="750">\n'
+                                 '<meta property="og:image:alt" content="Golf gifts: balls, tees, a glove and a wrapped present">\n')
 
 
 def build_gift_page(slug, cfg, models, built, products, images, today, all_slugs):
@@ -766,7 +780,7 @@ def build_gift_page(slug, cfg, models, built, products, images, today, all_slugs
 <section class="pp-block"><p class="pp-small">How we pick: well-known brands, in stock and new, one per brand where we can so you get a real choice, ordered by price and value, never by brand. Clubs, balls and gadgets link to our price pages so you can compare every retailer; smaller items link straight to the cheapest retailer we found.</p></section>
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018b" defer></script>"""
     title = f"{cfg['h1']} (UK, {today.year}): {total} Ideas at Today's Prices | GolfPrice AI"
     desc = (f"{cfg['h1']}: {total} ideas from UK retailers, with live prices checked every 6 hours. "
             f"New stock only, from brands golfers actually use.")
@@ -840,7 +854,7 @@ def build_gift_index(built_slugs, today, items):
 {faq_html}
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018b" defer></script>"""
     return page_shell(title=f"Golf Gift Ideas UK {today.year}: Gift Finder at Live Prices | GolfPrice AI",
                       description="Golf gift ideas for non-golfers: a 3-question gift finder, “gift-safe” picks that need no sizes, and live UK prices checked every 6 hours.",
                       canonical=f"{SITE}/prices/golf-gifts/", body=body, section="", schema=[crumbs_schema, faq_schema], noindex=False)
@@ -854,7 +868,7 @@ def build(passing, built, products, today):
     """Returns (changed urls, sitemap entries, seasonal hub links for the /prices/ page)."""
     changed, sitemap, links = [], [], []
     images = {p["id"]: p.get("image") for p in products if p.get("image")}
-    page, n_deals = build_black_friday(passing, built, today)
+    page, n_deals = build_black_friday(passing, built, today, images)
     if _write(PRICES_DIR / "black-friday" / "index.html", page):
         changed.append("/prices/black-friday/")
     sitemap.append(("prices/black-friday/", today.isoformat()))
