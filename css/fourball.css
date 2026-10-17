@@ -47,10 +47,13 @@
 
 /* ---------------------------------------------------------------- tool page */
 .fb-kicker { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gp-green-dark); }
-.fb-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: center; padding: 28px 0 0; }
+.fb-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: stretch; padding: 28px 0 0; }
+/* Photo fills the full height of the words beside it: tops and bottoms line up. */
+.fb-hero-photo { position: relative; min-height: 320px; }
+.fb-hero-photo img { position: absolute; inset: 0; height: 100%; }
 .fb-hero h1 { margin: 6px 0 10px; font-family: Poppins, sans-serif; font-weight: 800; font-size: clamp(32px, 5vw, 48px); line-height: 1.08; }
 .fb-lede { margin: 0; font-size: 17px; line-height: 1.55; color: var(--gp-text-2); max-width: 620px; }
-.fb-hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 20px; }
+.fb-hero-photo img { display: block; width: 100%; object-fit: cover; object-position: 60% 40%; border-radius: 20px; }
 .fb-steps { list-style: none; margin: 22px 0 0; padding: 18px; background: #fff; border: 1px solid var(--gp-line); border-radius: 16px; display: flex; flex-direction: column; gap: 14px; }
 .fb-steps li { display: flex; gap: 12px; align-items: flex-start; }
 .fb-steps li > span:last-child { display: flex; flex-direction: column; gap: 2px; font-size: 14.5px; color: var(--gp-text-2); line-height: 1.45; }
@@ -78,7 +81,8 @@
 .fb-faq p { margin: 8px 0 0; color: var(--gp-text-2); line-height: 1.55; }
 @media (max-width: 760px) {
   .fb-hero { grid-template-columns: 1fr; gap: 20px; }
-  .fb-hero-photo { order: -1; }
+  .fb-hero-photo { order: -1; min-height: 0; }
+  .fb-hero-photo img { position: static; height: auto; aspect-ratio: 3 / 2; }
   .fb-start { padding: 18px 16px; }
 }
 
