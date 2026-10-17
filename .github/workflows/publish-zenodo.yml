@@ -1,0 +1,33 @@
+name: Publish open data to Zenodo
+
+# On the 1st of each month, publishes a new version of the open data on
+# Zenodo (the permanent, citable copy with a DOI) - but only if the prices
+# have changed since the last version. Can also be run by hand.
+#
+# Needs the ZENODO_TOKEN repository secret (a Zenodo personal access token
+# with deposit:write and deposit:actions). Without it, it does nothing.
+on:
+  schedule:
+    - cron: "41 6 1 * *"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Publish new version
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        run: |
+          pip install --quiet requests
+          python scripts/publish_zenodo.py
