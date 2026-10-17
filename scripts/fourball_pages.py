@@ -16,7 +16,7 @@ from price_pages import (FOURBALL_CSS, ICON_GROUP, PRICES_DIR, SITE, _write, bre
 import site_chrome
 
 ROOT = PRICES_DIR.parent
-PHOTO = "/assets/photos/golf-suit-winter-group.jpg"
+PHOTO = "/assets/photos/tools/fourball-wide.jpg"
 CARD = "/assets/cards/fourball.jpg"
 
 FAQ = [
@@ -63,7 +63,7 @@ def tool_page():
     <p class="fb-lede">Price alerts for your whole four-ball. One link in the group chat, and everyone hears when the kit you’re all eyeing genuinely drops.</p>
     <ol class="fb-steps">{steps_html}</ol>
   </div>
-  <div class="fb-hero-photo"><img src="{PHOTO}" alt="Three golfers laughing together on a frosty course" width="512" height="512"></div>
+  <div class="fb-hero-photo"><img src="{PHOTO}" alt="Four golfers laughing at a phone on an autumn course at sunset" width="1200" height="800"></div>
 </section>
 <section class="fb-start" aria-labelledby="fb-start-h">
   <h2 id="fb-start-h">Start a four-ball alert</h2>

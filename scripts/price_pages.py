@@ -440,7 +440,7 @@ def chart_svg(model, phone=False):
 
 # ---------------------------------------------------------------- shared page parts
 ICON_SHARE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>'
-FOURBALL_CSS = '<link rel="stylesheet" href="/css/fourball.css?v=20261018">\n'
+FOURBALL_CSS = '<link rel="stylesheet" href="/css/fourball.css?v=20261018b">\n'
 ICON_HEART = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"></path></svg>'
 ICON_GROUP = '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2f8a1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="8" r="3"></circle><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M12 14.5c1-.3 2-.5 4-.5 3.3 0 6 2.7 6 6"></path></svg>'
 ICON_BELL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0112 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 003.4 0"></path></svg>'

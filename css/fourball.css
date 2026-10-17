@@ -50,7 +50,7 @@
 .fb-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: center; padding: 28px 0 0; }
 .fb-hero h1 { margin: 6px 0 10px; font-family: Poppins, sans-serif; font-weight: 800; font-size: clamp(32px, 5vw, 48px); line-height: 1.08; }
 .fb-lede { margin: 0; font-size: 17px; line-height: 1.55; color: var(--gp-text-2); max-width: 620px; }
-.fb-hero-photo img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 20px; }
+.fb-hero-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 20px; }
 .fb-steps { list-style: none; margin: 22px 0 0; padding: 18px; background: #fff; border: 1px solid var(--gp-line); border-radius: 16px; display: flex; flex-direction: column; gap: 14px; }
 .fb-steps li { display: flex; gap: 12px; align-items: flex-start; }
 .fb-steps li > span:last-child { display: flex; flex-direction: column; gap: 2px; font-size: 14.5px; color: var(--gp-text-2); line-height: 1.45; }
@@ -79,7 +79,6 @@
 @media (max-width: 760px) {
   .fb-hero { grid-template-columns: 1fr; gap: 20px; }
   .fb-hero-photo { order: -1; }
-  .fb-hero-photo img { aspect-ratio: 4 / 3; object-position: 50% 25%; }
   .fb-start { padding: 18px 16px; }
 }
 
@@ -109,19 +108,15 @@
 .fb-watch-form .gp-af-msg.is-ok { color: #8fd77e; }
 .fb-watch-form .gp-af-msg.is-error { color: #ffb4a8; }
 
-/* ---------------------------------------------------------------- homepage band + confirmed page */
-.fb-band { display: grid; grid-template-columns: minmax(0, 1fr) 260px; align-items: stretch; background: #14211a; color: #fff; border-radius: 20px; overflow: hidden; margin-top: 28px; text-decoration: none; }
-.fb-band-body { padding: 24px 26px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
-.fb-band-kicker { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8fd77e; }
-.fb-band-title { font: 800 clamp(21px, 2.6vw, 28px)/1.2 Poppins, sans-serif; color: #fff; }
-.fb-band-line { font-size: 15px; line-height: 1.5; color: #c4d0c8; max-width: 560px; }
-.fb-band-cta { margin-top: 6px; background: var(--gp-green); color: #fff; font-weight: 700; border-radius: 10px; padding: 11px 18px; }
-.fb-band:hover .fb-band-cta { background: var(--gp-green-dark); }
-.fb-band img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+/* ---------------------------------------------------------------- homepage banner (uses .gp-tb from home.css) + confirmed page */
+.fb-tb { margin-top: 20px; }
+.fb-tb img { object-position: 75% 40%; }
+/* Phones: square photo, faces at the top, words over the bottom half. */
 @media (max-width: 700px) {
-  .fb-band { grid-template-columns: 1fr; }
-  .fb-band img { order: -1; height: 180px; }
-  .fb-band-body { padding: 18px 16px; }
+  .fb-tb { aspect-ratio: 1 / 1; }
+  .fb-tb img { object-position: 50% 0; }
+  .fb-tb::after { background: linear-gradient(180deg, rgba(22, 36, 28, 0) 30%, rgba(22, 36, 28, 0.78) 55%, rgba(22, 36, 28, 0.95) 100%); }
+  .fb-tb .gp-tb-body { top: auto; bottom: 20px; transform: none; width: auto; right: 20px; left: 20px; }
 }
 #fb-confirm { margin: 22px 0 0; text-align: left; }
 #fb-confirm .fb-product { font-weight: 700; }
