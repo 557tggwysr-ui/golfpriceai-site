@@ -489,7 +489,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/prices.css?v=20261018e">
+<link rel="stylesheet" href="/css/prices.css?v=20261018f">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -591,6 +591,25 @@ def alert_form(model):
     <p class="gp-af-msg" role="status" aria-live="polite"></p>
   </form>
 </section>"""
+
+
+def bought_box(model):
+    """"Bought it? We'll keep watching": one email within 30 days if the price
+    drops below what they paid. Sent by scripts/alerts.py (BOUGHTWATCH)."""
+    fid = f"bw-{model.slug}"[:60]
+    return f"""<details class="pp-bought" id="bought-watch">
+  <summary><span><strong>Already bought it?</strong> Tell us what you paid. If the price drops in the next 30 days, we’ll email you once, so you can ask the retailer to match it.</span><span class="pp-bought-btn">Watch my price</span></summary>
+  <form class="gp-alert-form pp-bought-form" data-bought="{esc(model.slug)}" novalidate>
+    <div class="pp-bought-row">
+      <label for="{fid}-paid">What you paid{' (per dozen)' if model.is_ball else ''}<input id="{fid}-paid" name="paid" type="text" inputmode="decimal" autocomplete="off" value="{model.low_price:.2f}" required></label>
+      <label for="{fid}-email">Your email<input id="{fid}-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required></label>
+      <button type="submit" class="gp-af-btn">Watch my price</button>
+    </div>
+    <div class="gp-hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
+    <p class="gp-af-small">One email at most, only if the lowest UK price falls below what you paid. After 30 days we delete it. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
+    <p class="gp-af-msg" role="status" aria-live="polite"></p>
+  </form>
+</details>"""
 
 
 def build_model_page(model, all_models, built, hubs_built, today, noindex):
@@ -796,6 +815,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     </div>
     <p class="pp-disclose">We may earn a commission if you buy through these links. It never changes the prices or the verdict.</p>
     <p class="pp-check">Seen it somewhere else? <a href="/price-check.html?m={esc(model.slug)}">Check if that price is any good →</a></p>
+    {bought_box(model)}
   </div>
 </section>
 <div class="pp-two">

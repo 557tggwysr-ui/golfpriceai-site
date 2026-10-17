@@ -324,3 +324,19 @@ button.pp-chip:focus-visible { outline: 3px solid var(--gp-green); outline-offse
 .gf-clear:hover { color: var(--gp-ink); }
 button.pp-btn { font: inherit; font-weight: 700; cursor: pointer; }
 button.pp-btn svg { flex: none; }
+/* "Bought it? We'll keep watching" */
+.pp-bought { margin-top: 14px; background: #fff; border: 1px solid var(--gp-line); border-radius: 14px; }
+.pp-bought summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; padding: 14px 16px; font-size: 14px; line-height: 1.45; color: var(--gp-text-3); }
+.pp-bought summary::-webkit-details-marker { display: none; }
+.pp-bought summary strong { color: var(--gp-ink); display: block; font-size: 15px; }
+.pp-bought summary > span:first-child { flex: 1 1 260px; }
+.pp-bought-btn { flex: none; min-height: 44px; display: inline-flex; align-items: center; padding: 0 16px; border: 1px solid #dfe3dc; border-radius: 12px; font-weight: 700; color: var(--gp-ink); background: #fff; }
+.pp-bought summary:hover .pp-bought-btn { border-color: var(--gp-green); }
+.pp-bought summary:focus-visible { outline: 3px solid var(--gp-green); outline-offset: 2px; border-radius: 14px; }
+.pp-bought[open] .pp-bought-btn { display: none; }
+.pp-bought .pp-bought-form { padding: 0 16px 16px; max-width: none; box-sizing: border-box; }
+.pp-bought-row { display: grid; grid-template-columns: minmax(0, 140px) minmax(0, 1fr) auto; gap: 10px; align-items: end; }
+.pp-bought-row label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: var(--gp-ink); }
+.pp-bought-row input { min-height: 44px; border: 1px solid #c9cfc6; border-radius: 10px; padding: 0 12px; font: 15px Inter, sans-serif; width: 100%; box-sizing: border-box; }
+.pp-bought-row .gp-af-btn { min-height: 44px; }
+@media (max-width: 560px) { .pp-bought-row { grid-template-columns: 1fr; } }

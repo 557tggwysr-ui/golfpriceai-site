@@ -382,30 +382,38 @@
     if (!form.classList || !form.classList.contains('gp-alert-form')) return;
     e.preventDefault();
     var input = form.querySelector('input[type=email]');
+    var bought = form.getAttribute('data-bought') || '';
+    var paidEl = form.querySelector('input[name=paid]');
     var btn = form.querySelector('button[type=submit]');
     var msg = form.querySelector('.gp-af-msg');
     var hp = form.querySelector('input[name=website]');
     var email = (input.value || '').trim();
     function say(text, kind) { msg.textContent = text; msg.className = 'gp-af-msg' + (kind ? ' is-' + kind : ''); }
     if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { say('Please enter a full email address.', 'error'); input.focus(); return; }
+    var paid = paidEl ? parseFloat(String(paidEl.value).replace(/[£,\s]/g, '')) : 0;
+    if (bought && !(paid >= 1)) { say('Please enter the price you paid, e.g. 299.00', 'error'); paidEl.focus(); return; }
     btn.disabled = true;
     say('Sending…');
     fetch(ALERTS_URL + '/subscribe', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ email: email, model: form.getAttribute('data-model') || '',
-        modelName: form.getAttribute('data-model-name') || '', website: hp ? hp.value : '' })
+      body: JSON.stringify(bought
+        ? { email: email, bought: bought, paid: paid, website: hp ? hp.value : '' }
+        : { email: email, model: form.getAttribute('data-model') || '',
+            modelName: form.getAttribute('data-model-name') || '', website: hp ? hp.value : '' })
     }).then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
       .then(function (res) {
         btn.disabled = false;
         if (!res.ok) { say(res.error || 'Something went wrong. Please try again in a minute.', 'error'); return; }
         form.classList.add('is-done');
-        say(res.status === 'added'
+        say(res.status === 'added-bought'
+          ? 'Done: we’ll watch it for 30 days and email you once if it drops below what you paid.'
+          : res.status === 'added'
           ? 'Done: it’s on your alert list. Nothing to confirm, you’re already signed up.'
           : res.status === 'added-digest'
           ? 'Done: you’ll get the Friday email. Nothing to confirm, you’re already signed up.'
           : 'Nearly there: check your inbox for a confirmation email from GolfPrice AI and click the button in it. Nothing is sent until you do.', 'ok');
-        if (window.gtag) gtag('event', 'alert_signup', { model: form.getAttribute('data-model') || 'general', status: res.status });
+        if (window.gtag) gtag('event', bought ? 'bought_watch_signup' : 'alert_signup', { model: bought || form.getAttribute('data-model') || 'general', status: res.status });
       })
       .catch(function () { btn.disabled = false; say('Couldn’t reach the alert service. Please check your connection and try again.', 'error'); });
   });

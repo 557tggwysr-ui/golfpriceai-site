@@ -24,6 +24,12 @@ Back-in-stock alerts ("Notify me" on the Back In Stock Radar)
     one email goes out and the id is removed from STOCKWATCH, so it's a
     one-off alert.
 
+"Bought it? We'll keep watching" (price pages)
+  * The contact's BOUGHTWATCH attribute holds "slug|price paid|date" entries.
+    Each run, if that model's lowest new UK price is at least £1 below what
+    they paid, one email goes out and the entry is removed. Entries older
+    than 30 days are removed without an email.
+
 What is stored where
   * Emails and watch lists live only in Brevo. Nothing personal is written to
     this public repository: alerts-state.json holds model slugs, prices and
@@ -65,6 +71,8 @@ SENDER = {"name": "GolfPrice AI", "email": "alerts@golfpriceai.com"}
 MIN_DROP_POUNDS = 5.0
 MIN_DROP_PCT = 0.03
 MAX_BELIEVABLE_DROP = 0.60   # a bigger one-step fall is more likely a feed error: logged, not emailed
+BOUGHT_DAYS = 30             # "Bought it?" watches last this long
+BOUGHT_MIN_DROP = 1.0        # pounds below the price paid before we email
 REFERENCE_RESET_DAYS = 7     # price clearly above the reference this long = new normal
 DAILY_CAP = int(os.environ.get("ALERTS_DAILY_CAP") or 250)  # Brevo free plan: 300 a day, incl. confirmations
 
@@ -137,8 +145,9 @@ def subscribers(key):
             # early sign-ups from before that attribute existed who signed
             # up for general alerts rather than one model.
             stock = [s.strip() for s in str(attrs.get("STOCKWATCH") or "").split(",") if s.strip()]
-            out.append({"email": c["email"].lower(), "watch": watch, "stock": stock,
-                        "digest": digest == "yes" or (not digest and not watch and not stock)})
+            bought = [s.strip() for s in str(attrs.get("BOUGHTWATCH") or "").split(",") if s.strip().count("|") == 2]
+            out.append({"email": c["email"].lower(), "watch": watch, "stock": stock, "bought": bought,
+                        "digest": digest == "yes" or (not digest and not watch and not stock and not bought)})
         offset += len(batch)
         if len(batch) < 500 or offset >= (data.get("count") or 0):
             return out
@@ -377,6 +386,95 @@ def run_stock_alerts(key, secret, state, subs, room):
     return sent
 
 
+# ---------------------------------------------------------------- bought it? we'll keep watching
+def bought_email_html(email, d, secret):
+    per = " per dozen" if d["ball"] else ""
+    link = f"{SITE}/prices/{d['slug']}/?utm_source=bought-alert&utm_medium=email"
+    img = (f'<img src="{html.escape(d["image"])}" alt="" width="96" style="display:block;width:96px;height:auto;border-radius:10px;'
+           f'background:#fff;border:1px solid #e7e9e5">') if d["image"] else ""
+    everything = unsubscribe_link(secret, email)
+    return f"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#f7f8f6;font-family:Arial,Helvetica,sans-serif;color:#16241c">
+<div style="max-width:560px;margin:0 auto;padding:28px 16px">
+<p style="font-size:22px;font-weight:bold;margin:0 0 4px">Golf<span style="color:#3fae29">Price</span> AI</p>
+<p style="font-size:12px;color:#5b665f;margin:0 0 18px">Full Swing. Not full price.</p>
+<div style="background:#fff;border:1px solid #e7e9e5;border-radius:14px;padding:22px">
+<p style="font-size:20px;font-weight:bold;margin:0 0 10px">Good news, of the slightly annoying kind</p>
+<p style="font-size:15px;line-height:1.5;margin:0 0 14px">The <strong>{html.escape(d['name'])}</strong> you bought for <strong>{money(d['paid'])}</strong>{per} is now <strong style="color:#2f8a1f">{money(d['now'])}</strong>{per} at {html.escape(d['retailer'])}. That’s {money(d['paid'] - d['now'])} less than you paid.</p>
+<table role="presentation" style="width:100%;background:#f2f7ef;border-radius:12px;margin:0 0 16px"><tr>
+<td style="padding:12px;width:96px">{img}</td>
+<td style="padding:12px;font-size:14px;line-height:1.5;color:#4a554e"><strong style="color:#16241c">{html.escape(d['name'])}</strong><br>You paid {money(d['paid'])} on {short_date(d['date'])} · Today from {money(d['now'])}<br>Checked across multiple UK retailers</td>
+</tr></table>
+<p style="font-size:16px;font-weight:bold;margin:0 0 6px">How to ask for the difference</p>
+<ol style="font-size:15px;line-height:1.55;margin:0 0 14px;padding-left:20px">
+<li>Find your order confirmation.</li>
+<li>Contact the retailer you bought from and ask if they’ll refund the difference or match today’s price.</li>
+<li>Send them today’s prices as proof: <a href="{link}" style="color:#2f8a1f">golfpriceai.com/prices/{d['slug']}/</a></li>
+</ol>
+<p style="font-size:14px;line-height:1.5;color:#4a554e;margin:0 0 18px">Every retailer has its own price-match and refund rules, and some only match their own price. It’s worth a two-minute email either way. Worst case, you’ve still got the kit.</p>
+<a href="{link}" style="display:inline-block;background:#3fae29;color:#fff;text-decoration:none;font-weight:bold;padding:12px 18px;border-radius:10px">See today’s prices</a>
+<p style="font-size:13px;line-height:1.5;color:#5b665f;margin:18px 0 0">This was your one email for this price watch, and we’ve now deleted it. Want the week’s genuine drops every Friday? <a href="{SITE}/#alerts" style="color:#2f8a1f">Sign up here</a>.</p>
+</div>
+<p style="font-size:12px;color:#5b665f;line-height:1.55;margin:18px 0 0">Prices change on retailers’ sites, so check before you buy. We may earn a commission if you buy through our links; it never changes the price.<br>
+No countdown timers. No fake discounts. <a href="{everything}" style="color:#5b665f">Unsubscribe from all GolfPrice AI emails</a>.</p>
+</div></body></html>"""
+
+
+def run_bought_alerts(key, secret, subs, models, today, room):
+    """One email per entry whose model now costs at least £1 less than paid;
+    entries are removed after the email or after 30 days. Returns emails sent."""
+    products = {p["id"]: p for p in json.loads(PRODUCTS_FILE.read_text()).get("products", []) if p.get("id")}
+    sent = failed = expired = held = 0
+    for s in subs:
+        if not s["bought"]:
+            continue
+        keep, changed = [], False
+        for entry in s["bought"]:
+            slug, paid, when = entry.split("|")
+            try:
+                paid, age = float(paid), (date.fromisoformat(today) - date.fromisoformat(when)).days
+            except ValueError:
+                changed = True
+                continue
+            if age > BOUGHT_DAYS:
+                expired += 1
+                changed = True
+                continue
+            m = models.get(slug)
+            cur = float(m["minPrice"]) if m else None
+            if cur is None or not (paid * (1 - MAX_BELIEVABLE_DROP) <= cur <= paid - BOUGHT_MIN_DROP):
+                keep.append(entry)
+                continue
+            if sent >= room:
+                held += 1
+                keep.append(entry)
+                continue
+            image = next((products[i].get("image") for i in m.get("listingIds") or [] if i in products and products[i].get("image")), "")
+            d = {"slug": slug, "name": m["name"], "paid": paid, "now": cur, "date": when, "image": image or "",
+                 "retailer": retailer_name(m["minRetailer"]) if m.get("minRetailer") else "a UK retailer",
+                 "ball": m.get("type") == "ball"}
+            status, data = brevo(key, "POST", "/smtp/email", {
+                "sender": SENDER, "to": [{"email": s["email"]}],
+                "subject": f"The {m['name']} you bought is now {money(paid - cur)} cheaper",
+                "htmlContent": bought_email_html(s["email"], d, secret),
+                "headers": {"List-Unsubscribe": f"<{unsubscribe_link(secret, s['email'])}>",
+                            "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"},
+                "tags": ["bought-watch"],
+            })
+            if status in (200, 201, 202):
+                sent += 1
+                changed = True
+            else:
+                failed += 1
+                keep.append(entry)
+        if changed:
+            brevo(key, "PUT", f"/contacts/{urllib.parse.quote(s['email'])}", {"attributes": {"BOUGHTWATCH": ",".join(keep)}})
+    total = sum(len(s["bought"]) for s in subs)
+    print(f"Bought-it watches: {total} active, {sent} email(s) sent, {expired} expired"
+          + (f", {failed} failed (retrying next run)" if failed else "")
+          + (f", {held} held back by the daily limit" if held else "") + ".")
+    return sent
+
+
 # ---------------------------------------------------------------- main
 def main():
     key, secret = os.environ.get("BREVO_API_KEY"), os.environ.get("ALERTS_SECRET")
@@ -430,7 +528,13 @@ def main():
         stock_sent = run_stock_alerts(key, secret, state, subs, max(0, DAILY_CAP - sent_today - sent))
     except Exception as e:  # never stop the price alerts over this
         print(f"Stock alerts: skipped this run ({e}).")
-    state["sent"] = {today: sent_today + sent + stock_sent}  # keep only today's count
+    bought_sent = 0
+    try:
+        bought_sent = run_bought_alerts(key, secret, subs, live_models(), today,
+                                        max(0, DAILY_CAP - sent_today - sent - stock_sent))
+    except Exception as e:  # never stop the other alerts over this
+        print(f"Bought-it watches: skipped this run ({e}).")
+    state["sent"] = {today: sent_today + sent + stock_sent + bought_sent}  # keep only today's count
     save_state(state)
     print(f"Alerts: {len(drops)} model(s) dropped; {sent} email(s) sent"
           + (f", {failed} failed (retrying next run)" if failed else "")
