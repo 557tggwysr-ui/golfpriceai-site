@@ -1,0 +1,56 @@
+{
+ "name": "TaylorMade Storm Dry Waterproof Cart Bag Golf Bag",
+ "brand": "TaylorMade",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/taylormade-storm-dry-waterproof-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 209.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 209.0,
+   "options": 6
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 219.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 239.0,
+   "options": 5
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 209.0,
+  "high": 239.0,
+  "average": 214.71,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    239.0
+   ],
+   [
+    "2026-08-28",
+    209.0
+   ],
+   [
+    "2026-10-17",
+    209.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 51 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

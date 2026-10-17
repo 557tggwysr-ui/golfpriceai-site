@@ -1,0 +1,51 @@
+{
+ "name": "Callaway Fairway C HD Stand Bag Golf Bag",
+ "brand": "Callaway",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/callaway-fairway-c-hd-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 219.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 219.0,
+   "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 249.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 219.0,
+  "high": 249.0,
+  "average": 224.71,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    249.0
+   ],
+   [
+    "2026-08-28",
+    219.0
+   ],
+   [
+    "2026-10-17",
+    219.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 51 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

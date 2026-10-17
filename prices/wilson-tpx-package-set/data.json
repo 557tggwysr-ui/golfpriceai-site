@@ -1,0 +1,42 @@
+{
+ "name": "Wilson TPX Package Set",
+ "brand": "Wilson",
+ "type": "package set",
+ "url": "https://golfpriceai.com/prices/wilson-tpx-package-set/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 339.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 339.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 339.0,
+  "high": 339.0,
+  "average": 339.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    339.0
+   ],
+   [
+    "2026-10-17",
+    339.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 63 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

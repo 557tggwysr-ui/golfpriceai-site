@@ -1,0 +1,117 @@
+{
+ "name": "Callaway Org 14 Cart Bag Golf Bag",
+ "brand": "Callaway",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/callaway-org-14-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 179.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 179.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 189.95,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 206.1,
+   "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 229.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 179.0,
+  "high": 199.0,
+  "average": 188.18,
+  "priceChanges": 15,
+  "series": [
+   [
+    "2026-08-16",
+    189.0
+   ],
+   [
+    "2026-08-17",
+    199.0
+   ],
+   [
+    "2026-08-22",
+    189.0
+   ],
+   [
+    "2026-08-24",
+    199.0
+   ],
+   [
+    "2026-08-28",
+    179.0
+   ],
+   [
+    "2026-09-02",
+    199.0
+   ],
+   [
+    "2026-09-04",
+    189.95
+   ],
+   [
+    "2026-09-11",
+    179.0
+   ],
+   [
+    "2026-09-14",
+    189.95
+   ],
+   [
+    "2026-09-19",
+    179.0
+   ],
+   [
+    "2026-09-21",
+    189.95
+   ],
+   [
+    "2026-09-24",
+    179.0
+   ],
+   [
+    "2026-09-28",
+    189.95
+   ],
+   [
+    "2026-10-02",
+    179.0
+   ],
+   [
+    "2026-10-05",
+    189.95
+   ],
+   [
+    "2026-10-16",
+    179.0
+   ],
+   [
+    "2026-10-17",
+    179.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

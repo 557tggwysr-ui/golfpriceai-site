@@ -1,0 +1,67 @@
+{
+ "name": "Motocaddy Protekta Cart Bag Golf Bag",
+ "brand": "Motocaddy",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/motocaddy-protekta-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 209.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 209.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 249.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 209.0,
+  "high": 239.0,
+  "average": 219.0,
+  "priceChanges": 5,
+  "series": [
+   [
+    "2026-08-16",
+    239.0
+   ],
+   [
+    "2026-08-28",
+    209.0
+   ],
+   [
+    "2026-09-10",
+    239.0
+   ],
+   [
+    "2026-09-11",
+    209.0
+   ],
+   [
+    "2026-10-08",
+    239.0
+   ],
+   [
+    "2026-10-16",
+    209.0
+   ],
+   [
+    "2026-10-17",
+    209.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,54 @@
+{
+ "name": "Mizuno JM Ages 6-9 Junior Golf Set",
+ "brand": "Mizuno",
+ "type": "junior golf set",
+ "url": "https://golfpriceai.com/prices/mizuno-jm-ages-6-9-junior-golf-set/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 399.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 399.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 369.0,
+  "high": 399.0,
+  "average": 397.57,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-08-16",
+    369.0
+   ],
+   [
+    "2026-08-17",
+    399.0
+   ],
+   [
+    "2026-08-22",
+    369.0
+   ],
+   [
+    "2026-08-24",
+    399.0
+   ],
+   [
+    "2026-10-17",
+    399.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

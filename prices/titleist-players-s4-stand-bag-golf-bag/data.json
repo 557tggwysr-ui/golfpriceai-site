@@ -1,0 +1,68 @@
+{
+ "name": "Titleist Players S4 Stand Bag Golf Bag",
+ "brand": "Titleist",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/titleist-players-s4-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 159.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 159.0,
+   "options": 6
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 179.0,
+   "options": 4
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 179.95,
+   "options": 6
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 159.0,
+  "high": 179.0,
+  "average": 161.86,
+  "priceChanges": 4,
+  "series": [
+   [
+    "2026-08-16",
+    159.0
+   ],
+   [
+    "2026-08-17",
+    179.0
+   ],
+   [
+    "2026-08-22",
+    159.0
+   ],
+   [
+    "2026-08-24",
+    179.0
+   ],
+   [
+    "2026-08-28",
+    159.0
+   ],
+   [
+    "2026-10-17",
+    159.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 51 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

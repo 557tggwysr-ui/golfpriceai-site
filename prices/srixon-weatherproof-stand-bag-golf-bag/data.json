@@ -1,0 +1,54 @@
+{
+ "name": "Srixon Weatherproof Stand Bag Golf Bag",
+ "brand": "Srixon",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/srixon-weatherproof-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 199.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 194.0,
+  "high": 199.0,
+  "average": 198.76,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-08-16",
+    194.0
+   ],
+   [
+    "2026-08-17",
+    199.0
+   ],
+   [
+    "2026-08-22",
+    194.0
+   ],
+   [
+    "2026-08-24",
+    199.0
+   ],
+   [
+    "2026-10-17",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

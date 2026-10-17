@@ -1,0 +1,66 @@
+{
+ "name": "Callaway Fairway 14 HD Stand Bag Golf Bag",
+ "brand": "Callaway",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/callaway-fairway-14-hd-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.0,
+ "lowestAt": [
+  "Callaway Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Callaway Golf",
+   "from": 299.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 279.0,
+  "high": 299.0,
+  "average": 290.11,
+  "priceChanges": 6,
+  "series": [
+   [
+    "2026-08-16",
+    299.0
+   ],
+   [
+    "2026-08-18",
+    279.0
+   ],
+   [
+    "2026-08-21",
+    299.0
+   ],
+   [
+    "2026-08-26",
+    279.0
+   ],
+   [
+    "2026-09-18",
+    299.0
+   ],
+   [
+    "2026-09-19",
+    279.0
+   ],
+   [
+    "2026-09-21",
+    299.0
+   ],
+   [
+    "2026-10-17",
+    299.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

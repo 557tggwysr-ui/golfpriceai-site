@@ -1,0 +1,55 @@
+{
+ "name": "Sunday Golf El Camino Stand Bag Golf Bag",
+ "brand": "Sunday Golf",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/sunday-golf-el-camino-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 189.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 189.95,
+   "options": 8
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 189.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 179.95,
+  "high": 189.95,
+  "average": 187.9,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-09-04",
+    189.95
+   ],
+   [
+    "2026-09-22",
+    179.95
+   ],
+   [
+    "2026-10-01",
+    189.95
+   ],
+   [
+    "2026-10-17",
+    189.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £10.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,100 @@
+{
+ "name": "TaylorMade FlexTech SuperLite Stand Bag Golf Bag",
+ "brand": "TaylorMade",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/taylormade-flextech-superlite-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 154.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 154.0,
+   "options": 4
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 159.95,
+   "options": 6
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 169.0,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 149.95,
+  "high": 164.0,
+  "average": 158.16,
+  "priceChanges": 12,
+  "series": [
+   [
+    "2026-08-16",
+    164.0
+   ],
+   [
+    "2026-08-28",
+    154.0
+   ],
+   [
+    "2026-09-01",
+    164.0
+   ],
+   [
+    "2026-09-04",
+    159.95
+   ],
+   [
+    "2026-09-11",
+    154.0
+   ],
+   [
+    "2026-09-14",
+    159.95
+   ],
+   [
+    "2026-09-19",
+    154.0
+   ],
+   [
+    "2026-09-21",
+    159.95
+   ],
+   [
+    "2026-09-22",
+    149.95
+   ],
+   [
+    "2026-10-01",
+    159.95
+   ],
+   [
+    "2026-10-02",
+    154.0
+   ],
+   [
+    "2026-10-05",
+    159.95
+   ],
+   [
+    "2026-10-16",
+    154.0
+   ],
+   [
+    "2026-10-17",
+    154.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

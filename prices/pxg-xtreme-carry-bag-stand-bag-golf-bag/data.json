@@ -1,0 +1,47 @@
+{
+ "name": "PXG Xtreme Carry Bag Stand Bag Golf Bag",
+ "brand": "PXG",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/pxg-xtreme-carry-bag-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 199.0,
+   "options": 4
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 259.0,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 51,
+  "low": 199.0,
+  "high": 199.0,
+  "average": 199.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    199.0
+   ],
+   [
+    "2026-10-17",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 51 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

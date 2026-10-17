@@ -1,0 +1,86 @@
+{
+ "name": "Cobra Fly XL Package Set",
+ "brand": "Cobra",
+ "type": "package set",
+ "url": "https://golfpriceai.com/prices/cobra-fly-xl-package-set/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 599.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 599.0,
+   "options": 8
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 559.0,
+  "high": 599.0,
+  "average": 588.21,
+  "priceChanges": 11,
+  "series": [
+   [
+    "2026-08-16",
+    559.0
+   ],
+   [
+    "2026-08-17",
+    599.0
+   ],
+   [
+    "2026-08-22",
+    559.0
+   ],
+   [
+    "2026-08-24",
+    599.0
+   ],
+   [
+    "2026-08-28",
+    559.0
+   ],
+   [
+    "2026-09-02",
+    599.0
+   ],
+   [
+    "2026-09-11",
+    559.0
+   ],
+   [
+    "2026-09-14",
+    599.0
+   ],
+   [
+    "2026-09-19",
+    559.0
+   ],
+   [
+    "2026-09-21",
+    599.0
+   ],
+   [
+    "2026-09-24",
+    559.0
+   ],
+   [
+    "2026-09-28",
+    599.0
+   ],
+   [
+    "2026-10-17",
+    599.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £40.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

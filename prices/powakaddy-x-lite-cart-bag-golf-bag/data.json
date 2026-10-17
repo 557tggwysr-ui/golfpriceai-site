@@ -1,0 +1,84 @@
+{
+ "name": "PowaKaddy X-Lite Cart Bag Golf Bag",
+ "brand": "PowaKaddy",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/powakaddy-x-lite-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 109.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 109.0,
+   "options": 6
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 109.95,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 119.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 99.0,
+  "high": 109.0,
+  "average": 104.24,
+  "priceChanges": 8,
+  "series": [
+   [
+    "2026-08-16",
+    109.0
+   ],
+   [
+    "2026-08-28",
+    99.0
+   ],
+   [
+    "2026-09-01",
+    109.0
+   ],
+   [
+    "2026-09-11",
+    99.0
+   ],
+   [
+    "2026-09-15",
+    109.0
+   ],
+   [
+    "2026-09-19",
+    99.0
+   ],
+   [
+    "2026-09-21",
+    109.0
+   ],
+   [
+    "2026-09-24",
+    99.0
+   ],
+   [
+    "2026-10-14",
+    109.0
+   ],
+   [
+    "2026-10-17",
+    109.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £10.00 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

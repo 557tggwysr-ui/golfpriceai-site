@@ -1,0 +1,63 @@
+{
+ "name": "Callaway XR 13-Piece Package Set",
+ "brand": "Callaway",
+ "type": "package set",
+ "url": "https://golfpriceai.com/prices/callaway-xr-13-piece-package-set/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1199.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 1199.0,
+   "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 1499.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 1199.0,
+  "high": 1499.0,
+  "average": 1248.21,
+  "priceChanges": 4,
+  "series": [
+   [
+    "2026-08-16",
+    1499.0
+   ],
+   [
+    "2026-08-18",
+    1399.0
+   ],
+   [
+    "2026-08-21",
+    1499.0
+   ],
+   [
+    "2026-08-26",
+    1399.0
+   ],
+   [
+    "2026-08-28",
+    1199.0
+   ],
+   [
+    "2026-10-17",
+    1199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 51 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

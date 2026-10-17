@@ -1,0 +1,48 @@
+{
+ "name": "TaylorMade Signature Cart Bag Golf Bag",
+ "brand": "TaylorMade",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/taylormade-signature-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 299.0,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 299.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 51,
+  "low": 299.0,
+  "high": 299.0,
+  "average": 299.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    299.0
+   ],
+   [
+    "2026-10-17",
+    299.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 51 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

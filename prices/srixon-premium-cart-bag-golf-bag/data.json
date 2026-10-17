@@ -1,0 +1,47 @@
+{
+ "name": "Srixon Premium Cart Bag Golf Bag",
+ "brand": "Srixon",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/srixon-premium-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 159.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 159.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 159.95,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 159.0,
+  "high": 159.0,
+  "average": 159.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    159.0
+   ],
+   [
+    "2026-10-17",
+    159.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 63 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,60 @@
+{
+ "name": "Cobra Signature Cart Bag Golf Bag",
+ "brand": "Cobra",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/cobra-signature-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf",
+  "Major Golf Direct",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 119.0,
+   "options": 5
+  },
+  {
+   "name": "Clickgolf",
+   "from": 119.0,
+   "options": 4
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 119.0,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 119.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 119.0,
+  "high": 119.0,
+  "average": 119.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    119.0
+   ],
+   [
+    "2026-10-17",
+    119.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 63 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

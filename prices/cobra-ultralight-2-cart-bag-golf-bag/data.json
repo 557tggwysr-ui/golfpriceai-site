@@ -1,0 +1,108 @@
+{
+ "name": "Cobra Ultralight 2 Cart Bag Golf Bag",
+ "brand": "Cobra",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/cobra-ultralight-2-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 149.0,
+   "options": 4
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 169.0,
+   "options": 3
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 169.95,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 144.0,
+  "high": 169.0,
+  "average": 161.78,
+  "priceChanges": 14,
+  "series": [
+   [
+    "2026-08-16",
+    144.0
+   ],
+   [
+    "2026-08-17",
+    169.0
+   ],
+   [
+    "2026-08-22",
+    144.0
+   ],
+   [
+    "2026-08-24",
+    169.0
+   ],
+   [
+    "2026-08-28",
+    149.0
+   ],
+   [
+    "2026-09-02",
+    169.0
+   ],
+   [
+    "2026-09-11",
+    149.0
+   ],
+   [
+    "2026-09-14",
+    169.0
+   ],
+   [
+    "2026-09-19",
+    149.0
+   ],
+   [
+    "2026-09-21",
+    169.0
+   ],
+   [
+    "2026-09-24",
+    149.0
+   ],
+   [
+    "2026-09-28",
+    169.0
+   ],
+   [
+    "2026-10-02",
+    149.0
+   ],
+   [
+    "2026-10-05",
+    169.0
+   ],
+   [
+    "2026-10-16",
+    149.0
+   ],
+   [
+    "2026-10-17",
+    149.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

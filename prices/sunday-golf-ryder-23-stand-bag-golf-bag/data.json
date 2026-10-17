@@ -1,0 +1,47 @@
+{
+ "name": "Sunday Golf Ryder 23 Stand Bag Golf Bag",
+ "brand": "Sunday Golf",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/sunday-golf-ryder-23-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 174.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 174.95,
+   "options": 5
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 219.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 44,
+  "low": 174.95,
+  "high": 174.95,
+  "average": 174.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    174.95
+   ],
+   [
+    "2026-10-17",
+    174.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 44 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

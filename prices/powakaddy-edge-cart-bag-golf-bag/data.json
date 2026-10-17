@@ -1,0 +1,88 @@
+{
+ "name": "PowaKaddy Edge Cart Bag Golf Bag",
+ "brand": "PowaKaddy",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/powakaddy-edge-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 179.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 179.95,
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 199.0,
+   "options": 4
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 199.0,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 179.0,
+  "high": 199.0,
+  "average": 183.97,
+  "priceChanges": 9,
+  "series": [
+   [
+    "2026-08-16",
+    199.0
+   ],
+   [
+    "2026-08-28",
+    179.0
+   ],
+   [
+    "2026-09-02",
+    199.0
+   ],
+   [
+    "2026-09-04",
+    179.95
+   ],
+   [
+    "2026-09-11",
+    179.0
+   ],
+   [
+    "2026-09-14",
+    179.95
+   ],
+   [
+    "2026-09-19",
+    179.0
+   ],
+   [
+    "2026-09-21",
+    179.95
+   ],
+   [
+    "2026-09-24",
+    179.0
+   ],
+   [
+    "2026-09-28",
+    179.95
+   ],
+   [
+    "2026-10-17",
+    179.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

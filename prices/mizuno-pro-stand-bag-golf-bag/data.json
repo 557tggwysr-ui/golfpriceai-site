@@ -1,0 +1,108 @@
+{
+ "name": "Mizuno Pro Stand Bag Golf Bag",
+ "brand": "Mizuno",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/mizuno-pro-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 224.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 224.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 249.0,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 249.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 219.0,
+  "high": 229.0,
+  "average": 227.1,
+  "priceChanges": 14,
+  "series": [
+   [
+    "2026-08-16",
+    219.0
+   ],
+   [
+    "2026-08-17",
+    229.0
+   ],
+   [
+    "2026-08-22",
+    219.0
+   ],
+   [
+    "2026-08-24",
+    229.0
+   ],
+   [
+    "2026-08-28",
+    224.0
+   ],
+   [
+    "2026-09-01",
+    229.0
+   ],
+   [
+    "2026-09-11",
+    224.0
+   ],
+   [
+    "2026-09-14",
+    229.0
+   ],
+   [
+    "2026-09-19",
+    224.0
+   ],
+   [
+    "2026-09-21",
+    229.0
+   ],
+   [
+    "2026-09-24",
+    224.0
+   ],
+   [
+    "2026-09-28",
+    229.0
+   ],
+   [
+    "2026-10-02",
+    224.0
+   ],
+   [
+    "2026-10-05",
+    229.0
+   ],
+   [
+    "2026-10-16",
+    224.0
+   ],
+   [
+    "2026-10-17",
+    224.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

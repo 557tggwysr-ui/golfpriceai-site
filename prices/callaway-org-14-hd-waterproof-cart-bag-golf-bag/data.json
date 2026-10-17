@@ -1,0 +1,55 @@
+{
+ "name": "Callaway Org 14 HD Waterproof Cart Bag Golf Bag",
+ "brand": "Callaway",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/callaway-org-14-hd-waterproof-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 229.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 229.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 249.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 229.0,
+  "high": 249.0,
+  "average": 243.6,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-16",
+    249.0
+   ],
+   [
+    "2026-09-16",
+    239.0
+   ],
+   [
+    "2026-10-16",
+    229.0
+   ],
+   [
+    "2026-10-17",
+    229.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 2 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,64 @@
+{
+ "name": "Wilson Exo Lite Stand Bag Golf Bag",
+ "brand": "Wilson",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/wilson-exo-lite-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 134.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 134.0,
+   "options": 4
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 139.95,
+   "options": 4
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 149.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 129.0,
+  "high": 134.0,
+  "average": 133.76,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-08-16",
+    129.0
+   ],
+   [
+    "2026-08-17",
+    134.0
+   ],
+   [
+    "2026-08-22",
+    129.0
+   ],
+   [
+    "2026-08-24",
+    134.0
+   ],
+   [
+    "2026-10-17",
+    134.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

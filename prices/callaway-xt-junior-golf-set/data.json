@@ -1,0 +1,42 @@
+{
+ "name": "Callaway XT Junior Golf Set",
+ "brand": "Callaway",
+ "type": "junior golf set",
+ "url": "https://golfpriceai.com/prices/callaway-xt-junior-golf-set/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 569.0,
+ "lowestAt": [
+  "Callaway Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Callaway Golf",
+   "from": 569.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 569.0,
+  "high": 569.0,
+  "average": 569.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    569.0
+   ],
+   [
+    "2026-10-17",
+    569.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 63 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

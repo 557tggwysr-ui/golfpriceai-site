@@ -1,0 +1,42 @@
+{
+ "name": "Yonex Ezone Elite Full Package Set",
+ "brand": "Yonex",
+ "type": "package set",
+ "url": "https://golfpriceai.com/prices/yonex-ezone-elite-full-package-set/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1099.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 1099.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 1099.0,
+  "high": 1099.0,
+  "average": 1099.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    1099.0
+   ],
+   [
+    "2026-10-17",
+    1099.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 63 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

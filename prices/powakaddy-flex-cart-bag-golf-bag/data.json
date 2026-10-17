@@ -1,0 +1,88 @@
+{
+ "name": "PowaKaddy Flex Cart Bag Golf Bag",
+ "brand": "PowaKaddy",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/powakaddy-flex-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 149.95,
+   "options": 3
+  },
+  {
+   "name": "Clickgolf",
+   "from": 159.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 159.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 139.0,
+  "high": 159.0,
+  "average": 149.53,
+  "priceChanges": 9,
+  "series": [
+   [
+    "2026-08-16",
+    159.0
+   ],
+   [
+    "2026-08-28",
+    139.0
+   ],
+   [
+    "2026-09-02",
+    159.0
+   ],
+   [
+    "2026-09-04",
+    149.95
+   ],
+   [
+    "2026-09-11",
+    139.0
+   ],
+   [
+    "2026-09-14",
+    149.95
+   ],
+   [
+    "2026-09-19",
+    139.0
+   ],
+   [
+    "2026-09-21",
+    149.95
+   ],
+   [
+    "2026-09-24",
+    139.0
+   ],
+   [
+    "2026-09-28",
+    149.95
+   ],
+   [
+    "2026-10-17",
+    149.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £10.95 above its tracked low"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

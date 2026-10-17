@@ -1,0 +1,77 @@
+{
+ "name": "Cobra Ultralight Pro Cart Bag Golf Bag",
+ "brand": "Cobra",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/cobra-ultralight-pro-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.0,
+ "lowestAt": [
+  "Clickgolf",
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 149.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 149.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 159.95,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 144.0,
+  "high": 154.0,
+  "average": 149.71,
+  "priceChanges": 6,
+  "series": [
+   [
+    "2026-08-16",
+    144.0
+   ],
+   [
+    "2026-08-17",
+    154.0
+   ],
+   [
+    "2026-08-22",
+    144.0
+   ],
+   [
+    "2026-08-24",
+    154.0
+   ],
+   [
+    "2026-08-28",
+    149.0
+   ],
+   [
+    "2026-09-01",
+    154.0
+   ],
+   [
+    "2026-09-04",
+    149.0
+   ],
+   [
+    "2026-10-17",
+    149.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,47 @@
+{
+ "name": "PowaKaddy Dri Tech Cart Bag Golf Bag",
+ "brand": "PowaKaddy",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/powakaddy-dri-tech-cart-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 249.0,
+   "options": 5
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 249.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 51,
+  "low": 249.0,
+  "high": 249.0,
+  "average": 249.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    249.0
+   ],
+   [
+    "2026-10-17",
+    249.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 51 days"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,105 @@
+{
+ "name": "TaylorMade FlexTech Stand Bag Golf Bag",
+ "brand": "TaylorMade",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/taylormade-flextech-stand-bag-golf-bag/",
+ "checked": "2026-10-17",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 159.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 159.0,
+   "options": 6
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 169.0,
+   "options": 7
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 169.95,
+   "options": 9
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 179.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 63,
+  "low": 129.95,
+  "high": 179.0,
+  "average": 160.47,
+  "priceChanges": 12,
+  "series": [
+   [
+    "2026-08-16",
+    179.0
+   ],
+   [
+    "2026-08-28",
+    159.0
+   ],
+   [
+    "2026-09-02",
+    169.0
+   ],
+   [
+    "2026-09-04",
+    129.95
+   ],
+   [
+    "2026-09-15",
+    169.0
+   ],
+   [
+    "2026-09-18",
+    129.95
+   ],
+   [
+    "2026-09-20",
+    159.0
+   ],
+   [
+    "2026-09-21",
+    169.0
+   ],
+   [
+    "2026-09-24",
+    159.0
+   ],
+   [
+    "2026-09-28",
+    169.0
+   ],
+   [
+    "2026-10-02",
+    159.0
+   ],
+   [
+    "2026-10-05",
+    169.0
+   ],
+   [
+    "2026-10-16",
+    159.0
+   ],
+   [
+    "2026-10-17",
+    159.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}
