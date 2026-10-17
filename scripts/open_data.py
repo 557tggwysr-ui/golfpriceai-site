@@ -20,6 +20,13 @@ from price_pages import PRICES_DIR, SITE, TYPES, breadcrumb, esc, long_date, met
 
 DATA_DIR = PRICES_DIR / "data"
 LICENCE = "https://creativecommons.org/licenses/by/4.0/"
+DOI = "https://doi.org/10.5281/zenodo.23436242"
+# The same data, listed where researchers, data scientists and AI developers look.
+MIRRORS = [
+    ("Hugging Face", "https://huggingface.co/datasets/GolfPriceAI/uk-golf-prices", "Load it straight into Python with the datasets library, and preview it in the browser."),
+    ("Kaggle", "https://www.kaggle.com/datasets/golfpriceai/uk-golf-equipment-prices-daily-golfprice-ai", "Explore it in a free Kaggle notebook."),
+    ("Zenodo (DOI)", DOI, "A permanent, citable archive copy with a DOI, for research and reporting."),
+]
 
 
 def _csv(rows, header):
@@ -71,7 +78,8 @@ def build(passing, built, today):
         "description": ("Daily lowest new, in-stock UK retail prices for golf clubs, balls, bags, rangefinders, GPS "
                         "watches, trolleys and launch monitors, with full price-change history, recorded every 6 hours "
                         "by GolfPrice AI across multiple UK retailers."),
-        "url": f"{SITE}/prices/data/", "license": LICENCE, "isAccessibleForFree": True,
+        "url": f"{SITE}/prices/data/", "license": LICENCE, "identifier": DOI,
+        "sameAs": [u for _, u, _ in MIRRORS], "isAccessibleForFree": True,
         "creator": {"@type": "Organization", "name": "GolfPrice AI", "url": SITE},
         "temporalCoverage": f"{first}/{today.isoformat()}", "spatialCoverage": "United Kingdom",
         "dateModified": today.isoformat(),
@@ -83,6 +91,9 @@ def build(passing, built, today):
             {"@type": "DataDownload", "encodingFormat": "text/csv", "name": "Price history",
              "contentUrl": f"{SITE}/prices/data/golf-price-history-uk.csv"}],
     }
+    mirrors = "\n    ".join(
+        f'<a class="pp-card pp-rel" href="{u}" rel="noopener"><span class="pp-rel-name">{esc(n)}</span><span class="pp-sub">{esc(d)}</span></a>'
+        for n, u, d in MIRRORS)
     body = f"""<div class="pp-wrap">
 {crumbs_html}
 <section class="pp-hub-top">
@@ -98,6 +109,13 @@ def build(passing, built, today):
   </div>
 </section>
 <section class="pp-block">
+  <h2>Also on</h2>
+  <div class="pp-rel-grid">
+    {mirrors}
+  </div>
+  <p class="pp-sub">These copies are refreshed regularly. The files on this page are always the newest.</p>
+</section>
+<section class="pp-block">
   <h2>Today at a glance</h2>
   <div class="pp-card pp-table-wrap"><table class="pp-table sb-table">
   <thead><tr><th scope="col">Category</th><th scope="col">Models</th><th scope="col">Median lowest price</th><th scope="col">At lowest tracked price</th></tr></thead>
@@ -109,6 +127,7 @@ def build(passing, built, today):
     <div class="pp-card pp-q"><h3>Licence</h3><p>Creative Commons Attribution 4.0 (<a href="{LICENCE}">CC BY 4.0</a>). Use it however you like; just credit “GolfPrice AI (golfpriceai.com)” with a link.</p></div>
     <div class="pp-card pp-q"><h3>What’s a “price” here?</h3><p>The lowest price for a new, in-stock listing of that model at the UK retailers we track, in pounds including VAT. Golf balls are per dozen. Second-hand and ex-demo stock is never included.</p></div>
     <div class="pp-card pp-q"><h3>How fresh is it?</h3><p>Both files are rebuilt every 6 hours with the rest of the site, so the link always gives you the latest data.</p></div>
+    <div class="pp-card pp-q"><h3>How to cite it</h3><p>GolfPrice AI (2026). <em>UK Golf Equipment Prices (Daily, GolfPrice AI)</em> [Data set]. Zenodo. <a href="{DOI}">{DOI}</a>. For the latest figures, link to this page.</p></div>
     <div class="pp-card pp-q"><h3>Need more?</h3><p>For other categories, longer history or a custom feed, email <a href="mailto:hello@golfpriceai.com">hello@golfpriceai.com</a>.</p></div>
   </div>
 </section>
