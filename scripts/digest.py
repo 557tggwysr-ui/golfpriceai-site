@@ -65,6 +65,8 @@ def genuine_drops(models, today, images=None):
     images = images or {}
     picks = []
     for m in models.values():
+        if m.get("type") == "junior-set":  # no junior items in picks
+            continue
         days = daily_prices(m.get("history"), today)
         if len(days) < MIN_DAYS_TRACKED:
             continue

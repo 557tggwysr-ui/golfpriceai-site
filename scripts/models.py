@@ -192,6 +192,7 @@ DEFAULT_ALIASES = [
     [r"\btp5 ?x\b", "tp5x"],
     [r"\bz[- ]star\b", "z-star"],
     [r"\bshot ?scope\b", "shot scope"],
+    [r"\bv[- ]?max\b", "v-max"],
 ]
 
 
@@ -282,6 +283,76 @@ def _base_name(name):
     return base
 
 
+# Complete club sets (Oct 2026). Junior sets are their own type so they get
+# their own guide and never mix with adult sets.
+JUNIOR_SET_RX = re.compile(
+    r"\b(junior|juniors|jr|kids?|youth|teen|teenage|boys|girls|xj|mkids|golphin|"
+    r"u\.?s\.? kids|level \d|ages? \d+|\d+\s*(?:-|–|to)\s*\d+\s*(?:years?|yrs?)|\d+\s*years?)\b", re.I)
+SET_MIN_PRICE = {"set": 150.0, "junior-set": 60.0}
+SET_DROP_RX = re.compile(
+    r"\b(golf|package|complete|set|sets|club|clubs|piece|pieces|pc|pcs|bag|bags|starter|men'?s|mens|ladies|"
+    r"womens|women'?s|lady|junior|juniors|jr|kids?|youth|teen|teenage|boys|girls|years?|yrs?|ages?|old|"
+    r"right|left|hand|handed|graphite|steel|shaft|regular|flex|stiff|senior|longer|shorter|and|with|for|the)\b", re.I)
+SET_STYLE_RX = re.compile(r"\b(cart|stand|carry|pencil)\b", re.I)
+SET_YEAR_RX = re.compile(r"(?:\b20|')(2[3-9])\b")
+
+
+def set_size(name):
+    """Junior sets: the age band or height they're made for, as a token
+    ("age9-12", "48in", "level3"), or ''."""
+    m = re.search(r"(\d{1,2})\s*(?:-|–|to)\s*(\d{1,2})\s*(?:years?|yrs?|year old)", name, re.I) \
+        or re.search(r"ages?\s*(\d{1,2})\s*(?:-|–|to)\s*(\d{1,2})", name, re.I)
+    if m:
+        return f"age{int(m.group(1))}-{int(m.group(2))}"
+    m = re.search(r"\((\d{2})\s*(?:''|\"|”|in)?\)|\b(\d{2})\s*(?:''|\"|”|inch|in\b)", name)
+    if m and 30 <= int(m.group(1) or m.group(2)) <= 70:
+        return f"{int(m.group(1) or m.group(2))}in"
+    m = re.search(r"\blevel\s*(\d)\b", name, re.I)
+    if m:
+        return f"level{m.group(1)}"
+    return ""
+
+
+def _set_tokens(p, type_key, aliases):
+    """Sets are matched strictly, so two different sets never share a page:
+    brand + range name + piece count + bag style + model year + men's or
+    women's (+ size for junior sets). Where a retailer leaves one of those
+    out, the listing simply stays on its own."""
+    full = p.get("name", "")
+    head = full.split(" - ")[0]
+    name = head.lower()
+    for rx, rep in aliases:
+        name = rx.sub(rep, name)
+    for b in {_brand_of(p).lower(), (p.get("brand") or "").lower(), "u.s. kids", "us kids"}:
+        if b:
+            name = re.sub(r"(?<![a-z0-9])" + re.escape(b) + r"(?![a-z0-9])", " ", name)
+    pieces = re.search(r"(\d{1,2})\s*-?\s*(?:piece|pc|pcs|club)s?\b", head, re.I)
+    style = SET_STYLE_RX.search(head)
+    year = SET_YEAR_RX.search(head)
+    name = re.sub(r"\(.*?\)", " ", name)
+    name = re.sub(r"[+-]?\s*\d+(?:/\d+)?\s*(?:\"|''|”|in|inch)?\s*(?:longer|shorter)", " ", name)
+    name = re.sub(r"\b\d+\s*(?:-|–|to)\s*\d+\b|\blevel\s*\d\b", " ", name)
+    name = SET_DROP_RX.sub(" ", name)
+    name = SET_STYLE_RX.sub(" ", name)
+    name = re.sub(r"[^a-z0-9.\- ]", " ", name)
+    words = [t.strip(".-") for t in name.split()]
+    words = [t for t in words if t and t not in STOP_WORDS and not re.fullmatch(r"\d+", t)]
+    tokens = words[:3]
+    if year:
+        tokens.append(f"20{year.group(1)}")
+    if pieces:
+        tokens.append(f"{int(pieces.group(1))}-piece")
+    if style:
+        tokens.append(style.group(1).lower())
+    if type_key == "junior-set":
+        size = set_size(full)
+        if size:
+            tokens.append(size)
+    elif re.search(r"\b(ladies|lady|women'?s|womens)\b", full, re.I):
+        tokens.append("ladies")
+    return tokens
+
+
 CALLAWAY_PER_IRON_BELOW = 450
 ANY_PER_IRON_BELOW = 120
 
@@ -307,6 +378,14 @@ def _model_type(p):
                 return ("club", "single-iron", "Single Iron")
             return ("club", "irons", "Irons")
         return ("club", cat, CLUB_TYPE_LABEL[cat])
+    if cat == "sets":
+        if price < SET_MIN_PRICE["junior-set"]:
+            return None
+        if JUNIOR_SET_RX.search(name + " " + (p.get("brand") or "")) or p.get("audience") == "Junior":
+            return ("set", "junior-set", "Junior Golf Set")
+        if price < SET_MIN_PRICE["set"]:
+            return None
+        return ("set", "set", "Package Set")
     if cat == "ball":
         # Ball markers, liners, retrievers and the like filed under balls.
         if BALL_NOT_BALLS_RX.search(name):
@@ -322,6 +401,8 @@ def _model_type(p):
 
 
 def _core_tokens(p, type_key, aliases):
+    if type_key in ("set", "junior-set"):
+        return _set_tokens(p, type_key, aliases)
     name = _base_name(p.get("name", "")).lower()
     for rx, rep in aliases:
         name = rx.sub(rep, name)
@@ -376,6 +457,17 @@ def _display_tokens(tokens, listings):
             seen[word.lower()][word] += 1
     out = []
     for t in tokens:
+        size = re.fullmatch(r"age(\d+)-(\d+)|(\d{2})in|level(\d)", t)
+        if size:
+            out.append(f"Ages {size.group(1)}-{size.group(2)}" if size.group(1) else
+                       f"{size.group(3)}\u2033" if size.group(3) else f"Level {size.group(4)}")
+            continue
+        if re.fullmatch(r"\d+-piece", t):
+            out.append(t.replace("piece", "Piece"))
+            continue
+        if t in ("cart", "stand", "carry", "pencil"):
+            out.append(t.capitalize() + " Bag")
+            continue
         if t in DISPLAY_OVERRIDES:
             out.append(DISPLAY_OVERRIDES[t])
         elif seen.get(t):

@@ -69,7 +69,8 @@ def menu():
         ("Irons", _shop("irons", "Irons")),
         ("Wedges", _shop("wedge", "Wedges")),
         ("Putters", _shop("putter", "Putters")),
-        ("Sets", _shop("sets", "Sets")),
+        ("Package sets", "/prices/golf-package-sets/"),
+        ("Junior golf sets", "/prices/junior-golf-sets/"),
     ]
     clubs_extra = [
         ("Find Your Fit", "/find-your-fit.html"),
@@ -241,6 +242,7 @@ def footer_html():
         ("Price guides", [("Drivers", "/prices/drivers/"), ("Irons", "/prices/irons/"),
                           ("Putters", "/prices/putters/"), ("Golf balls", "/prices/golf-balls/"),
                           ("GPS watches", "/prices/gps-watches/"), ("Electric trolleys", "/prices/electric-trolleys/"),
+                          ("Package sets", "/prices/golf-package-sets/"), ("Golf shoes", "/prices/golf-shoes/"),
                           ("All price guides", "/prices/")]),
         ("About", [("About us", "/about.html"), ("How we track prices", "/about.html"), ("FAQ", "/faq.html"), ("RSS feed", "/data/deals-feed.xml"),
                    ("Privacy policy", "/legal/privacy-policy.html"), ("Cookie policy", "/legal/cookies.html")]),

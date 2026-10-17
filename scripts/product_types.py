@@ -190,11 +190,42 @@ def fix_balls(products):
     return changes
 
 
+# ---------------------------------------------------------------- sets
+# The retailers' "sets" category also holds trolley straps, scorecard
+# holders and headcover sets ("10 Piece Golf Iron Covers"), and a few
+# iron-only sets. Those move out, so Sets is complete club sets only.
+SET_ACCESSORY_RX = re.compile(
+    r"\b(straps?|elastics?|holders?|head ?covers?|covers?|markers?|tees|towels?|brush(es)?|scorecard|"
+    r"score card|umbrella|gloves?|balls?|grips?|divot|tool|bands?|clips?)\b", re.I)
+SET_CLUBS_RX = re.compile(r"\b(package|complete|starter|clubs?|drivers?|putters?|half set|full set|junior set|golf set)\b", re.I)
+SET_IRONS_ONLY_RX = re.compile(r"\b(irons? set|combo irons?|iron set|irons)\b", re.I)
+SET_HEADCOVER_RX = re.compile(r"\bhead ?covers?\b|\biron covers?\b|\bcovers?\b", re.I)
+
+
+def fix_sets(products):
+    changes = []
+    for p in products:
+        if p.get("category") != "sets":
+            continue
+        head = (p.get("name") or "").split(" - ")[0]
+        old = ("sets", p.get("icon"))
+        if SET_ACCESSORY_RX.search(head) and not SET_CLUBS_RX.search(head):
+            p["category"] = "accessories"
+            p["icon"] = "headcover" if SET_HEADCOVER_RX.search(head) else "accessories"
+        elif SET_IRONS_ONLY_RX.search(head) and not SET_CLUBS_RX.search(head):
+            p["category"] = "irons"
+            p.pop("icon", None)
+        else:
+            continue
+        changes.append((p.get("id"), p.get("name"), old, (p["category"], p.get("icon"))))
+    return changes
+
+
 def fix_types(products, classify_audience=None):
     """Corrects category/icon on clothing and accessory listings whose own
     name clearly says they're something else. Returns a list of
     (id, name, old, new) for the run log and the review report."""
-    changes = fix_balls(products)
+    changes = fix_balls(products) + fix_sets(products)
     apparel_icons = {icon for c, icon in TYPE_WORDS.values() if c == "apparel"}
     for p in products:
         cat = p.get("category")

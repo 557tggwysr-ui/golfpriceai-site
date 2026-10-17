@@ -55,7 +55,13 @@ TYPES = {
     "rangefinder": ("rangefinders", "Rangefinders", "rangefinder", "accessories"),
     "electric-trolley": ("electric-trolleys", "Electric trolleys", "electric trolley", "accessories"),
     "launch-monitor": ("launch-monitors", "Launch monitors", "launch monitor", "accessories"),
+    "set": ("golf-package-sets", "Golf package sets", "package set", "clubs"),
+    "junior-set": ("junior-golf-sets", "Junior golf sets", "junior golf set", "clubs"),
 }
+# Hubs built by sets_pages.py (a fuller guide) instead of the standard hub.
+GUIDE_HUBS = {"golf-package-sets", "junior-golf-sets"}
+# Never in homepage picks, the social feed or the Friday email (junior rule).
+NOT_IN_PICKS = {"junior-set"}
 HUB_TYPES = {v[0]: k for k, v in TYPES.items()}
 # Filled each run by build() from brand_pages.plan(): model slug -> its
 # brand + category page, and category -> [(brand, page url)] for the hubs.
@@ -64,7 +70,8 @@ BRAND_CHIPS = {}
 CLUB_TYPES = {"driver", "wood", "hybrid", "irons", "wedge", "putter"}
 TYPE_ICON = {"driver": "driver", "wood": "wood", "hybrid": "hybrid", "irons": "irons", "wedge": "wedge",
              "putter": "putter", "ball": "ball", "gps-watch": "gps-watch", "rangefinder": "rangefinder",
-             "electric-trolley": "pushcart", "bag": "accessories", "launch-monitor": "sensor"}
+             "electric-trolley": "pushcart", "bag": "accessories", "launch-monitor": "sensor",
+             "set": "irons", "junior-set": "irons"}
 SHOP_CATEGORY = {"driver": "driver", "wood": "wood", "hybrid": "hybrid", "irons": "irons", "wedge": "wedge",
                  "putter": "putter", "ball": "ball", "bag": "bag"}
 
@@ -1181,7 +1188,11 @@ def build(models_list, products, today_str):
                 _write(old, retired_page(slug, html.unescape(name.group(1)) if name else slug.replace("-", " ").title(), hub, today))
                 changed.append(f"/prices/{slug}/")
     for h in hubs:
-        page = build_hub_page(h, passing, built, hubs, today, noindex)
+        if h in GUIDE_HUBS:
+            import sets_pages
+            page = sets_pages.build_guide(h, models_list, passing, built, by_id, today, noindex)
+        else:
+            page = build_hub_page(h, passing, built, hubs, today, noindex)
         if page and _write(PRICES_DIR / h / "index.html", page):
             changed.append(f"/prices/{h}/")
         hub_models = [m for m in passing if TYPES[m["type"]][0] == h]
@@ -1194,7 +1205,8 @@ def build(models_list, products, today_str):
         changed += b_changed
         sitemap += b_sitemap
         import seasonal_pages
-        s_changed, s_sitemap, seasonal_links = seasonal_pages.build(passing, built, products, today)
+        picks_ok = [m for m in passing if m["type"] not in NOT_IN_PICKS]
+        s_changed, s_sitemap, seasonal_links = seasonal_pages.build(picks_ok, built, products, today)
         changed += s_changed
         sitemap += s_sitemap
         import winter_page
@@ -1221,7 +1233,7 @@ def build(models_list, products, today_str):
         sitemap += d_sitemap
         try:
             import social_feed
-            social_feed.build(passing, built, products, today)
+            social_feed.build([m for m in passing if m["type"] not in NOT_IN_PICKS], built, products, today)
         except Exception as e:  # never stop the main build
             print(f"Social feed skipped: {e}")
         import home_deals
