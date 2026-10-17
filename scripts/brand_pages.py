@@ -18,7 +18,7 @@ import re
 from collections import defaultdict
 from datetime import date, timedelta
 
-from price_pages import (PRICES_DIR, SITE, TYPES, breadcrumb, esc, long_date, method_note, money, page_shell,
+from price_pages import (THUMB_HEAD, thumb_td, PRICES_DIR, SITE, TYPES, breadcrumb, esc, long_date, method_note, money, page_shell,
                          plural, short_date, _write)
 
 BRANDS_DIR = PRICES_DIR / "brands"
@@ -48,12 +48,13 @@ def vtag(m):
 def model_table(ms, built, table_id):
     trs = "".join(f"""<tr data-price="{m['minPrice']}" data-name="{esc(m['name'].lower())}" data-ret="{len(m['retailers'])}">
   <th scope="row"><a href="/prices/{m['slug']}/">{esc(m['name'])}</a></th>
+  {thumb_td(m.get('_image'), f"/prices/{m['slug']}/")}
   <td class="pp-price">{money(m['minPrice'])}{per(m)}</td>
   <td>{len(m['retailers'])}</td>
   <td>{vtag(m)}</td>
 </tr>""" for m in ms)
     return f"""<div class="pp-card pp-table-wrap"><table class="pp-table pp-hub-table">
-<thead><tr><th scope="col">Model</th><th scope="col">From</th><th scope="col">Retailers</th><th scope="col">Verdict</th></tr></thead>
+<thead><tr><th scope="col">Model</th>{THUMB_HEAD}<th scope="col">From</th><th scope="col">Retailers</th><th scope="col">Verdict</th></tr></thead>
 <tbody id="{table_id}">{trs}</tbody></table></div>"""
 
 

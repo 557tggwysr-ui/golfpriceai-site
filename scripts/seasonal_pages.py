@@ -30,7 +30,7 @@ import statistics
 from collections import defaultdict
 from datetime import date, timedelta
 
-from price_pages import (PRICES_DIR, SITE, TYPES, breadcrumb, esc, long_date, method_note, money, page_shell,
+from price_pages import (THUMB_HEAD, thumb_td, PRICES_DIR, SITE, TYPES, breadcrumb, esc, long_date, method_note, money, page_shell,
                          plural, retailer_name, _write)
 
 TOP_BRANDS = ["Titleist", "TaylorMade", "Callaway", "Ping", "FootJoy", "Srixon", "Cobra", "Mizuno", "Odyssey",
@@ -156,12 +156,13 @@ def watch_list(rows, per_type=3):
 def compare_table(rs, base_label):
     trs = "".join(f"""<tr>
   <th scope="row"><a href="/prices/{r['m']['slug']}/">{esc(r['m']['name'])}</a><span class="pp-sub sb-type">{esc(TYPES[r['m']['type']][2])}</span></th>
+  {thumb_td(r['m'].get('_image'), f"/prices/{r['m']['slug']}/")}
   <td>{money(r['base'])}{per(r['m'])}</td>
   <td class="pp-price">{money(r['now'])}{per(r['m'])}</td>
   <td>{_change(r)}</td>
 </tr>""" for r in rs)
     return f"""<div class="pp-card pp-table-wrap"><table class="pp-table sb-table">
-<thead><tr><th scope="col">Model</th><th scope="col">{esc(base_label)}</th><th scope="col">Today</th><th scope="col">Change</th></tr></thead>
+<thead><tr><th scope="col">Model</th>{THUMB_HEAD}<th scope="col">{esc(base_label)}</th><th scope="col">Today</th><th scope="col">Change</th></tr></thead>
 <tbody>{trs}</tbody></table></div>"""
 
 
@@ -185,24 +186,16 @@ def _mark_lows(rows, today):
         r["low"] = bool(prev) and r["now"] <= min(prev) + 0.005
 
 
-def _bf_thumb(r):
-    img = r["m"].get("_image")
-    if not img:
-        return '<td class="bf-thumb" aria-hidden="true"></td>'
-    return (f'<td class="bf-thumb" aria-hidden="true"><a href="/prices/{r["m"]["slug"]}/" tabindex="-1"><img src="{esc(img)}" alt="" '
-            f'loading="lazy" width="56" height="56" referrerpolicy="no-referrer" onerror="this.remove()"></a></td>')
-
-
 def deals_table(rs):
     trs = "".join(f"""<tr class="cg-item" data-tags="{TYPES[r['m']['type']][0]}">
   <th scope="row"><a href="/prices/{r['m']['slug']}/">{esc(r['m']['name'])}</a>{'<span class="bf-low">Lowest we’ve tracked</span>' if r.get('low') else ''}<span class="pp-sub sb-type">{esc(TYPES[r['m']['type']][2])}</span></th>
-  {_bf_thumb(r)}
+  {thumb_td(r['m'].get('_image'), f"/prices/{r['m']['slug']}/")}
   <td>{money(r['base'])}{per(r['m'])}</td>
   <td class="pp-price">{money(r['now'])}{per(r['m'])}</td>
   <td class="bf-save">{money(r['base'] - r['now'])} ({r['pct']}%)</td>
 </tr>""" for r in rs)
     return f"""<div class="pp-card pp-table-wrap"><table class="pp-table sb-table">
-<thead><tr><th scope="col">Model</th><td class="bf-thumb"></td><th scope="col">October price</th><th scope="col">Today</th><th scope="col">You save</th></tr></thead>
+<thead><tr><th scope="col">Model</th>{THUMB_HEAD}<th scope="col">October price</th><th scope="col">Today</th><th scope="col">You save</th></tr></thead>
 <tbody class="cg-list" data-show="40">{trs}</tbody></table></div>"""
 
 
@@ -306,7 +299,7 @@ def build_black_friday(models, built, today, images=None):
 {faq_html}
 {method_note(today)}
 </div>
-<script src="/js/clothing-guide.js?v=20261017b" defer></script>
+<script src="/js/clothing-guide.js?v=20261018" defer></script>
 <script src="/js/gift-finder.js?v=20261018c" defer></script>"""
     title = f"Golf Black Friday Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
     desc = (f"Black Friday {year} golf deals that are genuinely cheaper than in October, with the saving on each. "

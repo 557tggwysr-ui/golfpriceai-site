@@ -448,6 +448,19 @@ VERDICT_ICON = {
 }
 
 
+def thumb_td(img, href=None):
+    """A small product photo cell for price tables (empty cell when no photo)."""
+    if not img:
+        return '<td class="pp-thumb" aria-hidden="true"></td>'
+    pic = (f'<img src="{esc(img)}" alt="" loading="lazy" width="56" height="56" referrerpolicy="no-referrer" '
+           f'onerror="this.remove()">')
+    inner = f'<a href="{esc(href)}" tabindex="-1">{pic}</a>' if href else f'<span>{pic}</span>'
+    return f'<td class="pp-thumb" aria-hidden="true">{inner}</td>'
+
+
+THUMB_HEAD = '<td class="pp-thumb" aria-hidden="true"></td>'
+
+
 def page_shell(*, title, description, canonical, body, section, schema, noindex, extra_head="",
                og_image="/assets/social-share.jpg"):
     robots = '<meta name="robots" content="noindex, follow">\n' if noindex else ""
@@ -467,7 +480,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/prices.css?v=20261018c">
+<link rel="stylesheet" href="/css/prices.css?v=20261018d">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -844,6 +857,7 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
     vlab = {"good": "Good time to buy", "wait": "Wait if you can", "typical": "Typical price", "tracking": "Tracking"}
     trs = "".join(f"""<tr data-price="{m['minPrice']}" data-name="{esc(m['name'].lower())}" data-ret="{len(m['retailers'])}">
   <th scope="row"><a href="{model_link(m, built)}">{esc(m['name'])}</a></th>
+  {thumb_td(m.get('_image'), model_link(m, built))}
   <td class="pp-price">{money(m['minPrice'])}{per}</td>
   <td>{len(m['retailers'])}</td>
   <td><span class="pp-vtag pp-v-{(m.get('verdict') or {}).get('label', 'tracking')}">{vlab.get((m.get('verdict') or {}).get('label', 'tracking'))}</span></td>
@@ -871,7 +885,7 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
     <button type="button" data-sort="name" aria-pressed="false">A to Z</button>
   </div>
   <div class="pp-card pp-table-wrap"><table class="pp-table pp-hub-table">
-    <thead><tr><th scope="col">Model</th><th scope="col">From</th><th scope="col">Retailers</th><th scope="col">Verdict</th></tr></thead>
+    <thead><tr><th scope="col">Model</th>{THUMB_HEAD}<th scope="col">From</th><th scope="col">Retailers</th><th scope="col">Verdict</th></tr></thead>
     <tbody id="pp-hub-rows">{trs}</tbody>
   </table></div>
   <p class="pp-small">Lowest new, in-stock price{per} for each model, checked every 6 hours. Verdicts compare today's price with the model's own tracked history.</p>
@@ -1167,6 +1181,10 @@ def build(models_list, products, today_str):
     by_id = {p["id"]: p for p in products}
     by_slug = {m["slug"]: m for m in models_list if m["type"] in TYPES}
     passing = [m for m in models_list if m["gate"]["passes"] and m["type"] in TYPES]
+    # One product photo per model for the price tables (JPG/PNG first).
+    for m in models_list:
+        pics = [by_id[i]["image"] for i in m.get("listingIds") or [] if i in by_id and by_id[i].get("image")]
+        m["_image"] = next((u for u in pics if not u.lower().split("?")[0].endswith(".webp")), pics[0] if pics else None)
     from seasonal_pages import SEASONAL_SLUGS
     existing = {d.name for d in PRICES_DIR.iterdir()
                 if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name not in ("brands", "drops", "data", "watch")}

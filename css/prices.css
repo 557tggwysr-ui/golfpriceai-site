@@ -316,9 +316,9 @@ button.pp-chip:focus-visible { outline: 3px solid var(--gp-green); outline-offse
 .bf-share h2 { margin-bottom: 4px; }
 .bf-share p { margin: 0; color: var(--gp-text-3); }
 @media (max-width: 760px) { .bf-stats { grid-template-columns: 1fr; } }
-.bf-thumb { width: 56px; padding-left: 0 !important; padding-right: 0 !important; }
-.bf-thumb a { display: block; width: 56px; height: 56px; border-radius: 8px; background: #fff; border: 1px solid var(--gp-line); overflow: hidden; }
-.bf-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
-@media (max-width: 560px) { .bf-thumb, .bf-thumb a { width: 44px; height: 44px; } }
+.bf-thumb, .pp-thumb { width: 56px; padding-left: 0 !important; padding-right: 0 !important; }
+.pp-thumb span, .bf-thumb a, .pp-thumb a { display: block; width: 56px; height: 56px; border-radius: 8px; background: #fff; border: 1px solid var(--gp-line); overflow: hidden; }
+.bf-thumb img, .pp-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
+@media (max-width: 560px) { .bf-thumb, .bf-thumb a, .pp-thumb, .pp-thumb a, .pp-thumb span { width: 44px; height: 44px; } }
 .gf-clear { min-height: 44px; padding: 0 12px; border: 0; background: none; color: var(--gp-text-3); font: 600 14px Inter, sans-serif; text-decoration: underline; cursor: pointer; }
 .gf-clear:hover { color: var(--gp-ink); }

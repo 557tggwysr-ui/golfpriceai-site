@@ -27,7 +27,7 @@ import re
 import statistics
 from collections import defaultdict
 
-from price_pages import PRICES_DIR, SITE, breadcrumb, esc, long_date, method_note, money, retailer_name, _write
+from price_pages import THUMB_HEAD, thumb_td, PRICES_DIR, SITE, breadcrumb, esc, long_date, method_note, money, retailer_name, _write
 from price_pages import page_shell
 from seasonal_pages import brand_rank, display_name, _same_thing
 from winter_page import _ok
@@ -254,6 +254,7 @@ def drop_row(s, g):
     fall = s["high"] - s["price"]
     return f"""<tr class="cg-item" {_data_attrs(s, g)}>
   <th scope="row"><a href="{esc(p['affiliateUrl'])}" target="_blank" rel="sponsored nofollow noopener">{esc(s['name'])}</a><span class="pp-sub sb-type">{"Women’s · " if s["women"] else ""}at {esc(retailer_name(p['source']))}</span></th>
+  {thumb_td(p.get('image'))}
   <td><s>{money(s['high'])}</s></td>
   <td class="pp-price">{money(s['price'])}</td>
   <td><span class="sb-down">−{money(fall)} ({round(fall / s['high'] * 100)}%)</span></td>
@@ -317,6 +318,7 @@ def build_one(slug, g, products, today):
         mc = min(m, key=lambda s: s["price"]) if m else None
         wc = min(w, key=lambda s: s["price"]) if w else None
         brand_rows.append(f"""<tr><th scope="row">{esc(b)}</th>
+  {thumb_td(mc["best"].get("image") if mc else None)}
   <td>{f'{esc(mc["name"])}<span class="pp-sub sb-type">at {esc(retailer_name(mc["best"]["source"]))}</span>' if mc else '<span class="pp-sub">None tracked</span>'}</td>
   <td class="pp-price">{money(mc['price']) if mc else '–'}</td>
   <td class="pp-price">{money(wc['price']) if wc else '–'}</td>
@@ -354,7 +356,7 @@ def build_one(slug, g, products, today):
   <h2>Biggest genuine drops on {esc(g['name'])}</h2>
   <p class="pp-small">Each one is at the lowest price we’ve recorded for it, and at least £5 and 3% below the highest price we’ve tracked. Never the retailer’s “was” price.</p>
   <div class="pp-card pp-table-wrap"><table class="pp-table sb-table cg-list" data-show="{DROPS}">
-<thead><tr><th scope="col">Style</th><th scope="col">Highest tracked</th><th scope="col">Now</th><th scope="col">Drop</th></tr></thead>
+<thead><tr><th scope="col">Style</th>{THUMB_HEAD}<th scope="col">Highest tracked</th><th scope="col">Now</th><th scope="col">Drop</th></tr></thead>
 <tbody>{''.join(drop_row(s, g) for s in drops)}</tbody></table></div>
   <p class="pp-small cg-none" hidden>Nothing in this filter has a genuine drop right now.</p>
 </section>""" if drops else "")
@@ -378,7 +380,7 @@ def build_one(slug, g, products, today):
 {f'''<section class="pp-block">
   <h2>Cheapest {esc(g['name'])} by brand</h2>
   <div class="pp-card pp-table-wrap"><table class="pp-table sb-table">
-<thead><tr><th scope="col">Brand</th><th scope="col">Cheapest men’s style</th><th scope="col">Men’s from</th><th scope="col">Women’s from</th><th scope="col">Styles</th></tr></thead>
+<thead><tr><th scope="col">Brand</th>{THUMB_HEAD}<th scope="col">Cheapest men’s style</th><th scope="col">Men’s from</th><th scope="col">Women’s from</th><th scope="col">Styles</th></tr></thead>
 <tbody>{''.join(brand_rows)}</tbody></table></div>
 </section>''' if brand_rows else ''}
 {f'<section class="pp-block"><h2>Which type?</h2><div class="cg-types">{"".join(type_cells)}</div></section>' if type_cells else ''}
@@ -389,7 +391,7 @@ def build_one(slug, g, products, today):
 <section class="pp-block"><h2>More clothing price guides</h2><div class="pp-chips">{others}<a class="pp-chip" href="/apparel.html">All golf clothing</a></div></section>
 {method_note(today)}
 </div>
-<script src="/js/clothing-guide.js?v=20261016" defer></script>"""
+<script src="/js/clothing-guide.js?v=20261018" defer></script>"""
     page = page_shell(title=g["title"], description=g["desc"], canonical=f"{SITE}/prices/{slug}/", body=body,
                       section="apparel", schema=[crumbs_schema, faq_schema], noindex=False)
     changed = _write(PRICES_DIR / slug / "index.html", page)

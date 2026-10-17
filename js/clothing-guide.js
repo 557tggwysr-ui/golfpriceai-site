@@ -47,14 +47,19 @@
       if (!matches(el)) return;
       var b = el.getAttribute('data-brand'), p = parseFloat(el.getAttribute('data-price'));
       if (!b || isNaN(p)) return;
-      var r = best[b] || (best[b] = { n: 0, p: Infinity, name: '' });
+      var r = best[b] || (best[b] = { n: 0, p: Infinity, name: '', img: '', men: false });
       r.n++;
-      if (p < r.p) { r.p = p; r.name = el.getAttribute('data-name'); }
+      // Men's lead: a men's or unisex set is shown when the brand has one,
+      // unless the women's filter is on.
+      var isMen = el.getAttribute('data-aud') !== 'w';
+      var better = filter === 'w' ? p < r.p : (isMen && !r.men) || (isMen === r.men && p < r.p);
+      if (better) { r.p = p; r.name = el.getAttribute('data-name'); r.img = el.getAttribute('data-img') || ''; r.men = isMen; }
     });
     var rows = Object.keys(best).map(function (b) { return [b, best[b]]; })
       .sort(function (a, b) { return b[1].n - a[1].n || (a[0] < b[0] ? -1 : 1); }).slice(0, 10);
     brandBox.querySelector('tbody').innerHTML = rows.map(function (r) {
-      return '<tr><th scope="row">' + esc(r[0]) + '</th><td>' + esc(r[1].name) + '</td><td class="pp-price">' +
+      var pic = r[1].img ? '<span><img src="' + esc(r[1].img) + '" alt="" loading="lazy" width="56" height="56" referrerpolicy="no-referrer" onerror="this.remove()"></span>' : '';
+      return '<tr><th scope="row">' + esc(r[0]) + '</th><td class="pp-thumb" aria-hidden="true">' + pic + '</td><td>' + esc(r[1].name) + '</td><td class="pp-price">' +
         money(r[1].p) + '</td><td>' + r[1].n + '</td></tr>';
     }).join('');
     brandBox.querySelector('.cg-brands-label').textContent = LABELS[filter] || '';

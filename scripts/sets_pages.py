@@ -21,7 +21,7 @@ import re
 import statistics
 from collections import defaultdict
 
-from price_pages import SITE, breadcrumb, esc, long_date, method_note, money, page_shell, retailer_name
+from price_pages import THUMB_HEAD, thumb_td, SITE, breadcrumb, esc, long_date, method_note, money, page_shell, retailer_name
 from seasonal_pages import brand_rank
 
 WOMEN_RX = re.compile(r"\b(ladies|lady|women'?s|womens)\b", re.I)
@@ -127,7 +127,8 @@ def card(m, built, by_id, junior):
     where = (f"{n_ret} retailers · compare prices" if n_ret > 1 and not external
              else "compare prices" if not external else f"at {retailer_name(m['minRetailer'])}")
     attrs = ' target="_blank" rel="sponsored nofollow noopener"' if external else ""
-    data = f' data-brand="{esc(m.get("brand") or "")}" data-price="{m["minPrice"]:.2f}" data-name="{esc(m["name"])}"'
+    data = (f' data-brand="{esc(m.get("brand") or "")}" data-price="{m["minPrice"]:.2f}" data-name="{esc(m["name"])}"'
+            f' data-img="{esc(img or "")}"')
     return f"""<a class="pp-card sg-card cg-item" {_tags(m, junior)}{data} href="{esc(href)}"{attrs}>
   <span class="sg-img{'' if img else ' sg-noimg'}">{pic}</span>
   <span class="pp-sub">{esc(m.get('brand') or '')}</span>
@@ -171,13 +172,14 @@ def build_guide(hub_slug, models_list, passing, built, by_id, today, noindex):
     same_html = ""
     if same:
         trs = "".join(f"""<tr class="cg-item" {_tags(m, junior)}><th scope="row"><a href="/prices/{m['slug']}/">{esc(m['name'])}</a></th>
+  {thumb_td(_image(m, by_id), f"/prices/{m['slug']}/")}
   <td>{'<br>'.join(f'<strong>{esc(r)} {money(p)}</strong>' if i == 0 else f'{esc(r)} {money(p)}' for i, (r, p) in enumerate(mins))}</td>
   <td><span class="sb-down">{'Save ' + money(gap) if gap > 0.005 else 'Same price'}</span></td></tr>""" for m, mins, gap in same)
         same_html = f"""<section class="pp-block">
   <h2>Same set, different price</h2>
   <p class="pp-small">Sets we’ve matched at more than one UK retailer, biggest difference first. We only pair sets when we’re sure they’re identical, so this list is short but reliable.</p>
   <div class="pp-card pp-table-wrap"><table class="pp-table sb-table cg-list" data-show="20">
-<thead><tr><th scope="col">Set</th><th scope="col">Prices today, cheapest first</th><th scope="col">Difference</th></tr></thead>
+<thead><tr><th scope="col">Set</th>{THUMB_HEAD}<th scope="col">Prices today, cheapest first</th><th scope="col">Difference</th></tr></thead>
 <tbody>{trs}</tbody></table></div>
   <p class="pp-small cg-none" hidden>No matched sets for this filter right now.</p>
 </section>"""
@@ -248,13 +250,16 @@ def build_guide(hub_slug, models_list, passing, built, by_id, today, noindex):
             if m.get("brand"):
                 by_brand[m["brand"]].append(m)
         brows = sorted(by_brand.items(), key=lambda x: (-len(x[1]), x[0]))[:10]
-        brand_rows = "".join(f"""<tr><th scope="row">{esc(b)}</th><td>{esc(min(ms, key=lambda m: m['minPrice'])['name'])}</td>
-  <td class="pp-price">{money(min(m['minPrice'] for m in ms))}</td><td>{len(ms)}</td></tr>""" for b, ms in brows)
+        def lead(ms):  # men's or unisex first, as on the rest of the site
+            men = [m for m in ms if not _women(m)] or ms
+            return min(men, key=lambda m: m["minPrice"])
+        brand_rows = "".join(f"""<tr><th scope="row">{esc(b)}</th>{thumb_td(_image(lead(ms), by_id))}<td>{esc(lead(ms)['name'])}</td>
+  <td class="pp-price">{money(lead(ms)['minPrice'])}</td><td>{len(ms)}</td></tr>""" for b, ms in brows)
         extra_after = f"""<section class="pp-block"><h2>What do you get for your money?</h2><div class="cg-types">{tiles}</div></section>"""
         if brand_rows:
             extra_after += f"""<section class="pp-block cg-brands" data-noun="package set">
   <h2>Cheapest <span class="cg-brands-label"></span>package set by brand</h2>
-  <div class="pp-card pp-table-wrap"><table class="pp-table sb-table"><thead><tr><th scope="col">Brand</th><th scope="col">Cheapest set today</th><th scope="col">From</th><th scope="col">Sets</th></tr></thead>
+  <div class="pp-card pp-table-wrap"><table class="pp-table sb-table"><thead><tr><th scope="col">Brand</th>{THUMB_HEAD}<th scope="col">Cheapest set today</th><th scope="col">From</th><th scope="col">Sets</th></tr></thead>
 <tbody>{brand_rows}</tbody></table></div>
   <p class="pp-small cg-brands-none" hidden>No sets for this filter right now.</p></section>"""
         extra = ""
@@ -301,6 +306,6 @@ def build_guide(hub_slug, models_list, passing, built, by_id, today, noindex):
 <section class="pp-block"><h2>More price guides</h2><div class="pp-chips">{other}<a class="pp-chip" href="/prices/irons/">Iron sets</a><a class="pp-chip" href="/prices/golf-bags/">Golf bags</a><a class="pp-chip" href="/prices/golf-gifts/">Golf gifts</a><a class="pp-chip" href="/prices/">All price guides</a></div></section>
 {method_note(today)}
 </div>
-<script src="/js/clothing-guide.js?v=20261017b" defer></script>"""
+<script src="/js/clothing-guide.js?v=20261018" defer></script>"""
     return page_shell(title=title, description=desc, canonical=f"{SITE}/prices/{hub_slug}/", body=body,
                       section="clubs", schema=[crumbs_schema, _faq_schema(qas)], noindex=noindex)
