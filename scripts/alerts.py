@@ -45,6 +45,7 @@ import hmac
 import html
 import json
 import os
+import secrets
 import sys
 import urllib.error
 import urllib.parse
@@ -236,15 +237,35 @@ def email_html(email, items, secret):
 <p style="margin:12px 0 0;font-size:12px"><a href="{stop}" style="color:#5b665f">Stop alerts for this model</a></p>
 </div>""")
     everything = unsubscribe_link(secret, email)
+    four = fourball_panel(items[0])
     return f"""<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#f7f8f6;font-family:Arial,Helvetica,sans-serif;color:#16241c">
 <div style="max-width:560px;margin:0 auto;padding:28px 16px">
 <p style="font-size:22px;font-weight:bold;margin:0 0 4px">Golf<span style="color:#3fae29">Price</span> AI</p>
 <p style="font-size:12px;color:#5b665f;margin:0 0 18px">Full Swing. Not full price.</p>
 <p style="font-size:15px;line-height:1.5;margin:0 0 16px">A price you’re watching has dropped. Your wallet will be pleased; your handicap, sadly, is unaffected. We check every 6 hours, and only email when the lowest new, in-stock price falls by at least £5 (or 3%).</p>
 {''.join(blocks)}
+{four}
 <p style="font-size:12px;color:#5b665f;line-height:1.5;margin:18px 0 0">Prices change on retailers’ sites, so check before you buy. We may earn a commission if you buy through our links; it never changes the price.<br>
 No countdown timers. No fake discounts. <a href="{everything}" style="color:#5b665f">Unsubscribe from all GolfPrice AI emails</a>.</p>
 </div></body></html>"""
+
+
+def fourball_panel(d):
+    """Fourball Alerts: "Tell your four-ball" in the price-drop email. Opens
+    WhatsApp with the message ready. The invite code is random (not linked to
+    the subscriber), so the worker can count mates who join without knowing
+    who sent it."""
+    code = "".join(secrets.choice("abcdefghijkmnpqrstuvwxyz23456789") for _ in range(8))
+    page = (f"{SITE}/prices/{d['slug']}/?fb=1&c={code}"
+            f"&utm_source=fourball&utm_medium=whatsapp&utm_campaign=drop-email")
+    text = (f"The {d['name']} has just dropped to {money(d['now'])}{' per dozen' if d['ball'] else ''} "
+            f"on GolfPrice AI. Join the four-ball alert for next time: {page}")
+    wa = "https://wa.me/?text=" + urllib.parse.quote(text, safe="")
+    return f"""<div style="background:#14211a;color:#fff;border-radius:14px;padding:20px;margin:0 0 14px">
+<p style="margin:0 0 6px;font-size:17px;font-weight:bold;color:#fff">Know someone after the same kit?</p>
+<p style="margin:0 0 14px;font-size:14px;line-height:1.5;color:#c4d0c8">Send this drop to your four-ball or society. They can join the alert for next time too. We never see who you send it to.</p>
+<p style="margin:0"><a href="{html.escape(wa)}" style="display:inline-block;background:#fff;color:#14211a;text-decoration:none;font-weight:bold;padding:11px 16px;border-radius:10px">Tell your four-ball</a></p>
+</div>"""
 
 
 def subject_for(items):

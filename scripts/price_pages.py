@@ -440,6 +440,9 @@ def chart_svg(model, phone=False):
 
 # ---------------------------------------------------------------- shared page parts
 ICON_SHARE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>'
+FOURBALL_CSS = '<link rel="stylesheet" href="/css/fourball.css?v=20261018">\n'
+ICON_HEART = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"></path></svg>'
+ICON_GROUP = '<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2f8a1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="8" r="3"></circle><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M12 14.5c1-.3 2-.5 4-.5 3.3 0 6 2.7 6 6"></path></svg>'
 ICON_BELL = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0112 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 003.4 0"></path></svg>'
 VERDICT_ICON = {
     "good": '<path d="M12 5v14M6 13l6 6 6-6"></path>',
@@ -590,7 +593,22 @@ def alert_form(model):
     <p class="gp-af-small">New to alerts? We’ll email you once to confirm first. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
     <p class="gp-af-msg" role="status" aria-live="polite"></p>
   </form>
+  {fourball_invite(model)}
 </section>"""
+
+
+def fourball_invite(model):
+    """Fourball Alerts: send this model to the group chat. Shown by
+    js/fourball.js (it needs the share menu), and lit up after a sign-up."""
+    return f"""<div class="fb-invite" id="fourball" hidden>
+    <div class="fb-invite-top">{ICON_GROUP}<h3 class="fb-head">Tell your four-ball or society</h3></div>
+    <p>Playing partners eyeing the same {esc(model.noun)}? Send them the link. Each adds their own email, and you’ll all hear when it drops.</p>
+    <div class="fb-invite-row">
+      <label>Your first name (optional)<input type="text" name="fb-name" maxlength="20" autocomplete="given-name"></label>
+      <button type="button" class="gp-af-btn fb-send">Send to my four-ball</button>
+    </div>
+    <p class="gp-af-small">We never see or store your mates’ details. They choose whether to sign up. <a href="/fourball/">How Fourball Alerts work</a></p>
+  </div>"""
 
 
 def bought_box(model):
@@ -814,6 +832,8 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
       <button type="button" class="pp-btn pp-btn-alt gp-share" data-text="{esc(share_text)}">{ICON_SHARE}Share this deal</button>
     </div>
     <p class="pp-disclose">We may earn a commission if you buy through these links. It never changes the prices or the verdict.</p>
+    <div class="fb-row" hidden><button type="button" class="fb-save" aria-pressed="false">{ICON_HEART}<span>Add to four-ball shortlist</span></button><span class="fb-row-note"></span></div>
+    <p class="pp-check fb-nudge" hidden>Buying with mates? <a href="#fourball">Make it a four-ball alert →</a></p>
     <p class="pp-check">Seen it somewhere else? <a href="/price-check.html?m={esc(model.slug)}">Check if that price is any good →</a></p>
     {bought_box(model)}
   </div>
@@ -840,7 +860,8 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
 {method_note(today)}
 <p class="pp-small pp-data">The facts on this page as data: <a href="/prices/{model.slug}/data.json">data.json</a></p>
 </div>
-<script src="/js/gift-finder.js?v=20261018d" defer></script>"""
+<script src="/js/gift-finder.js?v=20261018d" defer></script>
+<script src="/js/fourball.js?v=20261018" defer></script>"""
 
     title = f"{name} Price UK: from {money(low['price'])}{per}"
     if model.is_ball:
@@ -863,8 +884,8 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
         product["offers"]["description"] = "Prices per dozen balls"
     page = page_shell(title=title, description=desc, canonical=canonical, body=body, section=model.section,
                       og_image=(m.get("_card") or m.get("_image") or img or None),
-                      extra_head=('<meta property="og:image:width" content="1200">\n'
-                                  '<meta property="og:image:height" content="630">\n') if m.get("_card") else "",
+                      extra_head=FOURBALL_CSS + (('<meta property="og:image:width" content="1200">\n'
+                                  '<meta property="og:image:height" content="630">\n') if m.get("_card") else ""),
                       schema=[product, crumbs_schema], noindex=noindex)
 
     data = {
@@ -875,6 +896,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
         "history": {"daysTracked": f["days"], "low": f["low"], "high": f["high"], "average": f["avg"],
                     "priceChanges": f["changes"], "series": m.get("history")} if f else None,
         "verdict": {"label": vlabel, "summary": vtitle},
+        "image": m.get("_image") or img or None,
         "source": "GolfPrice AI's own price tracking, checked every 6 hours",
     }
     return page, json.dumps(data, ensure_ascii=False, indent=1)
@@ -1161,6 +1183,7 @@ def _facts_only(data_json):
     try:
         d = json.loads(data_json)
         d.pop("checked", None)
+        d.pop("image", None)  # a new photo isn't a price change
         return json.dumps(d, sort_keys=True)
     except ValueError:
         return data_json
@@ -1362,6 +1385,13 @@ def build(models_list, products, today_str):
         o_changed, o_sitemap = open_data.build(passing, built, today)
         changed += o_changed
         sitemap += o_sitemap
+        try:
+            import fourball_pages
+            f_changed, _ = fourball_pages.build()
+            changed += f_changed
+            sitemap.append(("fourball/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Fourball pages skipped: {e}")
         import price_watch
         w_changed, w_sitemap, has_watch = price_watch.build(passing, built, today)
         changed += w_changed

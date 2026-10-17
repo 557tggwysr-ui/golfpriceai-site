@@ -399,8 +399,12 @@
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(bought
         ? { email: email, bought: bought, paid: paid, website: hp ? hp.value : '' }
+        : form.getAttribute('data-models')
+        ? { email: email, models: form.getAttribute('data-models').split(','), list: 1,
+            fb: form.getAttribute('data-fb') || '', website: hp ? hp.value : '' }
         : { email: email, model: form.getAttribute('data-model') || '',
-            modelName: form.getAttribute('data-model-name') || '', website: hp ? hp.value : '' })
+            modelName: form.getAttribute('data-model-name') || '', fb: form.getAttribute('data-fb') || '',
+            website: hp ? hp.value : '' })
     }).then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
       .then(function (res) {
         btn.disabled = false;
@@ -408,12 +412,16 @@
         form.classList.add('is-done');
         say(res.status === 'added-bought'
           ? 'Done: we’ll watch it for 30 days and email you once if it drops below what you paid.'
+          : res.status === 'added' && form.getAttribute('data-models')
+          ? 'Done: they’re all on your alert list. Nothing to confirm, you’re already signed up.'
           : res.status === 'added'
           ? 'Done: it’s on your alert list. Nothing to confirm, you’re already signed up.'
           : res.status === 'added-digest'
           ? 'Done: you’ll get the Friday email. Nothing to confirm, you’re already signed up.'
           : 'Nearly there: check your inbox for a confirmation email from GolfPrice AI and click the button in it. Nothing is sent until you do.', 'ok');
         if (window.gtag) gtag('event', bought ? 'bought_watch_signup' : 'alert_signup', { model: bought || form.getAttribute('data-model') || 'general', status: res.status });
+        // js/fourball.js shows "Tell your four-ball" after a price alert sign-up.
+        if (!bought) document.dispatchEvent(new CustomEvent('gp:alert-signup', { detail: { form: form, status: res.status } }));
       })
       .catch(function () { btn.disabled = false; say('Couldn’t reach the alert service. Please check your connection and try again.', 'error'); });
   });
