@@ -266,3 +266,53 @@ button.pp-chip:focus-visible { outline: 3px solid var(--gp-green); outline-offse
 .sb-thumb { float: left; width: 52px; height: 52px; margin: 0 12px 4px 0; border-radius: 8px; background: #fff; border: 1px solid var(--gp-line); overflow: hidden; }
 .sb-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .sb-table th[scope="row"] { min-width: 0; }
+
+/* ---------- gift finder, gift cards, wishlists (seasonal_pages.py, js/gift-finder.js) ---------- */
+.gf-card { gap: 8px; }
+.gf-card[hidden] { display: none !important; }
+.gf-link { display: flex; flex-direction: column; gap: 4px; color: var(--gp-ink); text-decoration: none; }
+.gf-link:hover .sg-name { color: var(--gp-green-dark); }
+.gf-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.gf-tag { font-size: 11px; font-weight: 700; border-radius: 999px; padding: 3px 8px; line-height: 1.3; }
+.gf-safe { background: #e3f4dc; color: #1f6a12; }
+.gf-check { background: #fff3d6; color: #6b4e00; }
+.gf-good { background: var(--gp-ink); color: #fff; }
+.gf-wait { border: 1px solid #c9cfc6; color: var(--gp-text-3); }
+.gf-actions { margin-top: auto; display: grid; grid-template-columns: minmax(0, 1fr) 44px; gap: 6px; }
+.gf-hint, .gf-save { min-height: 44px; border-radius: 10px; border: 1px solid #d5dad2; background: #fff; color: var(--gp-ink); font: 600 13px Inter, sans-serif; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.gf-hint:hover, .gf-save:hover { border-color: var(--gp-green); }
+.gf-hint:focus-visible, .gf-save:focus-visible, .gf-chip:focus-visible { outline: 3px solid var(--gp-green); outline-offset: 2px; }
+.gf-save svg { fill: none; stroke: var(--gp-green-dark); stroke-width: 2; }
+.gf-save.gf-on svg { fill: var(--gp-green-dark); }
+.gf-bar { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; background: var(--gp-pale); border: 1px solid #d4e8cc; border-radius: 14px; padding: 10px 14px; margin: 0 0 14px; }
+.gf-bar[hidden] { display: none; }
+.gf-bar-name { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gp-text-3); }
+.gf-bar-name input { min-height: 40px; width: 130px; border: 1px solid #c9cfc6; border-radius: 10px; padding: 0 10px; font: 15px Inter, sans-serif; }
+.gf-finder .gf-q { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+.gf-q-label { font-weight: 600; }
+.gf-chip { min-height: 44px; }
+.gf-more { margin-top: 14px; font-weight: 600; }
+.gf-more[hidden], .gf-none[hidden], .gf-wl-empty[hidden] { display: none; }
+.gf-wl-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.gf-wl-item { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; gap: 16px; align-items: center; padding: 14px; }
+.gf-wl-img { width: 110px; height: 110px; border-radius: 10px; overflow: hidden; background: #fff; display: block; }
+.gf-wl-img img { width: 100%; height: 100%; object-fit: contain; }
+.gf-wl-img.sg-noimg { background: var(--gp-pale) url('/assets/logo-full.png') center / 50% no-repeat; opacity: .5; }
+.gf-wl-mid { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.gf-wl-end { display: flex; flex-direction: column; gap: 8px; align-items: stretch; min-width: 190px; text-align: center; }
+.gf-wl-end .gp-af-btn { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; }
+.gf-wl-alert { font-size: 13px; font-weight: 600; }
+@media (max-width: 640px) { .gf-wl-item { grid-template-columns: 80px minmax(0, 1fr); } .gf-wl-img { width: 80px; height: 80px; } .gf-wl-end { grid-column: 1 / -1; } }
+
+/* ---------- Black Friday page ---------- */
+.bf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.bf-stat { padding: 18px; display: flex; flex-direction: column; gap: 4px; }
+.bf-stat b { font: 800 38px/1 'Poppins', 'Inter', sans-serif; color: var(--gp-green-dark); }
+.bf-stat span { font-weight: 600; }
+.bf-low { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 700; color: #1f6a12; background: #e3f4dc; border-radius: 999px; padding: 3px 8px; vertical-align: middle; }
+.bf-save { font-weight: 700; color: #1f6a12; white-space: nowrap; }
+.bf-share { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
+.bf-share > div { flex: 1 1 380px; }
+.bf-share h2 { margin-bottom: 4px; }
+.bf-share p { margin: 0; color: var(--gp-text-3); }
+@media (max-width: 760px) { .bf-stats { grid-template-columns: 1fr; } }
