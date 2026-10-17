@@ -127,7 +127,8 @@ def card(m, built, by_id, junior):
     where = (f"{n_ret} retailers · compare prices" if n_ret > 1 and not external
              else "compare prices" if not external else f"at {retailer_name(m['minRetailer'])}")
     attrs = ' target="_blank" rel="sponsored nofollow noopener"' if external else ""
-    return f"""<a class="pp-card sg-card cg-item" {_tags(m, junior)} href="{esc(href)}"{attrs}>
+    data = f' data-brand="{esc(m.get("brand") or "")}" data-price="{m["minPrice"]:.2f}" data-name="{esc(m["name"])}"'
+    return f"""<a class="pp-card sg-card cg-item" {_tags(m, junior)}{data} href="{esc(href)}"{attrs}>
   <span class="sg-img{'' if img else ' sg-noimg'}">{pic}</span>
   <span class="pp-sub">{esc(m.get('brand') or '')}</span>
   <span class="sg-name">{esc(m['name'])}</span>
@@ -204,6 +205,7 @@ def build_guide(hub_slug, models_list, passing, built, by_id, today, noindex):
                            f'<span>{esc(sub)}{len(ms)} sets · from {money(min(m["minPrice"] for m in ms))} · typical {money(statistics.median([m["minPrice"] for m in ms]))}</span></button>')
             return "".join(out)
         chips = [("all", "All"), ("under", "Under £150"), ("starter", "Starter (up to 5 pieces)"), ("full", "Fuller sets (6+ pieces)")]
+        extra_after = ""
         extra = f"""<section class="pp-block"><h2>Shop by age</h2><div class="cg-bands">{band_tiles(AGE_BANDS, 0)}</div></section>
 <section class="pp-block"><h2>Shop by height (most accurate)</h2>
   <p class="pp-small">Junior clubs are made for a child’s height, not their age, and children the same age can be very different sizes. Measure them in their shoes, then pick the band. The ages are a rough guide only; check the retailer’s size chart before you buy.</p>
@@ -239,18 +241,23 @@ def build_guide(hub_slug, models_list, passing, built, by_id, today, noindex):
                         f'<p><b>{sum(1 for m in men if lo <= m["minPrice"] < hi)}</b> men’s sets</p></div>' for n, r, lo, hi in PRICE_BANDS)
         if women:
             tiles += f'<div class="cg-type"><h3>Women’s sets</h3><p><b>{len(women)}</b> sets · typical {money(statistics.median([m["minPrice"] for m in women]))}</p></div>'
+        # Server-rendered for "All"; js/clothing-guide.js rebuilds it from the
+        # cards whenever a filter is picked, so it always matches the chips.
         by_brand = defaultdict(list)
-        for m in men:
+        for m in sets:
             if m.get("brand"):
                 by_brand[m["brand"]].append(m)
         brows = sorted(by_brand.items(), key=lambda x: (-len(x[1]), x[0]))[:10]
         brand_rows = "".join(f"""<tr><th scope="row">{esc(b)}</th><td>{esc(min(ms, key=lambda m: m['minPrice'])['name'])}</td>
   <td class="pp-price">{money(min(m['minPrice'] for m in ms))}</td><td>{len(ms)}</td></tr>""" for b, ms in brows)
-        extra = f"""<section class="pp-block"><h2>What do you get for your money?</h2><div class="cg-types">{tiles}</div></section>"""
+        extra_after = f"""<section class="pp-block"><h2>What do you get for your money?</h2><div class="cg-types">{tiles}</div></section>"""
         if brand_rows:
-            extra += f"""<section class="pp-block"><h2>Cheapest men’s package set by brand</h2>
+            extra_after += f"""<section class="pp-block cg-brands" data-noun="package set">
+  <h2>Cheapest <span class="cg-brands-label"></span>package set by brand</h2>
   <div class="pp-card pp-table-wrap"><table class="pp-table sb-table"><thead><tr><th scope="col">Brand</th><th scope="col">Cheapest set today</th><th scope="col">From</th><th scope="col">Sets</th></tr></thead>
-<tbody>{brand_rows}</tbody></table></div></section>"""
+<tbody>{brand_rows}</tbody></table></div>
+  <p class="pp-small cg-brands-none" hidden>No sets for this filter right now.</p></section>"""
+        extra = ""
         guide = """<section class="pp-block"><h2>New to golf? What’s in a package set</h2><div class="cg-types">
   <div class="cg-type"><h3>Pieces</h3><p>“11-piece” counts every item: usually a driver, a wood or hybrid, irons, a wedge, a putter, the bag and headcovers. More pieces doesn’t always mean more clubs.</p></div>
   <div class="cg-type"><h3>Cart or stand bag?</h3><p>Stand bags have legs and are lighter to carry. Cart bags sit on a trolley and have more pockets. Pick the one that matches how you get round.</p></div>
@@ -280,7 +287,6 @@ def build_guide(hub_slug, models_list, passing, built, by_id, today, noindex):
   <p class="pp-disclose">We may earn a commission if you buy through links on this page. It never changes the prices or the order.</p>
 </section>
 {extra}
-{same_html}
 <section class="pp-block">
   <h2>{'Junior golf sets' if junior else 'Golf package sets'} we track</h2>
   <p class="pp-small">Ordered by the data, not by brand: genuine drops and lowest tracked prices first. Sets with a price page show their full price history there.</p>
@@ -288,11 +294,13 @@ def build_guide(hub_slug, models_list, passing, built, by_id, today, noindex):
   <p class="pp-small cg-none" hidden>Nothing to show for this filter right now.</p>
   <p><button type="button" class="pp-chip cg-more">Show more</button></p>
 </section>
+{same_html}
+{extra_after}
 {guide}
 <section class="pp-block"><h2>Common questions</h2><div class="cg-faq">{_faq_html(qas)}</div></section>
 <section class="pp-block"><h2>More price guides</h2><div class="pp-chips">{other}<a class="pp-chip" href="/prices/irons/">Iron sets</a><a class="pp-chip" href="/prices/golf-bags/">Golf bags</a><a class="pp-chip" href="/prices/golf-gifts/">Golf gifts</a><a class="pp-chip" href="/prices/">All price guides</a></div></section>
 {method_note(today)}
 </div>
-<script src="/js/clothing-guide.js?v=20261017" defer></script>"""
+<script src="/js/clothing-guide.js?v=20261017b" defer></script>"""
     return page_shell(title=title, description=desc, canonical=f"{SITE}/prices/{hub_slug}/", body=body,
                       section="clubs", schema=[crumbs_schema, _faq_schema(qas)], noindex=noindex)
