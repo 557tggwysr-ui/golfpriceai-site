@@ -72,6 +72,20 @@ export default {
       return res ? json(res, 200, cors) : new Response(null, { status: 202, headers: cors });
     }
     if (url.pathname === '/mcp') return new Response('Use POST for MCP requests.', { status: 405, headers: cors });
+    // Directory ownership checks and listings (public, no personal data).
+    // Glama: proves this connector belongs to the GolfPrice AI Glama account.
+    if (url.pathname === '/.well-known/glama.json') {
+      return json({ $schema: 'https://glama.ai/mcp/schemas/connector.json', claim: 'glama_claim_f9BpEswi_vnQYxHH0RAta-mGXQJmUMGk' }, 200, cors);
+    }
+    // Smithery and other directories: a short description of the server.
+    if (url.pathname === '/.well-known/mcp/server-card.json') {
+      return json({
+        serverInfo: { name: 'golfpriceai', title: 'GolfPrice AI', version: '1.0.0' },
+        description: 'Live UK golf equipment prices, price history and genuine price drops across multiple UK retailers.',
+        websiteUrl: SITE + '/ai.html',
+        tools: TOOLS,
+      }, 200, cors);
+    }
     return new Response(
       'GolfPrice AI connector for AI assistants (MCP).\n\nAdd this address as a custom connector: ' + url.origin + '/mcp\n\n' +
       'Tools: search_golf_prices, get_golf_price, golf_price_drops.\nLive UK golf prices from ' + SITE + ', checked every 6 hours.\n',
