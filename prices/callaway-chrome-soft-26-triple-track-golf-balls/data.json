@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-soft-26-triple-track-golf-balls/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 92.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 92.0,
   "high": 92.0,
   "average": 92.0,
@@ -29,14 +29,14 @@
     92.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     92.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 62 days"
+  "summary": "Typical price: steady for 63 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

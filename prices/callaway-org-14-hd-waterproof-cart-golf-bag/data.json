@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-org-14-hd-waterproof-cart-golf-bag/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 229.0,
   "high": 249.0,
-  "average": 243.84,
+  "average": 243.6,
   "priceChanges": 2,
   "series": [
    [
@@ -40,12 +40,16 @@
    [
     "2026-10-16",
     229.0
+   ],
+   [
+    "2026-10-17",
+    229.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 2 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -3,31 +3,31 @@
  "brand": "Big Max",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/big-max-aqua-seven-h-waterproof-stand-golf-bag/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.95,
+ "lowestNewPrice": 139.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clickgolf"
  ],
  "retailers": [
-  {
-   "name": "Affordable Golf",
-   "from": 129.95,
-   "options": 6
-  },
   {
    "name": "Clickgolf",
    "from": 139.0,
    "options": 4
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 139.95,
+   "options": 6
   }
  ],
  "history": {
-  "daysTracked": 43,
+  "daysTracked": 44,
   "low": 129.95,
   "high": 139.95,
-  "average": 136.3,
-  "priceChanges": 2,
+  "average": 136.36,
+  "priceChanges": 3,
   "series": [
    [
     "2026-09-04",
@@ -42,14 +42,14 @@
     129.95
    ],
    [
-    "2026-10-16",
-    129.95
+    "2026-10-17",
+    139.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £9.05 above its tracked low"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

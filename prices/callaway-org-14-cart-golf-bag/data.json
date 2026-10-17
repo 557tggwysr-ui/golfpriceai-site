@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-org-14-cart-golf-bag/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 179.0,
   "high": 199.0,
-  "average": 188.33,
+  "average": 188.18,
   "priceChanges": 15,
   "series": [
    [
@@ -101,6 +101,10 @@
    ],
    [
     "2026-10-16",
+    179.0
+   ],
+   [
+    "2026-10-17",
     179.0
    ]
   ]

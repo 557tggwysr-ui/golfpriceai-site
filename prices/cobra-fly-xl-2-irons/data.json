@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-fly-xl-2-irons/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 219.0,
   "high": 299.0,
-  "average": 243.52,
+  "average": 243.13,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     219.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     219.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 43 days"
+  "summary": "Typical price: steady for 44 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

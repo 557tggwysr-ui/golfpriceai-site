@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/mizuno-jpx-925-forged-irons/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 799.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 799.0,
   "high": 1099.0,
-  "average": 933.84,
+  "average": 931.7,
   "priceChanges": 3,
   "series": [
    [
@@ -46,14 +46,14 @@
     799.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     799.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 32 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

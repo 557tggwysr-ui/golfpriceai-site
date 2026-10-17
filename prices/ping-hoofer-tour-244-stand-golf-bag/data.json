@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-hoofer-tour-244-stand-golf-bag/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 224.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 224.0,
   "high": 249.0,
-  "average": 243.35,
+  "average": 243.05,
   "priceChanges": 9,
   "series": [
    [
@@ -67,6 +67,10 @@
    ],
    [
     "2026-10-16",
+    224.0
+   ],
+   [
+    "2026-10-17",
     224.0
    ]
   ]

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/cobra-premium-stand-golf-bag/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 219.0,
   "high": 249.0,
-  "average": 223.35,
+  "average": 223.29,
   "priceChanges": 4,
   "series": [
    [
@@ -55,14 +55,14 @@
     219.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     219.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 50 days"
+  "summary": "Typical price: steady for 51 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-ds-adapt-max-irons/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 499.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 499.0,
   "high": 529.0,
-  "average": 513.52,
+  "average": 513.29,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     499.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     499.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 32 days"
+  "summary": "Typical price: steady for 33 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

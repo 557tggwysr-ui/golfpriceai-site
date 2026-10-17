@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g430-max-driver/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 369.0,
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 369.0,
   "high": 369.0,
   "average": 369.0,
@@ -34,14 +34,14 @@
     369.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     369.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 62 days"
+  "summary": "Typical price: steady for 63 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

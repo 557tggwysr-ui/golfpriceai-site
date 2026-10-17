@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-rx-remote-electric-trolley/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 949.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 949.0,
   "high": 999.0,
-  "average": 990.13,
+  "average": 989.48,
   "priceChanges": 9,
   "series": [
    [
@@ -62,6 +62,10 @@
    ],
    [
     "2026-10-16",
+    949.0
+   ],
+   [
+    "2026-10-17",
     949.0
    ]
   ]

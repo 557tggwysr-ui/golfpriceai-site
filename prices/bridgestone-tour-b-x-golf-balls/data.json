@@ -3,19 +3,14 @@
  "brand": "Bridgestone",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/bridgestone-tour-b-x-golf-balls/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 37.95,
+ "lowestNewPrice": 39.99,
  "lowestAt": [
-  "Major Golf Direct"
+  "Scottsdale Golf"
  ],
  "retailers": [
-  {
-   "name": "Major Golf Direct",
-   "from": 37.95,
-   "options": 1
-  },
   {
    "name": "Scottsdale Golf",
    "from": 39.99,
@@ -23,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 50,
+  "daysTracked": 51,
   "low": 37.95,
   "high": 37.95,
   "average": 37.95,
@@ -34,14 +29,14 @@
     37.95
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     37.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 50 days"
+  "summary": "Typical price: steady for 51 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

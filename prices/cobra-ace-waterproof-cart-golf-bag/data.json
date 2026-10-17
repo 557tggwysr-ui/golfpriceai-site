@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-cart-golf-bag/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 174.0,
   "high": 199.0,
-  "average": 186.98,
+  "average": 186.86,
   "priceChanges": 14,
   "series": [
    [
@@ -92,6 +92,10 @@
    ],
    [
     "2026-10-16",
+    179.0
+   ],
+   [
+    "2026-10-17",
     179.0
    ]
   ]

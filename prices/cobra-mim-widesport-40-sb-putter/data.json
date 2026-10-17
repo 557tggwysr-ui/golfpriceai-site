@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/cobra-mim-widesport-40-sb-putter/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 219.0,
   "high": 229.0,
-  "average": 220.23,
+  "average": 220.21,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     219.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     219.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 50 days"
+  "summary": "Typical price: steady for 51 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

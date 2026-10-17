@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/cleveland-smart-sole-full-face-tour-satin-wedge/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 109.0,
@@ -14,7 +14,7 @@
   {
    "name": "Major Golf Direct",
    "from": 109.0,
-   "options": 4
+   "options": 3
   },
   {
    "name": "Affordable Golf",
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 50,
+  "daysTracked": 51,
   "low": 109.0,
   "high": 109.0,
   "average": 109.0,
@@ -34,14 +34,14 @@
     109.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     109.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 50 days"
+  "summary": "Typical price: steady for 51 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

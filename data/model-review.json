@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-10-16",
+ "lastUpdated": "2026-10-17",
  "uncertainGroupings": [
   {
    "model": "TaylorMade milled grind 5",
@@ -77,6 +77,11 @@
    "listings": 8
   },
   {
+   "model": "TaylorMade qi max hl",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
    "model": "Mizuno Pro T-3 Wedge",
    "issue": "price spread \u00a3149.00 to \u00a3477.00: may mix different products",
    "listings": 7
@@ -103,11 +108,6 @@
   },
   {
    "model": "Titleist t350",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
-  },
-  {
-   "model": "TaylorMade qi max hl",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
   },
@@ -775,6 +775,21 @@
   },
   {
    "name": "Odyssey Golf Ai-Dual 1/2 Ball Jailbird Mini DB Pistol Grip Putter - 34 / Right Hand",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "VOID Centrefire Mens Right Hand Putter 34\" Blade KBS Tour GPS 120 - VOID",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Rife Roll Groove Series RG4 Mens Right Hand Putter 34\" Mallet - Rife",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "TaylorMade Spider ZT Max Mens Right Hand Putter 38\" Mallet KBS Tour GPS - Super Stroke Zenergy Tour 3.0.17",
    "from": "accessories",
    "to": "putter"
   }

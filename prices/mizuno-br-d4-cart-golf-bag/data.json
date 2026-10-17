@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-br-d4-cart-golf-bag/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 144.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 144.0,
   "high": 169.0,
-  "average": 146.02,
+  "average": 145.98,
   "priceChanges": 2,
   "series": [
    [
@@ -47,14 +47,14 @@
     144.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     144.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 56 days"
+  "summary": "Typical price: steady for 57 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

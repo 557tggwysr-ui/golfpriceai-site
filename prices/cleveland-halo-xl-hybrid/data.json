@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/cleveland-halo-xl-hybrid/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 99.0,
   "high": 129.0,
-  "average": 104.81,
+  "average": 104.71,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     99.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     99.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 50 days"
+  "summary": "Typical price: steady for 51 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

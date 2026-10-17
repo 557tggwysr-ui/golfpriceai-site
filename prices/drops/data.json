@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-16T23:52+01:00",
+ "checked": "2026-10-17T03:14+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -600,7 +600,7 @@
    "was": 239.0,
    "now": 229.0,
    "unit": "each",
-   "lowest_tracked": true,
+   "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/callaway-org-14-hd-waterproof-cart-golf-bag/"
   },
   {
@@ -832,16 +832,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/titleist-linkslegend-members-stand-golf-bag/"
-  },
-  {
-   "model": "Srixon ZXi Driver",
-   "model_id": "srixon-zxi-driver",
-   "date": "2026-10-09",
-   "was": 329.0,
-   "now": 299.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/srixon-zxi-driver/"
   }
  ]
 }

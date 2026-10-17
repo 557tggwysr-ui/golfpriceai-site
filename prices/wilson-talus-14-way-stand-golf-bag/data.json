@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-talus-14-way-stand-golf-bag/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 154.0,
   "high": 179.0,
-  "average": 172.31,
+  "average": 172.1,
   "priceChanges": 14,
   "series": [
    [
@@ -82,6 +82,10 @@
    ],
    [
     "2026-10-16",
+    159.0
+   ],
+   [
+    "2026-10-17",
     159.0
    ]
   ]

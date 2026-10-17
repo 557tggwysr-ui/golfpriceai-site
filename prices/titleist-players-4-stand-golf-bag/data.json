@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/titleist-players-4-stand-golf-bag/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 159.0,
   "high": 219.0,
-  "average": 176.1,
+  "average": 175.83,
   "priceChanges": 3,
   "series": [
    [
@@ -56,14 +56,14 @@
     159.0
    ],
    [
-    "2026-10-16",
+    "2026-10-17",
     159.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 43 days"
+  "summary": "Typical price: steady for 44 days"
  },
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

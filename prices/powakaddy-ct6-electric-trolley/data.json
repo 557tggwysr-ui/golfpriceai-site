@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct6-electric-trolley/",
- "checked": "2026-10-16",
+ "checked": "2026-10-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 719.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 699.0,
   "high": 749.0,
-  "average": 740.45,
+  "average": 740.11,
   "priceChanges": 9,
   "series": [
    [
@@ -77,6 +77,10 @@
    ],
    [
     "2026-10-16",
+    719.0
+   ],
+   [
+    "2026-10-17",
     719.0
    ]
   ]
