@@ -462,7 +462,15 @@ THUMB_HEAD = '<td class="pp-thumb" aria-hidden="true"></td>'
 
 
 def page_shell(*, title, description, canonical, body, section, schema, noindex, extra_head="",
-               og_image="/assets/social-share.jpg"):
+               og_image=None):
+    # The picture shown when the page is shared (WhatsApp, Facebook, X...):
+    # the product photo for a price page, the section photo for a guide,
+    # otherwise the site's own share image.
+    if not og_image:
+        path = canonical.replace(SITE, "", 1)
+        og_image = ("/assets/photos/golf-gifts.jpg" if path.startswith("/prices/golf-gifts")
+                    else _index_photo(path) or "/assets/social-share.jpg")
+    og_image_url = og_image if og_image.startswith("http") else SITE + og_image
     robots = '<meta name="robots" content="noindex, follow">\n' if noindex else ""
     schema_html = "".join(
         f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False, separators=(",", ":"))}</script>\n'
@@ -486,7 +494,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{canonical}">
-<meta property="og:image" content="{SITE}{og_image}">
+<meta property="og:image" content="{esc(og_image_url)}">
 <meta name="twitter:card" content="summary_large_image">
 {extra_head}{schema_html}</head>
 <body data-section="{section}">
@@ -823,6 +831,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     if model.is_ball:
         product["offers"]["description"] = "Prices per dozen balls"
     page = page_shell(title=title, description=desc, canonical=canonical, body=body, section=model.section,
+                      og_image=(m.get("_image") or img or None),
                       schema=[product, crumbs_schema], noindex=noindex)
 
     data = {
