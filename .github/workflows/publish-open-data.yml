@@ -46,18 +46,21 @@ jobs:
           python - <<'PY'
           import datetime, os
           from huggingface_hub import HfApi
-          HfApi(token=os.environ["HF_TOKEN"]).upload_folder(
+          HfApi(token=os.environ["HF_TOKEN"].strip().strip('"')).upload_folder(
               folder_path="/tmp/opendata", repo_id="GolfPriceAI/uk-golf-prices", repo_type="dataset",
               allow_patterns=["*.csv"], commit_message=f"Weekly update {datetime.date.today().isoformat()}")
           print("Hugging Face updated.")
           PY
 
       - name: Update Kaggle
+        # Runs even if the Hugging Face step failed, so one bad key never blocks the other.
+        if: ${{ !cancelled() }}
         env:
           T: ${{ secrets.KAGGLE_API_TOKEN }}
           U: ${{ secrets.KAGGLE_USERNAME }}
           K: ${{ secrets.KAGGLE_KEY }}
         run: |
+          T=$(echo "$T" | tr -d '[:space:]"')
           if [ -n "$T" ]; then export KAGGLE_API_TOKEN="$T"
           elif [ -n "$U" ] && [ -n "$K" ]; then export KAGGLE_USERNAME="$U" KAGGLE_KEY="$K"
           else echo "No Kaggle secrets yet - skipping Kaggle."; exit 0; fi
