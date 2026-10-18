@@ -207,6 +207,15 @@
     show('Your bag is on watch.', '<p>We’ll email you when any of the items in your bag genuinely drops in price: by at least £5 (or 3%, whichever is bigger).</p>' +
       '<p>Every alert has a one-click link to stop it, item by item.</p>',
       '<a class="al-btn" href="/build-your-bag.html">Back to your bag</a><a class="al-btn alt" href="/prices/">More price guides</a>');
+  } else if (status === 'budget') {
+    var g = /^([a-z-]{3,30})-(\d{2,5})$/.exec(q.get('g') || '');
+    show('Your budget alert is on.', '<p>When a model we track drops under ' + (g ? '£' + esc(g[2]) : 'your budget') + ', we’ll email you about it, with the price and where it is cheapest.</p>' +
+      '<p>We only count genuine drops: models that were over your budget and have come down. Every email has a one-click link to stop it.</p>',
+      '<a class="al-btn" href="/prices/best/">More budget guides</a><a class="al-btn alt" href="/prices/">Browse price guides</a>');
+  } else if (status === 'compare') {
+    show('Both are on watch.', '<p>We’ll email you when either one genuinely drops in price: by at least £5 (or 3%, whichever is bigger). Buy whichever gets there first.</p>' +
+      '<p>Every alert has a one-click link to stop it, item by item.</p>',
+      '<a class="al-btn" href="/prices/compare/">More comparisons</a><a class="al-btn alt" href="/prices/">Browse price guides</a>');
   } else if (status === 'list') {
     show('The shortlist is on watch.', '<p>We’ll email you when anything on the four-ball shortlist genuinely drops in price: by at least £5 (or 3%, whichever is bigger).</p>' +
       '<p>Every alert has a one-click link to stop it, item by item. Now all you need is a tee time.</p>',

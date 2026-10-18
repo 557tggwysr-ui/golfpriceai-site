@@ -38,6 +38,12 @@
  *                       1 to that invite's count in Cloudflare KV. KV holds
  *                       only "invite code -> number" and a running total:
  *                       never an email address or a name.
+ *   POST /subscribe     { email, budget: "driver-300" }  Budget alert on a
+ *                       /prices/best/ page: after confirmation, one email
+ *                       whenever a model of that type drops under that price
+ *                       (sent by scripts/alerts.py). Stored in BUDGETWATCH.
+ *   POST /subscribe     { email, models: [a, b], list: "compare" }  "Watch both"
+ *                       on a /prices/compare/ page.
  *   GET  /fourball      ?c=code  { n, total }: the live "3 golfers watching
  *                       through John's invite" count, and the site-wide total.
  *   GET  /unsubscribe   ?e=email&s=signature[&m=model]  One click: stop
@@ -68,6 +74,16 @@ const CONFIRM_DAYS = 7;
 const DIGEST_SLUG = 'friday-email';
 const FB_RX = /^[a-z0-9]{8}$/;
 const MAX_MODELS = 6;
+// Budget alerts: "<type>-<pounds>", e.g. "driver-300" or "ball-30" (balls per
+// dozen). The type keys match TYPES in scripts/price_pages.py.
+const BUDGET_TYPES = { driver: 'driver', wood: 'fairway wood', hybrid: 'hybrid', irons: 'iron set', wedge: 'wedge',
+  putter: 'putter', ball: 'dozen golf balls', bag: 'golf bag', rangefinder: 'rangefinder', 'gps-watch': 'GPS watch',
+  'electric-trolley': 'electric trolley', 'launch-monitor': 'launch monitor' };
+const BUDGET_RX = /^([a-z-]{3,30})-(\d{2,5})$/;
+function budgetName(key) {
+  const m = BUDGET_RX.exec(key || '');
+  return m && BUDGET_TYPES[m[1]] ? `a ${BUDGET_TYPES[m[1]]} under £${m[2]}` : '';
+}
 const BOUGHT_RX = /^[a-z0-9-]{3,100}\|\d{1,5}\.\d{2}\|\d{4}-\d{2}-\d{2}$/; // in unsubscribe links: stop the Friday email only
 
 export default {
@@ -117,6 +133,12 @@ async function subscribe(request, env, cors) {
     const entry = `${slug}|${paid.toFixed(2)}|${new Date().toISOString().slice(0, 10)}`;
     return await startSubscription({ email, models: [], stock: '', bought: entry, name: String(d.name || modelName).slice(0, 120), request, env, cors });
   }
+  if (!model && !stock && body.budget) {
+    const key = String(body.budget);
+    const what = budgetName(key);
+    if (!what) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    return await startSubscription({ email, models: [], stock: '', budget: key, name: what, request, env, cors });
+  }
   if (!model && !stock && Array.isArray(body.models) && body.models.length) {
     // "Watch all 3" on a four-ball shortlist. Every model must have a price
     // page of ours; names come from our own data, not the page.
@@ -130,7 +152,8 @@ async function subscribe(request, env, cors) {
     }));
     const ok = found.filter(Boolean);
     if (!ok.length) return json({ ok: false, error: 'We couldn’t find those products. Please refresh the page and try again.' }, 400, cors);
-    return await startSubscription({ email, models: ok.map((x) => x.slug), stock: '', name: ok.length === 1 ? ok[0].name : '', list: !!body.list, fb, request, env, cors });
+    const kind = body.list === 'compare' ? 'compare' : body.list ? 'shortlist' : '';
+    return await startSubscription({ email, models: ok.map((x) => x.slug), stock: '', name: ok.length === 1 ? ok[0].name : '', list: kind, fb, request, env, cors });
   }
   if (stock) {
     // The product's name comes from our own data, not the page.
@@ -142,7 +165,7 @@ async function subscribe(request, env, cors) {
 }
 
 // Shared by /subscribe and the "also alert me" box on /send-list.
-async function startSubscription({ email, models, stock, bought = '', name, list = false, fb = '', request, env, cors, quiet }) {
+async function startSubscription({ email, models, stock, bought = '', budget = '', name, list = '', fb = '', request, env, cors, quiet }) {
 
   // Already confirmed? Add the model straight away.
   const existing = await brevo(env, 'GET', `/contacts/${encodeURIComponent(email)}`);
@@ -150,6 +173,10 @@ async function startSubscription({ email, models, stock, bought = '', name, list
   const attrs = (existing.ok && existing.data.attributes) || {};
   if (existing.ok && (existing.data.listIds || []).includes(listId) && !existing.data.emailBlacklisted) {
     await ensureAttributes(env);
+    if (budget) {
+      await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { BUDGETWATCH: mergeWatch(attrs.BUDGETWATCH, budget, 10) } });
+      return json({ ok: true, status: 'added-budget' }, 200, cors);
+    }
     if (bought) {
       await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { BOUGHTWATCH: mergeBought(attrs.BOUGHTWATCH, bought) } });
       return json({ ok: true, status: 'added-bought' }, 200, cors);
@@ -169,19 +196,20 @@ async function startSubscription({ email, models, stock, bought = '', name, list
     return json({ ok: true, status: models.length ? 'added' : 'added-digest' }, 200, cors);
   }
 
-  const payload = b64url(JSON.stringify({ e: email, m: models.join(','), k: stock, b: bought, f: fb, l: list ? 1 : 0, t: Date.now() }));
+  const payload = b64url(JSON.stringify({ e: email, m: models.join(','), k: stock, b: bought, g: budget, f: fb, l: list === 'compare' ? 2 : list ? 1 : 0, t: Date.now() }));
   const sig = await sign(env, payload);
   const link = `${new URL(request.url).origin}/confirm?d=${payload}&s=${sig}`;
-  const subject = bought ? `Confirm your price watch for the ${name} you bought`
+  const subject = budget ? `Confirm your budget alert: ${name}`
+    : bought ? `Confirm your price watch for the ${name} you bought`
     : stock ? `Confirm your back-in-stock alert for the ${name}`
-    : models.length > 1 ? `Confirm price alerts for the ${models.length} items ${list ? 'on the shortlist' : 'in your bag'}`
+    : models.length > 1 ? `Confirm price alerts for the ${models.length} items ${list === 'compare' ? 'you’re comparing' : list ? 'on the shortlist' : 'in your bag'}`
     : models.length ? `Confirm your price alert for the ${name || 'model you picked'}`
     : 'Confirm your GolfPrice AI Friday email';
   const sent = await brevo(env, 'POST', '/smtp/email', {
     sender: { name: 'GolfPrice AI', email: env.SENDER_EMAIL || 'alerts@golfpriceai.com' },
     to: [{ email }],
     subject,
-    htmlContent: confirmEmail(link, name, { stock: !!stock, bought: !!bought, count: models.length, list, fb: !!fb }),
+    htmlContent: confirmEmail(link, name, { stock: !!stock, bought: !!bought, budget: !!budget, count: models.length, list, fb: !!fb }),
     tags: ['confirm'],
   });
   if (!sent.ok) return json({ ok: false, error: 'We couldn’t send the confirmation email. Please try again shortly.' }, 502, cors);
@@ -249,7 +277,8 @@ async function confirm(url, env) {
   const attributes = { WATCHLIST: watch, CONSENT_AT: new Date().toISOString().slice(0, 19) + 'Z' };
   if (data.k && ID_RX.test(data.k)) attributes.STOCKWATCH = mergeWatch(attrsNow.STOCKWATCH, data.k, 15);
   if (data.b && BOUGHT_RX.test(data.b)) attributes.BOUGHTWATCH = mergeBought(attrsNow.BOUGHTWATCH, data.b);
-  if (!data.m && !data.k && !data.b) attributes.DIGEST = 'yes';
+  if (data.g && budgetName(data.g)) attributes.BUDGETWATCH = mergeWatch(attrsNow.BUDGETWATCH, data.g, 10);
+  if (!data.m && !data.k && !data.b && !data.g) attributes.DIGEST = 'yes';
   if (existing.ok) {
     await brevo(env, 'PUT', `/contacts/${encodeURIComponent(data.e)}`, { attributes, listIds: [listId], emailBlacklisted: false });
   } else {
@@ -258,8 +287,9 @@ async function confirm(url, env) {
   }
   if (data.f && FB_RX.test(data.f) && isNewWatch) await countInvite(env, data.f);
   const one = data.m && !String(data.m).includes(',') ? '&m=' + data.m : '';
-  const multi = String(data.m || '').includes(',') ? (data.l ? 'list' : 'bag') : 'ok';
+  const multi = String(data.m || '').includes(',') ? (data.l === 2 ? 'compare' : data.l ? 'list' : 'bag') : 'ok';
   const fbq = data.f && FB_RX.test(data.f) ? '&fb=1' : '';
+  if (data.g && budgetName(data.g)) return Response.redirect(`${site}/alerts-confirmed.html?status=budget&g=${data.g}`, 302);
   return Response.redirect(`${site}/alerts-confirmed.html?status=${data.b ? 'bought' : data.k ? 'stock' : multi}${one}${fbq}`, 302);
 }
 
@@ -282,13 +312,18 @@ async function unsubscribe(url, env, oneClick) {
     await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { DIGEST: 'no' } });
     return Response.redirect(`${site}/alerts-unsubscribed.html?status=digest`, 302);
   }
+  if (model.startsWith('budget-') && budgetName(model.slice(7))) {
+    const left = String((existing.data.attributes || {}).BUDGETWATCH || '').split(',').filter((x) => x && x !== model.slice(7)).join(',');
+    await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { BUDGETWATCH: left } });
+    return Response.redirect(`${site}/alerts-unsubscribed.html?status=budget`, 302);
+  }
   if (model && SLUG_RX.test(model)) {
     const left = String((existing.data.attributes || {}).WATCHLIST || '').split(',').filter((x) => x && x !== model).join(',');
     await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { WATCHLIST: left } });
     return Response.redirect(`${site}/alerts-unsubscribed.html?status=model&m=${model}`, 302);
   }
   await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, {
-    attributes: { WATCHLIST: '', STOCKWATCH: '', BOUGHTWATCH: '' }, unlinkListIds: [Number(env.LIST_ID || 3)],
+    attributes: { WATCHLIST: '', STOCKWATCH: '', BOUGHTWATCH: '', BUDGETWATCH: '' }, unlinkListIds: [Number(env.LIST_ID || 3)],
   });
   return Response.redirect(`${site}/alerts-unsubscribed.html?status=ok`, 302);
 }
@@ -364,7 +399,7 @@ function money(n) {
 }
 
 async function ensureAttributes(env) {
-  for (const name of ['WATCHLIST', 'CONSENT_AT', 'DIGEST', 'STOCKWATCH', 'BOUGHTWATCH']) {
+  for (const name of ['WATCHLIST', 'CONSENT_AT', 'DIGEST', 'STOCKWATCH', 'BOUGHTWATCH', 'BUDGETWATCH']) {
     // Fails harmlessly with 400 when the attribute already exists.
     await brevo(env, 'POST', `/contacts/attributes/normal/${name}`, { type: 'text' });
   }
@@ -444,16 +479,22 @@ function button(href, text) {
 }
 
 function confirmEmail(link, name, opts = {}) {
-  const what = opts.bought
+  const what = opts.budget
+    ? `a budget alert for <strong>${escapeHtml(name)}</strong>. When a model we track drops under that price, we’ll email you about it`
+    : opts.bought
     ? `a 30-day price watch on the <strong>${escapeHtml(name)}</strong> you bought. If its UK price drops below what you paid, we’ll email you once so you can ask the retailer to match it. Then we forget it`
     : opts.stock
     ? `a back-in-stock alert for the <strong>${escapeHtml(name)}</strong>. We’ll email you once, when it’s back on the shelf`
     : opts.count > 1
-    ? `price alerts for the <strong>${opts.count} items ${opts.list ? 'on the four-ball shortlist' : 'in your bag'}</strong>. We’ll email you when any of them genuinely drops in price`
+    ? `price alerts for the <strong>${opts.count} items ${opts.list === 'compare' ? 'you’re comparing' : opts.list ? 'on the four-ball shortlist' : 'in your bag'}</strong>. We’ll email you when any of them genuinely drops in price`
     : name
     ? `a price alert for the <strong>${escapeHtml(name)}</strong>. We’ll email you when its UK price genuinely drops`
     : `the GolfPrice AI Friday email: the week’s genuine UK golf price drops, checked against our own price history`;
-  const joke = opts.bought
+  const joke = opts.budget
+    ? 'Set a budget. Stick to it. We’ll help with the first part.'
+    : opts.list === 'compare'
+    ? 'Can’t choose? Let the prices decide. They usually do.'
+    : opts.bought
     ? 'You’ve done the buying. We’ll do the worrying.'
     : opts.stock
     ? 'We’ll keep an eye on the shelves. You keep an eye on your tempo.'

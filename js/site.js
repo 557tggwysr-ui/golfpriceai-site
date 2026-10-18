@@ -399,8 +399,10 @@
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(bought
         ? { email: email, bought: bought, paid: paid, website: hp ? hp.value : '' }
+        : form.getAttribute('data-budget')
+        ? { email: email, budget: form.getAttribute('data-budget'), website: hp ? hp.value : '' }
         : form.getAttribute('data-models')
-        ? { email: email, models: form.getAttribute('data-models').split(','), list: 1,
+        ? { email: email, models: form.getAttribute('data-models').split(','), list: form.getAttribute('data-list') || 1,
             fb: form.getAttribute('data-fb') || '', website: hp ? hp.value : '' }
         : { email: email, model: form.getAttribute('data-model') || '',
             modelName: form.getAttribute('data-model-name') || '', fb: form.getAttribute('data-fb') || '',
@@ -416,10 +418,12 @@
           ? 'Done: they’re all on your alert list. Nothing to confirm, you’re already signed up.'
           : res.status === 'added'
           ? 'Done: it’s on your alert list. Nothing to confirm, you’re already signed up.'
+          : res.status === 'added-budget'
+          ? 'Done: your budget alert is on. Nothing to confirm, you’re already signed up.'
           : res.status === 'added-digest'
           ? 'Done: you’ll get the Friday email. Nothing to confirm, you’re already signed up.'
           : 'Nearly there: check your inbox for a confirmation email from GolfPrice AI and click the button in it. Nothing is sent until you do.', 'ok');
-        if (window.gtag) gtag('event', bought ? 'bought_watch_signup' : 'alert_signup', { model: bought || form.getAttribute('data-model') || 'general', status: res.status });
+        if (window.gtag) gtag('event', bought ? 'bought_watch_signup' : 'alert_signup', { model: bought || form.getAttribute('data-model') || form.getAttribute('data-budget') || form.getAttribute('data-models') || 'general', status: res.status });
         // js/fourball.js shows "Tell your four-ball" after a price alert sign-up.
         if (!bought) document.dispatchEvent(new CustomEvent('gp:alert-signup', { detail: { form: form, status: res.status } }));
       })

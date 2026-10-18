@@ -153,6 +153,14 @@
     }
   }
 
+  /* ------------------------------------------------------------ "Send it to your four-ball" for a set of models (comparison pages) */
+  document.querySelectorAll('.fb-share-list').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var slugs = (b.getAttribute('data-slugs') || '').split(',').filter(function (s) { return /^[a-z0-9-]{3,100}$/.test(s); }).slice(0, MAX);
+      if (slugs.length) inviteList(slugs, cleanName(get(NAME_KEY, '')));
+    });
+  });
+
   /* ------------------------------------------------------------ shortlist page */
   var listBox = document.getElementById('fb-list');
   if (listBox) {

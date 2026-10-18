@@ -30,6 +30,14 @@ Back-in-stock alerts ("Notify me" on the Back In Stock Radar)
     they paid, one email goes out and the entry is removed. Entries older
     than 30 days are removed without an email.
 
+Budget alerts ("Best drivers under £300" pages)
+  * The contact's BUDGETWATCH attribute holds keys like "driver-300". Each
+    run, any model of that type that was over the budget last run and is now
+    under it counts as a genuine drop into budget, and everyone watching that
+    budget gets one email listing them. Models that are new to our tracking
+    don't count: only real price falls. alerts-state.json keeps, per budget,
+    which models are over and under it (no personal data).
+
 What is stored where
   * Emails and watch lists live only in Brevo. Nothing personal is written to
     this public repository: alerts-state.json holds model slugs, prices and
@@ -45,6 +53,7 @@ import hmac
 import html
 import json
 import os
+import re
 import secrets
 import sys
 import urllib.error
@@ -71,6 +80,16 @@ SENDER = {"name": "GolfPrice AI", "email": "alerts@golfpriceai.com"}
 
 MIN_DROP_POUNDS = 5.0
 MIN_DROP_PCT = 0.03
+BUDGET_RX = re.compile(r"^([a-z-]{3,30})-(\d{2,5})$")
+# Same keys as BUDGET_TYPES in workers/alerts-worker.js: type -> (singular, plural).
+BUDGET_NOUN = {"driver": ("driver", "drivers"), "wood": ("fairway wood", "fairway woods"), "hybrid": ("hybrid", "hybrids"),
+               "irons": ("iron set", "iron sets"), "wedge": ("wedge", "wedges"), "putter": ("putter", "putters"),
+               "ball": ("golf ball", "golf balls"), "bag": ("golf bag", "golf bags"), "rangefinder": ("rangefinder", "rangefinders"),
+               "gps-watch": ("GPS watch", "GPS watches"), "electric-trolley": ("electric trolley", "electric trolleys"),
+               "launch-monitor": ("launch monitor", "launch monitors")}
+BUDGET_HUB = {"driver": "drivers", "wood": "fairway-woods", "hybrid": "hybrids", "irons": "irons", "wedge": "wedges",
+              "putter": "putters", "ball": "golf-balls", "bag": "golf-bags", "rangefinder": "rangefinders",
+              "gps-watch": "gps-watches", "electric-trolley": "electric-trolleys", "launch-monitor": "launch-monitors"}
 MAX_BELIEVABLE_DROP = 0.60   # a bigger one-step fall is more likely a feed error: logged, not emailed
 BOUGHT_DAYS = 30             # "Bought it?" watches last this long
 BOUGHT_MIN_DROP = 1.0        # pounds below the price paid before we email
@@ -147,8 +166,9 @@ def subscribers(key):
             # up for general alerts rather than one model.
             stock = [s.strip() for s in str(attrs.get("STOCKWATCH") or "").split(",") if s.strip()]
             bought = [s.strip() for s in str(attrs.get("BOUGHTWATCH") or "").split(",") if s.strip().count("|") == 2]
-            out.append({"email": c["email"].lower(), "watch": watch, "stock": stock, "bought": bought,
-                        "digest": digest == "yes" or (not digest and not watch and not stock and not bought)})
+            budget = [s.strip() for s in str(attrs.get("BUDGETWATCH") or "").split(",") if BUDGET_RX.match(s.strip())]
+            out.append({"email": c["email"].lower(), "watch": watch, "stock": stock, "bought": bought, "budget": budget,
+                        "digest": digest == "yes" or (not digest and not watch and not stock and not bought and not budget)})
         offset += len(batch)
         if len(batch) < 500 or offset >= (data.get("count") or 0):
             return out
@@ -496,6 +516,117 @@ def run_bought_alerts(key, secret, subs, models, today, room):
     return sent
 
 
+# ---------------------------------------------------------------- budget alerts
+def budget_email_html(email, groups, secret):
+    blocks = []
+    for k, t, n, items in groups:
+        one, many = BUDGET_NOUN[t]
+        per = " per dozen" if t == "ball" else ""
+        rows = []
+        for d in items:
+            img = (f'<img src="{html.escape(d["image"])}" alt="" width="64" style="display:block;width:64px;height:64px;object-fit:contain;'
+                   f'border-radius:8px;background:#fff;border:1px solid #e7e9e5">') if d["image"] else ""
+            link = f"{SITE}/prices/{d['slug']}/?utm_source=budget-alert&utm_medium=email"
+            rows.append(f"""<tr><td style="padding:10px 10px 10px 0;border-top:1px solid #e7e9e5;width:64px;vertical-align:top">{img}</td>
+<td style="padding:10px 8px 10px 0;border-top:1px solid #e7e9e5;vertical-align:top"><a href="{link}" style="color:#16241c;font-weight:bold;text-decoration:none;font-size:15px">{html.escape(d['name'])}</a>
+<div style="font-size:13px;color:#5b665f;margin-top:3px">Was {money(d['was'])}{per} · now at {html.escape(d['retailer'])}</div></td>
+<td style="padding:10px 0;border-top:1px solid #e7e9e5;text-align:right;vertical-align:top;font-weight:bold;font-size:17px;white-space:nowrap;color:#2f8a1f">{money(d['now'])}</td></tr>""")
+        page = f"{SITE}/prices/best/{BUDGET_HUB[t]}-under-{n}/?utm_source=budget-alert&utm_medium=email"
+        stop = unsubscribe_link(secret, email, f"budget-{k}")
+        blocks.append(f"""<div style="background:#fff;border:1px solid #e7e9e5;border-radius:14px;padding:20px;margin:0 0 14px">
+<p style="margin:0 0 8px;font-size:18px;font-weight:bold">Now under £{n}{per}: {len(items)} {one if len(items) == 1 else many}</p>
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse">{''.join(rows)}</table>
+<p style="margin:14px 0 0"><a href="{page}" style="display:inline-block;background:#3fae29;color:#fff;text-decoration:none;font-weight:bold;padding:11px 16px;border-radius:10px">See everything under £{n}</a></p>
+<p style="margin:12px 0 0;font-size:12px"><a href="{stop}" style="color:#5b665f">Stop this budget alert</a></p>
+</div>""")
+    everything = unsubscribe_link(secret, email)
+    return f"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#f7f8f6;font-family:Arial,Helvetica,sans-serif;color:#16241c">
+<div style="max-width:560px;margin:0 auto;padding:28px 16px">
+<p style="font-size:22px;font-weight:bold;margin:0 0 4px">Golf<span style="color:#3fae29">Price</span> AI</p>
+<p style="font-size:12px;color:#5b665f;margin:0 0 18px">Full Swing. Not full price.</p>
+<p style="font-size:15px;line-height:1.5;margin:0 0 16px">Good news for the budget. These were over your limit last time we checked and have genuinely come down. The budget holds; the excuses don’t.</p>
+{''.join(blocks)}
+<p style="font-size:12px;color:#5b665f;line-height:1.5;margin:18px 0 0">Prices change on retailers’ sites, so check before you buy. We may earn a commission if you buy through our links; it never changes the price.<br>
+No countdown timers. No fake discounts. <a href="{everything}" style="color:#5b665f">Unsubscribe from all GolfPrice AI emails</a>.</p>
+</div></body></html>"""
+
+
+def run_budget_alerts(key, secret, state, subs, models, room):
+    """One email per person when models of a watched type drop under their
+    budget (were over it last run, under it now). Returns emails sent."""
+    watchers = defaultdict(list)
+    for s in subs:
+        for k in s.get("budget") or []:
+            watchers[k].append(s["email"])
+    bstate = state.setdefault("budget", {})
+    for k in list(bstate):  # forget budgets nobody watches any more
+        if k not in watchers:
+            del bstate[k]
+    products = None
+    news, fresh = {}, {}
+    for k in sorted(watchers):
+        mt = BUDGET_RX.match(k)
+        if not mt or mt.group(1) not in BUDGET_NOUN:
+            continue
+        t, n = mt.group(1), int(mt.group(2))
+        ms = [m for m in models.values() if m["type"] == t]
+        above = {m["slug"]: float(m["minPrice"]) for m in ms if m["minPrice"] > n}
+        fresh[k] = {"above": above, "under": sorted(m["slug"] for m in ms if m["minPrice"] <= n)}
+        prev = bstate.get(k)
+        if prev is None:
+            continue  # first look at this budget: just remember it
+        entered = [m for m in ms if m["minPrice"] <= n and m["slug"] in (prev.get("above") or {})
+                   and float(m["minPrice"]) >= prev["above"][m["slug"]] * (1 - MAX_BELIEVABLE_DROP)]
+        if not entered:
+            continue
+        if products is None:
+            products = {p["id"]: p for p in json.loads(PRODUCTS_FILE.read_text()).get("products", []) if p.get("id")}
+        women = re.compile(r"\b(ladies|lady|women'?s?|womens)\b", re.I)
+        entered.sort(key=lambda m: (bool(women.search(m["name"])), -(prev["above"][m["slug"]] - m["minPrice"])))
+        items = []
+        for m in entered[:5]:
+            image = next((products[i].get("image") for i in m.get("listingIds") or [] if i in products and products[i].get("image")), "")
+            items.append({"slug": m["slug"], "name": m["name"], "now": float(m["minPrice"]), "was": prev["above"][m["slug"]],
+                          "image": image or "", "retailer": retailer_name(m["minRetailer"]) if m.get("minRetailer") else "a UK retailer"})
+        news[k] = (t, n, items)
+    per_person = defaultdict(list)
+    for k, (t, n, items) in news.items():
+        for e in watchers[k]:
+            per_person[e].append((k, t, n, items))
+    sent = failed = held = 0
+    failed_keys = set()
+    for email, groups in sorted(per_person.items()):
+        if sent >= room:
+            held += 1
+            failed_keys.update(g[0] for g in groups)
+            continue
+        total = sum(len(g[3]) for g in groups)
+        if len(groups) == 1:
+            k, t, n, items = groups[0]
+            subject = (f"Now under £{n}: the {items[0]['name']} dropped to {money(items[0]['now'])}" if total == 1
+                       else f"{total} {BUDGET_NOUN[t][1]} just dropped under £{n}")
+        else:
+            subject = f"{total} price drops under your budgets"
+        status, data = brevo(key, "POST", "/smtp/email", {
+            "sender": SENDER, "to": [{"email": email}], "subject": subject,
+            "htmlContent": budget_email_html(email, groups, secret),
+            "headers": {"List-Unsubscribe": f"<{unsubscribe_link(secret, email)}>", "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"},
+            "tags": ["budget-alert"],
+        })
+        if status in (200, 201, 202):
+            sent += 1
+        else:
+            failed += 1
+            failed_keys.update(g[0] for g in groups)
+    for k, v in fresh.items():
+        if k not in failed_keys:  # a budget whose email didn't go out is tried again next run
+            bstate[k] = v
+    print(f"Budget alerts: {len(watchers)} budget(s) watched, {len(news)} with new drops; {sent} email(s) sent"
+          + (f", {failed} failed (retrying next run)" if failed else "")
+          + (f", {held} held back by the daily limit" if held else "") + ".")
+    return sent
+
+
 # ---------------------------------------------------------------- main
 def main():
     key, secret = os.environ.get("BREVO_API_KEY"), os.environ.get("ALERTS_SECRET")
@@ -555,7 +686,13 @@ def main():
                                         max(0, DAILY_CAP - sent_today - sent - stock_sent))
     except Exception as e:  # never stop the other alerts over this
         print(f"Bought-it watches: skipped this run ({e}).")
-    state["sent"] = {today: sent_today + sent + stock_sent + bought_sent}  # keep only today's count
+    budget_sent = 0
+    try:
+        budget_sent = run_budget_alerts(key, secret, state, subs, live_models(),
+                                        max(0, DAILY_CAP - sent_today - sent - stock_sent - bought_sent))
+    except Exception as e:  # never stop the other alerts over this
+        print(f"Budget alerts: skipped this run ({e}).")
+    state["sent"] = {today: sent_today + sent + stock_sent + bought_sent + budget_sent}  # keep only today's count
     save_state(state)
     print(f"Alerts: {len(drops)} model(s) dropped; {sent} email(s) sent"
           + (f", {failed} failed (retrying next run)" if failed else "")

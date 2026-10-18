@@ -492,7 +492,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/prices.css?v=20261018f">
+<link rel="stylesheet" href="/css/prices.css?v=20261019">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -796,12 +796,20 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     # Related
     rel = related(m, all_models)
     rel_html = ""
+    import compare_pages
+    cmp = compare_pages.COMPARE_FOR.get(model.slug) or []
+    if cmp:
+        chips = "".join(f'<a class="pp-chip" href="{u}">vs {esc(x["name"])} · {money(x["minPrice"])}</a>' for x, u in cmp[:4])
+        rel_html += f"""<section class="pp-block">
+  <h2>Compare the {esc(name)} side by side</h2>
+  <div class="pp-chips">{chips}</div>
+</section>"""
     if rel:
         cards = "".join(f"""<a class="pp-card pp-rel" href="{model_link(x, built)}">
   <span class="pp-tag">{tag}</span><span class="pp-rel-name">{esc(x['name'])}</span>
   <span class="pp-rel-price">from {money(x['minPrice'])}{' per dozen' if x['type'] == 'ball' else ''}</span>
   <span class="pp-sub">{plural(len(x['retailers']), 'retailer')}</span></a>""" for tag, x in rel)
-        rel_html = f"""<section class="pp-block">
+        rel_html += f"""<section class="pp-block">
   <h2>Worth comparing</h2>
   <div class="pp-rel-grid">{cards}</div>
 </section>"""
@@ -903,6 +911,15 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
 
 
 # ---------------------------------------------------------------- hub page
+def _budget_chips(hub_slug):
+    import compare_pages
+    chips = compare_pages.BUDGET_CHIPS.get(hub_slug) or []
+    if not chips:
+        return ""
+    return ('<div class="pp-chips cp-budgets"><span class="cp-budgets-label">Best by budget:</span>'
+            + "".join(f'<a class="pp-chip" href="{u}">{esc(t)}</a>' for t, u in chips) + "</div>")
+
+
 def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
     type_key = HUB_TYPES[hub_slug]
     _, label, noun, section = TYPES[type_key]
@@ -939,6 +956,7 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
 <section class="pp-hub-top">
   <h1>{esc(noun[0].upper() + noun[1:])} prices UK</h1>
   <p class="pp-answer">{answer}</p>
+  {_budget_chips(hub_slug)}
   <p class="pp-disclose">We may earn a commission if you buy through links on these pages. It never changes the order or the verdicts.</p>
 </section>
 <section class="pp-block">
@@ -1252,7 +1270,7 @@ def build(models_list, products, today_str):
         m["_image"] = next((u for u in pics if not u.lower().split("?")[0].endswith(".webp")), pics[0] if pics else None)
     from seasonal_pages import SEASONAL_SLUGS
     existing = {d.name for d in PRICES_DIR.iterdir()
-                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name not in ("brands", "drops", "data", "watch")}
+                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name not in ("brands", "drops", "data", "watch", "best", "compare")}
     if mode == "pilot":
         wanted = cfg.get("pilot", [])
         chosen = [m for m in passing if m["slug"] in wanted]
@@ -1286,6 +1304,16 @@ def build(models_list, products, today_str):
     PAGE_FOR_LISTING.clear()
     import share_cards
     changed_cards = share_cards.build(chosen, built, SITE)
+    # Budget guides and comparisons: planned first so model and hub pages can link to them.
+    import compare_pages
+    cplan = None
+    if mode == "live":
+        try:
+            cplan = compare_pages.plan(passing, built, today)
+        except Exception as e:  # never stop the main build
+            print(f"Budget/comparison planning skipped: {e}")
+            compare_pages.COMPARE_FOR.clear()
+            compare_pages.BUDGET_CHIPS.clear()
     for m in chosen:
         out = build_model_page(Model(m, by_id, today), passing, built, set(hubs), today, noindex)
         if not out:
@@ -1392,6 +1420,13 @@ def build(models_list, products, today_str):
             sitemap.append(("fourball/", None))
         except Exception as e:  # never stop the main build
             print(f"Fourball pages skipped: {e}")
+        if cplan:
+            try:
+                c_changed, c_sitemap = compare_pages.build(cplan, by_id, today)
+                changed += c_changed
+                sitemap += c_sitemap
+            except Exception as e:  # never stop the main build
+                print(f"Budget/comparison pages skipped: {e}")
         import price_watch
         w_changed, w_sitemap, has_watch = price_watch.build(passing, built, today)
         changed += w_changed
