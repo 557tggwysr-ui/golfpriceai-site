@@ -1,7 +1,32 @@
 {
 "about": "UK Golf Demand Index: anonymous daily counts only. No emails, names, IP addresses or cookies.",
-"days": {},
-"fetched": "2026-10-18T18:41Z",
+"days": {
+"2026-10-18": {
+"pp": {
+"callaway-supersoft-golf-balls": [
+1,
+0.3386
+],
+"cleveland-cbz-tour-satin-wedge": [
+1,
+0.1275
+],
+"mizuno-jpx-925-hot-metal-irons": [
+1,
+-1.0051
+],
+"taylormade-qi4d-hybrid": [
+1,
+0
+],
+"titleist-cart-bag-golf-bag": [
+1,
+0.1258
+]
+}
+}
+},
+"fetched": "2026-10-18T18:53Z",
 "fourball": 0,
 "search": {},
 "snapshot": {
