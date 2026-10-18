@@ -44,7 +44,7 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           # Everything the refresh writes: data files, price pages, forwarded
           # old pages and the sitemaps.
-          git add -A data prices products wishlist fourball play assets/cards sitemap.xml sitemap-pages.xml sitemap-prices.xml
+          git add -A data prices products wishlist fourball play demand assets/cards sitemap.xml sitemap-pages.xml sitemap-prices.xml
           git diff --quiet --cached || git commit -m "Automated catalog refresh"
           git pull --rebase
           git push
@@ -75,7 +75,10 @@ jobs:
         run: |
           python scripts/alerts.py
           python scripts/digest.py
-          git add data/alerts-state.json 2>/dev/null || true
+          # Demand Index: anonymous counts only (no emails), turned into the
+          # /demand/ page by the next 6-hourly refresh.
+          python scripts/demand_index.py fetch || true
+          git add data/alerts-state.json data/demand/signals.json 2>/dev/null || true
           if ! git diff --quiet --cached; then
             git commit -m "Alert reference prices"
             git pull --rebase
