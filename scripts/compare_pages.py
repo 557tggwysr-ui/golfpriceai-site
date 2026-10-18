@@ -599,6 +599,13 @@ def build(plan_, by_id, today):
     if groups:
         _write(COMPARE_DIR / "index.html", index_page("compare", list(groups.items()), today))
         sitemap.append(("prices/compare/", today.isoformat()))
+    # For the AI connector (workers/mcp-worker.js): which guides exist.
+    guides = {"about": "GolfPrice AI budget guides and price comparisons, rebuilt every 6 hours.", "checked": today.isoformat(),
+              "best": [{"category": TYPES[t][2], "budget": n, "title": f"Best {budget_label(t, n)} (UK)", "url": f"{SITE}/prices/best/{slug}/"}
+                       for t, n, slug in plan_["budgets"] if slug in wanted_best],
+              "compare": [{"a": a, "b": b, "title": COMPARE_TITLES[f"/prices/compare/{pair_slug(a, b)}/"],
+                           "url": f"{SITE}/prices/compare/{pair_slug(a, b)}/"} for a, b in plan_["pairs"] if pair_slug(a, b) in wanted_cmp]}
+    _write(ROOT / "data" / "guides.json", json.dumps(guides, ensure_ascii=False, indent=1) + "\n")
     STATE.write_text(json.dumps({"about": "Which budget and comparison pages exist (no personal data).",
                                  "budget": sorted(wanted_best), "pairs": [list(p) for p in plan_["pairs"] if pair_slug(*p) in wanted_cmp]},
                                 indent=1) + "\n")
