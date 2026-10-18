@@ -439,3 +439,13 @@
   .pr-tb::after { background: linear-gradient(180deg, rgba(22, 36, 28, 0) 35%, rgba(22, 36, 28, 0.78) 58%, rgba(22, 36, 28, 0.95) 100%); }
   .pr-tb .gp-tb-body { top: auto; bottom: 20px; transform: none; width: auto; right: 20px; left: 20px; }
 }
+
+/* UK Golf Demand Index homepage banner (Oct 2026): same layout as Par Price. */
+.gp-toolsband-dm { padding-top: 10px; }
+.dm-tb img { object-position: 70% 25%; }
+@media (max-width: 700px) {
+  .dm-tb { aspect-ratio: 1 / 1; }
+  .dm-tb img { object-position: 50% 0; }
+  .dm-tb::after { background: linear-gradient(180deg, rgba(22, 36, 28, 0) 35%, rgba(22, 36, 28, 0.78) 58%, rgba(22, 36, 28, 0.95) 100%); }
+  .dm-tb .gp-tb-body { top: auto; bottom: 20px; transform: none; width: auto; right: 20px; left: 20px; }
+}
