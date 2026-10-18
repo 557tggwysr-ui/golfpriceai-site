@@ -1,0 +1,67 @@
+/* GolfPrice AI: Par Price (/play/). Behaviour: js/par-price.js. */
+.pr-game { max-width: 620px; margin: 0 auto; padding: 20px 0 0; display: flex; flex-direction: column; gap: 14px; }
+.pr-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.pr-kicker { display: block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gp-green-dark); }
+.pr-game h1 { margin: 4px 0 0; font-family: Poppins, sans-serif; font-weight: 800; font-size: clamp(24px, 4vw, 32px); line-height: 1.15; }
+.pr-lede { margin: 0; color: var(--gp-text-2); line-height: 1.55; }
+.pr-total { flex: none; background: #e3f4dc; color: #1f6a12; border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 700; white-space: nowrap; }
+.pr-total[hidden] { display: none; }
+.pr-holes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.pr-hole { height: 10px; border-radius: 5px; background: #dfe3dc; }
+.pr-hole.pr-now { background: var(--gp-ink); }
+.pr-hole.pr-s-e { background: #0b3d06; }
+.pr-hole.pr-s-b { background: #2f8a1f; }
+.pr-hole.pr-s-p { background: #8a958d; }
+.pr-hole.pr-s-bo { background: #e0a245; }
+.pr-hole.pr-s-d { background: #9a4a00; }
+.pr-stage { display: flex; flex-direction: column; gap: 12px; }
+.pr-loading { color: var(--gp-text-3); }
+.pr-card { background: #fff; border: 1px solid var(--gp-line); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.pr-pic { width: 220px; height: 220px; max-width: 100%; border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #fff; }
+.pr-pic img { width: 100%; height: 100%; object-fit: contain; }
+.pr-pic.sg-noimg { background: var(--gp-pale) url('/assets/logo-full.png') center / 50% no-repeat; opacity: .5; }
+.pr-hole-no { font-size: 13px; color: var(--gp-text-3); font-weight: 600; }
+.pr-name { font: 700 21px/1.25 Poppins, sans-serif; }
+.pr-q { font-size: 15px; color: var(--gp-text-2); }
+.pr-form label { display: block; font-size: 13px; font-weight: 600; margin: 0 0 6px; }
+.pr-row { display: flex; gap: 8px; }
+.pr-input { flex: 1; min-width: 0; display: flex; align-items: center; background: #fff; border: 2px solid var(--gp-green); border-radius: 12px; padding: 0 12px; min-height: 54px; box-sizing: border-box; }
+.pr-input span { font: 700 20px Poppins, sans-serif; color: var(--gp-text-3); }
+.pr-input input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: 700 22px Poppins, sans-serif; padding-left: 6px; color: var(--gp-ink); }
+.pr-input:focus-within { box-shadow: 0 0 0 3px #d4ecc9; }
+.pr-row .gp-af-btn { min-height: 54px; padding: 0 22px; font-size: 16px; }
+.pr-msg { margin: 6px 0 0; color: #b42318; font-size: 14px; }
+.pr-msg:empty { display: none; }
+.pr-result { background: #14211a; color: #fff; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.pr-result-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; color: #c4d0c8; font-size: 14px; }
+.pr-result-name { font: 800 24px Poppins, sans-serif; color: #fff; }
+.pr-result.pr-s-e .pr-result-name, .pr-result.pr-s-b .pr-result-name { color: #8fd77e; }
+.pr-result.pr-s-bo .pr-result-name, .pr-result.pr-s-d .pr-result-name { color: #f3c47e; }
+.pr-result-line { margin: 0; color: #dfe7e1; line-height: 1.5; }
+.pr-result-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.pr-result-row a { color: #8fd77e; font-weight: 600; }
+.pr-result-row .gp-af-btn { min-height: 46px; }
+.pr-final { background: #14211a; color: #fff; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
+.pr-final .pr-kicker { color: #8fd77e; }
+.pr-final-score { font: 800 56px/1 Poppins, sans-serif; }
+.pr-final-quip { color: #c4d0c8; }
+.pr-table td { text-align: right; white-space: nowrap; }
+.pr-table thead th:not(:first-child) { text-align: right; }
+.pr-table th[scope="row"] a { color: var(--gp-ink); font-weight: 500; }
+.pr-real { font-weight: 700; }
+.pr-sc { font-weight: 700; }
+.pr-t-e, .pr-t-b { color: #1f6a12; }
+.pr-t-bo, .pr-t-d { color: #9a4a00; }
+.pr-share { min-height: 50px; font-size: 16px; }
+.pr-info { margin: 0; color: var(--gp-text-2); font-size: 14px; text-align: center; }
+.pr-signup { max-width: none; background: #fff; border: 1px solid var(--gp-line); border-radius: 14px; padding: 14px; box-sizing: border-box; }
+.pr-how { max-width: 900px; margin: 0 auto; }
+@media (max-width: 760px) {
+  .pp-table.pr-table { display: table; }
+  .pp-table.pr-table thead { display: table-header-group; }
+  .pp-table.pr-table tbody { display: table-row-group; }
+  .pp-table.pr-table tr { display: table-row; }
+  .pp-table.pr-table th, .pp-table.pr-table td { display: table-cell; padding: 9px 8px; border-bottom: 1px solid #eef0ec; font-size: 13.5px; }
+  .pp-table.pr-table th[scope="row"] { white-space: normal; }
+  .pr-pic { width: 180px; height: 180px; }
+}

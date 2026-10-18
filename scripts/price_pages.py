@@ -1431,6 +1431,12 @@ def build(models_list, products, today_str):
                 sitemap += c_sitemap
             except Exception as e:  # never stop the main build
                 print(f"Budget/comparison pages skipped: {e}")
+        try:
+            import par_price
+            changed += par_price.build(passing, built, today)
+            sitemap.append(("play/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Par Price skipped: {e}")
         import price_watch
         w_changed, w_sitemap, has_watch = price_watch.build(passing, built, today)
         changed += w_changed
