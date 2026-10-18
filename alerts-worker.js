@@ -62,6 +62,8 @@
  *   FOURBALL        KV namespace binding (Worker > Settings > Bindings).
  *                   Optional: without it everything works, the counts just
  *                   stay at 0.
+ *                   The same namespace also holds the Demand Index's
+ *                   anonymous daily counts ("d:..." keys, see signal()).
  */
 
 const BREVO = 'https://api.brevo.com/v3';
@@ -95,6 +97,8 @@ export default {
       if (url.pathname === '/subscribe' && request.method === 'POST') return await subscribe(request, env, cors);
       if (url.pathname === '/send-list' && request.method === 'POST') return await sendList(request, env, cors);
       if (url.pathname === '/fourball' && request.method === 'GET') return await fourballCount(url, env, cors);
+      if (url.pathname === '/signal' && request.method === 'POST') return await signal(request, env, cors);
+      if (url.pathname === '/demand-counts' && request.method === 'GET') return await demandCounts(request, url, env);
       if (url.pathname === '/confirm') return await confirm(url, env);
       if (url.pathname === '/unsubscribe') return await unsubscribe(url, env, request.method === 'POST');
       if (url.pathname === '/') return new Response('GolfPrice AI alerts: OK', { headers: { 'content-type': 'text/plain' } });
@@ -353,6 +357,85 @@ async function fourballCount(url, env, cors) {
     } catch (e) { /* counts are a nice-to-have */ }
   }
   return json({ ok: true, n, total }, 200, Object.assign({ 'cache-control': 'public, max-age=60' }, cors));
+}
+
+/* ------------------------------------------------------------------ Demand Index counts
+   The UK Golf Demand Index (golfpriceai.com/demand/) adds up anonymous daily
+   counts: price-page views, shortlist hearts, site searches and Par Price
+   guesses. Each count lives in the FOURBALL KV namespace as
+     "d:<day>:<kind>:<model or search words>"  ->  a number (n, plus s for guesses)
+   and tidies itself away after 70 days. Nothing about the visitor is kept:
+   no IP address, no cookie, no email. The IP is used only for a moment, as a
+   one-way hash in the free edge cache, so one visitor counts once per model
+   per day and can't stuff the chart. */
+const SIGNAL_KINDS = { view: 1, heart: 1, search: 1, pp: 1 };
+const DEMAND_TTL = 70 * 86400;
+function cleanSearch(q) {
+  const t = String(q || '').toLowerCase().replace(/[^a-z0-9 .'&+-]/g, ' ').replace(/\s+/g, ' ').trim();
+  if (t.length < 2 || t.length > 40 || /\d{5,}/.test(t) || t.split(' ').length > 6) return '';
+  return t;
+}
+async function signal(request, env, cors) {
+  const ok = json({ ok: true }, 200, cors);
+  const origin = request.headers.get('origin') || '';
+  if (!env.FOURBALL || ![env.SITE || 'https://golfpriceai.com', 'https://www.golfpriceai.com'].includes(origin)) return ok;
+  let body = {};
+  try { body = JSON.parse((await request.text()).slice(0, 2000)); } catch (e) { return ok; }
+  const kind = String(body.k || '');
+  if (!SIGNAL_KINDS[kind]) return ok;
+  let items = [];
+  if (kind === 'pp') {
+    // One Par Price round: [[slug, guess / real price], ...], at most 5.
+    items = (Array.isArray(body.items) ? body.items : []).slice(0, 5)
+      .filter((x) => Array.isArray(x) && SLUG_RX.test(String(x[0])) && Number(x[1]) > 0)
+      .map((x) => [String(x[0]), Math.log(Math.min(5, Math.max(0.2, Number(x[1]))))]);
+  } else if (kind === 'search') {
+    const q = cleanSearch(body.q);
+    if (q) items = [[q, 0]];
+  } else if (SLUG_RX.test(String(body.m || ''))) {
+    items = [[String(body.m), 0]];
+  }
+  if (!items.length) return ok;
+  const day = new Date().toISOString().slice(0, 10);
+  const ip = request.headers.get('cf-connecting-ip') || '';
+  if (await tooMany('sig:' + (await sha1(ip + day)), 120, 86400)) return ok;
+  const cache = caches.default;
+  for (const [key, val] of items) {
+    const seen = new Request(`https://seen.golfpriceai.invalid/${await sha1([ip, day, kind, key].join('|'))}`);
+    if (await cache.match(seen)) continue; // this visitor already counted for this today
+    await cache.put(seen, new Response('1', { headers: { 'cache-control': 'max-age=86400' } }));
+    // Free KV allows about 1,000 writes a day; leave room for everything else.
+    if (await tooMany('kvw:' + day, Number(env.DEMAND_DAILY_WRITES || 700), 86400)) break;
+    const k = `d:${day}:${kind}:${key}`;
+    try {
+      const cur = (await env.FOURBALL.getWithMetadata(k)).metadata || {};
+      const meta = { n: (Number(cur.n) || 0) + 1, s: Math.round(((Number(cur.s) || 0) + val) * 10000) / 10000 };
+      await env.FOURBALL.put(k, String(meta.n), { expirationTtl: DEMAND_TTL, metadata: meta });
+    } catch (e) { console.log('demand count failed', e && e.message); }
+  }
+  return ok;
+}
+
+// The 6-hourly update reads every count (only with the shared secret, because
+// raw search words are kept off the public site).
+async function demandCounts(request, url, env) {
+  const want = await sign(env, 'demand-counts');
+  if (!env.FOURBALL || (request.headers.get('x-demand-key') || '') !== want) return json({ ok: false }, 403);
+  const rows = [];
+  let cursor;
+  for (let i = 0; i < 20; i++) {
+    const page = await env.FOURBALL.list({ prefix: 'd:', cursor, limit: 1000 });
+    for (const k of page.keys) {
+      const [, day, kind, ...rest] = k.name.split(':');
+      const m = k.metadata || {};
+      rows.push([day, kind, rest.join(':'), Number(m.n) || 0, Number(m.s) || 0]);
+    }
+    if (page.list_complete) break;
+    cursor = page.cursor;
+  }
+  let fourball = 0;
+  try { fourball = Number(await env.FOURBALL.get('total')) || 0; } catch (e) { /* optional */ }
+  return json({ ok: true, rows, fourball }, 200, { 'cache-control': 'no-store' });
 }
 
 /* ------------------------------------------------------------------ helpers */

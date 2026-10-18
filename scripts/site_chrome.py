@@ -94,6 +94,8 @@ def menu():
          '<path d="M3 7l6 6 4-4 8 8M21 11v6h-6"></path>'),
         ("Par Price", "New: the daily golf price game.", "/play/",
          '<path d="M6 21V4M6 4l11 4-11 4M3 21h8"></path>'),
+        ("UK Golf Demand Index", "What UK golfers want right now.", "/demand/",
+         '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path>'),
         ("Fourball Alerts", "Price alerts for your whole four-ball.", "/fourball/",
          '<path d="M8 8m-3 0a3 3 0 106 0 3 3 0 10-6 0M16 8m-3 0a3 3 0 106 0 3 3 0 10-6 0M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M12 14.5c1-.3 2-.5 4-.5 3.3 0 6 2.7 6 6"></path>'),
         ("GolfPrice AI In ChatGPT & Claude", "Ask your AI assistant for live UK prices.", "/ai.html",

@@ -17,6 +17,7 @@
 (function () {
   'use strict';
   var ALERTS = 'https://golfpriceai-alerts.golfpriceai.workers.dev';
+  function gpSignal(d) { try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/signal', JSON.stringify(d)); } catch (e) { /* counts are a nice-to-have */ } }
   var LIST_KEY = 'gpShortlist', CODE_KEY = 'gpFbCodes', NAME_KEY = 'gpFbName';
   var MAX = 6;
 
@@ -147,6 +148,7 @@
         if (i === -1) { list.push(slug); if (list.length > MAX) list.shift(); } else list.splice(i, 1);
         put(LIST_KEY, list); paint();
         track('fourball_shortlist', { saved: i === -1, items: list.length });
+        if (i === -1) gpSignal({ k: 'heart', m: slug }); // anonymous count for the Demand Index
       });
       paint();
       row.hidden = false;

@@ -216,7 +216,13 @@
   /* ---------------------------------------------------------------- state + run */
   var state = { q: '', parsed: null, sort: 'best', shown: 20, includeOut: false, brandFilter: null, retailerFilter: null, corrected: null, groups: [], all: [] };
 
+  // What golfers search for, counted anonymously for the Demand Index: just
+  // the words, once they've stopped typing. Nothing about the visitor.
+  function gpSignal(d) { try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/signal', JSON.stringify(d)); } catch (e) { /* counts are a nice-to-have */ } }
+  var signalTimer;
   function run(q, keepFilters) {
+    clearTimeout(signalTimer);
+    if (q && q.length <= 60) signalTimer = setTimeout(function () { gpSignal({ k: 'search', q: q }); }, 2500);
     state.q = q;
     state.edited = false;
     if (!keepFilters) { state.brandFilter = null; state.retailerFilter = null; state.shown = 20; }

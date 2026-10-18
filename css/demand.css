@@ -1,0 +1,84 @@
+/* GolfPrice AI: UK Golf Demand Index (/demand/). Built by scripts/demand_index.py; filter: js/demand.js. */
+.dm-wrap { padding-bottom: 40px; }
+.dm-hero { max-width: 880px; padding: 20px 0 6px; display: flex; flex-direction: column; gap: 8px; }
+.dm-kicker { display: block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gp-green-dark, #2f8a1f); }
+.dm-hero h1 { margin: 0; font: 800 clamp(28px, 4.2vw, 40px)/1.12 Poppins, sans-serif; }
+.dm-lede { margin: 0; font-size: 17px; line-height: 1.55; color: var(--gp-text-2, #4a554e); }
+.dm-meta { margin: 0; font-size: 13px; color: var(--gp-text-3, #5b665f); }
+.dm-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 18px; align-items: start; padding-top: 20px; }
+.dm-side { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.dm-card { background: #fff; border: 1px solid var(--gp-line, #e7e9e5); border-radius: 16px; padding: 18px; min-width: 0; }
+.dm-card h2 { margin: 0; font: 700 20px/1.25 Poppins, sans-serif; }
+.dm-card h3 { margin: 0 0 8px; font: 700 17px/1.3 Poppins, sans-serif; }
+.dm-card p { margin: 0 0 8px; line-height: 1.55; }
+.dm-card p:last-child { margin-bottom: 0; }
+.dm-card p a, .dm-wrap .pp-q a { color: var(--gp-green-dark, #2f8a1f); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.dm-dark p a, .dm-warm p a { color: #8fd77e; }
+.dm-muted, .dm-note { font-size: 13px; color: var(--gp-text-3, #5b665f); }
+.dm-chart { padding: 0; overflow: hidden; }
+.dm-chart-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 14px 18px; border-bottom: 1px solid #eef0ec; }
+.dm-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.dm-chip { font: 600 13px Inter, sans-serif; border: 1px solid #dfe3dc; background: #fff; color: var(--gp-ink, #16241c); border-radius: 999px; padding: 6px 12px; cursor: pointer; text-decoration: none; }
+.dm-chip:hover { border-color: var(--gp-green, #3fae29); }
+.dm-chip.is-on { background: var(--gp-ink, #16241c); border-color: var(--gp-ink, #16241c); color: #fff; }
+.dm-list { list-style: none; margin: 0; padding: 0; }
+.dm-row { display: grid; grid-template-columns: 30px 56px minmax(0, 1fr) 56px 90px; gap: 12px; align-items: center; padding: 10px 18px; border-top: 1px solid #eef0ec; }
+.dm-row:first-child { border-top: 0; }
+.dm-row[hidden], .dm-more { display: none; }
+.dm-row.is-shown { display: grid; }
+.dm-rank { font: 800 18px Poppins, sans-serif; color: var(--gp-text-3, #5b665f); text-align: center; }
+.dm-pic { width: 56px; height: 56px; border-radius: 10px; background: #fff; border: 1px solid #eef0ec; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.dm-pic img { width: 100%; height: 100%; object-fit: contain; }
+.dm-main { display: flex; flex-direction: column; min-width: 0; }
+.dm-main a { font-weight: 700; color: var(--gp-ink, #16241c); text-decoration: none; line-height: 1.3; }
+.dm-main a:hover { color: var(--gp-green-dark, #2f8a1f); text-decoration: underline; }
+.dm-sub { font-size: 13px; color: var(--gp-text-3, #5b665f); line-height: 1.4; }
+.dm-sub i { color: var(--gp-text-2, #4a554e); }
+.dm-low { color: #1f6a12; }
+.dm-move { font-size: 13px; font-weight: 700; text-align: center; white-space: nowrap; }
+.dm-up { color: #1f6a12; }
+.dm-down { color: #9a4a00; }
+.dm-flat { color: var(--gp-text-3, #5b665f); }
+.dm-bar { height: 8px; border-radius: 4px; background: #e3f4dc; overflow: hidden; }
+.dm-bar span { display: block; height: 100%; background: var(--gp-green, #3fae29); border-radius: 4px; }
+.dm-empty { margin: 0; padding: 18px; color: var(--gp-text-3, #5b665f); }
+.dm-foot { margin: 0; padding: 10px 18px 14px; font-size: 12px; color: var(--gp-text-3, #5b665f); border-top: 1px solid #eef0ec; }
+.dm-dark { background: #14211a; border-color: #14211a; color: #fff; }
+.dm-dark .dm-kicker { color: #8fd77e; }
+.dm-dark h3 { color: #fff; }
+.dm-dark .dm-note { color: #c4d0c8; }
+.dm-dark a { color: #8fd77e; }
+.dm-wish { list-style: none; margin: 4px 0 10px; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+.dm-wish li { display: flex; justify-content: space-between; gap: 10px; }
+.dm-wish .dm-hi { color: #f3c47e; }
+.dm-wish .dm-lo { color: #8fd77e; }
+.dm-climb { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+.dm-climb a { font-weight: 600; color: var(--gp-ink, #16241c); }
+.dm-climb span { color: var(--gp-text-3, #5b665f); }
+.dm-split { display: flex; height: 16px; border-radius: 8px; overflow: hidden; gap: 2px; }
+.dm-seg-0 { background: #16241c; } .dm-seg-1 { background: #2f8a1f; } .dm-seg-2 { background: #8fd77e; }
+.dm-seg-3 { background: #c9b48a; } .dm-seg-4 { background: #9a4a00; } .dm-seg-5 { background: #dfe3dc; }
+.dm-legend { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+.dm-legend span { color: var(--gp-text-3, #5b665f); }
+.dm-legend b { float: right; }
+.dm-dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.dm-warm { background: #14211a; border-color: #14211a; color: #dfe7e1; padding: 26px; }
+.dm-warm .dm-kicker { color: #8fd77e; }
+.dm-warm h2 { color: #fff; margin: 4px 0 10px; font-size: 24px; }
+.dm-warm a { color: #8fd77e; }
+.dm-progress { display: inline-block; background: #1f2c25; border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 600; color: #8fd77e; }
+.dm-report h2 { margin: 4px 0 10px; font-size: 24px; }
+.dm-report-list { margin: 0 0 10px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.dm-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.dm-three p { font-size: 14px; color: var(--gp-text-2, #4a554e); }
+@media (max-width: 900px) {
+  .dm-grid { grid-template-columns: 1fr; }
+  .dm-three { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .dm-row { grid-template-columns: 24px 48px minmax(0, 1fr) 44px; gap: 10px; padding: 10px 14px; }
+  .dm-pic { width: 48px; height: 48px; }
+  .dm-bar { grid-column: 3 / 5; }
+  .dm-chart-head { padding: 12px 14px; }
+  .dm-warm { padding: 20px; }
+}

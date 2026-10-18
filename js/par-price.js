@@ -1,7 +1,9 @@
 /* GolfPrice AI: Par Price, the daily golf price game (/play/).
    Today's round comes from /data/par-price/today.json (set each morning by
    scripts/par_price.py). Guesses, streak and best score stay in this browser
-   only (localStorage); nothing is sent to us. */
+   only (localStorage). When a round ends, we count only how far each guess
+   was from the real price (a ratio, no score, nothing about the player), for
+   the Demand Index. */
 (function () {
   'use strict';
   var root = document.getElementById('pr-game');
@@ -24,6 +26,7 @@
   };
   function get(k, d) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } }
   function put(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private mode */ } }
+  function gpSignal(d) { try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/signal', JSON.stringify(d)); } catch (e) { /* counts are a nice-to-have */ } }
   function track(n, p) { if (window.gtag) window.gtag('event', n, p || {}); }
   function money(n) { return '£' + Number(n).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace(/\.00$/, ''); }
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
@@ -135,6 +138,9 @@
       st.best = st.best == null ? t : Math.min(st.best, t);
       put('gpParStreak', st);
       track('par_price_round', { total: t });
+      // Anonymous: how far golfers' guesses are from the real prices, for the
+      // Demand Index's Wishful Thinking Index. No score, no streak, no visitor.
+      gpSignal({ k: 'pp', items: results().map(function (r) { return [r.it.slug, Math.round(r.guess / r.it.price * 1000) / 1000]; }) });
     }
     var head = el('div', 'pr-final');
     head.appendChild(el('span', 'pr-kicker', 'Your round'));

@@ -371,6 +371,17 @@
     });
   }, true);
 
+  /* ------------------------------------------------------------ Demand Index */
+  // One anonymous count per model page view, for the UK Golf Demand Index
+  // (/demand/). Only the model's name is sent: no cookie, nothing stored in
+  // the browser, nothing about the visitor.
+  (function () {
+    var m = /^\/prices\/([a-z0-9-]{3,100})\/$/.exec(location.pathname);
+    if (!m || !document.querySelector('form.gp-alert-form[data-model="' + m[1] + '"]')) return;
+    function gpSignal(d) { try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/signal', JSON.stringify(d)); } catch (e) { /* counts are a nice-to-have */ } }
+    gpSignal({ k: 'view', m: m[1] });
+  })();
+
   /* ------------------------------------------------------------ deal alerts */
   // Any <form class="gp-alert-form"> on any page (homepage, price pages, the
   // search page's "no results" box) posts here. data-model / data-model-name

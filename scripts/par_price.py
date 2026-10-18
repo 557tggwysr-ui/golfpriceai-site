@@ -90,12 +90,12 @@ def page(n, today):
   <div class="pp-q-grid">
     <div class="pp-card pp-q"><h3>Where do the prices come from?</h3><p>Our own tracking: the lowest new, in-stock price across multiple UK retailers, frozen when the round is set each morning so everyone plays the same course.</p></div>
     <div class="pp-card pp-q"><h3>How is it scored?</h3><p>Within 2% of the real price is an eagle (−2), 5% a birdie (−1), 10% par, 20% a bogey (+1), anything further a double bogey (+2). Five holes, par is level.</p></div>
-    <div class="pp-card pp-q"><h3>Is anything about me stored?</h3><p>No. Your guesses and streak stay in your own browser. Nothing is sent to us.</p></div>
+    <div class="pp-card pp-q"><h3>Is anything about me stored?</h3><p>No. Your score and streak stay in your own browser. When you finish, we count only how close each guess was, with no score and nothing about you, for our <a href="/demand/">Demand Index</a>.</p></div>
     <div class="pp-card pp-q"><h3>When is the next round?</h3><p>A new round every morning, with five different products from five different brands.</p></div>
   </div>
 </section>
 </div>
-<script src="/js/par-price.js?v=20261019" defer></script>"""
+<script src="/js/par-price.js?v=20261020" defer></script>"""
     app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Par Price", "url": f"{SITE}/play/",
            "applicationCategory": "GameApplication", "operatingSystem": "Any",
            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
