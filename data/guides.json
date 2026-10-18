@@ -1,0 +1,554 @@
+{
+ "about": "GolfPrice AI budget guides and price comparisons, rebuilt every 6 hours.",
+ "checked": "2026-10-18",
+ "best": [
+  {
+   "category": "driver",
+   "budget": 200,
+   "title": "Best drivers under £200 (UK)",
+   "url": "https://golfpriceai.com/prices/best/drivers-under-200/"
+  },
+  {
+   "category": "driver",
+   "budget": 300,
+   "title": "Best drivers under £300 (UK)",
+   "url": "https://golfpriceai.com/prices/best/drivers-under-300/"
+  },
+  {
+   "category": "driver",
+   "budget": 400,
+   "title": "Best drivers under £400 (UK)",
+   "url": "https://golfpriceai.com/prices/best/drivers-under-400/"
+  },
+  {
+   "category": "driver",
+   "budget": 500,
+   "title": "Best drivers under £500 (UK)",
+   "url": "https://golfpriceai.com/prices/best/drivers-under-500/"
+  },
+  {
+   "category": "fairway wood",
+   "budget": 150,
+   "title": "Best fairway woods under £150 (UK)",
+   "url": "https://golfpriceai.com/prices/best/fairway-woods-under-150/"
+  },
+  {
+   "category": "fairway wood",
+   "budget": 200,
+   "title": "Best fairway woods under £200 (UK)",
+   "url": "https://golfpriceai.com/prices/best/fairway-woods-under-200/"
+  },
+  {
+   "category": "fairway wood",
+   "budget": 300,
+   "title": "Best fairway woods under £300 (UK)",
+   "url": "https://golfpriceai.com/prices/best/fairway-woods-under-300/"
+  },
+  {
+   "category": "hybrid",
+   "budget": 100,
+   "title": "Best hybrids under £100 (UK)",
+   "url": "https://golfpriceai.com/prices/best/hybrids-under-100/"
+  },
+  {
+   "category": "hybrid",
+   "budget": 150,
+   "title": "Best hybrids under £150 (UK)",
+   "url": "https://golfpriceai.com/prices/best/hybrids-under-150/"
+  },
+  {
+   "category": "hybrid",
+   "budget": 200,
+   "title": "Best hybrids under £200 (UK)",
+   "url": "https://golfpriceai.com/prices/best/hybrids-under-200/"
+  },
+  {
+   "category": "iron set",
+   "budget": 400,
+   "title": "Best iron sets under £400 (UK)",
+   "url": "https://golfpriceai.com/prices/best/irons-under-400/"
+  },
+  {
+   "category": "iron set",
+   "budget": 600,
+   "title": "Best iron sets under £600 (UK)",
+   "url": "https://golfpriceai.com/prices/best/irons-under-600/"
+  },
+  {
+   "category": "iron set",
+   "budget": 800,
+   "title": "Best iron sets under £800 (UK)",
+   "url": "https://golfpriceai.com/prices/best/irons-under-800/"
+  },
+  {
+   "category": "iron set",
+   "budget": 1000,
+   "title": "Best iron sets under £1000 (UK)",
+   "url": "https://golfpriceai.com/prices/best/irons-under-1000/"
+  },
+  {
+   "category": "wedge",
+   "budget": 100,
+   "title": "Best wedges under £100 (UK)",
+   "url": "https://golfpriceai.com/prices/best/wedges-under-100/"
+  },
+  {
+   "category": "wedge",
+   "budget": 150,
+   "title": "Best wedges under £150 (UK)",
+   "url": "https://golfpriceai.com/prices/best/wedges-under-150/"
+  },
+  {
+   "category": "putter",
+   "budget": 150,
+   "title": "Best putters under £150 (UK)",
+   "url": "https://golfpriceai.com/prices/best/putters-under-150/"
+  },
+  {
+   "category": "putter",
+   "budget": 300,
+   "title": "Best putters under £300 (UK)",
+   "url": "https://golfpriceai.com/prices/best/putters-under-300/"
+  },
+  {
+   "category": "golf ball",
+   "budget": 20,
+   "title": "Best golf balls under £20 a dozen (UK)",
+   "url": "https://golfpriceai.com/prices/best/golf-balls-under-20/"
+  },
+  {
+   "category": "golf ball",
+   "budget": 30,
+   "title": "Best golf balls under £30 a dozen (UK)",
+   "url": "https://golfpriceai.com/prices/best/golf-balls-under-30/"
+  },
+  {
+   "category": "golf ball",
+   "budget": 40,
+   "title": "Best golf balls under £40 a dozen (UK)",
+   "url": "https://golfpriceai.com/prices/best/golf-balls-under-40/"
+  },
+  {
+   "category": "golf bag",
+   "budget": 150,
+   "title": "Best golf bags under £150 (UK)",
+   "url": "https://golfpriceai.com/prices/best/golf-bags-under-150/"
+  },
+  {
+   "category": "golf bag",
+   "budget": 250,
+   "title": "Best golf bags under £250 (UK)",
+   "url": "https://golfpriceai.com/prices/best/golf-bags-under-250/"
+  },
+  {
+   "category": "rangefinder",
+   "budget": 200,
+   "title": "Best rangefinders under £200 (UK)",
+   "url": "https://golfpriceai.com/prices/best/rangefinders-under-200/"
+  },
+  {
+   "category": "rangefinder",
+   "budget": 300,
+   "title": "Best rangefinders under £300 (UK)",
+   "url": "https://golfpriceai.com/prices/best/rangefinders-under-300/"
+  },
+  {
+   "category": "GPS watch",
+   "budget": 250,
+   "title": "Best gps watches under £250 (UK)",
+   "url": "https://golfpriceai.com/prices/best/gps-watches-under-250/"
+  },
+  {
+   "category": "GPS watch",
+   "budget": 400,
+   "title": "Best gps watches under £400 (UK)",
+   "url": "https://golfpriceai.com/prices/best/gps-watches-under-400/"
+  },
+  {
+   "category": "electric trolley",
+   "budget": 600,
+   "title": "Best electric trolleys under £600 (UK)",
+   "url": "https://golfpriceai.com/prices/best/electric-trolleys-under-600/"
+  },
+  {
+   "category": "electric trolley",
+   "budget": 800,
+   "title": "Best electric trolleys under £800 (UK)",
+   "url": "https://golfpriceai.com/prices/best/electric-trolleys-under-800/"
+  },
+  {
+   "category": "launch monitor",
+   "budget": 300,
+   "title": "Best launch monitors under £300 (UK)",
+   "url": "https://golfpriceai.com/prices/best/launch-monitors-under-300/"
+  },
+  {
+   "category": "launch monitor",
+   "budget": 500,
+   "title": "Best launch monitors under £500 (UK)",
+   "url": "https://golfpriceai.com/prices/best/launch-monitors-under-500/"
+  },
+  {
+   "category": "launch monitor",
+   "budget": 1000,
+   "title": "Best launch monitors under £1000 (UK)",
+   "url": "https://golfpriceai.com/prices/best/launch-monitors-under-1000/"
+  }
+ ],
+ "compare": [
+  {
+   "a": "callaway-elyte-driver",
+   "b": "cobra-ds-adapt-max-k-driver",
+   "title": "Callaway Elyte vs Cobra DS-Adapt Max K",
+   "url": "https://golfpriceai.com/prices/compare/callaway-elyte-vs-cobra-ds-adapt-max-k-driver/"
+  },
+  {
+   "a": "srixon-zxi-rkt-driver",
+   "b": "taylormade-qi4d-driver",
+   "title": "Srixon ZXi RKT vs TaylorMade Qi4D",
+   "url": "https://golfpriceai.com/prices/compare/srixon-zxi-rkt-vs-taylormade-qi4d-driver/"
+  },
+  {
+   "a": "callaway-elyte-driver",
+   "b": "cobra-ds-adapt-ls-driver",
+   "title": "Callaway Elyte vs Cobra DS-Adapt LS",
+   "url": "https://golfpriceai.com/prices/compare/callaway-elyte-vs-cobra-ds-adapt-ls-driver/"
+  },
+  {
+   "a": "callaway-quantum-max-d-driver",
+   "b": "taylormade-qi4d-driver",
+   "title": "Callaway Quantum Max D vs TaylorMade Qi4D",
+   "url": "https://golfpriceai.com/prices/compare/callaway-quantum-max-d-vs-taylormade-qi4d-driver/"
+  },
+  {
+   "a": "srixon-zxi-rkt-driver",
+   "b": "taylormade-qi4d-max-driver",
+   "title": "Srixon ZXi RKT vs TaylorMade Qi4D Max",
+   "url": "https://golfpriceai.com/prices/compare/srixon-zxi-rkt-vs-taylormade-qi4d-max-driver/"
+  },
+  {
+   "a": "cobra-baffler-offset-driver",
+   "b": "srixon-zxi-driver",
+   "title": "Cobra Baffler Offset vs Srixon ZXi",
+   "url": "https://golfpriceai.com/prices/compare/cobra-baffler-offset-vs-srixon-zxi-driver/"
+  },
+  {
+   "a": "cleveland-launcher-xl2-driver",
+   "b": "yonex-ezone-gs-i-tech-driver",
+   "title": "Cleveland Launcher XL2 vs Yonex EZONE GS i-Tech",
+   "url": "https://golfpriceai.com/prices/compare/cleveland-launcher-xl2-vs-yonex-ezone-gs-i-tech-driver/"
+  },
+  {
+   "a": "mizuno-jpx-one-driver",
+   "b": "titleist-gt2-driver",
+   "title": "Mizuno JPX ONE vs Titleist GT2",
+   "url": "https://golfpriceai.com/prices/compare/mizuno-jpx-one-vs-titleist-gt2-driver/"
+  },
+  {
+   "a": "cleveland-hibore-xl-lite-driver",
+   "b": "yonex-ezone-elite-4-driver",
+   "title": "Cleveland HiBore XL Lite vs Yonex Ezone Elite 4",
+   "url": "https://golfpriceai.com/prices/compare/cleveland-hibore-xl-lite-vs-yonex-ezone-elite-4-driver/"
+  },
+  {
+   "a": "cleveland-launcher-xl2-draw-driver",
+   "b": "yonex-ezone-gs-i-tech-driver",
+   "title": "Cleveland Launcher XL2 Draw vs Yonex EZONE GS i-Tech",
+   "url": "https://golfpriceai.com/prices/compare/cleveland-launcher-xl2-draw-vs-yonex-ezone-gs-i-tech-driver/"
+  },
+  {
+   "a": "mizuno-jpx-925-hot-metal-irons",
+   "b": "ping-g430-irons",
+   "title": "Mizuno JPX 925 Hot Metal vs Ping G430",
+   "url": "https://golfpriceai.com/prices/compare/mizuno-jpx-925-hot-metal-vs-ping-g430-irons/"
+  },
+  {
+   "a": "mizuno-jpx-925-hot-metal-irons",
+   "b": "yonex-ezone-elite-4-irons",
+   "title": "Mizuno JPX 925 Hot Metal vs Yonex Ezone Elite 4",
+   "url": "https://golfpriceai.com/prices/compare/mizuno-jpx-925-hot-metal-vs-yonex-ezone-elite-4-irons/"
+  },
+  {
+   "a": "ping-g430-irons",
+   "b": "yonex-ezone-elite-4-irons",
+   "title": "Ping G430 vs Yonex Ezone Elite 4",
+   "url": "https://golfpriceai.com/prices/compare/ping-g430-vs-yonex-ezone-elite-4-irons/"
+  },
+  {
+   "a": "srixon-zxir-irons",
+   "b": "taylormade-qi-max-hl-irons",
+   "title": "Srixon ZXiR vs TaylorMade Qi Max HL",
+   "url": "https://golfpriceai.com/prices/compare/srixon-zxir-vs-taylormade-qi-max-hl-irons/"
+  },
+  {
+   "a": "mizuno-jpx-925-forged-irons",
+   "b": "wilson-dynapwr-forged-irons",
+   "title": "Mizuno JPX 925 vs Wilson Dynapwr",
+   "url": "https://golfpriceai.com/prices/compare/mizuno-jpx-925-vs-wilson-dynapwr-forged-irons/"
+  },
+  {
+   "a": "srixon-zxir-irons",
+   "b": "taylormade-qi-max-irons",
+   "title": "Srixon ZXiR vs TaylorMade Qi Max",
+   "url": "https://golfpriceai.com/prices/compare/srixon-zxir-vs-taylormade-qi-max-irons/"
+  },
+  {
+   "a": "callaway-quantum-max-irons",
+   "b": "cobra-king-tour-irons",
+   "title": "Callaway Quantum Max vs Cobra King Tour",
+   "url": "https://golfpriceai.com/prices/compare/callaway-quantum-max-vs-cobra-king-tour-irons/"
+  },
+  {
+   "a": "callaway-quantum-max-os-irons",
+   "b": "cobra-king-tour-irons",
+   "title": "Callaway Quantum Max OS vs Cobra King Tour",
+   "url": "https://golfpriceai.com/prices/compare/callaway-quantum-max-os-vs-cobra-king-tour-irons/"
+  },
+  {
+   "a": "callaway-supersoft-golf-balls",
+   "b": "taylormade-tour-response-stripe-golf-balls",
+   "title": "Callaway Supersoft vs TaylorMade Tour Response Stripe",
+   "url": "https://golfpriceai.com/prices/compare/callaway-supersoft-vs-taylormade-tour-response-stripe-golf-balls/"
+  },
+  {
+   "a": "callaway-supersoft-golf-balls",
+   "b": "taylormade-speedsoft-ink-golf-balls",
+   "title": "Callaway Supersoft vs TaylorMade SpeedSoft Ink",
+   "url": "https://golfpriceai.com/prices/compare/callaway-supersoft-vs-taylormade-speedsoft-ink-golf-balls/"
+  },
+  {
+   "a": "srixon-z-star-diamond-golf-balls",
+   "b": "taylormade-tour-response-stripe-golf-balls",
+   "title": "Srixon Z-Star Diamond vs TaylorMade Tour Response Stripe",
+   "url": "https://golfpriceai.com/prices/compare/srixon-z-star-diamond-vs-taylormade-tour-response-stripe-golf-balls/"
+  },
+  {
+   "a": "srixon-ad333-golf-balls",
+   "b": "wilson-duo-soft-golf-balls",
+   "title": "Srixon AD333 vs Wilson Duo Soft",
+   "url": "https://golfpriceai.com/prices/compare/srixon-ad333-vs-wilson-duo-soft-golf-balls/"
+  },
+  {
+   "a": "callaway-warbird-distance-plus-golf-balls",
+   "b": "wilson-duo-soft-golf-balls",
+   "title": "Callaway Warbird Distance+ vs Wilson Duo Soft",
+   "url": "https://golfpriceai.com/prices/compare/callaway-warbird-distance-plus-vs-wilson-duo-soft-golf-balls/"
+  },
+  {
+   "a": "srixon-q-star-tour-6-divide-golf-balls",
+   "b": "titleist-tour-soft-golf-balls",
+   "title": "Srixon Q Star Tour 6 Divide vs Titleist Tour Soft",
+   "url": "https://golfpriceai.com/prices/compare/srixon-q-star-tour-6-divide-vs-titleist-tour-soft-golf-balls/"
+  },
+  {
+   "a": "titleist-avx-golf-balls",
+   "b": "wilson-staff-model-golf-balls",
+   "title": "Titleist AVX vs Wilson Staff Model",
+   "url": "https://golfpriceai.com/prices/compare/titleist-avx-vs-wilson-staff-model-golf-balls/"
+  },
+  {
+   "a": "bridgestone-tour-b-rx-golf-balls",
+   "b": "titleist-avx-golf-balls",
+   "title": "Bridgestone Tour B RX vs Titleist AVX",
+   "url": "https://golfpriceai.com/prices/compare/bridgestone-tour-b-rx-vs-titleist-avx-golf-balls/"
+  },
+  {
+   "a": "cobra-mim-sport-40-pl-putter",
+   "b": "odyssey-ai-one-1-ch-putter",
+   "title": "Cobra MIM Sport 40 PL vs Odyssey Ai-ONE 1 CH",
+   "url": "https://golfpriceai.com/prices/compare/cobra-mim-sport-40-pl-vs-odyssey-ai-one-1-ch-putter/"
+  },
+  {
+   "a": "odyssey-ai-dual-square-2-square-max-putter",
+   "b": "taylormade-spider-tour-double-bend-putter",
+   "title": "Odyssey Ai-DUAL Square 2 Square Max vs TaylorMade Spider Tour Double Bend",
+   "url": "https://golfpriceai.com/prices/compare/odyssey-ai-dual-square-2-square-max-vs-taylormade-spider-tour-double-bend-putter/"
+  },
+  {
+   "a": "odyssey-ai-dual-square-2-square-max-putter",
+   "b": "pxg-hawk-putter",
+   "title": "Odyssey Ai-DUAL Square 2 Square Max vs PXG Hawk",
+   "url": "https://golfpriceai.com/prices/compare/odyssey-ai-dual-square-2-square-max-vs-pxg-hawk-putter/"
+  },
+  {
+   "a": "cobra-mim-sport-40-pl-putter",
+   "b": "mizuno-m-craft-tokyo-s-putter",
+   "title": "Cobra MIM Sport 40 PL vs Mizuno M.craft Tokyo S",
+   "url": "https://golfpriceai.com/prices/compare/cobra-mim-sport-40-pl-vs-mizuno-m-craft-tokyo-s-putter/"
+  },
+  {
+   "a": "mizuno-m-craft-tokyo-s-putter",
+   "b": "pxg-hawk-putter",
+   "title": "Mizuno M.craft Tokyo S vs PXG Hawk",
+   "url": "https://golfpriceai.com/prices/compare/mizuno-m-craft-tokyo-s-vs-pxg-hawk-putter/"
+  },
+  {
+   "a": "cobra-3dp-tour-supernova-sb-putter",
+   "b": "taylormade-spider-tour-double-bend-putter",
+   "title": "Cobra 3DP Tour Supernova SB vs TaylorMade Spider Tour Double Bend",
+   "url": "https://golfpriceai.com/prices/compare/cobra-3dp-tour-supernova-sb-vs-taylormade-spider-tour-double-bend-putter/"
+  },
+  {
+   "a": "callaway-quantum-max-fairway-wood",
+   "b": "taylormade-qi4d-fairway-wood",
+   "title": "Callaway Quantum Max vs TaylorMade Qi4D",
+   "url": "https://golfpriceai.com/prices/compare/callaway-quantum-max-vs-taylormade-qi4d-fairway-wood/"
+  },
+  {
+   "a": "callaway-elyte-fairway-wood",
+   "b": "mizuno-jpx-one-fairway-wood",
+   "title": "Callaway Elyte vs Mizuno JPX ONE",
+   "url": "https://golfpriceai.com/prices/compare/callaway-elyte-vs-mizuno-jpx-one-fairway-wood/"
+  },
+  {
+   "a": "callaway-elyte-fairway-wood",
+   "b": "titleist-gt2-fairway-wood",
+   "title": "Callaway Elyte vs Titleist GT2",
+   "url": "https://golfpriceai.com/prices/compare/callaway-elyte-vs-titleist-gt2-fairway-wood/"
+  },
+  {
+   "a": "cobra-optm-x-fairway-wood",
+   "b": "taylormade-qi4d-fairway-wood",
+   "title": "Cobra OPTM X vs TaylorMade Qi4D",
+   "url": "https://golfpriceai.com/prices/compare/cobra-optm-x-vs-taylormade-qi4d-fairway-wood/"
+  },
+  {
+   "a": "wilson-dynapwr-fairway-wood",
+   "b": "yonex-ezone-elite-fairway-wood",
+   "title": "Wilson Dynapwr vs Yonex Ezone Elite",
+   "url": "https://golfpriceai.com/prices/compare/wilson-dynapwr-vs-yonex-ezone-elite-fairway-wood/"
+  },
+  {
+   "a": "ping-bunkr-wedge",
+   "b": "titleist-vokey-sm11-tour-chrome-wedge",
+   "title": "Ping BUNKR vs Titleist Vokey SM11 Tour Chrome",
+   "url": "https://golfpriceai.com/prices/compare/ping-bunkr-vs-titleist-vokey-sm11-tour-chrome-wedge/"
+  },
+  {
+   "a": "callaway-opus-platinum-chrome-wedge",
+   "b": "titleist-vokey-sm11-tour-chrome-wedge",
+   "title": "Callaway Opus Platinum vs Titleist Vokey SM11 Tour",
+   "url": "https://golfpriceai.com/prices/compare/callaway-opus-platinum-vs-titleist-vokey-sm11-tour-chrome-wedge/"
+  },
+  {
+   "a": "callaway-opus-brushed-chrome-wedge",
+   "b": "cleveland-cbz-tour-satin-wedge",
+   "title": "Callaway Opus Brushed Chrome vs Cleveland CBZ Tour Satin",
+   "url": "https://golfpriceai.com/prices/compare/callaway-opus-brushed-chrome-vs-cleveland-cbz-tour-satin-wedge/"
+  },
+  {
+   "a": "callaway-opus-brushed-chrome-wedge",
+   "b": "cleveland-rtz-tour-satin-wedge",
+   "title": "Callaway Opus Brushed Chrome vs Cleveland RTZ Tour Satin",
+   "url": "https://golfpriceai.com/prices/compare/callaway-opus-brushed-chrome-vs-cleveland-rtz-tour-satin-wedge/"
+  },
+  {
+   "a": "callaway-elyte-hybrid",
+   "b": "cobra-baffler-hybrid",
+   "title": "Callaway Elyte vs Cobra Baffler",
+   "url": "https://golfpriceai.com/prices/compare/callaway-elyte-vs-cobra-baffler-hybrid/"
+  },
+  {
+   "a": "callaway-quantum-max-os-hybrid",
+   "b": "taylormade-qi4d-hybrid",
+   "title": "Callaway Quantum Max OS vs TaylorMade Qi4D",
+   "url": "https://golfpriceai.com/prices/compare/callaway-quantum-max-os-vs-taylormade-qi4d-hybrid/"
+  },
+  {
+   "a": "callaway-quantum-max-hybrid",
+   "b": "taylormade-qi4d-hybrid",
+   "title": "Callaway Quantum Max vs TaylorMade Qi4D",
+   "url": "https://golfpriceai.com/prices/compare/callaway-quantum-max-vs-taylormade-qi4d-hybrid/"
+  },
+  {
+   "a": "cleveland-halo-xl-hybrid",
+   "b": "wilson-dynapwr-hybrid",
+   "title": "Cleveland Halo XL vs Wilson Dynapwr",
+   "url": "https://golfpriceai.com/prices/compare/cleveland-halo-xl-vs-wilson-dynapwr-hybrid/"
+  },
+  {
+   "a": "bushnell-ion-elite-rangefinder",
+   "b": "shot-scope-pro-l2-laser-rangefinder",
+   "title": "Bushnell iON Elite vs Shot Scope Pro L2 Laser",
+   "url": "https://golfpriceai.com/prices/compare/bushnell-ion-elite-vs-shot-scope-pro-l2-laser-rangefinder/"
+  },
+  {
+   "a": "bushnell-tour-v6-laser-rangefinder",
+   "b": "garmin-approach-z10-laser-rangefinder",
+   "title": "Bushnell Tour V6 vs Garmin Approach Z10",
+   "url": "https://golfpriceai.com/prices/compare/bushnell-tour-v6-vs-garmin-approach-z10-laser-rangefinder/"
+  },
+  {
+   "a": "bushnell-tour-v6-shift-laser-rangefinder",
+   "b": "shot-scope-pro-lx-plus-laser-rangefinder",
+   "title": "Bushnell Tour V6 Shift vs Shot Scope Pro LX+",
+   "url": "https://golfpriceai.com/prices/compare/bushnell-tour-v6-shift-vs-shot-scope-pro-lx-plus-laser-rangefinder/"
+  },
+  {
+   "a": "shot-scope-pro-lx-plus-laser-rangefinder",
+   "b": "skycaddie-pro-4x-handheld-rangefinder",
+   "title": "Shot Scope Pro LX+ Laser vs SkyCaddie Pro 4X Handheld",
+   "url": "https://golfpriceai.com/prices/compare/shot-scope-pro-lx-plus-laser-vs-skycaddie-pro-4x-handheld-rangefinder/"
+  },
+  {
+   "a": "garmin-approach-s44-gps-watch",
+   "b": "shot-scope-v5-gps-watch",
+   "title": "Garmin Approach S44 vs Shot Scope V5",
+   "url": "https://golfpriceai.com/prices/compare/garmin-approach-s44-vs-shot-scope-v5-gps-watch/"
+  },
+  {
+   "a": "garmin-approach-s50-gps-watch",
+   "b": "voice-caddie-t11-pro-gps-watch",
+   "title": "Garmin Approach S50 vs Voice Caddie T11 Pro",
+   "url": "https://golfpriceai.com/prices/compare/garmin-approach-s50-vs-voice-caddie-t11-pro-gps-watch/"
+  },
+  {
+   "a": "bushnell-ion-elite-gps-watch",
+   "b": "shot-scope-g6-gps-watch",
+   "title": "Bushnell ION Elite vs Shot Scope G6",
+   "url": "https://golfpriceai.com/prices/compare/bushnell-ion-elite-vs-shot-scope-g6-gps-watch/"
+  },
+  {
+   "a": "garmin-approach-s12-gps-watch",
+   "b": "skycaddie-lx2-gps-watch",
+   "title": "Garmin Approach S12 vs SkyCaddie LX2",
+   "url": "https://golfpriceai.com/prices/compare/garmin-approach-s12-vs-skycaddie-lx2-gps-watch/"
+  },
+  {
+   "a": "motocaddy-m1-electric-trolley",
+   "b": "powakaddy-ct6-electric-trolley",
+   "title": "Motocaddy M1 vs PowaKaddy CT6",
+   "url": "https://golfpriceai.com/prices/compare/motocaddy-m1-vs-powakaddy-ct6-electric-trolley/"
+  },
+  {
+   "a": "motocaddy-m1-dhc-electric-trolley",
+   "b": "powakaddy-ct6-electric-trolley",
+   "title": "Motocaddy M1 DHC vs PowaKaddy CT6",
+   "url": "https://golfpriceai.com/prices/compare/motocaddy-m1-dhc-vs-powakaddy-ct6-electric-trolley/"
+  },
+  {
+   "a": "motocaddy-m5-electric-trolley",
+   "b": "powakaddy-ct8-electric-trolley",
+   "title": "Motocaddy M5 vs PowaKaddy CT8",
+   "url": "https://golfpriceai.com/prices/compare/motocaddy-m5-vs-powakaddy-ct8-electric-trolley/"
+  },
+  {
+   "a": "taylormade-flextech-stand-bag-golf-bag",
+   "b": "titleist-cart-bag-golf-bag",
+   "title": "TaylorMade FlexTech Stand vs Titleist Cart",
+   "url": "https://golfpriceai.com/prices/compare/taylormade-flextech-stand-vs-titleist-cart-bag-golf-bag/"
+  },
+  {
+   "a": "nike-air-max-lite-stand-bag-golf-bag",
+   "b": "titleist-cart-bag-golf-bag",
+   "title": "Nike Air Max Lite Stand vs Titleist Cart",
+   "url": "https://golfpriceai.com/prices/compare/nike-air-max-lite-stand-vs-titleist-cart-bag-golf-bag/"
+  },
+  {
+   "a": "taylormade-flextech-stand-bag-golf-bag",
+   "b": "titleist-players-s4-stand-bag-golf-bag",
+   "title": "TaylorMade FlexTech vs Titleist Players S4",
+   "url": "https://golfpriceai.com/prices/compare/taylormade-flextech-vs-titleist-players-s4-stand-bag-golf-bag/"
+  }
+ ]
+}
