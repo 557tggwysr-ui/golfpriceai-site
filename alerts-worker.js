@@ -63,7 +63,12 @@
  *                   Optional: without it everything works, the counts just
  *                   stay at 0.
  *                   The same namespace also holds the Demand Index's
- *                   anonymous daily counts ("d:..." keys, see signal()).
+ *                   anonymous daily counts ("d:..." keys, see signal())
+ *                   until the DEMAND database below is added.
+ *   DEMAND          D1 database binding (Worker > Settings > Bindings >
+ *                   D1 database, named golfpriceai-demand). The Demand
+ *                   Index's exact, once-per-visitor daily counts. It sets
+ *                   up its own tables.
  */
 
 const BREVO = 'https://api.brevo.com/v3';
@@ -378,7 +383,7 @@ function cleanSearch(q) {
 async function signal(request, env, cors) {
   const ok = json({ ok: true }, 200, cors);
   const origin = request.headers.get('origin') || '';
-  if (!env.FOURBALL || ![env.SITE || 'https://golfpriceai.com', 'https://www.golfpriceai.com'].includes(origin)) return ok;
+  if (!(env.DEMAND || env.FOURBALL) || ![env.SITE || 'https://golfpriceai.com', 'https://www.golfpriceai.com'].includes(origin)) return ok;
   let body = {};
   try { body = JSON.parse((await request.text()).slice(0, 2000)); } catch (e) { return ok; }
   const kind = String(body.k || '');
@@ -398,6 +403,7 @@ async function signal(request, env, cors) {
   if (!items.length) return ok;
   const day = new Date().toISOString().slice(0, 10);
   const ip = request.headers.get('cf-connecting-ip') || '';
+  if (env.DEMAND) return await signalD1(env, day, ip, kind, items, ok);
   if (await tooMany('sig:' + (await sha1(ip + day)), 120, 86400)) return ok;
   const cache = caches.default;
   for (const [key, val] of items) {
@@ -416,12 +422,55 @@ async function signal(request, env, cors) {
   return ok;
 }
 
+/* With the DEMAND database (Cloudflare D1, free) bound, counting is exact:
+   "seen" holds a one-way daily code per visitor (a salted hash of the IP that
+   changes every day and can't be turned back into an address), so each
+   visitor counts once per model per day; rows older than yesterday are
+   deleted. "counts" holds the daily totals, deleted after 70 days. */
+let demandReady = false;
+async function demandSetup(env) {
+  if (demandReady) return;
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS seen (day TEXT, v TEXT, kind TEXT, key TEXT, PRIMARY KEY (day, v, kind, key)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS counts (day TEXT, kind TEXT, key TEXT, n INTEGER, s REAL, PRIMARY KEY (day, kind, key)) WITHOUT ROWID'),
+  ]);
+  demandReady = true;
+}
+async function signalD1(env, day, ip, kind, items, ok) {
+  try {
+    await demandSetup(env);
+    const v = (await sha1([ip, day, env.ALERTS_SECRET || ''].join('|'))).slice(0, 16);
+    const used = await env.DEMAND.prepare('SELECT COUNT(*) AS c FROM seen WHERE day = ? AND v = ?').bind(day, v).first('c');
+    if (used >= 120) return ok; // nobody genuinely browses 120 models a day
+    for (const [key, val] of items) {
+      const r = await env.DEMAND.prepare('INSERT OR IGNORE INTO seen (day, v, kind, key) VALUES (?, ?, ?, ?)').bind(day, v, kind, key).run();
+      if (!r.meta || !r.meta.changes) continue; // already counted today
+      await env.DEMAND.prepare('INSERT INTO counts (day, kind, key, n, s) VALUES (?, ?, ?, 1, ?) ' +
+        'ON CONFLICT (day, kind, key) DO UPDATE SET n = n + 1, s = s + excluded.s').bind(day, kind, key, val).run();
+    }
+  } catch (e) { console.log('demand count failed', e && e.message); }
+  return ok;
+}
+
 // The 6-hourly update reads every count (only with the shared secret, because
 // raw search words are kept off the public site).
 async function demandCounts(request, url, env) {
   const want = await sign(env, 'demand-counts');
-  if (!env.FOURBALL || (request.headers.get('x-demand-key') || '') !== want) return json({ ok: false }, 403);
+  if ((request.headers.get('x-demand-key') || '') !== want) return json({ ok: false }, 403);
   const rows = [];
+  if (env.DEMAND) {
+    await demandSetup(env);
+    const now = Date.now();
+    const yesterday = new Date(now - 86400000).toISOString().slice(0, 10);
+    const cutoff = new Date(now - 70 * 86400000).toISOString().slice(0, 10);
+    await env.DEMAND.batch([
+      env.DEMAND.prepare('DELETE FROM seen WHERE day < ?').bind(yesterday),
+      env.DEMAND.prepare('DELETE FROM counts WHERE day < ?').bind(cutoff),
+    ]);
+    const res = await env.DEMAND.prepare('SELECT day, kind, key, n, s FROM counts').all();
+    for (const r of res.results || []) rows.push([r.day, r.kind, r.key, Number(r.n) || 0, Math.round((Number(r.s) || 0) * 10000) / 10000]);
+  }
+  if (!env.FOURBALL) return json({ ok: true, rows, fourball: 0 }, 200, { 'cache-control': 'no-store' });
   let cursor;
   for (let i = 0; i < 20; i++) {
     const page = await env.FOURBALL.list({ prefix: 'd:', cursor, limit: 1000 });

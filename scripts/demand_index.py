@@ -174,11 +174,12 @@ def fetch():
                 continue
             if kind not in ("view", "heart", "pp"):
                 continue
-            d = days.setdefault(day, {})
+            d = days.setdefault(day, {})  # counts may arrive from both stores: add them up
             if kind == "pp":
-                d.setdefault("pp", {})[k] = [n, round(s, 4)]
+                cur = d.setdefault("pp", {}).get(k, [0, 0])
+                d["pp"][k] = [cur[0] + n, round(cur[1] + s, 4)]
             else:
-                d.setdefault(kind, {})[k] = n
+                d.setdefault(kind, {})[k] = d.get(kind, {}).get(k, 0) + n
         # The worker keeps 70 days; merge so a missed fetch loses nothing.
         out["days"].update(days)
         out["search"] = {q: n for q, n in sorted(search.items(), key=lambda kv: (-kv[1], kv[0]))[:60]}
