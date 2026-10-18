@@ -95,7 +95,7 @@ def page(n, today):
   </div>
 </section>
 </div>
-<script src="/js/par-price.js?v=20261020b" defer></script>"""
+<script src="/js/par-price.js?v=20261020c" defer></script>"""
     app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Par Price", "url": f"{SITE}/play/",
            "applicationCategory": "GameApplication", "operatingSystem": "Any",
            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},

@@ -80,14 +80,30 @@
     if (saved.guesses.length) { totalEl.textContent = fmtTotal(total()) + (saved.guesses.length < round.items.length ? ' so far' : ''); totalEl.hidden = false; }
   }
 
-  function render(justPlayed) {
+  // Keep the action on screen: after a guess the page gets shorter, which
+  // would otherwise leave phones looking at "How it works".
+  function bring(el) {
+    if (!el) return;
+    if (document.activeElement && document.activeElement.blur) document.activeElement.blur(); // close the phone keyboard
+    setTimeout(function () {
+      var top = el.getBoundingClientRect().top + window.pageYOffset - 84;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    }, 60);
+  }
+
+  function render(justPlayed, moved) {
     var i = saved.guesses.length;
     paintHoles(i);
     stage.innerHTML = '';
-    if (justPlayed != null) stage.appendChild(resultBox(results()[justPlayed], i >= round.items.length));
-    if (i >= round.items.length) { if (justPlayed == null) scorecard(); return; }
-    if (justPlayed != null) return;
+    if (justPlayed != null) {
+      var box = resultBox(results()[justPlayed], i >= round.items.length);
+      stage.appendChild(box);
+      bring(holesEl);
+      return;
+    }
+    if (i >= round.items.length) { scorecard(); if (moved) bring(holesEl); return; }
     hole(i);
+    if (moved) bring(holesEl);
   }
 
   function hole(i) {
@@ -131,10 +147,10 @@
     var a = el('a', null, 'See its prices'); a.href = r.it.url + '?utm_source=parprice&utm_medium=game'; row.appendChild(a);
     var next = el('button', 'gp-af-btn', last ? 'See your scorecard' : 'Next hole');
     next.type = 'button';
-    next.addEventListener('click', function () { if (last) { stage.innerHTML = ''; paintHoles(round.items.length); scorecard(); } else render(); });
+    next.addEventListener('click', function () { if (last) { stage.innerHTML = ''; paintHoles(round.items.length); scorecard(); bring(holesEl); } else render(null, true); });
     row.appendChild(next);
     box.appendChild(row);
-    setTimeout(function () { next.focus({ preventScroll: true }); }, 30);
+    setTimeout(function () { if (window.matchMedia('(min-width: 700px)').matches) next.focus({ preventScroll: true }); }, 30);
     return box;
   }
 
