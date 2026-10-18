@@ -13,10 +13,10 @@
   var totalEl = root.querySelector('.pr-total');
   var SCORES = [
     { max: 0.02, name: 'Eagle', short: 'E', pts: -2, emoji: '🦅' },
-    { max: 0.05, name: 'Birdie', short: 'B', pts: -1, emoji: '🐦' },
-    { max: 0.10, name: 'Par', short: 'P', pts: 0, emoji: '⛳' },
+    { max: 0.05, name: 'Birdie', short: 'B', pts: -1, emoji: '🟩' },
+    { max: 0.10, name: 'Par', short: 'P', pts: 0, emoji: '⬜' },
     { max: 0.20, name: 'Bogey', short: 'Bo', pts: 1, emoji: '🟧' },
-    { max: Infinity, name: 'Double bogey', short: 'D', pts: 2, emoji: '⬛' }
+    { max: Infinity, name: 'Double bogey', short: 'D', pts: 2, emoji: '🟥' }
   ];
   var QUIPS = {
     '-10': 'A perfect round. Are you secretly a golf retailer?', '-6': 'Tour card material. The pro shop is very nervous.',
@@ -34,6 +34,16 @@
     var off = Math.abs(guess - price) / price;
     for (var i = 0; i < SCORES.length; i++) if (off <= SCORES[i].max + 1e-9) return SCORES[i];
     return SCORES[SCORES.length - 1];
+  }
+  // Must match quip() in scripts/par_price_cards.py (the picture says the same).
+  function shareQuip(t) {
+    if (t <= -6) return 'Tour card material. Pro shop nervous.';
+    if (t <= -3) return 'Under par and insufferable about it.';
+    if (t < 0) return 'Under par. Drinks are on me.';
+    if (t === 0) return 'Level par. Sensible. Very committee.';
+    if (t <= 4) return 'A few over. The prices won a hole or two.';
+    if (t <= 9) return 'Rough round. The prices won comfortably.';
+    return 'Ten over. Lost balls, lost guesses.';
   }
   function fmtTotal(t) { return t === 0 ? 'E' : (t > 0 ? '+' + t : '−' + Math.abs(t)); }
   function quip(t) {
@@ -163,11 +173,16 @@
     var wrap = el('div', 'pp-card pp-table-wrap'); wrap.appendChild(table); stage.appendChild(wrap);
     var share = el('button', 'gp-af-btn pr-share', 'Share my score'); share.type = 'button';
     share.addEventListener('click', function () {
+      // Spoiler-free: coloured squares, no prices. The link is a little page
+      // with this score's own picture (play/s/, made by
+      // scripts/par_price_cards.py), so the chat shows a proper preview card.
       var grid = results().map(function (r) { return r.s.emoji; }).join('');
-      var text = 'Par Price #' + round.n + ' · ' + fmtTotal(t) + (t < 0 ? ' under par' : t > 0 ? ' over par' : ' level par') + '\n' + grid + '\nCan you beat me?';
-      var url = location.origin + '/play/?utm_source=parprice&utm_medium=share';
-      if (navigator.share) navigator.share({ text: text, url: url }).catch(function () {});
-      else window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), '_blank', 'noopener');
+      var words = t === 0 ? 'level par' : Math.abs(t) + (t > 0 ? ' over par' : ' under par');
+      var slug = t === 0 ? 'e' : (t > 0 ? 'p' : 'm') + Math.abs(Math.max(-10, Math.min(10, t)));
+      var url = 'https://golfpriceai.com/play/s/' + slug + '/';
+      var text = 'Par Price #' + round.n + ': ' + words + ' ⛳\n' + grid + '\n' + shareQuip(t) + '\nCan you beat me? ' + url;
+      if (navigator.share) navigator.share({ text: text }).catch(function () {});
+      else window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener');
       track('par_price_share', { total: t });
     });
     stage.appendChild(share);
