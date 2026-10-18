@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/callaway-xr-13-piece-package-set/",
- "checked": "2026-10-17",
+ "checked": "2026-10-18",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1199.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 1199.0,
   "high": 1499.0,
-  "average": 1248.21,
+  "average": 1247.44,
   "priceChanges": 4,
   "series": [
    [
@@ -50,14 +50,14 @@
     1199.0
    ],
    [
-    "2026-10-17",
+    "2026-10-18",
     1199.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 51 days"
+  "summary": "Typical price: steady for 52 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfXRBlack13PieceCompletePackageSet2026_6.jpg?v=1770735173",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

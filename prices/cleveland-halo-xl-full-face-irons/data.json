@@ -3,17 +3,17 @@
  "brand": "Cleveland",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cleveland-halo-xl-full-face-irons/",
- "checked": "2026-10-17",
+ "checked": "2026-10-18",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 399.0,
+ "lowestNewPrice": 349.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 399.0,
+   "from": 349.0,
    "options": 5
   },
   {
@@ -23,11 +23,11 @@
   }
  ],
  "history": {
-  "daysTracked": 44,
+  "daysTracked": 45,
   "low": 349.0,
   "high": 399.0,
-  "average": 391.05,
-  "priceChanges": 2,
+  "average": 390.11,
+  "priceChanges": 3,
   "series": [
    [
     "2026-09-04",
@@ -42,14 +42,14 @@
     399.0
    ],
    [
-    "2026-10-17",
-    399.0
+    "2026-10-18",
+    349.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £50.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ClevelandHaloXLFull-FaceIrons6_a777cc07-accd-48dc-9a53-e08371c84e9d.jpg?v=1777957005",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

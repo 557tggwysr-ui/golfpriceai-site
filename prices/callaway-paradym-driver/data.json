@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-paradym-driver/",
- "checked": "2026-10-17",
+ "checked": "2026-10-18",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 44,
+  "daysTracked": 45,
   "low": 399.0,
   "high": 399.0,
   "average": 399.0,
@@ -29,14 +29,14 @@
     399.0
    ],
    [
-    "2026-10-17",
+    "2026-10-18",
     399.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 44 days"
+  "summary": "Typical price: steady for 45 days"
  },
  "image": null,
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

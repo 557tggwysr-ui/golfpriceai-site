@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/wilson-staff-model-x-golf-balls/",
- "checked": "2026-10-17",
+ "checked": "2026-10-18",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 42.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 42.95,
   "high": 85.0,
-  "average": 50.96,
+  "average": 50.83,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     42.95
    ],
    [
-    "2026-10-17",
+    "2026-10-18",
     42.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 51 days"
+  "summary": "Typical price: steady for 52 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-08T085841.562.png?v=1756973986",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

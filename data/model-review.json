@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-10-17",
+ "lastUpdated": "2026-10-18",
  "uncertainGroupings": [
   {
    "model": "TaylorMade milled grind 5",
@@ -77,6 +77,11 @@
    "listings": 8
   },
   {
+   "model": "Ben Sayers Electric Trolley",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 8
+  },
+  {
    "model": "TaylorMade qi max hl",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
@@ -95,11 +100,6 @@
    "model": "Srixon z-star",
    "issue": "3 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
    "listings": 3
-  },
-  {
-   "model": "Ben Sayers Electric Trolley",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 7
   },
   {
    "model": "Mizuno Pro T-1 Wedge",

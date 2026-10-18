@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-tour-x-trutrack-golf-balls/",
- "checked": "2026-10-17",
+ "checked": "2026-10-18",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 41.25,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 41.25,
   "high": 55.0,
-  "average": 42.34,
+  "average": 42.32,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     41.25
    ],
    [
-    "2026-10-17",
+    "2026-10-18",
     41.25
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 58 days"
+  "summary": "Typical price: steady for 59 days"
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1792145490652/sits/balls-2024-chrome-tour-x-trutrack-yellow/balls-2024-chrome-tour-x-trutrack-yellow_1446___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

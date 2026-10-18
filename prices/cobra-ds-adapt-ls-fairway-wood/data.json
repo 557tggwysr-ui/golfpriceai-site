@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/cobra-ds-adapt-ls-fairway-wood/",
- "checked": "2026-10-17",
+ "checked": "2026-10-18",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 189.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 51,
+  "daysTracked": 52,
   "low": 189.0,
   "high": 199.0,
-  "average": 194.1,
+  "average": 194.0,
   "priceChanges": 1,
   "series": [
    [
@@ -33,14 +33,14 @@
     189.0
    ],
    [
-    "2026-10-17",
+    "2026-10-18",
     189.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 26 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CobraDSAdaptLSFairwayWood1.jpg?v=1750848414",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

@@ -3,18 +3,18 @@
  "brand": "Cleveland",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/cleveland-halo-xl-fairway-wood/",
- "checked": "2026-10-17",
+ "checked": "2026-10-18",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.0,
+ "lowestNewPrice": 119.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 129.0,
-   "options": 4
+   "from": 119.95,
+   "options": 7
   },
   {
    "name": "Clickgolf",
@@ -23,11 +23,11 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
-  "low": 129.0,
+  "daysTracked": 64,
+  "low": 119.95,
   "high": 149.0,
-  "average": 137.25,
-  "priceChanges": 1,
+  "average": 136.98,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -38,15 +38,15 @@
     129.0
    ],
    [
-    "2026-10-17",
-    129.0
+    "2026-10-18",
+    119.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 37 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ClevelandHaloXLFairwayWood2_71e38d02-b64e-4086-bbda-502ee6439d10.jpg?v=1777957010",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ClevelandHaloXLHy-Wood2_7989e900-44d2-4ed5-a595-326cc58f4346.jpg?v=1777956992",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/wilson-dynapwr-max-driver/",
- "checked": "2026-10-17",
+ "checked": "2026-10-18",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 279.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 279.0,
   "high": 349.0,
-  "average": 297.89,
+  "average": 297.59,
   "priceChanges": 1,
   "series": [
    [
@@ -33,14 +33,14 @@
     279.0
    ],
    [
-    "2026-10-17",
+    "2026-10-18",
     279.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 46 days"
+  "summary": "Typical price: steady for 47 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/wilson-dynapwr-max-driver-hero-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

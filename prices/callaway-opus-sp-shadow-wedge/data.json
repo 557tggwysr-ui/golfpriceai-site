@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/callaway-opus-sp-shadow-wedge/",
- "checked": "2026-10-17",
+ "checked": "2026-10-18",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 159.95,
   "high": 179.0,
-  "average": 165.7,
+  "average": 165.61,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     159.95
    ],
    [
-    "2026-10-17",
+    "2026-10-18",
     159.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 44 days"
+  "summary": "Typical price: steady for 45 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/OpusSPBlackShadow1_52dbb56c-dff1-4dda-b368-8846a41715bc.jpg?v=1775360763",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
