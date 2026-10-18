@@ -1,6 +1,48 @@
 {
  "about": "Price-drop alert reference prices per model. No personal data.",
- "budget": {},
+ "budget": {
+  "driver-300": {
+   "above": {
+    "callaway-elyte-driver": 329.0,
+    "callaway-quantum-max-d-driver": 529.0,
+    "callaway-quantum-max-driver": 529.0,
+    "callaway-quantum-mini-driver": 429.0,
+    "cobra-ds-adapt-ls-driver": 329.0,
+    "cobra-ds-adapt-max-k-driver": 329.0,
+    "cobra-ds-adapt-x-driver": 329.0,
+    "cobra-optm-max-d-driver": 479.0,
+    "cobra-optm-x-driver": 479.0,
+    "mizuno-jpx-one-driver": 429.0,
+    "ping-g430-max-10k-driver": 369.0,
+    "srixon-zxi-ls-driver": 329.0,
+    "srixon-zxi-max-driver": 329.0,
+    "srixon-zxi-rkt-driver": 529.0,
+    "taylormade-qi35-driver": 349.0,
+    "taylormade-qi4d-driver": 549.0,
+    "taylormade-qi4d-max-driver": 549.0,
+    "titleist-gt1-driver": 449.0,
+    "titleist-gt2-driver": 399.0,
+    "titleist-gt280-mini-driver": 439.0,
+    "titleist-gt4-driver": 399.0,
+    "titleist-gts2-driver": 629.0,
+    "titleist-gts3-driver": 629.0
+   },
+   "under": [
+    "callaway-paradym-ai-smoke-max-driver",
+    "cleveland-hibore-xl-lite-driver",
+    "cleveland-launcher-xl2-draw-driver",
+    "cleveland-launcher-xl2-driver",
+    "cobra-baffler-driver",
+    "cobra-baffler-offset-driver",
+    "macgregor-zt-plus-driver",
+    "srixon-zxi-driver",
+    "wilson-dynapwr-driver",
+    "wilson-profile-driver",
+    "yonex-ezone-elite-4-driver",
+    "yonex-ezone-gs-i-tech-driver"
+   ]
+  }
+ },
  "digest": {
   "sent": 1,
   "week": "2026-W42"
