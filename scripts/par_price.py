@@ -104,7 +104,7 @@ def page(n, today):
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
                       canonical=f"{SITE}/play/", body=body, section="tools", schema=[app, crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261019">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261020">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 

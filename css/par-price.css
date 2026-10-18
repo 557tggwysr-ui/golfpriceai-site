@@ -65,3 +65,17 @@
   .pp-table.pr-table th[scope="row"] { white-space: normal; }
   .pr-pic { width: 180px; height: 180px; }
 }
+/* Phones: the guess box gets the full width, with "Tee off" underneath, and
+   the product photo shrinks so the box is on screen without scrolling. */
+@media (max-width: 560px) {
+  .pr-game { gap: 10px; padding-top: 12px; }
+  .pr-lede { font-size: 15px; }
+  .pr-card { padding: 14px; gap: 6px; }
+  .pr-pic { width: 140px; height: 140px; }
+  .pr-name { font-size: 19px; }
+  .pr-row { flex-direction: column; gap: 10px; }
+  .pr-input { flex: none; width: 100%; min-height: 58px; }
+  .pr-input input { font-size: 24px; min-width: 0; width: 100%; }
+  .pr-row .gp-af-btn { width: 100%; min-height: 52px; }
+}
+
