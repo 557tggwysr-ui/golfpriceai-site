@@ -44,7 +44,7 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           # Everything the refresh writes: data files, price pages, forwarded
           # old pages and the sitemaps.
-          git add -A data prices products wishlist fourball assets/cards sitemap.xml sitemap-pages.xml sitemap-prices.xml
+          git add -A data prices products wishlist fourball play assets/cards sitemap.xml sitemap-pages.xml sitemap-prices.xml
           git diff --quiet --cached || git commit -m "Automated catalog refresh"
           git pull --rebase
           git push
