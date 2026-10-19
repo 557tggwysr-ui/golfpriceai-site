@@ -1,8 +1,18 @@
 {
- "checked": "2026-10-19T19:00+01:00",
+ "checked": "2026-10-19T23:05+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Mizuno Pro T-3 Wedge",
+   "model_id": "mizuno-pro-t-3-wedge",
+   "date": "2026-10-19",
+   "was": 149.0,
+   "now": 119.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-t-3-wedge/"
+  },
   {
    "model": "Cleveland Halo XL Full-Face Irons",
    "model_id": "cleveland-halo-xl-full-face-irons",
