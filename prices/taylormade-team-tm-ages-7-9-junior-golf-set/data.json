@@ -6,14 +6,14 @@
  "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 335.0,
+ "lowestNewPrice": 365.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 335.0,
+   "from": 365.0,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 65,
   "low": 335.0,
   "high": 365.0,
-  "average": 354.38,
-  "priceChanges": 14,
+  "average": 354.85,
+  "priceChanges": 15,
   "series": [
    [
     "2026-08-16",
@@ -86,13 +86,13 @@
    ],
    [
     "2026-10-19",
-    335.0
+    365.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-Junior-Set-Size-2-6.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

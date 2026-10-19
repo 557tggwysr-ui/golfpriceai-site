@@ -6,14 +6,14 @@
  "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1049.0,
+ "lowestNewPrice": 1099.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 1049.0,
+   "from": 1099.0,
    "options": 2
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 65,
   "low": 1049.0,
   "high": 1099.0,
-  "average": 1081.31,
-  "priceChanges": 14,
+  "average": 1082.08,
+  "priceChanges": 15,
   "series": [
    [
     "2026-08-16",
@@ -86,13 +86,13 @@
    ],
    [
     "2026-10-19",
-    1049.0
+    1099.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/reva-11-set-black-hero.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

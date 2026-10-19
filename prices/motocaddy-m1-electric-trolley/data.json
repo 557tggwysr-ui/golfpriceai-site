@@ -6,20 +6,20 @@
  "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 699.0,
+ "lowestNewPrice": 719.0,
  "lowestAt": [
-  "Clickgolf"
+  "Scottsdale Golf"
  ],
  "retailers": [
-  {
-   "name": "Clickgolf",
-   "from": 699.0,
-   "options": 2
-  },
   {
    "name": "Scottsdale Golf",
    "from": 719.0,
    "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 729.0,
+   "options": 2
   },
   {
    "name": "Major Golf Direct",
@@ -36,8 +36,8 @@
   "daysTracked": 65,
   "low": 699.0,
   "high": 749.0,
-  "average": 719.31,
-  "priceChanges": 13,
+  "average": 719.62,
+  "priceChanges": 14,
   "series": [
    [
     "2026-08-16",
@@ -97,14 +97,14 @@
    ],
    [
     "2026-10-19",
-    699.0
+    719.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/TR26M1XXMS-M1-2026-Electric-Trolley-Hero.jpg",
+ "image": "https://www.scottsdalegolf.co.uk/uploads/M1_1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

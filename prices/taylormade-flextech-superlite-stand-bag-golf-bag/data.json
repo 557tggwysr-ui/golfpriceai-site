@@ -6,20 +6,20 @@
  "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 154.0,
+ "lowestNewPrice": 159.95,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
-  {
-   "name": "Clickgolf",
-   "from": 154.0,
-   "options": 4
-  },
   {
    "name": "Affordable Golf",
    "from": 159.95,
    "options": 6
+  },
+  {
+   "name": "Clickgolf",
+   "from": 164.0,
+   "options": 4
   },
   {
    "name": "Major Golf Direct",
@@ -31,8 +31,8 @@
   "daysTracked": 65,
   "low": 149.95,
   "high": 164.0,
-  "average": 158.04,
-  "priceChanges": 12,
+  "average": 158.13,
+  "priceChanges": 13,
   "series": [
    [
     "2026-08-16",
@@ -88,14 +88,14 @@
    ],
    [
     "2026-10-19",
-    154.0
+    159.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £10.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/M2341201-Flextech-Superlite-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/N26683_zoom_D_1.jpg?v=1782218484",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

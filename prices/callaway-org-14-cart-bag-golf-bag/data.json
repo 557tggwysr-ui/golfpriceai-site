@@ -6,19 +6,19 @@
  "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 189.95,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 179.0,
+   "name": "Affordable Golf",
+   "from": 189.95,
    "options": 2
   },
   {
-   "name": "Affordable Golf",
-   "from": 189.95,
+   "name": "Clickgolf",
+   "from": 199.0,
    "options": 2
   },
   {
@@ -36,8 +36,8 @@
   "daysTracked": 65,
   "low": 179.0,
   "high": 199.0,
-  "average": 187.9,
-  "priceChanges": 15,
+  "average": 188.07,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -105,14 +105,14 @@
    ],
    [
     "2026-10-19",
-    179.0
+    189.95
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £10.95 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Org-14-Golf-Cart-Bag---Navy.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayOrg14CartBag-Navy1.jpg?v=1776305970",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

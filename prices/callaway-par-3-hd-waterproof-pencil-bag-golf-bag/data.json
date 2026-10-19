@@ -6,14 +6,14 @@
  "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 134.0,
+ "lowestNewPrice": 149.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 134.0,
+   "from": 149.0,
    "options": 1
   },
   {
@@ -26,8 +26,8 @@
   "daysTracked": 65,
   "low": 134.0,
   "high": 149.0,
-  "average": 146.0,
-  "priceChanges": 7,
+  "average": 146.23,
+  "priceChanges": 8,
   "series": [
    [
     "2026-08-16",
@@ -63,13 +63,13 @@
    ],
    [
     "2026-10-19",
-    134.0
+    149.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £15.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Par-3-HD-Waterproof-Golf-Pencil-Stand-Bag---Black.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

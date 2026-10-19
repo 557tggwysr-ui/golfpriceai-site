@@ -6,18 +6,20 @@
  "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 599.0,
+ "lowestNewPrice": 629.0,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf",
+  "Clickgolf",
+  "Major Golf Direct"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 599.0,
+   "name": "Affordable Golf",
+   "from": 629.0,
    "options": 2
   },
   {
-   "name": "Affordable Golf",
+   "name": "Clickgolf",
    "from": 629.0,
    "options": 2
   },
@@ -36,8 +38,8 @@
   "daysTracked": 65,
   "low": 579.0,
   "high": 629.0,
-  "average": 619.46,
-  "priceChanges": 9,
+  "average": 619.92,
+  "priceChanges": 10,
   "series": [
    [
     "2026-08-16",
@@ -81,13 +83,13 @@
    ],
    [
     "2026-10-19",
-    599.0
+    629.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £50.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PK_FX3_EBS_Electric_Golf_Trolley-18-Hole-Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

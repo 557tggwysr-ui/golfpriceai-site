@@ -6,14 +6,15 @@
  "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 599.0,
+ "lowestNewPrice": 629.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clickgolf",
+  "Scottsdale Golf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 599.0,
+   "from": 629.0,
    "options": 2
   },
   {

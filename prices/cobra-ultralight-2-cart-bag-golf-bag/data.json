@@ -6,14 +6,15 @@
  "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clickgolf",
+  "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 149.0,
+   "from": 169.0,
    "options": 4
   },
   {
@@ -31,8 +32,8 @@
   "daysTracked": 65,
   "low": 144.0,
   "high": 169.0,
-  "average": 161.38,
-  "priceChanges": 14,
+  "average": 161.69,
+  "priceChanges": 15,
   "series": [
    [
     "2026-08-16",
@@ -96,14 +97,14 @@
    ],
    [
     "2026-10-19",
-    149.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £25.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/cobra-ultralight-2-cart-bag-black-rose-gold-front-view-1000x1000.png",
+ "image": "https://www.clickgolf.co.uk/images/product/main/cobra-ultralight-2-cart-bag-sugared-almond-sunny-yellow-side-profile-1000x1000.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
