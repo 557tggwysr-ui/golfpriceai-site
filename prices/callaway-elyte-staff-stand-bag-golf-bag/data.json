@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-elyte-staff-stand-bag-golf-bag/",
- "checked": "2026-10-18",
+ "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 449.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 449.0,
   "high": 449.0,
   "average": 449.0,
@@ -29,14 +29,14 @@
     449.0
    ],
    [
-    "2026-10-18",
+    "2026-10-19",
     449.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 65 days"
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1786858774040/sits/bags-2025-elyte-staff-stand/bags-2025-elyte-staff-stand_1___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

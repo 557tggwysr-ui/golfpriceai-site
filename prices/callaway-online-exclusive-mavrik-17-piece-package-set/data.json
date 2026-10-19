@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-17-piece-package-set/",
- "checked": "2026-10-18",
+ "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 899.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 899.0,
   "high": 899.0,
   "average": 899.0,
@@ -29,14 +29,14 @@
     899.0
    ],
    [
-    "2026-10-18",
+    "2026-10-19",
     899.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 65 days"
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1792231891517/sits/compsets-2024-mavrik-eu/compsets-2024-mavrik-eu_18131___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

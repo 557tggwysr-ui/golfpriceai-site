@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/ping-i540-irons/",
- "checked": "2026-10-18",
+ "checked": "2026-10-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1129.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 1129.0,
   "high": 1139.0,
-  "average": 1131.97,
+  "average": 1131.92,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     1129.0
    ],
    [
-    "2026-10-18",
+    "2026-10-19",
     1129.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 45 days"
+  "summary": "Typical price: steady for 46 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Pingi5402_564f0fb4-485b-45d1-ae35-b452ec963389.jpg?v=1773104257",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

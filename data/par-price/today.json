@@ -1,56 +1,56 @@
 {
- "n": 1,
- "date": "2026-10-18",
+ "n": 2,
+ "date": "2026-10-19",
  "items": [
   {
-   "slug": "mizuno-jpx-925-hot-metal-irons",
-   "name": "Mizuno JPX 925 Hot Metal Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/925HOTMETAL1_6fee0f03-6693-416a-9624-b5427e6f12e4.jpg?v=1724252626",
-   "price": 599.0,
-   "unit": "each",
-   "type": "iron set",
-   "low": false,
-   "url": "/prices/mizuno-jpx-925-hot-metal-irons/"
-  },
-  {
-   "slug": "titleist-cart-bag-golf-bag",
-   "name": "Titleist Cart Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/cart142022baggraphiteislandredblack.jpg?v=1703926024",
-   "price": 149.0,
+   "slug": "wilson-feather-cart-bag-golf-bag",
+   "name": "Wilson Feather Cart Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/wilson-feather-golf-cart-bag-black-grey-reverse-1000x1000.jpg",
+   "price": 109.0,
    "unit": "each",
    "type": "golf bag",
-   "low": false,
-   "url": "/prices/titleist-cart-bag-golf-bag/"
+   "low": true,
+   "url": "/prices/wilson-feather-cart-bag-golf-bag/"
   },
   {
-   "slug": "callaway-supersoft-golf-balls",
-   "name": "Callaway Supersoft Golf Balls",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SUPERSOFTWHITE20251_378844b8-9fcd-4a30-b1a8-fd743886aa75.jpg?v=1738245375",
-   "price": 24.95,
-   "unit": "per dozen",
-   "type": "golf ball",
-   "low": false,
-   "url": "/prices/callaway-supersoft-golf-balls/"
-  },
-  {
-   "slug": "taylormade-qi4d-hybrid",
-   "name": "TaylorMade Qi4D Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/N8402311-Qi4D-Core-Rescue-Hero.jpg",
-   "price": 269.0,
+   "slug": "powakaddy-ct6-electric-trolley",
+   "name": "PowaKaddy CT6 Electric Trolley",
+   "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT6_Electric_Golf_Trolley-18-Hole-Lithium_01_Main.jpg",
+   "price": 719.0,
    "unit": "each",
-   "type": "hybrid",
+   "type": "electric trolley",
    "low": false,
-   "url": "/prices/taylormade-qi4d-hybrid/"
+   "url": "/prices/powakaddy-ct6-electric-trolley/"
   },
   {
-   "slug": "cleveland-cbz-tour-satin-wedge",
-   "name": "Cleveland CBZ Tour Satin Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ClevelandGolfCBZWedge2.jpg?v=1774537996",
-   "price": 124.95,
+   "slug": "titleist-vokey-sm11-tour-chrome-wedge",
+   "name": "Titleist Vokey SM11 Tour Chrome Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-tour-chrome-wedge-hero.jpg",
+   "price": 179.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/cleveland-cbz-tour-satin-wedge/"
+   "url": "/prices/titleist-vokey-sm11-tour-chrome-wedge/"
+  },
+  {
+   "slug": "taylormade-tour-response-stripe-golf-balls",
+   "name": "TaylorMade Tour Response Stripe Golf Balls",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeTourResponseStripeGolfBalls2026-Yellow-4FOR3OFFER.jpg?v=1784023204",
+   "price": 28.49,
+   "unit": "per dozen",
+   "type": "golf ball",
+   "low": false,
+   "url": "/prices/taylormade-tour-response-stripe-golf-balls/"
+  },
+  {
+   "slug": "callaway-quantum-max-fairway-wood",
+   "name": "Callaway Quantum Max Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-fairway-hero.jpg",
+   "price": 319.0,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": false,
+   "url": "/prices/callaway-quantum-max-fairway-wood/"
   }
  ]
 }
