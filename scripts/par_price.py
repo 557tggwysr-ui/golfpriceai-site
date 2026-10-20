@@ -109,7 +109,7 @@ def page(n, today):
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
                       canonical=f"{SITE}/play/par-price/", body=body, section="play", schema=[app, crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261023">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261024">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -126,7 +126,7 @@ def league_page():
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
                       canonical=f"{SITE}/play/league/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261023">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261024">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -169,7 +169,7 @@ def leagues_page():
                       description="Start a free golf league for your group chat in ten seconds: Par Price every day, the Bag Draft every month, nicknames only. Loser buys the first round.",
                       canonical=f"{SITE}/play/leagues/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261023">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261024">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -180,10 +180,13 @@ def hub_page(n, rnd):
     body = f"""<div class="pp-wrap">
 {crumbs_html}
 <div class="ch-wrap" id="ch" data-n="{n}">
-  <section class="ch-hero">
-    <span class="pr-kicker">Play · The Clubhouse</span>
-    <h1>The Clubhouse</h1>
-    <p>Free golf games that run on real UK prices. Bragging rights only; handicaps not required.</p>
+  <section class="ch-hero ch-hero-photo">
+    <picture><source media="(max-width: 760px)" srcset="/assets/photos/tools/clubhouse-square.jpg"><img src="/assets/photos/tools/clubhouse-banner.jpg" alt="Four golfers laughing round a clubhouse table, one holding up his phone in triumph, one with his head in his hands" width="1536" height="512"></picture>
+    <div class="ch-hero-text">
+      <span class="pr-kicker">Play · The Clubhouse</span>
+      <h1>The Clubhouse</h1>
+      <p>Free golf games that run on real UK prices. Bragging rights only; handicaps not required.</p>
+    </div>
   </section>
 
   <a class="ch-card ch-today" href="/play/par-price/?utm_source=clubhouse">
@@ -233,8 +236,8 @@ def hub_page(n, rnd):
     return page_shell(title="The Clubhouse: free golf price games | GolfPrice AI",
                       description="Free golf games that run on real UK prices: Par Price, the daily price-guessing game, leagues for your group chat, and The Bag Draft, fantasy golf kit, from 1 November.",
                       canonical=f"{SITE}/play/", body=body, section="play", schema=[crumbs_schema], noindex=False,
-                      og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261023">\n'
+                      og_image="/assets/cards/clubhouse.jpg",
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261024">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 

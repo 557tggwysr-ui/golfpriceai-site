@@ -309,3 +309,18 @@
 .lh-next .lh-play { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: 0 16px; color: #fff; text-decoration: none; }
 .ch-panel[hidden], .pr-leagues[hidden] { display: none; }
 @media (max-width: 700px) { .lh-steps { grid-template-columns: 1fr; } }
+
+/* Clubhouse photo hero (Oct 2026) */
+.ch-hero-photo { position: relative; padding: 0; aspect-ratio: 3 / 1; border-radius: 20px; overflow: hidden; color: #fff; background: #2b3a30; }
+.ch-hero-photo picture, .ch-hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.ch-hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22, 36, 28, 0) 35%, rgba(22, 36, 28, .78) 72%, rgba(22, 36, 28, .95) 100%); }
+.ch-hero-text { position: absolute; z-index: 1; left: 28px; right: 28px; bottom: 22px; display: flex; flex-direction: column; gap: 4px; }
+.ch-hero-photo .pr-kicker { color: #8fd77e; }
+.ch-hero-photo h1 { color: #fff; }
+.ch-hero-photo p { color: #dbe3d7; }
+@media (max-width: 760px) {
+  .ch-hero-photo { aspect-ratio: 1 / 1; }
+  .ch-hero-photo img { object-position: 50% 0; }
+  .ch-hero-text { left: 18px; right: 18px; bottom: 18px; }
+  .ch-hero-photo p { font-size: 15px; }
+}
