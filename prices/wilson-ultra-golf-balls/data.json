@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/wilson-ultra-golf-balls/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 51.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 51.0,
   "high": 51.0,
   "average": 51.0,
@@ -29,14 +29,14 @@
     51.0
    ],
    [
-    "2026-10-19",
+    "2026-10-20",
     51.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 65 days"
+  "summary": "Typical price: steady for 66 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/ultra.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

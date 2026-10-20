@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/macgregor-v-max-ages-3-5-junior-golf-set/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.99,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 99.99,
   "high": 129.99,
-  "average": 119.84,
+  "average": 119.99,
   "priceChanges": 15,
   "series": [
    [
@@ -91,6 +91,10 @@
    ],
    [
     "2026-10-19",
+    129.99
+   ],
+   [
+    "2026-10-20",
     129.99
    ]
   ]

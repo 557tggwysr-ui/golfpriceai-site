@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-se-electric-trolley/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 479.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 449.0,
   "high": 499.0,
-  "average": 483.62,
+  "average": 483.55,
   "priceChanges": 9,
   "series": [
    [
@@ -72,6 +72,10 @@
    ],
    [
     "2026-10-19",
+    479.0
+   ],
+   [
+    "2026-10-20",
     479.0
    ]
   ]

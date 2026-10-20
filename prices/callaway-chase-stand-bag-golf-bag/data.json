@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-chase-stand-bag-golf-bag/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 114.0,
   "high": 129.0,
-  "average": 124.62,
+  "average": 124.68,
   "priceChanges": 12,
   "series": [
    [
@@ -74,6 +74,10 @@
    ],
    [
     "2026-10-19",
+    129.0
+   ],
+   [
+    "2026-10-20",
     129.0
    ]
   ]

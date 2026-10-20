@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/motocaddy-protekta-cart-bag-golf-bag/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 239.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 209.0,
   "high": 239.0,
-  "average": 219.15,
+  "average": 219.45,
   "priceChanges": 6,
   "series": [
    [
@@ -55,6 +55,10 @@
    ],
    [
     "2026-10-19",
+    239.0
+   ],
+   [
+    "2026-10-20",
     239.0
    ]
   ]

@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-quantum-staff-tour-golf-bag/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 449.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 419.0,
   "high": 449.0,
-  "average": 440.23,
+  "average": 440.36,
   "priceChanges": 12,
   "series": [
    [
@@ -74,6 +74,10 @@
    ],
    [
     "2026-10-19",
+    449.0
+   ],
+   [
+    "2026-10-20",
     449.0
    ]
   ]

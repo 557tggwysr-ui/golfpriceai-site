@@ -1,56 +1,56 @@
 {
- "n": 2,
- "date": "2026-10-19",
+ "n": 3,
+ "date": "2026-10-20",
  "items": [
   {
-   "slug": "wilson-feather-cart-bag-golf-bag",
-   "name": "Wilson Feather Cart Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/wilson-feather-golf-cart-bag-black-grey-reverse-1000x1000.jpg",
-   "price": 109.0,
+   "slug": "shot-scope-v5-gps-watch",
+   "name": "Shot Scope V5 GPS Watch",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Shot-Scope-V5-Golf-GPS-Watch.jpg",
+   "price": 239.0,
    "unit": "each",
-   "type": "golf bag",
-   "low": true,
-   "url": "/prices/wilson-feather-cart-bag-golf-bag/"
-  },
-  {
-   "slug": "powakaddy-ct6-electric-trolley",
-   "name": "PowaKaddy CT6 Electric Trolley",
-   "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT6_Electric_Golf_Trolley-18-Hole-Lithium_01_Main.jpg",
-   "price": 719.0,
-   "unit": "each",
-   "type": "electric trolley",
+   "type": "GPS watch",
    "low": false,
-   "url": "/prices/powakaddy-ct6-electric-trolley/"
+   "url": "/prices/shot-scope-v5-gps-watch/"
   },
   {
-   "slug": "titleist-vokey-sm11-tour-chrome-wedge",
-   "name": "Titleist Vokey SM11 Tour Chrome Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-tour-chrome-wedge-hero.jpg",
-   "price": 179.0,
+   "slug": "callaway-opus-brushed-chrome-wedge",
+   "name": "Callaway Opus Brushed Chrome Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/p_g_callaway-opus-brushed-chrome-wedge-1.jpg",
+   "price": 119.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/titleist-vokey-sm11-tour-chrome-wedge/"
+   "url": "/prices/callaway-opus-brushed-chrome-wedge/"
   },
   {
-   "slug": "taylormade-tour-response-stripe-golf-balls",
-   "name": "TaylorMade Tour Response Stripe Golf Balls",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeTourResponseStripeGolfBalls2026-Yellow-4FOR3OFFER.jpg?v=1784023204",
-   "price": 28.49,
+   "slug": "macgregor-cg4000-package-set",
+   "name": "MacGregor CG4000 Package Set",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-05T130000.179.png?v=1704460366",
+   "price": 319.0,
+   "unit": "each",
+   "type": "package set",
+   "low": false,
+   "url": "/prices/macgregor-cg4000-package-set/"
+  },
+  {
+   "slug": "wilson-staff-model-golf-balls",
+   "name": "Wilson Staff Model Golf Balls",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonStaffModelGolfBalls2026-White_7.jpg?v=1765284753",
+   "price": 44.99,
    "unit": "per dozen",
    "type": "golf ball",
    "low": false,
-   "url": "/prices/taylormade-tour-response-stripe-golf-balls/"
+   "url": "/prices/wilson-staff-model-golf-balls/"
   },
   {
-   "slug": "callaway-quantum-max-fairway-wood",
-   "name": "Callaway Quantum Max Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-fairway-hero.jpg",
-   "price": 319.0,
+   "slug": "taylormade-flextech-stand-bag-golf-bag",
+   "name": "TaylorMade FlexTech Stand Bag Golf Bag",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/flextechblk2.png?v=1705056637",
+   "price": 169.0,
    "unit": "each",
-   "type": "fairway wood",
+   "type": "golf bag",
    "low": false,
-   "url": "/prices/callaway-quantum-max-fairway-wood/"
+   "url": "/prices/taylormade-flextech-stand-bag-golf-bag/"
   }
  ]
 }

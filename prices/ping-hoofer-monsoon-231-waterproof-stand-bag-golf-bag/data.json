@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-hoofer-monsoon-231-waterproof-stand-bag-golf-bag/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 209.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 199.0,
   "high": 219.0,
-  "average": 207.15,
+  "average": 207.18,
   "priceChanges": 16,
   "series": [
    [
@@ -95,6 +95,10 @@
    ],
    [
     "2026-10-19",
+    209.0
+   ],
+   [
+    "2026-10-20",
     209.0
    ]
   ]

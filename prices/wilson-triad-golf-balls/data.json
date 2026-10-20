@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/wilson-triad-golf-balls/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 29.99,
@@ -28,7 +28,7 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 29.99,
   "high": 32.99,
   "average": 30.54,
@@ -43,14 +43,14 @@
     29.99
    ],
    [
-    "2026-10-19",
+    "2026-10-20",
     29.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 53 days"
+  "summary": "Typical price: steady for 54 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TRIAD1.jpg?v=1737969449",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

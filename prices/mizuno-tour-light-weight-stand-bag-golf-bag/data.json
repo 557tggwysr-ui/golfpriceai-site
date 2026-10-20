@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-tour-light-weight-stand-bag-golf-bag/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 174.0,
   "high": 199.0,
-  "average": 194.15,
+  "average": 194.23,
   "priceChanges": 11,
   "series": [
    [
@@ -70,6 +70,10 @@
    ],
    [
     "2026-10-19",
+    199.0
+   ],
+   [
+    "2026-10-20",
     199.0
    ]
   ]

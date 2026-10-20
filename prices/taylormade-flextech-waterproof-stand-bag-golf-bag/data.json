@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-flextech-waterproof-stand-bag-golf-bag/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 179.0,
   "high": 199.0,
-  "average": 193.15,
+  "average": 193.24,
   "priceChanges": 12,
   "series": [
    [
@@ -85,6 +85,10 @@
    ],
    [
     "2026-10-19",
+    199.0
+   ],
+   [
+    "2026-10-20",
     199.0
    ]
   ]

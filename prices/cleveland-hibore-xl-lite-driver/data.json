@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cleveland-hibore-xl-lite-driver/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 199.0,
   "high": 229.0,
-  "average": 227.62,
+  "average": 227.18,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     199.0
    ],
    [
-    "2026-10-19",
+    "2026-10-20",
     199.0
    ]
   ]

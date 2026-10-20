@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-tour-golf-bag/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 209.0,
   "high": 219.0,
-  "average": 216.69,
+  "average": 216.73,
   "priceChanges": 11,
   "series": [
    [
@@ -81,6 +81,10 @@
    ],
    [
     "2026-10-19",
+    219.0
+   ],
+   [
+    "2026-10-20",
     219.0
    ]
   ]

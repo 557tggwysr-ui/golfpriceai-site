@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/mizuno-pro-t-3-wedge/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 119.0,
   "high": 149.0,
-  "average": 148.54,
+  "average": 148.09,
   "priceChanges": 1,
   "series": [
    [
@@ -35,6 +35,10 @@
    ],
    [
     "2026-10-19",
+    119.0
+   ],
+   [
+    "2026-10-20",
     119.0
    ]
   ]

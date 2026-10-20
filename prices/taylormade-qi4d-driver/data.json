@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/taylormade-qi4d-driver/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 549.0,
@@ -30,7 +30,7 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 549.0,
   "high": 549.0,
   "average": 549.0,
@@ -41,14 +41,14 @@
     549.0
    ],
    [
-    "2026-10-19",
+    "2026-10-20",
     549.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 65 days"
+  "summary": "Typical price: steady for 66 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/N2845107-Qi4D-Core-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

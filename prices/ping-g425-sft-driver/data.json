@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g425-sft-driver/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 46,
+  "daysTracked": 47,
   "low": 329.0,
   "high": 329.0,
   "average": 329.0,
@@ -29,14 +29,14 @@
     329.0
    ],
    [
-    "2026-10-19",
+    "2026-10-20",
     329.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 46 days"
+  "summary": "Typical price: steady for 47 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/ping-G425-SFT-driver-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

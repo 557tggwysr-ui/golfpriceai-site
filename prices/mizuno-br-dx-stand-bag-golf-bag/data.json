@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-br-dx-stand-bag-golf-bag/",
- "checked": "2026-10-19",
+ "checked": "2026-10-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 154.0,
@@ -15,13 +15,18 @@
    "name": "Clickgolf",
    "from": 154.0,
    "options": 5
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 270.0,
+   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 154.0,
   "high": 179.0,
-  "average": 155.92,
+  "average": 155.89,
   "priceChanges": 2,
   "series": [
    [
@@ -37,14 +42,14 @@
     154.0
    ],
    [
-    "2026-10-19",
+    "2026-10-20",
     154.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 59 days"
+  "summary": "Typical price: steady for 60 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/BR-DX-Golf-Stand-Bag-Jungle-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
