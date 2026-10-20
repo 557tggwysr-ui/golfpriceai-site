@@ -564,7 +564,7 @@ def remind_email_html(email, rnd, secret):
     nouns = ", ".join(("an " if t[0] in "aeiou" else "a ") + t for t in types[:-1]) + " and " + ("an " if types[-1][0] in "aeiou" else "a ") + types[-1]
     pin = '<p style="margin:0 0 16px;font-size:14px;color:#4a554e">Plus a Closest to the Pin bonus hole: one exact guess, no mercy.</p>' if rnd.get("pin") else ""
     joke = REMIND_JOKES[rnd["n"] % len(REMIND_JOKES)]
-    play = f"{SITE}/play/?utm_source=remind&utm_medium=email"
+    play = f"{SITE}/play/par-price/?utm_source=remind&utm_medium=email"
     stop = unsubscribe_link(secret, email, "remind")
     everything = unsubscribe_link(secret, email)
     return f"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#f7f8f6;font-family:Arial,Helvetica,sans-serif;color:#16241c">

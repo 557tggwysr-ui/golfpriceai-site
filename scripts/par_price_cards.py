@@ -3,7 +3,7 @@
 When a player shares their round, the link is golfpriceai.com/play/s/<score>/
 (p10 = 10 over par, e = level, m3 = 3 under). WhatsApp, iMessage, Facebook and
 X read that page's preview tags and show a big card with the score on it; a
-person who taps the link goes straight to today's round at /play/.
+person who taps the link goes straight to today's round at /play/par-price/.
 
 Run once by hand (python scripts/par_price_cards.py); the 21 pages and
 pictures never change, so the 6-hourly update doesn't need to touch them.
@@ -106,7 +106,7 @@ def page(t):
 <title>{title} | GolfPrice AI</title>
 <meta name="description" content="{desc}">
 <meta name="robots" content="noindex, follow">
-<link rel="canonical" href="{SITE}/play/">
+<link rel="canonical" href="{SITE}/play/par-price/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{title}">
@@ -117,10 +117,10 @@ def page(t):
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{img}">
-<meta http-equiv="refresh" content="0; url=/play/?utm_source=parprice&amp;utm_medium=share">
-<script>location.replace('/play/?utm_source=parprice&utm_medium=share');</script>
+<meta http-equiv="refresh" content="0; url=/play/par-price/?utm_source=parprice&amp;utm_medium=share">
+<script>location.replace('/play/par-price/?utm_source=parprice&utm_medium=share');</script>
 </head>
-<body><p><a href="/play/">Play today’s Par Price</a></p></body>
+<body><p><a href="/play/par-price/">Play today’s Par Price</a></p></body>
 </html>
 """
 

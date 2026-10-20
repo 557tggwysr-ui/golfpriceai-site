@@ -388,9 +388,9 @@ def page(state, today):
             + "</b></li>" for w in state["wish"])
         w0 = state["wish"][0]["off"]
         wquip = _pick(WISH_HIGH if w0 > 3 else WISH_LOW if w0 < -3 else WISH_SPOT, today.isoformat()[:7])
-        wish_body = f'<ul class="dm-wish">{wl}</ul><p class="dm-note">{esc(wquip)} From every finished round of <a href="/play/">Par Price</a> in the last 30 days.</p>'
+        wish_body = f'<ul class="dm-wish">{wl}</ul><p class="dm-note">{esc(wquip)} From every finished round of <a href="/play/par-price/">Par Price</a> in the last 30 days.</p>'
     else:
-        wish_body = ('<p class="dm-note">Warming up. Every finished round of <a href="/play/">Par Price</a> adds to it. '
+        wish_body = ('<p class="dm-note">Warming up. Every finished round of <a href="/play/par-price/">Par Price</a> adds to it. '
                      'Golfers are famously accurate about their own handicaps, so this should be fascinating.</p>')
     wish_html = f"""<div class="dm-card dm-dark">
       <span class="dm-kicker">The Wishful Thinking Index</span>
@@ -457,7 +457,7 @@ def page(state, today):
 <section class="pp-block">
   <h2>How it works</h2>
   <div class="pp-q-grid">
-    <div class="pp-card pp-q"><h3>What gets counted?</h3><p>Anonymous totals from things golfers already do here: viewing a model’s price page, adding it to a <a href="/fourball/">four-ball shortlist</a>, setting a price alert or a “Bought it?” watch, and finishing a round of <a href="/play/">Par Price</a>. Alerts and shortlists count for more than a quick look, because they mean business.</p></div>
+    <div class="pp-card pp-q"><h3>What gets counted?</h3><p>Anonymous totals from things golfers already do here: viewing a model’s price page, adding it to a <a href="/fourball/">four-ball shortlist</a>, setting a price alert or a “Bought it?” watch, and finishing a round of <a href="/play/par-price/">Par Price</a>. Alerts and shortlists count for more than a quick look, because they mean business.</p></div>
     <div class="pp-card pp-q"><h3>Is anything about me stored?</h3><p>No. No cookie, nothing in your browser, no name or email. Each visitor counts once per model per day, and the daily totals are deleted after 70 days. We know a lot of golfers want a new driver; we just never know which ones. <a href="/legal/privacy-policy.html">Privacy policy</a></p></div>
     <div class="pp-card pp-q"><h3>Does anyone pay to be in it?</h3><p>No. Brands and retailers can’t buy a place, and every brand is treated the same. If a putter is number one, it’s because golfers wanted it, not because somebody asked nicely.</p></div>
     <div class="pp-card pp-q"><h3>Can I use the numbers?</h3><p>Yes, free, with a link to golfpriceai.com/demand/. The chart, the Wishful Thinking Index and the category split are all in <a href="/data/demand/index.json">data/demand/index.json</a>, updated every 6 hours.</p></div>

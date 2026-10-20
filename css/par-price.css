@@ -162,3 +162,44 @@
   .lg-row .lg-grid, .lg-row .lg-wait { grid-column: 2; grid-row: 2; justify-content: flex-start; text-align: left; }
   .lg-row .lg-score { grid-column: 3; grid-row: 1 / span 2; }
 }
+
+/* ---------------------------------------------------------------- The Clubhouse (/play/) */
+.ch-wrap { max-width: 980px; margin: 0 auto; padding: 16px 0 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.ch-hero, .ch-today, .ch-draft, .ch-also { grid-column: 1 / -1; }
+.ch-hero { display: flex; flex-direction: column; gap: 6px; padding: 8px 0 4px; }
+.ch-hero h1 { margin: 0; font: 800 clamp(30px, 4.6vw, 44px)/1.08 Poppins, sans-serif; }
+.ch-hero p { margin: 0; font-size: 17px; color: var(--gp-text-2); }
+.ch-card { position: relative; display: block; aspect-ratio: 3 / 1; border-radius: 20px; overflow: hidden; color: #fff; text-decoration: none; background: #2b3a30; box-shadow: 0 10px 28px rgba(22, 36, 28, 0.16); transition: transform .18s ease; }
+.ch-card:hover { transform: translateY(-3px); color: #fff; }
+.ch-card picture, .ch-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 25%; }
+.ch-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(22, 36, 28, .92) 0%, rgba(22, 36, 28, .7) 38%, rgba(22, 36, 28, 0) 70%); }
+.ch-body { position: absolute; z-index: 1; left: 32px; top: 50%; transform: translateY(-50%); width: min(52%, 460px); display: flex; flex-direction: column; gap: 8px; }
+.ch-kicker { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--gp-green-dark); }
+.ch-card .ch-kicker { color: #8fd77e; }
+.ch-title { font: 800 30px/1.1 Poppins, sans-serif; }
+.ch-line { font-size: 15px; color: #dbe3d7; line-height: 1.45; }
+.ch-cta { align-self: flex-start; margin-top: 4px; background: var(--gp-green); border-radius: 10px; padding: 11px 16px; font-weight: 700; font-size: 15px; }
+.ch-panel { background: #fff; border: 1px solid var(--gp-line); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+.ch-panel h2 { margin: 0; font: 800 22px/1.2 Poppins, sans-serif; }
+.ch-panel p { margin: 0; color: var(--gp-text-2); line-height: 1.55; }
+.ch-small { font-size: 13px; color: var(--gp-text-3) !important; }
+.ch-draft { flex-direction: row; gap: 24px; align-items: center; background: #1b1d1c; border-color: #1b1d1c; color: #fff; }
+.ch-draft img { flex: none; width: 180px; height: auto; }
+.ch-draft .ch-kicker { color: #f08a24; }
+.ch-draft p, .ch-draft li { color: #c9cdca; }
+.ch-draft .ch-small { color: #9fa6a2 !important; }
+.ch-draft a { color: #f3b26b; }
+.ch-draft ul { margin: 4px 0; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; }
+.ch-draft-text { display: flex; flex-direction: column; gap: 8px; }
+.ch-also { display: block; padding: 14px 18px; border-radius: 14px; background: var(--gp-pale, #eef6ea); color: var(--gp-ink); text-decoration: none; font-size: 15px; }
+.ch-also:hover b { text-decoration: underline; }
+@media (max-width: 760px) {
+  .ch-wrap { grid-template-columns: 1fr; }
+  .ch-card { aspect-ratio: 1 / 1; }
+  .ch-card img { object-position: 50% 0; }
+  .ch-card::after { background: linear-gradient(180deg, rgba(22, 36, 28, 0) 32%, rgba(22, 36, 28, .8) 58%, rgba(22, 36, 28, .96) 100%); }
+  .ch-body { top: auto; bottom: 20px; transform: none; left: 20px; right: 20px; width: auto; }
+  .ch-title { font-size: 24px; }
+  .ch-draft { flex-direction: column; text-align: left; align-items: flex-start; }
+  .ch-draft img { width: 150px; align-self: center; }
+}

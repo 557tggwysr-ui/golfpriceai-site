@@ -1,4 +1,6 @@
-"""Par Price: the daily golf price game (golfpriceai.com/play/).
+"""Par Price: the daily golf price game (golfpriceai.com/play/par-price/).
+
+Also writes The Clubhouse (/play/, the games hub) and the league page (/play/league/).
 
 Every day, five real products. Players guess each one's lowest new UK price
 today and score it like golf: within 2% is an eagle, 5% a birdie, 10% par,
@@ -71,7 +73,7 @@ def item(m):
 
 
 def page(n, today):
-    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Deal Tools", "/deal-tools.html"), ("Par Price", None)])
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Play", "/play/"), ("Par Price", None)])
     body = f"""<div class="pp-wrap">
 {crumbs_html}
 <section class="pr-game" id="pr-game" data-n="{n}" aria-live="polite">
@@ -98,33 +100,96 @@ def page(n, today):
   </div>
 </section>
 </div>
-<script src="/js/par-price.js?v=20261021" defer></script>"""
-    app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Par Price", "url": f"{SITE}/play/",
+<script src="/js/par-price.js?v=20261021b" defer></script>"""
+    app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Par Price", "url": f"{SITE}/play/par-price/",
            "applicationCategory": "GameApplication", "operatingSystem": "Any",
            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
            "description": "A free daily game: guess the lowest UK price of five real golf products and score it like a round of golf."}
     return page_shell(title=f"Par Price #{n}: the daily golf price game | GolfPrice AI",
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
-                      canonical=f"{SITE}/play/", body=body, section="tools", schema=[app, crumbs_schema], noindex=False,
+                      canonical=f"{SITE}/play/par-price/", body=body, section="play", schema=[app, crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261021">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261021b">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
 def league_page():
     """/play/league/?l=<code>: one page for every league, filled in by js/league.js."""
-    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Par Price", "/play/"), ("League", None)])
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Play", "/play/"), ("League", None)])
     body = f"""<div class="pp-wrap">
 {crumbs_html}
 <section class="lg-wrap" id="lg" aria-live="polite"><p class="pr-loading">Opening the clubhouse doors…</p></section>
-<noscript><p>Par Price leagues need JavaScript. You can still <a href="/play/">play today’s round</a>.</p></noscript>
+<noscript><p>Par Price leagues need JavaScript. You can still <a href="/play/par-price/">play today’s round</a>.</p></noscript>
 </div>
-<script src="/js/league.js?v=20261020" defer></script>"""
+<script src="/js/league.js?v=20261021b" defer></script>"""
     return page_shell(title="Par Price league | GolfPrice AI",
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
-                      canonical=f"{SITE}/play/league/", body=body, section="tools", schema=[crumbs_schema], noindex=True,
+                      canonical=f"{SITE}/play/league/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261021">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261021b">\n'
+                                 '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
+
+
+def hub_page(n, rnd):
+    """/play/: The Clubhouse, home of the games. js/clubhouse.js personalises it."""
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Play", None)])
+    types = ", ".join(it["type"] for it in (rnd or {}).get("items", [])[:5])
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<div class="ch-wrap" id="ch" data-n="{n}">
+  <section class="ch-hero">
+    <span class="pr-kicker">Play · The Clubhouse</span>
+    <h1>The Clubhouse</h1>
+    <p>Free golf games that run on real UK prices. Bragging rights only; handicaps not required.</p>
+  </section>
+
+  <a class="ch-card ch-today" href="/play/par-price/?utm_source=clubhouse">
+    <picture><source media="(max-width: 760px)" srcset="/assets/photos/tools/par-price-square.jpg"><img src="/assets/photos/tools/par-price-banner.jpg" alt="" width="1536" height="512" loading="eager"></picture>
+    <span class="ch-body">
+      <span class="ch-kicker">Daily · Par Price #{n}</span>
+      <b class="ch-title">Today’s round is ready</b>
+      <span class="ch-line" id="ch-today-line">Five real golf products{(": " + esc(types)) if types else ""}. Guess the prices and score it like a round.</span>
+      <span class="ch-cta" id="ch-today-cta">Play today’s round <span aria-hidden="true">&rarr;</span></span>
+    </span>
+  </a>
+
+  <section class="ch-panel" id="leagues">
+    <span class="ch-kicker">Leagues</span>
+    <h2>Take on your mates</h2>
+    <div id="ch-leagues"><p>Finish a round of Par Price and start a league: one link for the group chat, nicknames only, and a table that updates itself. Loser buys the first round.</p></div>
+  </section>
+
+  <section class="ch-panel ch-fame">
+    <span class="ch-kicker">Hall of Fame</span>
+    <h2>Champions’ bags hang here</h2>
+    <p>The first Major champion is crowned on 30 November. Their engraved bag goes on this wall. No pressure.</p>
+  </section>
+
+  <section class="ch-panel ch-draft" id="draft">
+    <img src="/assets/play/bag-nov.svg" alt="The Black Friday Open bag: black with orange trim" width="220" height="344" loading="lazy">
+    <div class="ch-draft-text">
+      <span class="ch-kicker">Coming 1 November · The Bag Draft</span>
+      <h2>The Black Friday Open</h2>
+      <p>Fantasy football, but for golf kit. Draft six real products within £1,500, then watch real UK prices move every 6 hours. Every £1 your picks drop is a point. Best bag at the end of November wins the Major, and the champion’s name gets engraved on this month’s bag.</p>
+      <ul>
+        <li>One transfer a week, one lock to bank your points</li>
+        <li>Your league’s table, plus a national leaderboard</li>
+        <li>A new themed bag every month. Collect the set.</li>
+      </ul>
+      <p class="ch-small">Free, glory only: no money, no stakes. Warm up with <a href="/play/par-price/">today’s Par Price</a> in the meantime.</p>
+    </div>
+  </section>
+
+
+  <a class="ch-also" href="/demand/">Also from the clubhouse: <b>the UK Golf Demand Index</b>, what every golfer’s quietly eyeing up this week <span aria-hidden="true">&rarr;</span></a>
+</div>
+</div>
+<script src="/js/clubhouse.js?v=20261021" defer></script>"""
+    return page_shell(title="The Clubhouse: free golf price games | GolfPrice AI",
+                      description="Free golf games that run on real UK prices: Par Price, the daily price-guessing game, leagues for your group chat, and The Bag Draft, fantasy golf kit, from 1 November.",
+                      canonical=f"{SITE}/play/", body=body, section="play", schema=[crumbs_schema], noindex=False,
+                      og_image=CARD,
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261021b">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -157,7 +222,9 @@ def build(passing, built, today):
             STATE.write_text(json.dumps(state, indent=1, sort_keys=True) + "\n")
             print(f"Par Price #{n}: " + ", ".join(m["name"] for m in chosen))
     changed = []
-    if current and _write(ROOT / "play" / "index.html", page(current.get("n", n), today)):
+    if current and _write(ROOT / "play" / "par-price" / "index.html", page(current.get("n", n), today)):
+        changed.append("/play/par-price/")
+    if _write(ROOT / "play" / "index.html", hub_page(current.get("n", n) if current else n, current)):
         changed.append("/play/")
     if _write(ROOT / "play" / "league" / "index.html", league_page()):
         changed.append("/play/league/")

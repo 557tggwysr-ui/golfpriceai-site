@@ -48,7 +48,7 @@ body.gp-lock { overflow: hidden; }
 }
 .gp-logo span { color: var(--gp-green); }
 
-.gp-nav { display: flex; gap: 40px; height: 76px; }
+.gp-nav { display: flex; gap: 32px; height: 76px; }
 .gp-nav-item { position: relative; display: flex; }
 .gp-nav-link {
   display: flex;
@@ -111,6 +111,9 @@ body.gp-lock { overflow: hidden; }
 
 .gp-mega { width: 760px; padding: 20px 20px 0; }
 .gp-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
+.gp-play-drop { width: 420px; left: auto; right: -40px; transform: none; }
+.gp-tools-1 { grid-template-columns: 1fr; }
+.gp-nav-new { display: inline-block; margin-left: 6px; background: #3fae29; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; border-radius: 999px; padding: 2px 7px; line-height: 1.4; vertical-align: 2px; }
 .gp-drop a.gp-tool { display: flex; gap: 14px; align-items: flex-start; padding: 12px; border-radius: 12px; }
 .gp-tool-icon {
   flex: 0 0 40px; height: 40px; border-radius: 10px; background: #e8f5e3;
@@ -262,7 +265,7 @@ footer.gp-footer {
 }
 .gp-footer a { text-decoration: none; }
 .gp-footer-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
-.gp-foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 40px; }
+.gp-foot-grid { display: grid; grid-template-columns: 1.3fr repeat(5, 1fr); gap: 32px; }
 .gp-foot-brand { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
 .gp-footer .gp-logo { color: #fff; font-size: 22px; }
 .gp-footer .gp-logo span { color: #5fd14a; }

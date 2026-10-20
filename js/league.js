@@ -48,7 +48,7 @@
   }
   function fail(msg) {
     box.innerHTML = '<div class="lg-hero"><span class="pr-kicker">Par Price leagues</span><h1>Hmm. No sign of that league.</h1><p>' + esc(msg || '') + '</p></div>' +
-      '<a class="gp-af-btn lg-btn" href="/play/">Play today’s round anyway</a>';
+      '<a class="gp-af-btn lg-btn" href="/play/par-price/">Play today’s round anyway</a>';
   }
 
   /* ---------------------------------------------------------- join */
@@ -67,7 +67,7 @@
       '<div class="pr-lg-form"><label>Nickname<input name="nick" maxlength="20" placeholder="e.g. The Shank Redemption" autocomplete="nickname" value="' + esc(get('gpNick', '')) + '"></label>' +
       '<button type="submit" class="gp-af-btn">Join and tee off</button><p class="pr-msg" role="status"></p>' +
       '<p class="pr-lg-small">Nicknames only: no email, no sign-up, no real names needed. What happens in the league stays in the league.</p></div></form>' +
-      '<p style="text-align:center;margin:0"><a href="/play/">Just play today’s round without joining</a></p>';
+      '<p style="text-align:center;margin:0"><a href="/play/par-price/">Just play today’s round without joining</a></p>';
     var f = box.querySelector('form');
     f.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -148,7 +148,7 @@
       '<div class="lg-tabs" role="group" aria-label="Which table">' +
       [['today', 'Today'], ['week', 'Week'], ['all', 'All time']].map(function (t) { return '<button type="button" data-v="' + t[0] + '" aria-pressed="' + (view === t[0]) + '">' + t[1] + '</button>'; }).join('') +
       '</div></div><ol class="lg-rows">' + rowsHtml(view) + '</ol>' +
-      '<div class="lg-actions">' + (me && !me.today ? '<a class="gp-af-btn" href="/play/?utm_source=league">Play today’s round</a>' : '<button type="button" class="gp-af-btn lg-share">Share today’s table</button>') +
+      '<div class="lg-actions">' + (me && !me.today ? '<a class="gp-af-btn" href="/play/par-price/?utm_source=league">Play today’s round</a>' : '<button type="button" class="gp-af-btn lg-share">Share today’s table</button>') +
       (waiting.length && me && me.today ? '<button type="button" class="lg-btn2 lg-nudge">Nudge ' + (waiting.length === 1 ? esc(waiting[0].nick) + ' (they’re holding us up)' : 'the stragglers') + '</button>' : '') +
       (n < 2 ? '<button type="button" class="lg-btn2 lg-invite">Invite your mates</button>' : '') + '</div>' +
       (view === 'week' ? '<p class="lg-note">Weekly champion crowned Monday morning. A missed round counts as ' + fmt(data.missed) + ': golf for “should’ve turned up”.</p>'

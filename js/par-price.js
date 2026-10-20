@@ -1,4 +1,4 @@
-/* GolfPrice AI: Par Price, the daily golf price game (/play/).
+/* GolfPrice AI: Par Price, the daily golf price game (/play/par-price/).
    Today's round comes from /data/par-price/today.json (set each morning by
    scripts/par_price.py). Guesses and streak stay in this browser
    (localStorage). When a round ends we send:
