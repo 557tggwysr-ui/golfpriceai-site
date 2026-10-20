@@ -209,6 +209,10 @@
     show('Your bag is on watch.', '<p>We’ll email you when any of the items in your bag genuinely drops in price: by at least £5 (or 3%, whichever is bigger).</p>' +
       '<p>Every alert has a one-click link to stop it, item by item.</p>',
       '<a class="al-btn" href="/build-your-bag.html">Back to your bag</a><a class="al-btn alt" href="/prices/">More price guides</a>');
+  } else if (status === 'remind') {
+    show('Your tee-time reminder is on.', '<p>' + (q.get('r') === 'weekly' ? 'Every Monday morning' : 'Every morning') + ', once the new Par Price round is ready, we’ll send you one short email. No spoilers, just the nudge.</p>' +
+      '<p>Fancy some company? Start a league after your round and send the link to your group chat. Every email has a one-click link to stop it.</p>',
+      '<a class="al-btn" href="/play/">Play today’s round</a><a class="al-btn alt" href="/prices/">Browse price guides</a>');
   } else if (status === 'budget') {
     var g = /^([a-z-]{3,30})-(\d{2,5})$/.exec(q.get('g') || '');
     show('Your budget alert is on.', '<p>When a model we track drops under ' + (g ? '£' + esc(g[2]) : 'your budget') + ', we’ll email you about it, with the price and where it is cheapest.</p>' +

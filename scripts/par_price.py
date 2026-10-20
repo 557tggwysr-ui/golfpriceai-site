@@ -39,7 +39,7 @@ def number(day):
     return (day - LAUNCH).days + 1
 
 
-def pick(passing, built, day, recent):
+def pick(passing, built, day, recent, count=HOLES):
     rng = random.Random(f"par-price-{day.isoformat()}")
     pool = [m for m in passing
             if m["slug"] in built and m["type"] in TYPES and m["type"] not in NOT_IN_PICKS
@@ -55,10 +55,12 @@ def pick(passing, built, day, recent):
         out.append(m)
         types.add(m["type"])
         brands.add(m["brand"])
-        if len(out) == HOLES:
+        if len(out) == count:
             break
+    pin = out[HOLES:]
+    out = out[:HOLES]
     rng.shuffle(out)
-    return out
+    return out + pin
 
 
 def item(m):
@@ -90,12 +92,13 @@ def page(n, today):
   <div class="pp-q-grid">
     <div class="pp-card pp-q"><h3>Where do the prices come from?</h3><p>Our own tracking: the lowest new, in-stock price across multiple UK retailers, frozen when the round is set each morning so everyone plays the same course.</p></div>
     <div class="pp-card pp-q"><h3>How is it scored?</h3><p>Within 2% of the real price is an eagle (−2), 5% a birdie (−1), 10% par, 20% a bogey (+1), anything further a double bogey (+2). Five holes, par is level.</p></div>
-    <div class="pp-card pp-q"><h3>Is anything about me stored?</h3><p>No. Your score and streak stay in your own browser. When you finish, we count only how close each guess was, with no score and nothing about you, for our <a href="/demand/">Demand Index</a>.</p></div>
+    <div class="pp-card pp-q"><h3>Is anything about me stored?</h3><p>No name or email unless you choose to join a league (a nickname) or get a reminder. Your streak stays in your own browser. Your score goes on the day’s leaderboard under a random code, so we can tell you how you ranked. <a href="/legal/privacy-policy.html">Privacy policy</a></p></div>
+    <div class="pp-card pp-q"><h3>Can I play against my mates?</h3><p>Yes. Finish a round and start a league: one link for the group chat, nicknames only, and a table that updates itself. There’s a bonus Closest to the Pin hole every day too.</p></div>
     <div class="pp-card pp-q"><h3>When is the next round?</h3><p>A new round every morning, with five different products from five different brands.</p></div>
   </div>
 </section>
 </div>
-<script src="/js/par-price.js?v=20261020c" defer></script>"""
+<script src="/js/par-price.js?v=20261021" defer></script>"""
     app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Par Price", "url": f"{SITE}/play/",
            "applicationCategory": "GameApplication", "operatingSystem": "Any",
            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
@@ -104,7 +107,24 @@ def page(n, today):
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
                       canonical=f"{SITE}/play/", body=body, section="tools", schema=[app, crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261020">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261021">\n'
+                                 '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
+
+
+def league_page():
+    """/play/league/?l=<code>: one page for every league, filled in by js/league.js."""
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Par Price", "/play/"), ("League", None)])
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="lg-wrap" id="lg" aria-live="polite"><p class="pr-loading">Opening the clubhouse doors…</p></section>
+<noscript><p>Par Price leagues need JavaScript. You can still <a href="/play/">play today’s round</a>.</p></noscript>
+</div>
+<script src="/js/league.js?v=20261020" defer></script>"""
+    return page_shell(title="Par Price league | GolfPrice AI",
+                      description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
+                      canonical=f"{SITE}/play/league/", body=body, section="tools", schema=[crumbs_schema], noindex=True,
+                      og_image="/assets/cards/par-price/league.jpg",
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261021">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -123,11 +143,14 @@ def build(passing, built, today):
     if not current or current.get("date") != today.isoformat():
         cutoff = (today - timedelta(days=30)).isoformat()
         recent = {s for d, slugs in state["days"].items() if d >= cutoff for s in slugs}
-        chosen = pick(passing, built, today, recent)
+        # Five holes plus a sixth product for the Closest to the Pin bonus hole.
+        chosen = pick(passing, built, today, recent, HOLES + 1)
         if len(chosen) < HOLES:  # not enough fresh models: allow repeats rather than skip a day
-            chosen = pick(passing, built, today, set())
-        if len(chosen) == HOLES:
-            current = {"n": n, "date": today.isoformat(), "items": [item(m) for m in chosen]}
+            chosen = pick(passing, built, today, set(), HOLES + 1)
+        if len(chosen) >= HOLES:
+            current = {"n": n, "date": today.isoformat(), "items": [item(m) for m in chosen[:HOLES]]}
+            if len(chosen) > HOLES:
+                current["pin"] = item(chosen[HOLES])
             _write(TODAY_FILE, json.dumps(current, ensure_ascii=False, indent=1) + "\n")
             state["days"][today.isoformat()] = [m["slug"] for m in chosen]
             state["days"] = {d: v for d, v in state["days"].items() if d >= cutoff}
@@ -136,4 +159,6 @@ def build(passing, built, today):
     changed = []
     if current and _write(ROOT / "play" / "index.html", page(current.get("n", n), today)):
         changed.append("/play/")
+    if _write(ROOT / "play" / "league" / "index.html", league_page()):
+        changed.append("/play/league/")
     return changed

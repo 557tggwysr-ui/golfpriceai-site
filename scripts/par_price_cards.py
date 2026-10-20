@@ -125,6 +125,36 @@ def page(t):
 """
 
 
+def league_card():
+    from PIL import Image, ImageDraw, ImageFont
+
+    def f(name, size):
+        return ImageFont.truetype(str(FONTS / name), size)
+
+    im = Image.new("RGB", (1200, 630), INK)
+    d = ImageDraw.Draw(im)
+    d.text((80, 70), "PAR PRICE · LEAGUES", font=f("Inter-SemiBold.otf", 26), fill=LGREEN)
+    d.text((80, 120), "You’ve been invited", font=f("Poppins-Bold.ttf", 76), fill=WHITE)
+    d.text((80, 210), "to a golf price league.", font=f("Poppins-Bold.ttf", 76), fill=WHITE)
+    d.text((80, 330), "Five real golf products a day. Guess the prices.", font=f("Inter-Regular.otf", 32), fill=GREY)
+    d.text((80, 376), "Lowest score wins. Loser buys the first round.", font=f("Inter-Regular.otf", 32), fill=GREY)
+    cols = [(26, 104, 18), (63, 174, 41), (185, 194, 187), (224, 162, 69), (154, 74, 0)]
+    for i, c in enumerate(cols):
+        d.rounded_rectangle((80 + i * 54, 446, 124 + i * 54, 490), radius=9, fill=c)
+    btn = "Join and tee off"
+    bf = f("Inter-SemiBold.otf", 30)
+    w = d.textlength(btn, font=bf)
+    d.rounded_rectangle((1120 - w - 56, 440, 1120, 500), radius=12, fill=GREEN)
+    d.text((1120 - w - 28, 452), btn, font=bf, fill=WHITE)
+    lf = f("Poppins-Bold.ttf", 30)
+    x = 1120 - d.textlength("GolfPrice AI", font=lf)
+    d.text((x, 76), "Golf", font=lf, fill=WHITE)
+    x2 = x + d.textlength("Golf", font=lf)
+    d.text((x2, 76), "Price", font=lf, fill=GREEN)
+    d.text((x2 + d.textlength("Price", font=lf), 76), " AI", font=lf, fill=WHITE)
+    return im
+
+
 def main():
     CARDS.mkdir(parents=True, exist_ok=True)
     for t in range(-10, 11):
@@ -132,7 +162,8 @@ def main():
         p = PAGES / slug(t) / "index.html"
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(page(t), encoding="utf-8")
-    print("Par Price share cards: 21 written.")
+    league_card().save(CARDS / "league.jpg", "JPEG", quality=84, optimize=True, progressive=True)
+    print("Par Price share cards: 21 written, plus the league invite card.")
 
 
 if __name__ == "__main__":

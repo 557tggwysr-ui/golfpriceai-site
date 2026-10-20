@@ -65,6 +65,8 @@
  *                   The same namespace also holds the Demand Index's
  *                   anonymous daily counts ("d:..." keys, see signal())
  *                   until the DEMAND database below is added.
+ *                   It also holds Par Price scores and leagues (pp_* tables,
+ *                   see parPrice()).
  *   DEMAND          D1 database binding (Worker > Settings > Bindings >
  *                   D1 database, named golfpriceai-demand). The Demand
  *                   Index's exact, once-per-visitor daily counts. It sets
@@ -104,6 +106,7 @@ export default {
       if (url.pathname === '/fourball' && request.method === 'GET') return await fourballCount(url, env, cors);
       if (url.pathname === '/signal' && request.method === 'POST') return await signal(request, env, cors);
       if (url.pathname === '/demand-counts' && request.method === 'GET') return await demandCounts(request, url, env);
+      if (url.pathname.startsWith('/pp/')) return await parPrice(request, url, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
       if (url.pathname === '/unsubscribe') return await unsubscribe(url, env, request.method === 'POST');
       if (url.pathname === '/') return new Response('GolfPrice AI alerts: OK', { headers: { 'content-type': 'text/plain' } });
@@ -142,6 +145,10 @@ async function subscribe(request, env, cors) {
     const entry = `${slug}|${paid.toFixed(2)}|${new Date().toISOString().slice(0, 10)}`;
     return await startSubscription({ email, models: [], stock: '', bought: entry, name: String(d.name || modelName).slice(0, 120), request, env, cors });
   }
+  if (!model && !stock && (body.remind === 'daily' || body.remind === 'weekly')) {
+    // Par Price tee-time reminder: one email when the round is ready.
+    return await startSubscription({ email, models: [], stock: '', remind: body.remind, name: 'Par Price', request, env, cors });
+  }
   if (!model && !stock && body.budget) {
     const key = String(body.budget);
     const what = budgetName(key);
@@ -174,7 +181,7 @@ async function subscribe(request, env, cors) {
 }
 
 // Shared by /subscribe and the "also alert me" box on /send-list.
-async function startSubscription({ email, models, stock, bought = '', budget = '', name, list = '', fb = '', request, env, cors, quiet }) {
+async function startSubscription({ email, models, stock, bought = '', budget = '', remind = '', name, list = '', fb = '', request, env, cors, quiet }) {
 
   // Already confirmed? Add the model straight away.
   const existing = await brevo(env, 'GET', `/contacts/${encodeURIComponent(email)}`);
@@ -182,6 +189,10 @@ async function startSubscription({ email, models, stock, bought = '', budget = '
   const attrs = (existing.ok && existing.data.attributes) || {};
   if (existing.ok && (existing.data.listIds || []).includes(listId) && !existing.data.emailBlacklisted) {
     await ensureAttributes(env);
+    if (remind) {
+      await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { PPREMIND: remind } });
+      return json({ ok: true, status: 'added-remind' }, 200, cors);
+    }
     if (budget) {
       await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { BUDGETWATCH: mergeWatch(attrs.BUDGETWATCH, budget, 10) } });
       return json({ ok: true, status: 'added-budget' }, 200, cors);
@@ -205,10 +216,11 @@ async function startSubscription({ email, models, stock, bought = '', budget = '
     return json({ ok: true, status: models.length ? 'added' : 'added-digest' }, 200, cors);
   }
 
-  const payload = b64url(JSON.stringify({ e: email, m: models.join(','), k: stock, b: bought, g: budget, f: fb, l: list === 'compare' ? 2 : list ? 1 : 0, t: Date.now() }));
+  const payload = b64url(JSON.stringify({ e: email, m: models.join(','), k: stock, b: bought, g: budget, r: remind, f: fb, l: list === 'compare' ? 2 : list ? 1 : 0, t: Date.now() }));
   const sig = await sign(env, payload);
   const link = `${new URL(request.url).origin}/confirm?d=${payload}&s=${sig}`;
-  const subject = budget ? `Confirm your budget alert: ${name}`
+  const subject = remind ? 'Confirm your Par Price tee-time reminder'
+    : budget ? `Confirm your budget alert: ${name}`
     : bought ? `Confirm your price watch for the ${name} you bought`
     : stock ? `Confirm your back-in-stock alert for the ${name}`
     : models.length > 1 ? `Confirm price alerts for the ${models.length} items ${list === 'compare' ? 'you’re comparing' : list ? 'on the shortlist' : 'in your bag'}`
@@ -218,7 +230,7 @@ async function startSubscription({ email, models, stock, bought = '', budget = '
     sender: { name: 'GolfPrice AI', email: env.SENDER_EMAIL || 'alerts@golfpriceai.com' },
     to: [{ email }],
     subject,
-    htmlContent: confirmEmail(link, name, { stock: !!stock, bought: !!bought, budget: !!budget, count: models.length, list, fb: !!fb }),
+    htmlContent: confirmEmail(link, name, { remind, stock: !!stock, bought: !!bought, budget: !!budget, count: models.length, list, fb: !!fb }),
     tags: ['confirm'],
   });
   if (!sent.ok) return json({ ok: false, error: 'We couldn’t send the confirmation email. Please try again shortly.' }, 502, cors);
@@ -287,7 +299,8 @@ async function confirm(url, env) {
   if (data.k && ID_RX.test(data.k)) attributes.STOCKWATCH = mergeWatch(attrsNow.STOCKWATCH, data.k, 15);
   if (data.b && BOUGHT_RX.test(data.b)) attributes.BOUGHTWATCH = mergeBought(attrsNow.BOUGHTWATCH, data.b);
   if (data.g && budgetName(data.g)) attributes.BUDGETWATCH = mergeWatch(attrsNow.BUDGETWATCH, data.g, 10);
-  if (!data.m && !data.k && !data.b && !data.g) attributes.DIGEST = 'yes';
+  if (data.r === 'daily' || data.r === 'weekly') attributes.PPREMIND = data.r;
+  if (!data.m && !data.k && !data.b && !data.g && !data.r) attributes.DIGEST = 'yes';
   if (existing.ok) {
     await brevo(env, 'PUT', `/contacts/${encodeURIComponent(data.e)}`, { attributes, listIds: [listId], emailBlacklisted: false });
   } else {
@@ -299,6 +312,7 @@ async function confirm(url, env) {
   const multi = String(data.m || '').includes(',') ? (data.l === 2 ? 'compare' : data.l ? 'list' : 'bag') : 'ok';
   const fbq = data.f && FB_RX.test(data.f) ? '&fb=1' : '';
   if (data.g && budgetName(data.g)) return Response.redirect(`${site}/alerts-confirmed.html?status=budget&g=${data.g}`, 302);
+  if (data.r === 'daily' || data.r === 'weekly') return Response.redirect(`${site}/alerts-confirmed.html?status=remind&r=${data.r}`, 302);
   return Response.redirect(`${site}/alerts-confirmed.html?status=${data.b ? 'bought' : data.k ? 'stock' : multi}${one}${fbq}`, 302);
 }
 
@@ -317,6 +331,10 @@ async function unsubscribe(url, env, oneClick) {
   if (!email || !(await verify(env, email, s))) return Response.redirect(`${site}/alerts-unsubscribed.html?status=invalid`, 302);
   const existing = await brevo(env, 'GET', `/contacts/${encodeURIComponent(email)}`);
   if (!existing.ok) return Response.redirect(`${site}/alerts-unsubscribed.html?status=ok`, 302);
+  if (model === 'remind') {
+    await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { PPREMIND: '' } });
+    return Response.redirect(`${site}/alerts-unsubscribed.html?status=remind`, 302);
+  }
   if (model === DIGEST_SLUG) {
     await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { DIGEST: 'no' } });
     return Response.redirect(`${site}/alerts-unsubscribed.html?status=digest`, 302);
@@ -332,7 +350,7 @@ async function unsubscribe(url, env, oneClick) {
     return Response.redirect(`${site}/alerts-unsubscribed.html?status=model&m=${model}`, 302);
   }
   await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, {
-    attributes: { WATCHLIST: '', STOCKWATCH: '', BOUGHTWATCH: '', BUDGETWATCH: '' }, unlinkListIds: [Number(env.LIST_ID || 3)],
+    attributes: { WATCHLIST: '', STOCKWATCH: '', BOUGHTWATCH: '', BUDGETWATCH: '', PPREMIND: '' }, unlinkListIds: [Number(env.LIST_ID || 3)],
   });
   return Response.redirect(`${site}/alerts-unsubscribed.html?status=ok`, 302);
 }
@@ -487,6 +505,187 @@ async function demandCounts(request, url, env) {
   return json({ ok: true, rows, fourball }, 200, { 'cache-control': 'no-store' });
 }
 
+/* ------------------------------------------------------------------ Par Price: scores and leagues
+   Everything lives in the DEMAND database (Cloudflare D1). A player is a
+   random id their browser made up (pid): no email, no name, no cookie. A
+   league is a name, a short code for the link, and its members' nicknames.
+     pp_scores   one row per player per round (the first finished round counts)
+     pp_leagues  id, name, created, last active
+     pp_members  league, pid, nickname
+   Quiet leagues are deleted after 90 days; scores after 120. */
+const PP_LAUNCH = Date.UTC(2026, 9, 18); // Par Price #1
+const PID_RX = /^[a-z0-9]{12,32}$/;
+const LEAGUE_RX = /^[a-hj-km-np-z2-9]{6}$/;
+const GRID_RX = /^[EBPOD]{5}$/;
+const PP_GRID_PTS = { E: -2, B: -1, P: 0, O: 1, D: 2 };
+const MAX_MEMBERS = 40;
+const MISSED = 5; // a missed round counts as +5 in the weekly table
+const RUDE = ['fuck', 'shit', 'cunt', 'wank', 'twat', 'bitch', 'bastard', 'dick', 'cock', 'pussy', 'nigg', 'fag', 'retard', 'slut', 'whore', 'paki', 'spast', 'nazi', 'rape', 'porn', 'sex', 'piss', 'arse', 'bollock', 'tosser', 'prick', 'knob', 'bellend', 'minge', 'coon', 'kike', 'chink', 'tranny', 'dyke'];
+
+function ppToday() { return Math.floor((Date.now() - PP_LAUNCH) / 864e5) + 1; }
+function ppDay(n) { return new Date(PP_LAUNCH + (n - 1) * 864e5).toISOString().slice(0, 10); }
+function ppMonday(n) { const dow = (new Date(PP_LAUNCH + (n - 1) * 864e5).getUTCDay() + 6) % 7; return n - dow; } // round number of that week's Monday
+function cleanName(s, min, max) {
+  const t = String(s || '').replace(/[^\p{L}\p{N} '’.&!?-]/gu, '').replace(/\s+/g, ' ').trim().slice(0, max);
+  if (t.length < min) return '';
+  const flat = t.toLowerCase().replace(/[^a-z]/g, '').replace(/0/g, 'o').replace(/1/g, 'i').replace(/3/g, 'e').replace(/4/g, 'a').replace(/5/g, 's');
+  return RUDE.some((w) => flat.includes(w)) ? null : t;
+}
+function leagueCode() {
+  const a = 'abcdefghjkmnpqrstuvwxyz23456789';
+  const b = crypto.getRandomValues(new Uint8Array(6));
+  return [...b].map((x) => a[x % a.length]).join('');
+}
+let ppReady = false;
+async function ppSetup(env) {
+  if (ppReady) return;
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_scores (n INTEGER, pid TEXT, total INTEGER, grid TEXT, pin REAL, PRIMARY KEY (n, pid)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_leagues (id TEXT PRIMARY KEY, name TEXT, owner TEXT, created TEXT, active TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_members (league TEXT, pid TEXT, nick TEXT, joined TEXT, PRIMARY KEY (league, pid)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS pp_members_pid ON pp_members (pid)'),
+  ]);
+  ppReady = true;
+}
+
+async function parPrice(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'Leagues are taking a short break. Please try again later.' }, 503, cors);
+  await ppSetup(env);
+  const path = url.pathname;
+  let body = {};
+  if (request.method === 'POST') {
+    try { body = JSON.parse((await request.text()).slice(0, 4000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    const ip = request.headers.get('cf-connecting-ip') || '';
+    if (await tooMany('pp-' + ip, 60, 600)) return json({ ok: false, error: 'Easy, tiger. Please try again in a few minutes.' }, 429, cors);
+  }
+  const pid = PID_RX.test(String(body.pid || url.searchParams.get('pid') || '')) ? String(body.pid || url.searchParams.get('pid')) : '';
+  if (path === '/pp/score' && request.method === 'POST') return await ppScore(env, body, pid, cors);
+  if (path === '/pp/dist') return await ppDist(env, Number(url.searchParams.get('n')), cors);
+  if (path === '/pp/my') return await ppMy(env, pid, cors);
+  if (path === '/pp/league/create' && request.method === 'POST') return await ppCreate(env, body, pid, cors);
+  if (path === '/pp/league/join' && request.method === 'POST') return await ppJoin(env, body, pid, cors);
+  if (path === '/pp/league/leave' && request.method === 'POST') return await ppLeave(env, body, pid, cors);
+  if (path === '/pp/league') return await ppLeague(env, String(url.searchParams.get('l') || ''), pid, cors);
+  return new Response('Not found', { status: 404, headers: cors });
+}
+
+async function ppScore(env, body, pid, cors) {
+  const n = Number(body.n), grid = String(body.grid || ''), today = ppToday();
+  if (!pid || !Number.isInteger(n) || n < today - 1 || n > today + 1 || !GRID_RX.test(grid)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  const total = [...grid].reduce((t, c) => t + PP_GRID_PTS[c], 0); // from the holes, never trusted from the page
+  const pin = typeof body.pin === 'number' && body.pin >= 0 && body.pin < 100000 ? Math.round(body.pin * 100) / 100 : null; // null = skipped
+  await env.DEMAND.prepare('INSERT OR IGNORE INTO pp_scores (n, pid, total, grid, pin) VALUES (?, ?, ?, ?, ?)').bind(n, pid, total, grid, pin).run();
+  if (pin !== null) await env.DEMAND.prepare('UPDATE pp_scores SET pin = ? WHERE n = ? AND pid = ? AND pin IS NULL').bind(pin, n, pid).run();
+  await env.DEMAND.prepare('UPDATE pp_leagues SET active = ? WHERE id IN (SELECT league FROM pp_members WHERE pid = ?)').bind(ppDay(today), pid).run();
+  return await ppDist(env, n, cors);
+}
+
+async function ppDist(env, n, cors) {
+  if (!Number.isInteger(n)) return json({ ok: false }, 400, cors);
+  const rows = (await env.DEMAND.prepare('SELECT total, COUNT(*) AS c FROM pp_scores WHERE n = ? GROUP BY total').bind(n).all()).results || [];
+  const dist = {};
+  rows.forEach((r) => { dist[r.total] = r.c; });
+  return json({ ok: true, n, dist }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+}
+
+async function ppMy(env, pid, cors) {
+  if (!pid) return json({ ok: true, leagues: [] }, 200, cors);
+  const rows = (await env.DEMAND.prepare('SELECT l.id, l.name, m.nick, (SELECT COUNT(*) FROM pp_members x WHERE x.league = l.id) AS size FROM pp_members m JOIN pp_leagues l ON l.id = m.league WHERE m.pid = ? ORDER BY m.joined').bind(pid).all()).results || [];
+  return json({ ok: true, leagues: rows }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+}
+
+async function ppCreate(env, body, pid, cors) {
+  const name = cleanName(body.name, 3, 30), nick = cleanName(body.nick, 2, 20);
+  if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  if (name === null || nick === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse. Try another name.' }, 400, cors);
+  if (!name) return json({ ok: false, error: 'Give your league a name (at least 3 letters).' }, 400, cors);
+  if (!nick) return json({ ok: false, error: 'Pick a nickname (at least 2 letters).' }, 400, cors);
+  const mine = await env.DEMAND.prepare('SELECT COUNT(*) AS c FROM pp_leagues WHERE owner = ?').bind(pid).first('c');
+  if (mine >= 10) return json({ ok: false, error: 'Ten leagues is plenty, even for you.' }, 429, cors);
+  const day = ppDay(ppToday());
+  // Tidy up quiet leagues and old scores while we're here.
+  const quiet = ppDay(ppToday() - 90);
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('DELETE FROM pp_members WHERE league IN (SELECT id FROM pp_leagues WHERE active < ?)').bind(quiet),
+    env.DEMAND.prepare('DELETE FROM pp_leagues WHERE active < ?').bind(quiet),
+    env.DEMAND.prepare('DELETE FROM pp_scores WHERE n < ?').bind(ppToday() - 120),
+  ]);
+  for (let i = 0; i < 5; i++) {
+    const id = leagueCode();
+    const r = await env.DEMAND.prepare('INSERT OR IGNORE INTO pp_leagues (id, name, owner, created, active) VALUES (?, ?, ?, ?, ?)').bind(id, name, pid, day, day).run();
+    if (r.meta && r.meta.changes) {
+      await env.DEMAND.prepare('INSERT OR REPLACE INTO pp_members (league, pid, nick, joined) VALUES (?, ?, ?, ?)').bind(id, pid, nick, day).run();
+      return json({ ok: true, id, name }, 200, cors);
+    }
+  }
+  return json({ ok: false, error: 'Something went wrong. Please try again.' }, 500, cors);
+}
+
+async function ppJoin(env, body, pid, cors) {
+  const id = String(body.id || ''), nick = cleanName(body.nick, 2, 20);
+  if (!pid || !LEAGUE_RX.test(id)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  if (nick === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse. Try another nickname.' }, 400, cors);
+  if (!nick) return json({ ok: false, error: 'Pick a nickname (at least 2 letters).' }, 400, cors);
+  const league = await env.DEMAND.prepare('SELECT name FROM pp_leagues WHERE id = ?').bind(id).first();
+  if (!league) return json({ ok: false, error: 'That league has packed up its clubs. Ask for a fresh link.' }, 404, cors);
+  const size = await env.DEMAND.prepare('SELECT COUNT(*) AS c FROM pp_members WHERE league = ? AND pid != ?').bind(id, pid).first('c');
+  if (size >= MAX_MEMBERS) return json({ ok: false, error: 'This league is full (40 golfers). Start your own?' }, 400, cors);
+  const taken = await env.DEMAND.prepare('SELECT 1 AS x FROM pp_members WHERE league = ? AND pid != ? AND LOWER(nick) = LOWER(?)').bind(id, pid, nick).first();
+  if (taken) return json({ ok: false, error: 'Someone in this league already goes by that. Try another nickname.' }, 400, cors);
+  await env.DEMAND.prepare('INSERT INTO pp_members (league, pid, nick, joined) VALUES (?, ?, ?, ?) ON CONFLICT (league, pid) DO UPDATE SET nick = excluded.nick')
+    .bind(id, pid, nick, ppDay(ppToday())).run();
+  await env.DEMAND.prepare('UPDATE pp_leagues SET active = ? WHERE id = ?').bind(ppDay(ppToday()), id).run();
+  return json({ ok: true, id, name: league.name }, 200, cors);
+}
+
+async function ppLeave(env, body, pid, cors) {
+  const id = String(body.id || '');
+  if (!pid || !LEAGUE_RX.test(id)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  await env.DEMAND.prepare('DELETE FROM pp_members WHERE league = ? AND pid = ?').bind(id, pid).run();
+  return json({ ok: true }, 200, cors);
+}
+
+async function ppLeague(env, id, pid, cors) {
+  if (!LEAGUE_RX.test(id)) return json({ ok: false, error: 'That doesn’t look like a league link.' }, 400, cors);
+  const league = await env.DEMAND.prepare('SELECT id, name, created FROM pp_leagues WHERE id = ?').bind(id).first();
+  if (!league) return json({ ok: false, error: 'That league has packed up its clubs. Ask for a fresh link.' }, 404, cors);
+  const today = ppToday(), from = Math.max(1, today - 89), monday = ppMonday(today);
+  const members = (await env.DEMAND.prepare('SELECT pid, nick, joined FROM pp_members WHERE league = ? ORDER BY joined, nick').bind(id).all()).results || [];
+  const scores = (await env.DEMAND.prepare('SELECT s.n, s.pid, s.total, s.grid, s.pin FROM pp_scores s JOIN pp_members m ON m.pid = s.pid AND m.league = ? WHERE s.n >= ?').bind(id, from).all()).results || [];
+  const byN = {};
+  scores.forEach((r) => { (byN[r.n] = byN[r.n] || {})[r.pid] = r; });
+  const people = members.map((m) => {
+    const mine = (n) => (byN[n] || {})[m.pid];
+    let week = 0, played = 0, eagles = 0;
+    for (let n = monday; n <= today; n++) {
+      const r = mine(n);
+      if (r) { week += r.total; played++; eagles += (r.grid.match(/E/g) || []).length; }
+      else if (n < today) week += MISSED; // today isn't over yet
+    }
+    let streak = 0;
+    for (let n = mine(today) ? today : today - 1; n >= from && mine(n); n--) streak++;
+    return { pid: m.pid, nick: m.nick, you: m.pid === pid, today: mine(today) ? { total: mine(today).total, grid: mine(today).grid } : null,
+      week, played, eagles, streak, wins: 0 };
+  });
+  // Wins: rounds where you had the best score among members who played (ties share it).
+  for (let n = from; n < today; n++) {
+    const day = byN[n];
+    if (!day || Object.keys(day).length < 2) continue;
+    const best = Math.min(...Object.values(day).map((r) => r.total));
+    people.forEach((p) => { if (day[p.pid] && day[p.pid].total === best) p.wins++; });
+  }
+  const pinOf = (n) => {
+    const rows = Object.values(byN[n] || {}).filter((r) => r.pin !== null && r.pin !== undefined);
+    if (!rows.length) return null;
+    rows.sort((a, b) => a.pin - b.pin);
+    const who = members.find((m) => m.pid === rows[0].pid);
+    return { nick: who ? who.nick : '', off: rows[0].pin };
+  };
+  const out = people.map(({ pid: p, ...rest }) => rest); // never send other players' ids
+  return json({ ok: true, id: league.id, name: league.name, n: today, monday, missed: MISSED, members: out,
+    pin: { today: pinOf(today), yesterday: pinOf(today - 1) } }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+}
+
 /* ------------------------------------------------------------------ helpers */
 // One entry per product ("slug|paid|date"); a new one replaces an older one for the same product.
 function mergeBought(current, entry, max = 10) {
@@ -531,7 +730,7 @@ function money(n) {
 }
 
 async function ensureAttributes(env) {
-  for (const name of ['WATCHLIST', 'CONSENT_AT', 'DIGEST', 'STOCKWATCH', 'BOUGHTWATCH', 'BUDGETWATCH']) {
+  for (const name of ['WATCHLIST', 'CONSENT_AT', 'DIGEST', 'STOCKWATCH', 'BOUGHTWATCH', 'BUDGETWATCH', 'PPREMIND']) {
     // Fails harmlessly with 400 when the attribute already exists.
     await brevo(env, 'POST', `/contacts/attributes/normal/${name}`, { type: 'text' });
   }
@@ -611,7 +810,9 @@ function button(href, text) {
 }
 
 function confirmEmail(link, name, opts = {}) {
-  const what = opts.budget
+  const what = opts.remind
+    ? `a Par Price tee-time reminder: one email ${opts.remind === 'weekly' ? 'every Monday morning' : 'each morning'} when the new round is ready`
+    : opts.budget
     ? `a budget alert for <strong>${escapeHtml(name)}</strong>. When a model we track drops under that price, we’ll email you about it`
     : opts.bought
     ? `a 30-day price watch on the <strong>${escapeHtml(name)}</strong> you bought. If its UK price drops below what you paid, we’ll email you once so you can ask the retailer to match it. Then we forget it`
@@ -622,7 +823,9 @@ function confirmEmail(link, name, opts = {}) {
     : name
     ? `a price alert for the <strong>${escapeHtml(name)}</strong>. We’ll email you when its UK price genuinely drops`
     : `the GolfPrice AI Friday email: the week’s genuine UK golf price drops, checked against our own price history`;
-  const joke = opts.budget
+  const joke = opts.remind
+    ? 'Five prices, one round, no green fees. Big Dave has probably played already.'
+    : opts.budget
     ? 'Set a budget. Stick to it. We’ll help with the first part.'
     : opts.list === 'compare'
     ? 'Can’t choose? Let the prices decide. They usually do.'
@@ -636,7 +839,7 @@ function confirmEmail(link, name, opts = {}) {
   return shell(`<div style="background:#fff;border:1px solid #e7e9e5;border-radius:14px;padding:24px">
 <p style="font-size:16px;line-height:1.5;margin:0 0 10px">Someone (hopefully you) asked for ${what}.</p>
 <p style="font-size:14px;line-height:1.5;color:#4a554e;margin:0 0 20px">${joke}</p>
-<p style="margin:0 0 22px">${button(link, 'Yes, send me alerts')}</p>
+<p style="margin:0 0 22px">${button(link, opts.remind ? 'Yes, remind me' : 'Yes, send me alerts')}</p>
 <p style="font-size:13px;line-height:1.5;color:#5b665f;margin:0">No click, no emails: if this wasn’t you, just ignore this message. The link works for 7 days.</p>
 </div>`, 'Unsubscribe from any alert in one click.');
 }

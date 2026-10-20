@@ -79,3 +79,86 @@
   .pr-row .gp-af-btn { width: 100%; min-height: 52px; }
 }
 
+
+/* ---------------------------------------------------------------- rank, bonus hole, leagues, reminder (Oct 2026) */
+.pr-rank { background: #14211a; color: #fff; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+.pr-rank[hidden] { display: none; }
+.pr-rank-line { margin: 0; font-size: 17px; }
+.pr-rank-line b { color: #8fd77e; font-size: 22px; }
+.pr-bars { display: flex; align-items: flex-end; gap: 4px; height: 80px; }
+.pr-bar { flex: 1; background: #3d4a42; border-radius: 3px 3px 0 0; min-height: 3px; }
+.pr-bar.is-you { background: #8fd77e; }
+.pr-bars-axis { display: flex; justify-content: space-between; font-size: 12px; color: #9fb0a5; }
+.pr-rank-note { margin: 0; font-size: 13px; color: #c4d0c8; }
+.pr-pin-card { border: 2px solid var(--gp-green); }
+.pr-pin-card .pr-kicker { color: var(--gp-green-dark); }
+.pr-skip { margin-top: 10px; background: none; border: 0; color: var(--gp-text-2); text-decoration: underline; font: 600 14px Inter, sans-serif; cursor: pointer; padding: 8px 0; min-height: 44px; }
+.pr-leagues, .pr-remind { background: #fff; border: 1px solid var(--gp-line); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.pr-leagues { border: 2px solid var(--gp-green); }
+.pr-leagues h2, .pr-remind h2 { margin: 0; font: 800 21px/1.2 Poppins, sans-serif; }
+.pr-leagues p { margin: 0; color: var(--gp-text-2); }
+.pr-leagues .pr-rank-line { color: var(--gp-text-3); }
+.pr-lg-form { display: flex; flex-direction: column; gap: 10px; }
+.pr-lg-form label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; }
+.pr-lg-form input, .pr-remind input[type=email] { font: 500 16px Inter, sans-serif; min-height: 48px; border: 1px solid #cfd5cc; border-radius: 12px; padding: 0 12px; box-sizing: border-box; width: 100%; }
+.pr-lg-form .gp-af-btn, .pr-invite { min-height: 50px; font-size: 16px; }
+.pr-lg-small { margin: 0; font-size: 12px; color: var(--gp-text-3); }
+.pr-lg-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.pr-lg-list a { display: flex; flex-direction: column; padding: 12px 14px; border: 1px solid var(--gp-line); border-radius: 12px; text-decoration: none; color: var(--gp-ink); }
+.pr-lg-list a:hover { border-color: var(--gp-green); }
+.pr-lg-list span { font-size: 13px; color: var(--gp-green-dark); font-weight: 600; }
+.pr-lg-more summary { cursor: pointer; font-weight: 600; color: var(--gp-green-dark); min-height: 44px; display: flex; align-items: center; }
+.pr-lg-link { margin: 0; text-align: center; font-weight: 600; }
+.pr-remind fieldset { border: 0; margin: 0; padding: 0; display: flex; gap: 8px; flex-wrap: wrap; }
+.pr-remind legend { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+.pr-remind fieldset label { flex: 1; min-width: 130px; display: flex; align-items: center; gap: 8px; min-height: 44px; border: 1px solid #dfe3dc; border-radius: 12px; padding: 0 12px; font-weight: 600; cursor: pointer; }
+.pr-remind fieldset label:has(input:checked) { border: 2px solid var(--gp-ink); }
+.pr-remind .pr-msg { color: var(--gp-text-2); }
+
+/* ---------------------------------------------------------------- league page (/play/league/) */
+.lg-wrap { max-width: 640px; margin: 0 auto; padding: 16px 0 40px; display: flex; flex-direction: column; gap: 14px; }
+.lg-hero { background: #14211a; color: #fff; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+.lg-hero .pr-kicker { color: #8fd77e; }
+.lg-hero h1 { margin: 0; font: 800 clamp(24px, 4vw, 30px)/1.15 Poppins, sans-serif; }
+.lg-hero p { margin: 0; color: #c4d0c8; font-size: 15px; }
+.lg-card { background: #fff; border: 1px solid var(--gp-line); border-radius: 16px; overflow: hidden; }
+.lg-card-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 14px; border-bottom: 1px solid #eef0ec; }
+.lg-card-head h2 { margin: 0; font: 700 18px Poppins, sans-serif; }
+.lg-tabs { display: flex; gap: 6px; }
+.lg-tabs button { font: 600 13px Inter, sans-serif; border: 1px solid #dfe3dc; background: #fff; color: var(--gp-ink); border-radius: 999px; padding: 6px 12px; min-height: 36px; cursor: pointer; }
+.lg-tabs button[aria-pressed=true] { background: var(--gp-ink); border-color: var(--gp-ink); color: #fff; }
+.lg-rows { list-style: none; margin: 0; padding: 0; }
+.lg-row { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto 48px; gap: 10px; align-items: center; padding: 12px 14px; border-top: 1px solid #eef0ec; }
+.lg-row:first-child { border-top: 0; }
+.lg-row.is-lead { background: #f3faf0; }
+.lg-row.is-you .lg-nick::after { content: ' (you)'; font-weight: 500; color: var(--gp-text-3); }
+.lg-pos { font: 800 17px Poppins, sans-serif; color: var(--gp-text-3); text-align: center; }
+.lg-row.is-lead .lg-pos { color: var(--gp-green-dark); }
+.lg-who { display: flex; flex-direction: column; min-width: 0; }
+.lg-nick { font-weight: 700; overflow-wrap: anywhere; }
+.lg-line { font-size: 12px; color: var(--gp-text-3); }
+.lg-grid { display: flex; gap: 3px; }
+.lg-grid i { width: 14px; height: 14px; border-radius: 3px; display: block; }
+.lg-g-E { background: #1a6812; } .lg-g-B { background: #3fae29; } .lg-g-P { background: #b9c2bb; } .lg-g-O { background: #e0a245; } .lg-g-D { background: #9a4a00; }
+.lg-score { font: 800 18px Poppins, sans-serif; text-align: right; }
+.lg-under { color: #1f6a12; } .lg-over { color: #9a4a00; }
+.lg-wait { font-size: 12px; color: var(--gp-text-3); text-align: right; }
+.lg-actions { padding: 12px 14px; border-top: 1px solid #eef0ec; display: flex; flex-direction: column; gap: 10px; }
+.lg-actions .gp-af-btn, .lg-btn2 { min-height: 48px; font-size: 15px; width: 100%; }
+.lg-btn2 { background: #fff; color: var(--gp-ink); border: 1px solid #dfe3dc; border-radius: 12px; font: 600 15px Inter, sans-serif; cursor: pointer; }
+.lg-note { margin: 0; padding: 10px 14px 12px; font-size: 12px; color: var(--gp-text-3); }
+.lg-awards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.lg-award { background: #fff; border: 1px solid var(--gp-line); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 2px; }
+.lg-award span:first-child { font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--gp-green-dark); }
+.lg-award.is-spoon span:first-child { color: #9a4a00; }
+.lg-award small { font-size: 12px; color: var(--gp-text-3); }
+.lg-join { background: #fff; border: 2px solid var(--gp-green); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.lg-join h2 { margin: 0; font: 800 21px Poppins, sans-serif; }
+.lg-how { margin: 0; padding-left: 20px; color: var(--gp-text-2); font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
+.lg-foot { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--gp-text-3); }
+.lg-foot button { background: none; border: 0; color: var(--gp-text-2); text-decoration: underline; font: 600 12px Inter, sans-serif; cursor: pointer; padding: 0; align-self: flex-start; min-height: 32px; }
+@media (max-width: 560px) {
+  .lg-row { grid-template-columns: 22px minmax(0, 1fr) 44px; }
+  .lg-row .lg-grid, .lg-row .lg-wait { grid-column: 2; grid-row: 2; justify-content: flex-start; text-align: left; }
+  .lg-row .lg-score { grid-column: 3; grid-row: 1 / span 2; }
+}

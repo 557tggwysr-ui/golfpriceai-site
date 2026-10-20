@@ -167,8 +167,10 @@ def subscribers(key):
             stock = [s.strip() for s in str(attrs.get("STOCKWATCH") or "").split(",") if s.strip()]
             bought = [s.strip() for s in str(attrs.get("BOUGHTWATCH") or "").split(",") if s.strip().count("|") == 2]
             budget = [s.strip() for s in str(attrs.get("BUDGETWATCH") or "").split(",") if BUDGET_RX.match(s.strip())]
-            out.append({"email": c["email"].lower(), "watch": watch, "stock": stock, "bought": bought, "budget": budget,
-                        "digest": digest == "yes" or (not digest and not watch and not stock and not bought and not budget)})
+            remind = str(attrs.get("PPREMIND") or "").lower()
+            remind = remind if remind in ("daily", "weekly") else ""
+            out.append({"email": c["email"].lower(), "watch": watch, "stock": stock, "bought": bought, "budget": budget, "remind": remind,
+                        "digest": digest == "yes" or (not digest and not watch and not stock and not bought and not budget and not remind)})
         offset += len(batch)
         if len(batch) < 500 or offset >= (data.get("count") or 0):
             return out
@@ -551,6 +553,73 @@ No countdown timers. No fake discounts. <a href="{everything}" style="color:#5b6
 </div></body></html>"""
 
 
+# ---------------------------------------------------------------- Par Price tee-time reminder
+REMIND_JOKES = ["Five prices, one round, no green fees.", "No tee time needed. No waiting for the group in front.",
+                "The only round where the 19th hole comes first.", "Fewer lost balls than your Saturday round. Probably.",
+                "Big Dave has probably played already.", "Free to play. Unlike your last round."]
+
+
+def remind_email_html(email, rnd, secret):
+    types = [it["type"] for it in rnd["items"]]
+    nouns = ", ".join(("an " if t[0] in "aeiou" else "a ") + t for t in types[:-1]) + " and " + ("an " if types[-1][0] in "aeiou" else "a ") + types[-1]
+    pin = '<p style="margin:0 0 16px;font-size:14px;color:#4a554e">Plus a Closest to the Pin bonus hole: one exact guess, no mercy.</p>' if rnd.get("pin") else ""
+    joke = REMIND_JOKES[rnd["n"] % len(REMIND_JOKES)]
+    play = f"{SITE}/play/?utm_source=remind&utm_medium=email"
+    stop = unsubscribe_link(secret, email, "remind")
+    everything = unsubscribe_link(secret, email)
+    return f"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;background:#f7f8f6;font-family:Arial,Helvetica,sans-serif;color:#16241c">
+<div style="max-width:560px;margin:0 auto;padding:28px 16px">
+<p style="font-size:22px;font-weight:bold;margin:0 0 4px">Golf<span style="color:#3fae29">Price</span> AI</p>
+<p style="font-size:12px;color:#5b665f;margin:0 0 18px">Full Swing. Not full price.</p>
+<div style="background:#14211a;color:#fff;border-radius:14px;padding:22px">
+<p style="margin:0 0 6px;font-size:12px;font-weight:bold;letter-spacing:.06em;text-transform:uppercase;color:#8fd77e">Par Price #{rnd['n']}</p>
+<p style="margin:0 0 10px;font-size:24px;font-weight:bold">Your tee time is ready</p>
+<p style="margin:0 0 16px;font-size:15px;line-height:1.5;color:#dfe7e1">Today’s five: {html.escape(nouns)}. Guess each one’s lowest UK price; within 2% is an eagle.</p>
+{pin.replace('#4a554e', '#c4d0c8')}
+<p style="margin:0"><a href="{play}" style="display:inline-block;background:#3fae29;color:#fff;text-decoration:none;font-weight:bold;padding:13px 20px;border-radius:10px">Play today’s round</a></p>
+</div>
+<p style="font-size:14px;line-height:1.5;color:#4a554e;margin:16px 0 0">{html.escape(joke)}</p>
+<p style="font-size:12px;color:#5b665f;line-height:1.5;margin:18px 0 0"><a href="{stop}" style="color:#5b665f">Stop these reminders</a> · <a href="{everything}" style="color:#5b665f">Unsubscribe from all GolfPrice AI emails</a></p>
+</div></body></html>"""
+
+
+def run_remind(key, secret, state, subs, room):
+    """Par Price reminders: daily ones every morning, weekly ones on Mondays,
+    once the day's round is set (the first run after 6am UTC)."""
+    from datetime import datetime, timezone
+    now = datetime.now(timezone.utc)
+    today = now.date().isoformat()
+    if now.hour < 6 or state.get("remind") == today:
+        return 0
+    try:
+        rnd = json.loads((ROOT / "data" / "par-price" / "today.json").read_text())
+    except (OSError, ValueError):
+        return 0
+    if rnd.get("date") != today:
+        return 0
+    want = [s for s in subs if s["remind"] == "daily" or (s["remind"] == "weekly" and now.weekday() == 0)]
+    sent = 0
+    for s in want:
+        if sent >= room:
+            print(f"Par Price reminders: {len(want) - sent} held back by the daily limit.")
+            break
+        status, data = brevo(key, "POST", "/smtp/email", {
+            "sender": SENDER, "to": [{"email": s["email"]}],
+            "subject": f"Your tee time is ready ⛳ Par Price #{rnd['n']}",
+            "htmlContent": remind_email_html(s["email"], rnd, secret),
+            "headers": {"List-Unsubscribe": f"<{unsubscribe_link(secret, s['email'], 'remind')}>",
+                        "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"},
+            "tags": ["par-price-remind"],
+        })
+        if status in (200, 201, 202):
+            sent += 1
+        else:
+            print(f"Par Price reminders: send failed ({status}): {data.get('message', '')}")
+    state["remind"] = today
+    print(f"Par Price reminders: {sent} sent.")
+    return sent
+
+
 def run_budget_alerts(key, secret, state, subs, models, room):
     """One email per person when models of a watched type drop under their
     budget (were over it last run, under it now). Returns emails sent."""
@@ -692,7 +761,13 @@ def main():
                                         max(0, DAILY_CAP - sent_today - sent - stock_sent - bought_sent))
     except Exception as e:  # never stop the other alerts over this
         print(f"Budget alerts: skipped this run ({e}).")
-    state["sent"] = {today: sent_today + sent + stock_sent + bought_sent + budget_sent}  # keep only today's count
+    remind_sent = 0
+    try:
+        remind_sent = run_remind(key, secret, state, subs,
+                                 max(0, DAILY_CAP - sent_today - sent - stock_sent - bought_sent - budget_sent))
+    except Exception as e:  # never stop the other alerts over this
+        print(f"Par Price reminders: skipped this run ({e}).")
+    state["sent"] = {today: sent_today + sent + stock_sent + bought_sent + budget_sent + remind_sent}  # keep only today's count
     save_state(state)
     print(f"Alerts: {len(drops)} model(s) dropped; {sent} email(s) sent"
           + (f", {failed} failed (retrying next run)" if failed else "")

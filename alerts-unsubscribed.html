@@ -180,6 +180,9 @@
       show('Alert stopped.', '<p>You won’t get any more emails about the ' + esc(name || 'that model') + '. Any other alerts you’ve set are unchanged.</p>',
         slug ? '<a class="al-btn alt" href="/prices/' + slug + '/">Changed your mind? Back to the price page</a>' : null);
     });
+  } else if (status === 'remind') {
+    show('Tee-time reminders stopped.', '<p>No more Par Price reminder emails. The game’s still there whenever you fancy a round, and any other alerts you’ve set are unchanged.</p>',
+      '<a class="al-btn alt" href="/play/">Play Par Price</a>');
   } else if (status === 'budget') {
     show('Budget alert stopped.', '<p>You won’t get any more emails for that budget. Any other alerts you’ve set are unchanged.</p>',
       '<a class="al-btn alt" href="/prices/best/">Budget guides</a>');
