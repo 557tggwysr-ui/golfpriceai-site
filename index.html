@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/home.css?v=20261020b">
+<link rel="stylesheet" href="/css/home.css?v=20261022">
 <link rel="stylesheet" href="/css/fourball.css?v=20261018c">
 <link rel="canonical" href="https://golfpriceai.com/">
 <meta name="p:domain_verify" content="1c434797b8e84dbdde1ad6a319a38e65"/>
@@ -106,7 +106,7 @@
         <div class="gp-tools gp-tools-1">
           <a href="/play/par-price/" class="gp-tool"><span class="gp-tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f8a1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V4M6 4l11 4-11 4M3 21h8"></path></svg></span><span class="gp-tool-text"><strong>Par Price</strong><span>Today’s golf price game. New round every morning.</span></span></a>
           <a href="/play/#leagues" class="gp-tool"><span class="gp-tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f8a1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM7 6H4a3 3 0 003 4M17 6h3a3 3 0 01-3 4"></path></svg></span><span class="gp-tool-text"><strong>Leagues</strong><span>Take on your mates. One link for the group chat.</span></span></a>
-          <a href="/play/#draft" class="gp-tool"><span class="gp-tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f8a1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7h8l-1 14H9L8 7zM10 7V4h4v3M8 11h8"></path></svg></span><span class="gp-tool-text"><strong>The Bag Draft</strong><span>Fantasy golf kit. The Black Friday Open starts 1 November.</span></span></a>
+          <a href="/play/draft/" class="gp-tool"><span class="gp-tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f8a1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7h8l-1 14H9L8 7zM10 7V4h4v3M8 11h8"></path></svg></span><span class="gp-tool-text"><strong>The Bag Draft</strong><span>Fantasy golf kit. The Black Friday Open starts 1 November.</span></span></a>
           <a href="/play/" class="gp-tool"><span class="gp-tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f8a1f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"></path></svg></span><span class="gp-tool-text"><strong>The Clubhouse</strong><span>All the games, your leagues and the Hall of Fame.</span></span></a>
         </div>
         <div class="gp-mega-foot"><span>Free games on real UK prices.</span><a href="/play/">The Clubhouse &rarr;</a></div>
@@ -160,7 +160,7 @@
       </div>
       <div class="gp-acc">
         <button type="button" class="gp-acc-btn" aria-expanded="false"><span>Play <span class="gp-nav-new">New</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
-        <div class="gp-acc-body gp-acc-tools" hidden><a href="/play/par-price/"><span>Par Price</span><small>Today’s golf price game. New round every morning.</small></a><a href="/play/#leagues"><span>Leagues</span><small>Take on your mates. One link for the group chat.</small></a><a href="/play/#draft"><span>The Bag Draft</span><small>Fantasy golf kit. The Black Friday Open starts 1 November.</small></a><a href="/play/"><span>The Clubhouse</span><small>All the games, your leagues and the Hall of Fame.</small></a><a class="gp-acc-all" href="/play/">The Clubhouse &rarr;</a></div>
+        <div class="gp-acc-body gp-acc-tools" hidden><a href="/play/par-price/"><span>Par Price</span><small>Today’s golf price game. New round every morning.</small></a><a href="/play/#leagues"><span>Leagues</span><small>Take on your mates. One link for the group chat.</small></a><a href="/play/draft/"><span>The Bag Draft</span><small>Fantasy golf kit. The Black Friday Open starts 1 November.</small></a><a href="/play/"><span>The Clubhouse</span><small>All the games, your leagues and the Hall of Fame.</small></a><a class="gp-acc-all" href="/play/">The Clubhouse &rarr;</a></div>
       </div>
       <div class="gp-acc">
         <button type="button" class="gp-acc-btn" aria-expanded="false">Deal Tools<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
@@ -304,30 +304,50 @@
         <span class="gp-tb-cta">See all deal tools <span aria-hidden="true">&rarr;</span></span>
       </span>
     </a>
-    <a class="gp-tb fb-tb" href="/fourball/">
-      <picture>
-        <source media="(max-width: 700px)" srcset="/assets/photos/tools/fourball-square.jpg">
-        <img src="/assets/photos/tools/fourball-banner.jpg" alt="" width="1536" height="512" loading="lazy">
-      </picture>
-      <span class="gp-tb-body">
-        <span class="gp-banner-kicker">New · Fourball Alerts</span>
-        <span class="gp-tb-title">Your four-ball, all watching the same price</span>
-        <span class="gp-tb-line">Send one link to the group chat. Everyone gets one email when it genuinely drops.</span>
-        <span class="gp-tb-cta">Try Fourball Alerts <span aria-hidden="true">&rarr;</span></span>
-      </span>
-    </a>
-    <a class="gp-tb pr-tb" href="/play/par-price/?utm_source=home&amp;utm_medium=banner">
-      <picture>
-        <source media="(max-width: 700px)" srcset="/assets/photos/tools/par-price-square.jpg">
-        <img src="/assets/photos/tools/par-price-banner.jpg" alt="" width="1536" height="512" loading="lazy">
-      </picture>
-      <span class="gp-tb-body">
-        <span class="gp-banner-kicker">New · Par Price</span>
-        <span class="gp-tb-title">Can you guess today’s golf prices?</span>
-        <span class="gp-tb-line">Five real products, scored like a round. Eagle, birdie, par… or a quiet double bogey nobody needs to know about.</span>
-        <span class="gp-tb-cta">Play today’s round <span aria-hidden="true">&rarr;</span></span>
-      </span>
-    </a>
+    <div class="gp-duo">
+      <a class="gp-tb gp-duo-card" href="/fourball/?utm_source=home&amp;utm_medium=duo">
+        <picture>
+          <source media="(max-width: 700px)" srcset="/assets/photos/tools/fourball-square.jpg">
+          <img src="/assets/photos/tools/fourball-wide.jpg" alt="" width="1200" height="800" loading="lazy">
+        </picture>
+        <span class="gp-tb-body">
+          <span class="gp-banner-kicker">Social · Fourball Alerts</span>
+          <span class="gp-tb-title">Your four-ball, all watching the same price</span>
+          <span class="gp-tb-line">One link in the group chat. Everyone gets one email when it genuinely drops.</span>
+          <span class="gp-tb-cta">Try Fourball Alerts <span aria-hidden="true">&rarr;</span></span>
+        </span>
+      </a>
+      <a class="gp-tb gp-duo-card" id="gp-play-card" href="/play/par-price/?utm_source=home&amp;utm_medium=duo">
+        <picture>
+          <source media="(max-width: 700px)" srcset="/assets/photos/tools/par-price-square.jpg">
+          <img src="/assets/photos/tools/par-price-wide.jpg" alt="" width="1200" height="800" loading="lazy">
+        </picture>
+        <span class="gp-tb-body">
+          <span class="gp-banner-kicker">Play · The Clubhouse</span>
+          <span class="gp-tb-title">Can you guess today’s golf prices?</span>
+          <span class="gp-tb-line">Par Price every morning, leagues for the group chat, and the Bag Draft from 1 November.</span>
+          <span class="gp-tb-cta">Play today’s round <span aria-hidden="true">&rarr;</span></span>
+        </span>
+      </a>
+    </div>
+    <script>
+      // The Play card turns into the Bag Draft from 26 October (teaser) until
+      // the draft closes on the 21st of each month; Par Price the rest of the time.
+      (function () {
+        var d = new Date(), day = d.getDate(), ym = d.getFullYear() * 100 + d.getMonth() + 1;
+        var teaser = ym === 202610 && day >= 26, open = ym >= 202611 && day <= 21;
+        if (!teaser && !open) return;
+        var a = document.getElementById('gp-play-card');
+        a.href = '/play/draft/?utm_source=home&utm_medium=duo';
+        a.querySelector('source').srcset = '/assets/photos/tools/bag-draft-square.jpg';
+        a.querySelector('img').src = '/assets/photos/tools/bag-draft-wide.jpg';
+        a.querySelector('.gp-banner-kicker').textContent = 'Play · The Bag Draft';
+        a.querySelector('.gp-tb-title').textContent = teaser ? 'The Black Friday Open starts 1 November' : 'The draft is open. Pick your bag.';
+        a.querySelector('.gp-tb-line').textContent = 'Fantasy golf kit: draft six real products within £1,500, and let real UK prices pick the winner. Free, glory only.';
+        a.querySelector('.gp-tb-cta').innerHTML = (teaser ? 'Try the practice range' : 'Draft your bag') + ' <span aria-hidden="true">&rarr;</span>';
+        if (teaser) a.href = '/play/draft/?test=1&utm_source=home&utm_medium=duo';
+      })();
+    </script>
   </section>
 
 <div class="container">
@@ -593,7 +613,7 @@
       </div>
       <div class="gp-foot-col">
         <button type="button" class="gp-foot-head" aria-expanded="false">Play<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>
-        <div class="gp-foot-links"><a href="/play/par-price/">Par Price</a><a href="/play/#leagues">Leagues</a><a href="/play/#draft">The Bag Draft</a><a href="/play/">The Clubhouse</a><a href="/demand/">UK Golf Demand Index</a></div>
+        <div class="gp-foot-links"><a href="/play/par-price/">Par Price</a><a href="/play/#leagues">Leagues</a><a href="/play/draft/">The Bag Draft</a><a href="/play/">The Clubhouse</a><a href="/demand/">UK Golf Demand Index</a></div>
       </div>
       <div class="gp-foot-col">
         <button type="button" class="gp-foot-head" aria-expanded="false">Price guides<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></button>

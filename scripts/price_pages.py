@@ -1438,6 +1438,12 @@ def build(models_list, products, today_str):
         except Exception as e:  # never stop the main build
             print(f"Par Price skipped: {e}")
         try:
+            import bag_draft
+            changed += bag_draft.build(passing, built, today)
+            sitemap.append(("play/draft/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Bag Draft skipped: {e}")
+        try:
             import demand_index
             dm_changed, dm_sitemap = demand_index.build(passing, built, today)
             changed += dm_changed

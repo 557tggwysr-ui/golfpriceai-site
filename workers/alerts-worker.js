@@ -107,6 +107,7 @@ export default {
       if (url.pathname === '/signal' && request.method === 'POST') return await signal(request, env, cors);
       if (url.pathname === '/demand-counts' && request.method === 'GET') return await demandCounts(request, url, env);
       if (url.pathname.startsWith('/pp/')) return await parPrice(request, url, env, cors);
+      if (url.pathname.startsWith('/draft/')) return await bagDraft(request, url, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
       if (url.pathname === '/unsubscribe') return await unsubscribe(url, env, request.method === 'POST');
       if (url.pathname === '/') return new Response('GolfPrice AI alerts: OK', { headers: { 'content-type': 'text/plain' } });
@@ -684,6 +685,144 @@ async function ppLeague(env, id, pid, cors) {
   const out = people.map(({ pid: p, ...rest }) => rest); // never send other players' ids
   return json({ ok: true, id: league.id, name: league.name, n: today, monday, missed: MISSED, members: out,
     pin: { today: pinOf(today), yesterday: pinOf(today - 1) } }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+}
+
+/* ------------------------------------------------------------------ The Bag Draft (monthly fantasy golf kit)
+   One row per player per season (a month, "2026-11") in the DEMAND database.
+   Picks are priced from the site's own /data/draft/catalogue.json at the
+   moment they're drafted, never from the page, so nobody can invent a price.
+   Points = £ a pick has fallen since it was drafted (rises cost points),
+   +10 while it sits at the lowest price we've tracked; a locked pick keeps
+   the points it had when locked; a transferred-out pick's points are banked.
+   Bags are sealed (only you see yours) until the 8th. "test" is a practice
+   season that's always open, for trying it out before launch. */
+const BD_FIRST = '2026-11';
+const BD_BUDGET = 1500;
+const BD_SLOTS = ['driver', 'irons', 'putter', 'ball', 'tech', 'wild'];
+let bdReady = false;
+async function bdSetup(env) {
+  if (bdReady) return;
+  await ppSetup(env);
+  await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS bd_drafts (season TEXT, pid TEXT, nick TEXT, picks TEXT, banked INTEGER, tweek TEXT, locked INTEGER, updated TEXT, PRIMARY KEY (season, pid)) WITHOUT ROWID').run();
+  bdReady = true;
+}
+async function bdCatalogue(env) {
+  const site = env.SITE || 'https://golfpriceai.com';
+  const r = await fetch(`${site}/data/draft/catalogue.json`, { cf: { cacheTtl: 900, cacheEverything: true } });
+  if (!r.ok) throw new Error('catalogue ' + r.status);
+  const cat = await r.json();
+  const by = {};
+  (cat.items || []).forEach((it) => { by[it.slug] = it; });
+  return { cat, by };
+}
+function bdPhase(season) {
+  const now = new Date(), cur = now.toISOString().slice(0, 7), day = now.getUTCDate();
+  if (season === 'test') return { season, open: true, canEdit: true, canJoin: true, revealed: true, canTransfer: true, live: true };
+  const live = season === cur && season >= BD_FIRST;
+  return { season, live, open: live && day <= 21, canEdit: live && day <= 7, canJoin: live && day <= 21,
+    revealed: season < cur || (live && day >= 8), canTransfer: live && day >= 8, over: season < cur };
+}
+function bdWeek() { const d = new Date(); d.setUTCDate(d.getUTCDate() - (d.getUTCDay() + 6) % 7); return d.toISOString().slice(0, 10); }
+function bdScore(row, by) {
+  const picks = JSON.parse(row.picks || '[]').map((p) => {
+    const cur = by[p.slug];
+    const now = cur ? cur.price : p.price;
+    const pts = p.lock !== undefined && p.lock !== null ? p.lock
+      : Math.round(p.price - now) + (cur && cur.low && now < p.price ? 10 : 0);
+    return Object.assign({}, p, { now, pts, name: cur ? cur.name : p.name, image: cur ? cur.image : p.image, low: cur ? cur.low : 0, note: cur ? cur.note : '' });
+  });
+  return { picks, total: (row.banked || 0) + picks.reduce((t, p) => t + p.pts, 0) };
+}
+
+async function bagDraft(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'The draft room is closed for a moment. Please try again later.' }, 503, cors);
+  await bdSetup(env);
+  let body = {};
+  if (request.method === 'POST') {
+    try { body = JSON.parse((await request.text()).slice(0, 4000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    if (await tooMany('bd-' + (request.headers.get('cf-connecting-ip') || ''), 40, 600)) return json({ ok: false, error: 'Easy, tiger. Please try again in a few minutes.' }, 429, cors);
+  }
+  const q = (k) => String(body[k] !== undefined ? body[k] : url.searchParams.get(k) || '');
+  const pid = PID_RX.test(q('pid')) ? q('pid') : '';
+  const season = q('season') === 'test' ? 'test' : /^\d{4}-\d{2}$/.test(q('season')) ? q('season') : new Date().toISOString().slice(0, 7);
+  const phase = bdPhase(season);
+  const path = url.pathname;
+  const { by } = await bdCatalogue(env);
+  const mine = pid ? await env.DEMAND.prepare('SELECT * FROM bd_drafts WHERE season = ? AND pid = ?').bind(season, pid).first() : null;
+
+  if (path === '/draft/state') {
+    const rows = (await env.DEMAND.prepare('SELECT pid, nick, picks, banked FROM bd_drafts WHERE season = ?').bind(season).all()).results || [];
+    const ranked = rows.map((r) => ({ pid: r.pid, nick: r.nick, pts: bdScore(r, by).total })).sort((a, b) => b.pts - a.pts);
+    const pos = ranked.findIndex((r) => r.pid === pid);
+    return json({ ok: true, phase, mine: mine ? Object.assign({ nick: mine.nick, banked: mine.banked || 0, locked: !!mine.locked,
+      transferUsed: mine.tweek === bdWeek() }, bdScore(mine, by)) : null,
+      national: { count: ranked.length, top: ranked.slice(0, 20).map((r) => ({ nick: r.nick, pts: r.pts, you: r.pid === pid })), rank: pos >= 0 ? pos + 1 : null } },
+      200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  }
+  if (path === '/draft/league') {
+    const id = q('l');
+    if (!LEAGUE_RX.test(id)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const league = await env.DEMAND.prepare('SELECT name FROM pp_leagues WHERE id = ?').bind(id).first();
+    if (!league) return json({ ok: false, error: 'That league has packed up its clubs.' }, 404, cors);
+    const rows = (await env.DEMAND.prepare('SELECT m.pid, m.nick AS mnick, d.picks, d.banked FROM pp_members m LEFT JOIN bd_drafts d ON d.pid = m.pid AND d.season = ? WHERE m.league = ?').bind(season, id).all()).results || [];
+    const members = rows.map((r) => {
+      const you = r.pid === pid, drafted = !!r.picks;
+      const s = drafted ? bdScore(r, by) : null;
+      return { nick: r.mnick, you, drafted, pts: s ? s.total : null,
+        picks: s && (phase.revealed || you) ? s.picks.map((p) => ({ slot: p.slot, name: p.name, image: p.image, price: p.price, now: p.now, pts: p.pts, lock: p.lock })) : null };
+    }).sort((a, b) => (b.pts ?? -1e9) - (a.pts ?? -1e9));
+    return json({ ok: true, id, name: league.name, phase, members }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  }
+  if (request.method !== 'POST' || !pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+
+  if (path === '/draft/save') {
+    if (!phase.open) return json({ ok: false, error: phase.live ? 'The draft window has closed for this month. Next Major opens on the 1st.' : 'The Black Friday Open opens on 1 November. Not long now.' }, 400, cors);
+    if (mine && !phase.canEdit) return json({ ok: false, error: 'Bags are sealed now. Use your weekly transfer to make changes.' }, 400, cors);
+    if (!mine && !phase.canJoin) return json({ ok: false, error: 'Entries have closed for this month.' }, 400, cors);
+    const nick = cleanName(body.nick, 2, 20);
+    if (nick === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse. Try another nickname.' }, 400, cors);
+    if (!nick) return json({ ok: false, error: 'Pick a nickname for the leaderboard (at least 2 letters).' }, 400, cors);
+    const want = body.picks || {};
+    const picks = [];
+    for (const slot of BD_SLOTS) {
+      const it = by[String(want[slot] || '')];
+      if (!it || it.slot !== slot) return json({ ok: false, error: 'Fill all six slots first.' }, 400, cors);
+      picks.push({ slot, slug: it.slug, name: it.name, image: it.image, price: it.price, at: new Date().toISOString().slice(0, 10) });
+    }
+    const spent = picks.reduce((t, p) => t + p.price, 0);
+    if (spent > BD_BUDGET + 0.001) return json({ ok: false, error: `That bag costs £${spent.toFixed(2)}. The budget is £${BD_BUDGET}.` }, 400, cors);
+    await env.DEMAND.prepare('INSERT INTO bd_drafts (season, pid, nick, picks, banked, tweek, locked, updated) VALUES (?, ?, ?, ?, 0, \'\', 0, ?) ON CONFLICT (season, pid) DO UPDATE SET nick = excluded.nick, picks = excluded.picks, banked = 0, locked = 0, updated = excluded.updated')
+      .bind(season, pid, nick, JSON.stringify(picks), new Date().toISOString()).run();
+    return json({ ok: true }, 200, cors);
+  }
+  if (!mine) return json({ ok: false, error: 'Draft your bag first.' }, 400, cors);
+  const picks = JSON.parse(mine.picks);
+  const slot = q('slot');
+  const i = picks.findIndex((p) => p.slot === slot);
+  if (i < 0) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  const scored = bdScore(mine, by);
+  if (path === '/draft/lock') {
+    if (mine.locked) return json({ ok: false, error: 'You’ve already used your lock this Major.' }, 400, cors);
+    if (phase.over) return json({ ok: false, error: 'This Major is over.' }, 400, cors);
+    picks[i].lock = scored.picks[i].pts;
+    await env.DEMAND.prepare('UPDATE bd_drafts SET picks = ?, locked = 1, updated = ? WHERE season = ? AND pid = ?').bind(JSON.stringify(picks), new Date().toISOString(), season, pid).run();
+    return json({ ok: true, locked: picks[i].lock }, 200, cors);
+  }
+  if (path === '/draft/transfer') {
+    if (!phase.canTransfer) return json({ ok: false, error: phase.canEdit ? 'Before the 8th you can just redraft your bag.' : 'This Major is over.' }, 400, cors);
+    if (mine.tweek === bdWeek()) return json({ ok: false, error: 'One transfer a week. The window reopens on Monday.' }, 400, cors);
+    if (picks[i].lock !== undefined && picks[i].lock !== null) return json({ ok: false, error: 'That pick is locked in. It stays put.' }, 400, cors);
+    const it = by[q('slug')];
+    if (!it || it.slot !== slot) return json({ ok: false, error: 'That product doesn’t fit that slot.' }, 400, cors);
+    const spent = picks.reduce((t, p, k) => t + (k === i ? 0 : p.price), 0) + it.price;
+    if (spent > BD_BUDGET + 0.001) return json({ ok: false, error: `That would take your bag to £${spent.toFixed(2)}. The budget is £${BD_BUDGET}.` }, 400, cors);
+    const banked = (mine.banked || 0) + scored.picks[i].pts;
+    picks[i] = { slot, slug: it.slug, name: it.name, image: it.image, price: it.price, at: new Date().toISOString().slice(0, 10) };
+    await env.DEMAND.prepare('UPDATE bd_drafts SET picks = ?, banked = ?, tweek = ?, updated = ? WHERE season = ? AND pid = ?')
+      .bind(JSON.stringify(picks), banked, bdWeek(), new Date().toISOString(), season, pid).run();
+    return json({ ok: true, banked }, 200, cors);
+  }
+  return new Response('Not found', { status: 404, headers: cors });
 }
 
 /* ------------------------------------------------------------------ helpers */

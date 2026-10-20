@@ -449,3 +449,19 @@
   .dm-tb::after { background: linear-gradient(180deg, rgba(22, 36, 28, 0) 35%, rgba(22, 36, 28, 0.78) 58%, rgba(22, 36, 28, 0.95) 100%); }
   .dm-tb .gp-tb-body { top: auto; bottom: 20px; transform: none; width: auto; right: 20px; left: 20px; }
 }
+
+/* Social + Play side by side under the Deal Tools banner (Oct 2026). */
+.gp-duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 20px; }
+.gp-duo-card { aspect-ratio: 3 / 2; }
+.gp-duo-card img { object-position: 60% 25%; }
+.gp-duo-card::after { background: linear-gradient(180deg, rgba(22, 36, 28, 0) 28%, rgba(22, 36, 28, 0.8) 58%, rgba(22, 36, 28, 0.96) 100%); }
+.gp-duo-card .gp-tb-body { top: auto; bottom: 24px; transform: none; left: 26px; right: 26px; width: auto; gap: 8px; }
+.gp-duo-card .gp-tb-title { font-size: 25px; }
+@media (max-width: 900px) { .gp-duo-card .gp-tb-title { font-size: 21px; } .gp-duo-card .gp-tb-line { display: none; } }
+@media (max-width: 700px) {
+  .gp-duo { grid-template-columns: 1fr; gap: 16px; }
+  .gp-duo-card { aspect-ratio: 1 / 1; }
+  .gp-duo-card img { object-position: 50% 0; }
+  .gp-duo-card .gp-tb-line { display: block; }
+  .gp-duo-card .gp-tb-body { left: 18px; right: 18px; bottom: 18px; }
+}
