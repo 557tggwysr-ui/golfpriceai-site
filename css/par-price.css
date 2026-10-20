@@ -294,3 +294,18 @@
   .bd-item-pic { width: 52px; height: 52px; }
   .bd-item-buy { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; }
 }
+
+/* ---------------------------------------------------------------- Leagues landing (/play/leagues/) */
+.ch-btn { display: inline-flex; align-items: center; min-height: 46px; padding: 0 18px; border-radius: 10px; background: var(--gp-green); color: #fff; font-weight: 700; text-decoration: none; }
+.ch-btn:hover { color: #fff; filter: brightness(.95); }
+.lh-wrap { max-width: 760px; margin: 0 auto; padding: 16px 0 40px; display: flex; flex-direction: column; gap: 16px; }
+.lh-start { border: 2px solid var(--gp-green); }
+.lh-start .gp-af-btn { min-height: 52px; font-size: 16px; }
+.lh-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.lh-steps h3 { margin: 0; font: 800 18px Poppins, sans-serif; }
+.lh-steps p { font-size: 14px; }
+.lh-invited { margin: 0; text-align: center; color: var(--gp-text-3); font-size: 14px; }
+.lh-next { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin: 0; font-weight: 600; }
+.lh-next .lh-play { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; padding: 0 16px; color: #fff; text-decoration: none; }
+.ch-panel[hidden], .pr-leagues[hidden] { display: none; }
+@media (max-width: 700px) { .lh-steps { grid-template-columns: 1fr; } }

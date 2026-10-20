@@ -30,6 +30,6 @@
     if (!mine.length) return;
     document.getElementById('ch-leagues').innerHTML = '<ul class="pr-lg-list">' + mine.map(function (l) {
       return '<li><a href="/play/league/?l=' + l.id + '"><b>' + esc(l.name) + '</b><span>' + l.size + (l.size === 1 ? ' golfer' : ' golfers') + ' · See the table</span></a></li>';
-    }).join('') + '</ul><p class="ch-small">Start another one from your Par Price scorecard.</p>';
+    }).join('') + '</ul>';
   }).catch(function () {});
 })();

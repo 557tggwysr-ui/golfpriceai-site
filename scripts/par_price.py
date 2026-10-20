@@ -109,7 +109,7 @@ def page(n, today):
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
                       canonical=f"{SITE}/play/par-price/", body=body, section="play", schema=[app, crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261022">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261023">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -126,7 +126,50 @@ def league_page():
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
                       canonical=f"{SITE}/play/league/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261022">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261023">\n'
+                                 '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
+
+
+def leagues_page():
+    """/play/leagues/: start a league in one step, or see yours (js/leagues-home.js)."""
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Play", "/play/"), ("Leagues", None)])
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<div class="lh-wrap">
+  <section class="ch-hero lh-hero">
+    <span class="pr-kicker">Play · Leagues</span>
+    <h1>Take on your mates</h1>
+    <p>One league covers both games: Par Price every day and the Bag Draft every month. Nicknames only, no sign-up, and a table that updates itself. Loser buys the first round.</p>
+  </section>
+  <section class="ch-panel lh-start" id="lh-start">
+    <span class="ch-kicker">Step 1 · Start a league</span>
+    <h2>Takes about ten seconds</h2>
+    <form class="pr-lg-form" id="lh-form" novalidate>
+      <label>League name<input name="lname" maxlength="30" placeholder="The Sunday Swingers" autocomplete="off"></label>
+      <label>Your nickname<input name="nick" maxlength="20" placeholder="Big Dave" autocomplete="nickname"></label>
+      <button type="submit" class="gp-af-btn">Start the league</button>
+      <p class="pr-msg" role="status"></p>
+      <p class="pr-lg-small">No email, no sign-up. Nicknames only: what happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
+    </form>
+  </section>
+  <section class="ch-panel" id="lh-mine" hidden>
+    <span class="ch-kicker">Your leagues</span>
+    <ul class="pr-lg-list"></ul>
+  </section>
+  <section class="lh-steps">
+    <div class="ch-panel"><span class="ch-kicker">Step 2</span><h3>Send the link</h3><p>One tap shares it to the group chat. Mates pick a nickname and they’re on the table.</p></div>
+    <div class="ch-panel"><span class="ch-kicker">Step 3</span><h3>Play</h3><p>Everyone plays <a href="/play/par-price/">Par Price</a> each day and drafts a bag in the <a href="/play/draft/">Bag Draft</a> each month. The table does the rest.</p></div>
+    <div class="ch-panel"><span class="ch-kicker">The good bit</span><h3>Bragging rights</h3><p>Daily winners, a weekly champion, the wooden spoon, Closest to the Pin and a monthly Major. Mike will treasure that spoon.</p></div>
+  </section>
+  <p class="lh-invited">Been sent an invite? Just tap the link your mate shared and pick a nickname.</p>
+</div>
+</div>
+<script src="/js/leagues-home.js?v=20261022" defer></script>"""
+    return page_shell(title="Golf leagues for your group chat | GolfPrice AI",
+                      description="Start a free golf league for your group chat in ten seconds: Par Price every day, the Bag Draft every month, nicknames only. Loser buys the first round.",
+                      canonical=f"{SITE}/play/leagues/", body=body, section="play", schema=[crumbs_schema], noindex=False,
+                      og_image="/assets/cards/par-price/league.jpg",
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261023">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -156,7 +199,8 @@ def hub_page(n, rnd):
   <section class="ch-panel" id="leagues">
     <span class="ch-kicker">Leagues</span>
     <h2>Take on your mates</h2>
-    <div id="ch-leagues"><p>Finish a round of Par Price and start a league: one link for the group chat, nicknames only, and a table that updates itself. Loser buys the first round.</p></div>
+    <div id="ch-leagues"><p>One league covers Par Price and the Bag Draft: one link for the group chat, nicknames only, and a table that updates itself. Loser buys the first round.</p></div>
+    <p><a class="ch-btn" href="/play/leagues/">Start a league</a></p>
   </section>
 
   <section class="ch-panel ch-fame">
@@ -185,12 +229,12 @@ def hub_page(n, rnd):
   <a class="ch-also" href="/demand/">Also from the clubhouse: <b>the UK Golf Demand Index</b>, what every golfer’s quietly eyeing up this week <span aria-hidden="true">&rarr;</span></a>
 </div>
 </div>
-<script src="/js/clubhouse.js?v=20261021" defer></script>"""
+<script src="/js/clubhouse.js?v=20261023" defer></script>"""
     return page_shell(title="The Clubhouse: free golf price games | GolfPrice AI",
                       description="Free golf games that run on real UK prices: Par Price, the daily price-guessing game, leagues for your group chat, and The Bag Draft, fantasy golf kit, from 1 November.",
                       canonical=f"{SITE}/play/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261022">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261023">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -227,6 +271,8 @@ def build(passing, built, today):
         changed.append("/play/par-price/")
     if _write(ROOT / "play" / "index.html", hub_page(current.get("n", n) if current else n, current)):
         changed.append("/play/")
+    if _write(ROOT / "play" / "leagues" / "index.html", leagues_page()):
+        changed.append("/play/leagues/")
     if _write(ROOT / "play" / "league" / "index.html", league_page()):
         changed.append("/play/league/")
     return changed

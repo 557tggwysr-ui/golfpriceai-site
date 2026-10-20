@@ -1434,7 +1434,7 @@ def build(models_list, products, today_str):
         try:
             import par_price
             changed += par_price.build(passing, built, today)
-            sitemap += [("play/", None), ("play/par-price/", None)]
+            sitemap += [("play/", None), ("play/par-price/", None), ("play/leagues/", None)]
         except Exception as e:  # never stop the main build
             print(f"Par Price skipped: {e}")
         try:

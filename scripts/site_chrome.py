@@ -122,7 +122,7 @@ def menu():
         "play": [
             ("Par Price", "Today’s golf price game. New round every morning.", "/play/par-price/",
              '<path d="M6 21V4M6 4l11 4-11 4M3 21h8"></path>'),
-            ("Leagues", "Take on your mates. One link for the group chat.", "/play/#leagues",
+            ("Leagues", "Take on your mates. One link for the group chat.", "/play/leagues/",
              '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM7 6H4a3 3 0 003 4M17 6h3a3 3 0 01-3 4"></path>'),
             ("The Bag Draft", "Fantasy golf kit. The Black Friday Open starts 1 November.", "/play/draft/",
              '<path d="M8 7h8l-1 14H9L8 7zM10 7V4h4v3M8 11h8"></path>'),
