@@ -1,8 +1,18 @@
 {
- "checked": "2026-10-20T19:17+01:00",
+ "checked": "2026-10-20T22:02+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Big Max Dri Lite Hybrid Tour 2 Golf Bag",
+   "model_id": "big-max-dri-lite-hybrid-tour-2-golf-bag",
+   "date": "2026-10-20",
+   "was": 199.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/"
+  },
   {
    "model": "Wilson DYNAPWR Max Irons",
    "model_id": "wilson-dynapwr-max-irons",
@@ -142,16 +152,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/caddytalk-cube-laser-rangefinder/"
-  },
-  {
-   "model": "Big Max Dri Lite Hybrid Tour 2 Golf Bag",
-   "model_id": "big-max-dri-lite-hybrid-tour-2-golf-bag",
-   "date": "2026-10-15",
-   "was": 209.0,
-   "now": 199.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/"
   },
   {
    "model": "Ogio All Elements Hybrid Stand Bag Golf Bag",
