@@ -239,21 +239,6 @@
  ],
  "categoryFixes": [
   {
-   "name": "Odyssey Ai-ONE Putter Weight Kit",
-   "from": "putter",
-   "to": "accessories"
-  },
-  {
-   "name": "Odyssey Weight Kit",
-   "from": "putter",
-   "to": "accessories"
-  },
-  {
-   "name": "Odyssey Ai-ONE Milled Putter Weight Kit",
-   "from": "putter",
-   "to": "accessories"
-  },
-  {
    "name": "Big Max Golf QF Classic Trolley Umbrella Holder - Black",
    "from": "sets",
    "to": "accessories"
@@ -785,6 +770,36 @@
   },
   {
    "name": "TaylorMade Spider ZT Max Mens Right Hand Putter 38\" Mallet KBS Tour GPS - Super Stroke Zenergy Tour 3.0.17",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf DFX 25 #10 S Putter - Right Hand / Pistol Grip / 34",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf DFX 25 #10 S Putter - Right Hand / OS Grip / 34",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf DFX 25 #10 S Putter - Left Hand / Pistol Grip / 34",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf DFX 25 #10 S Putter - Left Hand / OS Grip / 34",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf DFX 25 V-Line Fang Putter - Right Hand / Pistol Grip / 34",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Golf DFX 25 V-Line Fang Putter - Right Hand / OS Grip / 34",
    "from": "accessories",
    "to": "putter"
   }
