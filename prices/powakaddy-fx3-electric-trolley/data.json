@@ -9,7 +9,8 @@
  "lowestNewPrice": 579.0,
  "lowestAt": [
   "Affordable Golf",
-  "Clickgolf"
+  "Clickgolf",
+  "Major Golf Direct"
  ],
  "retailers": [
   {
@@ -21,6 +22,11 @@
    "name": "Clickgolf",
    "from": 579.0,
    "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 579.0,
+   "options": 1
   },
   {
    "name": "Scottsdale Golf",
