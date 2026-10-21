@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-soft-golf-balls/",
- "checked": "2026-10-20",
+ "checked": "2026-10-21",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 39.99,
@@ -34,10 +34,10 @@
   }
  ],
  "history": {
-  "daysTracked": 66,
+  "daysTracked": 67,
   "low": 39.99,
   "high": 49.99,
-  "average": 40.75,
+  "average": 40.74,
   "priceChanges": 1,
   "series": [
    [
@@ -49,14 +49,14 @@
     39.99
    ],
    [
-    "2026-10-20",
+    "2026-10-21",
     39.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 61 days"
+  "summary": "Typical price: steady for 62 days"
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788281849410/sits/balls-2024-chrome-soft-yellow/balls-2024-chrome-soft-yellow_1446___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

@@ -3,14 +3,30 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-10-20",
+ "date": "2026-10-21",
  "status": "warming up",
  "week": {
-  "from": "2026-10-14",
-  "to": "2026-10-20"
+  "from": "2026-10-15",
+  "to": "2026-10-21"
  },
  "chart": [],
- "wishfulThinking": [],
+ "wishfulThinking": [
+  {
+   "category": "Golf bags",
+   "averageGuessVsRealPricePct": 29,
+   "guesses": 8
+  },
+  {
+   "category": "Golf balls",
+   "averageGuessVsRealPricePct": 12,
+   "guesses": 8
+  },
+  {
+   "category": "Wedges",
+   "averageGuessVsRealPricePct": 1,
+   "guesses": 8
+  }
+ ],
  "categoryShare": [],
  "reports": []
 }

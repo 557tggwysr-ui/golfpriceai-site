@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-seven-t-db-putter/",
- "checked": "2026-10-20",
+ "checked": "2026-10-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 291.85,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 66,
+  "daysTracked": 67,
   "low": 291.85,
   "high": 449.0,
-  "average": 303.76,
+  "average": 303.58,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     291.85
    ],
    [
-    "2026-10-20",
+    "2026-10-21",
     291.85
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 61 days"
+  "summary": "Typical price: steady for 62 days"
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1792424866768/sits/putters-2024-ai-one-milled-seven-t-db/putters-2024-ai-one-milled-seven-t-db___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

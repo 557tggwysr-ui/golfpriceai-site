@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/srixon-ultisoft-golf-balls/",
- "checked": "2026-10-20",
+ "checked": "2026-10-21",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 19.99,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 47,
+  "daysTracked": 48,
   "low": 19.99,
   "high": 22.99,
-  "average": 20.31,
+  "average": 20.3,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     19.99
    ],
    [
-    "2026-10-20",
+    "2026-10-21",
     19.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 42 days"
+  "summary": "Typical price: steady for 43 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/UltisoftWhite8.jpg?v=1776292200",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

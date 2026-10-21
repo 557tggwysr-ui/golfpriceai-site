@@ -3,30 +3,31 @@
  "brand": "Mizuno",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/mizuno-jpx-923-hot-metal-irons/",
- "checked": "2026-10-20",
+ "checked": "2026-10-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 499.0,
  "lowestAt": [
+  "Affordable Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
+   "name": "Affordable Golf",
    "from": 499.0,
    "options": 1
   },
   {
-   "name": "Affordable Golf",
-   "from": 599.0,
+   "name": "Clickgolf",
+   "from": 499.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 66,
+  "daysTracked": 67,
   "low": 499.0,
   "high": 599.0,
-  "average": 579.3,
+  "average": 578.1,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +39,7 @@
     499.0
    ],
    [
-    "2026-10-20",
+    "2026-10-21",
     499.0
    ]
   ]

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/ping-g440-hybrid/",
- "checked": "2026-10-20",
+ "checked": "2026-10-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -24,7 +24,7 @@
   }
  ],
  "history": {
-  "daysTracked": 66,
+  "daysTracked": 67,
   "low": 269.0,
   "high": 269.0,
   "average": 269.0,
@@ -35,14 +35,14 @@
     269.0
    ],
    [
-    "2026-10-20",
+    "2026-10-21",
     269.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 66 days"
+  "summary": "Typical price: steady for 67 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-hybrid-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

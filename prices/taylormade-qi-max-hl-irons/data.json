@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-qi-max-hl-irons/",
- "checked": "2026-10-20",
+ "checked": "2026-10-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 849.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 66,
+  "daysTracked": 67,
   "low": 849.0,
   "high": 949.0,
-  "average": 867.18,
+  "average": 866.91,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     849.0
    ],
    [
-    "2026-10-20",
+    "2026-10-21",
     849.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 54 days"
+  "summary": "Typical price: steady for 55 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeGolfQiMAXHLSteelIrons2026_5.jpg?v=1768226150",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

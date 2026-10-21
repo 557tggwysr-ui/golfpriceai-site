@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/cobra-mim-camino-sb-putter/",
- "checked": "2026-10-20",
+ "checked": "2026-10-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 219.0,
   "high": 229.0,
-  "average": 220.15,
+  "average": 220.13,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     219.0
    ],
    [
-    "2026-10-20",
+    "2026-10-21",
     219.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 54 days"
+  "summary": "Typical price: steady for 55 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CobraGolfMIMCaminoSBPutter2026_2.jpg?v=1765897317",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

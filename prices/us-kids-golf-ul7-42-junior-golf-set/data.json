@@ -3,7 +3,7 @@
  "brand": "US Kids Golf",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/us-kids-golf-ul7-42-junior-golf-set/",
- "checked": "2026-10-20",
+ "checked": "2026-10-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 66,
+  "daysTracked": 67,
   "low": 169.95,
   "high": 179.0,
-  "average": 171.6,
+  "average": 171.57,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     169.95
    ],
    [
-    "2026-10-20",
+    "2026-10-21",
     169.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 54 days"
+  "summary": "Typical price: steady for 55 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/42SetStood.jpg?v=1707474341",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-20T22:02+01:00",
+ "checked": "2026-10-21T03:36+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -152,56 +152,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/caddytalk-cube-laser-rangefinder/"
-  },
-  {
-   "model": "Ogio All Elements Hybrid Stand Bag Golf Bag",
-   "model_id": "ogio-all-elements-hybrid-stand-bag-golf-bag",
-   "date": "2026-10-13",
-   "was": 259.0,
-   "now": 199.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ogio-all-elements-hybrid-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Ogio Featherlite Stand Bag Golf Bag",
-   "model_id": "ogio-featherlite-stand-bag-golf-bag",
-   "date": "2026-10-13",
-   "was": 199.95,
-   "now": 159.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ogio-featherlite-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Ogio All Elements Silencer Cart Bag Golf Bag",
-   "model_id": "ogio-all-elements-silencer-cart-bag-golf-bag",
-   "date": "2026-10-13",
-   "was": 279.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ogio-all-elements-silencer-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Ogio Shadow Stand Bag Golf Bag",
-   "model_id": "ogio-shadow-stand-bag-golf-bag",
-   "date": "2026-10-13",
-   "was": 279.0,
-   "now": 249.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ogio-shadow-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Ogio Fuse Stand Bag Golf Bag",
-   "model_id": "ogio-fuse-stand-bag-golf-bag",
-   "date": "2026-10-13",
-   "was": 179.95,
-   "now": 169.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ogio-fuse-stand-bag-golf-bag/"
   }
  ]
 }

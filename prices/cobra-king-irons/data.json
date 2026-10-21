@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-king-irons/",
- "checked": "2026-10-20",
+ "checked": "2026-10-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 559.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 66,
+  "daysTracked": 67,
   "low": 129.0,
   "high": 559.0,
-  "average": 207.18,
+  "average": 206.01,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     129.0
    ],
    [
-    "2026-10-20",
+    "2026-10-21",
     129.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 54 days"
+  "summary": "Typical price: steady for 55 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-King-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
