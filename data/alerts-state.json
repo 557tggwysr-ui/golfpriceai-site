@@ -10,6 +10,7 @@
     "cobra-ds-adapt-ls-driver": 329.0,
     "cobra-ds-adapt-max-k-driver": 329.0,
     "cobra-ds-adapt-x-driver": 329.0,
+    "cobra-king-tec-mini-driver": 379.0,
     "cobra-optm-max-d-driver": 479.0,
     "cobra-optm-x-driver": 479.0,
     "mizuno-jpx-one-driver": 429.0,
@@ -17,24 +18,32 @@
     "srixon-zxi-ls-driver": 329.0,
     "srixon-zxi-max-driver": 329.0,
     "srixon-zxi-rkt-driver": 529.0,
+    "taylormade-qi10-driver": 379.0,
     "taylormade-qi35-driver": 349.0,
+    "taylormade-qi4d-designer-series-shadowfall-driver": 549.0,
     "taylormade-qi4d-driver": 549.0,
     "taylormade-qi4d-max-driver": 549.0,
+    "taylormade-r7-quad-mini-driver": 379.0,
     "titleist-gt1-driver": 449.0,
     "titleist-gt2-driver": 399.0,
     "titleist-gt280-mini-driver": 439.0,
+    "titleist-gt3-driver": 449.0,
     "titleist-gt4-driver": 399.0,
     "titleist-gts2-driver": 629.0,
-    "titleist-gts3-driver": 629.0
+    "titleist-gts3-driver": 629.0,
+    "titleist-gts4-driver": 629.0
    },
    "under": [
     "callaway-paradym-ai-smoke-max-driver",
+    "cleveland-hibore-xl-driver",
     "cleveland-hibore-xl-lite-driver",
     "cleveland-launcher-xl2-draw-driver",
     "cleveland-launcher-xl2-driver",
     "cobra-baffler-driver",
     "cobra-baffler-offset-driver",
+    "cobra-rad-s-driver",
     "macgregor-zt-plus-driver",
+    "mizuno-st-g-driver",
     "srixon-zxi-driver",
     "wilson-dynapwr-driver",
     "wilson-profile-driver",
@@ -59,7 +68,7 @@
  },
  "remind": "2026-10-21",
  "sent": {
-  "2026-10-21": 0
+  "2026-10-22": 0
  },
  "stock": {
   "apparel-adidas-rain-rdy-waterproof-golf-jacket-hn4128-black-m-majorgolf": {
