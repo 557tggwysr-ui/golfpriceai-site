@@ -1,45 +1,30 @@
 {
- "lastUpdated": "2026-10-21",
+ "lastUpdated": "2026-10-22",
  "uncertainGroupings": [
+  {
+   "model": "Callaway quantum max",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
   {
    "model": "TaylorMade milled grind 5",
    "issue": "cheapest retailer \u00a3179.00 vs dearest \u00a3499.00: check for used stock or a different product",
    "listings": 30
   },
   {
-   "model": "TaylorMade Hi-Toe 4 Wedge",
-   "issue": "price spread \u00a3129.95 to \u00a3447.00: may mix different products",
-   "listings": 23
-  },
-  {
    "model": "Srixon soft feel",
    "issue": "cheapest retailer \u00a319.99 vs dearest \u00a368.97: check for used stock or a different product",
-   "listings": 22
+   "listings": 29
   },
   {
    "model": "Srixon Soft Feel Golf Balls",
    "issue": "price spread \u00a319.99 to \u00a368.97: may mix different products",
-   "listings": 22
+   "listings": 29
   },
   {
-   "model": "Cleveland CBZ Tour Satin Wedge",
-   "issue": "price spread \u00a3124.95 to \u00a3417.00: may mix different products",
-   "listings": 18
-  },
-  {
-   "model": "Wilson staff duo soft",
-   "issue": "7 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
-   "listings": 7
-  },
-  {
-   "model": "Srixon AD333 Golf Balls",
-   "issue": "price spread \u00a319.95 to \u00a368.97: may mix different products",
-   "listings": 14
-  },
-  {
-   "model": "Callaway quantum max",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
+   "model": "L.A.B. Golf Putter",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 28
   },
   {
    "model": "TaylorMade qi max",
@@ -47,14 +32,59 @@
    "listings": 1
   },
   {
-   "model": "AffordableGolf affordable in store gift card",
-   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 2
+   "model": "TaylorMade Hi-Toe 4 Wedge",
+   "issue": "price spread \u00a3129.95 to \u00a3447.00: may mix different products",
+   "listings": 23
   },
   {
-   "model": "AffordableGolf AFFORDABLE IN STORE GIFT CARD Putter",
-   "issue": "price spread \u00a330.00 to \u00a31,000.00: may mix different products",
+   "model": "Cleveland CBZ Tour Satin Wedge",
+   "issue": "price spread \u00a3124.95 to \u00a3417.00: may mix different products",
+   "listings": 18
+  },
+  {
+   "model": "Wilson Staff Model ZM Wedge",
+   "issue": "price spread \u00a399.95 to \u00a3357.00: may mix different products",
+   "listings": 17
+  },
+  {
+   "model": "Srixon AD333 Golf Balls",
+   "issue": "price spread \u00a319.95 to \u00a368.97: may mix different products",
+   "listings": 16
+  },
+  {
+   "model": "Wilson staff duo soft",
+   "issue": "7 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
+   "listings": 7
+  },
+  {
+   "model": "Mizuno Pro T-3 Wedge",
+   "issue": "price spread \u00a3119.00 to \u00a3477.00: may mix different products",
+   "listings": 13
+  },
+  {
+   "model": "Aldila stiff",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "TaylorMade qi max hl",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Srixon Z-Star Diamond Golf Balls",
+   "issue": "price spread \u00a329.99 to \u00a3128.97: may mix different products",
    "listings": 10
+  },
+  {
+   "model": "Srixon z-star",
+   "issue": "cheapest retailer \u00a338.99 vs dearest \u00a3128.97: check for used stock or a different product",
+   "listings": 9
+  },
+  {
+   "model": "Srixon Z-Star Golf Balls",
+   "issue": "price spread \u00a338.99 to \u00a3128.97: may mix different products",
+   "listings": 9
   },
   {
    "model": "Cleveland RTZ Wedge",
@@ -72,24 +102,14 @@
    "listings": 8
   },
   {
-   "model": "Srixon Z-Star Diamond Golf Balls",
-   "issue": "price spread \u00a329.99 to \u00a3128.97: may mix different products",
-   "listings": 8
-  },
-  {
    "model": "Ben Sayers Electric Trolley",
    "issue": "no model name: held back until an alias names it",
    "listings": 8
   },
   {
-   "model": "TaylorMade qi max hl",
+   "model": "Titleist t350",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
-  },
-  {
-   "model": "Mizuno Pro T-3 Wedge",
-   "issue": "price spread \u00a3119.00 to \u00a3477.00: may mix different products",
-   "listings": 7
   },
   {
    "model": "Cleveland Sole Full Face Wedge",
@@ -97,19 +117,9 @@
    "listings": 7
   },
   {
-   "model": "Srixon z-star",
-   "issue": "3 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
-   "listings": 3
-  },
-  {
    "model": "Mizuno Pro T-1 Wedge",
    "issue": "price spread \u00a3119.00 to \u00a3477.00: may mix different products",
    "listings": 6
-  },
-  {
-   "model": "Titleist t350",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
   },
   {
    "model": "Mizuno pro x",
@@ -132,8 +142,8 @@
    "listings": 1
   },
   {
-   "model": "Wilson Staff Model ZM Wedge",
-   "issue": "price spread \u00a399.95 to \u00a3357.00: may mix different products",
+   "model": "True Temper Driver",
+   "issue": "no model name: held back until an alias names it",
    "listings": 5
   },
   {
@@ -152,9 +162,9 @@
    "listings": 4
   },
   {
-   "model": "L.A.B. Golf Putter",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 4
+   "model": "Cobra 3dp tour",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
   },
   {
    "model": "Aldila Stiff Fairway Wood",
@@ -187,7 +197,7 @@
    "listings": 2
   },
   {
-   "model": "True Temper Driver",
+   "model": "Matrix Driver",
    "issue": "no model name: held back until an alias names it",
    "listings": 2
   },
@@ -203,11 +213,6 @@
   },
   {
    "model": "Aldila Hybrid",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 1
-  },
-  {
-   "model": "Matrix Driver",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
   },
@@ -233,6 +238,16 @@
   },
   {
    "model": "KBS Hybrid",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 1
+  },
+  {
+   "model": "Mitsubishi Driver",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 1
+  },
+  {
+   "model": "UST Mamiya Driver",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
   }
@@ -800,6 +815,1781 @@
   },
   {
    "name": "Odyssey Golf DFX 25 V-Line Fang Putter - Right Hand / OS Grip / 34",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER5 Hatchback Mallet Putter Right Hand / 33\" / Red Gravity Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Mizuno JPX 923 Forged Irons - Steel Right Hand / 5-PW+GW (7 Irons) / Regular - $-Taper LT Chrome, MCC+4 Grey Grip",
+   "from": "accessories",
+   "to": "irons"
+  },
+  {
+   "name": "Evnroll EV8 Satin Short Slant Tour Mallet Putter - 340g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV8 Satin Short Slant Tour Mallet Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV8 Satin Short Slant Tour Mallet Putter - 340g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Satin Short Plumber Players Mallet Putter - 355g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Satin Short Plumber Players Mallet Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Satin Short Slant Players Mallet Putter - 355g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Duo Short Plumber Players Mallet Putter - 355g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Duo Short Plumber Players Mallet Putter - 355g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Duo Short Plumber Players Mallet Putter - 355g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Duo Short Slant Players Mallet Putter - 340g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Duo Short Slant Players Mallet Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Duo Short Slant Players Mallet Putter - 340g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Duo Short Plumber Players Mallet Putter - 340g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Duo Short Plumber Players Mallet Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.3 Duo Short Plumber Players Mallet Putter - 340g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Satin Short Slant Players Mallet Putter - 355g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Satin Short Slant Players Mallet Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Satin Short Plumber Players Mallet Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Satin Short Plumber Players Mallet Putter - 355g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Duo Short Plumber Players Mallet Putter - 355g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Duo Short Plumber Players Mallet Putter - 355g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Duo Short Plumber Players Mallet Putter - 355g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Duo Short Plumber Players Mallet Putter - 340g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Duo Short Plumber Players Mallet Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Duo Short Plumber Players Mallet Putter - 340g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.1 Black Short Slant Players Mallet Putter - 355g Right Hand / 34 Inches / Gravity Grip - Red",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.1 Duo Short Slant Players Mallet Putter - 340g Right Hand / 34 Inches / Gravity Grip - Black/White",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.1 Duo Short Slant Players Mallet Putter - 340g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.1 Duo Short Slant Players Mallet Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.1 Duo Short Slant Players Mallet Putter - 340g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Satin Short Slant MidBlade Putter - 355g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Satin Short Slant MidBlade Putter - 355g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Satin Short Slant MidBlade Putter - 355g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.1 Black Short Plumber Players Mallet Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Black Short Slant MidBlade Putter - 355g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Black Short Slant MidBlade Putter - 355g Right Hand / 34 Inches / TourTac Grip - Black 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Black Short Slant MidBlade Putter - 355g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Black Short Slant MidBlade Putter - 355g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Satin Short Plumber MidBlade Putter - 340g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Satin Short Plumber MidBlade Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Satin Short Plumber MidBlade Putter - 340g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER5 Hatchback Black Mallet Putter - 355g Left Hand / 34\" / TourTac Grip - Black 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER5vB1 Black Short Slant Hatchback Mallet Putter Right Hand / 33\" / Black TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Black Short Slant Players Mallet Putter - 340g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Black Short Slant Players Mallet Putter - 340g Right Hand / 34 Inches / Gravity Grip - Black",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Black Short Slant Players Mallet Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.2 Black Short Slant Players Mallet Putter - 340g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Putter - #1 CH Right Hand / 33\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - Seven T DB Left Hand / 33\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - Three T Right Hand / 34\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - Eight T Left Hand / 33\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - Eight T Left Hand / 34\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - Eight T Left Hand / 35\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - Six T Right Hand / 34\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - Two T Left Hand / 33\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - Two T Left Hand / 34\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - Two T Left Hand / 35\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Black Short Plumber MidBlade Putter - 340g Right Hand / 33 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Black Short Plumber MidBlade Putter - 340g Right Hand / 34 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV2 Black Short Plumber MidBlade Putter - 340g Right Hand / 35 Inches / TourTac Grip - White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Putter - #2 CH Right Hand / 33\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Putter - #2 CH Right Hand / 34\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Putter - #2 CH Right Hand / 35\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER5v Short Plumber Hatchback Mallet Putter Right Hand / 35\" / Black Gravity Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Black Tour Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 1.2 Tour Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Black Mid Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2 Mid Blade Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Black Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Black Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Black Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Black Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Black Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Black Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Black Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Black Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Black Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Black Mid Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Black",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Mid Blade Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Mid Blade Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Mid Blade Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 2.2 Mid Blade Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Red & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Black Hatchback Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 5 Hatchback Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Black Tour Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 340g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 340g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 340g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 355g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 355g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 355g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 370g Right Hand / 33\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 370g Right Hand / 33\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 370g Right Hand / 33\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 370g Right Hand / 34\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 370g Right Hand / 34\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 370g Right Hand / 34\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 370g Right Hand / 35\" / Evnroll TourTac Grip - Black & White - 50g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 370g Right Hand / 35\" / Evnroll TourTac Grip - Neo Black 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo Classic 8 Tour Mallet Putter - 370g Right Hand / 35\" / Evnroll TourTac Grip - Neo White 90g",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - 2-Ball T Left Hand / 35\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Milled Putter - One Wide T Left Hand / 35\" / MID Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER5v1 Hatchback Mallet Short Slant Putter Right Hand / 33\" / White TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - 2 Ball Blade CH Right Hand / 33\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - 2 Ball Blade CH Right Hand / 34\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - 2 Ball Blade CH Right Hand / 35\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - 2 Ball Blade CH Right Hand / 33\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - 2 Ball Blade CH Right Hand / 34\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - 2 Ball Blade CH Right Hand / 35\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One CH Right Hand / 34\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One CH Right Hand / 35\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One CH Right Hand / 33\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One CH Right Hand / 34\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One CH Right Hand / 35\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One Wide CH Right Hand / 33\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One Wide CH Right Hand / 34\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One Wide CH Right Hand / 35\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One Wide CH Right Hand / 33\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One Wide CH Right Hand / 34\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One Wide CH Right Hand / 35\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - Ten S Slant Right Hand / 33\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - Ten S Slant Right Hand / 34\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - Ten S Slant Right Hand / 35\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - Ten S Slant Right Hand / 33\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - Ten S Slant Right Hand / 34\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - Ten S Slant Right Hand / 35\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - V-Line Fang DB Right Hand / 34\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - V-Line Fang DB Right Hand / 35\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - V-Line Fang DB Right Hand / 33\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - V-Line Fang DB Right Hand / 34\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - V-Line Fang DB Right Hand / 35\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Carlsbad Putter - Blade Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Black Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Black Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Black Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Black Left Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Black Left Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Black Left Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Blue Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Blue Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Blue Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Red Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Red Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z1 Putter - Red Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z2s Putter - Square-Back Blade Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z2s Putter - Square-Back Blade Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z2s Putter - Square-Back Blade Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z5s Putter - Winged Full Mallet Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z5s Putter - Winged Full Mallet Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Zero Z5s Putter - Winged Full Mallet Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V2 MidBlade Putter - Short Plumber Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V2 MidBlade Putter - Short Plumber Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V2 MidBlade Putter - Short Plumber Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V2 MidBlade Putter - Short Slant Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V2 MidBlade Putter - Short Slant Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V2 MidBlade Putter - Short Slant Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.1 Duo Mallet Putter - Short Plumber Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.1 Duo Mallet Putter - Short Plumber Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.1 Duo Mallet Putter - Short Plumber Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.1 Duo Mallet Putter - Short Slant Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.1 Duo Mallet Putter - Short Slant Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.1 Duo Mallet Putter - Short Slant Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.2 Duo Mallet Putter - Short Plumber Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.2 Duo Mallet Putter - Short Plumber Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.2 Duo Mallet Putter - Short Plumber Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.2 Duo Mallet Putter - Short Slant Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.2 Duo Mallet Putter - Short Slant Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "EvnRoll V5.2 Duo Mallet Putter - Short Slant Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll V12 Black Mallet Putter - Inline Short Slant High MOI Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll V12 Black Mallet Putter - Inline Short Slant High MOI Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll V12 Black Mallet Putter - Inline Short Slant High MOI Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll V12 Black Mallet Putter - Inline Short Plumber High MOI Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll V12 Black Mallet Putter - Inline Short Plumber High MOI Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll V12 Black Mallet Putter - Inline Short Plumber High MOI Right Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER2 Triple Black Blade Putter Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER2 Triple Black Blade Putter Left Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER2 Triple Black Blade Putter Left Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER2 Triple Black Blade Putter Left Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo 2 Triple Black Classic ER5 Hatchback Mallet Putter Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo 2 Triple Black Classic ER5 Hatchback Mallet Putter Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo 2 Triple Black Classic ER5 Hatchback Mallet Putter Left Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo 2 Triple Black Classic ER5 Hatchback Mallet Putter Left Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll Neo 2 Triple Black Classic ER5 Hatchback Mallet Putter Left Hand / 35\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER8 Triple Black Mallet Putter Right Hand / 34\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Square 2 Square Putter - MAX 1 Right Hand / 33\" / Odyssey Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Square 2 Square Putter - MAX 1 Right Hand / 34\" / Odyssey Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Square 2 Square Putter - MAX 1 Right Hand / 35\" / Odyssey Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Square 2 Square Putter - MAX Stripe Right Hand / 33\" / Odyssey Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Ai-One Square 2 Square Putter - MAX Stripe Right Hand / 34\" / Odyssey Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll EV5.1 Satin Short Plumber Players Mallet Putter - 355g Right Hand / 33\" / Black Gravity Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER5v4 Long Slant Hatchback Mallet Putter Right Hand / 33\" / White TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER5v4 Long Slant Hatchback Mallet Putter Right Hand / 34\" / White TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER5v4 Long Slant Hatchback Mallet Putter Right Hand / 35\" / White TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER5v5 Mid Slant Hatchback Mallet Putter Right Hand / 33\" / White TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Scotty Cameron Phantom Putter - 3.2 Right Hand / 33\" / Scotty Cameron Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Scotty Cameron Phantom Putter - 3.2 Right Hand / 35\" / Scotty Cameron Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Scotty Cameron Phantom Putter - 3.2 Left Hand / 33\" / Scotty Cameron Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Scotty Cameron Phantom Putter - 3.2 Left Hand / 34\" / Scotty Cameron Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Scotty Cameron Phantom Putter - 3.2 Left Hand / 35\" / Scotty Cameron Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Scotty Cameron Phantom Putter - 12 Right Hand / 33\" / Scotty Cameron Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Scotty Cameron Phantom Putter - 12 Right Hand / 35\" / Scotty Cameron Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Two CH Right Hand / 34\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Two CH Right Hand / 35\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Two CH Left Hand / 34\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Two CH Left Hand / 35\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - One Wide Right Hand / 34\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - One Wide Right Hand / 35\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Rossie S Right Hand / 34\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Rossie S Right Hand / 35\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Seven DB Right Hand / 34\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Seven DB Right Hand / 35\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Seven DB Left Hand / 34\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Seven DB Left Hand / 35\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Seven CH Right Hand / 34\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Seven CH Right Hand / 35\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Jailbird Mini DB Left Hand / 34\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Jailbird Mini DB Left Hand / 35\" / Tour Pistol Grip",
    "from": "accessories",
    "to": "putter"
   }

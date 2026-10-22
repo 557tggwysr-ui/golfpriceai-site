@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/srixon-ad333-golf-balls/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 19.95,
@@ -29,11 +29,11 @@
   {
    "name": "Affordable Golf",
    "from": 22.99,
-   "options": 3
+   "options": 5
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 19.95,
   "high": 20.0,
   "average": 19.96,
@@ -48,14 +48,14 @@
     19.95
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     19.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 55 days"
+  "summary": "Typical price: steady for 56 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-04T094716.660.png?v=1704361837",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

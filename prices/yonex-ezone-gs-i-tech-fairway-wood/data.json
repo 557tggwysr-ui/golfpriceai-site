@@ -3,7 +3,7 @@
  "brand": "Yonex",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-fairway-wood/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.95,
@@ -14,7 +14,7 @@
   {
    "name": "Affordable Golf",
    "from": 119.95,
-   "options": 2
+   "options": 6
   },
   {
    "name": "Scottsdale Golf",
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 48,
+  "daysTracked": 49,
   "low": 119.95,
   "high": 119.95,
   "average": 119.95,
@@ -34,14 +34,14 @@
     119.95
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     119.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "summary": "Typical price: steady for 49 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/YonexEzoneGSi-Tech-FairwayWood2.jpg?v=1777942355",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

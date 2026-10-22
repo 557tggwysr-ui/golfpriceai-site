@@ -1,0 +1,48 @@
+{
+ "name": "MacGregor ZT Plus Wedge",
+ "brand": "MacGregor",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/macgregor-zt-plus-wedge/",
+ "checked": "2026-10-22",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 44.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 44.95,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 44.99,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 56,
+  "low": 44.95,
+  "high": 44.95,
+  "average": 44.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    44.95
+   ],
+   [
+    "2026-10-22",
+    44.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 56 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MacGregorGolfZTPlusBlackWedge2026_3.jpg?v=1772011462",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

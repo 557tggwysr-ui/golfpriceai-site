@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/titleist-gt2-fairway-wood/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
@@ -25,7 +25,7 @@
   {
    "name": "Affordable Golf",
    "from": 269.0,
-   "options": 1
+   "options": 18
   },
   {
    "name": "Scottsdale Golf",
@@ -34,7 +34,7 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 249.0,
   "high": 249.0,
   "average": 249.0,
@@ -45,14 +45,14 @@
     249.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     249.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 67 days"
+  "summary": "Typical price: steady for 68 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/GT2-Fairway-Wood-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

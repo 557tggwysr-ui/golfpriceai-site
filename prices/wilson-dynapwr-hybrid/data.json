@@ -1,9 +1,9 @@
 {
- "name": "Wilson Dynapwr Hybrid",
+ "name": "Wilson DYNAPWR Hybrid",
  "brand": "Wilson",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/wilson-dynapwr-hybrid/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.0,
@@ -19,7 +19,7 @@
   {
    "name": "Affordable Golf",
    "from": 119.95,
-   "options": 1
+   "options": 16
   },
   {
    "name": "Major Golf Direct",
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 119.0,
   "high": 199.0,
-  "average": 138.54,
+  "average": 138.25,
   "priceChanges": 3,
   "series": [
    [
@@ -51,7 +51,7 @@
     119.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     119.0
    ]
   ]

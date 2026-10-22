@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/titleist-gt2-driver/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.0,
@@ -19,7 +19,7 @@
   {
    "name": "Affordable Golf",
    "from": 449.0,
-   "options": 4
+   "options": 15
   },
   {
    "name": "Scottsdale Golf",
@@ -28,7 +28,7 @@
   }
  ],
  "history": {
-  "daysTracked": 55,
+  "daysTracked": 56,
   "low": 399.0,
   "high": 399.0,
   "average": 399.0,
@@ -39,14 +39,14 @@
     399.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     399.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 55 days"
+  "summary": "Typical price: steady for 56 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/GT2DVR4.jpg?v=1722325347",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

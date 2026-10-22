@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/wilson-staff-model-xb-irons/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 799.0,
@@ -18,12 +18,12 @@
   },
   {
    "name": "Affordable Golf",
-   "from": 1109.0,
-   "options": 1
+   "from": 949.0,
+   "options": 7
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 799.0,
   "high": 799.0,
   "average": 799.0,
@@ -34,14 +34,14 @@
     799.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     799.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 67 days"
+  "summary": "Typical price: steady for 68 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Staff-Model-XB-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

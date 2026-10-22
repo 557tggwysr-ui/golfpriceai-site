@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/ping-chipr-chipper-wedge/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.95,
@@ -14,7 +14,7 @@
   {
    "name": "Affordable Golf",
    "from": 129.95,
-   "options": 2
+   "options": 4
   },
   {
    "name": "Clickgolf",
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 129.95,
   "high": 149.0,
-  "average": 135.64,
+  "average": 135.55,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     129.95
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     129.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 47 days"
+  "summary": "Typical price: steady for 48 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ping_chipr_chipper_-_graphite_1.jpg?v=1777981959",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

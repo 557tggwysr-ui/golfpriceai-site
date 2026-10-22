@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/taylormade-qi10-hybrid/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.95,
@@ -14,7 +14,7 @@
   {
    "name": "Affordable Golf",
    "from": 149.95,
-   "options": 4
+   "options": 8
   },
   {
    "name": "Scottsdale Golf",
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 48,
+  "daysTracked": 49,
   "low": 139.0,
   "high": 179.0,
-  "average": 148.05,
+  "average": 148.08,
   "priceChanges": 2,
   "series": [
    [
@@ -42,7 +42,7 @@
     149.95
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     149.95
    ]
   ]

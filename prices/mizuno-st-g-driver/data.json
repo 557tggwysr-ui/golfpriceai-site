@@ -1,0 +1,52 @@
+{
+ "name": "Mizuno ST-G Driver",
+ "brand": "Mizuno",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/mizuno-st-g-driver/",
+ "checked": "2026-10-22",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 199.95,
+   "options": 4
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 499.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 49,
+  "low": 199.95,
+  "high": 229.0,
+  "average": 223.66,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    229.0
+   ],
+   [
+    "2026-10-14",
+    199.95
+   ],
+   [
+    "2026-10-22",
+    199.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/stg-230_driver_2.jpg?v=1777961089",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

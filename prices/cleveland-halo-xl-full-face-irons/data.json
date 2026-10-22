@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cleveland-halo-xl-full-face-irons/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 349.0,
@@ -14,7 +14,7 @@
   {
    "name": "Affordable Golf",
    "from": 349.0,
-   "options": 5
+   "options": 7
   },
   {
    "name": "Scottsdale Golf",
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 48,
+  "daysTracked": 49,
   "low": 349.0,
   "high": 399.0,
-  "average": 387.54,
+  "average": 386.76,
   "priceChanges": 3,
   "series": [
    [
@@ -46,7 +46,7 @@
     349.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     349.0
    ]
   ]

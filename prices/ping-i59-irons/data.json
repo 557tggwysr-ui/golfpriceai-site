@@ -1,0 +1,48 @@
+{
+ "name": "Ping i59 Irons",
+ "brand": "Ping",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/ping-i59-irons/",
+ "checked": "2026-10-22",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 999.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 999.0,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 1099.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 49,
+  "low": 999.0,
+  "high": 1099.0,
+  "average": 1096.96,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    1099.0
+   ],
+   [
+    "2026-10-22",
+    999.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ping_i59_irons_1.jpg?v=1777972740",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

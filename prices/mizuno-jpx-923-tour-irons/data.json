@@ -3,18 +3,18 @@
  "brand": "Mizuno",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/mizuno-jpx-923-tour-irons/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 799.0,
+ "lowestNewPrice": 699.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 799.0,
-   "options": 1
+   "from": 699.0,
+   "options": 8
   },
   {
    "name": "Scottsdale Golf",
@@ -23,25 +23,25 @@
   }
  ],
  "history": {
-  "daysTracked": 48,
-  "low": 799.0,
+  "daysTracked": 49,
+  "low": 699.0,
   "high": 799.0,
-  "average": 799.0,
-  "priceChanges": 0,
+  "average": 796.96,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     799.0
    ],
    [
-    "2026-10-21",
-    799.0
+    "2026-10-22",
+    699.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/mizuno_jpx_923_tour_irons_1_2.jpg?v=1777980713",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

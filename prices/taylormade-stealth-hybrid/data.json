@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/taylormade-stealth-hybrid/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 99.95,
@@ -14,7 +14,7 @@
   {
    "name": "Affordable Golf",
    "from": 99.95,
-   "options": 1
+   "options": 2
   },
   {
    "name": "Scottsdale Golf",
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 55,
+  "daysTracked": 56,
   "low": 99.95,
   "high": 229.0,
-  "average": 116.37,
+  "average": 116.08,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     99.95
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     99.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "summary": "Typical price: steady for 49 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/taylormade_stealth_rescue_hybrid_-_ladies_4.jpg?v=1777975143",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

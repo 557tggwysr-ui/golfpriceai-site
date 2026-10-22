@@ -1,9 +1,9 @@
 {
- "name": "Cobra King Irons",
+ "name": "Cobra KING Irons",
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-king-irons/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 559.0,
@@ -19,7 +19,7 @@
   {
    "name": "Affordable Golf",
    "from": 779.0,
-   "options": 2
+   "options": 8
   },
   {
    "name": "Major Golf Direct",
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 129.0,
   "high": 559.0,
-  "average": 206.03,
+  "average": 204.91,
   "priceChanges": 2,
   "series": [
    [
@@ -44,6 +44,10 @@
    ],
    [
     "2026-10-21",
+    130.0
+   ],
+   [
+    "2026-10-22",
     130.0
    ]
   ]

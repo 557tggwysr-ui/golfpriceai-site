@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-clubhouse-golf-balls/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 39.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 39.0,
   "high": 39.0,
   "average": 39.0,
@@ -29,14 +29,14 @@
     39.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     39.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 67 days"
+  "summary": "Typical price: steady for 68 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Clubhouse-Golf-Ball-Shag-Bag-Front.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

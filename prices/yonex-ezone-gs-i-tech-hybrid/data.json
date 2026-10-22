@@ -3,7 +3,7 @@
  "brand": "Yonex",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-hybrid/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 99.0,
@@ -19,11 +19,11 @@
   {
    "name": "Affordable Golf",
    "from": 99.95,
-   "options": 5
+   "options": 13
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 99.0,
   "high": 99.0,
   "average": 99.0,
@@ -34,14 +34,14 @@
     99.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     99.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 67 days"
+  "summary": "Typical price: steady for 68 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/YonexEzoneGSi-Tech-Hybrid4.jpg?v=1777942355",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

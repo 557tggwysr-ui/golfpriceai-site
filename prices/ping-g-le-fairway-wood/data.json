@@ -1,0 +1,48 @@
+{
+ "name": "Ping G Le Fairway Wood",
+ "brand": "Ping",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/ping-g-le-fairway-wood/",
+ "checked": "2026-10-22",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 269.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 269.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 315.0,
+   "options": 8
+  }
+ ],
+ "history": {
+  "daysTracked": 68,
+  "low": 269.0,
+  "high": 269.0,
+  "average": 269.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    269.0
+   ],
+   [
+    "2026-10-22",
+    269.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 68 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/ping-gle-3-ladies-fairway-hero-1000x100.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

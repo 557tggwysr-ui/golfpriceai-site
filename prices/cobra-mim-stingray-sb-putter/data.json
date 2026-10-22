@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/cobra-mim-stingray-sb-putter/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 219.0,
   "high": 229.0,
-  "average": 220.13,
+  "average": 220.11,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     219.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     219.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 55 days"
+  "summary": "Typical price: steady for 56 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CobraGolfMIMStingraySBPutter2026_4_92cd83b1-a73b-4ecb-bf8b-ada95504dacf.jpg?v=1765897977",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

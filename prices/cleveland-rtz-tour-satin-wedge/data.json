@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/cleveland-rtz-tour-satin-wedge/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.0,
@@ -19,11 +19,11 @@
   {
    "name": "Affordable Golf",
    "from": 129.95,
-   "options": 2
+   "options": 17
   }
  ],
  "history": {
-  "daysTracked": 55,
+  "daysTracked": 56,
   "low": 119.0,
   "high": 119.0,
   "average": 119.0,
@@ -34,14 +34,14 @@
     119.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     119.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 55 days"
+  "summary": "Typical price: steady for 56 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/RTZTOURSATIN2.jpg?v=1736347265",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

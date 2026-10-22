@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-storm-dry-waterproof-cart-bag-golf-bag/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 209.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 209.0,
   "high": 239.0,
-  "average": 214.37,
+  "average": 214.29,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     209.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     209.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 55 days"
+  "summary": "Typical price: steady for 56 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/M2395301-Storm-Dry-Cart-Hero-Left.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

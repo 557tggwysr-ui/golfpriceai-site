@@ -1,9 +1,9 @@
 {
- "name": "Wilson Dynapwr Fairway Wood",
+ "name": "Wilson DYNAPWR Fairway Wood",
  "brand": "Wilson",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/wilson-dynapwr-fairway-wood/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.95,
@@ -14,7 +14,7 @@
   {
    "name": "Affordable Golf",
    "from": 149.95,
-   "options": 2
+   "options": 20
   },
   {
    "name": "Clickgolf",
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 149.95,
   "high": 279.0,
-  "average": 177.59,
+  "average": 177.18,
   "priceChanges": 3,
   "series": [
    [
@@ -51,14 +51,14 @@
     149.95
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     149.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "summary": "Typical price: steady for 49 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DynapwrFairwayWood-Max1.jpg?v=1776297084",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

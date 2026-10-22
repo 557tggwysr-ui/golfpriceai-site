@@ -1,0 +1,49 @@
+{
+ "name": "Cobra KING TEC Mini Driver",
+ "brand": "Cobra",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/cobra-king-tec-mini-driver/",
+ "checked": "2026-10-22",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 379.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 379.0,
+   "options": 3
+  },
+  {
+   "name": "Clickgolf",
+   "from": 379.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 68,
+  "low": 379.0,
+  "high": 379.0,
+  "average": 379.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    379.0
+   ],
+   [
+    "2026-10-22",
+    379.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 68 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/King-Tec-Mini-Driver-Hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

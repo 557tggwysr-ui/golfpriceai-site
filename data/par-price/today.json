@@ -1,66 +1,66 @@
 {
- "n": 4,
- "date": "2026-10-21",
+ "n": 5,
+ "date": "2026-10-22",
  "items": [
   {
-   "slug": "srixon-ad333-golf-balls",
-   "name": "Srixon AD333 Golf Balls",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-04T094716.660.png?v=1704361837",
-   "price": 19.95,
-   "unit": "per dozen",
-   "type": "golf ball",
-   "low": false,
-   "url": "/prices/srixon-ad333-golf-balls/"
-  },
-  {
-   "slug": "taylormade-flextech-carry-bag-stand-bag-golf-bag",
-   "name": "TaylorMade FlexTech Carry Bag Stand Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TM25ACC-JE943-N3832601-Flextech-Carry-Script-Icon-3QR-v1copy.jpg?v=1776303263",
-   "price": 129.95,
+   "slug": "callaway-quantum-max-irons",
+   "name": "Callaway Quantum Max Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-irons-hero-3.jpg",
+   "price": 749.0,
    "unit": "each",
-   "type": "golf bag",
+   "type": "iron set",
    "low": false,
-   "url": "/prices/taylormade-flextech-carry-bag-stand-bag-golf-bag/"
+   "url": "/prices/callaway-quantum-max-irons/"
   },
   {
-   "slug": "callaway-elyte-fairway-wood",
-   "name": "Callaway Elyte Fairway Wood",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteFairwayWood-TI2.jpg?v=1776306341",
-   "price": 219.0,
+   "slug": "taylormade-qi4d-driver",
+   "name": "TaylorMade Qi4D Driver",
+   "image": "https://www.clickgolf.co.uk/images/product/main/N2845107-Qi4D-Core-Driver-Hero.jpg",
+   "price": 549.0,
+   "unit": "each",
+   "type": "driver",
+   "low": false,
+   "url": "/prices/taylormade-qi4d-driver/"
+  },
+  {
+   "slug": "titleist-gt2-fairway-wood",
+   "name": "Titleist GT2 Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/GT2-Fairway-Wood-Hero.jpg",
+   "price": 249.0,
    "unit": "each",
    "type": "fairway wood",
    "low": false,
-   "url": "/prices/callaway-elyte-fairway-wood/"
+   "url": "/prices/titleist-gt2-fairway-wood/"
   },
   {
-   "slug": "wilson-dynapwr-hybrid",
-   "name": "Wilson Dynapwr Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/wilson-dynapwr-hybrid-hero.jpg",
-   "price": 119.0,
+   "slug": "ping-g440-hybrid",
+   "name": "Ping G440 Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-hybrid-hero.jpg",
+   "price": 269.0,
    "unit": "each",
    "type": "hybrid",
-   "low": true,
-   "url": "/prices/wilson-dynapwr-hybrid/"
+   "low": false,
+   "url": "/prices/ping-g440-hybrid/"
   },
   {
-   "slug": "titleist-vokey-sm11-nickel-wedge",
-   "name": "Titleist Vokey SM11 Nickel Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-nickel-wedge-hero.jpg",
-   "price": 179.0,
+   "slug": "cleveland-rtz-2-tour-satin-wedge",
+   "name": "Cleveland RTZ 2 Tour Satin Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ClevelandGolfRTZ2TourSatinWedge2026_4.jpg?v=1785231438",
+   "price": 139.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/titleist-vokey-sm11-nickel-wedge/"
+   "url": "/prices/cleveland-rtz-2-tour-satin-wedge/"
   }
  ],
  "pin": {
-  "slug": "cobra-mim-nova-sb-putter",
-  "name": "Cobra MIM Nova SB Putter",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CobraGolfMIMNovaSBPutter2026_4.jpg?v=1765897002",
-  "price": 219.0,
-  "unit": "each",
-  "type": "putter",
+  "slug": "srixon-z-star-diamond-golf-balls",
+  "name": "Srixon Z-Star Diamond Golf Balls",
+  "image": "https://www.clickgolf.co.uk/images/product/main/z-star-diamond-white.jpg",
+  "price": 29.99,
+  "unit": "per dozen",
+  "type": "golf ball",
   "low": false,
-  "url": "/prices/cobra-mim-nova-sb-putter/"
+  "url": "/prices/srixon-z-star-diamond-golf-balls/"
  }
 }

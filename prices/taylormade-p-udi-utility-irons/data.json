@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-p-udi-utility-irons/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -15,7 +15,7 @@
   {
    "name": "Affordable Golf",
    "from": 229.0,
-   "options": 2
+   "options": 5
   },
   {
    "name": "Scottsdale Golf",
@@ -24,7 +24,7 @@
   }
  ],
  "history": {
-  "daysTracked": 48,
+  "daysTracked": 49,
   "low": 229.0,
   "high": 229.0,
   "average": 229.0,
@@ -35,14 +35,14 @@
     229.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     229.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "summary": "Typical price: steady for 49 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PUDI3.jpg?v=1777954087",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

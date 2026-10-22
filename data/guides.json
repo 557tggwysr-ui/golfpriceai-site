@@ -1,6 +1,6 @@
 {
  "about": "GolfPrice AI budget guides and price comparisons, rebuilt every 6 hours.",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "best": [
   {
    "category": "driver",
@@ -97,6 +97,12 @@
    "budget": 150,
    "title": "Best wedges under £150 (UK)",
    "url": "https://golfpriceai.com/prices/best/wedges-under-150/"
+  },
+  {
+   "category": "putter",
+   "budget": 100,
+   "title": "Best putters under £100 (UK)",
+   "url": "https://golfpriceai.com/prices/best/putters-under-100/"
   },
   {
    "category": "putter",
@@ -235,7 +241,7 @@
   {
    "a": "cleveland-launcher-xl2-driver",
    "b": "yonex-ezone-gs-i-tech-driver",
-   "title": "Cleveland Launcher XL2 vs Yonex EZONE GS i-Tech",
+   "title": "Cleveland Launcher XL2 vs Yonex Ezone GS i-Tech",
    "url": "https://golfpriceai.com/prices/compare/cleveland-launcher-xl2-vs-yonex-ezone-gs-i-tech-driver/"
   },
   {
@@ -253,7 +259,7 @@
   {
    "a": "cleveland-launcher-xl2-draw-driver",
    "b": "yonex-ezone-gs-i-tech-driver",
-   "title": "Cleveland Launcher XL2 Draw vs Yonex EZONE GS i-Tech",
+   "title": "Cleveland Launcher XL2 Draw vs Yonex Ezone GS i-Tech",
    "url": "https://golfpriceai.com/prices/compare/cleveland-launcher-xl2-draw-vs-yonex-ezone-gs-i-tech-driver/"
   },
   {
@@ -283,7 +289,7 @@
   {
    "a": "mizuno-jpx-925-forged-irons",
    "b": "wilson-dynapwr-forged-irons",
-   "title": "Mizuno JPX 925 vs Wilson Dynapwr",
+   "title": "Mizuno JPX 925 vs Wilson DYNAPWR",
    "url": "https://golfpriceai.com/prices/compare/mizuno-jpx-925-vs-wilson-dynapwr-forged-irons/"
   },
   {
@@ -295,13 +301,13 @@
   {
    "a": "callaway-quantum-max-irons",
    "b": "cobra-king-tour-irons",
-   "title": "Callaway Quantum Max vs Cobra King Tour",
+   "title": "Callaway Quantum Max vs Cobra KING Tour",
    "url": "https://golfpriceai.com/prices/compare/callaway-quantum-max-vs-cobra-king-tour-irons/"
   },
   {
    "a": "callaway-quantum-max-os-irons",
    "b": "cobra-king-tour-irons",
-   "title": "Callaway Quantum Max OS vs Cobra King Tour",
+   "title": "Callaway Quantum Max OS vs Cobra KING Tour",
    "url": "https://golfpriceai.com/prices/compare/callaway-quantum-max-os-vs-cobra-king-tour-irons/"
   },
   {
@@ -415,7 +421,7 @@
   {
    "a": "wilson-dynapwr-fairway-wood",
    "b": "yonex-ezone-elite-fairway-wood",
-   "title": "Wilson Dynapwr vs Yonex Ezone Elite",
+   "title": "Wilson DYNAPWR vs Yonex Ezone Elite",
    "url": "https://golfpriceai.com/prices/compare/wilson-dynapwr-vs-yonex-ezone-elite-fairway-wood/"
   },
   {
@@ -463,7 +469,7 @@
   {
    "a": "cleveland-halo-xl-hybrid",
    "b": "wilson-dynapwr-hybrid",
-   "title": "Cleveland Halo XL vs Wilson Dynapwr",
+   "title": "Cleveland Halo XL vs Wilson DYNAPWR",
    "url": "https://golfpriceai.com/prices/compare/cleveland-halo-xl-vs-wilson-dynapwr-hybrid/"
   },
   {

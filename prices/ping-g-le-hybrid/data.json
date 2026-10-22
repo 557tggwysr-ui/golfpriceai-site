@@ -1,0 +1,48 @@
+{
+ "name": "Ping G Le Hybrid",
+ "brand": "Ping",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/ping-g-le-hybrid/",
+ "checked": "2026-10-22",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 199.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 249.0,
+   "options": 16
+  }
+ ],
+ "history": {
+  "daysTracked": 68,
+  "low": 199.0,
+  "high": 199.0,
+  "average": 199.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    199.0
+   ],
+   [
+    "2026-10-22",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 68 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/ping-gle-3-ladies-hybrid-hero-1000x100-2.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

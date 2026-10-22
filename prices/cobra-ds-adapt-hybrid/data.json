@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/cobra-ds-adapt-hybrid/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -15,10 +15,15 @@
    "name": "Clickgolf",
    "from": 179.0,
    "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 179.95,
+   "options": 4
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 179.0,
   "high": 179.0,
   "average": 179.0,
@@ -29,14 +34,14 @@
     179.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     179.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 67 days"
+  "summary": "Typical price: steady for 68 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-DS-ADAPT-Hybrid-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

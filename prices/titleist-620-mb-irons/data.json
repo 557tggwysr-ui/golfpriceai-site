@@ -1,0 +1,49 @@
+{
+ "name": "Titleist 620 MB Irons",
+ "brand": "Titleist",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/titleist-620-mb-irons/",
+ "checked": "2026-10-22",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1099.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 1099.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1099.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 68,
+  "low": 1099.0,
+  "high": 1099.0,
+  "average": 1099.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    1099.0
+   ],
+   [
+    "2026-10-22",
+    1099.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 68 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/132186__42485.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

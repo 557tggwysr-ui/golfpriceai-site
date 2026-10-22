@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/wilson-dynapwr-max-irons/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 459.0,
@@ -18,15 +18,15 @@
   },
   {
    "name": "Affordable Golf",
-   "from": 679.0,
-   "options": 2
+   "from": 579.0,
+   "options": 9
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 459.0,
   "high": 489.0,
-  "average": 488.1,
+  "average": 487.68,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     459.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     459.0
    ]
   ]

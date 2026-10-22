@@ -1,8 +1,108 @@
 {
- "checked": "2026-10-21T22:03+01:00",
+ "checked": "2026-10-22T03:34+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Mizuno JPX 923 Tour Irons",
+   "model_id": "mizuno-jpx-923-tour-irons",
+   "date": "2026-10-22",
+   "was": 799.0,
+   "now": 699.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-jpx-923-tour-irons/"
+  },
+  {
+   "model": "Cobra KING Tour Irons",
+   "model_id": "cobra-king-tour-irons",
+   "date": "2026-10-22",
+   "was": 779.0,
+   "now": 699.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-tour-irons/"
+  },
+  {
+   "model": "Cobra DS-Adapt Irons",
+   "model_id": "cobra-ds-adapt-irons",
+   "date": "2026-10-22",
+   "was": 549.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-irons/"
+  },
+  {
+   "model": "Ping i59 Irons",
+   "model_id": "ping-i59-irons",
+   "date": "2026-10-22",
+   "was": 1099.0,
+   "now": 999.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-i59-irons/"
+  },
+  {
+   "model": "Wilson Staff Model Blade Irons",
+   "model_id": "wilson-staff-model-blade-irons",
+   "date": "2026-10-22",
+   "was": 629.0,
+   "now": 579.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-staff-model-blade-irons/"
+  },
+  {
+   "model": "Srixon ZXiR HL Irons",
+   "model_id": "srixon-zxir-hl-irons",
+   "date": "2026-10-22",
+   "was": 949.0,
+   "now": 899.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-zxir-hl-irons/"
+  },
+  {
+   "model": "TaylorMade P790 Irons",
+   "model_id": "taylormade-p790-irons",
+   "date": "2026-10-22",
+   "was": 1029.0,
+   "now": 979.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/taylormade-p790-irons/"
+  },
+  {
+   "model": "TaylorMade Stealth Irons",
+   "model_id": "taylormade-stealth-irons",
+   "date": "2026-10-22",
+   "was": 629.0,
+   "now": 599.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/taylormade-stealth-irons/"
+  },
+  {
+   "model": "Mizuno Pro M-13 Irons",
+   "model_id": "mizuno-pro-m-13-irons",
+   "date": "2026-10-22",
+   "was": 1439.0,
+   "now": 1379.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-m-13-irons/"
+  },
+  {
+   "model": "Mizuno Pro M-15 Irons",
+   "model_id": "mizuno-pro-m-15-irons",
+   "date": "2026-10-22",
+   "was": 1439.0,
+   "now": 1379.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-m-15-irons/"
+  },
   {
    "model": "Big Max Dri Lite Hybrid Tour 2 Golf Bag",
    "model_id": "big-max-dri-lite-hybrid-tour-2-golf-bag",
@@ -52,6 +152,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cleveland-halo-xl-fairway-wood/"
+  },
+  {
+   "model": "Cleveland HiBore XL Driver",
+   "model_id": "cleveland-hibore-xl-driver",
+   "date": "2026-10-17",
+   "was": 229.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cleveland-hibore-xl-driver/"
   },
   {
    "model": "Cleveland HiBore XL Lite Driver",

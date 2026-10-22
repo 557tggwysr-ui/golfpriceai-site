@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/mizuno-pro-x-golf-balls/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 69.98,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 34.99,
   "high": 39.99,
-  "average": 35.44,
+  "average": 35.43,
   "priceChanges": 1,
   "series": [
    [
@@ -33,14 +33,14 @@
     34.99
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     34.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 61 days"
+  "summary": "Typical price: steady for 62 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/pro-x-white-3-for-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/wilson-profile-driver/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 79.95,
@@ -14,7 +14,7 @@
   {
    "name": "Affordable Golf",
    "from": 79.95,
-   "options": 3
+   "options": 5
   },
   {
    "name": "Major Golf Direct",
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 55,
+  "daysTracked": 56,
   "low": 79.95,
   "high": 79.99,
   "average": 79.96,
@@ -38,14 +38,14 @@
     79.95
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     79.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "summary": "Typical price: steady for 49 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Profile21.jpg?v=1776296991",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

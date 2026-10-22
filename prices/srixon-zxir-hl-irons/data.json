@@ -3,31 +3,31 @@
  "brand": "Srixon",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/srixon-zxir-hl-irons/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 949.0,
+ "lowestNewPrice": 899.0,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 899.0,
+   "options": 11
+  },
   {
    "name": "Clickgolf",
    "from": 949.0,
    "options": 2
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 1049.0,
-   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 899.0,
   "high": 949.0,
-  "average": 928.85,
-  "priceChanges": 2,
+  "average": 928.41,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -42,15 +42,15 @@
     949.0
    ],
    [
-    "2026-10-21",
-    949.0
+    "2026-10-22",
+    899.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £50.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/p_srixon-zxir-hl-irons-money.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ZXiRHLIrons4.jpg?v=1773181494",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

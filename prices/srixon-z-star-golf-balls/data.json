@@ -3,45 +3,51 @@
  "brand": "Srixon",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/srixon-z-star-golf-balls/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 81.0,
+ "lowestNewPrice": 38.99,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 81.0,
+   "name": "Affordable Golf",
+   "from": 38.99,
    "options": 4
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 39.99,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 128.97,
+   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 49,
   "low": 38.99,
-  "high": 81.0,
-  "average": 50.9,
-  "priceChanges": 1,
+  "high": 38.99,
+  "average": 38.99,
+  "priceChanges": 0,
   "series": [
-   [
-    "2026-08-16",
-    81.0
-   ],
    [
     "2026-09-04",
     38.99
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     38.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "summary": "Typical price: steady for 49 days"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-Z-Star-Golf-Balls-White.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Z-StarWhite6.jpg?v=1776296700",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/titleist-620-cb-irons/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 799.0,
@@ -24,14 +24,14 @@
   {
    "name": "Affordable Golf",
    "from": 1099.0,
-   "options": 1
+   "options": 3
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 799.0,
   "high": 942.0,
-  "average": 839.55,
+  "average": 838.96,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     799.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     799.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "summary": "Typical price: steady for 49 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/g_100805_1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

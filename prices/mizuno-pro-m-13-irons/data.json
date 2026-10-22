@@ -1,0 +1,48 @@
+{
+ "name": "Mizuno Pro M-13 Irons",
+ "brand": "Mizuno",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/mizuno-pro-m-13-irons/",
+ "checked": "2026-10-22",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1379.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 1379.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1439.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 68,
+  "low": 1379.0,
+  "high": 1439.0,
+  "average": 1438.12,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    1439.0
+   ],
+   [
+    "2026-10-22",
+    1379.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 1 day"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/M13_Herocopy.jpg?v=1773174207",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

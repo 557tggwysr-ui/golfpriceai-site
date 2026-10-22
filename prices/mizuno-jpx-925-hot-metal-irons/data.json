@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/mizuno-jpx-925-hot-metal-irons/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 599.0,
@@ -19,7 +19,7 @@
   {
    "name": "Affordable Golf",
    "from": 699.0,
-   "options": 4
+   "options": 12
   },
   {
    "name": "Clickgolf",
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 141.5,
   "high": 899.0,
-  "average": 277.17,
+  "average": 275.18,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     141.5
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     141.5
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 55 days"
+  "summary": "Typical price: steady for 56 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/925HOTMETAL1_6fee0f03-6693-416a-9624-b5427e6f12e4.jpg?v=1724252626",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

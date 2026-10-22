@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-dual-square-2-square-seven-putter/",
- "checked": "2026-10-21",
+ "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 229.0,
   "high": 259.0,
-  "average": 234.37,
+  "average": 234.29,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     229.0
    ],
    [
-    "2026-10-21",
+    "2026-10-22",
     229.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 55 days"
+  "summary": "Typical price: steady for 56 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/OdysseyGolfAi-DualSquare2SquareSevenOSPutter_4.jpg?v=1768478513",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

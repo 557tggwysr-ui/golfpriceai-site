@@ -1,0 +1,61 @@
+{
+ "name": "Cobra RAD-S Driver",
+ "brand": "Cobra",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/cobra-rad-s-driver/",
+ "checked": "2026-10-22",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 249.0,
+   "options": 3
+  },
+  {
+   "name": "Clickgolf",
+   "from": 249.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 68,
+  "low": 239.0,
+  "high": 249.0,
+  "average": 248.56,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-08-16",
+    239.0
+   ],
+   [
+    "2026-08-17",
+    249.0
+   ],
+   [
+    "2026-08-22",
+    239.0
+   ],
+   [
+    "2026-08-24",
+    249.0
+   ],
+   [
+    "2026-10-22",
+    249.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/RAD-S-Driver-Hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

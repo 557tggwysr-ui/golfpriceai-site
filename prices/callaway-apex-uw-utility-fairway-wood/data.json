@@ -1,0 +1,53 @@
+{
+ "name": "Callaway Apex UW Utility Fairway Wood",
+ "brand": "Callaway",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/callaway-apex-uw-utility-fairway-wood/",
+ "checked": "2026-10-22",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 299.0,
+   "options": 10
+  },
+  {
+   "name": "Clickgolf",
+   "from": 299.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 68,
+  "low": 179.0,
+  "high": 299.0,
+  "average": 272.53,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    179.0
+   ],
+   [
+    "2026-08-31",
+    299.0
+   ],
+   [
+    "2026-10-22",
+    299.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £120.00 above its tracked low"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/apex-uw-26-hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}
