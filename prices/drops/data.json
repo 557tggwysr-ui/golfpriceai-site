@@ -1,8 +1,18 @@
 {
- "checked": "2026-10-22T11:53+01:00",
+ "checked": "2026-10-22T17:19+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Wilson DYNAPWR Forged Irons",
+   "model_id": "wilson-dynapwr-forged-irons",
+   "date": "2026-10-22",
+   "was": 799.0,
+   "now": 599.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-dynapwr-forged-irons/"
+  },
   {
    "model": "Mizuno JPX 923 Tour Irons",
    "model_id": "mizuno-jpx-923-tour-irons",

@@ -6,13 +6,16 @@
  "checked": "2026-10-22",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 629.0,
+ "lowestNewPrice": 595.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf",
-  "Scottsdale Golf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 595.0,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 629.0,
@@ -54,6 +57,6 @@
   "label": "typical",
   "summary": "Typical price: steady for 56 days"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/S1-2025-Main.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/S1ELECTRICTROLLEY20251.jpg?v=1739458354",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
