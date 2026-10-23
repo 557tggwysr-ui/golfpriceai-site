@@ -6,14 +6,14 @@
  "checked": "2026-10-23",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 299.0,
+ "lowestNewPrice": 279.0,
  "lowestAt": [
   "Callaway Golf"
  ],
  "retailers": [
   {
    "name": "Callaway Golf",
-   "from": 299.0,
+   "from": 279.0,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 69,
   "low": 279.0,
   "high": 299.0,
-  "average": 290.88,
-  "priceChanges": 6,
+  "average": 290.59,
+  "priceChanges": 7,
   "series": [
    [
     "2026-08-16",
@@ -54,14 +54,14 @@
    ],
    [
     "2026-10-23",
-    299.0
+    279.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1792424866768/sits/bags-2026-fairway-14-hd-stand/bags-2026-fairway-14-hd-stand_1___1.png?sfrm=png",
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1792606498531/sits/bags-2026-fairway-14-hd-stand/bags-2026-fairway-14-hd-stand_1___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
