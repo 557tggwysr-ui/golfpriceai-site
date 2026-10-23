@@ -344,17 +344,10 @@
 .bd-modal-close { background: #fff; border: 1px solid var(--gp-line); border-radius: 10px; font-weight: 700; color: var(--gp-text); cursor: pointer; }
 
 /* Play on another device (Clubhouse #move) */
-.mv-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 6px 0; }
-.mv-give, .mv-take { background: #f7f8f6; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; min-width: 0; }
-.mv-grid h3 { margin: 0; font: 700 15px Poppins, sans-serif; }
-.mv-take label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; width: 100%; }
-.mv-take input { font: 700 20px Poppins, sans-serif; letter-spacing: .08em; text-transform: uppercase; padding: 10px 12px; border: 1px solid var(--gp-line); border-radius: 10px; width: 100%; max-width: 220px; box-sizing: border-box; }
-.mv-take .pr-msg { margin: 0; font-size: 14px; }
 #mv-out p { margin: 0 0 8px; font-size: 14px; }
 #mv-out .mv-code { font: 800 32px Poppins, sans-serif; letter-spacing: .1em; color: var(--gp-text); margin: 0 0 4px; }
 .mv-btns { display: flex; gap: 8px; flex-wrap: wrap; }
 .mv-copy { min-height: 46px; padding: 0 16px; border: 1px solid var(--gp-line); border-radius: 10px; background: #fff; font-weight: 700; cursor: pointer; }
-@media (max-width: 640px) { .mv-grid { grid-template-columns: 1fr; } }
 
 /* ---------------------------------------------------------------- Locker Room (/play/locker/) */
 .lk-wrap { max-width: 900px; margin: 0 auto 24px; display: flex; flex-direction: column; gap: 14px; }
@@ -495,3 +488,36 @@
 .cr-btn2 { min-height: 46px; padding: 0 14px; border: 1px solid var(--gp-line); border-radius: 10px; background: #fff; font-weight: 700; cursor: pointer; }
 .cr-small { font-size: 12px; color: var(--gp-text-3); margin: 8px 0 0; }
 @media (max-width: 480px) { .cr-grid { grid-template-columns: 1fr; } }
+
+/* Play on another device: a slim bar that opens (Oct 2026) */
+.ch-move { grid-column: 1 / -1; background: #fff; border: 1px solid var(--gp-line); border-radius: 14px; }
+.ch-move summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 56px; padding: 8px 18px; cursor: pointer; border-radius: 14px; }
+.ch-move summary::-webkit-details-marker { display: none; }
+.ch-move summary:focus-visible { outline: 3px solid var(--gp-green); outline-offset: 2px; }
+.mv-sum { font-size: 15px; line-height: 1.4; }
+.mv-long { color: var(--gp-text-2); }
+.mv-short { display: none; color: var(--gp-text-2); font-size: 13px; }
+.mv-go { font-weight: 700; color: var(--gp-green-dark); white-space: nowrap; }
+.mv-go-open::after { content: " ▾"; }
+.mv-go-close::after { content: " ▴"; }
+.mv-go-close, .ch-move[open] .mv-go-open { display: none; }
+.ch-move[open] .mv-go-close { display: inline; }
+.mv-body { padding: 0 18px 16px; display: flex; flex-direction: column; gap: 12px; }
+.mv-intro { margin: 0; font-size: 14px; color: var(--gp-text-2); line-height: 1.5; }
+.mv-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.mv-give, .mv-take { background: #f7f8f6; border-radius: 12px; padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; margin: 0; }
+.mv-grid h3 { margin: 0; font: 700 14px/1.3 Poppins, sans-serif; }
+.mv-row { display: flex; gap: 8px; flex: 1 1 220px; min-width: 0; }
+.mv-row label { flex: 1; min-width: 0; display: flex; }
+.mv-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mv-take input { font: 700 16px Poppins, sans-serif; letter-spacing: .06em; text-transform: uppercase; padding: 0 10px; min-height: 46px; border: 1px solid var(--gp-line); border-radius: 10px; width: 100%; box-sizing: border-box; }
+.mv-take .pr-msg { margin: 0; font-size: 14px; flex-basis: 100%; }
+.mv-take .pr-msg:empty { display: none; }
+#mv-out { flex-basis: 100%; }
+.ch-move .ch-small { margin: 0; }
+@media (max-width: 640px) {
+  .mv-grid { grid-template-columns: 1fr; }
+  .mv-long { display: none; }
+  .mv-short { display: block; }
+  .mv-sum b { display: block; }
+}

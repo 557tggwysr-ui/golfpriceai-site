@@ -122,3 +122,24 @@
   .fyf-nav { flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: reduce) { .fyf-bar i, .fyf-opt, .fyf-pick { transition: none; } }
+
+/* Golf balls (Oct 2026) */
+.fyf-opt-ball { grid-column: 1 / -1; min-height: 70px; background: var(--fyf-pale); border-color: var(--green); }
+.fyf-new { font: 800 11px 'Inter', sans-serif; font-style: normal; letter-spacing: .04em; text-transform: uppercase; background: var(--green); color: #fff; border-radius: 999px; padding: 2px 8px; vertical-align: 2px; margin-left: 4px; }
+.fyf-opt-ball[aria-pressed="true"] b::after { content: none; }
+.fyf-why-note { margin: 10px 0 0; font-size: 12.5px; color: var(--fyf-text3); }
+.fyf-tag.value { background: #fff4e8; color: #8a5a00; }
+.fyf-lost { margin-top: 22px; background: #141515; color: #fff; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+.fyf-lost-k { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #f3c47e; }
+.fyf-lost-h { font: 800 19px/1.35 'Poppins', 'Inter', sans-serif; }
+.fyf-lost-g { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 14px; font-size: 15px; font-variant-numeric: tabular-nums; }
+.fyf-lost-g .me { color: #8fd77e; }
+.fyf-lost-s { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.fyf-lost-s label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; font-size: 13px; color: #d6dad7; }
+.fyf-lost-s output { font-weight: 800; color: #fff; }
+.fyf-lost-s input { width: 100%; accent-color: #3fae29; min-height: 32px; }
+.fyf-lost-n { font-size: 12px; color: #c9cdca; }
+.fyf-alert { display: inline-block; margin-top: 14px; font-weight: 700; color: var(--green-dark); }
+
+@media (max-width: 860px) { .fyf-rail ol { grid-template-columns: repeat(var(--fyf-n, 9), minmax(0, 1fr)); } }
+@media (max-width: 560px) { .fyf-lost-s { grid-template-columns: 1fr; } }

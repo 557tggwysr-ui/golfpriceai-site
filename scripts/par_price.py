@@ -111,7 +111,7 @@ def page(n, today):
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
                       canonical=f"{SITE}/play/par-price/", body=body, section="play", schema=[app, crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261031">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261032">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -131,7 +131,7 @@ def league_page():
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
                       canonical=f"{SITE}/play/league/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261031">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261032">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -175,7 +175,7 @@ def leagues_page():
                       description="Start a free golf league for your group chat in ten seconds: Par Price every day, the Bag Draft every month, nicknames only. Loser buys the first round.",
                       canonical=f"{SITE}/play/leagues/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261031">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261032">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -239,25 +239,26 @@ def hub_page(n, rnd):
   </section>
 
 
-  <section class="ch-panel ch-move" id="move">
-    <span class="ch-kicker">Phone and laptop?</span>
-    <h2>Play on another device</h2>
-    <p>There’s no login, so each phone or browser is its own player. To be you everywhere, get a code on the device you already play on, then type it (or open the link) on the other one. Your leagues, nickname, streak and Bag Draft come with you.</p>
-    <div class="mv-grid">
-      <div class="mv-give">
-        <h3>1. On the device you already play on</h3>
-        <button type="button" class="ch-btn" id="mv-make">Get a code</button>
-        <div id="mv-out" hidden></div>
+  <details class="ch-move" id="move">
+    <summary><span class="mv-sum"><b>Playing on a phone and a laptop?</b> <span class="mv-long">Bring your leagues, streak and Bag Draft with you.</span><span class="mv-short">Bring your player with you</span></span><span class="mv-go"><span class="mv-go-open">Move my player</span><span class="mv-go-close">Close</span></span></summary>
+    <div class="mv-body">
+      <p class="mv-intro">There’s no login, so each phone or browser is its own player. Get a code on the device you already play on, then type it (or open the link) on the other one. Your leagues, nickname, streak and Bag Draft come with you.</p>
+      <div class="mv-grid">
+        <div class="mv-give">
+          <h3>1. On the device you already play on</h3>
+          <button type="button" class="ch-btn" id="mv-make">Get a code</button>
+          <div id="mv-out" hidden></div>
+        </div>
+        <form class="mv-take" id="mv-form" novalidate>
+          <h3>2. On your other device</h3>
+          <div class="mv-row"><label><span class="mv-vh">Your code</span><input name="code" maxlength="9" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCD-2345"></label>
+          <button type="submit" class="ch-btn">Use code</button></div>
+          <p class="pr-msg" role="status"></p>
+        </form>
       </div>
-      <form class="mv-take" id="mv-form" novalidate>
-        <h3>2. On your other device</h3>
-        <label>Your code<input name="code" maxlength="9" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCD-2345"></label>
-        <button type="submit" class="ch-btn">Use code</button>
-        <p class="pr-msg" role="status"></p>
-      </form>
+      <p class="ch-small">Codes last 30 minutes and work once. Using one swaps this device’s own player for yours.</p>
     </div>
-    <p class="ch-small">Codes last 30 minutes and work once. Using one swaps this device’s own player for yours.</p>
-  </section>
+  </details>
 
   <section class="ch-panel ch-shop" id="ch-shop" hidden>
     <div class="ch-shop-head"><span class="ch-kicker">Meanwhile, in the real world</span><h2>Genuine price drops today</h2></div>
@@ -270,12 +271,12 @@ def hub_page(n, rnd):
 <p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
 <script src="/js/clubhouse.js?v=20261024" defer></script>
-<script src="/js/move.js?v=20261023" defer></script>"""
+<script src="/js/move.js?v=20261024" defer></script>"""
     return page_shell(title="The Clubhouse: free golf price games | GolfPrice AI",
                       description="Free golf games that run on real UK prices: Par Price, the daily price-guessing game, leagues for your group chat, and The Bag Draft, fantasy golf kit, from 1 November.",
                       canonical=f"{SITE}/play/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/clubhouse.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261031">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261032">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 

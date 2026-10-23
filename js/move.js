@@ -9,6 +9,10 @@
   var box = document.getElementById('move');
   if (!box) return;
   var API = 'https://golfpriceai-alerts.golfpriceai.workers.dev';
+  // The panel is a slim bar that opens on a tap, or straight away from a #move link.
+  function openIf() { if (location.hash === '#move' && 'open' in box) box.open = true; }
+  openIf(); window.addEventListener('hashchange', openIf);
+  if ('open' in box) box.addEventListener('toggle', function () { if (box.open) track('play_move_open'); });
   var KEYS = { nick: 'gpNick', streak: 'gpParStreak', card: 'gpParPrice', wip: 'gpDraftWip' };
   function get(k, d) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } }
   function put(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
@@ -55,6 +59,7 @@
   var form = document.getElementById('mv-form'), input = form.querySelector('[name=code]'), msg = form.querySelector('.pr-msg');
   var fromLink = (location.search.match(/[?&]move=([a-z0-9]{8})/i) || [])[1];
   if (fromLink) {
+    if ('open' in box) box.open = true;
     input.value = pretty(fromLink);
     msg.textContent = 'Nearly there: tap “Use code” to make this device you.';
     if (history.replaceState) history.replaceState(null, '', location.pathname + '#move');
