@@ -434,3 +434,10 @@ button.pp-btn svg { flex: none; }
   .cp-btn { display: none; }
   .cp-pic.cp-pic-big { width: 100%; height: 120px; }
 }
+
+/* How a model compares with every other model of its type */
+.pp-cmp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.pp-cmp { padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.pp-cmp strong { font: 700 16px/1.25 Poppins, sans-serif; }
+.pp-cmp span { font-size: 14px; color: var(--gp-text-3); }
+.pp-block .pp-small a { color: var(--gp-green-dark); text-decoration: underline; }

@@ -22,7 +22,7 @@ import html
 import json
 import re
 from collections import Counter, defaultdict
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 import site_chrome
@@ -494,7 +494,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/prices.css?v=20261019">
+<link rel="stylesheet" href="/css/prices.css?v=20261023">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -573,6 +573,79 @@ def related(m, all_models, limit=4):
             break
     out = [("Same brand", x) for x in brand_sibs] + [("Similar price", x) for x in picks]
     return out[:limit]
+
+
+def compare_block(model, all_models, today):
+    """How this model sits against every other model of its type we track:
+    price rank, the typical price, its discount off RRP against the typical
+    discount, how many rivals dropped lately, and its brand's range. All from
+    our own tracked data, so every page says something only it can say.
+    Returns (html, (question, answer)) or ("", None) when there's too little to compare."""
+    m, t = model.m, model.type
+    same = [x for x in all_models if x["type"] == t and x["gate"]["passes"] and x.get("minPrice")]
+    if len(same) < 4 or t not in TYPES:
+        return "", None
+    plural_noun = TYPES[t][1].lower().replace("gps", "GPS")
+    per = " per dozen" if model.is_ball else ""
+    price = model.low_price
+    n = len(same)
+    pricier = sum(1 for x in same if x["minPrice"] > price + 0.005)
+    cheaper = sum(1 for x in same if x["minPrice"] < price - 0.005)
+    prices = sorted(x["minPrice"] for x in same)
+    median = prices[n // 2] if n % 2 else (prices[n // 2 - 1] + prices[n // 2]) / 2
+    if cheaper == 0:
+        rank = f"The cheapest of the {n} {plural_noun} we track"
+    elif pricier == 0:
+        rank = f"The most expensive of the {n} {plural_noun} we track"
+    else:
+        rank = f"Cheaper than {round(100 * pricier / (n - 1))}% of the {n} {plural_noun} we track"
+    vs = "under" if price < median - 0.005 else "over" if price > median + 0.005 else "right on"
+    typical = (f"A typical {TYPES[t][2]} costs about {money(median)}{per}; this one is "
+               + (f"{money(abs(median - price))} {vs} that." if vs != "right on" else "right on it."))
+    tiles = [(rank, typical)]
+    # discount off RRP, against the typical discount for the type
+    discs = sorted(round(100 * (x["rrp"] - x["minPrice"]) / x["rrp"]) for x in same
+                   if x.get("rrp") and x["rrp"] > x["minPrice"] and not model.is_ball)
+    rrp = m.get("rrp")
+    disc_line = ""
+    if rrp and rrp > price and len(discs) >= 4 and not model.is_ball:
+        mine = round(100 * (rrp - price) / rrp)
+        td = discs[len(discs) // 2]
+        how = "a bigger saving than most" if mine > td + 2 else "a smaller saving than most" if mine < td - 2 else "about the usual saving"
+        tiles.append((f"{mine}% under RRP",
+                      f"{plural_noun[0].upper() + plural_noun[1:]} typically sell about {td}% under RRP, so that's {how}."))
+        disc_line = f" It's {mine}% under RRP, against a typical {td}%."
+    # recent movement across the category
+    cutoff = (today - timedelta(days=30)).isoformat()
+    def cut_lately(x):
+        return any(e.get("kind") == "price_cut" and str(e.get("date", "")) >= cutoff for e in (x.get("events") or []))
+    moved = sum(1 for x in same if cut_lately(x))
+    me_moved = cut_lately(m)
+    tiles.append((f"{moved} of {n} dropped in the last 30 days",
+                  ("This one has, too." if me_moved else "This one hasn't, so far.")))
+    # its brand's range
+    bros = sorted((x for x in same if x["brand"] == m["brand"]), key=lambda x: x["minPrice"])
+    brand_line = ""
+    if len(bros) >= 2:
+        pos = [x["slug"] for x in bros].index(m["slug"]) + 1 if m["slug"] in [x["slug"] for x in bros] else None
+        nth = {2: "2nd", 3: "3rd"}.get(pos, f"{pos}th")
+        where = ("the cheapest" if pos == 1 else "the priciest" if pos == len(bros) else f"the {nth} cheapest") if pos else "one"
+        link = BRAND_LINK.get(m["slug"])
+        bname = f'<a href="{link}">{esc(m["brand"])} {esc(plural_noun)}</a>' if link else f"{esc(m['brand'])} {esc(plural_noun)}"
+        tiles.append((f"{len(bros)} {m['brand']} {plural_noun}",
+                      f"From {money(bros[0]['minPrice'])} to {money(bros[-1]['minPrice'])}{per}; this is {where}."))
+        brand_line = f" Of the {len(bros)} {m['brand']} {plural_noun} we track, it's {where}."
+    cells = "".join(f'<div class="pp-card pp-cmp"><strong>{esc(a)}</strong><span>{esc(b)}</span></div>' for a, b in tiles)
+    more = (f'<p class="pp-small">See every one on our <a href="/prices/{TYPES[t][0]}/">{esc(plural_noun)} price guide</a>'
+            + (f' or just the {bname}' if len(bros) >= 2 else '') + '.</p>')
+    html = f"""<section class="pp-block">
+  <h2>How the {esc(model.name)} compares</h2>
+  <p class="pp-small">Against every {esc(TYPES[t][2])} we track across multiple UK retailers, at today’s lowest new prices.</p>
+  <div class="pp-cmp-grid">{cells}</div>
+  {more}
+</section>"""
+    answer = (f"{rank}, at {money(price)}{per}. A typical {TYPES[t][2]} costs about {money(median)}{per}." + disc_line + brand_line)
+    return html, (f"How does the {model.name} compare with other {plural_noun}?", answer)
 
 
 def alert_form(model):
@@ -793,7 +866,13 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
         pm = min(p["salePrice"] for p in model.preowned)
         qs.append((f"Can I buy the {name} pre-owned?",
                    f"Yes: {plural(len(model.preowned), 'pre-owned or ex-demo listing')} from {money(pm)}."))
+    cmp_html, cmp_q = compare_block(model, all_models, today)
+    if cmp_q:
+        qs.append(cmp_q)
     q_html = "".join(f'<div class="pp-card pp-q"><h3>{esc(q)}</h3><p>{esc(a)}</p></div>' for q, a in qs)
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
+                  "mainEntity": [{"@type": "Question", "name": q,
+                                  "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in qs]}
 
     # Related
     rel = related(m, all_models)
@@ -862,6 +941,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
 {hist_html}
 {alert_form(model)}
 {pre_html}
+{cmp_html}
 <section class="pp-block">
   <h2>Questions about the {esc(name)}</h2>
   <div class="pp-q-grid">{q_html}</div>
@@ -896,7 +976,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
                       og_image=(m.get("_card") or m.get("_image") or img or None),
                       extra_head=FOURBALL_CSS + (('<meta property="og:image:width" content="1200">\n'
                                   '<meta property="og:image:height" content="630">\n') if m.get("_card") else ""),
-                      schema=[product, crumbs_schema], noindex=noindex)
+                      schema=[product, crumbs_schema, faq_schema], noindex=noindex)
 
     data = {
         "name": name, "brand": m["brand"], "type": model.noun, "url": canonical, "checked": today.isoformat(),
@@ -1002,7 +1082,8 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
                                       **({"url": SITE + f"/prices/{m['slug']}/"} if m["slug"] in built else {})}
                                      for i, m in enumerate(ms)]}
     title_noun = " ".join(w if w.isupper() else w.capitalize() for w in noun.split())
-    title = f"{title_noun} Prices UK: from {money(ms[0]['minPrice'])}{per}"
+    golf = "" if "golf" in noun.lower() else "Golf "
+    title = f"{golf}{title_noun} Prices UK: Compare {len(ms)} from {money(ms[0]['minPrice'])}{per}"
     desc = (f"{plural(len(ms), noun)} tracked across UK retailers, lowest first, with each one's price history "
             f"and a verdict on whether now's a good time to buy.")
     return page_shell(title=title, description=desc, canonical=canonical, body=body, section=section,
