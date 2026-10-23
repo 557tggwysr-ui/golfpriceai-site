@@ -264,13 +264,50 @@
             return '<li class="' + (m.you ? 'is-you' : '') + '"><b>' + (m.drafted ? i + 1 : '–') + '</b><span>' + esc(m.nick) + (m.you ? ' (you)' : '') +
               (m.drafted ? (m.picks && !m.you ? '<small>' + m.picks.map(function (p) { return esc(p.name); }).join(' · ') + '</small>' : state.phase.revealed || m.you ? '' : '<small>Bag sealed</small>') : '<small>No bag yet. Nudge them.</small>') +
               '</span><b>' + (m.drafted ? pts(m.pts) : '') + '</b></li>';
-          }).join('') + '</ol>' + (test && r.members[0] && r.members[0].drafted ? '<p class="bd-pad"><button type="button" class="bd-btn2" data-champ="' + rs.indexOf(r) + '">Preview the champion’s card</button></p>' : '') + '</div>';
+          }).join('') + '</ol>' + (test && r.members[0] && r.members[0].drafted ? '<p class="bd-pad"><button type="button" class="bd-btn2" data-champ="' + rs.indexOf(r) + '">Preview the champion’s card</button></p>' : '') +
+            (test ? '' : '<div class="bd-h2h" data-h2h="' + r.id + '" hidden></div>') + '</div>';
         }).join('');
+        el.querySelectorAll('[data-h2h]').forEach(h2h);
         el.querySelectorAll('[data-champ]').forEach(function (b) { b.addEventListener('click', function () {
           var c = champ(rs[+b.getAttribute('data-champ')], 'test', major()); if (c) shareChampion(c, b);
         }); });
       });
     }).catch(function () { el.hidden = true; });
+  }
+
+  /* ---------------------------------------------------------- head-to-heads */
+  // Each league's weekly fixture: this week's (or next week's) pairings with
+  // live scores, and the head-to-head table once a week has finished.
+  function h2h(box) {
+    var lid = box.getAttribute('data-h2h');
+    api('/draft/h2h?l=' + lid + '&season=' + season() + '&pid=' + pid()).then(function (d) {
+      if (!d || !d.ok || !(d.weeks || []).length) return;
+      var wk = d.weeks.filter(function (w) { return w.state === 'live'; })[0] || d.weeks.filter(function (w) { return w.state === 'next'; })[0] || d.weeks[d.weeks.length - 1];
+      var D = function (iso, back) { return new Date(Date.parse(iso + 'T12:00:00Z') - (back ? 864e5 : 0)).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }); };
+      var when = (wk.state === 'live' ? 'This week' : wk.state === 'next' ? 'Next week' : 'Last week') + ' · ' + D(wk.from) + ' to ' + D(wk.to, true);
+      var sc = function (x) { return x.score == null ? '' : (x.score > 0 ? '+' : x.score < 0 ? '−' : '') + Math.abs(x.score); };
+      var who = function (x) { return esc(x.nick) + (x.you ? ' (you)' : ''); };
+      var html = '<div class="bd-h2h-head"><b>Head-to-heads</b><span>' + when + '</span>' + (wk.double ? '<em>Double points</em>' : '') + '</div><ul class="bd-fix">' +
+        wk.fixtures.map(function (f) {
+          var mid = f.a.score == null ? 'v' : sc(f.a) + ' v ' + sc(f.b);
+          return '<li' + (f.a.you || f.b.you ? ' class="is-you"' : '') + '><span>' + who(f.a) + '</span><b>' + mid + '</b><span>' + who(f.b) + '</span></li>';
+        }).join('') + '</ul>' +
+        '<p class="bd-small">' + (wk.state === 'next' ? 'Kicks off Monday. ' : wk.scored ? 'Scores move every 6 hours. ' : 'Scores start once Monday’s prices are in. ') +
+        'Whoever’s bag gains the most that week wins. Odd numbers? Someone plays the Ghost, who always scores the league average.</p>';
+      if ((d.table || []).length) {
+        html += '<ol class="bd-table bd-h2h-table">' + d.table.map(function (t, i) {
+          return '<li class="' + (t.you ? 'is-you' : '') + '"><b>' + (i + 1) + '</b><span>' + esc(t.nick) + (t.you ? ' (you)' : '') + '<small>P' + t.p + ' · W' + t.w + ' D' + t.d + ' L' + t.l + '</small></span><b>' + t.pts + ' pts</b></li>';
+        }).join('') + '</ol><p class="bd-small">3 for a win, 1 for a draw. A side table for fun: the monthly table still decides the Major.</p>';
+      }
+      html += '<p><button type="button" class="bd-btn2 bd-h2h-share">Send the fixtures to the group</button></p>';
+      box.innerHTML = html; box.hidden = false;
+      box.querySelector('.bd-h2h-share').addEventListener('click', function () {
+        var t = 'Bag Draft head-to-heads, ' + when.toLowerCase() + ' (' + d.name + '):\n' + wk.fixtures.map(function (f) {
+          return (f.a.score == null ? f.a.nick + ' v ' + f.b.nick : f.a.nick + ' ' + sc(f.a) + ' v ' + sc(f.b) + ' ' + f.b.nick);
+        }).join('\n') + '\nWhoever’s bag gains most wins. https://golfpriceai.com/play/draft/';
+        share(t); track('bag_draft_h2h_share');
+      });
+    }).catch(function () {});
   }
 
   /* ---------------------------------------------------------- final results + champion's card */

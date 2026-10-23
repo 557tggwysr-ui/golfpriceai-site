@@ -820,6 +820,100 @@ function bdScore(row, by, bf) {
   return { picks, total: (row.banked || 0) + picks.reduce((t, p) => t + p.pts, 0), dbl: picks.reduce((t, p) => t + (p.bonus || 0), 0) };
 }
 
+/* ---- Head-to-heads: a weekly fixture inside each league.
+   Fixture weeks are the full Monday-to-Sunday weeks after bags are revealed on
+   the 8th. Your weekly score is how much your current bag moved that week, from
+   the Monday prices the site records (data/draft/weeks/<season>.json): drops
+   score, rises cost, and drops count double in Black Friday week. Odd numbers?
+   Someone plays the Ghost, who always scores the league's average. 3 points for
+   a win, 1 for a draw. A side table for fun: the monthly table decides the Major. */
+function bdIsoDay(y, m, d) { return new Date(Date.UTC(y, m - 1, d)).toISOString().slice(0, 10); }
+function bdFixtureWeeks(season) {
+  if (!/^\d{4}-\d{2}$/.test(season)) return [];
+  const [y, m] = season.split('-').map(Number), last = new Date(Date.UTC(y, m, 0)).getUTCDate(), out = [];
+  for (let d = 8; d + 6 <= last; d++) {
+    if (new Date(Date.UTC(y, m - 1, d)).getUTCDay() === 1) out.push({ from: bdIsoDay(y, m, d), to: bdIsoDay(y, m, d + 7) });
+  }
+  return out;
+}
+function bdHash(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function bdPairs(ids, r) {
+  const a = ids.slice();
+  if (a.length % 2) a.push(null);                       // null = the Ghost
+  const n = a.length;
+  if (n < 2) return [];
+  const rest = a.slice(1), k = r % (n - 1), arr = [a[0]].concat(rest.slice(k), rest.slice(0, k)), out = [];
+  for (let i = 0; i < n / 2; i++) out.push([arr[i], arr[n - 1 - i]]);
+  return out;
+}
+function bdWeekScore(row, w, start, end, dbl) {
+  let tot = 0;
+  for (const p of JSON.parse(row.picks || '[]')) {
+    if (p.lock !== undefined && p.lock !== null) continue;  // banked: it doesn't move any more
+    const at = String(p.at || '');
+    if (at >= w.to) continue;
+    const ref = at > w.from ? p.price : (start[p.slug] ?? p.price);
+    const fin = end[p.slug] ?? ref;
+    let d = Math.round(ref - fin);
+    if (dbl && d > 0) d *= 2;
+    tot += d;
+  }
+  return tot;
+}
+async function bdH2H(env, liveBy, season, leagueId, pid) {
+  const league = await env.DEMAND.prepare('SELECT name FROM pp_leagues WHERE id = ?').bind(leagueId).first();
+  if (!league) return { ok: false, error: 'That league has packed up its clubs.' };
+  const weeks = bdFixtureWeeks(season);
+  if (!weeks.length) return { ok: true, weeks: [], table: [] };
+  const site = env.SITE || 'https://golfpriceai.com';
+  let snaps = {};
+  try { const r = await fetch(`${site}/data/draft/weeks/${season}.json`, { cf: { cacheTtl: 900, cacheEverything: true } }); if (r.ok) snaps = (await r.json()).weeks || {}; } catch (e) { /* none yet */ }
+  const phase = bdPhase(season);
+  const latest = {};
+  for (const [k, v] of Object.entries(phase.over ? await bdFinal(env, season, liveBy) : liveBy)) latest[k] = v.price;
+  const bf = bdBlackFridayWeek(season);
+  const rows = (await env.DEMAND.prepare('SELECT m.pid, m.nick AS mnick, d.picks FROM pp_members m JOIN bd_drafts d ON d.pid = m.pid AND d.season = ? WHERE m.league = ?').bind(season, leagueId).all()).results || [];
+  const byPid = {};
+  rows.forEach((r) => { byPid[r.pid] = r; });
+  const firstAt = (r) => JSON.parse(r.picks || '[]').reduce((t, p) => (String(p.at || '9') < t ? String(p.at) : t), '9');
+  const today = new Date().toISOString().slice(0, 10);
+  const table = {};
+  const row = (id) => (table[id] = table[id] || { nick: byPid[id].mnick, you: id === pid, p: 0, w: 0, d: 0, l: 0, pts: 0 });
+  const out = [];
+  let shownNext = false;
+  weeks.forEach((w, k) => {
+    const state = today >= w.to ? 'done' : today >= w.from ? 'live' : 'next';
+    if (state === 'next' && shownNext) return;
+    const ids = rows.filter((r) => firstAt(r) <= (state === 'next' ? today : w.from)).map((r) => r.pid)
+      .sort((a, b) => bdHash(leagueId + a) - bdHash(leagueId + b));
+    const pairs = bdPairs(ids, k);
+    if (!pairs.length) return;
+    const start = snaps[w.from];
+    const scored = state !== 'next' && start;
+    const end = snaps[w.to] || latest;
+    const dbl = !!(bf && bf.from === w.from);
+    const sc = {};
+    if (scored) ids.forEach((id) => { sc[id] = bdWeekScore(byPid[id], w, start, end, dbl); });
+    const ghost = scored && ids.length ? Math.round(ids.reduce((t, id) => t + sc[id], 0) / ids.length) : null;
+    const side = (id) => id === null ? { nick: 'The Ghost', ghost: true, score: ghost } : { nick: byPid[id].mnick, you: id === pid, score: scored ? sc[id] : null };
+    const fixtures = pairs.map(([a, b]) => ({ a: side(a), b: side(b) }));
+    if (state === 'done' && scored) {
+      pairs.forEach(([a, b]) => {
+        const sa = a === null ? ghost : sc[a], sb = b === null ? ghost : sc[b];
+        [[a, sa, sb], [b, sb, sa]].forEach(([id, mine, theirs]) => {
+          if (id === null) return;
+          const t = row(id); t.p += 1;
+          if (mine > theirs) { t.w += 1; t.pts += 3; } else if (mine === theirs) { t.d += 1; t.pts += 1; } else t.l += 1;
+        });
+      });
+    }
+    if (state === 'next') shownNext = true;
+    out.push({ from: w.from, to: w.to, state, double: dbl, scored: !!scored, fixtures });
+  });
+  const tbl = Object.values(table).sort((a, b) => b.pts - a.pts || b.w - a.w || a.nick.localeCompare(b.nick));
+  return { ok: true, name: league.name, weeks: out, table: tbl };
+}
+
 /* ---- Hall of Fame and Locker Room: built from each finished Major's frozen scores */
 function bdSeasonsTo(last) {
   const out = [];
@@ -928,6 +1022,11 @@ async function bagDraft(request, url, env, cors) {
       transferUsed: mine.tweek === bdWeek() }, bdScore(mine, by, bf)) : null,
       national: { count: ranked.length, top: shown.slice(0, 20).map((r) => ({ nick: r.nick, pts: r.pts, you: r.pid === pid })), rank: pos >= 0 ? pos + 1 : null } },
       200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  }
+  if (path === '/draft/h2h') {
+    const lid = q('l');
+    if (!LEAGUE_RX.test(lid)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    return json(await bdH2H(env, liveBy, season, lid, pid), 200, Object.assign({ 'cache-control': 'no-store' }, cors));
   }
   if (path === '/draft/fame') return json(await bdFame(env, liveBy, hidden, pid), 200, Object.assign({ 'cache-control': 'no-store' }, cors));
   if (path === '/draft/locker') {
