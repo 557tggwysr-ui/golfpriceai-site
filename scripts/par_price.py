@@ -96,7 +96,7 @@ def page(n, today):
     <div class="pp-card pp-q"><h3>How is it scored?</h3><p>Within 2% of the real price is an eagle (−2), 5% a birdie (−1), 10% par, 20% a bogey (+1), anything further a double bogey (+2). Five holes, par is level.</p></div>
     <div class="pp-card pp-q"><h3>Is anything about me stored?</h3><p>No name or email unless you choose to join a league (a nickname) or get a reminder. Your streak stays in your own browser. Your score goes on the day’s leaderboard under a random code, so we can tell you how you ranked. <a href="/legal/privacy-policy.html">Privacy policy</a></p></div>
     <div class="pp-card pp-q"><h3>Can I play against my mates?</h3><p>Yes. Finish a round and start a league: one link for the group chat, nicknames only, and a table that updates itself. There’s a bonus Closest to the Pin hole every day too.</p></div>
-    <div class="pp-card pp-q"><h3>Can I swap phones or play in a private tab?</h3><p>Best not. There’s no login, so the game knows you by a code saved in this browser. Play on your usual phone and browser, not a private or incognito tab. A private tab forgets you when it closes, so your streak and league place go with it. Clearing your browser data does the same.</p></div>
+    <div class="pp-card pp-q"><h3>Can I play on my phone and my laptop?</h3><p>Yes. There’s no login, so the game knows you by a code saved in your browser. To bring your leagues, streak and Bag Draft to another device, use <a href="/play/#move">Play on another device</a> in the Clubhouse. Avoid private or incognito tabs: they forget you when they close.</p></div>
     <div class="pp-card pp-q"><h3>When is the next round?</h3><p>A new round every morning, with five different products from five different brands.</p></div>
   </div>
 </section>
@@ -110,7 +110,7 @@ def page(n, today):
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
                       canonical=f"{SITE}/play/par-price/", body=body, section="play", schema=[app, crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261024">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261027">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -122,12 +122,12 @@ def league_page():
 <section class="lg-wrap" id="lg" aria-live="polite"><p class="pr-loading">Opening the clubhouse doors…</p></section>
 <noscript><p>Par Price leagues need JavaScript. You can still <a href="/play/par-price/">play today’s round</a>.</p></noscript>
 </div>
-<script src="/js/league.js?v=20261020n" defer></script>"""
+<script src="/js/league.js?v=20261023" defer></script>"""
     return page_shell(title="Par Price league | GolfPrice AI",
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
                       canonical=f"{SITE}/play/league/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261024">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261027">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -150,7 +150,7 @@ def leagues_page():
       <label>Your nickname<input name="nick" maxlength="20" placeholder="Big Dave" autocomplete="nickname"></label>
       <button type="submit" class="gp-af-btn">Start the league</button>
       <p class="pr-msg" role="status"></p>
-      <p class="pr-lg-small">No email, no sign-up. Nicknames only: what happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. Tip: play on your usual phone, not a private tab. There’s no login, so a private tab forgets your place in the league when it closes. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
+      <p class="pr-lg-small">No email, no sign-up. Nicknames only: what happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. Tip: avoid private tabs, which forget you when they close. Playing on a phone and a laptop? <a href="/play/#move">Bring your player with you</a>. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
     </form>
   </section>
   <section class="ch-panel" id="lh-mine" hidden>
@@ -170,7 +170,7 @@ def leagues_page():
                       description="Start a free golf league for your group chat in ten seconds: Par Price every day, the Bag Draft every month, nicknames only. Loser buys the first round.",
                       canonical=f"{SITE}/play/leagues/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261024">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261027">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -230,15 +230,36 @@ def hub_page(n, rnd):
   </section>
 
 
+  <section class="ch-panel ch-move" id="move">
+    <span class="ch-kicker">Phone and laptop?</span>
+    <h2>Play on another device</h2>
+    <p>There’s no login, so each phone or browser is its own player. To be you everywhere, get a code on the device you already play on, then type it (or open the link) on the other one. Your leagues, nickname, streak and Bag Draft come with you.</p>
+    <div class="mv-grid">
+      <div class="mv-give">
+        <h3>1. On the device you already play on</h3>
+        <button type="button" class="ch-btn" id="mv-make">Get a code</button>
+        <div id="mv-out" hidden></div>
+      </div>
+      <form class="mv-take" id="mv-form" novalidate>
+        <h3>2. On your other device</h3>
+        <label>Your code<input name="code" maxlength="9" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCD-2345"></label>
+        <button type="submit" class="ch-btn">Use code</button>
+        <p class="pr-msg" role="status"></p>
+      </form>
+    </div>
+    <p class="ch-small">Codes last 30 minutes and work once. Using one swaps this device’s own player for yours.</p>
+  </section>
+
   <a class="ch-also" href="/demand/">Also from the clubhouse: <b>the UK Golf Demand Index</b>, what every golfer’s quietly eyeing up this week <span aria-hidden="true">&rarr;</span></a>
 </div>
 </div>
-<script src="/js/clubhouse.js?v=20261023" defer></script>"""
+<script src="/js/clubhouse.js?v=20261023" defer></script>
+<script src="/js/move.js?v=20261023" defer></script>"""
     return page_shell(title="The Clubhouse: free golf price games | GolfPrice AI",
                       description="Free golf games that run on real UK prices: Par Price, the daily price-guessing game, leagues for your group chat, and The Bag Draft, fantasy golf kit, from 1 November.",
                       canonical=f"{SITE}/play/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/clubhouse.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261024">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261027">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 

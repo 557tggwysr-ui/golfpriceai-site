@@ -19,7 +19,7 @@
 <meta property="og:url" content="https://golfpriceai.com/play/">
 <meta property="og:image" content="https://golfpriceai.com/assets/cards/clubhouse.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/css/par-price.css?v=20261024">
+<link rel="stylesheet" href="/css/par-price.css?v=20261027">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://golfpriceai.com/"},{"@type":"ListItem","position":2,"name":"Play"}]}</script>
@@ -196,10 +196,31 @@
   </section>
 
 
+  <section class="ch-panel ch-move" id="move">
+    <span class="ch-kicker">Phone and laptop?</span>
+    <h2>Play on another device</h2>
+    <p>There’s no login, so each phone or browser is its own player. To be you everywhere, get a code on the device you already play on, then type it (or open the link) on the other one. Your leagues, nickname, streak and Bag Draft come with you.</p>
+    <div class="mv-grid">
+      <div class="mv-give">
+        <h3>1. On the device you already play on</h3>
+        <button type="button" class="ch-btn" id="mv-make">Get a code</button>
+        <div id="mv-out" hidden></div>
+      </div>
+      <form class="mv-take" id="mv-form" novalidate>
+        <h3>2. On your other device</h3>
+        <label>Your code<input name="code" maxlength="9" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABCD-2345"></label>
+        <button type="submit" class="ch-btn">Use code</button>
+        <p class="pr-msg" role="status"></p>
+      </form>
+    </div>
+    <p class="ch-small">Codes last 30 minutes and work once. Using one swaps this device’s own player for yours.</p>
+  </section>
+
   <a class="ch-also" href="/demand/">Also from the clubhouse: <b>the UK Golf Demand Index</b>, what every golfer’s quietly eyeing up this week <span aria-hidden="true">&rarr;</span></a>
 </div>
 </div>
 <script src="/js/clubhouse.js?v=20261023" defer></script>
+<script src="/js/move.js?v=20261023" defer></script>
 </main>
 <footer class="gp-footer">
   <div class="gp-footer-inner">

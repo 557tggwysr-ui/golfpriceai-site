@@ -155,7 +155,7 @@
         : view === 'all' ? '<p class="lg-note">Wins are rounds where you had the best score in the league (ties share it).</p>' : '') +
       '</section>' + awards() +
       '<div class="lg-foot"><button type="button" class="lg-invite2">Invite more golfers to the league</button>' +
-      '<span>Nicknames only. No emails, no sign-up. What happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. Play on the same phone and browser each time (not a private tab) so the table knows it’s you.</span>' +
+      '<span>Nicknames only. No emails, no sign-up. What happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. Play on the same phone and browser each time (not a private tab) so the table knows it’s you. Got a phone and a laptop? <a href="/play/#move">Bring your player with you</a>.</span>' +
       '<button type="button" class="lg-leave">Leave this league</button></div>';
     box.querySelectorAll('.lg-tabs button').forEach(function (b) { b.addEventListener('click', function () { view = b.getAttribute('data-v'); table(); }); });
     var s = box.querySelector('.lg-share'); if (s) s.addEventListener('click', shareTable);

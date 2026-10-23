@@ -223,7 +223,7 @@
     api('/pp/my?pid=' + pid()).then(function (d) {
       var mine = (d && d.leagues) || [];
       if (!mine.length) {
-        el.querySelector('.bd-pad').innerHTML = 'You’re not in a league yet. Leagues are shared with <a href="/play/par-price/">Par Price</a>: finish a round, start one, and send the link to the group chat. Everyone in it shows up here.';
+        el.querySelector('.bd-pad').innerHTML = 'You’re not in a league yet. Leagues are shared with <a href="/play/par-price/">Par Price</a>: finish a round, start one, and send the link to the group chat. Everyone in it shows up here. Joined a league on another device? <a href="/play/#move">Bring your player over</a>.';
         return;
       }
       return Promise.all(mine.map(function (l) { return api('/draft/league?l=' + l.id + '&pid=' + pid() + '&season=' + season()); })).then(function (rs) {

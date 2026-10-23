@@ -545,6 +545,7 @@ async function ppSetup(env) {
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_leagues (id TEXT PRIMARY KEY, name TEXT, owner TEXT, created TEXT, active TEXT) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_members (league TEXT, pid TEXT, nick TEXT, joined TEXT, PRIMARY KEY (league, pid)) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS pp_members_pid ON pp_members (pid)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_moves (code TEXT PRIMARY KEY, pid TEXT, data TEXT, exp INTEGER) WITHOUT ROWID'),
   ]);
   ppReady = true;
 }
@@ -567,7 +568,37 @@ async function parPrice(request, url, env, cors) {
   if (path === '/pp/league/join' && request.method === 'POST') return await ppJoin(env, body, pid, cors);
   if (path === '/pp/league/leave' && request.method === 'POST') return await ppLeave(env, body, pid, cors);
   if (path === '/pp/league') return await ppLeague(env, String(url.searchParams.get('l') || ''), pid, cors);
+  if (path === '/pp/move/create' && request.method === 'POST') return await ppMoveCreate(env, body, pid, cors);
+  if (path === '/pp/move/claim' && request.method === 'POST') return await ppMoveClaim(env, body, request.headers.get('cf-connecting-ip') || '', cors);
   return new Response('Not found', { status: 404, headers: cors });
+}
+
+/* Play on another device. No logins, so a player is the random id in their
+   browser. The device they already use asks for a code (8 characters, 30
+   minutes, works once); the new device swaps the code for that id plus the few
+   things kept in the browser (nickname, streak, today's card). */
+const MOVE_MINS = 30;
+async function ppMoveCreate(env, body, pid, cors) {
+  if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  const now = Date.now();
+  await env.DEMAND.prepare('DELETE FROM pp_moves WHERE exp < ? OR pid = ?').bind(now, pid).run();
+  const data = JSON.stringify(body.data && typeof body.data === 'object' ? body.data : {});
+  if (data.length > 3000) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  const a = 'abcdefghjkmnpqrstuvwxyz23456789';
+  const code = [...crypto.getRandomValues(new Uint8Array(8))].map((x) => a[x % a.length]).join('');
+  await env.DEMAND.prepare('INSERT INTO pp_moves (code, pid, data, exp) VALUES (?, ?, ?, ?)').bind(code, pid, data, now + MOVE_MINS * 60000).run();
+  return json({ ok: true, code, mins: MOVE_MINS }, 200, cors);
+}
+async function ppMoveClaim(env, body, ip, cors) {
+  if (await tooMany('ppmove-' + ip, 10, 600)) return json({ ok: false, error: 'Too many tries. Please wait ten minutes and try again.' }, 429, cors);
+  const code = String(body.code || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  if (!/^[a-hj-km-np-z2-9]{8}$/.test(code)) return json({ ok: false, error: 'That code doesn’t look right. It’s 8 letters and numbers, like ABCD-2345.' }, 400, cors);
+  const row = await env.DEMAND.prepare('SELECT pid, data FROM pp_moves WHERE code = ? AND exp >= ?').bind(code, Date.now()).first();
+  if (!row) return json({ ok: false, error: 'That code has run out or been used. Get a fresh one on your other device.' }, 404, cors);
+  await env.DEMAND.prepare('DELETE FROM pp_moves WHERE code = ?').bind(code).run();
+  let data = {};
+  try { data = JSON.parse(row.data || '{}'); } catch (e) { /* keep empty */ }
+  return json({ ok: true, pid: row.pid, data }, 200, cors);
 }
 
 async function ppScore(env, body, pid, cors) {

@@ -90,12 +90,12 @@ def page():
   </div>
 </section>
 </div>
-<script src="/js/draft.js?v=20261023b" defer></script>"""
+<script src="/js/draft.js?v=20261023c" defer></script>"""
     return page_shell(title="The Bag Draft: fantasy golf kit | GolfPrice AI",
                       description=f"Free monthly fantasy golf kit: draft six real products within £{BUDGET:,}, then real UK prices decide the winner. Play with your mates or the whole country.",
                       canonical=f"{SITE}/play/draft/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/bag-draft.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261026">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261027">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 

@@ -342,3 +342,16 @@
 .bd-modal-btns { display: flex; gap: 8px; flex-wrap: wrap; }
 .bd-modal-btns > * { flex: 1 1 120px; min-height: 46px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; width: auto; }
 .bd-modal-close { background: #fff; border: 1px solid var(--gp-line); border-radius: 10px; font-weight: 700; color: var(--gp-text); cursor: pointer; }
+
+/* Play on another device (Clubhouse #move) */
+.mv-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 6px 0; }
+.mv-give, .mv-take { background: #f7f8f6; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; min-width: 0; }
+.mv-grid h3 { margin: 0; font: 700 15px Poppins, sans-serif; }
+.mv-take label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 600; width: 100%; }
+.mv-take input { font: 700 20px Poppins, sans-serif; letter-spacing: .08em; text-transform: uppercase; padding: 10px 12px; border: 1px solid var(--gp-line); border-radius: 10px; width: 100%; max-width: 220px; box-sizing: border-box; }
+.mv-take .pr-msg { margin: 0; font-size: 14px; }
+#mv-out p { margin: 0 0 8px; font-size: 14px; }
+#mv-out .mv-code { font: 800 32px Poppins, sans-serif; letter-spacing: .1em; color: var(--gp-text); margin: 0 0 4px; }
+.mv-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.mv-copy { min-height: 46px; padding: 0 16px; border: 1px solid var(--gp-line); border-radius: 10px; background: #fff; font-weight: 700; cursor: pointer; }
+@media (max-width: 640px) { .mv-grid { grid-template-columns: 1fr; } }
