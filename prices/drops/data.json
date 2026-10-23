@@ -1,8 +1,18 @@
 {
- "checked": "2026-10-22T22:00+01:00",
+ "checked": "2026-10-23T03:38+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Yonex Ezone Elite 4 Irons",
+   "model_id": "yonex-ezone-elite-4-irons",
+   "date": "2026-10-23",
+   "was": 599.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/yonex-ezone-elite-4-irons/"
+  },
   {
    "model": "Wilson DYNAPWR Forged Irons",
    "model_id": "wilson-dynapwr-forged-irons",
@@ -242,36 +252,6 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/callaway-org-14-hd-waterproof-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Cleveland Halo XL Hy-Wood",
-   "model_id": "cleveland-halo-xl-hy-wood",
-   "date": "2026-10-15",
-   "was": 149.0,
-   "now": 119.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cleveland-halo-xl-hy-wood/"
-  },
-  {
-   "model": "Voice Caddie SC4 Pro Simulator + Launch Monitor",
-   "model_id": "voice-caddie-sc4-pro-simulator-plus-launch-monitor",
-   "date": "2026-10-15",
-   "was": 599.0,
-   "now": 549.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/voice-caddie-sc4-pro-simulator-plus-launch-monitor/"
-  },
-  {
-   "model": "CaddyTalk Cube Laser Rangefinder",
-   "model_id": "caddytalk-cube-laser-rangefinder",
-   "date": "2026-10-15",
-   "was": 249.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/caddytalk-cube-laser-rangefinder/"
   }
  ]
 }

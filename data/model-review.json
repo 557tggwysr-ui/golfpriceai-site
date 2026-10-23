@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-10-22",
+ "lastUpdated": "2026-10-23",
  "uncertainGroupings": [
   {
    "model": "Callaway quantum max",
@@ -2600,6 +2600,16 @@
   },
   {
    "name": "Odyssey Damascus Milled Putter - Jailbird Mini DB Left Hand / 35\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Scotty Cameron Phantom Putter - 3.2 Right Hand / 34\" / Scotty Cameron Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Scotty Cameron Phantom Putter - 12 Right Hand / 34\" / Scotty Cameron Grip",
    "from": "accessories",
    "to": "putter"
   }

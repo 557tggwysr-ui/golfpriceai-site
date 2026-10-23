@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-baffler-combo-irons/",
- "checked": "2026-10-22",
+ "checked": "2026-10-23",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 599.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 599.0,
   "high": 699.0,
-  "average": 616.65,
+  "average": 616.39,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     599.0
    ],
    [
-    "2026-10-22",
+    "2026-10-23",
     599.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 56 days"
+  "summary": "Typical price: steady for 57 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CobraGolfBafflerComboIronsSet_1.jpg?v=1767871810",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-ds-adapt-irons/",
- "checked": "2026-10-22",
+ "checked": "2026-10-23",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 499.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 499.0,
   "high": 619.0,
-  "average": 579.88,
+  "average": 578.71,
   "priceChanges": 4,
   "series": [
    [
@@ -52,6 +52,10 @@
    ],
    [
     "2026-10-22",
+    499.0
+   ],
+   [
+    "2026-10-23",
     499.0
    ]
   ]

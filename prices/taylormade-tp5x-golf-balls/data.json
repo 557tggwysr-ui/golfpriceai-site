@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-tp5x-golf-balls/",
- "checked": "2026-10-22",
+ "checked": "2026-10-23",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 35.99,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 35.96,
   "high": 35.99,
-  "average": 35.99,
+  "average": 35.98,
   "priceChanges": 1,
   "series": [
    [
@@ -48,14 +48,14 @@
     35.96
    ],
    [
-    "2026-10-22",
+    "2026-10-23",
     35.96
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 11 days"
+  "summary": "Typical price: steady for 12 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TM-TP5x-2026-Box-4-for-3-Yellow.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

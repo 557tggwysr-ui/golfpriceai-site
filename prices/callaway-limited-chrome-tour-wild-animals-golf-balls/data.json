@@ -1,0 +1,43 @@
+{
+ "name": "Callaway Limited Chrome Tour Wild Animals Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-wild-animals-golf-balls/",
+ "checked": "2026-10-23",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 55.0,
+ "lowestAt": [
+  "Callaway Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Callaway Golf",
+   "from": 55.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 55.0,
+  "high": 55.0,
+  "average": 55.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-25",
+    55.0
+   ],
+   [
+    "2026-10-23",
+    55.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1792424866768/sits/balls-2026-chrome-tour-truvis-wild-animals/balls-2026-chrome-tour-truvis-wild-animals_2___1.png?sfrm=png",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-m1-dhc-electric-trolley/",
- "checked": "2026-10-22",
+ "checked": "2026-10-23",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 779.0,
@@ -24,15 +24,15 @@
   },
   {
    "name": "Affordable Golf",
-   "from": 849.0,
+   "from": 799.0,
    "options": 2
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 749.0,
   "high": 799.0,
-  "average": 776.35,
+  "average": 776.39,
   "priceChanges": 11,
   "series": [
    [
@@ -84,7 +84,7 @@
     779.0
    ],
    [
-    "2026-10-22",
+    "2026-10-23",
     779.0
    ]
   ]

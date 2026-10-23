@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-elyte-fairway-wood/",
- "checked": "2026-10-22",
+ "checked": "2026-10-23",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 219.0,
   "high": 239.0,
-  "average": 224.59,
+  "average": 224.51,
   "priceChanges": 1,
   "series": [
    [
@@ -48,14 +48,14 @@
     219.0
    ],
    [
-    "2026-10-22",
+    "2026-10-23",
     219.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 49 days"
+  "summary": "Typical price: steady for 50 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteFairwayWood-TI2.jpg?v=1776306341",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

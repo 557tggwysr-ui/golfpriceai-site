@@ -1,66 +1,66 @@
 {
- "n": 5,
- "date": "2026-10-22",
+ "n": 6,
+ "date": "2026-10-23",
  "items": [
   {
-   "slug": "callaway-quantum-max-irons",
-   "name": "Callaway Quantum Max Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-irons-hero-3.jpg",
+   "slug": "taylormade-qi4d-fairway-wood",
+   "name": "TaylorMade Qi4D Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/N8401607-Qi4D-Core-Fairway-Hero.jpg",
+   "price": 319.0,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": false,
+   "url": "/prices/taylormade-qi4d-fairway-wood/"
+  },
+  {
+   "slug": "srixon-soft-feel-golf-balls",
+   "name": "Srixon Soft Feel Golf Balls",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/SoftFeelBriteGreen9.jpg?v=1776292230",
+   "price": 19.99,
+   "unit": "per dozen",
+   "type": "golf ball",
+   "low": false,
+   "url": "/prices/srixon-soft-feel-golf-balls/"
+  },
+  {
+   "slug": "callaway-quantum-max-os-irons",
+   "name": "Callaway Quantum Max OS Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-os-irons-main.jpg",
    "price": 749.0,
    "unit": "each",
    "type": "iron set",
    "low": false,
-   "url": "/prices/callaway-quantum-max-irons/"
+   "url": "/prices/callaway-quantum-max-os-irons/"
   },
   {
-   "slug": "taylormade-qi4d-driver",
-   "name": "TaylorMade Qi4D Driver",
-   "image": "https://www.clickgolf.co.uk/images/product/main/N2845107-Qi4D-Core-Driver-Hero.jpg",
-   "price": 549.0,
-   "unit": "each",
-   "type": "driver",
-   "low": false,
-   "url": "/prices/taylormade-qi4d-driver/"
-  },
-  {
-   "slug": "titleist-gt2-fairway-wood",
-   "name": "Titleist GT2 Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/GT2-Fairway-Wood-Hero.jpg",
+   "slug": "wilson-dynapwr-driver",
+   "name": "Wilson DYNAPWR Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DynapwrDriver-Max1.jpg?v=1776297084",
    "price": 249.0,
    "unit": "each",
-   "type": "fairway wood",
-   "low": false,
-   "url": "/prices/titleist-gt2-fairway-wood/"
+   "type": "driver",
+   "low": true,
+   "url": "/prices/wilson-dynapwr-driver/"
   },
   {
-   "slug": "ping-g440-hybrid",
-   "name": "Ping G440 Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-hybrid-hero.jpg",
-   "price": 269.0,
-   "unit": "each",
-   "type": "hybrid",
-   "low": false,
-   "url": "/prices/ping-g440-hybrid/"
-  },
-  {
-   "slug": "cleveland-rtz-2-tour-satin-wedge",
-   "name": "Cleveland RTZ 2 Tour Satin Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ClevelandGolfRTZ2TourSatinWedge2026_4.jpg?v=1785231438",
-   "price": 139.0,
+   "slug": "titleist-vokey-sm11-jet-wedge",
+   "name": "Titleist Vokey SM11 Jet Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-jet-black-wedge-hero.jpg",
+   "price": 179.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/cleveland-rtz-2-tour-satin-wedge/"
+   "url": "/prices/titleist-vokey-sm11-jet-wedge/"
   }
  ],
  "pin": {
-  "slug": "srixon-z-star-diamond-golf-balls",
-  "name": "Srixon Z-Star Diamond Golf Balls",
-  "image": "https://www.clickgolf.co.uk/images/product/main/z-star-diamond-white.jpg",
-  "price": 29.99,
-  "unit": "per dozen",
-  "type": "golf ball",
+  "slug": "powakaddy-edge-cart-bag-golf-bag",
+  "name": "PowaKaddy Edge Cart Bag Golf Bag",
+  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PowaKaddyEDGECartBagYellow3.jpg?v=1776294203",
+  "price": 179.95,
+  "unit": "each",
+  "type": "golf bag",
   "low": false,
-  "url": "/prices/srixon-z-star-diamond-golf-balls/"
+  "url": "/prices/powakaddy-edge-cart-bag-golf-bag/"
  }
 }
