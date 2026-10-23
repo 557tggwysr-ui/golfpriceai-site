@@ -201,6 +201,53 @@
     <p><strong>No hype. No fake discounts. Just better golf gear prices.</strong></p>
   </div>
 
+  <section class="gp-film" aria-labelledby="gp-film-h">
+    <h2 id="gp-film-h">See GolfPrice AI in 24 seconds</h2>
+    <div class="gp-film-box">
+      <video id="gp-film-v" muted loop playsinline preload="none" poster="/assets/video/golfpriceai-24s-poster.jpg" width="1280" height="720" aria-describedby="gp-film-d">
+        <source src="/assets/video/golfpriceai-24s.mp4" type="video/mp4">
+        <source src="/assets/video/golfpriceai-24s.webm" type="video/webm">
+      </video>
+      <button type="button" class="gp-film-btn" id="gp-film-b" aria-pressed="false">Play</button>
+    </div>
+    <p id="gp-film-d" class="gp-film-d">Compare prices across multiple UK retailers, set price alerts, use 14 free deal tools, and play Par Price and the Bag Draft with your mates. The prices shown at the start are real prices for one driver model on 23 October 2026.</p>
+  </section>
+  <style>
+    .gp-film { margin: 32px auto; max-width: 960px; }
+    .gp-film h2 { font: 700 24px Poppins, sans-serif; margin: 0 0 12px; }
+    .gp-film-box { position: relative; border-radius: 18px; overflow: hidden; background: #141515; aspect-ratio: 16 / 9; }
+    .gp-film-box video { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .gp-film-btn { position: absolute; right: 14px; bottom: 14px; min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: rgba(20, 21, 21, .82); color: #fff; font: 700 15px Inter, sans-serif; cursor: pointer; }
+    .gp-film-btn:hover { background: #3fae29; }
+    .gp-film-d { font-size: 14px; color: #5b665f; margin: 10px 0 0; }
+  </style>
+  <script>
+  /* The About page film: plays muted on a loop once it scrolls into view (unless
+     the visitor prefers reduced motion), pauses when it scrolls away. The button
+     switches between play, sound on and sound off. Nothing loads until it's near. */
+  (function () {
+    var v = document.getElementById('gp-film-v'), b = document.getElementById('gp-film-b');
+    if (!v || !b) return;
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches, seen = false;
+    function label() { b.textContent = v.paused ? 'Play' : (v.muted ? 'Tap for sound' : 'Sound off'); b.setAttribute('aria-pressed', String(!v.paused && !v.muted)); }
+    b.addEventListener('click', function () {
+      if (v.paused) { v.muted = false; v.play().catch(function () {}); }
+      else v.muted = !v.muted;
+      label();
+      if (window.gtag) window.gtag('event', 'about_film', { action: v.muted ? 'mute' : 'sound' });
+    });
+    v.addEventListener('play', label); v.addEventListener('pause', label); v.addEventListener('volumechange', label);
+    if (calm || !('IntersectionObserver' in window)) return label();
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting) { if (!seen || v.muted) v.play().catch(function () {}); seen = true; }
+        else if (!v.paused) v.pause();
+      });
+    }, { threshold: 0.5 }).observe(v);
+    label();
+  })();
+  </script>
+
   <div class="how-it-works">
     <div class="card">
       <div class="emoji">🔍</div>
