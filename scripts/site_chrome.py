@@ -128,6 +128,8 @@ def menu():
              '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM7 6H4a3 3 0 003 4M17 6h3a3 3 0 01-3 4"></path>'),
             ("The Bag Draft", "Fantasy golf kit. The Black Friday Open starts 1 November.", "/play/draft/",
              '<path d="M8 7h8l-1 14H9L8 7zM10 7V4h4v3M8 11h8"></path>'),
+            ("Locker Room", "Your champion bags, bag tags and record.", "/play/locker/",
+             '<path d="M6 3h12v18H6zM12 3v18M9 7h1M9 10h1M14 7h1M14 10h1M10 15v2M14 15v2"></path>'),
         ],
     }
 

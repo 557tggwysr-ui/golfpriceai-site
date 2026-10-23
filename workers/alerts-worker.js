@@ -546,6 +546,7 @@ async function ppSetup(env) {
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_members (league TEXT, pid TEXT, nick TEXT, joined TEXT, PRIMARY KEY (league, pid)) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS pp_members_pid ON pp_members (pid)'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_moves (code TEXT PRIMARY KEY, pid TEXT, data TEXT, exp INTEGER) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_prefs (pid TEXT PRIMARY KEY, hidden INTEGER) WITHOUT ROWID'),
   ]);
   ppReady = true;
 }
@@ -568,6 +569,13 @@ async function parPrice(request, url, env, cors) {
   if (path === '/pp/league/join' && request.method === 'POST') return await ppJoin(env, body, pid, cors);
   if (path === '/pp/league/leave' && request.method === 'POST') return await ppLeave(env, body, pid, cors);
   if (path === '/pp/league') return await ppLeague(env, String(url.searchParams.get('l') || ''), pid, cors);
+  if (path === '/pp/prefs' && request.method === 'POST') {
+    // "Don't count me": keep this player's nickname off national leaderboards and the
+    // Hall of Fame. Their own leagues still see them (that's the point of a league).
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    await env.DEMAND.prepare('INSERT INTO pp_prefs (pid, hidden) VALUES (?, ?) ON CONFLICT (pid) DO UPDATE SET hidden = excluded.hidden').bind(pid, body.hidden ? 1 : 0).run();
+    return json({ ok: true, hidden: !!body.hidden }, 200, cors);
+  }
   if (path === '/pp/move/create' && request.method === 'POST') return await ppMoveCreate(env, body, pid, cors);
   if (path === '/pp/move/claim' && request.method === 'POST') return await ppMoveClaim(env, body, request.headers.get('cf-connecting-ip') || '', cors);
   return new Response('Not found', { status: 404, headers: cors });
@@ -777,6 +785,83 @@ function bdScore(row, by) {
   return { picks, total: (row.banked || 0) + picks.reduce((t, p) => t + p.pts, 0) };
 }
 
+/* ---- Hall of Fame and Locker Room: built from each finished Major's frozen scores */
+function bdSeasonsTo(last) {
+  const out = [];
+  let [y, m] = BD_FIRST.split('-').map(Number);
+  for (let k = 0; k < 120; k++) {
+    const s = y + '-' + String(m).padStart(2, '0');
+    if (s > last) break;
+    out.push(s);
+    m += 1; if (m > 12) { m = 1; y += 1; }
+  }
+  return out;
+}
+function bdLastMonth() { const d = new Date(); d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() - 1); return d.toISOString().slice(0, 7); }
+async function bdScores(env, season, liveBy) {
+  const by = bdPhase(season).over ? await bdFinal(env, season, liveBy) : liveBy;
+  const rows = (await env.DEMAND.prepare('SELECT pid, nick, picks, banked FROM bd_drafts WHERE season = ?').bind(season).all()).results || [];
+  return rows.map((r) => ({ pid: r.pid, nick: r.nick, pts: bdScore(r, by).total })).sort((a, b) => b.pts - a.pts);
+}
+// Places with ties: everyone on the same points shares the place.
+function bdPlaces(list, n) {
+  const out = [];
+  for (const r of list) {
+    if (out.length && out[out.length - 1].pts === r.pts) out[out.length - 1].nicks.push(r.nick);
+    else { if (out.length === n) break; out.push({ pts: r.pts, nicks: [r.nick] }); }
+  }
+  return out;
+}
+function bdRank(list, pts) { return 1 + list.filter((x) => x.pts > pts).length; }
+async function bdFame(env, liveBy, hidden, pid) {
+  const majors = [];
+  const seasons = bdSeasonsTo(bdLastMonth()).reverse().slice(0, 12);
+  for (const s of seasons) {
+    const all = await bdScores(env, s, liveBy);
+    const places = bdPlaces(all.filter((r) => !hidden.has(r.pid)), 3);
+    if (!places.length) continue;
+    const crowned = ((await env.DEMAND.prepare('SELECT m.league, COUNT(*) AS c FROM pp_members m JOIN bd_drafts d ON d.pid = m.pid AND d.season = ? GROUP BY m.league HAVING c >= 2').bind(s).all()).results || []).length;
+    majors.push({ season: s, count: all.length, crowned, places });
+  }
+  const leagues = [];
+  if (pid && majors.length) {
+    const mine = (await env.DEMAND.prepare('SELECT l.id, l.name FROM pp_members m JOIN pp_leagues l ON l.id = m.league WHERE m.pid = ?').bind(pid).all()).results || [];
+    for (const s of seasons.slice(0, 3)) {
+      for (const l of mine) {
+        const rows = (await env.DEMAND.prepare('SELECT m.pid FROM pp_members m JOIN bd_drafts d ON d.pid = m.pid AND d.season = ? WHERE m.league = ?').bind(s, l.id).all()).results || [];
+        if (rows.length < 2) continue;
+        const ids = new Set(rows.map((r) => r.pid));
+        const all = await bdScores(env, s, liveBy);
+        const top = bdPlaces(all.filter((r) => ids.has(r.pid)), 1)[0];
+        if (top) leagues.push({ season: s, league: l.name, id: l.id, champs: top.nicks, pts: top.pts });
+      }
+    }
+  }
+  return { ok: true, majors, leagues };
+}
+async function bdLocker(env, liveBy, hidden, pid) {
+  const cur = new Date().toISOString().slice(0, 7);
+  const mine = (await env.DEMAND.prepare('SELECT l.id, l.name FROM pp_members m JOIN pp_leagues l ON l.id = m.league WHERE m.pid = ?').bind(pid).all()).results || [];
+  const months = [];
+  for (const s of bdSeasonsTo(cur)) {
+    const me = await env.DEMAND.prepare('SELECT nick FROM bd_drafts WHERE season = ? AND pid = ?').bind(s, pid).first();
+    if (!me) continue;
+    const phase = bdPhase(s), all = await bdScores(env, s, liveBy);
+    const my = all.find((r) => r.pid === pid);
+    let best = null;
+    for (const l of mine) {
+      const rows = (await env.DEMAND.prepare('SELECT m.pid FROM pp_members m JOIN bd_drafts d ON d.pid = m.pid AND d.season = ? WHERE m.league = ?').bind(s, l.id).all()).results || [];
+      const ids = new Set(rows.map((r) => r.pid));
+      const inL = all.filter((r) => ids.has(r.pid));
+      const rank = bdRank(inL, my.pts);
+      if (!best || rank < best.rank || (rank === best.rank && inL.length > best.of)) best = { league: l.name, id: l.id, rank, of: inL.length };
+    }
+    const award = !phase.over ? 'live' : best && best.rank === 1 && best.of >= 2 ? 'champion' : best && best.rank <= 3 && best.of >= 4 ? 'tag' : 'played';
+    months.push({ season: s, nick: me.nick, pts: my.pts, award, nat: { rank: bdRank(all, my.pts), of: all.length }, best });
+  }
+  return { ok: true, hidden: hidden.has(pid), months };
+}
+
 async function bagDraft(request, url, env, cors) {
   if (!env.DEMAND) return json({ ok: false, error: 'The draft room is closed for a moment. Please try again later.' }, 503, cors);
   await bdSetup(env);
@@ -790,18 +875,26 @@ async function bagDraft(request, url, env, cors) {
   const season = q('season') === 'test' ? 'test' : /^\d{4}-\d{2}$/.test(q('season')) ? q('season') : new Date().toISOString().slice(0, 7);
   const phase = bdPhase(season);
   const path = url.pathname;
-  let { by } = await bdCatalogue(env);
+  const liveBy = (await bdCatalogue(env)).by;
+  let by = liveBy;
   if (phase.over) by = await bdFinal(env, season, by);
+  const hidden = new Set(((await env.DEMAND.prepare('SELECT pid FROM pp_prefs WHERE hidden = 1').all()).results || []).map((r) => r.pid));
   const mine = pid ? await env.DEMAND.prepare('SELECT * FROM bd_drafts WHERE season = ? AND pid = ?').bind(season, pid).first() : null;
 
   if (path === '/draft/state') {
     const rows = (await env.DEMAND.prepare('SELECT pid, nick, picks, banked FROM bd_drafts WHERE season = ?').bind(season).all()).results || [];
     const ranked = rows.map((r) => ({ pid: r.pid, nick: r.nick, pts: bdScore(r, by).total })).sort((a, b) => b.pts - a.pts);
     const pos = ranked.findIndex((r) => r.pid === pid);
-    return json({ ok: true, phase, mine: mine ? Object.assign({ nick: mine.nick, banked: mine.banked || 0, locked: !!mine.locked,
+    const shown = ranked.filter((r) => !hidden.has(r.pid) || r.pid === pid);
+    return json({ ok: true, phase, hidden: hidden.has(pid), mine: mine ? Object.assign({ nick: mine.nick, banked: mine.banked || 0, locked: !!mine.locked,
       transferUsed: mine.tweek === bdWeek() }, bdScore(mine, by)) : null,
-      national: { count: ranked.length, top: ranked.slice(0, 20).map((r) => ({ nick: r.nick, pts: r.pts, you: r.pid === pid })), rank: pos >= 0 ? pos + 1 : null } },
+      national: { count: ranked.length, top: shown.slice(0, 20).map((r) => ({ nick: r.nick, pts: r.pts, you: r.pid === pid })), rank: pos >= 0 ? pos + 1 : null } },
       200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  }
+  if (path === '/draft/fame') return json(await bdFame(env, liveBy, hidden, pid), 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  if (path === '/draft/locker') {
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    return json(await bdLocker(env, liveBy, hidden, pid), 200, Object.assign({ 'cache-control': 'no-store' }, cors));
   }
   if (path === '/draft/league') {
     const id = q('l');

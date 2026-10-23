@@ -90,13 +90,41 @@ def page():
   </div>
 </section>
 </div>
-<script src="/js/draft.js?v=20261023c" defer></script>"""
+<script src="/js/champion-card.js?v=20261023" defer></script>
+<script src="/js/draft.js?v=20261023d" defer></script>"""
     return page_shell(title="The Bag Draft: fantasy golf kit | GolfPrice AI",
                       description=f"Free monthly fantasy golf kit: draft six real products within £{BUDGET:,}, then real UK prices decide the winner. Play with your mates or the whole country.",
                       canonical=f"{SITE}/play/draft/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/bag-draft.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261027">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261028">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
+
+
+def locker_page():
+    """/play/locker/: your Locker Room. Personal (filled by js/locker.js from this
+    browser's player id), so it isn't indexed."""
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Play", "/play/"), ("Locker Room", None)])
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="lk-wrap" id="lk" aria-live="polite"><p class="pr-loading">Unlocking your locker…</p></section>
+<noscript><p>The Locker Room needs JavaScript. You can still <a href="/play/par-price/">play today’s Par Price</a>.</p></noscript>
+<section class="pp-block lk-how">
+  <h2>How the locker fills up</h2>
+  <div class="pp-q-grid">
+    <div class="pp-card pp-q"><h3>Champion bags</h3><p>Win your league in a Major (at least two bags in it) and that month’s themed bag hangs here with your name engraved on it. Joint winners both get the bag.</p></div>
+    <div class="pp-card pp-q"><h3>Bag tags</h3><p>Finish 2nd or 3rd in a league of four or more and you keep that month’s bag tag.</p></div>
+    <div class="pp-card pp-q"><h3>The Grand Slam</h3><p>Twelve Majors a year, twelve themed bags. Collect all twelve champion bags for the Grand Slam. Nobody said it would be easy.</p></div>
+    <div class="pp-card pp-q"><h3>Is any of it real?</h3><p>The prices are. The bags are pictures: bragging rights only, no money, no bags in the post. Results are settled on each month’s final prices, so they never change afterwards.</p></div>
+  </div>
+</section>
+</div>
+<script src="/js/champion-card.js?v=20261023" defer></script>
+<script src="/js/locker.js?v=20261023" defer></script>"""
+    return page_shell(title="Your Locker Room: The Bag Draft | GolfPrice AI",
+                      description="Your Bag Draft collection: champion bags, bag tags and your record in every monthly Major.",
+                      canonical=f"{SITE}/play/locker/", body=body, section="play", schema=[crumbs_schema], noindex=True,
+                      og_image="/assets/cards/bag-draft.jpg",
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261028">\n')
 
 
 def build(passing, built, today):
@@ -122,9 +150,14 @@ def build(passing, built, today):
     final = {"season": cat["season"], "date": today.isoformat(),
              "prices": {i["slug"]: [i["price"], i["low"]] for i in items}}
     _write(root / "data" / "draft" / "final" / f"{cat['season']}.json", json.dumps(final, separators=(",", ":")))
+    # The Majors on their own (names, colours, bag art): small enough for the
+    # Clubhouse and the Locker Room to load without the whole catalogue.
+    _write(root / "data" / "draft" / "majors.json", json.dumps(cat["majors"], ensure_ascii=False, separators=(",", ":")))
     changed = []
     if _write(root / "play" / "draft" / "index.html", page()):
         changed.append("/play/draft/")
+    if _write(root / "play" / "locker" / "index.html", locker_page()):
+        changed.append("/play/locker/")
     counts = {k: sum(1 for i in items if i["slot"] == k) for k, _, _ in SLOTS}
     print(f"Bag Draft: {len(items)} draftable models " + ", ".join(f"{k} {n}" for k, n in counts.items()) + f"; {major[0]}.")
     return changed
