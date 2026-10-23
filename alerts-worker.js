@@ -569,6 +569,10 @@ async function parPrice(request, url, env, cors) {
   if (path === '/pp/league/join' && request.method === 'POST') return await ppJoin(env, body, pid, cors);
   if (path === '/pp/league/leave' && request.method === 'POST') return await ppLeave(env, body, pid, cors);
   if (path === '/pp/league') return await ppLeague(env, String(url.searchParams.get('l') || ''), pid, cors);
+  if (path === '/pp/report') {
+    await bdSetup(env);
+    return json(await ppReport(env, String(url.searchParams.get('l') || ''), pid, String(url.searchParams.get('w') || '')), 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  }
   if (path === '/pp/prefs' && request.method === 'POST') {
     // "Don't count me": keep this player's nickname off national leaderboards and the
     // Hall of Fame. Their own leagues still see them (that's the point of a league).
@@ -724,6 +728,100 @@ async function ppLeague(env, id, pid, cors) {
   const out = people.map(({ pid: p, ...rest }) => rest); // never send other players' ids
   return json({ ok: true, id: league.id, name: league.name, n: today, monday, missed: MISSED, members: out,
     pin: { today: pinOf(today), yesterday: pinOf(today - 1) } }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+}
+
+/* ---- The Clubhouse Report: each league's Monday paper, written from the week
+   that just finished (Monday to Sunday): Par Price rounds, Bag Draft weekly
+   gains (from the Monday price snapshots), head-to-head results and next
+   week's fixtures, and the monthly table. Nicknames only, like everything else. */
+const CR_SPOON = ['The committee is concerned.', 'Lessons are available.', 'Thoughts and prayers.', 'First round’s on them, we assume.', 'Character-building stuff.'];
+const CR_SHANK = ['Rolled the wrong way, like their putts.', 'Went up faster than their handicap.', 'A shank, in price form.', 'Should have laid up.'];
+const CR_PICK = ['Bought low, looking smug.', 'Straight down the middle.', 'A genuine tap-in.', 'Flushed it.'];
+function crPick(list, seed) { return list[bdHash(seed) % list.length]; }
+async function ppReport(env, id, pid, wParam) {
+  if (!LEAGUE_RX.test(id)) return { ok: false, error: 'Bad request.' };
+  const league = await env.DEMAND.prepare('SELECT id, name FROM pp_leagues WHERE id = ?').bind(id).first();
+  if (!league) return { ok: false, error: 'That league has packed up its clubs.' };
+  const now = new Date(), dow = (now.getUTCDay() + 6) % 7;
+  const thisMonday = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - dow)).toISOString().slice(0, 10);
+  let from = /^\d{4}-\d{2}-\d{2}$/.test(wParam) && wParam < thisMonday ? wParam : null;
+  if (!from) { const d = new Date(Date.parse(thisMonday + 'T00:00:00Z') - 7 * 864e5); from = d.toISOString().slice(0, 10); }
+  if (new Date(from + 'T00:00:00Z').getUTCDay() !== 1) return { ok: false, error: 'Bad request.' };
+  const add = (iso, k) => new Date(Date.parse(iso + 'T00:00:00Z') + k * 864e5).toISOString().slice(0, 10);
+  const to = add(from, 7), last = add(from, 6);
+  const members = (await env.DEMAND.prepare('SELECT pid, nick FROM pp_members WHERE league = ?').bind(id).all()).results || [];
+  const nickOf = {}; members.forEach((m) => { nickOf[m.pid] = m.nick; });
+  const out = { ok: true, name: league.name, from, last, edition: Math.floor((Date.parse(from) - Date.parse('2026-10-19')) / (7 * 864e5)) + 1,
+    prev: add(from, -7) >= '2026-10-19' ? add(from, -7) : null, next: to < thisMonday ? to : null };
+  // Par Price: the week's rounds
+  const nA = Math.round((Date.parse(from + 'T00:00:00Z') - PP_LAUNCH) / 864e5) + 1, nB = nA + 6;
+  let pp = null;
+  if (nB >= 1 && members.length) {
+    const rows = (await env.DEMAND.prepare('SELECT s.n, s.pid, s.total FROM pp_scores s JOIN pp_members m ON m.pid = s.pid AND m.league = ? WHERE s.n BETWEEN ? AND ?').bind(id, Math.max(1, nA), nB).all()).results || [];
+    if (rows.length) {
+      const per = {};
+      members.forEach((m) => { per[m.pid] = { nick: m.nick, played: 0, week: 0 }; });
+      rows.forEach((r) => { if (per[r.pid]) { per[r.pid].played++; per[r.pid].week += r.total; } });
+      const days = nB - Math.max(1, nA) + 1;
+      const active = Object.values(per).filter((p) => p.played > 0).map((p) => Object.assign(p, { week: p.week + (days - p.played) * MISSED }));
+      active.sort((a, b) => a.week - b.week);
+      const best = rows.slice().sort((a, b) => a.total - b.total || a.n - b.n)[0];
+      pp = { rounds: rows.length, winner: { nick: active[0].nick, week: active[0].week },
+        round: { nick: nickOf[best.pid], total: best.total, day: ppDay(best.n) },
+        ever: active.filter((p) => p.played === days).map((p) => p.nick),
+        spoon: active.length > 1 ? { nick: active[active.length - 1].nick, week: active[active.length - 1].week, quip: crPick(CR_SPOON, id + from + 'pp') } : null };
+    }
+  }
+  // The Bag Draft: weekly gains and the picks that moved most
+  const season = from.slice(0, 7);
+  let bag = null;
+  const site = env.SITE || 'https://golfpriceai.com';
+  let snaps = {};
+  try { const r = await fetch(`${site}/data/draft/weeks/${season}.json`, { cf: { cacheTtl: 900, cacheEverything: true } }); if (r.ok) snaps = (await r.json()).weeks || {}; } catch (e) { /* none */ }
+  const liveBy = (await bdCatalogue(env)).by;
+  const drafts = (await env.DEMAND.prepare('SELECT m.pid, m.nick AS mnick, d.picks, d.banked FROM pp_members m JOIN bd_drafts d ON d.pid = m.pid AND d.season = ? WHERE m.league = ?').bind(season, id).all()).results || [];
+  if (drafts.length && snaps[from]) {
+    const latest = {}; for (const [k, v] of Object.entries(liveBy)) latest[k] = v.price;
+    const end = snaps[to] || latest, start = snaps[from];
+    const bf = bdBlackFridayWeek(season), dbl = !!(bf && bf.from === from);
+    const w = { from, to };
+    const gains = drafts.map((r) => ({ nick: r.mnick, score: bdWeekScore(r, w, start, end, dbl) })).sort((a, b) => b.score - a.score);
+    const moves = [];
+    drafts.forEach((r) => JSON.parse(r.picks || '[]').forEach((p) => {
+      if ((p.lock !== undefined && p.lock !== null) || String(p.at || '') >= to) return;
+      const ref = String(p.at || '') > from ? p.price : (start[p.slug] ?? p.price);
+      const d = Math.round(ref - (end[p.slug] ?? ref));
+      moves.push({ nick: r.mnick, name: (liveBy[p.slug] || p).name || p.name, d });
+    }));
+    moves.sort((a, b) => b.d - a.d);
+    const pick = moves[0] && moves[0].d > 0 ? Object.assign({}, moves[0], { quip: crPick(CR_PICK, id + from + 'pick') }) : null;
+    const shank = moves.length && moves[moves.length - 1].d < 0 ? Object.assign({}, moves[moves.length - 1], { quip: crPick(CR_SHANK, id + from + 'shank') }) : null;
+    bag = { double: dbl, gains, pick, shank };
+  }
+  // Head-to-heads, and the monthly table
+  let results = null, fixtures = null, table = null;
+  if (drafts.length) {
+    const h = await bdH2H(env, liveBy, season, id, pid);
+    const done = (h.weeks || []).find((x) => x.from === from && x.scored);
+    if (done) results = done.fixtures;
+    const nxt = (h.weeks || []).find((x) => x.from === to);
+    if (nxt) fixtures = nxt.fixtures.map((f) => ({ a: f.a.nick, b: f.b.nick }));
+    const by = bdPhase(season).over ? await bdFinal(env, season, liveBy) : liveBy;
+    const bfx = await bdDouble(env, season);
+    table = drafts.map((r) => ({ nick: r.mnick, pts: bdScore(r, by, bfx).total })).sort((a, b) => b.pts - a.pts);
+  }
+  if (!pp && !bag) return Object.assign(out, { empty: true });
+  // The front page
+  let golfer;
+  if (bag && bag.gains.length && bag.gains[0].score > 0) {
+    const g = bag.gains[0];
+    golfer = { nick: g.nick, headline: crPick([`${g.nick} has the week of their life`, `${g.nick} storms clear with +${g.score}`, `Nobody can stop ${g.nick}`, `${g.nick}’s bag is on fire`], id + from + 'h'),
+      line: `+${g.score} points from the bag this week` + (pp && pp.winner.nick === g.nick ? ', and the Par Price week too. Insufferable, frankly.' : '.') };
+  } else if (pp) {
+    golfer = { nick: pp.winner.nick, headline: crPick([`${pp.winner.nick} wins the week`, `${pp.winner.nick} rules the clubhouse`, `All hail ${pp.winner.nick}`], id + from + 'h'),
+      line: `Best Par Price week in the league at ${pp.winner.week > 0 ? '+' + pp.winner.week : pp.winner.week === 0 ? 'level' : '−' + Math.abs(pp.winner.week)}.` };
+  }
+  return Object.assign(out, { golfer, pp, bag, results, fixtures, table });
 }
 
 /* ------------------------------------------------------------------ The Bag Draft (monthly fantasy golf kit)
