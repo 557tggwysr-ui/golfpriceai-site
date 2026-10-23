@@ -190,7 +190,7 @@
           '<span class="bd-drop-links"><a href="/prices/' + slug + '/?utm_source=bagdraft&amp;utm_medium=drop">See today’s prices</a><a href="/prices/' + slug + '/?utm_source=bagdraft&amp;utm_medium=drop#price-alert">Email me if it drops again</a></span></section>';
       }).join('') +
       '<section class="bd-card" id="bd-leagues"><div class="bd-card-head"><h2>Your leagues</h2></div><div class="bd-pad bd-small">Loading…</div></section>' +
-      '<section class="bd-card"><div class="bd-card-head"><h2>National leaderboard</h2><span>' + (nat.count || 0) + ' bags</span></div><ol class="bd-table">' +
+      '<section class="bd-card"><div class="bd-card-head"><h2>National leaderboard</h2><span>' + (nat.count || 0) + (nat.count === 1 ? ' bag' : ' bags') + '</span></div><ol class="bd-table">' +
       (nat.top || []).map(function (r, i) { return '<li class="' + (r.you ? 'is-you' : '') + '"><b>' + (i + 1) + '</b><span>' + esc(r.nick) + (r.you ? ' (you)' : '') + '</span><b>' + pts(r.pts) + '</b></li>'; }).join('') +
       '</ol></section>';
     box.querySelectorAll('[data-lock]').forEach(function (b) { b.addEventListener('click', function () {
@@ -288,11 +288,32 @@
     if (btn) btn.disabled = true;
     drawChampion(c).then(function (file) {
       if (btn) btn.disabled = false;
-      if (navigator.canShare && navigator.canShare({ files: [file] })) return navigator.share({ files: [file], text: text }).catch(function () {});
-      var a = document.createElement('a'); a.href = URL.createObjectURL(file); a.download = file.name;
-      document.body.appendChild(a); a.click();
-      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+      preview(file, text, btn);
     }, function () { if (btn) btn.disabled = false; share(text); });
+  }
+  // Show the card first; sharing or saving it is the viewer's choice.
+  function preview(file, text, back) {
+    var url = URL.createObjectURL(file), canFiles = navigator.canShare && navigator.canShare({ files: [file] });
+    var m = document.createElement('div');
+    m.className = 'bd-modal'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true'); m.setAttribute('aria-label', 'Champion’s card');
+    m.innerHTML = '<div class="bd-modal-box"><img src="' + url + '" alt="The champion’s card" width="1080" height="1350">' +
+      '<div class="bd-modal-btns">' + (canFiles || navigator.share ? '<button type="button" class="gp-af-btn bd-m-share">Share</button>' : '') +
+      '<a class="gp-af-btn" href="' + url + '" download="' + file.name + '">Save picture</a>' +
+      '<button type="button" class="bd-modal-close">Close</button></div>' +
+      '<p>On a phone you can also press and hold the picture to save it.</p></div>';
+    function close() { document.removeEventListener('keydown', esc1); m.remove(); setTimeout(function () { URL.revokeObjectURL(url); }, 500); if (back) back.focus(); }
+    function esc1(e) { if (e.key === 'Escape') close(); }
+    m.addEventListener('click', function (e) { if (e.target === m) close(); });
+    m.querySelector('.bd-modal-close').addEventListener('click', close);
+    var sh = m.querySelector('.bd-m-share');
+    if (sh) sh.addEventListener('click', function () {
+      track('bag_draft_champion_share');
+      if (canFiles) navigator.share({ files: [file], text: text }).catch(function () {}); else share(text);
+    });
+    m.querySelector('a[download]').addEventListener('click', function () { track('bag_draft_champion_save'); });
+    document.addEventListener('keydown', esc1);
+    document.body.appendChild(m);
+    m.querySelector('.bd-modal-close').focus();
   }
   function drawChampion(c) {
     var fonts = document.fonts ? Promise.all(['800 96px Poppins', '700 28px Poppins', '800 20px Inter', '500 20px Inter'].map(function (f) { return document.fonts.load(f); })).catch(function () {}) : null;
@@ -311,17 +332,19 @@
       var wA = g.measureText('Golf').width, wB = g.measureText('Price').width, wC = g.measureText(' AI').width, x0 = W - 64 - wA - wB - wC;
       txt('Golf', x0, 92, g.font, '#ffffff'); txt('Price', x0 + wA, 92, g.font, '#3fae29'); txt(' AI', x0 + wA + wB, 92, g.font, '#ffffff');
       sp(8); txt('LEAGUE CHAMPION', W / 2, 206, '800 24px Inter, sans-serif', gold, 'center'); sp(0);
-      txt(c.nick, W / 2, 304, '800 96px Poppins, sans-serif', '#ffffff', 'center', 950);
-      txt('Winner of ' + c.major.name + ' in ' + c.league, W / 2, 362, '500 28px Inter, sans-serif', soft, 'center', 950);
+      txt(c.nick, W / 2, 304, size(g, c.nick, 800, 96, 56, 'Poppins', 950), '#ffffff', 'center', 950);
+      var win = 'Winner of ' + c.major.name + ' in ' + c.league;
+      txt(win, W / 2, 362, size(g, win, 500, 28, 20, 'Inter', 950), soft, 'center', 950);
       g.fillStyle = 'rgba(0,0,0,.55)'; g.beginPath(); g.ellipse(W / 2, 1000, 190, 22, 0, 0, Math.PI * 2); g.fill();
       g.drawImage(r[0], 345, 392, 390, 610);
-      g.strokeStyle = gold; g.lineWidth = 4; g.beginPath(); g.moveTo(636, 790); g.quadraticCurveTo(700, 800, 772, 770); g.stroke();
-      g.save(); g.translate(770, 820); g.rotate(7 * Math.PI / 180);
-      g.font = '800 30px Poppins, sans-serif'; var nick = fit(g, c.nick, 220), tw = Math.max(170, g.measureText(nick).width) + 40;
+      g.strokeStyle = gold; g.lineWidth = 4; g.beginPath(); g.moveTo(636, 790); g.quadraticCurveTo(670, 800, 702, 770); g.stroke();
+      g.save(); g.translate(700, 820); g.rotate(7 * Math.PI / 180);
+      var tagFont = size(g, c.nick, 800, 30, 18, 'Poppins', 290);
+      g.font = tagFont; var nick = fit(g, c.nick, 290), tw = Math.max(170, g.measureText(nick).width) + 40;
       g.fillStyle = '#0b0c0c'; rr(g, -20, -56, tw, 108, 14); g.fill();
       g.fillStyle = gold; rr(g, -20, -64, tw, 108, 14); g.fill(); g.lineWidth = 3; g.strokeStyle = '#0b0c0c'; g.stroke();
       sp(2); txt('ENGRAVED', 0, -34, '800 13px Inter, sans-serif', '#141515'); sp(0);
-      txt(nick, 0, 2, '800 30px Poppins, sans-serif', '#141515');
+      txt(nick, 0, 2, tagFont, '#141515');
       txt(short + ' · ' + pts(c.pts), 0, 30, '700 16px Inter, sans-serif', '#141515', 'left', tw - 40);
       g.restore();
       var stats = [[String(c.pts).replace('-', '−'), 'points'], [ord(1) + ' of ' + c.of, 'in the league'],
@@ -336,6 +359,11 @@
       txt('golfpriceai.com/play', W - 64, 1270, '700 19px Inter, sans-serif', '#ffffff', 'right');
       return new Promise(function (ok, no) { cv.toBlob(function (b) { b ? ok(new File([b], 'champions-card.png', { type: 'image/png' })) : no(); }, 'image/png'); });
     });
+  }
+  // Largest font size (down to min) at which the text fits the width.
+  function size(g, t, weight, max, min, fam, w) {
+    for (var px = max; px > min; px -= 2) { g.font = weight + ' ' + px + 'px ' + fam + ', sans-serif'; if (g.measureText(t).width <= w) break; }
+    return weight + ' ' + px + 'px ' + fam + ', sans-serif';
   }
   function rr(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
   function dark(hex) { var n = parseInt(String(hex || '').slice(1), 16); if (isNaN(n)) return true; return (0.299 * (n >> 16) + 0.587 * (n >> 8 & 255) + 0.114 * (n & 255)) < 90; }

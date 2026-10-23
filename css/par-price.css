@@ -292,7 +292,8 @@
   .bd-slots { grid-template-columns: 1fr; }
   .bd-item { grid-template-columns: 52px minmax(0, 1fr); }
   .bd-item-pic { width: 52px; height: 52px; }
-  .bd-item-buy { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; }
+  .bd-item-buy { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 8px; min-width: 0; }
+  .bd-item-buy .gp-af-btn { width: auto; flex: none; margin-left: auto; min-width: 104px; }
 }
 
 /* ---------------------------------------------------------------- Leagues landing (/play/leagues/) */
@@ -332,3 +333,12 @@
 .bd-champ div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .bd-champ b { font: 700 17px Poppins, sans-serif; }
 .bd-champ small { color: var(--gp-text-3); font-size: 13px; }
+
+/* Champion's card preview: show the picture first, then share or save */
+.bd-modal { position: fixed; inset: 0; z-index: 1000; background: rgba(10, 14, 12, .82); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.bd-modal-box { background: #fff; border-radius: 18px; padding: 14px; width: 100%; max-width: 440px; max-height: 100%; overflow: auto; display: flex; flex-direction: column; gap: 10px; }
+.bd-modal-box img { width: 100%; height: auto; border-radius: 10px; display: block; }
+.bd-modal-box p { margin: 0; font-size: 13px; color: var(--gp-text-3); text-align: center; }
+.bd-modal-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.bd-modal-btns > * { flex: 1 1 120px; min-height: 46px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; width: auto; }
+.bd-modal-close { background: #fff; border: 1px solid var(--gp-line); border-radius: 10px; font-weight: 700; color: var(--gp-text); cursor: pointer; }
