@@ -66,7 +66,7 @@
       '<form class="lg-join" novalidate><h2>Pick a nickname for the table</h2>' +
       '<div class="pr-lg-form"><label>Nickname<input name="nick" maxlength="20" placeholder="e.g. The Shank Redemption" autocomplete="nickname" value="' + esc(get('gpNick', '')) + '"></label>' +
       '<button type="submit" class="gp-af-btn">Join and tee off</button><p class="pr-msg" role="status"></p>' +
-      '<p class="pr-lg-small">Nicknames only: no email, no sign-up, no real names needed. What happens in the league stays in the league.</p></div></form>' +
+      '<p class="pr-lg-small">Nicknames only: no email, no sign-up, no real names needed. What happens in the league stays in the league. Join on your usual phone, not a private tab: there’s no login, so a private tab forgets you when it closes.</p></div></form>' +
       '<p style="text-align:center;margin:0"><a href="/play/par-price/">Just play today’s round without joining</a></p>';
     var f = box.querySelector('form');
     f.addEventListener('submit', function (e) {
@@ -155,7 +155,7 @@
         : view === 'all' ? '<p class="lg-note">Wins are rounds where you had the best score in the league (ties share it).</p>' : '') +
       '</section>' + awards() +
       '<div class="lg-foot"><button type="button" class="lg-invite2">Invite more golfers to the league</button>' +
-      '<span>Nicknames only. No emails, no sign-up. What happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days.</span>' +
+      '<span>Nicknames only. No emails, no sign-up. What happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. Play on the same phone and browser each time (not a private tab) so the table knows it’s you.</span>' +
       '<button type="button" class="lg-leave">Leave this league</button></div>';
     box.querySelectorAll('.lg-tabs button').forEach(function (b) { b.addEventListener('click', function () { view = b.getAttribute('data-v'); table(); }); });
     var s = box.querySelector('.lg-share'); if (s) s.addEventListener('click', shareTable);

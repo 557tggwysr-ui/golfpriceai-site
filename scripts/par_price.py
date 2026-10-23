@@ -96,6 +96,7 @@ def page(n, today):
     <div class="pp-card pp-q"><h3>How is it scored?</h3><p>Within 2% of the real price is an eagle (−2), 5% a birdie (−1), 10% par, 20% a bogey (+1), anything further a double bogey (+2). Five holes, par is level.</p></div>
     <div class="pp-card pp-q"><h3>Is anything about me stored?</h3><p>No name or email unless you choose to join a league (a nickname) or get a reminder. Your streak stays in your own browser. Your score goes on the day’s leaderboard under a random code, so we can tell you how you ranked. <a href="/legal/privacy-policy.html">Privacy policy</a></p></div>
     <div class="pp-card pp-q"><h3>Can I play against my mates?</h3><p>Yes. Finish a round and start a league: one link for the group chat, nicknames only, and a table that updates itself. There’s a bonus Closest to the Pin hole every day too.</p></div>
+    <div class="pp-card pp-q"><h3>Can I swap phones or play in a private tab?</h3><p>Best not. There’s no login, so the game knows you by a code saved in this browser. Play on your usual phone and browser, not a private or incognito tab. A private tab forgets you when it closes, so your streak and league place go with it. Clearing your browser data does the same.</p></div>
     <div class="pp-card pp-q"><h3>When is the next round?</h3><p>A new round every morning, with five different products from five different brands.</p></div>
   </div>
 </section>
@@ -121,7 +122,7 @@ def league_page():
 <section class="lg-wrap" id="lg" aria-live="polite"><p class="pr-loading">Opening the clubhouse doors…</p></section>
 <noscript><p>Par Price leagues need JavaScript. You can still <a href="/play/par-price/">play today’s round</a>.</p></noscript>
 </div>
-<script src="/js/league.js?v=20261021b" defer></script>"""
+<script src="/js/league.js?v=20261020n" defer></script>"""
     return page_shell(title="Par Price league | GolfPrice AI",
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
                       canonical=f"{SITE}/play/league/", body=body, section="play", schema=[crumbs_schema], noindex=True,
@@ -149,7 +150,7 @@ def leagues_page():
       <label>Your nickname<input name="nick" maxlength="20" placeholder="Big Dave" autocomplete="nickname"></label>
       <button type="submit" class="gp-af-btn">Start the league</button>
       <p class="pr-msg" role="status"></p>
-      <p class="pr-lg-small">No email, no sign-up. Nicknames only: what happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
+      <p class="pr-lg-small">No email, no sign-up. Nicknames only: what happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. Tip: play on your usual phone, not a private tab. There’s no login, so a private tab forgets your place in the league when it closes. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
     </form>
   </section>
   <section class="ch-panel" id="lh-mine" hidden>
