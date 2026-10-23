@@ -77,6 +77,7 @@ def page():
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Play", "/play/"), ("The Bag Draft", None)])
     body = f"""<div class="pp-wrap">
 {crumbs_html}
+<section class="bd-final" id="bd-final" aria-live="polite" hidden></section>
 <section class="bd-wrap" id="bd" aria-live="polite"><p class="pr-loading">Opening the locker room…</p></section>
 <noscript><p>The Bag Draft needs JavaScript. Our <a href="/prices/">price guides</a> work without it.</p></noscript>
 <section class="pp-block bd-how">
@@ -85,16 +86,16 @@ def page():
     <div class="pp-card pp-q"><h3>What do I do?</h3><p>Each month is a Major. Draft six real products, one per slot, at today’s lowest UK prices, within £{BUDGET:,}. Then let the real prices do the rest.</p></div>
     <div class="pp-card pp-q"><h3>How does scoring work?</h3><p>Every £1 a pick’s price falls is a point; rises cost points. A pick at the lowest price we’ve tracked earns 10 bonus points. One transfer a week, and one lock per Major to bank a pick’s points for good.</p></div>
     <div class="pp-card pp-q"><h3>Who can see my bag?</h3><p>Nobody, until the draft closes on the 7th. Then bags are revealed to your leagues, and the national leaderboard shows nicknames and points only.</p></div>
-    <div class="pp-card pp-q"><h3>Is there a prize?</h3><p>Glory only: no money, no stakes, free to play. The winner’s name is engraved on that month’s bag in their Locker Room, and the national champion goes in the Hall of Fame.</p></div>
+    <div class="pp-card pp-q"><h3>Is there a prize?</h3><p>Glory only: no money, no stakes, free to play, and no real golf bags (sorry). Each league champion gets their name engraved on a picture of that month’s themed bag: a champion’s card to share, and a place in their Locker Room. The national champion goes in the Hall of Fame.</p></div>
   </div>
 </section>
 </div>
-<script src="/js/draft.js?v=20261021" defer></script>"""
+<script src="/js/draft.js?v=20261023" defer></script>"""
     return page_shell(title="The Bag Draft: fantasy golf kit | GolfPrice AI",
                       description=f"Free monthly fantasy golf kit: draft six real products within £{BUDGET:,}, then real UK prices decide the winner. Play with your mates or the whole country.",
                       canonical=f"{SITE}/play/draft/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/bag-draft.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261024">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261025">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -115,6 +116,12 @@ def build(passing, built, today):
            "items": items}
     root = PRICES_ROOT()
     _write(root / "data" / "draft" / "catalogue.json", json.dumps(cat, ensure_ascii=False, separators=(",", ":")))
+    # Final-whistle prices: rewritten every run during the month, so the last run
+    # of the month leaves the prices that settle that Major. The worker scores a
+    # finished Major from this file, so the table can't move after it ends.
+    final = {"season": cat["season"], "date": today.isoformat(),
+             "prices": {i["slug"]: [i["price"], i["low"]] for i in items}}
+    _write(root / "data" / "draft" / "final" / f"{cat['season']}.json", json.dumps(final, separators=(",", ":")))
     changed = []
     if _write(root / "play" / "draft" / "index.html", page()):
         changed.append("/play/draft/")

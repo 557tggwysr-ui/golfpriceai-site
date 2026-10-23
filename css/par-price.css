@@ -324,3 +324,11 @@
   .ch-hero-text { left: 18px; right: 18px; bottom: 18px; }
   .ch-hero-photo p { font-size: 15px; }
 }
+
+/* Bag Draft: final results and the champion's card */
+.bd-final { margin: 0 0 16px; }
+.bd-champ { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 14px; border-top: 1px solid #eef0ec; }
+.bd-champ:first-of-type { border-top: 0; }
+.bd-champ div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.bd-champ b { font: 700 17px Poppins, sans-serif; }
+.bd-champ small { color: var(--gp-text-3); font-size: 13px; }

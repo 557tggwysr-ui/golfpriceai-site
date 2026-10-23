@@ -715,6 +715,18 @@ async function bdCatalogue(env) {
   (cat.items || []).forEach((it) => { by[it.slug] = it; });
   return { cat, by };
 }
+// A finished Major is scored from its final-whistle prices (data/draft/final/<season>.json,
+// left by the last price run of that month), so the table stops moving when the Major ends.
+async function bdFinal(env, season, by) {
+  const site = env.SITE || 'https://golfpriceai.com';
+  try {
+    const r = await fetch(`${site}/data/draft/final/${season}.json`, { cf: { cacheTtl: 3600, cacheEverything: true } });
+    if (!r.ok) return by;
+    const f = await r.json(), out = {};
+    for (const [slug, v] of Object.entries(f.prices || {})) out[slug] = Object.assign({}, by[slug] || {}, { slug, price: v[0], low: v[1] });
+    return out;
+  } catch (e) { return by; }
+}
 function bdPhase(season) {
   const now = new Date(), cur = now.toISOString().slice(0, 7), day = now.getUTCDate();
   if (season === 'test') return { season, open: true, canEdit: true, canJoin: true, revealed: true, canTransfer: true, live: true };
@@ -747,7 +759,8 @@ async function bagDraft(request, url, env, cors) {
   const season = q('season') === 'test' ? 'test' : /^\d{4}-\d{2}$/.test(q('season')) ? q('season') : new Date().toISOString().slice(0, 7);
   const phase = bdPhase(season);
   const path = url.pathname;
-  const { by } = await bdCatalogue(env);
+  let { by } = await bdCatalogue(env);
+  if (phase.over) by = await bdFinal(env, season, by);
   const mine = pid ? await env.DEMAND.prepare('SELECT * FROM bd_drafts WHERE season = ? AND pid = ?').bind(season, pid).first() : null;
 
   if (path === '/draft/state') {

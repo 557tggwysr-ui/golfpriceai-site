@@ -43,6 +43,7 @@
     wip = get('gpDraftWip', {});
     if (wip.season !== season()) wip = { season: season(), picks: {} };
     load();
+    if (!test) finals();
   }).catch(function () { box.innerHTML = '<p>The draft room couldn’t load. Please refresh in a minute.</p>'; });
 
   function load() {
@@ -232,11 +233,112 @@
             return '<li class="' + (m.you ? 'is-you' : '') + '"><b>' + (m.drafted ? i + 1 : '–') + '</b><span>' + esc(m.nick) + (m.you ? ' (you)' : '') +
               (m.drafted ? (m.picks && !m.you ? '<small>' + m.picks.map(function (p) { return esc(p.name); }).join(' · ') + '</small>' : state.phase.revealed || m.you ? '' : '<small>Bag sealed</small>') : '<small>No bag yet. Nudge them.</small>') +
               '</span><b>' + (m.drafted ? pts(m.pts) : '') + '</b></li>';
-          }).join('') + '</ol></div>';
+          }).join('') + '</ol>' + (test && r.members[0] && r.members[0].drafted ? '<p class="bd-pad"><button type="button" class="bd-btn2" data-champ="' + rs.indexOf(r) + '">Preview the champion’s card</button></p>' : '') + '</div>';
         }).join('');
+        el.querySelectorAll('[data-champ]').forEach(function (b) { b.addEventListener('click', function () {
+          var c = champ(rs[+b.getAttribute('data-champ')], 'test', major()); if (c) shareChampion(c, b);
+        }); });
       });
     }).catch(function () { el.hidden = true; });
   }
+
+  /* ---------------------------------------------------------- final results + champion's card */
+  // From the 1st, last month's Major is over: its scores are frozen at the final
+  // whistle (the worker scores it from that month's last prices). Each league's
+  // champion gets a 1080x1350 card: their name engraved on a picture of the bag.
+  function prevSeason() {
+    var y = +cat.season.slice(0, 4), m = +cat.season.slice(5, 7) - 1;
+    if (!m) { m = 12; y -= 1; }
+    return y + '-' + (m < 10 ? '0' : '') + m;
+  }
+  function finals() {
+    var el = document.getElementById('bd-final'), ps = prevSeason();
+    if (!el || ps < '2026-11') return;
+    var mj = cat.majors[ps.slice(5)];
+    api('/pp/my?pid=' + pid()).then(function (d) {
+      var mine = (d && d.leagues) || [];
+      if (!mine.length) return;
+      return Promise.all(mine.map(function (l) { return api('/draft/league?l=' + l.id + '&pid=' + pid() + '&season=' + ps); })).then(function (rs) {
+        var res = rs.map(function (r) { return r.ok ? champ(r, ps, mj) : null; }).filter(Boolean);
+        if (!res.length) return;
+        el.innerHTML = '<div class="bd-card"><div class="bd-card-head"><h2>Final results: ' + esc(mj.name) + '</h2><span>Scores frozen at the final whistle</span></div>' +
+          res.map(function (c, i) {
+            return '<div class="bd-champ"><div><small>' + esc(c.league) + '</small><b>' + (c.you ? 'You’re the champion! ' + pts(c.pts) : 'Champion: ' + esc(c.nick) + ', ' + pts(c.pts)) + '</b>' +
+              (c.last ? '<small>' + esc(c.last) + ' finished last. Speech, please.</small>' : '') + '</div>' +
+              '<button type="button" class="gp-af-btn" data-final="' + i + '">' + (c.you ? 'Share your champion’s card' : 'Share the champion’s card') + '</button></div>';
+          }).join('') + '</div>';
+        el.hidden = false;
+        el.querySelectorAll('[data-final]').forEach(function (b) { b.addEventListener('click', function () { shareChampion(res[+b.getAttribute('data-final')], b); }); });
+      });
+    }).catch(function () {});
+  }
+  function champ(r, ssn, mj) {
+    var bags = r.members.filter(function (m) { return m.drafted; });
+    if (!bags.length) return null;
+    var w = bags[0], best = null;
+    (w.picks || []).forEach(function (p) { if (!best || p.pts > best.pts) best = p; });
+    var slot = best ? cat.slots.filter(function (s) { return s.key === best.slot; })[0] : null;
+    return { league: r.name, nick: w.nick, you: w.you, pts: w.pts, of: bags.length, season: ssn, major: mj,
+      last: bags.length > 1 && bags[bags.length - 1].nick !== w.nick ? bags[bags.length - 1].nick : '',
+      best: best ? { label: slot ? slot.label : 'Best pick', drop: Math.round(best.price - best.now), pts: best.pts } : null };
+  }
+  function shareChampion(c, btn) {
+    var text = c.nick + ' is the ' + c.major.name + ' champion in ' + c.league + ' (' + pts(c.pts) + '). Name engraved on the bag, bragging rights for a month. Think you can beat them? https://golfpriceai.com/play/draft/?utm_source=champion';
+    track('bag_draft_champion_card', { you: c.you ? 1 : 0 });
+    if (btn) btn.disabled = true;
+    drawChampion(c).then(function (file) {
+      if (btn) btn.disabled = false;
+      if (navigator.canShare && navigator.canShare({ files: [file] })) return navigator.share({ files: [file], text: text }).catch(function () {});
+      var a = document.createElement('a'); a.href = URL.createObjectURL(file); a.download = file.name;
+      document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 2000);
+    }, function () { if (btn) btn.disabled = false; share(text); });
+  }
+  function drawChampion(c) {
+    var fonts = document.fonts ? Promise.all(['800 96px Poppins', '700 28px Poppins', '800 20px Inter', '500 20px Inter'].map(function (f) { return document.fonts.load(f); })).catch(function () {}) : null;
+    var bag = new Promise(function (ok, no) { var im = new Image(); im.onload = function () { ok(im); }; im.onerror = no; im.src = c.major.art; });
+    return Promise.all([bag, fonts]).then(function (r) {
+      var W = 1080, H = 1350, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+      var g = cv.getContext('2d'), gold = '#d9b45a', soft = '#c9cdca';
+      var hi = dark(c.major.accent) ? '#f08a24' : c.major.accent;
+      var when = c.season === 'test' ? 'Practice round' : new Date(c.season + '-15').toLocaleString('en-GB', { month: 'long', year: 'numeric' });
+      var short = c.season === 'test' ? 'Practice' : new Date(c.season + '-15').toLocaleString('en-GB', { month: 'short', year: 'numeric' });
+      function sp(px) { if ('letterSpacing' in g) g.letterSpacing = px + 'px'; }
+      function txt(t, x, y, font, col, align, max) { g.font = font; g.fillStyle = col; g.textAlign = align || 'left'; g.fillText(max ? fit(g, t, max) : t, x, y); }
+      g.fillStyle = '#141515'; g.fillRect(0, 0, W, H);
+      sp(2); txt(('The Bag Draft · ' + when).toUpperCase(), 64, 92, '800 20px Inter, sans-serif', hi); sp(0);
+      g.font = '700 28px Poppins, sans-serif'; g.textAlign = 'left';
+      var wA = g.measureText('Golf').width, wB = g.measureText('Price').width, wC = g.measureText(' AI').width, x0 = W - 64 - wA - wB - wC;
+      txt('Golf', x0, 92, g.font, '#ffffff'); txt('Price', x0 + wA, 92, g.font, '#3fae29'); txt(' AI', x0 + wA + wB, 92, g.font, '#ffffff');
+      sp(8); txt('LEAGUE CHAMPION', W / 2, 206, '800 24px Inter, sans-serif', gold, 'center'); sp(0);
+      txt(c.nick, W / 2, 304, '800 96px Poppins, sans-serif', '#ffffff', 'center', 950);
+      txt('Winner of ' + c.major.name + ' in ' + c.league, W / 2, 362, '500 28px Inter, sans-serif', soft, 'center', 950);
+      g.fillStyle = 'rgba(0,0,0,.55)'; g.beginPath(); g.ellipse(W / 2, 1000, 190, 22, 0, 0, Math.PI * 2); g.fill();
+      g.drawImage(r[0], 345, 392, 390, 610);
+      g.strokeStyle = gold; g.lineWidth = 4; g.beginPath(); g.moveTo(636, 790); g.quadraticCurveTo(700, 800, 772, 770); g.stroke();
+      g.save(); g.translate(770, 820); g.rotate(7 * Math.PI / 180);
+      g.font = '800 30px Poppins, sans-serif'; var nick = fit(g, c.nick, 220), tw = Math.max(170, g.measureText(nick).width) + 40;
+      g.fillStyle = '#0b0c0c'; rr(g, -20, -56, tw, 108, 14); g.fill();
+      g.fillStyle = gold; rr(g, -20, -64, tw, 108, 14); g.fill(); g.lineWidth = 3; g.strokeStyle = '#0b0c0c'; g.stroke();
+      sp(2); txt('ENGRAVED', 0, -34, '800 13px Inter, sans-serif', '#141515'); sp(0);
+      txt(nick, 0, 2, '800 30px Poppins, sans-serif', '#141515');
+      txt(short + ' · ' + pts(c.pts), 0, 30, '700 16px Inter, sans-serif', '#141515', 'left', tw - 40);
+      g.restore();
+      var stats = [[String(c.pts).replace('-', '−'), 'points'], [ord(1) + ' of ' + c.of, 'in the league'],
+        c.best ? [c.best.label, c.best.drop > 0 ? 'best pick, down £' + c.best.drop : 'best pick, ' + pts(c.best.pts)] : ['Glory', 'all of it']];
+      stats.forEach(function (st, i) {
+        var bx = 64 + i * (W - 128 + 16) / 3, bw = (W - 128 - 32) / 3;
+        g.fillStyle = '#232525'; rr(g, bx, 1086, bw, 116, 18); g.fill();
+        txt(st[0], bx + 20, 1144, '800 40px Poppins, sans-serif', hi, 'left', bw - 40);
+        txt(st[1], bx + 20, 1180, '500 18px Inter, sans-serif', soft, 'left', bw - 40);
+      });
+      txt(c.last ? c.last + ' finished last and has been asked to say a few words.' : 'Glory only. Bragging rights: maximum.', 64, 1270, '500 19px Inter, sans-serif', soft, 'left', 680);
+      txt('golfpriceai.com/play', W - 64, 1270, '700 19px Inter, sans-serif', '#ffffff', 'right');
+      return new Promise(function (ok, no) { cv.toBlob(function (b) { b ? ok(new File([b], 'champions-card.png', { type: 'image/png' })) : no(); }, 'image/png'); });
+    });
+  }
+  function rr(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+  function dark(hex) { var n = parseInt(String(hex || '').slice(1), 16); if (isNaN(n)) return true; return (0.299 * (n >> 16) + 0.587 * (n >> 8 & 255) + 0.114 * (n & 255)) < 90; }
 
   /* ---------------------------------------------------------- share card */
   function shareBag() {
