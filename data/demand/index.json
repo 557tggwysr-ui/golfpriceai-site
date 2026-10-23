@@ -18,18 +18,18 @@
   },
   {
    "category": "Golf balls",
-   "averageGuessVsRealPricePct": 21,
+   "averageGuessVsRealPricePct": 23,
+   "guesses": 13
+  },
+  {
+   "category": "Fairway woods",
+   "averageGuessVsRealPricePct": -14,
    "guesses": 12
   },
   {
    "category": "Wedges",
-   "averageGuessVsRealPricePct": -12,
-   "guesses": 16
-  },
-  {
-   "category": "Fairway woods",
-   "averageGuessVsRealPricePct": -12,
-   "guesses": 11
+   "averageGuessVsRealPricePct": -11,
+   "guesses": 17
   }
  ],
  "categoryShare": [],
