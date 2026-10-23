@@ -156,6 +156,29 @@
     }); });
   }
 
+  /* ---------------------------------------------------------- double points in Black Friday week */
+  // Dates only: no countdown clocks. Before the week it's a one-line heads-up,
+  // during it a banner with your bonus so far, afterwards what you earned.
+  function dblBanner(me, ph) {
+    var d = ph.dbl;
+    if (!d || test) return '';
+    var today = new Date().toISOString().slice(0, 10);
+    var D = function (iso) { return new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }); };
+    var last = new Date(Date.parse(d.to + 'T12:00:00Z') - 864e5).toISOString().slice(0, 10);
+    var dropped = me.picks.filter(function (p) { return p.bonus > 0; }).length;
+    if (today < d.from) {
+      return '<p class="bd-dbl-note"><b>Heads up:</b> Black Friday week (' + D(d.from) + ' to ' + D(last) + ') is double points. Every £1 your picks drop that week scores 2.</p>';
+    }
+    if (d.live) {
+      return '<section class="bd-dbl"><span class="bd-dbl-tag">Double points week</span>' +
+        '<h2>Black Friday week: every £1 your picks drop scores 2 points</h2>' +
+        '<p>' + D(d.from) + ' to ' + D(last) + '. Price rises still cost the usual 1 point.</p>' +
+        '<div class="bd-dbl-stats"><div><b>' + pts(me.dbl || 0) + '</b><span>your double points so far</span></div>' +
+        '<div><b>' + dropped + ' of ' + me.picks.length + '</b><span>of your picks have dropped this week</span></div></div></section>';
+    }
+    return me.dbl ? '<p class="bd-dbl-note">Double points week is over: your bag earned <b>' + pts(me.dbl) + '</b> extra.</p>' : '';
+  }
+
   /* ---------------------------------------------------------- your bag */
   function myBag() {
     var m = major(), me = state.mine, ph = state.phase, nat = state.national || {};
@@ -169,6 +192,7 @@
       '<h1>' + line + '</h1><p>' + (diff > 0 ? 'In this game, that’s a very good thing. ' : '') + '<b>' + pts(me.total) + '</b>' +
       (nat.rank ? ' · ' + ord(nat.rank) + ' of ' + nat.count + ' in the country' : '') + '.</p>' +
       '<p class="bd-small">Prices update every 6 hours. You’re drafting as ' + esc(me.nick) + '.</p></div></div>' +
+      dblBanner(me, ph) +
       '<section class="bd-card"><div class="bd-card-head"><h2>Your six</h2><span>' + money(was) + ' drafted · ' + money(cat.budget - was) + ' left</span></div><ul class="bd-mine">' +
       me.picks.map(function (p) {
         var label = cat.slots.filter(function (s) { return s.key === p.slot; })[0].label, locked = p.lock != null;

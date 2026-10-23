@@ -269,6 +269,11 @@
     results().forEach(function (r) {
       var tr = el('tr');
       var th = el('th'); th.scope = 'row'; var a = el('a', null, r.it.name); a.href = r.it.url + '?utm_source=parprice&utm_medium=scorecard'; th.appendChild(a);
+      // After the round (never before): where to see it, for anyone who's curious.
+      var sub = el('span', 'pr-sub');
+      if (r.it.low) sub.appendChild(el('span', 'pr-low', 'Lowest we’ve tracked'));
+      var see = el('a', 'pr-see', 'Today’s prices ›'); see.href = r.it.url + '?utm_source=parprice&utm_medium=scorecard_link'; sub.appendChild(see);
+      th.appendChild(sub);
       tr.appendChild(th);
       tr.appendChild(el('td', null, money(r.guess)));
       tr.appendChild(el('td', 'pr-real', money(r.it.price)));
@@ -302,6 +307,14 @@
       (mulliganNow ? 'You missed a day. Mulligan used. We’ll say no more about it.' : mullUsed ? 'Mulligan used this week.' : 'Mulligan ready: miss a day and your streak survives.') +
       ' New round tomorrow morning.';
     stage.appendChild(info);
+    var lowItems = round.items.filter(function (it) { return it.low; });
+    if (lowItems.length) {
+      var tipIt = lowItems[0], holeNo = round.items.indexOf(tipIt) + 1;
+      var tip = el('p', 'pr-tip');
+      tip.innerHTML = '<b>The caddie’s tip</b> Hole ' + holeNo + ', the ' + esc(tipIt.name) + ', is at the lowest price we’ve tracked. ' +
+        'If you’ve been eyeing one up, now’s a decent time. <a href="' + esc(tipIt.url) + '?utm_source=parprice&amp;utm_medium=caddie_tip">See its prices</a>';
+      stage.appendChild(tip);
+    }
     var lg = el('section', 'pr-leagues');
     lg.innerHTML = '<p class="pr-rank-line">Loading your leagues…</p>';
     stage.appendChild(lg);

@@ -14,6 +14,7 @@ No personal data here: prices and product facts only.
 """
 import json
 import re
+from datetime import timedelta
 
 from price_pages import SITE, TYPES, NOT_IN_PICKS, _write, breadcrumb, esc, page_shell
 
@@ -86,17 +87,19 @@ def page():
     <div class="pp-card pp-q"><h3>What do I do?</h3><p>Each month is a Major. Draft six real products, one per slot, at today’s lowest UK prices, within £{BUDGET:,}. Then let the real prices do the rest.</p></div>
     <div class="pp-card pp-q"><h3>How does scoring work?</h3><p>Every £1 a pick’s price falls is a point; rises cost points. A pick at the lowest price we’ve tracked earns 10 bonus points. One transfer a week, and one lock per Major to bank a pick’s points for good.</p></div>
     <div class="pp-card pp-q"><h3>Who can see my bag?</h3><p>Nobody, until the draft closes on the 7th. Then bags are revealed to your leagues, and the national leaderboard shows nicknames and points only.</p></div>
+    <div class="pp-card pp-q"><h3>What’s double points week?</h3><p>In November, Black Friday week (Monday to Sunday) is double points: every £1 a pick drops during that week scores 2 points instead of 1. Rises still cost the usual 1. A pick you transfer in that week earns double from the day you sign it.</p></div>
     <div class="pp-card pp-q"><h3>Is there a prize?</h3><p>Glory only: no money, no stakes, free to play, and no real golf bags (sorry). Each league champion gets their name engraved on a picture of that month’s themed bag: a champion’s card to share, and a place in their Locker Room. The national champion goes in the Hall of Fame.</p></div>
   </div>
 </section>
+<p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
 <script src="/js/champion-card.js?v=20261023" defer></script>
-<script src="/js/draft.js?v=20261023d" defer></script>"""
+<script src="/js/draft.js?v=20261024" defer></script>"""
     return page_shell(title="The Bag Draft: fantasy golf kit | GolfPrice AI",
                       description=f"Free monthly fantasy golf kit: draft six real products within £{BUDGET:,}, then real UK prices decide the winner. Play with your mates or the whole country.",
                       canonical=f"{SITE}/play/draft/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/bag-draft.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261028">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261029">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -117,6 +120,7 @@ def locker_page():
     <div class="pp-card pp-q"><h3>Is any of it real?</h3><p>The prices are. The bags are pictures: bragging rights only, no money, no bags in the post. Results are settled on each month’s final prices, so they never change afterwards.</p></div>
   </div>
 </section>
+<p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
 <script src="/js/champion-card.js?v=20261023" defer></script>
 <script src="/js/locker.js?v=20261023" defer></script>"""
@@ -124,7 +128,7 @@ def locker_page():
                       description="Your Bag Draft collection: champion bags, bag tags and your record in every monthly Major.",
                       canonical=f"{SITE}/play/locker/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/bag-draft.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261028">\n')
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261029">\n')
 
 
 def build(passing, built, today):
@@ -150,6 +154,19 @@ def build(passing, built, today):
     final = {"season": cat["season"], "date": today.isoformat(),
              "prices": {i["slug"]: [i["price"], i["low"]] for i in items}}
     _write(root / "data" / "draft" / "final" / f"{cat['season']}.json", json.dumps(final, separators=(",", ":")))
+    # Monday prices: the first run of each week records every price, once. The
+    # worker uses them for double points in Black Friday week (and weekly
+    # head-to-heads): how much a pick moved *during* a given week.
+    wfile = root / "data" / "draft" / "weeks" / f"{cat['season']}.json"
+    try:
+        weeks = json.loads(wfile.read_text(encoding="utf-8")) if wfile.exists() else {}
+    except ValueError:
+        weeks = {}
+    monday = (today - timedelta(days=today.weekday())).isoformat()
+    if monday.startswith(cat["season"]) and monday not in weeks.get("weeks", {}):
+        weeks.setdefault("weeks", {})[monday] = {i["slug"]: i["price"] for i in items}
+        weeks["season"] = cat["season"]
+        _write(wfile, json.dumps(weeks, separators=(",", ":")))
     # The Majors on their own (names, colours, bag art): small enough for the
     # Clubhouse and the Locker Room to load without the whole catalogue.
     _write(root / "data" / "draft" / "majors.json", json.dumps(cat["majors"], ensure_ascii=False, separators=(",", ":")))

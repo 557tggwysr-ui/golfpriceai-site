@@ -774,15 +774,50 @@ function bdPhase(season) {
     revealed: season < cur || (live && day >= 8), canTransfer: live && day >= 8, over: season < cur };
 }
 function bdWeek() { const d = new Date(); d.setUTCDate(d.getUTCDate() - (d.getUTCDay() + 6) % 7); return d.toISOString().slice(0, 10); }
-function bdScore(row, by) {
+// Double points in Black Friday week (Monday to Sunday around the last Friday
+// of November): every £1 a pick drops during that week scores twice. Rises
+// still cost the usual 1. Needs the Monday prices the site records each week
+// (data/draft/weeks/<season>.json); without them there's simply no bonus.
+function bdBlackFridayWeek(season) {
+  if (!/^\d{4}-11$/.test(season)) return null;
+  const d = new Date(Date.UTC(+season.slice(0, 4), 10, 30));
+  while (d.getUTCDay() !== 5) d.setUTCDate(d.getUTCDate() - 1);
+  const from = new Date(d); from.setUTCDate(d.getUTCDate() - 4);
+  const to = new Date(from); to.setUTCDate(from.getUTCDate() + 7);
+  return { from: from.toISOString().slice(0, 10), to: to.toISOString().slice(0, 10) };
+}
+async function bdDouble(env, season) {
+  const w = bdBlackFridayWeek(season);
+  if (!w) return null;
+  const today = new Date().toISOString().slice(0, 10);
+  const out = Object.assign({}, w, { live: today >= w.from && today < w.to, started: today >= w.from, start: null, end: null });
+  if (!out.started) return out;
+  const site = env.SITE || 'https://golfpriceai.com';
+  try {
+    const r = await fetch(`${site}/data/draft/weeks/${season}.json`, { cf: { cacheTtl: 900, cacheEverything: true } });
+    if (r.ok) { const f = await r.json(); out.start = (f.weeks || {})[w.from] || null; out.end = today >= w.to ? (f.weeks || {})[w.to] || null : null; }
+  } catch (e) { /* no snapshot, no bonus */ }
+  return out;
+}
+function bdBonus(p, now, bf) {
+  if (!bf || !bf.start) return 0;
+  const at = String(p.at || '');
+  if (at >= bf.to) return 0;                                   // signed after the week
+  const ref = at > bf.from ? p.price : (bf.start[p.slug] ?? p.price);
+  const end = bf.end ? (bf.end[p.slug] ?? now) : now;
+  return Math.max(0, Math.round(ref - end));
+}
+function bdScore(row, by, bf) {
   const picks = JSON.parse(row.picks || '[]').map((p) => {
     const cur = by[p.slug];
     const now = cur ? cur.price : p.price;
-    const pts = p.lock !== undefined && p.lock !== null ? p.lock
-      : Math.round(p.price - now) + (cur && cur.low && now < p.price ? 10 : 0);
-    return Object.assign({}, p, { now, pts, name: cur ? cur.name : p.name, image: cur ? cur.image : p.image, low: cur ? cur.low : 0, note: cur ? cur.note : '' });
+    const locked = p.lock !== undefined && p.lock !== null;
+    const bonus = locked ? 0 : bdBonus(p, now, bf);
+    const pts = locked ? p.lock
+      : Math.round(p.price - now) + (cur && cur.low && now < p.price ? 10 : 0) + bonus;
+    return Object.assign({}, p, { now, pts, bonus, name: cur ? cur.name : p.name, image: cur ? cur.image : p.image, low: cur ? cur.low : 0, note: cur ? cur.note : '' });
   });
-  return { picks, total: (row.banked || 0) + picks.reduce((t, p) => t + p.pts, 0) };
+  return { picks, total: (row.banked || 0) + picks.reduce((t, p) => t + p.pts, 0), dbl: picks.reduce((t, p) => t + (p.bonus || 0), 0) };
 }
 
 /* ---- Hall of Fame and Locker Room: built from each finished Major's frozen scores */
@@ -800,8 +835,9 @@ function bdSeasonsTo(last) {
 function bdLastMonth() { const d = new Date(); d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() - 1); return d.toISOString().slice(0, 7); }
 async function bdScores(env, season, liveBy) {
   const by = bdPhase(season).over ? await bdFinal(env, season, liveBy) : liveBy;
+  const bf = await bdDouble(env, season);
   const rows = (await env.DEMAND.prepare('SELECT pid, nick, picks, banked FROM bd_drafts WHERE season = ?').bind(season).all()).results || [];
-  return rows.map((r) => ({ pid: r.pid, nick: r.nick, pts: bdScore(r, by).total })).sort((a, b) => b.pts - a.pts);
+  return rows.map((r) => ({ pid: r.pid, nick: r.nick, pts: bdScore(r, by, bf).total })).sort((a, b) => b.pts - a.pts);
 }
 // Places with ties: everyone on the same points shares the place.
 function bdPlaces(list, n) {
@@ -878,16 +914,18 @@ async function bagDraft(request, url, env, cors) {
   const liveBy = (await bdCatalogue(env)).by;
   let by = liveBy;
   if (phase.over) by = await bdFinal(env, season, by);
+  const bf = await bdDouble(env, season);
+  if (bf) phase.dbl = { from: bf.from, to: bf.to, live: bf.live };
   const hidden = new Set(((await env.DEMAND.prepare('SELECT pid FROM pp_prefs WHERE hidden = 1').all()).results || []).map((r) => r.pid));
   const mine = pid ? await env.DEMAND.prepare('SELECT * FROM bd_drafts WHERE season = ? AND pid = ?').bind(season, pid).first() : null;
 
   if (path === '/draft/state') {
     const rows = (await env.DEMAND.prepare('SELECT pid, nick, picks, banked FROM bd_drafts WHERE season = ?').bind(season).all()).results || [];
-    const ranked = rows.map((r) => ({ pid: r.pid, nick: r.nick, pts: bdScore(r, by).total })).sort((a, b) => b.pts - a.pts);
+    const ranked = rows.map((r) => ({ pid: r.pid, nick: r.nick, pts: bdScore(r, by, bf).total })).sort((a, b) => b.pts - a.pts);
     const pos = ranked.findIndex((r) => r.pid === pid);
     const shown = ranked.filter((r) => !hidden.has(r.pid) || r.pid === pid);
     return json({ ok: true, phase, hidden: hidden.has(pid), mine: mine ? Object.assign({ nick: mine.nick, banked: mine.banked || 0, locked: !!mine.locked,
-      transferUsed: mine.tweek === bdWeek() }, bdScore(mine, by)) : null,
+      transferUsed: mine.tweek === bdWeek() }, bdScore(mine, by, bf)) : null,
       national: { count: ranked.length, top: shown.slice(0, 20).map((r) => ({ nick: r.nick, pts: r.pts, you: r.pid === pid })), rank: pos >= 0 ? pos + 1 : null } },
       200, Object.assign({ 'cache-control': 'no-store' }, cors));
   }
@@ -904,7 +942,7 @@ async function bagDraft(request, url, env, cors) {
     const rows = (await env.DEMAND.prepare('SELECT m.pid, m.nick AS mnick, d.picks, d.banked FROM pp_members m LEFT JOIN bd_drafts d ON d.pid = m.pid AND d.season = ? WHERE m.league = ?').bind(season, id).all()).results || [];
     const members = rows.map((r) => {
       const you = r.pid === pid, drafted = !!r.picks;
-      const s = drafted ? bdScore(r, by) : null;
+      const s = drafted ? bdScore(r, by, bf) : null;
       return { nick: r.mnick, you, drafted, pts: s ? s.total : null,
         picks: s && (phase.revealed || you) ? s.picks.map((p) => ({ slot: p.slot, name: p.name, image: p.image, price: p.price, now: p.now, pts: p.pts, lock: p.lock })) : null };
     }).sort((a, b) => (b.pts ?? -1e9) - (a.pts ?? -1e9));
@@ -937,7 +975,7 @@ async function bagDraft(request, url, env, cors) {
   const slot = q('slot');
   const i = picks.findIndex((p) => p.slot === slot);
   if (i < 0) return json({ ok: false, error: 'Bad request.' }, 400, cors);
-  const scored = bdScore(mine, by);
+  const scored = bdScore(mine, by, bf);
   if (path === '/draft/lock') {
     if (mine.locked) return json({ ok: false, error: 'You’ve already used your lock this Major.' }, 400, cors);
     if (phase.over) return json({ ok: false, error: 'This Major is over.' }, 400, cors);

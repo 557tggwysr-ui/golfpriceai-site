@@ -26,6 +26,7 @@
   var pid = get('gpPid', '');
   if (!/^[a-z0-9]{12,32}$/.test(pid)) pid = '';
   fame();
+  shop();
   if (!pid) return;
   fetch('https://golfpriceai-alerts.golfpriceai.workers.dev/pp/my?pid=' + pid).then(function (r) { return r.json(); }).then(function (d) {
     var mine = (d && d.leagues) || [];
@@ -34,6 +35,26 @@
       return '<li><a href="/play/league/?l=' + l.id + '"><b>' + esc(l.name) + '</b><span>' + l.size + (l.size === 1 ? ' golfer' : ' golfers') + ' · See the table</span></a></li>';
     }).join('') + '</ul>';
   }).catch(function () {});
+
+  // One quiet strip at the very bottom: three genuine price drops from today's
+  // homepage picks (one per type), for anyone who scrolls that far.
+  function shop() {
+    var sec = document.getElementById('ch-shop');
+    if (!sec) return;
+    fetch('/data/home-deals.json').then(function (r) { return r.json(); }).then(function (d) {
+      var seen = {}, pick = [];
+      (d.deals || []).forEach(function (x) {
+        if (pick.length < 3 && x.image && x.now && x.was && x.was > x.now && !seen[x.type]) { seen[x.type] = 1; pick.push(x); }
+      });
+      if (pick.length < 3) return;
+      var gbp = function (n) { return '£' + Number(n).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace(/\.00$/, ''); };
+      sec.querySelector('.ch-shop-grid').innerHTML = pick.map(function (x) {
+        return '<a href="/prices/' + encodeURIComponent(x.slug) + '/?utm_source=clubhouse&amp;utm_medium=drops"><img src="' + esc(x.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer">' +
+          '<span>' + esc(x.name) + '</span><b>' + gbp(x.now) + (x.unit ? ' ' + esc(x.unit) : '') + '<s>' + gbp(x.was) + '</s></b></a>';
+      }).join('');
+      sec.hidden = false;
+    }).catch(function () {});
+  }
 
   // Hall of Fame: each finished Major's national champion (from the frozen final
   // scores), plus the champions of your own leagues. Until the first Major ends,

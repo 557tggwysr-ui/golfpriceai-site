@@ -100,8 +100,9 @@ def page(n, today):
     <div class="pp-card pp-q"><h3>When is the next round?</h3><p>A new round every morning, with five different products from five different brands.</p></div>
   </div>
 </section>
+<p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
-<script src="/js/par-price.js?v=20261021b" defer></script>"""
+<script src="/js/par-price.js?v=20261024" defer></script>"""
     app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Par Price", "url": f"{SITE}/play/par-price/",
            "applicationCategory": "GameApplication", "operatingSystem": "Any",
            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
@@ -110,7 +111,7 @@ def page(n, today):
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
                       canonical=f"{SITE}/play/par-price/", body=body, section="play", schema=[app, crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261028">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261029">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -121,13 +122,14 @@ def league_page():
 {crumbs_html}
 <section class="lg-wrap" id="lg" aria-live="polite"><p class="pr-loading">Opening the clubhouse doors…</p></section>
 <noscript><p>Par Price leagues need JavaScript. You can still <a href="/play/par-price/">play today’s round</a>.</p></noscript>
+<p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
 <script src="/js/league.js?v=20261023" defer></script>"""
     return page_shell(title="Par Price league | GolfPrice AI",
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
                       canonical=f"{SITE}/play/league/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261028">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261029">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -164,13 +166,14 @@ def leagues_page():
   </section>
   <p class="lh-invited">Been sent an invite? Just tap the link your mate shared and pick a nickname.</p>
 </div>
+<p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
 <script src="/js/leagues-home.js?v=20261022" defer></script>"""
     return page_shell(title="Golf leagues for your group chat | GolfPrice AI",
                       description="Start a free golf league for your group chat in ten seconds: Par Price every day, the Bag Draft every month, nicknames only. Loser buys the first round.",
                       canonical=f"{SITE}/play/leagues/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261028">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261029">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -254,16 +257,23 @@ def hub_page(n, rnd):
     <p class="ch-small">Codes last 30 minutes and work once. Using one swaps this device’s own player for yours.</p>
   </section>
 
+  <section class="ch-panel ch-shop" id="ch-shop" hidden>
+    <div class="ch-shop-head"><span class="ch-kicker">Meanwhile, in the real world</span><h2>Genuine price drops today</h2></div>
+    <div class="ch-shop-grid"></div>
+    <p class="ch-small"><a href="/prices/drops/?utm_source=clubhouse">All of today’s price drops</a> · <a href="/clubs.html">Clubs</a> · <a href="/apparel.html">Apparel</a> · <a href="/accessories.html">Accessories</a></p>
+  </section>
+
   <a class="ch-also" href="/demand/">Also from the clubhouse: <b>the UK Golf Demand Index</b>, what every golfer’s quietly eyeing up this week <span aria-hidden="true">&rarr;</span></a>
 </div>
+<p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
-<script src="/js/clubhouse.js?v=20261023b" defer></script>
+<script src="/js/clubhouse.js?v=20261024" defer></script>
 <script src="/js/move.js?v=20261023" defer></script>"""
     return page_shell(title="The Clubhouse: free golf price games | GolfPrice AI",
                       description="Free golf games that run on real UK prices: Par Price, the daily price-guessing game, leagues for your group chat, and The Bag Draft, fantasy golf kit, from 1 November.",
                       canonical=f"{SITE}/play/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/clubhouse.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261028">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261029">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
