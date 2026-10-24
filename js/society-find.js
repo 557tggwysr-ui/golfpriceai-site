@@ -8,11 +8,11 @@
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function show() {
     var t = (q && q.value || '').trim().toLowerCase();
-    var list = all.filter(function (s) { return !t || (s.name + ' ' + (s.area || '') + ' ' + (s.about || '')).toLowerCase().indexOf(t) >= 0; });
+    var list = all.filter(function (s) { return !t || (s.name + ' ' + (s.area || '') + ' ' + (s.county || '') + ' ' + (s.about || '')).toLowerCase().indexOf(t) >= 0; });
     if (!all.length) { box.innerHTML = '<div class="soc-card"><p class="soc-help">No golf societies are listed yet. Run one? Be the first: it’s free.</p></div>'; return; }
     if (!list.length) { box.innerHTML = '<div class="soc-card"><p class="soc-help">No listed golf societies match “' + esc(t) + '” yet. Try a nearby town or your county.</p></div>'; return; }
     box.innerHTML = '<div class="fd-list">' + list.map(function (s) {
-      return '<article class="soc-card fd-card"><span class="fd-meta">' + esc(s.area || 'UK') + ' · ' + s.members + (s.members === 1 ? ' member' : ' members') + (s.founding ? ' · <span class="fd-found">Founding Society No. ' + s.founding + '</span>' : '') + '</span><h2>' + esc(s.name) + '</h2>' +
+      return '<article class="soc-card fd-card"><span class="fd-meta">' + esc([s.area, s.county && s.county !== s.area ? s.county : ''].filter(Boolean).join(', ') || 'UK') + ' · ' + s.members + (s.members === 1 ? ' member' : ' members') + (s.founding ? ' · <span class="fd-found">Founding Society No. ' + s.founding + '</span>' : '') + '</span><h2>' + esc(s.name) + '</h2>' +
         (s.about ? '<p>' + esc(s.about) + '</p>' : '') + '<div class="fd-foot"><a class="soc-btn" href="/societies/hq/?s=' + esc(s.id) + '">Have a look</a>' +
         '<a class="fd-report" href="mailto:hello@golfpriceai.com?subject=' + encodeURIComponent('Report a society listing: ' + s.name + ' (' + s.id + ')') + '&body=' + encodeURIComponent('What’s wrong with this listing?\n\n') + '">Report this listing</a></div></article>';
     }).join('') + '</div>';

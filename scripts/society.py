@@ -16,7 +16,7 @@ from price_pages import SITE, _write, breadcrumb, page_shell
 LAUNCHED = True
 PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
 FIND_PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/find-a-society-wide.jpg"><img src="/assets/photos/tools/find-a-society-banner.jpg" alt="Golfers shaking hands on the first tee, meeting new playing partners" width="1536" height="512"></picture>'
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024i">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024j">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -60,7 +60,7 @@ def listings(root):
         with urllib.request.urlopen(req, timeout=20) as r:
             rows = json.loads(r.read()).get("societies") or []
         rows = sorted(({"id": x["id"], "name": x["name"], "area": x.get("area") or "", "about": x.get("about") or "",
-                        "members": int(x.get("members") or 0), "founding": int(x.get("founding") or 0)} for x in rows), key=lambda x: (x["area"].lower(), x["name"].lower()))
+                        "members": int(x.get("members") or 0), "founding": int(x.get("founding") or 0), "county": x.get("county") or ""} for x in rows), key=lambda x: (x["area"].lower(), x["name"].lower()))
         _write(cache, json.dumps({"societies": rows}, ensure_ascii=False, indent=0) + "\n")
         return rows
     except Exception as e:  # never stop the build
@@ -134,7 +134,7 @@ def hq_page():
 </section>
 {REAL}
 </div>
-<script src="/js/society-hq.js?v=20261024d" defer></script>"""
+<script src="/js/society-hq.js?v=20261024e" defer></script>"""
     return page_shell(title="Run your golf society free | Society HQ | GolfPrice AI",
                       description="Run your golf society for free: fixtures, sign-ups, who’s paid, a waiting list and the prize fund, all from one link in the WhatsApp group.",
                       canonical=f"{SITE}/societies/hq/", body=body, section="societies", schema=[crumbs_schema, app_schema(f"{SITE}/societies/hq/")],
@@ -149,11 +149,45 @@ def find_cards(rows):
     out = []
     for x in rows:
         n = x["members"]
-        out.append(f'<article class="soc-card fd-card"><span class="fd-meta">{e(x["area"] or "UK")} · {n} member{"" if n == 1 else "s"}' + (f' · <span class="fd-found">Founding Society No. {x["founding"]}</span>' if x.get("founding") else "") + '</span>'
+        out.append(f'<article class="soc-card fd-card"><span class="fd-meta">{e(", ".join(v for v in (x["area"], x.get("county") if x.get("county") != x["area"] else "") if v) or "UK")} · {n} member{"" if n == 1 else "s"}' + (f' · <span class="fd-found">Founding Society No. {x["founding"]}</span>' if x.get("founding") else "") + '</span>'
                    f'<h2>{e(x["name"])}</h2>' + (f'<p>{e(x["about"])}</p>' if x["about"] else "") +
                    f'<div class="fd-foot"><a class="soc-btn" href="/societies/hq/?s={e(x["id"])}">Have a look</a>'
                    f'<a class="fd-report" href="mailto:hello@golfpriceai.com?subject={quote("Report a society listing: " + x["name"] + " (" + x["id"] + ")")}">Report this listing</a></div></article>')
     return '<div class="fd-list">' + "".join(out) + '</div>'
+
+
+def county_counts(rows):
+    import society_counties as sc
+    counts = {}
+    for x in rows:
+        if sc.known(x.get("county") or ""):
+            counts[x["county"]] = counts.get(x["county"], 0) + 1
+    return counts
+
+
+def county_chips(rows, current=None):
+    import society_counties as sc
+    counts = county_counts(rows)
+    if not counts:
+        return ""
+    from html import escape as e
+    chips = []
+    for c in sorted(counts):
+        label = f"{e(c)} ({counts[c]})"
+        if c == current:
+            chips.append(f'<span class="fd-chip is-on">{label}</span>')
+        elif counts[c] >= sc.MIN_LISTED:
+            chips.append(f'<a class="fd-chip" href="/societies/find/{sc.slug(c)}/">{label}</a>')
+        else:
+            chips.append(f'<span class="fd-chip">{label}</span>')
+    return '<nav class="fd-chips" aria-label="Golf societies by county">' + "".join(chips) + "</nav>"
+
+
+def list_schema(rows, name):
+    return {"@context": "https://schema.org", "@type": "ItemList", "name": name, "numberOfItems": len(rows),
+            "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@type": "SportsOrganization", "name": x["name"], "sport": "Golf",
+                                 "description": x["about"] or f"Golf society in {x['area'] or x.get('county') or 'the UK'}",
+                                 "areaServed": x.get("county") or x["area"] or "United Kingdom", "url": f"{SITE}/societies/hq/?s={x['id']}"}} for i, x in enumerate(rows)]}
 
 
 def find_page(rows=()):
@@ -166,17 +200,109 @@ def find_page(rows=()):
   <h1>Find a golf society</h1>
   <p>Fancy regular golf without a full club membership, or a new crowd to play with? These UK golf societies are open to new members. Search by town, county or name. Free to list your own golf society.</p>
 </section>
-<div class="soc-card"><label>Search by name or area<input id="fd-q" placeholder="e.g. Leeds, Surrey, Sunday" autocomplete="off"></label></div>
+<div class="soc-card"><label>Search by name, town or county<input id="fd-q" placeholder="e.g. Leeds, Surrey, Sunday" autocomplete="off"></label>{county_chips(rows)}</div>
 <h2 class="fd-h">Golf societies open to new members{(" (" + str(len(rows)) + ")") if rows else ""}</h2>
 <div id="fd" aria-live="polite">{find_cards(rows)}</div>
-<section class="soc-card soc-next"><span class="soc-kick">Run a society?</span><h2>List yours here, free</h2><p>Start your society in Society HQ and tick “Open to new members”. Only its name, area and description are shown.</p><a class="soc-btn" href="/societies/hq/">Start your society</a></section>
+<section class="soc-card soc-next"><span class="soc-kick">Run a society?</span><h2>List yours here, free</h2><p>Start your society in Society HQ, pick your county and tick “Open to new members”. Only its name, area and description are shown.</p><a class="soc-btn" href="/societies/hq/">Start your society</a></section>
 {REAL}
 </div>
-<script src="/js/society-find.js?v=20261024d" defer></script>"""
+<script src="/js/society-find.js?v=20261024e" defer></script>"""
     return page_shell(title="Find a golf society near you | Society HQ | GolfPrice AI",
-                      description="UK golf societies open to new members: regular golf without a full club membership. Free to list your society.",
-                      canonical=f"{SITE}/societies/find/", body=body, section="societies", schema=[crumbs_schema] + ([{"@context": "https://schema.org", "@type": "ItemList", "name": "UK golf societies open to new members", "numberOfItems": len(rows), "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@type": "SportsOrganization", "name": x["name"], "sport": "Golf", "description": x["about"] or f"Golf society in {x['area'] or 'the UK'}", "areaServed": x["area"] or "United Kingdom", "url": f"{SITE}/societies/hq/?s={x['id']}"}} for i, x in enumerate(rows)]}] if rows else []),
+                      description="UK golf societies open to new members: regular golf without a full club membership. Search by town or county. Free to list your society.",
+                      canonical=f"{SITE}/societies/find/", body=body, section="societies", schema=[crumbs_schema] + ([list_schema(rows, "UK golf societies open to new members")] if rows else []),
                       noindex=not LAUNCHED, og_image="/assets/cards/society-hq.jpg", extra_head=CSS)
+
+
+def county_page(county, rows, all_rows):
+    import society_counties as sc
+    url = f"{SITE}/societies/find/{sc.slug(county)}/"
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Society HQ", "/societies/"), ("Find a Society", "/societies/find/"), (county, None)])
+    n = len(rows)
+    body = f"""<div class="soc-wrap">
+{crumbs_html}
+<section class="soc-hero">
+  <span class="soc-kick">Find a Society · {county}</span>
+  <h1>Golf societies in {county}</h1>
+  <p>{n} {county} golf societies open to new members: regular golf without a full club membership, with a new crowd to play with. Updated every 6 hours.</p>
+</section>
+<div id="fd">{find_cards(rows)}</div>
+<div class="soc-card"><h2>Golf societies in other counties</h2>{county_chips(all_rows, current=county)}<a class="soc-link-a" href="/societies/find/">All golf societies &rarr;</a></div>
+<section class="soc-card soc-next"><span class="soc-kick">Run a {county} golf society?</span><h2>List it here, free</h2><p>Start it in Society HQ, pick {county} and tick “Open to new members”. Fixtures, sign-ups and who’s paid come free too.</p><a class="soc-btn" href="/societies/hq/">Start your golf society</a></section>
+{REAL}
+</div>"""
+    return page_shell(title=f"Golf societies in {county}: join one near you | GolfPrice AI",
+                      description=f"{n} golf societies in {county} open to new members. Regular golf without a full club membership. Free to list your own {county} golf society.",
+                      canonical=url, body=body, section="societies", schema=[crumbs_schema, list_schema(rows, f"Golf societies in {county}")],
+                      noindex=False, og_image="/assets/cards/society-hq.jpg", extra_head=CSS)
+
+
+def build_counties(root, rows):
+    """County pages for counties with at least MIN_LISTED listed societies;
+    pages for counties that drop below that are removed."""
+    import shutil
+    import society_counties as sc
+    counts = county_counts(rows)
+    live = {c for c, k in counts.items() if k >= sc.MIN_LISTED}
+    changed, urls = [], []
+    for c in sorted(live):
+        path = root / "societies" / "find" / sc.slug(c) / "index.html"
+        if _write(path, county_page(c, [x for x in rows if x.get("county") == c], rows)):
+            changed.append(f"/societies/find/{sc.slug(c)}/")
+        urls.append(f"societies/find/{sc.slug(c)}/")
+    keep = {sc.slug(c) for c in live}
+    for d in (root / "societies" / "find").iterdir():
+        if d.is_dir() and d.name not in keep and d.name in {sc.slug(c) for c in sc.COUNTIES}:
+            shutil.rmtree(d)
+            changed.append(f"/societies/find/{d.name}/")
+    return changed, urls
+
+
+COUNTY_URLS = []
+
+
+def clubs_page():
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Society HQ", "/societies/"), ("For golf clubs", None)])
+    body = f"""<div class="soc-wrap">
+{crumbs_html}
+<section class="soc-hero">
+  <span class="soc-kick">For golf clubs · Free</span>
+  <h1>Give your golf societies an easier day</h1>
+  <p>Societies that organise well book again. Put this free card in your society packs: organisers get sign-ups, a waiting list and accurate final numbers for you, from one link in their WhatsApp group.</p>
+</section>
+<section class="soc-card cl-card">
+  <h2>Your free society card (A6)</h2>
+  <div class="cl-g">
+    <div class="cl-imgs"><img src="/assets/societies/society-card-front.png" alt="The front of the society card: Run your society day the easy way, with a QR code to Society HQ" width="1240" height="1748" loading="lazy"><canvas id="cl-cv" width="1240" height="1748" role="img" aria-label="The back of the card with your club’s name"></canvas></div>
+    <div class="cl-f">
+      <label>Your club’s name (printed on the back)<input id="cl-name" maxlength="50" placeholder="e.g. Moortown Golf Club" autocomplete="organization"></label>
+      <button type="button" class="soc-btn" id="cl-back">Download the back with your club’s name</button>
+      <a class="soc-btn2" href="/assets/societies/society-card-front.png" download>Download the front (PNG)</a>
+      <a class="soc-btn2" href="/assets/societies/society-card-a6.pdf" download>Print-ready PDF, blank back (A6)</a>
+      <a class="soc-btn2" href="/assets/societies/society-poster-a5.png" download>A5 poster for the noticeboard</a>
+      <p class="soc-small">A6 is 105 × 148 mm (postcard size). Print at 100%, double-sided, on card if you have it.</p>
+    </div>
+  </div>
+</section>
+<section class="soc-card">
+  <h2>A line for your society booking emails</h2>
+  <p class="soc-help" id="cl-line">Organising the day? Society HQ is a free tool for sign-ups, a waiting list and who’s paid, from one link in your WhatsApp group: golfpriceai.com/societies</p>
+  <button type="button" class="soc-btn2" id="cl-copy" style="align-self:flex-start">Copy the line</button>
+</section>
+<section class="soc-faq">
+  <h2>Questions golf clubs ask</h2>
+  <div class="soc-faq-grid">
+    <div><h3>What does it cost the club?</h3><p>Nothing. Society HQ is free for clubs and societies. We never take bookings or payments; your society bookings stay exactly as they are.</p></div>
+    <div><h3>What’s in it for the club?</h3><p>Accurate final numbers on time, fewer drop-outs (only paid players are confirmed) and organisers who aren’t frazzled on the day.</p></div>
+    <div><h3>Who is behind it?</h3><p>GolfPrice AI, an independent UK golf site that tracks golf equipment prices across multiple UK retailers. Society HQ is its free golf society organiser.</p></div>
+  </div>
+</section>
+{REAL}
+</div>
+<script src="/js/society-clubs.js?v=20261024" defer></script>"""
+    return page_shell(title="Free society card for golf clubs | Society HQ | GolfPrice AI",
+                      description="A free, print-ready card for golf clubs’ society packs: organisers get sign-ups, a waiting list and accurate final numbers from one WhatsApp link.",
+                      canonical=f"{SITE}/societies/clubs/", body=body, section="societies", schema=[crumbs_schema],
+                      noindex=False, og_image="/assets/cards/society-hq.jpg", extra_head=CSS)
 
 
 def hub_page():
@@ -240,6 +366,7 @@ def hub_page():
   <h2>Golf society guides and free tools</h2>
   <div class="sh-glinks"><a href="/societies/guides/how-to-run-a-golf-society/"><b>How to run a golf society</b><span>Starting one, booking clubs, money and the season, month by month.</span></a><a href="/societies/guides/golf-society-awards-ideas/"><b>Golf society awards ideas</b><span>40 awards for your end-of-season night, with a free card maker.</span></a><a href="/societies/guides/how-much-to-charge-for-a-golf-society-day/"><b>How much to charge for a golf society day</b><span>2026 prices and a free day cost calculator.</span></a><a href="/societies/prize-fund-calculator/"><b>Golf society prize fund calculator</b><span>How much prize money, and how to split it.</span></a><a href="/societies/guides/golf-society-handicap-systems/"><b>Golf society handicap systems</b><span>Winner cuts, points bands and official handicaps.</span></a><a href="/societies/guides/golf-society-rules-template/"><b>Golf society rules template</b><span>Copy, edit and pin it in your WhatsApp group.</span></a></div>
   <a class="soc-link-a" href="/societies/guides/">All golf society guides &rarr;</a>
+  <a class="soc-link-a" href="/societies/clubs/">Run a golf club? Get the free society card for your packs &rarr;</a>
 </section>
 <section class="soc-card sh-faq">
   <h2>Organisers ask</h2>
@@ -261,10 +388,19 @@ def build(root=None):
         changed.append("/societies/")
     if _write(root / "societies" / "hq" / "index.html", hq_page()):
         changed.append("/societies/hq/")
-    if _write(root / "societies" / "find" / "index.html", find_page(listings(root))):
+    rows = listings(root)
+    if _write(root / "societies" / "find" / "index.html", find_page(rows)):
         changed.append("/societies/find/")
+    try:
+        c_changed, c_urls = build_counties(root, rows)
+        changed += c_changed
+        COUNTY_URLS[:] = c_urls
+    except Exception as exc:  # never stop the build
+        print(f"County pages skipped: {exc}")
     if _write(root / "societies" / "awards" / "index.html", awards_page()):
         changed.append("/societies/awards/")
+    if _write(root / "societies" / "clubs" / "index.html", clubs_page()):
+        changed.append("/societies/clubs/")
     if _write(root / "societies" / "prize" / "index.html", prize_page()):
         changed.append("/societies/prize/")
     try:

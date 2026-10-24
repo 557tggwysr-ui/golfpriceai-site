@@ -147,7 +147,7 @@
     var tag = lead && data.members.filter(function (m) { return m.today; }).length > 1 ? esc(lead.nick) + ' is leading today and has mentioned it at least twice.'
       : lead ? esc(lead.nick) + ' has posted a score. The pressure is on.' : 'Nobody’s teed off yet today. Be the first.';
     box.innerHTML = '<div class="lg-hero"><span class="pr-kicker">League · ' + n + (n === 1 ? ' golfer' : ' golfers') + ' · Par Price #' + data.n + '</span>' +
-      '<h1>' + esc(data.name) + '</h1><p>' + tag + '</p></div>' +
+      '<h1>' + esc(data.name) + '</h1><p>' + tag + '</p></div>' + socPanel(me) +
       '<section class="lg-card"><div class="lg-card-head"><h2>' + (view === 'today' ? 'Today’s round' : view === 'week' ? 'This week' : view === 'hl' ? 'Higher or Lower today' : 'All time') + '</h2>' +
       '<div class="lg-tabs" role="group" aria-label="Which table">' +
       [['today', 'Today'], ['week', 'Week'], ['all', 'All time'], ['hl', 'Hi-Lo']].map(function (t) { return '<button type="button" data-v="' + t[0] + '" aria-pressed="' + (view === t[0]) + '">' + t[1] + '</button>'; }).join('') +
@@ -162,6 +162,7 @@
       '<div class="lg-foot"><button type="button" class="lg-invite2">Invite more golfers to the league</button>' +
       '<span>Nicknames only. No emails, no sign-up. What happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. Play on the same phone and browser each time (not a private tab) so the table knows it’s you. Got a phone and a laptop? <a href="/play/#move">Bring your player with you</a>.</span>' +
       '<button type="button" class="lg-leave">Leave this league</button></div>';
+    wireSoc(me);
     box.querySelectorAll('.lg-tabs button').forEach(function (b) { b.addEventListener('click', function () { view = b.getAttribute('data-v'); table(); }); });
     var s = box.querySelector('.lg-share'); if (s) s.addEventListener('click', shareTable);
     var nu = box.querySelector('.lg-nudge'); if (nu) nu.addEventListener('click', function () {
@@ -176,6 +177,48 @@
       if (!window.confirm('Leave ' + data.name + '? Your scores stay out of its table from now on.')) return;
       api('/pp/league/leave', { pid: pid(), id: code }).then(function () { location.href = '/play/'; });
     });
+  }
+
+  /* ---------------------------------------------------------- the league's golf society (Society HQ) */
+  function socLink(id) { return 'https://golfpriceai.com/societies/hq/?s=' + id; }
+  function socPanel(me) {
+    var sc = data.society;
+    if (sc && sc.member) return '<p class="lg-soc-link"><a href="/societies/hq/?s=' + esc(sc.id) + '">Open ' + esc(sc.name) + ' on Society HQ &rarr;</a></p>';
+    if (sc && me && !get('gpSocNo-' + code, false)) {
+      return '<section class="lg-soc lg-soc-join"><span class="lg-soc-k">New · Society HQ</span><b class="lg-soc-h">Your league now has a golf society: ' + esc(sc.name) + '</b>' +
+        '<p>Fixtures, sign-ups and who’s paid for your real golf days. Free, no sign-up.</p>' +
+        '<button type="button" class="gp-af-btn lg-soc-yes">Join as “' + esc(me.nick) + '”</button><button type="button" class="lg-soc-no">Not now</button><p class="lg-soc-msg" role="status"></p></section>';
+    }
+    if (!sc && data.owner) {
+      return '<section class="lg-soc lg-soc-start"><span class="lg-soc-k">Play real golf together too?</span><b class="lg-soc-h">Turn this league into a golf society</b>' +
+        '<p>Society HQ runs your golf days: fixtures, who’s in, who’s paid and awards night. Free, from the same group chat.</p>' +
+        '<button type="button" class="gp-af-btn lg-soc-go">Start the society in one tap</button>' +
+        '<p class="lg-soc-small">Your league mates get a “Join the society” button here. Nobody is added without tapping it.</p><p class="lg-soc-msg" role="status"></p></section>';
+    }
+    return '';
+  }
+  function wireSoc(me) {
+    var go = box.querySelector('.lg-soc-go'), yes = box.querySelector('.lg-soc-yes'), no = box.querySelector('.lg-soc-no');
+    if (go) go.addEventListener('click', function () {
+      var msg = box.querySelector('.lg-soc-msg'); go.disabled = true; msg.textContent = 'Setting up the clubhouse…';
+      api('/soc/fromleague', { pid: pid(), l: code }).then(function (r) {
+        if (!r.ok) { go.disabled = false; msg.textContent = r.error || 'Something went wrong. Please try again.'; return; }
+        track('society_from_league');
+        try { var l = JSON.parse(localStorage.getItem('gpSocs')) || []; l = l.filter(function (x) { return x.id !== r.id; }); l.unshift({ id: r.id, name: data.name }); localStorage.setItem('gpSocs', JSON.stringify(l.slice(0, 10))); } catch (e) { /* fine */ }
+        var text = data.name + ' is now a proper golf society. Fixtures, who’s in and who’s paid, all in one place. Tap to join (you keep your league nickname): ' + socLink(r.id);
+        var done = function () { location.href = '/societies/hq/?s=' + r.id; };
+        if (navigator.share) navigator.share({ text: text }).then(done, done); else done();
+      }).catch(function () { go.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
+    });
+    if (yes) yes.addEventListener('click', function () {
+      var msg = box.querySelector('.lg-soc-msg'); yes.disabled = true;
+      api('/soc/join', { pid: pid(), s: data.society.id, nick: me.nick }).then(function (r) {
+        if (!r.ok) { yes.disabled = false; msg.textContent = r.error || 'Something went wrong.'; return; }
+        track('society_joined_from_league');
+        location.href = '/societies/hq/?s=' + data.society.id;
+      }).catch(function () { yes.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
+    });
+    if (no) no.addEventListener('click', function () { put('gpSocNo-' + code, true); table(); });
   }
 
   /* ---------------------------------------------------------- share today's table (picture + text) */

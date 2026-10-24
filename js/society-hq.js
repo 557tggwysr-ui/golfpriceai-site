@@ -49,6 +49,7 @@
     return d.toLocaleDateString('en-GB', { timeZone: 'UTC', weekday: long ? 'long' : 'short', day: 'numeric', month: long ? 'long' : 'short' });
   }
   var PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="" width="1536" height="512"></picture>';
+  var COUNTIES = ["Bedfordshire", "Berkshire", "Bristol", "Buckinghamshire", "Cambridgeshire", "Cheshire", "Cornwall", "Cumbria", "Derbyshire", "Devon", "Dorset", "Durham", "Essex", "Gloucestershire", "Greater London", "Greater Manchester", "Hampshire", "Herefordshire", "Hertfordshire", "Isle of Wight", "Kent", "Lancashire", "Leicestershire", "Lincolnshire", "Merseyside", "Norfolk", "Northamptonshire", "Northumberland", "Nottinghamshire", "Oxfordshire", "Rutland", "Shropshire", "Somerset", "Staffordshire", "Suffolk", "Surrey", "East Sussex", "West Sussex", "Tyne and Wear", "Warwickshire", "West Midlands", "Wiltshire", "Worcestershire", "Yorkshire", "Aberdeenshire", "Angus and Dundee", "Ayrshire and Arran", "Dumfries and Galloway", "Edinburgh and the Lothians", "Fife", "Glasgow and Clyde", "Highlands and Islands", "Perth and Kinross", "Scottish Borders", "Stirling and Central Scotland", "North Wales", "Mid Wales", "South Wales", "West Wales", "Northern Ireland", "Channel Islands", "Isle of Man"];
   var sid = (location.search.match(/[?&]s=([a-z0-9]{8})/i) || [])[1];
   var S = null, open = {};
 
@@ -78,13 +79,14 @@
   }
   function fields(d) {
     return '<label>Society name<input name="name" maxlength="40" required value="' + esc(d.name || '') + '" placeholder="The Sunday Slicers"></label>' +
-      '<label>Where you play (town or county)<input name="area" maxlength="40" value="' + esc(d.area || '') + '" placeholder="e.g. Leeds"></label>' +
+      '<div class="soc-two"><label>Town or area<input name="area" maxlength="40" value="' + esc(d.area || '') + '" placeholder="e.g. Leeds"></label>' +
+      '<label>County<select name="county"><option value="">Choose…</option>' + COUNTIES.map(function (c) { return '<option' + (d.county === c ? ' selected' : '') + '>' + esc(c) + '</option>'; }).join('') + '</select></label></div>' +
       '<label>About the society (optional)<input name="about" maxlength="240" value="' + esc(d.about || '') + '" placeholder="e.g. Monthly Stableford, all handicaps, one tour a year"></label>' +
       '<label>Your payment link (optional)<input name="pay" maxlength="120" inputmode="url" value="' + esc(d.pay || '') + '" placeholder="https://monzo.me/yourname"></label>' +
       '<p class="soc-small">Your own PayPal.me, Monzo.me or Revolut.me link. Members tap “Pay the organiser” and pay you directly; we never see the money.</p>' +
       '<label class="soc-check"><input type="checkbox" name="open"' + (d.open ? ' checked' : '') + '> Open to new members: list us in Find a Society (name, area and description only)</label>';
   }
-  function read(f) { return { name: f.name.value, area: f.area.value, about: f.about.value, pay: f.pay.value.trim(), open: f.open.checked }; }
+  function read(f) { return { name: f.name.value, area: f.area.value, county: f.county.value, about: f.about.value, pay: f.pay.value.trim(), open: f.open.checked }; }
 
   /* ---------------------------------------------------------------- join */
   function join() {

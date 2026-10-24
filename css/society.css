@@ -291,3 +291,15 @@ button.soc-link { margin: 0; padding: 8px 0; border: 0; background: none; font: 
 @media (max-width: 520px) { .dc-grid { grid-template-columns: minmax(0, 1fr); } }
 .gd-swipe { display: none; margin: 0; font-size: 12px; color: var(--gp-text-3); }
 @media (max-width: 800px) { .gd-swipe { display: block; } }
+.fd-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.fd-chip { border: 1px solid var(--gp-line); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 600; color: var(--gp-text-2); text-decoration: none; }
+a.fd-chip { color: var(--gp-green-dark); border-color: #cfe8c6; background: #f3faf0; }
+.fd-chip.is-on { background: var(--gp-ink); color: #fff; border-color: var(--gp-ink); }
+.soc-card select { min-height: 46px; padding: 0 10px; border: 1px solid #cfd5cc; border-radius: 10px; font: 600 16px Inter, sans-serif; color: var(--gp-ink); background: #fff; width: 100%; min-width: 0; }
+/* For golf clubs */
+.cl-g { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.cl-imgs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.cl-imgs img, .cl-imgs canvas { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 6px 18px rgba(22, 36, 28, .18); border: 1px solid var(--gp-line); }
+.cl-f { display: flex; flex-direction: column; gap: 10px; }
+.cl-f .soc-btn2, .cl-f .soc-btn { width: 100%; text-align: center; }
+@media (max-width: 760px) { .cl-g { grid-template-columns: minmax(0, 1fr); } }

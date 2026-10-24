@@ -20,7 +20,7 @@ from pathlib import Path
 from price_pages import SITE, _write, breadcrumb, page_shell
 
 ROOT = Path(__file__).resolve().parent.parent
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024i">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024j">\n'
 PUBLISHED = "2026-10-24"
 F_IN_STOCK, F_USED = 2, 8
 SKIP = re.compile(r"\b(junior|juniors|kids|youth|boys|girls|ladies|lady|women'?s?|womens|personali[sz]ed|logo|practice|foam|recycled|lake|refurb|used|grade [abc]|pearl)\b", re.I)
