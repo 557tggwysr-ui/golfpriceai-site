@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clubhouse stats | GolfPrice AI</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/assets/logo-full.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root { --ink: #16241c; --green: #3fae29; --green-d: #2f8a1f; --line: #e7e9e5; --dim: #5b665f; --dark: #14211a; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f7f8f6; color: var(--ink); font: 15px/1.5 Inter, sans-serif; }
+h1, h2, b.big { font-family: Poppins, sans-serif; }
+.top { background: var(--dark); color: #fff; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 24px; flex-wrap: wrap; }
+.logo { font: 700 20px Poppins, sans-serif; color: #fff; text-decoration: none; }
+.logo span { color: var(--green); }
+.logo small { font: 600 13px Inter, sans-serif; color: #8fd77e; margin-left: 8px; }
+.top-r { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #c4d0c8; }
+.top-r button { min-height: 40px; border: 1px solid #3c5245; background: transparent; color: #fff; border-radius: 8px; padding: 0 12px; font: 600 13px Inter, sans-serif; cursor: pointer; }
+main { max-width: 1160px; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card h2 { margin: 0; font-size: 18px; }
+.head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.dim { color: var(--dim); font-size: 13px; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.kpi { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 2px; }
+.kpi b { font: 800 34px Poppins, sans-serif; line-height: 1.15; }
+.up { color: var(--green-d); font-weight: 700; font-size: 12px; }
+.down { color: #8a5800; font-weight: 700; font-size: 12px; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 12px; }
+.nums b { font: 800 26px Poppins, sans-serif; display: block; line-height: 1.2; }
+.nums span { font-size: 12px; color: var(--dim); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { text-align: right; font-weight: 500; font-size: 12px; color: var(--dim); padding: 4px 0 6px; }
+th:first-child, td:first-child { text-align: left; }
+td { padding: 6px 0; border-top: 1px solid #eef0ec; text-align: right; font-weight: 700; }
+td:first-child { font-weight: 400; }
+.chart { position: relative; height: 180px; display: flex; align-items: flex-end; gap: 4px; border-bottom: 1px solid #d5dbd2; }
+.chart span { flex: 1; background: #b9d9ae; border-radius: 4px 4px 0 0; min-height: 2px; position: relative; }
+.chart span.now { background: var(--green); }
+.chart span:hover { background: var(--green-d); }
+.axis { display: flex; justify-content: space-between; font-size: 12px; color: var(--dim); }
+.growth { height: 130px; display: flex; align-items: flex-end; gap: 14px; }
+.growth div { flex: 1; display: flex; align-items: flex-end; gap: 3px; height: 100%; }
+.growth i { flex: 1; border-radius: 4px 4px 0 0; min-height: 2px; }
+.growth i.l { background: var(--green); } .growth i.s { background: var(--dark); }
+.key { font-size: 12px; color: var(--dim); }
+.key b.l { color: var(--green); } .key b.s { color: var(--dark); }
+.note { margin: 0; font-size: 12px; color: var(--dim); }
+/* the locked door */
+.lock { min-height: 100vh; background: var(--dark); color: #fff; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.lock form { width: 100%; max-width: 360px; display: flex; flex-direction: column; gap: 12px; }
+.lock h1 { margin: 0; font-size: 28px; line-height: 1.15; }
+.lock p { margin: 0; color: #c4d0c8; font-size: 14px; }
+.lock label.k { font-size: 13px; font-weight: 600; color: #c4d0c8; }
+.lock input[type=password] { min-height: 48px; border: 1px solid #3c5245; background: #1d2d24; color: #fff; border-radius: 12px; padding: 0 14px; font: 16px Inter, sans-serif; }
+.lock .rem { display: flex; gap: 8px; align-items: center; font-size: 13px; color: #c4d0c8; }
+.lock button { min-height: 48px; border: 0; border-radius: 12px; background: var(--green); color: #fff; font: 700 15px Inter, sans-serif; cursor: pointer; }
+.lock .msg { min-height: 20px; color: #f3c47e; font-size: 13px; }
+.lock small { color: #8fa497; font-size: 12px; }
+[hidden] { display: none !important; }
+@media (max-width: 860px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } .two { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { main { padding: 14px; } .kpi b { font-size: 28px; } .chart { gap: 2px; } }
+</style>
+</head>
+<body>
+
+<div class="lock" id="lock">
+  <form id="lock-form" autocomplete="on">
+    <a class="logo" href="/">Golf<span>Price</span> AI</a>
+    <h1>Clubhouse stats</h1>
+    <p>Members only. Well, one member. Type your stats key to open the numbers.</p>
+    <input type="text" name="username" value="golfpriceai-stats" autocomplete="username" hidden>
+    <label class="k" for="key">Stats key</label>
+    <input id="key" type="password" autocomplete="current-password" required>
+    <label class="rem"><input type="checkbox" id="remember" checked> Remember on this device</label>
+    <button type="submit">Open stats</button>
+    <p class="msg" id="msg" role="status"></p>
+    <small>Five wrong tries locks the door for ten minutes. The key lives in Cloudflare and on your devices, never on the website.</small>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <div class="top">
+    <a class="logo" href="/">Golf<span>Price</span> AI <small>Clubhouse stats · private</small></a>
+    <span class="top-r"><span id="updated"></span><button type="button" id="refresh">Refresh</button><button type="button" id="logout">Lock</button></span>
+  </div>
+  <main id="main"></main>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var API = 'https://golfpriceai-alerts.golfpriceai.workers.dev/stats';
+  var KEY = 'gpStatsKey';
+  function store(remember) { return remember ? localStorage : sessionStorage; }
+  function getKey() { try { return localStorage.getItem(KEY) || sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
+  function forget() { try { localStorage.removeItem(KEY); sessionStorage.removeItem(KEY); } catch (e) { /* fine */ } }
+  function n(x) { return x == null ? '–' : Number(x).toLocaleString('en-GB'); }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function short(iso) { return Number(iso.slice(8)) + ' ' + MON[Number(iso.slice(5, 7)) - 1]; }
+
+  var lock = document.getElementById('lock'), app = document.getElementById('app'), msg = document.getElementById('msg');
+
+  function load(key, remember, fromForm) {
+    msg.textContent = fromForm ? 'Opening…' : '';
+    return fetch(API, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ key: key }), cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.ok) { forget(); lock.hidden = false; app.hidden = true; msg.textContent = d.error || 'That didn’t work.'; return; }
+        if (fromForm) { try { store(remember).setItem(KEY, key); } catch (e) { /* fine */ } }
+        lock.hidden = true; app.hidden = false; msg.textContent = '';
+        draw(d);
+      })
+      .catch(function () { lock.hidden = false; app.hidden = true; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
+  }
+
+  document.getElementById('lock-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    load(document.getElementById('key').value.trim(), document.getElementById('remember').checked, true);
+  });
+  document.getElementById('refresh').addEventListener('click', function () { load(getKey(), true, false); });
+  document.getElementById('logout').addEventListener('click', function () { forget(); app.hidden = true; lock.hidden = false; document.getElementById('key').value = ''; });
+  var saved = getKey();
+  if (saved) { lock.hidden = true; load(saved, true, false); }
+
+  function draw(d) {
+    var t = new Date(d.at);
+    document.getElementById('updated').textContent = 'Updated ' + String(t.getHours()).padStart(2, '0') + ':' + String(t.getMinutes()).padStart(2, '0');
+    var p = d.players, g = d.games, l = d.leagues, s = d.societies, o = d.other;
+    var diff = (p.today || 0) - (p.sameDayLastWeek || 0);
+    var html = '<section class="kpis">' +
+      kpi('Golfers playing today', p.today, (diff >= 0 ? '<span class="up">+' + diff : '<span class="down">' + diff) + ' vs a week ago</span>') +
+      kpi('Golfers this week', p.week, '<span class="dim">Monday to today</span>') +
+      kpi('Golfers this month', p.month, '<span class="dim">' + n(p.ever) + ' ever</span>') +
+      kpi('New golfers today', p.newToday, '<span class="dim">first ever round or run</span>') + '</section>';
+
+    var max = Math.max.apply(null, d.daily.map(function (x) { return x.players; }).concat([1]));
+    html += '<section class="card"><div class="head"><h2>Golfers playing each day</h2><span class="dim">Last 30 days · Par Price and Higher or Lower</span></div>' +
+      '<div class="chart" role="img" aria-label="Golfers playing each day over the last 30 days">' + d.daily.map(function (x, i) {
+        return '<span class="' + (i === d.daily.length - 1 ? 'now' : '') + '" style="height:' + Math.round(x.players / max * 100) + '%" title="' + short(x.day) + ': ' + x.players + ' golfers, ' + x.rounds + ' Par Price rounds"></span>';
+      }).join('') + '</div><div class="axis"><span>' + short(d.daily[0].day) + '</span><span>Busiest day: ' + max + ' golfers</span><span>Today</span></div></section>';
+
+    html += '<div class="two"><section class="card"><h2>Games</h2><table><tr><th>Game</th><th>Today</th><th>7 days</th></tr>' +
+      '<tr><td>Par Price rounds</td><td>' + n(g.ppToday) + '</td><td>' + n(g.pp7) + '</td></tr>' +
+      '<tr><td>Higher or Lower runs</td><td>' + n(g.hlToday) + '</td><td>' + n(g.hl7) + '</td></tr>' +
+      '<tr><td>Bag Draft players (this month)</td><td>–</td><td>' + n(g.draftMonth) + '</td></tr>' +
+      '<tr><td>On a Par Price streak of 3+ days</td><td>' + n(g.streak3) + '</td><td>–</td></tr></table></section>' +
+      '<section class="card"><h2>Leagues</h2><div class="nums">' + num(l.count, 'leagues') + num(l.members, 'league places') + num(l.players, 'different golfers') + num(l.activeWeek, 'active this week') + '</div>' +
+      '<span class="dim">Average size ' + n(l.average) + ' · biggest league: ' + n(l.biggest) + ' golfers · ' + n(l.newWeek) + ' new this week · ' + n(l.linked) + ' linked to a society</span></section></div>';
+
+    html += '<section class="card"><h2>Society HQ</h2><div class="nums">' + num(s.count, 'societies') + num(s.members, 'members') + num(s.listed, 'in Find a Society') +
+      num(s.daysAhead, 'golf days coming up') + num(s.insAhead, '“in” replies') + num(s.founding, 'Founding badges (of 50)') + '</div>' +
+      '<span class="dim">Average ' + n(s.average) + ' members · biggest: ' + n(s.biggest) + ' · ' + n(s.newWeek) + ' new this week · awards kits made: ' + n(s.kits) + ' · prizes picked: ' + n(s.prizes) + '</span></section>';
+
+    var gmax = Math.max.apply(null, d.growth.map(function (w) { return Math.max(w.leagues, w.societies); }).concat([1]));
+    html += '<div class="two"><section class="card"><h2>Growth</h2><span class="dim">Leagues and societies at the end of each week</span><div class="growth" role="img" aria-label="Leagues and societies over the last six weeks">' +
+      d.growth.map(function (w) {
+        return '<div title="Week of ' + short(w.week) + ': ' + w.leagues + ' leagues, ' + w.societies + ' societies"><i class="l" style="height:' + Math.round(w.leagues / gmax * 100) + '%"></i><i class="s" style="height:' + Math.round(w.societies / gmax * 100) + '%"></i></div>';
+      }).join('') + '</div><span class="key"><b class="l">■</b> Leagues   <b class="s">■</b> Societies · last 6 weeks, from ' + short(d.growth[0].week) + '</span></section>' +
+      '<section class="card"><h2>Everything else</h2><table>' +
+      '<tr><td>Price alert sign-ups (on the email list)</td><td>' + n(o.alerts) + '</td></tr>' +
+      '<tr><td>Fourball Alerts sign-ups (all time)</td><td>' + n(o.fourball) + '</td></tr>' +
+      '<tr><td>Golfers who have ever played</td><td>' + n(p.ever) + '</td></tr></table></section></div>' +
+      '<p class="note">Counts only: no nicknames, emails or society names are sent to this page. Par Price and Higher or Lower scores are kept for 120 days, and quiet leagues close after 90 days, so “ever” means roughly the last four months.</p>';
+    document.getElementById('main').innerHTML = html;
+  }
+  function kpi(label, v, sub) { return '<div class="kpi"><span class="dim">' + label + '</span><b>' + n(v) + '</b>' + sub + '</div>'; }
+  function num(v, label) { return '<div><b>' + n(v) + '</b><span>' + label + '</span></div>'; }
+})();
+</script>
+</body>
+</html>

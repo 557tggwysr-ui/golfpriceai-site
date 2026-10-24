@@ -57,6 +57,7 @@
  *                           GitHub as a secret, so emails sent by the
  *                           6-hourly update can carry working unsubscribe links
  *   LIST_ID         text    3
+ *   STATS_KEY       secret  John's own key for the private Clubhouse stats page
  *   SITE            text    https://golfpriceai.com
  *   SENDER_EMAIL    text    alerts@golfpriceai.com
  *   FOURBALL        KV namespace binding (Worker > Settings > Bindings).
@@ -109,6 +110,7 @@ export default {
       if (url.pathname.startsWith('/pp/')) return await parPrice(request, url, env, cors);
       if (url.pathname.startsWith('/draft/')) return await bagDraft(request, url, env, cors);
       if (url.pathname.startsWith('/soc/')) return await society(request, url, env, cors);
+      if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
       if (url.pathname === '/unsubscribe') return await unsubscribe(url, env, request.method === 'POST');
       if (url.pathname === '/') return new Response('GolfPrice AI alerts: OK', { headers: { 'content-type': 'text/plain' } });
@@ -382,6 +384,105 @@ async function fourballCount(url, env, cors) {
     } catch (e) { /* counts are a nice-to-have */ }
   }
   return json({ ok: true, n, total }, 200, Object.assign({ 'cache-control': 'public, max-age=60' }, cors));
+}
+
+/* ------------------------------------------------------------------ Clubhouse stats
+   John's private usage page (golfpriceai.com/stats/). POST /stats { key }.
+   The key is a Cloudflare secret, STATS_KEY, that only John knows; five wrong
+   tries in ten minutes locks the door. Counts only: no nicknames, emails,
+   society or league names ever leave this function. */
+async function clubStats(request, env, cors) {
+  const ip = request.headers.get('cf-connecting-ip') || 'unknown';
+  const lockKey = new Request(`https://rate.golfpriceai.invalid/${encodeURIComponent('stats-' + ip)}`);
+  const hit = await caches.default.match(lockKey);
+  if (hit && Number(await hit.text()) >= 5) return json({ ok: false, error: 'Too many wrong tries. The door opens again in ten minutes.' }, 429, cors);
+  if (!env.STATS_KEY) return json({ ok: false, error: 'The stats key isn’t set up in Cloudflare yet (STATS_KEY).' }, 503, cors);
+  let body = {};
+  try { body = JSON.parse((await request.text()).slice(0, 500)); } catch (e) { /* empty */ }
+  const given = new TextEncoder().encode(String(body.key || '')), want = new TextEncoder().encode(String(env.STATS_KEY));
+  let same = given.length === want.length;
+  for (let i = 0; i < want.length; i++) same = same && given[i] === want[i];
+  if (!same) { await tooMany('stats-' + ip, 5, 600); return json({ ok: false, error: 'That key isn’t right.' }, 403, cors); }
+  if (!env.DEMAND) return json({ ok: false, error: 'No database attached.' }, 503, cors);
+
+  const db = env.DEMAND, out = { ok: true, at: new Date().toISOString() };
+  const one = async (sql, ...args) => { try { return Number(await db.prepare(sql).bind(...args).first('c')) || 0; } catch (e) { return null; } };
+  const all = async (sql, ...args) => { try { return (await db.prepare(sql).bind(...args).all()).results || []; } catch (e) { return []; } };
+  const today = ppToday(), monday = ppMonday(today), from30 = today - 29;
+  const monthStart = ppToday() - (new Date().getUTCDate() - 1);
+  const PLAY = 'SELECT n, pid FROM pp_scores UNION SELECT n, pid FROM hl_scores';
+
+  // Players: anyone who finished a Par Price round or a daily Higher or Lower run.
+  out.players = {
+    today: await one(`SELECT COUNT(DISTINCT pid) AS c FROM (${PLAY}) WHERE n = ?`, today),
+    week: await one(`SELECT COUNT(DISTINCT pid) AS c FROM (${PLAY}) WHERE n >= ?`, monday),
+    month: await one(`SELECT COUNT(DISTINCT pid) AS c FROM (${PLAY}) WHERE n >= ?`, monthStart),
+    ever: await one(`SELECT COUNT(DISTINCT pid) AS c FROM (${PLAY})`),
+    newToday: await one(`SELECT COUNT(*) AS c FROM (SELECT pid, MIN(n) AS f FROM (${PLAY}) GROUP BY pid) WHERE f = ?`, today),
+    sameDayLastWeek: await one(`SELECT COUNT(DISTINCT pid) AS c FROM (${PLAY}) WHERE n = ?`, today - 7),
+  };
+  const daily = await all(`SELECT n, COUNT(DISTINCT pid) AS c FROM (${PLAY}) WHERE n >= ? GROUP BY n`, from30);
+  const rounds = await all('SELECT n, COUNT(*) AS c FROM pp_scores WHERE n >= ? GROUP BY n', from30);
+  const by = (rows) => { const m = {}; rows.forEach((r) => { m[r.n] = Number(r.c) || 0; }); return m; };
+  const dp = by(daily), dr = by(rounds);
+  out.daily = [];
+  for (let n = Math.max(1, from30); n <= today; n++) out.daily.push({ day: ppDay(n), players: dp[n] || 0, rounds: dr[n] || 0 });
+
+  out.games = {
+    ppToday: await one('SELECT COUNT(*) AS c FROM pp_scores WHERE n = ?', today),
+    pp7: await one('SELECT COUNT(*) AS c FROM pp_scores WHERE n > ?', today - 7),
+    hlToday: await one('SELECT COUNT(*) AS c FROM hl_scores WHERE n = ?', today),
+    hl7: await one('SELECT COUNT(*) AS c FROM hl_scores WHERE n > ?', today - 7),
+    draftMonth: await one('SELECT COUNT(*) AS c FROM bd_drafts WHERE season = ?', new Date().toISOString().slice(0, 7)),
+    streak3: await one('SELECT COUNT(*) AS c FROM (SELECT pid FROM pp_scores WHERE n > ? GROUP BY pid HAVING COUNT(*) >= 3 AND MAX(n) >= ?)', today - 3, today - 1),
+  };
+
+  const sizes = (await all('SELECT league, COUNT(*) AS c FROM pp_members GROUP BY league')).map((r) => Number(r.c) || 0);
+  out.leagues = {
+    count: await one('SELECT COUNT(*) AS c FROM pp_leagues'),
+    members: await one('SELECT COUNT(*) AS c FROM pp_members'),
+    players: await one('SELECT COUNT(DISTINCT pid) AS c FROM pp_members'),
+    biggest: sizes.length ? Math.max(...sizes) : 0,
+    average: sizes.length ? Math.round(sizes.reduce((a, b) => a + b, 0) / sizes.length * 10) / 10 : 0,
+    activeWeek: await one('SELECT COUNT(DISTINCT m.league) AS c FROM pp_members m JOIN pp_scores s ON s.pid = m.pid WHERE s.n >= ?', monday),
+    newWeek: await one('SELECT COUNT(*) AS c FROM pp_leagues WHERE created >= ?', ppDay(monday)),
+    linked: await one('SELECT COUNT(*) AS c FROM soc_league'),
+  };
+
+  const socSizes = (await all('SELECT soc, COUNT(*) AS c FROM soc_members GROUP BY soc')).map((r) => Number(r.c) || 0);
+  const day = new Date().toISOString().slice(0, 10), weekAgo = new Date(Date.now() - 7 * 864e5).toISOString().slice(0, 10);
+  out.societies = {
+    count: await one('SELECT COUNT(*) AS c FROM soc_socs'),
+    members: await one('SELECT COUNT(*) AS c FROM soc_members'),
+    listed: await one('SELECT COUNT(*) AS c FROM soc_socs WHERE open = 1'),
+    biggest: socSizes.length ? Math.max(...socSizes) : 0,
+    average: socSizes.length ? Math.round(socSizes.reduce((a, b) => a + b, 0) / socSizes.length * 10) / 10 : 0,
+    newWeek: await one('SELECT COUNT(*) AS c FROM soc_socs WHERE created >= ?', weekAgo),
+    daysAhead: await one('SELECT COUNT(*) AS c FROM soc_events WHERE day >= ?', day),
+    insAhead: await one("SELECT COUNT(*) AS c FROM soc_entries e JOIN soc_events v ON v.id = e.event WHERE v.day >= ? AND e.status = 'in'", day),
+    founding: await one('SELECT COUNT(*) AS c FROM soc_founding'),
+    kits: await one('SELECT COUNT(*) AS c FROM soc_kits'),
+    prizes: await one("SELECT COUNT(*) AS c FROM soc_prizes WHERE choice IS NOT NULL AND choice != ''"),
+  };
+
+  // Growth: leagues and societies in existence at the end of each of the last 6 weeks.
+  const lgDays = (await all('SELECT created FROM pp_leagues')).map((r) => String(r.created || ''));
+  const scDays = (await all('SELECT created FROM soc_socs')).map((r) => String(r.created || ''));
+  out.growth = [];
+  for (let i = 5; i >= 0; i--) {
+    const end = ppDay(monday - 7 * i + 6);
+    out.growth.push({ week: ppDay(monday - 7 * i), leagues: lgDays.filter((d) => d && d <= end).length, societies: scDays.filter((d) => d && d <= end).length });
+  }
+
+  out.other = { fourball: 0, alerts: null };
+  try { if (env.FOURBALL) out.other.fourball = Number(await env.FOURBALL.get('total')) || 0; } catch (e) { /* fine */ }
+  try {
+    if (env.BREVO_API_KEY) {
+      const r = await brevo(env, 'GET', `/contacts/lists/${Number(env.LIST_ID || 3)}`);
+      if (r.ok && r.data) out.other.alerts = Number(r.data.uniqueSubscribers || r.data.totalSubscribers) || 0;
+    }
+  } catch (e) { /* fine */ }
+  return json(out, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
 }
 
 /* ------------------------------------------------------------------ Demand Index counts
