@@ -55,10 +55,10 @@
   /* ---------------------------------------------------------------- start a society */
   function start() {
     var mine = get('gpSocs', []);
-    box.innerHTML = '<section class="soc-hero">' + PHOTO + '<span class="soc-kick">Free · Society HQ</span><h1>Run your society</h1>' +
-      '<p>Fixtures, sign-ups, who’s paid and a waiting list that sorts itself, all from one link in the WhatsApp group. No sign-up, no fees.</p></section>' +
+    box.innerHTML = '<section class="soc-hero">' + PHOTO + '<span class="soc-kick">Free · Society HQ</span><h1>Run your golf society free</h1>' +
+      '<p>Fixtures, sign-ups, who’s paid and a waiting list that sorts itself, all from one link in your golf society’s WhatsApp group. No sign-up, no fees.</p></section>' +
       (mine.length ? '<section class="soc-card"><h2>Your societies</h2><ul class="soc-mine">' + mine.map(function (m) { return '<li><a href="?s=' + esc(m.id) + '">' + esc(m.name) + '</a></li>'; }).join('') + '</ul></section>' : '') +
-      '<form class="soc-card" id="hq-new" novalidate><h2>Start your society</h2>' + fields({}) +
+      '<form class="soc-card" id="hq-new" novalidate><h2>Start your golf society</h2>' + fields({}) +
       '<label>Your nickname<input name="nick" maxlength="20" required placeholder="What the society calls you"></label>' +
       '<p class="soc-msg" role="status"></p><button type="submit" class="soc-btn">Start the society →</button>' +
       '<p class="soc-small">Looking for a society to join? <a href="/societies/find/">Find a Society</a></p></form>';

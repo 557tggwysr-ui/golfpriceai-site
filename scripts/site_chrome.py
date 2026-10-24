@@ -135,13 +135,13 @@ def menu():
         ],
         # Societies: Society HQ, free tools for golf societies (hub /societies/).
         "societies": [
-            ("Society HQ", "Everything for your golf society, free.", "/societies/",
+            ("Society HQ", "The free golf society organiser.", "/societies/",
              '<path d="M3 21h18M5 21V10l7-5 7 5v11M10 21v-5h4v5"></path>'),
-            ("Run your society", "Fixtures, sign-ups, who’s paid and a waiting list.", "/societies/hq/",
+            ("Run your golf society", "Fixtures, sign-ups, who’s paid and a waiting list.", "/societies/hq/",
              '<path d="M4 5h16v15H4zM4 10h16M9 3v4M15 3v4M8 14h3M8 17h6"></path>'),
-            ("Find a Society", "Societies open to new members near you.", "/societies/find/",
+            ("Find a Society", "Golf societies open to new members near you.", "/societies/find/",
              '<path d="M11 11m-7 0a7 7 0 1014 0 7 7 0 10-14 0M21 21l-5-5"></path>'),
-            ("Awards Night Kit", "Award cards, a slideshow and prizes winners pick.", "/societies/awards/",
+            ("Golf Society Awards", "Award cards, a slideshow and prizes winners pick.", "/societies/awards/",
              '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4z"></path>'),
         ],
     }
@@ -231,7 +231,7 @@ def header_html():
       <div class="gp-drop gp-mega gp-play-drop">
         <div class="gp-tools gp-tools-1">{socs}
         </div>
-        <div class="gp-mega-foot"><span>Free for golf societies. No sign-up.</span><a href="/societies/">Society HQ &rarr;</a></div>
+        <div class="gp-mega-foot"><span>Free for every UK golf society. No sign-up.</span><a href="/societies/">Society HQ &rarr;</a></div>
       </div>
     </div>""")
 

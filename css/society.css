@@ -205,3 +205,6 @@ button.soc-link { margin: 0; padding: 8px 0; border: 0; background: none; font: 
 .sh-q p { margin: 0 0 12px; color: var(--gp-text-2); line-height: 1.55; }
 @media (max-width: 900px) { .sh-cards { grid-template-columns: 1fr; } .sh-card { aspect-ratio: 4 / 3; } .sh-card img { object-position: 50% 20%; } }
 @media (max-width: 520px) { .sh-card { aspect-ratio: 1 / 1; } .sh-gold { aspect-ratio: auto; min-height: 280px; } .sh-gold .sh-body { position: relative; left: auto; right: auto; bottom: auto; padding: 44px 34px 34px; } .sh-facts span { font-size: 12px; } }
+.fd-h { margin: 4px 0 0; font: 700 20px Poppins, sans-serif; }
+.sh-feat ul { margin: 0; padding-left: 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 28px; color: var(--gp-text-2); line-height: 1.5; }
+@media (max-width: 700px) { .sh-feat ul { grid-template-columns: 1fr; } }

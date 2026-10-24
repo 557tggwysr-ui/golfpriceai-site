@@ -1560,10 +1560,19 @@ def build(models_list, products, today_str):
         if forwarded:
             print(f"Old product pages: {forwarded} forwarding page(s) updated.")
         write_sitemaps(sitemap, today)
-        # Tell Bing and the other IndexNow engines only about pages whose
-        # prices actually changed (sent after the files are published).
-        urls = sorted(set(price_changed + ([f"/prices/{h}/" for h in hubs] + ["/prices/", "/prices/drops/"]
-                                           if price_changed else [])))
+        # Tell Bing and the other IndexNow engines about pages whose prices
+        # changed (sent after the files are published).
+        urls = set(price_changed + ([f"/prices/{h}/" for h in hubs] + ["/prices/", "/prices/drops/"]
+                                    if price_changed else []))
+        # Plus the other public pages this run actually changed (games,
+        # societies, guides), and any one-off list in data/indexnow-once.txt
+        # (deleted once read, so each list is sent a single time).
+        urls |= {u for u in changed if u.endswith("/") and not u.startswith(("/prices/", "/data/", "/products/", "/wishlist/", "/societies/prize/"))}
+        once = ROOT / "data" / "indexnow-once.txt"
+        if once.exists():
+            urls |= {u.strip() for u in once.read_text().splitlines() if u.strip().startswith("/")}
+            once.unlink()
+        urls = sorted(urls)
         INDEXNOW_LIST.write_text("\n".join(SITE + u for u in urls) + ("\n" if urls else ""))
     print(f"Price pages ({mode}): {len(built)} model page(s), {len(hubs)} hub(s); {len(changed)} page file(s) changed, "
           f"{len(price_changed)} with new prices.")

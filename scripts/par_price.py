@@ -167,6 +167,7 @@ def leagues_page():
     <div class="ch-panel"><span class="ch-kicker">The good bit</span><h3>Bragging rights</h3><p>Daily winners, a weekly champion, the wooden spoon, Closest to the Pin and a monthly Major. Mike will treasure that spoon.</p></div>
   </section>
   <p class="lh-invited">Been sent an invite? Just tap the link your mate shared and pick a nickname.</p>
+  <p class="lh-invited">Run a real golf society too? <a href="/societies/">Society HQ</a> handles the fixtures, sign-ups, who’s paid and awards night, free.</p>
 </div>
 <p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>

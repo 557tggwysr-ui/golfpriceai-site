@@ -81,6 +81,7 @@ def tool_page():
   <div class="pp-card fb-society-card">
     <div class="fb-invite-top">{ICON_GROUP}<h2>Running a golf society?</h2></div>
     <p>Before the club trip or the winter kit-up, heart a few bits on their price pages, send the shortlist to the group, and let everyone watch the prices together. Nobody has to chase anybody.</p>
+    <p>For the society itself, <a href="/societies/">Society HQ</a> is our free golf society organiser: fixtures, sign-ups, who’s paid and awards night, from the same group chat.</p>
     <a class="pp-btn pp-btn-alt" href="/fourball/list/">Your shortlist</a>
   </div>
 </section>
