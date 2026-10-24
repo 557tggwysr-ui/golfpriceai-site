@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/srixon-soft-feel-golf-balls/",
- "checked": "2026-10-23",
+ "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 19.99,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 69,
+  "daysTracked": 70,
   "low": 19.99,
   "high": 43.0,
-  "average": 24.29,
+  "average": 24.23,
   "priceChanges": 2,
   "series": [
    [
@@ -52,14 +52,14 @@
     19.99
    ],
    [
-    "2026-10-23",
+    "2026-10-24",
     19.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 50 days"
+  "summary": "Typical price: steady for 51 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/SoftFeelBriteGreen9.jpg?v=1776292230",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

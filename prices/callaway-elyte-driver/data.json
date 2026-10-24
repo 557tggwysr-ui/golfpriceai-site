@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-elyte-driver/",
- "checked": "2026-10-23",
+ "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -14,7 +14,7 @@
   {
    "name": "Affordable Golf",
    "from": 329.0,
-   "options": 15
+   "options": 16
   },
   {
    "name": "Clickgolf",
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 69,
+  "daysTracked": 70,
   "low": 329.0,
   "high": 339.0,
-  "average": 331.75,
+  "average": 331.71,
   "priceChanges": 1,
   "series": [
    [
@@ -48,14 +48,14 @@
     329.0
    ],
    [
-    "2026-10-23",
+    "2026-10-24",
     329.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 50 days"
+  "summary": "Typical price: steady for 51 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteDriver4.jpg?v=1782263420",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

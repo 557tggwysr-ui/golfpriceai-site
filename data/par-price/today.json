@@ -1,66 +1,66 @@
 {
- "n": 6,
- "date": "2026-10-23",
+ "n": 7,
+ "date": "2026-10-24",
  "items": [
   {
-   "slug": "taylormade-qi4d-fairway-wood",
-   "name": "TaylorMade Qi4D Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/N8401607-Qi4D-Core-Fairway-Hero.jpg",
-   "price": 319.0,
+   "slug": "titleist-gts2-fairway-wood",
+   "name": "Titleist GTS2 Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS2GolfFairwayWood_1.jpg?v=1778747084",
+   "price": 369.0,
    "unit": "each",
    "type": "fairway wood",
    "low": false,
-   "url": "/prices/taylormade-qi4d-fairway-wood/"
+   "url": "/prices/titleist-gts2-fairway-wood/"
   },
   {
-   "slug": "srixon-soft-feel-golf-balls",
-   "name": "Srixon Soft Feel Golf Balls",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/SoftFeelBriteGreen9.jpg?v=1776292230",
-   "price": 19.99,
-   "unit": "per dozen",
-   "type": "golf ball",
-   "low": false,
-   "url": "/prices/srixon-soft-feel-golf-balls/"
-  },
-  {
-   "slug": "callaway-quantum-max-os-irons",
-   "name": "Callaway Quantum Max OS Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-os-irons-main.jpg",
-   "price": 749.0,
+   "slug": "cobra-baffler-hybrid",
+   "name": "Cobra Baffler Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-Hybird-Hero.jpg",
+   "price": 169.0,
    "unit": "each",
-   "type": "iron set",
+   "type": "hybrid",
    "low": false,
-   "url": "/prices/callaway-quantum-max-os-irons/"
+   "url": "/prices/cobra-baffler-hybrid/"
   },
   {
-   "slug": "wilson-dynapwr-driver",
-   "name": "Wilson DYNAPWR Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DynapwrDriver-Max1.jpg?v=1776297084",
-   "price": 249.0,
+   "slug": "taylormade-spider-5k-zt-putter",
+   "name": "TaylorMade Spider 5K-ZT Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeSpiderZTPutter2.jpg?v=1776274164",
+   "price": 399.0,
    "unit": "each",
-   "type": "driver",
+   "type": "putter",
    "low": true,
-   "url": "/prices/wilson-dynapwr-driver/"
+   "url": "/prices/taylormade-spider-5k-zt-putter/"
   },
   {
-   "slug": "titleist-vokey-sm11-jet-wedge",
-   "name": "Titleist Vokey SM11 Jet Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-jet-black-wedge-hero.jpg",
-   "price": 179.0,
+   "slug": "callaway-cb12-wedge",
+   "name": "Callaway CB12 Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/cb12-wedge-hero.jpg",
+   "price": 119.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/titleist-vokey-sm11-jet-wedge/"
+   "url": "/prices/callaway-cb12-wedge/"
+  },
+  {
+   "slug": "srixon-zxir-irons",
+   "name": "Srixon ZXiR Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonZXiRGraphiteIrons_3.jpg?v=1763374524",
+   "price": 879.0,
+   "unit": "each",
+   "type": "iron set",
+   "low": false,
+   "url": "/prices/srixon-zxir-irons/"
   }
  ],
  "pin": {
-  "slug": "powakaddy-edge-cart-bag-golf-bag",
-  "name": "PowaKaddy Edge Cart Bag Golf Bag",
-  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PowaKaddyEDGECartBagYellow3.jpg?v=1776294203",
-  "price": 179.95,
+  "slug": "big-max-dri-lite-tour-2-golf-bag",
+  "name": "Big Max Dri Lite Tour 2 Golf Bag",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/BigMaxDriLiteTour2GolfCartBag2026-BlackCharcoal_1.jpg?v=1762771956",
+  "price": 189.0,
   "unit": "each",
   "type": "golf bag",
   "low": false,
-  "url": "/prices/powakaddy-edge-cart-bag-golf-bag/"
+  "url": "/prices/big-max-dri-lite-tour-2-golf-bag/"
  }
 }

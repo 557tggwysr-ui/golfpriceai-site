@@ -1,8 +1,28 @@
 {
- "checked": "2026-10-23T21:50+01:00",
+ "checked": "2026-10-24T03:36+01:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Mizuno JPX 925 Fli-Hi Hybrid",
+   "model_id": "mizuno-jpx-925-fli-hi-hybrid",
+   "date": "2026-10-24",
+   "was": 159.0,
+   "now": 139.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-jpx-925-fli-hi-hybrid/"
+  },
+  {
+   "model": "Mizuno JPX 925 Forged Irons",
+   "model_id": "mizuno-jpx-925-forged-irons",
+   "date": "2026-10-24",
+   "was": 799.0,
+   "now": 699.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-jpx-925-forged-irons/"
+  },
   {
    "model": "Yonex Ezone Elite 4 Irons",
    "model_id": "yonex-ezone-elite-4-irons",
@@ -222,46 +242,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cleveland-launcher-xl2-driver/"
-  },
-  {
-   "model": "Square Golf Indoor Launch Monitor",
-   "model_id": "square-golf-indoor-launch-monitor",
-   "date": "2026-10-16",
-   "was": 679.0,
-   "now": 552.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/square-golf-indoor-launch-monitor/"
-  },
-  {
-   "model": "Callaway Chase 14 Dry Waterproof Stand Bag Golf Bag",
-   "model_id": "callaway-chase-14-dry-waterproof-stand-bag-golf-bag",
-   "date": "2026-10-16",
-   "was": 229.0,
-   "now": 189.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-chase-14-dry-waterproof-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Ping Pioneer Monsoon 231 Waterproof Cart Bag Golf Bag",
-   "model_id": "ping-pioneer-monsoon-231-waterproof-cart-bag-golf-bag",
-   "date": "2026-10-16",
-   "was": 219.0,
-   "now": 209.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ping-pioneer-monsoon-231-waterproof-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Callaway Org 14 HD Waterproof Cart Bag Golf Bag",
-   "model_id": "callaway-org-14-hd-waterproof-cart-bag-golf-bag",
-   "date": "2026-10-16",
-   "was": 239.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/callaway-org-14-hd-waterproof-cart-bag-golf-bag/"
   }
  ]
 }

@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/motocaddy-hydroflex-waterproof-stand-bag-golf-bag/",
- "checked": "2026-10-23",
+ "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 50,
+  "daysTracked": 51,
   "low": 159.95,
   "high": 189.99,
-  "average": 164.76,
+  "average": 164.66,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     159.95
    ],
    [
-    "2026-10-23",
+    "2026-10-24",
     159.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 42 days"
+  "summary": "Typical price: steady for 43 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MotocaddyHydroflexWaterproofStandBagCharcoalBlue3.jpg?v=1777967038",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

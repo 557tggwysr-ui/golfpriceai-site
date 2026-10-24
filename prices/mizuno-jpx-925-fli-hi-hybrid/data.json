@@ -3,46 +3,46 @@
  "brand": "Mizuno",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/mizuno-jpx-925-fli-hi-hybrid/",
- "checked": "2026-10-23",
+ "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 159.0,
+ "lowestNewPrice": 139.0,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 139.0,
+   "options": 5
+  },
   {
    "name": "Clickgolf",
    "from": 159.0,
    "options": 1
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 159.95,
-   "options": 5
   }
  ],
  "history": {
-  "daysTracked": 69,
-  "low": 159.0,
+  "daysTracked": 70,
+  "low": 139.0,
   "high": 159.0,
-  "average": 159.0,
-  "priceChanges": 0,
+  "average": 158.71,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
     159.0
    ],
    [
-    "2026-10-23",
-    159.0
+    "2026-10-24",
+    139.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 69 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/JPX-925-Hybrid-Main.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Mizuno_JPX_925_Fli-Hi_Hybrid_1.jpg?v=1782263735",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
