@@ -8,6 +8,13 @@
   function money(n) { n = Math.round(n * 2) / 2; return '£' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
   function num(el, min, max, d) { var v = parseFloat(String(el.value).replace(/[£,\s]/g, '')); return isFinite(v) ? Math.min(max, Math.max(min, v)) : d; }
   var last = '';
+  out.innerHTML = '<div id="pc-res"></div><div class="soc-btns"><button type="button" class="soc-btn" id="pc-share">Send to the WhatsApp group</button></div>';
+  var res = $('pc-res');
+  $('pc-share').onclick = function () {
+    if (window.gtag) window.gtag('event', 'prize_calc_shared');
+    if (navigator.share) navigator.share({ text: last }).catch(function () {});
+    else window.open('https://wa.me/?text=' + encodeURIComponent(last), '_blank', 'noopener');
+  };
   function calc() {
     var n = Math.round(num($('pc-n'), 1, 400, 0)), e = num($('pc-e'), 0, 1000, 0), pct = +$('pc-p').value;
     $('pc-pv').textContent = pct;
@@ -18,18 +25,12 @@
     var sideShare = side.length * 10, placeShare = places.reduce(function (s, p) { return s + p[1]; }, 0);
     var scale = (100 - sideShare) / placeShare;
     var split = places.map(function (p) { return [p[0], fund * p[1] * scale / 100]; }).concat(side.map(function (s) { return [s, fund * .1]; }));
-    out.innerHTML = '<b>Your golf society prize fund</b><div class="hq-fund-g"><span>' + n + ' players × ' + money(e) + '</span><b>' + money(pot) + '</b>' +
+    res.innerHTML = '<b>Your golf society prize fund</b><div class="hq-fund-g"><span>' + n + ' players × ' + money(e) + '</span><b>' + money(pot) + '</b>' +
       '<span>Prize fund (' + pct + '%)</span><b>' + money(fund) + '</b></div>' +
       '<div class="hq-split">' + split.map(function (x) { return '<span>' + x[0] + ' ' + money(x[1]) + '</span>'; }).join('') + '</div>' +
-      '<p class="soc-small">' + money(pot - fund) + ' left for the day: the trophy, the meal or the season fund. Amounts are rounded to the nearest 50p.</p>' +
-      '<div class="soc-btns"><button type="button" class="soc-btn" id="pc-share">Send to the WhatsApp group</button></div>';
+      '<p class="soc-small">' + money(pot - fund) + ' left for the day: the trophy, the meal or the season fund. Amounts are rounded to the nearest 50p.</p>';
     last = 'Prize fund for the day: ' + n + ' players at ' + money(e) + ' = ' + money(pot) + '. Prizes ' + money(fund) + ' (' + pct + '%): ' +
       split.map(function (x) { return x[0] + ' ' + money(x[1]); }).join(', ') + '. Worked out free at golfpriceai.com/societies/prize-fund-calculator/';
-    $('pc-share').onclick = function () {
-      if (window.gtag) window.gtag('event', 'prize_calc_shared');
-      if (navigator.share) navigator.share({ text: last }).catch(function () {});
-      else window.open('https://wa.me/?text=' + encodeURIComponent(last), '_blank', 'noopener');
-    };
   }
   ['pc-n', 'pc-e', 'pc-p', 'pc-ntp', 'pc-ld', 'pc-4th'].forEach(function (id) { $(id).addEventListener('input', calc); $(id).addEventListener('change', calc); });
   calc();

@@ -268,3 +268,26 @@ button.soc-link { margin: 0; padding: 8px 0; border: 0; background: none; font: 
   .gd-make { padding: 6px 0 0; }
 }
 .pc-form label[for="pc-p"] { display: block; }
+/* Guides, part two */
+.gd-sec h2 { font-size: 20px; }
+.gd-sec p { margin: 0; color: var(--gp-text-2); line-height: 1.6; }
+.gd-sec a, .gd-steps a, .gd-ul a { color: var(--gp-green-dark); font-weight: 600; }
+.gd-ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; line-height: 1.55; color: var(--gp-text-2); }
+.gd-ul b { color: var(--gp-ink); }
+.gd-tw { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--gp-line); border-radius: 12px; }
+.gd-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.45; }
+.gd-table th, .gd-table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--gp-line); }
+.gd-table thead th { background: #f3f5f1; font-size: 13px; }
+.gd-table tbody th { font-weight: 700; }
+.gd-table tr:last-child th, .gd-table tr:last-child td { border-bottom: 0; }
+.gd-apps { min-width: 760px; }
+.gd-pre { margin: 0; white-space: pre-wrap; font: 500 14px/1.55 Inter, sans-serif; background: #f7f8f6; border: 1px solid var(--gp-line); border-radius: 12px; padding: 14px; color: var(--gp-ink); }
+.gd-src { font-size: 14px; }
+.dc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.dc-form label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; }
+.dc-form { display: flex; flex-direction: column; gap: 12px; }
+.dc-out { margin-top: 4px; }
+.dc-out a { color: #d9b45a; }
+@media (max-width: 520px) { .dc-grid { grid-template-columns: minmax(0, 1fr); } }
+.gd-swipe { display: none; margin: 0; font-size: 12px; color: var(--gp-text-3); }
+@media (max-width: 800px) { .gd-swipe { display: block; } }

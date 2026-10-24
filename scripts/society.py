@@ -16,7 +16,7 @@ from price_pages import SITE, _write, breadcrumb, page_shell
 LAUNCHED = True
 PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
 FIND_PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/find-a-society-wide.jpg"><img src="/assets/photos/tools/find-a-society-banner.jpg" alt="Golfers shaking hands on the first tee, meeting new playing partners" width="1536" height="512"></picture>'
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024h">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024i">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -238,7 +238,7 @@ def hub_page():
 </section>
 <section class="soc-card sh-guides">
   <h2>Golf society guides and free tools</h2>
-  <div class="sh-glinks"><a href="/societies/guides/golf-society-awards-ideas/"><b>Golf society awards ideas</b><span>40 awards for your end-of-season night, with a free card maker.</span></a><a href="/societies/prize-fund-calculator/"><b>Golf society prize fund calculator</b><span>How much prize money, and how to split it.</span></a></div>
+  <div class="sh-glinks"><a href="/societies/guides/how-to-run-a-golf-society/"><b>How to run a golf society</b><span>Starting one, booking clubs, money and the season, month by month.</span></a><a href="/societies/guides/golf-society-awards-ideas/"><b>Golf society awards ideas</b><span>40 awards for your end-of-season night, with a free card maker.</span></a><a href="/societies/guides/how-much-to-charge-for-a-golf-society-day/"><b>How much to charge for a golf society day</b><span>2026 prices and a free day cost calculator.</span></a><a href="/societies/prize-fund-calculator/"><b>Golf society prize fund calculator</b><span>How much prize money, and how to split it.</span></a><a href="/societies/guides/golf-society-handicap-systems/"><b>Golf society handicap systems</b><span>Winner cuts, points bands and official handicaps.</span></a><a href="/societies/guides/golf-society-rules-template/"><b>Golf society rules template</b><span>Copy, edit and pin it in your WhatsApp group.</span></a></div>
   <a class="soc-link-a" href="/societies/guides/">All golf society guides &rarr;</a>
 </section>
 <section class="soc-card sh-faq">

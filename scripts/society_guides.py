@@ -20,7 +20,7 @@ from pathlib import Path
 from price_pages import SITE, _write, breadcrumb, page_shell
 
 ROOT = Path(__file__).resolve().parent.parent
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024h">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024i">\n'
 PUBLISHED = "2026-10-24"
 F_IN_STOCK, F_USED = 2, 8
 SKIP = re.compile(r"\b(junior|juniors|kids|youth|boys|girls|ladies|lady|women'?s?|womens|personali[sz]ed|logo|practice|foam|recycled|lake|refurb|used|grade [abc]|pearl)\b", re.I)
@@ -79,8 +79,20 @@ AWARDS = [
 ALL_AWARDS = [a for _, _, group in AWARDS for a in group]
 
 GUIDES = [
+    ("how-to-run-a-golf-society", "How to run a golf society",
+     "Starting a golf society, booking golf clubs, collecting money, running a society day and the season, month by month."),
     ("golf-society-awards-ideas", "Golf society awards ideas",
      "40 golf society awards for your end-of-season night: proper trophies, funny awards and booby prizes, with a free card maker."),
+    ("golf-society-prize-ideas", "Golf society prize ideas",
+     "Golf society prizes by budget, with real examples at today’s lowest UK prices, and how to fund the prize pot."),
+    ("how-much-to-charge-for-a-golf-society-day", "How much to charge for a golf society day",
+     "What a golf society day costs in 2026 and what to charge members, with a free day cost calculator."),
+    ("golf-society-handicap-systems", "Golf society handicap systems",
+     "Official handicaps, winner cuts, Stableford points bands and averages, and the rules that stop arguments."),
+    ("golf-society-rules-template", "Golf society rules template",
+     "Copy-and-paste golf society rules: fees, drop-outs, handicaps, ties and prizes, ready for WhatsApp."),
+    ("golf-society-apps-compared", "Golf society apps compared",
+     "RiddyGolf, ParUp, Golfify, Quick9, The Social Golfer and Society HQ: cost, payments, scoring and features."),
 ]
 TOOLS = [
     ("/societies/prize-fund-calculator/", "Golf society prize fund calculator",
@@ -327,7 +339,7 @@ def calculator_page(today):
 </section>
 <p class="gd-more"><b>More for golf societies:</b> {more_links("/societies/prize-fund-calculator/")}</p>
 </div>
-<script src="/js/prize-calc.js?v=20261024" defer></script>"""
+<script src="/js/prize-calc.js?v=20261024b" defer></script>"""
     app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Golf society prize fund calculator", "url": url,
            "applicationCategory": "SportsApplication", "operatingSystem": "Any web browser", "inLanguage": "en-GB",
            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},
@@ -350,7 +362,7 @@ def index_page(today):
 <section class="soc-hero">
   <span class="soc-kick">Society HQ · Updated {nice_date(today)}</span>
   <h1>Golf society guides and free tools</h1>
-  <p class="gd-answer">Practical guides for running a golf society, written for organisers: awards, prizes, money and more, each with a free tool built in. More guides are on the way.</p>
+  <p class="gd-answer">Practical guides for running a golf society, written for UK organisers: starting a society, awards, prizes, money, handicaps and rules, each with a free tool built in.</p>
 </section>
 <div class="gd-cards">{cards}</div>
 </div>"""
@@ -367,13 +379,16 @@ def build(root=ROOT, today=None):
     pages = [("societies/guides/index.html", index_page(today), "/societies/guides/"),
              ("societies/guides/golf-society-awards-ideas/index.html", awards_guide(today, bands), "/societies/guides/golf-society-awards-ideas/"),
              ("societies/prize-fund-calculator/index.html", calculator_page(today), "/societies/prize-fund-calculator/")]
+    import society_guides2
+    for slug, html in society_guides2.pages(today, bands):
+        pages.append((f"societies/guides/{slug}/index.html", html, f"/societies/guides/{slug}/"))
     for path, html, u in pages:
         if _write(root / path, html):
             changed.append(u)
     return changed
 
 
-SITEMAP = ["societies/guides/", "societies/guides/golf-society-awards-ideas/", "societies/prize-fund-calculator/"]
+SITEMAP = ["societies/guides/", "societies/prize-fund-calculator/"] + [f"societies/guides/{s}/" for s, _, _ in GUIDES]
 
 if __name__ == "__main__":
     print(build())
