@@ -44,7 +44,7 @@ Every page also has a data.json with the same facts.
 - [Open UK golf price data (CSV, CC BY 4.0)](https://golfpriceai.com/prices/data/): today's lowest new price for every model with a price page, plus full price-change history. Free to reuse with credit to GolfPrice AI.
 - [Same dataset on Hugging Face](https://huggingface.co/datasets/GolfPriceAI/uk-golf-prices), [Kaggle](https://www.kaggle.com/datasets/golfpriceai/uk-golf-equipment-prices-daily-golfprice-ai) and [Zenodo (DOI 10.5281/zenodo.23436242)](https://doi.org/10.5281/zenodo.23436242). Cite as: GolfPrice AI (2026), UK Golf Equipment Prices (Daily, GolfPrice AI).
 - Per-model facts as JSON: https://golfpriceai.com/prices/{model_id}/data.json (model_id is the price page's folder name)
-- MCP connector for AI assistants: https://golfpriceai-mcp.golfpriceai.workers.dev/mcp (tools: search_golf_prices, get_golf_price, golf_price_drops, best_golf_under_budget, compare_golf_prices; setup guide: https://golfpriceai.com/ai.html)
+- MCP connector for AI assistants: https://golfpriceai-mcp.golfpriceai.workers.dev/mcp (tools: search_golf_prices, get_golf_price, golf_price_drops, best_golf_under_budget, compare_golf_prices, golf_society_prize_ideas, golf_society_prize_fund, find_golf_society, golf_society_guide; setup guide: https://golfpriceai.com/ai.html)
 - [Is this a good price? checker](https://golfpriceai.com/price-check.html): checks a price against our own history.
 
 ## Brand and seasonal guides

@@ -158,6 +158,59 @@ def prize_examples(root=ROOT):
     return bands
 
 
+def prize_catalogue(root=ROOT):
+    """A small, brand-mixed list of golf prizes from £5 to £150 for the AI
+    connector's golf_society_prize_ideas tool (data/societies/prize-ideas.json).
+    New, in stock, men's or unisex; one row per product; up to 4 per £5 band
+    per category, picking different brands first."""
+    try:
+        terms = json.loads((root / "data" / "search" / "terms.json").read_text())
+        shards = {n: json.loads((root / "data" / "search" / f"{n}.json").read_text()) for n in ("ball", "accessories", "apparel")}
+    except Exception as exc:
+        print(f"Prize ideas: skipped ({exc})")
+        return None
+    clothing = re.compile(r"shirt|polo|jumper|sweater|pullover|mid ?layer|jacket|gilet|vest|hat|cap|beanie|snood|base ?layer", re.I)
+    cats = [("golf balls (a dozen)", "ball", lambda n, p: re.search(r"\bballs\b", n, re.I) and not NOT_DOZEN.search(n) and p <= 70
+             and not re.search(r"retriev|marker|clip|pouch|holder|tube|30%|limited flight|range|chocolate|novelty|gift|practi[cs]e|airflow|foam|rewash|pre-?owned|mint", n, re.I)),
+            ("golf glove", "accessories", lambda n, p: re.search(r"\bglove", n, re.I)),
+            ("for the golf bag", "accessories", lambda n, p: (KIT.search(n) or re.search(r"\btees?\b", n, re.I)) and not re.search(r"toiletr|wash ?bag|travel|shoe bag|cooler", n, re.I)),
+            ("golf clothing", "apparel", lambda n, p: clothing.search(n))]
+    out = []
+    for label, shard, ok in cats:
+        d = shards[shard]
+        models = d.get("models") or []
+        best = {}
+        for r in d["rows"]:
+            price, flags, gender = r[2], r[5], r[6]
+            if not (flags & F_IN_STOCK) or (flags & F_USED) or price < 4 or price > 150:
+                continue
+            if gender and gender not in ("M", "U"):
+                continue
+            if SKIP.search(r[1]) or not ok(r[1], price):
+                continue
+            key = _clean(r[1]).lower()
+            if key not in best or price < best[key][2]:
+                best[key] = r
+        bands = {}
+        for r in best.values():
+            bands.setdefault(int(r[2] // 5), []).append(r)
+        for _, rows in sorted(bands.items()):
+            rows.sort(key=lambda r: (-(r[5] & 4), r[2], r[1]))
+            seen, picked = set(), []
+            for r in rows:
+                if r[7] in seen:
+                    continue
+                seen.add(r[7]); picked.append(r)
+                if len(picked) == 4:
+                    break
+            for r in picked:
+                slug = models[r[12]][0] if isinstance(r[12], int) and 0 <= r[12] < len(models) else None
+                name = _clean(r[1])
+                out.append({"cat": label, "name": name, "brand": r[7], "price": r[2], "drop": bool(r[5] & 4),
+                            "url": f"{SITE}/prices/{slug}/" if slug else f"{SITE}/shop.html?q={quote(name)}"})
+    return out
+
+
 def money(p):
     return f"£{p:,.2f}".replace(".00", "")
 
@@ -379,6 +432,10 @@ def build(root=ROOT, today=None):
     pages = [("societies/guides/index.html", index_page(today), "/societies/guides/"),
              ("societies/guides/golf-society-awards-ideas/index.html", awards_guide(today, bands), "/societies/guides/golf-society-awards-ideas/"),
              ("societies/prize-fund-calculator/index.html", calculator_page(today), "/societies/prize-fund-calculator/")]
+    cat = prize_catalogue(root)
+    if cat is not None:
+        _write(root / "data" / "societies" / "prize-ideas.json",
+               json.dumps({"date": today.isoformat(), "items": cat}, ensure_ascii=False, separators=(",", ":")) + "\n")
     import society_guides2
     for slug, html in society_guides2.pages(today, bands):
         pages.append((f"societies/guides/{slug}/index.html", html, f"/societies/guides/{slug}/"))
