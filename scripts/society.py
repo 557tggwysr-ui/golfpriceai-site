@@ -14,7 +14,7 @@ flip LAUNCHED to True to let the awards page be indexed.
 from price_pages import SITE, _write, breadcrumb, page_shell
 
 LAUNCHED = False
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024b">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -42,7 +42,7 @@ def awards_page():
 </section>
 {REAL}
 </div>
-<script src="/js/society-awards.js?v=20261024" defer></script>"""
+<script src="/js/society-awards.js?v=20261024b" defer></script>"""
     return page_shell(title="Society Awards Night Kit: free golf society awards | GolfPrice AI",
                       description="Free golf society awards: award cards for the WhatsApp group, a presentation-night slideshow, and prizes winners pick themselves at today's lowest UK prices.",
                       canonical=f"{SITE}/societies/awards/", body=body, section="play", schema=[crumbs_schema],

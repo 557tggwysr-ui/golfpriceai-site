@@ -277,12 +277,17 @@
     function paint() {
       var s = slides[at], inner;
       if (s.kind === 'title') inner = '<span class="soc-show-k">' + esc(k.name) + '</span><b class="soc-show-big">' + esc(k.season || '') + ' Awards</b><span class="soc-show-sub">Tap or press → to begin</span>';
-      else if (s.kind === 'end') inner = '<span class="soc-show-k">' + esc(k.name) + '</span><b class="soc-show-big">Congratulations, all</b><span class="soc-show-sub">Same again next season?</span>';
+      else if (s.kind === 'end') inner = '<span class="soc-show-k">' + esc(k.name) + '</span><b class="soc-show-big">Congratulations,<br>all</b><span class="soc-show-sub">Same again next season?</span>';
       else inner = '<span class="soc-show-k">' + esc(k.name) + ' · ' + esc(k.season || '') + ' awards</span><span class="soc-show-t">The ' + esc(s.a.t.replace(/^the\s+/i, '')) + (/award$/i.test(s.a.t) ? '' : ' award') + ' goes to…</span>' +
         (revealed ? '<b class="soc-show-big soc-show-win">' + esc(s.a.w) + '</b>' + (s.a.d ? '<span class="soc-show-d">' + esc(s.a.d) + '</span>' : '') + '<span class="soc-show-q">' + esc(quip(s.a.t)) + '</span>'
           : '<button type="button" class="soc-show-reveal">Tap to reveal</button>');
       ov.innerHTML = '<div class="soc-show-stage">' + inner + '</div><div class="soc-show-bar"><button type="button" class="soc-show-nav" data-d="-1">← Back</button><span>' +
         (s.kind === 'award' ? 'Award ' + at + ' of ' + k.awards.length : '') + '</span><button type="button" class="soc-show-nav" data-d="1">' + (at === slides.length - 1 ? 'Close' : 'Next →') + '</button><button type="button" class="soc-show-x" aria-label="Close the slideshow">✕</button></div>';
+      // Long words (a long nickname, "Congratulations") shrink to fit the screen.
+      ov.querySelectorAll('.soc-show-big').forEach(function (el) {
+        var f = parseFloat(getComputedStyle(el).fontSize), cs = getComputedStyle(el.parentNode), box = el.parentNode.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 8;
+        while (el.offsetWidth > box && f > 18) { f -= 2; el.style.fontSize = f + 'px'; }
+      });
       var rv = ov.querySelector('.soc-show-reveal'); if (rv) { rv.onclick = function (e) { e.stopPropagation(); revealed = true; paint(); }; rv.focus(); }
       ov.querySelectorAll('.soc-show-nav').forEach(function (b) { b.onclick = function (e) { e.stopPropagation(); go(+b.getAttribute('data-d')); }; });
       ov.querySelector('.soc-show-x').onclick = function (e) { e.stopPropagation(); close(); };
