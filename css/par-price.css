@@ -165,7 +165,7 @@
 
 /* ---------------------------------------------------------------- The Clubhouse (/play/) */
 .ch-wrap { max-width: 980px; margin: 0 auto; padding: 16px 0 40px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
-.ch-hero, .ch-today, .ch-draft, .ch-also { grid-column: 1 / -1; }
+.ch-hero, .ch-today, .ch-hl, .ch-draft, .ch-also { grid-column: 1 / -1; }
 .ch-hero { display: flex; flex-direction: column; gap: 6px; padding: 8px 0 4px; }
 .ch-hero h1 { margin: 0; font: 800 clamp(30px, 4.6vw, 44px)/1.08 Poppins, sans-serif; }
 .ch-hero p { margin: 0; font-size: 17px; color: var(--gp-text-2); }
@@ -523,9 +523,3 @@
 }
 
 /* Higher or Lower card in the Clubhouse (no photo: a dark text card) */
-.ch-card.ch-hl { grid-column: 1 / -1; aspect-ratio: auto; background: #141515; }
-.ch-card.ch-hl::after { display: none; }
-.ch-hl .ch-body { position: static; transform: none; width: auto; max-width: 620px; padding: 22px 24px; }
-.ch-hl .ch-line { color: #c9cdca; }
-.ch-hl picture, .ch-hl img { position: static; display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; object-position: 50% 30%; }
-@media (max-width: 760px) { .ch-hl picture, .ch-hl img { aspect-ratio: 3 / 2; object-position: 50% 50%; } }
