@@ -465,3 +465,11 @@
   .gp-duo-card .gp-tb-line { display: block; }
   .gp-duo-card .gp-tb-body { left: 18px; right: 18px; bottom: 18px; }
 }
+/* Three across once Society HQ joined (Oct 2026). */
+.gp-trio { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.gp-trio .gp-duo-card { aspect-ratio: 4 / 5; }
+.gp-trio .gp-duo-card img { object-position: 50% 20%; }
+.gp-trio .gp-duo-card .gp-tb-title { font-size: 22px; }
+.gp-trio .gp-duo-card .gp-tb-body { left: 22px; right: 22px; bottom: 22px; }
+@media (max-width: 900px) and (min-width: 701px) { .gp-trio .gp-duo-card { aspect-ratio: 3 / 4; } .gp-trio .gp-duo-card .gp-tb-title { font-size: 19px; } }
+@media (max-width: 700px) { .gp-trio { grid-template-columns: 1fr; } .gp-trio .gp-duo-card { aspect-ratio: 1 / 1; } .gp-trio .gp-duo-card img { object-position: 50% 0; } }

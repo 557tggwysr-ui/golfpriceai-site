@@ -49,6 +49,8 @@ body.gp-lock { overflow: hidden; }
 .gp-logo span { color: var(--gp-green); }
 
 .gp-nav { display: flex; gap: 32px; height: 76px; }
+@media (max-width: 1279px) { .gp-nav { gap: 22px; } .gp-header-inner { gap: 16px; } }
+@media (max-width: 1179px) { .gp-nav { gap: 14px; } .gp-header-inner { gap: 10px; padding: 0 18px; } }
 .gp-nav-item { position: relative; display: flex; }
 .gp-nav-link {
   display: flex;
@@ -265,7 +267,7 @@ footer.gp-footer {
 }
 .gp-footer a { text-decoration: none; }
 .gp-footer-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
-.gp-foot-grid { display: grid; grid-template-columns: 1.3fr repeat(5, 1fr); gap: 32px; }
+.gp-foot-grid { display: grid; grid-template-columns: 1.3fr repeat(6, 1fr); gap: 28px; }
 .gp-foot-brand { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
 .gp-footer .gp-logo { color: #fff; font-size: 22px; }
 .gp-footer .gp-logo span { color: #5fd14a; }
