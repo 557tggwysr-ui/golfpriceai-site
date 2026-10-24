@@ -40,6 +40,7 @@
     if (d.bag && d.bag.pick) tiles.push(['Pick of the week', esc(d.bag.pick.nick) + '’s ' + esc(short(d.bag.pick.name)), 'Down £' + d.bag.pick.d + '. ' + esc(d.bag.pick.quip)]);
     if (d.bag && d.bag.shank) tiles.push(['Shank of the week', esc(d.bag.shank.nick) + '’s ' + esc(short(d.bag.shank.name)), 'Up £' + Math.abs(d.bag.shank.d) + '. ' + esc(d.bag.shank.quip)]);
     if (d.pp) tiles.push(['Par Price round of the week', esc(d.pp.round.nick) + ', ' + par(d.pp.round.total), day(d.pp.round.day, { weekday: 'long' }) + '. ' + d.pp.rounds + ' rounds played in the league this week.']);
+    if (d.hl) tiles.push(['Streak of the week', esc(d.hl.nick) + ', ' + d.hl.streak + ' in a row', 'Higher or Lower. Nobody knows how.']);
     if (d.pp && d.pp.spoon) tiles.push(['Wooden spoon', esc(d.pp.spoon.nick), esc(d.pp.spoon.quip)]);
     else if (d.pp && d.pp.ever.length) tiles.push(['Ever-present', esc(d.pp.ever.join(', ')), 'Played every round. Do they have jobs?']);
     if (tiles.length) h += '<section class="cr-grid">' + tiles.map(function (t) { return '<div><span class="cr-k">' + t[0] + '</span><b>' + t[1] + '</b><small>' + t[2] + '</small></div>'; }).join('') + '</section>';

@@ -1,0 +1,62 @@
+/* GolfPrice AI: Higher or Lower */
+.hl-wrap { max-width: 760px; margin: 0 auto; padding: 16px var(--gp-gutter, 16px) 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; }
+.hl-game { background: #141515; color: #fff; border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.hl-loading { color: #c9cdca; margin: auto; }
+.hl-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.hl-kick { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #8fd77e; }
+.hl-score { font-size: 14px; color: #c9cdca; }
+.hl-score b { color: #fff; font-size: 22px; font-family: Poppins, sans-serif; }
+.hl-bar { height: 6px; border-radius: 3px; background: #2c302e; overflow: hidden; }
+.hl-bar i { display: block; height: 100%; background: #3fae29; transition: width .3s ease; }
+.hl-pair { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 10px; }
+.hl-card { background: #232525; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; border: 3px solid transparent; position: relative; min-width: 0; transition: border-color .2s; }
+.hl-img { background: #fff; height: 170px; display: flex; align-items: center; justify-content: center; padding: 10px; box-sizing: border-box; }
+.hl-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.hl-txt { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; }
+.hl-type { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #c9cdca; }
+.hl-name { font: 700 16px/1.25 Poppins, sans-serif; }
+.hl-price { font: 800 32px Poppins, sans-serif; font-variant-numeric: tabular-nums; }
+.hl-q { color: #8fd77e; }
+.hl-vs { width: 46px; height: 46px; border-radius: 50%; background: #fff; color: #141515; display: flex; align-items: center; justify-content: center; font: 800 15px Poppins, sans-serif; }
+.hl-card.is-right { border-color: #3fae29; }
+.hl-card.is-wrong { border-color: #f08a24; }
+.hl-flag { position: absolute; top: 10px; right: 10px; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 800; background: #3fae29; color: #fff; }
+.is-wrong .hl-flag { background: #f08a24; color: #141515; }
+.hl-ask { margin: 0; text-align: center; color: #e3e7e4; font-size: 15px; }
+.hl-btns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.hl-btns button { min-height: 60px; border: 0; border-radius: 14px; font: 800 20px Poppins, sans-serif; cursor: pointer; }
+.hl-hi { background: #3fae29; color: #fff; }
+.hl-lo { background: #f08a24; color: #141515; }
+.hl-btns button:focus-visible, .hl-btn:focus-visible, .hl-btn2:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.hl-btns button[disabled] { opacity: .4; cursor: default; }
+.hl-btns button.is-picked { opacity: 1; }
+.hl-small { margin: 0; font-size: 13px; color: #c9cdca; text-align: center; line-height: 1.5; }
+.hl-small a, .hl-link { color: #8fd77e; font-weight: 700; }
+.hl-link { background: none; border: 0; font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; padding: 6px 0; }
+.hl-end { background: #fff; color: #16241c; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.hl-end .hl-kick { color: #b25a0c; }
+.hl-end h2 { margin: 0; font: 800 34px/1.1 Poppins, sans-serif; }
+.hl-end p { margin: 0; font-size: 15px; line-height: 1.5; }
+.hl-end .hl-small { color: #4a554e; text-align: left; }
+.hl-end .hl-small a { color: #2f8a1f; }
+.hl-miss { background: #fff4e8; border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+.hl-miss span { font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: #8a5a00; }
+.hl-miss p { font-size: 14px; }
+.hl-miss a { font-weight: 700; color: #2f8a1f; padding: 4px 0; }
+.hl-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.hl-btn, .hl-btn2 { min-height: 48px; padding: 0 18px; border-radius: 10px; font: 700 15px Inter, sans-serif; cursor: pointer; }
+.hl-btn { border: 0; background: #3fae29; color: #fff; }
+.hl-btn2 { border: 1px solid #cfd5cc; background: #fff; color: #16241c; }
+.hl-how { background: #fff; border: 1px solid var(--gp-line, #e7e9e5); border-radius: 16px; padding: 18px; }
+.hl-how h1 { margin: 0 0 8px; font: 800 24px Poppins, sans-serif; }
+.hl-how p, .hl-how li { color: var(--gp-text-2, #4a554e); line-height: 1.55; font-size: 15px; }
+.hl-how a { color: var(--gp-green-dark, #2f8a1f); font-weight: 700; }
+@media (max-width: 640px) {
+  .hl-pair { grid-template-columns: 1fr; gap: 0; }
+  .hl-vs { justify-self: center; margin: -16px 0; z-index: 1; border: 4px solid #141515; }
+  .hl-card { flex-direction: row; }
+  .hl-img { width: 112px; height: 112px; flex: none; }
+  .hl-txt { justify-content: center; padding: 10px 12px; }
+  .hl-name { font-size: 15px; }
+  .hl-price { font-size: 28px; }
+}

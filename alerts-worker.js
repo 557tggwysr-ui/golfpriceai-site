@@ -548,6 +548,7 @@ async function ppSetup(env) {
     env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS pp_members_pid ON pp_members (pid)'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_moves (code TEXT PRIMARY KEY, pid TEXT, data TEXT, exp INTEGER) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pp_prefs (pid TEXT PRIMARY KEY, hidden INTEGER) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS hl_scores (n INTEGER, pid TEXT, streak INTEGER, PRIMARY KEY (n, pid)) WITHOUT ROWID'),
   ]);
   ppReady = true;
 }
@@ -564,6 +565,7 @@ async function parPrice(request, url, env, cors) {
   }
   const pid = PID_RX.test(String(body.pid || url.searchParams.get('pid') || '')) ? String(body.pid || url.searchParams.get('pid')) : '';
   if (path === '/pp/score' && request.method === 'POST') return await ppScore(env, body, pid, cors);
+  if (path === '/pp/hl' && request.method === 'POST') return await hlScore(env, body, pid, cors);
   if (path === '/pp/dist') return await ppDist(env, Number(url.searchParams.get('n')), cors);
   if (path === '/pp/my') return await ppMy(env, pid, cors);
   if (path === '/pp/league/create' && request.method === 'POST') return await ppCreate(env, body, pid, cors);
@@ -690,6 +692,20 @@ async function ppLeave(env, body, pid, cors) {
   return json({ ok: true }, 200, cors);
 }
 
+/* ---- Higher or Lower: one daily run per player (the first finished run of
+   the day counts), same pairs for everyone. Only the streak is stored. */
+async function hlScore(env, body, pid, cors) {
+  const n = Number(body.n), streak = Math.round(Number(body.streak));
+  const today = ppToday();
+  if (!pid || !(n === today || n === today - 1) || !(streak >= 0 && streak <= 50)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  await env.DEMAND.prepare('INSERT OR IGNORE INTO hl_scores (n, pid, streak) VALUES (?, ?, ?)').bind(n, pid, streak).run();
+  const mine = await env.DEMAND.prepare('SELECT streak FROM hl_scores WHERE n = ? AND pid = ?').bind(n, pid).first('streak');
+  const runs = await env.DEMAND.prepare('SELECT COUNT(*) AS c FROM hl_scores WHERE n = ?').bind(n).first('c');
+  const below = await env.DEMAND.prepare('SELECT COUNT(*) AS c FROM hl_scores WHERE n = ? AND streak < ?').bind(n, mine).first('c');
+  if (Math.random() < 0.02) await env.DEMAND.prepare('DELETE FROM hl_scores WHERE n < ?').bind(today - 120).run();
+  return json({ ok: true, streak: mine, runs, beat: runs > 1 ? Math.round(below / (runs - 1) * 100) : null }, 200, cors);
+}
+
 async function ppLeague(env, id, pid, cors) {
   if (!LEAGUE_RX.test(id)) return json({ ok: false, error: 'That doesn’t look like a league link.' }, 400, cors);
   const league = await env.DEMAND.prepare('SELECT id, name, created FROM pp_leagues WHERE id = ?').bind(id).first();
@@ -699,7 +715,10 @@ async function ppLeague(env, id, pid, cors) {
   const scores = (await env.DEMAND.prepare('SELECT s.n, s.pid, s.total, s.grid, s.pin FROM pp_scores s JOIN pp_members m ON m.pid = s.pid AND m.league = ? WHERE s.n >= ?').bind(id, from).all()).results || [];
   const byN = {};
   scores.forEach((r) => { (byN[r.n] = byN[r.n] || {})[r.pid] = r; });
+  const hl = (await env.DEMAND.prepare('SELECT h.n, h.pid, h.streak FROM hl_scores h JOIN pp_members m ON m.pid = h.pid AND m.league = ? WHERE h.n >= ?').bind(id, monday).all()).results || [];
   const people = members.map((m) => {
+    const hlMine = hl.filter((r) => r.pid === m.pid);
+    const hlToday = hlMine.find((r) => r.n === today);
     const mine = (n) => (byN[n] || {})[m.pid];
     let week = 0, played = 0, eagles = 0;
     for (let n = monday; n <= today; n++) {
@@ -710,7 +729,8 @@ async function ppLeague(env, id, pid, cors) {
     let streak = 0;
     for (let n = mine(today) ? today : today - 1; n >= from && mine(n); n--) streak++;
     return { pid: m.pid, nick: m.nick, you: m.pid === pid, today: mine(today) ? { total: mine(today).total, grid: mine(today).grid } : null,
-      week, played, eagles, streak, wins: 0 };
+      week, played, eagles, streak, wins: 0,
+      hl: { today: hlToday ? hlToday.streak : null, week: hlMine.length ? Math.max(...hlMine.map((r) => r.streak)) : null } };
   });
   // Wins: rounds where you had the best score among members who played (ties share it).
   for (let n = from; n < today; n++) {
@@ -811,6 +831,13 @@ async function ppReport(env, id, pid, wParam) {
     const bfx = await bdDouble(env, season);
     table = drafts.map((r) => ({ nick: r.mnick, pts: bdScore(r, by, bfx).total })).sort((a, b) => b.pts - a.pts);
   }
+  // Higher or Lower: the best daily-run streak in the league that week.
+  let hl = null;
+  if (nB >= 1 && members.length) {
+    const best = await env.DEMAND.prepare('SELECT h.pid, h.streak FROM hl_scores h JOIN pp_members m ON m.pid = h.pid AND m.league = ? WHERE h.n BETWEEN ? AND ? ORDER BY h.streak DESC, h.n ASC LIMIT 1').bind(id, Math.max(1, nA), nB).first();
+    if (best && best.streak > 0) hl = { nick: nickOf[best.pid], streak: best.streak };
+  }
+  out.hl = hl;
   if (!pp && !bag) return Object.assign(out, { empty: true });
   // The front page
   let golfer;

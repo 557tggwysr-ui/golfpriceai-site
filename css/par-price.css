@@ -521,3 +521,9 @@
   .mv-short { display: block; }
   .mv-sum b { display: block; }
 }
+
+/* Higher or Lower card in the Clubhouse (no photo: a dark text card) */
+.ch-card.ch-hl { grid-column: 1 / -1; aspect-ratio: auto; background: #141515; }
+.ch-card.ch-hl::after { display: none; }
+.ch-hl .ch-body { position: static; transform: none; width: auto; max-width: 620px; padding: 22px 24px; }
+.ch-hl .ch-line { color: #c9cdca; }

@@ -86,6 +86,7 @@
   /* ---------------------------------------------------------- the table */
   var WAITING = ['Still in the car park.', 'Warming up on the range.', 'Looking for a tee.', 'Says they’re “just parking”.'];
   function lineFor(m, i, played, view) {
+    if (view === 'hl') { var h = m.hl || {}; return h.today === null || h.today === undefined ? 'Hasn’t had a go today.' : (h.week && h.week > h.today ? 'Best this week: ' + h.week : h.today >= 10 ? 'Knows their prices. Suspicious.' : 'Respectable. Quietly furious.'); }
     if (view === 'week') return m.played + ' of ' + (data.n - data.monday + 1) + ' rounds this week';
     if (view === 'all') return m.wins + (m.wins === 1 ? ' win' : ' wins') + (m.streak > 1 ? ' · ' + m.streak + '-day streak' : '');
     if (!m.today) return WAITING[i % WAITING.length];
@@ -99,19 +100,22 @@
     var ms = data.members.slice();
     if (v === 'today') ms.sort(function (a, b) { return (a.today ? a.today.total : 99) - (b.today ? b.today.total : 99); });
     else if (v === 'week') ms.sort(function (a, b) { return a.week - b.week; });
+    else if (v === 'hl') ms.sort(function (a, b) { var x = a.hl && a.hl.today !== null ? a.hl.today : -1, y = b.hl && b.hl.today !== null ? b.hl.today : -1; return y - x; });
     else ms.sort(function (a, b) { return b.wins - a.wins || b.streak - a.streak; });
     return ms;
   }
   function rowsHtml(v) {
     var ms = sorted(v), played = ms.filter(function (m) { return m.today; }).length, pos = 0, last = null;
     return ms.map(function (m, i) {
-      var val = v === 'today' ? (m.today ? m.today.total : null) : v === 'week' ? m.week : m.wins;
+      var hlv = m.hl && m.hl.today !== null && m.hl.today !== undefined ? m.hl.today : null;
+      var val = v === 'today' ? (m.today ? m.today.total : null) : v === 'week' ? m.week : v === 'hl' ? hlv : m.wins;
       if (val !== null && val !== last) { pos = i + 1; last = val; }
       var lead = val !== null && pos === 1 && (v !== 'all' || val > 0);
       var right = v === 'today'
         ? (m.today ? '<span class="lg-grid" aria-label="Holes">' + m.today.grid.split('').map(function (c) { return '<i class="lg-g-' + c + '"></i>'; }).join('') + '</span>' +
           '<b class="lg-score ' + cls(m.today.total) + '">' + fmt(m.today.total) + '</b>' : '<span class="lg-wait">Not played yet</span><span></span>')
         : v === 'week' ? '<span></span><b class="lg-score ' + cls(m.week) + '">' + fmt(m.week) + '</b>'
+        : v === 'hl' ? (hlv === null ? '<span class="lg-wait">Not played yet</span><span></span>' : '<span></span><b class="lg-score">' + hlv + '</b>')
         : '<span></span><b class="lg-score">' + m.wins + '</b>';
       return '<li class="lg-row' + (lead ? ' is-lead' : '') + (m.you ? ' is-you' : '') + '"><b class="lg-pos">' + (val === null ? '–' : pos) + '</b>' +
         '<span class="lg-who"><span class="lg-nick">' + esc(m.nick) + '</span><span class="lg-line">' + esc(lineFor(m, i, played, v)) + '</span></span>' + right + '</li>';
@@ -144,14 +148,15 @@
       : lead ? esc(lead.nick) + ' has posted a score. The pressure is on.' : 'Nobody’s teed off yet today. Be the first.';
     box.innerHTML = '<div class="lg-hero"><span class="pr-kicker">League · ' + n + (n === 1 ? ' golfer' : ' golfers') + ' · Par Price #' + data.n + '</span>' +
       '<h1>' + esc(data.name) + '</h1><p>' + tag + '</p></div>' +
-      '<section class="lg-card"><div class="lg-card-head"><h2>' + (view === 'today' ? 'Today’s round' : view === 'week' ? 'This week' : 'All time') + '</h2>' +
+      '<section class="lg-card"><div class="lg-card-head"><h2>' + (view === 'today' ? 'Today’s round' : view === 'week' ? 'This week' : view === 'hl' ? 'Higher or Lower today' : 'All time') + '</h2>' +
       '<div class="lg-tabs" role="group" aria-label="Which table">' +
-      [['today', 'Today'], ['week', 'Week'], ['all', 'All time']].map(function (t) { return '<button type="button" data-v="' + t[0] + '" aria-pressed="' + (view === t[0]) + '">' + t[1] + '</button>'; }).join('') +
+      [['today', 'Today'], ['week', 'Week'], ['all', 'All time'], ['hl', 'Hi-Lo']].map(function (t) { return '<button type="button" data-v="' + t[0] + '" aria-pressed="' + (view === t[0]) + '">' + t[1] + '</button>'; }).join('') +
       '</div></div><ol class="lg-rows">' + rowsHtml(view) + '</ol>' +
       '<div class="lg-actions">' + (me && !me.today ? '<a class="gp-af-btn" href="/play/par-price/?utm_source=league">Play today’s round</a>' : '<button type="button" class="gp-af-btn lg-share">Share today’s table</button>') +
       (waiting.length && me && me.today ? '<button type="button" class="lg-btn2 lg-nudge">Nudge ' + (waiting.length === 1 ? esc(waiting[0].nick) + ' (they’re holding us up)' : 'the stragglers') + '</button>' : '') +
       (n < 2 ? '<button type="button" class="lg-btn2 lg-invite">Invite your mates</button>' : '') + '</div>' +
       (view === 'week' ? '<p class="lg-note">Weekly champion crowned Monday morning. A missed round counts as ' + fmt(data.missed) + ': golf for “should’ve turned up”.</p>'
+        : view === 'hl' ? '<p class="lg-note">Today’s daily-run streaks: longest wins. Free play doesn’t count. <a href="/play/higher-or-lower/?utm_source=league">Play today’s run</a></p>'
         : view === 'all' ? '<p class="lg-note">Wins are rounds where you had the best score in the league (ties share it).</p>' : '') +
       '</section>' + awards() +
       '<div class="lg-foot"><button type="button" class="lg-invite2">Invite more golfers to the league</button>' +

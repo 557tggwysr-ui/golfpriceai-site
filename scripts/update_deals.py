@@ -69,6 +69,7 @@ import models  # scripts/models.py: category audit, £0 clean-up, model grouping
 import price_pages  # scripts/price_pages.py: static /prices/ pages, sitemaps
 import identity  # scripts/identity.py: one listing = retailer + name
 import search_index  # scripts/search_index.py: data/search/ for the search page
+import used_prices  # scripts/used_prices.py: data/used-prices.json for the price checker
 import product_types  # scripts/product_types.py: fixes clothing/accessory types from the product name
 import retailer_images  # scripts/retailer_images.py: real Scottsdale photo addresses
 
@@ -3697,6 +3698,12 @@ def main():
         # The search page's small per-category index (data/search/).
         live = {d.name for d in price_pages.PRICES_DIR.iterdir() if d.is_dir() and d.name not in price_pages.HUB_TYPES}
         search_index.build(catalog["products"], model_list, live, credible_drop)
+        # Used price guide for price-check.html. Its own try, so it can never
+        # stop the rest of the model pages.
+        try:
+            used_prices.build(catalog["products"], model_list, live, today_str)
+        except Exception as exc:  # noqa: BLE001
+            print(f"WARNING: used price guide skipped this run: {exc!r}")
     except Exception as exc:  # noqa: BLE001 - report and carry on
         print(f"WARNING: model grouping failed this run and was skipped: {exc!r}")
 

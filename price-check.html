@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Is This a Good Price? Golf Price Checker UK | GolfPrice AI</title>
-<meta name="description" content="Seen a golf club, ball or rangefinder for sale? Check the price against our own UK price history: today's lowest, its tracked low and average, and an honest verdict.">
+<title>Is This a Good Price? New &amp; Used Golf Price Checker UK | GolfPrice AI</title>
+<meta name="description" content="Check any golf price, new or used. Seen a club for sale in a shop, at your pro, on eBay or from a mate? Get an honest verdict from our own UK price history and a fair used price range.">
 <link rel="canonical" href="https://golfpriceai.com/price-check.html">
 <link rel="icon" href="/assets/logo-full.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +12,12 @@
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
 <link rel="stylesheet" href="/css/prices.css">
-<link rel="stylesheet" href="/css/price-check.css">
-<meta property="og:title" content="Is this a good price? Golf price checker">
-<meta property="og:description" content="Check any golf price against our own UK price history.">
+<link rel="stylesheet" href="/css/price-check.css?v=20261024">
+<meta property="og:title" content="Is this a good price? New and used golf price checker">
+<meta property="og:description" content="Check any golf price, new or used, against our own UK price history.">
 <meta property="og:image" content="https://golfpriceai.com/assets/social-share.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"GolfPrice AI price checker","url":"https://golfpriceai.com/price-check.html","applicationCategory":"ShoppingApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"description":"Checks a UK golf price against GolfPrice AI's own price history."}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where do the prices come from?","acceptedAnswer":{"@type":"Answer","text":"From our own record of UK golf prices. We check every listing at the retailers we track every 6 hours and keep every price, which is where the low, high and average come from."}},{"@type":"Question","name":"Why isn't my product listed?","acceptedAnswer":{"@type":"Answer","text":"The checker covers every model with a GolfPrice AI price page: clubs, balls, bags, rangefinders, GPS watches, trolleys and launch monitors with enough price history to be useful. More are added automatically as we track them for longer."}},{"@type":"Question","name":"Does it include second-hand prices?","acceptedAnswer":{"@type":"Answer","text":"No. The checker compares against new, in-stock prices only. Second-hand and ex-demo prices are shown separately on each price page."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"GolfPrice AI price checker","url":"https://golfpriceai.com/price-check.html","applicationCategory":"ShoppingApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"description":"Checks any UK golf price, new or used, against GolfPrice AI's own price history and a fair used price range."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where do the prices come from?","acceptedAnswer":{"@type":"Answer","text":"From our own record of UK golf prices. We check every listing at the retailers we track every 6 hours and keep every price, which is where the low, high and average come from."}},{"@type":"Question","name":"Why isn't my product listed?","acceptedAnswer":{"@type":"Answer","text":"The checker covers every model with a GolfPrice AI price page: clubs, balls, bags, rangefinders, GPS watches, trolleys and launch monitors with enough price history to be useful. More are added automatically as we track them for longer."}},{"@type":"Question","name":"Does it include second-hand prices?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose eBay, Facebook Marketplace or A mate (or switch to Used) and the checker shows a fair used range. It is based on the used and pre-owned listings we track when there are at least 3 for that model; otherwise it is an estimate from today's lowest new price, and it says so."}}]}</script>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to content</a>
@@ -144,7 +144,7 @@
   <section class="pp-hub-top">
     <span class="sb-kicker">Free tool</span>
     <h1>Is this a good price?</h1>
-    <p class="pp-answer">Seen a club, ball or gadget for sale? Pick it below, add the price you’ve seen, and we’ll check it against everything we’ve recorded: today’s lowest new price at UK retailers, the lowest we’ve ever tracked, and its average.</p>
+    <p class="pp-answer">Check any golf price, new or used. Seen a club, ball or gadget in a shop, at your pro, on eBay or from a mate? Pick it below, add the price and where it’s for sale, and we’ll check it against everything we’ve recorded: today’s lowest new price at multiple UK retailers, the lowest we’ve ever tracked, and a fair price for used.</p>
   </section>
 
   <form class="pc-form pp-card" id="pc-form" autocomplete="off">
@@ -157,9 +157,26 @@
       <label for="pc-p">Price you’ve seen <span>(optional)</span></label>
       <div class="pc-money"><span>£</span><input id="pc-p" type="number" inputmode="decimal" min="0" step="0.01" placeholder="199.99"></div>
     </div>
+    <fieldset class="pc-field pc-choice pc-where">
+      <legend>Where is it for sale?</legend>
+      <div class="pc-pills">
+        <label><input type="radio" name="pc-w" value="online" checked><span>Online shop</span></label>
+        <label><input type="radio" name="pc-w" value="pro"><span>Pro shop</span></label>
+        <label><input type="radio" name="pc-w" value="ebay"><span>eBay</span></label>
+        <label><input type="radio" name="pc-w" value="facebook"><span>Facebook Marketplace</span></label>
+        <label><input type="radio" name="pc-w" value="mate"><span>A mate</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="pc-field pc-choice pc-cond">
+      <legend>Condition</legend>
+      <div class="pc-pills">
+        <label><input type="radio" name="pc-c" value="new" checked><span>New</span></label>
+        <label><input type="radio" name="pc-c" value="used"><span>Used</span></label>
+      </div>
+    </fieldset>
     <button type="submit" class="gp-af-btn pc-go">Check price</button>
   </form>
-  <p class="pp-small pc-hint" id="pc-hint">Covers every model with a GolfPrice AI price page. New prices only.</p>
+  <p class="pp-small pc-hint" id="pc-hint">Covers every model with a GolfPrice AI price page. Shops and pro shops are checked as new, eBay, Facebook and mates as used: change it if that’s not the case.</p>
 
   <section id="pc-result" class="pc-result" aria-live="polite" hidden></section>
 
@@ -167,9 +184,10 @@
     <h2>How the checker decides</h2>
     <div class="pp-q-grid">
       <div class="pp-card pp-q"><h3>Where do the prices come from?</h3><p>From our own record of UK golf prices. We check every listing at the retailers we track every 6 hours and keep every price, which is where the low, high and average come from.</p></div>
-      <div class="pp-card pp-q"><h3>What does each verdict mean?</h3><p><strong>Excellent</strong>: at or below the lowest we’ve tracked. <strong>Good</strong>: at or below today’s best new price. <strong>Fair</strong>: below its usual price, but cheaper is available today. <strong>High</strong>: above its usual price.</p></div>
+      <div class="pp-card pp-q"><h3>What does each verdict mean?</h3><p>New: <strong>Excellent</strong> is at or below the lowest we’ve tracked, <strong>Good</strong> at or below today’s best new price, <strong>Fair</strong> below its usual price but cheaper today, <strong>High</strong> above its usual price. Used: <strong>Good</strong> is in the lower half of the fair used range, <strong>Fair</strong> the upper half, <strong>High</strong> above it.</p></div>
       <div class="pp-card pp-q"><h3>Why isn’t my product listed?</h3><p>The checker covers every model with a price page: clubs, balls, bags, rangefinders, GPS watches, trolleys and launch monitors with enough price history to be useful. More are added automatically as we track them for longer.</p></div>
-      <div class="pp-card pp-q"><h3>Does it include second-hand prices?</h3><p>No. It compares against new, in-stock prices only. Second-hand and ex-demo prices are shown separately on each price page.</p></div>
+      <div class="pp-card pp-q"><h3>Does it include second-hand prices?</h3><p>Yes. For used, we show a fair price range built from the used and pre-owned listings we track, when there are at least 3 for that model. With fewer, we estimate it from today’s lowest new price (used recent models typically sell for 55–80% of new) and tell you it’s an estimate.</p></div>
+      <div class="pp-card pp-q"><h3>What if a used price looks too good?</h3><p>If it’s under half of today’s lowest new price and well below the usual used range, we’ll flag it and give you a quick checklist. You can check a serial number on <a href="https://www.immobilise.com/" target="_blank" rel="noopener">Immobilise<span class="sr-only"> (opens in a new tab)</span></a>, the national property register.</p></div>
     </div>
   </section>
 </div>
@@ -209,7 +227,7 @@
     </div>
   </div>
 </footer>
-<script src="/js/price-check.js"></script>
+<script src="/js/price-check.js?v=20261024"></script>
 <script src="/js/analytics.js"></script>
 <script src="/js/cookie-consent.js"></script>
 <script src="/js/site.js" defer></script>

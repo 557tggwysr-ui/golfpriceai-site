@@ -1,5 +1,5 @@
 /* "Is this a good price?" checker (price-check.html, js/price-check.js) */
-.pc-form { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: 14px; align-items: end; padding: 18px; margin-top: 22px; }
+.pc-form { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 14px; align-items: end; padding: 18px; margin-top: 22px; }
 .pc-field { position: relative; display: flex; flex-direction: column; gap: 6px; }
 .pc-field label { font-size: 13px; font-weight: 700; }
 .pc-field label span { font-weight: 400; color: var(--gp-text-3); }
@@ -34,8 +34,40 @@
 .pc-stats em { font-style: normal; font-size: 13px; color: var(--gp-text-2); }
 .pc-spark { display: block; width: 100%; height: 60px; margin: 16px 0 4px; }
 .pc-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 10px; }
+/* New / used: where it's sold and its condition */
+fieldset.pc-field { border: 0; margin: 0; padding: 0; min-width: 0; }
+.pc-field legend { font-size: 13px; font-weight: 700; padding: 0; margin-bottom: 6px; }
+.pc-where { grid-column: 1 / -1; }
+.pc-cond { grid-column: 1; }
+.pc-go { grid-column: 2; min-height: 48px; }
+.pc-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pc-pills label { position: relative; cursor: pointer; }
+.pc-pills input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.pc-pills span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid #d5dad2; border-radius: 999px;
+  background: #fff; font-size: 15px; font-weight: 600; color: var(--gp-text-2); }
+.pc-pills label:hover span { border-color: var(--gp-green); }
+.pc-pills input:checked + span { background: var(--gp-pale); border-color: var(--gp-green); color: var(--gp-green-dark); box-shadow: inset 0 0 0 1px var(--gp-green); }
+.pc-pills input:focus-visible + span { outline: 2px solid var(--gp-green); outline-offset: 2px; }
+.pc-tag { margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; color: var(--gp-text-3); }
+.pc-note { margin: -8px 0 18px; padding: 12px 16px; border-left: 3px solid var(--gp-green); background: var(--gp-pale); border-radius: 0 10px 10px 0; line-height: 1.5; }
+.pc-basis { margin: 4px 0 12px; line-height: 1.5; }
+.pc-warn { margin: -4px 0 18px; padding: 16px 18px; border: 1px solid #f1d99a; background: #fffaf0; border-radius: 12px; }
+.pc-warn h3 { margin: 0 0 6px; font-size: 17px; }
+.pc-warn p { margin: 0 0 8px; line-height: 1.5; }
+.pc-warn ul { margin: 0 0 14px; padding-left: 20px; line-height: 1.6; }
+.pc-warn-link { display: inline-flex; align-items: center; min-height: 44px; }
+.pc-bar { margin: 28px 0 30px; padding: 0 2px; }
+.pc-bar-track { position: relative; height: 10px; border-radius: 999px; background: #eef0ec; }
+.pc-bar-band { position: absolute; top: 0; bottom: 0; border-radius: 999px; background: var(--gp-green); opacity: .55; }
+.pc-bar-band.is-est { background: repeating-linear-gradient(45deg, var(--gp-green) 0 6px, #9fd690 6px 12px); }
+.pc-bar-new, .pc-bar-you { position: absolute; top: -6px; width: 3px; height: 22px; margin-left: -1px; border-radius: 2px; background: var(--gp-ink); }
+.pc-bar-you { background: #b46a00; }
+.pc-bar-new b, .pc-bar-you b { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-size: 12px; white-space: nowrap; }
+.pc-bar-you b { top: 24px; color: #8a5a00; }
 @media (max-width: 760px) {
   .pc-form { grid-template-columns: 1fr; }
+  .pc-where, .pc-cond, .pc-go { grid-column: 1; }
+  .pc-pills span { padding: 0 14px; }
   .pc-stats { grid-template-columns: 1fr; }
   .pc-actions .pp-btn { flex: 1 1 100%; }
 }

@@ -1525,6 +1525,12 @@ def build(models_list, products, today_str):
         except Exception as e:  # never stop the main build
             print(f"Bag Draft skipped: {e}")
         try:
+            import higher_lower
+            changed += higher_lower.build(passing, built, today)
+            sitemap.append(("play/higher-or-lower/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Higher or Lower skipped: {e}")
+        try:
             import society
             changed += society.build()
             if society.LAUNCHED:
