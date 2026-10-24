@@ -16,7 +16,7 @@ from price_pages import SITE, _write, breadcrumb, page_shell
 LAUNCHED = True
 PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
 FIND_PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/find-a-society-wide.jpg"><img src="/assets/photos/tools/find-a-society-banner.jpg" alt="Golfers shaking hands on the first tee, meeting new playing partners" width="1536" height="512"></picture>'
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024f">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024h">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -60,7 +60,7 @@ def listings(root):
         with urllib.request.urlopen(req, timeout=20) as r:
             rows = json.loads(r.read()).get("societies") or []
         rows = sorted(({"id": x["id"], "name": x["name"], "area": x.get("area") or "", "about": x.get("about") or "",
-                        "members": int(x.get("members") or 0)} for x in rows), key=lambda x: (x["area"].lower(), x["name"].lower()))
+                        "members": int(x.get("members") or 0), "founding": int(x.get("founding") or 0)} for x in rows), key=lambda x: (x["area"].lower(), x["name"].lower()))
         _write(cache, json.dumps({"societies": rows}, ensure_ascii=False, indent=0) + "\n")
         return rows
     except Exception as e:  # never stop the build
@@ -93,7 +93,7 @@ def awards_page():
 </section>
 {REAL}
 </div>
-<script src="/js/society-awards.js?v=20261024b" defer></script>"""
+<script src="/js/society-awards.js?v=20261024c" defer></script>"""
     return page_shell(title="Golf Society Awards: free award cards, slideshow and prizes | GolfPrice AI",
                       description="Free golf society awards: award cards for the WhatsApp group, a presentation-night slideshow, and prizes winners pick themselves at today's lowest UK prices.",
                       canonical=f"{SITE}/societies/awards/", body=body, section="societies", schema=[crumbs_schema, app_schema(f"{SITE}/societies/awards/")],
@@ -134,7 +134,7 @@ def hq_page():
 </section>
 {REAL}
 </div>
-<script src="/js/society-hq.js?v=20261024c" defer></script>"""
+<script src="/js/society-hq.js?v=20261024d" defer></script>"""
     return page_shell(title="Run your golf society free | Society HQ | GolfPrice AI",
                       description="Run your golf society for free: fixtures, sign-ups, who’s paid, a waiting list and the prize fund, all from one link in the WhatsApp group.",
                       canonical=f"{SITE}/societies/hq/", body=body, section="societies", schema=[crumbs_schema, app_schema(f"{SITE}/societies/hq/")],
@@ -149,7 +149,7 @@ def find_cards(rows):
     out = []
     for x in rows:
         n = x["members"]
-        out.append(f'<article class="soc-card fd-card"><span class="fd-meta">{e(x["area"] or "UK")} · {n} member{"" if n == 1 else "s"}</span>'
+        out.append(f'<article class="soc-card fd-card"><span class="fd-meta">{e(x["area"] or "UK")} · {n} member{"" if n == 1 else "s"}' + (f' · <span class="fd-found">Founding Society No. {x["founding"]}</span>' if x.get("founding") else "") + '</span>'
                    f'<h2>{e(x["name"])}</h2>' + (f'<p>{e(x["about"])}</p>' if x["about"] else "") +
                    f'<div class="fd-foot"><a class="soc-btn" href="/societies/hq/?s={e(x["id"])}">Have a look</a>'
                    f'<a class="fd-report" href="mailto:hello@golfpriceai.com?subject={quote("Report a society listing: " + x["name"] + " (" + x["id"] + ")")}">Report this listing</a></div></article>')
@@ -172,7 +172,7 @@ def find_page(rows=()):
 <section class="soc-card soc-next"><span class="soc-kick">Run a society?</span><h2>List yours here, free</h2><p>Start your society in Society HQ and tick “Open to new members”. Only its name, area and description are shown.</p><a class="soc-btn" href="/societies/hq/">Start your society</a></section>
 {REAL}
 </div>
-<script src="/js/society-find.js?v=20261024c" defer></script>"""
+<script src="/js/society-find.js?v=20261024d" defer></script>"""
     return page_shell(title="Find a golf society near you | Society HQ | GolfPrice AI",
                       description="UK golf societies open to new members: regular golf without a full club membership. Free to list your society.",
                       canonical=f"{SITE}/societies/find/", body=body, section="societies", schema=[crumbs_schema] + ([{"@context": "https://schema.org", "@type": "ItemList", "name": "UK golf societies open to new members", "numberOfItems": len(rows), "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@type": "SportsOrganization", "name": x["name"], "sport": "Golf", "description": x["about"] or f"Golf society in {x['area'] or 'the UK'}", "areaServed": x["area"] or "United Kingdom", "url": f"{SITE}/societies/hq/?s={x['id']}"}} for i, x in enumerate(rows)]}] if rows else []),
@@ -187,6 +187,7 @@ def hub_page():
         ("How do members pay me?", "Add your own PayPal.me, Monzo.me or Revolut.me link and members get a “Pay the organiser” button with the entry fee filled in. The money goes straight to you. We never take, hold or see it. You tick who’s paid."),
         ("What happens when a day is full?", "Set the number of places and anyone after that goes on the waiting list. If someone drops out, the first person waiting moves up automatically."),
         ("Can people outside the society see us?", "Only members see your fixtures and who’s playing. If you tick “Open to new members”, Find a Society shows your society’s name, area, description and member count, nothing else."),
+        ("What is a Founding Society?", "The first 50 golf societies on Society HQ to reach four members get a permanent, numbered Founding Society badge on their page and in Find a Society, and a vote on what we build next."),
         ("What’s coming next?", "Results on the day, a season Order of Merit and a Monday Society Report for the group chat arrive in 2027, alongside per-event prizes."),
     ]
     faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
@@ -230,6 +231,16 @@ def hub_page():
   <h2>Results, an Order of Merit and the Society Report</h2>
   <p class="soc-help">Enter the scores on the day and the season table keeps itself. Then a Monday report for the group chat with the winners, the wooden spoon and the best excuse.</p>
 </section>
+<section class="soc-card sh-founding">
+  <span class="soc-found sh-found-dark">Founding Society</span>
+  <h2>Be one of the first 50 Founding Societies</h2>
+  <p class="soc-help">The first 50 golf societies on Society HQ to reach four members keep a numbered, gold Founding Society badge for good, on their society page and in Find a Society, and get a vote on what we build next. No catch and no fees.</p>
+</section>
+<section class="soc-card sh-guides">
+  <h2>Golf society guides and free tools</h2>
+  <div class="sh-glinks"><a href="/societies/guides/golf-society-awards-ideas/"><b>Golf society awards ideas</b><span>40 awards for your end-of-season night, with a free card maker.</span></a><a href="/societies/prize-fund-calculator/"><b>Golf society prize fund calculator</b><span>How much prize money, and how to split it.</span></a></div>
+  <a class="soc-link-a" href="/societies/guides/">All golf society guides &rarr;</a>
+</section>
 <section class="soc-card sh-faq">
   <h2>Organisers ask</h2>
   {faq_html}
@@ -256,6 +267,11 @@ def build(root=None):
         changed.append("/societies/awards/")
     if _write(root / "societies" / "prize" / "index.html", prize_page()):
         changed.append("/societies/prize/")
+    try:
+        import society_guides
+        changed += society_guides.build(root)
+    except Exception as exc:  # never stop the build
+        print(f"Society guides skipped: {exc}")
     return changed
 
 

@@ -58,6 +58,15 @@
   /* ---------------------------------------------------------------- the form */
   function form(d) {
     d = d || get('gpAwDraft', null) || { name: '', season: defSeason, awards: STD.map(function (s) { return { t: s[0], w: '', d: '', b: '' }; }) };
+    // Arriving from the awards ideas guide: ?add=<award>&w=<winner>&n=<society>
+    var qp = {}; location.search.replace(/[?&]([a-z]+)=([^&]*)/g, function (_, k, v) { try { qp[k] = decodeURIComponent(v.replace(/\+/g, ' ')).slice(0, 40); } catch (er) { /* bad link */ } });
+    if (!d.id && qp.add) {
+      var hit = d.awards.filter(function (a) { return a.t.toLowerCase() === qp.add.toLowerCase(); })[0];
+      if (!hit) { hit = { t: qp.add, w: '', d: '', b: '' }; d.awards.unshift(hit); }
+      if (qp.w && !hit.w) hit.w = qp.w;
+      if (qp.n && !d.name) d.name = qp.n;
+      history.replaceState(null, '', location.pathname);
+    }
     var mine = get('gpSocKits', []);
     var h = '';
     if (mine.length && !d.id) {

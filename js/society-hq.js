@@ -88,7 +88,7 @@
 
   /* ---------------------------------------------------------------- join */
   function join() {
-    box.innerHTML = '<section class="soc-hero">' + PHOTO + '<span class="soc-kick">' + esc(S.area || 'Golf society') + ' · ' + S.count + (S.count === 1 ? ' member' : ' members') + '</span><h1>' + esc(S.name) + '</h1>' +
+    box.innerHTML = '<section class="soc-hero">' + PHOTO + (S.founding ? '<span class="soc-found">Founding Society · No. ' + S.founding + '</span>' : '') + '<span class="soc-kick">' + esc(S.area || 'Golf society') + ' · ' + S.count + (S.count === 1 ? ' member' : ' members') + '</span><h1>' + esc(S.name) + '</h1>' +
       (S.about ? '<p>' + esc(S.about) + '</p>' : '') + '</section>' +
       '<form class="soc-card" id="hq-join" novalidate><h2>Join the society</h2><p class="soc-help">Pick the nickname your society knows you by. No email, no sign-up.</p>' +
       '<label>Your nickname<input name="nick" maxlength="20" required></label><p class="soc-msg" role="status"></p>' +
@@ -191,7 +191,7 @@
     var today = new Date().toISOString().slice(0, 10);
     var up = S.events.filter(function (e) { return e.day >= today; }), past = S.events.filter(function (e) { return e.day < today; }).reverse();
     var me = S.members.filter(function (m) { return m.m === S.you; })[0];
-    var h = '<section class="soc-hero"><span class="soc-kick">' + esc(S.area || 'Golf society') + ' · ' + S.count + (S.count === 1 ? ' member' : ' members') + (S.organiser ? ' · you’re the organiser' : '') + '</span>' +
+    var h = '<section class="soc-hero">' + (S.founding ? '<span class="soc-found">Founding Society · No. ' + S.founding + '</span>' : '') + '<span class="soc-kick">' + esc(S.area || 'Golf society') + ' · ' + S.count + (S.count === 1 ? ' member' : ' members') + (S.organiser ? ' · you’re the organiser' : '') + '</span>' +
       '<h1>' + esc(S.name) + '</h1>' + (S.about ? '<p>' + esc(S.about) + '</p>' : '') +
       '<div class="soc-btns"><button type="button" class="soc-btn hq-invite">Invite members</button>' + (S.organiser ? '<button type="button" class="soc-btn2 hq-soc-edit">Edit society</button>' : '') + '</div></section>';
     if (open.editSoc) h += '<form class="soc-card" id="hq-soc" novalidate><h2>Edit society</h2>' + fields(S) + '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="submit" class="soc-btn">Save</button><button type="button" class="soc-btn2 hq-cancel-soc">Cancel</button></div></form>';
@@ -201,7 +201,8 @@
     if (past.length) h += '<section class="soc-card"><h2>Recent</h2>' + past.map(function (e) { return eventCard(e, true); }).join('') + '</section>';
     h += '<section class="soc-card"><h2>Members (' + S.members.length + ')</h2><div class="hq-members">' + S.members.map(function (m) {
       return '<span class="hq-mem">' + esc(m.nick) + (m.organiser ? ' <small>organiser</small>' : '') + (S.organiser && !m.organiser ? ' <button type="button" class="hq-rm" data-m="' + esc(m.m) + '" aria-label="Remove ' + esc(m.nick) + '">✕</button>' : '') + '</span>';
-    }).join('') + '</div>' + (!S.organiser && me ? '<button type="button" class="soc-x hq-leave">Leave this society</button>' : '') + '</section>';
+    }).join('') + '</div>' + (!S.organiser && me ? '<button type="button" class="soc-x hq-leave">Leave this society</button>' : '') + '</section>' +
+      (!S.organiser ? '<p class="soc-small hq-another">Run another golf society? <a href="/societies/hq/">Start one free</a>, it takes a minute.</p>' : '');
     h += '<section class="soc-card soc-next"><span class="soc-kick">End of the season?</span><h2>The Awards Night Kit</h2><p>Award cards, a slideshow for the big night and prizes your winners pick themselves.</p><a class="soc-btn" href="/societies/awards/">Make your awards</a></section>';
     box.innerHTML = h;
     wire();
@@ -254,13 +255,13 @@
       art.querySelectorAll('.hq-share').forEach(function (b) {
         b.onclick = function () {
           track('society_signup_link');
-          shareText(S.name + ': ' + e.title + ', ' + nice(e.day, true) + (e.venue ? ' at ' + e.venue : '') + (e.entry ? ' (' + money(e.entry) + ' entry)' : '') + '. In, out or maybe? Tap: ' + invite);
+          shareText(S.name + ': ' + e.title + ', ' + nice(e.day, true) + (e.venue ? ' at ' + e.venue : '') + (e.entry ? ' (' + money(e.entry) + ' entry)' : '') + '. In, out or maybe? Tap: ' + invite + ' (free on Society HQ)');
         };
       });
       var fin = art.querySelector('.hq-final'); if (fin) fin.onclick = function () {
         var unpaid = e.entries.filter(function (x) { return x.status === 'in' && !x.paid; }).map(function (x) { return x.nick; });
         var text = S.name + ', ' + e.title + ': numbers go to the club ' + (e.deadline ? 'on ' + nice(e.deadline, true) : 'soon') + '. Not paid = not playing.' +
-          (unpaid.length ? ' Still to pay: ' + unpaid.join(', ') + '. No pressure. Well, a bit.' : ' Everyone’s paid. Look at us!') + (S.pay && unpaid.length ? ' Pay here: ' + S.pay + ' ·' : '') + ' Who’s in: ' + invite;
+          (unpaid.length ? ' Still to pay: ' + unpaid.join(', ') + '. No pressure. Well, a bit.' : ' Everyone’s paid. Look at us!') + (S.pay && unpaid.length ? ' Pay here: ' + S.pay + ' ·' : '') + ' Who’s in: ' + invite + ' (Society HQ, free for golf societies)';
         track('society_final_numbers'); shareText(text);
       };
       var ed = art.querySelector('.hq-edit'); if (ed) ed.onclick = function () { open['edit-' + eid] = true; page(); };

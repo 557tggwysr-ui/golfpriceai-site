@@ -879,6 +879,7 @@ async function socSetup(env) {
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_events (id TEXT PRIMARY KEY, soc TEXT, title TEXT, venue TEXT, day TEXT, tee TEXT, entry REAL, cap INTEGER, deadline TEXT, notes TEXT, created TEXT) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS soc_events_soc ON soc_events (soc)'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_entries (event TEXT, mkey TEXT, status TEXT, paid INTEGER, at TEXT, PRIMARY KEY (event, mkey)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_founding (soc TEXT PRIMARY KEY, n INTEGER, at TEXT) WITHOUT ROWID'),
   ]);
   socReady = true;
 }
@@ -1090,7 +1091,8 @@ async function hqGet(env, id, pid, cors) {
   const members = (await env.DEMAND.prepare('SELECT pid, mkey, nick, joined FROM soc_members WHERE soc = ? ORDER BY joined, nick').bind(s.id).all()).results || [];
   const me = members.find((m) => pid && m.pid === pid);
   const organiser = !!pid && pid === s.pid;
-  const base = { ok: true, id: s.id, name: s.name, area: s.area, about: s.about, open: !!s.open, count: members.length, organiser, member: !!me };
+  const founding = (await env.DEMAND.prepare('SELECT n FROM soc_founding WHERE soc = ?').bind(s.id).first('n')) || 0;
+  const base = { ok: true, id: s.id, name: s.name, area: s.area, about: s.about, open: !!s.open, count: members.length, founding, organiser, member: !!me };
   if (!me) return json(base, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
   const since = new Date(Date.now() - 60 * 864e5).toISOString().slice(0, 10);
   const events = (await env.DEMAND.prepare('SELECT * FROM soc_events WHERE soc = ? AND day >= ? ORDER BY day').bind(s.id, since).all()).results || [];
@@ -1106,6 +1108,18 @@ async function hqGet(env, id, pid, cors) {
   });
   return json(out, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
 }
+/* Founding Societies: the first 50 golf societies to reach four members get a
+   permanent, numbered Founding Society badge (four members, so test societies
+   and one-person sign-ups don't use up the places). Numbers never change. */
+const FOUND_MIN = 4, FOUND_MAX = 50;
+async function hqFounding(env, socId) {
+  if (await env.DEMAND.prepare('SELECT n FROM soc_founding WHERE soc = ?').bind(socId).first('n')) return;
+  const members = await env.DEMAND.prepare('SELECT COUNT(*) AS c FROM soc_members WHERE soc = ?').bind(socId).first('c');
+  if (members < FOUND_MIN) return;
+  const taken = await env.DEMAND.prepare('SELECT COUNT(*) AS c, MAX(n) AS m FROM soc_founding').first();
+  if ((taken.c || 0) >= FOUND_MAX) return;
+  await env.DEMAND.prepare('INSERT OR IGNORE INTO soc_founding (soc, n, at) VALUES (?, ?, ?)').bind(socId, (taken.m || 0) + 1, hqDay()).run();
+}
 async function hqJoin(env, body, pid, cors) {
   const s = await hqSoc(env, String(body.s || ''));
   if (!s || !pid) return json({ ok: false, error: 'We couldn’t find that society.' }, 404, cors);
@@ -1120,6 +1134,7 @@ async function hqJoin(env, body, pid, cors) {
   if (had) await env.DEMAND.prepare('UPDATE soc_members SET nick = ? WHERE soc = ? AND pid = ?').bind(nick, s.id, pid).run();
   else await env.DEMAND.prepare('INSERT INTO soc_members (soc, pid, mkey, nick, joined) VALUES (?, ?, ?, ?, ?)').bind(s.id, pid, socCode(8), nick, hqDay()).run();
   await hqTouch(env, s.id);
+  if (!had) await hqFounding(env, s.id);
   return json({ ok: true }, 200, cors);
 }
 async function hqLeave(env, body, pid, cors) {
@@ -1230,8 +1245,8 @@ async function hqPaid(env, body, pid, cors) {
   return json({ ok: true }, 200, cors);
 }
 async function hqFind(env, cors) {
-  const rows = (await env.DEMAND.prepare('SELECT s.id, s.name, s.area, s.about, s.updated, (SELECT COUNT(*) FROM soc_members m WHERE m.soc = s.id) AS members FROM soc_socs s WHERE s.open = 1 ORDER BY s.updated DESC LIMIT 300').all()).results || [];
-  return json({ ok: true, societies: rows.map((r) => ({ id: r.id, name: r.name, area: r.area, about: r.about, members: r.members })) }, 200, Object.assign({ 'cache-control': 'public, max-age=300' }, cors));
+  const rows = (await env.DEMAND.prepare('SELECT s.id, s.name, s.area, s.about, s.updated, (SELECT COUNT(*) FROM soc_members m WHERE m.soc = s.id) AS members, (SELECT n FROM soc_founding f WHERE f.soc = s.id) AS founding FROM soc_socs s WHERE s.open = 1 ORDER BY s.updated DESC LIMIT 300').all()).results || [];
+  return json({ ok: true, societies: rows.map((r) => ({ id: r.id, name: r.name, area: r.area, about: r.about, members: r.members, founding: r.founding || 0 })) }, 200, Object.assign({ 'cache-control': 'public, max-age=300' }, cors));
 }
 
 /* ------------------------------------------------------------------ The Bag Draft (monthly fantasy golf kit)
