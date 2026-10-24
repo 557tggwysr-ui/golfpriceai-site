@@ -1525,6 +1525,13 @@ def build(models_list, products, today_str):
         except Exception as e:  # never stop the main build
             print(f"Bag Draft skipped: {e}")
         try:
+            import society
+            changed += society.build()
+            if society.LAUNCHED:
+                sitemap.append(("societies/awards/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Society HQ skipped: {e}")
+        try:
             import demand_index
             dm_changed, dm_sitemap = demand_index.build(passing, built, today)
             changed += dm_changed

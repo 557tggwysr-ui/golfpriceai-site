@@ -108,6 +108,7 @@ export default {
       if (url.pathname === '/demand-counts' && request.method === 'GET') return await demandCounts(request, url, env);
       if (url.pathname.startsWith('/pp/')) return await parPrice(request, url, env, cors);
       if (url.pathname.startsWith('/draft/')) return await bagDraft(request, url, env, cors);
+      if (url.pathname.startsWith('/soc/')) return await society(request, url, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
       if (url.pathname === '/unsubscribe') return await unsubscribe(url, env, request.method === 'POST');
       if (url.pathname === '/') return new Response('GolfPrice AI alerts: OK', { headers: { 'content-type': 'text/plain' } });
@@ -822,6 +823,163 @@ async function ppReport(env, id, pid, wParam) {
       line: `Best Par Price week in the league at ${pp.winner.week > 0 ? '+' + pp.winner.week : pp.winner.week === 0 ? 'level' : '−' + Math.abs(pp.winner.week)}.` };
   }
   return Object.assign(out, { golfer, pp, bag, results, fixtures, table });
+}
+
+/* ------------------------------------------------------------------ Society HQ: Awards Night Kit + Prize Picker
+   An organiser types their society's awards (title, winner, an optional line,
+   an optional prize budget). Anyone with the kit's link can see the cards and
+   the slideshow; only the organiser's browser (its player id) can edit it or
+   see the prize links. Each award with a budget gets a private Prize Picker
+   link: the winner picks something within budget from our real prices, and the
+   organiser gets one shopping list. No money is ever taken or held here.
+     soc_kits    id, pid (organiser), name, season, awards (JSON), created, updated
+     soc_prizes  token, kit, idx (award number), budget, choice (JSON), chosen
+   Kits nobody has touched for 400 days are tidied away. */
+const KIT_RX = /^[a-hj-km-np-z2-9]{8}$/;
+const PRIZE_RX = /^[a-hj-km-np-z2-9]{12}$/;
+const MAX_AWARDS = 12;
+let socReady = false;
+async function socSetup(env) {
+  if (socReady) return;
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_kits (id TEXT PRIMARY KEY, pid TEXT, name TEXT, season TEXT, awards TEXT, created TEXT, updated TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS soc_kits_pid ON soc_kits (pid)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_prizes (token TEXT PRIMARY KEY, kit TEXT, idx INTEGER, budget REAL, choice TEXT, chosen TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS soc_prizes_kit ON soc_prizes (kit)'),
+  ]);
+  socReady = true;
+}
+function socCode(n) {
+  const a = 'abcdefghjkmnpqrstuvwxyz23456789';
+  return [...crypto.getRandomValues(new Uint8Array(n))].map((x) => a[x % a.length]).join('');
+}
+function socText(s, max) {
+  const t = String(s || '').replace(/[^\p{L}\p{N} '’.,&!?()£%:+/-]/gu, '').replace(/\s+/g, ' ').trim().slice(0, max);
+  const flat = t.toLowerCase().replace(/[^a-z]/g, '');
+  return RUDE.some((w) => flat.includes(w)) ? null : t;
+}
+async function society(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'Society HQ is taking a short break. Please try again later.' }, 503, cors);
+  await socSetup(env);
+  const path = url.pathname;
+  let body = {};
+  if (request.method === 'POST') {
+    try { body = JSON.parse((await request.text()).slice(0, 8000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    const ip = request.headers.get('cf-connecting-ip') || '';
+    if (await tooMany('soc-' + ip, 60, 600)) return json({ ok: false, error: 'Easy, tiger. Please try again in a few minutes.' }, 429, cors);
+  }
+  const pidIn = String(body.pid || url.searchParams.get('pid') || '');
+  const pid = PID_RX.test(pidIn) ? pidIn : '';
+  if (path === '/soc/kit' && request.method === 'POST') return await socSave(env, body, pid, cors);
+  if (path === '/soc/kit') return await socKit(env, String(url.searchParams.get('k') || ''), pid, cors);
+  if (path === '/soc/prize' && request.method === 'POST') return await socPick(env, body, cors);
+  if (path === '/soc/prize') return await socPrize(env, String(url.searchParams.get('t') || ''), cors);
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
+async function socSave(env, body, pid, cors) {
+  if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  const name = socText(body.name, 40), season = socText(body.season, 20);
+  if (name === null || season === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse. Try another name.' }, 400, cors);
+  if (!name || name.length < 3) return json({ ok: false, error: 'Give your society a name (at least 3 letters).' }, 400, cors);
+  const list = Array.isArray(body.awards) ? body.awards.slice(0, MAX_AWARDS) : [];
+  const awards = [];
+  for (const a of list) {
+    const t = socText(a && a.t, 40), w = socText(a && a.w, 30), d = socText(a && a.d, 80);
+    if (t === null || w === null || d === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse. Please check the awards.' }, 400, cors);
+    if (!t || !w) continue;
+    const b = Math.round(Math.min(250, Math.max(0, Number(a.b) || 0)));
+    awards.push({ t, w, d, b });
+  }
+  if (!awards.length) return json({ ok: false, error: 'Add at least one award with a winner.' }, 400, cors);
+  const now = new Date().toISOString().slice(0, 10);
+  let id = String(body.id || '');
+  let old = null;
+  if (id) {
+    if (!KIT_RX.test(id)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    old = await env.DEMAND.prepare('SELECT pid, awards FROM soc_kits WHERE id = ?').bind(id).first();
+    if (!old || old.pid !== pid) return json({ ok: false, error: 'Only the organiser who made these awards can change them.' }, 403, cors);
+    await env.DEMAND.prepare('UPDATE soc_kits SET name = ?, season = ?, awards = ?, updated = ? WHERE id = ?').bind(name, season || '', JSON.stringify(awards), now, id).run();
+  } else {
+    const mine = await env.DEMAND.prepare('SELECT COUNT(*) AS c FROM soc_kits WHERE pid = ?').bind(pid).first('c');
+    if (mine >= 20) return json({ ok: false, error: 'Twenty award nights is plenty, even for a busy organiser.' }, 429, cors);
+    const stale = new Date(Date.now() - 400 * 864e5).toISOString().slice(0, 10);
+    await env.DEMAND.batch([
+      env.DEMAND.prepare('DELETE FROM soc_prizes WHERE kit IN (SELECT id FROM soc_kits WHERE updated < ?)').bind(stale),
+      env.DEMAND.prepare('DELETE FROM soc_kits WHERE updated < ?').bind(stale),
+    ]);
+    for (let i = 0; i < 5 && !id; i++) {
+      const c = socCode(8);
+      const r = await env.DEMAND.prepare('INSERT OR IGNORE INTO soc_kits (id, pid, name, season, awards, created, updated) VALUES (?, ?, ?, ?, ?, ?, ?)').bind(c, pid, name, season || '', JSON.stringify(awards), now, now).run();
+      if (r.meta && r.meta.changes) id = c;
+    }
+    if (!id) return json({ ok: false, error: 'Something went wrong. Please try again.' }, 500, cors);
+  }
+  // Prize links: one per award with a budget. A changed winner starts their pick afresh.
+  const before = old ? JSON.parse(old.awards || '[]') : [];
+  const rows = (await env.DEMAND.prepare('SELECT token, idx FROM soc_prizes WHERE kit = ?').bind(id).all()).results || [];
+  const byIdx = {}; rows.forEach((r) => { byIdx[r.idx] = r.token; });
+  const ops = [];
+  awards.forEach((a, i) => {
+    const tok = byIdx[i];
+    if (a.b > 0 && !tok) ops.push(env.DEMAND.prepare('INSERT INTO soc_prizes (token, kit, idx, budget, choice, chosen) VALUES (?, ?, ?, ?, NULL, NULL)').bind(socCode(12), id, i, a.b));
+    else if (a.b > 0 && tok) {
+      const was = before[i] || {};
+      if (was.w !== a.w) ops.push(env.DEMAND.prepare('UPDATE soc_prizes SET budget = ?, choice = NULL, chosen = NULL WHERE token = ?').bind(a.b, tok));
+      else ops.push(env.DEMAND.prepare('UPDATE soc_prizes SET budget = ? WHERE token = ?').bind(a.b, tok));
+    } else if (!(a.b > 0) && tok) ops.push(env.DEMAND.prepare('DELETE FROM soc_prizes WHERE token = ?').bind(tok));
+  });
+  Object.keys(byIdx).forEach((k) => { if (Number(k) >= awards.length) ops.push(env.DEMAND.prepare('DELETE FROM soc_prizes WHERE token = ?').bind(byIdx[k])); });
+  if (ops.length) await env.DEMAND.batch(ops);
+  return json({ ok: true, id }, 200, cors);
+}
+async function socKit(env, id, pid, cors) {
+  if (!KIT_RX.test(id)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  const k = await env.DEMAND.prepare('SELECT * FROM soc_kits WHERE id = ?').bind(id).first();
+  if (!k) return json({ ok: false, error: 'We couldn’t find those awards. They may have been tidied away.' }, 404, cors);
+  const owner = !!pid && pid === k.pid;
+  const prizes = (await env.DEMAND.prepare('SELECT token, idx, budget, choice, chosen FROM soc_prizes WHERE kit = ?').bind(id).all()).results || [];
+  const byIdx = {}; prizes.forEach((p) => { byIdx[p.idx] = p; });
+  const awards = JSON.parse(k.awards || '[]').map((a, i) => {
+    const out = { t: a.t, w: a.w, d: a.d };
+    const p = byIdx[i];
+    if (owner) {
+      out.b = a.b;
+      if (p) out.prize = { token: p.token, choice: p.choice ? JSON.parse(p.choice) : null, chosen: p.chosen };
+    }
+    return out;
+  });
+  return json({ ok: true, id, name: k.name, season: k.season, owner, awards }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+}
+async function socPrize(env, token, cors) {
+  if (!PRIZE_RX.test(token)) return json({ ok: false, error: 'That prize link doesn’t look right.' }, 400, cors);
+  const p = await env.DEMAND.prepare('SELECT * FROM soc_prizes WHERE token = ?').bind(token).first();
+  if (!p) return json({ ok: false, error: 'We couldn’t find that prize. The organiser may have changed the awards.' }, 404, cors);
+  const k = await env.DEMAND.prepare('SELECT name, season, awards FROM soc_kits WHERE id = ?').bind(p.kit).first();
+  const a = k ? JSON.parse(k.awards || '[]')[p.idx] : null;
+  if (!a) return json({ ok: false, error: 'We couldn’t find that prize. The organiser may have changed the awards.' }, 404, cors);
+  return json({ ok: true, society: k.name, season: k.season, title: a.t, winner: a.w, budget: p.budget, choice: p.choice ? JSON.parse(p.choice) : null }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+}
+async function socPick(env, body, cors) {
+  const token = String(body.t || '');
+  if (!PRIZE_RX.test(token)) return json({ ok: false, error: 'That prize link doesn’t look right.' }, 400, cors);
+  const p = await env.DEMAND.prepare('SELECT token, budget FROM soc_prizes WHERE token = ?').bind(token).first();
+  if (!p) return json({ ok: false, error: 'We couldn’t find that prize. The organiser may have changed the awards.' }, 404, cors);
+  let choice;
+  if (body.surprise) choice = { surprise: true };
+  else {
+    // A product row from the site's own search data: its id and category let the
+    // organiser's list find today's price and link again later.
+    const c = body.choice || {};
+    const id = /^[a-z0-9-]{3,200}$/.test(String(c.id || '')) ? String(c.id) : '';
+    const cat = ['ball', 'accessories', 'apparel'].includes(String(c.cat)) ? String(c.cat) : '';
+    const name = socText(c.name, 140);
+    const price = Math.round(Number(c.price) * 100) / 100;
+    if (!id || !cat || !name || !(price > 0 && price <= 2000)) return json({ ok: false, error: 'Please pick a prize from the list.' }, 400, cors);
+    choice = { id, cat, name, price };
+  }
+  const now = new Date().toISOString().slice(0, 10);
+  await env.DEMAND.prepare('UPDATE soc_prizes SET choice = ?, chosen = ? WHERE token = ?').bind(JSON.stringify(choice), now, token).run();
+  return json({ ok: true, choice }, 200, cors);
 }
 
 /* ------------------------------------------------------------------ The Bag Draft (monthly fantasy golf kit)
