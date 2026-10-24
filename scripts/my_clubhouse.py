@@ -8,10 +8,10 @@ new about the golfer is collected. Built with every price run, like the games.
 """
 from price_pages import SITE, _write, page_shell
 
-CSS = '<link rel="stylesheet" href="/css/par-price.css?v=20261037">\n<link rel="stylesheet" href="/css/my-clubhouse.css?v=20261024b">\n'
+CSS = '<link rel="stylesheet" href="/css/par-price.css?v=20261037">\n<link rel="stylesheet" href="/css/my-clubhouse.css?v=20261024c">\n'
 
 MOVE = """<details class="ch-move mc-move" id="move">
-    <summary><span class="mv-sum"><b>On a phone and a laptop?</b> <span class="mv-long">Bring your Clubhouse with you.</span><span class="mv-short">Bring your Clubhouse with you</span></span><span class="mv-go"><span class="mv-go-open">Move my Clubhouse</span><span class="mv-go-close">Close</span></span></summary>
+    <summary><span class="mv-sum"><b>On a phone and a laptop?</b> <span class="mv-long">Bring your Clubhouse with you. One code, works once.</span><span class="mv-short">Bring your Clubhouse with you</span></span><span class="mv-go"><span class="mv-go-open">Move my Clubhouse</span><span class="mv-go-close">Close</span></span></summary>
     <div class="mv-body">
       <p class="mv-intro">There’s no login, so each phone or browser keeps its own Clubhouse. Get a code on the device you already use, then type it (or open the link) on the other one. Your nickname, leagues, societies, streaks, shortlist, fit and bag come with you.</p>
       <div class="mv-grid">
@@ -45,7 +45,7 @@ def page():
 <p class="mc-small">What’s kept: a random player number and the things you chose, in this browser only. No name, no email, no password. Price alerts stay in your email: every alert email has a link to change or stop it. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
 </div>
 <noscript><p class="mc-small">My Clubhouse needs JavaScript switched on.</p></noscript>
-<script src="/js/my-clubhouse.js?v=20261024b" defer></script>
+<script src="/js/my-clubhouse.js?v=20261024c" defer></script>
 <script src="/js/move.js?v=20261024a" defer></script>"""
     return page_shell(title="My Clubhouse | GolfPrice AI",
                       description="Your golf on GolfPrice AI in one place: today’s games, your golf society, your leagues and the kit you’re watching. No sign-up.",

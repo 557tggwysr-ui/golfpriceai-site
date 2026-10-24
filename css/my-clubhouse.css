@@ -95,7 +95,16 @@ a.mc-card:hover { border-color: var(--gp-green); color: var(--gp-ink); }
 .mc-chips span { background: #f3f5f1; border-radius: 999px; padding: 5px 10px; font-size: 12px; }
 
 /* Price alerts beside Move my Clubhouse */
-.mc-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.mc-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: stretch; }
+.mc-pair .ch-move { border-radius: 16px; display: flex; flex-direction: column; }
+.mc-pair .ch-move summary { flex: 1; padding: 16px; border-radius: 16px; align-items: center; }
+.mc-pair .ch-move[open] summary { flex: none; }
+.mc-pair .mv-sum { display: flex; flex-direction: column; gap: 4px; }
+.mc-pair .mv-sum b { font: 700 16px/1.3 Poppins, sans-serif; color: var(--gp-ink); }
+.mc-pair .mv-long, .mc-pair .mv-short { font-size: 13px; color: var(--gp-text-3); }
+.mc-pair .mv-go { font-size: 14px; }
+.mc-alerts { padding: 16px; }
+.mc-alerts .mc-name { margin-bottom: 2px; }
 .mc-alerts { gap: 4px; }
 .mc-pair .ch-move { grid-column: auto; }
 .mc-pair .ch-move[open] { grid-column: 1 / -1; }

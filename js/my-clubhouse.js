@@ -262,7 +262,7 @@
   }
 
   function alerts() {
-    return '<section class="mc-card mc-alerts"><b class="mc-name">Price alerts</b><span class="mc-dim">They live in your email, so we never need to know who you are. Each alert email has a link to change or stop it. To add one, open any price page and tap <b>Email me when it drops</b>.</span></section>';
+    return '<section class="mc-card mc-alerts"><b class="mc-name">Price alerts</b><span class="mc-dim">They live in your email, so we never need to know who you are. To add one, tap <b>Email me when it drops</b> on any price page.</span></section>';
   }
 
   function starters() {
