@@ -111,7 +111,7 @@ def page(n, today):
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
                       canonical=f"{SITE}/play/par-price/", body=body, section="play", schema=[app, crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261033">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261034">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -131,7 +131,7 @@ def league_page():
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
                       canonical=f"{SITE}/play/league/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261033">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261034">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -175,7 +175,7 @@ def leagues_page():
                       description="Start a free golf league for your group chat in ten seconds: Par Price every day, the Bag Draft every month, nicknames only. Loser buys the first round.",
                       canonical=f"{SITE}/play/leagues/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261033">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261034">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -207,6 +207,7 @@ def hub_page(n, rnd):
   </a>
 
   <a class="ch-card ch-hl" href="/play/higher-or-lower/?utm_source=clubhouse">
+    <picture><source media="(max-width: 760px)" srcset="/assets/photos/tools/higher-or-lower-wide.jpg"><img src="/assets/photos/tools/higher-or-lower-banner.jpg" alt="" width="1536" height="512" loading="lazy"></picture>
     <span class="ch-body">
       <span class="ch-kicker">Daily · New</span>
       <b class="ch-title">Higher or Lower</b>
@@ -285,7 +286,7 @@ def hub_page(n, rnd):
                       description="Free golf games that run on real UK prices: Par Price, the daily price-guessing game, leagues for your group chat, and The Bag Draft, fantasy golf kit, from 1 November.",
                       canonical=f"{SITE}/play/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/clubhouse.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261033">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261034">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 

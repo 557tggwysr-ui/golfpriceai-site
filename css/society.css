@@ -163,3 +163,6 @@ button.soc-link { margin: 0; padding: 8px 0; border: 0; background: none; font: 
 .fd-card p { margin: 0; color: var(--gp-text-2); line-height: 1.5; }
 .fd-card .soc-btn { align-self: flex-start; margin-top: 4px; }
 @media (max-width: 520px) { .soc-two { grid-template-columns: minmax(0, 1fr); } }
+.soc-photo { display: block; margin: -24px -24px 8px; }
+.soc-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; border-radius: 18px 18px 0 0; }
+@media (max-width: 700px) { .soc-photo img { aspect-ratio: 3 / 2; } }

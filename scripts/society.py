@@ -14,7 +14,8 @@ flip LAUNCHED to True to let the awards page be indexed.
 from price_pages import SITE, _write, breadcrumb, page_shell
 
 LAUNCHED = False
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024c">\n'
+PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024d">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -81,11 +82,11 @@ def hq_page():
 </section>
 {REAL}
 </div>
-<script src="/js/society-hq.js?v=20261024" defer></script>"""
+<script src="/js/society-hq.js?v=20261024b" defer></script>"""
     return page_shell(title="Your society | Society HQ | GolfPrice AI",
                       description="Run your golf society for free: fixtures, sign-ups, who’s paid, a waiting list and the prize fund, all from one link in the WhatsApp group.",
                       canonical=f"{SITE}/societies/hq/", body=body, section="play", schema=[crumbs_schema],
-                      noindex=True, og_image="/assets/cards/society-awards.jpg", extra_head=CSS)
+                      noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=CSS)
 
 
 def find_page():
@@ -93,6 +94,7 @@ def find_page():
     body = f"""<div class="soc-wrap">
 {crumbs_html}
 <section class="soc-hero">
+{PHOTO}
   <span class="soc-kick">Free · Society HQ</span>
   <h1>Find a golf society</h1>
   <p>Fancy regular golf without a full club membership, or a new crowd to play with? These UK societies are open to new members.</p>
@@ -106,7 +108,7 @@ def find_page():
     return page_shell(title="Find a golf society near you | Society HQ | GolfPrice AI",
                       description="UK golf societies open to new members: regular golf without a full club membership. Free to list your society.",
                       canonical=f"{SITE}/societies/find/", body=body, section="play", schema=[crumbs_schema],
-                      noindex=not LAUNCHED, og_image="/assets/cards/society-awards.jpg", extra_head=CSS)
+                      noindex=not LAUNCHED, og_image="/assets/cards/society-hq.jpg", extra_head=CSS)
 
 
 def hub_page():
@@ -114,6 +116,7 @@ def hub_page():
     body = f"""<div class="soc-wrap">
 {crumbs_html}
 <section class="soc-hero">
+{PHOTO}
   <span class="soc-kick">Free · for golf societies</span>
   <h1>Society HQ</h1>
   <p>Everything a golf society needs, in one free place: fixtures, sign-ups, who’s paid, awards and prizes. Results and the Society Report arrive in early 2027.</p>
@@ -141,7 +144,7 @@ def hub_page():
     return page_shell(title="Society HQ: free tools for golf societies | GolfPrice AI",
                       description="Free tools for UK golf societies: award cards, presentation-night slideshow and winners' prizes. Fixtures, sign-ups and results coming in 2027.",
                       canonical=f"{SITE}/societies/", body=body, section="play", schema=[crumbs_schema],
-                      noindex=not LAUNCHED, og_image="/assets/cards/society-awards.jpg", extra_head=CSS)
+                      noindex=not LAUNCHED, og_image="/assets/cards/society-hq.jpg", extra_head=CSS)
 
 
 def build(root=None):

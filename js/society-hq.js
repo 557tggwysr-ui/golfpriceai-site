@@ -48,13 +48,14 @@
     var d = new Date(iso + 'T12:00:00Z');
     return d.toLocaleDateString('en-GB', { timeZone: 'UTC', weekday: long ? 'long' : 'short', day: 'numeric', month: long ? 'long' : 'short' });
   }
+  var PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="" width="1536" height="512"></picture>';
   var sid = (location.search.match(/[?&]s=([a-z0-9]{8})/i) || [])[1];
   var S = null, open = {};
 
   /* ---------------------------------------------------------------- start a society */
   function start() {
     var mine = get('gpSocs', []);
-    box.innerHTML = '<section class="soc-hero"><span class="soc-kick">Free · Society HQ</span><h1>Run your society</h1>' +
+    box.innerHTML = '<section class="soc-hero">' + PHOTO + '<span class="soc-kick">Free · Society HQ</span><h1>Run your society</h1>' +
       '<p>Fixtures, sign-ups, who’s paid and a waiting list that sorts itself, all from one link in the WhatsApp group. No sign-up, no fees.</p></section>' +
       (mine.length ? '<section class="soc-card"><h2>Your societies</h2><ul class="soc-mine">' + mine.map(function (m) { return '<li><a href="?s=' + esc(m.id) + '">' + esc(m.name) + '</a></li>'; }).join('') + '</ul></section>' : '') +
       '<form class="soc-card" id="hq-new" novalidate><h2>Start your society</h2>' + fields({}) +
@@ -87,7 +88,7 @@
 
   /* ---------------------------------------------------------------- join */
   function join() {
-    box.innerHTML = '<section class="soc-hero"><span class="soc-kick">' + esc(S.area || 'Golf society') + ' · ' + S.count + (S.count === 1 ? ' member' : ' members') + '</span><h1>' + esc(S.name) + '</h1>' +
+    box.innerHTML = '<section class="soc-hero">' + PHOTO + '<span class="soc-kick">' + esc(S.area || 'Golf society') + ' · ' + S.count + (S.count === 1 ? ' member' : ' members') + '</span><h1>' + esc(S.name) + '</h1>' +
       (S.about ? '<p>' + esc(S.about) + '</p>' : '') + '</section>' +
       '<form class="soc-card" id="hq-join" novalidate><h2>Join the society</h2><p class="soc-help">Pick the nickname your society knows you by. No email, no sign-up.</p>' +
       '<label>Your nickname<input name="nick" maxlength="20" required></label><p class="soc-msg" role="status"></p>' +
