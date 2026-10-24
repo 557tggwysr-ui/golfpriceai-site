@@ -282,7 +282,7 @@ def hub_page(n, rnd):
 <p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
 <script src="/js/clubhouse.js?v=20261024" defer></script>
-<script src="/js/move.js?v=20261024" defer></script>"""
+<script src="/js/move.js?v=20261024a" defer></script>"""
     return page_shell(title="The Clubhouse: free golf price games | GolfPrice AI",
                       description="Free golf games that run on real UK prices: Par Price, the daily price-guessing game, leagues for your group chat, and The Bag Draft, fantasy golf kit, from 1 November.",
                       canonical=f"{SITE}/play/", body=body, section="play", schema=[crumbs_schema], noindex=False,

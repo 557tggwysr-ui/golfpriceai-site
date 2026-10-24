@@ -526,7 +526,7 @@ def compare_page(a, b, plan_, by_id, today):
 <p class="pp-disclose">We may earn a commission if you buy through our links. It never changes the comparison.</p>
 {method_note(today)}
 </div>
-<script src="/js/fourball.js?v=20261020" defer></script>"""
+<script src="/js/fourball.js?v=20261024" defer></script>"""
     title = f"{na} vs {nb}: UK Price Comparison ({money(fa['now']).replace('.00', '')} vs {money(fb['now']).replace('.00', '')})"
     desc = re.sub(r"<[^>]+>", "", lead)[:300]
     return page_shell(title=title, description=desc, canonical=f"{SITE}/prices/compare/{pair_slug(a, b)}/", body=body,

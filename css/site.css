@@ -30,7 +30,7 @@ body.gp-lock { overflow: hidden; }
 .gp-header-inner {
   height: 76px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 24px;
   padding: 0 24px;
@@ -48,7 +48,7 @@ body.gp-lock { overflow: hidden; }
 }
 .gp-logo span { color: var(--gp-green); }
 
-.gp-nav { display: flex; gap: 32px; height: 76px; }
+.gp-nav { display: flex; gap: 32px; height: 76px; justify-self: center; }
 @media (max-width: 1279px) { .gp-nav { gap: 22px; } .gp-header-inner { gap: 16px; } }
 @media (max-width: 1179px) { .gp-nav { gap: 14px; } .gp-header-inner { gap: 10px; padding: 0 18px; } }
 .gp-nav-item { position: relative; display: flex; }
@@ -151,6 +151,21 @@ body.gp-lock { overflow: hidden; }
 }
 .gp-alerts:hover { color: #fff; box-shadow: 0 6px 16px rgba(63, 174, 41, 0.35); transform: translateY(-1px); }
 .gp-menu-btn { display: none; }
+.gp-mine {
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  background: #14211a; color: #fff; font-weight: 700; font-size: 14px;
+  padding: 12px 16px; border-radius: 10px;
+}
+.gp-mine:hover { color: #fff; background: #22352a; }
+.gp-mine svg { color: #8fd77e; }
+@media (max-width: 1439px) and (min-width: 1080px) {
+  .gp-actions .gp-alerts { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; }
+  .gp-actions .gp-alerts span { display: none; }
+}
+@media (max-width: 1279px) and (min-width: 1080px) {
+  .gp-mine { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; }
+  .gp-mine span { display: none; }
+}
 
 /* search panel under the header */
 .gp-search-panel { border-top: 1px solid var(--gp-line); background: #fff; box-shadow: 0 20px 40px rgba(22, 36, 28, 0.10); }
@@ -313,6 +328,10 @@ footer.gp-footer {
   .gp-actions .gp-alerts { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; }
   .gp-actions .gp-alerts span { display: none; }
   .gp-actions .gp-alerts svg { width: 18px; height: 18px; }
+  .gp-mine { width: 44px; height: 44px; padding: 0; border-radius: 50%; justify-content: center; background: #fff; color: var(--gp-ink); }
+  .gp-mine:hover { background: var(--gp-pale); color: var(--gp-ink); }
+  .gp-mine svg { color: var(--gp-ink); }
+  .gp-mine span { display: none; }
   .gp-search-panel-inner { padding: 14px 16px 16px; }
 }
 @media (max-width: 900px) {

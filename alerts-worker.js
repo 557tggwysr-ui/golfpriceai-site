@@ -559,7 +559,7 @@ async function parPrice(request, url, env, cors) {
   const path = url.pathname;
   let body = {};
   if (request.method === 'POST') {
-    try { body = JSON.parse((await request.text()).slice(0, 4000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    try { body = JSON.parse((await request.text()).slice(0, path === '/pp/move/create' ? 9000 : 4000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
     const ip = request.headers.get('cf-connecting-ip') || '';
     if (await tooMany('pp-' + ip, 60, 600)) return json({ ok: false, error: 'Easy, tiger. Please try again in a few minutes.' }, 429, cors);
   }
@@ -591,14 +591,15 @@ async function parPrice(request, url, env, cors) {
 /* Play on another device. No logins, so a player is the random id in their
    browser. The device they already use asks for a code (8 characters, 30
    minutes, works once); the new device swaps the code for that id plus the few
-   things kept in the browser (nickname, streak, today's card). */
+   things kept in the browser (nickname, streak, today's card, and the My
+   Clubhouse lists: societies, shortlist, fit, bag). */
 const MOVE_MINS = 30;
 async function ppMoveCreate(env, body, pid, cors) {
   if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
   const now = Date.now();
   await env.DEMAND.prepare('DELETE FROM pp_moves WHERE exp < ? OR pid = ?').bind(now, pid).run();
   const data = JSON.stringify(body.data && typeof body.data === 'object' ? body.data : {});
-  if (data.length > 3000) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  if (data.length > 8000) return json({ ok: false, error: 'Bad request.' }, 400, cors);
   const a = 'abcdefghjkmnpqrstuvwxyz23456789';
   const code = [...crypto.getRandomValues(new Uint8Array(8))].map((x) => a[x % a.length]).join('');
   await env.DEMAND.prepare('INSERT INTO pp_moves (code, pid, data, exp) VALUES (?, ?, ?, ?)').bind(code, pid, data, now + MOVE_MINS * 60000).run();

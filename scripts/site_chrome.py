@@ -30,6 +30,7 @@ ICON_MENU = '<path d="M4 7h16M4 12h16M4 17h16"></path>'
 ICON_CLOSE = '<path d="M6 6l12 12M18 6L6 18"></path>'
 ICON_CHEVRON = '<path d="M6 9l6 6 6-6"></path>'
 ICON_PLUS = '<path d="M12 5v14M5 12h14"></path>'
+ICON_LOCKER = '<path d="M5 3h14v18H5z"></path><path d="M12 3v18M9 8h.01M15 8h.01M8 12h2M14 12h2"></path>'
 
 # ---------------------------------------------------------------- menu data
 def _shop(category, label=None, types=None):
@@ -242,6 +243,7 @@ def header_html():
     </nav>
     <div class="gp-actions">
       <button type="button" class="gp-icon-btn gp-search-btn" aria-label="Search" aria-expanded="false" aria-controls="gp-search-panel">{_svg(ICON_SEARCH, 20)}</button>
+      <a href="/play/my-clubhouse/" class="gp-mine" aria-label="My Clubhouse">{_svg(ICON_LOCKER, 18)}<span>My Clubhouse</span></a>
       <a href="/#alerts" class="gp-alerts" aria-label="Deal alerts">{_svg(ICON_BELL, 16)}<span>Deal alerts</span></a>
       <button type="button" class="gp-icon-btn gp-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="gp-menu">{_svg(ICON_MENU, 22)}</button>
     </div>
@@ -292,6 +294,7 @@ def menu_html(m=None):
   </div>
   <div class="gp-menu-search">{_search_form("gp-menu-q", button=False)}</div>
   <nav class="gp-menu-nav" aria-label="Main">
+      <a class="gp-menu-top" href="/play/my-clubhouse/">My Clubhouse</a>
       <a class="gp-menu-top" href="/shop.html">Shop all deals</a>{''.join(sections)}
       <a class="gp-menu-top" href="/about.html">About GolfPrice AI</a>
   </nav>
@@ -307,7 +310,7 @@ def footer_html():
                   ("Accessories", "/accessories.html"), ("Preowned and trade-ins", "/shop.html?source=awin-callawaypreowned"),
                   ("Find Your Fit", "/find-your-fit.html")]),
         ("Deal Tools", [("All deal tools", "/deal-tools.html")] + [(n, u) for n, _, u, _ in m["tools"] if u != "/find-your-fit.html"]),
-        ("Play", [(n, u) for n, _, u, _ in m["play"]] + [("UK Golf Demand Index", "/demand/")]),
+        ("Play", [("My Clubhouse", "/play/my-clubhouse/")] + [(n, u) for n, _, u, _ in m["play"]] + [("UK Golf Demand Index", "/demand/")]),
         ("Societies", [(n, u) for n, _, u, _ in m["societies"]]),
         ("Price guides", [("Drivers", "/prices/drivers/"), ("Irons", "/prices/irons/"),
                           ("Putters", "/prices/putters/"), ("Golf balls", "/prices/golf-balls/"),

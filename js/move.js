@@ -3,7 +3,9 @@
    The device you already use asks the alerts worker for a code (8 characters,
    30 minutes, works once). The new device swaps the code for that id, plus the
    few things kept in the browser: nickname, Par Price streak, today's card and a
-   half-built Bag Draft. Nothing else is stored, and no email or name is needed. */
+   half-built Bag Draft, plus the My Clubhouse bits (Society HQ list, shortlist
+   and the prices it was saved at, fit answers, bag, Higher or Lower best and
+   gift wishlist). Nothing else is stored, and no email or name is needed. */
 (function () {
   'use strict';
   var box = document.getElementById('move');
@@ -13,7 +15,10 @@
   function openIf() { if (location.hash === '#move' && 'open' in box) box.open = true; }
   openIf(); window.addEventListener('hashchange', openIf);
   if ('open' in box) box.addEventListener('toggle', function () { if (box.open) track('play_move_open'); });
-  var KEYS = { nick: 'gpNick', streak: 'gpParStreak', card: 'gpParPrice', wip: 'gpDraftWip' };
+  var KEYS = { nick: 'gpNick', streak: 'gpParStreak', card: 'gpParPrice', wip: 'gpDraftWip', socs: 'gpSocs', list: 'gpShortlist', watch: 'gpWatch',
+    fit: 'golfpriceai-fit-profile', bag: 'golfpriceai-bag-builder', hl: 'gpHL', wish: 'gpWishlist' };
+  // Dropped first if the bundle is too big for one code (the worker takes 8,000 characters).
+  var SPARE = ['wip', 'watch', 'bag', 'wish', 'card'];
   function get(k, d) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } }
   function put(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
@@ -30,12 +35,12 @@
     var pid = get('gpPid', '');
     out.hidden = false;
     if (!/^[a-z0-9]{12,32}$/.test(pid)) {
-      out.innerHTML = '<p>Nothing to move yet. Play a round of <a href="/play/par-price/">Par Price</a> or join a league on this device first.</p>';
+      out.innerHTML = '<p>Nothing to move yet. Play a round of <a href="/play/par-price/">Par Price</a>, join a league or join your golf society on this device first.</p>';
       return;
     }
     var data = {};
     Object.keys(KEYS).forEach(function (k) { var v = get(KEYS[k], null); if (v != null) data[k] = v; });
-    if (JSON.stringify(data).length > 2800) delete data.wip;
+    SPARE.forEach(function (k) { if (JSON.stringify(data).length > 7800) delete data[k]; });
     make.disabled = true; out.innerHTML = '<p>Getting a code…</p>';
     post('/pp/move/create', { pid: pid, data: data }).then(function (r) {
       make.disabled = false;
@@ -78,7 +83,7 @@
       track('play_move_done');
       var nick = r.data && r.data.nick;
       msg.textContent = (nick ? 'Welcome back, ' + nick + '! ' : 'Done! ') + 'This device is now you. Loading your clubhouse…';
-      setTimeout(function () { location.href = '/play/'; }, 1400);
+      setTimeout(function () { location.href = location.pathname; }, 1400);
     }).catch(function () { btn.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
   });
 })();

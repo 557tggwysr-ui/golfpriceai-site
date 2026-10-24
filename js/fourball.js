@@ -148,6 +148,12 @@
         if (i === -1) { list.push(slug); if (list.length > MAX) list.shift(); } else list.splice(i, 1);
         put(LIST_KEY, list); paint();
         track('fourball_shortlist', { saved: i === -1, items: list.length });
+        // My Clubhouse: remember today's price, so it can say how much it has dropped since.
+        var watch = get('gpWatch', {});
+        if (i !== -1) { delete watch[slug]; put('gpWatch', watch); }
+        else fetch('/prices/' + slug + '/data.json').then(function (r) { return r.json(); }).then(function (d) {
+          if (d && d.lowestNewPrice) { var w = get('gpWatch', {}); w[slug] = { p: Number(d.lowestNewPrice), d: new Date().toISOString().slice(0, 10) }; put('gpWatch', w); }
+        }).catch(function () {});
         if (i === -1) gpSignal({ k: 'heart', m: slug }); // anonymous count for the Demand Index
       });
       paint();

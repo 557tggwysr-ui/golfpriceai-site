@@ -951,7 +951,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
 <p class="pp-small pp-data">The facts on this page as data: <a href="/prices/{model.slug}/data.json">data.json</a></p>
 </div>
 <script src="/js/gift-finder.js?v=20261018d" defer></script>
-<script src="/js/fourball.js?v=20261020" defer></script>"""
+<script src="/js/fourball.js?v=20261024" defer></script>"""
 
     title = f"{name} Price UK: from {money(low['price'])}{per}"
     if model.is_ball:
@@ -1540,6 +1540,11 @@ def build(models_list, products, today_str):
                 sitemap += [(u, None) for u in society.COUNTY_URLS]
         except Exception as e:  # never stop the main build
             print(f"Society HQ skipped: {e}")
+        try:
+            import my_clubhouse
+            changed += my_clubhouse.build()
+        except Exception as e:  # never stop the main build
+            print(f"My Clubhouse skipped: {e}")
         try:
             import demand_index
             dm_changed, dm_sitemap = demand_index.build(passing, built, today)

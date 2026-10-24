@@ -91,7 +91,7 @@ def tool_page():
 </section>
 <section class="pp-block"><p class="pp-small">Fourball Alerts run on the same price tracking as every GolfPrice AI tool: our own record of every price, checked every 6 hours. No hype. No fake discounts. <a href="/deal-tools.html">See all deal tools</a>.</p></section>
 </div>
-<script src="/js/fourball.js?v=20261020" defer></script>"""
+<script src="/js/fourball.js?v=20261024" defer></script>"""
     faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
                   "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
     app_schema = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Fourball Alerts",
@@ -143,7 +143,7 @@ def list_page():
   <p class="pp-disclose">We may earn a commission if you buy through our links. It never changes the price or what we show.</p>
 </section>
 </div>
-<script src="/js/fourball.js?v=20261020" defer></script>"""
+<script src="/js/fourball.js?v=20261024" defer></script>"""
     return page_shell(title="Four-ball shortlist | GolfPrice AI",
                       description="A golf kit shortlist from your four-ball, with today’s lowest UK prices. Watch them all with one email.",
                       canonical=f"{SITE}/fourball/list/", body=body, section="tools", schema=[crumbs_schema],
