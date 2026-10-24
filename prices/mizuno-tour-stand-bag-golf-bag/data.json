@@ -6,12 +6,16 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 234.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Scottsdale Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 234.0,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 249.0,
@@ -21,19 +25,14 @@
    "name": "Scottsdale Golf",
    "from": 249.0,
    "options": 1
-  },
-  {
-   "name": "Clickgolf",
-   "from": 259.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 70,
   "low": 229.0,
   "high": 259.0,
-  "average": 245.36,
-  "priceChanges": 15,
+  "average": 245.14,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -101,14 +100,14 @@
    ],
    [
     "2026-10-24",
-    249.0
+    234.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MizunoTourStandBag-Staff1.jpg?v=1776296949",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Tour-Golf-Stand-Bag---Staff-Blue.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

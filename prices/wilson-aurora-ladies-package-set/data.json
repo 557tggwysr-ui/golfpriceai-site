@@ -6,14 +6,14 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 999.0,
+ "lowestNewPrice": 949.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 999.0,
+   "from": 949.0,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 70,
   "low": 949.0,
   "high": 999.0,
-  "average": 988.71,
-  "priceChanges": 11,
+  "average": 988.0,
+  "priceChanges": 12,
   "series": [
    [
     "2026-08-16",
@@ -74,13 +74,13 @@
    ],
    [
     "2026-10-24",
-    999.0
+    949.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £50.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Aurora-Ladies-Package-Set.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

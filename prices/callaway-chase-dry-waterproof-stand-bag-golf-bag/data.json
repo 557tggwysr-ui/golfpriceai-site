@@ -6,14 +6,14 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 134.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 149.0,
+   "from": 134.0,
    "options": 6
   },
   {
@@ -26,8 +26,8 @@
   "daysTracked": 70,
   "low": 134.0,
   "high": 149.0,
-  "average": 144.93,
-  "priceChanges": 12,
+  "average": 144.71,
+  "priceChanges": 13,
   "series": [
    [
     "2026-08-16",
@@ -83,13 +83,13 @@
    ],
    [
     "2026-10-24",
-    149.0
+    134.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £15.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Chase-Dry-Waterproof-Golf-Stand-Bag---Red.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

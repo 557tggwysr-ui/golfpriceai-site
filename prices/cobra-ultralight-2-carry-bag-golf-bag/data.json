@@ -6,14 +6,14 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 119.0,
+ "lowestNewPrice": 109.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 119.0,
+   "from": 109.0,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 70,
   "low": 99.0,
   "high": 119.0,
-  "average": 115.43,
-  "priceChanges": 15,
+  "average": 115.29,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -90,13 +90,13 @@
    ],
    [
     "2026-10-24",
-    119.0
+    109.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/90990714-Ultralight-2-Stand-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

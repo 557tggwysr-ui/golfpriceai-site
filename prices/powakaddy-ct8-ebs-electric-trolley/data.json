@@ -9,6 +9,7 @@
  "lowestNewPrice": 999.0,
  "lowestAt": [
   "Affordable Golf",
+  "Clickgolf",
   "Major Golf Direct",
   "Scottsdale Golf"
  ],
@@ -19,6 +20,11 @@
    "options": 2
   },
   {
+   "name": "Clickgolf",
+   "from": 999.0,
+   "options": 1
+  },
+  {
    "name": "Major Golf Direct",
    "from": 999.0,
    "options": 1
@@ -26,11 +32,6 @@
   {
    "name": "Scottsdale Golf",
    "from": 999.0,
-   "options": 1
-  },
-  {
-   "name": "Clickgolf",
-   "from": 1049.0,
    "options": 1
   }
  ],
@@ -59,6 +60,6 @@
   "label": "typical",
   "summary": "Typical price: steady for 58 days"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CT8GPS4-Copy.jpg?v=1708960750",
+ "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT8_GPS_EBS_Electric_Golf_Trolley-Extended_Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

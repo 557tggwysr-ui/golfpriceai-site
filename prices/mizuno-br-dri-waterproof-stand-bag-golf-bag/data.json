@@ -6,14 +6,14 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 189.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 189.0,
+   "from": 169.0,
    "options": 4
   },
   {
@@ -31,8 +31,8 @@
   "daysTracked": 70,
   "low": 164.0,
   "high": 189.0,
-  "average": 182.5,
-  "priceChanges": 15,
+  "average": 182.21,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -100,13 +100,13 @@
    ],
    [
     "2026-10-24",
-    189.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £25.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-BR-DRI-Waterproof-Golf-Stand-Bag---Black-Green.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

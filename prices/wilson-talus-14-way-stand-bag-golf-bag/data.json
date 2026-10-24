@@ -6,14 +6,14 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 159.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 179.0,
+   "from": 159.0,
    "options": 3
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 70,
   "low": 154.0,
   "high": 179.0,
-  "average": 172.5,
-  "priceChanges": 15,
+  "average": 172.21,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -90,14 +90,14 @@
    ],
    [
     "2026-10-24",
-    179.0
+    159.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £25.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Talus-14-Way-Golf-Stand-Bag-Black.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Talus-14-Way-Golf-Stand-Bag-White-Black.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -6,12 +6,16 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 124.95,
+ "lowestNewPrice": 109.99,
  "lowestAt": [
-  "Affordable Golf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 109.99,
+   "options": 3
+  },
   {
    "name": "Affordable Golf",
    "from": 124.95,
@@ -21,19 +25,14 @@
    "name": "Major Golf Direct",
    "from": 124.95,
    "options": 2
-  },
-  {
-   "name": "Clickgolf",
-   "from": 124.99,
-   "options": 3
   }
  ],
  "history": {
   "daysTracked": 58,
   "low": 109.99,
   "high": 124.95,
-  "average": 120.05,
-  "priceChanges": 11,
+  "average": 119.79,
+  "priceChanges": 12,
   "series": [
    [
     "2026-08-28",
@@ -85,14 +84,14 @@
    ],
    [
     "2026-10-24",
-    124.95
+    109.99
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £14.96 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonGolfFeatherStandBag2025-Navy1.jpg?v=1740739528",
+ "image": "https://www.clickgolf.co.uk/images/product/main/wilson-feather-golf-stand-bag-grey-black-white-lime-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

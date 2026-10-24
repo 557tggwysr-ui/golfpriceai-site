@@ -6,28 +6,28 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 329.0,
+ "lowestNewPrice": 299.99,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 299.99,
+   "options": 1
+  },
   {
    "name": "Major Golf Direct",
    "from": 329.0,
    "options": 2
-  },
-  {
-   "name": "Clickgolf",
-   "from": 329.99,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 70,
   "low": 299.99,
   "high": 329.99,
-  "average": 320.01,
-  "priceChanges": 15,
+  "average": 319.6,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -95,14 +95,14 @@
    ],
    [
     "2026-10-24",
-    329.0
+    299.99
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £29.01 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign_39.jpg?v=1704461279",
+ "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-CG4000-Golf-Club-Package-Set-Ladies.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

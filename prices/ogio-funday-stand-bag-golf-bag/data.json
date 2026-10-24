@@ -14,15 +14,15 @@
   {
    "name": "Clickgolf",
    "from": 129.0,
-   "options": 3
+   "options": 1
   }
  ],
  "history": {
   "daysTracked": 70,
   "low": 109.0,
   "high": 129.0,
-  "average": 125.14,
-  "priceChanges": 11,
+  "average": 126.21,
+  "priceChanges": 9,
   "series": [
    [
     "2026-08-16",
@@ -38,14 +38,6 @@
    ],
    [
     "2026-08-24",
-    129.0
-   ],
-   [
-    "2026-08-28",
-    114.0
-   ],
-   [
-    "2026-09-02",
     129.0
    ],
    [
@@ -82,6 +74,6 @@
   "label": "wait",
   "summary": "Wait if you can: £20.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/p_ogio-funday-stand-bag-paradise-1000x1000-ogio-11.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Ogio-Funday-Golf-Stand-Bag-Black.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -6,14 +6,14 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 479.0,
+ "lowestNewPrice": 449.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 479.0,
+   "from": 449.0,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 70,
   "low": 449.0,
   "high": 479.0,
-  "average": 470.0,
-  "priceChanges": 15,
+  "average": 469.57,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -90,13 +90,13 @@
    ],
    [
     "2026-10-24",
-    479.0
+    449.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-FW-Gun-Metal-Electric-Trolley-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

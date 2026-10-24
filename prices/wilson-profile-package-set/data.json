@@ -6,14 +6,14 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 429.0,
+ "lowestNewPrice": 389.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 429.0,
+   "from": 389.0,
    "options": 3
   },
   {
@@ -26,8 +26,8 @@
   "daysTracked": 70,
   "low": 389.0,
   "high": 429.0,
-  "average": 418.14,
-  "priceChanges": 13,
+  "average": 417.57,
+  "priceChanges": 14,
   "series": [
    [
     "2026-08-16",
@@ -87,13 +87,13 @@
    ],
    [
     "2026-10-24",
-    429.0
+    389.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £40.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Profile-Package-Set-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

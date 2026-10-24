@@ -6,14 +6,14 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 179.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 199.0,
+   "from": 179.0,
    "options": 2
   },
   {
@@ -26,8 +26,8 @@
   "daysTracked": 70,
   "low": 179.0,
   "high": 199.0,
-  "average": 193.57,
-  "priceChanges": 12,
+  "average": 193.29,
+  "priceChanges": 13,
   "series": [
    [
     "2026-08-16",
@@ -83,13 +83,13 @@
    ],
    [
     "2026-10-24",
-    199.0
+    179.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/ping-pioneer-cart-bag-heather-sand-black-1000x10001-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

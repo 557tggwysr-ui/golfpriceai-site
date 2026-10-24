@@ -6,28 +6,28 @@
  "checked": "2026-10-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 319.0,
+ "lowestNewPrice": 299.99,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 299.99,
+   "options": 5
+  },
   {
    "name": "Major Golf Direct",
    "from": 319.0,
    "options": 6
-  },
-  {
-   "name": "Clickgolf",
-   "from": 329.99,
-   "options": 5
   }
  ],
  "history": {
   "daysTracked": 70,
   "low": 299.99,
   "high": 329.99,
-  "average": 314.17,
-  "priceChanges": 15,
+  "average": 313.9,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -95,14 +95,14 @@
    ],
    [
     "2026-10-24",
-    319.0
+    299.99
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £19.01 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-05T130000.179.png?v=1704460366",
+ "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-CG4000-Mens-Golf-Club-Package-Set.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
