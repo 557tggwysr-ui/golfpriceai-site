@@ -190,6 +190,17 @@
     who opens their private prize link can pick a prize; we store which product they picked and
     its price so the organiser can buy it. No payment details are ever collected, and no money
     is taken or held. Awards nobody has opened or changed for 400 days are deleted.</li>
+    <li><strong>Society HQ</strong> — when someone starts a society, we store its name, area,
+    description, the organiser’s own payment link (if they add one) and whether it’s listed in
+    Find a Society, under the organiser’s random code. Members join with a nickname; we store the
+    nickname and a separate random member key, so other members never see your random code.
+    For each fixture we store its details and each member’s reply (in, maybe, out or waiting
+    list) and, if the organiser ticks it, that they’ve paid. Only members can see fixtures,
+    replies and the payment link. Find a Society shows only the name, area, description and
+    number of members of societies the organiser has chosen to list. “Pay the organiser” opens
+    the organiser’s own PayPal, Monzo or Revolut page: we never see, take or hold the money.
+    Leaving a society removes your nickname and replies; societies with no activity for 400
+    days are deleted.</li>
     <li><strong>Demand Index counts</strong> — for our <a href="/demand/">UK Golf Demand Index</a>
     we keep anonymous daily totals: how many times each price page was viewed, how many
     times a model was added to a shortlist, the words typed into our search, and, when you
