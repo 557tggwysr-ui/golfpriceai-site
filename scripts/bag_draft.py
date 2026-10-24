@@ -99,7 +99,7 @@ def page():
                       description=f"Free monthly fantasy golf kit: draft six real products within £{BUDGET:,}, then real UK prices decide the winner. Play with your mates or the whole country.",
                       canonical=f"{SITE}/play/draft/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/bag-draft.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261036">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261037">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -128,7 +128,7 @@ def locker_page():
                       description="Your Bag Draft collection: champion bags, bag tags and your record in every monthly Major.",
                       canonical=f"{SITE}/play/locker/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/bag-draft.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261036">\n')
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261037">\n')
 
 
 def build(passing, built, today):

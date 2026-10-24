@@ -746,14 +746,16 @@ async function ppLeague(env, id, pid, cors) {
     const who = members.find((m) => m.pid === rows[0].pid);
     return { nick: who ? who.nick : '', off: rows[0].pin };
   };
-  const out = people.map(({ pid: p, ...rest }) => rest); // never send other players' ids
-  let society = null;
+  const out = people.map(({ pid: p, ...rest }) => Object.assign(rest, { creator: p === league.owner })); // never send other players' ids
+  let society = null, requests = [], requested = false;
   try {
+    const reqs = (await env.DEMAND.prepare('SELECT pid, nick FROM soc_league_req WHERE league = ? ORDER BY at').bind(id).all()).results || [];
+    requests = reqs.map((r) => r.nick); requested = !!pid && reqs.some((r) => r.pid === pid);
     const sid = await env.DEMAND.prepare('SELECT soc FROM soc_league WHERE league = ?').bind(id).first('soc');
     const s = sid ? await env.DEMAND.prepare('SELECT id, name FROM soc_socs WHERE id = ?').bind(sid).first() : null;
     if (s) society = { id: s.id, name: s.name, member: !!(pid && await env.DEMAND.prepare('SELECT 1 AS x FROM soc_members WHERE soc = ? AND pid = ?').bind(s.id, pid).first('x')) };
   } catch (e) { /* society tables not created yet */ }
-  return json({ ok: true, id: league.id, name: league.name, n: today, monday, missed: MISSED, members: out, owner: !!pid && league.owner === pid, society,
+  return json({ ok: true, id: league.id, name: league.name, n: today, monday, missed: MISSED, members: out, owner: !!pid && league.owner === pid, society, requests, requested,
     pin: { today: pinOf(today), yesterday: pinOf(today - 1) } }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
 }
 
@@ -887,6 +889,7 @@ async function socSetup(env) {
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_entries (event TEXT, mkey TEXT, status TEXT, paid INTEGER, at TEXT, PRIMARY KEY (event, mkey)) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_founding (soc TEXT PRIMARY KEY, n INTEGER, at TEXT) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_league (league TEXT PRIMARY KEY, soc TEXT, at TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_league_req (league TEXT, pid TEXT, nick TEXT, at TEXT, PRIMARY KEY (league, pid)) WITHOUT ROWID'),
   ]);
   // County for Find a Society (added Oct 2026): add the column once; it already exists after that.
   try { await env.DEMAND.prepare('ALTER TABLE soc_socs ADD COLUMN county TEXT').run(); } catch (e) { /* already there */ }
@@ -919,6 +922,7 @@ async function society(request, url, env, cors) {
   if (path === '/soc/prize') return await socPrize(env, String(url.searchParams.get('t') || ''), cors);
   if (path === '/soc/find') return await hqFind(env, cors);
   if (request.method === 'POST' && path === '/soc/fromleague') return await hqFromLeague(env, body, pid, cors);
+  if (request.method === 'POST' && path === '/soc/leaguereq') return await hqLeagueReq(env, body, pid, cors);
   if (path === '/soc/s') return await hqGet(env, String(url.searchParams.get('s') || ''), pid, cors);
   if (request.method === 'POST' && path === '/soc/new') return await hqNew(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/edit') return await hqEdit(env, body, pid, cors);
@@ -1102,8 +1106,30 @@ async function hqFromLeague(env, body, pid, cors) {
   const nick = await env.DEMAND.prepare('SELECT nick FROM pp_members WHERE league = ? AND pid = ?').bind(lid, pid).first('nick');
   const res = await hqNew(env, { name: league.name, area: body.area, county: body.county, about: '', pay: '', open: false, nick: nick || 'Organiser' }, pid, cors);
   const out = await res.clone().json();
-  if (out.ok) await env.DEMAND.prepare('INSERT OR REPLACE INTO soc_league (league, soc, at) VALUES (?, ?, ?)').bind(lid, out.id, hqDay()).run();
+  if (out.ok) await env.DEMAND.batch([
+    env.DEMAND.prepare('INSERT OR REPLACE INTO soc_league (league, soc, at) VALUES (?, ?, ?)').bind(lid, out.id, hqDay()),
+    env.DEMAND.prepare('DELETE FROM soc_league_req WHERE league = ?').bind(lid),
+  ]);
   return res;
+}
+/* A league member suggests turning the league into a golf society; the
+   league's creator sees who asked and approves with one tap (hqFromLeague) or
+   says "Not now" (clears the suggestions). */
+async function hqLeagueReq(env, body, pid, cors) {
+  const lid = String(body.l || '');
+  if (!pid || !LEAGUE_RX.test(lid)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  const league = await env.DEMAND.prepare('SELECT id, owner FROM pp_leagues WHERE id = ?').bind(lid).first();
+  if (!league) return json({ ok: false, error: 'We couldn’t find that league.' }, 404, cors);
+  if (body.dismiss) {
+    if (league.owner !== pid) return json({ ok: false, error: 'Only the league’s creator can do that.' }, 403, cors);
+    await env.DEMAND.prepare('DELETE FROM soc_league_req WHERE league = ?').bind(lid).run();
+    return json({ ok: true }, 200, cors);
+  }
+  const nick = await env.DEMAND.prepare('SELECT nick FROM pp_members WHERE league = ? AND pid = ?').bind(lid, pid).first('nick');
+  if (!nick) return json({ ok: false, error: 'Join the league first.' }, 403, cors);
+  if (await env.DEMAND.prepare('SELECT soc FROM soc_league WHERE league = ?').bind(lid).first('soc')) return json({ ok: false, error: 'This league already has a golf society.' }, 400, cors);
+  await env.DEMAND.prepare('INSERT OR REPLACE INTO soc_league_req (league, pid, nick, at) VALUES (?, ?, ?, ?)').bind(lid, pid, nick, hqDay()).run();
+  return json({ ok: true }, 200, cors);
 }
 async function hqEdit(env, body, pid, cors) {
   const s = await hqSoc(env, String(body.s || ''));

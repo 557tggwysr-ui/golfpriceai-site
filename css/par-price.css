@@ -539,3 +539,8 @@
 .lg-soc-msg:empty { display: none; }
 .lg-soc-link { margin: 0; font-weight: 700; }
 .lg-soc-link a { color: var(--gp-green-dark); }
+.lg-soc-ask { background: #fff; border: 2px solid #d9b45a; }
+.lg-soc-ask .lg-soc-k { color: #8a6a1a; }
+.lg-soc-ask p { color: var(--gp-text-2); }
+.lg-soc-who { font-size: 13px !important; font-weight: 600; }
+.lg-soc .lg-btn2 { align-self: stretch; }

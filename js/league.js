@@ -189,16 +189,55 @@
         '<p>Fixtures, sign-ups and who’s paid for your real golf days. Free, no sign-up.</p>' +
         '<button type="button" class="gp-af-btn lg-soc-yes">Join as “' + esc(me.nick) + '”</button><button type="button" class="lg-soc-no">Not now</button><p class="lg-soc-msg" role="status"></p></section>';
     }
+    var reqs = data.requests || [];
     if (!sc && data.owner) {
+      if (reqs.length && !get('gpSocNo-' + code, false)) {
+        var who = reqs.length === 1 ? esc(reqs[0]) : esc(reqs[0]) + ' and ' + (reqs.length - 1) + ' other' + (reqs.length > 2 ? 's' : '');
+        return '<section class="lg-soc lg-soc-start"><span class="lg-soc-k">Your league is asking</span><b class="lg-soc-h">' + who + ' suggested turning this league into a golf society</b>' +
+          '<p>Society HQ runs your real golf days: fixtures, who’s in, who’s paid and awards night. Free, from the same group chat. You’d be the organiser.</p>' +
+          '<button type="button" class="gp-af-btn lg-soc-go">Say yes: start the society</button><button type="button" class="lg-soc-no lg-soc-dismiss">Not now</button>' +
+          '<p class="lg-soc-small">Everyone else gets a “Join the society” button here. Nobody is added without tapping it.</p><p class="lg-soc-msg" role="status"></p></section>';
+      }
       return '<section class="lg-soc lg-soc-start"><span class="lg-soc-k">Play real golf together too?</span><b class="lg-soc-h">Turn this league into a golf society</b>' +
         '<p>Society HQ runs your golf days: fixtures, who’s in, who’s paid and awards night. Free, from the same group chat.</p>' +
         '<button type="button" class="gp-af-btn lg-soc-go">Start the society in one tap</button>' +
         '<p class="lg-soc-small">Your league mates get a “Join the society” button here. Nobody is added without tapping it.</p><p class="lg-soc-msg" role="status"></p></section>';
     }
+    if (!sc && me && !data.owner) {
+      var creator = (data.members.filter(function (m) { return m.creator; })[0] || {}).nick || 'the league’s creator';
+      if (data.requested) {
+        return '<section class="lg-soc lg-soc-ask"><span class="lg-soc-k">Golf society suggested</span><b class="lg-soc-h">Waiting for ' + esc(creator) + ' to say yes</b>' +
+          '<p>' + (reqs.length > 1 ? reqs.length + ' of you have suggested it. ' : '') + 'They’ll see it next time they open the league.</p>' +
+          '<button type="button" class="lg-btn2 lg-soc-nudge">Give ' + esc(creator) + ' a nudge in the group chat</button></section>';
+      }
+      if (!get('gpSocAskNo-' + code, false)) {
+        return '<section class="lg-soc lg-soc-ask"><span class="lg-soc-k">Play real golf together too?</span><b class="lg-soc-h">Suggest turning this league into a golf society</b>' +
+          '<p>Society HQ runs real golf days: fixtures, who’s in, who’s paid and awards night. Free. ' + esc(creator) + ' gets a one-tap way to set it up.</p>' +
+          (reqs.length ? '<p class="lg-soc-who">' + esc(reqs.join(', ')) + ' already suggested it.</p>' : '') +
+          '<button type="button" class="gp-af-btn lg-soc-ask-go">Suggest it</button><button type="button" class="lg-soc-no lg-soc-ask-no">Not for us</button><p class="lg-soc-msg" role="status"></p></section>';
+      }
+    }
     return '';
   }
   function wireSoc(me) {
-    var go = box.querySelector('.lg-soc-go'), yes = box.querySelector('.lg-soc-yes'), no = box.querySelector('.lg-soc-no');
+    var creatorNick = (data.members.filter(function (m) { return m.creator; })[0] || {}).nick || 'our league’s creator';
+    function nudge() {
+      share(creatorNick + ', shall we turn ' + data.name + ' into a proper golf society? Fixtures, who’s in and who’s paid, all free. Say yes on the league page: ' + link());
+    }
+    var ask = box.querySelector('.lg-soc-ask-go');
+    if (ask) ask.addEventListener('click', function () {
+      var msg = box.querySelector('.lg-soc-msg'); ask.disabled = true;
+      api('/soc/leaguereq', { pid: pid(), l: code }).then(function (r) {
+        if (!r.ok) { ask.disabled = false; msg.textContent = r.error || 'Something went wrong.'; return; }
+        track('society_league_suggested'); nudge(); load();
+      }).catch(function () { ask.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
+    });
+    var askNo = box.querySelector('.lg-soc-ask-no'); if (askNo) askNo.addEventListener('click', function () { put('gpSocAskNo-' + code, true); table(); });
+    var nud = box.querySelector('.lg-soc-nudge'); if (nud) nud.addEventListener('click', function () { track('society_league_nudge'); nudge(); });
+    var dis = box.querySelector('.lg-soc-dismiss'); if (dis) dis.addEventListener('click', function () {
+      put('gpSocNo-' + code, true); api('/soc/leaguereq', { pid: pid(), l: code, dismiss: 1 }).then(load, load);
+    });
+    var go = box.querySelector('.lg-soc-go'), yes = box.querySelector('.lg-soc-yes'), no = box.querySelector('.lg-soc-join .lg-soc-no');
     if (go) go.addEventListener('click', function () {
       var msg = box.querySelector('.lg-soc-msg'); go.disabled = true; msg.textContent = 'Setting up the clubhouse…';
       api('/soc/fromleague', { pid: pid(), l: code }).then(function (r) {
