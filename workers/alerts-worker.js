@@ -639,6 +639,18 @@ async function ppDist(env, n, cors) {
 async function ppMy(env, pid, cors) {
   if (!pid) return json({ ok: true, leagues: [] }, 200, cors);
   const rows = (await env.DEMAND.prepare('SELECT l.id, l.name, m.nick, (SELECT COUNT(*) FROM pp_members x WHERE x.league = l.id) AS size FROM pp_members m JOIN pp_leagues l ON l.id = m.league WHERE m.pid = ? ORDER BY m.joined').bind(pid).all()).results || [];
+  // My Clubhouse: your place in each league's weekly table (same sum as the
+  // league page: this week's rounds, a missed past day counts +MISSED; lower is better).
+  const today = ppToday(), monday = ppMonday(today);
+  for (const r of rows.slice(0, 12)) {
+    try {
+      const t = (await env.DEMAND.prepare('SELECT m.pid, COALESCE(SUM(s.total), 0) AS tot, SUM(CASE WHEN s.n < ? THEN 1 ELSE 0 END) AS past FROM pp_members m LEFT JOIN pp_scores s ON s.pid = m.pid AND s.n >= ? AND s.n <= ? WHERE m.league = ? GROUP BY m.pid')
+        .bind(today, monday, today, r.id).all()).results || [];
+      const week = (x) => x.tot + MISSED * ((today - monday) - (x.past || 0));
+      const me = t.find((x) => x.pid === pid);
+      if (me) { const w = week(me); r.rank = 1 + t.filter((x) => week(x) < w).length; r.tied = t.filter((x) => x.pid !== pid && week(x) === w).length > 0; }
+    } catch (e) { /* no rank: the page just shows the size */ }
+  }
   return json({ ok: true, leagues: rows }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
 }
 
