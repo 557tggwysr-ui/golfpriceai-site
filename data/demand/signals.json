@@ -167,6 +167,9 @@
 }
 },
 "2026-10-24": {
+"heart": {
+"garmin-approach-s70-gps-watch": 1
+},
 "pp": {
 "callaway-cb12-wedge": [
 6,
@@ -193,6 +196,7 @@
 "callaway-apex-uw-utility-fairway-wood": 1,
 "cleveland-cbz-tour-satin-wedge": 1,
 "cleveland-halo-xl-hy-wood": 1,
+"garmin-approach-s70-gps-watch": 1,
 "mizuno-pro-t-3-soft-satin-wedge": 1,
 "motocaddy-me-remote-electric-trolley": 1,
 "ogio-fuse-stand-bag-golf-bag": 1,
@@ -207,9 +211,14 @@
 "titleist-vokey-sm11-tour-chrome-wedge": 1,
 "wilson-dynapwr-max-fairway-wood": 1
 }
+},
+"2026-10-25": {
+"view": {
+"titleist-pro-v1-golf-balls": 1
+}
 }
 },
-"fetched": "2026-10-24T21:18Z",
+"fetched": "2026-10-25T02:26Z",
 "fourball": 0,
 "search": {
 "7 wood": 1,
@@ -226,6 +235,7 @@
 },
 "snapshot": {
 "alert": {
+"garmin-approach-s70-gps-watch": 1,
 "titleist-pro-v1-golf-balls": 1,
 "yonex-ezone-gs-i-tech-driver": 1
 },
