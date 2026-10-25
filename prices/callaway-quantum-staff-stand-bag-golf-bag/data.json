@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-quantum-staff-stand-bag-golf-bag/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 369.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 369.0,
   "high": 399.0,
-  "average": 390.43,
+  "average": 390.13,
   "priceChanges": 13,
   "series": [
    [
@@ -83,6 +83,10 @@
    ],
    [
     "2026-10-24",
+    369.0
+   ],
+   [
+    "2026-10-25",
     369.0
    ]
   ]

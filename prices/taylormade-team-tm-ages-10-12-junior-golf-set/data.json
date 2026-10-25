@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/taylormade-team-tm-ages-10-12-junior-golf-set/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 409.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 409.0,
   "high": 449.0,
-  "average": 440.29,
+  "average": 439.85,
   "priceChanges": 12,
   "series": [
    [
@@ -74,6 +74,10 @@
    ],
    [
     "2026-10-24",
+    409.0
+   ],
+   [
+    "2026-10-25",
     409.0
    ]
   ]

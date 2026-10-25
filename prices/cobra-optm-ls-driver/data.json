@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cobra-optm-ls-driver/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 479.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 479.0,
   "high": 479.0,
   "average": 479.0,
@@ -29,14 +29,14 @@
     479.0
    ],
    [
-    "2026-10-24",
+    "2026-10-25",
     479.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 70 days"
+  "summary": "Typical price: steady for 71 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/OPTM-LS-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

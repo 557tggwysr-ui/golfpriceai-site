@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/mizuno-st-g-driver/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 51,
+  "daysTracked": 52,
   "low": 199.95,
   "high": 229.0,
-  "average": 222.73,
+  "average": 222.3,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     199.95
    ],
    [
-    "2026-10-24",
+    "2026-10-25",
     199.95
    ]
   ]

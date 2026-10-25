@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 319.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 319.0,
   "high": 339.0,
-  "average": 324.43,
+  "average": 324.35,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     319.0
    ],
    [
-    "2026-10-24",
+    "2026-10-25",
     319.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 51 days"
+  "summary": "Typical price: steady for 52 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/wilson-1200-tpx-package-set-ladies-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

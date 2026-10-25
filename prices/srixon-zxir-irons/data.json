@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/srixon-zxir-irons/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 879.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 879.0,
   "high": 1109.0,
-  "average": 918.43,
+  "average": 917.87,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     879.0
    ],
    [
-    "2026-10-24",
+    "2026-10-25",
     879.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 58 days"
+  "summary": "Typical price: steady for 59 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonZXiRGraphiteIrons_3.jpg?v=1763374524",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

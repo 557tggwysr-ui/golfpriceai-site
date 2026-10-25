@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/wilson-aurora-ladies-package-set/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 949.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 949.0,
   "high": 999.0,
-  "average": 988.0,
+  "average": 987.45,
   "priceChanges": 12,
   "series": [
    [
@@ -74,6 +74,10 @@
    ],
    [
     "2026-10-24",
+    949.0
+   ],
+   [
+    "2026-10-25",
     949.0
    ]
   ]

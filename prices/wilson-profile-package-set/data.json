@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/wilson-profile-package-set/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 389.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 389.0,
   "high": 429.0,
-  "average": 417.57,
+  "average": 417.17,
   "priceChanges": 14,
   "series": [
    [
@@ -87,6 +87,10 @@
    ],
    [
     "2026-10-24",
+    389.0
+   ],
+   [
+    "2026-10-25",
     389.0
    ]
   ]

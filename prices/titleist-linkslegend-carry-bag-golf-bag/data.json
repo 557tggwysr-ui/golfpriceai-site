@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/titleist-linkslegend-carry-bag-golf-bag/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 149.0,
   "high": 200.0,
-  "average": 170.86,
+  "average": 170.55,
   "priceChanges": 7,
   "series": [
    [
@@ -57,14 +57,14 @@
     149.0
    ],
    [
-    "2026-10-24",
+    "2026-10-25",
     149.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 32 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-LINKSLEGEND-Golf-Carry-Bag-Navy.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

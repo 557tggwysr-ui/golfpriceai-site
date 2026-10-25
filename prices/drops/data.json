@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-24T22:17+01:00",
+ "checked": "2026-10-25T02:24+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -1082,46 +1082,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cleveland-halo-xl-fairway-wood/"
-  },
-  {
-   "model": "Cleveland HiBore XL Driver",
-   "model_id": "cleveland-hibore-xl-driver",
-   "date": "2026-10-17",
-   "was": 229.0,
-   "now": 199.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cleveland-hibore-xl-driver/"
-  },
-  {
-   "model": "Cleveland HiBore XL Lite Driver",
-   "model_id": "cleveland-hibore-xl-lite-driver",
-   "date": "2026-10-17",
-   "was": 229.0,
-   "now": 199.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cleveland-hibore-xl-lite-driver/"
-  },
-  {
-   "model": "Cleveland Launcher XL2 Draw Driver",
-   "model_id": "cleveland-launcher-xl2-draw-driver",
-   "date": "2026-10-17",
-   "was": 199.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cleveland-launcher-xl2-draw-driver/"
-  },
-  {
-   "model": "Cleveland Launcher XL2 Driver",
-   "model_id": "cleveland-launcher-xl2-driver",
-   "date": "2026-10-17",
-   "was": 199.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cleveland-launcher-xl2-driver/"
   }
  ]
 }

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-pioneer-244-cart-bag-golf-bag/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 179.0,
   "high": 199.0,
-  "average": 193.29,
+  "average": 193.08,
   "priceChanges": 13,
   "series": [
    [
@@ -83,6 +83,10 @@
    ],
    [
     "2026-10-24",
+    179.0
+   ],
+   [
+    "2026-10-25",
     179.0
    ]
   ]

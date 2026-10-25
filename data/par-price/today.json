@@ -1,66 +1,66 @@
 {
- "n": 7,
- "date": "2026-10-24",
+ "n": 8,
+ "date": "2026-10-25",
  "items": [
   {
-   "slug": "titleist-gts2-fairway-wood",
-   "name": "Titleist GTS2 Fairway Wood",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS2GolfFairwayWood_1.jpg?v=1778747084",
-   "price": 369.0,
+   "slug": "titleist-players-s4-stand-bag-golf-bag",
+   "name": "Titleist Players S4 Stand Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX4-001-S4-Hero.jpg",
+   "price": 159.0,
+   "unit": "each",
+   "type": "golf bag",
+   "low": false,
+   "url": "/prices/titleist-players-s4-stand-bag-golf-bag/"
+  },
+  {
+   "slug": "wilson-dynapwr-fairway-wood",
+   "name": "Wilson DYNAPWR Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DynapwrFairwayWood-Max1.jpg?v=1776297084",
+   "price": 149.95,
    "unit": "each",
    "type": "fairway wood",
    "low": false,
-   "url": "/prices/titleist-gts2-fairway-wood/"
+   "url": "/prices/wilson-dynapwr-fairway-wood/"
   },
   {
-   "slug": "cobra-baffler-hybrid",
-   "name": "Cobra Baffler Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-Hybird-Hero.jpg",
-   "price": 169.0,
-   "unit": "each",
-   "type": "hybrid",
-   "low": false,
-   "url": "/prices/cobra-baffler-hybrid/"
-  },
-  {
-   "slug": "taylormade-spider-5k-zt-putter",
-   "name": "TaylorMade Spider 5K-ZT Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeSpiderZTPutter2.jpg?v=1776274164",
-   "price": 399.0,
-   "unit": "each",
-   "type": "putter",
-   "low": true,
-   "url": "/prices/taylormade-spider-5k-zt-putter/"
-  },
-  {
-   "slug": "callaway-cb12-wedge",
-   "name": "Callaway CB12 Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/cb12-wedge-hero.jpg",
-   "price": 119.0,
+   "slug": "callaway-opus-sp-shadow-wedge",
+   "name": "Callaway Opus SP Shadow Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/OpusSPBlackShadow1_52dbb56c-dff1-4dda-b368-8846a41715bc.jpg?v=1775360763",
+   "price": 159.95,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/callaway-cb12-wedge/"
+   "url": "/prices/callaway-opus-sp-shadow-wedge/"
   },
   {
-   "slug": "srixon-zxir-irons",
-   "name": "Srixon ZXiR Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonZXiRGraphiteIrons_3.jpg?v=1763374524",
-   "price": 879.0,
+   "slug": "taylormade-qi-max-irons",
+   "name": "TaylorMade Qi Max Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeGolfQiMAXIrons2026_2.jpg?v=1768226089",
+   "price": 849.0,
    "unit": "each",
    "type": "iron set",
    "low": false,
-   "url": "/prices/srixon-zxir-irons/"
+   "url": "/prices/taylormade-qi-max-irons/"
+  },
+  {
+   "slug": "yonex-ezone-elite-hybrid",
+   "name": "Yonex Ezone Elite Hybrid",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/yonex_ezone_elite_4_hybrid_2.jpg?v=1686740273",
+   "price": 129.95,
+   "unit": "each",
+   "type": "hybrid",
+   "low": true,
+   "url": "/prices/yonex-ezone-elite-hybrid/"
   }
  ],
  "pin": {
-  "slug": "big-max-dri-lite-tour-2-golf-bag",
-  "name": "Big Max Dri Lite Tour 2 Golf Bag",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/BigMaxDriLiteTour2GolfCartBag2026-BlackCharcoal_1.jpg?v=1762771956",
-  "price": 189.0,
+  "slug": "cobra-baffler-driver",
+  "name": "Cobra Baffler Driver",
+  "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-SN-Driver-Hero.jpg",
+  "price": 299.0,
   "unit": "each",
-  "type": "golf bag",
+  "type": "driver",
   "low": false,
-  "url": "/prices/big-max-dri-lite-tour-2-golf-bag/"
+  "url": "/prices/cobra-baffler-driver/"
  }
 }

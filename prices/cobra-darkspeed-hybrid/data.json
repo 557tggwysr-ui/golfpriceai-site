@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/cobra-darkspeed-hybrid/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 129.0,
   "high": 149.0,
-  "average": 135.43,
+  "average": 135.34,
   "priceChanges": 2,
   "series": [
    [
@@ -47,14 +47,14 @@
     129.0
    ],
    [
-    "2026-10-24",
+    "2026-10-25",
     129.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 44 days"
+  "summary": "Typical price: steady for 45 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/toretto-hybrid-3.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

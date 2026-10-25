@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-staff-golf-bag/",
- "checked": "2026-10-24",
+ "checked": "2026-10-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 219.0,
   "high": 249.0,
-  "average": 239.0,
+  "average": 238.67,
   "priceChanges": 13,
   "series": [
    [
@@ -78,6 +78,10 @@
    ],
    [
     "2026-10-24",
+    219.0
+   ],
+   [
+    "2026-10-25",
     219.0
    ]
   ]
