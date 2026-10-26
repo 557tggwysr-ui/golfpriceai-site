@@ -6,14 +6,15 @@
  "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.0,
+ "lowestNewPrice": 189.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clickgolf",
+  "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 169.0,
+   "from": 189.0,
    "options": 5
   },
   {
@@ -31,8 +32,8 @@
   "daysTracked": 72,
   "low": 164.0,
   "high": 189.0,
-  "average": 181.85,
-  "priceChanges": 16,
+  "average": 182.12,
+  "priceChanges": 17,
   "series": [
    [
     "2026-08-16",
@@ -104,13 +105,13 @@
    ],
    [
     "2026-10-26",
-    169.0
+    189.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £25.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Alpine-Golf-Cart-Bag-Navy-Blue.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

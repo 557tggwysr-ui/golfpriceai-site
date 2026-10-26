@@ -6,14 +6,14 @@
  "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 149.0,
+   "from": 169.0,
    "options": 6
   },
   {
@@ -36,8 +36,8 @@
   "daysTracked": 72,
   "low": 149.0,
   "high": 169.0,
-  "average": 164.56,
-  "priceChanges": 9,
+  "average": 164.83,
+  "priceChanges": 10,
   "series": [
    [
     "2026-08-16",
@@ -81,13 +81,13 @@
    ],
    [
     "2026-10-26",
-    149.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Chase-14-Dry-Waterproof-Golf-Cart-Bag---Navy-3.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

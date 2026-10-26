@@ -6,18 +6,19 @@
  "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 969.0,
+ "lowestNewPrice": 999.0,
  "lowestAt": [
+  "Affordable Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 969.0,
+   "name": "Affordable Golf",
+   "from": 999.0,
    "options": 2
   },
   {
-   "name": "Affordable Golf",
+   "name": "Clickgolf",
    "from": 999.0,
    "options": 2
   },
@@ -36,8 +37,8 @@
   "daysTracked": 72,
   "low": 969.0,
   "high": 1049.0,
-  "average": 1013.58,
-  "priceChanges": 13,
+  "average": 1014.0,
+  "priceChanges": 14,
   "series": [
    [
     "2026-08-16",
@@ -97,13 +98,13 @@
    ],
    [
     "2026-10-26",
-    969.0
+    999.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26M5GDMS-M5-GPS-DHC-Hero-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

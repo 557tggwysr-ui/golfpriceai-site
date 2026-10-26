@@ -6,14 +6,14 @@
  "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 224.0,
+ "lowestNewPrice": 239.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 224.0,
+   "from": 239.0,
    "options": 3
   },
   {
@@ -31,8 +31,8 @@
   "daysTracked": 72,
   "low": 219.0,
   "high": 239.0,
-  "average": 227.54,
-  "priceChanges": 16,
+  "average": 227.75,
+  "priceChanges": 17,
   "series": [
    [
     "2026-08-16",
@@ -104,13 +104,13 @@
    ],
    [
     "2026-10-26",
-    224.0
+    239.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Pro-Stand-Bag-Grey-Double.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

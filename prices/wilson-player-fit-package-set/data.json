@@ -6,14 +6,14 @@
  "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 559.0,
+ "lowestNewPrice": 599.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 559.0,
+   "from": 599.0,
    "options": 3
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 72,
   "low": 559.0,
   "high": 599.0,
-  "average": 585.11,
-  "priceChanges": 16,
+  "average": 585.67,
+  "priceChanges": 17,
   "series": [
    [
     "2026-08-16",
@@ -94,13 +94,13 @@
    ],
    [
     "2026-10-26",
-    559.0
+    599.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £40.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Player-Fit-Package-Golf-Club-Set-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

@@ -6,19 +6,19 @@
  "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 259.0,
  "lowestAt": [
-  "Clickgolf"
+  "Major Golf Direct"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 249.0,
+   "name": "Major Golf Direct",
+   "from": 259.0,
    "options": 1
   },
   {
-   "name": "Major Golf Direct",
-   "from": 259.0,
+   "name": "Clickgolf",
+   "from": 279.0,
    "options": 1
   }
  ],
@@ -26,8 +26,8 @@
   "daysTracked": 72,
   "low": 249.0,
   "high": 279.0,
-  "average": 258.03,
-  "priceChanges": 13,
+  "average": 258.17,
+  "priceChanges": 14,
   "series": [
    [
     "2026-08-16",
@@ -87,14 +87,14 @@
    ],
    [
     "2026-10-26",
-    249.0
+    259.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/BG26MTBKCH-M-Tech-2026-Cart-Bag-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MotocaddyM_TechGolfCartBag2026_5.jpg?v=1770816439",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
