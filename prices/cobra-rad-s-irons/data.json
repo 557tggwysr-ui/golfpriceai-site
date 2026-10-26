@@ -6,29 +6,28 @@
  "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 449.0,
+ "lowestNewPrice": 399.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
+   "name": "Clickgolf",
+   "from": 399.0,
+   "options": 1
+  },
+  {
    "name": "Affordable Golf",
    "from": 449.0,
    "options": 3
-  },
-  {
-   "name": "Clickgolf",
-   "from": 449.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 72,
-  "low": 449.0,
+  "low": 399.0,
   "high": 449.0,
-  "average": 449.0,
-  "priceChanges": 0,
+  "average": 448.31,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -36,13 +35,13 @@
    ],
    [
     "2026-10-26",
-    449.0
+    399.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 72 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/RAD-S-Irons-7i-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

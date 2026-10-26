@@ -6,29 +6,28 @@
  "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 219.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
+   "name": "Clickgolf",
+   "from": 219.0,
+   "options": 1
+  },
+  {
    "name": "Affordable Golf",
    "from": 249.0,
    "options": 3
-  },
-  {
-   "name": "Clickgolf",
-   "from": 249.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 72,
-  "low": 239.0,
+  "low": 219.0,
   "high": 249.0,
-  "average": 248.58,
-  "priceChanges": 3,
+  "average": 248.17,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -48,13 +47,13 @@
    ],
    [
     "2026-10-26",
-    249.0
+    219.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/RAD-S-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

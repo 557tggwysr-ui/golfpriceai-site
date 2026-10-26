@@ -1,8 +1,38 @@
 {
- "checked": "2026-10-26T17:58+00:00",
+ "checked": "2026-10-26T22:16+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Cobra RAD-S Driver",
+   "model_id": "cobra-rad-s-driver",
+   "date": "2026-10-26",
+   "was": 249.0,
+   "now": 219.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-rad-s-driver/"
+  },
+  {
+   "model": "Cobra RAD-S Irons",
+   "model_id": "cobra-rad-s-irons",
+   "date": "2026-10-26",
+   "was": 449.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-rad-s-irons/"
+  },
+  {
+   "model": "Cobra RAD-S Fairway Wood",
+   "model_id": "cobra-rad-s-fairway-wood",
+   "date": "2026-10-26",
+   "was": 179.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-rad-s-fairway-wood/"
+  },
   {
    "model": "Mizuno JPX 925 Fli-Hi Hybrid",
    "model_id": "mizuno-jpx-925-fli-hi-hybrid",
