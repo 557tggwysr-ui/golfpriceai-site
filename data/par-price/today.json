@@ -1,66 +1,66 @@
 {
- "n": 8,
- "date": "2026-10-25",
+ "n": 9,
+ "date": "2026-10-26",
  "items": [
   {
-   "slug": "titleist-players-s4-stand-bag-golf-bag",
-   "name": "Titleist Players S4 Stand Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX4-001-S4-Hero.jpg",
-   "price": 159.0,
-   "unit": "each",
-   "type": "golf bag",
-   "low": false,
-   "url": "/prices/titleist-players-s4-stand-bag-golf-bag/"
-  },
-  {
-   "slug": "wilson-dynapwr-fairway-wood",
-   "name": "Wilson DYNAPWR Fairway Wood",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DynapwrFairwayWood-Max1.jpg?v=1776297084",
-   "price": 149.95,
-   "unit": "each",
-   "type": "fairway wood",
-   "low": false,
-   "url": "/prices/wilson-dynapwr-fairway-wood/"
-  },
-  {
-   "slug": "callaway-opus-sp-shadow-wedge",
-   "name": "Callaway Opus SP Shadow Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/OpusSPBlackShadow1_52dbb56c-dff1-4dda-b368-8846a41715bc.jpg?v=1775360763",
-   "price": 159.95,
+   "slug": "cleveland-cbz-wedge",
+   "name": "Cleveland CBZ Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CBZFullFace4.jpg?v=1775354636",
+   "price": 139.95,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/callaway-opus-sp-shadow-wedge/"
+   "url": "/prices/cleveland-cbz-wedge/"
   },
   {
-   "slug": "taylormade-qi-max-irons",
-   "name": "TaylorMade Qi Max Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeGolfQiMAXIrons2026_2.jpg?v=1768226089",
-   "price": 849.0,
+   "slug": "cobra-ds-adapt-max-irons",
+   "name": "Cobra DS-Adapt MAX Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-DS-ADAPT-Max-Irons-Hero.jpg",
+   "price": 499.0,
    "unit": "each",
    "type": "iron set",
    "low": false,
-   "url": "/prices/taylormade-qi-max-irons/"
+   "url": "/prices/cobra-ds-adapt-max-irons/"
   },
   {
-   "slug": "yonex-ezone-elite-hybrid",
-   "name": "Yonex Ezone Elite Hybrid",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/yonex_ezone_elite_4_hybrid_2.jpg?v=1686740273",
-   "price": 129.95,
+   "slug": "titleist-gts3-fairway-wood",
+   "name": "Titleist GTS3 Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS3GolfFairwayWood_1.jpg?v=1778745963",
+   "price": 369.0,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": false,
+   "url": "/prices/titleist-gts3-fairway-wood/"
+  },
+  {
+   "slug": "taylormade-speedsoft-ink-golf-balls",
+   "name": "TaylorMade SpeedSoft Ink Golf Balls",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMade_Speed_Soft_Ink_2025_-_Multi_1.jpg?v=1772032059",
+   "price": 24.99,
+   "unit": "per dozen",
+   "type": "golf ball",
+   "low": false,
+   "url": "/prices/taylormade-speedsoft-ink-golf-balls/"
+  },
+  {
+   "slug": "callaway-elyte-hybrid",
+   "name": "Callaway Elyte Hybrid",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteHybrid2.jpg?v=1776306350",
+   "price": 169.0,
    "unit": "each",
    "type": "hybrid",
-   "low": true,
-   "url": "/prices/yonex-ezone-elite-hybrid/"
+   "low": false,
+   "url": "/prices/callaway-elyte-hybrid/"
   }
  ],
  "pin": {
-  "slug": "cobra-baffler-driver",
-  "name": "Cobra Baffler Driver",
-  "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-SN-Driver-Hero.jpg",
-  "price": 299.0,
+  "slug": "powakaddy-dri-tech-waterproof-cart-bag-golf-bag",
+  "name": "PowaKaddy Dri-TECH Waterproof Cart Bag Golf Bag",
+  "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-Dri-Tech-Waterproof-Golf-Cart-Bag-Black-Yellow.jpg",
+  "price": 249.0,
   "unit": "each",
-  "type": "driver",
+  "type": "golf bag",
   "low": false,
-  "url": "/prices/cobra-baffler-driver/"
+  "url": "/prices/powakaddy-dri-tech-waterproof-cart-bag-golf-bag/"
  }
 }

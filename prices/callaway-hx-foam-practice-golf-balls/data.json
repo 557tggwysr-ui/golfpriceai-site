@@ -1,0 +1,43 @@
+{
+ "name": "Callaway HX Foam Practice Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-hx-foam-practice-golf-balls/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 9.99,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 9.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 9.99,
+  "high": 9.99,
+  "average": 9.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    9.99
+   ],
+   [
+    "2026-10-26",
+    9.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/HXFoam1000_4a557992-9f48-4eb6-87e2-685d5d812613.jpg?v=1674039858",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

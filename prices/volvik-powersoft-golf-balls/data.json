@@ -1,0 +1,43 @@
+{
+ "name": "Volvik PowerSoft Golf Balls",
+ "brand": "Volvik",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/volvik-powersoft-golf-balls/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 16.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 16.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 16.95,
+  "high": 16.95,
+  "average": 16.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    16.95
+   ],
+   [
+    "2026-10-26",
+    16.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/VolvikPowerSoftGolfBalls-MixedColour_2.jpg?v=1771234860",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

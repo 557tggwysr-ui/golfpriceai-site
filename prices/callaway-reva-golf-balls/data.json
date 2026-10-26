@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-reva-golf-balls/",
- "checked": "2026-10-25",
+ "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 24.99,
@@ -34,7 +34,7 @@
   }
  ],
  "history": {
-  "daysTracked": 71,
+  "daysTracked": 72,
   "low": 24.99,
   "high": 24.99,
   "average": 24.99,
@@ -45,14 +45,14 @@
     24.99
    ],
    [
-    "2026-10-25",
+    "2026-10-26",
     24.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 71 days"
+  "summary": "Typical price: steady for 72 days"
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1792836717722/sits/balls-2025-reva-pink/balls-2025-reva-pink_88___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

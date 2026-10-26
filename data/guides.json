@@ -1,6 +1,6 @@
 {
  "about": "GolfPrice AI budget guides and price comparisons, rebuilt every 6 hours.",
- "checked": "2026-10-25",
+ "checked": "2026-10-26",
  "best": [
   {
    "category": "driver",
@@ -85,6 +85,12 @@
    "budget": 1000,
    "title": "Best iron sets under £1000 (UK)",
    "url": "https://golfpriceai.com/prices/best/irons-under-1000/"
+  },
+  {
+   "category": "wedge",
+   "budget": 80,
+   "title": "Best wedges under £80 (UK)",
+   "url": "https://golfpriceai.com/prices/best/wedges-under-80/"
   },
   {
    "category": "wedge",

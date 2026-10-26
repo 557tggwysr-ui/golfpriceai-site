@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-dual-square-2-square-jailbird-os-putter/",
- "checked": "2026-10-25",
+ "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 71,
+  "daysTracked": 72,
   "low": 229.0,
   "high": 259.0,
-  "average": 234.07,
+  "average": 234.0,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     229.0
    ],
    [
-    "2026-10-25",
+    "2026-10-26",
     229.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 59 days"
+  "summary": "Typical price: steady for 60 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/OdysseyGolfAi-DualSquare2SquareJailbirdOSPutter_4.jpg?v=1768490828",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

@@ -1,0 +1,43 @@
+{
+ "name": "Masters Golf Super Deluxe Society Pack Golf Balls",
+ "brand": "Masters Golf",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/masters-golf-super-deluxe-society-pack-golf-balls/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 12.99,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 12.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 12.99,
+  "high": 12.99,
+  "average": 12.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    12.99
+   ],
+   [
+    "2026-10-26",
+    12.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/SoceityPack.jpg?v=1643380149",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

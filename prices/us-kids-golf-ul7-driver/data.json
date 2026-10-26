@@ -1,0 +1,43 @@
+{
+ "name": "US Kids Golf UL7 Driver",
+ "brand": "US Kids Golf",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/us-kids-golf-ul7-driver/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 39.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 39.95,
+   "options": 17
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 39.95,
+  "high": 39.95,
+  "average": 39.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    39.95
+   ],
+   [
+    "2026-10-26",
+    39.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/UL7DVR42.jpg?v=1707402506",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,43 @@
+{
+ "name": "PowaKaddy CT12 XL Electric Trolley",
+ "brand": "PowaKaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/powakaddy-ct12-xl-electric-trolley/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1299.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 1299.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 1299.0,
+  "high": 1299.0,
+  "average": 1299.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    1299.0
+   ],
+   [
+    "2026-10-26",
+    1299.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CT12GPSTROLLEY3.jpg?v=1739446374",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

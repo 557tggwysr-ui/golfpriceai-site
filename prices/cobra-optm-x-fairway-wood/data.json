@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/cobra-optm-x-fairway-wood/",
- "checked": "2026-10-25",
+ "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 279.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 71,
+  "daysTracked": 72,
   "low": 279.0,
   "high": 299.0,
-  "average": 288.3,
+  "average": 288.17,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     279.0
    ],
    [
-    "2026-10-25",
+    "2026-10-26",
     279.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 38 days"
+  "summary": "Typical price: steady for 39 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CobraGolfOPTMXFairway2026_4.jpg?v=1765890970",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-25T20:10+00:00",
+ "checked": "2026-10-26T02:24+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -1044,6 +1044,16 @@
    "url": "https://golfpriceai.com/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/"
   },
   {
+   "model": "Bushnell V6 Shift Laser Rangefinder",
+   "model_id": "bushnell-v6-shift-laser-rangefinder",
+   "date": "2026-10-20",
+   "was": 349.0,
+   "now": 329.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/bushnell-v6-shift-laser-rangefinder/"
+  },
+  {
    "model": "Wilson DYNAPWR Max Irons",
    "model_id": "wilson-dynapwr-max-irons",
    "date": "2026-10-20",
@@ -1062,26 +1072,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/mizuno-pro-t-3-wedge/"
-  },
-  {
-   "model": "Cleveland Halo XL Full-Face Irons",
-   "model_id": "cleveland-halo-xl-full-face-irons",
-   "date": "2026-10-18",
-   "was": 399.0,
-   "now": 349.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cleveland-halo-xl-full-face-irons/"
-  },
-  {
-   "model": "Cleveland Halo XL Fairway Wood",
-   "model_id": "cleveland-halo-xl-fairway-wood",
-   "date": "2026-10-18",
-   "was": 129.0,
-   "now": 119.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cleveland-halo-xl-fairway-wood/"
   }
  ]
 }

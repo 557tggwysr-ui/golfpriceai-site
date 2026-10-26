@@ -1,0 +1,47 @@
+{
+ "name": "Shot Scope V5 Performance Tracking GPS Watch",
+ "brand": "Shot Scope",
+ "type": "GPS watch",
+ "url": "https://golfpriceai.com/prices/shot-scope-v5-performance-tracking-gps-watch/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 239.99,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 239.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 199.0,
+  "high": 239.99,
+  "average": 231.79,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    199.0
+   ],
+   [
+    "2026-09-09",
+    239.99
+   ],
+   [
+    "2026-10-26",
+    239.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £40.99 above its tracked low"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/V54.jpg?v=1710951106",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

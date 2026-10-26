@@ -1,0 +1,47 @@
+{
+ "name": "Wilson Duo Soft TRK 360 Golf Balls",
+ "brand": "Wilson",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/wilson-duo-soft-trk-360-golf-balls/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 19.99,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 19.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 19.99,
+  "high": 22.95,
+  "average": 20.63,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    22.95
+   ],
+   [
+    "2026-09-10",
+    19.99
+   ],
+   [
+    "2026-10-26",
+    19.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 47 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DUOSOFTTRK3601.jpg?v=1738682549",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

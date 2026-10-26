@@ -1,0 +1,47 @@
+{
+ "name": "Wilson Player Fit Premium Package Set",
+ "brand": "Wilson",
+ "type": "package set",
+ "url": "https://golfpriceai.com/prices/wilson-player-fit-premium-package-set/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 549.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 549.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 529.99,
+  "high": 549.0,
+  "average": 544.88,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    529.99
+   ],
+   [
+    "2026-09-10",
+    549.0
+   ],
+   [
+    "2026-10-26",
+    549.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Playersfit1.jpg?v=1706016861",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

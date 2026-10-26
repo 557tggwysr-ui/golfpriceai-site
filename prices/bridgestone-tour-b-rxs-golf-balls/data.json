@@ -1,0 +1,43 @@
+{
+ "name": "Bridgestone TOUR B RXS Golf Balls",
+ "brand": "Bridgestone",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/bridgestone-tour-b-rxs-golf-balls/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 37.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 37.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 37.95,
+  "high": 37.95,
+  "average": 37.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    37.95
+   ],
+   [
+    "2026-10-26",
+    37.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BRXS4.jpg?v=1776254236",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,47 @@
+{
+ "name": "Ben Sayers 18 Hole Electric Trolley",
+ "brand": "Ben Sayers",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/ben-sayers-18-hole-electric-trolley/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 349.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 349.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 345.0,
+  "high": 349.0,
+  "average": 347.2,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    345.0
+   ],
+   [
+    "2026-09-24",
+    349.0
+   ],
+   [
+    "2026-10-26",
+    349.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/BenSayers18HoleLithiumElectricGolfTrolley-BlackRed_Free_100GiftPack_1.jpg?v=1771238860",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,43 @@
+{
+ "name": "Motocaddy M Tech Ultra Electric Trolley",
+ "brand": "Motocaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/motocaddy-m-tech-ultra-electric-trolley/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1199.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 1199.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 1199.0,
+  "high": 1199.0,
+  "average": 1199.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    1199.0
+   ],
+   [
+    "2026-10-26",
+    1199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MotocaddyM_TechElectricGolfTrolley2026_4.jpg?v=1770816149",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

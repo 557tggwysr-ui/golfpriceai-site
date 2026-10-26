@@ -1,0 +1,43 @@
+{
+ "name": "Voice Caddie SC4 Pro Launch Monitor",
+ "brand": "Voice Caddie",
+ "type": "launch monitor",
+ "url": "https://golfpriceai.com/prices/voice-caddie-sc4-pro-launch-monitor/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 599.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 599.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 599.0,
+  "high": 599.0,
+  "average": 599.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    599.0
+   ],
+   [
+    "2026-10-26",
+    599.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SC4PROLAUNCHMONITOR3.jpg?v=1739803384",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/titleist-cart-bag-golf-bag/",
- "checked": "2026-10-25",
+ "checked": "2026-10-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 71,
+  "daysTracked": 72,
   "low": 149.0,
   "high": 179.0,
-  "average": 154.07,
+  "average": 154.0,
   "priceChanges": 1,
   "series": [
    [
@@ -48,14 +48,14 @@
     149.0
    ],
    [
-    "2026-10-25",
+    "2026-10-26",
     149.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 59 days"
+  "summary": "Typical price: steady for 60 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/cart142022baggraphiteislandredblack.jpg?v=1703926024",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

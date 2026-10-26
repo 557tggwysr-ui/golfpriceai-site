@@ -1,0 +1,43 @@
+{
+ "name": "Powerbilt X-Grind Satin Wedge",
+ "brand": "Powerbilt",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/powerbilt-x-grind-satin-wedge/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 24.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 24.95,
+   "options": 8
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 24.95,
+  "high": 24.95,
+  "average": 24.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    24.95
+   ],
+   [
+    "2026-10-26",
+    24.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PowerbiltX-GrindSatinWedge4.jpg?v=1744102286",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

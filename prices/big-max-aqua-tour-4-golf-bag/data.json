@@ -1,0 +1,43 @@
+{
+ "name": "Big Max Aqua Tour 4 Golf Bag",
+ "brand": "Big Max",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/big-max-aqua-tour-4-golf-bag/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 239.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 239.0,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 239.0,
+  "high": 239.0,
+  "average": 239.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    239.0
+   ],
+   [
+    "2026-10-26",
+    239.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/AQUATour4_b_main_1000_1000.png?v=1704290366",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

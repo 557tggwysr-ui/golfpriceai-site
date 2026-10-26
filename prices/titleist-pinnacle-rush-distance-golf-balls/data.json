@@ -1,0 +1,43 @@
+{
+ "name": "Titleist Pinnacle Rush Distance Golf Balls",
+ "brand": "Titleist",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/titleist-pinnacle-rush-distance-golf-balls/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 15.19,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 15.19,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 15.19,
+  "high": 15.19,
+  "average": 15.19,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    15.19
+   ],
+   [
+    "2026-10-26",
+    15.19
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/pinnaclerushdistayellow.jpg?v=1688628831",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

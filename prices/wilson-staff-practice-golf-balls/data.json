@@ -1,0 +1,43 @@
+{
+ "name": "Wilson Staff Practice Golf Balls",
+ "brand": "Wilson",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/wilson-staff-practice-golf-balls/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 7.97,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 7.97,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 7.97,
+  "high": 7.97,
+  "average": 7.97,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    7.97
+   ],
+   [
+    "2026-10-26",
+    7.97
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/20260315_131052.jpg?v=1773580423",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

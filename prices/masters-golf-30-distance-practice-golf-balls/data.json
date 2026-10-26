@@ -1,0 +1,43 @@
+{
+ "name": "Masters Golf 30 Distance Practice Golf Balls",
+ "brand": "Masters Golf",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/masters-golf-30-distance-practice-golf-balls/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 9.99,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 9.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 9.99,
+  "high": 9.99,
+  "average": 9.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    9.99
+   ],
+   [
+    "2026-10-26",
+    9.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/30_Balls.jpg?v=1643299833",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

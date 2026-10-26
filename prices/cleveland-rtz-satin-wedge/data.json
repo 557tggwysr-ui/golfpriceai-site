@@ -1,0 +1,43 @@
+{
+ "name": "Cleveland RTZ Satin Wedge",
+ "brand": "Cleveland",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/cleveland-rtz-satin-wedge/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 129.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 129.95,
+   "options": 9
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 109.0,
+  "high": 109.0,
+  "average": 109.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    109.0
+   ],
+   [
+    "2026-10-26",
+    109.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/RTZBlackSatin5.jpg?v=1776296365",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

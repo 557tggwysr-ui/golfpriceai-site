@@ -1,0 +1,51 @@
+{
+ "name": "Powerbilt Pro Power 10-Piece Package Set",
+ "brand": "Powerbilt",
+ "type": "package set",
+ "url": "https://golfpriceai.com/prices/powerbilt-pro-power-10-piece-package-set/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 199.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 179.0,
+  "high": 199.0,
+  "average": 195.33,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-08-28",
+    199.0
+   ],
+   [
+    "2026-09-10",
+    179.0
+   ],
+   [
+    "2026-09-21",
+    199.0
+   ],
+   [
+    "2026-10-26",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PowerBiltGolfProPowerMen_s10PiecePackageSet-StandBag.jpg?v=1780668821",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

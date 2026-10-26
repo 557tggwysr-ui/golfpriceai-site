@@ -1,0 +1,43 @@
+{
+ "name": "Longridge Pro Cart Bag Golf Bag",
+ "brand": "Longridge",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/longridge-pro-cart-bag-golf-bag/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 109.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 109.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 109.0,
+  "high": 109.0,
+  "average": 109.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    109.0
+   ],
+   [
+    "2026-10-26",
+    109.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/LongridgeProBLKWhite1000.jpg?v=1742567039",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

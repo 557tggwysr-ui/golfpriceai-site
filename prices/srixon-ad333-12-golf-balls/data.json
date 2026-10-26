@@ -1,0 +1,43 @@
+{
+ "name": "Srixon AD333 12 Golf Balls",
+ "brand": "Srixon",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/srixon-ad333-12-golf-balls/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 22.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 22.95,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 22.95,
+  "high": 22.95,
+  "average": 22.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    22.95
+   ],
+   [
+    "2026-10-26",
+    22.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonAD33312GolfBalls2026-White_1.jpg?v=1765453014",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

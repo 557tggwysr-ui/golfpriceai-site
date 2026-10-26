@@ -1,0 +1,47 @@
+{
+ "name": "Powerbilt GSX 14-Piece Package Set",
+ "brand": "Powerbilt",
+ "type": "package set",
+ "url": "https://golfpriceai.com/prices/powerbilt-gsx-14-piece-package-set/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 279.0,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 279.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 199.0,
+  "high": 279.0,
+  "average": 261.67,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    199.0
+   ],
+   [
+    "2026-09-10",
+    279.0
+   ],
+   [
+    "2026-10-26",
+    279.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £80.00 above its tracked low"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PowerBiltGolfGSXMen_s14PiecePackageSet-StandBag_14_6d79e9de-79dd-4a25-a121-a983102b6888.jpg?v=1780924743",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

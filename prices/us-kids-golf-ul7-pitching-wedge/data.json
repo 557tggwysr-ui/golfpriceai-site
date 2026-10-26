@@ -1,0 +1,43 @@
+{
+ "name": "US Kids Golf UL7 Pitching Wedge",
+ "brand": "US Kids Golf",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/us-kids-golf-ul7-pitching-wedge/",
+ "checked": "2026-10-26",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 27.95,
+ "lowestAt": [
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 27.95,
+   "options": 20
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 27.95,
+  "high": 27.95,
+  "average": 27.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    27.95
+   ],
+   [
+    "2026-10-26",
+    27.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/UL7PW39.jpg?v=1707410188",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}
