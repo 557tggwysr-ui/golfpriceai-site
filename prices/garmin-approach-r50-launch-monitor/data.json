@@ -6,14 +6,14 @@
  "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 3879.99,
+ "lowestNewPrice": 4299.99,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 3879.99,
+   "from": 4299.99,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 73,
   "low": 3879.99,
   "high": 4299.99,
-  "average": 4184.92,
-  "priceChanges": 1,
+  "average": 4190.67,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -34,13 +34,13 @@
    ],
    [
     "2026-10-27",
-    3879.99
+    4299.99
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £420.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Garmin-Golf-Approach-R50-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
