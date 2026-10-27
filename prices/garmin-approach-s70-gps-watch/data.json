@@ -3,7 +3,7 @@
  "brand": "Garmin",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 499.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 469.0,
   "high": 529.0,
-  "average": 498.0,
+  "average": 498.02,
   "priceChanges": 2,
   "series": [
    [
@@ -47,7 +47,7 @@
     499.0
    ],
    [
-    "2026-10-26",
+    "2026-10-27",
     499.0
    ]
   ]

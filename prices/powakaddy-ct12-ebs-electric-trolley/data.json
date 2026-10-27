@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct12-ebs-electric-trolley/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1299.0,
@@ -30,10 +30,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 1219.0,
   "high": 1299.0,
-  "average": 1284.42,
+  "average": 1284.62,
   "priceChanges": 12,
   "series": [
    [
@@ -86,6 +86,10 @@
    ],
    [
     "2026-10-26",
+    1299.0
+   ],
+   [
+    "2026-10-27",
     1299.0
    ]
   ]

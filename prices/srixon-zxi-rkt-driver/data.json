@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/srixon-zxi-rkt-driver/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 529.0,
@@ -30,10 +30,10 @@
   }
  ],
  "history": {
-  "daysTracked": 39,
+  "daysTracked": 40,
   "low": 529.0,
   "high": 569.0,
-  "average": 544.38,
+  "average": 544.0,
   "priceChanges": 1,
   "series": [
    [
@@ -45,7 +45,7 @@
     529.0
    ],
    [
-    "2026-10-26",
+    "2026-10-27",
     529.0
    ]
   ]

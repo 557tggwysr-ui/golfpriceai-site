@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-soft-trutrack-golf-balls/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 44.99,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 44.99,
   "high": 49.99,
-  "average": 46.31,
+  "average": 46.29,
   "priceChanges": 1,
   "series": [
    [
@@ -43,14 +43,14 @@
     44.99
    ],
    [
-    "2026-10-26",
+    "2026-10-27",
     44.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 53 days"
+  "summary": "Typical price: steady for 54 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/38.jpg?v=1773183284",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

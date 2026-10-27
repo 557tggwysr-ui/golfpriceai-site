@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/titleist-gt1-driver/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 449.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 449.0,
   "high": 499.0,
-  "average": 485.81,
+  "average": 485.3,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     449.0
    ],
    [
-    "2026-10-26",
+    "2026-10-27",
     449.0
    ]
   ]

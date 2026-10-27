@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-limited-chrome-soft-truvis-team-golf-balls/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 44.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 44.0,
   "high": 55.0,
-  "average": 44.76,
+  "average": 44.75,
   "priceChanges": 1,
   "series": [
    [
@@ -33,14 +33,14 @@
     44.0
    ],
    [
-    "2026-10-26",
+    "2026-10-27",
     44.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 67 days"
+  "summary": "Typical price: steady for 68 days"
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1788281849410/sits/balls-2022-chrome-soft-truvis-team-red-blue/balls-2022-chrome-soft-truvis-team-red-blue_2___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

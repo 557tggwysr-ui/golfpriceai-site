@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/wilson-staff-model-rb-utility-irons/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 199.95,
   "high": 219.0,
-  "average": 204.98,
+  "average": 204.91,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     199.95
    ],
    [
-    "2026-10-26",
+    "2026-10-27",
     199.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 53 days"
+  "summary": "Typical price: steady for 54 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Wilson_Staff_Model_RB_Utility_Iron_1.jpg?v=1777953382",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

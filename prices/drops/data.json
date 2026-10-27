@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-26T22:16+00:00",
+ "checked": "2026-10-27T03:00+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -212,16 +212,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/wilson-dynapwr-max-irons/"
-  },
-  {
-   "model": "Mizuno Pro T-3 Wedge",
-   "model_id": "mizuno-pro-t-3-wedge",
-   "date": "2026-10-19",
-   "was": 149.0,
-   "now": 119.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-pro-t-3-wedge/"
   }
  ]
 }

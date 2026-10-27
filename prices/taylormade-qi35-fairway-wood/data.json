@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/taylormade-qi35-fairway-wood/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 199.95,
   "high": 229.0,
-  "average": 212.05,
+  "average": 211.89,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     199.95
    ],
    [
-    "2026-10-26",
+    "2026-10-27",
     199.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 42 days"
+  "summary": "Typical price: steady for 43 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeQi35FairwayWood4.jpg?v=1776305283",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

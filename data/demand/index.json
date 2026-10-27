@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-10-26",
+ "date": "2026-10-27",
  "status": "warming up",
  "week": {
-  "from": "2026-10-20",
-  "to": "2026-10-26"
+  "from": "2026-10-21",
+  "to": "2026-10-27"
  },
  "chart": [],
  "wishfulThinking": [
@@ -18,18 +18,18 @@
   },
   {
    "category": "Golf balls",
-   "averageGuessVsRealPricePct": 19,
-   "guesses": 15
+   "averageGuessVsRealPricePct": 23,
+   "guesses": 16
   },
   {
    "category": "Iron sets",
-   "averageGuessVsRealPricePct": -16,
-   "guesses": 26
+   "averageGuessVsRealPricePct": -18,
+   "guesses": 27
   },
   {
-   "category": "Fairway woods",
-   "averageGuessVsRealPricePct": -9,
-   "guesses": 31
+   "category": "Hybrids",
+   "averageGuessVsRealPricePct": 12,
+   "guesses": 25
   }
  ],
  "categoryShare": [],

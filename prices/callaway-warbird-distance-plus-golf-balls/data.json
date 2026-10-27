@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-warbird-distance-plus-golf-balls/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 18.99,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 18.99,
   "high": 21.99,
-  "average": 19.64,
+  "average": 19.63,
   "priceChanges": 2,
   "series": [
    [
@@ -42,14 +42,14 @@
     18.99
    ],
    [
-    "2026-10-26",
+    "2026-10-27",
     18.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 53 days"
+  "summary": "Typical price: steady for 54 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Warbird6.jpg?v=1776305510",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

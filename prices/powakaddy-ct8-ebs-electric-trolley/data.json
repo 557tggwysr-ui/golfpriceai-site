@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct8-ebs-electric-trolley/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 999.0,
@@ -35,10 +35,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 999.0,
   "high": 1049.0,
-  "average": 1007.33,
+  "average": 1007.22,
   "priceChanges": 1,
   "series": [
    [
@@ -50,14 +50,14 @@
     999.0
    ],
    [
-    "2026-10-26",
+    "2026-10-27",
     999.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "summary": "Typical price: steady for 61 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CT8GPS4-Copy.jpg?v=1708960750",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

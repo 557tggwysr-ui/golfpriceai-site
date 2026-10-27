@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-qi4d-tour-stand-bag-golf-bag/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 304.0,
   "high": 329.0,
-  "average": 324.14,
+  "average": 324.21,
   "priceChanges": 10,
   "series": [
    [
@@ -66,6 +66,10 @@
    ],
    [
     "2026-10-26",
+    329.0
+   ],
+   [
+    "2026-10-27",
     329.0
    ]
   ]

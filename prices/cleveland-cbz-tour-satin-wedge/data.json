@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/cleveland-cbz-tour-satin-wedge/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 124.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 124.95,
   "high": 149.0,
-  "average": 128.96,
+  "average": 128.9,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     124.95
    ],
    [
-    "2026-10-26",
+    "2026-10-27",
     124.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "summary": "Typical price: steady for 61 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ClevelandGolfCBZWedge2.jpg?v=1774537996",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

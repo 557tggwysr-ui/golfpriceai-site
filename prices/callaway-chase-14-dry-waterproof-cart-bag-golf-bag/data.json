@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-chase-14-dry-waterproof-cart-bag-golf-bag/",
- "checked": "2026-10-26",
+ "checked": "2026-10-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 149.0,
   "high": 169.0,
-  "average": 164.83,
+  "average": 164.89,
   "priceChanges": 10,
   "series": [
    [
@@ -81,6 +81,10 @@
    ],
    [
     "2026-10-26",
+    169.0
+   ],
+   [
+    "2026-10-27",
     169.0
    ]
   ]
