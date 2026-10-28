@@ -54,6 +54,8 @@
     document.getElementById('mc-hello').textContent = 'Your locker’s empty. For now.';
     document.getElementById('mc-sub').textContent = 'Play a round, join your golf society or save some kit, and it all turns up here. No sign-up, no password, nothing to remember.';
   }
+  function gpUse(k) { try { var d = new Date().toISOString().slice(0, 10), key = 'gpUse_' + k; if (localStorage.getItem(key) === d) return; localStorage.setItem(key, d); fetch('https://golfpriceai-alerts.golfpriceai.workers.dev/use', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: k }), keepalive: true }).catch(function () {}); } catch (e) { /* counts are a nice-to-have */ } }
+  gpUse('mc_view');
   if (!anything) { box.innerHTML = starters(); track('my_clubhouse_view', { state: 'new' }); return; }
 
   // ---------------------------------------------------------------- the live parts, all at once

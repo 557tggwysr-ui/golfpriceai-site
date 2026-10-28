@@ -99,7 +99,7 @@ td:first-child { font-weight: 400; }
   function store(remember) { return remember ? localStorage : sessionStorage; }
   function getKey() { try { return localStorage.getItem(KEY) || sessionStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
   function forget() { try { localStorage.removeItem(KEY); sessionStorage.removeItem(KEY); } catch (e) { /* fine */ } }
-  function n(x) { return x == null ? '–' : Number(x).toLocaleString('en-GB'); }
+  function n(x) { return x == null ? '–' : typeof x === 'string' ? x : Number(x).toLocaleString('en-GB'); }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
   var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   function short(iso) { return Number(iso.slice(8)) + ' ' + MON[Number(iso.slice(5, 7)) - 1]; }
@@ -145,17 +145,36 @@ td:first-child { font-weight: 400; }
         return '<span class="' + (i === d.daily.length - 1 ? 'now' : '') + '" style="height:' + Math.round(x.players / max * 100) + '%" title="' + short(x.day) + ': ' + x.players + ' golfers, ' + x.rounds + ' Par Price rounds"></span>';
       }).join('') + '</div><div class="axis"><span>' + short(d.daily[0].day) + '</span><span>Busiest day: ' + max + ' golfers</span><span>Today</span></div></section>';
 
+    var r = d.retention || {}, f = d.funnel || {}, e = d.ecosystem || {}, sh = d.shopping || {};
+    var pct = function (a, b) { return b ? Math.round(a / b * 100) + '%' : '–'; };
+    html += '<div class="two"><section class="card"><h2>Do golfers come back?</h2><div class="nums">' +
+      num(pct(r.back, r.cohort), 'played again within a week') + num(r.returningToday, 'returning golfers today') + num(p.newToday, 'new golfers today') + '</div>' +
+      '<span class="dim">' + (r.cohort ? n(r.back) + ' of the ' + n(r.cohort) + ' golfers who first played 7 to 13 days ago came back within 7 days.' : 'Needs a week or two of golfers before it means much.') + '</span></section>' +
+      '<section class="card"><h2>The ecosystem link</h2><div class="nums">' + num(pct(e.multi, e.any), 'use 2+ parts') + num(e.multi, 'golfers') + num(e.any, 'golfers in total') + '</div>' +
+      '<span class="dim">Golfers who use two or more of: the games, a league, a golf society, the Bag Draft.</span></section></div>';
+    html += '<div class="two"><section class="card"><h2>Finishing what they start</h2><table><tr><th></th><th>Started</th><th>Finished</th></tr>' +
+      '<tr><td>Par Price today</td><td>' + n(f.ppStartToday) + '</td><td>' + n(g.ppToday) + '</td></tr>' +
+      '<tr><td>Par Price, 7 days</td><td>' + n(f.ppStart7) + '</td><td>' + n(g.pp7) + '</td></tr>' +
+      '<tr><td>Bag Draft this month</td><td>' + n(f.bdStartMonth) + '</td><td>' + n(g.draftMonth) + '</td></tr></table>' +
+      '<span class="dim">Started counts began on 26 October 2026. A big gap means a step is confusing or too long.</span></section>' +
+      '<section class="card"><h2>From fun to shopping</h2><table><tr><th></th><th>Today</th><th>7 days</th></tr>' +
+      '<tr><td>Kit saved to shortlists</td><td>' + n(sh.savesToday) + '</td><td>' + n(sh.saves7) + '</td></tr>' +
+      '<tr><td>Price alerts confirmed</td><td>' + n(sh.alertsToday) + '</td><td>' + n(sh.alerts7) + '</td></tr>' +
+      '<tr><td>My Clubhouse visits</td><td>' + n(sh.clubhouseToday) + '</td><td>' + n(sh.clubhouse7) + '</td></tr>' +
+      '<tr><td>Move my Clubhouse codes used</td><td>–</td><td>' + n(sh.moves7) + '</td></tr></table></section></div>';
     html += '<div class="two"><section class="card"><h2>Games</h2><table><tr><th>Game</th><th>Today</th><th>7 days</th></tr>' +
       '<tr><td>Par Price rounds</td><td>' + n(g.ppToday) + '</td><td>' + n(g.pp7) + '</td></tr>' +
       '<tr><td>Higher or Lower runs</td><td>' + n(g.hlToday) + '</td><td>' + n(g.hl7) + '</td></tr>' +
       '<tr><td>Bag Draft players (this month)</td><td>–</td><td>' + n(g.draftMonth) + '</td></tr>' +
       '<tr><td>On a Par Price streak of 3+ days</td><td>' + n(g.streak3) + '</td><td>–</td></tr></table></section>' +
       '<section class="card"><h2>Leagues</h2><div class="nums">' + num(l.count, 'leagues') + num(l.members, 'league places') + num(l.players, 'different golfers') + num(l.activeWeek, 'active this week') + '</div>' +
-      '<span class="dim">Average size ' + n(l.average) + ' · biggest league: ' + n(l.biggest) + ' golfers · ' + n(l.newWeek) + ' new this week · ' + n(l.linked) + ' linked to a society</span></section></div>';
+      '<span class="dim">Average size ' + n(l.average) + ' · biggest league: ' + n(l.biggest) + ' golfers · ' + n(l.newWeek) + ' new this week · ' + n(l.linked) + ' linked to a society</span>' +
+      '<span class="dim"><b>Health:</b> ' + n(l.twoActive) + ' leagues with 2+ golfers playing this week · ' + n(l.solo) + ' leagues of one (the invite never landed)</span></section></div>';
 
     html += '<section class="card"><h2>Society HQ</h2><div class="nums">' + num(s.count, 'societies') + num(s.members, 'members') + num(s.listed, 'in Find a Society') +
       num(s.daysAhead, 'golf days coming up') + num(s.insAhead, '“in” replies') + num(s.founding, 'Founding badges (of 50)') + '</div>' +
-      '<span class="dim">Average ' + n(s.average) + ' members · biggest: ' + n(s.biggest) + ' · ' + n(s.newWeek) + ' new this week · awards kits made: ' + n(s.kits) + ' · prizes picked: ' + n(s.prizes) + '</span></section>';
+      '<span class="dim">Average ' + n(s.average) + ' members · biggest: ' + n(s.biggest) + ' · ' + n(s.newWeek) + ' new this week · awards kits made: ' + n(s.kits) + ' · prizes picked: ' + n(s.prizes) + '</span>' +
+      '<span class="dim"><b>Health:</b> ' + n(s.withDay) + ' societies with a golf day booked · average reply rate ' + (s.replyRate == null ? '–' : s.replyRate + '%') + ' · ' + n(s.full) + ' golf days full · ' + n(s.waitlists) + ' using the waiting list</span></section>';
 
     var gmax = Math.max.apply(null, d.growth.map(function (w) { return Math.max(w.leagues, w.societies); }).concat([1]));
     html += '<div class="two"><section class="card"><h2>Growth</h2><span class="dim">Leagues and societies at the end of each week</span><div class="growth" role="img" aria-label="Leagues and societies over the last six weeks">' +

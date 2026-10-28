@@ -111,6 +111,7 @@ export default {
       if (url.pathname.startsWith('/draft/')) return await bagDraft(request, url, env, cors);
       if (url.pathname.startsWith('/soc/')) return await society(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
+      if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
       if (url.pathname === '/unsubscribe') return await unsubscribe(url, env, request.method === 'POST');
       if (url.pathname === '/') return new Response('GolfPrice AI alerts: OK', { headers: { 'content-type': 'text/plain' } });
@@ -312,6 +313,7 @@ async function confirm(url, env) {
     if (!made.ok) return Response.redirect(`${site}/alerts-confirmed.html?status=error`, 302);
   }
   if (data.f && FB_RX.test(data.f) && isNewWatch) await countInvite(env, data.f);
+  await useBump(env, 'alert_signup');
   const one = data.m && !String(data.m).includes(',') ? '&m=' + data.m : '';
   const multi = String(data.m || '').includes(',') ? (data.l === 2 ? 'compare' : data.l ? 'list' : 'bag') : 'ok';
   const fbq = data.f && FB_RX.test(data.f) ? '&fb=1' : '';
@@ -384,6 +386,41 @@ async function fourballCount(url, env, cors) {
     } catch (e) { /* counts are a nice-to-have */ }
   }
   return json({ ok: true, n, total }, 200, Object.assign({ 'cache-control': 'public, max-age=60' }, cors));
+}
+
+/* ------------------------------------------------------------------ usage counts
+   Anonymous daily tallies for John's stats page: how many golfers started a
+   Par Price round or a Bag Draft, opened My Clubhouse, used a Move code or
+   confirmed a price alert. One count per visitor per kind per day (the same
+   hashed, daily-forgotten visitor key as the Demand Index); no ids kept. */
+const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1 };
+async function useSetup(env) {
+  await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
+}
+async function useBump(env, kind) {
+  if (!env.DEMAND) return;
+  try {
+    await useSetup(env);
+    await env.DEMAND.prepare('INSERT INTO use_counts (day, kind, n) VALUES (?, ?, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1')
+      .bind(new Date().toISOString().slice(0, 10), kind).run();
+  } catch (e) { /* counts are a nice-to-have */ }
+}
+async function useCount(request, env, cors) {
+  const ok = json({ ok: true }, 200, cors);
+  const origin = request.headers.get('origin') || '';
+  if (!env.DEMAND || ![env.SITE || 'https://golfpriceai.com', 'https://www.golfpriceai.com'].includes(origin)) return ok;
+  let body = {};
+  try { body = JSON.parse((await request.text()).slice(0, 200)); } catch (e) { return ok; }
+  const kind = String(body.k || '');
+  if (!USE_KINDS[kind]) return ok;
+  try {
+    await demandSetup(env);
+    const day = new Date().toISOString().slice(0, 10), ip = request.headers.get('cf-connecting-ip') || '';
+    const v = (await sha1([ip, day, env.ALERTS_SECRET || ''].join('|'))).slice(0, 16);
+    const r = await env.DEMAND.prepare('INSERT OR IGNORE INTO seen (day, v, kind, key) VALUES (?, ?, ?, ?)').bind(day, v, 'use', kind).run();
+    if (r.meta && r.meta.changes) await useBump(env, kind);
+  } catch (e) { /* fine */ }
+  return ok;
 }
 
 /* ------------------------------------------------------------------ Clubhouse stats
@@ -473,6 +510,57 @@ async function clubStats(request, env, cors) {
     const end = ppDay(monday - 7 * i + 6);
     out.growth.push({ week: ppDay(monday - 7 * i), leagues: lgDays.filter((d) => d && d <= end).length, societies: scDays.filter((d) => d && d <= end).length });
   }
+
+  // ---- Do golfers come back? First played 7 to 13 days ago: did they play again within 7 days?
+  const cohort = await all(`WITH play AS (${PLAY}), f AS (SELECT pid, MIN(n) AS f FROM play GROUP BY pid)
+    SELECT COUNT(*) AS total, SUM(CASE WHEN EXISTS (SELECT 1 FROM play p WHERE p.pid = f.pid AND p.n > f.f AND p.n <= f.f + 7) THEN 1 ELSE 0 END) AS back
+    FROM f WHERE f.f BETWEEN ? AND ?`, today - 13, today - 7);
+  const ch = cohort[0] || {};
+  out.retention = { cohort: Number(ch.total) || 0, back: Number(ch.back) || 0,
+    returningToday: Math.max(0, (out.players.today || 0) - (out.players.newToday || 0)) };
+
+  // ---- Started v finished (starts come from the anonymous /use counts)
+  let use = [];
+  try { await useSetup(env); use = await all('SELECT day, kind, n FROM use_counts WHERE day >= ?', new Date(Date.now() - 31 * 864e5).toISOString().slice(0, 10)); } catch (e) { /* none yet */ }
+  const sumUse = (kind, since) => use.filter((r) => r.kind === kind && r.day >= since).reduce((s, r) => s + (Number(r.n) || 0), 0);
+  const d7 = new Date(Date.now() - 6 * 864e5).toISOString().slice(0, 10), mon1 = new Date().toISOString().slice(0, 8) + '01';
+  out.funnel = {
+    ppStartToday: sumUse('pp_start', day), ppStart7: sumUse('pp_start', d7),
+    bdStartMonth: sumUse('bd_start', mon1),
+  };
+
+  // ---- League and society health
+  out.leagues.twoActive = await one('SELECT COUNT(*) AS c FROM (SELECT m.league FROM pp_members m JOIN (SELECT DISTINCT pid FROM pp_scores WHERE n >= ?) s ON s.pid = m.pid GROUP BY m.league HAVING COUNT(*) >= 2)', monday);
+  out.leagues.solo = await one('SELECT COUNT(*) AS c FROM (SELECT league FROM pp_members GROUP BY league HAVING COUNT(*) = 1)');
+  out.societies.withDay = await one('SELECT COUNT(DISTINCT soc) AS c FROM soc_events WHERE day >= ?', day);
+  const evs = await all(`SELECT v.id, v.cap, (SELECT COUNT(*) FROM soc_members m WHERE m.soc = v.soc) AS members,
+    (SELECT COUNT(*) FROM soc_entries e WHERE e.event = v.id) AS replies,
+    (SELECT COUNT(*) FROM soc_entries e WHERE e.event = v.id AND e.status = 'in') AS ins,
+    (SELECT COUNT(*) FROM soc_entries e WHERE e.event = v.id AND e.status = 'wait') AS waits
+    FROM soc_events v WHERE v.day >= ?`, day);
+  const rates = evs.filter((e) => Number(e.members) > 0).map((e) => Math.min(1, Number(e.replies) / Number(e.members)));
+  out.societies.replyRate = rates.length ? Math.round(rates.reduce((a, b) => a + b, 0) / rates.length * 100) : null;
+  out.societies.full = evs.filter((e) => Number(e.cap) > 0 && Number(e.ins) >= Number(e.cap)).length;
+  out.societies.waitlists = evs.filter((e) => Number(e.waits) > 0).length;
+
+  // ---- The ecosystem link: golfers using two or more parts (games, leagues, societies, Bag Draft)
+  const ecoSql = (parts) => `WITH play AS (${PLAY}) SELECT SUM(CASE WHEN c >= 2 THEN 1 ELSE 0 END) AS multi, COUNT(*) AS anyuse FROM (
+    SELECT pid, COUNT(DISTINCT src) AS c FROM (${parts.join(' UNION ')}) GROUP BY pid)`;
+  const parts = ["SELECT DISTINCT pid, 'g' AS src FROM play", "SELECT DISTINCT pid, 'l' FROM pp_members", "SELECT DISTINCT pid, 's' FROM soc_members", "SELECT DISTINCT pid, 'd' FROM bd_drafts WHERE season != 'test'"];
+  let eco = await all(ecoSql(parts));
+  if (!eco.length) eco = await all(ecoSql(parts.slice(0, 3))); // no Bag Draft table yet
+  const ec = eco[0] || {};
+  out.ecosystem = { multi: Number(ec.multi) || 0, any: Number(ec.anyuse) || 0 };
+
+  // ---- From fun to shopping
+  const hearts = await all("SELECT day, SUM(n) AS c FROM counts WHERE kind = 'heart' AND day >= ? GROUP BY day", d7);
+  out.shopping = {
+    savesToday: hearts.filter((r) => r.day === day).reduce((s, r) => s + (Number(r.c) || 0), 0),
+    saves7: hearts.reduce((s, r) => s + (Number(r.c) || 0), 0),
+    alertsToday: sumUse('alert_signup', day), alerts7: sumUse('alert_signup', d7),
+    clubhouseToday: sumUse('mc_view', day), clubhouse7: sumUse('mc_view', d7),
+    moves7: sumUse('move_used', d7),
+  };
 
   out.other = { fourball: 0, alerts: null };
   try { if (env.FOURBALL) out.other.fourball = Number(await env.FOURBALL.get('total')) || 0; } catch (e) { /* fine */ }
@@ -713,6 +801,7 @@ async function ppMoveClaim(env, body, ip, cors) {
   const row = await env.DEMAND.prepare('SELECT pid, data FROM pp_moves WHERE code = ? AND exp >= ?').bind(code, Date.now()).first();
   if (!row) return json({ ok: false, error: 'That code has run out or been used. Get a fresh one on your other device.' }, 404, cors);
   await env.DEMAND.prepare('DELETE FROM pp_moves WHERE code = ?').bind(code).run();
+  await useBump(env, 'move_used');
   let data = {};
   try { data = JSON.parse(row.data || '{}'); } catch (e) { /* keep empty */ }
   return json({ ok: true, pid: row.pid, data }, 200, cors);

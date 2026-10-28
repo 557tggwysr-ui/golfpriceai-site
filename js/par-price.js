@@ -28,6 +28,8 @@
   };
   function get(k, d) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } }
   function put(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private mode */ } }
+  // Anonymous "started a round" tally for the stats page (once a day per browser).
+  function gpUse(k) { try { var d = new Date().toISOString().slice(0, 10), key = 'gpUse_' + k; if (localStorage.getItem(key) === d) return; localStorage.setItem(key, d); fetch('https://golfpriceai-alerts.golfpriceai.workers.dev/use', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: k }), keepalive: true }).catch(function () {}); } catch (e) { /* counts are a nice-to-have */ } }
   function gpSignal(d) { try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/signal', JSON.stringify(d)); } catch (e) { /* counts are a nice-to-have */ } }
   var API = 'https://golfpriceai-alerts.golfpriceai.workers.dev';
   var LAUNCH = Date.UTC(2026, 9, 18);
@@ -152,6 +154,7 @@
       if (!(v > 0)) { form.querySelector('.pr-msg').textContent = 'Type a price, e.g. 299'; return; }
       saved.guesses.push(Math.round(v * 100) / 100);
       put('gpParPrice', saved);
+      if (saved.guesses.length === 1) gpUse('pp_start');
       track('par_price_hole', { hole: i + 1, score: score(v, it.price).name });
       render(i);
     });

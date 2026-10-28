@@ -102,7 +102,7 @@ def page(n, today):
 </section>
 <p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
-<script src="/js/par-price.js?v=20261024" defer></script>"""
+<script src="/js/par-price.js?v=20261026" defer></script>"""
     app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Par Price", "url": f"{SITE}/play/par-price/",
            "applicationCategory": "GameApplication", "operatingSystem": "Any",
            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"},

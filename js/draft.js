@@ -24,6 +24,7 @@
     }
     return p;
   }
+  function gpUse(k) { try { var d = new Date().toISOString().slice(0, 10), key = 'gpUse_' + k; if (localStorage.getItem(key) === d) return; localStorage.setItem(key, d); fetch('https://golfpriceai-alerts.golfpriceai.workers.dev/use', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: k }), keepalive: true }).catch(function () {}); } catch (e) { /* counts are a nice-to-have */ } }
   function season() { return test ? 'test' : cat.season; }
   function api(path, body) {
     return fetch(API + path, body ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) } : {})
@@ -152,6 +153,7 @@
       var slug = b.getAttribute('data-slug');
       if (transfer) return doTransfer(slot, slug);
       wip.picks[slot] = slug; put('gpDraftWip', wip);
+      if (!test) gpUse('bd_start'); // anonymous "started a bag" tally, once a day per browser
       view = 'build'; render(); top();
     }); });
   }
