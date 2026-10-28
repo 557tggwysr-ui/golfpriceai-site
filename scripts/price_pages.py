@@ -705,6 +705,40 @@ def bought_box(model):
 </details>"""
 
 
+def keep_looking(model, hub_url, price):
+    """Plain onward links: the brand's range, the nearest 'best under £N'
+    guides and the category guide, so a visitor from search has somewhere to go."""
+    import compare_pages
+    m = model.m
+    words = model.hub_label.lower()
+    chips = []
+    blink = BRAND_LINK.get(m["slug"])
+    if blink:
+        label = f"All {m['brand']} {words}" if blink.rstrip("/").endswith(model.hub_slug) else f"All {m['brand']} prices"
+        chips.append((label, blink))
+    budgets = []
+    for t, u in compare_pages.BUDGET_CHIPS.get(model.hub_slug) or []:
+        mt = re.search(r"£(\d+)", t)
+        if mt:
+            budgets.append((int(mt.group(1)), u))
+    budgets.sort()
+    above = [b for b in budgets if b[0] >= price]
+    below = [b for b in budgets if b[0] < price]
+    if above:
+        chips.append((f"Best {words} under £{above[0][0]}", above[0][1]))
+    if below:
+        chips.append((f"Cheaper: {words} under £{below[-1][0]}", below[-1][1]))
+    if hub_url:
+        chips.append((f"{model.hub_label} price guide", hub_url))
+    if len(chips) < 2:
+        return ""
+    links = "".join(f'<a class="pp-chip" href="{esc(u)}">{esc(t)}</a>' for t, u in chips)
+    return f"""<section class="pp-block">
+  <h2>Keep looking</h2>
+  <div class="pp-chips">{links}</div>
+</section>"""
+
+
 def build_model_page(model, all_models, built, hubs_built, today, noindex):
     m, name = model.m, model.name
     rows = model.retailer_rows()
@@ -885,6 +919,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
   <h2>Compare the {esc(name)} side by side</h2>
   <div class="pp-chips">{chips}</div>
 </section>"""
+    rel_html += keep_looking(model, hub_url, low["price"])
     if rel:
         cards = "".join(f"""<a class="pp-card pp-rel" href="{model_link(x, built)}">
   <span class="pp-tag">{tag}</span><span class="pp-rel-name">{esc(x['name'])}</span>
