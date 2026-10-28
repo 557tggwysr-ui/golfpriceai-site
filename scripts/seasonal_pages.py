@@ -219,8 +219,7 @@ def build_black_friday(models, built, today, images=None):
     n_txt = (f"<strong>{plural(len(deals), 'golf model')}</strong> {'is' if len(deals) == 1 else 'are'} genuinely cheaper "
              f"than in October" + (f", {lows} of them at the lowest price we’ve tracked" if lows else ""))
     if phase == "before":
-        days_to = (bf - today).days
-        answer = (f"Black Friday {year} is <strong>{bf_txt}</strong>, {plural(days_to, 'day')} away. We record UK golf prices "
+        answer = (f"Black Friday {year} is <strong>{bf_txt}</strong>. We record UK golf prices "
                   f"every 6 hours across multiple UK retailers, so we know what everything costs in October. This page "
                   f"lists every golf model that’s genuinely cheaper, with the saving. "
                   + (f"Already, {n_txt}." if deals else ""))
@@ -423,9 +422,7 @@ def build_christmas(models, built, today, gift_slugs):
                   f"got money or vouchers to spend. The <a href=\"/prices/boxing-day-sales/\">Boxing Day sales tracker</a> "
                   f"shows which sale prices are real.")
     else:
-        days_to = (xmas - today).days
-        countdown = f"{plural(days_to, 'day')} to Christmas. " if days_to <= 100 else ""
-        answer = (f"{countdown}<strong>{plural(len(lowest), 'golf gift idea')}</strong> "
+        answer = (f"<strong>{plural(len(lowest), 'golf gift idea')}</strong> "
                   f"{'is' if len(lowest) == 1 else 'are'} at the lowest price we’ve tracked right now, checked against our own "
                   f"price history, not a retailer’s “was” price.")
     balls = sorted(float(m["minPrice"]) for m in models if m["type"] == "ball" and m["slug"] in built)

@@ -239,7 +239,7 @@
     var daysToBf = Math.ceil((new Date(y, 10, bf) - now) / 864e5);
     var c = {
       bf: ['Black Friday ' + y, 'Real deals only. We checked them against October.',
-           daysToBf > 0 ? daysToBf + (daysToBf === 1 ? ' day' : ' days') + ' to go. We know what every price did in October, so the fakes stand out.'
+           daysToBf > 0 ? 'Friday ' + bf + ' November. We know what every price did in October, so the real deals stand out.'
                         : 'Every Black Friday price compared with what it cost in October. No made-up “was” prices.',
            'See what’s really cheaper', '/prices/black-friday/'],
       xmas: ['Christmas ' + y, 'Golf gifts at their lowest price', 'Gift ideas from under £25, with live UK prices and the ones at their lowest we’ve tracked.',
