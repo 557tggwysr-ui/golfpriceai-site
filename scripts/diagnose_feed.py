@@ -40,6 +40,8 @@ FEED_URL_ENV_VARS = {
     "clickgolf": "AWIN_CLICKGOLF_FEED_URL",
     "majorgolf": "AWIN_MAJORGOLF_FEED_URL",
     "callaway": "AWIN_CALLAWAY_FEED_URL",
+    "scottsdalegolf": "AWIN_SCOTTSDALEGOLF_FEED_URL",
+    "affordablegolf": "AWIN_AFFORDABLEGOLF_FEED_URL",
 }
 
 
@@ -78,6 +80,7 @@ def main():
     print("=" * 90)
 
     matches = 0
+    summary = []
     seen_names = {}  # name -> list of prices, to summarise the spread at the end
     for row in reader:
         name = (row.get("product_name") or "").strip()
@@ -86,6 +89,8 @@ def main():
         matches += 1
         price = row.get("search_price") or row.get("display_price") or ""
         seen_names.setdefault(name, []).append(price)
+        summary.append([row.get("search_price") or "-", row.get("rrp_price") or "-", row.get("store_price") or "-", name,
+                        (row.get("merchant_deep_link") or "")[:120]])
 
         print(f"\nMatch #{matches}")
         # Every column, not a fixed subset — so nothing gets missed the
@@ -95,6 +100,10 @@ def main():
 
     print("\n" + "=" * 90)
     print(f"Total matching rows: {matches}")
+    if summary:
+        print("\nSUMMARY (one line per row): search_price | rrp_price | store_price | product_name | page")
+        for r in summary:
+            print("  " + " | ".join(r))
 
     duplicated_names = {n: prices for n, prices in seen_names.items() if len(prices) > 1}
     if duplicated_names:
