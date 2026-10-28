@@ -441,3 +441,25 @@ button.pp-btn svg { flex: none; }
 .pp-cmp strong { font: 700 16px/1.25 Poppins, sans-serif; }
 .pp-cmp span { font-size: 14px; color: var(--gp-text-3); }
 .pp-block .pp-small a { color: var(--gp-green-dark); text-decoration: underline; }
+
+/* Bag Draft card on a draftable model's price page */
+.bd-pick { display: flex; align-items: center; gap: 18px; background: #1b1d1c; color: #fff; border-radius: 18px; padding: 18px 22px; margin: 18px 0 6px; flex-wrap: wrap; }
+.bd-pick img { width: 56px; height: 56px; flex: none; }
+.bd-pick-t { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.bd-pick-k { font: 800 12px Poppins, sans-serif; letter-spacing: .14em; color: #f08a24; }
+.bd-pick-h { font: 700 19px/1.25 Poppins, sans-serif; }
+.bd-pick-p { font-size: 14.5px; color: #c4d0c8; line-height: 1.45; }
+.bd-pick a { background: #3fae29; color: #fff; text-decoration: none; font: 700 15px Poppins, sans-serif; padding: 13px 20px; border-radius: 12px; white-space: nowrap; }
+.bd-pick a:hover { background: #2f8a1f; }
+/* While you're here: onward links above the method note */
+.wyh { margin: 34px 0 10px; border-top: 1px solid #e1e3dd; padding-top: 26px; }
+.wyh h2 { margin: 0 0 4px; }
+.wyh > p { margin: 0 0 16px; color: #4a554e; }
+.wyh-g { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.wyh-g a { display: flex; flex-direction: column; gap: 6px; background: #fff; border: 1px solid #e1e3dd; border-radius: 16px; padding: 18px 18px 16px; text-decoration: none; color: #16241c; }
+.wyh-g a:hover { border-color: #3fae29; }
+.wyh-k { font: 800 11.5px Poppins, sans-serif; letter-spacing: .12em; color: #2f8a1f; }
+.wyh-h { font: 700 17px/1.25 Poppins, sans-serif; }
+.wyh-p { font-size: 14px; color: #4a554e; line-height: 1.45; }
+.wyh-go { margin-top: auto; padding-top: 6px; font-weight: 700; font-size: 14px; color: #2f8a1f; }
+@media (max-width: 700px) { .wyh-g { grid-template-columns: 1fr; } .bd-pick a { width: 100%; text-align: center; box-sizing: border-box; } }

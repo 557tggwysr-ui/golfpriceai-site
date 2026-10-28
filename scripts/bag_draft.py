@@ -14,7 +14,7 @@ No personal data here: prices and product facts only.
 """
 import json
 import re
-from datetime import timedelta
+from datetime import date, timedelta
 
 from price_pages import SITE, TYPES, NOT_IN_PICKS, _write, breadcrumb, esc, page_shell
 
@@ -65,6 +65,53 @@ def caddie(m):
     if cuts:
         return f"Dropped {cuts} time{'s' if cuts > 1 else ''} since we started tracking."
     return "New to our tracking. A mystery box."
+
+
+LAUNCH = date(2026, 11, 1)   # the first Major (The Black Friday Open)
+PLURAL = {"iron set": "irons", "golf ball": "golf balls"}
+CLOSE_DAY = 7                # drafting closes on the 7th; bags are revealed on the 8th
+MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
+          "September", "October", "November", "December"]
+
+
+def draftable(m, built):
+    """The same rule build() uses for the catalogue, so a price page only says
+    'this is a pick' when it really is one."""
+    return (m["slug"] in built and m["type"] in SLOT_OF and m["type"] not in NOT_IN_PICKS
+            and bool(m.get("_image")) and float(m.get("minPrice") or 0) >= 5 and not WOMEN_RX.search(m["name"]))
+
+
+def product_card(m, draftable_slugs, today, plural=False):
+    """A small card for the model's own price page: 'this is a pick in the Bag
+    Draft'. Empty when the model isn't draftable."""
+    if m["slug"] not in draftable_slugs:
+        return ""
+    noun = TYPES[m["type"]][2]
+    if plural:
+        head = f"These {PLURAL.get(noun, noun + 's')} are a pick in The Bag Draft, our fantasy golf kit game."
+    else:
+        head = f"This {noun} is a pick in The Bag Draft, our fantasy golf kit game."
+    note = caddie(m)
+    if plural:
+        note = note.replace("Can it go lower?", "Can they go lower?")
+    it = "them" if plural else "it"
+    if today < LAUNCH:
+        call, btn = f"The Black Friday Open opens on 1 November: £{BUDGET:,}, six picks, free.", "See the Bag Draft"
+    elif today.day <= CLOSE_DAY:
+        name = MAJORS[today.month][0]
+        call, btn = f"Draft {it} in {name} by the {CLOSE_DAY}th: £{BUDGET:,}, six picks, free.", f"Draft {it}"
+    else:
+        nxt = 1 if today.month == 12 else today.month + 1
+        call = f"Next up: {MAJORS[nxt][0]}, opening on 1 {MONTHS[nxt - 1]}. £{BUDGET:,}, six picks, free."
+        btn = "See the Bag Draft"
+    art = f"/assets/play/{BAG_ART.get(today.month, 'bag-nov')}.svg"
+    return f"""<aside class="bd-pick" aria-label="The Bag Draft">
+  <img src="{art}" alt="" width="56" height="56" loading="lazy">
+  <div class="bd-pick-t"><span class="bd-pick-k">THE BAG DRAFT</span>
+    <span class="bd-pick-h">{esc(head)}</span>
+    <span class="bd-pick-p">{esc(note)} {esc(call)}</span></div>
+  <a href="/play/draft/?utm_source=pricepage">{esc(btn)} →</a>
+</aside>"""
 
 
 def item(m):

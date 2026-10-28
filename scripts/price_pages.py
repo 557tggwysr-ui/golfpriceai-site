@@ -66,6 +66,7 @@ HUB_TYPES = {v[0]: k for k, v in TYPES.items()}
 # Filled each run by build() from brand_pages.plan(): model slug -> its
 # brand + category page, and category -> [(brand, page url)] for the hubs.
 BRAND_LINK = {}
+DRAFTABLE = set()  # slugs in this run's Bag Draft catalogue
 BRAND_CHIPS = {}
 CLUB_TYPES = {"driver", "wood", "hybrid", "irons", "wedge", "putter"}
 TYPE_ICON = {"driver": "driver", "wood": "wood", "hybrid": "hybrid", "irons": "irons", "wedge": "wedge",
@@ -494,7 +495,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css">
-<link rel="stylesheet" href="/css/prices.css?v=20261023">
+<link rel="stylesheet" href="/css/prices.css?v=20261029">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -540,8 +541,8 @@ def breadcrumb(items):
     return html_, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": schema}
 
 
-def method_note(today):
-    return f"""<section class="pp-method">
+def method_note(today, gift=False, onward=True):
+    return (while_here(gift) if onward else "") + f"""<section class="pp-method">
   <p>Prices on this page were checked on {long_date(today)}. We check every listing at the retailers we track every 6 hours and keep our own record of every price, which is where the history and the verdict come from. Prices can change on the retailer's site, so check there before you buy. <a href="/about.html">How we track prices</a>.</p>
   <p>GolfPrice AI is reader-supported: when you buy through our links we may earn a commission, at no extra cost to you. It never changes the order or the verdict.</p>
 </section>"""
@@ -736,6 +737,27 @@ def keep_looking(model, hub_url, price):
     return f"""<section class="pp-block">
   <h2>Keep looking</h2>
   <div class="pp-chips">{links}</div>
+</section>"""
+
+
+def while_here(gift=False):
+    """Three free things to do next, above the footer on price pages."""
+    first = (("GIFT IDEAS", "Drop a hint", "Make a golf wishlist with today’s prices and send it to whoever’s buying.",
+              "Make a wishlist", "/prices/golf-gifts/") if gift else
+             ("PAR PRICE", "Guess today’s prices, scored like a round",
+              "Five real bits of golf kit. Eagle, birdie or a double bogey?", "Play today’s round", "/play/par-price/"))
+    cards = [first,
+             ("LEAGUES", "Take on your mates", "One link for the group chat. Weekly table, loser buys the first round.",
+              "Start a league", "/play/leagues/"),
+             ("SOCIETY HQ", "Run your golf society for free", "Fixtures, sign-ups, who’s paid and a waiting list. No app needed.",
+              "Set up your society", "/societies/")]
+    tiles = "".join(f'<a href="{u}"><span class="wyh-k">{k}</span><span class="wyh-h">{esc(h)}</span>'
+                    f'<span class="wyh-p">{esc(p)}</span><span class="wyh-go">{esc(go)} →</span></a>'
+                    for k, h, p, go, u in cards)
+    return f"""<section class="wyh">
+  <h2>While you’re here</h2>
+  <p>Free golf games and tools that run on real UK prices.</p>
+  <div class="wyh-g">{tiles}</div>
 </section>"""
 
 
@@ -938,6 +960,8 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
         share_text = f"The {name} {_is} {_p} today, a good price according to GolfPrice AI:"
     else:
         share_text = f"Compare UK prices for the {name}, from {_p} today on GolfPrice AI:"
+    import bag_draft
+    draft_card = bag_draft.product_card(m, DRAFTABLE, today, plural=(_is == "are"))
     body = f"""<div class="pp-wrap">
 {crumbs_html}
 <section class="pp-top">
@@ -962,6 +986,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     {bought_box(model)}
   </div>
 </section>
+{draft_card}
 <div class="pp-two">
   <div class="pp-col pp-col-main">
     <h2>Where to buy the {esc(name)}</h2>
@@ -1434,6 +1459,9 @@ def build(models_list, products, today_str):
             print(f"Budget/comparison planning skipped: {e}")
             compare_pages.COMPARE_FOR.clear()
             compare_pages.BUDGET_CHIPS.clear()
+    import bag_draft
+    DRAFTABLE.clear()
+    DRAFTABLE.update(m["slug"] for m in passing if bag_draft.draftable(m, built))
     for m in chosen:
         out = build_model_page(Model(m, by_id, today), passing, built, set(hubs), today, noindex)
         if not out:

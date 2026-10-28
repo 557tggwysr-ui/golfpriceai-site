@@ -461,7 +461,7 @@ def build_christmas(models, built, today, gift_slugs):
 <section class="pp-block"><h2>Gift ideas by budget</h2><div class="pp-rel-grid">{budget_cards}</div></section>
 {signup_box("Buying for Christmas?", "Our Friday email lists the week’s genuine price drops, so you can catch the right moment to buy.")}
 {faq_html}
-{method_note(today)}
+{method_note(today, gift=True)}
 </div>"""
     title = f"Golf Christmas Gifts {year} UK: Best Prices Right Now | GolfPrice AI"
     desc = (f"Golf Christmas gift ideas at the lowest prices we've tracked, from balls and gloves to GPS watches and "
