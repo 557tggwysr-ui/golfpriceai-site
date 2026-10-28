@@ -301,7 +301,7 @@ def build_black_friday(models, built, today, images=None):
 </div>
 <script src="/js/clothing-guide.js?v=20261018" defer></script>
 <script src="/js/gift-finder.js?v=20261018d" defer></script>"""
-    title = f"Golf Black Friday Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
+    title = f"Black Friday Golf Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
     desc = (f"Black Friday {year} golf deals that are genuinely cheaper than in October, with the saving on each. "
             f"Drivers, putters, bags, rangefinders and more, checked every 6 hours.")
     return page_shell(title=title, description=desc, canonical=f"{SITE}/prices/black-friday/", body=body,

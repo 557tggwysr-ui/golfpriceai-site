@@ -117,7 +117,7 @@ GUIDES = {
               "Shorts are often cheaper from late summer into winter, when retailers clear summer stock. Check the genuine drops above to see what's actually reduced.")]),
     "golf-gloves": dict(
         name="golf gloves", one="glove", h1="Golf glove prices UK",
-        title="Golf Glove Prices UK: Compare Leather, All-Weather & Winter | GolfPrice AI",
+        title="Golf Gloves UK: Best Prices & Deals, Leather to Winter | GolfPrice AI",
         desc="UK golf glove prices from multiple UK retailers, checked every 6 hours: leather, all-weather, winter and rain gloves from FootJoy, Titleist and more.",
         test=(None, {"glove"}, r"glove|mitt", r"trolley|cart|\bbag\b|umbrella|holder|towel", 5),
         under=15,

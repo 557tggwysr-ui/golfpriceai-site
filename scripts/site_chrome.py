@@ -149,11 +149,11 @@ def menu():
 
 
 POPULAR = [
+    ("Golf gifts", "/prices/golf-gifts/"),
+    ("Black Friday", "/prices/black-friday/"),
     ("Pro V1", "/shop.html?q=pro+v1"),
     ("Drivers under £300", "/shop.html?category=driver&pricemax=300"),
     ("Left-handed clubs", "/shop.html?group=clubs&q=left+hand"),
-    ("Putters", "/shop.html?category=putter"),
-    ("Rangefinders", "/shop.html?category=accessories&types=rangefinder&label=Rangefinders"),
 ]
 
 
@@ -308,12 +308,13 @@ def footer_html():
     cols = [
         ("Shop", [("All deals", "/shop.html"), ("Clubs", "/clubs.html"), ("Apparel", "/apparel.html"),
                   ("Accessories", "/accessories.html"), ("Preowned and trade-ins", "/shop.html?source=awin-callawaypreowned"),
-                  ("Find Your Fit", "/find-your-fit.html")]),
+                  ("Find Your Fit", "/find-your-fit.html"), ("Golf gift finder", "/prices/golf-gifts/"),
+                  ("Christmas golf gifts", "/prices/christmas/"), ("Black Friday golf deals", "/prices/black-friday/")]),
         ("Deal Tools", [("All deal tools", "/deal-tools.html")] + [(n, u) for n, _, u, _ in m["tools"] if u != "/find-your-fit.html"]),
         ("Play", [("My Clubhouse", "/play/my-clubhouse/")] + [(n, u) for n, _, u, _ in m["play"]] + [("UK Golf Demand Index", "/demand/")]),
         ("Societies", [(n, u) for n, _, u, _ in m["societies"]]),
         ("Price guides", [("Drivers", "/prices/drivers/"), ("Irons", "/prices/irons/"),
-                          ("Putters", "/prices/putters/"), ("Golf balls", "/prices/golf-balls/"),
+                          ("Putters", "/prices/putters/"), ("Golf balls", "/prices/golf-balls/"), ("Golf gloves", "/prices/golf-gloves/"),
                           ("GPS watches", "/prices/gps-watches/"), ("Electric trolleys", "/prices/electric-trolleys/"),
                           ("Package sets", "/prices/golf-package-sets/"), ("Golf shoes", "/prices/golf-shoes/"),
                           ("All price guides", "/prices/")]),
