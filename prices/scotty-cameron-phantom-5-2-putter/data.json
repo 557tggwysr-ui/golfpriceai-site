@@ -3,7 +3,7 @@
  "brand": "Scotty Cameron",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-5-2-putter/",
- "checked": "2026-10-27",
+ "checked": "2026-10-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 73,
+  "daysTracked": 74,
   "low": 329.0,
   "high": 449.0,
-  "average": 378.32,
+  "average": 377.65,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     329.0
    ],
    [
-    "2026-10-27",
+    "2026-10-28",
     329.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 43 days"
+  "summary": "Typical price: steady for 44 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/5.2_2.jpg?v=1782293082",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

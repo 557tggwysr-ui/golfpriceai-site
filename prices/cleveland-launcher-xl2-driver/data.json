@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cleveland-launcher-xl2-driver/",
- "checked": "2026-10-27",
+ "checked": "2026-10-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 73,
+  "daysTracked": 74,
   "low": 179.0,
   "high": 199.0,
-  "average": 195.99,
+  "average": 195.76,
   "priceChanges": 1,
   "series": [
    [
@@ -43,7 +43,7 @@
     179.0
    ],
    [
-    "2026-10-27",
+    "2026-10-28",
     179.0
    ]
   ]

@@ -1,66 +1,66 @@
 {
- "n": 10,
- "date": "2026-10-27",
+ "n": 11,
+ "date": "2026-10-28",
  "items": [
   {
-   "slug": "mizuno-br-d3-cart-bag-golf-bag",
-   "name": "Mizuno BR-D3 Cart Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-BR-D3-Golf-Cart-Bag---Black-Camo-Copper.jpg",
-   "price": 119.0,
+   "slug": "cobra-king-tec-utility-irons",
+   "name": "Cobra KING Tec Utility Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/King-Tec-Golf-Utility-Iron---Steel.jpg",
+   "price": 169.0,
    "unit": "each",
-   "type": "golf bag",
+   "type": "iron set",
    "low": false,
-   "url": "/prices/mizuno-br-d3-cart-bag-golf-bag/"
+   "url": "/prices/cobra-king-tec-utility-irons/"
   },
   {
-   "slug": "wilson-profile-hybrid",
-   "name": "Wilson Profile Hybrid",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonGolfProfileHybrid1.jpg?v=1742980479",
-   "price": 54.95,
+   "slug": "mizuno-jpx-one-hybrid",
+   "name": "Mizuno JPX ONE Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/JPX-ONE-Hybrid-Hero.jpg",
+   "price": 209.0,
    "unit": "each",
    "type": "hybrid",
-   "low": false,
-   "url": "/prices/wilson-profile-hybrid/"
+   "low": true,
+   "url": "/prices/mizuno-jpx-one-hybrid/"
   },
   {
-   "slug": "taylormade-tp5-golf-balls",
-   "name": "TaylorMade TP5 Golf Balls",
-   "image": "https://www.clickgolf.co.uk/images/product/main/TM-TP5-Yellow-2026-Box-4-for-3.jpg",
-   "price": 35.99,
-   "unit": "per dozen",
-   "type": "golf ball",
-   "low": false,
-   "url": "/prices/taylormade-tp5-golf-balls/"
-  },
-  {
-   "slug": "callaway-elyte-driver",
-   "name": "Callaway Elyte Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteDriver4.jpg?v=1782263420",
-   "price": 329.0,
+   "slug": "ogio-shadow-stand-bag-golf-bag",
+   "name": "Ogio Shadow Stand Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ogio-shadow-stand-bag-navy-3-1000x1000-ogio1.jpg",
+   "price": 249.0,
    "unit": "each",
-   "type": "driver",
-   "low": false,
-   "url": "/prices/callaway-elyte-driver/"
+   "type": "golf bag",
+   "low": true,
+   "url": "/prices/ogio-shadow-stand-bag-golf-bag/"
   },
   {
-   "slug": "cobra-king-wedge",
-   "name": "Cobra King Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/cobra-king-wedge-25-black-hero.jpg",
-   "price": 139.0,
+   "slug": "cleveland-smart-sole-full-face-tour-satin-wedge",
+   "name": "Cleveland Smart Sole Full Face Tour Satin Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Yourparagraphtext_51.jpg?v=1774538018",
+   "price": 109.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/cobra-king-wedge/"
+   "url": "/prices/cleveland-smart-sole-full-face-tour-satin-wedge/"
+  },
+  {
+   "slug": "yonex-ezone-elite-fairway-wood",
+   "name": "Yonex Ezone Elite Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/yonex_ezone_elite_4_fairway_wood_1.jpg?v=1686740350",
+   "price": 149.95,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": true,
+   "url": "/prices/yonex-ezone-elite-fairway-wood/"
   }
  ],
  "pin": {
-  "slug": "ping-g440-irons",
-  "name": "Ping G440 Irons",
-  "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-irons-hero.jpg",
-  "price": 719.0,
+  "slug": "titleist-gt2-driver",
+  "name": "Titleist GT2 Driver",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/GT2DVR4.jpg?v=1722325347",
+  "price": 399.0,
   "unit": "each",
-  "type": "iron set",
+  "type": "driver",
   "low": false,
-  "url": "/prices/ping-g440-irons/"
+  "url": "/prices/titleist-gt2-driver/"
  }
 }

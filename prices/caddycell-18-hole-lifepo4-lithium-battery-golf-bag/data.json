@@ -3,7 +3,7 @@
  "brand": "CaddyCell",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/caddycell-18-hole-lifepo4-lithium-battery-golf-bag/",
- "checked": "2026-10-27",
+ "checked": "2026-10-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 149.0,
   "high": 169.0,
-  "average": 150.64,
+  "average": 150.61,
   "priceChanges": 1,
   "series": [
    [
@@ -33,14 +33,14 @@
     149.0
    ],
    [
-    "2026-10-27",
+    "2026-10-28",
     149.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 56 days"
+  "summary": "Typical price: steady for 57 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/caddycelltbar18holea.png?v=1742217221",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

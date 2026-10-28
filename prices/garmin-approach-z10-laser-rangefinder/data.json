@@ -3,7 +3,7 @@
  "brand": "Garmin",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/garmin-approach-z10-laser-rangefinder/",
- "checked": "2026-10-27",
+ "checked": "2026-10-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 73,
+  "daysTracked": 74,
   "low": 249.0,
   "high": 259.99,
-  "average": 253.24,
+  "average": 253.19,
   "priceChanges": 4,
   "series": [
    [
@@ -50,14 +50,14 @@
     249.0
    ],
    [
-    "2026-10-27",
+    "2026-10-28",
     249.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 40 days"
+  "summary": "Typical price: steady for 41 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GarminApproachZ102.jpg?v=1784644660",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

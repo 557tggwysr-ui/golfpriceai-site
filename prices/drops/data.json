@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-27T21:38+00:00",
+ "checked": "2026-10-28T03:09+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -182,36 +182,6 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/mizuno-pro-m-15-irons/"
-  },
-  {
-   "model": "Big Max Dri Lite Hybrid Tour 2 Golf Bag",
-   "model_id": "big-max-dri-lite-hybrid-tour-2-golf-bag",
-   "date": "2026-10-20",
-   "was": 199.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/"
-  },
-  {
-   "model": "Bushnell V6 Shift Laser Rangefinder",
-   "model_id": "bushnell-v6-shift-laser-rangefinder",
-   "date": "2026-10-20",
-   "was": 349.0,
-   "now": 329.0,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/bushnell-v6-shift-laser-rangefinder/"
-  },
-  {
-   "model": "Wilson DYNAPWR Max Irons",
-   "model_id": "wilson-dynapwr-max-irons",
-   "date": "2026-10-20",
-   "was": 489.0,
-   "now": 459.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-dynapwr-max-irons/"
   }
  ]
 }

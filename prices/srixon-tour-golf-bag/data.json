@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/srixon-tour-golf-bag/",
- "checked": "2026-10-27",
+ "checked": "2026-10-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -17,13 +17,18 @@
    "options": 1
   },
   {
+   "name": "Affordable Golf",
+   "from": 299.0,
+   "options": 1
+  },
+  {
    "name": "Major Golf Direct",
    "from": 299.0,
    "options": 2
   }
  ],
  "history": {
-  "daysTracked": 73,
+  "daysTracked": 74,
   "low": 219.0,
   "high": 229.0,
   "average": 228.59,
@@ -46,7 +51,7 @@
     229.0
    ],
    [
-    "2026-10-27",
+    "2026-10-28",
     229.0
    ]
   ]

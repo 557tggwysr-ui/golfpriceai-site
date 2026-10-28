@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/titleist-gts2-driver/",
- "checked": "2026-10-27",
+ "checked": "2026-10-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 629.0,
@@ -15,7 +15,7 @@
   {
    "name": "Affordable Golf",
    "from": 629.0,
-   "options": 11
+   "options": 12
   },
   {
    "name": "Major Golf Direct",
@@ -24,7 +24,7 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 629.0,
   "high": 629.0,
   "average": 629.0,
@@ -35,14 +35,14 @@
     629.0
    ],
    [
-    "2026-10-27",
+    "2026-10-28",
     629.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 61 days"
+  "summary": "Typical price: steady for 62 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS2GolfDriver_1.jpg?v=1778745641",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

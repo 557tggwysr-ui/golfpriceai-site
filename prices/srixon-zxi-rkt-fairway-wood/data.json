@@ -1,0 +1,53 @@
+{
+ "name": "Srixon ZXi RKT Fairway Wood",
+ "brand": "Srixon",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/srixon-zxi-rkt-fairway-wood/",
+ "checked": "2026-10-28",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 299.0,
+   "options": 7
+  },
+  {
+   "name": "Clickgolf",
+   "from": 299.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 299.0,
+  "high": 339.0,
+  "average": 313.67,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-29",
+    339.0
+   ],
+   [
+    "2026-10-10",
+    299.0
+   ],
+   [
+    "2026-10-28",
+    299.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/ZXi-RKT-Fairway-Hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}
