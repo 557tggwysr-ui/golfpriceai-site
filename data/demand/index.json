@@ -13,8 +13,8 @@
  "wishfulThinking": [
   {
    "category": "Golf bags",
-   "averageGuessVsRealPricePct": 20,
-   "guesses": 25
+   "averageGuessVsRealPricePct": 22,
+   "guesses": 26
   },
   {
    "category": "Golf balls",
@@ -24,12 +24,12 @@
   {
    "category": "Hybrids",
    "averageGuessVsRealPricePct": 13,
-   "guesses": 33
+   "guesses": 34
   },
   {
-   "category": "Fairway woods",
+   "category": "Drivers",
    "averageGuessVsRealPricePct": -7,
-   "guesses": 36
+   "guesses": 14
   }
  ],
  "categoryShare": [],
