@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/macgregor-zt1-premium-package-set/",
- "checked": "2026-10-28",
+ "checked": "2026-10-29",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.95,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 399.95,
   "high": 399.95,
   "average": 399.95,
@@ -29,14 +29,14 @@
     399.95
    ],
    [
-    "2026-10-28",
+    "2026-10-29",
     399.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 62 days"
+  "summary": "Typical price: steady for 63 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ZT18.jpg?v=1704462372",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

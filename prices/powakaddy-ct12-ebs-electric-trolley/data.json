@@ -3,19 +3,17 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct12-ebs-electric-trolley/",
- "checked": "2026-10-28",
+ "checked": "2026-10-29",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1299.0,
+ "lowestNewPrice": 1249.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 1299.0,
+   "from": 1249.0,
    "options": 2
   },
   {
@@ -30,11 +28,11 @@
   }
  ],
  "history": {
-  "daysTracked": 74,
+  "daysTracked": 75,
   "low": 1219.0,
   "high": 1299.0,
-  "average": 1284.81,
-  "priceChanges": 12,
+  "average": 1284.33,
+  "priceChanges": 13,
   "series": [
    [
     "2026-08-16",
@@ -89,15 +87,15 @@
     1299.0
    ],
    [
-    "2026-10-28",
-    1299.0
+    "2026-10-29",
+    1249.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £80.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT12_GPS_EBS_Electric_Golf_Trolley-18-Hole_Lithium_01_Main.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PowaKaddyCT12GPSEBSElectricTrolley1.jpg?v=1776294234",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

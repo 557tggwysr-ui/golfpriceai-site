@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/wilson-dynapwr-hybrid/",
- "checked": "2026-10-28",
+ "checked": "2026-10-29",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 74,
+  "daysTracked": 75,
   "low": 119.0,
   "high": 199.0,
-  "average": 136.69,
+  "average": 136.45,
   "priceChanges": 3,
   "series": [
    [
@@ -51,7 +51,7 @@
     119.0
    ],
    [
-    "2026-10-28",
+    "2026-10-29",
     119.0
    ]
   ]

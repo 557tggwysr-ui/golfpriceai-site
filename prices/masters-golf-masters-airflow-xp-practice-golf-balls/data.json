@@ -3,7 +3,7 @@
  "brand": "Masters Golf",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/masters-golf-masters-airflow-xp-practice-golf-balls/",
- "checked": "2026-10-28",
+ "checked": "2026-10-29",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 5.99,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 5.99,
   "high": 5.99,
   "average": 5.99,
@@ -29,14 +29,14 @@
     5.99
    ],
    [
-    "2026-10-28",
+    "2026-10-29",
     5.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 62 days"
+  "summary": "Typical price: steady for 63 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MastersAirflowXPGolfPracticeBalls12Pack1.jpg?v=1751021334",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

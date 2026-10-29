@@ -1,66 +1,66 @@
 {
- "n": 11,
- "date": "2026-10-28",
+ "n": 12,
+ "date": "2026-10-29",
  "items": [
   {
-   "slug": "cobra-king-tec-utility-irons",
-   "name": "Cobra KING Tec Utility Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/King-Tec-Golf-Utility-Iron---Steel.jpg",
-   "price": 169.0,
-   "unit": "each",
-   "type": "iron set",
-   "low": false,
-   "url": "/prices/cobra-king-tec-utility-irons/"
-  },
-  {
-   "slug": "mizuno-jpx-one-hybrid",
-   "name": "Mizuno JPX ONE Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/JPX-ONE-Hybrid-Hero.jpg",
-   "price": 209.0,
-   "unit": "each",
-   "type": "hybrid",
-   "low": true,
-   "url": "/prices/mizuno-jpx-one-hybrid/"
-  },
-  {
-   "slug": "ogio-shadow-stand-bag-golf-bag",
-   "name": "Ogio Shadow Stand Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/ogio-shadow-stand-bag-navy-3-1000x1000-ogio1.jpg",
-   "price": 249.0,
+   "slug": "powakaddy-x-lite-cart-bag-golf-bag",
+   "name": "PowaKaddy X-Lite Cart Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-X-Lite-Golf-Cart-Bag-2024-Stealth-Black.jpg",
+   "price": 109.0,
    "unit": "each",
    "type": "golf bag",
-   "low": true,
-   "url": "/prices/ogio-shadow-stand-bag-golf-bag/"
+   "low": false,
+   "url": "/prices/powakaddy-x-lite-cart-bag-golf-bag/"
   },
   {
-   "slug": "cleveland-smart-sole-full-face-tour-satin-wedge",
-   "name": "Cleveland Smart Sole Full Face Tour Satin Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Yourparagraphtext_51.jpg?v=1774538018",
-   "price": 109.0,
+   "slug": "cleveland-rtz-tour-satin-wedge",
+   "name": "Cleveland RTZ Tour Satin Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/RTZTOURSATIN2.jpg?v=1736347265",
+   "price": 119.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/cleveland-smart-sole-full-face-tour-satin-wedge/"
+   "url": "/prices/cleveland-rtz-tour-satin-wedge/"
   },
   {
-   "slug": "yonex-ezone-elite-fairway-wood",
-   "name": "Yonex Ezone Elite Fairway Wood",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/yonex_ezone_elite_4_fairway_wood_1.jpg?v=1686740350",
-   "price": 149.95,
+   "slug": "cobra-baffler-fairway-wood",
+   "name": "Cobra Baffler Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-Fairway-Wood-Hero.jpg",
+   "price": 189.0,
    "unit": "each",
    "type": "fairway wood",
-   "low": true,
-   "url": "/prices/yonex-ezone-elite-fairway-wood/"
+   "low": false,
+   "url": "/prices/cobra-baffler-fairway-wood/"
+  },
+  {
+   "slug": "yonex-ezone-gs-i-tech-hybrid",
+   "name": "Yonex Ezone GS i-Tech Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/yonex-ezone-gsi-i-hybrid-ladies.jpg",
+   "price": 99.0,
+   "unit": "each",
+   "type": "hybrid",
+   "low": false,
+   "url": "/prices/yonex-ezone-gs-i-tech-hybrid/"
+  },
+  {
+   "slug": "ping-g740-irons",
+   "name": "Ping G740 Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g740-irons-hero.jpg",
+   "price": 1049.0,
+   "unit": "each",
+   "type": "iron set",
+   "low": false,
+   "url": "/prices/ping-g740-irons/"
   }
  ],
  "pin": {
-  "slug": "titleist-gt2-driver",
-  "name": "Titleist GT2 Driver",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/GT2DVR4.jpg?v=1722325347",
-  "price": 399.0,
-  "unit": "each",
-  "type": "driver",
+  "slug": "srixon-q-star-tour-6-divide-golf-balls",
+  "name": "Srixon Q Star Tour 6 Divide Golf Balls",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonQStarTour6DivideGolfBalls2026-YellowRed_1.jpg?v=1770725654",
+  "price": 31.95,
+  "unit": "per dozen",
+  "type": "golf ball",
   "low": false,
-  "url": "/prices/titleist-gt2-driver/"
+  "url": "/prices/srixon-q-star-tour-6-divide-golf-balls/"
  }
 }

@@ -3,7 +3,7 @@
  "brand": "PXG",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/pxg-lightweight-carry-bag-stand-bag-golf-bag/",
- "checked": "2026-10-28",
+ "checked": "2026-10-29",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 149.0,
   "high": 169.0,
-  "average": 153.19,
+  "average": 153.13,
   "priceChanges": 1,
   "series": [
    [
@@ -33,14 +33,14 @@
     149.0
    ],
    [
-    "2026-10-28",
+    "2026-10-29",
     149.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 49 days"
+  "summary": "Typical price: steady for 50 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Your_paragraph_text_43.jpg?v=1755255089",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

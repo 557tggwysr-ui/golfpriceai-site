@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/titleist-gt3-hybrid/",
- "checked": "2026-10-28",
+ "checked": "2026-10-29",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 299.0,
@@ -16,7 +16,7 @@
   {
    "name": "Affordable Golf",
    "from": 299.0,
-   "options": 7
+   "options": 8
   },
   {
    "name": "Clickgolf",
@@ -30,7 +30,7 @@
   }
  ],
  "history": {
-  "daysTracked": 74,
+  "daysTracked": 75,
   "low": 299.0,
   "high": 299.0,
   "average": 299.0,
@@ -41,14 +41,14 @@
     299.0
    ],
    [
-    "2026-10-28",
+    "2026-10-29",
     299.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 74 days"
+  "summary": "Typical price: steady for 75 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-GT3-Hybrid-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

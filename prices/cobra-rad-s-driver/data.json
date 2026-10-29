@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cobra-rad-s-driver/",
- "checked": "2026-10-28",
+ "checked": "2026-10-29",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 74,
+  "daysTracked": 75,
   "low": 219.0,
   "high": 249.0,
-  "average": 247.38,
+  "average": 247.0,
   "priceChanges": 4,
   "series": [
    [
@@ -50,7 +50,7 @@
     219.0
    ],
    [
-    "2026-10-28",
+    "2026-10-29",
     219.0
    ]
   ]

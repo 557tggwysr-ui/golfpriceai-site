@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-10-28",
+ "lastUpdated": "2026-10-29",
  "uncertainGroupings": [
   {
    "model": "Callaway quantum max",
@@ -790,6 +790,11 @@
   },
   {
    "name": "VOID Centrefire Mens Right Hand Putter 34\" Blade KBS Tour GPS 120 - VOID",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Rife Roll Groove Series RG4 Mens Right Hand Putter 34\" Mallet - Rife",
    "from": "accessories",
    "to": "putter"
   },
@@ -2350,11 +2355,6 @@
   },
   {
    "name": "Evnroll V12 Black Mallet Putter - Inline Short Slant High MOI Right Hand / 33\" / TourTac Grip",
-   "from": "accessories",
-   "to": "putter"
-  },
-  {
-   "name": "Evnroll V12 Black Mallet Putter - Inline Short Slant High MOI Right Hand / 34\" / TourTac Grip",
    "from": "accessories",
    "to": "putter"
   },
