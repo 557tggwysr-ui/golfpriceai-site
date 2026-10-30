@@ -393,7 +393,8 @@ async function fourballCount(url, env, cors) {
    Par Price round or a Bag Draft, opened My Clubhouse, used a Move code or
    confirmed a price alert. One count per visitor per kind per day (the same
    hashed, daily-forgotten visitor key as the Demand Index); no ids kept. */
-const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_18: 1, band_19_28: 1, band_28_plus: 1, band_none: 1, hcp_share: 1 };
+const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_18: 1, band_19_28: 1, band_28_plus: 1, band_none: 1, hcp_share: 1,
+  calc_index: 1, calc_course: 1, calc_playing: 1, calc_shoot: 1, calc_share: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -527,6 +528,17 @@ async function clubStats(request, env, cors) {
   out.funnel = {
     ppStartToday: sumUse('pp_start', day), ppStart7: sumUse('pp_start', d7),
     bdStartMonth: sumUse('bd_start', mon1),
+  };
+
+  // ---- Price Handicap, golfer bands and the handicap calculators (anonymous counts only)
+  const d30 = new Date(Date.now() - 29 * 864e5).toISOString().slice(0, 10);
+  out.handicap = {
+    withHcp: await one('SELECT COUNT(*) AS c FROM (SELECT pid FROM pp_scores WHERE n > ? GROUP BY pid HAVING COUNT(*) >= 5)', today - 120),
+    shares7: sumUse('hcp_share', d7), shares30: sumUse('hcp_share', d30),
+    bands: { b0_9: sumUse('band_0_9', d30), b10_18: sumUse('band_10_18', d30), b19_28: sumUse('band_19_28', d30),
+      b28: sumUse('band_28_plus', d30), none: sumUse('band_none', d30) },
+    calc: ['calc_index', 'calc_course', 'calc_playing', 'calc_shoot', 'calc_share'].reduce((o, k) => {
+      o[k] = { today: sumUse(k, day), d7: sumUse(k, d7) }; return o; }, {}),
   };
 
   // ---- League and society health

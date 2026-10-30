@@ -16,7 +16,7 @@ import json
 from price_pages import ROOT, SITE, page_shell
 
 OUT = ROOT / "improve"
-V = "20261030"
+V = "20261030b"
 EXTRA = (f'<link rel="stylesheet" href="/css/improve.css?v={V}">\n'
          f'<script src="/js/improve.js?v={V}" defer></script>\n')
 

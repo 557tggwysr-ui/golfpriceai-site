@@ -11,6 +11,9 @@
   var TABLE = { 3: [1, -2], 4: [1, -1], 5: [1, 0], 6: [2, -1], 7: [2, 0], 8: [2, 0], 9: [3, 0], 10: [3, 0], 11: [3, 0],
     12: [4, 0], 13: [4, 0], 14: [4, 0], 15: [5, 0], 16: [5, 0], 17: [6, 0], 18: [6, 0], 19: [7, 0], 20: [8, 0] };
 
+  // Anonymous "used this calculator" count, once a day per browser. Nothing typed is sent.
+  function gpUse(k) { try { var d = new Date().toISOString().slice(0, 10), key = 'gpUse_' + k; if (localStorage.getItem(key) === d) return; localStorage.setItem(key, d); fetch('https://golfpriceai-alerts.golfpriceai.workers.dev/use', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: k }), keepalive: true }).catch(function () {}); } catch (e) { /* counts are a nice-to-have */ } }
+  function countUse(form, k) { if (form) form.addEventListener('input', function () { gpUse(k); }, { once: true }); }
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
   function num(el) { if (!el) return NaN; var v = String(el.value).trim(); return v === '' ? NaN : parseFloat(v); }
@@ -47,6 +50,7 @@
     var btn = $('[data-share]', form);
     if (!btn) return;
     btn.addEventListener('click', function () {
+      gpUse('calc_share');
       var text = getText() + ' Worked out free at GolfPrice AI:';
       var url = location.origin + location.pathname;
       if (navigator.share) { navigator.share({ text: text, url: url }).catch(function () {}); return; }
@@ -57,6 +61,12 @@
       }
     });
   }
+
+  countUse($('[data-calc="index"]'), 'calc_index');
+  countUse($('[data-calc="course"]'), 'calc_course');
+  countUse($('[data-calc="quick"]'), 'calc_course');
+  countUse($('[data-calc="playing"]'), 'calc_playing');
+  countUse($('[data-calc="shoot"]'), 'calc_shoot');
 
   /* ------------------------------------------------ hub quick check */
   var quick = $('[data-calc="quick"]');

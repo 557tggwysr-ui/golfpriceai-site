@@ -176,6 +176,18 @@ td:first-child { font-weight: 400; }
       '<span class="dim">Average ' + n(s.average) + ' members · biggest: ' + n(s.biggest) + ' · ' + n(s.newWeek) + ' new this week · awards kits made: ' + n(s.kits) + ' · prizes picked: ' + n(s.prizes) + '</span>' +
       '<span class="dim"><b>Health:</b> ' + n(s.withDay) + ' societies with a golf day booked · average reply rate ' + (s.replyRate == null ? '–' : s.replyRate + '%') + ' · ' + n(s.full) + ' golf days full · ' + n(s.waitlists) + ' using the waiting list</span></section>';
 
+    var hc = d.handicap || {}, bd = hc.bands || {}, cc = hc.calc || {};
+    var cr = function (label, k) { var x = cc[k] || {}; return '<tr><td>' + label + '</td><td>' + n(x.today) + '</td><td>' + n(x.d7) + '</td></tr>'; };
+    html += '<div class="two"><section class="card"><h2>Price Handicap</h2><div class="nums">' + num(hc.withHcp, 'golfers with a Price Handicap') +
+      num(hc.shares7, 'handicap cards shared, 7 days') + num(hc.shares30, 'shared, 30 days') + '</div>' +
+      '<span class="dim"><b>Real-golf bands picked (30 days):</b> 0 to 9: ' + n(bd.b0_9) + ' · 10 to 18: ' + n(bd.b10_18) + ' · 19 to 28: ' + n(bd.b19_28) +
+      ' · 28 plus: ' + n(bd.b28) + ' · no handicap: ' + n(bd.none) + '</span>' +
+      '<span class="dim">A Price Handicap needs 5 Par Price rounds in the last 120 days.</span></section>' +
+      '<section class="card"><h2>Handicap calculators</h2><table><tr><th></th><th>Today</th><th>7 days</th></tr>' +
+      cr('Handicap index', 'calc_index') + cr('Course handicap', 'calc_course') + cr('Playing handicap', 'calc_playing') +
+      cr('What do I need to shoot?', 'calc_shoot') + cr('Results shared', 'calc_share') + '</table>' +
+      '<span class="dim">Golfers who typed into each calculator, once a day each. Counts began on 30 October 2026.</span></section></div>';
+
     var gmax = Math.max.apply(null, d.growth.map(function (w) { return Math.max(w.leagues, w.societies); }).concat([1]));
     html += '<div class="two"><section class="card"><h2>Growth</h2><span class="dim">Leagues and societies at the end of each week</span><div class="growth" role="img" aria-label="Leagues and societies over the last six weeks">' +
       d.growth.map(function (w) {
