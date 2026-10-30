@@ -6,19 +6,18 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 479.0,
+ "lowestNewPrice": 449.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 479.0,
+   "name": "Clickgolf",
+   "from": 449.0,
    "options": 2
   },
   {
-   "name": "Clickgolf",
+   "name": "Affordable Golf",
    "from": 479.0,
    "options": 2
   },
@@ -32,8 +31,8 @@
   "daysTracked": 76,
   "low": 449.0,
   "high": 499.0,
-  "average": 482.16,
-  "priceChanges": 11,
+  "average": 481.76,
+  "priceChanges": 12,
   "series": [
    [
     "2026-08-16",
@@ -85,13 +84,13 @@
    ],
    [
     "2026-10-30",
-    479.0
+    449.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26SENXLU-SE-26-Electric-Trolley-Hero-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

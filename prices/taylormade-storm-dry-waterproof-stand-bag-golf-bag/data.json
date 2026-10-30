@@ -6,19 +6,18 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 219.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 219.0,
+   "name": "Clickgolf",
+   "from": 199.0,
    "options": 6
   },
   {
-   "name": "Clickgolf",
+   "name": "Affordable Golf",
    "from": 219.0,
    "options": 6
   }
@@ -27,8 +26,8 @@
   "daysTracked": 76,
   "low": 199.0,
   "high": 219.0,
-  "average": 213.47,
-  "priceChanges": 14,
+  "average": 213.21,
+  "priceChanges": 15,
   "series": [
    [
     "2026-08-16",
@@ -92,14 +91,14 @@
    ],
    [
     "2026-10-30",
-    219.0
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/M2396301-Storm-Dry-Stand-Hero.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/M2395901-Storm-Dry-Stand-Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

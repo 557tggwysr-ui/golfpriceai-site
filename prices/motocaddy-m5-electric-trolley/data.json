@@ -6,19 +6,18 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 949.0,
+ "lowestNewPrice": 919.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 949.0,
+   "name": "Clickgolf",
+   "from": 919.0,
    "options": 2
   },
   {
-   "name": "Clickgolf",
+   "name": "Affordable Golf",
    "from": 949.0,
    "options": 2
   },
@@ -37,8 +36,8 @@
   "daysTracked": 76,
   "low": 919.0,
   "high": 999.0,
-  "average": 956.89,
-  "priceChanges": 11,
+  "average": 956.5,
+  "priceChanges": 12,
   "series": [
    [
     "2026-08-16",
@@ -90,13 +89,13 @@
    ],
    [
     "2026-10-30",
-    949.0
+    919.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26M5GXMS-M5-2026-Electric-Trolle-Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

@@ -6,14 +6,14 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 189.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 199.0,
+   "from": 189.0,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 76,
   "low": 189.0,
   "high": 199.0,
-  "average": 196.04,
-  "priceChanges": 17,
+  "average": 195.91,
+  "priceChanges": 18,
   "series": [
    [
     "2026-08-16",
@@ -98,13 +98,13 @@
    ],
    [
     "2026-10-30",
-    199.0
+    189.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £10.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-I-Lock-DRY-Organiser-Waterproof-Golf-Cart-Bag---Grey-Khaki-Orange.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

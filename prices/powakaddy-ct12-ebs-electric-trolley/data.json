@@ -8,7 +8,8 @@
  "unit": "each",
  "lowestNewPrice": 1249.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Affordable Golf",
+  "Clickgolf"
  ],
  "retailers": [
   {
@@ -18,7 +19,7 @@
   },
   {
    "name": "Clickgolf",
-   "from": 1299.0,
+   "from": 1249.0,
    "options": 2
   },
   {
@@ -100,6 +101,6 @@
   "label": "typical",
   "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PowaKaddyCT12GPSEBSElectricTrolley1.jpg?v=1776294234",
+ "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT12_GPS_EBS_Electric_Golf_Trolley-18-Hole_Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -6,19 +6,19 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 225.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 225.0,
+   "name": "Clickgolf",
+   "from": 199.0,
    "options": 2
   },
   {
-   "name": "Clickgolf",
-   "from": 229.0,
+   "name": "Affordable Golf",
+   "from": 225.0,
    "options": 2
   }
  ],
@@ -26,8 +26,8 @@
   "daysTracked": 76,
   "low": 199.0,
   "high": 229.0,
-  "average": 217.42,
-  "priceChanges": 18,
+  "average": 217.08,
+  "priceChanges": 19,
   "series": [
    [
     "2026-08-16",
@@ -107,14 +107,14 @@
    ],
    [
     "2026-10-30",
-    225.0
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £26.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/WG4007202_1_WS_Alpine_DRY_Cart_Bag_Grey_Navy_Redcopy.jpg?v=1776297116",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Alpine-Dry-Waterproof-Golf-Cart-Bag-Navy-Grey-Red.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

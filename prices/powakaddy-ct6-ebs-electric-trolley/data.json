@@ -6,21 +6,18 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 799.0,
+ "lowestNewPrice": 769.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf",
-  "Major Golf Direct",
-  "Scottsdale Golf"
+  "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 799.0,
+   "name": "Clickgolf",
+   "from": 769.0,
    "options": 2
   },
   {
-   "name": "Clickgolf",
+   "name": "Affordable Golf",
    "from": 799.0,
    "options": 2
   },
@@ -39,8 +36,8 @@
   "daysTracked": 76,
   "low": 749.0,
   "high": 799.0,
-  "average": 790.45,
-  "priceChanges": 12,
+  "average": 790.05,
+  "priceChanges": 13,
   "series": [
    [
     "2026-08-16",
@@ -96,13 +93,13 @@
    ],
    [
     "2026-10-30",
-    799.0
+    769.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £50.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT6_EBS_Electric_Golf_Trolley-18-Hole_Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

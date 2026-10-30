@@ -6,19 +6,18 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 224.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 249.0,
+   "name": "Clickgolf",
+   "from": 224.0,
    "options": 1
   },
   {
-   "name": "Clickgolf",
+   "name": "Affordable Golf",
    "from": 249.0,
    "options": 1
   }
@@ -27,8 +26,8 @@
   "daysTracked": 76,
   "low": 224.0,
   "high": 249.0,
-  "average": 243.08,
-  "priceChanges": 12,
+  "average": 242.75,
+  "priceChanges": 13,
   "series": [
    [
     "2026-08-16",
@@ -84,13 +83,13 @@
    ],
    [
     "2026-10-30",
-    249.0
+    224.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £25.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ping-Hoofer-Tour-244-Golf-Stand-Bag-White.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

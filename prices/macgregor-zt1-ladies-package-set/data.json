@@ -6,14 +6,14 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 419.0,
+ "lowestNewPrice": 379.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 419.0,
+   "from": 379.0,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 76,
   "low": 379.0,
   "high": 419.0,
-  "average": 407.82,
-  "priceChanges": 15,
+  "average": 407.29,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -90,13 +90,13 @@
    ],
    [
     "2026-10-30",
-    419.0
+    379.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £40.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/MACSET118-Ladies-Set-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

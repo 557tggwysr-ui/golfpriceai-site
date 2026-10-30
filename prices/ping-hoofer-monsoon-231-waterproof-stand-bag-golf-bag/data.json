@@ -6,19 +6,19 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 209.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 209.0,
+   "name": "Clickgolf",
+   "from": 199.0,
    "options": 3
   },
   {
-   "name": "Clickgolf",
-   "from": 219.0,
+   "name": "Affordable Golf",
+   "from": 209.0,
    "options": 3
   }
  ],
@@ -26,8 +26,8 @@
   "daysTracked": 76,
   "low": 199.0,
   "high": 219.0,
-  "average": 207.16,
-  "priceChanges": 18,
+  "average": 207.03,
+  "priceChanges": 19,
   "series": [
    [
     "2026-08-16",
@@ -107,14 +107,14 @@
    ],
    [
     "2026-10-30",
-    209.0
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £10.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/36417_06_HooferMonsoon_231_Black_Blue_05copy.jpg?v=1776298543",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Ping-Hoofer-Monsoon-231-Waterproof-Golf-Stand-Bag-Black-Grey.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

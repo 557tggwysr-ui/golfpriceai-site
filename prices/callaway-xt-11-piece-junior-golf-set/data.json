@@ -6,19 +6,18 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 499.0,
+ "lowestNewPrice": 449.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 499.0,
+   "name": "Clickgolf",
+   "from": 449.0,
    "options": 2
   },
   {
-   "name": "Clickgolf",
+   "name": "Affordable Golf",
    "from": 499.0,
    "options": 2
   }
@@ -27,8 +26,8 @@
   "daysTracked": 76,
   "low": 449.0,
   "high": 499.0,
-  "average": 483.74,
-  "priceChanges": 17,
+  "average": 483.08,
+  "priceChanges": 18,
   "series": [
    [
     "2026-08-16",
@@ -104,13 +103,13 @@
    ],
    [
     "2026-10-30",
-    499.0
+    449.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £50.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/XT-Junior-Set-Bag-Black-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

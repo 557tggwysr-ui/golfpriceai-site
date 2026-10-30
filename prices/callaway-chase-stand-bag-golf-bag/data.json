@@ -6,14 +6,14 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.0,
+ "lowestNewPrice": 114.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 129.0,
+   "from": 114.0,
    "options": 5
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 76,
   "low": 114.0,
   "high": 129.0,
-  "average": 124.86,
-  "priceChanges": 14,
+  "average": 124.66,
+  "priceChanges": 15,
   "series": [
    [
     "2026-08-16",
@@ -86,13 +86,13 @@
    ],
    [
     "2026-10-30",
-    129.0
+    114.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £15.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Chase-Golf-Stand-Bag---Red.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
