@@ -1618,6 +1618,32 @@ def clean_clarkes_name(name):
     return CLARKES_CODE.sub("", name, count=1).strip()
 
 
+def purge_raw_clarkes_names(catalog_products):
+    """Clarkes Golf's first run (30 Oct 2026) went in before its titles
+    were cleaned, and the catalog never deletes, so those listings would
+    sit beside the cleaned ones forever as duplicates. Drop any Clarkes
+    listing still carrying the raw " - Clarkes Golf" title, from the
+    catalog and both history files. Safe to leave in: once they're gone
+    it finds nothing."""
+    def raw(key):
+        return key.startswith("awin-clarkesgolf|") and key.rstrip().endswith("Clarkes Golf")
+    before = len(catalog_products)
+    catalog_products[:] = [p for p in catalog_products if not raw(identity.listing_key(p))]
+    gone = before - len(catalog_products)
+    if not gone:
+        return
+    for f in (PRICE_HISTORY_FILE, STOCK_HISTORY_FILE):
+        try:
+            h = json.loads(f.read_text())
+            recs = h.get("products", {})
+            for k in [k for k in recs if raw(k)]:
+                del recs[k]
+            f.write_text(json.dumps(h, indent=2))
+        except (OSError, ValueError) as exc:
+            print(f"Clarkes tidy: could not clean {f.name}: {exc}")
+    print(f"Clarkes tidy: removed {gone} listing(s) saved under raw titles.")
+
+
 def fetch_awin_clarkesgolf_deals():
     """Clarkes Golf: eighth AWIN retailer (Google-format feed). Titles
     end in " - Clarkes Golf" and carry style codes, both cleaned off."""
@@ -3671,6 +3697,7 @@ def main():
     identity.migrate_history_file(PRICE_HISTORY_FILE, catalog["products"], "price")
     identity.migrate_history_file(STOCK_HISTORY_FILE, catalog["products"], "stock")
     identity.clean_mixed_records(catalog["products"])
+    purge_raw_clarkes_names(catalog["products"])
 
     fresh = (
         fetch_cj_deals()
