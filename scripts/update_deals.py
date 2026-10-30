@@ -1145,7 +1145,11 @@ def normalize_google_shopping_row(row):
     availability_normalized = availability_raw.replace("_", " ")
     in_stock = "1" if availability_normalized == "in stock" else "0"
 
+    # Google prices carry their currency ("199.99 GBP"); pass it on so the
+    # shared parser can skip anything not priced in pounds.
+    cur = re.search(r"\b([A-Z]{3})\b", (row.get("sale_price") or row.get("price") or "").upper())
     return {
+        "currency": cur.group(1) if cur else "",
         "product_name": row.get("title"),
         "aw_deep_link": row.get("aw_deep_link") or row.get("link"),
         "merchant_deep_link": row.get("link"),
@@ -1319,6 +1323,12 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_form
     reader = csv.DictReader(io.StringIO(text))
 
     print(f"{retailer_label} feed: columns found = {reader.fieldnames}")
+    # Awin offers some retailers in both formats. If the URL saved is the
+    # Google-format one, read it that way whatever the wrapper said.
+    cols = set(reader.fieldnames or [])
+    if feed_format == "awin_classic" and "product_name" not in cols and {"title", "price"} <= cols:
+        print(f"{retailer_label} feed: Google-format columns detected, reading it as a Google feed.")
+        feed_format = "google_shopping"
 
     products = []
     total_rows = 0
@@ -1591,7 +1601,7 @@ def fetch_awin_payntr_deals():
     """PAYNTR Golf EU: seventh AWIN retailer (golf shoes), classic
     Create-a-Feed. An EU store, so its feed should include the "currency"
     column: any row not priced in GBP is skipped by the shared parser."""
-    return fetch_awin_generic_feed("PAYNTR Golf", "AWIN_PAYNTR_FEED_URL", "payntr")
+    return fetch_awin_generic_feed("PAYNTR Golf", "AWIN_PAYNTR_FEED_URL", "payntr", feed_format="google_shopping")
 
 
 def fetch_awin_clarkesgolf_deals():
