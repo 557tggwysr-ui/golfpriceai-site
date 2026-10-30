@@ -1604,9 +1604,27 @@ def fetch_awin_payntr_deals():
     return fetch_awin_generic_feed("PAYNTR Golf", "AWIN_PAYNTR_FEED_URL", "payntr", feed_format="google_shopping")
 
 
+CLARKES_SUFFIX = re.compile(r"\s*-\s*Clarkes Golf\s*$", re.I)
+# Clarkes put the maker's style code in the title ("Golf Polo Shirt IO0691 -
+# Blue", "Ball Markers 5921108"). It means nothing to a shopper and stops
+# listings lining up with other retailers' names, so it's taken out: a
+# 6+ character token with a digit, straight before the " - " colour part
+# or at the very end.
+CLARKES_CODE = re.compile(r"\s+(?=[A-Z0-9]*\d)[A-Z0-9]{6,}(?=\s+-\s|$)")
+
+
+def clean_clarkes_name(name):
+    name = CLARKES_SUFFIX.sub("", name or "")
+    return CLARKES_CODE.sub("", name, count=1).strip()
+
+
 def fetch_awin_clarkesgolf_deals():
-    """Clarkes Golf: eighth AWIN retailer, classic Create-a-Feed."""
-    return fetch_awin_generic_feed("Clarkes Golf", "AWIN_CLARKESGOLF_FEED_URL", "clarkesgolf")
+    """Clarkes Golf: eighth AWIN retailer (Google-format feed). Titles
+    end in " - Clarkes Golf" and carry style codes, both cleaned off."""
+    products = fetch_awin_generic_feed("Clarkes Golf", "AWIN_CLARKESGOLF_FEED_URL", "clarkesgolf")
+    for p in products:
+        p["name"] = clean_clarkes_name(p.get("name"))
+    return products
 
 
 def fetch_awin_deals():
