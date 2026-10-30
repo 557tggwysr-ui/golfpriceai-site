@@ -494,7 +494,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/site.css?v=20261030">
 <link rel="stylesheet" href="/css/prices.css?v=20261029">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
@@ -513,7 +513,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 {site_chrome.footer_html()}
 <script src="/js/analytics.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script src="/js/site.js" defer></script>
+<script src="/js/site.js?v=20261030" defer></script>
 </body>
 </html>
 """
@@ -1323,7 +1323,7 @@ INDEXNOW_LIST = Path("/tmp/indexnow-urls.txt")
 SITEMAP_PRICES = ROOT / "sitemap-prices.xml"
 SITEMAP_PAGES = ROOT / "sitemap-pages.xml"
 SITEMAP_INDEX = ROOT / "sitemap.xml"
-STATIC_PAGES = ["", "shop.html", "clubs.html", "apparel.html", "accessories.html", "deal-tools.html", "build-your-bag.html",
+STATIC_PAGES = ["", "shop/", "shop.html", "clubs.html", "apparel.html", "accessories.html", "deal-tools.html", "build-your-bag.html",
                 "complete-the-look.html", "complete-the-kit.html", "find-your-fit.html", "fairway-index.html",
                 "best-time-to-buy.html", "back-in-stock.html", "receipts.html", "about.html",
                 "faq.html", "price-check.html", "ai.html", "legal/privacy-policy.html", "legal/cookies.html"]

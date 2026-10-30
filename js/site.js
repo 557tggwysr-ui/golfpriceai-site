@@ -71,6 +71,26 @@
     if (menu && !menu.hidden) toggleMenu(false);
   });
 
+  /* ------------------------------------------------------------ Shop menu drop counts */
+  // "518 genuine drops" on the Shop photos. Fetched the first time someone
+  // opens the Shop menu, so ordinary page loads stay light.
+  var shopCounts = false;
+  function loadShopCounts() {
+    if (shopCounts) return;
+    shopCounts = true;
+    fetch('/data/curated-views.json').then(function (r) { return r.json(); }).then(function (d) {
+      var g = ((d.home || {}).stats || {}).genuineDrops || {};
+      Object.keys(g).forEach(function (k) {
+        if (!g[k]) return;
+        var n = Number(g[k]).toLocaleString('en-GB');
+        document.querySelectorAll('.gp-shop-pill[data-drops="' + k + '"]').forEach(function (el) { el.textContent = n + ' genuine drops'; el.hidden = false; });
+        document.querySelectorAll('.gp-shop-row [data-drops-short="' + k + '"]').forEach(function (el) { el.textContent = n + ' drops'; el.hidden = false; });
+      });
+    }).catch(function () { shopCounts = false; });
+  }
+  var shopItem = header.querySelector('.gp-nav-item[data-section="shop"]');
+  if (shopItem) { shopItem.addEventListener('mouseenter', loadShopCounts); shopItem.addEventListener('focusin', loadShopCounts); }
+
   /* ------------------------------------------------------------ which section are we in? */
   (function markActive() {
     var path = location.pathname.replace(/\/index\.html$/, '/');
@@ -85,6 +105,9 @@
     else if (/\/apparel\.html$/.test(path) || cat === 'apparel' || cat === 'shoes') section = 'apparel';
     else if (/\/accessories\.html$/.test(path) || cat === 'accessories' || cat === 'ball' || cat === 'bag') section = 'accessories';
     else if (/\/(build-your-bag|receipts|complete-the-look|best-time-to-buy|complete-the-kit|back-in-stock|fairway-index)\.html$/.test(path)) section = 'tools';
+    if (/^\/shop\/$/.test(path) || /\/shop\.html$/.test(path)) section = section || 'shop';
+    // Clubs, Apparel and Accessories all live under Shop now.
+    if (section === 'clubs' || section === 'apparel' || section === 'accessories') section = 'shop';
     if (!section) return;
     var el = header.querySelector('.gp-nav-item[data-section="' + section + '"]');
     if (el) {
@@ -130,7 +153,7 @@
     else menuBtn.focus();
   }
   if (menu && menuBtn) {
-    menuBtn.addEventListener('click', function () { toggleMenu(true); });
+    menuBtn.addEventListener('click', function () { toggleMenu(true); loadShopCounts(); });
     menu.querySelector('.gp-menu-close').addEventListener('click', function () { toggleMenu(false); });
     var accBtns = Array.prototype.slice.call(menu.querySelectorAll('.gp-acc-btn'));
     accBtns.forEach(function (btn) {
@@ -147,8 +170,8 @@
     // Open the section you're already in.
     var active = header.querySelector('.gp-nav-item.is-active');
     if (active) {
-      var idx = items.indexOf(active);
-      if (accBtns[idx]) { accBtns[idx].setAttribute('aria-expanded', 'true'); accBtns[idx].nextElementSibling.hidden = false; }
+      var acc = menu.querySelector('.gp-acc[data-section="' + active.getAttribute('data-section') + '"] .gp-acc-btn');
+      if (acc) { acc.setAttribute('aria-expanded', 'true'); acc.nextElementSibling.hidden = false; }
     }
     // Close the menu if the screen grows to desktop size.
     DESKTOP.addEventListener && DESKTOP.addEventListener('change', function (e) { if (e.matches && !menu.hidden) toggleMenu(false); });

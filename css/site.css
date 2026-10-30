@@ -135,6 +135,51 @@ body.gp-lock { overflow: hidden; }
 }
 .gp-drop .gp-mega-foot a { padding: 0; font-size: 13px; font-weight: 700; color: var(--gp-green-dark); background: none; }
 
+/* Shop: one mega menu holding Clubs, Apparel and Accessories */
+.gp-header-inner { position: relative; }
+.gp-nav-item[data-section="shop"] { position: static; }
+.gp-shop-drop {
+  left: 24px; right: 24px; transform: none; top: calc(100% + 1px);
+  padding: 22px; border-radius: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 290px; gap: 22px;
+}
+.gp-nav-item.is-open > .gp-shop-drop { display: grid; }
+.gp-shop-col { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.gp-drop a.gp-shop-photo { position: relative; display: block; height: 132px; padding: 0; border-radius: 14px; overflow: hidden; background: #1b1d1c; }
+.gp-shop-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+.gp-shop-photo:hover img { transform: scale(1.04); }
+.gp-shop-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(10,20,14,.72)); }
+.gp-shop-photo b { position: absolute; left: 14px; bottom: 11px; z-index: 1; font: 700 23px 'Poppins', sans-serif; color: #fff; }
+.gp-shop-pill { position: absolute; left: 12px; top: 12px; z-index: 1; display: inline-flex; align-items: center; gap: 6px; background: #fff; color: var(--gp-ink); font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 99px; }
+.gp-shop-pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gp-green); }
+.gp-shop-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
+.gp-drop .gp-shop-links a { padding: 6px 8px; font-size: 14.5px; border-radius: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gp-drop a.gp-shop-all { padding: 4px 8px; font-size: 14px; font-weight: 700; color: var(--gp-green-dark); }
+.gp-drop a.gp-shop-all:hover { background: none; text-decoration: underline; }
+.gp-shop-side { background: #14211a; border-radius: 16px; padding: 20px; color: #fff; display: flex; flex-direction: column; gap: 12px; }
+.gp-shop-kick { font-size: 11.5px; font-weight: 700; letter-spacing: .12em; color: #8fd97c; }
+.gp-shop-side p { margin: 0; font-size: 13.5px; line-height: 1.5; color: #c4d0c8; }
+.gp-shop-quick { display: flex; flex-direction: column; border-top: 1px solid rgba(255,255,255,.14); }
+.gp-drop .gp-shop-quick a { display: flex; justify-content: space-between; padding: 10px 0; border-radius: 0; color: #fff; font-size: 14.5px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.gp-drop .gp-shop-quick a span { color: #8fd97c; }
+.gp-drop .gp-shop-quick a:hover { background: none; color: #8fd97c; }
+.gp-drop a.gp-shop-cta { margin-top: auto; background: var(--gp-green); color: #fff; font-weight: 700; text-align: center; padding: 12px; border-radius: 12px; }
+.gp-drop a.gp-shop-cta:hover { background: #2f8a1f; color: #fff; }
+@media (max-width: 1239px) {
+  .gp-shop-drop { grid-template-columns: repeat(3, minmax(0, 1fr)) 240px; gap: 16px; padding: 18px; }
+  .gp-shop-links { grid-template-columns: 1fr; }
+  .gp-drop a.gp-shop-photo { height: 112px; }
+}
+/* Phone menu: Shop rows with photos */
+.gp-acc-body.gp-acc-shop { gap: 4px; padding: 0 0 14px; }
+.gp-acc-body a.gp-shop-row { flex-direction: row; align-items: center; gap: 12px; padding: 6px 4px; }
+.gp-shop-row img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; flex: 0 0 56px; }
+.gp-shop-row > span { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+.gp-shop-row b { font-size: 16px; font-weight: 600; }
+.gp-shop-row em { font-style: normal; font-size: 12px; font-weight: 600; color: var(--gp-green-dark); background: #eaf6e6; padding: 4px 8px; border-radius: 99px; white-space: nowrap; }
+.gp-shop-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px 4px 2px; }
+.gp-acc-body .gp-shop-chips a { display: inline-block; padding: 9px 14px; border: 1px solid var(--gp-line); border-radius: 99px; font-size: 13.5px; font-weight: 600; }
+
 .gp-actions { justify-self: end; display: flex; align-items: center; gap: 12px; }
 .gp-icon-btn {
   width: 44px; height: 44px; border-radius: 50%;

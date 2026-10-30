@@ -179,22 +179,60 @@ def popular_chips_html(label=True):
     return f'<div class="gp-chips">{lead}{chips}</div>'
 
 
+SHOP_PHOTOS = {"clubs": ("/tile-photos/tile-clubs.jpg", "50% 55%", "Drivers, irons, putters, sets"),
+               "apparel": ("/tile-photos/tile-apparel.jpg", "50% 25%", "Polos, layers, waterproofs, shoes"),
+               "accessories": ("/tile-photos/tile-accessories.jpg", "40% 62%", "Balls, bags, GPS, rangefinders")}
+# The Shop side panel: quick ways in that aren't a category.
+SHOP_QUICK = [("Price drops today", "/prices/drops/"), ("Price guides", "/prices/"), ("Brands A to Z", "/prices/brands/"),
+              ("Black Friday golf deals", "/prices/black-friday/"), ("Golf gift finder", "/prices/golf-gifts/")]
+
+
+def shop_short(m=None):
+    """The eight links each Shop column shows (the hub has the rest)."""
+    m = m or menu()
+    def pick(key, labels):
+        have = dict(m[key]["items"] + m[key]["extra"])
+        return [(new, have[old]) if old in have else (new, old) for old, new in labels]
+    return {
+        "clubs": pick("clubs", [("Drivers", "Drivers"), ("Irons", "Irons"), ("Fairway woods", "Fairway woods"),
+                                ("Wedges", "Wedges"), ("Hybrids", "Hybrids"), ("Putters", "Putters"),
+                                ("Package sets", "Package sets"), ("Preowned and trade-ins", "Preowned")]),
+        "apparel": pick("apparel", [("Polo Tees", "Polos and tops"), ("Bottoms", "Trousers"), ("Outerwear", "Outerwear"),
+                                    ("Shorts & Skorts", "Shorts"), ("Golf shoes", "Shoes"), ("Headwear & Extras", "Headwear"),
+                                    ("Golf Suits", "Waterproof suits"), ("/complete-the-look.html", "Outfit builder")]),
+        "accessories": pick("accessories", [("Golf Balls", "Golf balls"), ("Rangefinders", "Rangefinders"),
+                                            ("Golf bags", "Golf bags"), ("GPS Watches", "GPS watches"), ("Gloves", "Gloves"),
+                                            ("Push Carts", "Trolleys"), ("Launch Monitors & Simulators", "Launch monitors"),
+                                            ("Headcovers", "Headcovers")]),
+    }
+
+
 def header_html():
     m = menu()
     items = []
+    short = shop_short(m)
+    cols = []
     for key in ("clubs", "apparel", "accessories"):
         sec = m[key]
-        links = "".join(f'<a href="{_esc(u)}">{_esc(t)}</a>' for t, u in sec["items"])
-        extra = ""
-        if sec["extra"]:
-            extra = '<div class="gp-drop-sep"></div>' + "".join(f'<a href="{_esc(u)}">{_esc(t)}</a>' for t, u in sec["extra"])
-        cols = " gp-drop-cols" if len(sec["items"]) > 9 else ""
-        items.append(f"""
-    <div class="gp-nav-item" data-section="{key}">
-      <a href="{sec['hub']}" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">{sec['label']}{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
-      <div class="gp-drop{cols}">
-        <div class="gp-drop-links">{links}</div>{extra}
-        <a class="gp-drop-all" href="{sec['hub']}">{sec['all']} &rarr;</a>
+        img, pos, _ = SHOP_PHOTOS[key]
+        links = "".join(f'<a href="{_esc(u)}">{_esc(t)}</a>' for t, u in short[key])
+        cols.append(f"""
+        <div class="gp-shop-col">
+          <a class="gp-shop-photo" href="{sec['hub']}"><img src="{img}" alt="" width="1000" height="1000" loading="lazy" style="object-position:{pos}"><span class="gp-shop-pill" data-drops="{key}" hidden></span><b>{sec['label']}</b></a>
+          <div class="gp-shop-links">{links}</div>
+          <a class="gp-shop-all" href="{sec['hub']}">{sec['all']} &rarr;</a>
+        </div>""")
+    quick = "".join(f'<a href="{u}">{_esc(t)}<span aria-hidden="true">&rarr;</span></a>' for t, u in SHOP_QUICK)
+    items.append(f"""
+    <div class="gp-nav-item" data-section="shop">
+      <a href="/shop/" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Shop{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
+      <div class="gp-drop gp-shop-drop">{''.join(cols)}
+        <div class="gp-shop-side">
+          <span class="gp-shop-kick">QUICK WAYS IN</span>
+          <p>Every price checked every 6 hours across multiple UK retailers. Only genuine drops get flagged.</p>
+          <div class="gp-shop-quick">{quick}</div>
+          <a class="gp-shop-cta" href="/shop/">Explore the whole shop</a>
+        </div>
       </div>
     </div>""")
     tools = "".join(f"""
@@ -261,29 +299,29 @@ def header_html():
 def menu_html(m=None):
     m = m or menu()
     sections = []
-    for key in ("clubs", "apparel", "accessories"):
-        sec = m[key]
-        links = "".join(f'<a href="{_esc(u)}">{_esc(t)}</a>' for t, u in sec["items"] + sec["extra"])
-        sections.append(f"""
-      <div class="gp-acc">
-        <button type="button" class="gp-acc-btn" aria-expanded="false">{sec['label']}{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
-        <div class="gp-acc-body" hidden>{links}<a class="gp-acc-all" href="{sec['hub']}">{sec['all']} &rarr;</a></div>
+    rows = "".join(f"""<a class="gp-shop-row" href="{m[k]['hub']}"><img src="{SHOP_PHOTOS[k][0]}" alt="" width="56" height="56" loading="lazy" style="object-position:{SHOP_PHOTOS[k][1]}"><span><b>{m[k]['label']}</b><small>{SHOP_PHOTOS[k][2]}</small></span><em data-drops-short="{k}" hidden></em></a>"""
+                   for k in ("clubs", "apparel", "accessories"))
+    chips = "".join(f'<a href="{u}">{_esc(t)}</a>' for t, u in SHOP_QUICK[:4])
+    sections.append(f"""
+      <div class="gp-acc" data-section="shop">
+        <button type="button" class="gp-acc-btn" aria-expanded="false">Shop{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
+        <div class="gp-acc-body gp-acc-shop" hidden>{rows}<div class="gp-shop-chips">{chips}</div><a class="gp-acc-all" href="/shop/">Explore the whole shop &rarr;</a></div>
       </div>""")
     tools = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["tools"])
     play = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["play"])
     sections.append(f"""
-      <div class="gp-acc">
+      <div class="gp-acc" data-section="play">
         <button type="button" class="gp-acc-btn" aria-expanded="false">Play{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
         <div class="gp-acc-body gp-acc-tools" hidden>{play}<a class="gp-acc-all" href="/play/">The Clubhouse &rarr;</a></div>
       </div>""")
     socs = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["societies"])
     sections.append(f"""
-      <div class="gp-acc">
+      <div class="gp-acc" data-section="societies">
         <button type="button" class="gp-acc-btn" aria-expanded="false"><span>Societies <span class="gp-nav-new">New</span></span>{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
         <div class="gp-acc-body gp-acc-tools" hidden>{socs}<a class="gp-acc-all" href="/societies/">Society HQ &rarr;</a></div>
       </div>""")
     sections.append(f"""
-      <div class="gp-acc">
+      <div class="gp-acc" data-section="tools">
         <button type="button" class="gp-acc-btn" aria-expanded="false">Deal Tools{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
         <div class="gp-acc-body gp-acc-tools" hidden>{tools}<a class="gp-acc-all" href="/deal-tools.html">All deal tools &rarr;</a></div>
       </div>""")
@@ -295,7 +333,7 @@ def menu_html(m=None):
   <div class="gp-menu-search">{_search_form("gp-menu-q", button=False)}</div>
   <nav class="gp-menu-nav" aria-label="Main">
       <a class="gp-menu-top" href="/play/my-clubhouse/">My Clubhouse</a>
-      <a class="gp-menu-top" href="/shop.html">Shop all deals</a>{''.join(sections)}
+      <a class="gp-menu-top" href="/shop.html">All deals</a>{''.join(sections)}
       <a class="gp-menu-top" href="/about.html">About GolfPrice AI</a>
   </nav>
   <div class="gp-menu-foot"><a href="/#alerts" class="gp-alerts gp-alerts-wide">{_svg(ICON_BELL, 17)}<span>Get deal alerts</span></a></div>
@@ -306,7 +344,7 @@ def menu_html(m=None):
 def footer_html():
     m = menu()
     cols = [
-        ("Shop", [("All deals", "/shop.html"), ("Clubs", "/clubs.html"), ("Apparel", "/apparel.html"),
+        ("Shop", [("The Shop", "/shop/"), ("All deals", "/shop.html"), ("Clubs", "/clubs.html"), ("Apparel", "/apparel.html"),
                   ("Accessories", "/accessories.html"), ("Preowned and trade-ins", "/shop.html?source=awin-callawaypreowned"),
                   ("Find Your Fit", "/find-your-fit.html"), ("Golf gift finder", "/prices/golf-gifts/"),
                   ("Christmas golf gifts", "/prices/christmas/"), ("Black Friday golf deals", "/prices/black-friday/")]),
@@ -344,7 +382,7 @@ def footer_html():
 
 
 # ---------------------------------------------------------------- page rewriting
-PAGES = ["index.html", "search.html", "shop.html", "clubs.html", "apparel.html", "accessories.html", "deal-tools.html", "about.html", "faq.html",
+PAGES = ["index.html", "search.html", "shop.html", "shop/index.html", "clubs.html", "apparel.html", "accessories.html", "deal-tools.html", "about.html", "faq.html",
          "back-in-stock.html", "best-time-to-buy.html", "build-your-bag.html", "complete-the-kit.html",
          "complete-the-look.html", "fairway-index.html", "find-your-fit.html", "receipts.html",
          "404.html", "price-check.html", "ai.html", "alerts-confirmed.html", "alerts-unsubscribed.html",
