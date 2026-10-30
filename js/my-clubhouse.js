@@ -83,6 +83,7 @@
     if (shortlist.length) bits.push(plural(shortlist.length, 'thing') + ' you’re watching');
     if (nick && bits.length) document.getElementById('mc-sub').textContent = bits.join(' · ') + '. Saved on this device, no sign-up.';
     box.innerHTML = games(g.pp, g.hl, g.locker, g.majors) + handicap(g.leagues && g.leagues.hcp) +
+      row('Milestones', '', '/play/par-price/', 'Play Par Price', '<div id="mc-ms"></div>', 'mc-ms-sec') +
       (soc.length || lg.length ? societies(soc) + leagues(lg) : group()) +
       kit(g.kit, g.bag) +
       '<div class="mc-pair">' + alerts() + '</div>';
@@ -90,6 +91,7 @@
     var mv = document.getElementById('move'), pair = box.querySelector('.mc-pair');
     if (mv && pair) pair.appendChild(mv);
     wireHandicap(g.leagues && g.leagues.hcp);
+    if (window.gpMilestones) { gpMilestones.fromHandicap(g.leagues && g.leagues.hcp); gpMilestones.shelf(document.getElementById('mc-ms')); }
     track('my_clubhouse_view', { state: 'regular', societies: soc.length, leagues: lg.length, kit: shortlist.length, bag: bagIds.length });
   });
 

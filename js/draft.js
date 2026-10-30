@@ -338,6 +338,9 @@
               '<button type="button" class="gp-af-btn" data-final="' + i + '">' + (c.you ? 'Share your champion’s card' : 'Share the champion’s card') + '</button></div>';
           }).join('') + '</div>';
         el.hidden = false;
+        if (window.gpMilestones) res.forEach(function (c) {
+          if (c.you) gpMilestones.award('champion_' + c.season + '_' + c.league, 'champion', { major: c.major && c.major.name, league: c.league, pts: c.pts, best: c.best });
+        });
         el.querySelectorAll('[data-final]').forEach(function (b) { b.addEventListener('click', function () { shareChampion(res[+b.getAttribute('data-final')], b); }); });
       });
     }).catch(function () {});

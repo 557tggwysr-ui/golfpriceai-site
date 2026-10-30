@@ -187,6 +187,10 @@ td:first-child { font-weight: 400; }
       cr('Handicap index', 'calc_index') + cr('Course handicap', 'calc_course') + cr('Playing handicap', 'calc_playing') +
       cr('What do I need to shoot?', 'calc_shoot') + cr('Results shared', 'calc_share') + '</table>' +
       '<span class="dim">Golfers who typed into each calculator, once a day each. Counts began on 30 October 2026.</span></section></div>';
+    html += '<section class="card"><h2>Milestone cards</h2><table><tr><th>Unlocked</th><th>Today</th><th>7 days</th></tr>' +
+      cr('First Price Handicap', 'ms_first_hcp') + cr('Scratch Club', 'ms_scratch') + cr('Bandit of the Month', 'ms_bandit') +
+      cr('Bag Draft champion', 'ms_champion') + cr('Par Price streak (30, 60, 90, 120)', 'ms_streak') + cr('Cards shared or saved', 'ms_share') + '</table>' +
+      '<span class="dim">Counted once a day per golfer. The cards themselves never leave the golfer\u2019s phone unless they share them.</span></section>';
 
     var gmax = Math.max.apply(null, d.growth.map(function (w) { return Math.max(w.leagues, w.societies); }).concat([1]));
     html += '<div class="two"><section class="card"><h2>Growth</h2><span class="dim">Leagues and societies at the end of each week</span><div class="growth" role="img" aria-label="Leagues and societies over the last six weeks">' +

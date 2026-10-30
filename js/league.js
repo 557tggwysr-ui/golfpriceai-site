@@ -44,7 +44,19 @@
       data = d;
       document.title = d.name + ' · Par Price league | GolfPrice AI';
       d.members.some(function (m) { return m.you; }) ? table() : join();
+      milestones(d);
     }).catch(function () { fail('We couldn’t reach the clubhouse. Please refresh in a minute.'); });
+  }
+  // Milestone cards: Scratch Club, first handicap and this month's Bandit.
+  function milestones(d) {
+    var me = d.members.filter(function (m) { return m.you; })[0];
+    if (!me || !window.gpMilestones || me.hcp === null || me.hcp === undefined) return;
+    gpMilestones.fromHandicap({ value: me.hcp });
+    if (me.bandit && me.hcpTrend !== null && me.hcpTrend !== undefined) {
+      var now = new Date(), M = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      gpMilestones.award('bandit_' + now.toISOString().slice(0, 7) + '_' + code, 'bandit',
+        { cut: Math.abs(me.hcpTrend), from: me.hcp - me.hcpTrend, to: me.hcp, league: d.name, month: M[now.getMonth()] + ' ' + now.getFullYear() });
+    }
   }
   function fail(msg) {
     box.innerHTML = '<div class="lg-hero"><span class="pr-kicker">Par Price leagues</span><h1>Hmm. No sign of that league.</h1><p>' + esc(msg || '') + '</p></div>' +

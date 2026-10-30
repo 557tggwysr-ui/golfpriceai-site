@@ -252,6 +252,7 @@
       st.last = round.n;
       st.best = st.best == null ? t : Math.min(st.best, t);
       put('gpParStreak', st);
+      if (window.gpMilestones) gpMilestones.fromStreak(st.streak, round.n);
       track('par_price_round', { total: t });
       // Anonymous: how far golfers' guesses are from the real prices, for the
       // Demand Index's Wishful Thinking Index. No score, no streak, no visitor.
@@ -333,8 +334,11 @@
     var req = saved.sent ? api('/pp/dist?n=' + round.n) : api('/pp/score', { pid: pid(), n: round.n, grid: grid, pin: pinOff() });
     req.then(function (d) {
       if (!d || !d.ok) throw new Error('no');
+      var first = !saved.sent;
       if (!saved.sent) { saved.sent = true; put('gpParPrice', saved); }
       drawRank(box, t, d.dist || {});
+      // A fifth round earns a Price Handicap: check, and unlock the milestone card.
+      if (first && window.gpMilestones) api('/pp/my?pid=' + pid()).then(function (m) { if (m && m.hcp) gpMilestones.fromHandicap(m.hcp); }).catch(function () {});
     }).catch(function () { box.hidden = true; });
   }
   function drawRank(box, t, dist) {
