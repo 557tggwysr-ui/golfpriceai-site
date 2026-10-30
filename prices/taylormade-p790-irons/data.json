@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-p790-irons/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 979.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 979.0,
   "high": 1059.0,
-  "average": 1030.33,
+  "average": 1029.66,
   "priceChanges": 3,
   "series": [
    [
@@ -51,14 +51,14 @@
     979.0
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     979.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 8 days"
+  "summary": "Typical price: steady for 9 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/2021_p790_10.jpg?v=1777962463",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

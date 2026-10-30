@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/wilson-tour-velocity-golf-balls/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 50.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 50.0,
   "high": 50.0,
   "average": 50.0,
@@ -29,14 +29,14 @@
     50.0
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     50.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 75 days"
+  "summary": "Typical price: steady for 76 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Tour-Velocity-Golf-Balls.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

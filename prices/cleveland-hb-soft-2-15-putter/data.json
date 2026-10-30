@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/cleveland-hb-soft-2-15-putter/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 109.0,
   "high": 159.0,
-  "average": 117.0,
+  "average": 116.89,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     109.0
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     109.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 63 days"
+  "summary": "Typical price: steady for 64 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/cleveland-HB-soft2-15-8.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

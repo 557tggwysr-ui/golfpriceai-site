@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-tour-lab-dog-golf-balls/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 55.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 55.0,
   "high": 55.0,
   "average": 55.0,
@@ -29,14 +29,14 @@
     55.0
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     55.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 75 days"
+  "summary": "Typical price: steady for 76 days"
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1793218115270/sits/balls-2026-chrome-tour-truvis-yellow-lab/balls-2026-chrome-tour-truvis-yellow-lab_2___1.jpg?sfrm=jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

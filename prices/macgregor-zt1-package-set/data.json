@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/macgregor-zt1-package-set/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 429.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 389.0,
   "high": 429.0,
-  "average": 416.07,
+  "average": 416.24,
   "priceChanges": 17,
   "series": [
    [
@@ -97,7 +97,7 @@
     429.0
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     429.0
    ]
   ]

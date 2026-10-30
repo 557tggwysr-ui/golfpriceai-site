@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-tour-triple-track-golf-balls/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 44.99,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 44.99,
   "high": 49.99,
-  "average": 46.26,
+  "average": 46.24,
   "priceChanges": 1,
   "series": [
    [
@@ -38,14 +38,14 @@
     44.99
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     44.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 56 days"
+  "summary": "Typical price: steady for 57 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/12_538147a5-0cd2-4dde-accd-93d8c032d76c.jpg?v=1773183277",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

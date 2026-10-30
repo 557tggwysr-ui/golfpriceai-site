@@ -3,7 +3,7 @@
  "brand": "Square Golf",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/square-golf-indoor-launch-monitor/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 552.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 56,
+  "daysTracked": 57,
   "low": 552.0,
   "high": 699.0,
-  "average": 651.89,
+  "average": 650.14,
   "priceChanges": 2,
   "series": [
    [
@@ -42,7 +42,7 @@
     552.0
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     552.0
    ]
   ]

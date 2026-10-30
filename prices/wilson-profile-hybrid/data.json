@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/wilson-profile-hybrid/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 54.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 54.95,
   "high": 59.99,
-  "average": 55.99,
+  "average": 55.97,
   "priceChanges": 2,
   "series": [
    [
@@ -42,14 +42,14 @@
     54.95
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     54.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 50 days"
+  "summary": "Typical price: steady for 51 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonGolfProfileHybrid1.jpg?v=1742980479",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

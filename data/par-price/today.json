@@ -1,66 +1,66 @@
 {
- "n": 12,
- "date": "2026-10-29",
+ "n": 13,
+ "date": "2026-10-30",
  "items": [
   {
-   "slug": "powakaddy-x-lite-cart-bag-golf-bag",
-   "name": "PowaKaddy X-Lite Cart Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-X-Lite-Golf-Cart-Bag-2024-Stealth-Black.jpg",
+   "slug": "titleist-vokey-sm10-tour-chrome-wedge",
+   "name": "Titleist Vokey SM10 Tour Chrome Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/titleist-vokey-sm10-tour-chrome-wedge-hero-1000x1000.jpg",
+   "price": 139.0,
+   "unit": "each",
+   "type": "wedge",
+   "low": false,
+   "url": "/prices/titleist-vokey-sm10-tour-chrome-wedge/"
+  },
+  {
+   "slug": "yonex-ezone-gs-i-tech-fairway-wood",
+   "name": "Yonex Ezone GS i-Tech Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/YonexEzoneGSi-Tech-FairwayWood2.jpg?v=1777942355",
+   "price": 119.95,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": false,
+   "url": "/prices/yonex-ezone-gs-i-tech-fairway-wood/"
+  },
+  {
+   "slug": "taylormade-qi35-driver",
+   "name": "TaylorMade Qi35 Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeQi35Driver-LS3.jpg?v=1776305300",
+   "price": 349.0,
+   "unit": "each",
+   "type": "driver",
+   "low": false,
+   "url": "/prices/taylormade-qi35-driver/"
+  },
+  {
+   "slug": "macgregor-zt-plus-hybrid",
+   "name": "MacGregor ZT Plus Hybrid",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MacGregorGolfZTPlusHybrid2026_1.jpg?v=1772009501",
+   "price": 74.95,
+   "unit": "each",
+   "type": "hybrid",
+   "low": false,
+   "url": "/prices/macgregor-zt-plus-hybrid/"
+  },
+  {
+   "slug": "cobra-signature-stand-bag-golf-bag",
+   "name": "Cobra Signature Stand Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/signature-stand-bag-navy.jpg",
    "price": 109.0,
    "unit": "each",
    "type": "golf bag",
    "low": false,
-   "url": "/prices/powakaddy-x-lite-cart-bag-golf-bag/"
-  },
-  {
-   "slug": "cleveland-rtz-tour-satin-wedge",
-   "name": "Cleveland RTZ Tour Satin Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/RTZTOURSATIN2.jpg?v=1736347265",
-   "price": 119.0,
-   "unit": "each",
-   "type": "wedge",
-   "low": false,
-   "url": "/prices/cleveland-rtz-tour-satin-wedge/"
-  },
-  {
-   "slug": "cobra-baffler-fairway-wood",
-   "name": "Cobra Baffler Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-Fairway-Wood-Hero.jpg",
-   "price": 189.0,
-   "unit": "each",
-   "type": "fairway wood",
-   "low": false,
-   "url": "/prices/cobra-baffler-fairway-wood/"
-  },
-  {
-   "slug": "yonex-ezone-gs-i-tech-hybrid",
-   "name": "Yonex Ezone GS i-Tech Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/yonex-ezone-gsi-i-hybrid-ladies.jpg",
-   "price": 99.0,
-   "unit": "each",
-   "type": "hybrid",
-   "low": false,
-   "url": "/prices/yonex-ezone-gs-i-tech-hybrid/"
-  },
-  {
-   "slug": "ping-g740-irons",
-   "name": "Ping G740 Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g740-irons-hero.jpg",
-   "price": 1049.0,
-   "unit": "each",
-   "type": "iron set",
-   "low": false,
-   "url": "/prices/ping-g740-irons/"
+   "url": "/prices/cobra-signature-stand-bag-golf-bag/"
   }
  ],
  "pin": {
-  "slug": "srixon-q-star-tour-6-divide-golf-balls",
-  "name": "Srixon Q Star Tour 6 Divide Golf Balls",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonQStarTour6DivideGolfBalls2026-YellowRed_1.jpg?v=1770725654",
-  "price": 31.95,
+  "slug": "wilson-duo-soft-golf-balls",
+  "name": "Wilson Duo Soft Golf Balls",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DUOSOFTWHITE1.jpg?v=1769174262",
+  "price": 19.95,
   "unit": "per dozen",
   "type": "golf ball",
   "low": false,
-  "url": "/prices/srixon-q-star-tour-6-divide-golf-balls/"
+  "url": "/prices/wilson-duo-soft-golf-balls/"
  }
 }

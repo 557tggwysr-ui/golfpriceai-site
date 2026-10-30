@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-fx1-electric-trolley/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 499.0,
@@ -35,10 +35,10 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 469.0,
   "high": 499.0,
-  "average": 486.73,
+  "average": 486.89,
   "priceChanges": 13,
   "series": [
    [
@@ -95,6 +95,10 @@
    ],
    [
     "2026-10-29",
+    499.0
+   ],
+   [
+    "2026-10-30",
     499.0
    ]
   ]

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-reserve-stand-bag-golf-bag/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 279.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 254.0,
   "high": 279.0,
-  "average": 272.0,
+  "average": 272.09,
   "priceChanges": 14,
   "series": [
    [
@@ -85,7 +85,7 @@
     279.0
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     279.0
    ]
   ]

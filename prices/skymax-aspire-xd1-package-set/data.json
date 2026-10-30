@@ -3,7 +3,7 @@
  "brand": "Skymax",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/skymax-aspire-xd1-package-set/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 195.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 195.0,
   "high": 195.0,
   "average": 195.0,
@@ -29,14 +29,14 @@
     195.0
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     195.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 75 days"
+  "summary": "Typical price: steady for 76 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/aspire-xd1-golf-set-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

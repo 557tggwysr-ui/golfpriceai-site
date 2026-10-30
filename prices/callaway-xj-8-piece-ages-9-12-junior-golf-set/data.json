@@ -3,26 +3,26 @@
  "brand": "Callaway",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/callaway-xj-8-piece-ages-9-12-junior-golf-set/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 369.0,
+ "lowestNewPrice": 399.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 369.0,
+   "from": 399.0,
    "options": 2
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 369.0,
   "high": 399.0,
-  "average": 378.6,
-  "priceChanges": 10,
+  "average": 378.87,
+  "priceChanges": 11,
   "series": [
    [
     "2026-08-16",
@@ -69,15 +69,15 @@
     369.0
    ],
    [
-    "2026-10-29",
-    369.0
+    "2026-10-30",
+    399.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 36 days"
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Junior-Set-Level-3-Bag-Blue-Hero.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Level-3-Junior-Set-Bag-Black-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

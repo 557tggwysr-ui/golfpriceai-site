@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/titleist-gt4-driver/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.0,
@@ -28,7 +28,7 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 399.0,
   "high": 399.0,
   "average": 399.0,
@@ -39,14 +39,14 @@
     399.0
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     399.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 75 days"
+  "summary": "Typical price: steady for 76 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-GT4-Driver-Hero-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

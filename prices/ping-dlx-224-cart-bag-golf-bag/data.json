@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-dlx-224-cart-bag-golf-bag/",
- "checked": "2026-10-29",
+ "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 239.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 239.0,
   "high": 269.0,
-  "average": 250.2,
+  "average": 250.05,
   "priceChanges": 10,
   "series": [
    [
@@ -69,14 +69,14 @@
     239.0
    ],
    [
-    "2026-10-29",
+    "2026-10-30",
     239.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 36 days"
+  "summary": "Typical price: steady for 37 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ping-DLX-224-Golf-Cart-Bag---White-Dark-Grey-Blue.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
