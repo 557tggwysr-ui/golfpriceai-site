@@ -1,0 +1,48 @@
+{
+ "name": "Ping G Le4 Driver",
+ "brand": "Ping",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/ping-g-le4-driver/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 499.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 499.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 549.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 499.0,
+  "high": 549.0,
+  "average": 548.34,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    549.0
+   ],
+   [
+    "2026-10-30",
+    499.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/g-le4-ladies-driver-hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

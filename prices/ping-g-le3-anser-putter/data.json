@@ -1,0 +1,48 @@
+{
+ "name": "Ping G Le3 Anser Putter",
+ "brand": "Ping",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/ping-g-le3-anser-putter/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 189.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 189.0,
+   "options": 2
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 275.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 189.0,
+  "high": 275.0,
+  "average": 273.49,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    275.0
+   ],
+   [
+    "2026-10-30",
+    189.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-Ladies-G-Le3-Anser-Golf-Putter-Slight-7.jpg?v=1713994685",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

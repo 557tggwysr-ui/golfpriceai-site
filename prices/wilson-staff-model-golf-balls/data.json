@@ -14,7 +14,7 @@
   {
    "name": "Clarkes Golf",
    "from": 37.95,
-   "options": 5
+   "options": 10
   },
   {
    "name": "Affordable Golf",
@@ -25,15 +25,24 @@
    "name": "Major Golf Direct",
    "from": 44.99,
    "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 85.0,
+   "options": 1
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 76,
   "low": 37.95,
-  "high": 44.99,
-  "average": 44.88,
-  "priceChanges": 1,
+  "high": 85.0,
+  "average": 51.21,
+  "priceChanges": 2,
   "series": [
+   [
+    "2026-08-16",
+    85.0
+   ],
    [
     "2026-08-28",
     44.99

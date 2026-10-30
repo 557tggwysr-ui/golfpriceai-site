@@ -1,0 +1,49 @@
+{
+ "name": "Ping G Le4 Oslo Putter",
+ "brand": "Ping",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/ping-g-le4-oslo-putter/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 299.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 299.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 299.0,
+  "high": 299.0,
+  "average": 299.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    299.0
+   ],
+   [
+    "2026-10-30",
+    299.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 76 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/GLe4-Oslo-Putter-Address.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

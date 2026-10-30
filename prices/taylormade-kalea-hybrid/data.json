@@ -1,0 +1,49 @@
+{
+ "name": "TaylorMade Kalea Hybrid",
+ "brand": "TaylorMade",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/taylormade-kalea-hybrid/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 199.0,
+   "options": 1
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 199.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 199.0,
+  "high": 199.0,
+  "average": 199.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    199.0
+   ],
+   [
+    "2026-10-30",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 57 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeKalea_24LadiesHybrid1.jpg?v=1777949706",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

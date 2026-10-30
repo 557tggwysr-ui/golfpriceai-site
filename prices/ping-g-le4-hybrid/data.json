@@ -1,0 +1,48 @@
+{
+ "name": "Ping G Le4 Hybrid",
+ "brand": "Ping",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/ping-g-le4-hybrid/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 249.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 269.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 249.0,
+  "high": 269.0,
+  "average": 268.74,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    269.0
+   ],
+   [
+    "2026-10-30",
+    249.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/g-le4-ladies-hybrid-5h-hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

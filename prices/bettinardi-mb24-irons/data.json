@@ -1,0 +1,49 @@
+{
+ "name": "Bettinardi MB24 Irons",
+ "brand": "Bettinardi",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/bettinardi-mb24-irons/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1749.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 1749.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1749.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 1749.0,
+  "high": 1749.0,
+  "average": 1749.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    1749.0
+   ],
+   [
+    "2026-10-30",
+    1749.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 76 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/Bettinardi-MB24-Irons-1.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

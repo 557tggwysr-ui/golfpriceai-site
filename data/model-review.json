@@ -4,7 +4,7 @@
   {
    "model": "Titleist vokey sm11",
    "issue": "cheapest retailer \u00a3179.00 vs dearest \u00a3507.00: check for used stock or a different product",
-   "listings": 92
+   "listings": 181
   },
   {
    "model": "Callaway quantum max",
@@ -14,7 +14,7 @@
   {
    "model": "Cobra KING Wedge",
    "issue": "price spread \u00a3119.00 to \u00a3387.00: may mix different products",
-   "listings": 38
+   "listings": 53
   },
   {
    "model": "TaylorMade qi max",
@@ -22,24 +22,24 @@
    "listings": 1
   },
   {
+   "model": "Wilson Staff Model ZM Wedge",
+   "issue": "price spread \u00a399.00 to \u00a3357.00: may mix different products",
+   "listings": 43
+  },
+  {
    "model": "TaylorMade milled grind 5",
    "issue": "cheapest retailer \u00a3179.00 vs dearest \u00a3499.00: check for used stock or a different product",
-   "listings": 35
+   "listings": 40
   },
   {
    "model": "Srixon soft feel",
    "issue": "cheapest retailer \u00a319.99 vs dearest \u00a368.97: check for used stock or a different product",
-   "listings": 33
+   "listings": 37
   },
   {
    "model": "Srixon Soft Feel Golf Balls",
    "issue": "price spread \u00a319.99 to \u00a368.97: may mix different products",
-   "listings": 33
-  },
-  {
-   "model": "Wilson Staff Model ZM Wedge",
-   "issue": "price spread \u00a399.00 to \u00a3357.00: may mix different products",
-   "listings": 30
+   "listings": 37
   },
   {
    "model": "L.A.B. Golf Putter",
@@ -52,24 +52,9 @@
    "listings": 23
   },
   {
-   "model": "Cleveland CBZ Tour Satin Wedge",
-   "issue": "price spread \u00a3124.95 to \u00a3417.00: may mix different products",
-   "listings": 18
-  },
-  {
-   "model": "Srixon AD333 Golf Balls",
-   "issue": "price spread \u00a319.95 to \u00a368.97: may mix different products",
-   "listings": 18
-  },
-  {
    "model": "TaylorMade qi max hl",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
-  },
-  {
-   "model": "Wilson staff duo soft",
-   "issue": "7 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
-   "listings": 7
   },
   {
    "model": "Titleist t350",
@@ -77,8 +62,38 @@
    "listings": 1
   },
   {
+   "model": "Srixon AD333 Golf Balls",
+   "issue": "price spread \u00a319.95 to \u00a368.97: may mix different products",
+   "listings": 20
+  },
+  {
+   "model": "Cleveland CBZ Tour Satin Wedge",
+   "issue": "price spread \u00a3124.95 to \u00a3417.00: may mix different products",
+   "listings": 18
+  },
+  {
+   "model": "Wilson staff duo soft",
+   "issue": "7 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
+   "listings": 7
+  },
+  {
+   "model": "Srixon Z-Star Diamond Golf Balls",
+   "issue": "price spread \u00a329.99 to \u00a3128.97: may mix different products",
+   "listings": 14
+  },
+  {
    "model": "Mizuno Pro T-3 Wedge",
    "issue": "price spread \u00a3119.00 to \u00a3477.00: may mix different products",
+   "listings": 13
+  },
+  {
+   "model": "Srixon z-star",
+   "issue": "cheapest retailer \u00a338.95 vs dearest \u00a3128.97: check for used stock or a different product",
+   "listings": 13
+  },
+  {
+   "model": "Srixon Z-Star Golf Balls",
+   "issue": "price spread \u00a338.95 to \u00a3128.97: may mix different products",
    "listings": 13
   },
   {
@@ -87,49 +102,14 @@
    "listings": 1
   },
   {
-   "model": "Srixon Z-Star Diamond Golf Balls",
-   "issue": "price spread \u00a329.99 to \u00a3128.97: may mix different products",
-   "listings": 12
-  },
-  {
-   "model": "Srixon z-star",
-   "issue": "cheapest retailer \u00a338.95 vs dearest \u00a3128.97: check for used stock or a different product",
-   "listings": 11
-  },
-  {
-   "model": "Srixon Z-Star Golf Balls",
-   "issue": "price spread \u00a338.95 to \u00a3128.97: may mix different products",
-   "listings": 11
-  },
-  {
    "model": "Callaway elyte",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
   },
   {
-   "model": "Mizuno pro x",
-   "issue": "3 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
-   "listings": 3
-  },
-  {
-   "model": "Cleveland RTZ Wedge",
-   "issue": "price spread \u00a3119.00 to \u00a3417.00: may mix different products",
-   "listings": 8
-  },
-  {
    "model": "Cobra KING X Wedge",
    "issue": "price spread \u00a3129.00 to \u00a3387.00: may mix different products",
-   "listings": 15
-  },
-  {
-   "model": "Ben Sayers Electric Trolley",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 8
-  },
-  {
-   "model": "Cleveland Sole Full Face Wedge",
-   "issue": "price spread \u00a3119.00 to \u00a3357.00: may mix different products",
-   "listings": 7
+   "listings": 19
   },
   {
    "model": "Ping g730",
@@ -137,9 +117,34 @@
    "listings": 1
   },
   {
+   "model": "Cleveland RTZ Wedge",
+   "issue": "price spread \u00a3119.00 to \u00a3417.00: may mix different products",
+   "listings": 8
+  },
+  {
+   "model": "Ben Sayers Electric Trolley",
+   "issue": "no model name: held back until an alias names it",
+   "listings": 8
+  },
+  {
+   "model": "Cobra 3dp tour",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
+  },
+  {
+   "model": "Cleveland Sole Full Face Wedge",
+   "issue": "price spread \u00a3119.00 to \u00a3357.00: may mix different products",
+   "listings": 7
+  },
+  {
    "model": "Mizuno Pro T-1 Wedge",
    "issue": "price spread \u00a3119.00 to \u00a3477.00: may mix different products",
    "listings": 6
+  },
+  {
+   "model": "Ping g le4",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
   },
   {
    "model": "Mizuno rb 566",
@@ -152,19 +157,9 @@
    "listings": 6
   },
   {
-   "model": "Cobra 3dp tour",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
-  },
-  {
    "model": "True Temper Driver",
    "issue": "no model name: held back until an alias names it",
    "listings": 5
-  },
-  {
-   "model": "Ping g le4",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
   },
   {
    "model": "MacGregor V Foil Chrome Wedge",
@@ -2599,27 +2594,27 @@
    "to": "putter"
   },
   {
-   "name": "Ping PLD Anser 2 Satin Golf Putter - 34\" / PP58 Grip - Clarkes Golf",
+   "name": "Ping PLD Anser 2 Satin Golf Putter - 34\" / PP58 Grip",
    "from": "accessories",
    "to": "putter"
   },
   {
-   "name": "Bettinardi Antidote SB1 Counterbalance Golf Putter - 38\" / WINN Grip - Clarkes Golf",
+   "name": "Bettinardi Antidote SB1 Counterbalance Golf Putter - 38\" / WINN Grip",
    "from": "accessories",
    "to": "putter"
   },
   {
-   "name": "Bettinardi Antidote SB2 Counter Ball Golf Putter - 38\" / WINN Grip - Clarkes Golf",
+   "name": "Bettinardi Antidote SB2 Counter Ball Golf Putter - 38\" / WINN Grip",
    "from": "accessories",
    "to": "putter"
   },
   {
-   "name": "Scotty Cameron Phantom 11R OC Golf Putter - 34\" / Stock Grip - Clarkes Golf",
+   "name": "Scotty Cameron Phantom 11R OC Golf Putter - 34\" / Stock Grip",
    "from": "accessories",
    "to": "putter"
   },
   {
-   "name": "Scotty Cameron Phantom 11R OC Golf Putter - 35\" / Stock Grip - Clarkes Golf",
+   "name": "Scotty Cameron Phantom 11R OC Golf Putter - 35\" / Stock Grip",
    "from": "accessories",
    "to": "putter"
   }

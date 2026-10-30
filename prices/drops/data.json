@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-30T20:05+00:00",
+ "checked": "2026-10-30T20:15+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -14,6 +14,16 @@
    "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
   },
   {
+   "model": "Ping PLD Milled SE DS72 Hovland Putter",
+   "model_id": "ping-pld-milled-se-ds72-hovland-putter",
+   "date": "2026-10-30",
+   "was": 549.0,
+   "now": 329.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-pld-milled-se-ds72-hovland-putter/"
+  },
+  {
    "model": "TaylorMade Milled Grind 4 Wedge",
    "model_id": "taylormade-milled-grind-4-wedge",
    "date": "2026-10-30",
@@ -22,6 +32,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/taylormade-milled-grind-4-wedge/"
+  },
+  {
+   "model": "Ping G Le3 Anser Putter",
+   "model_id": "ping-g-le3-anser-putter",
+   "date": "2026-10-30",
+   "was": 275.0,
+   "now": 189.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g-le3-anser-putter/"
   },
   {
    "model": "Cleveland CBX4 Zipcore Wedge",
@@ -104,6 +124,16 @@
    "url": "https://golfpriceai.com/prices/mizuno-br-d4-cart-bag-golf-bag/"
   },
   {
+   "model": "TaylorMade Stealth 2 HD Hybrid",
+   "model_id": "taylormade-stealth-2-hd-hybrid",
+   "date": "2026-10-30",
+   "was": 169.0,
+   "now": 129.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-stealth-2-hd-hybrid/"
+  },
+  {
    "model": "MacGregor V-Max Ages 3-5 Junior Golf Set",
    "model_id": "macgregor-v-max-ages-3-5-junior-golf-set",
    "date": "2026-10-30",
@@ -172,6 +202,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/taylormade-qi10-max-hybrid/"
+  },
+  {
+   "model": "Mizuno ST200X Fairway Wood",
+   "model_id": "mizuno-st200x-fairway-wood",
+   "date": "2026-10-30",
+   "was": 149.0,
+   "now": 119.4,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-st200x-fairway-wood/"
   },
   {
    "model": "MacGregor V-Max Ages 6-8 Junior Golf Set",
@@ -354,6 +394,16 @@
    "url": "https://golfpriceai.com/prices/titleist-620-mb-irons/"
   },
   {
+   "model": "Scotty Cameron Phantom 11 Putter",
+   "model_id": "scotty-cameron-phantom-11-putter",
+   "date": "2026-10-30",
+   "was": 429.0,
+   "now": 365.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-11-putter/"
+  },
+  {
    "model": "Big Max Dri Lite Hybrid Prime Stand Bag Golf Bag",
    "model_id": "big-max-dri-lite-hybrid-prime-stand-bag-golf-bag",
    "date": "2026-10-30",
@@ -472,6 +522,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-xr-13-piece-package-set/"
+  },
+  {
+   "model": "Wilson X-31 Advantage Ladies Package Set",
+   "model_id": "wilson-x-31-advantage-ladies-package-set",
+   "date": "2026-10-30",
+   "was": 379.0,
+   "now": 329.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-x-31-advantage-ladies-package-set/"
   },
   {
    "model": "Callaway Chase 14 Dry Waterproof Cart Bag Golf Bag",
@@ -844,6 +904,16 @@
    "url": "https://golfpriceai.com/prices/taylormade-storm-dry-waterproof-stand-bag-golf-bag/"
   },
   {
+   "model": "Ping G Le4 Driver",
+   "model_id": "ping-g-le4-driver",
+   "date": "2026-10-30",
+   "was": 549.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g-le4-driver/"
+  },
+  {
    "model": "Mizuno Pro S-1 Irons",
    "model_id": "mizuno-pro-s-1-irons",
    "date": "2026-10-30",
@@ -898,7 +968,7 @@
    "model_id": "macgregor-cg4000-ladies-package-set",
    "date": "2026-10-30",
    "was": 329.0,
-   "now": 299.99,
+   "now": 299.0,
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/macgregor-cg4000-ladies-package-set/"
@@ -1034,16 +1104,6 @@
    "url": "https://golfpriceai.com/prices/wilson-profile-11-piece-package-set/"
   },
   {
-   "model": "Wilson X-31 Advantage Ladies Package Set",
-   "model_id": "wilson-x-31-advantage-ladies-package-set",
-   "date": "2026-10-30",
-   "was": 379.0,
-   "now": 349.0,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/wilson-x-31-advantage-ladies-package-set/"
-  },
-  {
    "model": "Motocaddy M5 DHC Electric Trolley",
    "model_id": "motocaddy-m5-dhc-electric-trolley",
    "date": "2026-10-30",
@@ -1082,6 +1142,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/srixon-friday-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Ping G Le4 Hybrid",
+   "model_id": "ping-g-le4-hybrid",
+   "date": "2026-10-30",
+   "was": 269.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g-le4-hybrid/"
   },
   {
    "model": "Cobra KING X Wedge",
@@ -1164,7 +1234,7 @@
    "url": "https://golfpriceai.com/prices/powakaddy-fx1-electric-trolley/"
   },
   {
-   "model": "Bushnell ION Elite GPS Watch",
+   "model": "Bushnell Ion Elite GPS Watch",
    "model_id": "bushnell-ion-elite-gps-watch",
    "date": "2026-10-30",
    "was": 169.0,
@@ -1702,6 +1772,16 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/ping-g440-k-driver/"
+  },
+  {
+   "model": "Ping G440 K HL Driver",
+   "model_id": "ping-g440-k-hl-driver",
+   "date": "2026-10-30",
+   "was": 599.0,
+   "now": 579.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/ping-g440-k-hl-driver/"
   },
   {
    "model": "Cobra RAD-S Driver",
