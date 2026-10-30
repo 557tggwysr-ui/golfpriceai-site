@@ -1347,6 +1347,7 @@ def _facts_only(data_json):
     try:
         d = json.loads(data_json)
         d.pop("checked", None)
+        d.pop("changed", None)
         d.pop("image", None)  # a new photo isn't a price change
         return json.dumps(d, sort_keys=True)
     except ValueError:
@@ -1472,13 +1473,27 @@ def build(models_list, products, today_str):
         page, data = out
         url = f"/prices/{m['slug']}/"
         data_path = PRICES_DIR / m["slug"] / "data.json"
-        old_facts = _facts_only(data_path.read_text(encoding="utf-8")) if data_path.exists() else None
+        old_raw = data_path.read_text(encoding="utf-8") if data_path.exists() else None
+        old_facts = _facts_only(old_raw) if old_raw else None
         if _write(PRICES_DIR / m["slug"] / "index.html", page):
             changed.append(url)
+        # "changed": the day the page's facts last changed (a price, or a
+        # retailer joining or leaving). It feeds the sitemap's lastmod, so
+        # Google re-reads a page when a new retailer adds itself, not only
+        # when the lowest price moves.
+        facts_moved = old_facts != _facts_only(data)
+        try:
+            d_new = json.loads(data)
+            prev = json.loads(old_raw).get("changed") if old_raw else None
+            d_new["changed"] = today.isoformat() if facts_moved or not prev else prev
+            data = json.dumps(d_new, ensure_ascii=False, indent=1)
+        except (ValueError, AttributeError):
+            d_new = {}
         _write(data_path, data)
-        if old_facts != _facts_only(data):
+        if facts_moved:
             price_changed.append(url)
-        sitemap.append((f"prices/{m['slug']}/", last_price_change(m)))
+        lm = max(filter(None, [last_price_change(m), d_new.get("changed")]), default=None)
+        sitemap.append((f"prices/{m['slug']}/", lm))
         for lid in m.get("listingIds", []):
             PAGE_FOR_LISTING[lid] = SITE + url
     if mode == "live":
