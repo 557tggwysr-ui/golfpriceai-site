@@ -6,20 +6,20 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 34.95,
+ "lowestNewPrice": 69.9,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 34.95,
-   "options": 6
+   "from": 69.9,
+   "options": 1
   },
   {
    "name": "Clickgolf",
-   "from": 34.99,
-   "options": 4
+   "from": 69.98,
+   "options": 3
   }
  ],
  "history": {
@@ -47,6 +47,6 @@
   "label": "typical",
   "summary": "Typical price: steady for 1 day"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Mizuno-Pro-X-Golf-Balls-White-1-Photoroom.jpg?v=1747320711",
+ "image": "https://www.clickgolf.co.uk/images/product/main/pro-x-white-3-for-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }
