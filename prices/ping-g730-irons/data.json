@@ -1,0 +1,52 @@
+{
+ "name": "Ping G730 Irons",
+ "brand": "Ping",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/ping-g730-irons/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1029.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 1029.0,
+   "options": 3
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 1129.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 1029.0,
+  "high": 1199.0,
+  "average": 1159.18,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-09-04",
+    1199.0
+   ],
+   [
+    "2026-09-30",
+    1129.0
+   ],
+   [
+    "2026-10-30",
+    1029.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-G730-Golf-Irons-Steel-4.jpg?v=1709784201",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

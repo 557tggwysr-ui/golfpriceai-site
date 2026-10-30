@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 209.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 199.0,
+   "options": 1
+  },
   {
    "name": "Clickgolf",
    "from": 209.0,
@@ -29,9 +34,9 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 209.0,
+  "low": 199.0,
   "high": 219.0,
-  "average": 216.63,
+  "average": 216.5,
   "priceChanges": 14,
   "series": [
    [
@@ -92,7 +97,7 @@
    ],
    [
     "2026-10-30",
-    209.0
+    199.0
    ]
   ]
  },
@@ -100,6 +105,6 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Tour-Golf-Cart-Bag-Staff-Blue.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2AD0E966-A5F1-34AE-46D958E337B0F5E8.jpg-Photoroom.jpg?v=1741681941",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

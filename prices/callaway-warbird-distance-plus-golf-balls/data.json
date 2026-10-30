@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 18.99,
+ "lowestNewPrice": 18.95,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 18.95,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 18.99,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 18.99,
+  "low": 18.95,
   "high": 21.99,
   "average": 19.61,
-  "priceChanges": 2,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -43,14 +48,14 @@
    ],
    [
     "2026-10-30",
-    18.99
+    18.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "summary": "Typical price: steady for 1 day"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Warbird6.jpg?v=1776305510",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/imgi_374_warbird_exa1.-x1024-Photoroom.jpg?v=1752145792",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

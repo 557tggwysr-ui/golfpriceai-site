@@ -1,0 +1,49 @@
+{
+ "name": "Titleist T250 Utility Irons",
+ "brand": "Titleist",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/titleist-t250-utility-irons/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 259.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 259.0,
+   "options": 3
+  },
+  {
+   "name": "Clickgolf",
+   "from": 259.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 259.0,
+  "high": 259.0,
+  "average": 259.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    259.0
+   ],
+   [
+    "2026-10-30",
+    259.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 76 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-T250-Utility-Hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

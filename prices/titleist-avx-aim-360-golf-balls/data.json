@@ -6,12 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 42.99,
+ "lowestNewPrice": 42.95,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 42.95,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 42.99,
@@ -25,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 42.99,
+  "low": 42.95,
   "high": 42.99,
   "average": 42.99,
-  "priceChanges": 0,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -36,13 +40,13 @@
    ],
    [
     "2026-10-30",
-    42.99
+    42.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/avx-aim-360-box.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

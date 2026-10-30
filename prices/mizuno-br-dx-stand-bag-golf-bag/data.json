@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 154.0,
+ "lowestNewPrice": 129.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 129.0,
+   "options": 1
+  },
   {
    "name": "Clickgolf",
    "from": 154.0,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 154.0,
+  "low": 129.0,
   "high": 179.0,
-  "average": 155.64,
-  "priceChanges": 2,
+  "average": 155.32,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -43,13 +48,13 @@
    ],
    [
     "2026-10-30",
-    154.0
+    129.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 70 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/BR-DX-Golf-Stand-Bag-Jungle-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

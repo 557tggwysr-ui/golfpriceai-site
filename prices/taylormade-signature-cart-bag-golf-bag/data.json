@@ -9,6 +9,7 @@
  "lowestNewPrice": 299.0,
  "lowestAt": [
   "Affordable Golf",
+  "Clarkes Golf",
   "Major Golf Direct"
  ],
  "retailers": [
@@ -16,6 +17,11 @@
    "name": "Affordable Golf",
    "from": 299.0,
    "options": 2
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 299.0,
+   "options": 3
   },
   {
    "name": "Major Golf Direct",

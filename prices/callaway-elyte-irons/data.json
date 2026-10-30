@@ -1,0 +1,48 @@
+{
+ "name": "Callaway Elyte Irons",
+ "brand": "Callaway",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/callaway-elyte-irons/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 799.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 799.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 1139.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 64,
+  "low": 669.0,
+  "high": 669.0,
+  "average": 669.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    669.0
+   ],
+   [
+    "2026-10-30",
+    669.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 64 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-Golf-Irons-Steel-1.jpg?v=1737107741",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

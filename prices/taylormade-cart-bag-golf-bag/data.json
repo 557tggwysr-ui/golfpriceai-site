@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 145.0,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 145.0,
+   "options": 2
+  },
   {
    "name": "Major Golf Direct",
    "from": 179.0,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 64,
-  "low": 149.0,
+  "low": 145.0,
   "high": 149.0,
-  "average": 149.0,
-  "priceChanges": 0,
+  "average": 148.94,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -35,13 +40,13 @@
    ],
    [
     "2026-10-30",
-    149.0
+    145.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/cartliteblk1.jpg?v=1705054444",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

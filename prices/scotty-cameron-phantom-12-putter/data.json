@@ -1,0 +1,49 @@
+{
+ "name": "Scotty Cameron Phantom 12 Putter",
+ "brand": "Scotty Cameron",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-12-putter/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 449.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 449.0,
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 449.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 449.0,
+  "high": 449.0,
+  "average": 449.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    449.0
+   ],
+   [
+    "2026-10-30",
+    449.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 76 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/758RK-Phantom-12-Sole.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

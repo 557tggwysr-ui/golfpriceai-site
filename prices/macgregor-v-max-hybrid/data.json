@@ -1,0 +1,48 @@
+{
+ "name": "MacGregor V-Max Hybrid",
+ "brand": "MacGregor",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/macgregor-v-max-hybrid/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 59.95,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 59.95,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 79.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 59.95,
+  "high": 79.99,
+  "average": 79.73,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    79.99
+   ],
+   [
+    "2026-10-30",
+    59.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-V-Max-Golf-Hybrid.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

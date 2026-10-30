@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 349.0,
+ "lowestNewPrice": 329.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 329.0,
+   "options": 2
+  },
   {
    "name": "Clickgolf",
    "from": 349.0,
@@ -26,8 +31,8 @@
   "daysTracked": 76,
   "low": 324.0,
   "high": 349.0,
-  "average": 347.68,
-  "priceChanges": 2,
+  "average": 347.42,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -43,13 +48,13 @@
    ],
    [
     "2026-10-30",
-    349.0
+    329.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £25.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/summit-stand-bag-midnight-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

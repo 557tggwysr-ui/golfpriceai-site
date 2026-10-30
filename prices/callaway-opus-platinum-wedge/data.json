@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 149.0,
  "lowestAt": [
-  "Scottsdale Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 149.0,
+   "options": 1
+  },
   {
    "name": "Scottsdale Golf",
    "from": 199.0,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 199.0,
+  "low": 149.0,
   "high": 229.0,
-  "average": 206.5,
-  "priceChanges": 1,
+  "average": 205.84,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -39,14 +44,14 @@
    ],
    [
     "2026-10-30",
-    199.0
+    149.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.scottsdalegolf.co.uk/uploads/callaway-opus-platinum-blue-4.png",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Callaway-Opus-Platinum-Blue-Golf-Wedge-8.jpg?v=1721189271",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

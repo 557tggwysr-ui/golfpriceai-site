@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 44.99,
+ "lowestNewPrice": 44.95,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 44.95,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 44.99,

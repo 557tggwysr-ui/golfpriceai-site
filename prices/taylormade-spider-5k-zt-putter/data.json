@@ -1,5 +1,5 @@
 {
- "name": "TaylorMade Spider 5K-ZT Putter",
+ "name": "TaylorMade Spider 5K ZT Putter",
  "brand": "TaylorMade",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/taylormade-spider-5k-zt-putter/",
@@ -8,13 +8,19 @@
  "unit": "each",
  "lowestNewPrice": 399.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Affordable Golf",
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
    "from": 399.0,
    "options": 24
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 399.0,
+   "options": 8
   },
   {
    "name": "Clickgolf",

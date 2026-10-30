@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 69.98,
+ "lowestNewPrice": 69.9,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 69.9,
+   "options": 1
+  },
   {
    "name": "Clickgolf",
    "from": 69.98,
@@ -19,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 34.99,
+  "low": 34.95,
   "high": 39.99,
   "average": 35.38,
-  "priceChanges": 1,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -34,13 +39,13 @@
    ],
    [
     "2026-10-30",
-    34.99
+    34.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 70 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/pro-x-white-3-for-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

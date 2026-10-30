@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 139.0,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 139.0,
+   "options": 3
+  },
   {
    "name": "Major Golf Direct",
    "from": 149.0,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 64,
-  "low": 139.95,
+  "low": 139.0,
   "high": 149.0,
-  "average": 147.73,
-  "priceChanges": 2,
+  "average": 147.57,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-28",
@@ -43,14 +48,14 @@
    ],
    [
     "2026-10-30",
-    149.0
+    139.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £9.05 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfFridayCartBag2026-NavyBlack_2.jpg?v=1771415156",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/SRX_FRIDAY_CART_BAG_navy-black_12137813_2.jpg?v=1776425710",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

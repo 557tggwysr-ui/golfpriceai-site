@@ -1,0 +1,48 @@
+{
+ "name": "Cleveland HB Soft 2 Putter",
+ "brand": "Cleveland",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/cleveland-hb-soft-2-putter/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 119.0,
+   "options": 15
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 119.95,
+   "options": 35
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 119.0,
+  "high": 119.95,
+  "average": 119.93,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    119.95
+   ],
+   [
+    "2026-10-30",
+    119.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 1 day"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cleveland-HB-Soft-2-Golf-Putter-1-7.jpg?v=1707365138",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

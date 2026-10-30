@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.95,
+ "lowestNewPrice": 179.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 179.0,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 179.95,
@@ -31,8 +36,8 @@
   "daysTracked": 76,
   "low": 149.0,
   "high": 179.95,
-  "average": 168.14,
-  "priceChanges": 1,
+  "average": 168.13,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -44,14 +49,14 @@
    ],
    [
     "2026-10-30",
-    179.95
+    179.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.95 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ShotScopeG62.jpg?v=1776293761",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/SS-WAT-G6-DAR-1-Photoroom.jpg?v=1742976666",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

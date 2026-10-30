@@ -1,0 +1,49 @@
+{
+ "name": "Titleist GTS300 Mini Driver",
+ "brand": "Titleist",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/titleist-gts300-mini-driver/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 499.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 499.0,
+   "options": 5
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 499.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 64,
+  "low": 499.0,
+  "high": 499.0,
+  "average": 499.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    499.0
+   ],
+   [
+    "2026-10-30",
+    499.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 64 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GTS300MiniDriver3.jpg?v=1783679909",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

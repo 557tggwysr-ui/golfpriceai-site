@@ -1,0 +1,48 @@
+{
+ "name": "Callaway Reva Rise Driver",
+ "brand": "Callaway",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/callaway-reva-rise-driver/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 399.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 399.0,
+   "options": 2
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 469.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 399.0,
+  "high": 469.0,
+  "average": 468.08,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    469.0
+   ],
+   [
+    "2026-10-30",
+    399.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1793271754063/sits/drivers-2025-reva-rise-womens/drivers-2025-reva-rise-womens___1.png?sfrm=png",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

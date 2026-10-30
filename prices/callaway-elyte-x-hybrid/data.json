@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 169.0,
+   "options": 4
+  },
   {
    "name": "Clickgolf",
    "from": 179.0,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 179.0,
+  "low": 169.0,
   "high": 179.0,
-  "average": 179.0,
-  "priceChanges": 0,
+  "average": 178.87,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -35,14 +40,14 @@
    ],
    [
     "2026-10-30",
-    179.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-x-hybrid-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Callaway-Elyte-X-Golf-Hybrid-1.jpg?v=1735877240",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

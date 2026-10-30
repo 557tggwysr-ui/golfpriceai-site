@@ -1,0 +1,49 @@
+{
+ "name": "Callaway Opus SP Wedge",
+ "brand": "Callaway",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/callaway-opus-sp-wedge/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 159.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 159.0,
+   "options": 24
+  },
+  {
+   "name": "Clickgolf",
+   "from": 159.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 159.0,
+  "high": 159.0,
+  "average": 159.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    159.0
+   ],
+   [
+    "2026-10-30",
+    159.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 76 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/Opus-SP-Black-Hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

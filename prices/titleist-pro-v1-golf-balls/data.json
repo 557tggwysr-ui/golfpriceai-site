@@ -6,12 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 49.99,
+ "lowestNewPrice": 49.95,
  "lowestAt": [
-  "Affordable Golf",
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 49.95,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 49.99,
@@ -25,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 64,
-  "low": 49.99,
+  "low": 49.95,
   "high": 49.99,
   "average": 49.99,
-  "priceChanges": 0,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -36,14 +40,14 @@
    ],
    [
     "2026-10-30",
-    49.99
+    49.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 1 day"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PROV11.jpg?v=1736349752",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025_ProV1_RF_dozen-Photoroom.jpg?v=1762339483",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 31.96,
+ "lowestNewPrice": 29.95,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 29.95,
+   "options": 3
+  },
   {
    "name": "Affordable Golf",
    "from": 31.96,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 64,
-  "low": 31.96,
+  "low": 29.95,
   "high": 32.99,
-  "average": 32.07,
-  "priceChanges": 1,
+  "average": 32.04,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-28",
@@ -39,7 +44,7 @@
    ],
    [
     "2026-10-30",
-    31.96
+    29.95
    ]
   ]
  },
@@ -47,6 +52,6 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TourSoftYellow1.jpg?v=1773171857",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Titleist-2024-Tour-Soft-Golf-Balls-Green-3.jpg?v=1706846641",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

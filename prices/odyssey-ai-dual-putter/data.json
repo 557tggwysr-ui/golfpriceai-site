@@ -1,0 +1,48 @@
+{
+ "name": "Odyssey Ai-Dual Putter",
+ "brand": "Odyssey",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/odyssey-ai-dual-putter/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 199.0,
+   "options": 28
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 199.95,
+   "options": 56
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 199.0,
+  "high": 199.95,
+  "average": 199.93,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    199.95
+   ],
+   [
+    "2026-10-30",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 1 day"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/7-1.2-Ball-S-Ai-Dual-8226.jpg?v=1768640365",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,8 +1,108 @@
 {
- "checked": "2026-10-30T18:31+00:00",
+ "checked": "2026-10-30T20:01+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Cobra Darkspeed LS Driver",
+   "model_id": "cobra-darkspeed-ls-driver",
+   "date": "2026-10-30",
+   "was": 419.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
+  },
+  {
+   "model": "TaylorMade Milled Grind 4 Wedge",
+   "model_id": "taylormade-milled-grind-4-wedge",
+   "date": "2026-10-30",
+   "was": 159.0,
+   "now": 99.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-milled-grind-4-wedge/"
+  },
+  {
+   "model": "Cleveland CBX4 Zipcore Wedge",
+   "model_id": "cleveland-cbx4-zipcore-wedge",
+   "date": "2026-10-30",
+   "was": 139.0,
+   "now": 99.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cleveland-cbx4-zipcore-wedge/"
+  },
+  {
+   "model": "Mizuno Pro Fli-Hi Utility Irons",
+   "model_id": "mizuno-pro-fli-hi-utility-irons",
+   "date": "2026-10-30",
+   "was": 229.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-fli-hi-utility-irons/"
+  },
+  {
+   "model": "Blue Tees Playmaker+ GPS Watch",
+   "model_id": "blue-tees-playmaker-plus-gps-watch",
+   "date": "2026-10-30",
+   "was": 199.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/blue-tees-playmaker-plus-gps-watch/"
+  },
+  {
+   "model": "Wilson Duo Soft Golf Balls",
+   "model_id": "wilson-duo-soft-golf-balls",
+   "date": "2026-10-30",
+   "was": 19.95,
+   "now": 14.95,
+   "unit": "per dozen",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-duo-soft-golf-balls/"
+  },
+  {
+   "model": "MacGregor V-Max Hybrid",
+   "model_id": "macgregor-v-max-hybrid",
+   "date": "2026-10-30",
+   "was": 79.99,
+   "now": 59.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/macgregor-v-max-hybrid/"
+  },
+  {
+   "model": "Callaway Opus Platinum Wedge",
+   "model_id": "callaway-opus-platinum-wedge",
+   "date": "2026-10-30",
+   "was": 199.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-opus-platinum-wedge/"
+  },
+  {
+   "model": "Callaway Elyte Triple Diamond Fairway Wood",
+   "model_id": "callaway-elyte-triple-diamond-fairway-wood",
+   "date": "2026-10-30",
+   "was": 330.28,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-triple-diamond-fairway-wood/"
+  },
+  {
+   "model": "Mizuno BR-D4 Cart Bag Golf Bag",
+   "model_id": "mizuno-br-d4-cart-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 144.0,
+   "now": 109.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-br-d4-cart-bag-golf-bag/"
+  },
   {
    "model": "MacGregor V-Max Ages 3-5 Junior Golf Set",
    "model_id": "macgregor-v-max-ages-3-5-junior-golf-set",
@@ -12,6 +112,66 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/macgregor-v-max-ages-3-5-junior-golf-set/"
+  },
+  {
+   "model": "Mizuno BR-DRI Stand Bag Golf Bag",
+   "model_id": "mizuno-br-dri-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 289.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-br-dri-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Cobra KING Tec Irons",
+   "model_id": "cobra-king-tec-irons",
+   "date": "2026-10-30",
+   "was": 919.0,
+   "now": 729.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-tec-irons/"
+  },
+  {
+   "model": "Cobra KING Tec X Irons",
+   "model_id": "cobra-king-tec-x-irons",
+   "date": "2026-10-30",
+   "was": 919.0,
+   "now": 729.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-tec-x-irons/"
+  },
+  {
+   "model": "Ogio All Elements Hybrid Stand Bag Golf Bag",
+   "model_id": "ogio-all-elements-hybrid-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 199.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ogio-all-elements-hybrid-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Ogio Shadow Stand Bag Golf Bag",
+   "model_id": "ogio-shadow-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 249.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ogio-shadow-stand-bag-golf-bag/"
+  },
+  {
+   "model": "TaylorMade Qi10 Max Hybrid",
+   "model_id": "taylormade-qi10-max-hybrid",
+   "date": "2026-10-30",
+   "was": 249.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-qi10-max-hybrid/"
   },
   {
    "model": "MacGregor V-Max Ages 6-8 Junior Golf Set",
@@ -24,6 +184,116 @@
    "url": "https://golfpriceai.com/prices/macgregor-v-max-ages-6-8-junior-golf-set/"
   },
   {
+   "model": "Mizuno BR-DRI Cart Bag Golf Bag",
+   "model_id": "mizuno-br-dri-cart-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 309.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-br-dri-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Srixon Tour Staff Golf Bag",
+   "model_id": "srixon-tour-staff-golf-bag",
+   "date": "2026-10-30",
+   "was": 429.0,
+   "now": 349.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-tour-staff-golf-bag/"
+  },
+  {
+   "model": "PRGR Portable Launch Monitor",
+   "model_id": "prgr-portable-launch-monitor",
+   "date": "2026-10-30",
+   "was": 219.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/prgr-portable-launch-monitor/"
+  },
+  {
+   "model": "Callaway Quantum Max Fast Hybrid",
+   "model_id": "callaway-quantum-max-fast-hybrid",
+   "date": "2026-10-30",
+   "was": 329.0,
+   "now": 269.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-fast-hybrid/"
+  },
+  {
+   "model": "Callaway Apex Ti Fusion Irons",
+   "model_id": "callaway-apex-ti-fusion-irons",
+   "date": "2026-10-30",
+   "was": 1699.0,
+   "now": 1399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-apex-ti-fusion-irons/"
+  },
+  {
+   "model": "Titleist Vokey SM10 Wedge",
+   "model_id": "titleist-vokey-sm10-wedge",
+   "date": "2026-10-30",
+   "was": 169.0,
+   "now": 139.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-vokey-sm10-wedge/"
+  },
+  {
+   "model": "Cobra OPTM X Driver",
+   "model_id": "cobra-optm-x-driver",
+   "date": "2026-10-30",
+   "was": 479.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-optm-x-driver/"
+  },
+  {
+   "model": "Callaway Elyte X Irons",
+   "model_id": "callaway-elyte-x-irons",
+   "date": "2026-10-30",
+   "was": 659.0,
+   "now": 549.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-x-irons/"
+  },
+  {
+   "model": "Voice Caddie T11 Pro GPS Watch",
+   "model_id": "voice-caddie-t11-pro-gps-watch",
+   "date": "2026-10-30",
+   "was": 379.0,
+   "now": 319.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/voice-caddie-t11-pro-gps-watch/"
+  },
+  {
+   "model": "Mizuno BR-DX Stand Bag Golf Bag",
+   "model_id": "mizuno-br-dx-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 154.0,
+   "now": 129.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-br-dx-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Wilson Alpine Cart Bag Golf Bag",
+   "model_id": "wilson-alpine-cart-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 189.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-alpine-cart-bag-golf-bag/"
+  },
+  {
    "model": "Wilson Feather Cart Bag Golf Bag",
    "model_id": "wilson-feather-cart-bag-golf-bag",
    "date": "2026-10-30",
@@ -34,6 +304,136 @@
    "url": "https://golfpriceai.com/prices/wilson-feather-cart-bag-golf-bag/"
   },
   {
+   "model": "Wilson Staff Model Golf Balls",
+   "model_id": "wilson-staff-model-golf-balls",
+   "date": "2026-10-30",
+   "was": 44.99,
+   "now": 37.95,
+   "unit": "per dozen",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-staff-model-golf-balls/"
+  },
+  {
+   "model": "Wilson Profile Ages 5-8 Junior Golf Set",
+   "model_id": "wilson-profile-ages-5-8-junior-golf-set",
+   "date": "2026-10-30",
+   "was": 189.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-profile-ages-5-8-junior-golf-set/"
+  },
+  {
+   "model": "Mizuno Tour Light Weight Stand Bag Golf Bag",
+   "model_id": "mizuno-tour-light-weight-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 199.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-tour-light-weight-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Callaway Reva Rise Driver",
+   "model_id": "callaway-reva-rise-driver",
+   "date": "2026-10-30",
+   "was": 469.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-reva-rise-driver/"
+  },
+  {
+   "model": "Titleist 620 MB Irons",
+   "model_id": "titleist-620-mb-irons",
+   "date": "2026-10-30",
+   "was": 1099.0,
+   "now": 939.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-620-mb-irons/"
+  },
+  {
+   "model": "Big Max Dri Lite Hybrid Prime Stand Bag Golf Bag",
+   "model_id": "big-max-dri-lite-hybrid-prime-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 289.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/big-max-dri-lite-hybrid-prime-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Callaway Apex Ai300 Irons",
+   "model_id": "callaway-apex-ai300-irons",
+   "date": "2026-10-30",
+   "was": 999.0,
+   "now": 859.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-apex-ai300-irons/"
+  },
+  {
+   "model": "Callaway Elyte HL Irons",
+   "model_id": "callaway-elyte-hl-irons",
+   "date": "2026-10-30",
+   "was": 699.0,
+   "now": 599.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-hl-irons/"
+  },
+  {
+   "model": "Mizuno Pro S-4 Irons",
+   "model_id": "mizuno-pro-s-4-irons",
+   "date": "2026-10-30",
+   "was": 1499.0,
+   "now": 1289.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-s-4-irons/"
+  },
+  {
+   "model": "TaylorMade P7CB Irons",
+   "model_id": "taylormade-p7cb-irons",
+   "date": "2026-10-30",
+   "was": 1249.0,
+   "now": 1070.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-p7cb-irons/"
+  },
+  {
+   "model": "Cobra KING Wedge",
+   "model_id": "cobra-king-wedge",
+   "date": "2026-10-30",
+   "was": 139.0,
+   "now": 119.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-wedge/"
+  },
+  {
+   "model": "Callaway Reva Rise Fairway Wood",
+   "model_id": "callaway-reva-rise-fairway-wood",
+   "date": "2026-10-30",
+   "was": 289.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-reva-rise-fairway-wood/"
+  },
+  {
+   "model": "Wilson Profile Ages 8-11 Junior Golf Set",
+   "model_id": "wilson-profile-ages-8-11-junior-golf-set",
+   "date": "2026-10-30",
+   "was": 219.0,
+   "now": 189.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-profile-ages-8-11-junior-golf-set/"
+  },
+  {
    "model": "Motocaddy Protekta Cart Bag Golf Bag",
    "model_id": "motocaddy-protekta-cart-bag-golf-bag",
    "date": "2026-10-30",
@@ -42,6 +442,36 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/motocaddy-protekta-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Ping Hoofer Monsoon Waterproof Stand Bag Golf Bag",
+   "model_id": "ping-hoofer-monsoon-waterproof-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 239.99,
+   "now": 209.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-hoofer-monsoon-waterproof-stand-bag-golf-bag/"
+  },
+  {
+   "model": "TaylorMade TP Soto 1 L Neck Putter",
+   "model_id": "taylormade-tp-soto-1-l-neck-putter",
+   "date": "2026-10-30",
+   "was": 149.0,
+   "now": 129.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-tp-soto-1-l-neck-putter/"
+  },
+  {
+   "model": "Callaway XR 13-Piece Package Set",
+   "model_id": "callaway-xr-13-piece-package-set",
+   "date": "2026-10-30",
+   "was": 1199.0,
+   "now": 1049.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-xr-13-piece-package-set/"
   },
   {
    "model": "Callaway Chase 14 Dry Waterproof Cart Bag Golf Bag",
@@ -84,6 +514,16 @@
    "url": "https://golfpriceai.com/prices/mizuno-staff-golf-bag/"
   },
   {
+   "model": "Ogio Fuse Stand Bag Golf Bag",
+   "model_id": "ogio-fuse-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 169.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ogio-fuse-stand-bag-golf-bag/"
+  },
+  {
    "model": "Ping Traverse 244 Cart Bag Golf Bag",
    "model_id": "ping-traverse-244-cart-bag-golf-bag",
    "date": "2026-10-30",
@@ -124,6 +564,16 @@
    "url": "https://golfpriceai.com/prices/wilson-i-lock-organiser-cart-bag-golf-bag/"
   },
   {
+   "model": "Callaway Apex Utility Fairway Wood",
+   "model_id": "callaway-apex-utility-fairway-wood",
+   "date": "2026-10-30",
+   "was": 339.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-apex-utility-fairway-wood/"
+  },
+  {
    "model": "TaylorMade Team TM Ages 4-6 Junior Golf Set",
    "model_id": "taylormade-team-tm-ages-4-6-junior-golf-set",
    "date": "2026-10-30",
@@ -134,7 +584,17 @@
    "url": "https://golfpriceai.com/prices/taylormade-team-tm-ages-4-6-junior-golf-set/"
   },
   {
-   "model": "Cobra Ace Waterproof Stand Bag Golf Bag",
+   "model": "PowaKaddy CT8 Electric Trolley",
+   "model_id": "powakaddy-ct8-electric-trolley",
+   "date": "2026-10-30",
+   "was": 949.0,
+   "now": 849.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct8-electric-trolley/"
+  },
+  {
+   "model": "Cobra ACE Waterproof Stand Bag Golf Bag",
    "model_id": "cobra-ace-waterproof-stand-bag-golf-bag",
    "date": "2026-10-30",
    "was": 179.0,
@@ -142,6 +602,16 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Cobra Ace Waterproof Cart Bag Golf Bag",
+   "model_id": "cobra-ace-waterproof-cart-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 189.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-cart-bag-golf-bag/"
   },
   {
    "model": "Mizuno BR-DRI Waterproof Stand Bag Golf Bag",
@@ -194,16 +664,6 @@
    "url": "https://golfpriceai.com/prices/taylormade-tm-cart-bag-golf-bag/"
   },
   {
-   "model": "Wilson Alpine Cart Bag Golf Bag",
-   "model_id": "wilson-alpine-cart-bag-golf-bag",
-   "date": "2026-10-30",
-   "was": 189.0,
-   "now": 169.0,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/wilson-alpine-cart-bag-golf-bag/"
-  },
-  {
    "model": "Wilson Talus 14 Way Stand Bag Golf Bag",
    "model_id": "wilson-talus-14-way-stand-bag-golf-bag",
    "date": "2026-10-30",
@@ -214,6 +674,16 @@
    "url": "https://golfpriceai.com/prices/wilson-talus-14-way-stand-bag-golf-bag/"
   },
   {
+   "model": "Callaway Apex Ai200 Irons",
+   "model_id": "callaway-apex-ai200-irons",
+   "date": "2026-10-30",
+   "was": 1029.0,
+   "now": 919.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-apex-ai200-irons/"
+  },
+  {
    "model": "Powerbilt GSX 14-Piece Package Set",
    "model_id": "powerbilt-gsx-14-piece-package-set",
    "date": "2026-10-30",
@@ -222,6 +692,26 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/powerbilt-gsx-14-piece-package-set/"
+  },
+  {
+   "model": "Wilson X-31 Advantage Package Set",
+   "model_id": "wilson-x-31-advantage-package-set",
+   "date": "2026-10-30",
+   "was": 379.0,
+   "now": 339.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-x-31-advantage-package-set/"
+  },
+  {
+   "model": "Callaway Chase 14 Dry Cart Bag Golf Bag",
+   "model_id": "callaway-chase-14-dry-cart-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 199.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-chase-14-dry-cart-bag-golf-bag/"
   },
   {
    "model": "Callaway Chase Dry Waterproof Stand Bag Golf Bag",
@@ -252,16 +742,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-par-3-hd-waterproof-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Mizuno Tour Light Weight Stand Bag Golf Bag",
-   "model_id": "mizuno-tour-light-weight-stand-bag-golf-bag",
-   "date": "2026-10-30",
-   "was": 199.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/mizuno-tour-light-weight-stand-bag-golf-bag/"
   },
   {
    "model": "Ping Hoofer 14 231 Stand Bag Golf Bag",
@@ -334,6 +814,16 @@
    "url": "https://golfpriceai.com/prices/powerbilt-pro-power-10-piece-package-set/"
   },
   {
+   "model": "Mizuno Tour Golf Bag",
+   "model_id": "mizuno-tour-golf-bag",
+   "date": "2026-10-30",
+   "was": 219.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-tour-golf-bag/"
+  },
+  {
    "model": "Ping Reserve Stand Bag Golf Bag",
    "model_id": "ping-reserve-stand-bag-golf-bag",
    "date": "2026-10-30",
@@ -352,6 +842,46 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/taylormade-storm-dry-waterproof-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Mizuno Pro S-1 Irons",
+   "model_id": "mizuno-pro-s-1-irons",
+   "date": "2026-10-30",
+   "was": 1289.0,
+   "now": 1179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-s-1-irons/"
+  },
+  {
+   "model": "Ping G730 Irons",
+   "model_id": "ping-g730-irons",
+   "date": "2026-10-30",
+   "was": 1129.0,
+   "now": 1029.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g730-irons/"
+  },
+  {
+   "model": "Srixon ZXi Utility Irons",
+   "model_id": "srixon-zxi-utility-irons",
+   "date": "2026-10-30",
+   "was": 219.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-zxi-utility-irons/"
+  },
+  {
+   "model": "Wilson Staff Infinite Putter",
+   "model_id": "wilson-staff-infinite-putter",
+   "date": "2026-10-30",
+   "was": 109.0,
+   "now": 99.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-staff-infinite-putter/"
   },
   {
    "model": "Callaway XJ 5-Piece Ages 5-8 Junior Golf Set",
@@ -444,6 +974,46 @@
    "url": "https://golfpriceai.com/prices/taylormade-qi4d-tour-stand-bag-golf-bag/"
   },
   {
+   "model": "TaylorMade Storm Dry Cart Bag Golf Bag",
+   "model_id": "taylormade-storm-dry-cart-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 249.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-storm-dry-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Titleist Players S4 StaDry Waterproof Stand Bag Golf Bag",
+   "model_id": "titleist-players-s4-stadry-waterproof-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 249.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-players-s4-stadry-waterproof-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Cleveland RTZ Tour Rack Raw Wedge",
+   "model_id": "cleveland-rtz-tour-rack-raw-wedge",
+   "date": "2026-10-30",
+   "was": 129.95,
+   "now": 119.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cleveland-rtz-tour-rack-raw-wedge/"
+  },
+  {
+   "model": "Ping G Le4 Fairway Wood",
+   "model_id": "ping-g-le4-fairway-wood",
+   "date": "2026-10-30",
+   "was": 315.0,
+   "now": 289.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g-le4-fairway-wood/"
+  },
+  {
    "model": "TaylorMade Team TM Ages 7-9 Junior Golf Set",
    "model_id": "taylormade-team-tm-ages-7-9-junior-golf-set",
    "date": "2026-10-30",
@@ -474,14 +1044,14 @@
    "url": "https://golfpriceai.com/prices/wilson-x-31-advantage-ladies-package-set/"
   },
   {
-   "model": "Wilson X-31 Advantage Package Set",
-   "model_id": "wilson-x-31-advantage-package-set",
+   "model": "Motocaddy M5 DHC Electric Trolley",
+   "model_id": "motocaddy-m5-dhc-electric-trolley",
    "date": "2026-10-30",
-   "was": 379.0,
-   "now": 349.0,
+   "was": 999.0,
+   "now": 929.0,
    "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/wilson-x-31-advantage-package-set/"
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-m5-dhc-electric-trolley/"
   },
   {
    "model": "Callaway Quantum Staff Tour Golf Bag",
@@ -502,6 +1072,26 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/cobra-x-vessel-core-tour-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Srixon Friday Cart Bag Golf Bag",
+   "model_id": "srixon-friday-cart-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 149.0,
+   "now": 139.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-friday-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Cobra KING X Wedge",
+   "model_id": "cobra-king-x-wedge",
+   "date": "2026-10-30",
+   "was": 139.0,
+   "now": 129.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-x-wedge/"
   },
   {
    "model": "TaylorMade RBZ 10-Piece Ladies Package Set",
@@ -534,6 +1124,16 @@
    "url": "https://golfpriceai.com/prices/wilson-player-fit-package-set/"
   },
   {
+   "model": "Motocaddy M5 Electric Trolley",
+   "model_id": "motocaddy-m5-electric-trolley",
+   "date": "2026-10-30",
+   "was": 949.0,
+   "now": 891.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-m5-electric-trolley/"
+  },
+  {
    "model": "Motocaddy SE Electric Trolley",
    "model_id": "motocaddy-se-electric-trolley",
    "date": "2026-10-30",
@@ -564,6 +1164,16 @@
    "url": "https://golfpriceai.com/prices/powakaddy-fx1-electric-trolley/"
   },
   {
+   "model": "Bushnell ION Elite GPS Watch",
+   "model_id": "bushnell-ion-elite-gps-watch",
+   "date": "2026-10-30",
+   "was": 169.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/bushnell-ion-elite-gps-watch/"
+  },
+  {
    "model": "PRGR Golf Portable Compact Launch Monitor",
    "model_id": "prgr-golf-portable-compact-launch-monitor",
    "date": "2026-10-30",
@@ -582,6 +1192,26 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-org-14-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Callaway Summit Collection Stand Bag Golf Bag",
+   "model_id": "callaway-summit-collection-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 349.0,
+   "now": 329.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/callaway-summit-collection-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Cobra X Vessel Core Stand Bag Golf Bag",
+   "model_id": "cobra-x-vessel-core-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 349.0,
+   "now": 329.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-x-vessel-core-stand-bag-golf-bag/"
   },
   {
    "model": "Mizuno Pro Stand Bag Golf Bag",
@@ -604,6 +1234,16 @@
    "url": "https://golfpriceai.com/prices/mizuno-tour-stand-bag-golf-bag/"
   },
   {
+   "model": "Ogio Featherlite Stand Bag Golf Bag",
+   "model_id": "ogio-featherlite-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 159.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ogio-featherlite-stand-bag-golf-bag/"
+  },
+  {
    "model": "TaylorMade FlexTech Stand Bag Golf Bag",
    "model_id": "taylormade-flextech-stand-bag-golf-bag",
    "date": "2026-10-30",
@@ -612,6 +1252,96 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/taylormade-flextech-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Wilson Talus 5 Stand Bag Golf Bag",
+   "model_id": "wilson-talus-5-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 169.95,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-talus-5-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Ping G440 LST Driver",
+   "model_id": "ping-g440-lst-driver",
+   "date": "2026-10-30",
+   "was": 529.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-lst-driver/"
+  },
+  {
+   "model": "Ping G440 MAX Driver",
+   "model_id": "ping-g440-max-driver",
+   "date": "2026-10-30",
+   "was": 529.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/ping-g440-max-driver/"
+  },
+  {
+   "model": "Ping G440 MAX HL Driver",
+   "model_id": "ping-g440-max-hl-driver",
+   "date": "2026-10-30",
+   "was": 529.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-max-hl-driver/"
+  },
+  {
+   "model": "Ping G440 SFT Driver",
+   "model_id": "ping-g440-sft-driver",
+   "date": "2026-10-30",
+   "was": 529.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-sft-driver/"
+  },
+  {
+   "model": "Callaway Elyte X Hybrid",
+   "model_id": "callaway-elyte-x-hybrid",
+   "date": "2026-10-30",
+   "was": 179.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-x-hybrid/"
+  },
+  {
+   "model": "Ping BunkR Wedge",
+   "model_id": "ping-bunkr-wedge",
+   "date": "2026-10-30",
+   "was": 169.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-bunkr-wedge/"
+  },
+  {
+   "model": "Ping ChipR Le Chipper Wedge",
+   "model_id": "ping-chipr-le-chipper-wedge",
+   "date": "2026-10-30",
+   "was": 159.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-chipr-le-chipper-wedge/"
+  },
+  {
+   "model": "Ping G440 LST Fairway Wood",
+   "model_id": "ping-g440-lst-fairway-wood",
+   "date": "2026-10-30",
+   "was": 529.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-lst-fairway-wood/"
   },
   {
    "model": "MacGregor CG4000 Package Set",
@@ -684,16 +1414,6 @@
    "url": "https://golfpriceai.com/prices/powakaddy-rx-remote-electric-trolley/"
   },
   {
-   "model": "Cobra Ace Waterproof Cart Bag Golf Bag",
-   "model_id": "cobra-ace-waterproof-cart-bag-golf-bag",
-   "date": "2026-10-30",
-   "was": 189.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-cart-bag-golf-bag/"
-  },
-  {
    "model": "Cobra Ultradry Pro Cart Bag Golf Bag",
    "model_id": "cobra-ultradry-pro-cart-bag-golf-bag",
    "date": "2026-10-30",
@@ -702,16 +1422,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-ultradry-pro-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Mizuno Tour Golf Bag",
-   "model_id": "mizuno-tour-golf-bag",
-   "date": "2026-10-30",
-   "was": 219.0,
-   "now": 209.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-tour-golf-bag/"
   },
   {
    "model": "Ping Hoofer Monsoon 231 Waterproof Stand Bag Golf Bag",
@@ -724,6 +1434,26 @@
    "url": "https://golfpriceai.com/prices/ping-hoofer-monsoon-231-waterproof-stand-bag-golf-bag/"
   },
   {
+   "model": "Ping Pioneer Monsoon Waterproof Cart Bag Golf Bag",
+   "model_id": "ping-pioneer-monsoon-waterproof-cart-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 229.99,
+   "now": 219.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/ping-pioneer-monsoon-waterproof-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Srixon Weatherproof Stand Bag Golf Bag",
+   "model_id": "srixon-weatherproof-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 199.0,
+   "now": 189.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-weatherproof-stand-bag-golf-bag/"
+  },
+  {
    "model": "Wilson I-Lock DRY Organiser Waterproof Cart Bag Golf Bag",
    "model_id": "wilson-i-lock-dry-organiser-waterproof-cart-bag-golf-bag",
    "date": "2026-10-30",
@@ -732,6 +1462,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/wilson-i-lock-dry-organiser-waterproof-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Wilson Infinite Zero Torque Putter",
+   "model_id": "wilson-infinite-zero-torque-putter",
+   "date": "2026-10-30",
+   "was": 199.95,
+   "now": 189.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-infinite-zero-torque-putter/"
   },
   {
    "model": "Callaway Reva 11-Piece Ladies Package Set",
@@ -784,6 +1524,16 @@
    "url": "https://golfpriceai.com/prices/motocaddy-s1-dhc-electric-trolley/"
   },
   {
+   "model": "PowaKaddy CT12 EBS Electric Trolley",
+   "model_id": "powakaddy-ct12-ebs-electric-trolley",
+   "date": "2026-10-30",
+   "was": 1249.0,
+   "now": 1199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct12-ebs-electric-trolley/"
+  },
+  {
    "model": "PowaKaddy CT6 EBS Electric Trolley",
    "model_id": "powakaddy-ct6-ebs-electric-trolley",
    "date": "2026-10-30",
@@ -814,6 +1564,16 @@
    "url": "https://golfpriceai.com/prices/motocaddy-m-tech-cart-bag-golf-bag/"
   },
   {
+   "model": "Ping Hoofer Prodi G Stand Bag Golf Bag",
+   "model_id": "ping-hoofer-prodi-g-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 134.0,
+   "now": 129.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/ping-hoofer-prodi-g-stand-bag-golf-bag/"
+  },
+  {
    "model": "TaylorMade FlexTech SuperLite Stand Bag Golf Bag",
    "model_id": "taylormade-flextech-superlite-stand-bag-golf-bag",
    "date": "2026-10-30",
@@ -834,24 +1594,54 @@
    "url": "https://golfpriceai.com/prices/taylormade-pro-stand-bag-golf-bag/"
   },
   {
-   "model": "Motocaddy M5 DHC Electric Trolley",
-   "model_id": "motocaddy-m5-dhc-electric-trolley",
+   "model": "Titleist Players S5 StaDry Waterproof Stand Bag Golf Bag",
+   "model_id": "titleist-players-s5-stadry-waterproof-stand-bag-golf-bag",
    "date": "2026-10-30",
-   "was": 999.0,
-   "now": 969.0,
+   "was": 279.0,
+   "now": 269.0,
    "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/motocaddy-m5-dhc-electric-trolley/"
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/titleist-players-s5-stadry-waterproof-stand-bag-golf-bag/"
   },
   {
-   "model": "Motocaddy M5 Electric Trolley",
-   "model_id": "motocaddy-m5-electric-trolley",
+   "model": "Ping Blueprint S Irons",
+   "model_id": "ping-blueprint-s-irons",
    "date": "2026-10-30",
-   "was": 949.0,
-   "now": 919.0,
+   "was": 1175.0,
+   "now": 1129.0,
    "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/motocaddy-m5-electric-trolley/"
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/ping-blueprint-s-irons/"
+  },
+  {
+   "model": "Ping i530 Irons",
+   "model_id": "ping-i530-irons",
+   "date": "2026-10-30",
+   "was": 1249.0,
+   "now": 1199.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/ping-i530-irons/"
+  },
+  {
+   "model": "Callaway Elyte X Fairway Wood",
+   "model_id": "callaway-elyte-x-fairway-wood",
+   "date": "2026-10-30",
+   "was": 239.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-x-fairway-wood/"
+  },
+  {
+   "model": "Motocaddy M-TECH Electric Trolley",
+   "model_id": "motocaddy-m-tech-electric-trolley",
+   "date": "2026-10-30",
+   "was": 1199.0,
+   "now": 1159.2,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/motocaddy-m-tech-electric-trolley/"
   },
   {
    "model": "Motocaddy ME Remote Electric Trolley",
@@ -874,16 +1664,6 @@
    "url": "https://golfpriceai.com/prices/powakaddy-ct8-ebs-gun-metal-electric-trolley/"
   },
   {
-   "model": "PowaKaddy CT8 Electric Trolley",
-   "model_id": "powakaddy-ct8-electric-trolley",
-   "date": "2026-10-30",
-   "was": 949.0,
-   "now": 919.0,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/powakaddy-ct8-electric-trolley/"
-  },
-  {
    "model": "PowaKaddy RX12 Remote Electric Trolley",
    "model_id": "powakaddy-rx12-remote-electric-trolley",
    "date": "2026-10-30",
@@ -894,14 +1674,34 @@
    "url": "https://golfpriceai.com/prices/powakaddy-rx12-remote-electric-trolley/"
   },
   {
-   "model": "PowaKaddy CT12 EBS Electric Trolley",
-   "model_id": "powakaddy-ct12-ebs-electric-trolley",
-   "date": "2026-10-29",
-   "was": 1299.0,
-   "now": 1249.0,
+   "model": "Titleist Hybrid 14 StaDry Stand Bag Golf Bag",
+   "model_id": "titleist-hybrid-14-stadry-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 289.0,
+   "now": 279.0,
    "unit": "each",
    "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/powakaddy-ct12-ebs-electric-trolley/"
+   "url": "https://golfpriceai.com/prices/titleist-hybrid-14-stadry-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Cobra DS-Adapt X Driver",
+   "model_id": "cobra-ds-adapt-x-driver",
+   "date": "2026-10-30",
+   "was": 329.0,
+   "now": 319.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-x-driver/"
+  },
+  {
+   "model": "Ping G440 K Driver",
+   "model_id": "ping-g440-k-driver",
+   "date": "2026-10-30",
+   "was": 599.0,
+   "now": 579.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/ping-g440-k-driver/"
   },
   {
    "model": "Cobra RAD-S Driver",

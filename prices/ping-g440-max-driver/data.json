@@ -1,16 +1,21 @@
 {
- "name": "Ping G440 Max Driver",
+ "name": "Ping G440 MAX Driver",
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g440-max-driver/",
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 529.0,
+ "lowestNewPrice": 499.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 499.0,
+   "options": 11
+  },
   {
    "name": "Clickgolf",
    "from": 529.0,
@@ -21,8 +26,8 @@
   "daysTracked": 76,
   "low": 479.0,
   "high": 529.0,
-  "average": 523.08,
-  "priceChanges": 1,
+  "average": 522.68,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -34,14 +39,14 @@
    ],
    [
     "2026-10-30",
-    529.0
+    499.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £50.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-max-driver-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-G440-MAX-HL-Golf-Driver-5.jpg?v=1733285106",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

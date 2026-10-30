@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 19.95,
+ "lowestNewPrice": 14.95,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 14.95,
+   "options": 11
+  },
   {
    "name": "Major Golf Direct",
    "from": 19.95,
@@ -29,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 19.95,
+  "low": 14.95,
   "high": 22.99,
-  "average": 20.44,
-  "priceChanges": 2,
+  "average": 20.38,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -48,14 +53,14 @@
    ],
    [
     "2026-10-30",
-    19.95
+    14.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 42 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DUOSOFTWHITE1.jpg?v=1769174262",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/Wilson_Duo_Soft_Golf_Balls_2023_Orange_0.jpg?v=1676998972",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

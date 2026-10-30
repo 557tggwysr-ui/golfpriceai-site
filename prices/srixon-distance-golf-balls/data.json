@@ -17,18 +17,32 @@
    "options": 1
   },
   {
+   "name": "Clarkes Golf",
+   "from": 14.95,
+   "options": 2
+  },
+  {
    "name": "Affordable Golf",
    "from": 14.99,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 28.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 76,
   "low": 14.5,
-  "high": 14.5,
-  "average": 14.5,
-  "priceChanges": 0,
+  "high": 28.0,
+  "average": 16.63,
+  "priceChanges": 1,
   "series": [
+   [
+    "2026-08-16",
+    28.0
+   ],
    [
     "2026-08-28",
     14.5

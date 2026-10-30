@@ -1,0 +1,48 @@
+{
+ "name": "Callaway Reva Rise Fairway Wood",
+ "brand": "Callaway",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/callaway-reva-rise-fairway-wood/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 249.0,
+   "options": 5
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 289.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 249.0,
+  "high": 289.0,
+  "average": 288.47,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    289.0
+   ],
+   [
+    "2026-10-30",
+    249.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1793271754063/sits/fwoods-2025-reva-rise-womens/fwoods-2025-reva-rise-womens___1.png?sfrm=png",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

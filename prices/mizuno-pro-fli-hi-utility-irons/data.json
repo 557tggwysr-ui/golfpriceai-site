@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 229.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
-  "Scottsdale Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 169.0,
+   "options": 5
+  },
   {
    "name": "Scottsdale Golf",
    "from": 229.0,
@@ -34,10 +39,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 229.0,
+  "low": 169.0,
   "high": 249.0,
-  "average": 234.0,
-  "priceChanges": 1,
+  "average": 233.21,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -49,13 +54,13 @@
    ],
    [
     "2026-10-30",
-    229.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/mizuno-flihi-1.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

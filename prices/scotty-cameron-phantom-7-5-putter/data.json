@@ -1,0 +1,57 @@
+{
+ "name": "Scotty Cameron Phantom 7.5 Putter",
+ "brand": "Scotty Cameron",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-7-5-putter/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 429.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 429.0,
+   "options": 1
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 449.0,
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 449.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 429.0,
+  "high": 449.0,
+  "average": 434.0,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    449.0
+   ],
+   [
+    "2026-09-04",
+    429.0
+   ],
+   [
+    "2026-10-30",
+    429.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 57 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/758RF-Phantom-7.5-Sole.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

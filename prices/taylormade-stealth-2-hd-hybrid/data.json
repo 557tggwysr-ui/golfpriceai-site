@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.0,
+ "lowestNewPrice": 129.0,
  "lowestAt": [
-  "Scottsdale Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 129.0,
+   "options": 1
+  },
   {
    "name": "Scottsdale Golf",
    "from": 169.0,
@@ -19,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 57,
-  "low": 169.0,
+  "low": 129.0,
   "high": 169.0,
-  "average": 169.0,
-  "priceChanges": 0,
+  "average": 168.3,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
@@ -30,14 +35,14 @@
    ],
    [
     "2026-10-30",
-    169.0
+    129.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.scottsdalegolf.co.uk/uploads/taylormade-stealth2-HD-ladies-rescue-1.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/TaylorMade_Ladies_Stealth_2_HD_Golf_Hybrid_Pre_Order_7.jpg?v=1674061283",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

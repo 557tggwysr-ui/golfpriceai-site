@@ -6,12 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 34.99,
+ "lowestNewPrice": 34.95,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 34.95,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 34.99,
@@ -25,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 34.99,
+  "low": 34.95,
   "high": 39.99,
   "average": 35.38,
-  "priceChanges": 1,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -40,14 +44,14 @@
    ],
    [
     "2026-10-30",
-    34.99
+    34.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 70 days"
+  "summary": "Typical price: steady for 1 day"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Pro-S-Golf-Balls-Box.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Mizuno-Pro-S-Golf-Balls-White-1-Photoroom.jpg?v=1747321154",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

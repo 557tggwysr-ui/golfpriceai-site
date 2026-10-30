@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.95,
+ "lowestNewPrice": 129.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 129.0,
+   "options": 3
+  },
   {
    "name": "Affordable Golf",
    "from": 129.95,
@@ -29,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 129.95,
+  "low": 129.0,
   "high": 149.0,
-  "average": 134.96,
-  "priceChanges": 1,
+  "average": 134.95,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -44,14 +49,14 @@
    ],
    [
     "2026-10-30",
-    129.95
+    129.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 56 days"
+  "summary": "Typical price: steady for 1 day"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ping_chipr_chipper_-_graphite_1.jpg?v=1777981959",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/Ping_ChipR_Steel_Golf_Chipper_0.jpg?v=1657904458",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

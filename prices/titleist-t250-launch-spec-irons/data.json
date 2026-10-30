@@ -1,0 +1,48 @@
+{
+ "name": "Titleist T250 Launch Spec Irons",
+ "brand": "Titleist",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/titleist-t250-launch-spec-irons/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 989.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 989.0,
+   "options": 2
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 1179.0,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 989.0,
+  "high": 989.0,
+  "average": 989.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    989.0
+   ],
+   [
+    "2026-10-30",
+    989.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 76 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-T250-LS-Irons-Hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

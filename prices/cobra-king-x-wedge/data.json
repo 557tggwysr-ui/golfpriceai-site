@@ -1,16 +1,21 @@
 {
- "name": "Cobra King-X Wedge",
+ "name": "Cobra KING X Wedge",
  "brand": "Cobra",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/cobra-king-x-wedge/",
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 139.0,
+ "lowestNewPrice": 129.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 129.0,
+   "options": 4
+  },
   {
    "name": "Clickgolf",
    "from": 139.0,
@@ -29,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 139.0,
+  "low": 129.0,
   "high": 139.0,
-  "average": 139.0,
-  "priceChanges": 0,
+  "average": 138.87,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -40,14 +45,14 @@
    ],
    [
     "2026-10-30",
-    139.0
+    129.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-King-X-Wedge-25-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/KING_Wedge_X_1.jpg?v=1741950431",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -1,0 +1,49 @@
+{
+ "name": "Ping iDi Driving Irons",
+ "brand": "Ping",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/ping-idi-driving-irons/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 269.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 269.0,
+   "options": 6
+  },
+  {
+   "name": "Clickgolf",
+   "from": 269.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 269.0,
+  "high": 269.0,
+  "average": 269.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    269.0
+   ],
+   [
+    "2026-10-30",
+    269.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 76 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/idi-driving-iron-hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

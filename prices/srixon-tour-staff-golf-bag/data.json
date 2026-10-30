@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 429.0,
+ "lowestNewPrice": 349.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 349.0,
+   "options": 1
+  },
   {
    "name": "Clickgolf",
    "from": 429.0,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 429.0,
+  "low": 349.0,
   "high": 429.0,
-  "average": 429.0,
-  "priceChanges": 0,
+  "average": 427.95,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -35,14 +40,14 @@
    ],
    [
     "2026-10-30",
-    429.0
+    349.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-Tour-Staff-Golf-Bag-Black.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/25SRXStaffBagHero-Photoroom.jpg?v=1740497840",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

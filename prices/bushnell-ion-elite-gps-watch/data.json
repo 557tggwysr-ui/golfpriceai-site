@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.0,
+ "lowestNewPrice": 159.0,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 159.0,
+   "options": 2
+  },
   {
    "name": "Major Golf Direct",
    "from": 169.0,
@@ -26,8 +31,8 @@
   "daysTracked": 64,
   "low": 139.0,
   "high": 169.0,
-  "average": 157.75,
-  "priceChanges": 1,
+  "average": 157.59,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-28",
@@ -39,14 +44,14 @@
    ],
    [
     "2026-10-30",
-    169.0
+    159.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/BG-362150_iONEliteWatch_Screen_GreenView_FrontR_1000.png?v=1661849834",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/Bushnell_Ion_Elite_GPS_Golf_Watch_2.jpg?v=1665594025",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

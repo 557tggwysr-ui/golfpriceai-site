@@ -1,0 +1,48 @@
+{
+ "name": "Ping G Le4 Fairway Wood",
+ "brand": "Ping",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/ping-g-le4-fairway-wood/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 289.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 289.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 315.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 289.0,
+  "high": 315.0,
+  "average": 314.66,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    315.0
+   ],
+   [
+    "2026-10-30",
+    289.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/g-le4-ladies-3-wood-hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

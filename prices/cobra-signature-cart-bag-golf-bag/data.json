@@ -6,14 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 119.0,
+ "lowestNewPrice": 115.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf",
-  "Major Golf Direct",
-  "Scottsdale Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 115.0,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 119.0,
@@ -37,10 +39,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 119.0,
+  "low": 115.0,
   "high": 119.0,
-  "average": 119.0,
-  "priceChanges": 0,
+  "average": 118.95,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -48,14 +50,14 @@
    ],
    [
     "2026-10-30",
-    119.0
+    115.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "summary": "Typical price: steady for 1 day"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/90986408-Signature-Cart-Bag-NG-Hero-Left.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/cobra-signature-cart-bag-blue-1-compressed-Photoroom.jpg?v=1741017080",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

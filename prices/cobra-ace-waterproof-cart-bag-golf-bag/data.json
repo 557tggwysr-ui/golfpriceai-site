@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 169.0,
+   "options": 2
+  },
   {
    "name": "Clickgolf",
    "from": 179.0,
@@ -29,9 +34,9 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 174.0,
+  "low": 169.0,
   "high": 199.0,
-  "average": 186.7,
+  "average": 186.57,
   "priceChanges": 18,
   "series": [
    [
@@ -108,14 +113,14 @@
    ],
    [
     "2026-10-30",
-    179.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/p_Cobra-ace-cartbag-quietshade-red-black4.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra-Golf-ACE-WP-Cart-Bag-953026-05-2_900x.progressive_d013e7c9-832e-4f62-bd67-e25afe4887fe.jpg?v=1779371335",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -1,0 +1,59 @@
+{
+ "name": "Srixon ZXi RKT Max Driver",
+ "brand": "Srixon",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/srixon-zxi-rkt-max-driver/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 529.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Clickgolf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 529.0,
+   "options": 9
+  },
+  {
+   "name": "Clickgolf",
+   "from": 529.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 529.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 43,
+  "low": 529.0,
+  "high": 569.0,
+  "average": 542.95,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-18",
+    569.0
+   ],
+   [
+    "2026-10-03",
+    529.0
+   ],
+   [
+    "2026-10-30",
+    529.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfZXiRKTMAXDriver_5.jpg?v=1788422852",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

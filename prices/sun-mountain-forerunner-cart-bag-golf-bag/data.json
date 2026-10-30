@@ -1,0 +1,56 @@
+{
+ "name": "Sun Mountain Forerunner Cart Bag Golf Bag",
+ "brand": "Sun Mountain",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/sun-mountain-forerunner-cart-bag-golf-bag/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 189.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 189.0,
+   "options": 2
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 189.95,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 179.95,
+  "high": 189.95,
+  "average": 188.35,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-09-04",
+    189.95
+   ],
+   [
+    "2026-09-22",
+    179.95
+   ],
+   [
+    "2026-10-01",
+    189.95
+   ],
+   [
+    "2026-10-30",
+    189.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/26FOREC-B.jpg?v=1773180746",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

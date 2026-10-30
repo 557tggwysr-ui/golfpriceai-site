@@ -1,5 +1,5 @@
 {
- "name": "Bushnell A1-SLOPE Laser Rangefinder",
+ "name": "Bushnell A1 Slope Laser Rangefinder",
  "brand": "Bushnell",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/",
@@ -9,6 +9,7 @@
  "lowestNewPrice": 269.0,
  "lowestAt": [
   "Affordable Golf",
+  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
@@ -16,6 +17,11 @@
    "name": "Affordable Golf",
    "from": 269.0,
    "options": 3
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 269.0,
+   "options": 1
   },
   {
    "name": "Clickgolf",
@@ -57,6 +63,6 @@
   "label": "wait",
   "summary": "Wait if you can: £20.00 above its tracked low"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Bushnell_A1_Slope_1.jpg?v=1776307293",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Bushnell-A1-Slope-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

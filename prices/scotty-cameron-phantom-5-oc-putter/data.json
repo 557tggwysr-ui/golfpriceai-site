@@ -1,0 +1,49 @@
+{
+ "name": "Scotty Cameron Phantom 5 OC Putter",
+ "brand": "Scotty Cameron",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-5-oc-putter/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 499.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 499.0,
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 499.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 499.0,
+  "high": 499.0,
+  "average": 499.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-16",
+    499.0
+   ],
+   [
+    "2026-10-30",
+    499.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 76 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/759RA-Phantom-5OC-Sole.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,52 @@
+{
+ "name": "Odyssey Ai-ONE Milled Putter",
+ "brand": "Odyssey",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-putter/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 199.0,
+   "options": 15
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 199.95,
+   "options": 21
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 199.0,
+  "high": 249.0,
+  "average": 211.98,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-09-04",
+    249.0
+   ],
+   [
+    "2026-09-18",
+    199.95
+   ],
+   [
+    "2026-10-30",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 1 day"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Odyssey-Ai-ONE-Milled-Golf-Putter-Two-T-CH-6_0babc2df-66b6-4943-a46b-f9840c8af674.jpg?v=1752071476",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

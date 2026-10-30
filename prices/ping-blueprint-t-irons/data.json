@@ -1,0 +1,58 @@
+{
+ "name": "Ping Blueprint T Irons",
+ "brand": "Ping",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/ping-blueprint-t-irons/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1129.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 1129.0,
+   "options": 1
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 1129.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1399.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 1129.0,
+  "high": 1399.0,
+  "average": 1196.5,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    1399.0
+   ],
+   [
+    "2026-09-04",
+    1129.0
+   ],
+   [
+    "2026-10-30",
+    1129.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 57 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ping_blueprint_t_irons_5.jpg?v=1777959830",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

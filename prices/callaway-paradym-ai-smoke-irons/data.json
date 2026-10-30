@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 809.0,
+ "lowestNewPrice": 699.0,
  "lowestAt": [
-  "Scottsdale Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 699.0,
+   "options": 1
+  },
   {
    "name": "Scottsdale Golf",
    "from": 809.0,
@@ -38,6 +43,6 @@
   "label": "typical",
   "summary": "Typical price: steady for 64 days"
  },
- "image": "https://www.scottsdalegolf.co.uk/uploads/ai-smoke-iron-3.png",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Callaway-Paradym-Ai-Smoke-Golf-Irons-Graphite-5.jpg?v=1703736074",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

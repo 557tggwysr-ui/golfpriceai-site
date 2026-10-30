@@ -1,0 +1,48 @@
+{
+ "name": "TaylorMade Qi10 Max Hybrid",
+ "brand": "TaylorMade",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/taylormade-qi10-max-hybrid/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 199.0,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 249.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 199.0,
+  "high": 249.0,
+  "average": 248.12,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    249.0
+   ],
+   [
+    "2026-10-30",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/taylormade-qi10-hybrid-max-2.png",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

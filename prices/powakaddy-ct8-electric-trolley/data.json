@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 919.0,
+ "lowestNewPrice": 849.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 849.0,
+   "options": 2
+  },
   {
    "name": "Clickgolf",
    "from": 919.0,
@@ -34,9 +39,9 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 899.0,
+  "low": 849.0,
   "high": 949.0,
-  "average": 940.05,
+  "average": 939.13,
   "priceChanges": 13,
   "series": [
    [
@@ -93,14 +98,14 @@
    ],
    [
     "2026-10-30",
-    919.0
+    849.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT8_GPS_Electric_Golf_Trolley-18-Hole_Lithium_01_Main.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/01_2025PowaKaddy-CT8GPS-GunMetal-StandardPlug_n_PlayLithiumBattery-Photoroom.jpg?v=1740579849",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

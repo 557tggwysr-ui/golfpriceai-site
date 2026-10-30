@@ -6,12 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 44.99,
+ "lowestNewPrice": 37.95,
  "lowestAt": [
-  "Affordable Golf",
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 37.95,
+   "options": 5
+  },
   {
    "name": "Affordable Golf",
    "from": 44.99,
@@ -25,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 64,
-  "low": 44.99,
+  "low": 37.95,
   "high": 44.99,
-  "average": 44.99,
-  "priceChanges": 0,
+  "average": 44.88,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -36,14 +40,14 @@
    ],
    [
     "2026-10-30",
-    44.99
+    37.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonStaffModelGolfBalls2026-White_7.jpg?v=1765284753",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/Wilson_Staff_Model_Golf_Balls_White_74.jpg?v=1646065840",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

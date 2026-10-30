@@ -1,0 +1,48 @@
+{
+ "name": "Mizuno BR-DRI Cart Bag Golf Bag",
+ "brand": "Mizuno",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/mizuno-br-dri-cart-bag-golf-bag/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 249.0,
+   "options": 3
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 309.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 37,
+  "low": 249.0,
+  "high": 309.0,
+  "average": 307.38,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-24",
+    309.0
+   ],
+   [
+    "2026-10-30",
+    249.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MizunoBR-DRIGolfCartBag2026-GreyYellow_1.jpg?v=1786622308",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

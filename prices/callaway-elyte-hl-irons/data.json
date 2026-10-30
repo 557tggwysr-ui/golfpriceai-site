@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 699.0,
+ "lowestNewPrice": 599.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 599.0,
+   "options": 7
+  },
   {
    "name": "Affordable Golf",
    "from": 699.0,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 57,
-  "low": 699.0,
+  "low": 599.0,
   "high": 699.0,
-  "average": 699.0,
-  "priceChanges": 0,
+  "average": 697.25,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
@@ -35,14 +40,14 @@
    ],
    [
     "2026-10-30",
-    699.0
+    599.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteHLIrons5.jpg?v=1782263407",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-HL-Golf-Irons-Steel-1.jpg?v=1737087156",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

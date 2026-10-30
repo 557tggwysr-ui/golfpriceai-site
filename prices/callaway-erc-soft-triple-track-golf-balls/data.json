@@ -1,0 +1,48 @@
+{
+ "name": "Callaway ERC Soft Triple Track Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-erc-soft-triple-track-golf-balls/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 37.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 37.99,
+   "options": 1
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 39.95,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 37.99,
+  "high": 37.99,
+  "average": 37.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    37.99
+   ],
+   [
+    "2026-10-30",
+    37.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 57 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/callaway-ercsofttriple-yellow-1.png",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

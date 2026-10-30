@@ -1,0 +1,48 @@
+{
+ "name": "Callaway Supersoft Splatter Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-supersoft-splatter-golf-balls/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 24.95,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 24.95,
+   "options": 3
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 24.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 24.95,
+  "high": 24.99,
+  "average": 24.99,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    24.99
+   ],
+   [
+    "2026-10-30",
+    24.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 1 day"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/callaway-supersoft-golf-ball-red-splatter-box-Photoroom.jpg?v=1738929779",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

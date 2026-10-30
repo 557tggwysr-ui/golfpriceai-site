@@ -1,0 +1,49 @@
+{
+ "name": "TaylorMade Spider Tour X Putter",
+ "brand": "TaylorMade",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/taylormade-spider-tour-x-putter/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 299.0,
+   "options": 22
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 299.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 299.0,
+  "high": 299.0,
+  "average": 299.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    299.0
+   ],
+   [
+    "2026-10-30",
+    299.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 57 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/spider_tour_putter_x_small_slant_4.jpg?v=1777961160",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

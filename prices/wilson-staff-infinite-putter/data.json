@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 109.0,
+ "lowestNewPrice": 99.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 99.0,
+   "options": 6
+  },
   {
    "name": "Clickgolf",
    "from": 109.0,
@@ -19,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 109.0,
+  "low": 99.0,
   "high": 109.0,
-  "average": 109.0,
-  "priceChanges": 0,
+  "average": 108.87,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,14 +35,14 @@
    ],
    [
     "2026-10-30",
-    109.0
+    99.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Staff-Infinite-Golf-Putter-2024---Bucktown2.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Wilson-Staff-2024-Infinite-Golf-Putter-Windy-City-5.jpg?v=1716523502",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

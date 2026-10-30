@@ -1,0 +1,48 @@
+{
+ "name": "TaylorMade Milled Grind 5 Chrome Wedge",
+ "brand": "TaylorMade",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/taylormade-milled-grind-5-chrome-wedge/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 179.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 179.0,
+   "options": 19
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 179.95,
+   "options": 38
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 179.0,
+  "high": 179.95,
+  "average": 179.93,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    179.95
+   ],
+   [
+    "2026-10-30",
+    179.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 1 day"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TM25WDG-TC647-N2914309-Chrome-MG5-60.08-LB-3Q-v1-Photoroom_1.jpg?v=1761905541",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

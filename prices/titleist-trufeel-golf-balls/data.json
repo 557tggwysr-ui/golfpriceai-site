@@ -8,9 +8,15 @@
  "unit": "per dozen",
  "lowestNewPrice": 24.95,
  "lowestAt": [
+  "Clarkes Golf",
   "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 24.95,
+   "options": 3
+  },
   {
    "name": "Major Golf Direct",
    "from": 24.95,

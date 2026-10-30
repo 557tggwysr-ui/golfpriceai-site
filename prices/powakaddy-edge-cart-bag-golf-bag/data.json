@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.95,
+ "lowestNewPrice": 179.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 179.0,
+   "options": 3
+  },
   {
    "name": "Affordable Golf",
    "from": 179.95,
@@ -31,8 +36,8 @@
   "daysTracked": 76,
   "low": 179.0,
   "high": 199.0,
-  "average": 183.28,
-  "priceChanges": 9,
+  "average": 183.27,
+  "priceChanges": 10,
   "series": [
    [
     "2026-08-16",
@@ -76,13 +81,13 @@
    ],
    [
     "2026-10-30",
-    179.95
+    179.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PowaKaddyEDGECartBagYellow3.jpg?v=1776294203",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

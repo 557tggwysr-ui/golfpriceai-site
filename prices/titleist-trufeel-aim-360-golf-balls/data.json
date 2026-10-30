@@ -6,12 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 24.99,
+ "lowestNewPrice": 24.95,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 24.95,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 24.99,
@@ -25,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 24.99,
+  "low": 24.95,
   "high": 24.99,
   "average": 24.99,
-  "priceChanges": 0,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -36,13 +40,13 @@
    ],
    [
     "2026-10-30",
-    24.99
+    24.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/T6036S-TruFeel-Aim-360-Box.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

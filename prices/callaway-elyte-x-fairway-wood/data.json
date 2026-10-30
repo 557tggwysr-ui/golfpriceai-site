@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 239.0,
+ "lowestNewPrice": 229.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 229.0,
+   "options": 4
+  },
   {
    "name": "Clickgolf",
    "from": 239.0,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 239.0,
+  "low": 229.0,
   "high": 239.0,
-  "average": 239.0,
-  "priceChanges": 0,
+  "average": 238.87,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -35,14 +40,14 @@
    ],
    [
     "2026-10-30",
-    239.0
+    229.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "summary": "Typical price: steady for 1 day"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-x-fairway-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-X-Golf-Fairway-Wood-1.jpg?v=1737101720",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

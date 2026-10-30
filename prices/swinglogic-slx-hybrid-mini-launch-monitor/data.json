@@ -1,6 +1,6 @@
 {
- "name": "Swinglogic SLX Hybrid Mini Launch Monitor",
- "brand": "Swinglogic",
+ "name": "SwingLogic SLX Hybrid Mini Launch Monitor",
+ "brand": "SwingLogic",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/swinglogic-slx-hybrid-mini-launch-monitor/",
  "checked": "2026-10-30",
@@ -14,6 +14,11 @@
   {
    "name": "Major Golf Direct",
    "from": 157.95,
+   "options": 1
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 159.0,
    "options": 1
   },
   {

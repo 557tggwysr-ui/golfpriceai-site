@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 44.99,
+ "lowestNewPrice": 44.95,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 44.95,
+   "options": 2
+  },
   {
    "name": "Major Golf Direct",
    "from": 44.99,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 64,
-  "low": 44.99,
+  "low": 44.95,
   "high": 44.99,
   "average": 44.99,
-  "priceChanges": 0,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -35,13 +40,13 @@
    ],
    [
     "2026-10-30",
-    44.99
+    44.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MacGregorGolfZTPlusChipper.jpg?v=1772009968",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

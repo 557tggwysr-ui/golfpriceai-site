@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 134.0,
+ "lowestNewPrice": 129.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 129.0,
+   "options": 1
+  },
   {
    "name": "Clickgolf",
    "from": 134.0,
@@ -19,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 134.0,
+  "low": 129.0,
   "high": 134.0,
-  "average": 134.0,
-  "priceChanges": 0,
+  "average": 133.93,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,13 +35,13 @@
    ],
    [
     "2026-10-30",
-    134.0
+    129.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/prodi-g-small-stand-bag.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

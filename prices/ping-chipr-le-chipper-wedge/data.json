@@ -1,0 +1,61 @@
+{
+ "name": "Ping ChipR Le Chipper Wedge",
+ "brand": "Ping",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/ping-chipr-le-chipper-wedge/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 149.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 159.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 159.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 149.0,
+  "high": 159.95,
+  "average": 159.33,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-08-16",
+    159.0
+   ],
+   [
+    "2026-09-04",
+    159.95
+   ],
+   [
+    "2026-10-11",
+    159.0
+   ],
+   [
+    "2026-10-30",
+    149.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ladies-Ping-ChipR-Le-Golf-Chipper-Graphite-3.jpg?v=1704790540",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

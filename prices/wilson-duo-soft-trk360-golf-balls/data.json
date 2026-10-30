@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 22.99,
+ "lowestNewPrice": 22.95,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 22.95,
+   "options": 3
+  },
   {
    "name": "Clickgolf",
    "from": 22.99,
@@ -19,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 22.99,
+  "low": 22.95,
   "high": 22.99,
   "average": 22.99,
-  "priceChanges": 0,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,14 +35,14 @@
    ],
    [
     "2026-10-30",
-    22.99
+    22.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "summary": "Typical price: steady for 1 day"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Duo-Soft-TRK360-Golf-Balls-WhiteGreen.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WG2009103_0_DUO_SOFT_TRK360_12-BALL_Stripe-Photoroom.jpg?v=1739461383",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

@@ -6,12 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1099.0,
+ "lowestNewPrice": 939.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 939.0,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 1099.0,
@@ -25,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 1099.0,
+  "low": 939.0,
   "high": 1099.0,
-  "average": 1099.0,
-  "priceChanges": 0,
+  "average": 1096.89,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -36,14 +40,14 @@
    ],
    [
     "2026-10-30",
-    1099.0
+    939.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/132186__42485.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/620mbirons1.jpg?v=1681123085",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

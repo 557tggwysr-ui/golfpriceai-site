@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 419.0,
+ "lowestNewPrice": 229.0,
  "lowestAt": [
-  "Scottsdale Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 229.0,
+   "options": 2
+  },
   {
    "name": "Scottsdale Golf",
    "from": 419.0,
@@ -19,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 57,
-  "low": 419.0,
+  "low": 229.0,
   "high": 419.0,
-  "average": 419.0,
-  "priceChanges": 0,
+  "average": 415.67,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
@@ -30,14 +35,14 @@
    ],
    [
     "2026-10-30",
-    419.0
+    229.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.scottsdalegolf.co.uk/uploads/toretto-ls-driver-4.png",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-DarkSpeed-LS-Golf-Driver-2.jpg?v=1713978686",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

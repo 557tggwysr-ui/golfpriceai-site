@@ -1,0 +1,49 @@
+{
+ "name": "Wilson Profile Ages 11-14 Junior Golf Set",
+ "brand": "Wilson",
+ "type": "junior golf set",
+ "url": "https://golfpriceai.com/prices/wilson-profile-ages-11-14-junior-golf-set/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 249.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 249.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 52,
+  "low": 249.0,
+  "high": 249.0,
+  "average": 249.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-09",
+    249.0
+   ],
+   [
+    "2026-10-30",
+    249.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 52 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/WG1R04170140-Hero.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

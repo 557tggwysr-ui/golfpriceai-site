@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 39.99,
+ "lowestNewPrice": 39.95,
  "lowestAt": [
-  "Scottsdale Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 39.95,
+   "options": 2
+  },
   {
    "name": "Scottsdale Golf",
    "from": 39.99,

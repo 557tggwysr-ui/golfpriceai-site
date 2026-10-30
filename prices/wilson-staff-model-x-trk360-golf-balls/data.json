@@ -6,12 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 44.99,
+ "lowestNewPrice": 44.95,
  "lowestAt": [
-  "Affordable Golf",
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 44.95,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 44.99,
@@ -21,28 +25,37 @@
    "name": "Major Golf Direct",
    "from": 44.99,
    "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 85.0,
+   "options": 1
   }
  ],
  "history": {
-  "daysTracked": 64,
-  "low": 44.99,
-  "high": 44.99,
-  "average": 44.99,
-  "priceChanges": 0,
+  "daysTracked": 76,
+  "low": 44.95,
+  "high": 85.0,
+  "average": 51.31,
+  "priceChanges": 2,
   "series": [
+   [
+    "2026-08-16",
+    85.0
+   ],
    [
     "2026-08-28",
     44.99
    ],
    [
     "2026-10-30",
-    44.99
+    44.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonStaffModelXTRK360GolfBalls2026-White_3.jpg?v=1765284624",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

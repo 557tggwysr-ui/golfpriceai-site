@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1289.0,
+ "lowestNewPrice": 1179.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 1179.0,
+   "options": 2
+  },
   {
    "name": "Clickgolf",
    "from": 1289.0,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 1289.0,
+  "low": 1179.0,
   "high": 1289.0,
-  "average": 1289.0,
-  "priceChanges": 0,
+  "average": 1287.55,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -35,13 +40,13 @@
    ],
    [
     "2026-10-30",
-    1289.0
+    1179.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Pro-S1-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"

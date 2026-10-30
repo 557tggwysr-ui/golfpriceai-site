@@ -1,0 +1,49 @@
+{
+ "name": "Odyssey Damascus Milled Putter",
+ "brand": "Odyssey",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/odyssey-damascus-milled-putter/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 499.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 499.0,
+   "options": 22
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 499.0,
+   "options": 10
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 499.0,
+  "high": 499.0,
+  "average": 499.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    499.0
+   ],
+   [
+    "2026-10-30",
+    499.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 57 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Damascus2CH1.jpg?v=1780529096",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

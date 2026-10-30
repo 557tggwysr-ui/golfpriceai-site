@@ -1,0 +1,52 @@
+{
+ "name": "Wilson Dynapower Fairway Wood",
+ "brand": "Wilson",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/wilson-dynapower-fairway-wood/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 79.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 79.95,
+   "options": 2
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 119.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 79.95,
+  "high": 89.95,
+  "average": 81.35,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    89.95
+   ],
+   [
+    "2026-09-12",
+    79.95
+   ],
+   [
+    "2026-10-30",
+    79.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 49 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WilsonDynapowerLeftHand.jpg?v=1741707712",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

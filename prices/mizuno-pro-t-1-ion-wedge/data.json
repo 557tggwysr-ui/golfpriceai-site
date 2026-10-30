@@ -1,0 +1,53 @@
+{
+ "name": "Mizuno Pro T-1 ION Wedge",
+ "brand": "Mizuno",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/mizuno-pro-t-1-ion-wedge/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 119.0,
+   "options": 3
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 119.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 64,
+  "low": 119.0,
+  "high": 149.0,
+  "average": 132.12,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-28",
+    149.0
+   ],
+   [
+    "2026-09-25",
+    119.0
+   ],
+   [
+    "2026-10-30",
+    119.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 36 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Yourparagraphtext_22.jpg?v=1737715484",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

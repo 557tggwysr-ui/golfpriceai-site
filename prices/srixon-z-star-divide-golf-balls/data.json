@@ -1,0 +1,48 @@
+{
+ "name": "Srixon Z-Star Divide Golf Balls",
+ "brand": "Srixon",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/srixon-z-star-divide-golf-balls/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 38.95,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 38.95,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 38.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 38.95,
+  "high": 38.99,
+  "average": 38.99,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    38.99
+   ],
+   [
+    "2026-10-30",
+    38.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 1 day"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Z_STAR_DIVIDE_9_PACK_2_-Photoroom.jpg?v=1741360937",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,57 @@
+{
+ "name": "Titleist U505 Utility Irons",
+ "brand": "Titleist",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/titleist-u505-utility-irons/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 249.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 249.0,
+   "options": 1
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 259.0,
+   "options": 6
+  },
+  {
+   "name": "Clickgolf",
+   "from": 259.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 249.0,
+  "high": 259.0,
+  "average": 251.5,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    259.0
+   ],
+   [
+    "2026-09-04",
+    249.0
+   ],
+   [
+    "2026-10-30",
+    249.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 57 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-U505-G3-utility-1.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

@@ -1,0 +1,43 @@
+{
+ "name": "Bridgestone e12 Speed Golf Balls",
+ "brand": "Bridgestone",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/bridgestone-e12-speed-golf-balls/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 29.95,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 29.95,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 64,
+  "low": 29.95,
+  "high": 29.95,
+  "average": 29.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-08-28",
+    29.95
+   ],
+   [
+    "2026-10-30",
+    29.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 64 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/BSGe12SpeedMSSet-Photoroom.jpg?v=1774267181",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

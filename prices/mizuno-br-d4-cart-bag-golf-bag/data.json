@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 144.0,
+ "lowestNewPrice": 109.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 109.0,
+   "options": 3
+  },
   {
    "name": "Clickgolf",
    "from": 144.0,
@@ -29,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 144.0,
+  "low": 109.0,
   "high": 169.0,
-  "average": 145.64,
-  "priceChanges": 2,
+  "average": 145.18,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -48,14 +53,14 @@
    ],
    [
     "2026-10-30",
-    144.0
+    109.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 70 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-BR-D4-Golf-Cart-Bag---Navy-Red.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Mizuno-BR-D4-Golf-Cart-Bag-BRD4C23-17.jpg?v=1726113899",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

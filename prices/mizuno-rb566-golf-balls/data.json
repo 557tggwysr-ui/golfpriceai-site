@@ -1,0 +1,48 @@
+{
+ "name": "Mizuno RB566 Golf Balls",
+ "brand": "Mizuno",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/mizuno-rb566-golf-balls/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 19.95,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 19.95,
+   "options": 4
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 21.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 19.95,
+  "high": 21.99,
+  "average": 21.95,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    21.99
+   ],
+   [
+    "2026-10-30",
+    19.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Mizuno-2024-RB566-Golf-Balls-Yellow-3.jpg?v=1713499539",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

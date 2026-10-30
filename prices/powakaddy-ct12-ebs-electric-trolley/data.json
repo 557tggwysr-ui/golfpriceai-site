@@ -6,12 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1249.0,
+ "lowestNewPrice": 1199.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 1199.0,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 1249.0,
@@ -30,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 1219.0,
+  "low": 1199.0,
   "high": 1299.0,
-  "average": 1283.87,
-  "priceChanges": 13,
+  "average": 1283.21,
+  "priceChanges": 14,
   "series": [
    [
     "2026-08-16",
@@ -93,14 +97,14 @@
    ],
    [
     "2026-10-30",
-    1249.0
+    1199.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT12_GPS_EBS_Electric_Golf_Trolley-18-Hole_Lithium_01_Main.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/01_2025_PowaKaddy_-_CT12_GPS_-_Gun_Metal_-_Standard_Plug_n_Play_Lithium_Battery-Photoroom.jpg?v=1739533467",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
 }

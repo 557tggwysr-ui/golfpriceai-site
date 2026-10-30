@@ -1,0 +1,48 @@
+{
+ "name": "Wilson Dynapower Hybrid",
+ "brand": "Wilson",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/wilson-dynapower-hybrid/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 69.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 69.95,
+   "options": 3
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 109.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 57,
+  "low": 69.95,
+  "high": 69.95,
+  "average": 69.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    69.95
+   ],
+   [
+    "2026-10-30",
+    69.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 57 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/dynapower_hybrid_hero.jpg?v=1777974100",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

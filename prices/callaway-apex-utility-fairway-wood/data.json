@@ -1,0 +1,48 @@
+{
+ "name": "Callaway Apex Utility Fairway Wood",
+ "brand": "Callaway",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/callaway-apex-utility-fairway-wood/",
+ "checked": "2026-10-30",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 299.0,
+   "options": 8
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 339.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 76,
+  "low": 299.0,
+  "high": 339.0,
+  "average": 338.47,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-08-16",
+    339.0
+   ],
+   [
+    "2026-10-30",
+    299.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1793271754063/sits/fwoods-2026-apex-utility/fwoods-2026-apex-utility___1.png?sfrm=png",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours"
+}

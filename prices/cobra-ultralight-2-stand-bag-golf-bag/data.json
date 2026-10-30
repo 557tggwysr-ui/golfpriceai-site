@@ -6,11 +6,16 @@
  "checked": "2026-10-30",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 119.95,
+ "lowestNewPrice": 119.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 119.0,
+   "options": 3
+  },
   {
    "name": "Affordable Golf",
    "from": 119.95,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 119.95,
+  "low": 119.0,
   "high": 149.0,
-  "average": 125.63,
-  "priceChanges": 6,
+  "average": 125.62,
+  "priceChanges": 7,
   "series": [
    [
     "2026-08-16",
@@ -59,13 +64,13 @@
    ],
    [
     "2026-10-30",
-    119.95
+    119.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CobraUltralight2CarryBagBlackSugaredAlmond2.jpg?v=1773177825",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
