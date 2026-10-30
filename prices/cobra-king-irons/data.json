@@ -29,32 +29,24 @@
  ],
  "history": {
   "daysTracked": 76,
-  "low": 129.0,
+  "low": 559.0,
   "high": 559.0,
-  "average": 197.03,
-  "priceChanges": 2,
+  "average": 559.0,
+  "priceChanges": 0,
   "series": [
    [
     "2026-08-16",
     559.0
    ],
    [
-    "2026-08-28",
-    129.0
-   ],
-   [
-    "2026-10-21",
-    130.0
-   ],
-   [
     "2026-10-30",
-    130.0
+    559.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £1.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price: steady for 76 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-King-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours"
