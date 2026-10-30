@@ -42,6 +42,8 @@ FEED_URL_ENV_VARS = {
     "callaway": "AWIN_CALLAWAY_FEED_URL",
     "scottsdalegolf": "AWIN_SCOTTSDALEGOLF_FEED_URL",
     "affordablegolf": "AWIN_AFFORDABLEGOLF_FEED_URL",
+    "payntr": "AWIN_PAYNTR_FEED_URL",
+    "clarkesgolf": "AWIN_CLARKESGOLF_FEED_URL",
 }
 
 

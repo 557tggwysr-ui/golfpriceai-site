@@ -1328,6 +1328,7 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_form
     skipped_no_link = 0
     rrp_inversion_names = []
     implausible_rrp_names = []
+    skipped_currency = {}
 
     for row in reader:
         total_rows += 1
@@ -1345,6 +1346,13 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_form
         name = (row.get("product_name") or "").strip()
         if not name:
             skipped_no_name += 1
+            continue
+        # Prices must be in pounds. Feeds that carry a "currency" column
+        # (EU stores such as PAYNTR Golf EU) can list euro prices, which
+        # would wreck price comparisons, so any non-GBP row is skipped.
+        currency = (row.get("currency") or "").strip().upper()
+        if currency and currency != "GBP":
+            skipped_currency[currency] = skipped_currency.get(currency, 0) + 1
             continue
 
         # An out-of-stock row is kept (not skipped) and explicitly marked
@@ -1495,6 +1503,8 @@ def fetch_awin_generic_feed(retailer_label, env_var_name, source_slug, feed_form
         f"no price: {skipped_no_price}, no link: {skipped_no_link}. "
         f"(Out of stock: {out_of_stock_count} — tracked with inStock=False, no longer skipped.)"
     )
+    if skipped_currency:
+        print(f"{retailer_label} feed: skipped non-GBP rows {skipped_currency} (we only list pound prices)")
     print(f"{retailer_label} feed: category breakdown = {category_counts}")
     print(
         f"{retailer_label} feed: {with_icon}/{len(apparel_accessories)} apparel/accessories "
@@ -1575,6 +1585,18 @@ def fetch_awin_callawaypreowned_deals():
         "Callaway Golf Preowned", "AWIN_CALLAWAYPREOWNED_FEED_URL", "callawaypreowned",
         feed_format="google_shopping", is_preowned_marketplace=True,
     )
+
+
+def fetch_awin_payntr_deals():
+    """PAYNTR Golf EU: seventh AWIN retailer (golf shoes), classic
+    Create-a-Feed. An EU store, so its feed should include the "currency"
+    column: any row not priced in GBP is skipped by the shared parser."""
+    return fetch_awin_generic_feed("PAYNTR Golf", "AWIN_PAYNTR_FEED_URL", "payntr")
+
+
+def fetch_awin_clarkesgolf_deals():
+    """Clarkes Golf: eighth AWIN retailer, classic Create-a-Feed."""
+    return fetch_awin_generic_feed("Clarkes Golf", "AWIN_CLARKESGOLF_FEED_URL", "clarkesgolf")
 
 
 def fetch_awin_deals():
@@ -3631,6 +3653,8 @@ def main():
         + fetch_awin_affordablegolf_deals()
         + fetch_awin_scottsdalegolf_deals()
         + fetch_awin_callawaypreowned_deals()
+        + fetch_awin_payntr_deals()
+        + fetch_awin_clarkesgolf_deals()
         + fetch_impact_deals()
     )
     fresh = dedupe_products(fresh)

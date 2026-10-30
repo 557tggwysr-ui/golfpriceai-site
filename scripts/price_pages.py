@@ -39,6 +39,8 @@ RETAILERS = {
     "awin-scottsdalegolf": "Scottsdale Golf",
     "awin-callaway": "Callaway Golf",
     "awin-callawaypreowned": "Callaway Golf Preowned",
+    "awin-payntr": "PAYNTR Golf",
+    "awin-clarkesgolf": "Clarkes Golf",
 }
 
 # type -> (hub slug, plural label, singular noun, nav section)
