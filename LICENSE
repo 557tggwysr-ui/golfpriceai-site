@@ -1,0 +1,32 @@
+Copyright (c) 2026 GolfPrice AI (golfpriceai.com). All rights reserved.
+
+This repository holds the source code, design, text, graphics, games and
+tools behind golfpriceai.com, including Par Price, Higher or Lower, The Bag
+Draft, Society HQ, Fourball Alerts, My Clubhouse and every other feature of
+the site.
+
+The code being publicly visible on GitHub does not grant any licence to use
+it. You may not copy, modify, publish, redistribute or reuse any part of
+this repository, in whole or in part, to build or run another website, app
+or service, without prior written permission from GolfPrice AI.
+
+Open data exception
+-------------------
+The open price datasets are published under the Creative Commons
+Attribution 4.0 licence (CC BY 4.0) and are free to reuse with credit to
+GolfPrice AI and a link to golfpriceai.com:
+
+  - prices/data/golf-prices-uk.csv
+  - prices/data/golf-price-history-uk.csv
+  - data/demand/index.json (UK Golf Demand Index)
+
+This exception covers those data files only, not the code or design that
+produces or displays them.
+
+Third-party content
+-------------------
+Product names, brand names and retailer names belong to their owners.
+Product images and prices come from retailer feeds and remain the property
+of those retailers.
+
+Permissions and enquiries: GolfPriceAI@outlook.com

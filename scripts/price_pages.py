@@ -1639,6 +1639,15 @@ def build(models_list, products, today_str):
         # societies, guides), and any one-off list in data/indexnow-once.txt
         # (deleted once read, so each list is sent a single time).
         urls |= {u for u in changed if u.endswith("/") and not u.startswith(("/prices/", "/data/", "/products/", "/wishlist/", "/societies/prize/"))}
+        # Monday's first run: re-send the main pages (deal tools, games,
+        # societies...), so Bing keeps them fresh even when only their
+        # wording changed through an upload.
+        now = datetime.now(timezone.utc)
+        if now.weekday() == 0 and now.hour < 6:
+            core = ROOT / "sitemap-pages.xml"
+            if core.exists():
+                urls |= {u.replace(SITE, "") for u in re.findall(r"<loc>([^<]+)</loc>", core.read_text())}
+            urls |= {"/play/", "/societies/", "/fourball/", "/demand/", "/prices/black-friday/", "/prices/golf-gifts/"}
         once = ROOT / "data" / "indexnow-once.txt"
         if once.exists():
             urls |= {u.strip() for u in once.read_text().splitlines() if u.strip().startswith("/")}
