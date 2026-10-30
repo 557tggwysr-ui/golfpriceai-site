@@ -134,6 +134,19 @@ def menu():
             ("Locker Room", "Your champion bags, bag tags and record.", "/play/locker/",
              '<path d="M6 3h12v18H6zM12 3v18M9 7h1M9 10h1M14 7h1M14 10h1M10 15v2M14 15v2"></path>'),
         ],
+        # Improve: handicap calculators (hub /improve/).
+        "improve": [
+            ("Improve", "Every calculator, plus handicap allowances at a glance.", "/improve/",
+             '<path d="M3 17l6-6 4 4 8-8M15 7h6v6"></path>'),
+            ("Handicap index calculator", "Your best 8 of your last 20, the WHS way.", "/improve/handicap-index-calculator/",
+             '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path>'),
+            ("Course handicap calculator", "How many shots you get on any course and tee.", "/improve/course-handicap-calculator/",
+             '<path d="M6 21V4M6 4l11 4-11 4M3 21h8"></path>'),
+            ("Playing handicap calculator", "Stableford, fourball, matchplay or foursomes.", "/improve/playing-handicap-calculator/",
+             '<path d="M8 8m-3 0a3 3 0 106 0 3 3 0 10-6 0M16 8m-3 0a3 3 0 106 0 3 3 0 10-6 0M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M12 14.5c1-.3 2-.5 4-.5 3.3 0 6 2.7 6 6"></path>'),
+            ("What do I need to shoot?", "The score that brings your handicap down.", "/improve/what-do-i-need-to-shoot/",
+             '<path d="M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 12m-5 0a5 5 0 1010 0 5 5 0 10-10 0M12 12m-1 0a1 1 0 102 0 1 1 0 10-2 0"></path>'),
+        ],
         # Societies: Society HQ, free tools for golf societies (hub /societies/).
         "societies": [
             ("Society HQ", "The free golf society organiser.", "/societies/",
@@ -261,12 +274,25 @@ def header_html():
       </div>
     </div>""")
 
+    imp = "".join(f"""
+          <a href="{u}" class="gp-tool"><span class="gp-tool-icon">{_svg(icon, 20, '#2f8a1f', 2)}</span><span class="gp-tool-text"><strong>{_esc(n)}</strong><span>{_esc(line)}</span></span></a>"""
+                  for n, line, u, icon in m["improve"])
+    items.append(f"""
+    <div class="gp-nav-item" data-section="improve">
+      <a href="/improve/" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Improve<span class="gp-nav-new">New</span>{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
+      <div class="gp-drop gp-mega gp-play-drop">
+        <div class="gp-tools gp-tools-1">{imp}
+        </div>
+        <div class="gp-mega-foot"><span>Free, WHS-based, nothing saved.</span><a href="/improve/">All calculators &rarr;</a></div>
+      </div>
+    </div>""")
+
     socs = "".join(f"""
           <a href="{u}" class="gp-tool"><span class="gp-tool-icon">{_svg(icon, 20, '#2f8a1f', 2)}</span><span class="gp-tool-text"><strong>{_esc(n)}</strong><span>{_esc(line)}</span></span></a>"""
                    for n, line, u, icon in m["societies"])
     items.append(f"""
     <div class="gp-nav-item" data-section="societies">
-      <a href="/societies/" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Societies<span class="gp-nav-new">New</span>{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
+      <a href="/societies/" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Societies{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
       <div class="gp-drop gp-mega gp-play-drop">
         <div class="gp-tools gp-tools-1">{socs}
         </div>
@@ -314,10 +340,16 @@ def menu_html(m=None):
         <button type="button" class="gp-acc-btn" aria-expanded="false">Play{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
         <div class="gp-acc-body gp-acc-tools" hidden>{play}<a class="gp-acc-all" href="/play/">The Clubhouse &rarr;</a></div>
       </div>""")
+    imp = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["improve"][1:])
+    sections.append(f"""
+      <div class="gp-acc" data-section="improve">
+        <button type="button" class="gp-acc-btn" aria-expanded="false"><span>Improve <span class="gp-nav-new">New</span></span>{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
+        <div class="gp-acc-body gp-acc-tools" hidden>{imp}<a class="gp-acc-all" href="/improve/">All calculators &rarr;</a></div>
+      </div>""")
     socs = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["societies"])
     sections.append(f"""
       <div class="gp-acc" data-section="societies">
-        <button type="button" class="gp-acc-btn" aria-expanded="false"><span>Societies <span class="gp-nav-new">New</span></span>{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
+        <button type="button" class="gp-acc-btn" aria-expanded="false">Societies{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
         <div class="gp-acc-body gp-acc-tools" hidden>{socs}<a class="gp-acc-all" href="/societies/">Society HQ &rarr;</a></div>
       </div>""")
     sections.append(f"""
@@ -350,7 +382,7 @@ def footer_html():
                   ("Christmas golf gifts", "/prices/christmas/"), ("Black Friday golf deals", "/prices/black-friday/")]),
         ("Deal Tools", [("All deal tools", "/deal-tools.html")] + [(n, u) for n, _, u, _ in m["tools"] if u != "/find-your-fit.html"]),
         ("Play", [("My Clubhouse", "/play/my-clubhouse/")] + [(n, u) for n, _, u, _ in m["play"]] + [("UK Golf Demand Index", "/demand/")]),
-        ("Societies", [(n, u) for n, _, u, _ in m["societies"]]),
+        ("Societies", [(n, u) for n, _, u, _ in m["societies"]] + [("Handicap calculators", "/improve/"), ("Course handicap calculator", "/improve/course-handicap-calculator/")]),
         ("Price guides", [("Drivers", "/prices/drivers/"), ("Irons", "/prices/irons/"),
                           ("Putters", "/prices/putters/"), ("Golf balls", "/prices/golf-balls/"), ("Golf gloves", "/prices/golf-gloves/"),
                           ("GPS watches", "/prices/gps-watches/"), ("Electric trolleys", "/prices/electric-trolleys/"),
@@ -386,7 +418,9 @@ PAGES = ["index.html", "search.html", "shop.html", "shop/index.html", "clubs.htm
          "back-in-stock.html", "best-time-to-buy.html", "build-your-bag.html", "complete-the-kit.html",
          "complete-the-look.html", "fairway-index.html", "find-your-fit.html", "receipts.html",
          "404.html", "price-check.html", "ai.html", "alerts-confirmed.html", "alerts-unsubscribed.html",
-         "legal/cookies.html", "legal/privacy-policy.html"]
+         "legal/cookies.html", "legal/privacy-policy.html",
+         "improve/index.html", "improve/handicap-index-calculator/index.html", "improve/course-handicap-calculator/index.html",
+         "improve/playing-handicap-calculator/index.html", "improve/what-do-i-need-to-shoot/index.html"]
 
 HEADER_RE = re.compile(r"<header class=\"(?:site-header|gp-header)\".*?</header>\s*(?:<div class=\"gp-menu\".*?</nav>\s*<div class=\"gp-menu-foot\">.*?</div>\s*</div>)?", re.S)
 FOOTER_RE = re.compile(r"<footer[ >].*?</footer>", re.S)
