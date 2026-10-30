@@ -104,6 +104,15 @@
     else ms.sort(function (a, b) { return b.wins - a.wins || b.streak - a.streak; });
     return ms;
   }
+  // Price Handicap beside every name (best 8 of the last 20 Par Price rounds),
+  // with the Scratch Club and this month's Bandit (biggest handicap cut).
+  function hcpChips(m) {
+    if (m.hcp === null || m.hcp === undefined) return '';
+    var v = m.hcp < 0 ? '+' + Math.abs(m.hcp).toFixed(1) : m.hcp.toFixed(1);
+    return '<span class="lg-hcp" title="Price Handicap">' + v + '</span>' +
+      (m.scratch ? '<span class="lg-badge lg-scratch">Scratch Club</span>' : '') +
+      (m.bandit ? '<span class="lg-badge lg-bandit" title="Biggest handicap cut this month">Bandit</span>' : '');
+  }
   function rowsHtml(v) {
     var ms = sorted(v), played = ms.filter(function (m) { return m.today; }).length, pos = 0, last = null;
     return ms.map(function (m, i) {
@@ -118,7 +127,7 @@
         : v === 'hl' ? (hlv === null ? '<span class="lg-wait">Not played yet</span><span></span>' : '<span></span><b class="lg-score">' + hlv + '</b>')
         : '<span></span><b class="lg-score">' + m.wins + '</b>';
       return '<li class="lg-row' + (lead ? ' is-lead' : '') + (m.you ? ' is-you' : '') + '"><b class="lg-pos">' + (val === null ? '–' : pos) + '</b>' +
-        '<span class="lg-who"><span class="lg-nick">' + esc(m.nick) + '</span><span class="lg-line">' + esc(lineFor(m, i, played, v)) + '</span></span>' + right + '</li>';
+        '<span class="lg-who"><span class="lg-namerow"><span class="lg-nick">' + esc(m.nick) + '</span>' + hcpChips(m) + '</span><span class="lg-line">' + esc(lineFor(m, i, played, v)) + '</span></span>' + right + '</li>';
     }).join('');
   }
   function awards() {

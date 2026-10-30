@@ -82,13 +82,14 @@
     if (lg.length) bits.push(plural(lg.length, 'league'));
     if (shortlist.length) bits.push(plural(shortlist.length, 'thing') + ' you’re watching');
     if (nick && bits.length) document.getElementById('mc-sub').textContent = bits.join(' · ') + '. Saved on this device, no sign-up.';
-    box.innerHTML = games(g.pp, g.hl, g.locker, g.majors) +
+    box.innerHTML = games(g.pp, g.hl, g.locker, g.majors) + handicap(g.leagues && g.leagues.hcp) +
       (soc.length || lg.length ? societies(soc) + leagues(lg) : group()) +
       kit(g.kit, g.bag) +
       '<div class="mc-pair">' + alerts() + '</div>';
     // Move my Clubhouse sits beside Price alerts on wide screens.
     var mv = document.getElementById('move'), pair = box.querySelector('.mc-pair');
     if (mv && pair) pair.appendChild(mv);
+    wireHandicap(g.leagues && g.leagues.hcp);
     track('my_clubhouse_view', { state: 'regular', societies: soc.length, leagues: lg.length, kit: shortlist.length, bag: bagIds.length });
   });
 
@@ -136,6 +137,87 @@
       mine ? (champs ? plural(champs, 'champion bag') + ' in your locker' : plural(months.length, 'Major') + ' played') : (major ? esc(major.name) : 'Pick a bag on a budget. Win the month.'),
       mine ? 'Your locker →' : 'Pick your bag →', mine ? 'mc-done' : '');
     return row('My games', 0, '/play/', 'All games in the Clubhouse', '<div class="mc-games">' + html + '</div>');
+  }
+
+  // ---------------------------------------------------------------- Price Handicap + golfer profile
+  // Your Price Handicap: best 8 of your last 20 Par Price rounds, averaged, like a
+  // real handicap (worked out by the worker from the scores it already keeps).
+  // The handicap band is your real-golf handicap, roughly: kept on this device,
+  // and only ever counted anonymously (for the People's Bag).
+  var BANDS = [['0_9', '0 to 9'], ['10_18', '10 to 18'], ['19_28', '19 to 28'], ['28_plus', '28 plus']];
+  function fmtH(v) { return v < 0 ? '+' + Math.abs(v).toFixed(1) : v.toFixed(1); }
+  function hcpChart(last) {
+    var w = 400, h = 120, n = 20, bw = w / n, bars = '';
+    var ts = last.map(function (r) { return r.t; }), lo = Math.min.apply(null, ts.concat([0])), hi = Math.max.apply(null, ts.concat([1]));
+    last.forEach(function (r, i) {
+      var x = (n - last.length + i) * bw + 3, bh = 14 + (r.t - lo) / ((hi - lo) || 1) * (h - 24);
+      bars += '<rect x="' + x.toFixed(1) + '" y="' + (h - bh).toFixed(1) + '" width="' + (bw - 6).toFixed(1) + '" height="' + bh.toFixed(1) + '" rx="3" fill="' + (r.c ? '#3fae29' : '#cfd4cc') + '"><title>Round #' + r.n + ': ' + (r.t === 0 ? 'level par' : r.t > 0 ? '+' + r.t : r.t) + (r.c ? ' (counts)' : '') + '</title></rect>';
+    });
+    return '<svg class="mc-hcp-chart" viewBox="0 0 ' + w + ' ' + (h + 2) + '" preserveAspectRatio="none" role="img" aria-label="Your last ' + last.length + ' Par Price rounds; the green ones count">' + bars + '<line x1="0" x2="' + w + '" y1="' + h + '" y2="' + h + '" stroke="#d9dbd4"/></svg>';
+  }
+  function handicap(hc) {
+    var band = get('gpBand', ''), main;
+    if (!hc || hc.value === null || hc.value === undefined) {
+      var have = hc ? hc.rounds : 0, need = hc ? hc.need : 5, dots = '';
+      for (var i = 0; i < 5; i++) dots += '<span class="mc-hcp-dot' + (i < have ? ' on' : '') + '"></span>';
+      main = '<div class="mc-card mc-hcp-main"><span class="mc-k">Price Handicap</span><b class="mc-hcp-num mc-hcp-none">' + (have ? need + ' to go' : 'Not yet') + '</b>' +
+        '<span class="mc-dim">Play ' + plural(need, 'more Par Price round', 'more Par Price rounds') + ' and you get a handicap, worked out like a real one.</span>' +
+        '<span class="mc-hcp-dots">' + dots + '</span><a class="mc-btn mc-hcp-play" href="/play/par-price/">Play today’s round</a></div>';
+    } else {
+      var tr = hc.trend, trend = tr === null || tr === undefined ? '' : tr < 0 ? '<span class="mc-hcp-tr good">down ' + Math.abs(tr).toFixed(1) + ' this month</span>' : tr > 0 ? '<span class="mc-hcp-tr">up ' + tr.toFixed(1) + ' this month</span>' : '<span class="mc-hcp-tr">steady this month</span>';
+      main = '<div class="mc-card mc-hcp-main"><div class="mc-hcp-top"><div><span class="mc-k">Price Handicap' + (hc.value <= 0 ? ' · Scratch Club' : '') + '</span>' +
+        '<div class="mc-hcp-line"><b class="mc-hcp-num">' + fmtH(hc.value) + '</b>' + trend + '</div>' +
+        '<span class="mc-dim">Your best ' + Math.max(1, Math.round(hc.rounds * 0.4)) + ' of your last ' + hc.rounds + ' Par Price rounds, averaged. Lower is better.</span></div>' +
+        '<button type="button" class="mc-btn mc-hcp-share">Share my handicap</button></div>' + hcpChart(hc.last || []) +
+        '<span class="mc-hcp-key"><span><i class="on"></i>Counts</span><span><i></i>Doesn’t count</span><span>Shorter bar, better round</span></span></div>';
+    }
+    var prof = '<div class="mc-card mc-prof"><b class="mc-name">Your golfer profile</b>' +
+      '<span class="mc-dim">' + (nick ? 'Nickname: <b>' + esc(nick) + '</b>' : 'You pick a nickname when you join a league.') + '</span>' +
+      '<span class="mc-prof-q">Your real handicap, roughly</span><div class="mc-bands">' + BANDS.map(function (b) {
+        return '<button type="button" class="mc-band" data-band="' + b[0] + '" aria-pressed="' + (band === b[0]) + '">' + b[1] + '</button>';
+      }).join('') + '</div><button type="button" class="mc-band-none" data-band="none" aria-pressed="' + (band === 'none') + '">I’d rather not say</button>' +
+      '<span class="mc-dim mc-prof-small">Kept on this device. We only count how many golfers pick each band, never who.</span></div>';
+    return row('Price Handicap', 0, '/play/par-price/', 'Play Par Price', '<div class="mc-hcp">' + main + prof + '</div>');
+  }
+  function wireHandicap(hc) {
+    box.querySelectorAll('[data-band]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-band');
+        put('gpBand', v); gpUse('band_' + v);
+        box.querySelectorAll('[data-band]').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      });
+    });
+    var sh = box.querySelector('.mc-hcp-share');
+    if (sh && hc && hc.value !== null) sh.addEventListener('click', function () { shareHandicap(hc); });
+  }
+  function shareHandicap(hc) {
+    gpUse('hcp_share'); track('price_handicap_share', { value: hc.value });
+    var text = (nick || 'I') + (nick ? ' plays' : ' play') + ' off ' + fmtH(hc.value) + ' on GolfPrice AI’s Price Handicap. Think you know golf prices? golfpriceai.com/play/par-price/';
+    var c = document.createElement('canvas'); c.width = 1080; c.height = 1080;
+    var x = c.getContext('2d');
+    x.fillStyle = '#14211a'; x.fillRect(0, 0, 1080, 1080);
+    x.strokeStyle = 'rgba(63,174,41,.18)'; x.lineWidth = 90; x.beginPath(); x.arc(1000, 80, 260, 0, Math.PI * 2); x.stroke();
+    x.fillStyle = '#8fd97c'; x.font = '800 34px Inter, sans-serif'; x.fillText('PRICE HANDICAP', 90, 150);
+    x.fillStyle = '#c4d0c8'; x.font = '600 52px Poppins, sans-serif'; x.fillText((nick || 'This golfer') + ' plays off', 90, 330);
+    x.fillStyle = '#ffffff'; x.font = '800 300px Poppins, sans-serif'; x.fillText(fmtH(hc.value), 70, 620);
+    x.fillStyle = '#c4d0c8'; x.font = '500 40px Inter, sans-serif';
+    x.fillText('Best ' + Math.max(1, Math.round(hc.rounds * 0.4)) + ' of ' + hc.rounds + ' Par Price rounds', 90, 700);
+    x.fillText('Know your golf prices?', 90, 930);
+    x.fillStyle = '#ffffff'; x.font = '700 44px Inter, sans-serif'; x.fillText('golfpriceai.com/play', 90, 990);
+    x.font = '700 50px Poppins, sans-serif'; x.textAlign = 'right';
+    var w1 = x.measureText(' AI').width, w2 = x.measureText('Price').width;
+    x.fillStyle = '#ffffff'; x.fillText(' AI', 990, 990); x.fillStyle = '#5fd14a'; x.fillText('Price', 990 - w1, 990); x.fillStyle = '#ffffff'; x.fillText('Golf', 990 - w1 - w2, 990);
+    c.toBlob(function (blob) {
+      var file = blob && window.File ? new File([blob], 'price-handicap.png', { type: 'image/png' }) : null;
+      if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator.share({ files: [file], text: text }).catch(function () {});
+      } else if (navigator.share) {
+        navigator.share({ text: text }).catch(function () {});
+      } else if (blob) {
+        var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'price-handicap.png'; a.click();
+        try { navigator.clipboard.writeText(text).catch(function () {}); } catch (e) { /* fine */ }
+      }
+    }, 'image/png');
   }
 
   // ---------------------------------------------------------------- Societies

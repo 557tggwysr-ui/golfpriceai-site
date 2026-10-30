@@ -393,7 +393,7 @@ async function fourballCount(url, env, cors) {
    Par Price round or a Bag Draft, opened My Clubhouse, used a Move code or
    confirmed a price alert. One count per visitor per kind per day (the same
    hashed, daily-forgotten visitor key as the Demand Index); no ids kept. */
-const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1 };
+const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_18: 1, band_19_28: 1, band_28_plus: 1, band_none: 1, hcp_share: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -711,6 +711,27 @@ const GRID_RX = /^[EBPOD]{5}$/;
 const PP_GRID_PTS = { E: -2, B: -1, P: 0, O: 1, D: 2 };
 const MAX_MEMBERS = 40;
 const MISSED = 5; // a missed round counts as +5 in the weekly table
+/* Price Handicap: worked out like a real handicap. Take your last 20 Par Price
+   rounds, average the best 8 (with fewer than 20 rounds, the best 40% of them),
+   one decimal place. Needs 5 rounds. Lower is better; below 0 is a "plus"
+   handicap, shown as +1.2. `upto` lets us ask what it was 30 days ago. */
+const HCP_MIN = 5;
+function hcpCalc(rows, upto) {
+  const r = rows.filter((x) => x.n <= upto).sort((a, b) => b.n - a.n).slice(0, 20);
+  if (r.length < HCP_MIN) return null;
+  const k = Math.max(1, Math.round(r.length * 0.4));
+  const best = r.map((x) => x.total).sort((a, b) => a - b).slice(0, k);
+  return Math.round(best.reduce((a, b) => a + b, 0) / k * 10) / 10;
+}
+function hcpDetail(rows, today) {
+  const last = rows.filter((x) => x.n <= today).sort((a, b) => b.n - a.n).slice(0, 20);
+  const value = hcpCalc(rows, today), before = hcpCalc(rows, today - 30);
+  const k = Math.max(1, Math.round(last.length * 0.4));
+  const counted = last.map((x, i) => ({ i, t: x.total })).sort((a, b) => a.t - b.t || a.i - b.i).slice(0, k).map((x) => x.i);
+  return { value, rounds: last.length, need: Math.max(0, HCP_MIN - last.length),
+    trend: value !== null && before !== null ? Math.round((value - before) * 10) / 10 : null,
+    last: last.map((x, i) => ({ n: x.n, t: x.total, c: value !== null && counted.includes(i) })).reverse() };
+}
 const RUDE = ['fuck', 'shit', 'cunt', 'wank', 'twat', 'bitch', 'bastard', 'dick', 'cock', 'pussy', 'nigg', 'fag', 'retard', 'slut', 'whore', 'paki', 'spast', 'nazi', 'rape', 'porn', 'sex', 'piss', 'arse', 'bollock', 'tosser', 'prick', 'knob', 'bellend', 'minge', 'coon', 'kike', 'chink', 'tranny', 'dyke'];
 
 function ppToday() { return Math.floor((Date.now() - PP_LAUNCH) / 864e5) + 1; }
@@ -841,7 +862,12 @@ async function ppMy(env, pid, cors) {
       if (me) { const w = week(me); r.rank = 1 + t.filter((x) => week(x) < w).length; r.tied = t.filter((x) => x.pid !== pid && week(x) === w).length > 0; }
     } catch (e) { /* no rank: the page just shows the size */ }
   }
-  return json({ ok: true, leagues: rows }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  let hcp = null;
+  try {
+    const mine = (await env.DEMAND.prepare('SELECT n, total FROM pp_scores WHERE pid = ? AND n > ? ORDER BY n DESC LIMIT 60').bind(pid, today - 120).all()).results || [];
+    hcp = hcpDetail(mine, today);
+  } catch (e) { /* no handicap yet: the page just leaves it out */ }
+  return json({ ok: true, leagues: rows, hcp }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
 }
 
 async function ppCreate(env, body, pid, cors) {
@@ -949,6 +975,16 @@ async function ppLeague(env, id, pid, cors) {
     const who = members.find((m) => m.pid === rows[0].pid);
     return { nick: who ? who.nick : '', off: rows[0].pin };
   };
+  people.forEach((p) => {
+    const rows = scores.filter((r) => r.pid === p.pid);
+    p.hcp = hcpCalc(rows, today);
+    const before = hcpCalc(rows, today - 30);
+    p.hcpTrend = p.hcp !== null && before !== null ? Math.round((p.hcp - before) * 10) / 10 : null;
+    p.scratch = p.hcp !== null && p.hcp <= 0;
+  });
+  // The Bandit: the biggest handicap cut in the league this month (at least a full shot, no ties).
+  const cuts = people.filter((p) => p.hcpTrend !== null && p.hcpTrend <= -1).sort((a, b) => a.hcpTrend - b.hcpTrend);
+  if (cuts.length && (cuts.length === 1 || cuts[0].hcpTrend < cuts[1].hcpTrend)) cuts[0].bandit = true;
   const out = people.map(({ pid: p, ...rest }) => Object.assign(rest, { creator: p === league.owner })); // never send other players' ids
   let society = null, requests = [], requested = false;
   try {

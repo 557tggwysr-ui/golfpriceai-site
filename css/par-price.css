@@ -544,3 +544,11 @@
 .lg-soc-ask p { color: var(--gp-text-2); }
 .lg-soc-who { font-size: 13px !important; font-weight: 600; }
 .lg-soc .lg-btn2 { align-self: stretch; }
+
+/* Price Handicap beside league names */
+.lg-namerow { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+.lg-hcp { font: 700 12px Inter, sans-serif; color: #1f6a12; background: #eaf6e6; border-radius: 99px; padding: 2px 8px; }
+.lg-hcp::before { content: 'PH '; font-weight: 600; opacity: .75; }
+.lg-badge { font: 800 10px Inter, sans-serif; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 3px 7px; }
+.lg-scratch { background: #14211a; color: #fff; }
+.lg-bandit { background: #fff3e0; color: #8a4b00; }

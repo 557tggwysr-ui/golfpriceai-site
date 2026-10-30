@@ -144,3 +144,31 @@ a.mc-card:hover { border-color: var(--gp-green); color: var(--gp-ink); }
   .mc-grid-lg .mc-lg:first-child { border-top: 0; }
   .mc-kit > :last-child:nth-child(odd) { grid-column: auto; }
 }
+
+/* Price Handicap + golfer profile */
+.mc-hcp { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 14px; align-items: stretch; }
+.mc-hcp-main { gap: 12px; }
+.mc-hcp-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.mc-hcp-line { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.mc-hcp-num { font: 800 56px/1 Poppins, sans-serif; letter-spacing: -0.02em; color: var(--gp-ink); }
+.mc-hcp-num.mc-hcp-none { font-size: 34px; }
+.mc-hcp-tr { font: 700 14px Inter, sans-serif; color: #5b665f; }
+.mc-hcp-tr.good { color: #1f6a12; }
+.mc-hcp-chart { width: 100%; height: 140px; display: block; }
+.mc-hcp-key { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: #4a554e; }
+.mc-hcp-key i { display: inline-block; width: 11px; height: 11px; border-radius: 3px; background: #cfd4cc; margin-right: 6px; vertical-align: -1px; }
+.mc-hcp-key i.on { background: #3fae29; }
+.mc-hcp-dots { display: flex; gap: 8px; margin: 6px 0; }
+.mc-hcp-dot { width: 14px; height: 14px; border-radius: 50%; background: #e1e3dd; }
+.mc-hcp-dot.on { background: #3fae29; }
+.mc-hcp-play, .mc-hcp-share { align-self: flex-start; }
+.mc-prof { gap: 10px; }
+.mc-prof-q { font-size: 13px; color: #4a554e; margin-top: 4px; }
+.mc-bands { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.mc-band { border: 1px solid var(--gp-line); background: #fff; border-radius: 12px; min-height: 44px; font: 600 14px Inter, sans-serif; color: var(--gp-ink); cursor: pointer; }
+.mc-band[aria-pressed="true"] { border: 2px solid #3fae29; background: #eaf6e6; font-weight: 700; }
+.mc-band-none { border: 0; background: none; padding: 4px 0; text-align: left; font: 600 13px Inter, sans-serif; color: #4a554e; cursor: pointer; min-height: 32px; }
+.mc-band-none[aria-pressed="true"] { color: #1f6a12; text-decoration: underline; }
+.mc-prof-small { font-size: 12.5px; margin-top: auto; }
+@media (max-width: 760px) { .mc-hcp { grid-template-columns: minmax(0, 1fr); } .mc-hcp-num { font-size: 48px; } }
+.mc-hcp .mc-btn { border: 0; font: 700 14px Inter, sans-serif; cursor: pointer; min-height: 44px; padding: 11px 18px; text-decoration: none; box-sizing: border-box; }
