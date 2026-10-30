@@ -36,7 +36,7 @@ jobs:
           AWIN_AFFORDABLEGOLF_FEED_URL: ${{ secrets.AWIN_AFFORDABLEGOLF_FEED_URL }}
           AWIN_SCOTTSDALEGOLF_FEED_URL: ${{ secrets.AWIN_SCOTTSDALEGOLF_FEED_URL }}
           AWIN_CALLAWAYPREOWNED_FEED_URL: ${{ secrets.AWIN_CALLAWAYPREOWNED_FEED_URL }}
-                    AWIN_PAYNTR_FEED_URL: ${{ secrets.AWIN_PAYNTR_FEED_URL }}
+          AWIN_PAYNTR_FEED_URL: ${{ secrets.AWIN_PAYNTR_FEED_URL }}
           AWIN_CLARKESGOLF_FEED_URL: ${{ secrets.AWIN_CLARKESGOLF_FEED_URL }}
         run: python scripts/update_deals.py
 
