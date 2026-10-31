@@ -958,6 +958,19 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     cmp_html, cmp_q = compare_block(model, all_models, today)
     if cmp_q:
         qs.append(cmp_q)
+    crowd = None
+    try:
+        import crowd_data
+        crowd = crowd_data.forecast(model.slug)
+    except Exception:
+        crowd = None
+    if crowd:
+        lead = max((("cheaper", "it will be cheaper"), ("holds", "it will hold"), ("pricier", "it will go up")), key=lambda k: crowd[k[0]])
+        qs.append((f"Will the {name} get cheaper?",
+                   f"{crowd['calls']} golfers have made a call on GolfPrice AI's Crowd Caddie in the last two weeks: "
+                   f"{crowd['cheaper']}% think it will be cheaper in two weeks, {crowd['holds']}% that the price will hold "
+                   f"and {crowd['pricier']}% that it will go up. The most popular call: {lead[1]}. Calls are checked "
+                   f"against the real price 14 days later."))
     q_html = "".join(f'<div class="pp-card pp-q"><h3>{esc(q)}</h3><p>{esc(a)}</p></div>' for q, a in qs)
     faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
                   "mainEntity": [{"@type": "Question", "name": q,
@@ -1084,6 +1097,10 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
         "image": m.get("_image") or img or None,
         "source": "GolfPrice AI's own price tracking, checked every 6 hours",
     }
+    if crowd:
+        data["crowdForecast"] = {"window": "next 14 days", "calls": crowd["calls"], "cheaperPct": crowd["cheaper"],
+                                 "holdsPct": crowd["holds"], "pricierPct": crowd["pricier"],
+                                 "source": "GolfPrice AI Crowd Caddie: golfers' calls, checked against the real price 14 days later"}
     return page, json.dumps(data, ensure_ascii=False, indent=1)
 
 
@@ -1382,6 +1399,7 @@ def _facts_only(data_json):
         d.pop("checked", None)
         d.pop("changed", None)
         d.pop("image", None)  # a new photo isn't a price change
+        d.pop("crowdForecast", None)  # golfers' calls move every day; not a price fact
         return json.dumps(d, sort_keys=True)
     except ValueError:
         return data_json
@@ -1421,13 +1439,37 @@ def write_sitemaps(entries, today):
     for loc, lastmod in entries:
         if loc not in best or (lastmod or "") > (best[loc] or ""):
             best[loc] = lastmod
+    # Pages with no price date (tools, games, guides, the static pages): their
+    # lastmod is the day their file last changed, tracked by a content hash in
+    # data/page-dates.json, so Google and Bing see when a page is really new.
+    import hashlib
+    dates_file = ROOT / "data" / "page-dates.json"
+    try:
+        known = json.loads(dates_file.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        known = {}
+    def page_date(loc):
+        f = ROOT / loc / "index.html" if loc.endswith("/") or not loc else ROOT / loc
+        try:
+            h = hashlib.sha1(f.read_bytes()).hexdigest()[:16]
+        except OSError:
+            return None
+        old = known.get(loc)
+        if not old or old.get("h") != h:
+            known[loc] = {"h": h, "d": today.isoformat()}
+        return known[loc]["d"]
+    for loc in list(best):
+        if not best[loc]:
+            best[loc] = page_date(loc)
+    statics = [(p, page_date(p)) for p in STATIC_PAGES]
+    _write(dates_file, json.dumps(known, sort_keys=True, indent=0))
     entries = list(best.items())
-    _write(SITEMAP_PAGES, urlset([(p, None) for p in STATIC_PAGES]))
+    _write(SITEMAP_PAGES, urlset(statics))
     _write(SITEMAP_PRICES, urlset(sorted(entries)))
     newest = max((lm for _, lm in entries if lm), default=today.isoformat())
     index = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-             f"  <sitemap><loc>{SITE}/sitemap-pages.xml</loc></sitemap>",
+             f"  <sitemap><loc>{SITE}/sitemap-pages.xml</loc><lastmod>{max((d for _, d in statics if d), default=today.isoformat())}</lastmod></sitemap>",
              f"  <sitemap><loc>{SITE}/sitemap-prices.xml</loc><lastmod>{newest}</lastmod></sitemap>",
              "</sitemapindex>"]
     _write(SITEMAP_INDEX, "\n".join(index) + "\n")
@@ -1499,6 +1541,11 @@ def build(models_list, products, today_str):
     import bag_draft
     DRAFTABLE.clear()
     DRAFTABLE.update(m["slug"] for m in passing if bag_draft.draftable(m, built))
+    try:
+        import crowd_data
+        crowd_data.load()
+    except Exception as e:  # never stop the main build
+        print(f"Crowd data skipped: {e}")
     for m in chosen:
         out = build_model_page(Model(m, by_id, today), passing, built, set(hubs), today, noindex)
         if not out:
@@ -1651,7 +1698,7 @@ def build(models_list, products, today_str):
             print(f"Ace Register skipped: {e}")
         try:
             import oracle_page
-            changed += oracle_page.build()
+            changed += oracle_page.build(names={m['slug']: m['name'] for m in passing})
             sitemap.append(("play/oracle/", None))
         except Exception as e:  # never stop the main build
             print(f"Oracle board skipped: {e}")

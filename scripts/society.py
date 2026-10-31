@@ -32,6 +32,9 @@ APP_FEATURES = [
     "Final numbers message for the golf club",
     "Golf society prize fund calculator",
     "Find a Society: UK golf societies open to new members",
+    "The Form Guide: a preview of every society day with each golfer's form and players to watch",
+    "Match reports written from the stableford scores, with countback, awards and a winner's card",
+    "A season Order of Merit for every golf society",
     "Golf society Awards Night Kit: award cards and a presentation slideshow",
     "Prize Picker: winners choose their own golf prize at today's lowest UK price",
 ]

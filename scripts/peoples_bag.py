@@ -59,13 +59,47 @@ def write_data(passing, built, today):
     return slots
 
 
+def winners(slots):
+    """The People's pick in each slot as it stood at this build (most picks;
+    ties go to the more-viewed model), for the page's plain HTML."""
+    try:
+        import crowd_data
+        live = crowd_data.BAG
+    except Exception:
+        return {}, 0
+    out = {}
+    for sl in slots:
+        st = (live.get("slots") or {}).get(sl["key"]) or {}
+        items = {x["s"]: x for x in sl["items"]}
+        top = [t for t in st.get("top") or [] if t["s"] in items]
+        if not top:
+            continue
+        order = [x["s"] for x in sl["items"]]
+        best = sorted([t for t in top if t["c"] == top[0]["c"]], key=lambda t: order.index(t["s"]))[0]
+        out[sl["key"]] = (items[best["s"]], round(100 * best["c"] / max(1, st.get("n") or 1)))
+    return out, live.get("pickers") or 0
+
+
 def page(slots):
-    rows = "".join(f"""<div class="pb-slot" data-slot="{k}">
+    win, pickers = winners(slots)
+    def row(k, label):
+        w = win.get(k)
+        if w:
+            it, pct = w
+            who = f'<b data-pb="name"><a href="/prices/{esc(it["s"])}/">{esc(it["n"])}</a></b><small data-pb="sub">{pct}% of golfers</small>'
+            price = f"£{it['p']:,.2f}"
+        else:
+            who, price = '<b data-pb="name">No picks yet. Be the first.</b><small data-pb="sub"></small>', ""
+        return f"""<div class="pb-slot" data-slot="{k}">
         <span class="pb-slot-k">{label.upper()}</span>
-        <span class="pb-slot-who"><b data-pb="name">Loading the crowd’s pick…</b><small data-pb="sub"></small></span>
-        <b class="pb-slot-p" data-pb="price"></b>
+        <span class="pb-slot-who">{who}</span>
+        <b class="pb-slot-p" data-pb="price">{price}</b>
         <button type="button" class="pb-pick" data-pick="{k}">Pick yours</button>
-      </div>""" for k, label, _ in SLOTS)
+      </div>"""
+    rows = "".join(row(k, label) for k, label, _ in SLOTS)
+    total = sum(w[0]["p"] for w in win.values())
+    total_txt = f"£{total:,.2f}" if win else "–"
+    total_short = f"£{round(total):,}" if win else "–"
     faqs = "".join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q, a in FAQS)
     n_models = sum(len(s["items"]) for s in slots)
     body = f"""<div class="or pb">
@@ -77,8 +111,8 @@ def page(slots):
     <p>Pick your favourite in each slot. The most-picked wins its place, priced at today’s lowest UK prices across multiple retailers.</p>
   </div>
   <div class="or-stats" aria-live="polite">
-    <div><b class="or-green" data-pb="total">–</b><span>the whole bag today</span></div>
-    <div><b data-pb="pickers">–</b><span>golfers have picked</span></div>
+    <div><b class="or-green" data-pb="total">{total_short}</b><span>the whole bag today</span></div>
+    <div><b data-pb="pickers">{pickers:,}</b><span>golfers have picked</span></div>
     <div><b>8</b><span>slots to fill</span></div>
   </div>
 </section>
@@ -87,7 +121,7 @@ def page(slots):
   <section class="or-card" aria-labelledby="pb-h">
     <div class="or-head"><h2 id="pb-h">The bag, slot by slot</h2><span class="pb-dim">Tap a slot to pick yours</span></div>
     <div class="pb-slots">{rows}</div>
-    <div class="pb-total"><b>The People’s Bag today</b><b class="pb-total-p" data-pb="total2">–</b></div>
+    <div class="pb-total"><b>The People’s Bag today</b><b class="pb-total-p" data-pb="total2">{total_txt}</b></div>
   </section>
   <div class="or-col">
     <section class="or-card or-you" id="pb-you" aria-live="polite">
@@ -128,7 +162,7 @@ def page(slots):
         {"@type": "ListItem", "position": 3, "name": "The People's Bag", "item": SITE + "/play/peoples-bag/"}]}
     return page_shell(title="The People's Bag: The Golf Bag UK Golfers Would Build | GolfPrice AI",
                       description="Pick your favourite driver, irons, putter, ball and more. The most-picked model in each slot makes the People's Bag, priced live at today's lowest UK prices.",
-                      canonical=f"{SITE}/play/peoples-bag/", body=body, section="play", schema=[crumbs, faq_schema],
+                      canonical=f"{SITE}/play/peoples-bag/", body=body, section="play", schema=[crumbs, faq_schema, {"@context": "https://schema.org", "@type": "WebApplication", "name": "The People's Bag", "url": f"{SITE}/play/peoples-bag/", "applicationCategory": "SportsApplication", "operatingSystem": "Any web browser", "description": "The golf bag UK golfers would build: golfers pick their favourite driver, fairway wood, hybrid, irons, wedge, putter, ball and bag, and the most-picked model in each slot is priced live at today's lowest UK prices.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "featureList": ['Eight slots from driver to bag', 'Live crowd picks', "Priced at today's lowest UK prices", "Compare your bag with the nation's"], "inLanguage": "en-GB", "publisher": {"@type": "Organization", "name": "GolfPrice AI", "url": SITE}}],
                       noindex=False, extra_head=f'<link rel="stylesheet" href="/css/caddie.css?v={CADDIE_V}">\n')
 
 

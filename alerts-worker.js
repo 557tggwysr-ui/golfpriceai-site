@@ -751,6 +751,21 @@ async function crowdCaddie(request, url, env, cors) {
       hot, me }, 200, noStore);
   }
 
+  // For the 6-hourly site build: the crowd's open calls per product (3 or more
+  // golfers) and the crowd's record, so price pages, data.json files and the
+  // Oracle board can show them as plain text. Counts only, no ids or nicknames.
+  if (path === '/cc/summary') {
+    await ccSettleSome(env, '', [], 12);
+    const rows = (await db.prepare("SELECT slug, COUNT(*) AS n, SUM(call = 'down') AS down, SUM(call = 'same') AS same, SUM(call = 'up') AS up FROM cc_votes WHERE due > ? GROUP BY slug HAVING COUNT(*) >= 3").bind(today).all()).results || [];
+    const month = today.slice(0, 7);
+    const crowd = await db.prepare("SELECT COUNT(*) AS n, SUM(hit) AS r FROM cc_votes WHERE outcome IN ('down', 'same', 'up') AND substr(due, 1, 7) = ?").bind(month).first();
+    const ever = await db.prepare("SELECT COUNT(*) AS n, SUM(hit) AS r FROM cc_votes WHERE outcome IN ('down', 'same', 'up')").first();
+    const out = {};
+    rows.forEach((r) => { out[r.slug] = { n: Number(r.n), down: Number(r.down) || 0, same: Number(r.same) || 0, up: Number(r.up) || 0 }; });
+    return json({ ok: true, at: new Date().toISOString(), month, products: out,
+      crowd: { n: Number(crowd && crowd.n) || 0, r: Number(crowd && crowd.r) || 0, everN: Number(ever && ever.n) || 0, everR: Number(ever && ever.r) || 0 } }, 200, Object.assign({ 'cache-control': 'public, max-age=300' }, cors));
+  }
+
   // John only: hide or bring back a nickname on the Oracle board.
   if (path === '/cc/admin' && request.method === 'POST') {
     if (await keyLocked(ip || 'unknown')) return json({ ok: false, error: 'Too many wrong tries. The door opens again in ten minutes.' }, 429, cors);
@@ -811,6 +826,12 @@ async function peoplesBag(request, url, env, cors) {
   if (path === '/pb/state') {
     const p = String(url.searchParams.get('pid') || '');
     return json(await pbState(env, PID_RX.test(p) ? p : ''), 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  }
+  // For the site build: the People's Bag as it stands, with no player ids.
+  if (path === '/pb/summary') {
+    const st = await pbState(env, '');
+    delete st.mine;
+    return json(st, 200, Object.assign({ 'cache-control': 'public, max-age=300' }, cors));
   }
   if (path === '/pb/pick' && request.method === 'POST') {
     let body = {};

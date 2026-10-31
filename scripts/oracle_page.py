@@ -26,7 +26,27 @@ FAQS = [
 ]
 
 
-def page():
+def live(names):
+    """The crowd's busiest open calls and its record this month, as plain HTML
+    (js/oracle.js refreshes them live)."""
+    try:
+        import crowd_data
+        c = crowd_data.CROWD
+    except Exception:
+        return "", {}
+    from price_pages import esc
+    hot = sorted(((s, x) for s, x in (c.get("products") or {}).items() if s in names), key=lambda t: -t[1]["n"])[:6]
+    rows = []
+    for s, x in hot:
+        k, word = max((("down", "cheaper"), ("same", "holds"), ("up", "pricier")), key=lambda t: x.get(t[0], 0))
+        rows.append(f'<a href="/prices/{esc(s)}/#crowd-caddie"><span>{esc(names[s])}</span><b>{round(100 * x.get(k, 0) / x["n"])}% {word}</b></a>')
+    return "".join(rows), c.get("crowd") or {}
+
+
+def page(names=None):
+    hot, crowd = live(names or {})
+    acc = f"{round(100 * crowd['r'] / crowd['n'])}%" if crowd.get("n") else "–"
+    settled = crowd.get("n") if crowd.get("n") else "–"
     faqs = "".join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q, a in FAQS)
     body = f"""<div class="or">
 <section class="or-hero">
@@ -37,8 +57,8 @@ def page():
     <p>The golfers who read UK golf prices best. Call where a price is heading on any price page; we check the real price 14 days later. Five settled calls to get on the board.</p>
   </div>
   <div class="or-stats" aria-live="polite">
-    <div><b class="or-green" data-or="acc">–</b><span>of the crowd’s calls right this month</span></div>
-    <div><b data-or="settled">–</b><span>calls settled this month</span></div>
+    <div><b class="or-green" data-or="acc">{acc}</b><span>of the crowd’s calls right this month</span></div>
+    <div><b data-or="settled">{settled}</b><span>calls settled this month</span></div>
     <div><b data-or="open">–</b><span>calls waiting on the price</span></div>
   </div>
 </section>
@@ -53,7 +73,7 @@ def page():
     </section>
     <section class="or-card">
       <h2>The crowd’s biggest calls right now</h2>
-      <div class="or-hot" id="or-hot"><p class="or-empty">The busiest calls show here once a few golfers have made them.</p></div>
+      <div class="or-hot" id="or-hot">{hot or '<p class="or-empty">The busiest calls show here once a few golfers have made them.</p>'}</div>
     </section>
   </div>
   <div class="or-col">
@@ -82,15 +102,15 @@ def page():
         {"@type": "ListItem", "position": 3, "name": "The Oracle board", "item": SITE + "/play/oracle/"}]}
     return page_shell(title="Will Golf Prices Drop? The Crowd Caddie Oracle Board | GolfPrice AI",
                       description="UK golfers call where golf prices are heading in the next two weeks, and we check what really happened. See the crowd’s record and the best callers.",
-                      canonical=f"{SITE}/play/oracle/", body=body, section="play", schema=[crumbs, faq_schema],
+                      canonical=f"{SITE}/play/oracle/", body=body, section="play", schema=[crumbs, faq_schema, {"@context": "https://schema.org", "@type": "WebApplication", "name": 'Crowd Caddie and the Oracle board', "url": f"{SITE}/play/oracle/", "applicationCategory": "SportsApplication", "operatingSystem": "Any web browser", "description": "Free UK golf price forecasts from golfers: call whether a golf product's lowest UK price will be cheaper, hold or rise in two weeks, checked against the real price 14 days later.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "featureList": ['Crowd price forecast on every price page', 'Calls checked against the real price after 14 days', 'Monthly and all-time Oracle leaderboards', "Shareable 'You called it' cards"], "inLanguage": "en-GB", "publisher": {"@type": "Organization", "name": "GolfPrice AI", "url": SITE}}],
                       noindex=False, extra_head=CSS)
 
 
-def build(root=None):
+def build(root=None, names=None):
     from pathlib import Path
     root = root or Path(__file__).resolve().parent.parent
     changed = []
-    if _write(root / "play" / "oracle" / "index.html", page()):
+    if _write(root / "play" / "oracle" / "index.html", page(names)):
         changed.append("/play/oracle/")
     return changed
 

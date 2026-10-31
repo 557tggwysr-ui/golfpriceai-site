@@ -118,7 +118,7 @@ def page():
         {"@type": "ListItem", "position": 3, "name": "The Ace Register", "item": SITE + "/play/aces/"}]}
     return page_shell(title="Hole-in-One Register UK: Log Your Ace, Get a Certificate | GolfPrice AI",
                       description="Had a hole-in-one? Log it free on the UK Ace Register: get a certificate to frame and share, and your nickname on your course’s ace board for good.",
-                      canonical=f"{SITE}/play/aces/", body=body, section="play", schema=[crumbs, faq_schema],
+                      canonical=f"{SITE}/play/aces/", body=body, section="play", schema=[crumbs, faq_schema, {"@context": "https://schema.org", "@type": "WebApplication", "name": 'The Ace Register', "url": f"{SITE}/play/aces/", "applicationCategory": "SportsApplication", "operatingSystem": "Any web browser", "description": "A free UK hole-in-one register: log an ace against any UK golf course, get a certificate to share and a place on the course's ace board.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "featureList": ['Every UK golf course listed', 'Hole-in-one certificate', 'Course ace boards', 'Nicknames only'], "inLanguage": "en-GB", "publisher": {"@type": "Organization", "name": "GolfPrice AI", "url": SITE}}],
                       noindex=False, extra_head=CSS)
 
 

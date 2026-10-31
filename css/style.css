@@ -1135,8 +1135,8 @@ footer a:hover { color: var(--green); }
   display: flex;
   flex-direction: column;
   transition: transform 0.15s ease;
-  flex: 1 1 280px;
-  max-width: 320px;
+  flex: 1 1 340px;
+  max-width: 390px; /* three to a row on a laptop: nine partners = three tidy rows */
 }
 .partner-card:hover { transform: translateY(-2px); }
 .partner-card-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
