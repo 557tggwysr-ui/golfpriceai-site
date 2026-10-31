@@ -6,14 +6,14 @@
  "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 259.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 259.0,
+   "from": 199.0,
    "options": 3
   },
   {
@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 77,
-  "low": 259.0,
+  "low": 199.0,
   "high": 259.0,
-  "average": 259.0,
-  "priceChanges": 0,
+  "average": 258.22,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -35,13 +35,13 @@
    ],
    [
     "2026-10-31",
-    259.0
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 77 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ai-DUAL-S2S-Max-1-2-Ball-Sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

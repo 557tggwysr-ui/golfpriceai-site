@@ -6,23 +6,23 @@
  "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 229.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 229.0,
+   "from": 199.0,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 77,
-  "low": 229.0,
+  "low": 199.0,
   "high": 229.0,
-  "average": 229.0,
-  "priceChanges": 0,
+  "average": 228.61,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-10-31",
-    229.0
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 77 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ai-DUAL-Jailbird-Mini-1-2-Ball-Sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

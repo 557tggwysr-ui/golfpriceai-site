@@ -6,20 +6,20 @@
  "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 229.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 199.0,
+   "options": 1
+  },
   {
    "name": "Major Golf Direct",
    "from": 229.0,
    "options": 2
-  },
-  {
-   "name": "Clickgolf",
-   "from": 259.0,
-   "options": 1
   },
   {
    "name": "Callaway Golf",
@@ -29,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 77,
-  "low": 229.0,
+  "low": 199.0,
   "high": 259.0,
-  "average": 233.68,
-  "priceChanges": 1,
+  "average": 233.29,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -44,15 +44,15 @@
    ],
    [
     "2026-10-31",
-    229.0
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 65 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/OdysseyGolfAi-DualSquare2SquareJailbirdOSPutter_4.jpg?v=1768490828",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Ai-DUAL-S2S-Jailbird-Sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-10-31"
 }

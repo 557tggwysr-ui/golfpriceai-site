@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-31T17:56+00:00",
+ "checked": "2026-10-31T18:23+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -14,6 +14,16 @@
    "url": "https://golfpriceai.com/prices/blue-tees-playmaker-plus-gps-watch/"
   },
   {
+   "model": "Odyssey Ai-DUAL Square 2 Square Max Putter",
+   "model_id": "odyssey-ai-dual-square-2-square-max-putter",
+   "date": "2026-10-31",
+   "was": 259.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-ai-dual-square-2-square-max-putter/"
+  },
+  {
    "model": "Cleveland RTZ Tour Satin Wedge",
    "model_id": "cleveland-rtz-tour-satin-wedge",
    "date": "2026-10-31",
@@ -22,6 +32,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cleveland-rtz-tour-satin-wedge/"
+  },
+  {
+   "model": "Odyssey Ai-DUAL Square 2 Square Jailbird OS Putter",
+   "model_id": "odyssey-ai-dual-square-2-square-jailbird-os-putter",
+   "date": "2026-10-31",
+   "was": 229.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-ai-dual-square-2-square-jailbird-os-putter/"
   },
   {
    "model": "Titleist Pro V1 Golf Balls",
