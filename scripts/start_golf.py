@@ -129,6 +129,13 @@ FAQS = [
 
 def page(easy, hooked, today):
     t1 = sum(i["price"] for i in easy)
+    ago = month_ago(history(), today)
+    trend = ""
+    if ago:
+        diff = t1 - ago
+        trend = (f'<p class="sg-trend">A month ago the same kind of kit cost <b>{money(ago)}</b>: '
+                 + (f'that\u2019s <b>{money(-diff)} cheaper</b> today.' if diff < -0.5 else
+                    f'that\u2019s {money(diff)} more today.' if diff > 0.5 else 'about the same as today.') + '</p>')
     t2 = sum(i["price"] for i in hooked)
     head = math.ceil(t1)
     faqs = [(q, a.replace("{total}", f"£{head}")) for q, a in FAQS]
@@ -140,6 +147,7 @@ def page(easy, hooked, today):
     <span class="sg-kick">NEW TO GOLF</span>
     <h1>Start golf<br>for <span>£{head}.</span></h1>
     <p class="sg-lede">Everything you need for your first round, at today’s lowest UK prices. Plus the five steps from the driving range to a proper round with your mates. No jargon, no £1,000 driver.</p>
+    {trend}
     <div class="sg-ctas"><a class="sg-btn" href="#kit">See the kit</a><a class="sg-btn sg-ghost" href="#steps">The five steps</a></div>
     <p class="sg-small">Prices checked every 6 hours across multiple UK retailers. Last updated {checked}. Prices can change on the retailer’s site.</p>
   </div>
@@ -190,6 +198,43 @@ def page(easy, hooked, today):
                       extra_head=f'<link rel="stylesheet" href="/css/start-golf.css?v={V}">\n')
 
 
+DATA = PRICES_DIR.parent / "data" / "start-golf.json"
+
+
+def history():
+    try:
+        return json.loads(DATA.read_text(encoding="utf-8")).get("history", [])
+    except (OSError, ValueError):
+        return []
+
+
+def month_ago(hist, today):
+    """The total from about a month ago (the closest day 28 to 35 days back)."""
+    from datetime import date
+    best = None
+    for d, t in hist:
+        age = (today - date.fromisoformat(d)).days
+        if 28 <= age <= 35 and (best is None or abs(age - 30) < abs(best[0] - 30)):
+            best = (age, t)
+    return best[1] if best else None
+
+
+def write_data(easy, hooked, today):
+    """data/start-golf.json: today's kits and one total per day, for the page,
+    the AI connector (start_golf_kit) and anyone quoting the figure."""
+    hist = [h for h in history() if h[0] != today.isoformat()]
+    hist.append([today.isoformat(), round(sum(i["price"] for i in easy), 2)])
+    hist = hist[-800:]
+    def plain(items):
+        return [{"item": i["what"], "name": i["name"], "price": round(i["price"], 2),
+                 "url": (i["url"] if str(i.get("url", "")).startswith("http") else SITE + str(i.get("url", "")))} for i in items]
+    _write(DATA, json.dumps({"updated": today.isoformat(), "page": SITE + "/prices/start-golf/",
+                             "total": math.ceil(sum(i["price"] for i in easy)),
+                             "easy": {"total": round(sum(i["price"] for i in easy), 2), "items": plain(easy)},
+                             "hooked": {"total": round(sum(i["price"] for i in hooked), 2), "items": plain(hooked)},
+                             "history": hist}, ensure_ascii=False, separators=(",", ":")))
+
+
 def build(passing, built, products, today):
     easy, hooked = kit(passing, built, products), kit(passing, built, products, hooked=True)
     if len(easy) < 4:
@@ -198,6 +243,6 @@ def build(passing, built, products, today):
     path = PRICES_DIR / "start-golf" / "index.html"
     changed = ["/prices/start-golf/"] if _write(path, page(easy, hooked or easy, today)) else []
     total = math.ceil(sum(i["price"] for i in easy))
-    _write(PRICES_DIR.parent / "data" / "start-golf.json", json.dumps({"total": total}))
+    write_data(easy, hooked or easy, today)
     print(f"Start golf: £{total} ({', '.join(i['what'] for i in easy)}).")
     return changed, total

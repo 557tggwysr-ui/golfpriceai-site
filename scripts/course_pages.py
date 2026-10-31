@@ -178,7 +178,7 @@ def course_body(c, near, within10, summ, aces, pages):
 </section>
 <section class="cs-kit">
   <div><b>Playing {esc(c['n'])} soon?</b><span>Balls, gloves and waterproofs at the lowest prices we’ve tracked, checked every 6 hours across multiple UK retailers.</span></div>
-  <div class="cs-kit-links"><a href="/prices/golf-balls/">Golf balls</a><a href="/prices/golf-gloves/">Gloves</a><a href="/prices/golf-jackets/">Waterproofs</a></div>
+  <div class="cs-kit-links"><a href="/prices/start-golf/">New to golf? Full kit</a><a href="/prices/golf-balls/">Golf balls</a><a href="/prices/golf-gloves/">Gloves</a><a href="/prices/golf-jackets/">Waterproofs</a></div>
 </section>
 <p class="cs-attr">{ATTR} Not affiliated with {esc(c['n'])}. Spotted something wrong? <a href="mailto:GolfPriceAI@outlook.com?subject=Course%20page%3A%20{esc(c['id'])}">Tell us</a>.</p>
 </div>"""

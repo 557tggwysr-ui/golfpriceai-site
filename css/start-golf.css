@@ -12,6 +12,7 @@ main.pp:has(.sg) { max-width: none; padding: 0; }
 .sg h1 { margin: 0; font: 800 64px/1.0 'Poppins', sans-serif; letter-spacing: -0.03em; }
 .sg h1 span { color: #3fae29; }
 .sg-lede { margin: 0; font-size: 18px; line-height: 1.55; color: #4a554e; max-width: 540px; }
+.sg-trend { margin: 0; font-size: 15px; color: #14211a; background: #eaf6e6; border-radius: 12px; padding: 10px 14px; align-self: flex-start; }
 .sg-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
 .sg .sg-btn { display: inline-block; background: #3fae29; color: #fff; border: 0; font: 700 16px 'Inter', sans-serif; padding: 15px 22px; border-radius: 12px; cursor: pointer; text-align: center; }
 .sg .sg-btn:hover { background: #2f8a1f; color: #fff; }

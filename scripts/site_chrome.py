@@ -178,6 +178,7 @@ POPULAR = [
     ("Pro V1", "/shop.html?q=pro+v1"),
     ("Drivers under £300", "/shop.html?category=driver&pricemax=300"),
     ("Left-handed clubs", "/shop.html?group=clubs&q=left+hand"),
+    ("Starting golf", "/prices/start-golf/"),
 ]
 
 

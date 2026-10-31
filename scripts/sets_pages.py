@@ -280,7 +280,8 @@ def build_guide(hub_slug, models_list, passing, built, by_id, today, noindex):
     chip_html = "".join(f'<button type="button" class="pp-chip cg-chip{" sg-on" if k == "all" else ""}" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{esc(lbl)}</button>'
                         for k, lbl in chips)
     other = ('<a class="pp-chip" href="/prices/golf-package-sets/">Adult package sets</a>' if junior
-             else '<a class="pp-chip" href="/prices/junior-golf-sets/">Junior golf sets</a>')
+             else '<a class="pp-chip" href="/prices/start-golf/">Starting golf? The full first kit</a>'
+                  '<a class="pp-chip" href="/prices/junior-golf-sets/">Junior golf sets</a>')
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), (crumb, None)])
     body = f"""<div class="pp-wrap">
 {crumbs_html}

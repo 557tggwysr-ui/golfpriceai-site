@@ -106,7 +106,7 @@
           return '<a href="' + href(x.o, d.pages) + '"><span>' + esc(x.o.n) + '</span><span class="cs-date">' + x.d.toFixed(1) + ' mi</span></a>';
         }).join('') || '<p class="cs-empty">No other courses within 30 miles.</p>') + '</div></div></div></section>' +
         '<section class="cs-kit"><div><b>Playing ' + esc(c.n) + ' soon?</b><span>Balls, gloves and waterproofs at the lowest prices we’ve tracked, checked every 6 hours across multiple UK retailers.</span></div>' +
-        '<div class="cs-kit-links"><a href="/prices/golf-balls/">Golf balls</a><a href="/prices/golf-gloves/">Gloves</a><a href="/prices/golf-jackets/">Waterproofs</a></div></section>' +
+        '<div class="cs-kit-links"><a href="/prices/start-golf/">New to golf? Full kit</a><a href="/prices/golf-balls/">Golf balls</a><a href="/prices/golf-gloves/">Gloves</a><a href="/prices/golf-jackets/">Waterproofs</a></div></section>' +
         '<p class="cs-attr">Course location © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL). Not affiliated with ' + esc(c.n) + '.</p>';
       wire(any);
     }).catch(function () { any.innerHTML = '<p class="cs-empty">We couldn’t load the course list. Please refresh in a minute.</p>'; });
