@@ -45,8 +45,10 @@ jobs:
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
           # Everything the refresh writes: data files, price pages, forwarded
-          # old pages and the sitemaps.
-          git add -A data prices products wishlist fourball play demand societies assets/cards sitemap.xml sitemap-pages.xml sitemap-prices.xml
+          # old pages and the sitemaps. mkdir: if the course pages ever fail
+          # to build, an empty folder keeps git add from stopping the commit.
+          mkdir -p courses
+          git add -A data prices products wishlist fourball play demand societies courses assets/cards sitemap.xml sitemap-pages.xml sitemap-prices.xml
           git diff --quiet --cached || git commit -m "Automated catalog refresh"
           git pull --rebase
           git push
