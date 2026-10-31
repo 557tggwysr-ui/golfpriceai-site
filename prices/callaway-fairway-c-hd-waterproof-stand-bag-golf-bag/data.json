@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-fairway-c-hd-waterproof-stand-bag-golf-bag/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -24,10 +24,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 199.0,
   "high": 219.0,
-  "average": 202.95,
+  "average": 202.9,
   "priceChanges": 3,
   "series": [
    [
@@ -47,16 +47,16 @@
     199.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     199.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "summary": "Typical price: steady for 58 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/fairway-c-HD-yellow-right.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

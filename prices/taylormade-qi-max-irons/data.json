@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-qi-max-irons/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 849.0,
@@ -19,7 +19,7 @@
   {
    "name": "Affordable Golf",
    "from": 859.0,
-   "options": 18
+   "options": 25
   },
   {
    "name": "Clarkes Golf",
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 849.0,
   "high": 949.0,
-  "average": 864.79,
+  "average": 864.58,
   "priceChanges": 1,
   "series": [
    [
@@ -48,16 +48,16 @@
     849.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     849.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 65 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeGolfQiMAXIrons2026_2.jpg?v=1768226089",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

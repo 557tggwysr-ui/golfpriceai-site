@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/macgregor-zt1-package-set/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 389.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 389.0,
   "high": 429.0,
-  "average": 415.71,
+  "average": 415.36,
   "priceChanges": 18,
   "series": [
    [
@@ -104,6 +104,10 @@
    [
     "2026-10-30",
     389.0
+   ],
+   [
+    "2026-10-31",
+    389.0
    ]
   ]
  },
@@ -113,5 +117,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Macgregor-ZT1-Golf-Club-Package-Set---Graphite-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

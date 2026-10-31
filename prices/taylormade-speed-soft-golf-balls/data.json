@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-speed-soft-golf-balls/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 24.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 24.95,
   "high": 26.99,
-  "average": 26.95,
+  "average": 26.92,
   "priceChanges": 1,
   "series": [
    [
@@ -35,6 +35,10 @@
    ],
    [
     "2026-10-30",
+    24.95
+   ],
+   [
+    "2026-10-31",
     24.95
    ]
   ]
@@ -45,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-Speed-Soft-Golf-Balls-White-3.jpg?v=1709612578",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

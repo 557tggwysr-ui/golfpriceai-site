@@ -3,7 +3,7 @@
  "brand": "Garmin",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/garmin-approach-r10-portable-launch-monitor/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 459.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 449.0,
   "high": 529.99,
-  "average": 495.82,
+  "average": 495.1,
   "priceChanges": 2,
   "series": [
    [
@@ -48,16 +48,16 @@
     449.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     449.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 20 days"
+  "summary": "Typical price: steady for 21 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/garmin_approach_r10_portable_golf_launch_monitor_5.jpg?v=1777979938",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

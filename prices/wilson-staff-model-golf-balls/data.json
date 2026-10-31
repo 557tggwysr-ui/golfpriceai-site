@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/wilson-staff-model-golf-balls/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 37.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 37.95,
   "high": 44.99,
-  "average": 44.88,
+  "average": 44.77,
   "priceChanges": 1,
   "series": [
    [
@@ -40,6 +40,10 @@
    ],
    [
     "2026-10-30",
+    37.95
+   ],
+   [
+    "2026-10-31",
     37.95
    ]
   ]
@@ -50,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/Wilson_Staff_Model_Golf_Balls_White_74.jpg?v=1646065840",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

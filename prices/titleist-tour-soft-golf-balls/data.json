@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/titleist-tour-soft-golf-balls/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 29.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 29.95,
   "high": 32.99,
-  "average": 32.04,
+  "average": 32.01,
   "priceChanges": 2,
   "series": [
    [
@@ -45,6 +45,10 @@
    [
     "2026-10-30",
     29.95
+   ],
+   [
+    "2026-10-31",
+    29.95
    ]
   ]
  },
@@ -54,5 +58,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Titleist-2024-Tour-Soft-Golf-Balls-Green-3.jpg?v=1706846641",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/ping-g-le4-irons/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 799.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 799.0,
   "high": 849.0,
-  "average": 838.47,
+  "average": 837.96,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     799.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     799.0
    ]
   ]
@@ -49,5 +49,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/ping-g-le4-irons-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/titleist-t150-irons/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1179.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 1179.0,
   "high": 1189.0,
-  "average": 1188.87,
+  "average": 1188.74,
   "priceChanges": 1,
   "series": [
    [
@@ -36,14 +36,18 @@
    [
     "2026-10-30",
     1179.0
+   ],
+   [
+    "2026-10-31",
+    1179.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "summary": "Typical price: steady for 2 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025_Titleist_T150_Catalog01_RGB-Photoroom.jpg?v=1751965310",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

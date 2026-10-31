@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/srixon-zxi-utility-irons/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 199.0,
   "high": 219.0,
-  "average": 216.54,
+  "average": 216.24,
   "priceChanges": 2,
   "series": [
    [
@@ -40,6 +40,10 @@
    [
     "2026-10-30",
     199.0
+   ],
+   [
+    "2026-10-31",
+    199.0
    ]
   ]
  },
@@ -49,5 +53,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Srixon-ZXi-Golf-Utility-Iron-1.jpg?v=1736827701",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

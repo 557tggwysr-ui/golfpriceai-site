@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/taylormade-qi10-hybrid/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 139.0,
   "high": 179.0,
-  "average": 148.35,
+  "average": 148.37,
   "priceChanges": 2,
   "series": [
    [
@@ -47,7 +47,7 @@
     149.95
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     149.95
    ]
   ]
@@ -58,5 +58,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/qi10_rescue_hybrid_tour_3.jpg?v=1777960194",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

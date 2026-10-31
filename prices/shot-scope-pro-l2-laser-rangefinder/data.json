@@ -3,7 +3,7 @@
  "brand": "Shot Scope",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/shot-scope-pro-l2-laser-rangefinder/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 129.0,
   "high": 149.95,
-  "average": 141.94,
+  "average": 142.04,
   "priceChanges": 2,
   "series": [
    [
@@ -55,6 +55,10 @@
    [
     "2026-10-30",
     149.0
+   ],
+   [
+    "2026-10-31",
+    149.0
    ]
   ]
  },
@@ -64,5 +68,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Shot-Scope-Pro-L2-Golf-Laser-Rangefinder-6.jpg?v=1700625823",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

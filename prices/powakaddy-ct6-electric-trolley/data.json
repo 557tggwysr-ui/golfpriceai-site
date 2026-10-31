@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct6-electric-trolley/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 719.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 699.0,
   "high": 749.0,
-  "average": 740.05,
+  "average": 739.78,
   "priceChanges": 13,
   "series": [
    [
@@ -99,6 +99,10 @@
    [
     "2026-10-30",
     719.0
+   ],
+   [
+    "2026-10-31",
+    719.0
    ]
   ]
  },
@@ -108,5 +112,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT6_Electric_Golf_Trolley-18-Hole-Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

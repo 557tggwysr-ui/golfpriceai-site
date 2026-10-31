@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/ping-b60-putter/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 280.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 280.0,
   "high": 280.0,
   "average": 280.0,
@@ -29,16 +29,16 @@
     280.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     280.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "summary": "Typical price: steady for 58 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/B60_C.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

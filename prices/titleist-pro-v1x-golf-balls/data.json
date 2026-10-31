@@ -3,23 +3,23 @@
  "brand": "Titleist",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/titleist-pro-v1x-golf-balls/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 49.95,
+ "lowestNewPrice": 43.96,
  "lowestAt": [
-  "Clarkes Golf"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 43.96,
+   "options": 3
+  },
   {
    "name": "Clarkes Golf",
    "from": 49.95,
    "options": 2
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 49.99,
-   "options": 3
   },
   {
    "name": "Major Golf Direct",
@@ -28,11 +28,11 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
-  "low": 49.95,
+  "daysTracked": 65,
+  "low": 43.96,
   "high": 49.99,
-  "average": 49.99,
-  "priceChanges": 1,
+  "average": 49.9,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-28",
@@ -41,14 +41,18 @@
    [
     "2026-10-30",
     49.95
+   ],
+   [
+    "2026-10-31",
+    43.96
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025_ProV1x_RF_dozen-Photoroom.jpg?v=1762340060",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ProV1xWhite7.jpg?v=1782292658",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

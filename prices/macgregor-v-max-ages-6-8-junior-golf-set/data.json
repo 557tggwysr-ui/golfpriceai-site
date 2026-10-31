@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/macgregor-v-max-ages-6-8-junior-golf-set/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 119.0,
   "high": 149.0,
-  "average": 139.13,
+  "average": 138.87,
   "priceChanges": 18,
   "series": [
    [
@@ -104,6 +104,10 @@
    [
     "2026-10-30",
     119.0
+   ],
+   [
+    "2026-10-31",
+    119.0
    ]
   ]
  },
@@ -113,5 +117,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-V-Max-Junior-Package-Set-Age-6-8.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

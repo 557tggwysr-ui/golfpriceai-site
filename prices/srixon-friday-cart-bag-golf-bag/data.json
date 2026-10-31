@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/srixon-friday-cart-bag-golf-bag/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 139.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 139.0,
   "high": 149.0,
-  "average": 147.57,
+  "average": 147.44,
   "priceChanges": 3,
   "series": [
    [
@@ -49,6 +49,10 @@
    [
     "2026-10-30",
     139.0
+   ],
+   [
+    "2026-10-31",
+    139.0
    ]
   ]
  },
@@ -58,5 +62,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/SRX_FRIDAY_CART_BAG_navy-black_12137813_2.jpg?v=1776425710",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/taylormade-hi-toe-5-aged-copper-wedge/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 179.0,
   "high": 179.95,
-  "average": 179.93,
+  "average": 179.92,
   "priceChanges": 1,
   "series": [
    [
@@ -36,14 +36,18 @@
    [
     "2026-10-30",
     179.0
+   ],
+   [
+    "2026-10-31",
+    179.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "summary": "Typical price: steady for 2 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Hi-Toe5AgedCopper1.jpg?v=1785170178",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-m-tech-electric-trolley/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1159.2,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 1159.2,
   "high": 1199.0,
-  "average": 1198.48,
+  "average": 1197.97,
   "priceChanges": 1,
   "series": [
    [
@@ -41,14 +41,18 @@
    [
     "2026-10-30",
     1159.2
+   ],
+   [
+    "2026-10-31",
+    1159.2
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "summary": "Typical price: steady for 2 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26MTGDMT-M-Tech-Trolley-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

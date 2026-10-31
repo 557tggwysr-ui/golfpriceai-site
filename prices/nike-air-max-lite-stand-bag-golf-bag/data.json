@@ -3,7 +3,7 @@
  "brand": "Nike",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/nike-air-max-lite-stand-bag-golf-bag/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -34,10 +34,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 149.0,
   "high": 179.0,
-  "average": 156.63,
+  "average": 156.53,
   "priceChanges": 2,
   "series": [
    [
@@ -53,16 +53,16 @@
     149.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     149.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 42 days"
+  "summary": "Typical price: steady for 43 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/ChatGPT_Image_Aug_4,_2026,_12_25_23_PM.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

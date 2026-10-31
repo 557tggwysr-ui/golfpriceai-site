@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/taylormade-qi35-hybrid/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 139.0,
   "high": 139.0,
   "average": 139.0,
@@ -34,16 +34,16 @@
     139.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     139.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 65 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-Qi35-Golf-Hybrid-1.jpg?v=1736222445",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

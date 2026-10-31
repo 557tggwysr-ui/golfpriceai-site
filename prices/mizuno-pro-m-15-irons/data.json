@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/mizuno-pro-m-15-irons/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1369.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 1369.0,
   "high": 1439.0,
-  "average": 1431.76,
+  "average": 1430.95,
   "priceChanges": 2,
   "series": [
    [
@@ -45,14 +45,18 @@
    [
     "2026-10-30",
     1369.0
+   ],
+   [
+    "2026-10-31",
+    1369.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "summary": "Typical price: steady for 2 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/M15_Herocopy.jpg?v=1773174202",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

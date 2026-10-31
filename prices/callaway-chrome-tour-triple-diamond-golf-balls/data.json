@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-tour-triple-diamond-golf-balls/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 44.95,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 44.95,
   "high": 47.99,
-  "average": 45.74,
+  "average": 45.73,
   "priceChanges": 2,
   "series": [
    [
@@ -50,14 +50,18 @@
    [
     "2026-10-30",
     44.95
+   ],
+   [
+    "2026-10-31",
+    44.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "summary": "Typical price: steady for 2 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/42196a9a433b4155ae2c56d96077d0a5-Photoroom.jpg?v=1739370794",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-dlx-244-cart-bag-golf-bag/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
@@ -24,10 +24,10 @@
   }
  ],
  "history": {
-  "daysTracked": 52,
+  "daysTracked": 53,
   "low": 149.95,
   "high": 249.0,
-  "average": 237.57,
+  "average": 237.79,
   "priceChanges": 2,
   "series": [
    [
@@ -43,7 +43,7 @@
     249.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     249.0
    ]
   ]
@@ -54,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/38095_01_DLX_244_White_01copy.jpg?v=1776298571",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

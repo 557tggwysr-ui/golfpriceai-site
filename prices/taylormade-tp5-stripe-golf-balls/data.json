@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-tp5-stripe-golf-balls/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 47.95,
@@ -29,7 +29,7 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 47.95,
   "high": 47.95,
   "average": 47.95,
@@ -40,16 +40,16 @@
     47.95
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     47.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 65 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeTP5StripeGolfBalls2026-White_4.jpg?v=1770214086",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

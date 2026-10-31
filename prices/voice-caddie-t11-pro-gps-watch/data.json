@@ -3,7 +3,7 @@
  "brand": "Voice Caddie",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/voice-caddie-t11-pro-gps-watch/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 319.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 319.0,
   "high": 379.0,
-  "average": 377.95,
+  "average": 376.93,
   "priceChanges": 1,
   "series": [
    [
@@ -40,6 +40,10 @@
    ],
    [
     "2026-10-30",
+    319.0
+   ],
+   [
+    "2026-10-31",
     319.0
    ]
   ]
@@ -50,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/w2-_3_-compressed-Photoroom.jpg?v=1739536259",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/wilson-profile-ages-5-8-junior-golf-set/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 52,
+  "daysTracked": 53,
   "low": 159.0,
   "high": 189.0,
-  "average": 178.62,
+  "average": 178.25,
   "priceChanges": 13,
   "series": [
    [
@@ -84,6 +84,10 @@
    [
     "2026-10-30",
     159.0
+   ],
+   [
+    "2026-10-31",
+    159.0
    ]
   ]
  },
@@ -93,5 +97,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/wilson-profile-golf-package-set-stand-bag-white-grey-red-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

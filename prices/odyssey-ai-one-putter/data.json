@@ -3,18 +3,17 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-one-putter/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 159.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 179.0,
+   "from": 159.0,
    "options": 6
   },
   {
@@ -24,27 +23,27 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
-  "low": 179.0,
+  "daysTracked": 58,
+  "low": 159.0,
   "high": 179.0,
-  "average": 179.0,
-  "priceChanges": 0,
+  "average": 178.66,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     179.0
    ],
    [
-    "2026-10-30",
-    179.0
+    "2026-10-31",
+    159.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/callaway_ai_one_putter_-_1_1.jpg?v=1777960395",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

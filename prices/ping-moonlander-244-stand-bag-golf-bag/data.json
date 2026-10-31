@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-moonlander-244-stand-bag-golf-bag/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 114.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 114.0,
   "high": 129.0,
-  "average": 119.72,
+  "average": 119.65,
   "priceChanges": 7,
   "series": [
    [
@@ -62,16 +62,16 @@
     114.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     114.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 37 days"
+  "summary": "Typical price: steady for 38 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ping-Moonlander-244-Golf-Stand-Bag-White-Mr-Ping.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

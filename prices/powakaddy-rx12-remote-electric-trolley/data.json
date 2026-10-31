@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-rx12-remote-electric-trolley/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1449.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 1419.0,
   "high": 1499.0,
-  "average": 1484.53,
+  "average": 1484.06,
   "priceChanges": 13,
   "series": [
    [
@@ -84,6 +84,10 @@
    [
     "2026-10-30",
     1449.0
+   ],
+   [
+    "2026-10-31",
+    1449.0
    ]
   ]
  },
@@ -93,5 +97,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PK_RX12_GPS_Remote_Control_Electric_Golf_Trolley-XL_Plus_Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

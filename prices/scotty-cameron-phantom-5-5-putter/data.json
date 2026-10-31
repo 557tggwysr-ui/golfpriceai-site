@@ -3,7 +3,7 @@
  "brand": "Scotty Cameron",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-5-5-putter/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 429.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 429.0,
   "high": 449.0,
-  "average": 434.0,
+  "average": 433.94,
   "priceChanges": 1,
   "series": [
    [
@@ -43,16 +43,16 @@
     429.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     429.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "summary": "Typical price: steady for 58 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/758RC-Phantom-5.5-Sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

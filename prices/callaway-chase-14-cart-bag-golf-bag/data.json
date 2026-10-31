@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-chase-14-cart-bag-golf-bag/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 129.0,
   "high": 149.0,
-  "average": 131.76,
+  "average": 131.73,
   "priceChanges": 4,
   "series": [
    [
@@ -55,16 +55,16 @@
     129.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     129.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 65 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Chase-14-Golf-Cart-Bag---Green-Camo.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

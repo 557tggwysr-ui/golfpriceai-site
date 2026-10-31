@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-apex-pro-irons/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 659.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 659.0,
   "high": 1049.0,
-  "average": 756.5,
+  "average": 755.23,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     659.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     659.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "summary": "Typical price: steady for 58 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/callaway-apex21-pro-iron-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cleveland-launcher-xl2-draw-driver/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 179.0,
   "high": 199.0,
-  "average": 193.56,
+  "average": 193.37,
   "priceChanges": 3,
   "series": [
    [
@@ -51,7 +51,7 @@
     179.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     179.0
    ]
   ]
@@ -62,5 +62,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/c_cleveland-launcher-xl2-draw-driver-hero-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

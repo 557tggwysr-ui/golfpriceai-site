@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-10-30",
+ "lastUpdated": "2026-10-31",
  "uncertainGroupings": [
   {
    "model": "Titleist vokey sm11",
@@ -12,14 +12,14 @@
    "listings": 1
   },
   {
-   "model": "Cobra KING Wedge",
-   "issue": "price spread \u00a3119.00 to \u00a3387.00: may mix different products",
-   "listings": 38
-  },
-  {
    "model": "TaylorMade qi max",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
+  },
+  {
+   "model": "Cobra KING Wedge",
+   "issue": "price spread \u00a3119.00 to \u00a3387.00: may mix different products",
+   "listings": 38
   },
   {
    "model": "TaylorMade milled grind 5",
@@ -67,14 +67,14 @@
    "listings": 1
   },
   {
-   "model": "Wilson staff duo soft",
-   "issue": "7 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
-   "listings": 7
-  },
-  {
    "model": "Titleist t350",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
+  },
+  {
+   "model": "Wilson staff duo soft",
+   "issue": "7 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
+   "listings": 7
   },
   {
    "model": "Mizuno Pro T-3 Wedge",
@@ -2622,6 +2622,21 @@
    "name": "Scotty Cameron Phantom 11R OC Golf Putter - 35\" / Stock Grip",
    "from": "accessories",
    "to": "putter"
+  },
+  {
+   "name": "Wilson ZM Grooves Steel Mens Right Hand Gap Wedge 50* 8 Bounce S Grind Stiff - Nippon Modus 120",
+   "from": "accessories",
+   "to": "wedge"
+  },
+  {
+   "name": "Wilson ZM Grooves Steel Mens Right Hand Lob Wedge 60* 12 Bounce Wedge - Dynamic Gold wedge flex",
+   "from": "accessories",
+   "to": "wedge"
+  },
+  {
+   "name": "Wilson ZM Grooves Steel Mens Right Hand Sand Wedge 54* 8 Bounce S Grind Stiff - Nippon Modus 120",
+   "from": "accessories",
+   "to": "wedge"
   }
  ],
  "droppedUnpriced": [

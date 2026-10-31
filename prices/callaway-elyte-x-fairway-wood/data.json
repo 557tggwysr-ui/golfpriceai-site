@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-elyte-x-fairway-wood/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 229.0,
   "high": 239.0,
-  "average": 238.87,
+  "average": 238.74,
   "priceChanges": 1,
   "series": [
    [
@@ -41,14 +41,18 @@
    [
     "2026-10-30",
     229.0
+   ],
+   [
+    "2026-10-31",
+    229.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "summary": "Typical price: steady for 2 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-X-Golf-Fairway-Wood-1.jpg?v=1737101720",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

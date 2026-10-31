@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct12-ebs-electric-trolley/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1199.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 1199.0,
   "high": 1299.0,
-  "average": 1283.21,
+  "average": 1282.12,
   "priceChanges": 14,
   "series": [
    [
@@ -98,6 +98,10 @@
    [
     "2026-10-30",
     1199.0
+   ],
+   [
+    "2026-10-31",
+    1199.0
    ]
   ]
  },
@@ -107,5 +111,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/01_2025_PowaKaddy_-_CT12_GPS_-_Gun_Metal_-_Standard_Plug_n_Play_Lithium_Battery-Photoroom.jpg?v=1739533467",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

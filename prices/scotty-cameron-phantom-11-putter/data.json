@@ -3,7 +3,7 @@
  "brand": "Scotty Cameron",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-11-putter/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 365.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 365.0,
   "high": 429.0,
-  "average": 427.88,
+  "average": 426.79,
   "priceChanges": 1,
   "series": [
    [
@@ -35,6 +35,10 @@
    ],
    [
     "2026-10-30",
+    365.0
+   ],
+   [
+    "2026-10-31",
     365.0
    ]
   ]
@@ -45,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Scotty-Cameron-2024-Phantom-11-Golf-Putter-7_7571c8d3-d37d-426a-92a2-80bdf6b3056c.jpg?v=1741353724",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

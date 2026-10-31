@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/callaway-xr-2026-package-set/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1049.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 1049.0,
   "high": 1099.0,
-  "average": 1082.55,
+  "average": 1082.12,
   "priceChanges": 18,
   "series": [
    [
@@ -99,6 +99,10 @@
    [
     "2026-10-30",
     1049.0
+   ],
+   [
+    "2026-10-31",
+    1049.0
    ]
   ]
  },
@@ -108,5 +112,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/4PKL250113327BK-Full-Set.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

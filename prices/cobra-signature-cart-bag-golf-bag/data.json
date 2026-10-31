@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/cobra-signature-cart-bag-golf-bag/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 115.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 115.0,
   "high": 119.0,
-  "average": 118.95,
+  "average": 118.9,
   "priceChanges": 1,
   "series": [
    [
@@ -51,14 +51,18 @@
    [
     "2026-10-30",
     115.0
+   ],
+   [
+    "2026-10-31",
+    115.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "summary": "Typical price: steady for 2 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/cobra-signature-cart-bag-blue-1-compressed-Photoroom.jpg?v=1741017080",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

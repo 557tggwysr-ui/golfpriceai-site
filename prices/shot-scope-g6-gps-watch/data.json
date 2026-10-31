@@ -3,7 +3,7 @@
  "brand": "Shot Scope",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/shot-scope-g6-gps-watch/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 149.0,
   "high": 179.95,
-  "average": 168.13,
+  "average": 168.27,
   "priceChanges": 2,
   "series": [
    [
@@ -50,6 +50,10 @@
    [
     "2026-10-30",
     179.0
+   ],
+   [
+    "2026-10-31",
+    179.0
    ]
   ]
  },
@@ -59,5 +63,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/SS-WAT-G6-DAR-1-Photoroom.jpg?v=1742976666",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

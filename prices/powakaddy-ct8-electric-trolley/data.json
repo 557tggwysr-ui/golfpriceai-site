@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct8-electric-trolley/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 849.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 849.0,
   "high": 949.0,
-  "average": 939.13,
+  "average": 937.96,
   "priceChanges": 13,
   "series": [
    [
@@ -99,6 +99,10 @@
    [
     "2026-10-30",
     849.0
+   ],
+   [
+    "2026-10-31",
+    849.0
    ]
   ]
  },
@@ -108,5 +112,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/01_2025PowaKaddy-CT8GPS-GunMetal-StandardPlug_n_PlayLithiumBattery-Photoroom.jpg?v=1740579849",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

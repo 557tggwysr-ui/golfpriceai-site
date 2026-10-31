@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-apex-ti-fusion-irons/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1399.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 1399.0,
   "high": 1699.0,
-  "average": 1695.05,
+  "average": 1691.21,
   "priceChanges": 1,
   "series": [
    [
@@ -40,6 +40,10 @@
    ],
    [
     "2026-10-30",
+    1399.0
+   ],
+   [
+    "2026-10-31",
     1399.0
    ]
   ]
@@ -50,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Callaway-Apex-Ti-Fusion-Golf-Irons-Steel-4.jpg?v=1723262540",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

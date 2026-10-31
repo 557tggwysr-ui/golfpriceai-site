@@ -1,66 +1,66 @@
 {
- "n": 13,
- "date": "2026-10-30",
+ "n": 14,
+ "date": "2026-10-31",
  "items": [
   {
-   "slug": "titleist-vokey-sm10-tour-chrome-wedge",
-   "name": "Titleist Vokey SM10 Tour Chrome Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/titleist-vokey-sm10-tour-chrome-wedge-hero-1000x1000.jpg",
+   "slug": "cleveland-rtz-2-satin-wedge",
+   "name": "Cleveland RTZ 2 Satin Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/RTZ2BlackSatin3.jpg?v=1785508597",
    "price": 139.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/titleist-vokey-sm10-tour-chrome-wedge/"
+   "url": "/prices/cleveland-rtz-2-satin-wedge/"
   },
   {
-   "slug": "yonex-ezone-gs-i-tech-fairway-wood",
-   "name": "Yonex Ezone GS i-Tech Fairway Wood",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/YonexEzoneGSi-Tech-FairwayWood2.jpg?v=1777942355",
-   "price": 119.95,
+   "slug": "macgregor-zt-plus-fairway-wood",
+   "name": "MacGregor ZT Plus Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MacGregorGolfZTPlusFairway2026_4.jpg?v=1772009289",
+   "price": 74.95,
    "unit": "each",
    "type": "fairway wood",
    "low": false,
-   "url": "/prices/yonex-ezone-gs-i-tech-fairway-wood/"
+   "url": "/prices/macgregor-zt-plus-fairway-wood/"
   },
   {
-   "slug": "taylormade-qi35-driver",
-   "name": "TaylorMade Qi35 Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeQi35Driver-LS3.jpg?v=1776305300",
-   "price": 349.0,
-   "unit": "each",
-   "type": "driver",
-   "low": false,
-   "url": "/prices/taylormade-qi35-driver/"
-  },
-  {
-   "slug": "macgregor-zt-plus-hybrid",
-   "name": "MacGregor ZT Plus Hybrid",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MacGregorGolfZTPlusHybrid2026_1.jpg?v=1772009501",
-   "price": 74.95,
+   "slug": "srixon-zxi-rkt-hybrid",
+   "name": "Srixon ZXi RKT Hybrid",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfZXiRKTHybridRescue_6.jpg?v=1788428695",
+   "price": 259.0,
    "unit": "each",
    "type": "hybrid",
-   "low": false,
-   "url": "/prices/macgregor-zt-plus-hybrid/"
+   "low": true,
+   "url": "/prices/srixon-zxi-rkt-hybrid/"
   },
   {
-   "slug": "cobra-signature-stand-bag-golf-bag",
-   "name": "Cobra Signature Stand Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/signature-stand-bag-navy.jpg",
-   "price": 109.0,
+   "slug": "callaway-apex-ut-utility-irons",
+   "name": "Callaway Apex UT Utility Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/apex-ut-25-iron-hero.jpg",
+   "price": 249.0,
    "unit": "each",
-   "type": "golf bag",
+   "type": "iron set",
    "low": false,
-   "url": "/prices/cobra-signature-stand-bag-golf-bag/"
+   "url": "/prices/callaway-apex-ut-utility-irons/"
+  },
+  {
+   "slug": "odyssey-ai-dual-putter",
+   "name": "Odyssey Ai-Dual Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/7-1.2-Ball-S-Ai-Dual-8226.jpg?v=1768640365",
+   "price": 199.0,
+   "unit": "each",
+   "type": "putter",
+   "low": false,
+   "url": "/prices/odyssey-ai-dual-putter/"
   }
  ],
  "pin": {
-  "slug": "wilson-duo-soft-golf-balls",
-  "name": "Wilson Duo Soft Golf Balls",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DUOSOFTWHITE1.jpg?v=1769174262",
-  "price": 19.95,
-  "unit": "per dozen",
-  "type": "golf ball",
+  "slug": "titleist-gts2-driver",
+  "name": "Titleist GTS2 Driver",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS2GolfDriver_1.jpg?v=1778745641",
+  "price": 629.0,
+  "unit": "each",
+  "type": "driver",
   "low": false,
-  "url": "/prices/wilson-duo-soft-golf-balls/"
+  "url": "/prices/titleist-gts2-driver/"
  }
 }

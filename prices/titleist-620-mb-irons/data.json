@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/titleist-620-mb-irons/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 939.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 939.0,
   "high": 1099.0,
-  "average": 1096.89,
+  "average": 1094.84,
   "priceChanges": 1,
   "series": [
    [
@@ -40,6 +40,10 @@
    ],
    [
     "2026-10-30",
+    939.0
+   ],
+   [
+    "2026-10-31",
     939.0
    ]
   ]
@@ -50,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/620mbirons1.jpg?v=1681123085",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

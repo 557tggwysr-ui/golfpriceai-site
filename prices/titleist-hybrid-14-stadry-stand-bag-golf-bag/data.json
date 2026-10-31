@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/titleist-hybrid-14-stadry-stand-bag-golf-bag/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 279.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 264.0,
   "high": 289.0,
-  "average": 286.89,
+  "average": 286.79,
   "priceChanges": 5,
   "series": [
    [
@@ -52,6 +52,10 @@
    [
     "2026-10-30",
     279.0
+   ],
+   [
+    "2026-10-31",
+    279.0
    ]
   ]
  },
@@ -61,5 +65,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-Hybrid-14-StaDry-Golf-Stand-Bag-Graphite.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/callaway-opus-wedge/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 159.0,
   "high": 327.0,
-  "average": 201.0,
+  "average": 200.45,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     159.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     159.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 57 days"
+  "summary": "Typical price: steady for 58 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/callaway-opus-black-3.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

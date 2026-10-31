@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/motocaddy-pro-series-cart-bag-golf-bag/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -25,7 +25,7 @@
   {
    "name": "Affordable Golf",
    "from": 179.95,
-   "options": 2
+   "options": 1
   },
   {
    "name": "Scottsdale Golf",
@@ -34,10 +34,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 159.0,
   "high": 179.0,
-  "average": 177.68,
+  "average": 177.7,
   "priceChanges": 4,
   "series": [
    [
@@ -61,7 +61,7 @@
     179.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     179.0
    ]
   ]
@@ -72,5 +72,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Motocaddy-Pro-Series-Lime.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

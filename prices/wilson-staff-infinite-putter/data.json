@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/wilson-staff-infinite-putter/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 99.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 99.0,
   "high": 109.0,
-  "average": 108.87,
+  "average": 108.74,
   "priceChanges": 1,
   "series": [
    [
@@ -35,6 +35,10 @@
    ],
    [
     "2026-10-30",
+    99.0
+   ],
+   [
+    "2026-10-31",
     99.0
    ]
   ]
@@ -45,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Wilson-Staff-2024-Infinite-Golf-Putter-Windy-City-5.jpg?v=1716523502",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

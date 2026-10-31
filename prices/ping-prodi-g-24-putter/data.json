@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/ping-prodi-g-24-putter/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 89.0,
@@ -19,14 +19,14 @@
   {
    "name": "Affordable Golf",
    "from": 89.95,
-   "options": 6
+   "options": 7
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 89.0,
   "high": 89.95,
-  "average": 89.93,
+  "average": 89.92,
   "priceChanges": 1,
   "series": [
    [
@@ -36,14 +36,18 @@
    [
     "2026-10-30",
     89.0
+   ],
+   [
+    "2026-10-31",
+    89.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "summary": "Typical price: steady for 2 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/ProdiG_2024_Putter-Anser_Cavity_1.jpg?v=1777636634",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

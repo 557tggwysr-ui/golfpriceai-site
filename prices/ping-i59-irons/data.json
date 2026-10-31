@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/ping-i59-irons/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 999.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 57,
+  "daysTracked": 58,
   "low": 999.0,
   "high": 1099.0,
-  "average": 1083.21,
+  "average": 1081.76,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     999.0
    ],
    [
-    "2026-10-30",
+    "2026-10-31",
     999.0
    ]
   ]
@@ -49,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ping_i59_irons_1.jpg?v=1777972740",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

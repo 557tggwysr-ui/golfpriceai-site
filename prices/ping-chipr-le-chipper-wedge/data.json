@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/ping-chipr-le-chipper-wedge/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 149.0,
   "high": 159.95,
-  "average": 159.33,
+  "average": 159.2,
   "priceChanges": 3,
   "series": [
    [
@@ -49,6 +49,10 @@
    [
     "2026-10-30",
     149.0
+   ],
+   [
+    "2026-10-31",
+    149.0
    ]
   ]
  },
@@ -58,5 +62,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ladies-Ping-ChipR-Le-Golf-Chipper-Graphite-3.jpg?v=1704790540",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

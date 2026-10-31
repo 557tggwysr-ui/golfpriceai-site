@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-se-electric-trolley/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 449.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 449.0,
   "high": 499.0,
-  "average": 481.76,
+  "average": 481.34,
   "priceChanges": 12,
   "series": [
    [
@@ -90,6 +90,10 @@
    [
     "2026-10-30",
     449.0
+   ],
+   [
+    "2026-10-31",
+    449.0
    ]
   ]
  },
@@ -99,5 +103,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26SENXLU-SE-26-Electric-Trolley-Hero-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }

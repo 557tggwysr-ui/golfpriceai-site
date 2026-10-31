@@ -1,8 +1,48 @@
 {
- "checked": "2026-10-30T21:43+00:00",
+ "checked": "2026-10-31T04:23+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Titleist Pro V1 Golf Balls",
+   "model_id": "titleist-pro-v1-golf-balls",
+   "date": "2026-10-31",
+   "was": 49.95,
+   "now": 43.96,
+   "unit": "per dozen",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
+  },
+  {
+   "model": "Titleist Pro V1x Golf Balls",
+   "model_id": "titleist-pro-v1x-golf-balls",
+   "date": "2026-10-31",
+   "was": 49.95,
+   "now": 43.96,
+   "unit": "per dozen",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-pro-v1x-golf-balls/"
+  },
+  {
+   "model": "Odyssey Ai-ONE Putter",
+   "model_id": "odyssey-ai-one-putter",
+   "date": "2026-10-31",
+   "was": 179.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-ai-one-putter/"
+  },
+  {
+   "model": "Mizuno Pro 241 Irons",
+   "model_id": "mizuno-pro-241-irons",
+   "date": "2026-10-31",
+   "was": 999.0,
+   "now": 949.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-241-irons/"
+  },
   {
    "model": "Cobra Darkspeed LS Driver",
    "model_id": "cobra-darkspeed-ls-driver",
@@ -124,16 +164,6 @@
    "url": "https://golfpriceai.com/prices/mizuno-br-dri-stand-bag-golf-bag/"
   },
   {
-   "model": "Cobra KING Tec Irons",
-   "model_id": "cobra-king-tec-irons",
-   "date": "2026-10-30",
-   "was": 919.0,
-   "now": 729.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-king-tec-irons/"
-  },
-  {
    "model": "Cobra KING Tec X Irons",
    "model_id": "cobra-king-tec-x-irons",
    "date": "2026-10-30",
@@ -142,6 +172,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-king-tec-x-irons/"
+  },
+  {
+   "model": "Cobra King Tec Irons",
+   "model_id": "cobra-king-tec-irons",
+   "date": "2026-10-30",
+   "was": 919.0,
+   "now": 729.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-tec-irons/"
   },
   {
    "model": "Ogio All Elements Hybrid Stand Bag Golf Bag",
@@ -1752,26 +1792,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/mizuno-jpx-925-forged-irons/"
-  },
-  {
-   "model": "Yonex Ezone Elite 4 Irons",
-   "model_id": "yonex-ezone-elite-4-irons",
-   "date": "2026-10-23",
-   "was": 599.0,
-   "now": 499.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/yonex-ezone-elite-4-irons/"
-  },
-  {
-   "model": "Callaway Fairway 14 HD Stand Bag Golf Bag",
-   "model_id": "callaway-fairway-14-hd-stand-bag-golf-bag",
-   "date": "2026-10-23",
-   "was": 299.0,
-   "now": 279.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-fairway-14-hd-stand-bag-golf-bag/"
   }
  ]
 }

@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-flextech-superlite-stand-bag-golf-bag/",
- "checked": "2026-10-30",
+ "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 154.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 149.95,
   "high": 164.0,
-  "average": 158.16,
+  "average": 158.1,
   "priceChanges": 16,
   "series": [
    [
@@ -106,6 +106,10 @@
    [
     "2026-10-30",
     154.0
+   ],
+   [
+    "2026-10-31",
+    154.0
    ]
   ]
  },
@@ -115,5 +119,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/M2341201-Flextech-Superlite-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-30"
+ "changed": "2026-10-31"
 }
