@@ -207,7 +207,7 @@ SHOP_PHOTOS = {"clubs": ("/tile-photos/tile-clubs.jpg", "50% 55%", "Drivers, iro
                "apparel": ("/tile-photos/tile-apparel.jpg", "50% 25%", "Polos, layers, waterproofs, shoes"),
                "accessories": ("/tile-photos/tile-accessories.jpg", "40% 62%", "Balls, bags, GPS, rangefinders")}
 # The Shop side panel: quick ways in that aren't a category.
-SHOP_QUICK = [("Price drops today", "/prices/drops/"), ("Price guides", "/prices/"), ("Brands A to Z", "/prices/brands/"),
+SHOP_QUICK = [("Starting golf? Your first kit", "/prices/start-golf/"), ("Price drops today", "/prices/drops/"), ("Price guides", "/prices/"), ("Brands A to Z", "/prices/brands/"),
               ("Black Friday golf deals", "/prices/black-friday/"), ("Golf gift finder", "/prices/golf-gifts/")]
 
 

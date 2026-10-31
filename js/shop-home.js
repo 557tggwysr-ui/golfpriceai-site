@@ -95,6 +95,12 @@
     if (t && total) { t.textContent = fmt(total); t.parentNode.hidden = false; }
   }).catch(function () {});
 
+  // Start golf for £X: the live total from the last price run.
+  fetch('/data/start-golf.json').then(function (r) { return r.json(); }).then(function (d) {
+    var el = document.getElementById('sh-start');
+    if (el && d && d.total) el.textContent = '\u00a3' + d.total;
+  }).catch(function () {});
+
   // The Bag Draft card: say when the next one opens.
   var bd = document.getElementById('sh-draft-when');
   if (bd) {

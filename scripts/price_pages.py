@@ -1617,6 +1617,13 @@ def build(models_list, products, today_str):
         except Exception as e:  # never stop the main build
             print(f"Ace Register skipped: {e}")
         try:
+            import start_golf
+            sg_changed, _ = start_golf.build(passing, built, products, today)
+            changed += sg_changed
+            sitemap.append(("prices/start-golf/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Start golf skipped: {e}")
+        try:
             import course_pages
             cp_changed, cp_sitemap = course_pages.build()
             changed += cp_changed

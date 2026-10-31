@@ -1,0 +1,89 @@
+/* Start golf for £X (/prices/start-golf/). Matches the approved mock-up (31 Oct 2026). */
+main.pp:has(.sg) { max-width: none; padding: 0; }
+.sg { max-width: 1232px; margin: 0 auto; padding: 0 24px 40px; display: flex; flex-direction: column; gap: 44px; color: #14211a; }
+.sg a { color: #2f8a1f; text-decoration: none; }
+.sg a:hover { color: #1f6a12; }
+.sg [hidden] { display: none !important; }
+.sg h2 { margin: 0; font: 700 28px/1.2 'Poppins', sans-serif; }
+.sg-kick { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: #2f8a1f; }
+.sg-kick-light { color: #8fd97c; }
+.sg-hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; padding-top: 48px; align-items: start; }
+.sg-copy { display: flex; flex-direction: column; gap: 16px; }
+.sg h1 { margin: 0; font: 800 64px/1.0 'Poppins', sans-serif; letter-spacing: -0.03em; }
+.sg h1 span { color: #3fae29; }
+.sg-lede { margin: 0; font-size: 18px; line-height: 1.55; color: #4a554e; max-width: 540px; }
+.sg-ctas { display: flex; gap: 10px; flex-wrap: wrap; }
+.sg .sg-btn { display: inline-block; background: #3fae29; color: #fff; border: 0; font: 700 16px 'Inter', sans-serif; padding: 15px 22px; border-radius: 12px; cursor: pointer; text-align: center; }
+.sg .sg-btn:hover { background: #2f8a1f; color: #fff; }
+.sg .sg-ghost { background: #fff; color: #14211a; border: 1px solid #d5d9d1; padding: 14px 21px; }
+.sg .sg-ghost:hover { background: #fff; color: #1f6a12; border-color: #3fae29; }
+.sg .sg-dark { background: #14211a; width: 100%; margin-top: 8px; }
+.sg .sg-dark:hover { background: #22352a; }
+.sg-small { margin: 0; font-size: 13px; line-height: 1.5; color: #5b665f; }
+.sg-msg { min-height: 1em; text-align: center; color: #1f6a12; font-weight: 600; }
+.sg-kit { background: #fff; border: 1px solid #e4e6e0; border-radius: 22px; padding: 26px; box-shadow: 0 18px 40px rgba(20,33,26,.08); display: flex; flex-direction: column; gap: 6px; scroll-margin-top: 92px; }
+.sg-kit-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.sg-kit-top > b { font: 700 20px 'Poppins', sans-serif; }
+.sg-toggle { display: flex; background: #f1f3ef; border-radius: 99px; padding: 4px; }
+.sg-toggle button { border: 0; background: none; border-radius: 99px; padding: 8px 13px; font: 600 13px 'Inter', sans-serif; color: #4a554e; cursor: pointer; }
+.sg-toggle button[aria-selected="true"] { background: #14211a; color: #fff; }
+.sg-list { margin: 0; padding: 0; list-style: none; }
+.sg-list li { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 13px 0; border-bottom: 1px dashed #d5d9d1; }
+.sg-list li:last-child { border-bottom: 2px solid #14211a; }
+.sg-list li span { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.sg-list li span b { font-size: 15px; }
+.sg-list small { font-size: 13px; color: #5b665f; line-height: 1.4; }
+.sg-list small a { font-weight: 600; }
+.sg-price { font: 700 18px 'Poppins', sans-serif; white-space: nowrap; }
+.sg-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 12px; }
+.sg-total b:first-child { font: 700 20px 'Poppins', sans-serif; }
+.sg-sum { font: 800 40px 'Poppins', sans-serif; color: #2f8a1f; }
+.sg-steps { display: flex; flex-direction: column; gap: 18px; scroll-margin-top: 92px; }
+.sg-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.sg-head span { font-size: 14px; color: #5b665f; }
+.sg-five { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.sg-five li { background: #fff; border: 1px solid #e4e6e0; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.sg-five li > b { font: 800 40px 'Poppins', sans-serif; color: #3fae29; line-height: 1; }
+.sg-five h3 { margin: 0; font: 700 18px/1.25 'Poppins', sans-serif; }
+.sg-five p { margin: 0; font-size: 14px; line-height: 1.5; color: #4a554e; }
+.sg-five p a { font-weight: 700; }
+.sg-five .sg-dark-step { background: #14211a; border-color: #14211a; color: #fff; }
+.sg-five .sg-dark-step > b { color: #8fd97c; }
+.sg-five .sg-dark-step p { color: #c4d0c8; }
+.sg .sg-five .sg-dark-step a { color: #8fd97c; }
+.sg-three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.sg-card { background: #fff; border: 1px solid #e4e6e0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+.sg-card > b { font: 700 20px/1.25 'Poppins', sans-serif; }
+.sg-card p { margin: 0; font-size: 15px; line-height: 1.5; color: #4a554e; }
+.sg-dark-card { background: #14211a; border-color: #14211a; color: #fff; }
+.sg-dark-card p { color: #c4d0c8; }
+.sg .sg-dark-card a { margin-top: auto; color: #8fd97c; font-weight: 700; }
+.sg-faqs { display: flex; flex-direction: column; gap: 10px; max-width: 860px; }
+.sg-faqs h2 { font-size: 26px; margin-bottom: 6px; }
+.sg-faq { background: #fff; border: 1px solid #e4e6e0; border-radius: 14px; padding: 0 18px; }
+.sg-faq summary { cursor: pointer; padding: 16px 0; font-weight: 600; font-size: 16px; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.sg-faq summary::-webkit-details-marker { display: none; }
+.sg-faq summary::after { content: "+"; color: #2f8a1f; font-size: 20px; line-height: 1; }
+.sg-faq[open] summary::after { content: "\2212"; }
+.sg-faq p { margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: #4a554e; }
+@media (max-width: 1000px) {
+  .sg-hero, .sg-three { grid-template-columns: 1fr; }
+  .sg-five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .sg { padding: 0 16px 24px; gap: 28px; }
+  .sg-hero { padding-top: 22px; gap: 22px; }
+  .sg h1 { font-size: 44px; }
+  .sg-lede { font-size: 15px; }
+  .sg h2 { font-size: 22px; }
+  .sg-kit { padding: 18px; }
+  .sg-toggle { width: 100%; }
+  .sg-toggle button { flex: 1; padding: 9px; }
+  .sg-price { font-size: 16px; }
+  .sg-sum { font-size: 32px; }
+  .sg-five { grid-template-columns: 1fr; gap: 10px; }
+  .sg-five li { flex-direction: row; flex-wrap: wrap; align-items: baseline; column-gap: 14px; padding: 16px; }
+  .sg-five li > b { font-size: 28px; width: 24px; }
+  .sg-five h3 { flex: 1; font-size: 16px; }
+  .sg-five p { flex-basis: 100%; padding-left: 38px; }
+}
