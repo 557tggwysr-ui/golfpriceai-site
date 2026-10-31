@@ -1606,6 +1606,17 @@ def build(models_list, products, today_str):
         except Exception as e:  # never stop the main build
             print(f"Bag Draft skipped: {e}")
         try:
+            import courses
+            courses.refresh(today)
+        except Exception as e:  # never stop the main build
+            print(f"Course list skipped: {e}")
+        try:
+            import aces_pages
+            changed += aces_pages.build()
+            sitemap.append(("play/aces/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Ace Register skipped: {e}")
+        try:
             import higher_lower
             changed += higher_lower.build(passing, built, today)
             sitemap.append(("play/higher-or-lower/", None))

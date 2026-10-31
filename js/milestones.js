@@ -33,6 +33,7 @@
   };
 
   // What each milestone is called, and the words that go with sharing it.
+  function ord(n) { n = Number(n); var s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
   function meta(m) {
     var d = m.d || {};
     switch (m.kind) {
@@ -40,6 +41,7 @@
       case 'scratch': return { label: 'Scratch Club', sub: 'PH ' + hcp(d.v), text: 'Scratch Club. Price Handicap ' + hcp(d.v) + '. I know the price of everything.', url: 'https://golfpriceai.com/play/par-price/' };
       case 'bandit': return { label: 'Bandit of the Month', sub: 'Cut ' + Number(d.cut).toFixed(1) + ' · ' + (d.month || ''), text: 'Bandit of the Month in ' + (d.league || 'our league') + '. Cut my Price Handicap by ' + Number(d.cut).toFixed(1) + '. No questions, please.', url: 'https://golfpriceai.com/play/par-price/' };
       case 'champion': return { label: 'Bag Draft champion', sub: (d.major || 'The Bag Draft') + ' · ' + d.pts + ' pts', text: 'Champion of ' + (d.major || 'The Bag Draft') + ' in ' + (d.league || 'our league') + '. Loser buys the first round.', url: 'https://golfpriceai.com/play/draft/' };
+      case 'ace': return { label: 'Hole-in-one', sub: 'the ' + ord(d.hole) + ' at ' + d.course, text: 'Hole-in-one! The ' + ord(d.hole) + ' at ' + d.course + ', ' + d.yards + ' yards with a ' + d.club + '. On the Ace Register for good.', url: 'https://golfpriceai.com/play/aces/' + (d.cid ? '?c=' + d.cid : '') };
       case 'streak': return { label: d.n + '-day Par Price streak', sub: STREAK[d.n] ? STREAK[d.n].title : '', text: d.n + ' days in a row on Par Price. Beat that.', url: 'https://golfpriceai.com/play/par-price/' };
     }
     return { label: 'Milestone', sub: '', text: 'A GolfPrice AI milestone.', url: 'https://golfpriceai.com/play/' };
@@ -48,7 +50,7 @@
   /* ------------------------------------------------------------ drawing */
   function fonts() {
     if (!document.fonts || !document.fonts.load) return Promise.resolve();
-    return Promise.all(['800 100px Poppins', '700 40px Poppins', '700 30px Inter', '400 30px Inter'].map(function (f) { return document.fonts.load(f).catch(function () {}); }))
+    return Promise.all(['800 100px Poppins', '700 40px Poppins', '700 30px Inter', '400 30px Inter', 'italic 600 40px "Cormorant Garamond"'].map(function (f) { return document.fonts.load(f).catch(function () {}); }))
       .then(function () {}, function () {});
   }
   function rr(x, cx, cy, w, h, r) {
@@ -88,7 +90,55 @@
   }
 
   // Each style: background, frame, colours. All cards share the frame at 56px.
+
+  // The hole-in-one certificate: cream paper, a double green border, a flag seal.
+  function drawAce(m) {
+    var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
+    var x = cv.getContext('2d'), d = m.d || {}, me = nick(), G = '#1f6a12', grey = '#4a554e', serif = "'Cormorant Garamond', Georgia, serif";
+    x.fillStyle = C.ink; x.fillRect(0, 0, 1080, 1350);
+    x.fillStyle = '#f7f3e8'; rr(x, 48, 48, 984, 1254, 28); x.fill();
+    x.strokeStyle = G; x.lineWidth = 3; rr(x, 76, 76, 928, 1198, 18); x.stroke();
+    x.lineWidth = 1; rr(x, 87, 87, 906, 1176, 12); x.stroke();
+    logo(x, 150, 172, C.ink, C.green);
+    text(x, d.no ? 'ACE REGISTER No. ' + String(d.no).padStart(4, '0') : 'ACE REGISTER', 930, 166, '700 20px Inter, sans-serif', G, 'right');
+    // the seal
+    x.strokeStyle = G; x.lineWidth = 3; x.beginPath(); x.arc(540, 290, 56, 0, Math.PI * 2); x.stroke();
+    x.lineWidth = 1.5; x.beginPath(); x.arc(540, 290, 48, 0, Math.PI * 2); x.stroke();
+    x.fillStyle = G; x.beginPath(); x.ellipse(540, 314, 18, 6, 0, 0, Math.PI * 2); x.fill();
+    x.strokeStyle = C.ink; x.lineWidth = 3; x.beginPath(); x.moveTo(540, 314); x.lineTo(540, 260); x.stroke();
+    x.fillStyle = C.orange; x.beginPath(); x.moveTo(540, 260); x.lineTo(566, 269); x.lineTo(540, 278); x.closePath(); x.fill();
+    text(x, 'This is to certify that', 540, 410, 'italic 600 40px ' + serif, grey, 'center');
+    var nf = me.length > 14 ? '800 60px Poppins, sans-serif' : '800 76px Poppins, sans-serif';
+    text(x, me, 540, 490, nf, C.ink, 'center');
+    text(x, 'holed out in one at', 540, 552, 'italic 600 40px ' + serif, grey, 'center');
+    text(x, 'The ' + ord(d.hole), 540, 690, '800 132px Poppins, sans-serif', G, 'center');
+    var cf = 34; x.font = '700 ' + cf + 'px Poppins, sans-serif';
+    while (x.measureText(d.course || '').width > 820 && cf > 22) { cf -= 2; x.font = '700 ' + cf + 'px Poppins, sans-serif'; }
+    text(x, d.course || '', 540, 752, '700 ' + cf + 'px Poppins, sans-serif', C.ink, 'center');
+    text(x, d.yards + ' yards · par ' + (d.par || 3) + (d.town ? ' · ' + d.town : ''), 540, 796, '500 26px Inter, sans-serif', grey, 'center');
+    x.fillStyle = '#c9c2ab'; x.fillRect(150, 846, 780, 1); x.fillRect(150, 960, 780, 1);
+    var cols = [['DATE', longDate(d.date || m.date)], ['CLUB', d.club || ''], ['BALL', d.ball || '–']];
+    cols.forEach(function (c, i) {
+      var cx = 150 + 130 + i * 260;
+      text(x, c[0], cx, 890, '700 16px Inter, sans-serif', '#5b665f', 'center');
+      var f = 26; x.font = '700 ' + f + 'px Poppins, sans-serif';
+      while (x.measureText(c[1]).width > 240 && f > 16) { f -= 2; x.font = '700 ' + f + 'px Poppins, sans-serif'; }
+      text(x, c[1], cx, 930, '700 ' + f + 'px Poppins, sans-serif', C.ink, 'center');
+    });
+    if (d.witnesses) {
+      var wf = 34; x.font = 'italic 600 ' + wf + 'px ' + serif;
+      var wt = 'Witnessed by ' + d.witnesses;
+      while (x.measureText(wt).width > 800 && wf > 22) { wf -= 2; x.font = 'italic 600 ' + wf + 'px ' + serif; }
+      text(x, wt, 540, 1020, 'italic 600 ' + wf + 'px ' + serif, grey, 'center');
+    }
+    if (d.onBoard) text(x, 'The ' + ord(d.onBoard) + ' ace on this course’s board', 150, 1196, '500 20px Inter, sans-serif', '#5b665f');
+    if (d.inYear) text(x, 'and the ' + ord(d.inYear) + ' in the UK in ' + String(d.date || m.date).slice(0, 4), 150, 1224, '500 20px Inter, sans-serif', '#5b665f');
+    pill(x, 'golfpriceai.com/play/aces', 930, 1236, G, '#fff');
+    return cv;
+  }
+
   function draw(m) {
+    if (m.kind === 'ace') return drawAce(m);
     var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
     var x = cv.getContext('2d'), d = m.d || {}, me = nick();
     var L = 120, R = 960, light = (m.kind === 'scratch' || (m.kind === 'streak' && d.n === 90)), green = m.kind === 'streak' && d.n === 30;
@@ -216,10 +266,10 @@
     var info = meta(m);
     var back = document.createElement('div'); back.className = 'ms-back';
     back.innerHTML = '<section class="ms-sheet" role="dialog" aria-modal="true" aria-label="' + esc(info.label) + '">' +
-      '<span class="ms-grip" aria-hidden="true"></span><span class="ms-kick">' + (fresh ? 'MILESTONE UNLOCKED' : 'YOUR MILESTONE') + '</span>' +
+      '<span class="ms-grip" aria-hidden="true"></span><span class="ms-kick">' + (m.kind === 'ace' ? 'ON THE RECORD' : fresh ? 'MILESTONE UNLOCKED' : 'YOUR MILESTONE') + '</span>' +
       '<h2 class="ms-title">' + esc(info.label) + (info.sub ? ': ' + esc(info.sub) : '') + '</h2>' +
       '<img class="ms-img" alt="' + esc(info.label) + ' card">' +
-      '<p class="ms-note">' + (fresh ? 'Saved to your Milestones in My Clubhouse. ' : '') + 'Your nickname is the only name on it.</p>' +
+      '<p class="ms-note">' + (fresh ? 'Saved to your Milestones in My Clubhouse. ' : '') + (m.kind === 'ace' ? 'Who saw it is only on your copy. The board shows your nickname.' : 'Your nickname is the only name on it.') + '</p>' +
       '<button type="button" class="ms-go" data-ms="share">Share to the group chat</button>' +
       '<div class="ms-row"><button type="button" data-ms="save">Save image</button><button type="button" data-ms="close">' + (fresh ? 'Not now' : 'Close') + '</button></div></section>';
     document.body.appendChild(back);

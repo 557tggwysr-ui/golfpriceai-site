@@ -192,6 +192,19 @@ td:first-child { font-weight: 400; }
       cr('Bag Draft champion', 'ms_champion') + cr('Par Price streak (30, 60, 90, 120)', 'ms_streak') + cr('Cards shared or saved', 'ms_share') + '</table>' +
       '<span class="dim">Counted once a day per golfer. The cards themselves never leave the golfer\u2019s phone unless they share them.</span></section>';
 
+    var ac = d.aces;
+    if (ac) {
+      html += '<section class="card" id="aces"><div class="head"><h2>The Ace Register</h2><span class="dim">' + n(ac.total) + ' aces · ' + n(ac.week) + ' this week · ' + n(ac.courses) + ' courses</span></div>' +
+        '<h3 class="dim">Courses golfers asked us to add (' + n(ac.pending.length) + ')</h3>' +
+        (ac.pending.length ? '<table>' + ac.pending.map(function (s) {
+          return '<tr><td>' + esc(s.name) + ', ' + esc(s.town || '') + ' <span class="dim">' + short(s.created) + '</span></td><td><button type="button" data-ace="approve" data-id="' + s.id + '">Add</button> <button type="button" data-ace="reject" data-id="' + s.id + '">No</button></td></tr>';
+        }).join('') + '</table>' : '<span class="dim">None waiting.</span>') +
+        '<h3 class="dim">Latest aces (take one off the boards if it doesn’t look right)</h3>' +
+        (ac.recent.length ? '<table>' + ac.recent.map(function (a) {
+          return '<tr><td><b>' + esc(a.nick) + '</b> · ' + esc(a.cname) + ', the ' + a.hole + (a.hole === 1 ? 'st' : a.hole === 2 ? 'nd' : a.hole === 3 ? 'rd' : 'th') + ' · ' + a.yards + ' yds · ' + esc(a.club) + ' · ' + short(a.day) + (a.public ? '' : ' <span class="dim">(private)</span>') + '</td><td><button type="button" data-ace="remove" data-id="' + a.id + '">Remove</button></td></tr>';
+        }).join('') + '</table>' : '<span class="dim">No aces yet.</span>') + '</section>';
+    }
+
     var gmax = Math.max.apply(null, d.growth.map(function (w) { return Math.max(w.leagues, w.societies); }).concat([1]));
     html += '<div class="two"><section class="card"><h2>Growth</h2><span class="dim">Leagues and societies at the end of each week</span><div class="growth" role="img" aria-label="Leagues and societies over the last six weeks">' +
       d.growth.map(function (w) {
@@ -203,6 +216,16 @@ td:first-child { font-weight: 400; }
       '<tr><td>Golfers who have ever played</td><td>' + n(p.ever) + '</td></tr></table></section></div>' +
       '<p class="note">Counts only: no nicknames, emails or society names are sent to this page. Par Price and Higher or Lower scores are kept for 120 days, and quiet leagues close after 90 days, so “ever” means roughly the last four months.</p>';
     document.getElementById('main').innerHTML = html;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-ace]'), function (b) {
+      b.addEventListener('click', function () {
+        var act = b.getAttribute('data-ace');
+        if (act === 'remove' && !window.confirm('Take this ace off the boards?')) return;
+        b.disabled = true;
+        fetch(API.replace('/stats', '/ace/admin'), { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ key: getKey(), action: act, id: Number(b.getAttribute('data-id')) }) })
+          .then(function (r) { return r.json(); }).then(function (r) { if (r.ok) load(getKey(), true, false); else { b.disabled = false; window.alert(r.error || 'That didn’t work.'); } })
+          .catch(function () { b.disabled = false; });
+      });
+    });
   }
   function kpi(label, v, sub) { return '<div class="kpi"><span class="dim">' + label + '</span><b>' + n(v) + '</b>' + sub + '</div>'; }
   function num(v, label) { return '<div><b>' + n(v) + '</b><span>' + label + '</span></div>'; }

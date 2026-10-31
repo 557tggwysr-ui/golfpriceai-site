@@ -110,6 +110,7 @@ export default {
       if (url.pathname.startsWith('/pp/')) return await parPrice(request, url, env, cors);
       if (url.pathname.startsWith('/draft/')) return await bagDraft(request, url, env, cors);
       if (url.pathname.startsWith('/soc/')) return await society(request, url, env, cors);
+      if (url.pathname.startsWith('/ace/')) return await aceRegister(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -395,7 +396,8 @@ async function fourballCount(url, env, cors) {
    hashed, daily-forgotten visitor key as the Demand Index); no ids kept. */
 const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_18: 1, band_19_28: 1, band_28_plus: 1, band_none: 1, hcp_share: 1,
   calc_index: 1, calc_course: 1, calc_playing: 1, calc_shoot: 1, calc_share: 1,
-  ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1 };
+  ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
+  ace_view: 1, ace_share: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -425,11 +427,145 @@ async function useCount(request, env, cors) {
   return ok;
 }
 
+
+/* ------------------------------------------------------------------ The Ace Register
+   Golfers log a hole-in-one against a course from the UK course list
+   (golfpriceai.com/data/courses/uk.json, from OpenStreetMap). Public boards
+   show the nickname, course, hole, yards, club and date only. Witnesses and
+   the ball stay on the golfer's own certificate and never reach this worker.
+   Courses golfers suggest wait for John's approval on the stats page. */
+const ACE_COURSE_RX = /^(?:[nwr]\d{1,12}|x\d{1,6})$/;
+let aceReady = false;
+async function aceSetup(env) {
+  if (aceReady) return;
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS ace_aces (id INTEGER PRIMARY KEY AUTOINCREMENT, pid TEXT, nick TEXT, course TEXT, cname TEXT, ctown TEXT, hole INTEGER, yards INTEGER, par INTEGER, club TEXT, day TEXT, public INTEGER, created TEXT)'),
+    env.DEMAND.prepare('CREATE UNIQUE INDEX IF NOT EXISTS ace_once ON ace_aces (pid, course, hole, day)'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS ace_course ON ace_aces (course)'),
+    env.DEMAND.prepare("CREATE TABLE IF NOT EXISTS ace_suggest (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, town TEXT, created TEXT, status TEXT DEFAULT 'pending')"),
+  ]);
+  aceReady = true;
+}
+let aceCourses = null, aceCoursesAt = 0;
+async function aceCourse(env, id) {
+  if (id[0] === 'x') {
+    const r = await env.DEMAND.prepare("SELECT name, town FROM ace_suggest WHERE id = ? AND status = 'approved'").bind(Number(id.slice(1))).first();
+    return r ? { n: r.name, t: r.town || '' } : null;
+  }
+  if (!aceCourses || Date.now() - aceCoursesAt > 6 * 3600e3) {
+    const res = await fetch((env.SITE || 'https://golfpriceai.com') + '/data/courses/uk.json', { cf: { cacheTtl: 3600, cacheEverything: true } });
+    if (!res.ok) return null;
+    const d = await res.json(), m = {};
+    (d.courses || []).forEach((c) => { m[c.id] = c; });
+    aceCourses = m; aceCoursesAt = Date.now();
+  }
+  return aceCourses[id] || null;
+}
+function aceClean(s, max) { return String(s || '').replace(/[^\p{L}\p{N} '’.&()/-]/gu, '').replace(/\s+/g, ' ').trim().slice(0, max); }
+async function aceRegister(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'The Ace Register is taking a short break. Please try again later.' }, 503, cors);
+  await aceSetup(env);
+  const path = url.pathname, db = env.DEMAND;
+  let body = {};
+  if (request.method === 'POST') {
+    try { body = JSON.parse((await request.text()).slice(0, 2000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    const ip = request.headers.get('cf-connecting-ip') || '';
+    if (await tooMany('ace-' + ip, 20, 3600)) return json({ ok: false, error: 'Easy, tiger. Please try again later.' }, 429, cors);
+  }
+  const year = new Date().toISOString().slice(0, 4);
+
+  if (path === '/ace/log' && request.method === 'POST') {
+    const pid = PID_RX.test(String(body.pid || '')) ? String(body.pid) : '';
+    const nick = cleanName(body.nick, 2, 20), course = String(body.course || '');
+    const hole = Math.round(Number(body.hole)), yards = Math.round(Number(body.yards)), par = Math.round(Number(body.par) || 3);
+    const club = aceClean(body.club, 24), day = String(body.day || ''), pub = body.public === false ? 0 : 1;
+    if (!pid || !ACE_COURSE_RX.test(course)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    if (nick === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse. Try another nickname.' }, 400, cors);
+    if (!nick) return json({ ok: false, error: 'Pick a nickname (at least 2 letters).' }, 400, cors);
+    if (!(hole >= 1 && hole <= 27)) return json({ ok: false, error: 'Which hole? Pick 1 to 27.' }, 400, cors);
+    if (!(yards >= 40 && yards <= 650)) return json({ ok: false, error: 'How long was the hole, in yards?' }, 400, cors);
+    if (![3, 4, 5].includes(par)) return json({ ok: false, error: 'Par should be 3, 4 or 5.' }, 400, cors);
+    if (!club) return json({ ok: false, error: 'Which club did it?' }, 400, cors);
+    const today = new Date(Date.now() + 864e5).toISOString().slice(0, 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || day > today || day < '1950-01-01') return json({ ok: false, error: 'That date doesn’t look right.' }, 400, cors);
+    const c = await aceCourse(env, course);
+    if (!c) return json({ ok: false, error: 'We couldn’t find that course. Pick it from the list.' }, 400, cors);
+    const recent = await db.prepare('SELECT COUNT(*) AS c FROM ace_aces WHERE pid = ? AND created >= ?').bind(pid, new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10)).first('c');
+    if (recent >= 6) return json({ ok: false, error: 'Six aces in a year? Tour card, surely. Get in touch and we’ll sort it.' }, 429, cors);
+    const had = await db.prepare('SELECT id FROM ace_aces WHERE pid = ? AND course = ? AND hole = ? AND day = ?').bind(pid, course, hole, day).first();
+    const r = had ? { meta: { changes: 0 } } : await db.prepare('INSERT OR IGNORE INTO ace_aces (pid, nick, course, cname, ctown, hole, yards, par, club, day, public, created) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+      .bind(pid, nick, course, aceClean(c.n, 80), aceClean(c.t || '', 40), hole, yards, par, club, day, pub, new Date().toISOString().slice(0, 10)).run();
+    const row = await db.prepare('SELECT id FROM ace_aces WHERE pid = ? AND course = ? AND hole = ? AND day = ?').bind(pid, course, hole, day).first();
+    if (!row) return json({ ok: false, error: 'Something went wrong. Please try again.' }, 500, cors);
+    const onBoard = await db.prepare('SELECT COUNT(*) AS c FROM ace_aces WHERE course = ? AND public = 1 AND id <= ?').bind(course, row.id).first('c');
+    const inYear = await db.prepare('SELECT COUNT(*) AS c FROM ace_aces WHERE substr(day, 1, 4) = ? AND id <= ?').bind(day.slice(0, 4), row.id).first('c');
+    return json({ ok: true, again: !(r.meta && r.meta.changes), no: row.id, onBoard, inYear, course: { id: course, n: c.n, t: c.t || '' } }, 200, cors);
+  }
+
+  if (path === '/ace/board') {
+    const course = String(url.searchParams.get('c') || '');
+    if (!ACE_COURSE_RX.test(course)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const rows = (await db.prepare('SELECT nick, hole, yards, par, club, day FROM ace_aces WHERE course = ? AND public = 1 ORDER BY day DESC LIMIT 200').bind(course).all()).results || [];
+    const c = await aceCourse(env, course);
+    return json({ ok: true, course: c ? { id: course, n: c.n, t: c.t || '' } : null, aces: rows }, 200, Object.assign({ 'cache-control': 'public, max-age=120' }, cors));
+  }
+
+  if (path === '/ace/latest') {
+    const latest = (await db.prepare('SELECT nick, course, cname, ctown, hole, yards, club, day FROM ace_aces WHERE public = 1 ORDER BY id DESC LIMIT 12').all()).results || [];
+    const total = await db.prepare('SELECT COUNT(*) AS c FROM ace_aces WHERE substr(day, 1, 4) = ?').bind(year).first('c');
+    const courses = await db.prepare('SELECT COUNT(DISTINCT course) AS c FROM ace_aces').first('c');
+    const clubs = (await db.prepare('SELECT lower(club) AS club, COUNT(*) AS c FROM ace_aces GROUP BY lower(club) ORDER BY c DESC LIMIT 1').all()).results || [];
+    const holes = (await db.prepare('SELECT course, cname, hole, COUNT(*) AS c FROM ace_aces WHERE public = 1 GROUP BY course, hole HAVING c >= 2 ORDER BY c DESC LIMIT 5').all()).results || [];
+    return json({ ok: true, year, total, courses, topClub: clubs[0] ? clubs[0].club : null, latest, holes }, 200, Object.assign({ 'cache-control': 'public, max-age=120' }, cors));
+  }
+
+  if (path === '/ace/extra') {
+    const rows = (await db.prepare("SELECT id, name, town FROM ace_suggest WHERE status = 'approved'").all()).results || [];
+    return json({ ok: true, courses: rows.map((r) => ({ id: 'x' + r.id, n: r.name, t: r.town || '' })) }, 200, Object.assign({ 'cache-control': 'public, max-age=600' }, cors));
+  }
+
+  if (path === '/ace/suggest' && request.method === 'POST') {
+    const name = cleanName(body.name, 4, 80), town = cleanName(body.town, 2, 40);
+    if (name === null || town === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse.' }, 400, cors);
+    if (!name || !town) return json({ ok: false, error: 'Give us the course name and the town.' }, 400, cors);
+    const waiting = await db.prepare("SELECT COUNT(*) AS c FROM ace_suggest WHERE status = 'pending'").first('c');
+    if (waiting >= 200) return json({ ok: false, error: 'We’re catching up on new courses. Please try again in a day or two.' }, 429, cors);
+    await db.prepare('INSERT INTO ace_suggest (name, town, created) VALUES (?, ?, ?)').bind(name, town, new Date().toISOString().slice(0, 10)).run();
+    return json({ ok: true }, 200, cors);
+  }
+
+  // John only: approve or turn down a suggested course, or take an ace off the boards.
+  if (path === '/ace/admin' && request.method === 'POST') {
+    const ip = request.headers.get('cf-connecting-ip') || 'unknown';
+    if (await keyLocked(ip)) return json({ ok: false, error: 'Too many wrong tries. The door opens again in ten minutes.' }, 429, cors);
+    if (!keyMatches(env, body.key)) { await tooMany('stats-' + ip, 5, 600); return json({ ok: false, error: 'That key isn’t right.' }, 403, cors); }
+    const id = Number(body.id), act = String(body.action || '');
+    if (!(id > 0)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    if (act === 'approve' || act === 'reject') await db.prepare('UPDATE ace_suggest SET status = ? WHERE id = ?').bind(act === 'approve' ? 'approved' : 'rejected', id).run();
+    else if (act === 'remove') await db.prepare('DELETE FROM ace_aces WHERE id = ?').bind(id).run();
+    else return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    return json({ ok: true }, 200, cors);
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
+async function keyLocked(ip) {
+  const hit = await caches.default.match(new Request(`https://rate.golfpriceai.invalid/${encodeURIComponent('stats-' + ip)}`));
+  return !!(hit && Number(await hit.text()) >= 5);
+}
+function keyMatches(env, key) {
+  if (!env.STATS_KEY) return false;
+  const given = new TextEncoder().encode(String(key || '')), want = new TextEncoder().encode(String(env.STATS_KEY));
+  let same = given.length === want.length;
+  for (let i = 0; i < want.length; i++) same = same && given[i] === want[i];
+  return same;
+}
+
 /* ------------------------------------------------------------------ Clubhouse stats
    John's private usage page (golfpriceai.com/stats/). POST /stats { key }.
    The key is a Cloudflare secret, STATS_KEY, that only John knows; five wrong
-   tries in ten minutes locks the door. Counts only: no nicknames, emails,
-   society or league names ever leave this function. */
+   tries in ten minutes locks the door. Counts only: no emails, society or
+   league names ever leave this function. The one exception is the Ace
+   Register's moderation list (nicknames already public on the ace boards). */
 async function clubStats(request, env, cors) {
   const ip = request.headers.get('cf-connecting-ip') || 'unknown';
   const lockKey = new Request(`https://rate.golfpriceai.invalid/${encodeURIComponent('stats-' + ip)}`);
@@ -542,6 +678,18 @@ async function clubStats(request, env, cors) {
       'ms_first_hcp', 'ms_scratch', 'ms_bandit', 'ms_champion', 'ms_streak', 'ms_share'].reduce((o, k) => {
       o[k] = { today: sumUse(k, day), d7: sumUse(k, d7) }; return o; }, {}),
   };
+
+  // ---- The Ace Register: counts, plus courses to approve and the latest aces to check.
+  try {
+    await aceSetup(env);
+    out.aces = {
+      total: await one('SELECT COUNT(*) AS c FROM ace_aces'),
+      week: await one('SELECT COUNT(*) AS c FROM ace_aces WHERE created >= ?', weekAgo),
+      courses: await one('SELECT COUNT(DISTINCT course) AS c FROM ace_aces'),
+      pending: await all("SELECT id, name, town, created FROM ace_suggest WHERE status = 'pending' ORDER BY id LIMIT 50"),
+      recent: await all('SELECT id, nick, cname, hole, yards, club, day, public FROM ace_aces ORDER BY id DESC LIMIT 20'),
+    };
+  } catch (e) { out.aces = null; }
 
   // ---- League and society health
   out.leagues.twoActive = await one('SELECT COUNT(*) AS c FROM (SELECT m.league FROM pp_members m JOIN (SELECT DISTINCT pid FROM pp_scores WHERE n >= ?) s ON s.pid = m.pid GROUP BY m.league HAVING COUNT(*) >= 2)', monday);

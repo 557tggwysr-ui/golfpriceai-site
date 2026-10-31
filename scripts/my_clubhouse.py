@@ -45,7 +45,7 @@ def page():
 <p class="mc-small">What’s kept: a random player number and the things you chose, in this browser only. No name, no email, no password. Price alerts stay in your email: every alert email has a link to change or stop it. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
 </div>
 <noscript><p class="mc-small">My Clubhouse needs JavaScript switched on.</p></noscript>
-<script src="/js/milestones.js?v=20261030m" defer></script>
+<script src="/js/milestones.js?v=20261031" defer></script>
 <script src="/js/my-clubhouse.js?v=20261030m" defer></script>
 <script src="/js/move.js?v=20261024a" defer></script>"""
     return page_shell(title="My Clubhouse | GolfPrice AI",
