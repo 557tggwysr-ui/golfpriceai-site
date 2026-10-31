@@ -69,7 +69,7 @@ main.pp:has(.or) { max-width: none; padding: 0; }
 .or a:hover { color: #1f6a12; }
 .or h2 { margin: 0; font: 700 24px/1.2 'Poppins', sans-serif; }
 .or [hidden] { display: none !important; }
-.or-hero { background: #14211a; color: #fff; border-radius: 0 0 28px 28px; margin: 0 -24px; padding: 48px 48px 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: end; }
+.or-hero { background: #14211a; color: #fff; border-radius: 28px; margin: 24px 0 0; padding: 44px 44px 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: end; }
 .or-hero .cc-kick { color: #8fd97c; }
 .or-hero h1 { margin: 10px 0 12px; font: 800 56px/1.0 'Poppins', sans-serif; letter-spacing: -0.03em; }
 .or-hero h1 span { color: #8fd97c; }
@@ -125,7 +125,7 @@ main.pp:has(.or) { max-width: none; padding: 0; }
 .or-faqs p { margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: #4a554e; }
 @media (max-width: 860px) {
   .or { padding: 0 16px 32px; gap: 24px; }
-  .or-hero { margin: 0 -16px; padding: 28px 16px 24px; grid-template-columns: minmax(0, 1fr); gap: 20px; border-radius: 0 0 22px 22px; }
+  .or-hero { margin: 16px 0 0; padding: 26px 18px 22px; grid-template-columns: minmax(0, 1fr); gap: 20px; border-radius: 22px; }
   .or-hero h1 { font-size: 40px; }
   .or-stats b { font-size: 24px; }
   .or-two, .or-steps { grid-template-columns: minmax(0, 1fr); }
