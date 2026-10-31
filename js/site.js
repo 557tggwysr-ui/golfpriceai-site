@@ -88,8 +88,39 @@
       });
     }).catch(function () { shopCounts = false; });
   }
+  // "Biggest drop today": the day's biggest genuine drop (data/biggest-drop.json,
+  // written by scripts/drops_page.py every 6 hours). Loaded with the counts.
+  var bigLoaded = false;
+  function loadBiggest() {
+    if (bigLoaded) return;
+    bigLoaded = true;
+    fetch('/data/biggest-drop.json').then(function (r) { return r.json(); }).then(function (d) {
+      var p = function (n) { return '£' + Number(n).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+      document.querySelectorAll('.gp-big').forEach(function (a) {
+        var set = function (k, v) { var el = a.querySelector('[data-big="' + k + '"]'); if (el) el.textContent = v; };
+        if (d.drop) {
+          var x = d.drop, per = x.unit ? ' ' + x.unit : '';
+          a.href = x.url;
+          set('name', x.name); set('was', 'was ' + p(x.was) + per); set('now', p(x.now));
+          set('when', d.checked ? 'checked at ' + String(d.checked).slice(11, 16) : '');
+          var note = a.querySelector('[data-big="note"]');
+          if (note) note.innerHTML = '<b>' + p(x.fall) + ' lower</b> than before the drop. A genuine drop against our own price history.';
+          var box = a.querySelector('.gp-big-img');
+          if (box && x.image) { var img = new Image(); img.alt = ''; img.referrerPolicy = 'no-referrer'; img.onerror = function () { box.innerHTML = ''; }; img.src = x.image; box.appendChild(img); }
+        } else if (d.week) {
+          set('name', d.week + ' genuine price drops this week'); set('was', 'Checked against our own price history'); set('now', 'See them all');
+        } else return;
+        a.hidden = false;
+        var blurb = a.parentNode.querySelector('.gp-shop-blurb'); if (blurb) blurb.hidden = true;
+      });
+    }).catch(function () { bigLoaded = false; });
+  }
   var shopItem = header.querySelector('.gp-nav-item[data-section="shop"]');
-  if (shopItem) { shopItem.addEventListener('mouseenter', loadShopCounts); shopItem.addEventListener('focusin', loadShopCounts); }
+  if (shopItem) {
+    shopItem.addEventListener('mouseenter', function () { loadShopCounts(); loadBiggest(); });
+    shopItem.addEventListener('focusin', function () { loadShopCounts(); loadBiggest(); });
+  }
+  document.querySelectorAll('.gp-acc[data-section="shop"] .gp-acc-btn').forEach(function (b) { b.addEventListener('click', function () { loadShopCounts(); loadBiggest(); }); });
 
   /* ------------------------------------------------------------ which section are we in? */
   (function markActive() {
@@ -153,7 +184,7 @@
     else menuBtn.focus();
   }
   if (menu && menuBtn) {
-    menuBtn.addEventListener('click', function () { toggleMenu(true); loadShopCounts(); });
+    menuBtn.addEventListener('click', function () { toggleMenu(true); loadShopCounts(); loadBiggest(); });
     menu.querySelector('.gp-menu-close').addEventListener('click', function () { toggleMenu(false); });
     var accBtns = Array.prototype.slice.call(menu.querySelectorAll('.gp-acc-btn'));
     accBtns.forEach(function (btn) {

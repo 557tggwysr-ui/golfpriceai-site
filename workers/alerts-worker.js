@@ -112,6 +112,7 @@ export default {
       if (url.pathname.startsWith('/soc/')) return await society(request, url, env, cors);
       if (url.pathname.startsWith('/ace/')) return await aceRegister(request, url, env, cors);
       if (url.pathname.startsWith('/cc/')) return await crowdCaddie(request, url, env, cors);
+      if (url.pathname.startsWith('/pb/')) return await peoplesBag(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -398,7 +399,7 @@ async function fourballCount(url, env, cors) {
 const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_18: 1, band_19_28: 1, band_28_plus: 1, band_none: 1, hcp_share: 1,
   calc_index: 1, calc_course: 1, calc_playing: 1, calc_shoot: 1, calc_share: 1,
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
-  ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1 };
+  ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -761,6 +762,79 @@ async function crowdCaddie(request, url, env, cors) {
   }
   return json({ ok: false, error: 'Not found.' }, 404, cors);
 }
+/* ------------------------------------------------------------------ The People's Bag
+   golfpriceai.com/play/peoples-bag/: golfers pick their favourite model in
+   eight slots (driver to bag). The most-picked model in each slot makes the
+   People's Bag. One pick per slot per player id, changeable any time. The
+   models on offer come from the site's own data/peoples-bag.json, so only
+   real models with price pages can be picked. */
+const PB_SLOTS = { driver: 1, wood: 1, hybrid: 1, irons: 1, wedge: 1, putter: 1, ball: 1, bag: 1 };
+let pbReady = false, pbList = null, pbListAt = 0;
+async function pbSetup(env) {
+  if (pbReady) return;
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pb_picks (pid TEXT, slot TEXT, slug TEXT, at TEXT, PRIMARY KEY (pid, slot)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS pb_slot ON pb_picks (slot, slug)'),
+  ]);
+  pbReady = true;
+}
+async function pbAllowed(env) {
+  if (pbList && Date.now() - pbListAt < 3600e3) return pbList;
+  const res = await fetch((env.SITE || 'https://golfpriceai.com') + '/data/peoples-bag.json', { cf: { cacheTtl: 1800, cacheEverything: true } });
+  if (!res.ok) return pbList;
+  const d = await res.json(), m = {};
+  (d.slots || []).forEach((s) => { m[s.key] = new Set((s.items || []).map((x) => x.s)); });
+  pbList = m; pbListAt = Date.now();
+  return m;
+}
+async function pbState(env, pid) {
+  const db = env.DEMAND;
+  const rows = (await db.prepare('SELECT slot, slug, COUNT(*) AS c FROM pb_picks GROUP BY slot, slug ORDER BY c DESC').all()).results || [];
+  const slots = {};
+  rows.forEach((r) => {
+    const s = slots[r.slot] || (slots[r.slot] = { n: 0, top: [] });
+    s.n += Number(r.c);
+    if (s.top.length < 6) s.top.push({ s: r.slug, c: Number(r.c) });
+  });
+  const pickers = Number(await db.prepare('SELECT COUNT(DISTINCT pid) AS c FROM pb_picks').first('c')) || 0;
+  let mine = null;
+  if (pid) {
+    mine = {};
+    ((await db.prepare('SELECT slot, slug FROM pb_picks WHERE pid = ?').bind(pid).all()).results || []).forEach((r) => { mine[r.slot] = r.slug; });
+  }
+  return { ok: true, pickers, slots, mine };
+}
+async function peoplesBag(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'The People’s Bag is taking a short break. Please try again later.' }, 503, cors);
+  await pbSetup(env);
+  const path = url.pathname, db = env.DEMAND, ip = request.headers.get('cf-connecting-ip') || '';
+  if (path === '/pb/state') {
+    const p = String(url.searchParams.get('pid') || '');
+    return json(await pbState(env, PID_RX.test(p) ? p : ''), 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  }
+  if (path === '/pb/pick' && request.method === 'POST') {
+    let body = {};
+    try { body = JSON.parse((await request.text()).slice(0, 500)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    if (await tooMany('pb-' + ip, 120, 3600)) return json({ ok: false, error: 'Easy, tiger. Please try again later.' }, 429, cors);
+    const pid = String(body.pid || ''), slot = String(body.slot || ''), slug = String(body.slug || '');
+    if (!PID_RX.test(pid) || !PB_SLOTS[slot] || !SLUG_RX.test(slug)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const allowed = await pbAllowed(env);
+    if (!allowed || !allowed[slot] || !allowed[slot].has(slug)) return json({ ok: false, error: 'We can’t find that one. Pick it from the list.' }, 400, cors);
+    const had = await db.prepare('SELECT slug FROM pb_picks WHERE pid = ? AND slot = ?').bind(pid, slot).first();
+    if (!had) {
+      // A new picker in this slot: once per connection per slot per day, so the bag can't be stuffed.
+      await demandSetup(env);
+      const day = new Date().toISOString().slice(0, 10);
+      const v = (await sha1([ip, day, env.ALERTS_SECRET || ''].join('|'))).slice(0, 16);
+      const fresh = await db.prepare('INSERT OR IGNORE INTO seen (day, v, kind, key) VALUES (?, ?, ?, ?)').bind(day, v, 'pb', slot).run();
+      if (!(fresh.meta && fresh.meta.changes)) return json({ ok: false, error: 'Someone on this connection already picked this slot today. Try again tomorrow.' }, 429, cors);
+    }
+    await db.prepare('INSERT INTO pb_picks (pid, slot, slug, at) VALUES (?, ?, ?, ?) ON CONFLICT (pid, slot) DO UPDATE SET slug = excluded.slug, at = excluded.at')
+      .bind(pid, slot, slug, new Date().toISOString().slice(0, 10)).run();
+    return json(await pbState(env, pid), 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
 async function keyLocked(ip) {
   const hit = await caches.default.match(new Request(`https://rate.golfpriceai.invalid/${encodeURIComponent('stats-' + ip)}`));
   return !!(hit && Number(await hit.text()) >= 5);
@@ -921,6 +995,18 @@ async function clubStats(request, env, cors) {
       nicks: await all('SELECT n.id, n.nick, n.hidden, n.updated, (SELECT COUNT(*) FROM cc_votes v WHERE v.pid = n.pid) AS calls FROM cc_nicks n ORDER BY n.id DESC LIMIT 25'),
     };
   } catch (e) { out.caddie = null; }
+
+  // ---- The People's Bag
+  try {
+    await pbSetup(env);
+    out.peoplesBag = {
+      pickers: await one('SELECT COUNT(DISTINCT pid) AS c FROM pb_picks'),
+      picks: await one('SELECT COUNT(*) AS c FROM pb_picks'),
+      full: await one('SELECT COUNT(*) AS c FROM (SELECT pid FROM pb_picks GROUP BY pid HAVING COUNT(*) >= 8)'),
+      week: await one('SELECT COUNT(*) AS c FROM pb_picks WHERE at >= ?', weekAgo),
+      views7: sumUse('pb_view', d7), shares7: sumUse('pb_share', d7),
+    };
+  } catch (e) { out.peoplesBag = null; }
 
   // ---- League and society health
   out.leagues.twoActive = await one('SELECT COUNT(*) AS c FROM (SELECT m.league FROM pp_members m JOIN (SELECT DISTINCT pid FROM pp_scores WHERE n >= ?) s ON s.pid = m.pid GROUP BY m.league HAVING COUNT(*) >= 2)', monday);

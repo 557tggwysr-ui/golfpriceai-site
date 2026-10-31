@@ -496,7 +496,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/site.css?v=20261030">
+<link rel="stylesheet" href="/css/site.css?v=20261101">
 <link rel="stylesheet" href="/css/prices.css?v=20261029">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
@@ -515,7 +515,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 {site_chrome.footer_html()}
 <script src="/js/analytics.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script src="/js/site.js?v=20261030" defer></script>
+<script src="/js/site.js?v=20261101" defer></script>
 </body>
 </html>
 """
@@ -1655,6 +1655,12 @@ def build(models_list, products, today_str):
             sitemap.append(("play/oracle/", None))
         except Exception as e:  # never stop the main build
             print(f"Oracle board skipped: {e}")
+        try:
+            import peoples_bag
+            changed += peoples_bag.build(passing, built, today)
+            sitemap.append(("play/peoples-bag/", None))
+        except Exception as e:  # never stop the main build
+            print(f"People's Bag skipped: {e}")
         try:
             import start_golf
             sg_changed, _ = start_golf.build(passing, built, products, today)

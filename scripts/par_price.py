@@ -226,6 +226,13 @@ def hub_page(n, rnd):
     <p><a class="ch-btn" href="/play/leagues/">Start a league</a></p>
   </section>
 
+  <section class="ch-panel" id="peoples-bag">
+    <span class="ch-kicker">New · The People’s Bag</span>
+    <h2>The bag UK golfers would build</h2>
+    <p>Pick your driver, irons, putter, ball and the rest. The most-picked model in each slot makes the People’s Bag, priced live. How does yours compare?</p>
+    <p><a class="ch-btn" href="/play/peoples-bag/">Pick my bag</a></p>
+  </section>
+
   <section class="ch-panel" id="oracle">
     <span class="ch-kicker">New · Crowd Caddie</span>
     <h2>The Oracle board</h2>

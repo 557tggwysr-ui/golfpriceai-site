@@ -205,6 +205,12 @@ td:first-child { font-weight: 400; }
         }).join('') + '</table>' : '<span class="dim">No aces yet.</span>') + '</section>';
     }
 
+    var pb = d.peoplesBag;
+    if (pb) {
+      html += '<section class="card" id="peoples-bag"><div class="head"><h2>The People\u2019s Bag</h2><span class="dim">' + n(pb.pickers) + ' golfers \u00b7 ' + n(pb.full) + ' full bags</span></div>' +
+        '<div class="nums">' + num(pb.picks, 'picks in all') + num(pb.week, 'picks this week') + num(pb.views7, 'visitors, 7 days') + num(pb.shares7, 'bags shared, 7 days') + '</div></section>';
+    }
+
     var cc = d.caddie;
     if (cc) {
       html += '<section class="card" id="caddie"><div class="head"><h2>Crowd Caddie</h2><span class="dim">' + n(cc.total) + ' calls · ' + n(cc.callers) + ' golfers · ' + n(cc.products) + ' products</span></div>' +

@@ -163,6 +163,22 @@ body.gp-lock { overflow: hidden; }
 .gp-drop .gp-shop-quick a { display: flex; justify-content: space-between; padding: 10px 0; border-radius: 0; color: #fff; font-size: 14.5px; border-bottom: 1px solid rgba(255,255,255,.08); }
 .gp-drop .gp-shop-quick a span { color: #8fd97c; }
 .gp-drop .gp-shop-quick a:hover { background: none; color: #8fd97c; }
+.gp-drop a.gp-big, .gp-acc-body a.gp-big { display: flex; flex-direction: column; gap: 10px; background: #1f3127; border-radius: 14px; padding: 14px; color: #fff; text-decoration: none; }
+.gp-acc-body a.gp-big { background: #14211a; border-radius: 16px; padding: 14px; margin: 4px 0 8px; }
+.gp-drop a.gp-big:hover, .gp-acc-body a.gp-big:hover { background: #23382b; color: #fff; }
+.gp-big[hidden] { display: none !important; }
+.gp-big-k { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #8fd97c; }
+.gp-big-k small { font-size: 11px; font-weight: 600; letter-spacing: 0; color: #c4d0c8; }
+.gp-big-row { display: flex; gap: 12px; align-items: center; }
+.gp-big-img { width: 64px; height: 64px; flex: none; background: #fff; border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.gp-big-img:empty { display: none; }
+.gp-big-img img { width: 100%; height: 100%; object-fit: contain; }
+.gp-big-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.gp-big-txt b { font: 700 14.5px/1.25 'Poppins', sans-serif; color: #fff; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.gp-big-txt small, .gp-acc-body .gp-big-txt small { font-size: 12.5px; color: #c4d0c8; }
+.gp-big-txt strong { font: 800 22px 'Poppins', sans-serif; color: #8fd97c; }
+.gp-big-note { font-size: 12.5px; line-height: 1.45; color: #c4d0c8; }
+.gp-big-note b { color: #fff; }
 .gp-drop a.gp-shop-cta { margin-top: auto; background: var(--gp-green); color: #fff; font-weight: 700; text-align: center; padding: 12px; border-radius: 12px; }
 .gp-drop a.gp-shop-cta:hover { background: #2f8a1f; color: #fff; }
 @media (max-width: 1239px) {

@@ -135,6 +135,8 @@ def menu():
              '<path d="M12 21V5M12 5l7 3-7 3M8 21h8M12 21a4 1.2 0 100-.1"></path>'),
             ("The Oracle board", "Crowd Caddie: call where golf prices go next.", "/play/oracle/",
              '<path d="M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 7v5l3 3"></path>'),
+            ("The People’s Bag", "The golf bag UK golfers would build, priced live.", "/play/peoples-bag/",
+             '<path d="M8 7h8l-1 14H9L8 7zM10 7V4h4v3M7 12h10"></path>'),
             ("Locker Room", "Your champion bags, bag tags and record.", "/play/locker/",
              '<path d="M6 3h12v18H6zM12 3v18M9 7h1M9 10h1M14 7h1M14 10h1M10 15v2M14 15v2"></path>'),
         ],
@@ -255,8 +257,9 @@ def header_html():
       <a href="/shop/" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Shop{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
       <div class="gp-drop gp-shop-drop">{''.join(cols)}
         <div class="gp-shop-side">
+          <a class="gp-big" href="/prices/drops/" hidden><span class="gp-big-k"><span>BIGGEST DROP TODAY</span><small data-big="when"></small></span><span class="gp-big-row"><span class="gp-big-img"></span><span class="gp-big-txt"><b data-big="name"></b><small data-big="was"></small><strong data-big="now"></strong></span></span><span class="gp-big-note" data-big="note"></span></a>
           <span class="gp-shop-kick">QUICK WAYS IN</span>
-          <p>Every price checked every 6 hours across multiple UK retailers. Only genuine drops get flagged.</p>
+          <p class="gp-shop-blurb">Every price checked every 6 hours across multiple UK retailers. Only genuine drops get flagged.</p>
           <div class="gp-shop-quick">{quick}</div>
           <a class="gp-shop-cta" href="/shop/">Explore the whole shop</a>
         </div>
@@ -358,7 +361,7 @@ def menu_html(m=None):
     sections.append(f"""
       <div class="gp-acc" data-section="shop">
         <button type="button" class="gp-acc-btn" aria-expanded="false">Shop{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
-        <div class="gp-acc-body gp-acc-shop" hidden>{rows}<div class="gp-shop-chips">{chips}</div><a class="gp-acc-all" href="/shop/">Explore the whole shop &rarr;</a></div>
+        <div class="gp-acc-body gp-acc-shop" hidden><a class="gp-big gp-big-m" href="/prices/drops/" hidden><span class="gp-big-k"><span>BIGGEST DROP TODAY</span></span><span class="gp-big-row"><span class="gp-big-img"></span><span class="gp-big-txt"><b data-big="name"></b><small data-big="was"></small><strong data-big="now"></strong></span></span></a>{rows}<div class="gp-shop-chips">{chips}</div><a class="gp-acc-all" href="/shop/">Explore the whole shop &rarr;</a></div>
       </div>""")
     tools = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["tools"])
     play = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["play"])

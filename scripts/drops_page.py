@@ -6,6 +6,7 @@ A drop counts when the model's lowest new, in-stock price fell by at least
 the fall is under 60% (bigger is more likely a feed error). Measured against
 our own price history, never a retailer's "was" price.
 """
+import re
 from datetime import date, datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
@@ -120,5 +121,26 @@ def build(models, built, today, images=None):
                    "was": r["from"], "now": r["to"], "unit": "per dozen" if r["m"]["type"] == "ball" else "each",
                    "lowest_tracked": (r["m"].get("verdict") or {}).get("label") == "good",
                    "url": f"{SITE}/prices/{r['m']['slug']}/"} for r in rows]}, indent=1))
+    write_biggest(fresh, rows, now_uk)
     print(f"Price drops page: {len(fresh)} in the last 48 hours, {len(older)} earlier this week.")
     return changed, [("prices/drops/", today.isoformat())], len(fresh)
+
+
+NOT_MENS = re.compile(r"\b(women'?s?|womens|ladies|lady|junior|juniors|kids?|youth|girls?|boys?)\b", re.I)
+
+
+def write_biggest(fresh, rows, now_uk):
+    """data/biggest-drop.json: the Shop menu's "Biggest drop today" card
+    (js/site.js). The biggest genuine £ drop of the last 48 hours on men's,
+    adult kit; with none, just this week's count so the card can say so."""
+    import json
+    from price_pages import ROOT
+    pool = [r for r in fresh if r["m"]["type"] not in ("junior-set",) and not NOT_MENS.search(r["m"]["name"])]
+    out = {"checked": now_uk.isoformat(timespec="minutes"), "fresh": len(fresh), "week": len(rows)}
+    if pool:
+        top = max(pool, key=lambda r: (r["fall"], r["pct"]))
+        m = top["m"]
+        out["drop"] = {"name": m["name"], "slug": m["slug"], "url": f"/prices/{m['slug']}/", "image": m.get("_image") or None,
+                       "was": round(top["from"], 2), "now": round(top["to"], 2), "fall": round(top["fall"], 2),
+                       "pct": top["pct"], "date": top["date"].isoformat(), "unit": "per dozen" if m["type"] == "ball" else ""}
+    _write(ROOT / "data" / "biggest-drop.json", json.dumps(out, ensure_ascii=False, indent=1))
