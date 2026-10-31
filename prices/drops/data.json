@@ -1,8 +1,28 @@
 {
- "checked": "2026-10-31T14:55+00:00",
+ "checked": "2026-10-31T16:05+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Blue Tees Playmaker+ GPS Watch",
+   "model_id": "blue-tees-playmaker-plus-gps-watch",
+   "date": "2026-10-31",
+   "was": 149.0,
+   "now": 114.5,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/blue-tees-playmaker-plus-gps-watch/"
+  },
+  {
+   "model": "Cleveland RTZ Tour Satin Wedge",
+   "model_id": "cleveland-rtz-tour-satin-wedge",
+   "date": "2026-10-31",
+   "was": 119.0,
+   "now": 99.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cleveland-rtz-tour-satin-wedge/"
+  },
   {
    "model": "Titleist Pro V1 Golf Balls",
    "model_id": "titleist-pro-v1-golf-balls",
@@ -32,6 +52,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/odyssey-ai-one-putter/"
+  },
+  {
+   "model": "Mizuno Pro T-1 ION Wedge",
+   "model_id": "mizuno-pro-t-1-ion-wedge",
+   "date": "2026-10-31",
+   "was": 119.0,
+   "now": 109.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-t-1-ion-wedge/"
   },
   {
    "model": "Mizuno Pro 241 Irons",
@@ -82,16 +112,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/mizuno-pro-fli-hi-utility-irons/"
-  },
-  {
-   "model": "Blue Tees Playmaker+ GPS Watch",
-   "model_id": "blue-tees-playmaker-plus-gps-watch",
-   "date": "2026-10-30",
-   "was": 199.0,
-   "now": 149.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/blue-tees-playmaker-plus-gps-watch/"
   },
   {
    "model": "Wilson Duo Soft Golf Balls",

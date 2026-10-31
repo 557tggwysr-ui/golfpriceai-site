@@ -6,15 +6,14 @@
  "checked": "2026-10-31",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 119.0,
+ "lowestNewPrice": 99.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 119.0,
+   "from": 99.0,
    "options": 18
   },
   {
@@ -30,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 65,
-  "low": 119.0,
+  "low": 99.0,
   "high": 119.0,
-  "average": 119.0,
-  "priceChanges": 0,
+  "average": 118.69,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -41,15 +40,15 @@
    ],
    [
     "2026-10-31",
-    119.0
+    99.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 65 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/RTZTOURSATIN2.jpg?v=1736347265",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Cleveland-RTZ-Tour-Satin-Golf-Wedge-1.jpg?v=1736568208",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-10-31"
 }
