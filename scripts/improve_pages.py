@@ -16,7 +16,7 @@ import json
 from price_pages import ROOT, SITE, page_shell
 
 OUT = ROOT / "improve"
-V = "20261030b"
+V = "20261101"
 EXTRA = (f'<link rel="stylesheet" href="/css/improve.css?v={V}">\n'
          f'<script src="/js/improve.js?v={V}" defer></script>\n')
 
@@ -86,8 +86,8 @@ def format_pills(name="fmt", short=True):
 
 def more_calcs(skip):
     links = "".join(f'<a href="/improve/{s}/">{esc(n)}<span aria-hidden="true">&rarr;</span></a>'
-                    for s, n, _, _ in CALCS if s != skip)
-    return f'<section class="im-more"><h2>More calculators</h2><div class="im-more-links">{links}</div></section>'
+                    for s, n, _, _ in [("shot-saver", "Shot Saver: where do your shots go?", "", "")] + CALCS if s != skip)
+    return f'<section class="im-more"><h2>More in Improve</h2><div class="im-more-links">{links}</div></section>'
 
 
 def kit_strip():
@@ -131,7 +131,7 @@ def hub():
     <div class="im-hero-copy">
       <span class="im-kick">IMPROVE</span>
       <h1>Know your numbers.<br><span>Then lower them.</span></h1>
-      <p class="im-lede">Free handicap calculators that follow the World Handicap System. Work out your index, your shots on any course, and what you need to shoot to get cut. No sign-up, nothing saved.</p>
+      <p class="im-lede">Free handicap calculators that follow the World Handicap System, and Shot Saver to find where your shots go. Work out your index, your shots on any course, and what you need to shoot to get cut. No sign-up.</p>
     </div>
     <form class="im-quick" data-calc="quick" onsubmit="return false">
       <span class="im-kick im-kick-light">QUICK CHECK</span>
@@ -143,6 +143,12 @@ def hub():
       <div class="im-quick-out"><b data-out="ch">17</b><span>shots on this course</span><a href="/improve/course-handicap-calculator/">Full calculator &rarr;</a></div>
     </form>
   </section>
+  <a class="im-ss" href="/improve/shot-saver/">
+    <div class="im-ss-copy"><span class="im-kick im-kick-light">NEW &middot; SHOT SAVER</span><b>Where do your shots go?</b>
+      <span class="im-dark-line">Every golfer blames the driver. Five numbers from your scorecard will tell you who&rsquo;s really guilty. Free fix first.</span>
+      <span class="im-ss-go">Find my leaks &rarr;</span></div>
+    <div class="im-ss-bars" aria-hidden="true"><span><i>Putting</i><em style="width:100%" class="on"></em></span><span><i>Penalties</i><em style="width:79%"></em></span><span><i>Approach</i><em style="width:44%"></em></span><span><i>Short game</i><em style="width:14%"></em></span></div>
+  </a>
   <section><h2 class="im-h2">The calculators</h2><div class="im-cards">{''.join(cards)}</div></section>
   <section class="im-split">
     <div class="im-box"><h2>Handicap allowances at a glance</h2><div class="im-table">{rows}</div>
@@ -157,7 +163,8 @@ def hub():
     desc = "Free UK golf handicap calculators that follow the World Handicap System: handicap index, course handicap, playing handicap and the score you need to get cut."
     coll = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Golf handicap calculators",
             "url": SITE + "/improve/", "description": desc,
-            "hasPart": [{"@type": "WebApplication", "name": n, "url": f"{SITE}/improve/{s}/"} for s, n, _, _ in CALCS]}
+            "hasPart": [{"@type": "WebApplication", "name": "Shot Saver", "url": f"{SITE}/improve/shot-saver/"}] +
+                       [{"@type": "WebApplication", "name": n, "url": f"{SITE}/improve/{s}/"} for s, n, _, _ in CALCS]}
     return "", page_shell(title=title, description=desc, canonical=SITE + "/improve/", body=body, section="improve",
                           schema=[crumbs("", ""), coll, faq_schema(faqs)], noindex=False, extra_head=EXTRA)
 

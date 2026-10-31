@@ -48,7 +48,8 @@
   // ---------------------------------------------------------------- hello
   var hour = NOW.getHours();
   var hi = hour < 12 ? 'Morning' : hour < 18 ? 'Afternoon' : 'Evening';
-  var anything = pid || socs.length || shortlist.length || wish.length || fit || bagIds.length || streak;
+  var ssCore = window.gpShotSaverCore, ss = ssCore ? ssCore.get() : { rounds: [] };
+  var anything = pid || socs.length || shortlist.length || wish.length || fit || bagIds.length || streak || ss.rounds.length;
   if (nick) document.getElementById('mc-hello').textContent = hi + ', ' + nick + '.';
   else if (!anything) {
     document.getElementById('mc-hello').textContent = 'Your locker’s empty. For now.';
@@ -82,7 +83,7 @@
     if (lg.length) bits.push(plural(lg.length, 'league'));
     if (shortlist.length) bits.push(plural(shortlist.length, 'thing') + ' you’re watching');
     if (nick && bits.length) document.getElementById('mc-sub').textContent = bits.join(' · ') + '. Saved on this device, no sign-up.';
-    box.innerHTML = games(g.pp, g.hl, g.locker, g.majors) + handicap(g.leagues && g.leagues.hcp) +
+    box.innerHTML = games(g.pp, g.hl, g.locker, g.majors) + handicap(g.leagues && g.leagues.hcp) + shotSaver() +
       row('Milestones', '', '/play/par-price/', 'Play Par Price', '<div id="mc-ms"></div>', 'mc-ms-sec') +
       (soc.length || lg.length ? societies(soc) + leagues(lg) : group()) +
       kit(g.kit, g.bag) +
@@ -261,6 +262,27 @@
     return row('Play with your group', 0, '', '', '<div class="mc-grid mc-n2">' +
       '<a class="mc-card mc-invite" href="/societies/"><b class="mc-name">Your golf society</b><span class="mc-dim">Fixtures, who’s in and who’s paid, all from one WhatsApp link. Free.</span><span class="mc-go">Find or start a society →</span></a>' +
       '<a class="mc-card mc-invite" href="/play/leagues/"><b class="mc-name">A league with your mates</b><span class="mc-dim">Par Price every morning, scored against each other in a weekly table.</span><span class="mc-go">Start a league →</span></a></div>');
+  }
+
+  // ---------------------------------------------------------------- Shot Saver
+  function shotSaver() {
+    var sum = ssCore && ss.rounds.length ? ssCore.summary(ss, 5) : null;
+    if (!sum) return row('Shot Saver', 0, '', '', '<a class="mc-strip" href="/improve/shot-saver/"><b>Where do your golf shots go?</b> <span>Every golfer blames the driver. Five numbers off your scorecard will find who’s really guilty →</span></a>');
+    var one = ssCore.one, t = sum.trend, lead = sum.leaks[0];
+    var since = sum.sinceFirst != null && Math.abs(sum.sinceFirst) >= 0.5 ? '<span class="mc-ss-pill' + (sum.sinceFirst > 0 ? '' : ' up') + '">' + (sum.sinceFirst > 0 ? 'Down ' : 'Up ') + one(Math.abs(sum.sinceFirst)) + '</span>' : '';
+    var chart = '';
+    if (t.length > 1) {
+      var vs = t.map(function (p) { return p.v; }), lo = Math.min.apply(null, vs), hi = Math.max.apply(null, vs), span = hi - lo || 1;
+      var pts = t.map(function (p, i) { return [10 + i * (336 / (t.length - 1)), 10 + (1 - (p.v - lo) / span) * 60]; });
+      chart = '<svg class="mc-ss-chart" viewBox="0 0 356 80" role="img" aria-label="Shots to save over your last ' + t.length + ' rounds: ' + vs.map(one).join(', ') + '">' +
+        '<polyline points="' + pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ') + '" fill="none" stroke="#3fae29" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>' +
+        pts.map(function (p, i) { return '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="' + (i === pts.length - 1 ? 5 : 4) + '" fill="' + (i === pts.length - 1 ? '#14211a' : '#3fae29') + '"/>'; }).join('') + '</svg>';
+    }
+    var card = '<div class="mc-card mc-ss"><div class="mc-ss-top"><span class="mc-k">Chasing ' + esc(sum.aim.label.toLowerCase()) + '</span>' + since + '</div>' +
+      '<div class="mc-ss-line"><b class="mc-ss-num">' + (lead ? one(sum.total) : '0') + '</b><span class="mc-dim">shots to save a round, your last ' + plural(sum.n, 'round') + '</span></div>' + chart +
+      '<span class="mc-dim">' + (lead ? 'Working on: <b>' + esc(lead.label.toLowerCase()) + '</b>, ' + one(lead.v) + ' a round.' : 'No leaks against ' + esc(sum.aim.who) + '. Time to pick the next level up.') + '</span>' +
+      '<div class="mc-ss-btns"><a class="mc-btn" href="/improve/shot-saver/#ss-form">Add today’s round</a><a class="mc-ss-ghost" href="/improve/shot-saver/#ss-out">See my leaks</a></div></div>';
+    return row('Shot Saver', 0, '/improve/shot-saver/', 'Open Shot Saver', card);
   }
 
   // ---------------------------------------------------------------- My kit

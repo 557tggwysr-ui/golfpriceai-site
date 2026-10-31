@@ -172,3 +172,17 @@ a.mc-card:hover { border-color: var(--gp-green); color: var(--gp-ink); }
 .mc-prof-small { font-size: 12.5px; margin-top: auto; }
 @media (max-width: 760px) { .mc-hcp { grid-template-columns: minmax(0, 1fr); } .mc-hcp-num { font-size: 48px; } }
 .mc-hcp .mc-btn { border: 0; font: 700 14px Inter, sans-serif; cursor: pointer; min-height: 44px; padding: 11px 18px; text-decoration: none; box-sizing: border-box; }
+
+/* Shot Saver card (1 Nov 2026) */
+.mc-ss { gap: 8px; max-width: 520px; }
+.mc-ss-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.mc-ss-pill { background: #eef7ea; color: #1f6a12; border-radius: 999px; padding: 5px 10px; font: 700 12px Inter, sans-serif; }
+.mc-ss-pill.up { background: #fdf0e3; color: #8a4a12; }
+.mc-ss-line { display: flex; align-items: flex-end; gap: 10px; }
+.mc-ss-num { font: 800 44px/0.9 Poppins, sans-serif; }
+.mc-ss-chart { width: 100%; height: auto; max-height: 90px; }
+.mc-ss .mc-dim b { color: var(--gp-ink); }
+.mc-ss-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.mc-ss-btns .mc-btn { border-radius: 12px; padding: 12px 16px; font-weight: 700; text-decoration: none; }
+.mc-ss-ghost { background: #fff; border: 1px solid #d5d9d1; color: var(--gp-ink); border-radius: 12px; padding: 11px 15px; font-weight: 700; text-decoration: none; }
+.mc-ss-ghost:hover { border-color: var(--gp-green); color: var(--gp-ink); }

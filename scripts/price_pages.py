@@ -1716,6 +1716,12 @@ def build(models_list, products, today_str):
         except Exception as e:  # never stop the main build
             print(f"Start golf skipped: {e}")
         try:
+            import shot_saver
+            changed += shot_saver.build(passing, built, products, today)
+            sitemap.append(("improve/shot-saver/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Shot Saver skipped: {e}")
+        try:
             import course_pages
             cp_changed, cp_sitemap = course_pages.build()
             changed += cp_changed

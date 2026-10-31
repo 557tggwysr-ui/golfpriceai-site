@@ -212,6 +212,12 @@ td:first-child { font-weight: 400; }
         '<div class="nums">' + num(pb.picks, 'picks in all') + num(pb.week, 'picks this week') + num(pb.views7, 'visitors, 7 days') + num(pb.shares7, 'bags shared, 7 days') + '</div></section>';
     }
 
+    var ss = d.shotSaver;
+    if (ss) {
+      html += '<section class="card" id="shot-saver"><div class="head"><h2>Shot Saver</h2><span class="dim">golfers a day, added up</span></div>' +
+        '<div class="nums">' + num(ss.views7, 'visitors, 7 days') + num(ss.rounds7, 'added a round, 7 days') + num(ss.rounds30, 'added a round, 30 days') + num(ss.shares7, 'shared, 7 days') + num(ss.saved30, '\u201cSaved a shot\u201d, 30 days') + '</div></section>';
+    }
+
     var lg = d.league;
     if (lg) {
       html += '<section class="card" id="league"><div class="head"><h2>National Society League</h2><span class="dim">' + n(lg.entries) + ' societies · ' + n(lg.champ) + ' up for a Champions\u2019 Day · ' + n(lg.full) + ' on 100%</span></div>' +

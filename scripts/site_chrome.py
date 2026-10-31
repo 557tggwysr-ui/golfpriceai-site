@@ -144,6 +144,8 @@ def menu():
         "improve": [
             ("Improve", "Every calculator, plus handicap allowances at a glance.", "/improve/",
              '<path d="M3 17l6-6 4 4 8-8M15 7h6v6"></path>'),
+            ("Shot Saver", "Where do your shots go? Find the leak, free fix first.", "/improve/shot-saver/",
+             '<path d="M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 7v5l3 3"></path>'),
             ("Handicap index calculator", "Your best 8 of your last 20, the WHS way.", "/improve/handicap-index-calculator/",
              '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path>'),
             ("Course handicap calculator", "How many shots you get on any course and tee.", "/improve/course-handicap-calculator/",
@@ -302,7 +304,7 @@ def header_html():
       <div class="gp-drop gp-mega gp-play-drop">
         <div class="gp-tools gp-tools-1">{imp}
         </div>
-        <div class="gp-mega-foot"><span>Free, WHS-based, nothing saved.</span><a href="/improve/">All calculators &rarr;</a></div>
+        <div class="gp-mega-foot"><span>Free, no sign-up, WHS-based calculators.</span><a href="/improve/">Everything in Improve &rarr;</a></div>
       </div>
     </div>""")
 
@@ -420,7 +422,7 @@ def footer_html():
                   ("Christmas golf gifts", "/prices/christmas/"), ("Black Friday golf deals", "/prices/black-friday/")]),
         ("Deal Tools", [("All deal tools", "/deal-tools.html")] + [(n, u) for n, _, u, _ in m["tools"] if u != "/find-your-fit.html"]),
         ("Play", [("My Clubhouse", "/play/my-clubhouse/")] + [(n, u) for n, _, u, _ in m["play"]] + [("UK Golf Demand Index", "/demand/")]),
-        ("Societies", [(n, u) for n, _, u, _ in m["societies"]] + [("Handicap calculators", "/improve/"), ("Course handicap calculator", "/improve/course-handicap-calculator/"), ("UK golf courses", "/courses/")]),
+        ("Societies", [(n, u) for n, _, u, _ in m["societies"]] + [("Shot Saver", "/improve/shot-saver/"), ("Handicap calculators", "/improve/"), ("Course handicap calculator", "/improve/course-handicap-calculator/"), ("UK golf courses", "/courses/")]),
         ("Price guides", [("Drivers", "/prices/drivers/"), ("Irons", "/prices/irons/"),
                           ("Putters", "/prices/putters/"), ("Golf balls", "/prices/golf-balls/"), ("Golf gloves", "/prices/golf-gloves/"),
                           ("GPS watches", "/prices/gps-watches/"), ("Electric trolleys", "/prices/electric-trolleys/"),

@@ -1,7 +1,7 @@
 /* Milestone cards: shareable 1080x1350 cards for the moments worth bragging
    about. First Price Handicap, Scratch Club, Bandit of the Month, Bag Draft
    champion, Par Price streaks of 30, 60, 90 and 120 days, and the first
-   Crowd Caddie call a golfer gets right.
+   Crowd Caddie call a golfer gets right, and saving a shot in Shot Saver.
 
    Everything happens in this browser: the card is drawn on a canvas here and
    the list of milestones is kept in localStorage (gpMilestones). Only the
@@ -46,6 +46,7 @@
       case 'ace': return { label: 'Hole-in-one', sub: 'the ' + ord(d.hole) + ' at ' + d.course, text: 'Hole-in-one! The ' + ord(d.hole) + ' at ' + d.course + ', ' + d.yards + ' yards with a ' + d.club + '. On the Ace Register for good.', url: 'https://golfpriceai.com/play/aces/' + (d.cid ? '?c=' + d.cid : '') };
       case 'called': return { label: 'You called it', sub: (d.name || 'a golf price'), text: 'Called it. I said ' + ({ down: 'cheaper', same: 'it would hold', up: 'pricier' }[d.call] || 'it') + ' on the ' + (d.name || 'price') + ': ' + money(d.from) + ' then, ' + money(d.to) + ' now. Make your call:', url: 'https://golfpriceai.com/prices/' + (d.slug ? d.slug + '/#crowd-caddie' : '') };
       case 'socwin': return { label: 'Society winner', sub: (d.title || '') + (d.society ? ' · ' + d.society : ''), text: 'Winner of ' + (d.title || 'the society day') + (d.society ? ' with ' + d.society : '') + ', ' + d.pts + ' points. The Form Guide had me down as... well, never mind.', url: 'https://golfpriceai.com/societies/' };
+      case 'saved': return { label: 'Saved a shot', sub: Number(d.from).toFixed(1) + ' down to ' + Number(d.to).toFixed(1), text: 'Saved a shot. Shot Saver had me at ' + Number(d.from).toFixed(1) + ' shots to save, now it’s ' + Number(d.to).toFixed(1) + '. Where do yours go?', url: 'https://golfpriceai.com/improve/shot-saver/' };
       case 'streak': return { label: d.n + '-day Par Price streak', sub: STREAK[d.n] ? STREAK[d.n].title : '', text: d.n + ' days in a row on Par Price. Beat that.', url: 'https://golfpriceai.com/play/par-price/' };
     }
     return { label: 'Milestone', sub: '', text: 'A GolfPrice AI milestone.', url: 'https://golfpriceai.com/play/' };
@@ -200,7 +201,29 @@
     return cv;
   }
 
+  // Shot Saver: a full shot fewer to save than the first round.
+  function drawSaved(m) {
+    var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
+    var x = cv.getContext('2d'), d = m.d || {}, L = 120, R = 960;
+    x.fillStyle = C.ink; x.fillRect(0, 0, 1080, 1350);
+    x.lineWidth = 2; x.strokeStyle = 'rgba(255,255,255,.16)'; rr(x, 56, 56, 968, 1238, 36); x.stroke();
+    logo(x, L, 172, '#fff', C.bright);
+    text(x, 'SHOT SAVER', R, 166, '700 22px Inter, sans-serif', C.soft, 'right');
+    text(x, ('MILESTONE · ' + (d.aim || '')).toUpperCase(), L, 330, '700 30px Inter, sans-serif', C.orange);
+    text(x, 'Saved', L, 470, '800 132px Poppins, sans-serif', '#fff');
+    text(x, 'a shot.', L, 610, '800 132px Poppins, sans-serif', '#fff');
+    var gone = Math.max(0, Number(d.from) - Number(d.to));
+    text(x, '−' + gone.toFixed(1), L - 8, 900, '800 220px Poppins, sans-serif', C.bright);
+    wrap(x, 'Shots to save a round: ' + Number(d.from).toFixed(1) + ' in the first round, ' + Number(d.to).toFixed(1) + ' now. The practice is working.', L, 990, 840, 46, '400 34px Inter, sans-serif', C.grey);
+    x.fillStyle = 'rgba(255,255,255,.14)'; x.fillRect(L, 1120, R - L, 2);
+    text(x, nick(), L, 1192, '700 44px Poppins, sans-serif', '#fff');
+    text(x, longDate(m.date), L, 1238, '400 28px Inter, sans-serif', C.dim);
+    pill(x, 'golfpriceai.com/improve', R, 1230, C.green, '#fff');
+    return cv;
+  }
+
   function draw(m) {
+    if (m.kind === 'saved') return drawSaved(m);
     if (m.kind === 'called') return drawCalled(m);
     if (m.kind === 'socwin') return drawSocwin(m);
     if (m.kind === 'ace') return drawAce(m);
@@ -370,7 +393,7 @@
     css();
     var all = list();
     if (!all.length) {
-      el.innerHTML = '<p class="ms-empty">No milestones yet. Your first one: play 5 rounds of <a href="/play/par-price/">Par Price</a> to get a Price Handicap. Streaks of 30, 60, 90 and 120 days, Scratch Club, Bandit of the Month, Bag Draft champion, Crowd Caddie and society winner cards are all up for grabs.</p>';
+      el.innerHTML = '<p class="ms-empty">No milestones yet. Your first one: play 5 rounds of <a href="/play/par-price/">Par Price</a> to get a Price Handicap. Streaks of 30, 60, 90 and 120 days, Scratch Club, Bandit of the Month, Bag Draft champion, Crowd Caddie, society winner and Shot Saver cards are all up for grabs.</p>';
       return;
     }
     el.innerHTML = '<div class="ms-shelf">' + all.map(function (m, i) {

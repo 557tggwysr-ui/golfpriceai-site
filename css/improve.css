@@ -170,3 +170,17 @@ main.pp:has(.im) { max-width: none; padding: 0; }
   .im-card > b { font-size: 20px; }
   .im-box, .im-dark, .im-kit { padding: 18px; }
 }
+
+/* Shot Saver feature card on the hub (1 Nov 2026) */
+.im-ss { background: #14211a; color: #fff; border-radius: 22px; padding: 28px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: center; }
+.im-ss:hover { color: #fff; box-shadow: 0 10px 26px rgba(20,33,26,.18); }
+.im-ss-copy { display: flex; flex-direction: column; gap: 10px; }
+.im-ss-copy b { font: 700 28px/1.15 'Poppins', sans-serif; }
+.im-ss .im-dark-line { color: #c4d0c8; font-size: 15px; line-height: 1.55; }
+.im-ss-go { color: #8fd97c; font-weight: 700; }
+.im-ss-bars { display: flex; flex-direction: column; gap: 10px; }
+.im-ss-bars span { display: grid; grid-template-columns: 96px 1fr; gap: 10px; align-items: center; }
+.im-ss-bars i { font-style: normal; font-size: 13.5px; color: #c4d0c8; }
+.im-ss-bars em { display: block; height: 12px; border-radius: 6px; background: #5fd14a; }
+.im-ss-bars em.on { background: #f08a24; }
+@media (max-width: 760px) { .im-ss { grid-template-columns: 1fr; padding: 22px; } }

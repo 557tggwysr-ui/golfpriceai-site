@@ -400,7 +400,8 @@ async function fourballCount(url, env, cors) {
 const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_18: 1, band_19_28: 1, band_28_plus: 1, band_none: 1, hcp_share: 1,
   calc_index: 1, calc_course: 1, calc_playing: 1, calc_shoot: 1, calc_share: 1,
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
-  ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1 };
+  ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1,
+  ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -1045,6 +1046,9 @@ async function clubStats(request, env, cors) {
       views7: sumUse('pb_view', d7), shares7: sumUse('pb_share', d7),
     };
   } catch (e) { out.peoplesBag = null; }
+  // Shot Saver: anonymous counts only (golfers a day who looked, added a round, shared).
+  out.shotSaver = { views7: sumUse('ss_view', d7), views30: sumUse('ss_view', d30), rounds7: sumUse('ss_round', d7),
+    rounds30: sumUse('ss_round', d30), shares7: sumUse('ss_share', d7), saved30: sumUse('ms_saved', d30) };
 
   // ---- League and society health
   out.leagues.twoActive = await one('SELECT COUNT(*) AS c FROM (SELECT m.league FROM pp_members m JOIN (SELECT DISTINCT pid FROM pp_scores WHERE n >= ?) s ON s.pid = m.pid GROUP BY m.league HAVING COUNT(*) >= 2)', monday);

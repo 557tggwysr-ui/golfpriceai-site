@@ -16,7 +16,7 @@
   openIf(); window.addEventListener('hashchange', openIf);
   if ('open' in box) box.addEventListener('toggle', function () { if (box.open) track('play_move_open'); });
   var KEYS = { nick: 'gpNick', streak: 'gpParStreak', card: 'gpParPrice', wip: 'gpDraftWip', socs: 'gpSocs', list: 'gpShortlist', watch: 'gpWatch',
-    fit: 'golfpriceai-fit-profile', bag: 'golfpriceai-bag-builder', hl: 'gpHL', wish: 'gpWishlist' };
+    fit: 'golfpriceai-fit-profile', bag: 'golfpriceai-bag-builder', hl: 'gpHL', wish: 'gpWishlist', ss: 'gpShotSaver' };
   // Dropped first if the bundle is too big for one code (the worker takes 8,000 characters).
   var SPARE = ['wip', 'watch', 'bag', 'wish', 'card'];
   function get(k, d) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } }
