@@ -43,6 +43,11 @@
       '<span class="fg-soc">' + esc(d.soc.name) + '</span>' + (kind === 'report' ? '<span class="fg-soc">' + esc(d.title) + '</span>' : '<h1>' + esc(d.title) + '</h1>') +
       (kind === 'report' ? '' : '<span class="fg-meta">' + esc(meta) + '</span>');
   }
+  function lgLine(d) {
+    if (!d.league) return '';
+    var url = '/societies/league/?r=' + encodeURIComponent(d.league.region) + '&d=' + d.league.division;
+    return '<p class="fg-small">' + esc(d.soc.name) + ' are in the National Society League: <a href="' + esc(url) + '">' + esc(d.league.region) + ' Division ' + d.league.division + '</a>. Days with four or more golfers count.</p>';
+  }
   function hqLink(d) {
     return d.member ? '<a class="fg-btn2" href="/societies/hq/?s=' + esc(d.soc.id) + '">Open Society HQ</a>' : '<a class="fg-btn2" href="/societies/hq/?s=' + esc(d.soc.id) + '">Join ' + esc(d.soc.name) + '</a>';
   }
@@ -68,6 +73,7 @@
     h += oomBlock(d, 5);
     h += '<section class="fg-card fg-dark"><span class="fg-kick fg-kick-l">BEFORE YOU GO</span><p class="fg-p-l">How many shots do you get? <a href="/improve/course-handicap-calculator/">Course handicap calculator</a>. Running low on balls? <a href="/prices/golf-balls/">Today’s ball prices</a>.</p></section>';
     h += '<div class="fg-btns"><button type="button" class="fg-btn" data-act="share">Send to the group chat</button>' + hqLink(d) + '</div>';
+    h += lgLine(d);
     if (d.organiser && d.day <= today) h += '<p class="fg-small">You’re the organiser. <a href="/societies/hq/?s=' + esc(d.soc.id) + '">Enter the results in Society HQ</a> and this page becomes the report.</p>';
     box.innerHTML = h;
     box.querySelector('[data-act="share"]').onclick = function () { track('fg_share', { kind: 'preview' }); share('The Form Guide for ' + d.title + (d.venue ? ' at ' + d.venue : '') + ' is out. Who’s in form, who’s the dark horse: ' + SITE + '/societies/form-guide/?e=' + d.id); };
@@ -90,7 +96,7 @@
     if (w && d.prize) h += '<section class="fg-card"><b class="fg-h3">' + esc(w.nick) + '’s prize</b><p class="fg-p">' + esc(w.nick) + ' picks a £' + d.prize + ' prize from real golf kit at today’s lowest UK prices.</p>' +
       (d.prizeUrl ? '<button type="button" class="fg-btn2" data-act="prize">Send ' + esc(w.nick) + ' the prize link</button><p class="fg-small">Only you can see this button. Send it to the winner, nobody else.</p>' : '') + '</section>';
     h += '<div class="fg-btns"><button type="button" class="fg-btn" data-act="share">Share the report</button>' + (w ? '<button type="button" class="fg-btn2" data-act="card">Winner’s card</button>' : '') + '</div>' +
-      '<p class="fg-small">' + hqLink(d).replace('fg-btn2', 'fg-link') + '</p>';
+      lgLine(d) + '<p class="fg-small">' + hqLink(d).replace('fg-btn2', 'fg-link') + '</p>';
     box.innerHTML = h;
     var card = w ? { kind: 'socwin', date: d.day, d: { who: w.nick, pts: w.pts, title: d.title, society: d.soc.name, venue: d.venue, day: d.day, first: w.first } } : null;
     box.querySelector('[data-act="share"]').onclick = function () { track('fg_share', { kind: 'report' }); share('The report is in: ' + d.soc.name + ', ' + d.title + '. ' + (d.headline || '') + ' ' + SITE + '/societies/form-guide/?e=' + d.id); };

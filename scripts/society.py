@@ -37,6 +37,7 @@ APP_FEATURES = [
     "A season Order of Merit for every golf society",
     "Golf society Awards Night Kit: award cards and a presentation slideshow",
     "Prize Picker: winners choose their own golf prize at today's lowest UK price",
+    "The National Society League: regional divisions with promotion and relegation, scored from your society days",
 ]
 
 
@@ -125,11 +126,93 @@ def fg_page():
 <div class="fg" id="fg" aria-live="polite"><p class="soc-loading">Reading the form…</p></div>
 <noscript><p>The Form Guide needs JavaScript switched on.</p></noscript>
 </div>
-<script src="/js/form-guide.js?v=20261101b" defer></script>"""
+<script src="/js/form-guide.js?v=20261101c" defer></script>"""
     return page_shell(title="The Form Guide | Society HQ | GolfPrice AI",
                       description="Your golf society day, treated like a tour event: a preview with everyone's form, then a report with the leaderboard and awards.",
                       canonical=f"{SITE}/societies/form-guide/", body=body, section="societies", schema=[crumbs_schema],
                       noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=CSS + '<link rel="stylesheet" href="/css/form-guide.css?v=20261101b">\n')
+
+
+LEAGUE_FAQS = [
+    ("How does a society enter the National Society League?",
+     "The organiser opens the society in Society HQ and taps “Enter the League”, picks a region and the handicap allowance the society plays off. It’s free. Entries open on 1 February 2027; societies can register early."),
+    ("How is a society’s score worked out?",
+     "Each month, a society’s team score is the average of its four best stableford scores (one per golfer) from society days with at least four golfers. The best team score in the division that month earns 10 points, then 8, 6, 5, 4, 3, 2 and 1."),
+    ("What about different handicap allowances?",
+     "The organiser picks 95% or 100% when entering, and it’s fixed once the season starts. Societies on 100% have 1 point taken off their team score, about the difference for a typical golfer, and it’s shown on the table."),
+    ("How do divisions, promotion and relegation work?",
+     "Divisions hold up to 10 societies, by region, filled in the order societies enter. At the end of the season the top two in each division go up and the bottom two go down."),
+    ("Is there a final?",
+     "Each division’s winner is crowned in October and goes on the League’s Hall of Fame. Societies can also tick that they’d be up for a Champions’ Day; if there’s enough interest, we’ll look at making one happen."),
+    ("Is it checked?",
+     "Scores are on the honour system, the way golf has always worked, and come from the Form Guide reports organisers publish. Anything that doesn’t look right is taken off the table."),
+]
+
+
+def league_page():
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Society HQ", "/societies/"), ("The National Society League", None)])
+    faqs = "".join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q, a in LEAGUE_FAQS)
+    regions = "".join(f'<li>{r}</li>' for r in ["North East", "North West", "Yorkshire", "Midlands", "East of England", "London and South East", "South West", "Scotland", "Wales and Northern Ireland"])
+    body = f"""<div class="or nsl" id="nsl">
+<div class="nsl-crumbs">{crumbs_html}</div>
+<section class="or-hero">
+  <div>
+    <span class="cc-kick">SOCIETY HQ · 2027 SEASON</span>
+    <h1>The National Society <span>League.</span></h1>
+    <p class="or-quip">Your society against every other society in your region. Promotion, relegation and a lot of bragging.</p>
+    <p>Free to enter. Your society days count automatically from the Form Guide. The season runs April to October, and each division’s winner is crowned in October.</p>
+    <div class="nsl-ctas"><a class="cc-btn" href="/societies/hq/">Enter your society</a><a class="nsl-ghost" href="#how">How scoring works</a></div>
+  </div>
+  <div class="or-stats" aria-live="polite">
+    <div><b class="or-green" data-nsl="open">1 Feb</b><span data-nsl="openl">entries open</span></div>
+    <div><b data-nsl="total">–</b><span>societies entered</span></div>
+    <div><b>9</b><span>regions</span></div>
+  </div>
+</section>
+
+<section class="or-steps" id="how" aria-label="How it works">
+  <div><b>1</b><h3>Play your society days</h3><p>Run them in Society HQ as usual. Enter the stableford scores and the Form Guide report goes out, same as now.</p></div>
+  <div><b>2</b><h3>Your best four count</h3><p>Each month, your team score is the average of your four best stableford scores. Big or small, every society competes fairly.</p></div>
+  <div><b>3</b><h3>Monthly points, one table</h3><p>Top team score in your division wins 10 points, then 8, 6, 5, 4, 3, 2 and 1. Top two go up, bottom two go down.</p></div>
+</section>
+
+<div class="or-two" id="nsl-main">
+  <section class="or-card" aria-labelledby="nsl-h">
+    <div class="or-head"><h2 id="nsl-h">Find your division</h2><span class="pb-dim">Divisions of up to 10 societies</span></div>
+    <ul class="nsl-regions" id="nsl-regions">{regions}</ul>
+  </section>
+  <div class="or-col">
+    <section class="or-card pb-vs" id="nsl-sotm" hidden></section>
+    <section class="or-card">
+      <span class="cc-kick">CROWNED IN OCTOBER</span>
+      <b class="pb-race-h">Division champions</b>
+      <span class="pb-dim">Each division’s winner is crowned at the end of the season, with a champions’ card and a place on the League’s Hall of Fame.</span>
+    </section>
+    <section class="or-card or-you">
+      <b class="pb-race-h">Fair play</b>
+      <span class="pb-dim">Scores are on the honour system, the way golf has always worked. At least four golfers must play for a day to count. Anything daft comes off the table.</span>
+    </section>
+  </div>
+</div>
+
+<section class="or-faqs"><h2>League questions</h2>{faqs}</section>
+</div>
+<noscript><p>The League tables need JavaScript switched on.</p></noscript>
+<script src="/js/society-league.js?v=20261101" defer></script>"""
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in LEAGUE_FAQS]}
+    event = {"@context": "https://schema.org", "@type": "SportsEvent", "name": "The National Society League 2027",
+             "description": "A free national league for UK golf societies: regional divisions scored from each society's stableford results, with promotion and relegation.",
+             "sport": "Golf", "startDate": "2027-04-01", "endDate": "2027-10-31", "eventStatus": "https://schema.org/EventScheduled",
+             "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+             "location": {"@type": "Place", "name": "Golf courses across the UK", "address": {"@type": "PostalAddress", "addressCountry": "GB"}},
+             "organizer": {"@type": "Organization", "name": "GolfPrice AI", "url": SITE},
+             "isAccessibleForFree": True, "url": f"{SITE}/societies/league/"}
+    return page_shell(title="National Society League: Free UK Golf Society League 2027 | GolfPrice AI",
+                      description="A free league for UK golf societies: regional divisions, promotion and relegation, scored automatically from your society days. Entries open 1 February 2027.",
+                      canonical=f"{SITE}/societies/league/", body=body, section="societies", schema=[crumbs_schema, faq_schema, event],
+                      noindex=False, og_image="/assets/cards/society-hq.jpg",
+                      extra_head=CSS + '<link rel="stylesheet" href="/css/caddie.css?v=20261101d">\n')
 
 
 def hq_page():
@@ -152,7 +235,7 @@ def hq_page():
 </section>
 {REAL}
 </div>
-<script src="/js/society-hq.js?v=20261101" defer></script>"""
+<script src="/js/society-hq.js?v=20261101b" defer></script>"""
     return page_shell(title="Run your golf society free | Society HQ | GolfPrice AI",
                       description="Run your golf society for free: fixtures, sign-ups, who’s paid, a waiting list and the prize fund, all from one link in the WhatsApp group.",
                       canonical=f"{SITE}/societies/hq/", body=body, section="societies", schema=[crumbs_schema, app_schema(f"{SITE}/societies/hq/")],
@@ -332,7 +415,7 @@ def hub_page():
         ("What happens when a day is full?", "Set the number of places and anyone after that goes on the waiting list. If someone drops out, the first person waiting moves up automatically."),
         ("Can people outside the society see us?", "Only members see your fixtures and who’s playing. If you tick “Open to new members”, Find a Society shows your society’s name, area, description and member count, nothing else."),
         ("What is a Founding Society?", "The first 50 golf societies on Society HQ to reach four members get a permanent, numbered Founding Society badge on their page and in Find a Society, and a vote on what we build next."),
-        ("What’s coming next?", "Results on the day, a season Order of Merit and a Monday Society Report for the group chat arrive in 2027, alongside per-event prizes."),
+        ("What’s new?", "The Form Guide: every society day gets a preview, then a report with the leaderboard, awards and a season Order of Merit once you enter the scores. And the National Society League: enter your society free and every reported day counts towards your division’s table. Entries open on 1 February for the 2027 season, April to October."),
     ]
     faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
@@ -371,9 +454,10 @@ def hub_page():
   <p class="soc-help">Free for every UK golf society. Members join with a nickname, nobody signs up, and money goes straight from members to the organiser, never through GolfPrice AI.</p>
 </section>
 <section class="soc-card sh-soon">
-  <span class="soc-kick" style="color:var(--gp-green-dark)">Coming in 2027</span>
-  <h2>Results, an Order of Merit and the Society Report</h2>
-  <p class="soc-help">Enter the scores on the day and the season table keeps itself. Then a Monday report for the group chat with the winners, the wooden spoon and the best excuse.</p>
+  <span class="soc-kick" style="color:var(--gp-green-dark)">New · 2027 season</span>
+  <h2>The National Society League</h2>
+  <p class="soc-help">Your society against every other society in your region, with promotion and relegation. Free to enter, and every society day you report in the Form Guide counts automatically. Entries open 1 February; the season runs April to October.</p>
+  <a class="soc-link-a" href="/societies/league/">See the League &rarr;</a>
 </section>
 <section class="soc-card sh-founding">
   <span class="soc-found sh-found-dark">Founding Society</span>
@@ -421,6 +505,8 @@ def build(root=None):
         changed.append("/societies/clubs/")
     if _write(root / "societies" / "prize" / "index.html", prize_page()):
         changed.append("/societies/prize/")
+    if _write(root / "societies" / "league" / "index.html", league_page()):
+        changed.append("/societies/league/")
     if _write(root / "societies" / "form-guide" / "index.html", fg_page()):
         changed.append("/societies/form-guide/")
     try:

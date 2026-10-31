@@ -241,6 +241,7 @@
     h += '<section class="soc-card"><h2>Fixtures</h2>' + (up.length ? up.map(function (e) { return open['edit-' + e.id] ? eventForm(e) : eventCard(e, false); }).join('') :
       '<p class="soc-help">' + (S.organiser ? 'No fixtures yet. Add your first one below, then send the sign-up link to the group.' : 'No fixtures yet. The organiser will add them here.') + '</p>') + '</section>';
     if (S.organiser) h += eventForm(null);
+    h += '<section class="soc-card hq-lg" id="hq-lg" hidden></section>';
     if (past.length) h += '<section class="soc-card"><h2>Recent</h2>' + past.map(function (e) { return eventCard(e, true); }).join('') + '</section>';
     h += '<section class="soc-card"><h2>Members (' + S.members.length + ')</h2><div class="hq-members">' + S.members.map(function (m) {
       return '<span class="hq-mem">' + esc(m.nick) + (m.organiser ? ' <small>organiser</small>' : '') + (S.organiser && !m.organiser ? ' <button type="button" class="hq-rm" data-m="' + esc(m.m) + '" aria-label="Remove ' + esc(m.nick) + '">✕</button>' : '') + '</span>';
@@ -364,10 +365,60 @@
         api('/soc/remove', { s: S.id, m: b.getAttribute('data-m') }).then(function () { load(); });
       };
     });
+    league();
     var lv = box.querySelector('.hq-leave'); if (lv) lv.onclick = function () {
       if (!window.confirm('Leave ' + S.name + '?')) return;
       api('/soc/leave', { s: S.id }).then(function () { forget(S.id); location.href = '/societies/hq/'; });
     };
+  }
+  /* ---- The National Society League: enter (organiser) or see where we are (members) */
+  function league() {
+    var el = box.querySelector('#hq-lg');
+    if (!el) return;
+    api('/lg/mine?s=' + S.id + '&pid=' + pid()).then(function (d) {
+      if (!d.ok) return;
+      var e = d.entry, table = e ? '/societies/league/?r=' + encodeURIComponent(e.region) + '&d=' + e.division : '/societies/league/';
+      var h = '<span class="soc-kick">The National Society League · ' + esc(d.season) + '</span>';
+      if (e && !open.lgEdit) {
+        h += '<h2>' + (S.organiser ? 'You’re in: ' : 'We’re in the League: ') + esc(e.region) + ' Division ' + e.division + '</h2>' +
+          '<p class="soc-help">Every society day you report in the Form Guide counts automatically. ' + (d.open ? 'Matchdays run April to October.' : 'Entries open 1 February; the first matchday is in April.') + (S.organiser ? ' Playing off ' + e.allowance + '% handicap allowance.' : '') + '</p>' +
+          '<div class="soc-btns"><a class="soc-btn" href="' + table + '">See the table</a><button type="button" class="soc-btn2 hq-lg-share">Tell the group</button>' + (S.organiser ? '<button type="button" class="soc-btn2 hq-lg-edit">Change details</button>' : '') + '</div>';
+      } else if (S.organiser) {
+        var cur = e || {};
+        h += '<h2>' + (e ? 'League details' : 'Enter ' + esc(S.name) + ' in the League') + '</h2>' +
+          '<p class="soc-help">Free. Your society against every other society in your region, with promotion and relegation. Every society day you report in the Form Guide counts automatically.</p>' +
+          '<form class="hq-lg-form" novalidate><label>Your region<select name="region"><option value="">Choose…</option>' + d.regions.map(function (r) { return '<option' + (cur.region === r ? ' selected' : '') + '>' + esc(r) + '</option>'; }).join('') + '</select></label>' +
+          '<fieldset class="hq-lg-allow"><legend>Handicap allowance you play off</legend><label><input type="radio" name="allowance" value="95"' + (cur.allowance !== 100 ? ' checked' : '') + '> 95%</label><label><input type="radio" name="allowance" value="100"' + (cur.allowance === 100 ? ' checked' : '') + '> 100%</label>' +
+          '<small>Fixed once the season starts on 1 April. Societies on 100% have 1 point taken off their team score, shown on the table.</small></fieldset>' +
+          '<div class="hq-lg-rules"><b>The rules, in short</b><span>Each month, your best four stableford scores (one per golfer) make your team score.</span><span>At least four golfers must play for a day to count.</span><span>Scores on the honour system. Anything daft comes off the table.</span></div>' +
+          '<label class="hq-lg-check"><input type="checkbox" name="public"' + (cur.public === 0 ? '' : ' checked') + '> Show our society’s name on the League tables</label>' +
+          '<label class="hq-lg-check"><input type="checkbox" name="champ"' + (cur.champ ? ' checked' : '') + '> We’d be up for a Champions’ Day if one happens (just showing interest, nothing booked)</label>' +
+          '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="submit" class="soc-btn">' + (e ? 'Save' : d.open ? 'Enter the League' : 'Register early') + '</button>' +
+          (e ? '<button type="button" class="soc-btn2 hq-lg-cancel">Cancel</button>' : '<a class="soc-btn2" href="/societies/league/">How it works</a>') + '</div>' +
+          (e ? '<button type="button" class="soc-x hq-lg-leave">Leave the League</button>' : '') + '</form>';
+      } else {
+        h += '<h2>Fancy a league?</h2><p class="soc-help">Your organiser can enter the society in the National Society League, free. Every society day counts towards a regional table.</p><a class="soc-link-a" href="/societies/league/">How the League works →</a>';
+      }
+      el.innerHTML = h; el.hidden = false;
+      var sh = el.querySelector('.hq-lg-share'); if (sh) sh.onclick = function () { track('league_tell'); shareText(S.name + ' are in the National Society League: ' + e.region + ' Division ' + e.division + '. Every society day counts now, so no pressure. Table: ' + SITE + table); };
+      var ed = el.querySelector('.hq-lg-edit'); if (ed) ed.onclick = function () { open.lgEdit = true; league(); };
+      var cc = el.querySelector('.hq-lg-cancel'); if (cc) cc.onclick = function () { open.lgEdit = false; league(); };
+      var lv = el.querySelector('.hq-lg-leave'); if (lv) lv.onclick = function () {
+        if (!window.confirm('Take ' + S.name + ' out of the League?')) return;
+        api('/lg/leave', { s: S.id }).then(function () { open.lgEdit = false; league(); });
+      };
+      var f = el.querySelector('.hq-lg-form'); if (f) f.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var msg = f.querySelector('.soc-msg'), btn = f.querySelector('[type=submit]');
+        if (!f.region.value) { msg.textContent = 'Pick your region.'; return; }
+        btn.disabled = true;
+        api('/lg/enter', { s: S.id, region: f.region.value, allowance: Number((f.querySelector('[name=allowance]:checked') || {}).value || 95), public: f.public.checked, champ: f.champ.checked }).then(function (r) {
+          btn.disabled = false;
+          if (!r.ok) { msg.textContent = r.error || 'Something went wrong.'; return; }
+          track('league_enter', { region: r.region }); open.lgEdit = false; league();
+        }).catch(function () { btn.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
+      });
+    }).catch(function () {});
   }
   function alertMsg(art, t) { var p = document.createElement('p'); p.className = 'hq-note'; p.textContent = t || 'Something went wrong.'; art.appendChild(p); }
 

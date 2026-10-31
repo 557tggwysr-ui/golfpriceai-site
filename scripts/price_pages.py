@@ -651,7 +651,7 @@ def compare_block(model, all_models, today):
     return html, (f"How does the {model.name} compare with other {plural_noun}?", answer)
 
 
-CADDIE_V = "20261101c"
+CADDIE_V = "20261101d"
 CADDIE_CSS = f'<link rel="stylesheet" href="/css/caddie.css?v={CADDIE_V}">\n'
 
 
@@ -1732,7 +1732,7 @@ def build(models_list, products, today_str):
             import society
             changed += society.build()
             if society.LAUNCHED:
-                sitemap += [("societies/", None), ("societies/hq/", None), ("societies/find/", None), ("societies/awards/", None), ("societies/clubs/", None)]
+                sitemap += [("societies/", None), ("societies/hq/", None), ("societies/find/", None), ("societies/awards/", None), ("societies/clubs/", None), ("societies/league/", None)]
                 import society_guides
                 sitemap += [(u, None) for u in society_guides.SITEMAP]
                 sitemap += [(u, None) for u in society.COUNTY_URLS]

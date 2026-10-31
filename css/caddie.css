@@ -188,3 +188,41 @@ main.pp:has(.or) { max-width: none; padding: 0; }
   .pb-slot-k { grid-area: k; } .pb-slot-p { grid-area: p; } .pb-slot-who { grid-area: who; } .pb-pick { grid-area: pick; justify-self: start; min-height: 36px; padding: 0; }
   .pb-total-p { font-size: 24px; }
 }
+
+/* ---------------------------------------------------------- The National Society League */
+.nsl-crumbs { padding-top: 16px; margin-bottom: -16px; }
+.nsl-ctas, .nsl-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+.or .nsl-ghost { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid #4d6156; border-radius: 10px; color: #fff; font: 700 14px 'Inter', sans-serif; }
+.or .nsl-ghost:hover { border-color: #8fd97c; color: #fff; }
+.or .nsl-ghost-d { color: #14211a; border-color: #d5d9d1; background: #fff; }
+.or .nsl-ghost-d:hover { color: #14211a; border-color: #3fae29; }
+.nsl-regions { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.nsl-regions li { font-weight: 600; }
+.nsl-regions a { display: flex; flex-direction: column; gap: 2px; background: #f6f6f3; border-radius: 14px; padding: 14px; color: #14211a; min-height: 44px; }
+.nsl-regions a:hover { background: #eef7ea; color: #14211a; }
+.nsl-regions b { font-size: 15px; }
+.nsl-regions small { color: #5b665f; font-size: 12.5px; font-weight: 400; }
+.nsl-orange { color: #f08a24 !important; }
+.or .nsl-link-l { color: #8fd97c; font-weight: 700; font-size: 14px; }
+.nsl-div { display: flex; flex-direction: column; gap: 16px; }
+.nsl-back { margin: 0; font-size: 14px; }
+.nsl-row { display: grid; grid-template-columns: 30px minmax(0, 1fr) 128px 60px 44px; gap: 10px; align-items: center; padding: 11px 0; border-bottom: 1px solid #eef0ec; font-size: 15px; }
+.nsl-head { font: 700 11px 'Inter', sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #5b665f; padding: 4px 0 8px; }
+.nsl-name { display: flex; flex-direction: column; min-width: 0; }
+.nsl-name b { overflow-wrap: anywhere; }
+.nsl-name small { color: #5b665f; font-size: 12.5px; }
+.nsl-pos { font: 800 16px 'Poppins', sans-serif; color: #5b665f; }
+.nsl-form { display: flex; gap: 4px; justify-content: flex-end; }
+.nsl-avg { text-align: right; color: #4a554e; }
+.nsl-pts { text-align: right; font: 700 16px 'Poppins', sans-serif; }
+.nsl-up { border-bottom: 3px solid #3fae29; }
+.nsl-down { border-bottom: 2px dashed #c96a1f; }
+.nsl-champ { background: #eef7ea; margin: 0 -10px; padding: 11px 10px; border-radius: 10px; }
+.nsl-key { margin: 10px 0 0; }
+.fg-chip { min-width: 34px; text-align: center; font: 600 12px 'Inter', sans-serif; background: #f1f3ef; border-radius: 8px; padding: 4px 6px; }
+.fg-chip.fg-win { background: #14211a; color: #8fd97c; }
+@media (max-width: 860px) {
+  .nsl-regions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nsl-row { grid-template-columns: 26px minmax(0, 1fr) 50px 36px; }
+  .nsl-row .nsl-form { display: none; }
+}

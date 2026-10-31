@@ -170,6 +170,8 @@ def menu():
              '<path d="M4 5h16v15H4zM4 10h16M9 3v4M15 3v4M8 14h3M8 17h6"></path>'),
             ("Find a Society", "Golf societies open to new members near you.", "/societies/find/",
              '<path d="M11 11m-7 0a7 7 0 1014 0 7 7 0 10-14 0M21 21l-5-5"></path>'),
+            ("National Society League", "Your society against your region. Free, 2027 season.", "/societies/league/",
+             '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM7 6H4a3 3 0 003 4M17 6h3a3 3 0 01-3 4"></path>'),
             ("Golf Society Awards", "Award cards, a slideshow and prizes winners pick.", "/societies/awards/",
              '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4z"></path>'),
         ],

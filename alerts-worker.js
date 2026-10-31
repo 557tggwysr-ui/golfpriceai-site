@@ -113,6 +113,7 @@ export default {
       if (url.pathname.startsWith('/ace/')) return await aceRegister(request, url, env, cors);
       if (url.pathname.startsWith('/cc/')) return await crowdCaddie(request, url, env, cors);
       if (url.pathname.startsWith('/pb/')) return await peoplesBag(request, url, env, cors);
+      if (url.pathname.startsWith('/lg/')) return await nationalLeague(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -1020,6 +1021,18 @@ async function clubStats(request, env, cors) {
   } catch (e) { out.caddie = null; }
 
   out.societies.fgViews7 = sumUse('fg_view', d7); out.societies.fgShares7 = sumUse('fg_share', d7);
+
+  // ---- The National Society League
+  try {
+    await lgSetup(env);
+    out.league = {
+      entries: await one('SELECT COUNT(*) AS c FROM lg_entries WHERE hidden = 0'),
+      champ: await one('SELECT COUNT(*) AS c FROM lg_entries WHERE hidden = 0 AND champ = 1'),
+      full: await one('SELECT COUNT(*) AS c FROM lg_entries WHERE hidden = 0 AND allowance = 100'),
+      regions: await all('SELECT region, COUNT(*) AS c FROM lg_entries WHERE hidden = 0 GROUP BY region ORDER BY c DESC'),
+      recent: await all('SELECT l.soc, s.name, l.region, l.division, l.hidden FROM lg_entries l JOIN soc_socs s ON s.id = l.soc ORDER BY l.entered DESC LIMIT 20'),
+    };
+  } catch (e) { out.league = null; }
 
   // ---- The People's Bag
   try {
@@ -2109,6 +2122,7 @@ async function fgGet(env, eid, pid, cors) {
   const oom = Object.values(oomRows).sort((a, b) => b.pts - a.pts || b.wins - a.wins).slice(0, 10);
   const base = { ok: true, id: eid, soc: { id: e.soc, name: e.sname }, title: e.title, venue: e.venue, day: e.day, tee: e.tee,
     organiser: !!pid && pid === e.org, member: !!mine, season, oom, events: hist.length };
+  try { const lg = await db.prepare('SELECT region, division, season FROM lg_entries WHERE soc = ? AND hidden = 0').bind(e.soc).first(); if (lg) base.league = lg; } catch (err) { /* no league yet */ }
 
   if (!report) {
     const ents = (await db.prepare("SELECT mkey, status, at FROM soc_entries WHERE event = ? AND status IN ('in', 'wait') ORDER BY at").bind(eid).all()).results || [];
@@ -2228,6 +2242,168 @@ async function fgUnpublish(env, body, pid, cors) {
     env.DEMAND.prepare('DELETE FROM soc_reports WHERE event = ?').bind(e.id),
   ]);
   return json({ ok: true }, 200, cors);
+}
+/* ---- The National Society League (golfpriceai.com/societies/league/).
+     lg_entries  soc, region, division, allowance (95 or 100), public (name on the tables),
+                 champ (interested in a Champions' Day, a show of interest only), season, entered
+   Societies enter from Society HQ (organiser only). Every society day reported
+   in the Form Guide counts automatically: each month a society's team score is
+   the average of its four best stableford scores (one per golfer, from days
+   with at least four golfers). Societies on a 100% allowance have 1 point taken
+   off, shown on the table. Monthly points by rank in the division: 10, 8, 6, 5,
+   4, 3, 2, 1. Divisions of up to 10, filled in the order societies enter. */
+const LG_SEASON = '2027', LG_FIRST = '04', LG_LAST = '10', LG_SIZE = 10;
+const LG_POINTS = [10, 8, 6, 5, 4, 3, 2, 1];
+const LG_REGIONS = ['North East', 'North West', 'Yorkshire', 'Midlands', 'East of England', 'London and South East', 'South West', 'Scotland', 'Wales and Northern Ireland'];
+const LG_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+let lgReady = false;
+async function lgSetup(env) {
+  if (lgReady) return;
+  await socSetup(env);
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS lg_entries (soc TEXT PRIMARY KEY, region TEXT, division INTEGER, allowance INTEGER, public INTEGER, champ INTEGER, season TEXT, entered TEXT, hidden INTEGER DEFAULT 0) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS lg_div ON lg_entries (season, region, division)'),
+  ]);
+  lgReady = true;
+}
+// Each entered society's team score per month of the season, from its Form Guide results.
+async function lgMonths(env, socs) {
+  if (!socs.length) return {};
+  const db = env.DEMAND, out = {};
+  const evs = (await db.prepare(`SELECT e.id, e.soc, e.day FROM soc_events e JOIN soc_reports r ON r.event = e.id WHERE e.soc IN (${socs.map(() => '?').join(',')}) AND e.day >= ? AND e.day <= ?`)
+    .bind(...socs, `${LG_SEASON}-${LG_FIRST}-01`, `${LG_SEASON}-${LG_LAST}-31`).all()).results || [];
+  if (!evs.length) return out;
+  const res = (await db.prepare(`SELECT event, mkey, pts FROM soc_results WHERE pts >= 0 AND event IN (${evs.map(() => '?').join(',')})`).bind(...evs.map((e) => e.id)).all()).results || [];
+  const byEv = {}; res.forEach((r) => { (byEv[r.event] = byEv[r.event] || []).push(r); });
+  evs.forEach((e) => {
+    const rows = byEv[e.id] || [];
+    if (rows.length < 4) return; // a day counts with four or more golfers
+    const m = e.day.slice(0, 7), s = (out[e.soc] = out[e.soc] || {}), b = (s[m] = s[m] || {});
+    rows.forEach((r) => { if (!(r.mkey in b) || r.pts > b[r.mkey]) b[r.mkey] = Number(r.pts); });
+  });
+  const team = {};
+  Object.keys(out).forEach((soc) => {
+    team[soc] = {};
+    Object.keys(out[soc]).forEach((m) => {
+      const best = Object.entries(out[soc][m]).sort((a, b) => b[1] - a[1]).slice(0, 4);
+      if (best.length < 4) return;
+      team[soc][m] = { score: best.reduce((a, b) => a + b[1], 0) / 4, top: best[0] };
+    });
+  });
+  return team;
+}
+async function lgTable(env, region, division) {
+  const db = env.DEMAND;
+  const ents = (await db.prepare('SELECT l.soc, l.allowance, l.public, l.entered, s.name FROM lg_entries l JOIN soc_socs s ON s.id = l.soc WHERE l.season = ? AND l.region = ? AND l.division = ? AND l.hidden = 0 ORDER BY l.entered, l.soc').bind(LG_SEASON, region, division).all()).results || [];
+  const team = await lgMonths(env, ents.map((e) => e.soc));
+  const months = [...new Set(Object.values(team).flatMap((t) => Object.keys(t)))].sort();
+  const rows = ents.map((e) => ({ soc: e.soc, name: e.public ? e.name : 'A society in ' + region, allowance: e.allowance, pts: 0, played: 0, sum: 0, pos: [] }));
+  const byId = {}; rows.forEach((r) => { byId[r.soc] = r; });
+  let latest = null;
+  months.forEach((m) => {
+    const scored = rows.map((r) => { const t = team[r.soc] && team[r.soc][m]; return t ? { r, s: t.score - (r.allowance === 100 ? 1 : 0), top: t.top } : null; }).filter(Boolean).sort((a, b) => b.s - a.s);
+    let place = 0;
+    scored.forEach((x, i) => {
+      if (i === 0 || x.s < scored[i - 1].s - 1e-9) place = i;
+      x.r.pts += LG_POINTS[place] || 0; x.r.played++; x.r.sum += x.s; x.r.pos.push({ m, p: place + 1 });
+    });
+    rows.forEach((r) => { if (!r.pos.some((p) => p.m === m)) r.pos.push({ m, p: null }); });
+    latest = { month: m, scored: scored.map((x) => ({ soc: x.r.soc, name: x.r.name, score: Math.round(x.s * 100) / 100, top: x.top })), missed: rows.filter((r) => !scored.some((x) => x.r === r)).map((r) => r.name) };
+  });
+  rows.sort((a, b) => b.pts - a.pts || (b.played ? b.sum / b.played : 0) - (a.played ? a.sum / a.played : 0) || 0);
+  let note = null;
+  if (latest && latest.scored.length) {
+    const w = latest.scored[0], second = latest.scored[1];
+    const nick = w.top ? await db.prepare('SELECT nick FROM soc_members WHERE mkey = ?').bind(w.top[0]).first('nick') : null;
+    note = `${LG_MONTHS[Number(latest.month.slice(5)) - 1]}: ${w.name} top with a team score of ${w.score.toFixed(2)}` + (nick && w.top ? `, helped by ${w.top[1]} points from ${nick}` : '') + '.' +
+      (second ? ` ${second.name} ${second.score === w.score ? 'level on' : 'next on'} ${second.score.toFixed(2)}.` : '') +
+      (latest.missed.length ? ` ${latest.missed.length === 1 ? latest.missed[0] + ' didn’t play' : latest.missed.length + ' societies didn’t play'}, so no points.` : '');
+  }
+  const over = hqDay() > `${LG_SEASON}-${LG_LAST}-31`;
+  return { region, division, season: LG_SEASON, months: months.length, over, note,
+    rows: rows.map((r, i) => ({ pos: i + 1, soc: r.soc, name: r.name, pts: r.pts, played: r.played, avg: r.played ? Math.round(r.sum / r.played * 100) / 100 : null, allowance: r.allowance, form: r.pos.slice(-3).map((p) => p.p), champion: over && i === 0 && r.played > 0 })) };
+}
+async function nationalLeague(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'The League is taking a short break. Please try again later.' }, 503, cors);
+  await lgSetup(env);
+  const path = url.pathname, db = env.DEMAND, ip = request.headers.get('cf-connecting-ip') || '';
+  let body = {};
+  if (request.method === 'POST') {
+    try { body = JSON.parse((await request.text()).slice(0, 2000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    if (await tooMany('lg-' + ip, 30, 600)) return json({ ok: false, error: 'Easy, tiger. Please try again in a few minutes.' }, 429, cors);
+  }
+  const pidIn = String(body.pid || url.searchParams.get('pid') || '');
+  const pid = PID_RX.test(pidIn) ? pidIn : '';
+  const cache = Object.assign({ 'cache-control': 'public, max-age=120' }, cors), noStore = Object.assign({ 'cache-control': 'no-store' }, cors);
+
+  if (path === '/lg/home') {
+    const rows = (await db.prepare('SELECT region, division, COUNT(*) AS n FROM lg_entries WHERE season = ? AND hidden = 0 GROUP BY region, division').bind(LG_SEASON).all()).results || [];
+    const regions = LG_REGIONS.map((r) => { const ds = rows.filter((x) => x.region === r); return { region: r, societies: ds.reduce((a, x) => a + Number(x.n), 0), divisions: ds.map((x) => Number(x.division)).sort((a, b) => a - b) }; });
+    // Society of the Month: the best team score anywhere in the latest month played.
+    let sotm = null;
+    const all = (await db.prepare('SELECT l.soc, l.region, l.division, l.allowance, l.public, s.name FROM lg_entries l JOIN soc_socs s ON s.id = l.soc WHERE l.season = ? AND l.hidden = 0').bind(LG_SEASON).all()).results || [];
+    const team = await lgMonths(env, all.map((x) => x.soc));
+    const months = [...new Set(Object.values(team).flatMap((t) => Object.keys(t)))].sort();
+    const m = months.filter((x) => x < hqDay().slice(0, 7)).pop() || null;
+    if (m) {
+      const best = all.map((x) => ({ x, s: team[x.soc] && team[x.soc][m] ? team[x.soc][m].score - (x.allowance === 100 ? 1 : 0) : null })).filter((y) => y.s !== null && y.x.public).sort((a, b) => b.s - a.s)[0];
+      if (best) sotm = { month: m, name: best.x.name, region: best.x.region, division: best.x.division, score: Math.round(best.s * 100) / 100 };
+    }
+    return json({ ok: true, season: LG_SEASON, open: hqDay() >= LG_SEASON + '-02-01', total: all.length, regions, sotm }, 200, cache);
+  }
+  if (path === '/lg/div') {
+    const region = String(url.searchParams.get('r') || ''), division = Math.round(Number(url.searchParams.get('d')) || 1);
+    if (!LG_REGIONS.includes(region) || !(division >= 1 && division <= 50)) return json({ ok: false, error: 'We couldn’t find that division.' }, 404, cors);
+    return json(Object.assign({ ok: true }, await lgTable(env, region, division)), 200, cache);
+  }
+  if (path === '/lg/mine') {
+    const s = await hqSoc(env, String(url.searchParams.get('s') || ''));
+    if (!s) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const e = await db.prepare('SELECT region, division, allowance, public, champ, entered FROM lg_entries WHERE soc = ? AND season = ? AND hidden = 0').bind(s.id, LG_SEASON).first();
+    return json({ ok: true, season: LG_SEASON, open: hqDay() >= LG_SEASON + '-02-01', regions: LG_REGIONS, entry: e || null, organiser: !!pid && pid === s.pid }, 200, noStore);
+  }
+  if (path === '/lg/enter' && request.method === 'POST') {
+    const s = await hqSoc(env, String(body.s || ''));
+    if (!s || !pid || s.pid !== pid) return json({ ok: false, error: 'Only the organiser can enter the society.' }, 403, cors);
+    const region = String(body.region || ''), allowance = Number(body.allowance) === 100 ? 100 : 95;
+    if (!LG_REGIONS.includes(region)) return json({ ok: false, error: 'Pick your region.' }, 400, cors);
+    if (hqDay() > `${LG_SEASON}-${LG_LAST}-01`) return json({ ok: false, error: 'This season’s entries have closed. Next season’s open in February.' }, 400, cors);
+    const had = await db.prepare('SELECT region, division FROM lg_entries WHERE soc = ? AND season = ?').bind(s.id, LG_SEASON).first();
+    let division = had && had.region === region ? had.division : null;
+    if (!division) {
+      const counts = (await db.prepare('SELECT division, COUNT(*) AS n FROM lg_entries WHERE season = ? AND region = ? AND hidden = 0 GROUP BY division ORDER BY division').bind(LG_SEASON, region).all()).results || [];
+      division = 1;
+      for (const c of counts) { if (Number(c.division) === division && Number(c.n) >= LG_SIZE) division++; }
+    }
+    const pub = body.public === false ? 0 : 1, champ = body.champ ? 1 : 0;
+    if (had) {
+      // The allowance is fixed once the season starts (1 April), so nobody switches mid-way.
+      const lock = hqDay() >= `${LG_SEASON}-${LG_FIRST}-01`;
+      await db.prepare(`UPDATE lg_entries SET region = ?, division = ?, public = ?, champ = ?, hidden = 0${lock ? '' : ', allowance = ?'} WHERE soc = ?`)
+        .bind(...(lock ? [region, division, pub, champ, s.id] : [region, division, pub, champ, allowance, s.id])).run();
+    } else {
+      await db.prepare('INSERT INTO lg_entries (soc, region, division, allowance, public, champ, season, entered, hidden) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)')
+        .bind(s.id, region, division, allowance, pub, champ, LG_SEASON, new Date().toISOString()).run();
+    }
+    await hqTouch(env, s.id);
+    return json({ ok: true, region, division }, 200, cors);
+  }
+  if (path === '/lg/leave' && request.method === 'POST') {
+    const s = await hqSoc(env, String(body.s || ''));
+    if (!s || !pid || s.pid !== pid) return json({ ok: false, error: 'Only the organiser can do that.' }, 403, cors);
+    await db.prepare('DELETE FROM lg_entries WHERE soc = ? AND season = ?').bind(s.id, LG_SEASON).run();
+    return json({ ok: true }, 200, cors);
+  }
+  // John only: take a society off the tables, or put it back.
+  if (path === '/lg/admin' && request.method === 'POST') {
+    if (await keyLocked(ip || 'unknown')) return json({ ok: false, error: 'Too many wrong tries. The door opens again in ten minutes.' }, 429, cors);
+    if (!keyMatches(env, body.key)) { await tooMany('stats-' + (ip || 'unknown'), 5, 600); return json({ ok: false, error: 'That key isn’t right.' }, 403, cors); }
+    const soc = String(body.soc || ''), act = String(body.action || '');
+    if (!SOC_RX.test(soc) || !['hide', 'show'].includes(act)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    await db.prepare('UPDATE lg_entries SET hidden = ? WHERE soc = ?').bind(act === 'hide' ? 1 : 0, soc).run();
+    return json({ ok: true }, 200, cors);
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
 }
 async function hqFind(env, cors) {
   const rows = (await env.DEMAND.prepare('SELECT s.id, s.name, s.area, s.county, s.about, s.updated, (SELECT COUNT(*) FROM soc_members m WHERE m.soc = s.id) AS members, (SELECT n FROM soc_founding f WHERE f.soc = s.id) AS founding FROM soc_socs s WHERE s.open = 1 ORDER BY s.updated DESC LIMIT 300').all()).results || [];

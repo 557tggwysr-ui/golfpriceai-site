@@ -328,3 +328,15 @@ a.fd-chip { color: var(--gp-green-dark); border-color: #cfe8c6; background: #f3f
 .hq-res-check { flex-direction: row !important; align-items: center; grid-column: 1 / -1; }
 .hq-res-check input { width: 22px; min-height: 22px; height: 22px; }
 @media (max-width: 600px) { .hq-res-extras { grid-template-columns: minmax(0, 1fr); } .hq-res-head, .hq-res-row { grid-template-columns: minmax(0, 1fr) 70px 70px; } }
+/* The National Society League card in Society HQ */
+.hq-lg-form { display: flex; flex-direction: column; gap: 12px; }
+.hq-lg-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
+.hq-lg-form select { min-height: 46px; border: 1px solid #cfd5cc; border-radius: 10px; padding: 0 10px; font: 500 16px Inter, sans-serif; background: #fff; }
+.hq-lg-allow { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+.hq-lg-allow legend { font-weight: 600; font-size: 14px; margin-bottom: 6px; padding: 0; }
+.hq-lg-allow label { flex-direction: row; align-items: center; gap: 8px; min-height: 44px; }
+.hq-lg-allow input { width: 20px; height: 20px; }
+.hq-lg-allow small { flex-basis: 100%; font-weight: 400; color: #5b665f; font-size: 12.5px; }
+.hq-lg-rules { background: #f6f7f4; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 4px; font-size: 13.5px; line-height: 1.45; }
+.hq-lg-check { flex-direction: row !important; align-items: flex-start; gap: 10px !important; font-weight: 500 !important; line-height: 1.45; }
+.hq-lg-check input { width: 20px; height: 20px; margin: 2px 0 0; flex: none; }

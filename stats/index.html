@@ -212,6 +212,15 @@ td:first-child { font-weight: 400; }
         '<div class="nums">' + num(pb.picks, 'picks in all') + num(pb.week, 'picks this week') + num(pb.views7, 'visitors, 7 days') + num(pb.shares7, 'bags shared, 7 days') + '</div></section>';
     }
 
+    var lg = d.league;
+    if (lg) {
+      html += '<section class="card" id="league"><div class="head"><h2>National Society League</h2><span class="dim">' + n(lg.entries) + ' societies · ' + n(lg.champ) + ' up for a Champions\u2019 Day · ' + n(lg.full) + ' on 100%</span></div>' +
+        '<span class="dim">By region: ' + (lg.regions.length ? lg.regions.map(function (r) { return esc(r.region) + ' ' + r.c; }).join(' · ') : 'none yet') + '</span>' +
+        (lg.recent.length ? '<table>' + lg.recent.map(function (x) {
+          return '<tr><td><b>' + esc(x.name) + '</b> · ' + esc(x.region) + ' Div ' + x.division + (x.hidden ? ' <span class="dim">(off the tables)</span>' : '') + '</td><td><button type="button" data-lg="' + (x.hidden ? 'show' : 'hide') + '" data-soc="' + esc(x.soc) + '">' + (x.hidden ? 'Put back' : 'Take off') + '</button></td></tr>';
+        }).join('') + '</table>' : '') + '</section>';
+    }
+
     var cc = d.caddie;
     if (cc) {
       html += '<section class="card" id="caddie"><div class="head"><h2>Crowd Caddie</h2><span class="dim">' + n(cc.total) + ' calls · ' + n(cc.callers) + ' golfers · ' + n(cc.products) + ' products</span></div>' +
@@ -235,6 +244,14 @@ td:first-child { font-weight: 400; }
       '<tr><td>Golfers who have ever played</td><td>' + n(p.ever) + '</td></tr></table></section></div>' +
       '<p class="note">Counts only: no nicknames, emails or society names are sent to this page. Par Price and Higher or Lower scores are kept for 120 days, and quiet leagues close after 90 days, so “ever” means roughly the last four months.</p>';
     document.getElementById('main').innerHTML = html;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-lg]'), function (b) {
+      b.addEventListener('click', function () {
+        b.disabled = true;
+        fetch(API.replace('/stats', '/lg/admin'), { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ key: getKey(), action: b.getAttribute('data-lg'), soc: b.getAttribute('data-soc') }) })
+          .then(function (r) { return r.json(); }).then(function (r) { if (r.ok) load(getKey(), true, false); else { b.disabled = false; b.textContent = r.error || 'That didn’t work'; } })
+          .catch(function () { b.disabled = false; });
+      });
+    });
     Array.prototype.forEach.call(document.querySelectorAll('[data-cc]'), function (b) {
       b.addEventListener('click', function () {
         b.disabled = true;
