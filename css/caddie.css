@@ -73,6 +73,7 @@ main.pp:has(.or) { max-width: none; padding: 0; }
 .or-hero .cc-kick { color: #8fd97c; }
 .or-hero h1 { margin: 10px 0 12px; font: 800 56px/1.0 'Poppins', sans-serif; letter-spacing: -0.03em; }
 .or-hero h1 span { color: #8fd97c; }
+.or-hero .or-quip { font: italic 600 19px/1.4 'Poppins', sans-serif; color: #fff; margin: 0 0 10px; max-width: 560px; }
 .or-hero p { margin: 0; font-size: 17px; line-height: 1.55; color: #c4d0c8; max-width: 560px; }
 .or-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .or-stats div { background: #1f3127; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }

@@ -651,7 +651,7 @@ def compare_block(model, all_models, today):
     return html, (f"How does the {model.name} compare with other {plural_noun}?", answer)
 
 
-CADDIE_V = "20261101"
+CADDIE_V = "20261101b"
 CADDIE_CSS = f'<link rel="stylesheet" href="/css/caddie.css?v={CADDIE_V}">\n'
 
 

@@ -33,6 +33,7 @@ def page():
   <div>
     <span class="cc-kick">CROWD CADDIE · <span id="or-month">THIS MONTH</span></span>
     <h1>The Oracle <span>board.</span></h1>
+    <p class="or-quip">Everyone at the 19th hole reckons they know when the price will drop. Now we can check.</p>
     <p>The golfers who read UK golf prices best. Call where a price is heading on any price page; we check the real price 14 days later. Five settled calls to get on the board.</p>
   </div>
   <div class="or-stats" aria-live="polite">
@@ -50,15 +51,15 @@ def page():
       </div>
       <div id="or-board" aria-live="polite"><p class="or-empty">Loading the board…</p></div>
     </section>
+    <section class="or-card">
+      <h2>The crowd’s biggest calls right now</h2>
+      <div class="or-hot" id="or-hot"><p class="or-empty">The busiest calls show here once a few golfers have made them.</p></div>
+    </section>
   </div>
   <div class="or-col">
     <section class="or-card or-you" id="or-you" aria-live="polite">
       <div class="or-you-top"><b>Your calls</b></div>
       <p class="or-empty">Make your first call on any <a href="/prices/">price page</a>. It takes one tap.</p>
-    </section>
-    <section class="or-card">
-      <h2>The crowd’s biggest calls right now</h2>
-      <div class="or-hot" id="or-hot"><p class="or-empty">The busiest calls show here once a few golfers have made them.</p></div>
     </section>
   </div>
 </div>
