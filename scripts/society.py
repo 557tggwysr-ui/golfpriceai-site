@@ -122,11 +122,11 @@ def fg_page():
 <div class="fg" id="fg" aria-live="polite"><p class="soc-loading">Reading the form…</p></div>
 <noscript><p>The Form Guide needs JavaScript switched on.</p></noscript>
 </div>
-<script src="/js/form-guide.js?v=20261101" defer></script>"""
+<script src="/js/form-guide.js?v=20261101b" defer></script>"""
     return page_shell(title="The Form Guide | Society HQ | GolfPrice AI",
                       description="Your golf society day, treated like a tour event: a preview with everyone's form, then a report with the leaderboard and awards.",
                       canonical=f"{SITE}/societies/form-guide/", body=body, section="societies", schema=[crumbs_schema],
-                      noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=CSS + '<link rel="stylesheet" href="/css/form-guide.css?v=20261101">\n')
+                      noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=CSS + '<link rel="stylesheet" href="/css/form-guide.css?v=20261101b">\n')
 
 
 def hq_page():

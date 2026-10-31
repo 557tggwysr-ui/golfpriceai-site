@@ -66,6 +66,6 @@
 .fg .fg-btn:hover { background: #2f8a1f; color: #fff; }
 .fg .fg-btn2 { background: #fff; color: #14211a; border: 1px solid #d5d9d1; }
 .fg .fg-btn2:hover { border-color: #3fae29; color: #14211a; }
-.fg .fg-card .fg-btn2 { flex: none; align-self: flex-start; }
+.fg .fg-card .fg-btn, .fg .fg-card .fg-btn2 { flex: none; align-self: flex-start; }
 .fg-link { font-weight: 700; }
 @media (min-width: 700px) { .fg { padding-top: 24px; } .fg-hero { padding: 30px 28px 26px; } .fg-hero h1 { font-size: 42px; } }

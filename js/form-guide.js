@@ -100,7 +100,12 @@
     if (w && w.me) milestones().then(function (m) { m.award('socwin_' + d.id, 'socwin', card.d); }).catch(function () {});
   }
 
-  if (!eid) { box.innerHTML = '<section class="fg-card"><p>Open a Form Guide from your society’s page in Society HQ.</p><a class="fg-btn" href="/societies/hq/">Society HQ</a></section>'; return; }
+  if (!eid) {
+    box.innerHTML = '<section class="fg-hero"><span class="fg-kick fg-kick-l">SOCIETY HQ</span><h1>The Form Guide</h1><span class="fg-meta">Your society day, treated like a tour event.</span></section>' +
+      '<section class="fg-card"><b class="fg-h3">How it works</b><p>Every fixture in Society HQ gets a preview: the field, everyone’s recent form and the players to watch. After the day, the organiser types in the stableford points and it becomes a report, with the leaderboard, the awards, the Order of Merit and a winner’s card.</p>' +
+      '<p>Each Form Guide has its own link. Open one from your society’s page in Society HQ, or from the link in your group chat.</p><a class="fg-btn" href="/societies/hq/">Go to Society HQ</a></section>';
+    return;
+  }
   gpUse('fg_view');
   var p = get('gpPid', '');
   fetch(API + '/soc/fg?e=' + eid + (/^[a-z0-9]{12,32}$/.test(p) ? '&pid=' + p : '')).then(function (r) { return r.json(); }).then(function (d) {
