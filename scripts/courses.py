@@ -23,12 +23,22 @@ REFRESH_DAYS = 30
 ENDPOINTS = ["https://overpass-api.de/api/interpreter",
              "https://overpass.kumi.systems/api/interpreter",
              "https://overpass.private.coffee/api/interpreter"]
-QUERY = """[out:json][timeout:240];
+# Courses and towns for the whole UK, then each nation's courses as bare
+# ids after a marker, so every course can be tagged with its nation.
+QUERY = """[out:json][timeout:300];
 area["ISO3166-1"="GB"][admin_level=2]->.gb;
 nwr["leisure"="golf_course"]["name"](area.gb);
 out tags center;
 node["place"~"^(city|town)$"]["name"](area.gb);
-out body;"""
+out body;
+""" + "".join(f"""area["ISO3166-2"="GB-{code}"]->.a{code};
+make marker nation="{code}";
+out;
+nwr["leisure"="golf_course"]["name"](area.a{code});
+out ids;
+""" for code in ("ENG", "SCT", "WLS", "NIR"))
+NATIONS = {"ENG": "England", "SCT": "Scotland", "WLS": "Wales", "NIR": "Northern Ireland"}
+VERSION = 2  # bump to force a refresh when the file's shape changes
 NOT_A_COURSE = re.compile(r"pitch\W*(and|&|n)\W*putt|foot\s*golf|crazy\s*golf|adventure\s*golf|mini(ature)?\s*golf|"
                           r"driving\s*range|disc\s*golf|putting\s*green|golf\s*simulator|\btopgolf\b|"
                           r"\bcrazy\b|\bmini\b|frisbee", re.I)
@@ -61,9 +71,15 @@ def tidy_name(n):
 
 def parse(osm):
     """OpenStreetMap's answer -> a clean, de-duplicated course list."""
-    places, raw = [], []
+    places, raw, nation_of, nation = [], [], {}, None
     for el in osm.get("elements", []):
         t = el.get("tags", {})
+        if el.get("type") == "marker":
+            nation = NATIONS.get(t.get("nation"))
+            continue
+        if nation and "tags" not in el:  # a bare id after a nation marker
+            nation_of[el["type"][0] + str(el["id"])] = nation
+            continue
         if t.get("place") in ("city", "town") and "lat" in el:
             places.append((el["lat"], el["lon"], t.get("name", "")))
         elif t.get("leisure") == "golf_course":
@@ -72,8 +88,12 @@ def parse(osm):
             if not name or not c or NOT_A_COURSE.search(name) or t.get("golf:course") in ("pitch_and_putt", "minigolf"):
                 continue
             town = t.get("addr:city") or t.get("addr:town") or ""
-            raw.append({"id": el["type"][0] + str(el["id"]), "n": name, "t": town,
-                        "lat": round(c["lat"], 4), "lon": round(c["lon"], 4)})
+            web = (t.get("website") or t.get("contact:website") or t.get("url") or "").strip()
+            row = {"id": el["type"][0] + str(el["id"]), "n": name, "t": town,
+                   "lat": round(c["lat"], 4), "lon": round(c["lon"], 4)}
+            if re.match(r"^https?://[^\s\"'<>]{4,200}$", web):
+                row["w"] = web
+            raw.append(row)
     # Nearest town or city (within 25 km) when the course doesn't give one.
     # A coarse grid keeps this quick for a few thousand courses.
     grid = {}
@@ -91,6 +111,9 @@ def parse(osm):
                     if d < bd:
                         best, bd = p[2], d
         c["t"] = best
+    for c in raw:
+        if c["id"] in nation_of:
+            c["c"] = nation_of[c["id"]]
     # One entry per course: the same name within 2 km is the same course
     # mapped twice (a way and a relation, say). Keep the first.
     out = []
@@ -106,7 +129,7 @@ def refresh(today=None, force=False):
     if OUT.exists() and not force:
         try:
             old = json.loads(OUT.read_text(encoding="utf-8"))
-            if date.fromisoformat(old.get("updated", "2000-01-01")) > today - timedelta(days=REFRESH_DAYS):
+            if old.get("v") == VERSION and date.fromisoformat(old.get("updated", "2000-01-01")) > today - timedelta(days=REFRESH_DAYS):
                 print(f"Course list: {len(old.get('courses', []))} courses, refreshed {old['updated']} (next in under {REFRESH_DAYS} days).")
                 return False
         except (ValueError, OSError):
@@ -120,7 +143,7 @@ def refresh(today=None, force=False):
         print(f"Course list: only {len(courses)} came back, keeping the old one.")
         return False
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps({"updated": today.isoformat(), "attribution": ATTRIBUTION, "courses": courses},
+    OUT.write_text(json.dumps({"v": VERSION, "updated": today.isoformat(), "attribution": ATTRIBUTION, "courses": courses},
                               ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"Course list: {len(courses)} UK golf courses from OpenStreetMap.")
     return True

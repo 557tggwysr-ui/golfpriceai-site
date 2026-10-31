@@ -149,6 +149,15 @@ def menu():
             ("What do I need to shoot?", "The score that brings your handicap down.", "/improve/what-do-i-need-to-shoot/",
              '<path d="M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 12m-5 0a5 5 0 1010 0 5 5 0 10-10 0M12 12m-1 0a1 1 0 102 0 1 1 0 10-2 0"></path>'),
         ],
+        # Courses: every UK golf course (hub /courses/).
+        "courses": [
+            ("All UK golf courses", "Search 2,800+ courses by name or town.", "/courses/",
+             '<path d="M11 11m-7 0a7 7 0 1014 0 7 7 0 10-14 0M21 21l-5-5"></path>'),
+            ("Courses near me", "The courses closest to you, in miles.", "/courses/#near",
+             '<path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12zM12 10m-2.5 0a2.5 2.5 0 105 0 2.5 2.5 0 10-5 0"></path>'),
+            ("The Ace Register", "Every UK hole-in-one, course by course.", "/play/aces/",
+             '<path d="M6 21V4M6 4l11 4-11 4M3 21h8"></path>'),
+        ],
         # Societies: Society HQ, free tools for golf societies (hub /societies/).
         "societies": [
             ("Society HQ", "The free golf society organiser.", "/societies/",
@@ -281,7 +290,7 @@ def header_html():
                   for n, line, u, icon in m["improve"])
     items.append(f"""
     <div class="gp-nav-item" data-section="improve">
-      <a href="/improve/" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Improve<span class="gp-nav-new">New</span>{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
+      <a href="/improve/" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Improve{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
       <div class="gp-drop gp-mega gp-play-drop">
         <div class="gp-tools gp-tools-1">{imp}
         </div>
@@ -299,6 +308,19 @@ def header_html():
         <div class="gp-tools gp-tools-1">{socs}
         </div>
         <div class="gp-mega-foot"><span>Free for every UK golf society. No sign-up.</span><a href="/societies/">Society HQ &rarr;</a></div>
+      </div>
+    </div>""")
+
+    crs = "".join(f"""
+          <a href="{u}" class="gp-tool"><span class="gp-tool-icon">{_svg(icon, 20, '#2f8a1f', 2)}</span><span class="gp-tool-text"><strong>{_esc(n)}</strong><span>{_esc(line)}</span></span></a>"""
+                  for n, line, u, icon in m["courses"])
+    items.append(f"""
+    <div class="gp-nav-item" data-section="courses">
+      <a href="/courses/" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Courses<span class="gp-nav-new">New</span>{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
+      <div class="gp-drop gp-mega gp-play-drop">
+        <div class="gp-tools gp-tools-1">{crs}
+        </div>
+        <div class="gp-mega-foot"><span>Course list from OpenStreetMap.</span><a href="/courses/">All courses &rarr;</a></div>
       </div>
     </div>""")
 
@@ -345,7 +367,7 @@ def menu_html(m=None):
     imp = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["improve"][1:])
     sections.append(f"""
       <div class="gp-acc" data-section="improve">
-        <button type="button" class="gp-acc-btn" aria-expanded="false"><span>Improve <span class="gp-nav-new">New</span></span>{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
+        <button type="button" class="gp-acc-btn" aria-expanded="false">Improve{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
         <div class="gp-acc-body gp-acc-tools" hidden>{imp}<a class="gp-acc-all" href="/improve/">All calculators &rarr;</a></div>
       </div>""")
     socs = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["societies"])
@@ -353,6 +375,12 @@ def menu_html(m=None):
       <div class="gp-acc" data-section="societies">
         <button type="button" class="gp-acc-btn" aria-expanded="false">Societies{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
         <div class="gp-acc-body gp-acc-tools" hidden>{socs}<a class="gp-acc-all" href="/societies/">Society HQ &rarr;</a></div>
+      </div>""")
+    crs = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["courses"])
+    sections.append(f"""
+      <div class="gp-acc" data-section="courses">
+        <button type="button" class="gp-acc-btn" aria-expanded="false"><span>Courses <span class="gp-nav-new">New</span></span>{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
+        <div class="gp-acc-body gp-acc-tools" hidden>{crs}<a class="gp-acc-all" href="/courses/">All courses &rarr;</a></div>
       </div>""")
     sections.append(f"""
       <div class="gp-acc" data-section="tools">
@@ -384,7 +412,7 @@ def footer_html():
                   ("Christmas golf gifts", "/prices/christmas/"), ("Black Friday golf deals", "/prices/black-friday/")]),
         ("Deal Tools", [("All deal tools", "/deal-tools.html")] + [(n, u) for n, _, u, _ in m["tools"] if u != "/find-your-fit.html"]),
         ("Play", [("My Clubhouse", "/play/my-clubhouse/")] + [(n, u) for n, _, u, _ in m["play"]] + [("UK Golf Demand Index", "/demand/")]),
-        ("Societies", [(n, u) for n, _, u, _ in m["societies"]] + [("Handicap calculators", "/improve/"), ("Course handicap calculator", "/improve/course-handicap-calculator/")]),
+        ("Societies", [(n, u) for n, _, u, _ in m["societies"]] + [("Handicap calculators", "/improve/"), ("Course handicap calculator", "/improve/course-handicap-calculator/"), ("UK golf courses", "/courses/")]),
         ("Price guides", [("Drivers", "/prices/drivers/"), ("Irons", "/prices/irons/"),
                           ("Putters", "/prices/putters/"), ("Golf balls", "/prices/golf-balls/"), ("Golf gloves", "/prices/golf-gloves/"),
                           ("GPS watches", "/prices/gps-watches/"), ("Electric trolleys", "/prices/electric-trolleys/"),

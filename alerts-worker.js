@@ -519,6 +519,19 @@ async function aceRegister(request, url, env, cors) {
     return json({ ok: true, year, total, courses, topClub: clubs[0] ? clubs[0].club : null, latest, holes }, 200, Object.assign({ 'cache-control': 'public, max-age=120' }, cors));
   }
 
+  // For the nightly course pages: public ace counts per course, and each
+  // course's hungriest hole. No nicknames.
+  if (path === '/ace/summary') {
+    const rows = (await db.prepare('SELECT course, hole, COUNT(*) AS c FROM ace_aces WHERE public = 1 GROUP BY course, hole').all()).results || [];
+    const out = {};
+    rows.forEach((r) => {
+      const o = out[r.course] || (out[r.course] = { aces: 0, hole: null, top: 0 });
+      o.aces += Number(r.c);
+      if (Number(r.c) > o.top) { o.top = Number(r.c); o.hole = r.hole; }
+    });
+    return json({ ok: true, courses: out }, 200, Object.assign({ 'cache-control': 'public, max-age=300' }, cors));
+  }
+
   if (path === '/ace/extra') {
     const rows = (await db.prepare("SELECT id, name, town FROM ace_suggest WHERE status = 'approved'").all()).results || [];
     return json({ ok: true, courses: rows.map((r) => ({ id: 'x' + r.id, n: r.name, t: r.town || '' })) }, 200, Object.assign({ 'cache-control': 'public, max-age=600' }, cors));

@@ -1617,6 +1617,13 @@ def build(models_list, products, today_str):
         except Exception as e:  # never stop the main build
             print(f"Ace Register skipped: {e}")
         try:
+            import course_pages
+            cp_changed, cp_sitemap = course_pages.build()
+            changed += cp_changed
+            sitemap += cp_sitemap
+        except Exception as e:  # never stop the main build
+            print(f"Course pages skipped: {e}")
+        try:
             import higher_lower
             changed += higher_lower.build(passing, built, today)
             sitemap.append(("play/higher-or-lower/", None))
