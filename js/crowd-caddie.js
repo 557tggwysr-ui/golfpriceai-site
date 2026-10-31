@@ -42,7 +42,7 @@
   function milestones() {
     if (window.gpMilestones) return Promise.resolve(window.gpMilestones);
     if (!msLoad) msLoad = new Promise(function (ok, no) {
-      var s = document.createElement('script'); s.src = '/js/milestones.js?v=20261101'; s.onload = function () { ok(window.gpMilestones); }; s.onerror = no;
+      var s = document.createElement('script'); s.src = '/js/milestones.js?v=20261101b'; s.onload = function () { ok(window.gpMilestones); }; s.onerror = no;
       document.head.appendChild(s);
     });
     return msLoad;

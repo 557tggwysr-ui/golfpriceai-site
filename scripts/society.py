@@ -16,7 +16,7 @@ from price_pages import SITE, _write, breadcrumb, page_shell
 LAUNCHED = True
 PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
 FIND_PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/find-a-society-wide.jpg"><img src="/assets/photos/tools/find-a-society-banner.jpg" alt="Golfers shaking hands on the first tee, meeting new playing partners" width="1536" height="512"></picture>'
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261024j">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -115,6 +115,20 @@ def prize_page():
                       noindex=True, og_image="/assets/cards/society-awards.jpg", extra_head=CSS)
 
 
+def fg_page():
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Society HQ", "/societies/"), ("The Form Guide", None)])
+    body = f"""<div class="soc-wrap">
+{crumbs_html}
+<div class="fg" id="fg" aria-live="polite"><p class="soc-loading">Reading the form…</p></div>
+<noscript><p>The Form Guide needs JavaScript switched on.</p></noscript>
+</div>
+<script src="/js/form-guide.js?v=20261101" defer></script>"""
+    return page_shell(title="The Form Guide | Society HQ | GolfPrice AI",
+                      description="Your golf society day, treated like a tour event: a preview with everyone's form, then a report with the leaderboard and awards.",
+                      canonical=f"{SITE}/societies/form-guide/", body=body, section="societies", schema=[crumbs_schema],
+                      noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=CSS + '<link rel="stylesheet" href="/css/form-guide.css?v=20261101">\n')
+
+
 def hq_page():
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Society HQ", "/societies/"), ("Run your golf society", None)])
     body = f"""<div class="soc-wrap">
@@ -129,12 +143,13 @@ def hq_page():
     <div><h3>No sign-up</h3><p>Like our games, your phone remembers you. Members join with a nickname from one link in the WhatsApp group. Play on the same phone each time, not a private tab.</p></div>
     <div><h3>Who’s paid</h3><p>The organiser ticks who has paid. “Pay the organiser” opens the organiser’s own PayPal, Monzo or Revolut link. We never take, hold or see any money.</p></div>
     <div><h3>Waiting list</h3><p>Set a maximum and anyone after that goes on the waiting list. When someone drops out, the first in the queue moves up automatically.</p></div>
-    <div><h3>Who can see it</h3><p>Only members see the fixtures and who’s playing. If the organiser lists the society in Find a Society, only its name, area and description are public.</p></div>
+    <div><h3>Who can see it</h3><p>Only members see the fixtures, who’s playing and who’s paid. The Form Guide preview and report for each day can be read by anyone you send the link to: nicknames and points only. If the organiser lists the society in Find a Society, only its name, area and description are public.</p></div>
+    <div><h3>The Form Guide</h3><p>Every society day gets a preview with everyone’s form and the players to watch. Enter the scores afterwards and it becomes a report: the leaderboard, the awards, the Order of Merit and a winner’s card.</p></div>
   </div>
 </section>
 {REAL}
 </div>
-<script src="/js/society-hq.js?v=20261024e" defer></script>"""
+<script src="/js/society-hq.js?v=20261101" defer></script>"""
     return page_shell(title="Run your golf society free | Society HQ | GolfPrice AI",
                       description="Run your golf society for free: fixtures, sign-ups, who’s paid, a waiting list and the prize fund, all from one link in the WhatsApp group.",
                       canonical=f"{SITE}/societies/hq/", body=body, section="societies", schema=[crumbs_schema, app_schema(f"{SITE}/societies/hq/")],
@@ -403,6 +418,8 @@ def build(root=None):
         changed.append("/societies/clubs/")
     if _write(root / "societies" / "prize" / "index.html", prize_page()):
         changed.append("/societies/prize/")
+    if _write(root / "societies" / "form-guide" / "index.html", fg_page()):
+        changed.append("/societies/form-guide/")
     try:
         import society_guides
         changed += society_guides.build(root)

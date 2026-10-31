@@ -45,6 +45,7 @@
       case 'champion': return { label: 'Bag Draft champion', sub: (d.major || 'The Bag Draft') + ' · ' + d.pts + ' pts', text: 'Champion of ' + (d.major || 'The Bag Draft') + ' in ' + (d.league || 'our league') + '. Loser buys the first round.', url: 'https://golfpriceai.com/play/draft/' };
       case 'ace': return { label: 'Hole-in-one', sub: 'the ' + ord(d.hole) + ' at ' + d.course, text: 'Hole-in-one! The ' + ord(d.hole) + ' at ' + d.course + ', ' + d.yards + ' yards with a ' + d.club + '. On the Ace Register for good.', url: 'https://golfpriceai.com/play/aces/' + (d.cid ? '?c=' + d.cid : '') };
       case 'called': return { label: 'You called it', sub: (d.name || 'a golf price'), text: 'Called it. I said ' + ({ down: 'cheaper', same: 'it would hold', up: 'pricier' }[d.call] || 'it') + ' on the ' + (d.name || 'price') + ': ' + money(d.from) + ' then, ' + money(d.to) + ' now. Make your call:', url: 'https://golfpriceai.com/prices/' + (d.slug ? d.slug + '/#crowd-caddie' : '') };
+      case 'socwin': return { label: 'Society winner', sub: (d.title || '') + (d.society ? ' · ' + d.society : ''), text: 'Winner of ' + (d.title || 'the society day') + (d.society ? ' with ' + d.society : '') + ', ' + d.pts + ' points. The Form Guide had me down as... well, never mind.', url: 'https://golfpriceai.com/societies/' };
       case 'streak': return { label: d.n + '-day Par Price streak', sub: STREAK[d.n] ? STREAK[d.n].title : '', text: d.n + ' days in a row on Par Price. Beat that.', url: 'https://golfpriceai.com/play/par-price/' };
     }
     return { label: 'Milestone', sub: '', text: 'A GolfPrice AI milestone.', url: 'https://golfpriceai.com/play/' };
@@ -140,6 +141,33 @@
     return cv;
   }
 
+  // The Form Guide: a society day's winner.
+  function drawSocwin(m) {
+    var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
+    var x = cv.getContext('2d'), d = m.d || {}, L = 120, R = 960;
+    x.fillStyle = C.ink; x.fillRect(0, 0, 1080, 1350);
+    x.lineWidth = 2; x.strokeStyle = 'rgba(255,255,255,.16)'; rr(x, 56, 56, 968, 1238, 36); x.stroke();
+    logo(x, L, 172, '#fff', C.bright);
+    text(x, 'THE FORM GUIDE', R, 166, '700 22px Inter, sans-serif', C.soft, 'right');
+    text(x, d.first ? 'WINNER · FIRST WIN' : 'WINNER', L, 340, '700 32px Inter, sans-serif', C.orange);
+    var who = String(d.who || nick()), f = 120; x.font = '800 ' + f + 'px Poppins, sans-serif';
+    var words = who.split(' '), lines = [], line = '';
+    words.forEach(function (w) { var t = line ? line + ' ' + w : w; if (x.measureText(t).width > 840 && line) { lines.push(line); line = w; } else line = t; });
+    lines.push(line);
+    while (lines.some(function (l) { x.font = '800 ' + f + 'px Poppins, sans-serif'; return x.measureText(l).width > 840; }) && f > 60) f -= 6;
+    lines.slice(0, 2).forEach(function (l, i) { text(x, l, L, 470 + i * (f + 6), '800 ' + f + 'px Poppins, sans-serif', '#fff'); });
+    var y = 470 + Math.min(2, lines.length) * (f + 6) + 20;
+    y = wrap(x, d.title || '', L, y, 840, 50, '600 40px Inter, sans-serif', '#fff');
+    wrap(x, [d.society, d.venue].filter(Boolean).join(' · '), L, y + 4, 840, 42, '400 32px Inter, sans-serif', C.grey);
+    text(x, String(d.pts), L - 8, 1040, '800 260px Poppins, sans-serif', C.bright);
+    x.font = '800 260px Poppins, sans-serif'; var pw = x.measureText(String(d.pts)).width;
+    text(x, 'points', L + pw + 10, 1030, '700 48px Poppins, sans-serif', C.grey);
+    x.fillStyle = 'rgba(255,255,255,.14)'; x.fillRect(L, 1120, R - L, 2);
+    text(x, d.day ? longDate(d.day) : longDate(m.date), L, 1200, '400 30px Inter, sans-serif', C.dim);
+    pill(x, 'golfpriceai.com/societies', R, 1230, C.green, '#fff');
+    return cv;
+  }
+
   // Crowd Caddie: "You called it", for a price call that came good.
   function drawCalled(m) {
     var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
@@ -174,6 +202,7 @@
 
   function draw(m) {
     if (m.kind === 'called') return drawCalled(m);
+    if (m.kind === 'socwin') return drawSocwin(m);
     if (m.kind === 'ace') return drawAce(m);
     var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
     var x = cv.getContext('2d'), d = m.d || {}, me = nick();
@@ -302,7 +331,7 @@
     var info = meta(m);
     var back = document.createElement('div'); back.className = 'ms-back';
     back.innerHTML = '<section class="ms-sheet" role="dialog" aria-modal="true" aria-label="' + esc(info.label) + '">' +
-      '<span class="ms-grip" aria-hidden="true"></span><span class="ms-kick">' + (m.kind === 'ace' || m.kind === 'called' ? 'ON THE RECORD' : fresh ? 'MILESTONE UNLOCKED' : 'YOUR MILESTONE') + '</span>' +
+      '<span class="ms-grip" aria-hidden="true"></span><span class="ms-kick">' + (m.kind === 'ace' || m.kind === 'called' || m.kind === 'socwin' ? 'ON THE RECORD' : fresh ? 'MILESTONE UNLOCKED' : 'YOUR MILESTONE') + '</span>' +
       '<h2 class="ms-title">' + esc(info.label) + (info.sub ? ': ' + esc(info.sub) : '') + '</h2>' +
       '<img class="ms-img" alt="' + esc(info.label) + ' card">' +
       '<p class="ms-note">' + (fresh ? 'Saved to your Milestones in My Clubhouse. ' : '') + (m.kind === 'ace' ? 'Who saw it is only on your copy. The board shows your nickname.' : 'Your nickname is the only name on it.') + '</p>' +
@@ -341,7 +370,7 @@
     css();
     var all = list();
     if (!all.length) {
-      el.innerHTML = '<p class="ms-empty">No milestones yet. Your first one: play 5 rounds of <a href="/play/par-price/">Par Price</a> to get a Price Handicap. Streaks of 30, 60, 90 and 120 days, Scratch Club, Bandit of the Month, Bag Draft champion and Crowd Caddie cards are all up for grabs.</p>';
+      el.innerHTML = '<p class="ms-empty">No milestones yet. Your first one: play 5 rounds of <a href="/play/par-price/">Par Price</a> to get a Price Handicap. Streaks of 30, 60, 90 and 120 days, Scratch Club, Bandit of the Month, Bag Draft champion, Crowd Caddie and society winner cards are all up for grabs.</p>';
       return;
     }
     el.innerHTML = '<div class="ms-shelf">' + all.map(function (m, i) {

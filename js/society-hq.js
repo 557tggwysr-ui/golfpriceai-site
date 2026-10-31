@@ -142,7 +142,48 @@
         (c.in ? '<button type="button" class="soc-btn2 hq-final">Final numbers message</button>' : '') +
         '<button type="button" class="soc-btn2 hq-edit">Edit</button></div>';
     } else if (!past) h += '<button type="button" class="soc-link hq-share">Send the sign-up link to someone</button>';
+    h += fgLinks(e, past);
+    if (open['res-' + e.id]) h += resultsForm(e);
     return h + '</article>';
+  }
+  /* ---- The Form Guide: preview before the day, report after it */
+  function fgUrl(e) { return SITE + '/societies/form-guide/?e=' + e.id; }
+  function fgLinks(e, past) {
+    var today = new Date().toISOString().slice(0, 10), played = e.day <= today;
+    var h = '<div class="hq-fg"><span class="hq-fg-k">THE FORM GUIDE</span><div class="hq-fg-row">';
+    if (e.report) h += '<a class="soc-btn2" href="' + esc(fgUrl(e)) + '">Read the report</a><button type="button" class="soc-btn2 hq-fg-share" data-kind="report">Send the report</button>';
+    else if (!past) h += '<a class="soc-btn2" href="' + esc(fgUrl(e)) + '">The preview</a><button type="button" class="soc-btn2 hq-fg-share" data-kind="preview">Send the preview</button>';
+    if (S.organiser && played) h += '<button type="button" class="soc-btn hq-res">' + (e.report ? 'Edit the results' : 'Enter the results') + '</button>';
+    h += '</div>';
+    if (!e.report && played && !S.organiser) h += '<p class="soc-small">The report appears here once the organiser enters the scores.</p>';
+    return h + '</div>';
+  }
+  function resultsForm(e) {
+    var played = {}; e.entries.forEach(function (x) { if (x.status === 'in') played[x.m] = 1; });
+    var first = S.members.filter(function (m) { return played[m.m]; }), rest = S.members.filter(function (m) { return !played[m.m]; });
+    var prev = open['scores-' + e.id] || { rows: [], extras: null }, by = {};
+    (prev.rows || []).forEach(function (r) { by[r.m] = r; });
+    var ex = prev.extras || {};
+    function row(m) {
+      var r = by[m.m] || {}, pts = r.pts == null ? '' : (r.pts < 0 ? 'NR' : r.pts);
+      return '<div class="hq-res-row"><label for="pts-' + esc(m.m) + '">' + esc(m.nick) + '</label>' +
+        '<input id="pts-' + esc(m.m) + '" data-m="' + esc(m.m) + '" data-f="pts" inputmode="numeric" maxlength="3" placeholder="Points" value="' + esc(pts) + '">' +
+        '<input data-m="' + esc(m.m) + '" data-f="back" inputmode="numeric" maxlength="2" placeholder="Back 9" aria-label="' + esc(m.nick) + ' back nine points" value="' + esc(r.back == null ? '' : r.back) + '"></div>';
+    }
+    function pick(name, cur) {
+      return '<select name="' + name + '"><option value="">Nobody</option>' + S.members.map(function (m) { return '<option value="' + esc(m.m) + '"' + (cur && cur.m === m.m ? ' selected' : '') + '>' + esc(m.nick) + '</option>'; }).join('') + '</select>';
+    }
+    return '<form class="hq-res-form" data-e="' + esc(e.id) + '" novalidate><h3>Results: ' + esc(e.title) + '</h3>' +
+      '<p class="soc-small">Stableford points for each golfer who played. Add their back-nine points too and ties are settled on countback. Type NR for no return; leave it blank if they didn’t play.</p>' +
+      '<div class="hq-res-head"><span>Golfer</span><span>Points</span><span>Back 9</span></div>' +
+      first.map(row).join('') + (rest.length ? (first.length ? '<p class="hq-res-sub">Didn’t sign up but played?</p>' : '') + rest.map(row).join('') : '') +
+      '<div class="hq-res-extras"><label>Nearest the pin' + pick('ntp', ex.ntp) + '<input name="ntpTxt" maxlength="40" placeholder="e.g. 7th, 4ft 2in" value="' + esc(ex.ntp ? ex.ntp.txt : '') + '"></label>' +
+      '<label>Longest drive' + pick('ld', ex.ld) + '<input name="ldTxt" maxlength="40" placeholder="e.g. 12th" value="' + esc(ex.ld ? ex.ld.txt : '') + '"></label>' +
+      '<label class="hq-res-wide">A line from you (optional)<textarea name="line" maxlength="200" rows="2" placeholder="Great day, cracking greens.">' + esc(ex.line || '') + '</textarea></label>' +
+      '<label>Winner’s prize, £ (optional)<input name="prize" inputmode="numeric" maxlength="3" placeholder="0" value="' + esc(ex.prize || '') + '"><small>The winner picks their own prize at today’s prices. You send them the link.</small></label>' +
+      '<label class="hq-res-check"><input type="checkbox" name="spoon"' + (ex.spoon ? ' checked' : '') + '> Include a wooden spoon (all in good fun)</label></div>' +
+      '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="submit" class="soc-btn">' + (e.report ? 'Update the report' : 'Publish the report') + '</button><button type="button" class="soc-btn2 hq-res-cancel">Cancel</button></div>' +
+      (e.report ? '<button type="button" class="soc-x hq-res-down">Take the report down</button>' : '') + '</form>';
   }
   function whoList(e, c, past) {
     var order = { in: 0, wait: 1, maybe: 2, out: 3 };
@@ -267,6 +308,55 @@
         track('society_final_numbers'); shareText(text);
       };
       var ed = art.querySelector('.hq-edit'); if (ed) ed.onclick = function () { open['edit-' + eid] = true; page(); };
+      art.querySelectorAll('.hq-fg-share').forEach(function (b) {
+        b.onclick = function () {
+          var rep = b.getAttribute('data-kind') === 'report';
+          track('society_fg_share', { kind: b.getAttribute('data-kind') });
+          shareText(rep ? 'The report is in: ' + S.name + ', ' + e.title + '. Who won, who didn’t and who’s buying the bacon rolls: ' + fgUrl(e)
+            : 'The Form Guide for ' + e.title + (e.venue ? ' at ' + e.venue : '') + ' is out. Who’s in form, who’s the dark horse: ' + fgUrl(e));
+        };
+      });
+      var rs = art.querySelector('.hq-res'); if (rs) rs.onclick = function () {
+        if (open['res-' + eid]) { open['res-' + eid] = false; page(); return; }
+        rs.disabled = true;
+        api('/soc/scores?e=' + eid + '&pid=' + pid()).then(function (r) { open['scores-' + eid] = r.ok ? r : null; open['res-' + eid] = true; page(); })
+          .catch(function () { open['res-' + eid] = true; page(); });
+      };
+      var rf = art.querySelector('.hq-res-form'); if (rf) {
+        rf.querySelector('.hq-res-cancel').onclick = function () { open['res-' + eid] = false; page(); };
+        var down = rf.querySelector('.hq-res-down'); if (down) down.onclick = function () {
+          if (!window.confirm('Take the report down? The scores are removed too.')) return;
+          api('/soc/unpublish', { e: eid }).then(function () { open['res-' + eid] = false; open['done-' + eid] = null; load(); });
+        };
+        rf.addEventListener('submit', function (ev) {
+          ev.preventDefault();
+          var rows = {}, msg = rf.querySelector('.soc-msg'), btn = rf.querySelector('[type=submit]');
+          rf.querySelectorAll('[data-m]').forEach(function (i) { var m = i.getAttribute('data-m'); rows[m] = rows[m] || { m: m }; rows[m][i.getAttribute('data-f')] = i.value.trim(); });
+          var list = Object.keys(rows).map(function (k) { return rows[k]; }).filter(function (r) { return r.pts !== '' && r.pts != null; });
+          var bad = list.filter(function (r) { return !/^(nr|\d{1,2})$/i.test(r.pts) || (r.back && !/^\d{1,2}$/.test(r.back)); });
+          if (bad.length) { msg.textContent = 'Points should be a number (or NR). Check ' + bad.length + (bad.length === 1 ? ' golfer.' : ' golfers.'); return; }
+          if (list.filter(function (r) { return !/^nr$/i.test(r.pts); }).length < 2) { msg.textContent = 'Add at least two golfers’ points.'; return; }
+          var f = rf.elements;
+          btn.disabled = true; msg.textContent = 'Writing the report…';
+          api('/soc/results', { e: eid, rows: list, ntp: f.ntp.value ? { m: f.ntp.value, txt: f.ntpTxt.value } : null, ld: f.ld.value ? { m: f.ld.value, txt: f.ldTxt.value } : null,
+            line: f.line.value, spoon: f.spoon.checked, prize: f.prize.value }).then(function (r) {
+            btn.disabled = false;
+            if (!r.ok) { msg.textContent = r.error || 'Something went wrong.'; return; }
+            track('society_results', { players: list.length });
+            open['res-' + eid] = false; open['done-' + eid] = r; load();
+          }).catch(function () { btn.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
+        });
+      }
+      var done = open['done-' + eid];
+      if (done) {
+        var winner = '';
+        var d = document.createElement('div'); d.className = 'hq-fg-done';
+        d.innerHTML = '<b>The report is live.</b><span>Send it to the group, and it’s in every member’s Society HQ too.</span><div class="hq-fg-row"><button type="button" class="soc-btn hq-done-share">Send the report</button><a class="soc-btn2" href="' + esc(SITE + done.url) + '">Read it</a>' +
+          (done.prize ? '<button type="button" class="soc-btn2 hq-done-prize">Send the winner their prize link</button>' : '') + '</div>';
+        art.appendChild(d);
+        d.querySelector('.hq-done-share').onclick = function () { shareText('The report is in: ' + S.name + ', ' + e.title + '. Who won, who didn’t and who’s buying the bacon rolls: ' + SITE + done.url); };
+        var pz = d.querySelector('.hq-done-prize'); if (pz) pz.onclick = function () { shareText('You won! Pick your prize for ' + e.title + ' from real golf kit at today’s prices: ' + SITE + done.prize + winner); };
+      }
     });
     box.querySelectorAll('.hq-rm').forEach(function (b) {
       b.onclick = function () {

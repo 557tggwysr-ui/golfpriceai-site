@@ -72,6 +72,11 @@
 .sh-promo b { font: 700 30px/1.1 'Poppins', sans-serif; }
 .sh-promo p { margin: 0; font-size: 16px; line-height: 1.5; max-width: 440px; }
 .sh-promo .sh-go { margin-top: auto; font-weight: 700; font-size: 15px; }
+.sh-promo-wide { grid-column: 1 / -1; min-height: 0; flex-direction: row; align-items: center; gap: 24px; background: #eef7ea; color: #14211a; text-decoration: none; padding: 24px 32px; }
+.sh-promo-wide > span:first-child { display: flex; flex-direction: column; gap: 8px; flex: none; }
+.sh-promo-wide p { flex: 1; }
+.sh-promo-wide .sh-go { margin: 0; color: #2f8a1f; white-space: nowrap; }
+.sh-promo-wide:hover { background: #e2f1dc; }
 .sh-promo-dark { background: #14211a; color: #fff; }
 .sh-promo-dark:hover { color: #fff; box-shadow: 0 18px 40px rgba(20, 33, 26, .25); }
 .sh-promo-dark p { color: #c4d0c8; }
@@ -122,6 +127,7 @@
   .sh-promos { grid-template-columns: 1fr; }
   .sh-promo { padding: 24px; min-height: 0; }
   .sh-promo b { font-size: 24px; }
+  .sh-promo-wide { flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; }
   .sh-promo-photo { grid-template-columns: 1fr; }
   .sh-promo-photo > span { padding: 24px; }
   .sh-promo-photo img { height: 180px; order: -1; }

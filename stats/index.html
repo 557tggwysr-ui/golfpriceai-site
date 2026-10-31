@@ -174,6 +174,7 @@ td:first-child { font-weight: 400; }
     html += '<section class="card"><h2>Society HQ</h2><div class="nums">' + num(s.count, 'societies') + num(s.members, 'members') + num(s.listed, 'in Find a Society') +
       num(s.daysAhead, 'golf days coming up') + num(s.insAhead, '“in” replies') + num(s.founding, 'Founding badges (of 50)') + '</div>' +
       '<span class="dim">Average ' + n(s.average) + ' members · biggest: ' + n(s.biggest) + ' · ' + n(s.newWeek) + ' new this week · awards kits made: ' + n(s.kits) + ' · prizes picked: ' + n(s.prizes) + '</span>' +
+        '<span class="dim">Form Guide: ' + n(s.reports) + ' reports published (' + n(s.reportsWeek) + ' this week) · ' + n(s.fgViews7) + ' golfers read one in 7 days · ' + n(s.fgShares7) + ' shared</span>' +
       '<span class="dim"><b>Health:</b> ' + n(s.withDay) + ' societies with a golf day booked · average reply rate ' + (s.replyRate == null ? '–' : s.replyRate + '%') + ' · ' + n(s.full) + ' golf days full · ' + n(s.waitlists) + ' using the waiting list</span></section>';
 
     var hc = d.handicap || {}, bd = hc.bands || {}, cc = hc.calc || {};

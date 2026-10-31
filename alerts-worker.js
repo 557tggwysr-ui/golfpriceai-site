@@ -399,7 +399,7 @@ async function fourballCount(url, env, cors) {
 const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_18: 1, band_19_28: 1, band_28_plus: 1, band_none: 1, hcp_share: 1,
   calc_index: 1, calc_course: 1, calc_playing: 1, calc_shoot: 1, calc_share: 1,
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
-  ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1 };
+  ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -925,6 +925,8 @@ async function clubStats(request, env, cors) {
     founding: await one('SELECT COUNT(*) AS c FROM soc_founding'),
     kits: await one('SELECT COUNT(*) AS c FROM soc_kits'),
     prizes: await one("SELECT COUNT(*) AS c FROM soc_prizes WHERE choice IS NOT NULL AND choice != ''"),
+    reports: await one('SELECT COUNT(*) AS c FROM soc_reports'),
+    reportsWeek: await one('SELECT COUNT(*) AS c FROM soc_reports WHERE published >= ?', weekAgo),
   };
 
   // Growth: leagues and societies in existence at the end of each of the last 6 weeks.
@@ -995,6 +997,8 @@ async function clubStats(request, env, cors) {
       nicks: await all('SELECT n.id, n.nick, n.hidden, n.updated, (SELECT COUNT(*) FROM cc_votes v WHERE v.pid = n.pid) AS calls FROM cc_nicks n ORDER BY n.id DESC LIMIT 25'),
     };
   } catch (e) { out.caddie = null; }
+
+  out.societies.fgViews7 = sumUse('fg_view', d7); out.societies.fgShares7 = sumUse('fg_share', d7);
 
   // ---- The People's Bag
   try {
@@ -1608,6 +1612,8 @@ async function socSetup(env) {
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_founding (soc TEXT PRIMARY KEY, n INTEGER, at TEXT) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_league (league TEXT PRIMARY KEY, soc TEXT, at TEXT) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_league_req (league TEXT, pid TEXT, nick TEXT, at TEXT, PRIMARY KEY (league, pid)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_results (event TEXT, mkey TEXT, pts INTEGER, back INTEGER, PRIMARY KEY (event, mkey)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_reports (event TEXT PRIMARY KEY, extras TEXT, prize TEXT, published TEXT) WITHOUT ROWID'),
   ]);
   // County for Find a Society (added Oct 2026): add the column once; it already exists after that.
   try { await env.DEMAND.prepare('ALTER TABLE soc_socs ADD COLUMN county TEXT').run(); } catch (e) { /* already there */ }
@@ -1650,6 +1656,10 @@ async function society(request, url, env, cors) {
   if (request.method === 'POST' && path === '/soc/rsvp') return await hqRsvp(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/paid') return await hqPaid(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/remove') return await hqRemove(env, body, pid, cors);
+  if (path === '/soc/fg') return await fgGet(env, String(url.searchParams.get('e') || ''), pid, cors);
+  if (path === '/soc/scores') return await fgScores(env, String(url.searchParams.get('e') || ''), pid, cors);
+  if (request.method === 'POST' && path === '/soc/results') return await fgSave(env, body, pid, cors);
+  if (request.method === 'POST' && path === '/soc/unpublish') return await fgUnpublish(env, body, pid, cors);
   return json({ ok: false, error: 'Not found.' }, 404, cors);
 }
 async function socSave(env, body, pid, cors) {
@@ -1872,10 +1882,12 @@ async function hqGet(env, id, pid, cors) {
   let entries = [];
   if (ids.length) entries = (await env.DEMAND.prepare(`SELECT * FROM soc_entries WHERE event IN (${ids.map(() => '?').join(',')})`).bind(...ids).all()).results || [];
   const nickOf = {}; members.forEach((m) => { nickOf[m.mkey] = m.nick; });
+  const reported = {};
+  if (ids.length) (((await env.DEMAND.prepare(`SELECT event FROM soc_reports WHERE event IN (${ids.map(() => '?').join(',')})`).bind(...ids).all()).results) || []).forEach((r) => { reported[r.event] = 1; });
   const out = Object.assign(base, {
     you: me.mkey, pay: s.pay,
     members: members.map((m) => ({ m: m.mkey, nick: m.nick, organiser: m.pid === s.pid })),
-    events: events.map((e) => ({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, cap: e.cap, deadline: e.deadline, notes: e.notes,
+    events: events.map((e) => ({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, cap: e.cap, deadline: e.deadline, notes: e.notes, report: !!reported[e.id],
       entries: entries.filter((x) => x.event === e.id && nickOf[x.mkey]).map((x) => ({ m: x.mkey, nick: nickOf[x.mkey], status: x.status, paid: !!x.paid, at: x.at })) })),
   });
   return json(out, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
@@ -2014,6 +2026,186 @@ async function hqPaid(env, body, pid, cors) {
     if (!ok) return json({ ok: false, error: 'Bad request.' }, 400, cors);
     await env.DEMAND.prepare("INSERT INTO soc_entries (event, mkey, status, paid, at) VALUES (?, ?, 'in', ?, ?)").bind(e.id, mk, body.paid ? 1 : 0, new Date().toISOString()).run();
   }
+  return json({ ok: true }, 200, cors);
+}
+/* ---- The Form Guide: a preview before each society day and a report after it.
+     soc_results  event, mkey, pts (stableford points; -1 = no return), back (back-nine points, for countback)
+     soc_reports  event, extras (nearest the pin, longest drive, the organiser's line, wooden spoon on/off),
+                  prize (a Prize Picker link for the winner, organiser only), published
+   The organiser enters the scores in Society HQ; the preview and report
+   (golfpriceai.com/societies/form-guide/?e=<event>) are open to anyone with
+   the link, nicknames and points only, so they can go in the group chat. */
+const FG_OOM = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
+function fgNum(n) { return ['no', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'][n] || String(n); }
+function fgCap(t) { return t.charAt(0).toUpperCase() + t.slice(1); }
+function fgOrd(n) { const s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
+function fgRank(rows) {
+  const ok = rows.filter((r) => r.pts >= 0).sort((a, b) => b.pts - a.pts || (b.back || 0) - (a.back || 0));
+  ok.forEach((r, i) => {
+    const prev = ok[i - 1];
+    r.pos = prev && prev.pts === r.pts && (prev.back || 0) === (r.back || 0) ? prev.pos : i + 1;
+    r.cb = !!((prev && prev.pts === r.pts) || (ok[i + 1] && ok[i + 1].pts === r.pts)) && r.back != null;
+  });
+  return ok.concat(rows.filter((r) => r.pts < 0).map((r) => Object.assign(r, { pos: null, nr: true })));
+}
+function fgPick(seed, list) { let h = 0; for (const c of seed) h = (h * 31 + c.charCodeAt(0)) >>> 0; return list[h % list.length]; }
+async function fgHistory(env, soc) {
+  // Every result this society has published in the last 400 days, oldest first.
+  const since = new Date(Date.now() - 400 * 864e5).toISOString().slice(0, 10);
+  const evs = (await env.DEMAND.prepare('SELECT e.id, e.title, e.venue, e.day FROM soc_events e JOIN soc_reports r ON r.event = e.id WHERE e.soc = ? AND e.day >= ? ORDER BY e.day').bind(soc, since).all()).results || [];
+  const res = evs.length ? (await env.DEMAND.prepare(`SELECT event, mkey, pts, back FROM soc_results WHERE event IN (${evs.map(() => '?').join(',')})`).bind(...evs.map((e) => e.id)).all()).results || [] : [];
+  return evs.map((e) => Object.assign(e, { rows: fgRank(res.filter((r) => r.event === e.id).map((r) => ({ m: r.mkey, pts: Number(r.pts), back: r.back == null ? null : Number(r.back) }))) }));
+}
+async function fgGet(env, eid, pid, cors) {
+  if (!SOC_RX.test(eid)) return json({ ok: false, error: 'That link doesn’t look right.' }, 400, cors);
+  const db = env.DEMAND;
+  const e = await db.prepare('SELECT e.*, s.name AS sname, s.pid AS org FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE e.id = ?').bind(eid).first();
+  if (!e) return json({ ok: false, error: 'We couldn’t find that society day. Ask the organiser for a fresh link.' }, 404, cors);
+  const members = (await db.prepare('SELECT pid, mkey, nick FROM soc_members WHERE soc = ?').bind(e.soc).all()).results || [];
+  const nick = {}; members.forEach((m) => { nick[m.mkey] = m.nick; });
+  const mine = pid ? members.find((m) => m.pid === pid) : null;
+  const hist = await fgHistory(env, e.soc);
+  const report = await db.prepare('SELECT extras, prize, published FROM soc_reports WHERE event = ?').bind(eid).first();
+  const before = hist.filter((h) => h.day < e.day || (h.day === e.day && h.id !== eid && !report));
+  const prior = report ? hist.filter((h) => h.id !== eid && h.day <= e.day) : before;
+  // Each golfer's record before this day: finishes, newest first.
+  const rec = {};
+  prior.slice().reverse().forEach((h) => h.rows.forEach((r) => {
+    const x = rec[r.m] || (rec[r.m] = { fin: [], wins: 0, top6: 0, venue: [] });
+    x.fin.push(r.nr ? 'NR' : r.pos);
+    if (r.pos === 1) x.wins++;
+    if (r.pos && r.pos <= 6) x.top6++;
+    if (e.venue && h.venue && h.venue.toLowerCase() === e.venue.toLowerCase() && r.pos) x.venue.push(r.pos);
+  }));
+  const formOf = (m) => (rec[m] ? rec[m].fin.slice(0, 3) : []);
+  const season = e.day.slice(0, 4);
+  const oomRows = {};
+  hist.filter((h) => h.day.slice(0, 4) === season && (report || h.id !== eid)).forEach((h) => h.rows.forEach((r) => {
+    if (!nick[r.m]) return;
+    const o = oomRows[r.m] || (oomRows[r.m] = { nick: nick[r.m], pts: 0, played: 0, wins: 0 });
+    o.played++; if (r.pos && r.pos <= FG_OOM.length) o.pts += FG_OOM[r.pos - 1]; if (r.pos === 1) o.wins++;
+  }));
+  const oom = Object.values(oomRows).sort((a, b) => b.pts - a.pts || b.wins - a.wins).slice(0, 10);
+  const base = { ok: true, id: eid, soc: { id: e.soc, name: e.sname }, title: e.title, venue: e.venue, day: e.day, tee: e.tee,
+    organiser: !!pid && pid === e.org, member: !!mine, season, oom, events: hist.length };
+
+  if (!report) {
+    const ents = (await db.prepare("SELECT mkey, status, at FROM soc_entries WHERE event = ? AND status IN ('in', 'wait') ORDER BY at").bind(eid).all()).results || [];
+    const field = ents.filter((x) => x.status === 'in' && nick[x.mkey]).map((x) => ({ m: x.mkey, nick: nick[x.mkey], form: formOf(x.mkey), played: rec[x.mkey] ? rec[x.mkey].fin.length : 0 }));
+    const avg = (l) => { const n = l.filter((v) => typeof v === 'number'); return n.length ? n.reduce((a, b) => a + b, 0) / n.length : 99; };
+    const watch = [], used = {};
+    const add = (m, tag, line) => { if (m && !used[m]) { used[m] = 1; watch.push({ nick: nick[m], tag, line }); } };
+    const inform = field.filter((f) => f.form.filter((v) => typeof v === 'number').length >= 2).sort((a, b) => avg(a.form) - avg(b.form))[0];
+    if (inform) add(inform.m, 'In form', (rec[inform.m].fin[0] === 1 ? 'Won last time out. ' : '') + 'Form: ' + inform.form.map((v) => (typeof v === 'number' ? fgOrd(v) : v)).join(' · '));
+    const spec = field.filter((f) => rec[f.m] && rec[f.m].venue.length >= 2 && !used[f.m]).sort((a, b) => avg(rec[a.m].venue) - avg(rec[b.m].venue))[0];
+    if (spec) { const v = rec[spec.m].venue, w = v.filter((p) => p === 1).length; add(spec.m, 'Course specialist', (w ? (w === 1 ? 'A win here' : fgCap(fgNum(w)) + ' wins here') + ' in ' + fgNum(v.length) + ' visits.' : 'Best finish here: ' + fgOrd(Math.min(...v)) + '.') + ' Knows where the bunkers are. Avoids them, mostly.'); }
+    const dark = field.filter((f) => rec[f.m] && !rec[f.m].wins && rec[f.m].fin.slice(0, 5).filter((p) => typeof p === 'number' && p <= 6).length >= 2 && !used[f.m])[0];
+    if (dark) add(dark.m, 'Dark horse', fgCap(fgNum(rec[dark.m].fin.slice(0, 5).filter((p) => typeof p === 'number' && p <= 6).length)) + ' top-six finishes, never a win. Surely their turn?');
+    const deb = field.filter((f) => !f.played && !used[f.m])[0];
+    if (deb && watch.length < 3) add(deb.m, 'On debut', 'First society day with us. No form, no pressure. Well, a bit of pressure.');
+    return json(Object.assign(base, { phase: 'preview', field: field.map((f) => ({ nick: f.nick, form: f.form, played: f.played })), waiting: ents.filter((x) => x.status === 'wait').length, watch }), 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  }
+
+  const now = hist.find((h) => h.id === eid);
+  const rows = (now ? now.rows : []).filter((r) => nick[r.m]).map((r) => ({ nick: nick[r.m], pos: r.pos, pts: r.pts, back: r.back, nr: !!r.nr, cb: r.cb, me: !!mine && r.m === mine.mkey, m: r.m }));
+  const ex = JSON.parse(report.extras || '{}');
+  const ok = rows.filter((r) => !r.nr);
+  const w = ok[0], r2 = ok[1], r3 = ok[2];
+  let headline = '', story = [];
+  if (w) {
+    const rw = rec[w.m] || { fin: [], wins: 0, top6: 0 };
+    headline = !rw.fin.length ? fgPick(eid, [`${w.nick} wins on debut.`, `Debut, and a win. Steady on, ${w.nick}.`])
+      : !rw.wins && rw.top6 >= 2 ? `${w.nick} finally does it.`
+      : rw.wins ? fgPick(eid, [`${w.nick} does it again.`, `${w.nick} adds another one.`])
+      : fgPick(eid, [`${w.nick} takes the ${e.title}.`, `It’s ${w.nick}’s day.`]);
+    let s = `${w.nick}’s ${w.pts} points`;
+    if (r2) s += r2.pts === w.pts ? ` edged out ${r2.nick} on countback` : r2.pts === w.pts - 1 ? ` pipped ${r2.nick} by a single point` : ` beat ${r2.nick} by ${w.pts - r2.pts} points`;
+    if (r3) s += `, with ${r3.nick} ${r3.pts === (r2 ? r2.pts : w.pts) ? 'level on points' : (r2 ? r2.pts : w.pts) - r3.pts === 1 ? 'a point further back' : ((r2 ? r2.pts : w.pts) - r3.pts) + ' points back'} in third`;
+    story.push(s + '.');
+    if (!rw.fin.length) story.push('Not a bad way to introduce yourself.');
+    else if (!rw.wins && rw.top6 >= 2) story.push(`After ${fgNum(rw.top6)} top-six finishes without a win, nobody begrudges this one.`);
+    const debs = ok.filter((r) => r !== w && !(rec[r.m] && rec[r.m].fin.length));
+    if (debs.length === 1) story.push(`${debs[0].nick} finished ${fgOrd(debs[0].pos)} on debut, which is better than most of us managed on ours.`);
+    else if (debs.length > 1) story.push(`${fgCap(fgNum(debs.length))} golfers made their debut. Welcome to the society, and to the banter.`);
+    story.push(`${fgCap(fgNum(ok.length))} golfers handed in a card${e.venue ? ' at ' + e.venue : ''}.`);
+  }
+  const awards = [];
+  if (ex.ntp && nick[ex.ntp.m]) awards.push({ t: 'Nearest the pin', who: nick[ex.ntp.m], line: ex.ntp.txt || '' });
+  if (ex.ld && nick[ex.ld.m]) awards.push({ t: 'Longest drive', who: nick[ex.ld.m], line: ex.ld.txt || '' });
+  const backs = ok.filter((r) => r.back != null);
+  if (backs.length >= 3) { const b = backs.slice().sort((a, c) => c.back - a.back)[0]; awards.push({ t: 'Best back nine', who: b.nick, line: b.back + ' points' }); }
+  if (ex.spoon && ok.length >= 4) { const l = ok[ok.length - 1]; awards.push({ t: 'Wooden spoon', who: l.nick, line: l.pts + ' points. Better luck next month.', spoon: true }); }
+  const out = Object.assign(base, { phase: 'report', published: report.published, headline, story, line: ex.line || '', leaderboard: rows.map((r) => { const o = Object.assign({}, r); delete o.m; return o; }),
+    awards, prize: ex.prize || 0, winner: w ? { nick: w.nick, pts: w.pts, first: !(rec[w.m] && rec[w.m].wins), me: w.me } : null });
+  if (base.organiser && report.prize) out.prizeUrl = '/societies/prize/?t=' + report.prize;
+  return json(out, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+}
+// The organiser's own copy of the scores, to edit them.
+async function fgScores(env, eid, pid, cors) {
+  const e = await hqEventFor(env, eid, pid);
+  if (!e || e.org !== pid) return json({ ok: false, error: 'Only the organiser can enter the results.' }, 403, cors);
+  const rows = (await env.DEMAND.prepare('SELECT mkey AS m, pts, back FROM soc_results WHERE event = ?').bind(e.id).all()).results || [];
+  const rep = await env.DEMAND.prepare('SELECT extras, prize FROM soc_reports WHERE event = ?').bind(e.id).first();
+  return json({ ok: true, rows, extras: rep ? JSON.parse(rep.extras || '{}') : null, prize: rep && rep.prize ? '/societies/prize/?t=' + rep.prize : null }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+}
+async function fgSave(env, body, pid, cors) {
+  const e = await hqEventFor(env, String(body.e || ''), pid);
+  if (!e || e.org !== pid) return json({ ok: false, error: 'Only the organiser can enter the results.' }, 403, cors);
+  if (e.day > hqDay()) return json({ ok: false, error: 'You can enter results on the day, or after it.' }, 400, cors);
+  const db = env.DEMAND;
+  const mem = {}; (((await db.prepare('SELECT mkey, nick FROM soc_members WHERE soc = ?').bind(e.soc).all()).results) || []).forEach((m) => { mem[m.mkey] = m.nick; });
+  const rows = [];
+  for (const r of (Array.isArray(body.rows) ? body.rows : []).slice(0, 200)) {
+    const m = String(r && r.m || '');
+    if (!mem[m] || rows.some((x) => x.m === m)) continue;
+    const nr = String(r.pts).trim().toUpperCase() === 'NR';
+    const pts = nr ? -1 : Math.round(Number(r.pts));
+    if (!nr && !(pts >= 0 && pts <= 70)) continue;
+    const back = r.back === '' || r.back == null ? null : Math.round(Number(r.back));
+    rows.push({ m, pts, back: back != null && back >= 0 && back <= 40 ? back : null });
+  }
+  if (rows.filter((r) => r.pts >= 0).length < 2) return json({ ok: false, error: 'Add at least two golfers’ points.' }, 400, cors);
+  const pickM = (x) => (x && mem[String(x.m || '')] ? { m: String(x.m), txt: socText(x.txt, 40) || '' } : null);
+  const line = socText(body.line, 200);
+  if (line === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse. Please check your line.' }, 400, cors);
+  const prize = Math.round(Math.min(250, Math.max(0, Number(body.prize) || 0)));
+  const extras = { ntp: pickM(body.ntp), ld: pickM(body.ld), line: line || '', spoon: !!body.spoon, prize };
+  // The winner's Prize Picker link (organiser's eyes only), made or updated when there's a prize.
+  const ranked = fgRank(rows.map((r) => Object.assign({}, r)));
+  const old = await db.prepare('SELECT prize FROM soc_reports WHERE event = ?').bind(e.id).first('prize');
+  let token = old || null;
+  if (prize > 0 && ranked[0] && !ranked[0].nr) {
+    const award = [{ t: 'Winner: ' + e.title, w: mem[ranked[0].m], d: '', b: prize }];
+    const s = await db.prepare('SELECT name FROM soc_socs WHERE id = ?').bind(e.soc).first('name');
+    if (token) {
+      const p = await db.prepare('SELECT kit FROM soc_prizes WHERE token = ?').bind(token).first('kit');
+      if (p) await db.batch([
+        db.prepare('UPDATE soc_kits SET awards = ?, updated = ? WHERE id = ?').bind(JSON.stringify(award), hqDay(), p),
+        db.prepare('UPDATE soc_prizes SET budget = ? WHERE token = ?').bind(prize, token),
+      ]);
+      else token = null;
+    }
+    if (!token) {
+      const kit = socCode(8); token = socCode(12);
+      await db.batch([
+        db.prepare('INSERT INTO soc_kits (id, pid, name, season, awards, created, updated) VALUES (?, ?, ?, ?, ?, ?, ?)').bind(kit, pid, String(s || 'Society').slice(0, 40), e.day.slice(0, 4), JSON.stringify(award), hqDay(), hqDay()),
+        db.prepare('INSERT INTO soc_prizes (token, kit, idx, budget, choice, chosen) VALUES (?, ?, 0, ?, NULL, NULL)').bind(token, kit, prize),
+      ]);
+    }
+  }
+  await db.batch([db.prepare('DELETE FROM soc_results WHERE event = ?').bind(e.id)].concat(
+    rows.map((r) => db.prepare('INSERT INTO soc_results (event, mkey, pts, back) VALUES (?, ?, ?, ?)').bind(e.id, r.m, r.pts, r.back)),
+    [db.prepare('INSERT INTO soc_reports (event, extras, prize, published) VALUES (?, ?, ?, ?) ON CONFLICT (event) DO UPDATE SET extras = excluded.extras, prize = excluded.prize').bind(e.id, JSON.stringify(extras), token, new Date().toISOString())]));
+  await hqTouch(env, e.soc);
+  return json({ ok: true, url: '/societies/form-guide/?e=' + e.id, prize: token ? '/societies/prize/?t=' + token : null }, 200, cors);
+}
+async function fgUnpublish(env, body, pid, cors) {
+  const e = await hqEventFor(env, String(body.e || ''), pid);
+  if (!e || e.org !== pid) return json({ ok: false, error: 'Only the organiser can do that.' }, 403, cors);
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('DELETE FROM soc_results WHERE event = ?').bind(e.id),
+    env.DEMAND.prepare('DELETE FROM soc_reports WHERE event = ?').bind(e.id),
+  ]);
   return json({ ok: true }, 200, cors);
 }
 async function hqFind(env, cors) {
