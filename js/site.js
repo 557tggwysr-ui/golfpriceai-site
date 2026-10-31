@@ -96,22 +96,30 @@
     bigLoaded = true;
     fetch('/data/biggest-drop.json').then(function (r) { return r.json(); }).then(function (d) {
       var p = function (n) { return '£' + Number(n).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
-      document.querySelectorAll('.gp-big').forEach(function (a) {
+      function fill(a, x, imgSel) {
         var set = function (k, v) { var el = a.querySelector('[data-big="' + k + '"]'); if (el) el.textContent = v; };
-        if (d.drop) {
-          var x = d.drop, per = x.unit ? ' ' + x.unit : '';
-          a.href = x.url;
-          set('name', x.name); set('was', 'was ' + p(x.was) + per); set('now', p(x.now));
-          set('when', d.checked ? 'checked at ' + String(d.checked).slice(11, 16) : '');
-          var note = a.querySelector('[data-big="note"]');
-          if (note) note.innerHTML = '<b>' + p(x.fall) + ' lower</b> than before the drop. A genuine drop against our own price history.';
-          var box = a.querySelector('.gp-big-img');
-          if (box && x.image) { var img = new Image(); img.alt = ''; img.referrerPolicy = 'no-referrer'; img.onerror = function () { box.innerHTML = ''; }; img.src = x.image; box.appendChild(img); }
-        } else if (d.week) {
-          set('name', d.week + ' genuine price drops this week'); set('was', 'Checked against our own price history'); set('now', 'See them all');
-        } else return;
+        var per = x.unit ? ' ' + x.unit : '';
+        a.href = x.url;
+        if (x.external) { a.target = '_blank'; a.rel = 'sponsored nofollow noopener'; }
+        set('name', x.name); set('now', p(x.now)); set('was', (a.classList.contains('gp-big') ? 'was ' : '') + p(x.was) + per);
+        var box = a.querySelector(imgSel);
+        if (box && x.image && !box.firstChild) { var img = new Image(); img.alt = ''; img.referrerPolicy = 'no-referrer'; img.onerror = function () { box.innerHTML = ''; }; img.src = x.image; box.appendChild(img); }
         a.hidden = false;
-        var blurb = a.parentNode.querySelector('.gp-shop-blurb'); if (blurb) blurb.hidden = true;
+      }
+      // Phone menu: the day's biggest drop overall.
+      document.querySelectorAll('.gp-big').forEach(function (a) {
+        if (d.drop) fill(a, d.drop, '.gp-big-img');
+        else if (d.week) {
+          var n = a.querySelector('[data-big="name"]'); if (n) n.textContent = d.week + ' genuine price drops this week';
+          var w = a.querySelector('[data-big="was"]'); if (w) w.textContent = 'Checked against our own price history';
+          var o = a.querySelector('[data-big="now"]'); if (o) o.textContent = 'See them all';
+          a.hidden = false;
+        }
+      });
+      // Desktop Shop menu: the biggest drop under each column.
+      document.querySelectorAll('.gp-cat-drop').forEach(function (a) {
+        var x = (d.cats || {})[a.getAttribute('data-cat')];
+        if (x) fill(a, x, '.gp-cat-img');
       });
     }).catch(function () { bigLoaded = false; });
   }

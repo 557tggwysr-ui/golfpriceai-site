@@ -67,7 +67,7 @@ def table(rows, today, images=None):
 <tbody>{trs}</tbody></table></div>"""
 
 
-def build(models, built, today, images=None):
+def build(models, built, today, images=None, products=None):
     rows = recent_drops(models, built, today)
     fresh = [r for r in rows if (today - r["date"]).days <= 1]
     older = [r for r in rows if (today - r["date"]).days > 1]
@@ -121,7 +121,7 @@ def build(models, built, today, images=None):
                    "was": r["from"], "now": r["to"], "unit": "per dozen" if r["m"]["type"] == "ball" else "each",
                    "lowest_tracked": (r["m"].get("verdict") or {}).get("label") == "good",
                    "url": f"{SITE}/prices/{r['m']['slug']}/"} for r in rows]}, indent=1))
-    write_biggest(fresh, rows, now_uk)
+    write_biggest(fresh, rows, now_uk, products)
     print(f"Price drops page: {len(fresh)} in the last 48 hours, {len(older)} earlier this week.")
     return changed, [("prices/drops/", today.isoformat())], len(fresh)
 
@@ -129,18 +129,60 @@ def build(models, built, today, images=None):
 NOT_MENS = re.compile(r"\b(women'?s?|womens|ladies|lady|junior|juniors|kids?|youth|girls?|boys?)\b", re.I)
 
 
-def write_biggest(fresh, rows, now_uk):
-    """data/biggest-drop.json: the Shop menu's "Biggest drop today" card
-    (js/site.js). The biggest genuine £ drop of the last 48 hours on men's,
-    adult kit; with none, just this week's count so the card can say so."""
+def _card(r):
+    m = r["m"]
+    return {"name": m["name"], "slug": m["slug"], "url": f"/prices/{m['slug']}/", "image": m.get("_image") or None,
+            "was": round(r["from"], 2), "now": round(r["to"], 2), "fall": round(r["fall"], 2),
+            "pct": r["pct"], "date": r["date"].isoformat(), "unit": "per dozen" if m["type"] == "ball" else ""}
+
+
+def _apparel(products):
+    """Apparel has no price pages, so its card comes from single listings:
+    men's, in stock, a genuine drop against our own tracked high (the same
+    test as the Shop's "genuine drops" counts), the biggest £ fall."""
+    best = None
+    for p in products or []:
+        ins = p.get("priceInsight") or {}
+        if p.get("category") not in ("apparel", "shoes") or not ins.get("verifiedDiscount") or p.get("inStock") is False:
+            continue
+        if p.get("audience") in ("Female", "Junior", "Kids") or NOT_MENS.search(p.get("name", "")):
+            continue
+        high, now = ins.get("historicalHigh"), p.get("salePrice")
+        if not high or not now or now < 15 or high <= now or (high - now) / high > MAX_PCT:
+            continue
+        fall = high - now
+        if not best or fall > best[0]:
+            best = (fall, p)
+    if not best:
+        return None
+    fall, p = best
+    name = re.sub(r"\s*/\s*(?:\d?X{0,3}[SL]|M|\d{1,2}(?:\.5)?|\d{2}(?:\s?(?:R|S|L|in))?|One Size|OS)$", "", p["name"], flags=re.I).strip()
+    return {"name": name, "url": p["affiliateUrl"], "external": True, "image": p.get("image") or None,
+            "was": round(p["priceInsight"]["historicalHigh"], 2), "now": round(p["salePrice"], 2), "fall": round(fall, 2), "unit": ""}
+
+
+def write_biggest(fresh, rows, now_uk, products=None):
+    """data/biggest-drop.json: the Shop menu's drop cards (js/site.js). The
+    biggest genuine £ drop of the last 48 hours on men's, adult kit, overall
+    and for each Shop column (clubs, apparel, accessories); a column with no
+    drop in 48 hours falls back to the rest of the week."""
     import json
-    from price_pages import ROOT
-    pool = [r for r in fresh if r["m"]["type"] not in ("junior-set",) and not NOT_MENS.search(r["m"]["name"])]
-    out = {"checked": now_uk.isoformat(timespec="minutes"), "fresh": len(fresh), "week": len(rows)}
+    from price_pages import ROOT, TYPES
+    ok = lambda r: r["m"]["type"] != "junior-set" and not NOT_MENS.search(r["m"]["name"])
+    pool = [r for r in fresh if ok(r)]
+    out = {"checked": now_uk.isoformat(timespec="minutes"), "fresh": len(fresh), "week": len(rows), "cats": {}}
     if pool:
-        top = max(pool, key=lambda r: (r["fall"], r["pct"]))
-        m = top["m"]
-        out["drop"] = {"name": m["name"], "slug": m["slug"], "url": f"/prices/{m['slug']}/", "image": m.get("_image") or None,
-                       "was": round(top["from"], 2), "now": round(top["to"], 2), "fall": round(top["fall"], 2),
-                       "pct": top["pct"], "date": top["date"].isoformat(), "unit": "per dozen" if m["type"] == "ball" else ""}
+        out["drop"] = _card(max(pool, key=lambda r: (r["fall"], r["pct"])))
+    for cat in ("clubs", "accessories"):
+        for src in (fresh, rows):
+            c = [r for r in src if ok(r) and TYPES.get(r["m"]["type"], ("", "", "", ""))[3] == cat]
+            if c:
+                out["cats"][cat] = _card(max(c, key=lambda r: (r["fall"], r["pct"])))
+                break
+    try:
+        a = _apparel(products)
+        if a:
+            out["cats"]["apparel"] = a
+    except (KeyError, TypeError, ValueError):
+        pass
     _write(ROOT / "data" / "biggest-drop.json", json.dumps(out, ensure_ascii=False, indent=1))

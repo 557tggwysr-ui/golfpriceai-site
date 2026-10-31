@@ -496,7 +496,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/css/site.css?v=20261101">
+<link rel="stylesheet" href="/css/site.css?v=20261101b">
 <link rel="stylesheet" href="/css/prices.css?v=20261029">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
@@ -515,7 +515,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 {site_chrome.footer_html()}
 <script src="/js/analytics.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script src="/js/site.js?v=20261101" defer></script>
+<script src="/js/site.js?v=20261101b" defer></script>
 </body>
 </html>
 """
@@ -1594,7 +1594,7 @@ def build(models_list, products, today_str):
             print(f"Email lookup skipped: {e}")
         import drops_page
         d_changed, d_sitemap, _ = drops_page.build(passing, built, today,
-                                                   {p["id"]: p["image"] for p in products if p.get("image")})
+                                                   {p["id"]: p["image"] for p in products if p.get("image")}, products=products)
         changed += d_changed
         sitemap += d_sitemap
         try:

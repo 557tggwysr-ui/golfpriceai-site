@@ -250,6 +250,7 @@ def header_html():
           <a class="gp-shop-photo" href="{sec['hub']}"><img src="{img}" alt="" width="1000" height="1000" loading="lazy" style="object-position:{pos}"><span class="gp-shop-pill" data-drops="{key}" hidden></span><b>{sec['label']}</b></a>
           <div class="gp-shop-links">{links}</div>
           <a class="gp-shop-all" href="{sec['hub']}">{sec['all']} &rarr;</a>
+          <a class="gp-cat-drop" data-cat="{key}" href="/prices/drops/" hidden><span class="gp-cat-img"></span><span class="gp-cat-txt"><small>BIGGEST {sec['label'].upper()} DROP</small><b data-big="name"></b><span><strong data-big="now"></strong> <s data-big="was"></s></span></span></a>
         </div>""")
     quick = "".join(f'<a href="{u}">{_esc(t)}<span aria-hidden="true">&rarr;</span></a>' for t, u in SHOP_QUICK)
     items.append(f"""
@@ -257,7 +258,6 @@ def header_html():
       <a href="/shop/" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Shop{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
       <div class="gp-drop gp-shop-drop">{''.join(cols)}
         <div class="gp-shop-side">
-          <a class="gp-big" href="/prices/drops/" hidden><span class="gp-big-k"><span>BIGGEST DROP TODAY</span><small data-big="when"></small></span><span class="gp-big-row"><span class="gp-big-img"></span><span class="gp-big-txt"><b data-big="name"></b><small data-big="was"></small><strong data-big="now"></strong></span></span><span class="gp-big-note" data-big="note"></span></a>
           <span class="gp-shop-kick">QUICK WAYS IN</span>
           <p class="gp-shop-blurb">Every price checked every 6 hours across multiple UK retailers. Only genuine drops get flagged.</p>
           <div class="gp-shop-quick">{quick}</div>
