@@ -1,0 +1,132 @@
+/* Crowd Caddie: the call box on price pages and the Oracle board (/play/oracle/).
+   Matches the approved mock-ups (31 Oct 2026). */
+.cc-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 16px; align-items: stretch; }
+.cc-card { background: #fff; border: 1px solid #e4e6e0; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.cc-kick { font: 700 12px 'Inter', sans-serif; letter-spacing: .14em; color: #2f8a1f; }
+.cc-kick-dark { color: #8fd97c; }
+.cc h2 { margin: 0; font: 800 26px/1.15 'Poppins', sans-serif; letter-spacing: -0.015em; color: #14211a; }
+.cc-lede { margin: 0; font-size: 15px; line-height: 1.5; color: #4a554e; }
+.cc-btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.cc-call { min-height: 64px; border: 2px solid #d5d9d1; background: #fff; color: #14211a; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer; padding: 8px 4px; font-family: inherit; }
+.cc-call b { font: 700 16px 'Poppins', sans-serif; }
+.cc-call small { font: 500 12px 'Inter', sans-serif; color: #5b665f; }
+.cc-call:hover { border-color: #3fae29; }
+.cc-call:focus-visible { outline: 3px solid #3fae29; outline-offset: 2px; }
+.cc-call[aria-pressed="true"] { background: #14211a; border-color: #14211a; color: #fff; }
+.cc-call[aria-pressed="true"] small { color: #c4d0c8; }
+.cc-call:disabled { cursor: default; }
+.cc-call:disabled:not([aria-pressed="true"]) { opacity: .45; }
+.cc-small { margin: 0; font-size: 12.5px; line-height: 1.5; color: #5b665f; }
+.cc a { color: #2f8a1f; font-weight: 700; text-decoration: none; }
+.cc a:hover { color: #1f6a12; }
+.cc [hidden] { display: none !important; }
+.cc-mine { display: flex; flex-direction: column; gap: 12px; }
+.cc-locked { background: #eef7ea; border-radius: 14px; padding: 14px; display: flex; gap: 12px; align-items: center; }
+.cc-locked svg { flex: none; }
+.cc-locked span { display: flex; flex-direction: column; gap: 2px; }
+.cc-locked b { font: 700 15px 'Poppins', sans-serif; color: #14211a; }
+.cc-locked small { font-size: 13px; color: #4a554e; }
+.cc-nick { display: flex; flex-direction: column; gap: 6px; font: 600 13px 'Inter', sans-serif; color: #14211a; }
+.cc-nick-row { display: flex; gap: 8px; }
+.cc-nick input { flex: 1; min-width: 0; height: 44px; box-sizing: border-box; border: 1px solid #d5d9d1; border-radius: 10px; padding: 0 12px; font: 500 15px 'Inter', sans-serif; color: #14211a; background: #fbfbf9; }
+.cc-nick input:focus { outline: 2px solid #3fae29; outline-offset: 1px; background: #fff; }
+.cc-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; background: #3fae29; color: #fff !important; border: 0; font: 700 14px 'Inter', sans-serif; padding: 0 16px; border-radius: 10px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+.cc-btn:hover { background: #2f8a1f; }
+.cc-btn-dark { background: #14211a; }
+.cc-btn-dark:hover { background: #23382b; }
+.cc-msg { margin: 0; font-size: 13px; color: #4a554e; min-height: 1em; }
+.cc-last { border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 8px; background: #f6f6f3; }
+.cc-last.cc-hit { background: #14211a; color: #fff; }
+.cc-last b { font: 700 16px 'Poppins', sans-serif; }
+.cc-last span { font-size: 14px; line-height: 1.45; color: #4a554e; }
+.cc-last.cc-hit span { color: #c4d0c8; }
+.cc-last .cc-btn { align-self: flex-start; }
+
+.cc-crowd { background: #14211a; color: #fff; border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.cc-crowd-h { font: 700 20px/1.25 'Poppins', sans-serif; }
+.cc-crowd-p { margin: 0; font-size: 14px; line-height: 1.5; color: #c4d0c8; }
+.cc-crowd a { color: #8fd97c; }
+.cc-bars { display: flex; flex-direction: column; gap: 10px; }
+.cc-bar { display: flex; flex-direction: column; gap: 5px; }
+.cc-bar-top { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; }
+.cc-bar-track { height: 10px; border-radius: 99px; background: rgba(255,255,255,.12); overflow: hidden; }
+.cc-bar-fill { display: block; height: 100%; border-radius: 99px; background: #8fd97c; }
+.cc-bar-same .cc-bar-fill { background: #c4d0c8; }
+.cc-bar-up .cc-bar-fill { background: #f0a35a; }
+.cc-past { border-top: 1px solid rgba(255,255,255,.14); padding-top: 12px; font-size: 13.5px; line-height: 1.5; color: #c4d0c8; }
+
+@media (max-width: 860px) {
+  .cc-grid { grid-template-columns: minmax(0, 1fr); }
+  .cc-card, .cc-crowd { padding: 18px; border-radius: 20px; }
+  .cc h2 { font-size: 22px; }
+  .cc-call b { font-size: 15px; }
+}
+
+/* ---------------------------------------------------------- The Oracle board */
+main.pp:has(.or) { max-width: none; padding: 0; }
+.or { max-width: 1232px; margin: 0 auto; padding: 0 24px 40px; display: flex; flex-direction: column; gap: 32px; color: #14211a; }
+.or a { color: #2f8a1f; text-decoration: none; font-weight: 600; }
+.or a:hover { color: #1f6a12; }
+.or h2 { margin: 0; font: 700 24px/1.2 'Poppins', sans-serif; }
+.or [hidden] { display: none !important; }
+.or-hero { background: #14211a; color: #fff; border-radius: 0 0 28px 28px; margin: 0 -24px; padding: 48px 48px 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: end; }
+.or-hero .cc-kick { color: #8fd97c; }
+.or-hero h1 { margin: 10px 0 12px; font: 800 56px/1.0 'Poppins', sans-serif; letter-spacing: -0.03em; }
+.or-hero h1 span { color: #8fd97c; }
+.or-hero p { margin: 0; font-size: 17px; line-height: 1.55; color: #c4d0c8; max-width: 560px; }
+.or-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.or-stats div { background: #1f3127; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.or-stats b { font: 800 30px 'Poppins', sans-serif; }
+.or-stats b.or-green { color: #8fd97c; }
+.or-stats span { font-size: 13px; color: #c4d0c8; }
+.or-two { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.or-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.or-card { background: #fff; border: 1px solid #e4e6e0; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.or-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.or-tabs { display: flex; background: #f1f3ef; border-radius: 99px; padding: 4px; }
+.or-tabs button { border: 0; background: none; border-radius: 99px; padding: 9px 14px; font: 600 13px 'Inter', sans-serif; color: #4a554e; cursor: pointer; min-height: 36px; }
+.or-tabs button[aria-pressed="true"] { background: #14211a; color: #fff; }
+.or-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eef0ec; }
+.or-row:last-child { border-bottom: 0; }
+.or-pos { font: 800 22px 'Poppins', sans-serif; width: 34px; color: #5b665f; flex: none; }
+.or-pos.p1 { color: #a8861a; } .or-pos.p2 { color: #6b757c; } .or-pos.p3 { color: #a8693a; }
+.or-who { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.or-who b { font-size: 15px; overflow-wrap: anywhere; }
+.or-who small { color: #5b665f; font-size: 13px; }
+.or-pct { font: 700 17px 'Poppins', sans-serif; }
+.or-row.or-me { background: #eef7ea; margin: 0 -12px; padding: 12px; border-radius: 12px; border-bottom: 0; }
+.or-empty { margin: 0; font-size: 15px; line-height: 1.55; color: #4a554e; }
+.or-you { background: #eef7ea; border-color: #d6ecd0; }
+.or-you-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.or-you-top b { font: 700 18px 'Poppins', sans-serif; }
+.or-you-top .or-big { font: 800 28px 'Poppins', sans-serif; color: #2f8a1f; }
+.or-calls { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.or-calls li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eef0ec; font-size: 14px; }
+.or-calls li:last-child { border-bottom: 0; }
+.or-calls a { color: #14211a; font-weight: 600; }
+.or-calls small { display: block; color: #5b665f; font-size: 12.5px; font-weight: 400; }
+.or-tag { flex: none; font: 700 12px 'Inter', sans-serif; border-radius: 99px; padding: 5px 10px; background: #f1f3ef; color: #4a554e; white-space: nowrap; }
+.or-tag.or-hit { background: #3fae29; color: #fff; }
+.or-tag.or-miss { background: #fbe9dc; color: #8a3f0a; }
+.or-card-btn { border: 0; background: none; color: #2f8a1f; font: 700 12.5px 'Inter', sans-serif; cursor: pointer; padding: 4px 0; }
+.or-hot { display: flex; flex-direction: column; gap: 8px; }
+.or-hot a { display: flex; justify-content: space-between; gap: 12px; background: #14211a; color: #fff; border-radius: 14px; padding: 13px 15px; font-size: 14px; font-weight: 500; }
+.or-hot a:hover { background: #23382b; color: #fff; }
+.or-hot a b { color: #8fd97c; white-space: nowrap; }
+.or-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.or-steps div { background: #fff; border: 1px solid #e4e6e0; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 6px; }
+.or-steps b { font: 800 28px 'Poppins', sans-serif; color: #3fae29; }
+.or-steps h3 { margin: 0; font: 700 17px 'Poppins', sans-serif; }
+.or-steps p { margin: 0; font-size: 14.5px; line-height: 1.5; color: #4a554e; }
+.or-faqs { display: flex; flex-direction: column; gap: 10px; }
+.or-faqs details { background: #fff; border: 1px solid #e4e6e0; border-radius: 14px; padding: 14px 16px; }
+.or-faqs summary { font: 700 16px 'Poppins', sans-serif; cursor: pointer; }
+.or-faqs p { margin: 10px 0 0; font-size: 15px; line-height: 1.55; color: #4a554e; }
+@media (max-width: 860px) {
+  .or { padding: 0 16px 32px; gap: 24px; }
+  .or-hero { margin: 0 -16px; padding: 28px 16px 24px; grid-template-columns: minmax(0, 1fr); gap: 20px; border-radius: 0 0 22px 22px; }
+  .or-hero h1 { font-size: 40px; }
+  .or-stats b { font-size: 24px; }
+  .or-two, .or-steps { grid-template-columns: minmax(0, 1fr); }
+  .or-card { padding: 16px; border-radius: 20px; }
+}

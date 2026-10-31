@@ -102,7 +102,7 @@ def page(n, today):
 </section>
 <p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
-<script src="/js/milestones.js?v=20261031" defer></script>
+<script src="/js/milestones.js?v=20261101" defer></script>
 <script src="/js/par-price.js?v=20261030m" defer></script>"""
     app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Par Price", "url": f"{SITE}/play/par-price/",
            "applicationCategory": "GameApplication", "operatingSystem": "Any",
@@ -126,7 +126,7 @@ def league_page():
 <noscript><p>Par Price leagues need JavaScript. You can still <a href="/play/par-price/">play today’s round</a>.</p></noscript>
 <p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
-<script src="/js/milestones.js?v=20261031" defer></script>
+<script src="/js/milestones.js?v=20261101" defer></script>
 <script src="/js/league.js?v=20261030m" defer></script>
 <script src="/js/report.js?v=20261024b" defer></script>"""
     return page_shell(title="Par Price league | GolfPrice AI",
@@ -226,8 +226,15 @@ def hub_page(n, rnd):
     <p><a class="ch-btn" href="/play/leagues/">Start a league</a></p>
   </section>
 
+  <section class="ch-panel" id="oracle">
+    <span class="ch-kicker">New · Crowd Caddie</span>
+    <h2>The Oracle board</h2>
+    <p>Where’s that driver’s price heading? Make your call on any price page, and 14 days later we check what really happened. The golfers who read UK golf prices best top the board.</p>
+    <p><a class="ch-btn" href="/play/oracle/">See the board</a></p>
+  </section>
+
   <section class="ch-panel" id="aces">
-    <span class="ch-kicker">New · The Ace Register</span>
+    <span class="ch-kicker">The Ace Register</span>
     <h2>Had a hole-in-one?</h2>
     <p>Get it on record: a certificate worth framing, and your nickname on your course’s ace board for good. Every UK course is on the list.</p>
     <p><a class="ch-btn" href="/play/aces/">Log my ace</a></p>

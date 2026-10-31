@@ -108,7 +108,7 @@ def page():
 <p class="ac-attr">Course list © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL). Aces are logged on each golfer’s honour.</p>
 </div>
 <noscript><p class="ac-attr">The Ace Register needs JavaScript switched on.</p></noscript>
-<script src="/js/milestones.js?v={V}" defer></script>
+<script src="/js/milestones.js?v=20261101" defer></script>
 <script src="/js/aces.js?v={V}" defer></script>"""
     faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQS]}

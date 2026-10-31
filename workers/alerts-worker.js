@@ -111,6 +111,7 @@ export default {
       if (url.pathname.startsWith('/draft/')) return await bagDraft(request, url, env, cors);
       if (url.pathname.startsWith('/soc/')) return await society(request, url, env, cors);
       if (url.pathname.startsWith('/ace/')) return await aceRegister(request, url, env, cors);
+      if (url.pathname.startsWith('/cc/')) return await crowdCaddie(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -397,7 +398,7 @@ async function fourballCount(url, env, cors) {
 const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_18: 1, band_19_28: 1, band_28_plus: 1, band_none: 1, hcp_share: 1,
   calc_index: 1, calc_course: 1, calc_playing: 1, calc_shoot: 1, calc_share: 1,
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
-  ace_view: 1, ace_share: 1 };
+  ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -561,6 +562,205 @@ async function aceRegister(request, url, env, cors) {
   }
   return json({ ok: false, error: 'Not found.' }, 404, cors);
 }
+/* ------------------------------------------------------------------ Crowd Caddie
+   On every price page: "Where's this price heading in the next two weeks?"
+   Golfers call Cheaper, Holds or Pricier. We lock in that day's lowest UK
+   price (from the page's own data.json, never from the browser) and, 14 days
+   later, check the real price from the same file's history: down 2% or more
+   is Cheaper, up 2% or more is Pricier, anything in between Holds.
+   Calls are kept under the random player id only. A nickname is optional and
+   only needed for the Oracle board (golfpriceai.com/play/oracle/).
+   Settling happens lazily, whenever a page asks: no schedule needed. */
+const CC_CALLS = { down: 1, same: 1, up: 1 };
+const CC_DAYS = 14, CC_BAND = 0.02, CC_MIN_BOARD = 5;
+let ccReady = false;
+async function ccSetup(env) {
+  if (ccReady) return;
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS cc_votes (pid TEXT, slug TEXT, name TEXT, day TEXT, call TEXT, price REAL, due TEXT, result REAL, outcome TEXT, hit INTEGER, PRIMARY KEY (pid, slug, day)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS cc_slug ON cc_votes (slug, due)'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS cc_open ON cc_votes (outcome, due)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS cc_nicks (id INTEGER PRIMARY KEY AUTOINCREMENT, pid TEXT UNIQUE, nick TEXT, hidden INTEGER DEFAULT 0, updated TEXT)'),
+  ]);
+  ccReady = true;
+}
+function ccDay(offset = 0) { return new Date(Date.now() + offset * 864e5).toISOString().slice(0, 10); }
+function ccAdd(day, n) { return new Date(Date.parse(day + 'T12:00:00Z') + n * 864e5).toISOString().slice(0, 10); }
+const ccData = new Map();
+async function ccProduct(env, slug) {
+  const hit = ccData.get(slug);
+  if (hit && Date.now() - hit.at < 1800e3) return hit.d;
+  const res = await fetch(`${env.SITE || 'https://golfpriceai.com'}/prices/${slug}/data.json`, { cf: { cacheTtl: 1800, cacheEverything: true } });
+  let d;
+  if (res.status === 404) d = { gone: true };
+  else if (!res.ok) return null;
+  else {
+    try { d = await res.json(); } catch (e) { return null; }
+    if (!d || typeof d.lowestNewPrice !== 'number') d = { gone: true };
+  }
+  if (ccData.size > 500) ccData.clear();
+  ccData.set(slug, { at: Date.now(), d });
+  return d;
+}
+// The lowest price on a given day, from the data.json history (change points).
+function ccPriceOn(d, day) {
+  const s = (d.history && Array.isArray(d.history.series)) ? d.history.series : [];
+  let p = null;
+  for (const pt of s) { if (pt[0] <= day) p = Number(pt[1]); else break; }
+  return p === null ? (d.checked && d.checked >= day ? d.lowestNewPrice : null) : p;
+}
+function ccOutcome(from, to) {
+  if (!(from > 0) || !(to > 0)) return null;
+  if (to <= from * (1 - CC_BAND)) return 'down';
+  if (to >= from * (1 + CC_BAND)) return 'up';
+  return 'same';
+}
+// Settle every call on one product that has reached its 14 days.
+async function ccSettle(env, slug) {
+  const db = env.DEMAND, today = ccDay();
+  const due = (await db.prepare('SELECT pid, day, call, price, due FROM cc_votes WHERE slug = ? AND outcome IS NULL AND due <= ?').bind(slug, today).all()).results || [];
+  if (!due.length) return 0;
+  const d = await ccProduct(env, slug);
+  if (!d) return 0;
+  const ups = [];
+  for (const v of due) {
+    if (d.gone) { ups.push(db.prepare("UPDATE cc_votes SET outcome = 'void' WHERE pid = ? AND slug = ? AND day = ?").bind(v.pid, slug, v.day)); continue; }
+    if (!d.checked || d.checked < v.due) continue; // the price file hasn't caught up yet
+    const p = ccPriceOn(d, v.due), o = ccOutcome(Number(v.price), p);
+    if (!o) continue;
+    ups.push(db.prepare('UPDATE cc_votes SET result = ?, outcome = ?, hit = ? WHERE pid = ? AND slug = ? AND day = ?')
+      .bind(Math.round(p * 100) / 100, o, o === v.call ? 1 : 0, v.pid, slug, v.day));
+  }
+  if (ups.length) await db.batch(ups);
+  return ups.length;
+}
+async function ccSettleSome(env, where, args, max) {
+  const rows = (await env.DEMAND.prepare(`SELECT DISTINCT slug FROM cc_votes WHERE outcome IS NULL AND due <= ? ${where} LIMIT ${max}`).bind(ccDay(), ...args).all()).results || [];
+  for (const r of rows) { try { await ccSettle(env, r.slug); } catch (e) { /* try again next time */ } }
+}
+async function ccState(env, slug, pid) {
+  const db = env.DEMAND, today = ccDay();
+  try { await ccSettle(env, slug); } catch (e) { /* fine */ }
+  const open = await db.prepare("SELECT SUM(call = 'down') AS down, SUM(call = 'same') AS same, SUM(call = 'up') AS up, COUNT(*) AS n FROM cc_votes WHERE slug = ? AND due > ?").bind(slug, today).first();
+  const total = Number(await db.prepare('SELECT COUNT(*) AS c FROM cc_votes WHERE slug = ?').bind(slug).first('c')) || 0;
+  const past = await db.prepare("SELECT COUNT(*) AS n, SUM(call = 'down') AS down, SUM(call = 'same') AS same, SUM(call = 'up') AS up, SUM(hit) AS r, MAX(due) AS last FROM cc_votes WHERE slug = ? AND outcome IN ('down', 'same', 'up') AND due >= ?").bind(slug, ccAdd(today, -45)).first();
+  const lastOut = past && Number(past.n) ? await db.prepare("SELECT outcome, price, result FROM cc_votes WHERE slug = ? AND outcome IN ('down', 'same', 'up') ORDER BY due DESC LIMIT 1").bind(slug).first() : null;
+  const site = await db.prepare("SELECT COUNT(*) AS n, SUM(hit) AS r FROM cc_votes WHERE outcome IN ('down', 'same', 'up') AND due >= ?").bind(ccAdd(today, -30)).first();
+  let mine = null, last = null;
+  if (pid) {
+    mine = await db.prepare('SELECT call, price, day, due FROM cc_votes WHERE pid = ? AND slug = ? AND due > ? ORDER BY day DESC LIMIT 1').bind(pid, slug, today).first();
+    last = await db.prepare("SELECT call, price, day, due, result, outcome, hit FROM cc_votes WHERE pid = ? AND slug = ? AND outcome IS NOT NULL ORDER BY due DESC LIMIT 1").bind(pid, slug).first();
+    if (!mine) {
+      const waiting = await db.prepare('SELECT call, price, day, due FROM cc_votes WHERE pid = ? AND slug = ? AND outcome IS NULL ORDER BY day DESC LIMIT 1').bind(pid, slug).first();
+      if (waiting) mine = Object.assign(waiting, { settling: true });
+    }
+  }
+  const N = (x) => Number(x) || 0;
+  return {
+    ok: true, slug, total,
+    open: { down: N(open && open.down), same: N(open && open.same), up: N(open && open.up), n: N(open && open.n) },
+    past: past && N(past.n) >= 5 ? { n: N(past.n), down: N(past.down), same: N(past.same), up: N(past.up), right: N(past.r),
+      outcome: lastOut ? lastOut.outcome : null, from: lastOut ? lastOut.price : null, to: lastOut ? lastOut.result : null } : null,
+    site: site && N(site.n) >= 20 ? { n: N(site.n), right: N(site.r) } : null,
+    mine, last,
+  };
+}
+async function ccNick(env, pid, raw) {
+  const nick = cleanName(raw, 2, 20);
+  if (nick === null) return { ok: false, error: 'Let’s keep it clean for the clubhouse. Try another nickname.' };
+  if (!nick) return { ok: false, error: 'Pick a nickname (at least 2 letters).' };
+  await env.DEMAND.prepare('INSERT INTO cc_nicks (pid, nick, updated) VALUES (?, ?, ?) ON CONFLICT (pid) DO UPDATE SET nick = excluded.nick, updated = excluded.updated')
+    .bind(pid, nick, ccDay()).run();
+  return { ok: true, nick };
+}
+async function crowdCaddie(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'The Crowd Caddie is taking a short break. Please try again later.' }, 503, cors);
+  await ccSetup(env);
+  const path = url.pathname, db = env.DEMAND, today = ccDay();
+  const ip = request.headers.get('cf-connecting-ip') || '';
+  let body = {};
+  if (request.method === 'POST') {
+    try { body = JSON.parse((await request.text()).slice(0, 1000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    if (await tooMany('cc-' + ip, 60, 3600)) return json({ ok: false, error: 'Easy, tiger. Please try again later.' }, 429, cors);
+  }
+  const pidIn = String((request.method === 'POST' ? body.pid : url.searchParams.get('pid')) || '');
+  const pid = PID_RX.test(pidIn) ? pidIn : '';
+  const noStore = Object.assign({ 'cache-control': 'no-store' }, cors);
+
+  if (path === '/cc/state') {
+    const slug = String(url.searchParams.get('s') || '');
+    if (!SLUG_RX.test(slug)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    return json(await ccState(env, slug, pid), 200, noStore);
+  }
+
+  if (path === '/cc/vote' && request.method === 'POST') {
+    const slug = String(body.slug || ''), call = String(body.call || '');
+    if (!pid || !SLUG_RX.test(slug) || !CC_CALLS[call]) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const had = await db.prepare('SELECT 1 AS x FROM cc_votes WHERE pid = ? AND slug = ? AND (due > ? OR outcome IS NULL)').bind(pid, slug, today).first();
+    if (had) return json(Object.assign(await ccState(env, slug, pid), { again: true }), 200, noStore);
+    const mineToday = Number(await db.prepare('SELECT COUNT(*) AS c FROM cc_votes WHERE pid = ? AND day = ?').bind(pid, today).first('c')) || 0;
+    if (mineToday >= 40) return json({ ok: false, error: 'Forty calls in a day? Save some for tomorrow.' }, 429, cors);
+    // One call per visitor per product per day, whatever player id they send.
+    await demandSetup(env);
+    const v = (await sha1([ip, today, env.ALERTS_SECRET || ''].join('|'))).slice(0, 16);
+    const fresh = await db.prepare('INSERT OR IGNORE INTO seen (day, v, kind, key) VALUES (?, ?, ?, ?)').bind(today, v, 'cc', slug).run();
+    if (!(fresh.meta && fresh.meta.changes)) return json(Object.assign(await ccState(env, slug, pid), { again: true }), 200, noStore);
+    const d = await ccProduct(env, slug);
+    if (!d || d.gone) return json({ ok: false, error: 'We can’t find today’s price for that one. Please try again later.' }, 400, cors);
+    await db.prepare('INSERT OR IGNORE INTO cc_votes (pid, slug, name, day, call, price, due) VALUES (?, ?, ?, ?, ?, ?, ?)')
+      .bind(pid, slug, String(d.name || slug).slice(0, 90), today, call, Number(d.lowestNewPrice), ccAdd(today, CC_DAYS)).run();
+    if (body.nick) await ccNick(env, pid, body.nick);
+    return json(await ccState(env, slug, pid), 200, noStore);
+  }
+
+  if (path === '/cc/nick' && request.method === 'POST') {
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const r = await ccNick(env, pid, body.nick);
+    return json(r, r.ok ? 200 : 400, cors);
+  }
+
+  // The Oracle board, plus this golfer's own calls.
+  if (path === '/cc/board') {
+    await ccSettleSome(env, '', [], 12);
+    if (pid) await ccSettleSome(env, 'AND pid = ?', [pid], 8);
+    const month = today.slice(0, 7);
+    const SETTLED = "v.outcome IN ('down', 'same', 'up')";
+    const board = async (extra, args) => ((await db.prepare(`SELECT v.pid AS pid, n.nick AS nick, COUNT(*) AS n, SUM(v.hit) AS r FROM cc_votes v JOIN cc_nicks n ON n.pid = v.pid AND n.hidden = 0
+      WHERE ${SETTLED} ${extra} GROUP BY v.pid HAVING COUNT(*) >= ${CC_MIN_BOARD} ORDER BY SUM(v.hit) * 1.0 / COUNT(*) DESC, COUNT(*) DESC LIMIT 20`).bind(...args).all()).results || [])
+      .map((x) => ({ nick: x.nick, n: Number(x.n), r: Number(x.r) || 0, me: !!pid && x.pid === pid }));
+    const top = await board('AND substr(v.due, 1, 7) = ?', [month]);
+    const ever = await board('', []);
+    const crowd = await db.prepare(`SELECT COUNT(*) AS n, SUM(hit) AS r FROM cc_votes v WHERE ${SETTLED} AND substr(v.due, 1, 7) = ?`).bind(month).first();
+    const crowdEver = await db.prepare(`SELECT COUNT(*) AS n, SUM(hit) AS r FROM cc_votes v WHERE ${SETTLED}`).first();
+    const openN = Number(await db.prepare('SELECT COUNT(*) AS c FROM cc_votes WHERE outcome IS NULL').first('c')) || 0;
+    const firstDue = await db.prepare('SELECT MIN(due) AS d FROM cc_votes WHERE outcome IS NULL').first('d');
+    const hot = ((await db.prepare("SELECT slug, MAX(name) AS name, COUNT(*) AS n, SUM(call = 'down') AS down, SUM(call = 'same') AS same, SUM(call = 'up') AS up FROM cc_votes WHERE due > ? GROUP BY slug HAVING COUNT(*) >= 3 ORDER BY COUNT(*) DESC LIMIT 6").bind(today).all()).results || [])
+      .map((x) => ({ slug: x.slug, name: x.name, n: Number(x.n), down: Number(x.down) || 0, same: Number(x.same) || 0, up: Number(x.up) || 0 }));
+    let me = null;
+    if (pid) {
+      const nk = await db.prepare('SELECT nick, hidden FROM cc_nicks WHERE pid = ?').bind(pid).first();
+      const mm = await db.prepare(`SELECT COUNT(*) AS n, SUM(hit) AS r FROM cc_votes v WHERE pid = ? AND ${SETTLED} AND substr(v.due, 1, 7) = ?`).bind(pid, month).first();
+      const me2 = await db.prepare(`SELECT COUNT(*) AS n, SUM(hit) AS r FROM cc_votes v WHERE pid = ? AND ${SETTLED}`).bind(pid).first();
+      const calls = (await db.prepare('SELECT slug, name, call, price, day, due, result, outcome, hit FROM cc_votes WHERE pid = ? ORDER BY day DESC LIMIT 30').bind(pid).all()).results || [];
+      me = { nick: nk && !nk.hidden ? nk.nick : null, month: { n: Number(mm && mm.n) || 0, r: Number(mm && mm.r) || 0 },
+        ever: { n: Number(me2 && me2.n) || 0, r: Number(me2 && me2.r) || 0 }, rank: (top.findIndex((x) => x.me) + 1) || null, calls };
+    }
+    return json({ ok: true, month, min: CC_MIN_BOARD, top, ever,
+      crowd: { n: Number(crowd && crowd.n) || 0, r: Number(crowd && crowd.r) || 0, everN: Number(crowdEver && crowdEver.n) || 0, everR: Number(crowdEver && crowdEver.r) || 0, open: openN, firstDue: firstDue || null },
+      hot, me }, 200, noStore);
+  }
+
+  // John only: hide or bring back a nickname on the Oracle board.
+  if (path === '/cc/admin' && request.method === 'POST') {
+    if (await keyLocked(ip || 'unknown')) return json({ ok: false, error: 'Too many wrong tries. The door opens again in ten minutes.' }, 429, cors);
+    if (!keyMatches(env, body.key)) { await tooMany('stats-' + (ip || 'unknown'), 5, 600); return json({ ok: false, error: 'That key isn’t right.' }, 403, cors); }
+    const id = Number(body.id), act = String(body.action || '');
+    if (!(id > 0) || !['hide', 'show'].includes(act)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    await db.prepare('UPDATE cc_nicks SET hidden = ? WHERE id = ?').bind(act === 'hide' ? 1 : 0, id).run();
+    return json({ ok: true }, 200, cors);
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
 async function keyLocked(ip) {
   const hit = await caches.default.match(new Request(`https://rate.golfpriceai.invalid/${encodeURIComponent('stats-' + ip)}`));
   return !!(hit && Number(await hit.text()) >= 5);
@@ -688,7 +888,7 @@ async function clubStats(request, env, cors) {
     bands: { b0_9: sumUse('band_0_9', d30), b10_18: sumUse('band_10_18', d30), b19_28: sumUse('band_19_28', d30),
       b28: sumUse('band_28_plus', d30), none: sumUse('band_none', d30) },
     calc: ['calc_index', 'calc_course', 'calc_playing', 'calc_shoot', 'calc_share',
-      'ms_first_hcp', 'ms_scratch', 'ms_bandit', 'ms_champion', 'ms_streak', 'ms_share'].reduce((o, k) => {
+      'ms_first_hcp', 'ms_scratch', 'ms_bandit', 'ms_champion', 'ms_streak', 'ms_share', 'ms_called'].reduce((o, k) => {
       o[k] = { today: sumUse(k, day), d7: sumUse(k, d7) }; return o; }, {}),
   };
 
@@ -703,6 +903,24 @@ async function clubStats(request, env, cors) {
       recent: await all('SELECT id, nick, cname, hole, yards, club, day, public FROM ace_aces ORDER BY id DESC LIMIT 20'),
     };
   } catch (e) { out.aces = null; }
+
+  // ---- Crowd Caddie: calls, how often the crowd is right, and Oracle board nicknames to check.
+  try {
+    await ccSetup(env);
+    const SET = "outcome IN ('down', 'same', 'up')";
+    out.caddie = {
+      today: await one('SELECT COUNT(*) AS c FROM cc_votes WHERE day = ?', day),
+      week: await one('SELECT COUNT(*) AS c FROM cc_votes WHERE day >= ?', weekAgo),
+      total: await one('SELECT COUNT(*) AS c FROM cc_votes'),
+      open: await one('SELECT COUNT(*) AS c FROM cc_votes WHERE outcome IS NULL'),
+      settled: await one(`SELECT COUNT(*) AS c FROM cc_votes WHERE ${SET}`),
+      right: await one(`SELECT COUNT(*) AS c FROM cc_votes WHERE ${SET} AND hit = 1`),
+      products: await one('SELECT COUNT(DISTINCT slug) AS c FROM cc_votes'),
+      callers: await one('SELECT COUNT(DISTINCT pid) AS c FROM cc_votes'),
+      views7: sumUse('cc_view', d7), shares7: sumUse('cc_share', d7), oracle7: sumUse('oracle_view', d7),
+      nicks: await all('SELECT n.id, n.nick, n.hidden, n.updated, (SELECT COUNT(*) FROM cc_votes v WHERE v.pid = n.pid) AS calls FROM cc_nicks n ORDER BY n.id DESC LIMIT 25'),
+    };
+  } catch (e) { out.caddie = null; }
 
   // ---- League and society health
   out.leagues.twoActive = await one('SELECT COUNT(*) AS c FROM (SELECT m.league FROM pp_members m JOIN (SELECT DISTINCT pid FROM pp_scores WHERE n >= ?) s ON s.pid = m.pid GROUP BY m.league HAVING COUNT(*) >= 2)', monday);

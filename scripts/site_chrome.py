@@ -133,6 +133,8 @@ def menu():
              '<path d="M8 7h8l-1 14H9L8 7zM10 7V4h4v3M8 11h8"></path>'),
             ("The Ace Register", "Had a hole-in-one? Get it on record, with a certificate.", "/play/aces/",
              '<path d="M12 21V5M12 5l7 3-7 3M8 21h8M12 21a4 1.2 0 100-.1"></path>'),
+            ("The Oracle board", "Crowd Caddie: call where golf prices go next.", "/play/oracle/",
+             '<path d="M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 7v5l3 3"></path>'),
             ("Locker Room", "Your champion bags, bag tags and record.", "/play/locker/",
              '<path d="M6 3h12v18H6zM12 3v18M9 7h1M9 10h1M14 7h1M14 10h1M10 15v2M14 15v2"></path>'),
         ],

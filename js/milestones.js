@@ -1,6 +1,7 @@
 /* Milestone cards: shareable 1080x1350 cards for the moments worth bragging
    about. First Price Handicap, Scratch Club, Bandit of the Month, Bag Draft
-   champion and Par Price streaks of 30, 60, 90 and 120 days.
+   champion, Par Price streaks of 30, 60, 90 and 120 days, and the first
+   Crowd Caddie call a golfer gets right.
 
    Everything happens in this browser: the card is drawn on a canvas here and
    the list of milestones is kept in localStorage (gpMilestones). Only the
@@ -21,6 +22,7 @@
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function nick() { return String(get('gpNick', '') || '').slice(0, 24) || 'A GolfPrice AI golfer'; }
   function longDate(iso) { var d = new Date(iso + 'T12:00:00'); return d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear(); }
+  function money(n) { n = Number(n); return '£' + (n % 1 ? n.toFixed(2) : n.toFixed(0)); }
   function hcp(v) { return v < 0 ? '+' + Math.abs(v).toFixed(1) : Number(v).toFixed(1); }
   function today() { return new Date().toISOString().slice(0, 10); }
   function gpUse(k) { try { var d = today(), key = 'gpUse_' + k; if (localStorage.getItem(key) === d) return; localStorage.setItem(key, d); fetch('https://golfpriceai-alerts.golfpriceai.workers.dev/use', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: k }), keepalive: true }).catch(function () {}); } catch (e) { /* counts are a nice-to-have */ } }
@@ -42,6 +44,7 @@
       case 'bandit': return { label: 'Bandit of the Month', sub: 'Cut ' + Number(d.cut).toFixed(1) + ' · ' + (d.month || ''), text: 'Bandit of the Month in ' + (d.league || 'our league') + '. Cut my Price Handicap by ' + Number(d.cut).toFixed(1) + '. No questions, please.', url: 'https://golfpriceai.com/play/par-price/' };
       case 'champion': return { label: 'Bag Draft champion', sub: (d.major || 'The Bag Draft') + ' · ' + d.pts + ' pts', text: 'Champion of ' + (d.major || 'The Bag Draft') + ' in ' + (d.league || 'our league') + '. Loser buys the first round.', url: 'https://golfpriceai.com/play/draft/' };
       case 'ace': return { label: 'Hole-in-one', sub: 'the ' + ord(d.hole) + ' at ' + d.course, text: 'Hole-in-one! The ' + ord(d.hole) + ' at ' + d.course + ', ' + d.yards + ' yards with a ' + d.club + '. On the Ace Register for good.', url: 'https://golfpriceai.com/play/aces/' + (d.cid ? '?c=' + d.cid : '') };
+      case 'called': return { label: 'You called it', sub: (d.name || 'a golf price'), text: 'Called it. I said ' + ({ down: 'cheaper', same: 'it would hold', up: 'pricier' }[d.call] || 'it') + ' on the ' + (d.name || 'price') + ': ' + money(d.from) + ' then, ' + money(d.to) + ' now. Make your call:', url: 'https://golfpriceai.com/prices/' + (d.slug ? d.slug + '/#crowd-caddie' : '') };
       case 'streak': return { label: d.n + '-day Par Price streak', sub: STREAK[d.n] ? STREAK[d.n].title : '', text: d.n + ' days in a row on Par Price. Beat that.', url: 'https://golfpriceai.com/play/par-price/' };
     }
     return { label: 'Milestone', sub: '', text: 'A GolfPrice AI milestone.', url: 'https://golfpriceai.com/play/' };
@@ -137,7 +140,40 @@
     return cv;
   }
 
+  // Crowd Caddie: "You called it", for a price call that came good.
+  function drawCalled(m) {
+    var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
+    var x = cv.getContext('2d'), d = m.d || {}, me = nick(), L = 120, R = 960;
+    x.fillStyle = C.green; x.fillRect(0, 0, 1080, 1350);
+    x.fillStyle = C.ink; rr(x, 40, 40, 1000, 1270, 30); x.fill();
+    logo(x, L, 172, '#fff', C.bright);
+    text(x, 'CROWD CADDIE', R, 166, '700 22px Inter, sans-serif', C.soft, 'right');
+    text(x, 'ON THE RECORD', L, 330, '700 30px Inter, sans-serif', C.grey);
+    text(x, 'You called', L, 470, '800 132px Poppins, sans-serif', '#fff');
+    text(x, 'it', L, 610, '800 132px Poppins, sans-serif', '#fff');
+    x.font = '800 132px Poppins, sans-serif'; var w = x.measureText('it').width;
+    text(x, '.', L + w, 610, '800 132px Poppins, sans-serif', C.bright);
+    var said = { down: 'cheaper', same: 'it would hold', up: 'pricier' }[d.call] || 'it';
+    var y = wrap(x, me + ' said ' + said + ' on the ' + (d.name || 'price') + '.', L, 720, 840, 50, '400 38px Inter, sans-serif', C.grey);
+    var cols = [['THEN', money(d.from) + (d.per ? '' : '')], ['14 DAYS LATER', money(d.to)], ['CHANGE', (d.to < d.from ? '−' : d.to > d.from ? '+' : '') + money(Math.abs(d.to - d.from))]];
+    var top = Math.max(y + 40, 860), cw = (R - L - 32) / 3;
+    cols.forEach(function (c, i) {
+      var cx = L + i * (cw + 16);
+      x.fillStyle = 'rgba(255,255,255,.08)'; rr(x, cx, top, cw, 170, 22); x.fill();
+      text(x, c[0], cx + 26, top + 54, '700 20px Inter, sans-serif', C.grey);
+      text(x, c[1], cx + 26, top + 128, '800 54px Poppins, sans-serif', i === 1 ? C.bright : '#fff');
+    });
+    if (d.per) text(x, 'Prices ' + d.per.trim() + ', the lowest across multiple UK retailers.', L, top + 220, '400 26px Inter, sans-serif', C.dim);
+    else text(x, 'The lowest price across multiple UK retailers.', L, top + 220, '400 26px Inter, sans-serif', C.dim);
+    x.fillStyle = 'rgba(255,255,255,.14)'; x.fillRect(L, 1120, R - L, 2);
+    text(x, me, L, 1192, '700 44px Poppins, sans-serif', '#fff');
+    text(x, d.day ? 'Settled ' + longDate(d.day) : longDate(m.date), L, 1238, '400 28px Inter, sans-serif', C.dim);
+    pill(x, 'golfpriceai.com/play/oracle', R, 1230, C.green, '#fff');
+    return cv;
+  }
+
   function draw(m) {
+    if (m.kind === 'called') return drawCalled(m);
     if (m.kind === 'ace') return drawAce(m);
     var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
     var x = cv.getContext('2d'), d = m.d || {}, me = nick();
@@ -266,7 +302,7 @@
     var info = meta(m);
     var back = document.createElement('div'); back.className = 'ms-back';
     back.innerHTML = '<section class="ms-sheet" role="dialog" aria-modal="true" aria-label="' + esc(info.label) + '">' +
-      '<span class="ms-grip" aria-hidden="true"></span><span class="ms-kick">' + (m.kind === 'ace' ? 'ON THE RECORD' : fresh ? 'MILESTONE UNLOCKED' : 'YOUR MILESTONE') + '</span>' +
+      '<span class="ms-grip" aria-hidden="true"></span><span class="ms-kick">' + (m.kind === 'ace' || m.kind === 'called' ? 'ON THE RECORD' : fresh ? 'MILESTONE UNLOCKED' : 'YOUR MILESTONE') + '</span>' +
       '<h2 class="ms-title">' + esc(info.label) + (info.sub ? ': ' + esc(info.sub) : '') + '</h2>' +
       '<img class="ms-img" alt="' + esc(info.label) + ' card">' +
       '<p class="ms-note">' + (fresh ? 'Saved to your Milestones in My Clubhouse. ' : '') + (m.kind === 'ace' ? 'Who saw it is only on your copy. The board shows your nickname.' : 'Your nickname is the only name on it.') + '</p>' +
@@ -305,7 +341,7 @@
     css();
     var all = list();
     if (!all.length) {
-      el.innerHTML = '<p class="ms-empty">No milestones yet. Your first one: play 5 rounds of <a href="/play/par-price/">Par Price</a> to get a Price Handicap. Streaks of 30, 60, 90 and 120 days, Scratch Club, Bandit of the Month and Bag Draft champion cards are all up for grabs.</p>';
+      el.innerHTML = '<p class="ms-empty">No milestones yet. Your first one: play 5 rounds of <a href="/play/par-price/">Par Price</a> to get a Price Handicap. Streaks of 30, 60, 90 and 120 days, Scratch Club, Bandit of the Month, Bag Draft champion and Crowd Caddie cards are all up for grabs.</p>';
       return;
     }
     el.innerHTML = '<div class="ms-shelf">' + all.map(function (m, i) {

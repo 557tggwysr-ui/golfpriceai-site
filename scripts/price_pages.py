@@ -651,6 +651,37 @@ def compare_block(model, all_models, today):
     return html, (f"How does the {model.name} compare with other {plural_noun}?", answer)
 
 
+CADDIE_V = "20261101"
+CADDIE_CSS = f'<link rel="stylesheet" href="/css/caddie.css?v={CADDIE_V}">\n'
+
+
+def crowd_caddie(model):
+    """Crowd Caddie: "Where's this price heading in the next two weeks?"
+    Golfers call Cheaper, Holds or Pricier; the alerts worker (/cc/...) locks in
+    today's price from this page's data.json and settles the call 14 days later.
+    Drawn by js/crowd-caddie.js; the buttons work without any sign-up."""
+    per = " per dozen" if model.is_ball else ""
+    btns = "".join(f'<button type="button" class="cc-call" data-call="{c}"><b>{t}</b><small>{s}</small></button>'
+                   for c, t, s in (("down", "Cheaper", "drops 2%+"), ("same", "Holds", "within 2%"), ("up", "Pricier", "rises 2%+")))
+    return f"""<section class="pp-block cc" id="crowd-caddie" data-slug="{esc(model.slug)}" data-price="{model.low_price:.2f}" data-name="{esc(model.name)}" data-per="{per}">
+  <div class="cc-grid">
+    <div class="cc-card">
+      <span class="cc-kick">CROWD CADDIE</span>
+      <h2>Where’s this price heading in the next two weeks?</h2>
+      <p class="cc-lede">Make your call on the {esc(model.name)}. We lock in today’s {money(model.low_price)}{per} and check back in 14 days.</p>
+      <div class="cc-btns" role="group" aria-label="Your call">{btns}</div>
+      <div class="cc-mine" hidden aria-live="polite"></div>
+      <p class="cc-small">No sign-up. One call per product every 14 days. The crowd’s split shows once you’ve made yours. <a href="/play/oracle/">The Oracle board</a></p>
+    </div>
+    <div class="cc-crowd" aria-live="polite">
+      <span class="cc-kick cc-kick-dark">THE CROWD</span>
+      <b class="cc-crowd-h">What do UK golfers think?</b>
+      <p class="cc-crowd-p">Make your call to see which way the crowd is leaning.</p>
+    </div>
+  </div>
+</section>"""
+
+
 def alert_form(model):
     """The "Email me when it drops" box. Posting it is handled by js/site.js;
     the emails come from scripts/alerts.py using the rule described here, so
@@ -1001,6 +1032,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
   {opt_html}
 </div>
 {hist_html}
+{crowd_caddie(model)}
 {alert_form(model)}
 {pre_html}
 {cmp_html}
@@ -1013,7 +1045,8 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
 <p class="pp-small pp-data">The facts on this page as data: <a href="/prices/{model.slug}/data.json">data.json</a></p>
 </div>
 <script src="/js/gift-finder.js?v=20261018d" defer></script>
-<script src="/js/fourball.js?v=20261024" defer></script>"""
+<script src="/js/fourball.js?v=20261024" defer></script>
+<script src="/js/crowd-caddie.js?v={CADDIE_V}" defer></script>"""
 
     title = f"{name} Price UK: from {money(low['price'])}{per}"
     if model.is_ball:
@@ -1036,7 +1069,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
         product["offers"]["description"] = "Prices per dozen balls"
     page = page_shell(title=title, description=desc, canonical=canonical, body=body, section=model.section,
                       og_image=(m.get("_card") or m.get("_image") or img or None),
-                      extra_head=FOURBALL_CSS + (('<meta property="og:image:width" content="1200">\n'
+                      extra_head=FOURBALL_CSS + CADDIE_CSS + (('<meta property="og:image:width" content="1200">\n'
                                   '<meta property="og:image:height" content="630">\n') if m.get("_card") else ""),
                       schema=[product, crumbs_schema, faq_schema], noindex=noindex)
 
@@ -1616,6 +1649,12 @@ def build(models_list, products, today_str):
             sitemap.append(("play/aces/", None))
         except Exception as e:  # never stop the main build
             print(f"Ace Register skipped: {e}")
+        try:
+            import oracle_page
+            changed += oracle_page.build()
+            sitemap.append(("play/oracle/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Oracle board skipped: {e}")
         try:
             import start_golf
             sg_changed, _ = start_golf.build(passing, built, products, today)

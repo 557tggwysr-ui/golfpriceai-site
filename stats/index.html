@@ -189,7 +189,7 @@ td:first-child { font-weight: 400; }
       '<span class="dim">Golfers who typed into each calculator, once a day each. Counts began on 30 October 2026.</span></section></div>';
     html += '<section class="card"><h2>Milestone cards</h2><table><tr><th>Unlocked</th><th>Today</th><th>7 days</th></tr>' +
       cr('First Price Handicap', 'ms_first_hcp') + cr('Scratch Club', 'ms_scratch') + cr('Bandit of the Month', 'ms_bandit') +
-      cr('Bag Draft champion', 'ms_champion') + cr('Par Price streak (30, 60, 90, 120)', 'ms_streak') + cr('Cards shared or saved', 'ms_share') + '</table>' +
+      cr('Bag Draft champion', 'ms_champion') + cr('Crowd Caddie: first call right', 'ms_called') + cr('Par Price streak (30, 60, 90, 120)', 'ms_streak') + cr('Cards shared or saved', 'ms_share') + '</table>' +
       '<span class="dim">Counted once a day per golfer. The cards themselves never leave the golfer\u2019s phone unless they share them.</span></section>';
 
     var ac = d.aces;
@@ -205,6 +205,18 @@ td:first-child { font-weight: 400; }
         }).join('') + '</table>' : '<span class="dim">No aces yet.</span>') + '</section>';
     }
 
+    var cc = d.caddie;
+    if (cc) {
+      html += '<section class="card" id="caddie"><div class="head"><h2>Crowd Caddie</h2><span class="dim">' + n(cc.total) + ' calls · ' + n(cc.callers) + ' golfers · ' + n(cc.products) + ' products</span></div>' +
+        '<div class="nums">' + num(cc.today, 'calls today') + num(cc.week, 'calls this week') + num(cc.open, 'waiting on the price') + num(cc.settled, 'settled') +
+        '<div><b>' + (cc.settled ? Math.round(cc.right / cc.settled * 100) + '%' : '–') + '</b><span>the crowd got right</span></div></div>' +
+        '<span class="dim">Last 7 days: ' + n(cc.views7) + ' golfers saw the box · ' + n(cc.oracle7) + ' visited the Oracle board · ' + n(cc.shares7) + ' cards opened</span>' +
+        '<h3 class="dim">Oracle board nicknames (hide any that don’t belong)</h3>' +
+        (cc.nicks.length ? '<table>' + cc.nicks.map(function (k) {
+          return '<tr><td><b>' + esc(k.nick) + '</b> · ' + n(k.calls) + ' calls · ' + short(k.updated) + (k.hidden ? ' <span class="dim">(hidden)</span>' : '') + '</td><td><button type="button" data-cc="' + (k.hidden ? 'show' : 'hide') + '" data-id="' + k.id + '">' + (k.hidden ? 'Bring back' : 'Hide') + '</button></td></tr>';
+        }).join('') + '</table>' : '<span class="dim">No nicknames yet.</span>') + '</section>';
+    }
+
     var gmax = Math.max.apply(null, d.growth.map(function (w) { return Math.max(w.leagues, w.societies); }).concat([1]));
     html += '<div class="two"><section class="card"><h2>Growth</h2><span class="dim">Leagues and societies at the end of each week</span><div class="growth" role="img" aria-label="Leagues and societies over the last six weeks">' +
       d.growth.map(function (w) {
@@ -216,6 +228,14 @@ td:first-child { font-weight: 400; }
       '<tr><td>Golfers who have ever played</td><td>' + n(p.ever) + '</td></tr></table></section></div>' +
       '<p class="note">Counts only: no nicknames, emails or society names are sent to this page. Par Price and Higher or Lower scores are kept for 120 days, and quiet leagues close after 90 days, so “ever” means roughly the last four months.</p>';
     document.getElementById('main').innerHTML = html;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-cc]'), function (b) {
+      b.addEventListener('click', function () {
+        b.disabled = true;
+        fetch(API.replace('/stats', '/cc/admin'), { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ key: getKey(), action: b.getAttribute('data-cc'), id: Number(b.getAttribute('data-id')) }) })
+          .then(function (r) { return r.json(); }).then(function (r) { if (r.ok) load(getKey(), true, false); else { b.disabled = false; b.textContent = r.error || 'That didn’t work'; } })
+          .catch(function () { b.disabled = false; });
+      });
+    });
     Array.prototype.forEach.call(document.querySelectorAll('[data-ace]'), function (b) {
       b.addEventListener('click', function () {
         var act = b.getAttribute('data-ace');

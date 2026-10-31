@@ -141,7 +141,7 @@ def page():
 <p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
 <script src="/js/champion-card.js?v=20261023" defer></script>
-<script src="/js/milestones.js?v=20261031" defer></script>
+<script src="/js/milestones.js?v=20261101" defer></script>
 <script src="/js/draft.js?v=20261030m" defer></script>"""
     return page_shell(title="The Bag Draft: fantasy golf kit | GolfPrice AI",
                       description=f"Free monthly fantasy golf kit: draft six real products within £{BUDGET:,}, then real UK prices decide the winner. Play with your mates or the whole country.",
