@@ -462,3 +462,11 @@ a.fd-card:hover { border-color: #3fae29; }
 .lvs-grp > div { grid-column: 1 / -1; display: flex; flex-direction: column; }
 .lvs-grp > div span { color: #4a554e; }
 .lvs-grp label { display: flex; flex-direction: column; gap: 4px; font-size: 12.5px; font-weight: 700; color: #5b665f; }
+/* Polls card in Society HQ */
+.hq-polls-h { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.hq-polls-h h2 { margin: 0; }
+.hq-poll { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; border: 1px solid var(--gp-line); border-radius: 12px; color: var(--gp-ink); text-decoration: none; margin-top: 8px; }
+.hq-poll b { font-size: 15.5px; }
+.hq-poll span { font-size: 13px; color: var(--gp-text-3); }
+.hq-poll.is-new { border: 2px solid #3fae29; background: #f3faf0; padding: 11px 13px; }
+.hq-poll.is-new span { color: var(--gp-green-dark); font-weight: 600; }

@@ -1721,6 +1721,7 @@ def build(models_list, products, today_str):
             sitemap.append(("improve/shot-saver/", None))
             sitemap.append(("improve/my-game/", None))
             sitemap.append(("play/scorecard/", None))
+            sitemap.append(("play/poll/", None))
         except Exception as e:  # never stop the main build
             print(f"Shot Saver skipped: {e}")
         try:

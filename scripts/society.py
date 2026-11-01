@@ -16,7 +16,7 @@ from price_pages import SITE, _write, breadcrumb, page_shell
 LAUNCHED = True
 PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
 FIND_PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/find-a-society-wide.jpg"><img src="/assets/photos/tools/find-a-society-banner.jpg" alt="Golfers shaking hands on the first tee, meeting new playing partners" width="1536" height="512"></picture>'
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101e">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101f">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -38,6 +38,7 @@ APP_FEATURES = [
     "Golf society Awards Night Kit: award cards and a presentation slideshow",
     "Prize Picker: winners choose their own golf prize at today's lowest UK price",
     "The National Society League: regional divisions with promotion and relegation, scored from your society days",
+    "Polls for the WhatsApp group: pick the course, the trip or the format, or find the date that suits most members; the winner becomes a fixture",
     "Live scoring: one phone per group, stableford points from handicaps, and a live leaderboard for the WhatsApp group",
 ]
 
@@ -240,7 +241,7 @@ def hq_page():
 {REAL}
 </div>
 <script src="/js/clubhouse-key.js?v=20261101b" defer></script>
-<script src="/js/society-hq.js?v=20261101e" defer></script>"""
+<script src="/js/society-hq.js?v=20261101f" defer></script>"""
     return page_shell(title="Run your golf society free | Society HQ | GolfPrice AI",
                       description="Run your golf society for free: fixtures, sign-ups, who’s paid, a waiting list and the prize fund, all from one link in the WhatsApp group.",
                       canonical=f"{SITE}/societies/hq/", body=body, section="societies", schema=[crumbs_schema, app_schema(f"{SITE}/societies/hq/")],
@@ -667,6 +668,11 @@ def build(root=None):
         changed.append("/societies/league/")
     if _write(root / "societies" / "form-guide" / "index.html", fg_page()):
         changed.append("/societies/form-guide/")
+    try:
+        import polls_pages
+        changed += polls_pages.build(root)
+    except Exception as exc:  # never stop the build
+        print(f"Poll pages skipped: {exc}")
     try:
         import live_scoring
         changed += live_scoring.build(root)

@@ -116,6 +116,7 @@ export default {
       if (url.pathname.startsWith('/lg/')) return await nationalLeague(request, url, env, cors);
       if (url.pathname.startsWith('/ck/')) return await clubhouseKey(request, url, env, cors);
       if (url.pathname.startsWith('/lv/')) return await liveScoring(request, url, env, cors);
+      if (url.pathname.startsWith('/pl/')) return await polls(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -404,7 +405,7 @@ const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_1
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
   ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1,
   ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1,
-  ck_saved: 1, ck_card: 1, co_set: 1, fd_near: 1, soc_ask: 1, lv_view: 1, lv_share: 1, lv_card: 1, lv_claim: 1, mg_view: 1 };
+  ck_saved: 1, ck_card: 1, co_set: 1, fd_near: 1, soc_ask: 1, lv_view: 1, lv_share: 1, lv_card: 1, lv_claim: 1, mg_view: 1, pl_share: 1, pl_view: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -993,6 +994,189 @@ async function liveScoring(request, url, env, cors) {
       await useBump(env, 'lv_final');
     }
     return res;
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
+
+/* ------------------------------------------------------------------ Polls
+   A question for the group, shared into WhatsApp and answered in one tap.
+   Society polls (soc set) are made by the organiser or co-organiser and
+   answered by members (by member key); quick polls (no society) are made by
+   anyone and answered by anyone with the link, with a nickname.
+     pl_polls    id, soc, owner (pid), kind (pick | date), q, multi, named (show who voted for what),
+                 adds (members can add options), closes (ISO), status (open | closed), winner, created
+     pl_options  poll, oid, label, course (UK course id), town, day (date polls), by (nick)
+     pl_votes    poll, voter (member key, or the pid for quick polls), nick, oid, ans (y | m for date polls)
+   Nicknames only, and only what people choose. */
+let plReady = false;
+async function plSetup(env) {
+  if (plReady) return;
+  await socSetup(env);
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pl_polls (id TEXT PRIMARY KEY, soc TEXT, owner TEXT, kind TEXT, q TEXT, multi INTEGER, named INTEGER, adds INTEGER, closes TEXT, status TEXT, winner INTEGER, created TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS pl_polls_soc ON pl_polls (soc, created)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pl_options (poll TEXT, oid INTEGER, label TEXT, course TEXT, town TEXT, day TEXT, by TEXT, PRIMARY KEY (poll, oid)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pl_votes (poll TEXT, voter TEXT, nick TEXT, oid INTEGER, ans TEXT, at TEXT, PRIMARY KEY (poll, voter, oid)) WITHOUT ROWID'),
+  ]);
+  plReady = true;
+}
+function plClosed(p) { return p.status === 'closed' || (p.closes && p.closes < new Date().toISOString()); }
+async function plWho(env, p, pid) {
+  // The voter's key and nickname: a member of the society, or (quick poll) their own pid.
+  if (!pid) return null;
+  if (p.soc) { const m = await env.DEMAND.prepare('SELECT mkey, nick FROM soc_members WHERE soc = ? AND pid = ?').bind(p.soc, pid).first(); return m ? { k: m.mkey, nick: m.nick } : null; }
+  const v = await env.DEMAND.prepare('SELECT nick FROM pl_votes WHERE poll = ? AND voter = ? LIMIT 1').bind(p.id, pid).first('nick');
+  return { k: pid, nick: v || '' };
+}
+async function plCanClose(env, p, pid) {
+  if (!pid) return false;
+  if (pid === p.owner) return true;
+  if (!p.soc) return false;
+  const s = await hqSoc(env, p.soc);
+  return !!s && socOrg(s, pid);
+}
+async function polls(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'Polls are taking a short break. Please try again in a minute.' }, 503, cors);
+  await plSetup(env);
+  const db = env.DEMAND, path = url.pathname, ip = request.headers.get('cf-connecting-ip') || '';
+  let body = {};
+  if (request.method === 'POST') {
+    try { body = JSON.parse((await request.text()).slice(0, 8000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    if (await tooMany('pl-' + ip, 120, 600)) return json({ ok: false, error: 'Easy, tiger. Please try again in a few minutes.' }, 429, cors);
+  }
+  const q = (k) => String(body[k] !== undefined ? body[k] : url.searchParams.get(k) || '');
+  const pid = PID_RX.test(q('pid')) ? q('pid') : '';
+  const noStore = Object.assign({ 'cache-control': 'no-store' }, cors);
+  const poll = async () => { const id = q('p'); return SOC_RX.test(id) ? await db.prepare('SELECT * FROM pl_polls WHERE id = ?').bind(id).first() : null; };
+
+  if (path === '/pl/new' && request.method === 'POST') {
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    let soc = '';
+    if (q('s')) {
+      const s = await hqSoc(env, q('s'));
+      if (!s || !socOrg(s, pid)) return json({ ok: false, error: 'Only the organiser can start a society poll.' }, 403, cors);
+      soc = s.id;
+    } else if (await tooMany('pln-' + ip, 15, 3600)) return json({ ok: false, error: 'That’s a lot of polls for one afternoon. Try again later.' }, 429, cors);
+    const kind = body.kind === 'date' ? 'date' : 'pick';
+    const question = socText(body.q, 100);
+    if (question === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse.' }, 400, cors);
+    if (!question || question.length < 4) return json({ ok: false, error: 'Ask a question (at least a few words).' }, 400, cors);
+    const opts = [];
+    for (const o of (Array.isArray(body.options) ? body.options : []).slice(0, 12)) {
+      if (kind === 'date') {
+        const d = String(o && o.day || o || '');
+        if (DAY_RX.test(d) && d >= hqDay() && !opts.some((x) => x.day === d)) opts.push({ label: d, day: d, course: '', town: '' });
+      } else {
+        const label = socText(o && o.label, 50);
+        if (label === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse.' }, 400, cors);
+        if (!label || opts.some((x) => x.label.toLowerCase() === label.toLowerCase())) continue;
+        opts.push({ label, day: '', course: ACE_COURSE_RX.test(String(o.course || '')) ? String(o.course) : '', town: socText(o.town, 40) || '' });
+      }
+    }
+    if (opts.length < 2) return json({ ok: false, error: kind === 'date' ? 'Add at least two dates (today or later).' : 'Add at least two options.' }, 400, cors);
+    if (kind === 'date') opts.sort((a, b) => (a.day < b.day ? -1 : 1));
+    let closes = String(body.closes || '');
+    if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(closes) || closes < new Date().toISOString() || closes > new Date(Date.now() + 60 * 864e5).toISOString()) closes = new Date(Date.now() + 7 * 864e5).toISOString();
+    const id = socCode(8), now = new Date().toISOString();
+    const steps = [db.prepare('INSERT INTO pl_polls (id, soc, owner, kind, q, multi, named, adds, closes, status, winner, created) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+      .bind(id, soc, pid, kind, question, kind === 'date' || body.multi ? 1 : 0, body.named === false ? 0 : 1, kind === 'pick' && body.adds ? 1 : 0, closes, 'open', null, now)];
+    opts.forEach((o, i) => steps.push(db.prepare('INSERT INTO pl_options (poll, oid, label, course, town, day, by) VALUES (?, ?, ?, ?, ?, ?, ?)').bind(id, i + 1, o.label, o.course, o.town, o.day, '')));
+    await db.batch(steps);
+    await useBump(env, soc ? 'pl_soc' : 'pl_quick');
+    return json({ ok: true, id }, 200, cors);
+  }
+  if (path === '/pl/get') {
+    const p = await poll();
+    if (!p) return json({ ok: false, error: 'We couldn’t find that poll. Ask for the link again.' }, 404, noStore);
+    const closed = plClosed(p);
+    const opts = (await db.prepare('SELECT oid, label, course, town, day, by FROM pl_options WHERE poll = ? ORDER BY oid').bind(p.id).all()).results || [];
+    const votes = (await db.prepare('SELECT voter, nick, oid, ans FROM pl_votes WHERE poll = ?').bind(p.id).all()).results || [];
+    const me = await plWho(env, p, pid);
+    let soc = null, waiting = null, total = null;
+    if (p.soc) {
+      const s = await hqSoc(env, p.soc);
+      const mem = (await db.prepare('SELECT mkey, nick FROM soc_members WHERE soc = ?').bind(p.soc).all()).results || [];
+      soc = { id: p.soc, name: s ? s.name : 'Society' };
+      total = mem.length;
+      const voted = new Set(votes.map((v) => v.voter));
+      if (p.named && me) waiting = mem.filter((m) => !voted.has(m.mkey)).map((m) => m.nick);
+    }
+    const voters = new Set(votes.map((v) => v.voter));
+    return json({ ok: true, id: p.id, kind: p.kind, q: p.q, multi: !!p.multi, named: !!p.named, adds: !!p.adds, closes: p.closes, closed, winner: p.winner, soc, total, voters: voters.size, waiting,
+      canClose: await plCanClose(env, p, pid), member: p.soc ? !!me : true, me: me && me.nick ? { nick: me.nick } : null,
+      mine: me ? votes.filter((v) => v.voter === me.k).map((v) => ({ oid: v.oid, ans: v.ans || 'y' })) : [],
+      options: opts.map((o) => {
+        const vs = votes.filter((v) => v.oid === o.oid);
+        return { oid: o.oid, label: o.label, course: o.course, town: o.town, day: o.day, by: o.by,
+          yes: vs.filter((v) => (v.ans || 'y') === 'y').length, maybe: vs.filter((v) => v.ans === 'm').length,
+          who: p.named ? vs.map((v) => ({ nick: v.nick, ans: v.ans || 'y' })) : null };
+      }) }, 200, noStore);
+  }
+  if (path === '/pl/vote' && request.method === 'POST') {
+    const p = await poll();
+    if (!p) return json({ ok: false, error: 'We couldn’t find that poll.' }, 404, cors);
+    if (plClosed(p)) return json({ ok: false, error: 'This poll has closed.' }, 400, cors);
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    let me = await plWho(env, p, pid);
+    if (p.soc && !me) return json({ ok: false, error: 'Join the society to vote.', join: true }, 403, cors);
+    if (!p.soc) {
+      const nick = cleanName(body.nick || me.nick, 2, 20);
+      if (nick === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse.' }, 400, cors);
+      if (!nick) return json({ ok: false, error: 'Pick a nickname first.', nick: true }, 400, cors);
+      const taken = await db.prepare('SELECT voter FROM pl_votes WHERE poll = ? AND lower(nick) = lower(?) AND voter != ? LIMIT 1').bind(p.id, nick, pid).first('voter');
+      if (taken) return json({ ok: false, error: 'Someone’s already voting as ' + nick + '. Pick another nickname.', nick: true }, 400, cors);
+      me = { k: pid, nick };
+    }
+    const oids = new Set((((await db.prepare('SELECT oid FROM pl_options WHERE poll = ?').bind(p.id).all()).results) || []).map((o) => o.oid));
+    const now = new Date().toISOString(), rows = [];
+    if (p.kind === 'date') {
+      const a = body.answers && typeof body.answers === 'object' ? body.answers : {};
+      Object.keys(a).forEach((k) => { const o = Number(k), v = a[k]; if (oids.has(o) && (v === 'y' || v === 'm')) rows.push([o, v]); });
+    } else {
+      let pick = (Array.isArray(body.oids) ? body.oids : []).map(Number).filter((o) => oids.has(o));
+      pick = [...new Set(pick)];
+      if (!p.multi) pick = pick.slice(0, 1);
+      if (!pick.length) return json({ ok: false, error: 'Pick an option first.' }, 400, cors);
+      pick.forEach((o) => rows.push([o, 'y']));
+    }
+    await db.batch([db.prepare('DELETE FROM pl_votes WHERE poll = ? AND voter = ?').bind(p.id, me.k)].concat(
+      rows.map(([o, a]) => db.prepare('INSERT INTO pl_votes (poll, voter, nick, oid, ans, at) VALUES (?, ?, ?, ?, ?, ?)').bind(p.id, me.k, me.nick, o, a, now)),
+      // A date poll with every day a "no" still counts as answered.
+      p.kind === 'date' && !rows.length ? [db.prepare('INSERT INTO pl_votes (poll, voter, nick, oid, ans, at) VALUES (?, ?, ?, 0, ?, ?)').bind(p.id, me.k, me.nick, 'n', now)] : []));
+    await useBump(env, 'pl_vote');
+    return json({ ok: true }, 200, cors);
+  }
+  if (path === '/pl/add' && request.method === 'POST') {
+    const p = await poll();
+    if (!p || p.kind !== 'pick') return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    if (plClosed(p)) return json({ ok: false, error: 'This poll has closed.' }, 400, cors);
+    const can = await plCanClose(env, p, pid);
+    if (!p.adds && !can) return json({ ok: false, error: 'The organiser has switched off new options.' }, 403, cors);
+    const me = await plWho(env, p, pid);
+    if (p.soc && !me && !can) return json({ ok: false, error: 'Join the society to add an option.', join: true }, 403, cors);
+    const label = socText(body.label, 50);
+    if (label === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse.' }, 400, cors);
+    if (!label) return json({ ok: false, error: 'Type an option first.' }, 400, cors);
+    const opts = (await db.prepare('SELECT oid, label FROM pl_options WHERE poll = ?').bind(p.id).all()).results || [];
+    if (opts.length >= 12) return json({ ok: false, error: 'That’s twelve options already: plenty to argue about.' }, 400, cors);
+    if (opts.some((o) => o.label.toLowerCase() === label.toLowerCase())) return json({ ok: false, error: 'That one’s already on the list.' }, 400, cors);
+    const oid = Math.max(0, ...opts.map((o) => o.oid)) + 1;
+    await db.prepare('INSERT INTO pl_options (poll, oid, label, course, town, day, by) VALUES (?, ?, ?, ?, ?, ?, ?)')
+      .bind(p.id, oid, label, ACE_COURSE_RX.test(String(body.course || '')) ? String(body.course) : '', socText(body.town, 40) || '', '', me && me.nick ? me.nick : '').run();
+    return json({ ok: true, oid }, 200, cors);
+  }
+  if (path === '/pl/close' && request.method === 'POST') {
+    const p = await poll();
+    if (!p || !(await plCanClose(env, p, pid))) return json({ ok: false, error: 'Only the organiser can close the poll.' }, 403, cors);
+    const top = await db.prepare("SELECT oid, SUM(CASE WHEN ans = 'm' THEN 0.5 ELSE 1 END) AS n FROM pl_votes WHERE poll = ? AND oid > 0 GROUP BY oid ORDER BY n DESC, oid LIMIT 1").bind(p.id).first();
+    await db.prepare("UPDATE pl_polls SET status = 'closed', winner = ?, closes = ? WHERE id = ?").bind(top ? top.oid : null, new Date().toISOString(), p.id).run();
+    return json({ ok: true, winner: top ? top.oid : null }, 200, cors);
+  }
+  if (path === '/pl/delete' && request.method === 'POST') {
+    const p = await poll();
+    if (!p || !(await plCanClose(env, p, pid))) return json({ ok: false, error: 'Only the organiser can delete the poll.' }, 403, cors);
+    await db.batch([db.prepare('DELETE FROM pl_votes WHERE poll = ?').bind(p.id), db.prepare('DELETE FROM pl_options WHERE poll = ?').bind(p.id), db.prepare('DELETE FROM pl_polls WHERE id = ?').bind(p.id)]);
+    return json({ ok: true }, 200, cors);
   }
   return json({ ok: false, error: 'Not found.' }, 404, cors);
 }
@@ -2532,8 +2716,18 @@ async function hqGet(env, id, pid, cors) {
   const live = {};
   if (ids.length) try { (((await env.DEMAND.prepare(`SELECT event, code, status FROM sc_rounds WHERE event IN (${ids.map(() => '?').join(',')})`).bind(...ids).all()).results) || []).forEach((r) => { live[r.event] = { code: r.code, status: r.status }; }); } catch (e) { /* no live rounds yet */ }
   const requests = organiser ? ((await env.DEMAND.prepare("SELECT id, nick, note, event, at FROM soc_requests WHERE soc = ? AND status = 'new' ORDER BY at").bind(s.id).all()).results || []) : [];
+  let pollList = [];
+  try {
+    const ps = (await env.DEMAND.prepare('SELECT id, kind, q, closes, status, winner FROM pl_polls WHERE soc = ? ORDER BY created DESC LIMIT 6').bind(s.id).all()).results || [];
+    for (const p of ps) {
+      const n = await env.DEMAND.prepare('SELECT COUNT(DISTINCT voter) AS n FROM pl_votes WHERE poll = ?').bind(p.id).first('n');
+      const mine = await env.DEMAND.prepare('SELECT 1 AS y FROM pl_votes WHERE poll = ? AND voter = ? LIMIT 1').bind(p.id, me.mkey).first('y');
+      const win = p.winner ? await env.DEMAND.prepare('SELECT label, day FROM pl_options WHERE poll = ? AND oid = ?').bind(p.id, p.winner).first() : null;
+      pollList.push({ id: p.id, kind: p.kind, q: p.q, closes: p.closes, closed: plClosed(p), votes: n || 0, voted: !!mine, winner: win });
+    }
+  } catch (e) { /* no polls yet */ }
   const out = Object.assign(base, {
-    you: me.mkey, pay: s.pay, requests,
+    you: me.mkey, pay: s.pay, requests, polls: pollList,
     members: members.map((m) => ({ m: m.mkey, nick: m.nick, organiser: m.pid === s.pid, co: !!s.co && m.pid === s.co })),
     events: events.map((e) => ({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, cap: e.cap, deadline: e.deadline, notes: e.notes, report: !!reported[e.id], live: live[e.id] || null, spare: e.spare || 0,
       entries: entries.filter((x) => x.event === e.id && nickOf[x.mkey]).map((x) => ({ m: x.mkey, nick: nickOf[x.mkey], status: x.status, paid: !!x.paid, at: x.at })) })),

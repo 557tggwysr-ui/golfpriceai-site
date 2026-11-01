@@ -54,7 +54,7 @@
       '<span class="qr-tags"><span>No sign-up</span><span>30 seconds</span><span>Remembers your four</span></span><span class="soc-btn" style="text-align:center;margin-top:4px">Start a quick round</span></button>' +
       '<a class="qr-choice" href="/societies/hq/"><b class="qr-t">Society day</b><span class="qr-d">Groups and tee times, a marker per group, then the match report, Order of Merit and League points. Runs in Society HQ.</span><span class="soc-btn2" style="text-align:center;margin-top:4px">Open Society HQ</span></a>' +
       (c ? '<button type="button" class="qr-again" id="qr-again" style="text-align:left;border:0;cursor:pointer;font:inherit"><small>PLAYED BEFORE?</small><b>Play again with ' + esc(list(c.names.map(function (p) { return first(p.nick); }))) + '</b><span>Last time: ' + esc(c.cname || 'your course') + ', ' + ago(c.at) + '. One tap and you’re on the 1st tee.</span></button>' : '') +
-      '<p class="soc-small" style="text-align:center">Nicknames and points only. Works with no signal.</p></div>';
+      '<p class="soc-small" style="text-align:center">Nicknames and points only. Works with no signal. Still arguing about which Saturday? <a href="/play/poll/?new=1">Start a quick poll</a>.</p></div>';
     document.getElementById('qr-go').onclick = function () { fresh(); setup(); track('qr_choose', { kind: 'quick' }); };
     var ag = document.getElementById('qr-again'); if (ag) ag.onclick = function () { fresh(c); loadCard(setup); track('qr_choose', { kind: 'again' }); };
   }

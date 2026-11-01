@@ -164,7 +164,7 @@ def landing_page():
     return page_shell(title="Golf Society Live Scoring: Free Live Stableford Leaderboard | GolfPrice AI",
                       description="Free live scoring for golf society days: one phone per group, stableford points worked out from handicaps, and a live leaderboard for the WhatsApp group. Works with no signal. No app, no fees.",
                       canonical=URL, body=body, section="societies", schema=[crumbs_schema, app, howto, faq_schema],
-                      noindex=False, og_image="/assets/cards/society-hq.jpg", extra_head='<link rel="stylesheet" href="/css/society.css?v=20261101e">\n' + LIVE_CSS)
+                      noindex=False, og_image="/assets/cards/society-hq.jpg", extra_head='<link rel="stylesheet" href="/css/society.css?v=20261101f">\n' + LIVE_CSS)
 
 
 def board_page():
@@ -253,7 +253,7 @@ def scorecard_page():
 </section>
 <section class="soc-card sh-guides">
   <h2>More for golfers who play together</h2>
-  <div class="sh-glinks"><a href="/societies/live-scoring/"><b>Society live scoring</b><span>For society days: groups, markers and the match report.</span></a><a href="/play/leagues/"><b>Leagues for your group chat</b><span>Take on your mates at the daily price games.</span></a><a href="/fourball/"><b>Fourball Alerts</b><span>Shared price alerts for your four-ball.</span></a><a href="/improve/shot-saver/"><b>Shot Saver</b><span>Where do your shots really go?</span></a></div>
+  <div class="sh-glinks"><a href="/societies/live-scoring/"><b>Society live scoring</b><span>For society days: groups, markers and the match report.</span></a><a href="/play/leagues/"><b>Leagues for your group chat</b><span>Take on your mates at the daily price games.</span></a><a href="/play/poll/"><b>Group poll</b><span>Which Saturday? Which course? One tap to vote.</span></a><a href="/fourball/"><b>Fourball Alerts</b><span>Shared price alerts for your four-ball.</span></a><a href="/improve/shot-saver/"><b>Shot Saver</b><span>Where do your shots really go?</span></a></div>
 </section>
 <section class="soc-card sh-faq">
   <h2>Golfers ask</h2>
@@ -261,11 +261,11 @@ def scorecard_page():
 </section>
 <p class="gp-real">Nicknames and points only. Your stats are kept against your phone’s random player number; nobody else sees them. <a href="/legal/privacy-policy.html">Privacy</a></p>
 </div>
-<script src="/js/quick-round.js?v=20261101a" defer></script>"""
+<script src="/js/quick-round.js?v=20261101b" defer></script>"""
     return page_shell(title="Free Golf Scorecard App: Live Stableford, Better-Ball & Skins | GolfPrice AI",
                       description="A free live golf scorecard for a round with friends: stableford, better-ball pairs or skins, worked out from handicaps, with a live leaderboard for the group chat and your own golf stats. No app, no sign-up.",
                       canonical=url, body=body, section="play", schema=[crumbs_schema, app, howto, faq_schema],
-                      noindex=False, og_image="/assets/cards/society-hq.jpg", extra_head='<link rel="stylesheet" href="/css/society.css?v=20261101e">\n' + LIVE_CSS)
+                      noindex=False, og_image="/assets/cards/society-hq.jpg", extra_head='<link rel="stylesheet" href="/css/society.css?v=20261101f">\n' + LIVE_CSS)
 
 
 def quick_board_page():
@@ -319,7 +319,7 @@ def my_game_page():
     return page_shell(title="My Game: Free Golf Stats Tracker | GolfPrice AI",
                       description="Free golf stats from the rounds you score live: your stableford trend, par 3s, 4s and 5s, front v back nine and a hole-by-hole map of your course. No app, no sign-up.",
                       canonical=url, body=body, section="improve", schema=[crumbs_schema, app, faq_schema],
-                      noindex=False, extra_head='<link rel="stylesheet" href="/css/society.css?v=20261101e">\n<link rel="stylesheet" href="/css/my-game.css?v=20261101a">\n')
+                      noindex=False, extra_head='<link rel="stylesheet" href="/css/society.css?v=20261101f">\n<link rel="stylesheet" href="/css/my-game.css?v=20261101a">\n')
 
 
 def build(root):

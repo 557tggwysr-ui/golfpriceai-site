@@ -59,6 +59,9 @@
   var PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="" width="1536" height="512"></picture>';
   var COUNTIES = ["Bedfordshire", "Berkshire", "Bristol", "Buckinghamshire", "Cambridgeshire", "Cheshire", "Cornwall", "Cumbria", "Derbyshire", "Devon", "Dorset", "Durham", "Essex", "Gloucestershire", "Greater London", "Greater Manchester", "Hampshire", "Herefordshire", "Hertfordshire", "Isle of Wight", "Kent", "Lancashire", "Leicestershire", "Lincolnshire", "Merseyside", "Norfolk", "Northamptonshire", "Northumberland", "Nottinghamshire", "Oxfordshire", "Rutland", "Shropshire", "Somerset", "Staffordshire", "Suffolk", "Surrey", "East Sussex", "West Sussex", "Tyne and Wear", "Warwickshire", "West Midlands", "Wiltshire", "Worcestershire", "Yorkshire", "Aberdeenshire", "Angus and Dundee", "Ayrshire and Arran", "Dumfries and Galloway", "Edinburgh and the Lothians", "Fife", "Glasgow and Clyde", "Highlands and Islands", "Perth and Kinross", "Scottish Borders", "Stirling and Central Scotland", "North Wales", "Mid Wales", "South Wales", "West Wales", "Northern Ireland", "Channel Islands", "Isle of Man"];
   var sid = (location.search.match(/[?&]s=([a-z0-9]{8})/i) || [])[1];
+  // From a poll: back to it after joining (?poll=), or a fixture made from its winner (?fix=1&venue=…&day=…).
+  var QS = new URLSearchParams(location.search), BACK_POLL = /^[a-z0-9]{8}$/.test(QS.get('poll') || '') ? QS.get('poll') : '';
+  var FIX = QS.get('fix') ? { title: '', venue: (QS.get('venue') || '').slice(0, 60), day: /^\d{4}-\d{2}-\d{2}$/.test(QS.get('day') || '') ? QS.get('day') : '' } : null;
   var S = null, open = {};
 
   /* ---------------------------------------------------------------- start a society */
@@ -145,6 +148,7 @@
         btn.disabled = false;
         if (!r.ok) { msg.textContent = r.error || 'Something went wrong.'; return; }
         remember(sid, S.name); track('society_joined');
+        if (BACK_POLL) { location.href = '/societies/poll/?p=' + BACK_POLL; return; }
         load().then(function () { keyPrompt('YOU’RE IN', 'It keeps your place in ' + S.name + ' (your sign-ups and who’s paid) if you change phones or your browser forgets you. No email, no password.', 'Done', null, false); });
       }).catch(function () { btn.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
     });
@@ -276,6 +280,18 @@
     el.querySelector('.hq-rv').textContent = money(pot - fund);
     el.querySelector('.hq-split').innerHTML = split.map(function (x) { return '<span>' + x[0] + ' ' + money(Math.round(fund * x[1] * 2) / 2) + '</span>'; }).join('');
   }
+  /* ---- Polls: questions for the group, answered from a WhatsApp link (js/poll.js) */
+  function pollsCard() {
+    var ps = S.polls || [];
+    if (!ps.length && !S.organiser) return '';
+    var h = '<section class="soc-card hq-polls"><div class="hq-polls-h"><h2>Polls</h2>' + (S.organiser ? '<a class="soc-btn2" href="/societies/poll/?new=1&amp;s=' + esc(S.id) + '">New poll</a>' : '') + '</div>';
+    if (!ps.length) h += '<p class="soc-help">Where next, which date, what format? Ask the group: one link in WhatsApp, one tap to vote, and the winner becomes a fixture.</p>';
+    h += ps.map(function (p) {
+      var st = p.closed ? (p.winner ? 'Closed · ' + (p.winner.day ? nice(p.winner.day) : p.winner.label) + ' won' : 'Closed') : (p.voted ? 'You’ve answered' : 'Waiting for your answer') + ' · ' + p.votes + ' so far';
+      return '<a class="hq-poll' + (!p.closed && !p.voted ? ' is-new' : '') + '" href="/societies/poll/?p=' + esc(p.id) + '"><b>' + esc(p.q) + '</b><span>' + esc(st) + '</span></a>';
+    }).join('');
+    return h + '</section>';
+  }
   function eventForm(e) {
     e = e || {};
     return '<form class="soc-card hq-evf" data-id="' + esc(e.id || '') + '" novalidate><h2>' + (e.id ? 'Edit the fixture' : 'Add a fixture') + '</h2>' +
@@ -311,7 +327,8 @@
     if (open.editSoc) h += '<form class="soc-card" id="hq-soc" novalidate><h2>Edit society</h2>' + fields(S) + '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="submit" class="soc-btn">Save</button><button type="button" class="soc-btn2 hq-cancel-soc">Cancel</button></div></form>';
     h += '<section class="soc-card"><h2>Fixtures</h2>' + (up.length ? up.map(function (e) { return open['edit-' + e.id] ? eventForm(e) : eventCard(e, false); }).join('') :
       '<p class="soc-help">' + (S.organiser ? 'No fixtures yet. Add your first one below, then send the sign-up link to the group.' : 'No fixtures yet. The organiser will add them here.') + '</p>') + '</section>';
-    if (S.organiser) h += eventForm(null);
+    h += pollsCard();
+    if (S.organiser) h += eventForm(FIX);
     h += '<section class="soc-card hq-lg" id="hq-lg" hidden></section>';
     if (past.length) h += '<section class="soc-card"><h2>Recent</h2>' + past.map(function (e) { return eventCard(e, true); }).join('') + '</section>';
     h += '<section class="soc-card"><h2>Members (' + S.members.length + ')</h2><div class="hq-members">' + S.members.map(function (m) {
@@ -344,6 +361,7 @@
     });
     box.querySelectorAll('.hq-evf').forEach(function (f) {
       var eid = f.getAttribute('data-id');
+      if (!eid && FIX && !f.getAttribute('data-fixed')) { f.setAttribute('data-fixed', '1'); f.id = 'hq-fix'; setTimeout(function () { f.scrollIntoView({ block: 'start' }); (FIX.venue ? f.title : f.venue).focus(); }, 50); }
       f.addEventListener('submit', function (ev) {
         ev.preventDefault(); var msg = f.querySelector('.soc-msg'), btn = f.querySelector('.soc-btn');
         var b = { s: S.id, e: eid || undefined, title: f.title.value, day: f.day.value, tee: f.tee.value, venue: f.venue.value, entry: f.entry.value.replace(/[£\s]/g, ''), cap: f.cap.value, deadline: f.deadline.value, notes: f.notes.value, spare: f.spare ? f.spare.value : 0 };
@@ -351,7 +369,7 @@
         api('/soc/event', b).then(function (r) {
           btn.disabled = false;
           if (!r.ok) { msg.textContent = r.error || 'Something went wrong.'; return; }
-          if (eid) open['edit-' + eid] = false; else track('society_fixture_added');
+          if (eid) open['edit-' + eid] = false; else { track('society_fixture_added'); FIX = null; }
           load();
         }).catch(function () { btn.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
       });
