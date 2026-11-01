@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/taylormade-tp-soto-1-l-neck-putter/",
- "checked": "2026-10-31",
+ "checked": "2026-11-01",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 129.0,
   "high": 169.0,
-  "average": 152.38,
+  "average": 152.03,
   "priceChanges": 2,
   "series": [
    [
@@ -42,7 +42,7 @@
     129.0
    ],
    [
-    "2026-10-31",
+    "2026-11-01",
     129.0
    ]
   ]
@@ -53,5 +53,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SOTO11.jpg?v=1708521818",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-31"
+ "changed": "2026-11-01"
 }

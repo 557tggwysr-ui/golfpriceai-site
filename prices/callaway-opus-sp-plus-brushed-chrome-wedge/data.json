@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/callaway-opus-sp-plus-brushed-chrome-wedge/",
- "checked": "2026-10-31",
+ "checked": "2026-11-01",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 58,
+  "daysTracked": 59,
   "low": 199.0,
   "high": 199.95,
-  "average": 199.92,
+  "average": 199.9,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     199.0
    ],
    [
-    "2026-10-31",
+    "2026-11-01",
     199.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 2 days"
+  "summary": "Typical price: steady for 3 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/OpusSP_3.jpg?v=1783171424",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-31"
+ "changed": "2026-11-01"
 }

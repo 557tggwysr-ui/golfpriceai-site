@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-dual-square-2-square-max-putter/",
- "checked": "2026-10-31",
+ "checked": "2026-11-01",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 77,
+  "daysTracked": 78,
   "low": 199.0,
   "high": 259.0,
-  "average": 258.22,
+  "average": 257.46,
   "priceChanges": 1,
   "series": [
    [
@@ -35,6 +35,10 @@
    ],
    [
     "2026-10-31",
+    199.0
+   ],
+   [
+    "2026-11-01",
     199.0
    ]
   ]
@@ -45,5 +49,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ai-DUAL-S2S-Max-1-2-Ball-Sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-10-31"
+ "changed": "2026-11-01"
 }

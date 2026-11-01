@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-31T23:14+00:00",
+ "checked": "2026-11-01T04:41+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -1812,26 +1812,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-rad-s-fairway-wood/"
-  },
-  {
-   "model": "Mizuno JPX 925 Fli-Hi Hybrid",
-   "model_id": "mizuno-jpx-925-fli-hi-hybrid",
-   "date": "2026-10-24",
-   "was": 159.0,
-   "now": 139.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-jpx-925-fli-hi-hybrid/"
-  },
-  {
-   "model": "Mizuno JPX 925 Forged Irons",
-   "model_id": "mizuno-jpx-925-forged-irons",
-   "date": "2026-10-24",
-   "was": 799.0,
-   "now": 699.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-jpx-925-forged-irons/"
   }
  ]
 }

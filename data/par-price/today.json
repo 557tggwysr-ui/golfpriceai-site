@@ -1,66 +1,66 @@
 {
- "n": 14,
- "date": "2026-10-31",
+ "n": 15,
+ "date": "2026-11-01",
  "items": [
   {
-   "slug": "cleveland-rtz-2-satin-wedge",
-   "name": "Cleveland RTZ 2 Satin Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/RTZ2BlackSatin3.jpg?v=1785508597",
-   "price": 139.0,
+   "slug": "srixon-zxi-rkt-driver",
+   "name": "Srixon ZXi RKT Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfZXiRKTDriver_6.jpg?v=1788424622",
+   "price": 529.0,
+   "unit": "each",
+   "type": "driver",
+   "low": true,
+   "url": "/prices/srixon-zxi-rkt-driver/"
+  },
+  {
+   "slug": "taylormade-milled-grind-5-chrome-wedge",
+   "name": "TaylorMade Milled Grind 5 Chrome Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TM25WDG-TC647-N2914309-Chrome-MG5-60.08-LB-3Q-v1-Photoroom_1.jpg?v=1761905541",
+   "price": 179.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/cleveland-rtz-2-satin-wedge/"
+   "url": "/prices/taylormade-milled-grind-5-chrome-wedge/"
   },
   {
-   "slug": "macgregor-zt-plus-fairway-wood",
-   "name": "MacGregor ZT Plus Fairway Wood",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MacGregorGolfZTPlusFairway2026_4.jpg?v=1772009289",
-   "price": 74.95,
+   "slug": "wilson-alpine-cart-bag-golf-bag",
+   "name": "Wilson Alpine Cart Bag Golf Bag",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WG4006001_0_WS_Alpine_Cart_Bag_White_Black.png.high-res-Photoroom.jpg?v=1750844056",
+   "price": 159.0,
    "unit": "each",
-   "type": "fairway wood",
-   "low": false,
-   "url": "/prices/macgregor-zt-plus-fairway-wood/"
-  },
-  {
-   "slug": "srixon-zxi-rkt-hybrid",
-   "name": "Srixon ZXi RKT Hybrid",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfZXiRKTHybridRescue_6.jpg?v=1788428695",
-   "price": 259.0,
-   "unit": "each",
-   "type": "hybrid",
+   "type": "golf bag",
    "low": true,
-   "url": "/prices/srixon-zxi-rkt-hybrid/"
+   "url": "/prices/wilson-alpine-cart-bag-golf-bag/"
   },
   {
-   "slug": "callaway-apex-ut-utility-irons",
-   "name": "Callaway Apex UT Utility Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/apex-ut-25-iron-hero.jpg",
-   "price": 249.0,
-   "unit": "each",
-   "type": "iron set",
-   "low": false,
-   "url": "/prices/callaway-apex-ut-utility-irons/"
-  },
-  {
-   "slug": "odyssey-ai-dual-putter",
-   "name": "Odyssey Ai-Dual Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/7-1.2-Ball-S-Ai-Dual-8226.jpg?v=1768640365",
-   "price": 199.0,
+   "slug": "ping-scottsdale-putter",
+   "name": "Ping Scottsdale Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PingScottsdalePutter-Anser1.jpg?v=1776300582",
+   "price": 229.0,
    "unit": "each",
    "type": "putter",
    "low": false,
-   "url": "/prices/odyssey-ai-dual-putter/"
+   "url": "/prices/ping-scottsdale-putter/"
+  },
+  {
+   "slug": "callaway-apex-ai300-irons",
+   "name": "Callaway Apex Ai300 Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Callaway-Apex-Ai300-Golf-Irons-Graphite-2.jpg?v=1723694788",
+   "price": 859.0,
+   "unit": "each",
+   "type": "iron set",
+   "low": true,
+   "url": "/prices/callaway-apex-ai300-irons/"
   }
  ],
  "pin": {
-  "slug": "titleist-gts2-driver",
-  "name": "Titleist GTS2 Driver",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS2GolfDriver_1.jpg?v=1778745641",
-  "price": 629.0,
+  "slug": "mizuno-jpx-one-fairway-wood",
+  "name": "Mizuno JPX ONE Fairway Wood",
+  "image": "https://www.clickgolf.co.uk/images/product/main/JPX-ONE-Fairway-Hero.jpg",
+  "price": 239.0,
   "unit": "each",
-  "type": "driver",
-  "low": false,
-  "url": "/prices/titleist-gts2-driver/"
+  "type": "fairway wood",
+  "low": true,
+  "url": "/prices/mizuno-jpx-one-fairway-wood/"
  }
 }
