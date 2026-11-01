@@ -183,9 +183,26 @@
         (c.in ? '<button type="button" class="soc-btn2 hq-final">Final numbers message</button>' : '') +
         '<button type="button" class="soc-btn2 hq-edit">Edit</button></div>';
     } else if (!past) h += '<button type="button" class="soc-link hq-share">Send the sign-up link to someone</button>';
+    h += liveLinks(e, past);
     h += fgLinks(e, past);
     if (open['res-' + e.id]) h += resultsForm(e);
     return h + '</article>';
+  }
+  /* ---- Live scoring: a scorecard per group and a live leaderboard (js/live-setup.js) */
+  function liveLinks(e, past) {
+    var today = new Date().toISOString().slice(0, 10);
+    if (!e.live && (!S.organiser || e.day < today)) return '';
+    var h = '<div class="hq-fg"><span class="hq-fg-k">LIVE SCORING</span><div class="hq-fg-row">';
+    if (e.live) h += '<a class="soc-btn2" href="/societies/live/?c=' + esc(e.live.code) + '">' + (e.live.status === 'final' ? 'Final leaderboard' : 'Follow it live') + '</a>';
+    if (S.organiser && (!e.live || e.live.status !== 'final')) h += '<button type="button" class="soc-btn2 hq-live">' + (e.live ? 'Groups and scorecards' : 'Set up live scoring') + '</button>';
+    h += '</div>';
+    if (!e.live) h += '<p class="soc-small">One phone per group, a live leaderboard for the WhatsApp group and the report written for you. <a href="/societies/live-scoring/">How it works</a></p>';
+    return h + '</div>';
+  }
+  var liveJs = null;
+  function openLive(e) {
+    if (!liveJs) liveJs = new Promise(function (ok, no) { var sc = document.createElement('script'); sc.src = '/js/live-setup.js?v=20261101a'; sc.onload = ok; sc.onerror = no; document.head.appendChild(sc); });
+    liveJs.then(function () { window.gpLiveSetup({ e: e, S: S, pid: pid, api: function (path, body) { return fetch(API + path, body ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) } : {}).then(function (r) { return r.json(); }); }, done: load }); });
   }
   /* ---- The Form Guide: preview before the day, report after it */
   function fgUrl(e) { return SITE + '/societies/form-guide/?e=' + e.id; }
@@ -381,6 +398,7 @@
             : 'The Form Guide for ' + e.title + (e.venue ? ' at ' + e.venue : '') + ' is out. Who’s in form, who’s the dark horse: ' + fgUrl(e));
         };
       });
+      var lv = art.querySelector('.hq-live'); if (lv) lv.onclick = function () { track('lv_open'); openLive(e); };
       var rs = art.querySelector('.hq-res'); if (rs) rs.onclick = function () {
         if (open['res-' + eid]) { open['res-' + eid] = false; page(); return; }
         rs.disabled = true;

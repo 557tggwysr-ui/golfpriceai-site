@@ -1738,7 +1738,7 @@ def build(models_list, products, today_str):
             import society
             changed += society.build()
             if society.LAUNCHED:
-                sitemap += [("societies/", None), ("societies/hq/", None), ("societies/find/", None), ("societies/awards/", None), ("societies/clubs/", None), ("societies/league/", None)]
+                sitemap += [("societies/", None), ("societies/hq/", None), ("societies/find/", None), ("societies/awards/", None), ("societies/clubs/", None), ("societies/league/", None), ("societies/live-scoring/", None)]
                 import society_guides
                 sitemap += [(u, None) for u in society_guides.SITEMAP]
                 sitemap += [(u, None) for u in society.COUNTY_URLS]

@@ -115,6 +115,7 @@ export default {
       if (url.pathname.startsWith('/pb/')) return await peoplesBag(request, url, env, cors);
       if (url.pathname.startsWith('/lg/')) return await nationalLeague(request, url, env, cors);
       if (url.pathname.startsWith('/ck/')) return await clubhouseKey(request, url, env, cors);
+      if (url.pathname.startsWith('/lv/')) return await liveScoring(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -403,7 +404,7 @@ const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_1
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
   ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1,
   ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1,
-  ck_saved: 1, ck_card: 1, co_set: 1, fd_near: 1, soc_ask: 1 };
+  ck_saved: 1, ck_card: 1, co_set: 1, fd_near: 1, soc_ask: 1, lv_view: 1, lv_share: 1, lv_card: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -591,6 +592,270 @@ async function useCount(request, env, cors) {
   return ok;
 }
 
+
+/* ------------------------------------------------------------------ Live scoring
+   A society day scored live: one phone per group enters gross scores hole by
+   hole; stableford points come from each golfer's playing handicap and the
+   hole's stroke index. Anyone with the leaderboard link follows it live. When
+   the organiser publishes, the scores go into the Form Guide (soc_results) and
+   from there the Order of Merit and the National Society League.
+     sc_courses  course (UK course id), name, pars, si (JSON, 18 each), updated
+     sc_rounds   event, soc, code (leaderboard link), course, cname, pars, si, allowance, status, lastpos, created, updated
+     sc_players  event, mkey, nick, ch (course handicap), ph (playing handicap), grp
+     sc_groups   event, grp, tee, marker (mkey), token (the group's scorecard link)
+     sc_scores   event, mkey, hole, strokes (0 = picked up), at
+     sc_feed     event, at, txt
+     sc_extras   event, kind (ntp | ld), mkey, txt
+     sc_hcp      soc, mkey, ch, updated  (last course handicap, to fill in next time)
+   Nicknames and points only; nothing about anyone else is kept. */
+const LV_CODE = /^[a-hj-km-np-z2-9]{8}$/, LV_TOKEN = /^[a-hj-km-np-z2-9]{12}$/;
+let lvReady = false;
+async function lvSetup(env) {
+  if (lvReady) return;
+  await socSetup(env);
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_courses (course TEXT PRIMARY KEY, name TEXT, pars TEXT, si TEXT, updated TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_rounds (event TEXT PRIMARY KEY, soc TEXT, code TEXT, course TEXT, cname TEXT, pars TEXT, si TEXT, allowance INTEGER, status TEXT, lastpos TEXT, created TEXT, updated TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE UNIQUE INDEX IF NOT EXISTS sc_rounds_code ON sc_rounds (code)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_players (event TEXT, mkey TEXT, nick TEXT, ch INTEGER, ph INTEGER, grp INTEGER, PRIMARY KEY (event, mkey)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_groups (event TEXT, grp INTEGER, tee TEXT, marker TEXT, token TEXT, PRIMARY KEY (event, grp)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE UNIQUE INDEX IF NOT EXISTS sc_groups_token ON sc_groups (token)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_scores (event TEXT, mkey TEXT, hole INTEGER, strokes INTEGER, at TEXT, PRIMARY KEY (event, mkey, hole)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_feed (event TEXT, at TEXT, txt TEXT)'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS sc_feed_event ON sc_feed (event, at)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_extras (event TEXT, kind TEXT, mkey TEXT, txt TEXT, PRIMARY KEY (event, kind)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_hcp (soc TEXT, mkey TEXT, ch INTEGER, updated TEXT, PRIMARY KEY (soc, mkey)) WITHOUT ROWID'),
+  ]);
+  lvReady = true;
+}
+// Shots a golfer gets on a hole: playing handicap spread by stroke index
+// (plus handicaps give shots back on the easiest holes).
+function lvShots(ph, si) {
+  if (ph >= 0) return Math.floor(ph / 18) + ((ph % 18) >= si ? 1 : 0);
+  const back = -ph;
+  return -(Math.floor(back / 18) + ((back % 18) > (18 - si) ? 1 : 0));
+}
+function lvPoints(strokes, par, ph, si) { return strokes > 0 ? Math.max(0, par + lvShots(ph, si) - strokes + 2) : 0; }
+function lvCard(v) { try { const a = JSON.parse(v); return Array.isArray(a) && a.length === 18 && a.every((n) => Number.isInteger(n)) ? a : null; } catch (e) { return null; } }
+function lvValid(pars, si) {
+  return Array.isArray(pars) && pars.length === 18 && pars.every((p) => [3, 4, 5, 6].includes(p)) &&
+    Array.isArray(si) && si.length === 18 && si.every((n) => Number.isInteger(n) && n >= 1 && n <= 18) && new Set(si).size === 18;
+}
+// The leaderboard, worked out from every score so far.
+async function lvTable(env, r) {
+  const db = env.DEMAND, pars = lvCard(r.pars), si = lvCard(r.si);
+  const players = (await db.prepare('SELECT mkey, nick, ph, grp FROM sc_players WHERE event = ?').bind(r.event).all()).results || [];
+  const scores = (await db.prepare('SELECT mkey, hole, strokes FROM sc_scores WHERE event = ?').bind(r.event).all()).results || [];
+  const by = {}; scores.forEach((s) => { (by[s.mkey] = by[s.mkey] || {})[s.hole] = s.strokes; });
+  const rows = players.map((p) => {
+    const mine = by[p.mkey] || {};
+    let pts = 0, back = 0, thru = 0, gross = 0, blobs = 0;
+    for (let h = 1; h <= 18; h++) {
+      if (mine[h] === undefined) continue;
+      const pt = lvPoints(mine[h], pars[h - 1], p.ph, si[h - 1]);
+      pts += pt; if (h > 9) back += pt; thru++; gross += mine[h] || 0; if (!pt) blobs++;
+    }
+    return { m: p.mkey, nick: p.nick, ph: p.ph, grp: p.grp, pts, back, thru, holes: mine };
+  }).sort((a, b) => b.pts - a.pts || b.back - a.back || a.nick.localeCompare(b.nick));
+  rows.forEach((x, i) => { const prev = rows[i - 1]; x.pos = prev && prev.pts === x.pts ? prev.pos : i + 1; });
+  rows.forEach((x) => { x.tie = rows.filter((y) => y.pos === x.pos).length > 1; });
+  return rows;
+}
+async function lvRound(env, by, val) {
+  return await env.DEMAND.prepare(`SELECT * FROM sc_rounds WHERE ${by} = ?`).bind(val).first();
+}
+async function liveScoring(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'Live scoring is taking a short break. Please try again in a minute.' }, 503, cors);
+  await lvSetup(env);
+  const db = env.DEMAND, path = url.pathname, ip = request.headers.get('cf-connecting-ip') || '';
+  let body = {};
+  if (request.method === 'POST') {
+    try { body = JSON.parse((await request.text()).slice(0, 12000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    if (await tooMany('lv-' + ip, 240, 600)) return json({ ok: false, error: 'Easy, tiger. Please try again in a few minutes.' }, 429, cors);
+  }
+  const q = (k) => String(body[k] !== undefined ? body[k] : url.searchParams.get(k) || '');
+  const pid = PID_RX.test(q('pid')) ? q('pid') : '';
+  const noStore = Object.assign({ 'cache-control': 'no-store' }, cors);
+
+  // A course card someone has already typed in.
+  if (path === '/lv/course') {
+    const c = q('c');
+    if (!ACE_COURSE_RX.test(c)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const row = await db.prepare('SELECT name, pars, si FROM sc_courses WHERE course = ?').bind(c).first();
+    return json({ ok: true, card: row ? { name: row.name, pars: lvCard(row.pars), si: lvCard(row.si) } : null }, 200, noStore);
+  }
+  // The organiser's set-up: what's there already, and last time's handicaps.
+  if (path === '/lv/setup' && request.method === 'GET') {
+    const e = await hqEventFor(env, q('e'), pid);
+    if (!e || !evOrg(e, pid)) return json({ ok: false, error: 'Only the organiser can set up live scoring.' }, 403, noStore);
+    const r = await lvRound(env, 'event', e.id);
+    const members = (await db.prepare('SELECT m.mkey, m.nick, h.ch FROM soc_members m LEFT JOIN sc_hcp h ON h.soc = m.soc AND h.mkey = m.mkey WHERE m.soc = ? ORDER BY m.nick').bind(e.soc).all()).results || [];
+    const ins = (((await db.prepare("SELECT mkey FROM soc_entries WHERE event = ? AND status = 'in'").bind(e.id).all()).results) || []).map((x) => x.mkey);
+    const out = { ok: true, event: { id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee }, members, ins, round: null };
+    if (r) {
+      out.round = { code: r.code, course: r.course, cname: r.cname, pars: lvCard(r.pars), si: lvCard(r.si), allowance: r.allowance, status: r.status,
+        players: (await db.prepare('SELECT mkey, nick, ch, ph, grp FROM sc_players WHERE event = ?').bind(e.id).all()).results || [],
+        groups: (await db.prepare('SELECT grp, tee, marker, token FROM sc_groups WHERE event = ? ORDER BY grp').bind(e.id).all()).results || [] };
+    }
+    return json(out, 200, noStore);
+  }
+  if (path === '/lv/setup' && request.method === 'POST') {
+    const e = await hqEventFor(env, q('e'), pid);
+    if (!e || !evOrg(e, pid)) return json({ ok: false, error: 'Only the organiser can set up live scoring.' }, 403, cors);
+    const pars = body.pars, si = body.si;
+    if (!lvValid(pars, si)) return json({ ok: false, error: 'The course card needs a par (3 to 6) and a different stroke index (1 to 18) for all 18 holes.' }, 400, cors);
+    const course = ACE_COURSE_RX.test(String(body.course || '')) ? String(body.course) : '';
+    const cname = socText(body.cname, 60) || e.venue || '';
+    const allowance = [85, 90, 95, 100].includes(Number(body.allowance)) ? Number(body.allowance) : 95;
+    const mem = {}; (((await db.prepare('SELECT mkey, nick FROM soc_members WHERE soc = ?').bind(e.soc).all()).results) || []).forEach((m) => { mem[m.mkey] = m.nick; });
+    const players = [];
+    for (const p of (Array.isArray(body.players) ? body.players : []).slice(0, 120)) {
+      const m = String(p && p.m || ''), ch = Math.round(Number(p.ch)), grp = Math.round(Number(p.grp));
+      if (!mem[m] || players.some((x) => x.m === m) || !(ch >= -10 && ch <= 54) || !(grp >= 1 && grp <= 40)) continue;
+      players.push({ m, ch, ph: Math.round(ch * allowance / 100), grp });
+    }
+    if (players.length < 2) return json({ ok: false, error: 'Add at least two golfers, each with a handicap and a group.' }, 400, cors);
+    const groups = [...new Set(players.map((p) => p.grp))].sort((a, b) => a - b);
+    const old = await lvRound(env, 'event', e.id);
+    if (old && old.status === 'final') return json({ ok: false, error: 'This round is finished and published.' }, 400, cors);
+    const code = old ? old.code : socCode(8), now = new Date().toISOString();
+    const oldTokens = {}; if (old) (((await db.prepare('SELECT grp, token FROM sc_groups WHERE event = ?').bind(e.id).all()).results) || []).forEach((g) => { oldTokens[g.grp] = g.token; });
+    const tee = {}, marker = {}; (Array.isArray(body.groups) ? body.groups : []).forEach((g) => { const n = Math.round(Number(g && g.grp)); tee[n] = /^\d{2}:\d{2}$/.test(String(g.tee || '')) ? g.tee : ''; marker[n] = String(g.marker || ''); });
+    const steps = [
+      db.prepare('INSERT INTO sc_rounds (event, soc, code, course, cname, pars, si, allowance, status, lastpos, created, updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (event) DO UPDATE SET course = excluded.course, cname = excluded.cname, pars = excluded.pars, si = excluded.si, allowance = excluded.allowance, updated = excluded.updated')
+        .bind(e.id, e.soc, code, course, cname, JSON.stringify(pars), JSON.stringify(si), allowance, 'live', '{}', now, now),
+      db.prepare('DELETE FROM sc_players WHERE event = ?').bind(e.id),
+      db.prepare('DELETE FROM sc_groups WHERE event = ?').bind(e.id),
+    ];
+    players.forEach((p) => {
+      steps.push(db.prepare('INSERT INTO sc_players (event, mkey, nick, ch, ph, grp) VALUES (?, ?, ?, ?, ?, ?)').bind(e.id, p.m, mem[p.m], p.ch, p.ph, p.grp));
+      steps.push(db.prepare('INSERT INTO sc_hcp (soc, mkey, ch, updated) VALUES (?, ?, ?, ?) ON CONFLICT (soc, mkey) DO UPDATE SET ch = excluded.ch, updated = excluded.updated').bind(e.soc, p.m, p.ch, hqDay()));
+    });
+    groups.forEach((g) => {
+      const inG = players.filter((p) => p.grp === g).map((p) => p.m);
+      steps.push(db.prepare('INSERT INTO sc_groups (event, grp, tee, marker, token) VALUES (?, ?, ?, ?, ?)').bind(e.id, g, tee[g] || '', inG.includes(marker[g]) ? marker[g] : inG[0], oldTokens[g] || socCode(12)));
+    });
+    // Scores for anyone taken out of the round go with them.
+    steps.push(db.prepare(`DELETE FROM sc_scores WHERE event = ? AND mkey NOT IN (${players.map(() => '?').join(',')})`).bind(e.id, ...players.map((p) => p.m)));
+    if (course) steps.push(db.prepare('INSERT INTO sc_courses (course, name, pars, si, updated) VALUES (?, ?, ?, ?, ?) ON CONFLICT (course) DO UPDATE SET name = excluded.name, pars = excluded.pars, si = excluded.si, updated = excluded.updated')
+      .bind(course, cname, JSON.stringify(pars), JSON.stringify(si), hqDay()));
+    await db.batch(steps);
+    await useBump(env, 'lv_setup');
+    const gl = (await db.prepare('SELECT grp, tee, marker, token FROM sc_groups WHERE event = ? ORDER BY grp').bind(e.id).all()).results || [];
+    return json({ ok: true, code, groups: gl }, 200, cors);
+  }
+  // A group's scorecard (the marker's link).
+  if (path === '/lv/card') {
+    const t = q('t');
+    if (!LV_TOKEN.test(t)) return json({ ok: false, error: 'That scorecard link doesn’t look right. Ask the organiser for it again.' }, 400, noStore);
+    const g = await db.prepare('SELECT * FROM sc_groups WHERE token = ?').bind(t).first();
+    if (!g) return json({ ok: false, error: 'That scorecard has packed up its clubs. Ask the organiser for a fresh link.' }, 404, noStore);
+    const r = await lvRound(env, 'event', g.event);
+    const ev = await db.prepare('SELECT e.title, e.venue, e.day, s.name FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE e.id = ?').bind(g.event).first();
+    const table = await lvTable(env, r);
+    const extras = {}; (((await db.prepare('SELECT kind, mkey, txt FROM sc_extras WHERE event = ?').bind(g.event).all()).results) || []).forEach((x) => { extras[x.kind] = x; });
+    return json({ ok: true, code: r.code, status: r.status, title: ev.title, venue: r.cname || ev.venue, day: ev.day, society: ev.name, grp: g.grp, tee: g.tee,
+      pars: lvCard(r.pars), si: lvCard(r.si), allowance: r.allowance,
+      players: table.filter((p) => p.grp === g.grp).map((p) => ({ m: p.m, nick: p.nick, ph: p.ph, pts: p.pts, thru: p.thru, pos: p.pos, holes: p.holes })),
+      extras: { ntp: extras.ntp ? { m: extras.ntp.mkey, txt: extras.ntp.txt } : null, ld: extras.ld ? { m: extras.ld.mkey, txt: extras.ld.txt } : null } }, 200, noStore);
+  }
+  if (path === '/lv/score' && request.method === 'POST') {
+    const t = q('t');
+    const g = LV_TOKEN.test(t) ? await db.prepare('SELECT * FROM sc_groups WHERE token = ?').bind(t).first() : null;
+    if (!g) return json({ ok: false, error: 'That scorecard link doesn’t work any more. Ask the organiser for it again.' }, 404, cors);
+    const r = await lvRound(env, 'event', g.event);
+    if (!r || r.status === 'final') return json({ ok: false, error: 'This round is finished: the scores are locked.' }, 400, cors);
+    const hole = Math.round(Number(body.hole));
+    if (!(hole >= 1 && hole <= 18)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const mine = (((await db.prepare('SELECT mkey FROM sc_players WHERE event = ? AND grp = ?').bind(g.event, g.grp).all()).results) || []).map((p) => p.mkey);
+    const before = await lvTable(env, r);
+    const now = new Date().toISOString(), steps = [];
+    for (const m of mine) {
+      if (!body.scores || !(m in body.scores)) continue;
+      const v = body.scores[m];
+      if (v === null || v === '') { steps.push(db.prepare('DELETE FROM sc_scores WHERE event = ? AND mkey = ? AND hole = ?').bind(g.event, m, hole)); continue; }
+      const n = Math.round(Number(v));
+      if (!(n >= 0 && n <= 15)) continue;
+      steps.push(db.prepare('INSERT INTO sc_scores (event, mkey, hole, strokes, at) VALUES (?, ?, ?, ?, ?) ON CONFLICT (event, mkey, hole) DO UPDATE SET strokes = excluded.strokes, at = excluded.at').bind(g.event, m, hole, n, now));
+    }
+    if (!steps.length) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    await db.batch(steps);
+    // The feed: birdies and better, and a new leader.
+    const after = await lvTable(env, r), pars = lvCard(r.pars), feed = [];
+    for (const m of mine) {
+      const s = body.scores && body.scores[m], n = Math.round(Number(s)), p = after.find((x) => x.m === m);
+      if (!p || !(n >= 1)) continue;
+      const was = before.find((x) => x.m === m), had = was && was.holes[hole] !== undefined;
+      if (had && was.holes[hole] === n) continue;
+      const diff = n - pars[hole - 1];
+      if (diff <= -3) feed.push(`${p.nick} makes an albatross on the ${fgOrd(hole)}. Somebody frame that card.`);
+      else if (diff === -2) feed.push(n === 1 ? `${p.nick} has a HOLE-IN-ONE on the ${fgOrd(hole)}! Drinks are on them.` : `${p.nick} eagles the ${fgOrd(hole)}. The bar has been warned.`);
+      else if (diff === -1) feed.push(`${p.nick} birdies the ${fgOrd(hole)}. ${lvPoints(n, pars[hole - 1], p.ph, lvCard(r.si)[hole - 1])} points and a smug face.`);
+    }
+    const lead0 = before.filter((x) => x.thru && x.pos === 1).map((x) => x.m), lead1 = after.filter((x) => x.thru && x.pos === 1);
+    if (lead1.length === 1 && !(lead0.length === 1 && lead0[0] === lead1[0].m) && after.filter((x) => x.thru).length > 1) feed.push(`${lead1[0].nick} takes the lead on ${lead1[0].pts} points.`);
+    // Movers: positions now against a snapshot taken at most every 10 minutes.
+    let snap = {}; try { snap = JSON.parse(r.lastpos || '{}'); } catch (e) { /* none */ }
+    if (!snap.at || Date.now() - new Date(snap.at).getTime() > 600000) {
+      const pos = {}; before.forEach((x) => { if (x.thru) pos[x.m] = x.pos; });
+      snap = { at: now, pos };
+    }
+    const fsteps = feed.map((txt) => db.prepare('INSERT INTO sc_feed (event, at, txt) VALUES (?, ?, ?)').bind(g.event, now, txt));
+    fsteps.push(db.prepare('UPDATE sc_rounds SET lastpos = ?, updated = ? WHERE event = ?').bind(JSON.stringify(snap), now, g.event));
+    await db.batch(fsteps);
+    return json({ ok: true, players: after.filter((p) => p.grp === g.grp).map((p) => ({ m: p.m, pts: p.pts, thru: p.thru, pos: p.pos })) }, 200, cors);
+  }
+  if (path === '/lv/extra' && request.method === 'POST') {
+    const t = q('t');
+    const g = LV_TOKEN.test(t) ? await db.prepare('SELECT * FROM sc_groups WHERE token = ?').bind(t).first() : null;
+    if (!g) return json({ ok: false, error: 'Bad request.' }, 404, cors);
+    const kind = ['ntp', 'ld'].includes(body.kind) ? body.kind : '', m = String(body.m || ''), txt = socText(body.txt, 40);
+    if (!kind || txt === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse.' }, 400, cors);
+    const ok = await db.prepare('SELECT nick FROM sc_players WHERE event = ? AND mkey = ?').bind(g.event, m).first('nick');
+    if (!ok) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    await db.prepare('INSERT INTO sc_extras (event, kind, mkey, txt) VALUES (?, ?, ?, ?) ON CONFLICT (event, kind) DO UPDATE SET mkey = excluded.mkey, txt = excluded.txt').bind(g.event, kind, m, txt || '').run();
+    await db.prepare('INSERT INTO sc_feed (event, at, txt) VALUES (?, ?, ?)').bind(g.event, new Date().toISOString(), kind === 'ntp' ? `${ok} is nearest the pin${txt ? ', ' + txt : ''}.` : `${ok} has the longest drive${txt ? ', ' + txt : ''}.`).run();
+    return json({ ok: true }, 200, cors);
+  }
+  // The live leaderboard (anyone with the link).
+  if (path === '/lv/board') {
+    const c = q('c');
+    const r = LV_CODE.test(c) ? await lvRound(env, 'code', c) : null;
+    if (!r) return json({ ok: false, error: 'We couldn’t find that leaderboard. Ask the organiser for the link.' }, 404, noStore);
+    const ev = await db.prepare('SELECT e.id, e.title, e.venue, e.day, e.soc, s.name, s.pid, s.co FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE e.id = ?').bind(r.event).first();
+    const table = await lvTable(env, r);
+    let last = {}; try { last = JSON.parse(r.lastpos || '{}').pos || {}; } catch (e) { /* none */ }
+    const feed = (((await db.prepare('SELECT at, txt FROM sc_feed WHERE event = ? ORDER BY at DESC LIMIT 8').bind(r.event).all()).results) || []);
+    const nick = {}; table.forEach((p) => { nick[p.m] = p.nick; });
+    const extras = {}; (((await db.prepare('SELECT kind, mkey, txt FROM sc_extras WHERE event = ?').bind(r.event).all()).results) || []).forEach((x) => { extras[x.kind] = { nick: nick[x.mkey] || '', txt: x.txt }; });
+    const groups = (await db.prepare('SELECT grp, tee FROM sc_groups WHERE event = ? ORDER BY grp').bind(r.event).all()).results || [];
+    let report = null;
+    if (r.status === 'final') report = '/societies/form-guide/?e=' + r.event;
+    return json({ ok: true, code: r.code, status: r.status, title: ev.title, venue: r.cname || ev.venue, day: ev.day, society: ev.name, updated: r.updated,
+      organiser: !!pid && (pid === ev.pid || (ev.co && pid === ev.co)), event: ev.id, report, groups,
+      rows: table.map((p) => ({ nick: p.nick, pts: p.pts, back: p.back, thru: p.thru, pos: p.pos, tie: p.tie, move: last[p.m] && p.thru ? last[p.m] - p.pos : 0 })),
+      feed: feed.map((f) => ({ at: f.at, txt: f.txt })), extras }, 200, noStore);
+  }
+  // Publish: the scores go into the Form Guide report, the Order of Merit and the League.
+  if (path === '/lv/final' && request.method === 'POST') {
+    const e = await hqEventFor(env, q('e'), pid);
+    if (!e || !evOrg(e, pid)) return json({ ok: false, error: 'Only the organiser can publish the results.' }, 403, cors);
+    const r = await lvRound(env, 'event', e.id);
+    if (!r) return json({ ok: false, error: 'There’s no live round for this day.' }, 404, cors);
+    const table = await lvTable(env, r);
+    const extras = {}; (((await db.prepare('SELECT kind, mkey, txt FROM sc_extras WHERE event = ?').bind(e.id).all()).results) || []).forEach((x) => { extras[x.kind] = { m: x.mkey, txt: x.txt }; });
+    const rows = table.map((p) => ({ m: p.m, pts: p.thru >= 18 ? p.pts : 'NR', back: p.thru >= 18 ? p.back : '' }));
+    const res = await fgSave(env, { e: e.id, rows, ntp: extras.ntp || null, ld: extras.ld || null, line: String(body.line || ''), spoon: !!body.spoon, prize: body.prize || 0 }, pid, cors);
+    const out = await res.clone().json();
+    if (out.ok) {
+      await db.prepare("UPDATE sc_rounds SET status = 'final', updated = ? WHERE event = ?").bind(new Date().toISOString(), e.id).run();
+      await db.prepare('INSERT INTO sc_feed (event, at, txt) VALUES (?, ?, ?)').bind(e.id, new Date().toISOString(), table[0] ? `${table[0].nick} wins with ${table[0].pts} points. The report’s in.` : 'The report’s in.').run();
+      await useBump(env, 'lv_final');
+    }
+    return res;
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
 
 /* ------------------------------------------------------------------ The Ace Register
    Golfers log a hole-in-one against a course from the UK course list
@@ -2124,11 +2389,13 @@ async function hqGet(env, id, pid, cors) {
   const nickOf = {}; members.forEach((m) => { nickOf[m.mkey] = m.nick; });
   const reported = {};
   if (ids.length) (((await env.DEMAND.prepare(`SELECT event FROM soc_reports WHERE event IN (${ids.map(() => '?').join(',')})`).bind(...ids).all()).results) || []).forEach((r) => { reported[r.event] = 1; });
+  const live = {};
+  if (ids.length) try { (((await env.DEMAND.prepare(`SELECT event, code, status FROM sc_rounds WHERE event IN (${ids.map(() => '?').join(',')})`).bind(...ids).all()).results) || []).forEach((r) => { live[r.event] = { code: r.code, status: r.status }; }); } catch (e) { /* no live rounds yet */ }
   const requests = organiser ? ((await env.DEMAND.prepare("SELECT id, nick, note, event, at FROM soc_requests WHERE soc = ? AND status = 'new' ORDER BY at").bind(s.id).all()).results || []) : [];
   const out = Object.assign(base, {
     you: me.mkey, pay: s.pay, requests,
     members: members.map((m) => ({ m: m.mkey, nick: m.nick, organiser: m.pid === s.pid, co: !!s.co && m.pid === s.co })),
-    events: events.map((e) => ({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, cap: e.cap, deadline: e.deadline, notes: e.notes, report: !!reported[e.id], spare: e.spare || 0,
+    events: events.map((e) => ({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, cap: e.cap, deadline: e.deadline, notes: e.notes, report: !!reported[e.id], live: live[e.id] || null, spare: e.spare || 0,
       entries: entries.filter((x) => x.event === e.id && nickOf[x.mkey]).map((x) => ({ m: x.mkey, nick: nickOf[x.mkey], status: x.status, paid: !!x.paid, at: x.at })) })),
   });
   return json(out, 200, Object.assign({ 'cache-control': 'no-store' }, cors));

@@ -334,7 +334,7 @@ def rules_guide(today):
 
 # ---------------------------------------------------------------- 6. apps compared
 APPS = [
-    ("Society HQ (GolfPrice AI)", "Free web tool, no download or sign-up", "Free", "Pay-the-organiser link (PayPal, Monzo, Revolut); money never passes through it", "Not yet (2027)", "Fixtures, sign-ups, waiting list, paid ticks, prize fund, awards night, Prize Picker, Find a Society", "/societies/"),
+    ("Society HQ (GolfPrice AI)", "Free web tool, no download or sign-up", "Free", "Pay-the-organiser link (PayPal, Monzo, Revolut); money never passes through it", "Yes, live leaderboard from a WhatsApp link, works offline", "Fixtures, sign-ups, waiting list, paid ticks, live scoring, match reports, Order of Merit, awards night, Find a Society", "/societies/"),
     ("RiddyGolf", "iOS and Android app", "Free to download", "Collects green fees by card (Stripe)", "Yes, live leaderboards", "Events and invites, reminders, many formats", "https://golfbusinessnews.com/news/new-products/riddygolf-app-aims-to-simplify-society-golf-admin/"),
     ("ParUp Golf", "iOS and Android app", "Free", "Tracks attendance and payments", "Yes, live leaderboards", "Event links, multi-round series, side games, optional auto-handicaps", "https://golfbusinessnews.com/news/new-products/parup-golf-app-set-to-spice-up-group-golf-events/"),
     ("Golfify Groups", "Web, iOS and Android", "Free up to 8 players per event; paid plans for bigger fields", "Entry fees by card (Stripe) with a transaction fee", "Yes", "Group page, fixtures, self-service entry, results kept season to season", "https://www.golfify.io/groups"),
@@ -353,17 +353,17 @@ def apps_guide(today):
          f'<p class="soc-help">Checked {CHECKED} from each app’s own pages or launch coverage. Features and prices change, so check before you choose.</p><p class="gd-swipe">Swipe the table sideways to see every column.</p>' +
          table(["App", "Platform", "Cost", "Payments", "Live scoring", "Best bits"], rows, "gd-table gd-apps")),
         ("choose", "Which golf society app is best for you?", '<ul class="gd-ul">' + "".join(f"<li><b>{t}</b> {d}</li>" for t, d in [
-            ("You want live scoring on the day:", "RiddyGolf, ParUp or Golfify all score on phones with live leaderboards."),
+            ("You want live scoring on the day:", "RiddyGolf, ParUp and Golfify all score on phones with live leaderboards. Society HQ’s <a href=\"/societies/live-scoring/\">live scoring</a> does it with nothing to download: one phone per group, and the leaderboard is a link in the WhatsApp group."),
             ("You want the app to collect the money:", "RiddyGolf and Golfify take card payments through Stripe (Golfify adds a transaction fee)."),
             ("You want nothing to download and no fees:", "Society HQ runs from one WhatsApp link with nicknames, and members pay you directly with your own payment link."),
             ("You want to find new members or a society to join:", "Society HQ’s Find a Society and The Social Golfer both list golf societies open to new members."),
             ("You run a big society with results going back years:", "Golfify Groups keeps results on a shared group page; plans depend on field size."),
         ]) + "</ul><p>Plenty of golf societies mix and match: one app for scoring on the day, and Society HQ for sign-ups, who’s paid and awards night.</p>"),
-        ("honest", "Where Society HQ fits, honestly", "<p>Society HQ is ours, so here’s the honest version. It’s free, needs no app or account and handles the organiser’s admin: fixtures, in, out or maybe, the waiting list, who’s paid, the prize fund and the awards night. It doesn’t do live scoring or handicaps yet (both are planned for 2027) and it never handles payments: members pay the organiser directly.</p>"),
+        ("honest", "Where Society HQ fits, honestly", "<p>Society HQ is ours, so here’s the honest version. It’s free, needs no app or account and handles the organiser’s admin: fixtures, in, out or maybe, the waiting list, who’s paid, the prize fund and the awards night. It also does <a href=\"/societies/live-scoring/\">live stableford scoring</a> from the browser, one phone per group, with the match report written at the end. It doesn’t keep official handicaps (you enter each golfer’s course handicap) and it never handles payments: members pay the organiser directly.</p>"),
         ("sources", "Sources", srcs),
     ]
     faqs = [
-        ("What is the best free golf society app?", "It depends on the job. For live scoring, ParUp and RiddyGolf are free to download. For sign-ups, payments to the organiser and awards with nothing to download, Society HQ is free and runs from a WhatsApp link."),
+        ("What is the best free golf society app?", "It depends on the job. For live scoring, ParUp and RiddyGolf are free to download, and Society HQ does live stableford scoring free with nothing to download. For sign-ups, payments to the organiser, live scoring and awards from one WhatsApp link, Society HQ is free."),
         ("Do golf society apps take payments?", "Some do: RiddyGolf and Golfify Groups take card payments through Stripe. Society HQ never handles money; members pay the organiser directly through the organiser’s own PayPal, Monzo or Revolut link."),
         ("Can I run a golf society on WhatsApp alone?", "You can, but sign-ups, drop-outs and who’s paid get lost in the chat. A tool like Society HQ keeps them in one link you share in the group."),
     ]

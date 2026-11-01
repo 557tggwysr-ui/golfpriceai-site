@@ -16,7 +16,7 @@ from price_pages import SITE, _write, breadcrumb, page_shell
 LAUNCHED = True
 PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
 FIND_PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/find-a-society-wide.jpg"><img src="/assets/photos/tools/find-a-society-banner.jpg" alt="Golfers shaking hands on the first tee, meeting new playing partners" width="1536" height="512"></picture>'
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101d">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101e">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -38,6 +38,7 @@ APP_FEATURES = [
     "Golf society Awards Night Kit: award cards and a presentation slideshow",
     "Prize Picker: winners choose their own golf prize at today's lowest UK price",
     "The National Society League: regional divisions with promotion and relegation, scored from your society days",
+    "Live scoring: one phone per group, stableford points from handicaps, and a live leaderboard for the WhatsApp group",
 ]
 
 
@@ -239,7 +240,7 @@ def hq_page():
 {REAL}
 </div>
 <script src="/js/clubhouse-key.js?v=20261101b" defer></script>
-<script src="/js/society-hq.js?v=20261101d" defer></script>"""
+<script src="/js/society-hq.js?v=20261101e" defer></script>"""
     return page_shell(title="Run your golf society free | Society HQ | GolfPrice AI",
                       description="Run your golf society for free: fixtures, sign-ups, who’s paid, a waiting list and the prize fund, all from one link in the WhatsApp group.",
                       canonical=f"{SITE}/societies/hq/", body=body, section="societies", schema=[crumbs_schema, app_schema(f"{SITE}/societies/hq/")],
@@ -560,7 +561,7 @@ def hub_page():
         ("What happens when a day is full?", "Set the number of places and anyone after that goes on the waiting list. If someone drops out, the first person waiting moves up automatically."),
         ("Can people outside the society see us?", "Only members see your fixtures and who’s playing. If you tick “Open to new members”, Find a Society shows your society’s name, area, description and member count, nothing else."),
         ("What is a Founding Society?", "The first 50 golf societies on Society HQ to reach four members get a permanent, numbered Founding Society badge on their page and in Find a Society, and a vote on what we build next."),
-        ("What’s new?", "The Form Guide: every society day gets a preview, then a report with the leaderboard, awards and a season Order of Merit once you enter the scores. And the National Society League: enter your society free and every reported day counts towards your division’s table. Entries open on 1 February for the 2027 season, April to October."),
+        ("What’s new?", "Live scoring: one phone per group enters the scores and the whole society follows a live stableford leaderboard. The Form Guide: every society day gets a preview, then a report with the leaderboard, awards and a season Order of Merit once you enter the scores. And the National Society League: enter your society free and every reported day counts towards your division’s table. Entries open on 1 February for the 2027 season, April to October."),
     ]
     faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
@@ -597,6 +598,12 @@ def hub_page():
   <h2>Everything Society HQ does for your golf society</h2>
   <ul>{"".join(f"<li>{f}</li>" for f in APP_FEATURES)}</ul>
   <p class="soc-help">Free for every UK golf society. Members join with a nickname, nobody signs up, and money goes straight from members to the organiser, never through GolfPrice AI.</p>
+</section>
+<section class="soc-card sh-soon">
+  <span class="soc-kick" style="color:var(--gp-green-dark)">New · live scoring</span>
+  <h2>Live scoring for your society day</h2>
+  <p class="soc-help">One phone per group taps in the scores, stableford points work themselves out, and everyone follows a live leaderboard from one link in the WhatsApp group. Works with no signal, and the match report writes itself at the end.</p>
+  <a class="soc-link-a" href="/societies/live-scoring/">See how live scoring works &rarr;</a>
 </section>
 <section class="soc-card sh-soon">
   <span class="soc-kick" style="color:var(--gp-green-dark)">New · 2027 season</span>
@@ -660,6 +667,11 @@ def build(root=None):
         changed.append("/societies/league/")
     if _write(root / "societies" / "form-guide" / "index.html", fg_page()):
         changed.append("/societies/form-guide/")
+    try:
+        import live_scoring
+        changed += live_scoring.build(root)
+    except Exception as exc:  # never stop the build
+        print(f"Live scoring pages skipped: {exc}")
     try:
         import society_guides
         changed += society_guides.build(root)
