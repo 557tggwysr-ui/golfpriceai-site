@@ -123,6 +123,8 @@ def menu():
         "play": [
             ("The Clubhouse", "All the games, your leagues and the Hall of Fame.", "/play/",
              '<path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"></path>'),
+            ("Golf scorecard", "Live scoring with mates: stableford, better-ball, skins.", "/play/scorecard/",
+             '<path d="M5 3h14v18H5zM9 7h6M9 11h6M9 15h3"></path>'),
             ("Par Price", "Today’s golf price game. New round every morning.", "/play/par-price/",
              '<path d="M6 21V4M6 4l11 4-11 4M3 21h8"></path>'),
             ("Higher or Lower", "Is this putter dearer than that driver? Daily run, then free play.", "/play/higher-or-lower/",
@@ -144,6 +146,8 @@ def menu():
         "improve": [
             ("Improve", "Every calculator, plus handicap allowances at a glance.", "/improve/",
              '<path d="M3 17l6-6 4 4 8-8M15 7h6v6"></path>'),
+            ("My Game", "Your own golf stats from the rounds you score.", "/improve/my-game/",
+             '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path>'),
             ("Shot Saver", "Where do your shots go? Find the leak, free fix first.", "/improve/shot-saver/",
              '<path d="M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 7v5l3 3"></path>'),
             ("Handicap index calculator", "Your best 8 of your last 20, the WHS way.", "/improve/handicap-index-calculator/",

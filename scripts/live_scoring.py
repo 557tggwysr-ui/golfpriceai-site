@@ -11,8 +11,8 @@ stay out of search: they only make sense with a society's own link.
 """
 from price_pages import SITE, _write, breadcrumb, page_shell
 
-LIVE_CSS = '<link rel="stylesheet" href="/css/live.css?v=20261101a">\n'
-LIVE_JS = '<script src="/js/live.js?v=20261101a" defer></script>'
+LIVE_CSS = '<link rel="stylesheet" href="/css/live.css?v=20261101b">\n'
+LIVE_JS = '<script src="/js/live.js?v=20261101b" defer></script>'
 URL = f"{SITE}/societies/live-scoring/"
 
 FEATURES = [
@@ -118,7 +118,7 @@ def landing_page():
   <span class="soc-kick">Free · Society HQ</span>
   <h1>Golf society live scoring: a free live leaderboard for your society day</h1>
   <p>One phone per group taps in the scores. Stableford points work themselves out, and the whole society follows the leaderboard live from one link in the WhatsApp group. No app, no sign-up, no fees.</p>
-  <div class="soc-btns"><a class="soc-btn" href="/societies/hq/">Set up live scoring</a><a class="soc-btn2 sh-btn-dark" href="#how">How it works</a></div>
+  <div class="soc-btns"><a class="soc-btn" href="/societies/hq/">Set up a society day</a><a class="soc-btn2 sh-btn-dark" href="/play/scorecard/">Quick round with mates</a></div>
 </section>
 <div class="sh-facts">
   <div><b>One phone</b><span>per group</span></div>
@@ -189,10 +189,145 @@ def score_page():
                       noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=LIVE_CSS)
 
 
+QR_FAQS = [
+    ("Is the golf scorecard free?",
+     "Yes. No sign-up, no app to download and no adverts in the way. GolfPrice AI earns a small commission when someone buys golf kit through its price links, which pays for it."),
+    ("Does everyone need to download an app?",
+     "No. It runs in the phone’s browser. One golfer starts the round and sends one link to the group chat: anyone in the four-ball can keep score, and anyone else can follow the live leaderboard."),
+    ("What games can we play?",
+     "Stableford (everyone for themselves), better-ball pairs (2 v 2, the best stableford score of each pair counts on every hole) and skins (the lowest net score wins the hole outright; a tie carries the skin on to the next). Better-ball also shows the individual stableford."),
+    ("How are handicaps worked out?",
+     "Type each golfer’s course handicap for the tees you’re playing. The scorecard takes the allowance (95% by default, as the World Handicap System suggests for stableford) and gives shots on the holes by stroke index. Plus handicaps give shots back on the easiest holes."),
+    ("Does it work with no signal?",
+     "Yes. Scores save on the phone first and send when there’s signal again."),
+    ("Can I keep my own golf stats?",
+     "Yes. Tap your name on the leaderboard (“Which one are you?”) and the round goes into My Game: points per round, par 3s, 4s and 5s, front and back nine, and your best and worst holes on a course you play often. Add fairways and putts on your own phone for sharper stats."),
+    ("What if we play every week?",
+     "The scorecard remembers your group on your phone, so next time it’s one tap. If your group plays regularly, Society HQ turns it into a free golf society with fixtures, who’s paid, an Order of Merit and the National Society League."),
+]
+
+
+def scorecard_page():
+    url = f"{SITE}/play/scorecard/"
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("The Clubhouse", "/play/"), ("Golf scorecard", None)])
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in QR_FAQS]}
+    app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "GolfPrice AI live golf scorecard",
+           "alternateName": ["Free golf scorecard app", "Live golf scorecard for friends", "Stableford scorecard app", "Better-ball and skins scorecard"],
+           "url": url, "applicationCategory": "SportsApplication", "applicationSubCategory": "Golf scoring", "operatingSystem": "Any web browser",
+           "description": "A free live golf scorecard for a round with friends: stableford, better-ball pairs or skins, points worked out from handicaps, a live leaderboard for the WhatsApp group, and free personal golf stats. No app, no sign-up.",
+           "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "isAccessibleForFree": True, "inLanguage": "en-GB",
+           "featureList": ["Stableford, better-ball pairs and skins", "Shots by stroke index from each golfer's handicap, plus handicaps handled",
+                           "One link for the group chat: anyone in the four-ball can score", "Live leaderboard and result picture for WhatsApp",
+                           "Works with no signal", "Remembers your four for next time", "Free golf stats in My Game: points trend, par 3s/4s/5s, front v back nine, hole-by-hole map",
+                           "Optional fairways and putts"],
+           "publisher": {"@type": "Organization", "name": "GolfPrice AI", "url": SITE}}
+    howto = {"@context": "https://schema.org", "@type": "HowTo", "name": "How to keep a live golf scorecard with friends",
+             "totalTime": "PT1M", "step": [{"@type": "HowToStep", "position": i + 1, "name": n, "text": t} for i, (n, t) in enumerate([
+                 ("Pick the course", "Start typing the course; the par and stroke index fill themselves in if another golfer has played it."),
+                 ("Add the golfers", "Nicknames and course handicaps, and tick which one is you."),
+                 ("Choose the game", "Stableford, better-ball pairs or skins."),
+                 ("Send one link", "Send the scorecard and leaderboard links to the group chat."),
+                 ("Score as you go", "Tap each golfer’s score at the end of every hole; the points and leaderboard update themselves."),
+             ])]}
+    faqs = "".join(f'<details class="sh-q"><summary>{q}</summary><p>{a}</p></details>' for q, a in QR_FAQS)
+    body = f"""<div class="soc-wrap sh-wrap">
+{crumbs_html}
+<section class="soc-hero sh-hero">
+  <span class="soc-kick">Free · no app · no sign-up</span>
+  <h1>Free live golf scorecard for you and your mates</h1>
+  <p>Stableford, better-ball pairs or skins. The points work themselves out from your handicaps, the group chat follows a live leaderboard, and your own stats build up round by round.</p>
+</section>
+<div id="qr" aria-live="polite"><p class="soc-loading">Getting the scorecard…</p></div>
+<noscript><p>The scorecard needs JavaScript switched on.</p></noscript>
+<section class="soc-card sh-feat">
+  <h2>What the scorecard does</h2>
+  <ul><li>Stableford, better-ball pairs (2 v 2) and skins, with handicap shots by stroke index</li><li>One link for the WhatsApp group: anyone in the four-ball can score, everyone else follows live</li><li>Works with no signal: saves on the phone, sends when you’re back in range</li><li>A result picture for the group chat when you’re done</li><li>Remembers your four for next time</li><li>Free stats in <a href="/improve/my-game/">My Game</a>: your points trend, par 3s, 4s and 5s, front v back nine, and your nemesis holes</li></ul>
+</section>
+<section class="soc-card">
+  <h2>The games, in a sentence each</h2>
+  <p class="soc-help"><b>Stableford:</b> points on every hole against your handicap: 2 for a net par, 3 for a net birdie, 1 for a net bogey. 36 is playing to your handicap.</p>
+  <p class="soc-help"><b>Better-ball pairs:</b> two against two; on every hole the better stableford score of each pair counts, so one good hole from either partner is enough.</p>
+  <p class="soc-help"><b>Skins:</b> each hole is worth a skin; the lowest net score wins it outright. Tie, and the skin carries over, so the next hole is worth two.</p>
+  <p class="soc-help">Working out points by hand? The <a href="/societies/live-scoring/#lvl-calc">stableford points calculator</a> does one hole at a time.</p>
+</section>
+<section class="soc-card sh-guides">
+  <h2>More for golfers who play together</h2>
+  <div class="sh-glinks"><a href="/societies/live-scoring/"><b>Society live scoring</b><span>For society days: groups, markers and the match report.</span></a><a href="/play/leagues/"><b>Leagues for your group chat</b><span>Take on your mates at the daily price games.</span></a><a href="/fourball/"><b>Fourball Alerts</b><span>Shared price alerts for your four-ball.</span></a><a href="/improve/shot-saver/"><b>Shot Saver</b><span>Where do your shots really go?</span></a></div>
+</section>
+<section class="soc-card sh-faq">
+  <h2>Golfers ask</h2>
+  {faqs}
+</section>
+<p class="gp-real">Nicknames and points only. Your stats are kept against your phone’s random player number; nobody else sees them. <a href="/legal/privacy-policy.html">Privacy</a></p>
+</div>
+<script src="/js/quick-round.js?v=20261101a" defer></script>"""
+    return page_shell(title="Free Golf Scorecard App: Live Stableford, Better-Ball & Skins | GolfPrice AI",
+                      description="A free live golf scorecard for a round with friends: stableford, better-ball pairs or skins, worked out from handicaps, with a live leaderboard for the group chat and your own golf stats. No app, no sign-up.",
+                      canonical=url, body=body, section="play", schema=[crumbs_schema, app, howto, faq_schema],
+                      noindex=False, og_image="/assets/cards/society-hq.jpg", extra_head='<link rel="stylesheet" href="/css/society.css?v=20261101e">\n' + LIVE_CSS)
+
+
+def quick_board_page():
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Golf scorecard", "/play/scorecard/"), ("Live leaderboard", None)])
+    body = f"""<div class="lv" id="lv-board" aria-live="polite"><p class="soc-loading" style="padding:24px 16px">Getting the scores…</p></div>
+<noscript><p>The live leaderboard needs JavaScript switched on.</p></noscript>
+{LIVE_JS}"""
+    return page_shell(title="Live leaderboard | Golf scorecard | GolfPrice AI", description="A round’s live golf leaderboard.",
+                      canonical=f"{SITE}/play/scorecard/live/", body=body, section="play", schema=[crumbs_schema],
+                      noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=LIVE_CSS)
+
+
+def quick_card_page():
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Golf scorecard", "/play/scorecard/"), ("Scorecard", None)])
+    body = f"""<div class="lv lv-sc" id="lv-score"><p class="soc-loading" style="padding:24px 16px">Opening the scorecard…</p></div>
+<noscript><p>The scorecard needs JavaScript switched on.</p></noscript>
+{LIVE_JS}"""
+    return page_shell(title="Scorecard | GolfPrice AI", description="A live golf scorecard.",
+                      canonical=f"{SITE}/play/scorecard/card/", body=body, section="play", schema=[crumbs_schema],
+                      noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=LIVE_CSS)
+
+
+MG_FAQS = [
+    ("Where do the stats come from?", "From every round you score on the free live scorecard, a quick round with friends or a society day, where you’ve tapped your name. Each hole’s score, your playing handicap and the hole’s par and stroke index give your stableford points."),
+    ("Do I need an account?", "No. Your rounds are kept against your phone’s random player number. Save a Clubhouse key in My Clubhouse and they come with you to a new phone."),
+    ("Can I track fairways and putts?", "Yes. Tick “Extra detail for me” at the bottom of the scorecard and it asks for your fairway and putts on each hole, on your own line only. A full detailed round can go straight into Shot Saver."),
+    ("Who can see my stats?", "Only you. The leaderboard your group sees shows nicknames and points for that round; My Game is yours alone."),
+]
+
+
+def my_game_page():
+    url = f"{SITE}/improve/my-game/"
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Improve", "/improve/"), ("My Game", None)])
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in MG_FAQS]}
+    app = {"@context": "https://schema.org", "@type": "WebApplication", "name": "My Game: free golf stats",
+           "alternateName": ["Free golf stats tracker", "Stableford stats"], "url": url, "applicationCategory": "SportsApplication", "operatingSystem": "Any web browser",
+           "description": "Free golf stats from the rounds you score live: stableford points per round, par 3s, 4s and 5s, front v back nine, a hole-by-hole map of your home course, fairways and putts, and your Shot Saver leaks. No sign-up.",
+           "offers": {"@type": "Offer", "price": "0", "priceCurrency": "GBP"}, "isAccessibleForFree": True, "inLanguage": "en-GB",
+           "publisher": {"@type": "Organization", "name": "GolfPrice AI", "url": SITE}}
+    faqs = "".join(f'<details class="sh-q"><summary>{q}</summary><p>{a}</p></details>' for q, a in MG_FAQS)
+    body = f"""<div class="mg-wrap">
+<div style="padding:0 16px">{crumbs_html}</div>
+<div id="mg" aria-live="polite"><section class="mg-hero"><span class="mg-k">MY GAME</span><h1>Free golf stats from the rounds you play</h1><p>Points per round, par 3s, 4s and 5s, front v back nine and your nemesis holes, from the live scorecard. No sign-up.</p></section><p class="soc-loading" style="padding:16px">Adding up your rounds…</p></div>
+<noscript><p>My Game needs JavaScript switched on.</p></noscript>
+<div class="mg-main"><section class="mg-card"><h2 class="mg-h" style="margin:0">How My Game works</h2>{faqs}</section>
+<p class="mg-small" style="text-align:center"><a href="/play/scorecard/">Start a quick round</a> · <a href="/improve/shot-saver/">Shot Saver</a> · <a href="/play/my-clubhouse/">My Clubhouse</a></p></div>
+</div>
+<script src="/js/shot-saver-core.js?v=20261101" defer></script>
+<script src="/js/my-game.js?v=20261101a" defer></script>"""
+    return page_shell(title="My Game: Free Golf Stats Tracker | GolfPrice AI",
+                      description="Free golf stats from the rounds you score live: your stableford trend, par 3s, 4s and 5s, front v back nine and a hole-by-hole map of your course. No app, no sign-up.",
+                      canonical=url, body=body, section="improve", schema=[crumbs_schema, app, faq_schema],
+                      noindex=False, extra_head='<link rel="stylesheet" href="/css/society.css?v=20261101e">\n<link rel="stylesheet" href="/css/my-game.css?v=20261101a">\n')
+
+
 def build(root):
     changed = []
     for path, html in [("societies/live-scoring/index.html", landing_page()), ("societies/live/index.html", board_page()),
-                       ("societies/live/score/index.html", score_page())]:
+                       ("societies/live/score/index.html", score_page()), ("play/scorecard/index.html", scorecard_page()),
+                       ("play/scorecard/live/index.html", quick_board_page()), ("play/scorecard/card/index.html", quick_card_page()),
+                       ("improve/my-game/index.html", my_game_page())]:
         if _write(root / path, html):
             changed.append("/" + path.replace("index.html", ""))
     return changed

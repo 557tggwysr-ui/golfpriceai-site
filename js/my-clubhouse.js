@@ -104,13 +104,14 @@
       : 'If this browser forgets you, your Clubhouse goes with it.';
     var keyRow = KEY ? row('Your Clubhouse key', 0, '', '', '<div class="mc-key">' + KEY.statusCard(why) + '</div>', 'mc-key-sec') : '';
     var saved = KEY && KEY.status().saved;
-    box.innerHTML = (saved ? '' : keyRow) + games(g.pp, g.hl, g.locker, g.majors) + handicap(g.leagues && g.leagues.hcp) + shotSaver() +
+    box.innerHTML = (saved ? '' : keyRow) + games(g.pp, g.hl, g.locker, g.majors) + handicap(g.leagues && g.leagues.hcp) + row('My Game', 0, '/improve/my-game/', 'Full stats', '<div id="mc-mygame"></div>', 'mc-mg-sec') + shotSaver() +
       row('Milestones', '', '/play/par-price/', 'Play Par Price', '<div id="mc-ms"></div>', 'mc-ms-sec') +
       asksRow(g.asks, soc) + (soc.length || lg.length ? societies(soc) + leagues(lg) : group()) +
       kit(g.kit, g.bag) +
       '<div class="mc-pair">' + alerts() + '</div>' + (saved ? keyRow : '') +
       (KEY ? '<details class="mc-restore" id="restore"><summary>Got a Clubhouse key from another phone?</summary>' + KEY.restoreForm() + '</details>' : '');
     if (KEY) KEY.wire(box);
+    if (window.gpMyGame) window.gpMyGame.mount();
     if (location.hash === '#restore') { var rs = document.getElementById('restore'); if (rs) { rs.open = true; rs.scrollIntoView(); } }
     // Move my Clubhouse sits beside Price alerts on wide screens.
     var mv = document.getElementById('move'), pair = box.querySelector('.mc-pair');

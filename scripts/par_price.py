@@ -240,6 +240,13 @@ def hub_page(n, rnd):
     <p><a class="ch-btn" href="/play/oracle/">See the board</a></p>
   </section>
 
+  <section class="ch-panel" id="scorecard">
+    <span class="ch-kicker">New · Golf scorecard</span>
+    <h2>Playing with your mates?</h2>
+    <p>A free live scorecard: stableford, better-ball pairs or skins, worked out from your handicaps. One link for the group chat, a live leaderboard, and your own stats in My Game.</p>
+    <p><a class="ch-btn" href="/play/scorecard/">Start a quick round</a></p>
+  </section>
+
   <section class="ch-panel" id="aces">
     <span class="ch-kicker">The Ace Register</span>
     <h2>Had a hole-in-one?</h2>

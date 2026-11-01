@@ -155,7 +155,7 @@ def hub():
       <p class="im-small">The recommended allowances under the World Handicap System. Your club or society can set its own.</p></div>
     <div class="im-dark"><span class="im-kick im-kick-light">ANOTHER HANDICAP WORTH HAVING</span><b>Your Price Handicap</b>
       <span class="im-dark-line">Play Par Price, guess real UK golf prices, and get a handicap for knowing a bargain when you see one.</span>
-      <div class="im-dark-links"><a href="/play/par-price/">Play Par Price<span>&rarr;</span></a><a href="/societies/">Society HQ: run your society day<span>&rarr;</span></a><a href="/find-your-fit.html">Kit that suits your game, at today’s prices<span>&rarr;</span></a><a href="/prices/start-golf/">New to golf? Your first kit, priced today<span>&rarr;</span></a></div></div>
+      <div class="im-dark-links"><a href="/improve/my-game/">My Game: free stats from the rounds you score<span>&rarr;</span></a><a href="/play/scorecard/">Free live golf scorecard for you and your mates<span>&rarr;</span></a><a href="/play/par-price/">Play Par Price<span>&rarr;</span></a><a href="/societies/">Society HQ: run your society day<span>&rarr;</span></a><a href="/find-your-fit.html">Kit that suits your game, at today’s prices<span>&rarr;</span></a><a href="/prices/start-golf/">New to golf? Your first kit, priced today<span>&rarr;</span></a></div></div>
   </section>
   <section class="im-faqs"><h2 class="im-h2">Handicap questions</h2>{faq_html(faqs)}</section>
 </div>"""
@@ -163,7 +163,7 @@ def hub():
     desc = "Free UK golf handicap calculators that follow the World Handicap System: handicap index, course handicap, playing handicap and the score you need to get cut."
     coll = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Golf handicap calculators",
             "url": SITE + "/improve/", "description": desc,
-            "hasPart": [{"@type": "WebApplication", "name": "Shot Saver", "url": f"{SITE}/improve/shot-saver/"}] +
+            "hasPart": [{"@type": "WebApplication", "name": "Shot Saver", "url": f"{SITE}/improve/shot-saver/"}, {"@type": "WebApplication", "name": "My Game", "url": f"{SITE}/improve/my-game/"}] +
                        [{"@type": "WebApplication", "name": n, "url": f"{SITE}/improve/{s}/"} for s, n, _, _ in CALCS]}
     return "", page_shell(title=title, description=desc, canonical=SITE + "/improve/", body=body, section="improve",
                           schema=[crumbs("", ""), coll, faq_schema(faqs)], noindex=False, extra_head=EXTRA)

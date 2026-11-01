@@ -1,0 +1,46 @@
+/* My Game (js/my-game.js): the My Clubhouse card and /improve/my-game/. Approved mock-up, 1 Nov 2026. */
+.mg-card, .mg-dark { background: #fff; border: 1px solid #e4e6e0; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px; color: #14211a; font-family: 'Inter', sans-serif; }
+.mg-dark { background: #14211a; color: #fff; border: 0; }
+.mg-card p, .mg-dark p { margin: 0; font-size: 14px; line-height: 1.5; color: #4a554e; }
+.mg-dark p { color: #c4d0c8; }
+.mg-card a, .mg-dark a { color: #2f8a1f; font-weight: 700; font-size: 14px; text-decoration: none; }
+.mg-dark a { color: #8fd97c; }
+.mg-h { font: 700 18px 'Poppins', sans-serif; }
+.mg-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.mg-top .mg-h { font-size: 22px; font-weight: 800; }
+.mg-top small { color: #5b665f; font-size: 12.5px; }
+.mg-k { font: 700 11px 'Inter', sans-serif; letter-spacing: .14em; color: #8fd97c; }
+.mg-k2 { font: 700 11px 'Inter', sans-serif; letter-spacing: .1em; color: #5b665f; }
+.mg-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 8px; }
+.mg-tiles div { background: #f6f6f3; border-radius: 12px; padding: 10px; display: flex; flex-direction: column; }
+.mg-tiles div.is-dark { background: #14211a; color: #fff; }
+.mg-tiles b { font: 800 24px 'Poppins', sans-serif; }
+.mg-tiles .is-dark b { color: #8fd97c; }
+.mg-tiles small { color: #5b665f; font-size: 11.5px; }
+.mg-tiles .is-dark small { color: #c4d0c8; }
+.mg-spark { width: 100%; max-width: 520px; height: auto; display: block; }
+.mg-bar { display: grid; grid-template-columns: 110px minmax(0, 1fr) 42px; gap: 8px; align-items: center; font-size: 13px; }
+.mg-bar > span:first-child { color: #4a554e; }
+.mg-dark .mg-bar > span:first-child { color: #c4d0c8; }
+.mg-track { height: 12px; border-radius: 6px; background: #eef0ec; display: block; overflow: hidden; }
+.mg-track span { display: block; height: 12px; border-radius: 6px; background: #3fae29; }
+.mg-track span.is-hl { background: #f08a24; }
+.mg-bar b { text-align: right; }
+.mg-btn { display: block; text-align: center; background: #3fae29; color: #fff !important; border: 0; border-radius: 12px; padding: 13px; font: 700 15px 'Inter', sans-serif; cursor: pointer; text-decoration: none; }
+.mg-small { font-size: 12.5px !important; color: #5b665f !important; }
+.mg-hero { background: #14211a; color: #fff; padding: 22px 16px; display: flex; flex-direction: column; gap: 6px; border-radius: 0 0 0 0; }
+.mg-hero h1 { margin: 0; font: 800 28px/1.08 'Poppins', sans-serif; }
+.mg-hero p { margin: 0; font-size: 14.5px; color: #c4d0c8; line-height: 1.5; }
+.mg-main { padding: 14px 16px 24px; display: flex; flex-direction: column; gap: 12px; }
+.mg-wrap { max-width: 640px; margin: 0 auto; }
+.mg-map { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 4px; }
+.mg-map div { border-radius: 8px; padding: 6px 0; display: flex; flex-direction: column; align-items: center; font-size: 11px; }
+.mg-map b { font-size: 13px; }
+.mg-legend { display: flex; justify-content: space-between; font-size: 11.5px; color: #5b665f; }
+.mg-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; vertical-align: -1px; }
+.mg-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid #eef0ec; font-size: 15px; }
+.mg-row:last-child { border-bottom: 0; }
+.mg-row > span { display: flex; flex-direction: column; min-width: 0; }
+.mg-row small { color: #5b665f; font-size: 12.5px; }
+.mg-row > b { font: 800 20px 'Poppins', sans-serif; }
+#mc-mygame { display: flex; flex-direction: column; gap: 12px; }

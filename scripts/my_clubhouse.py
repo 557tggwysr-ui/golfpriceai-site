@@ -48,12 +48,13 @@ def page():
 <script src="/js/milestones.js?v=20261101c" defer></script>
 <script src="/js/shot-saver-core.js?v=20261101" defer></script>
 <script src="/js/clubhouse-key.js?v=20261101b" defer></script>
-<script src="/js/my-clubhouse.js?v=20261101d" defer></script>
+<script src="/js/my-game.js?v=20261101a" defer></script>
+<script src="/js/my-clubhouse.js?v=20261101e" defer></script>
 <script src="/js/move.js?v=20261101a" defer></script>"""
     return page_shell(title="My Clubhouse | GolfPrice AI",
                       description="Your golf on GolfPrice AI in one place: today’s games, your golf society, your leagues and the kit you’re watching. No sign-up.",
                       canonical=f"{SITE}/play/my-clubhouse/", body=body, section="play", schema=[],
-                      noindex=True, extra_head=CSS)
+                      noindex=True, extra_head=CSS + '<link rel="stylesheet" href="/css/my-game.css?v=20261101a">\n')
 
 
 def build(root=None):

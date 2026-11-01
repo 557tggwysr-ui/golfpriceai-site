@@ -404,7 +404,7 @@ const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_1
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
   ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1,
   ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1,
-  ck_saved: 1, ck_card: 1, co_set: 1, fd_near: 1, soc_ask: 1, lv_view: 1, lv_share: 1, lv_card: 1 };
+  ck_saved: 1, ck_card: 1, co_set: 1, fd_near: 1, soc_ask: 1, lv_view: 1, lv_share: 1, lv_card: 1, lv_claim: 1, mg_view: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -607,6 +607,12 @@ async function useCount(request, env, cors) {
      sc_feed     event, at, txt
      sc_extras   event, kind (ntp | ld), mkey, txt
      sc_hcp      soc, mkey, ch, updated  (last course handicap, to fill in next time)
+   Quick rounds (friends, no society): sc_rounds.kind = 'quick', with owner (the
+   pid who started it), title, day and fmt (stb | bb better-ball pairs | skins);
+   players get keys p1, p2… and a team for better-ball. A golfer can claim their
+   own line (sc_players.pid) so the round counts in their My Game stats; society
+   golfers are matched through soc_members. sc_scores.fw / pt hold the optional
+   fairway (1/0) and putts a golfer adds on their own phone.
    Nicknames and points only; nothing about anyone else is kept. */
 const LV_CODE = /^[a-hj-km-np-z2-9]{8}$/, LV_TOKEN = /^[a-hj-km-np-z2-9]{12}$/;
 let lvReady = false;
@@ -626,7 +632,51 @@ async function lvSetup(env) {
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_extras (event TEXT, kind TEXT, mkey TEXT, txt TEXT, PRIMARY KEY (event, kind)) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_hcp (soc TEXT, mkey TEXT, ch INTEGER, updated TEXT, PRIMARY KEY (soc, mkey)) WITHOUT ROWID'),
   ]);
+  for (const sql of ['ALTER TABLE sc_rounds ADD COLUMN kind TEXT', 'ALTER TABLE sc_rounds ADD COLUMN fmt TEXT', 'ALTER TABLE sc_rounds ADD COLUMN owner TEXT',
+    'ALTER TABLE sc_rounds ADD COLUMN title TEXT', 'ALTER TABLE sc_rounds ADD COLUMN day TEXT', 'ALTER TABLE sc_players ADD COLUMN team INTEGER',
+    'ALTER TABLE sc_players ADD COLUMN pid TEXT', 'ALTER TABLE sc_scores ADD COLUMN fw INTEGER', 'ALTER TABLE sc_scores ADD COLUMN pt INTEGER']) {
+    try { await env.DEMAND.prepare(sql).run(); } catch (e) { /* already there */ }
+  }
+  try { await env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS sc_players_pid ON sc_players (pid)').run(); } catch (e) { /* fine */ }
   lvReady = true;
+}
+const LV_FMT = { stb: 'Stableford', bb: 'Better-ball pairs', skins: 'Skins' };
+// The title, course and day of a round: a society day, or a quick round.
+async function lvInfo(env, r) {
+  if (r.kind === 'quick') return { title: r.title || 'Quick round', venue: r.cname || '', day: r.day || String(r.created || '').slice(0, 10), society: '', tee: '', org: r.owner, co: null };
+  const ev = await env.DEMAND.prepare('SELECT e.title, e.venue, e.day, e.tee, s.name, s.pid, s.co FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE e.id = ?').bind(r.event).first();
+  return ev ? { title: ev.title, venue: r.cname || ev.venue, day: ev.day, society: ev.name, tee: ev.tee, org: ev.pid, co: ev.co } : { title: 'Society day', venue: r.cname || '', day: '', society: '', tee: '', org: null, co: null };
+}
+// Better-ball pairs (best stableford score on each hole counts) and skins
+// (lowest net score on a hole wins it outright; a tie carries the skin on).
+function lvGames(r, table) {
+  const pars = lvCard(r.pars), si = lvCard(r.si), out = {};
+  if (r.fmt === 'bb') {
+    const teams = {};
+    table.forEach((p) => { if (p.team) (teams[p.team] = teams[p.team] || []).push(p); });
+    out.teams = Object.keys(teams).map((t) => {
+      const ps = teams[t]; let pts = 0, thru = 0, back = 0;
+      for (let h = 1; h <= 18; h++) {
+        const got = ps.filter((p) => p.holes[h] !== undefined).map((p) => lvPoints(p.holes[h], pars[h - 1], p.ph, si[h - 1]));
+        if (!got.length) continue;
+        thru++; pts += Math.max(...got); if (h > 9) back += Math.max(...got);
+      }
+      return { team: Number(t), names: ps.map((p) => p.nick), pts, back, thru };
+    }).sort((a, b) => b.pts - a.pts || b.back - a.back);
+  }
+  if (r.fmt === 'skins') {
+    const won = {}; let carry = 0, played = 0; const holes = [];
+    for (let h = 1; h <= 18; h++) {
+      if (!table.length || table.some((p) => p.holes[h] === undefined)) continue;
+      played++;
+      const net = table.map((p) => ({ m: p.m, nick: p.nick, n: p.holes[h] > 0 ? p.holes[h] - lvShots(p.ph, si[h - 1]) : 99 }));
+      const low = Math.min(...net.map((x) => x.n)), best = net.filter((x) => x.n === low);
+      if (best.length === 1 && low < 99) { won[best[0].m] = (won[best[0].m] || 0) + 1 + carry; holes.push({ h, nick: best[0].nick, n: 1 + carry }); carry = 0; } else carry++;
+    }
+    out.skins = table.map((p) => ({ nick: p.nick, n: won[p.m] || 0 })).sort((a, b) => b.n - a.n || a.nick.localeCompare(b.nick));
+    out.carry = carry; out.skinHoles = holes.slice(-6); out.skinPlayed = played;
+  }
+  return out;
 }
 // Shots a golfer gets on a hole: playing handicap spread by stroke index
 // (plus handicaps give shots back on the easiest holes).
@@ -644,7 +694,7 @@ function lvValid(pars, si) {
 // The leaderboard, worked out from every score so far.
 async function lvTable(env, r) {
   const db = env.DEMAND, pars = lvCard(r.pars), si = lvCard(r.si);
-  const players = (await db.prepare('SELECT mkey, nick, ph, grp FROM sc_players WHERE event = ?').bind(r.event).all()).results || [];
+  const players = (await db.prepare('SELECT mkey, nick, ph, grp, team, pid FROM sc_players WHERE event = ?').bind(r.event).all()).results || [];
   const scores = (await db.prepare('SELECT mkey, hole, strokes FROM sc_scores WHERE event = ?').bind(r.event).all()).results || [];
   const by = {}; scores.forEach((s) => { (by[s.mkey] = by[s.mkey] || {})[s.hole] = s.strokes; });
   const rows = players.map((p) => {
@@ -655,7 +705,7 @@ async function lvTable(env, r) {
       const pt = lvPoints(mine[h], pars[h - 1], p.ph, si[h - 1]);
       pts += pt; if (h > 9) back += pt; thru++; gross += mine[h] || 0; if (!pt) blobs++;
     }
-    return { m: p.mkey, nick: p.nick, ph: p.ph, grp: p.grp, pts, back, thru, holes: mine };
+    return { m: p.mkey, nick: p.nick, ph: p.ph, grp: p.grp, team: p.team || 0, pid: p.pid || '', pts, back, thru, holes: mine };
   }).sort((a, b) => b.pts - a.pts || b.back - a.back || a.nick.localeCompare(b.nick));
   rows.forEach((x, i) => { const prev = rows[i - 1]; x.pos = prev && prev.pts === x.pts ? prev.pos : i + 1; });
   rows.forEach((x) => { x.tie = rows.filter((y) => y.pos === x.pos).length > 1; });
@@ -747,16 +797,21 @@ async function liveScoring(request, url, env, cors) {
   // A group's scorecard (the marker's link).
   if (path === '/lv/card') {
     const t = q('t');
-    if (!LV_TOKEN.test(t)) return json({ ok: false, error: 'That scorecard link doesn’t look right. Ask the organiser for it again.' }, 400, noStore);
+    if (!LV_TOKEN.test(t)) return json({ ok: false, error: 'That scorecard link doesn’t look right. Ask for it again.' }, 400, noStore);
     const g = await db.prepare('SELECT * FROM sc_groups WHERE token = ?').bind(t).first();
-    if (!g) return json({ ok: false, error: 'That scorecard has packed up its clubs. Ask the organiser for a fresh link.' }, 404, noStore);
+    if (!g) return json({ ok: false, error: 'That scorecard has packed up its clubs. Ask for a fresh link.' }, 404, noStore);
     const r = await lvRound(env, 'event', g.event);
-    const ev = await db.prepare('SELECT e.title, e.venue, e.day, s.name FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE e.id = ?').bind(g.event).first();
+    const ev = await lvInfo(env, r);
     const table = await lvTable(env, r);
     const extras = {}; (((await db.prepare('SELECT kind, mkey, txt FROM sc_extras WHERE event = ?').bind(g.event).all()).results) || []).forEach((x) => { extras[x.kind] = x; });
-    return json({ ok: true, code: r.code, status: r.status, title: ev.title, venue: r.cname || ev.venue, day: ev.day, society: ev.name, grp: g.grp, tee: g.tee,
-      pars: lvCard(r.pars), si: lvCard(r.si), allowance: r.allowance,
-      players: table.filter((p) => p.grp === g.grp).map((p) => ({ m: p.m, nick: p.nick, ph: p.ph, pts: p.pts, thru: p.thru, pos: p.pos, holes: p.holes })),
+    const mineRow = pid ? await db.prepare('SELECT s.mkey FROM sc_players s LEFT JOIN soc_members m ON m.soc = ? AND m.mkey = s.mkey WHERE s.event = ? AND (s.pid = ? OR m.pid = ?)').bind(r.soc || '', g.event, pid, pid).first('mkey') : null;
+    const detail = {};
+    if (mineRow) (((await db.prepare('SELECT hole, fw, pt FROM sc_scores WHERE event = ? AND mkey = ?').bind(g.event, mineRow).all()).results) || []).forEach((x) => { detail[x.hole] = { fw: x.fw, pt: x.pt }; });
+    return json({ ok: true, code: r.code, status: r.status, kind: r.kind || 'soc', fmt: r.fmt || 'stb', title: ev.title, venue: ev.venue, day: ev.day, society: ev.society, grp: g.grp, tee: g.tee,
+      pars: lvCard(r.pars), si: lvCard(r.si), allowance: r.allowance, owner: !!pid && pid === ev.org, me: mineRow || null, detail,
+      claim: r.kind === 'quick' ? table.map((p) => ({ m: p.m, nick: p.nick, taken: !!p.pid })) : null,
+      players: table.filter((p) => p.grp === g.grp).map((p) => ({ m: p.m, nick: p.nick, ph: p.ph, team: p.team, pts: p.pts, thru: p.thru, pos: p.pos, holes: p.holes })),
+      teams: r.fmt === 'bb' ? lvGames(r, table).teams : null,
       extras: { ntp: extras.ntp ? { m: extras.ntp.mkey, txt: extras.ntp.txt } : null, ld: extras.ld ? { m: extras.ld.mkey, txt: extras.ld.txt } : null } }, 200, noStore);
   }
   if (path === '/lv/score' && request.method === 'POST') {
@@ -764,7 +819,8 @@ async function liveScoring(request, url, env, cors) {
     const g = LV_TOKEN.test(t) ? await db.prepare('SELECT * FROM sc_groups WHERE token = ?').bind(t).first() : null;
     if (!g) return json({ ok: false, error: 'That scorecard link doesn’t work any more. Ask the organiser for it again.' }, 404, cors);
     const r = await lvRound(env, 'event', g.event);
-    if (!r || r.status === 'final') return json({ ok: false, error: 'This round is finished: the scores are locked.' }, 400, cors);
+    const quick = r && r.kind === 'quick';
+    if (!r || (r.status === 'final' && !(quick && Date.now() - new Date(r.created).getTime() < 2 * 86400000))) return json({ ok: false, error: 'This round is finished: the scores are locked.' }, 400, cors);
     const hole = Math.round(Number(body.hole));
     if (!(hole >= 1 && hole <= 18)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
     const mine = (((await db.prepare('SELECT mkey FROM sc_players WHERE event = ? AND grp = ?').bind(g.event, g.grp).all()).results) || []).map((p) => p.mkey);
@@ -776,7 +832,9 @@ async function liveScoring(request, url, env, cors) {
       if (v === null || v === '') { steps.push(db.prepare('DELETE FROM sc_scores WHERE event = ? AND mkey = ? AND hole = ?').bind(g.event, m, hole)); continue; }
       const n = Math.round(Number(v));
       if (!(n >= 0 && n <= 15)) continue;
-      steps.push(db.prepare('INSERT INTO sc_scores (event, mkey, hole, strokes, at) VALUES (?, ?, ?, ?, ?) ON CONFLICT (event, mkey, hole) DO UPDATE SET strokes = excluded.strokes, at = excluded.at').bind(g.event, m, hole, n, now));
+      const d = body.detail && body.detail[m] ? body.detail[m] : null;
+      const fw = d && (d.fw === 0 || d.fw === 1) ? d.fw : null, pt = d && Number.isInteger(d.pt) && d.pt >= 0 && d.pt <= 6 ? d.pt : null;
+      steps.push(db.prepare('INSERT INTO sc_scores (event, mkey, hole, strokes, at, fw, pt) VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT (event, mkey, hole) DO UPDATE SET strokes = excluded.strokes, at = excluded.at, fw = COALESCE(excluded.fw, sc_scores.fw), pt = COALESCE(excluded.pt, sc_scores.pt)').bind(g.event, m, hole, n, now, fw, pt));
     }
     if (!steps.length) return json({ ok: false, error: 'Bad request.' }, 400, cors);
     await db.batch(steps);
@@ -802,6 +860,15 @@ async function liveScoring(request, url, env, cors) {
     }
     const fsteps = feed.map((txt) => db.prepare('INSERT INTO sc_feed (event, at, txt) VALUES (?, ?, ?)').bind(g.event, now, txt));
     fsteps.push(db.prepare('UPDATE sc_rounds SET lastpos = ?, updated = ? WHERE event = ?').bind(JSON.stringify(snap), now, g.event));
+    // A quick round finishes itself when every card has 18 scores.
+    if (quick && r.status !== 'final' && after.length && after.every((x) => x.thru >= 18)) {
+      const gm = lvGames(r, after);
+      let txt = `${after[0].nick} wins on ${after[0].pts} points.`;
+      if (r.fmt === 'bb' && gm.teams && gm.teams[0]) txt = `${gm.teams[0].names.join(' and ')} win the better-ball with ${gm.teams[0].pts} points.`;
+      if (r.fmt === 'skins' && gm.skins && gm.skins[0]) txt = `${gm.skins[0].nick} takes the most skins: ${gm.skins[0].n}.`;
+      fsteps.push(db.prepare("UPDATE sc_rounds SET status = 'final' WHERE event = ?").bind(g.event));
+      fsteps.push(db.prepare('INSERT INTO sc_feed (event, at, txt) VALUES (?, ?, ?)').bind(g.event, new Date(Date.now() + 1000).toISOString(), 'Final: ' + txt));
+    }
     await db.batch(fsteps);
     return json({ ok: true, players: after.filter((p) => p.grp === g.grp).map((p) => ({ m: p.m, pts: p.pts, thru: p.thru, pos: p.pos })) }, 200, cors);
   }
@@ -821,20 +888,90 @@ async function liveScoring(request, url, env, cors) {
   if (path === '/lv/board') {
     const c = q('c');
     const r = LV_CODE.test(c) ? await lvRound(env, 'code', c) : null;
-    if (!r) return json({ ok: false, error: 'We couldn’t find that leaderboard. Ask the organiser for the link.' }, 404, noStore);
-    const ev = await db.prepare('SELECT e.id, e.title, e.venue, e.day, e.soc, s.name, s.pid, s.co FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE e.id = ?').bind(r.event).first();
+    if (!r) return json({ ok: false, error: 'We couldn’t find that leaderboard. Ask for the link again.' }, 404, noStore);
+    const ev = await lvInfo(env, r);
     const table = await lvTable(env, r);
     let last = {}; try { last = JSON.parse(r.lastpos || '{}').pos || {}; } catch (e) { /* none */ }
     const feed = (((await db.prepare('SELECT at, txt FROM sc_feed WHERE event = ? ORDER BY at DESC LIMIT 8').bind(r.event).all()).results) || []);
     const nick = {}; table.forEach((p) => { nick[p.m] = p.nick; });
     const extras = {}; (((await db.prepare('SELECT kind, mkey, txt FROM sc_extras WHERE event = ?').bind(r.event).all()).results) || []).forEach((x) => { extras[x.kind] = { nick: nick[x.mkey] || '', txt: x.txt }; });
     const groups = (await db.prepare('SELECT grp, tee FROM sc_groups WHERE event = ? ORDER BY grp').bind(r.event).all()).results || [];
-    let report = null;
-    if (r.status === 'final') report = '/societies/form-guide/?e=' + r.event;
-    return json({ ok: true, code: r.code, status: r.status, title: ev.title, venue: r.cname || ev.venue, day: ev.day, society: ev.name, updated: r.updated,
-      organiser: !!pid && (pid === ev.pid || (ev.co && pid === ev.co)), event: ev.id, report, groups,
-      rows: table.map((p) => ({ nick: p.nick, pts: p.pts, back: p.back, thru: p.thru, pos: p.pos, tie: p.tie, move: last[p.m] && p.thru ? last[p.m] - p.pos : 0 })),
-      feed: feed.map((f) => ({ at: f.at, txt: f.txt })), extras }, 200, noStore);
+    const quick = r.kind === 'quick', organiser = !!pid && (pid === ev.org || (!!ev.co && pid === ev.co));
+    const report = !quick && r.status === 'final' ? '/societies/form-guide/?e=' + r.event : null;
+    return json(Object.assign({ ok: true, code: r.code, status: r.status, kind: quick ? 'quick' : 'soc', fmt: r.fmt || 'stb', title: ev.title, venue: ev.venue, day: ev.day, society: ev.society, updated: r.updated,
+      organiser, event: quick ? null : r.event, report, groups,
+      claim: quick ? table.map((p) => ({ m: p.m, nick: p.nick, taken: !!p.pid, mine: !!pid && p.pid === pid })) : null,
+      tokens: quick && organiser ? (await db.prepare('SELECT grp, token FROM sc_groups WHERE event = ? ORDER BY grp').bind(r.event).all()).results : null,
+      rows: table.map((p) => ({ nick: p.nick, team: p.team, pts: p.pts, back: p.back, thru: p.thru, pos: p.pos, tie: p.tie, move: last[p.m] && p.thru ? last[p.m] - p.pos : 0 })),
+      feed: feed.map((f) => ({ at: f.at, txt: f.txt })), extras }, lvGames(r, table)), 200, noStore);
+  }
+  // A quick round: friends, no society. Anyone can start one.
+  if (path === '/lv/quick' && request.method === 'POST') {
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    if (await tooMany('lvq-' + ip, 20, 3600)) return json({ ok: false, error: 'That’s a lot of rounds for one afternoon. Try again in a bit.' }, 429, cors);
+    const pars = body.pars, si = body.si;
+    if (!lvValid(pars, si)) return json({ ok: false, error: 'The course card needs a par (3 to 6) and a different stroke index (1 to 18) for all 18 holes.' }, 400, cors);
+    const course = ACE_COURSE_RX.test(String(body.course || '')) ? String(body.course) : '';
+    const cname = socText(body.cname, 60);
+    if (cname === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse.' }, 400, cors);
+    const fmt = LV_FMT[body.fmt] ? body.fmt : 'stb';
+    const allowance = [85, 90, 95, 100].includes(Number(body.allowance)) ? Number(body.allowance) : 95;
+    const players = [];
+    for (const p of (Array.isArray(body.players) ? body.players : []).slice(0, 24)) {
+      const nick = cleanName(p && p.nick, 1, 20), ch = Math.round(Number(p && p.ch)), grp = Math.round(Number(p && p.grp)) || 1, team = Math.round(Number(p && p.team)) || 0;
+      if (!nick || players.some((x) => x.nick.toLowerCase() === nick.toLowerCase()) || !(ch >= -10 && ch <= 54) || !(grp >= 1 && grp <= 6)) continue;
+      players.push({ m: 'p' + (players.length + 1), nick, ch, ph: Math.round(ch * allowance / 100), grp, team: fmt === 'bb' ? Math.max(1, Math.min(12, team || 1)) : 0, me: !!p.me });
+    }
+    if (players.length < 2) return json({ ok: false, error: 'Add at least two golfers, each with a nickname and a handicap.' }, 400, cors);
+    if (fmt === 'bb') {
+      const sizes = {}; players.forEach((p) => { sizes[p.team] = (sizes[p.team] || 0) + 1; });
+      if (Object.keys(sizes).length < 2 || Object.values(sizes).some((n) => n !== 2)) return json({ ok: false, error: 'Better-ball needs pairs: two golfers on each side.' }, 400, cors);
+    }
+    const id = socCode(8), code = socCode(8), now = new Date().toISOString();
+    const title = socText(body.title, 50) || (cname ? 'Quick round at ' + cname : 'Quick round');
+    const steps = [db.prepare('INSERT INTO sc_rounds (event, soc, code, course, cname, pars, si, allowance, status, lastpos, created, updated, kind, fmt, owner, title, day) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+      .bind(id, '', code, course, cname || '', JSON.stringify(pars), JSON.stringify(si), allowance, 'live', '{}', now, now, 'quick', fmt, pid, title, hqDay())];
+    players.forEach((p) => steps.push(db.prepare('INSERT INTO sc_players (event, mkey, nick, ch, ph, grp, team, pid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)').bind(id, p.m, p.nick, p.ch, p.ph, p.grp, p.team, p.me ? pid : null)));
+    const grps = [...new Set(players.map((p) => p.grp))].sort((a, b) => a - b), toks = {};
+    grps.forEach((gn) => { toks[gn] = socCode(12); steps.push(db.prepare('INSERT INTO sc_groups (event, grp, tee, marker, token) VALUES (?, ?, ?, ?, ?)').bind(id, gn, '', players.find((p) => p.grp === gn).m, toks[gn])); });
+    if (course) steps.push(db.prepare('INSERT INTO sc_courses (course, name, pars, si, updated) VALUES (?, ?, ?, ?, ?) ON CONFLICT (course) DO UPDATE SET name = excluded.name, pars = excluded.pars, si = excluded.si, updated = excluded.updated')
+      .bind(course, cname || '', JSON.stringify(pars), JSON.stringify(si), hqDay()));
+    await db.batch(steps);
+    await useBump(env, 'lv_quick');
+    return json({ ok: true, code, groups: grps.map((gn) => ({ grp: gn, token: toks[gn], names: players.filter((p) => p.grp === gn).map((p) => p.nick) })) }, 200, cors);
+  }
+  // "Which one are you?": a golfer claims their own line in a quick round, for My Game.
+  if (path === '/lv/claim' && request.method === 'POST') {
+    const r = LV_CODE.test(q('c')) ? await lvRound(env, 'code', q('c')) : null;
+    if (!r || r.kind !== 'quick' || !pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const m = String(body.m || '');
+    await db.prepare('UPDATE sc_players SET pid = NULL WHERE event = ? AND pid = ?').bind(r.event, pid).run();
+    const res = m ? await db.prepare('UPDATE sc_players SET pid = ? WHERE event = ? AND mkey = ? AND pid IS NULL').bind(pid, r.event, m).run() : null;
+    return json({ ok: !m || !!(res && res.meta && res.meta.changes) , error: 'Someone else has already said that’s them.' }, 200, cors);
+  }
+  // The owner finishes a quick round early (someone went home at the turn).
+  if (path === '/lv/end' && request.method === 'POST') {
+    const r = LV_CODE.test(q('c')) ? await lvRound(env, 'code', q('c')) : null;
+    if (!r || r.kind !== 'quick' || !pid || pid !== r.owner) return json({ ok: false, error: 'Only the golfer who started the round can finish it.' }, 403, cors);
+    await db.prepare("UPDATE sc_rounds SET status = 'final', updated = ? WHERE event = ?").bind(new Date().toISOString(), r.event).run();
+    return json({ ok: true }, 200, cors);
+  }
+  // My Game: every round this golfer played, quick rounds and society days.
+  if (path === '/lv/mine') {
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, noStore);
+    const rows = (await db.prepare(`SELECT r.event, r.kind, r.fmt, r.cname, r.course, r.pars, r.si, r.day, r.created, r.title, r.status, p.mkey, p.ph
+      FROM sc_players p JOIN sc_rounds r ON r.event = p.event LEFT JOIN soc_members m ON m.soc = r.soc AND m.mkey = p.mkey
+      WHERE p.pid = ? OR m.pid = ? ORDER BY r.created DESC LIMIT 60`).bind(pid, pid).all()).results || [];
+    const out = [];
+    for (const x of rows) {
+      const sc = (await db.prepare('SELECT hole, strokes, fw, pt FROM sc_scores WHERE event = ? AND mkey = ?').bind(x.event, x.mkey).all()).results || [];
+      if (!sc.length) continue;
+      let day = x.day;
+      if (!day && x.kind !== 'quick') day = await db.prepare('SELECT day FROM soc_events WHERE id = ?').bind(x.event).first('day');
+      const h = {}; sc.forEach((s) => { h[s.hole] = [s.strokes, s.fw, s.pt]; });
+      out.push({ kind: x.kind || 'soc', fmt: x.fmt || 'stb', course: x.course || '', cname: x.cname || '', day: day || String(x.created).slice(0, 10), title: x.title || '', ph: x.ph, pars: lvCard(x.pars), si: lvCard(x.si), h });
+    }
+    return json({ ok: true, rounds: out }, 200, noStore);
   }
   // Publish: the scores go into the Form Guide report, the Order of Merit and the League.
   if (path === '/lv/final' && request.method === 'POST') {
