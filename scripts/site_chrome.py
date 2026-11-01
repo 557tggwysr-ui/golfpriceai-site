@@ -123,8 +123,6 @@ def menu():
         "play": [
             ("The Clubhouse", "All the games, your leagues and the Hall of Fame.", "/play/",
              '<path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"></path>'),
-            ("Golf scorecard", "Live scoring with mates: stableford, better-ball, skins.", "/play/scorecard/",
-             '<path d="M5 3h14v18H5zM9 7h6M9 11h6M9 15h3"></path>'),
             ("Par Price", "Today’s golf price game. New round every morning.", "/play/par-price/",
              '<path d="M6 21V4M6 4l11 4-11 4M3 21h8"></path>'),
             ("Higher or Lower", "Is this putter dearer than that driver? Daily run, then free play.", "/play/higher-or-lower/",
@@ -133,14 +131,23 @@ def menu():
              '<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM7 6H4a3 3 0 003 4M17 6h3a3 3 0 01-3 4"></path>'),
             ("The Bag Draft", "Fantasy golf kit. The Black Friday Open starts 1 November.", "/play/draft/",
              '<path d="M8 7h8l-1 14H9L8 7zM10 7V4h4v3M8 11h8"></path>'),
-            ("The Ace Register", "Had a hole-in-one? Get it on record, with a certificate.", "/play/aces/",
-             '<path d="M12 21V5M12 5l7 3-7 3M8 21h8M12 21a4 1.2 0 100-.1"></path>'),
             ("The Oracle board", "Crowd Caddie: call where golf prices go next.", "/play/oracle/",
              '<path d="M12 12m-9 0a9 9 0 1018 0 9 9 0 10-18 0M12 7v5l3 3"></path>'),
             ("The People’s Bag", "The golf bag UK golfers would build, priced live.", "/play/peoples-bag/",
              '<path d="M8 7h8l-1 14H9L8 7zM10 7V4h4v3M7 12h10"></path>'),
             ("Locker Room", "Your champion bags, bag tags and record.", "/play/locker/",
              '<path d="M6 3h12v18H6zM12 3v18M9 7h1M9 10h1M14 7h1M14 10h1M10 15v2M14 15v2"></path>'),
+        ],
+        # Play › On the course: tools for the round itself (some live under Improve or Societies).
+        "play_course": [
+            ("Golf scorecard", "Live scoring with mates: stableford, better-ball, skins.", "/play/scorecard/",
+             '<path d="M5 3h14v18H5zM9 7h6M9 11h6M9 15h3"></path>'),
+            ("My Game", "Your own golf stats from the rounds you score.", "/improve/my-game/",
+             '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path>'),
+            ("The Ace Register", "Had a hole-in-one? Get it on record, with a certificate.", "/play/aces/",
+             '<path d="M12 21V5M12 5l7 3-7 3M8 21h8M12 21a4 1.2 0 100-.1"></path>'),
+            ("Society live scoring", "Running a society day? A scorecard per group.", "/societies/live-scoring/",
+             '<path d="M3 12h4l3-8 4 16 3-8h4"></path>'),
         ],
         # Improve: handicap calculators (hub /improve/).
         "improve": [
@@ -288,16 +295,25 @@ def header_html():
       </div>
     </div>""")
 
-    play = "".join(f"""
+    def _tool(n, line, u, icon):
+        return f"""
           <a href="{u}" class="gp-tool"><span class="gp-tool-icon">{_svg(icon, 20, '#2f8a1f', 2)}</span><span class="gp-tool-text"><strong>{_esc(n)}</strong><span>{_esc(line)}</span></span></a>"""
-                   for n, line, u, icon in m["play"])
+    play_home = _tool(*m["play"][0])
+    play_games = "".join(_tool(*t) for t in m["play"][1:])
+    play_course = "".join(_tool(*t) for t in m["play_course"])
     items.append(f"""
     <div class="gp-nav-item" data-section="play">
       <a href="/play/" class="gp-nav-link" aria-haspopup="true" aria-expanded="false">Play{_svg(ICON_CHEVRON, 12, 'currentColor', 2.6)}</a>
       <div class="gp-drop gp-mega gp-play-drop">
-        <div class="gp-tools gp-tools-1">{play}
+        <div class="gp-tools gp-tools-1">{play_home}
         </div>
-        <div class="gp-mega-foot"><span>Free games on real UK prices.</span><a href="/play/">The Clubhouse &rarr;</a></div>
+        <div class="gp-play-cols">
+          <div class="gp-play-col"><span class="gp-play-k">Price games · from the sofa</span><div class="gp-tools">{play_games}
+          </div></div>
+          <div class="gp-play-col gp-play-course"><span class="gp-play-k">On the course</span><div class="gp-tools gp-tools-1">{play_course}
+          </div></div>
+        </div>
+        <div class="gp-mega-foot"><span>Free games on real UK prices, and free tools for your round.</span><a href="/play/">The Clubhouse &rarr;</a></div>
       </div>
     </div>""")
 
@@ -374,7 +390,9 @@ def menu_html(m=None):
         <div class="gp-acc-body gp-acc-shop" hidden><a class="gp-big gp-big-m" href="/prices/drops/" hidden><span class="gp-big-k"><span>BIGGEST DROP TODAY</span></span><span class="gp-big-row"><span class="gp-big-img"></span><span class="gp-big-txt"><b data-big="name"></b><small data-big="was"></small><strong data-big="now"></strong></span></span></a>{rows}<div class="gp-shop-chips">{chips}</div><a class="gp-acc-all" href="/shop/">Explore the whole shop &rarr;</a></div>
       </div>""")
     tools = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["tools"])
-    play = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["play"])
+    acc = lambda lst: "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in lst)
+    play = (acc(m["play"][:1]) + '<span class="gp-acc-k">On the course</span>' + acc(m["play_course"]) +
+            '<span class="gp-acc-k">Price games · from the sofa</span>' + acc(m["play"][1:]))
     sections.append(f"""
       <div class="gp-acc" data-section="play">
         <button type="button" class="gp-acc-btn" aria-expanded="false">Play{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>
@@ -427,7 +445,7 @@ def footer_html():
                   ("Find Your Fit", "/find-your-fit.html"), ("Golf gift finder", "/prices/golf-gifts/"),
                   ("Christmas golf gifts", "/prices/christmas/"), ("Black Friday golf deals", "/prices/black-friday/")]),
         ("Deal Tools", [("All deal tools", "/deal-tools.html")] + [(n, u) for n, _, u, _ in m["tools"] if u != "/find-your-fit.html"]),
-        ("Play", [("My Clubhouse", "/play/my-clubhouse/")] + [(n, u) for n, _, u, _ in m["play"]] + [("UK Golf Demand Index", "/demand/")]),
+        ("Play", [("My Clubhouse", "/play/my-clubhouse/")] + [(n, u) for n, _, u, _ in m["play"]] + [(n, u) for n, _, u, _ in m["play_course"] if u.startswith("/play/")] + [("UK Golf Demand Index", "/demand/")]),
         ("Societies", [(n, u) for n, _, u, _ in m["societies"]] + [("Shot Saver", "/improve/shot-saver/"), ("Handicap calculators", "/improve/"), ("Course handicap calculator", "/improve/course-handicap-calculator/"), ("UK golf courses", "/courses/")]),
         ("Price guides", [("Drivers", "/prices/drivers/"), ("Irons", "/prices/irons/"),
                           ("Putters", "/prices/putters/"), ("Golf balls", "/prices/golf-balls/"), ("Golf gloves", "/prices/golf-gloves/"),

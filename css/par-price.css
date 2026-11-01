@@ -566,3 +566,24 @@
 .lg-bd-rows li span { display: flex; flex-direction: column; min-width: 0; }
 .lg-bd-rows small { color: #5b665f; font-size: 12.5px; }
 .lg-bd-rows li.is-you b:first-child { color: #2f8a1f; }
+
+/* The Clubhouse in two parts: price games, and on the course (1 Nov 2026) */
+.ch-jump { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px !important; }
+.ch-jump a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 12px; font-weight: 700; text-decoration: none; background: #3fae29; color: #fff; }
+.ch-jump a + a { background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .4); color: #fff; }
+.ch-sec { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 8px; scroll-margin-top: 90px; }
+.ch-sec h2 { margin: 0; font: 800 26px/1.15 Poppins, sans-serif; }
+.ch-sec span { color: var(--gp-text-2); font-size: 14.5px; }
+.ch-course { grid-column: 1 / -1; background: #eef7ea; border-radius: 22px; padding: 20px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 80px; }
+.ch-course .ch-sec { margin-top: 0; }
+.ch-course-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.ch-course a.ch-panel { text-decoration: none; color: var(--gp-ink); transition: transform .18s ease; }
+.ch-course a.ch-panel:hover { transform: translateY(-2px); }
+.ch-course h3 { margin: 0; font: 800 20px/1.2 Poppins, sans-serif; }
+.ch-course .ch-go { margin-top: auto; font-weight: 700; color: var(--gp-green-dark); }
+.ch-course a.ch-course-main { background: #14211a; border-color: #14211a; color: #fff; }
+.ch-course a.ch-course-main p { color: #c4d0c8; }
+.ch-course a.ch-course-main .ch-kicker, .ch-course a.ch-course-main .ch-go { color: #8fd97c; }
+.ch-course-foot { margin: 0; color: var(--gp-text-2); font-size: 14.5px; }
+.ch-course-foot a { font-weight: 700; color: var(--gp-green-dark); }
+@media (max-width: 760px) { .ch-course-grid { grid-template-columns: 1fr; } .ch-course { padding: 16px; } }

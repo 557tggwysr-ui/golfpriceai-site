@@ -112,7 +112,7 @@ def page(n, today):
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
                       canonical=f"{SITE}/play/par-price/", body=body, section="play", schema=[app, crumbs_schema], noindex=False,
                       og_image=CARD,
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261101">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261101b">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -133,7 +133,7 @@ def league_page():
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
                       canonical=f"{SITE}/play/league/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261101">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261101b">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -178,7 +178,7 @@ def leagues_page():
                       description="Start a free golf league for your group chat in ten seconds: Par Price every day, the Bag Draft every month, nicknames only. Loser buys the first round.",
                       canonical=f"{SITE}/play/leagues/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261101">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261101b">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
@@ -195,9 +195,12 @@ def hub_page(n, rnd):
     <div class="ch-hero-text">
       <span class="pr-kicker">Play · The Clubhouse</span>
       <h1>The Clubhouse</h1>
-      <p>Free golf games that run on real UK prices. Bragging rights only; handicaps not required.</p>
+      <p>Free golf games on real UK prices, and free tools for when you’re out on the course. Bragging rights only; handicaps not required.</p>
+      <p class="ch-jump"><a href="#price-games">Price games</a><a href="#on-the-course">On the course</a></p>
     </div>
   </section>
+
+  <div class="ch-sec" id="price-games"><h2>Price games</h2><span>Play from the sofa: real UK golf prices, bragging rights only</span></div>
 
   <a class="ch-card ch-today" href="/play/par-price/?utm_source=clubhouse">
     <picture><source media="(max-width: 760px)" srcset="/assets/photos/tools/par-price-square.jpg"><img src="/assets/photos/tools/par-price-banner.jpg" alt="" width="1536" height="512" loading="eager"></picture>
@@ -240,20 +243,6 @@ def hub_page(n, rnd):
     <p><a class="ch-btn" href="/play/oracle/">See the board</a></p>
   </section>
 
-  <section class="ch-panel" id="scorecard">
-    <span class="ch-kicker">New · Golf scorecard</span>
-    <h2>Playing with your mates?</h2>
-    <p>A free live scorecard: stableford, better-ball pairs or skins, worked out from your handicaps. One link for the group chat, a live leaderboard, and your own stats in My Game.</p>
-    <p><a class="ch-btn" href="/play/scorecard/">Start a quick round</a></p>
-  </section>
-
-  <section class="ch-panel" id="aces">
-    <span class="ch-kicker">The Ace Register</span>
-    <h2>Had a hole-in-one?</h2>
-    <p>Get it on record: a certificate worth framing, and your nickname on your course’s ace board for good. Every UK course is on the list.</p>
-    <p><a class="ch-btn" href="/play/aces/">Log my ace</a></p>
-  </section>
-
   <section class="ch-panel ch-fame" id="fame">
     <span class="ch-kicker">Hall of Fame</span>
     <div id="ch-fame-body">
@@ -279,6 +268,31 @@ def hub_page(n, rnd):
     </div>
   </section>
 
+
+  <section class="ch-course" id="on-the-course">
+    <div class="ch-sec"><h2>On the course</h2><span>Free tools for the round itself</span></div>
+    <div class="ch-course-grid">
+      <a class="ch-panel ch-course-main" href="/play/scorecard/">
+        <span class="ch-kicker">New · Golf scorecard</span>
+        <h3>Playing with your mates?</h3>
+        <p>Stableford, better-ball pairs or skins, worked out from your handicaps. One link for the group chat and a live leaderboard.</p>
+        <span class="ch-go">Start a quick round &rarr;</span>
+      </a>
+      <a class="ch-panel" href="/improve/my-game/">
+        <span class="ch-kicker">My Game</span>
+        <h3>Your golf, in numbers</h3>
+        <p>Points per round, par 3s, 4s and 5s, front v back nine and your nemesis holes, from the rounds you score.</p>
+        <span class="ch-go">See my stats &rarr;</span>
+      </a>
+      <a class="ch-panel" href="/play/aces/" id="aces">
+        <span class="ch-kicker">The Ace Register</span>
+        <h3>Had a hole-in-one?</h3>
+        <p>A certificate worth framing, and your nickname on your course’s ace board for good. Every UK course is on the list.</p>
+        <span class="ch-go">Log my ace &rarr;</span>
+      </a>
+    </div>
+    <p class="ch-course-foot">Running a society day? <a href="/societies/live-scoring/">Society live scoring</a> gives each group its own scorecard and writes the match report.</p>
+  </section>
 
   <details class="ch-move" id="move">
     <summary><span class="mv-sum"><b>Playing on a phone and a laptop?</b> <span class="mv-long">Bring your leagues, streak and Bag Draft with you.</span><span class="mv-short">Bring your player with you</span></span><span class="mv-go"><span class="mv-go-open">Move my player</span><span class="mv-go-close">Close</span></span></summary>
@@ -317,7 +331,7 @@ def hub_page(n, rnd):
                       description="Free golf games that run on real UK prices: Par Price, the daily price-guessing game, leagues for your group chat, and The Bag Draft, fantasy golf kit, from 1 November.",
                       canonical=f"{SITE}/play/", body=body, section="play", schema=[crumbs_schema], noindex=False,
                       og_image="/assets/cards/clubhouse.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261101">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261101b">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
