@@ -186,3 +186,9 @@ a.mc-card:hover { border-color: var(--gp-green); color: var(--gp-ink); }
 .mc-ss-btns .mc-btn { border-radius: 12px; padding: 12px 16px; font-weight: 700; text-decoration: none; }
 .mc-ss-ghost { background: #fff; border: 1px solid #d5d9d1; color: var(--gp-ink); border-radius: 12px; padding: 11px 15px; font-weight: 700; text-decoration: none; }
 .mc-ss-ghost:hover { border-color: var(--gp-green); color: var(--gp-ink); }
+
+/* Clubhouse key (Nov 2026) */
+.mc-key { max-width: 560px; }
+.mc-restore { margin-top: 18px; max-width: 560px; }
+.mc-restore summary { cursor: pointer; font-weight: 700; color: var(--gp-green-dark); padding: 8px 0; }
+#restore .ck-box { max-width: 520px; }

@@ -30,6 +30,8 @@
   function pad(n) { return String(n).padStart(2, '0'); }
   var NOW = new Date(), TODAY = NOW.getFullYear() + '-' + pad(NOW.getMonth() + 1) + '-' + pad(NOW.getDate()), MONTH = TODAY.slice(0, 7);
 
+  // A scanned Clubhouse card (#key=...) restores first, then reloads.
+  if (window.gpKey && gpKey.fromLink()) return;
   // ---------------------------------------------------------------- what this browser keeps
   var pid = get('gpPid', '');
   if (!/^[a-z0-9]{12,32}$/.test(pid)) pid = '';
@@ -57,7 +59,19 @@
   }
   function gpUse(k) { try { var d = new Date().toISOString().slice(0, 10), key = 'gpUse_' + k; if (localStorage.getItem(key) === d) return; localStorage.setItem(key, d); fetch('https://golfpriceai-alerts.golfpriceai.workers.dev/use', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: k }), keepalive: true }).catch(function () {}); } catch (e) { /* counts are a nice-to-have */ } }
   gpUse('mc_view');
-  if (!anything) { box.innerHTML = starters(); track('my_clubhouse_view', { state: 'new' }); return; }
+  var restored = /[?&]restored=1/.test(location.search);
+  if (restored) {
+    document.getElementById('mc-sub').textContent = 'Welcome back. Your Clubhouse is restored on this phone.';
+    try { history.replaceState(null, '', location.pathname); } catch (e) { /* fine */ }
+  }
+  var KEY = window.gpKey;
+  if (KEY && KEY.status().saved) KEY.sync();
+  if (!anything) {
+    box.innerHTML = starters() + (KEY ? '<section class="mc-row-sec" id="restore">' + KEY.restoreForm() + '</section>' : '');
+    if (KEY) KEY.wire(box);
+    if (location.hash === '#restore') { var r = document.getElementById('restore'); if (r) r.scrollIntoView(); }
+    track('my_clubhouse_view', { state: 'new' }); return;
+  }
 
   // ---------------------------------------------------------------- the live parts, all at once
   var jobs = {
@@ -82,12 +96,21 @@
     if (soc.length) bits.push(plural(soc.length, 'golf society', 'golf societies'));
     if (lg.length) bits.push(plural(lg.length, 'league'));
     if (shortlist.length) bits.push(plural(shortlist.length, 'thing') + ' you’re watching');
-    if (nick && bits.length) document.getElementById('mc-sub').textContent = bits.join(' · ') + '. Saved on this device, no sign-up.';
-    box.innerHTML = games(g.pp, g.hl, g.locker, g.majors) + handicap(g.leagues && g.leagues.hcp) + shotSaver() +
+    if (nick && bits.length && !restored) document.getElementById('mc-sub').textContent = bits.join(' · ') + '. Saved on this device, no sign-up.';
+    var org = soc.filter(function (s) { return s.organiser; }).length;
+    var why = org ? 'You run ' + plural(org, 'golf society', 'golf societies') + (lg.length ? ' and you’re in ' + plural(lg.length, 'league') : '') + '. If this browser forgets you, they’re gone.'
+      : soc.length || lg.length ? 'You’re in ' + [soc.length ? plural(soc.length, 'golf society', 'golf societies') : '', lg.length ? plural(lg.length, 'league') : ''].filter(Boolean).join(' and ') + '. If this browser forgets you, so do they.'
+      : 'If this browser forgets you, your Clubhouse goes with it.';
+    var keyRow = KEY ? row('Your Clubhouse key', 0, '', '', '<div class="mc-key">' + KEY.statusCard(why) + '</div>', 'mc-key-sec') : '';
+    var saved = KEY && KEY.status().saved;
+    box.innerHTML = (saved ? '' : keyRow) + games(g.pp, g.hl, g.locker, g.majors) + handicap(g.leagues && g.leagues.hcp) + shotSaver() +
       row('Milestones', '', '/play/par-price/', 'Play Par Price', '<div id="mc-ms"></div>', 'mc-ms-sec') +
       (soc.length || lg.length ? societies(soc) + leagues(lg) : group()) +
       kit(g.kit, g.bag) +
-      '<div class="mc-pair">' + alerts() + '</div>';
+      '<div class="mc-pair">' + alerts() + '</div>' + (saved ? keyRow : '') +
+      (KEY ? '<details class="mc-restore" id="restore"><summary>Got a Clubhouse key from another phone?</summary>' + KEY.restoreForm() + '</details>' : '');
+    if (KEY) KEY.wire(box);
+    if (location.hash === '#restore') { var rs = document.getElementById('restore'); if (rs) { rs.open = true; rs.scrollIntoView(); } }
     // Move my Clubhouse sits beside Price alerts on wide screens.
     var mv = document.getElementById('move'), pair = box.querySelector('.mc-pair');
     if (mv && pair) pair.appendChild(mv);
@@ -382,6 +405,6 @@
     ];
     return '<section class="mc-row-sec"><div class="mc-row-head"><h2>Four ways to fill it</h2></div><div class="mc-grid mc-starts">' + c.map(function (x) {
       return '<a class="mc-card mc-start" href="' + x[0] + '"><b class="mc-name">' + x[1] + ' <span>→</span></b><span class="mc-dim">' + x[2] + '</span></a>';
-    }).join('') + '</div></section><p class="mc-dim mc-have">Already got a Clubhouse on another phone? Use <b>Move my Clubhouse</b> below.</p>';
+    }).join('') + '</div></section><p class="mc-dim mc-have">Already got a Clubhouse? Type your Clubhouse key below, or use <b>Move my Clubhouse</b> from your other phone.</p>';
   }
 })();

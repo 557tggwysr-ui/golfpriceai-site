@@ -41,6 +41,14 @@
     var l = get('gpSocs', []).filter(function (x) { return x.id !== id; });
     l.unshift({ id: id, name: name }); put('gpSocs', l.slice(0, 10));
   }
+  // The Clubhouse key (js/clubhouse-key.js): offered once when someone starts or
+  // joins a society, and as a strip on the society page until it's saved.
+  function keyPrompt(kick, why, done, after, always) {
+    var k = window.gpKey;
+    if (!k || k.status().saved || (!always && get('gpKeyLater', '') === new Date().toISOString().slice(0, 10))) { if (after) after(); return; }
+    k.prompt({ kick: kick, why: why, done: done, after: after });
+  }
+  function gpUseCo() { try { fetch(API + '/use', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: 'co_set' }), keepalive: true }).catch(function () {}); } catch (e) { /* fine */ } }
   function forget(id) { put('gpSocs', get('gpSocs', []).filter(function (x) { return x.id !== id; })); }
   var DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   function nice(iso, long) {
@@ -73,7 +81,8 @@
         btn.disabled = false;
         if (!r.ok) { msg.textContent = r.error || 'Something went wrong. Please try again.'; return; }
         remember(r.id, body.name.trim()); track('society_started');
-        location.href = '?s=' + r.id;
+        var go = function () { location.href = '?s=' + r.id; };
+        keyPrompt('SOCIETY HQ · ONE LAST THING', 'It’s how you get ' + body.name.trim() + ' back on a new phone, or if your browser forgets you. No email, no password to remember. Just keep it somewhere safe.', 'Done, take me to my society', go, true);
       }).catch(function () { btn.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
     });
   }
@@ -104,7 +113,8 @@
       api('/soc/join', { s: sid, nick: f.nick.value }).then(function (r) {
         btn.disabled = false;
         if (!r.ok) { msg.textContent = r.error || 'Something went wrong.'; return; }
-        remember(sid, S.name); track('society_joined'); load();
+        remember(sid, S.name); track('society_joined');
+        load().then(function () { keyPrompt('YOU’RE IN', 'It keeps your place in ' + S.name + ' (your sign-ups and who’s paid) if you change phones or your browser forgets you. No email, no password.', 'Done', null, false); });
       }).catch(function () { btn.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
     });
   }
@@ -237,6 +247,11 @@
     var h = '<section class="soc-hero">' + (S.founding ? '<span class="soc-found">Founding Society · No. ' + S.founding + '</span>' : '') + '<span class="soc-kick">' + esc(S.area || 'Golf society') + ' · ' + S.count + (S.count === 1 ? ' member' : ' members') + (S.organiser ? ' · you’re the organiser' : '') + '</span>' +
       '<h1>' + esc(S.name) + '</h1>' + (S.about ? '<p>' + esc(S.about) + '</p>' : '') +
       '<div class="soc-btns"><button type="button" class="soc-btn hq-invite">Invite members</button>' + (S.organiser ? '<button type="button" class="soc-btn2 hq-soc-edit">Edit society</button>' : '') + '</div></section>';
+    if (window.gpKey && !gpKey.status().saved) h += '<section class="soc-card hq-key"><div><b>' + (S.organiser ? 'Back up ' + esc(S.name) : 'Keep your place safe') + '</b><span>' +
+      (S.organiser ? 'If this phone forgets you, you lose the society. Save your Clubhouse key: it takes 10 seconds.' : 'Save your Clubhouse key so a new phone or a cleared browser doesn’t lose your place.') + '</span></div><button type="button" class="soc-btn hq-key-go">Save my key</button></section>';
+    if (S.co && !S.lead) h += '<section class="soc-card hq-co"><span class="soc-kick">You’re the co-organiser</span><h2>Organiser lost their phone?</h2>' +
+      '<p class="soc-help">If they’ve lost their phone and their Clubhouse key, send them a one-time link. It hands the organiser role back to them on their new phone, and works once, for 24 hours.</p>' +
+      '<p class="soc-msg" role="status"></p><button type="button" class="soc-btn hq-handback">Send the hand-back link on WhatsApp</button></section>';
     if (open.editSoc) h += '<form class="soc-card" id="hq-soc" novalidate><h2>Edit society</h2>' + fields(S) + '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="submit" class="soc-btn">Save</button><button type="button" class="soc-btn2 hq-cancel-soc">Cancel</button></div></form>';
     h += '<section class="soc-card"><h2>Fixtures</h2>' + (up.length ? up.map(function (e) { return open['edit-' + e.id] ? eventForm(e) : eventCard(e, false); }).join('') :
       '<p class="soc-help">' + (S.organiser ? 'No fixtures yet. Add your first one below, then send the sign-up link to the group.' : 'No fixtures yet. The organiser will add them here.') + '</p>') + '</section>';
@@ -244,9 +259,18 @@
     h += '<section class="soc-card hq-lg" id="hq-lg" hidden></section>';
     if (past.length) h += '<section class="soc-card"><h2>Recent</h2>' + past.map(function (e) { return eventCard(e, true); }).join('') + '</section>';
     h += '<section class="soc-card"><h2>Members (' + S.members.length + ')</h2><div class="hq-members">' + S.members.map(function (m) {
-      return '<span class="hq-mem">' + esc(m.nick) + (m.organiser ? ' <small>organiser</small>' : '') + (S.organiser && !m.organiser ? ' <button type="button" class="hq-rm" data-m="' + esc(m.m) + '" aria-label="Remove ' + esc(m.nick) + '">✕</button>' : '') + '</span>';
+      return '<span class="hq-mem">' + esc(m.nick) + (m.organiser ? ' <small>organiser</small>' : m.co ? ' <small>co-organiser</small>' : '') + (S.organiser && !m.organiser && m.m !== S.you ? ' <button type="button" class="hq-rm" data-m="' + esc(m.m) + '" aria-label="Remove ' + esc(m.nick) + '">✕</button>' : '') + '</span>';
     }).join('') + '</div>' + (!S.organiser && me ? '<button type="button" class="soc-x hq-leave">Leave this society</button>' : '') + '</section>' +
       (!S.organiser ? '<p class="soc-small hq-another">Run another golf society? <a href="/societies/hq/">Start one free</a>, it takes a minute.</p>' : '');
+    if (S.lead && S.members.length > 1) {
+      var others = S.members.filter(function (m) { return !m.organiser; });
+      h += '<section class="soc-card hq-co"><h2>' + (S.coNick ? 'Co-organiser: ' + esc(S.coNick) : 'Add a co-organiser') + '</h2>' +
+        '<p class="soc-help">Someone you trust who can run the society with you: fixtures, results, who’s paid. If you ever lose your phone and your key, they can hand the society back.</p>' +
+        '<form class="hq-co-form" novalidate><label>' + (S.coNick ? 'Change to' : 'Pick a member') + '<select name="m"><option value="">Choose…</option>' +
+        others.map(function (m) { return '<option value="' + esc(m.m) + '"' + (m.m === S.coKey ? ' selected' : '') + '>' + esc(m.nick) + '</option>'; }).join('') + '</select></label>' +
+        '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="submit" class="soc-btn">' + (S.coNick ? 'Save' : 'Make them co-organiser') + '</button>' +
+        (S.coNick ? '<button type="button" class="soc-btn2 hq-co-off">Remove ' + esc(S.coNick) + '</button>' : '') + '</div></form></section>';
+    }
     h += '<section class="soc-card soc-next"><span class="soc-kick">End of the season?</span><h2>The Awards Night Kit</h2><p>Award cards, a slideshow for the big night and prizes your winners pick themselves.</p><a class="soc-btn" href="/societies/awards/">Make your awards</a></section>';
     box.innerHTML = h;
     wire();
@@ -366,6 +390,29 @@
       };
     });
     league();
+    var kg = box.querySelector('.hq-key-go'); if (kg) kg.onclick = function () { keyPrompt('SOCIETY HQ', null, 'Done', function () { page(); }, true); };
+    var cf = box.querySelector('.hq-co-form'); if (cf) {
+      cf.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var msg = cf.querySelector('.soc-msg');
+        if (!cf.m.value) { msg.textContent = 'Pick a member.'; return; }
+        api('/soc/coorg', { s: S.id, m: cf.m.value }).then(function (r) { if (!r.ok) { msg.textContent = r.error || 'Something went wrong.'; return; } track('society_coorg'); gpUseCo(); load(); });
+      });
+      var off = cf.querySelector('.hq-co-off'); if (off) off.onclick = function () {
+        if (!window.confirm('Remove ' + S.coNick + ' as co-organiser?')) return;
+        api('/soc/coorg', { s: S.id, m: '' }).then(function () { load(); });
+      };
+    }
+    var hb = box.querySelector('.hq-handback'); if (hb) hb.onclick = function () {
+      var msg = hb.parentNode.querySelector('.soc-msg');
+      hb.disabled = true;
+      api('/soc/handback', { s: S.id }).then(function (r) {
+        hb.disabled = false;
+        if (!r.ok) { msg.textContent = r.error || 'Something went wrong.'; return; }
+        track('society_handback');
+        shareText('Here’s ' + S.name + ' back on your new phone. Open this link on it (it works once, for 24 hours): ' + SITE + '/societies/hq/?s=' + S.id + '&hb=' + r.token);
+      }).catch(function () { hb.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
+    };
     var lv = box.querySelector('.hq-leave'); if (lv) lv.onclick = function () {
       if (!window.confirm('Leave ' + S.name + '?')) return;
       api('/soc/leave', { s: S.id }).then(function () { forget(S.id); location.href = '/societies/hq/'; });
@@ -431,5 +478,21 @@
       page();
     }).catch(function () { box.innerHTML = '<section class="soc-card"><p>We couldn’t reach the clubhouse. Please refresh in a minute.</p></section>'; });
   }
-  if (!sid) start(); else load();
+  // A hand-back link from the co-organiser: ?s=<id>&hb=<token>
+  var hbTok = (location.search.match(/[?&]hb=([a-z0-9]{16})/) || [])[1];
+  function claim() {
+    box.innerHTML = '<section class="soc-card"><span class="soc-kick">Society HQ</span><h2>Take back the organiser role?</h2><p class="soc-help">Your co-organiser sent you this link to put you back in charge on this phone. Your member place, sign-ups and paid ticks come with it.</p>' +
+      '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="button" class="soc-btn hq-claim">Yes, that’s me</button><a class="soc-btn2" href="?s=' + esc(sid) + '">Not now</a></div></section>';
+    box.querySelector('.hq-claim').onclick = function () {
+      var b = this, msg = box.querySelector('.soc-msg'); b.disabled = true;
+      api('/soc/claim', { t: hbTok }).then(function (r) {
+        if (!r.ok) { b.disabled = false; msg.textContent = r.error || 'Something went wrong.'; return; }
+        remember(r.id, r.name); track('society_claimed');
+        try { history.replaceState(null, '', '?s=' + sid); } catch (e) { /* fine */ }
+        keyPrompt('YOU’RE BACK IN CHARGE', 'Save your Clubhouse key this time, so it never comes to this again. It brings ' + r.name + ' back on any phone.', 'Done, take me to my society', function () { load(); }, true);
+      }).catch(function () { b.disabled = false; msg.textContent = 'We couldn’t reach the clubhouse. Please try again.'; });
+    };
+  }
+  if (window.gpKey && gpKey.status().saved) gpKey.sync();
+  if (!sid) start(); else if (hbTok) claim(); else load();
 })();

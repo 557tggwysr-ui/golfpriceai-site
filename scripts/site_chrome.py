@@ -443,6 +443,7 @@ def footer_html():
         <a href="/" class="gp-logo">Golf<span>Price</span> AI</a>
         <p>Real UK golf prices, checked every 6 hours. No fake discounts, no countdown timers.</p>
         <a href="/#alerts" class="gp-alerts">{_svg(ICON_BELL, 16)}<span>Get deal alerts</span></a>
+        <p class="gp-foot-social" style="display:flex;gap:14px;flex-wrap:wrap;margin:0;font-size:14px"><a href="https://www.instagram.com/golfpriceai/" rel="me noopener" target="_blank">Instagram</a><a href="https://www.youtube.com/channel/UCfAw38hJZ0gYvI0q-NMKqaQ" rel="me noopener" target="_blank">YouTube</a><a href="https://www.tiktok.com/@golfprice.ai" rel="me noopener" target="_blank">TikTok</a><a href="https://uk.pinterest.com/golfpriceai/" rel="me noopener" target="_blank">Pinterest</a></p>
       </div>{col_html}
     </div>
     <div class="gp-foot-legal">

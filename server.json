@@ -2,9 +2,9 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.557tggwysr-ui/golfpriceai",
   "title": "GolfPrice AI",
-  "description": "Live UK golf equipment prices, price history and genuine price drops from GolfPrice AI.",
+  "description": "Live UK golf prices, genuine price drops, handicap maths and golf society tools.",
   "websiteUrl": "https://golfpriceai.com/ai.html",
-  "version": "1.0.0",
+  "version": "1.7.0",
   "remotes": [
     {
       "type": "streamable-http",

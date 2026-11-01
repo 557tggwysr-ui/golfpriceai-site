@@ -114,6 +114,7 @@ export default {
       if (url.pathname.startsWith('/cc/')) return await crowdCaddie(request, url, env, cors);
       if (url.pathname.startsWith('/pb/')) return await peoplesBag(request, url, env, cors);
       if (url.pathname.startsWith('/lg/')) return await nationalLeague(request, url, env, cors);
+      if (url.pathname.startsWith('/ck/')) return await clubhouseKey(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -401,7 +402,8 @@ const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_1
   calc_index: 1, calc_course: 1, calc_playing: 1, calc_shoot: 1, calc_share: 1,
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
   ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1,
-  ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1 };
+  ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1,
+  ck_saved: 1, ck_card: 1, co_set: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -413,6 +415,80 @@ async function useBump(env, kind) {
       .bind(new Date().toISOString().slice(0, 10), kind).run();
   } catch (e) { /* counts are a nice-to-have */ }
 }
+/* ------------------------------------------------------------------ Clubhouse key
+   There are no accounts: each browser has a random player id (gpPid). A
+   Clubhouse key is a 12-character code that brings that id back on any phone,
+   after cleared cookies or a new phone. Only a peppered SHA-256 of the key is
+   stored, so the database alone can't reveal anyone's key. With a key, the
+   browser also keeps a small backup here (ck_vault: nickname, saved kit,
+   Shot Saver rounds and the like, the same bundle Move my Clubhouse carries).
+   No email, no name. Restores are rate-limited per IP.
+     ck_keys   h (hash of the key), pid, created
+     ck_vault  pid, data (JSON, up to 8,000 characters), at */
+const CK_ABC = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';   // 32 letters: no O/0 or I/1 mix-ups
+let ckReady = false;
+async function ckSetup(env) {
+  if (ckReady) return;
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS ck_keys (h TEXT PRIMARY KEY, pid TEXT, created TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS ck_keys_pid ON ck_keys (pid)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS ck_vault (pid TEXT PRIMARY KEY, data TEXT, at TEXT) WITHOUT ROWID'),
+  ]);
+  ckReady = true;
+}
+function ckClean(k) { return String(k || '').toUpperCase().replace(/[^A-Z0-9]/g, ''); }
+async function ckHash(env, k) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('ck|' + k + '|' + (env.ALERTS_SECRET || '')));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+async function clubhouseKey(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'Please try again in a minute.' }, 503, cors);
+  if (request.method !== 'POST') return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  await ckSetup(env);
+  let body = {};
+  try { body = JSON.parse((await request.text()).slice(0, 9000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+  const ip = request.headers.get('cf-connecting-ip') || '', path = url.pathname, db = env.DEMAND;
+  const pid = PID_RX.test(String(body.pid || '')) ? String(body.pid) : '';
+  if (path === '/ck/make') {
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    if (await tooMany('ckmake-' + ip, 12, 3600)) return json({ ok: false, error: 'Easy, tiger. Please try again in an hour.' }, 429, cors);
+    const raw = [...crypto.getRandomValues(new Uint8Array(12))].map((x) => CK_ABC[x % 32]).join('');
+    await db.batch([
+      db.prepare('DELETE FROM ck_keys WHERE pid = ?').bind(pid),   // a new key replaces the old one
+      db.prepare('INSERT INTO ck_keys (h, pid, created) VALUES (?, ?, ?)').bind(await ckHash(env, raw), pid, hqDay()),
+    ]);
+    await useBump(env, 'ck_made');
+    return json({ ok: true, key: raw.slice(0, 4) + '-' + raw.slice(4, 8) + '-' + raw.slice(8) }, 200, cors);
+  }
+  if (path === '/ck/restore') {
+    if (await tooMany('ckrestore-' + ip, 10, 600)) return json({ ok: false, error: 'Too many tries. Please wait ten minutes and try again.' }, 429, cors);
+    const k = ckClean(body.key);
+    if (k.length !== 12) return json({ ok: false, error: 'A Clubhouse key is 12 letters and numbers, like 7KQ2-M9XR-4HTD.' }, 400, cors);
+    const who = await db.prepare('SELECT pid FROM ck_keys WHERE h = ?').bind(await ckHash(env, k)).first('pid');
+    if (!who) return json({ ok: false, error: 'That key doesn’t match a Clubhouse. Check it and try again.' }, 404, cors);
+    let socs = [], nick = '', data = null;
+    try {
+      await socSetup(env);
+      socs = ((await db.prepare('SELECT id, name FROM soc_socs WHERE pid = ? OR co = ? UNION SELECT s.id, s.name FROM soc_members m JOIN soc_socs s ON s.id = m.soc WHERE m.pid = ?').bind(who, who, who).all()).results || []).slice(0, 10);
+      nick = (await db.prepare('SELECT nick FROM soc_members WHERE pid = ? ORDER BY joined DESC LIMIT 1').bind(who).first('nick')) || '';
+    } catch (e) { /* no societies yet */ }
+    if (!nick) try { nick = (await db.prepare('SELECT nick FROM pp_members WHERE pid = ? ORDER BY joined DESC LIMIT 1').bind(who).first('nick')) || ''; } catch (e) { /* no leagues */ }
+    try { const v = await db.prepare('SELECT data FROM ck_vault WHERE pid = ?').bind(who).first('data'); data = v ? JSON.parse(v) : null; } catch (e) { /* none */ }
+    await useBump(env, 'ck_restored');
+    return json({ ok: true, pid: who, socs, nick, data }, 200, cors);
+  }
+  if (path === '/ck/sync') {
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    if (await tooMany('cksync-' + ip, 30, 3600)) return json({ ok: false }, 429, cors);
+    if (!(await db.prepare('SELECT h FROM ck_keys WHERE pid = ?').bind(pid).first('h'))) return json({ ok: false, error: 'No key yet.' }, 403, cors);
+    const data = JSON.stringify(body.data && typeof body.data === 'object' ? body.data : {});
+    if (data.length > 8000) return json({ ok: false, error: 'Too big.' }, 400, cors);
+    await db.prepare('INSERT INTO ck_vault (pid, data, at) VALUES (?, ?, ?) ON CONFLICT (pid) DO UPDATE SET data = excluded.data, at = excluded.at').bind(pid, data, hqDay()).run();
+    return json({ ok: true }, 200, cors);
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
+
 async function useCount(request, env, cors) {
   const ok = json({ ok: true }, 200, cors);
   const origin = request.headers.get('origin') || '';
@@ -1046,6 +1122,14 @@ async function clubStats(request, env, cors) {
       views7: sumUse('pb_view', d7), shares7: sumUse('pb_share', d7),
     };
   } catch (e) { out.peoplesBag = null; }
+  // Clubhouse keys: how many golfers can get back in, and co-organisers.
+  try {
+    await ckSetup(env);
+    out.keys = { keys: await one('SELECT COUNT(*) AS c FROM ck_keys'), vaults: await one('SELECT COUNT(*) AS c FROM ck_vault'),
+      made7: sumUse('ck_made', d7), restored30: sumUse('ck_restored', d30),
+      orgs: await one('SELECT COUNT(*) AS c FROM soc_socs'), orgKeys: await one('SELECT COUNT(*) AS c FROM soc_socs s JOIN ck_keys k ON k.pid = s.pid'),
+      co: await one('SELECT COUNT(*) AS c FROM soc_socs WHERE co IS NOT NULL') };
+  } catch (e) { out.keys = null; }
   // Shot Saver: anonymous counts only (golfers a day who looked, added a round, shared).
   out.shotSaver = { views7: sumUse('ss_view', d7), views30: sumUse('ss_view', d30), rounds7: sumUse('ss_round', d7),
     rounds30: sumUse('ss_round', d30), shares7: sumUse('ss_share', d7), saved30: sumUse('ms_saved', d30) };
@@ -1653,6 +1737,9 @@ async function socSetup(env) {
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_results (event TEXT, mkey TEXT, pts INTEGER, back INTEGER, PRIMARY KEY (event, mkey)) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_reports (event TEXT PRIMARY KEY, extras TEXT, prize TEXT, published TEXT) WITHOUT ROWID'),
   ]);
+  // Co-organiser (added Nov 2026): a second member who can run the society too.
+  try { await env.DEMAND.prepare('ALTER TABLE soc_socs ADD COLUMN co TEXT').run(); } catch (e) { /* already there */ }
+  await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_handback (token TEXT PRIMARY KEY, soc TEXT, exp INTEGER) WITHOUT ROWID').run();
   // County for Find a Society (added Oct 2026): add the column once; it already exists after that.
   try { await env.DEMAND.prepare('ALTER TABLE soc_socs ADD COLUMN county TEXT').run(); } catch (e) { /* already there */ }
   socReady = true;
@@ -1694,6 +1781,9 @@ async function society(request, url, env, cors) {
   if (request.method === 'POST' && path === '/soc/rsvp') return await hqRsvp(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/paid') return await hqPaid(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/remove') return await hqRemove(env, body, pid, cors);
+  if (request.method === 'POST' && path === '/soc/coorg') return await hqCoOrg(env, body, pid, cors);
+  if (request.method === 'POST' && path === '/soc/handback') return await hqHandback(env, body, pid, cors);
+  if (request.method === 'POST' && path === '/soc/claim') return await hqClaim(env, body, pid, request, cors);
   if (path === '/soc/fg') return await fgGet(env, String(url.searchParams.get('e') || ''), pid, cors);
   if (path === '/soc/scores') return await fgScores(env, String(url.searchParams.get('e') || ''), pid, cors);
   if (request.method === 'POST' && path === '/soc/results') return await fgSave(env, body, pid, cors);
@@ -1820,6 +1910,9 @@ const SOC_RX = /^[a-hj-km-np-z2-9]{8}$/;
 const PAY_RX = /^https:\/\/(www\.)?(paypal\.me|monzo\.me|revolut\.me|paypal\.com\/paypalme)\/[A-Za-z0-9_.\-\/]{1,60}$/;
 const DAY_RX = /^\d{4}-\d{2}-\d{2}$/;
 function hqDay() { return new Date().toISOString().slice(0, 10); }
+// The organiser, or the co-organiser they picked.
+function socOrg(s, pid) { return !!(s && pid && (pid === s.pid || (s.co && pid === s.co))); }
+function evOrg(e, pid) { return !!(e && pid && (pid === e.org || (e.co && pid === e.co))); }
 async function hqSoc(env, id) { return SOC_RX.test(id) ? await env.DEMAND.prepare('SELECT * FROM soc_socs WHERE id = ?').bind(id).first() : null; }
 async function hqTouch(env, id) { await env.DEMAND.prepare('UPDATE soc_socs SET updated = ? WHERE id = ?').bind(hqDay(), id).run(); }
 function hqFields(body) {
@@ -1899,7 +1992,7 @@ async function hqLeagueReq(env, body, pid, cors) {
 }
 async function hqEdit(env, body, pid, cors) {
   const s = await hqSoc(env, String(body.s || ''));
-  if (!s || !pid || s.pid !== pid) return json({ ok: false, error: 'Only the organiser can change the society.' }, 403, cors);
+  if (!s || !socOrg(s, pid)) return json({ ok: false, error: 'Only the organiser can change the society.' }, 403, cors);
   const f = hqFields(body);
   if (f.error) return json({ ok: false, error: f.error }, 400, cors);
   await env.DEMAND.prepare('UPDATE soc_socs SET name = ?, area = ?, about = ?, pay = ?, open = ?, county = ?, updated = ? WHERE id = ?').bind(f.name, f.area, f.about, f.pay, f.open, f.county, hqDay(), s.id).run();
@@ -1910,9 +2003,11 @@ async function hqGet(env, id, pid, cors) {
   if (!s) return json({ ok: false, error: 'We couldn’t find that society. Ask the organiser for a fresh link.' }, 404, cors);
   const members = (await env.DEMAND.prepare('SELECT pid, mkey, nick, joined FROM soc_members WHERE soc = ? ORDER BY joined, nick').bind(s.id).all()).results || [];
   const me = members.find((m) => pid && m.pid === pid);
-  const organiser = !!pid && pid === s.pid;
+  const organiser = socOrg(s, pid);
   const founding = (await env.DEMAND.prepare('SELECT n FROM soc_founding WHERE soc = ?').bind(s.id).first('n')) || 0;
-  const base = { ok: true, id: s.id, name: s.name, area: s.area, county: s.county || '', about: s.about, open: !!s.open, count: members.length, founding, organiser, member: !!me };
+  const coM = s.co ? members.find((m) => m.pid === s.co) : null;
+  const base = { ok: true, id: s.id, name: s.name, area: s.area, county: s.county || '', about: s.about, open: !!s.open, count: members.length, founding, organiser, member: !!me,
+    lead: !!pid && pid === s.pid, co: !!pid && !!s.co && pid === s.co, coNick: organiser && coM ? coM.nick : null, coKey: organiser && coM ? coM.mkey : null };
   if (!me) return json(base, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
   const since = new Date(Date.now() - 60 * 864e5).toISOString().slice(0, 10);
   const events = (await env.DEMAND.prepare('SELECT * FROM soc_events WHERE soc = ? AND day >= ? ORDER BY day').bind(s.id, since).all()).results || [];
@@ -1924,7 +2019,7 @@ async function hqGet(env, id, pid, cors) {
   if (ids.length) (((await env.DEMAND.prepare(`SELECT event FROM soc_reports WHERE event IN (${ids.map(() => '?').join(',')})`).bind(...ids).all()).results) || []).forEach((r) => { reported[r.event] = 1; });
   const out = Object.assign(base, {
     you: me.mkey, pay: s.pay,
-    members: members.map((m) => ({ m: m.mkey, nick: m.nick, organiser: m.pid === s.pid })),
+    members: members.map((m) => ({ m: m.mkey, nick: m.nick, organiser: m.pid === s.pid, co: !!s.co && m.pid === s.co })),
     events: events.map((e) => ({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, cap: e.cap, deadline: e.deadline, notes: e.notes, report: !!reported[e.id],
       entries: entries.filter((x) => x.event === e.id && nickOf[x.mkey]).map((x) => ({ m: x.mkey, nick: nickOf[x.mkey], status: x.status, paid: !!x.paid, at: x.at })) })),
   });
@@ -1968,23 +2063,73 @@ async function hqLeave(env, body, pid, cors) {
     env.DEMAND.prepare('DELETE FROM soc_entries WHERE mkey = ?').bind(mk),
     env.DEMAND.prepare('DELETE FROM soc_members WHERE soc = ? AND pid = ?').bind(s.id, pid),
   ]);
+  if (s.co === pid) await env.DEMAND.prepare('UPDATE soc_socs SET co = NULL WHERE id = ?').bind(s.id).run();
   return json({ ok: true }, 200, cors);
 }
 async function hqRemove(env, body, pid, cors) {
   const s = await hqSoc(env, String(body.s || ''));
-  if (!s || !pid || s.pid !== pid) return json({ ok: false, error: 'Only the organiser can remove members.' }, 403, cors);
+  if (!s || !socOrg(s, pid)) return json({ ok: false, error: 'Only the organiser can remove members.' }, 403, cors);
   const mk = String(body.m || '');
   const m = await env.DEMAND.prepare('SELECT pid FROM soc_members WHERE soc = ? AND mkey = ?').bind(s.id, mk).first('pid');
   if (!m || m === s.pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  if (m === s.co) await env.DEMAND.prepare('UPDATE soc_socs SET co = NULL WHERE id = ?').bind(s.id).run();
   await env.DEMAND.batch([
     env.DEMAND.prepare('DELETE FROM soc_entries WHERE mkey = ?').bind(mk),
     env.DEMAND.prepare('DELETE FROM soc_members WHERE soc = ? AND mkey = ?').bind(s.id, mk),
   ]);
   return json({ ok: true }, 200, cors);
 }
+/* Co-organiser: the organiser picks a member who can run the society with
+   them. If the organiser loses their phone and their Clubhouse key, the
+   co-organiser sends them a one-time hand-back link (24 hours) that moves the
+   organiser role, with their member place, entries and paid ticks, to the new
+   phone. The co-organiser can't use the link themselves. */
+async function hqCoOrg(env, body, pid, cors) {
+  const s = await hqSoc(env, String(body.s || ''));
+  if (!s || !pid || s.pid !== pid) return json({ ok: false, error: 'Only the organiser can pick a co-organiser.' }, 403, cors);
+  const mk = String(body.m || '');
+  if (!mk) { await env.DEMAND.prepare('UPDATE soc_socs SET co = NULL WHERE id = ?').bind(s.id).run(); return json({ ok: true }, 200, cors); }
+  const m = await env.DEMAND.prepare('SELECT pid FROM soc_members WHERE soc = ? AND mkey = ?').bind(s.id, mk).first('pid');
+  if (!m || m === s.pid) return json({ ok: false, error: 'Pick another member of the society.' }, 400, cors);
+  await env.DEMAND.prepare('UPDATE soc_socs SET co = ? WHERE id = ?').bind(m, s.id).run();
+  await hqTouch(env, s.id);
+  return json({ ok: true }, 200, cors);
+}
+async function hqHandback(env, body, pid, cors) {
+  const s = await hqSoc(env, String(body.s || ''));
+  if (!s || !pid || !s.co || s.co !== pid) return json({ ok: false, error: 'Only the co-organiser can send a hand-back link.' }, 403, cors);
+  const now = Date.now();
+  await env.DEMAND.prepare('DELETE FROM soc_handback WHERE exp < ? OR soc = ?').bind(now, s.id).run();
+  const token = socCode(16);
+  await env.DEMAND.prepare('INSERT INTO soc_handback (token, soc, exp) VALUES (?, ?, ?)').bind(token, s.id, now + 24 * 3600 * 1000).run();
+  return json({ ok: true, token, name: s.name }, 200, cors);
+}
+async function hqClaim(env, body, pid, request, cors) {
+  const ip = request.headers.get('cf-connecting-ip') || '';
+  if (await tooMany('handback-' + ip, 10, 600)) return json({ ok: false, error: 'Too many tries. Please wait ten minutes.' }, 429, cors);
+  const token = String(body.t || '');
+  if (!pid || !/^[a-z0-9]{16}$/.test(token)) return json({ ok: false, error: 'That link doesn’t look right. Ask your co-organiser for a fresh one.' }, 400, cors);
+  const row = await env.DEMAND.prepare('SELECT soc FROM soc_handback WHERE token = ? AND exp >= ?').bind(token, Date.now()).first();
+  if (!row) return json({ ok: false, error: 'That link has run out or been used. Ask your co-organiser for a fresh one.' }, 404, cors);
+  const s = await hqSoc(env, row.soc);
+  if (!s) return json({ ok: false, error: 'We couldn’t find that society.' }, 404, cors);
+  if (pid === s.co) return json({ ok: false, error: 'This link is for the organiser’s new phone. Send it to them on WhatsApp.' }, 400, cors);
+  const db = env.DEMAND, old = s.pid;
+  if (pid !== old) {
+    const mine = await db.prepare('SELECT mkey FROM soc_members WHERE soc = ? AND pid = ?').bind(s.id, pid).first('mkey');
+    const steps = [];
+    // Rejoined as a member on the new phone already? That place goes; the organiser's own comes back.
+    if (mine) steps.push(db.prepare('DELETE FROM soc_entries WHERE mkey = ?').bind(mine), db.prepare('DELETE FROM soc_members WHERE soc = ? AND pid = ?').bind(s.id, pid));
+    steps.push(db.prepare('UPDATE soc_members SET pid = ? WHERE soc = ? AND pid = ?').bind(pid, s.id, old),
+      db.prepare('UPDATE soc_socs SET pid = ?, updated = ? WHERE id = ?').bind(pid, hqDay(), s.id));
+    await db.batch(steps);
+  }
+  await db.prepare('DELETE FROM soc_handback WHERE token = ?').bind(token).run();
+  return json({ ok: true, id: s.id, name: s.name }, 200, cors);
+}
 async function hqEvent(env, body, pid, cors) {
   const s = await hqSoc(env, String(body.s || ''));
-  if (!s || !pid || s.pid !== pid) return json({ ok: false, error: 'Only the organiser can change the fixtures.' }, 403, cors);
+  if (!s || !socOrg(s, pid)) return json({ ok: false, error: 'Only the organiser can change the fixtures.' }, 403, cors);
   const eid = String(body.e || '');
   if (body.del) {
     if (!SOC_RX.test(eid)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
@@ -2018,7 +2163,7 @@ async function hqEvent(env, body, pid, cors) {
 }
 async function hqEventFor(env, eid, pid) {
   if (!SOC_RX.test(eid) || !pid) return null;
-  const e = await env.DEMAND.prepare('SELECT e.*, s.pid AS org FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE e.id = ?').bind(eid).first();
+  const e = await env.DEMAND.prepare('SELECT e.*, s.pid AS org, s.co AS co FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE e.id = ?').bind(eid).first();
   if (!e) return null;
   const me = await env.DEMAND.prepare('SELECT mkey FROM soc_members WHERE soc = ? AND pid = ?').bind(e.soc, pid).first('mkey');
   return me ? Object.assign(e, { me }) : null;
@@ -2031,7 +2176,7 @@ async function hqRsvp(env, body, pid, cors) {
   // The organiser can put someone down (e.g. after a phone call); everyone else only themselves.
   let who = e.me;
   if (body.m && body.m !== e.me) {
-    if (e.org !== pid) return json({ ok: false, error: 'Only the organiser can change someone else.' }, 403, cors);
+    if (!evOrg(e, pid)) return json({ ok: false, error: 'Only the organiser can change someone else.' }, 403, cors);
     const ok = await env.DEMAND.prepare('SELECT mkey FROM soc_members WHERE soc = ? AND mkey = ?').bind(e.soc, String(body.m)).first('mkey');
     if (!ok) return json({ ok: false, error: 'Bad request.' }, 400, cors);
     who = ok;
@@ -2056,7 +2201,7 @@ async function hqRsvp(env, body, pid, cors) {
 }
 async function hqPaid(env, body, pid, cors) {
   const e = await hqEventFor(env, String(body.e || ''), pid);
-  if (!e || e.org !== pid) return json({ ok: false, error: 'Only the organiser can tick who’s paid.' }, 403, cors);
+  if (!e || !evOrg(e, pid)) return json({ ok: false, error: 'Only the organiser can tick who’s paid.' }, 403, cors);
   const mk = String(body.m || '');
   const r = await env.DEMAND.prepare('UPDATE soc_entries SET paid = ? WHERE event = ? AND mkey = ?').bind(body.paid ? 1 : 0, e.id, mk).run();
   if (!(r.meta && r.meta.changes)) {
@@ -2097,7 +2242,7 @@ async function fgHistory(env, soc) {
 async function fgGet(env, eid, pid, cors) {
   if (!SOC_RX.test(eid)) return json({ ok: false, error: 'That link doesn’t look right.' }, 400, cors);
   const db = env.DEMAND;
-  const e = await db.prepare('SELECT e.*, s.name AS sname, s.pid AS org FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE e.id = ?').bind(eid).first();
+  const e = await db.prepare('SELECT e.*, s.name AS sname, s.pid AS org, s.co AS co FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE e.id = ?').bind(eid).first();
   if (!e) return json({ ok: false, error: 'We couldn’t find that society day. Ask the organiser for a fresh link.' }, 404, cors);
   const members = (await db.prepare('SELECT pid, mkey, nick FROM soc_members WHERE soc = ?').bind(e.soc).all()).results || [];
   const nick = {}; members.forEach((m) => { nick[m.mkey] = m.nick; });
@@ -2125,7 +2270,7 @@ async function fgGet(env, eid, pid, cors) {
   }));
   const oom = Object.values(oomRows).sort((a, b) => b.pts - a.pts || b.wins - a.wins).slice(0, 10);
   const base = { ok: true, id: eid, soc: { id: e.soc, name: e.sname }, title: e.title, venue: e.venue, day: e.day, tee: e.tee,
-    organiser: !!pid && pid === e.org, member: !!mine, season, oom, events: hist.length };
+    organiser: evOrg(e, pid), member: !!mine, season, oom, events: hist.length };
   try { const lg = await db.prepare('SELECT region, division, season FROM lg_entries WHERE soc = ? AND hidden = 0').bind(e.soc).first(); if (lg) base.league = lg; } catch (err) { /* no league yet */ }
 
   if (!report) {
@@ -2182,14 +2327,14 @@ async function fgGet(env, eid, pid, cors) {
 // The organiser's own copy of the scores, to edit them.
 async function fgScores(env, eid, pid, cors) {
   const e = await hqEventFor(env, eid, pid);
-  if (!e || e.org !== pid) return json({ ok: false, error: 'Only the organiser can enter the results.' }, 403, cors);
+  if (!e || !evOrg(e, pid)) return json({ ok: false, error: 'Only the organiser can enter the results.' }, 403, cors);
   const rows = (await env.DEMAND.prepare('SELECT mkey AS m, pts, back FROM soc_results WHERE event = ?').bind(e.id).all()).results || [];
   const rep = await env.DEMAND.prepare('SELECT extras, prize FROM soc_reports WHERE event = ?').bind(e.id).first();
   return json({ ok: true, rows, extras: rep ? JSON.parse(rep.extras || '{}') : null, prize: rep && rep.prize ? '/societies/prize/?t=' + rep.prize : null }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
 }
 async function fgSave(env, body, pid, cors) {
   const e = await hqEventFor(env, String(body.e || ''), pid);
-  if (!e || e.org !== pid) return json({ ok: false, error: 'Only the organiser can enter the results.' }, 403, cors);
+  if (!e || !evOrg(e, pid)) return json({ ok: false, error: 'Only the organiser can enter the results.' }, 403, cors);
   if (e.day > hqDay()) return json({ ok: false, error: 'You can enter results on the day, or after it.' }, 400, cors);
   const db = env.DEMAND;
   const mem = {}; (((await db.prepare('SELECT mkey, nick FROM soc_members WHERE soc = ?').bind(e.soc).all()).results) || []).forEach((m) => { mem[m.mkey] = m.nick; });
@@ -2240,7 +2385,7 @@ async function fgSave(env, body, pid, cors) {
 }
 async function fgUnpublish(env, body, pid, cors) {
   const e = await hqEventFor(env, String(body.e || ''), pid);
-  if (!e || e.org !== pid) return json({ ok: false, error: 'Only the organiser can do that.' }, 403, cors);
+  if (!e || !evOrg(e, pid)) return json({ ok: false, error: 'Only the organiser can do that.' }, 403, cors);
   await env.DEMAND.batch([
     env.DEMAND.prepare('DELETE FROM soc_results WHERE event = ?').bind(e.id),
     env.DEMAND.prepare('DELETE FROM soc_reports WHERE event = ?').bind(e.id),
@@ -2364,11 +2509,11 @@ async function nationalLeague(request, url, env, cors) {
     const s = await hqSoc(env, String(url.searchParams.get('s') || ''));
     if (!s) return json({ ok: false, error: 'Bad request.' }, 400, cors);
     const e = await db.prepare('SELECT region, division, allowance, public, champ, entered FROM lg_entries WHERE soc = ? AND season = ? AND hidden = 0').bind(s.id, LG_SEASON).first();
-    return json({ ok: true, season: LG_SEASON, open: hqDay() >= LG_SEASON + '-02-01', regions: LG_REGIONS, entry: e || null, organiser: !!pid && pid === s.pid }, 200, noStore);
+    return json({ ok: true, season: LG_SEASON, open: hqDay() >= LG_SEASON + '-02-01', regions: LG_REGIONS, entry: e || null, organiser: socOrg(s, pid) }, 200, noStore);
   }
   if (path === '/lg/enter' && request.method === 'POST') {
     const s = await hqSoc(env, String(body.s || ''));
-    if (!s || !pid || s.pid !== pid) return json({ ok: false, error: 'Only the organiser can enter the society.' }, 403, cors);
+    if (!s || !socOrg(s, pid)) return json({ ok: false, error: 'Only the organiser can enter the society.' }, 403, cors);
     const region = String(body.region || ''), allowance = Number(body.allowance) === 100 ? 100 : 95;
     if (!LG_REGIONS.includes(region)) return json({ ok: false, error: 'Pick your region.' }, 400, cors);
     if (hqDay() > `${LG_SEASON}-${LG_LAST}-01`) return json({ ok: false, error: 'This season’s entries have closed. Next season’s open in February.' }, 400, cors);
@@ -2394,7 +2539,7 @@ async function nationalLeague(request, url, env, cors) {
   }
   if (path === '/lg/leave' && request.method === 'POST') {
     const s = await hqSoc(env, String(body.s || ''));
-    if (!s || !pid || s.pid !== pid) return json({ ok: false, error: 'Only the organiser can do that.' }, 403, cors);
+    if (!s || !socOrg(s, pid)) return json({ ok: false, error: 'Only the organiser can do that.' }, 403, cors);
     await db.prepare('DELETE FROM lg_entries WHERE soc = ? AND season = ?').bind(s.id, LG_SEASON).run();
     return json({ ok: true }, 200, cors);
   }

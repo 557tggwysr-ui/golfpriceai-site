@@ -212,6 +212,12 @@ td:first-child { font-weight: 400; }
         '<div class="nums">' + num(pb.picks, 'picks in all') + num(pb.week, 'picks this week') + num(pb.views7, 'visitors, 7 days') + num(pb.shares7, 'bags shared, 7 days') + '</div></section>';
     }
 
+    var ck = d.keys;
+    if (ck) {
+      html += '<section class="card" id="keys"><div class="head"><h2>Clubhouse keys</h2><span class="dim">' + n(ck.orgKeys) + ' of ' + n(ck.orgs) + ' organisers backed up \u00b7 ' + n(ck.co) + ' co-organisers</span></div>' +
+        '<div class="nums">' + num(ck.keys, 'golfers with a key') + num(ck.vaults, 'with a backup') + num(ck.made7, 'keys made, 7 days') + num(ck.restored30, 'Clubhouses restored, 30 days') + '</div></section>';
+    }
+
     var ss = d.shotSaver;
     if (ss) {
       html += '<section class="card" id="shot-saver"><div class="head"><h2>Shot Saver</h2><span class="dim">golfers a day, added up</span></div>' +
