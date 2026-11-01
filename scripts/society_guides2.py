@@ -64,7 +64,7 @@ def table(head, rows, cls="gd-table"):
 # ---------------------------------------------------------------- 1. how to run a golf society
 def run_guide(today):
     sections = [
-        ("start", "Start a golf society in five steps", steps([
+        ("start", "Start a golf society in five steps", "<p>Starting from scratch? Our <a href=\"/societies/guides/how-to-start-a-golf-society/\">step-by-step guide to starting a golf society</a> covers names, numbers and your first 30 days.</p>" + steps([
             ("Decide who it’s for.", "Mates from work, the pub or the school gate? Fix how often you’ll play (monthly from April to September suits most golf societies), whether you need an official handicap to join, and roughly how many golfers you’re aiming for. Sixteen to 24 is a comfortable number for booking society rates."),
             ("Write a short set of rules.", "Fees, how payment works, what happens if someone drops out, how handicaps work and how ties are settled. Our <a href=\"/societies/guides/golf-society-rules-template/\">golf society rules template</a> is ready to copy into your WhatsApp group."),
             ("Set the society fee.", "Most golf societies charge the green fee and food at cost, plus a small society entry (often £5 to £15) for prizes, the trophy fund and the odd drop-out. The <a href=\"/societies/guides/how-much-to-charge-for-a-golf-society-day/\">society day cost guide</a> has a calculator."),
@@ -99,6 +99,66 @@ def run_guide(today):
                  "To run a golf society, agree a few simple rules, book venues months ahead at society rates, collect money before each day and keep sign-ups, payments and results in one place. Most golf societies play monthly Stableford from April to September and finish with an awards night.",
                  "How to run a golf society in the UK: starting one, booking golf clubs, collecting money, running a society day, results and the awards night. Free tools included.",
                  sections, faqs, ctas)
+
+
+# ---------------------------------------------------------------- 0. start a golf society
+def start_guide(today):
+    sections = [
+        ("steps", "How to start a golf society in 8 steps", steps([
+            ("Get your first four-ball together.", "Every golf society starts with three or four golfers who fancy playing together more often. Mates from work, the pub, the gym or the school gate are the usual beginnings. Start a WhatsApp group with them: that’s your society’s home from day one."),
+            ("Pick a name.", "Something your members will happily say out loud in a clubhouse. Ideas are <a href=\"#names\">further down this page</a>."),
+            ("Decide how often you’ll play.", "Monthly from April to September suits most golf societies, with a trip or a winter day if there’s appetite. Fix the day of the week early (Saturday mornings and Friday afternoons are the usual favourites) so members can plan around it."),
+            ("Agree how handicaps work.", "Members with an official handicap index use it. For everyone else, a society handicap from a few scores does the job. In England, golfers who aren’t club members can get an official handicap through England Golf’s iGolf scheme. Our guide to <a href=\"/societies/guides/golf-society-handicap-systems/\">golf society handicap systems</a> covers the options."),
+            ("Write five simple rules.", "Fees, paying before the day, drop-outs, handicaps and ties. Copy our <a href=\"/societies/guides/golf-society-rules-template/\">golf society rules template</a> into the group and change what you like."),
+            ("Set the money side.", "Members pay the green fee and food at cost, plus a small society entry (often £5 to £15) for prizes and the trophy fund. The <a href=\"/societies/guides/how-much-to-charge-for-a-golf-society-day/\">society day cost guide</a> has a calculator. Collect before the day: “not paid, not playing” saves every argument."),
+            ("Book your first golf day.", "Ring or email two or three clubs and ask for their society package. Most want a minimum number (we’ve seen 8, 12 and 16 in published 2026 society rates), a deposit and final numbers a week or two before. Spring and summer dates go first, so book months ahead."),
+            ("Put it all in one link.", "Start your society in <a href=\"/societies/hq/\">Society HQ</a> (free, about two minutes) and send the link to the group. Members tap in, out or maybe, the waiting list sorts itself, you tick who’s paid, and every golf day gets its own Form Guide preview and report."),
+        ])),
+        ("first30", "Your first 30 days, week by week", table(["When", "What to do"], [
+            ["Week 1", "WhatsApp group set up, name picked, Society HQ started and the link sent to the group. Ask everyone to invite one golfer."],
+            ["Week 2", "Rules and fees agreed in the group. Handicaps collected. Two or three clubs asked for society packages."],
+            ["Week 3", "First venue booked and the deposit paid. The golf day added to Society HQ, so members can say they’re in."],
+            ["Week 4", "Chase payments, send final numbers to the club, mix the groups and send tee times the night before. Then play."],
+        ])),
+        ("size", "How big should a golf society be?", "<p>A golf society can be a single four-ball. But most golf clubs’ society rates need a minimum group, commonly between 8 and 16 golfers, and some golfers always drop out. So <b>aim for 16 to 24 members</b> to fill 12 to 16 places on a typical society day. Bigger is fine: Society HQ’s waiting list moves the next golfer up automatically when someone drops out.</p>"),
+        ("names", "Golf society name ideas", "<p>The best golf society names are short, a bit cheeky and easy to say in a clubhouse. Some ideas to steal or adapt:</p>" +
+            table(["Style", "Ideas"], [
+                ["Place names", "The [Town] Bandits · [Pub name] Golf Society · [Street] Swingers · The [Area] Hackers"],
+                ["Days of the week", "The Sunday Club · Friday Afternoon Society · The Thursday Rabble · The Saturday Swingers"],
+                ["Self-deprecating", "The Fairway Strangers · Out of Bounds GS · The Provisional Society · Three-Putt Thursday"],
+                ["Pub-ready", "The 19th Hole Club · Bogey and Beer · The Mulligan Arms · Last Group Out"],
+                ["Proper-sounding", "The [Founder’s surname] Cup Society · [Town] Wanderers GS · The Corinthians"],
+            ]) + "<p>Check nobody local already uses it, and that it still sounds alright when it’s engraved on a trophy.</p>"),
+        ("invite", "A message to invite your first members", "<p>Copy this into WhatsApp, add your society’s Society HQ link and send it:</p>"
+            "<blockquote class=\"gd-quote\">Right then, I’m starting a golf society. One golf day a month from April, Stableford, proper prizes and a trophy nobody wants to give back. All abilities, handicap or not. It’s all on one link: fixtures, who’s in and who’s paid. Tap it, pick a nickname, done. [YOUR SOCIETY HQ LINK]</blockquote>"),
+        ("mistakes", "Mistakes new golf society organisers make", steps([
+            ("Paying the club before the members pay you.", "You end up chasing money for months. Collect first."),
+            ("Booking too late.", "The best spring and summer dates at good-value clubs go months ahead."),
+            ("No rule for drop-outs.", "Decide up front whether late drop-outs pay. Most societies say yes after final numbers have gone to the club."),
+            ("Doing it all yourself.", "Pick someone to help: results, the trophy, the WhatsApp banter. In Society HQ, make them co-organiser."),
+            ("Making it too serious.", "Keep the rules short and the prizes fun. The <a href=\"/societies/guides/golf-society-awards-ideas/\">awards night</a> is half the point."),
+        ])),
+        ("next", "Once you’re up and running", "<p>Run every golf day from Society HQ, then post the scores to get a <a href=\"/societies/form-guide/\">Form Guide</a> report with the leaderboard and an Order of Merit. Enter your society in the <a href=\"/societies/league/\">National Society League</a> (free, 2027 season) for a regional table with promotion and relegation. List your golf society in <a href=\"/societies/find/\">Find a Society</a> if you’re looking for new members. When the season ends, the <a href=\"/societies/awards/\">Awards Night Kit</a> does the trophies and lets winners pick their own prizes. For the season-long view, read <a href=\"/societies/guides/how-to-run-a-golf-society/\">how to run a golf society</a>.</p>"),
+    ]
+    faqs = [
+        ("How do I start a golf society?", "Get three or four golfers together in a WhatsApp group, pick a name, agree how often you’ll play, how handicaps work and what it costs, then book your first golf day at a club’s society rate. A free organiser like Society HQ keeps fixtures, sign-ups and who’s paid in one link."),
+        ("How many people do you need to start a golf society?", "You can start with four. To get golf clubs’ society rates, which commonly need between 8 and 16 golfers on the day, aim for 16 to 24 members."),
+        ("Do you need to be a golf club member to start a golf society?", "No. Golf societies are groups of golfers who play together at different courses, and most members of most societies don’t belong to a club. Clubs welcome societies as visitors at society rates."),
+        ("Do golf society members need an official handicap?", "Not usually. Members with an official handicap index use it, and the society gives everyone else a society handicap. In England, golfers without a club can get an official handicap through England Golf’s iGolf scheme."),
+        ("How much does it cost to start a golf society?", "Nothing. Setting up the WhatsApp group and Society HQ is free. Members pay each golf day’s green fee and food at cost, plus a small society entry for prizes."),
+        ("Does a golf society need insurance or a bank account?", "Neither is required to start. Ask each golf club what it needs from a visiting society, and decide as a group whether you want a separate account for the society’s money once it grows."),
+    ]
+    ctas = '<div class="soc-btns"><a class="soc-btn" href="/societies/hq/">Start your golf society free</a><a class="soc-btn2 sh-btn-dark" href="/societies/guides/golf-society-rules-template/">Get the rules template</a></div>'
+    howto = {"@context": "https://schema.org", "@type": "HowTo", "name": "How to start a golf society",
+             "description": "Start a golf society in the UK in eight steps, from your first four-ball to your first golf day.",
+             "totalTime": "P30D", "step": [{"@type": "HowToStep", "position": i + 1, "name": n} for i, n in enumerate([
+                 "Get your first four-ball together", "Pick a name", "Decide how often you’ll play", "Agree how handicaps work",
+                 "Write five simple rules", "Set the money side", "Book your first golf day", "Put it all in one link"])]}
+    return guide(today, "how-to-start-a-golf-society", "How to start a golf society (UK)",
+                 "How to start a golf society: a step-by-step guide",
+                 "To start a golf society, get three or four golfers into a WhatsApp group, pick a name, agree how often you’ll play, how handicaps work and what it costs, then book your first golf day at a club’s society rate. Aim for 16 to 24 members, collect money before each day, and keep fixtures, sign-ups and payments in one free link.",
+                 "How to start a golf society in the UK: 8 steps from your first four-ball to your first golf day, name ideas, how many members you need, costs, handicaps and a message to invite your first members.",
+                 sections, faqs, ctas, extra_schema=[howto])
 
 
 # ---------------------------------------------------------------- 2. prize ideas
@@ -318,6 +378,7 @@ def apps_guide(today):
 
 def pages(today, bands):
     return [
+        ("how-to-start-a-golf-society", start_guide(today)),
         ("how-to-run-a-golf-society", run_guide(today)),
         ("golf-society-prize-ideas", prizes_guide(today, bands)),
         ("golf-society-handicap-systems", handicap_guide(today)),

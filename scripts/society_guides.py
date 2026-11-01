@@ -20,7 +20,7 @@ from pathlib import Path
 from price_pages import SITE, _write, breadcrumb, page_shell
 
 ROOT = Path(__file__).resolve().parent.parent
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101c">\n'
 PUBLISHED = "2026-10-24"
 F_IN_STOCK, F_USED = 2, 8
 SKIP = re.compile(r"\b(junior|juniors|kids|youth|boys|girls|ladies|lady|women'?s?|womens|personali[sz]ed|logo|practice|foam|recycled|lake|refurb|used|grade [abc]|pearl)\b", re.I)
@@ -79,6 +79,8 @@ AWARDS = [
 ALL_AWARDS = [a for _, _, group in AWARDS for a in group]
 
 GUIDES = [
+    ("how-to-start-a-golf-society", "How to start a golf society",
+     "Eight steps from your first four-ball to your first golf day: names, numbers, money, handicaps and an invite message."),
     ("how-to-run-a-golf-society", "How to run a golf society",
      "Starting a golf society, booking golf clubs, collecting money, running a society day and the season, month by month."),
     ("golf-society-awards-ideas", "Golf society awards ideas",
