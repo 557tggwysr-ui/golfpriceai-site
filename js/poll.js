@@ -30,7 +30,7 @@
     window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener');
   }
   function day(iso, long) { return new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { timeZone: 'UTC', weekday: 'short', day: 'numeric', month: long ? 'long' : 'short' }); }
-  function when(iso) { var d = new Date(iso); return d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }) + ', ' + d.toLocaleTimeString('en-GB', { hour: 'numeric', minute: '2-digit' }).replace(':00', '').replace(' ', ''); }
+  function when(iso) { var d = new Date(iso), h = d.getHours(), m = d.getMinutes(); return d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }).replace(',', '') + ', ' + (h % 12 || 12) + (m ? ':' + ('0' + m).slice(-2) : '') + (h < 12 ? 'am' : 'pm'); }
   function list(a) { return a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1]; }
   function label(o) { return o.day ? day(o.day) : o.label; }
   function link(p) { return SITE + (p.soc ? '/societies/poll/' : '/play/poll/') + '?p=' + p.id; }
@@ -136,22 +136,28 @@
 
   /* ------------------------------------------------------------ vote and results */
   var P = null, sel = {}, ans = {};
+  // WhatsApp messages: *bold*, _italic_, one item a line, and the link on its own line so the preview card shows.
+  function head(p) { return '*' + (p.soc ? p.soc.name.toUpperCase() + ' · ' : 'GOLF GROUP · ') + (p.kind === 'date' ? 'FIND A DATE' : 'POLL') + '*\n*' + p.q + '*'; }
+  function bar(n, max) { var f = max ? Math.round(n / max * 8) : 0; if (n && !f) f = 1; return new Array(f + 1).join('▰') + new Array(9 - f).join('▱'); }
   function invite(p) {
-    var opts = p.options.map(label);
-    if (p.kind === 'date') return 'Right then. ' + p.q + ' Which of these can you make: ' + list(opts) + '? Tap yes, maybe or no here (closes ' + when(p.closes) + '): ' + link(p);
-    return 'Right then. ' + p.q + ' ' + list(opts) + (p.multi ? ' (pick as many as you like)' : '') + '. Vote here, one tap (closes ' + when(p.closes) + '): ' + link(p);
+    var lines = p.options.map(function (o, i) { return (p.kind === 'date' ? '▸ ' + day(o.day) : (i + 1) + '. ' + o.label + (o.town ? ' _(' + o.town + ')_' : '')); });
+    return head(p) + '\n\n' + (p.kind === 'date' ? 'Which days can you make?\n' : '') + lines.join('\n') + '\n\n' +
+      (p.kind === 'date' ? 'Tap yes, maybe or no for each day:' : p.multi ? 'Pick as many as you like, one tap each:' : 'Vote in one tap:') + '\n' + link(p) +
+      '\n\n_Closes ' + when(p.closes) + '. Results update live._';
   }
   function standings(p) {
     return p.options.slice().sort(function (a, b) { return (b.yes + b.maybe / 2) - (a.yes + a.maybe / 2) || a.oid - b.oid; });
   }
   function resultsText(p) {
-    var s = standings(p);
-    if (p.kind === 'date') {
-      var top = s[0];
-      return (p.closed ? 'Poll closed: ' : 'So far: ') + p.q + ' ' + (top && top.yes ? day(top.day, true) + ' works for ' + top.yes + (top.maybe ? ' (+' + top.maybe + ' maybe)' : '') + '. ' : '') +
-        s.slice(0, 4).map(function (o) { return day(o.day) + ' ' + o.yes + (o.maybe ? '+' + o.maybe + '?' : ''); }).join(', ') + '. ' + (p.closed ? '' : 'Not answered yet? ' + link(p));
-    }
-    return (p.closed ? 'Poll closed: ' : 'So far: ') + p.q + ' ' + s.map(function (o) { return label(o) + ' ' + o.yes; }).join(', ') + '. ' + (p.closed ? (s[0] && s[0].yes ? label(s[0]) + ' it is.' : '') : 'Not voted yet? One tap: ' + link(p));
+    var s = standings(p), max = Math.max.apply(null, s.map(function (o) { return o.yes; }).concat([0])), top = s[0];
+    var count = p.total ? p.voters + ' of ' + p.total + ' answered' : p.voters + (p.voters === 1 ? ' answer' : ' answers');
+    var rows = s.slice(0, 8).map(function (o) { return bar(o.yes, max) + ' *' + o.yes + '* ' + (p.kind === 'date' ? day(o.day) + (o.maybe ? ' _(+' + o.maybe + ' maybe)_' : '') : o.label); });
+    var lead = top && top.yes ? (p.kind === 'date' ? '*' + day(top.day, true) + '* works for the most' + (p.closed ? '.' : ' so far.') : (p.closed ? '*' + label(top) + ' it is.*' : '*' + label(top) + '* leads.')) : '';
+    return head(p) + '\n_' + (p.closed ? 'Final result' : 'Results so far') + ' · ' + count + '_\n\n' + rows.join('\n') + (lead ? '\n\n' + lead : '') +
+      (p.closed ? '' : '\n\nNot answered yet? One tap:\n' + link(p) + '\n_Closes ' + when(p.closes) + '._');
+  }
+  function nudge(p) {
+    return '*Still to answer:* ' + list(p.waiting) + '\n\n' + p.q + '\nIt takes ten seconds:\n' + link(p) + '\n\n_Closes ' + when(p.closes) + '._';
   }
   function bars(p) {
     var s = standings(p), max = Math.max(1, s[0] ? s[0].yes : 0);
@@ -228,7 +234,7 @@
     box.querySelectorAll('[data-ans]').forEach(function (b) { b.onclick = function () { var x = b.getAttribute('data-ans').split(':'); ans[+x[0]] = x[1]; paint(); }; });
     var inv = document.getElementById('pl-invite'); if (inv) inv.onclick = function () { track('poll_invite'); share(invite(p)); };
     var res = document.getElementById('pl-res'); if (res) res.onclick = function () { track('poll_results'); share(resultsText(p)); };
-    var nud = document.getElementById('pl-nudge'); if (nud) nud.onclick = function () { track('poll_nudge'); share('Still to answer: ' + list(p.waiting) + '. ' + p.q + ' One tap: ' + link(p)); };
+    var nud = document.getElementById('pl-nudge'); if (nud) nud.onclick = function () { track('poll_nudge'); share(nudge(p)); };
     var sug = document.getElementById('pl-suggest');
     if (sug) sug.onclick = function () {
       var row = document.getElementById('pl-addrow');

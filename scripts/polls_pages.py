@@ -9,7 +9,7 @@ Both are filled by js/poll.js from the alerts worker (/pl/...). Nicknames only.
 from price_pages import SITE, _write, breadcrumb, page_shell
 
 CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101f">\n<link rel="stylesheet" href="/css/poll.css?v=20261101a">\n'
-JS = '<script src="/js/poll.js?v=20261101a" defer></script>'
+JS = '<script src="/js/poll.js?v=20261101b" defer></script>'
 FAQS = [
     ("Is it free?", "Yes. No sign-up, no app and no fees. Start a poll, send one link to the group chat, and everyone answers in one tap."),
     ("What can we vote on?", "Anything with options: where to play next, the trip, the format, the end-of-season do. Or use “Find a date” and everyone ticks yes, maybe or no for each day, so you can see which day works for most of the group."),
@@ -54,7 +54,7 @@ def society_page():
     body = f"""<div id="pl" aria-live="polite"><p class="soc-loading" style="padding:24px 16px">Getting the poll…</p></div>
 <noscript><p>Polls need JavaScript switched on.</p></noscript>
 {JS}"""
-    return page_shell(title="Society poll | Society HQ | GolfPrice AI", description="A golf society poll from Society HQ.",
+    return page_shell(title="Your society’s poll: vote in one tap | Society HQ", description="Your golf society wants your answer. One tap to vote, results live, nicknames only.",
                       canonical=f"{SITE}/societies/poll/", body=body, section="societies", schema=[crumbs_schema],
                       noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=CSS)
 
