@@ -88,7 +88,122 @@
     if (bird) s += ' ' + bird.txt.replace(/ \d+ points and a smug face\./, ' and won’t stop talking about it.');
     return s + ' Live: ' + url;
   }
+  // Once a round is final: each golfer's stats and the full card.
+  function cardStats(d) {
+    if (!d.pars || !d.rows.length || !d.rows[0].holes) return null;
+    return d.rows.map(function (r) {
+      var o = { nick: r.nick, pos: r.pos, tie: r.tie, pts: r.pts, gross: 0, pickups: 0, front: 0, back: 0, birdies: 0, pars: 0, blobs: 0, best: 0, bestPts: -1, holes: r.holes, played: 0 };
+      for (var h = 1; h <= 18; h++) {
+        var st = r.holes[h]; if (st === undefined) continue;
+        var par = d.pars[h - 1], p = points(st, par, r.ph, d.si[h - 1]);
+        o.played++; if (st > 0) o.gross += st; else o.pickups++;
+        if (h <= 9) o.front += p; else o.back += p;
+        if (st > 0 && st < par) o.birdies++; else if (st === par) o.pars++;
+        if (!p) o.blobs++;
+        if (p > o.bestPts) { o.bestPts = p; o.best = h; }
+      }
+      return o;
+    });
+  }
+  function scoreCell(st, par) {
+    if (st === undefined) return '<span class="lv-c">·</span>';
+    if (st === 0) return '<span class="lv-c lv-cp" title="Picked up">–</span>';
+    var dd = st - par;
+    return '<span class="lv-c' + (dd <= -2 ? ' lv-ce' : dd === -1 ? ' lv-cb' : dd === 1 ? ' lv-cg' : dd >= 2 ? ' lv-cd' : '') + '">' + st + '</span>';
+  }
+  function grossTxt(o) { return o.played < 18 ? o.played + ' holes' : o.pickups ? 'NR' : String(o.gross); }
+  function finalHtml(d) {
+    var cs = cardStats(d); if (!cs) return '';
+    var h = '<span class="lv-kick" style="color:#2f8a1f">HOW EVERYONE PLAYED</span><div class="lv-stats">' + cs.map(function (o, i) {
+      return '<section class="lv-st' + (i === 0 ? ' is-win' : '') + '"><div class="lv-st-h"><b>' + (o.tie ? '=' : '') + o.pos + '. ' + esc(o.nick) + '</b><b class="lv-st-p">' + o.pts + ' <small>pts</small></b></div>' +
+        '<div class="lv-st-g"><span><b>' + grossTxt(o) + '</b>gross</span><span><b>' + o.front + '–' + o.back + '</b>out–in pts</span><span><b>' + o.birdies + '/' + o.pars + '</b>birdies/pars</span><span><b>' + o.blobs + '</b>blobs</span></div>' +
+        (o.bestPts > 0 ? '<small class="lv-st-n">Best hole: the ' + ord(o.best) + ', ' + o.bestPts + (o.bestPts === 1 ? ' point' : ' points') + '.' + (o.pickups ? ' Picked up on ' + o.pickups + (o.pickups === 1 ? ' hole.' : ' holes.') : '') + '</small>' : '') + '</section>';
+    }).join('') + '</div>';
+    function nine(off, label) {
+      var t = '<div class="lv-nine"><table><thead><tr><th scope="col">Hole</th>';
+      for (var i = 0; i < 9; i++) t += '<th scope="col">' + (off + i + 1) + '</th>';
+      t += '<th scope="col">' + label + '</th></tr><tr class="lv-par"><th scope="row">Par</th>';
+      var ps = 0; for (i = 0; i < 9; i++) { t += '<td>' + d.pars[off + i] + '</td>'; ps += d.pars[off + i]; }
+      t += '<td>' + ps + '</td></tr></thead><tbody>';
+      cs.forEach(function (o) {
+        var tot = 0, full = true;
+        t += '<tr><th scope="row">' + esc(nm(o.nick)) + '</th>';
+        for (var j = 0; j < 9; j++) { var st = o.holes[off + j + 1]; t += '<td>' + scoreCell(st, d.pars[off + j]) + '</td>'; if (st > 0) tot += st; else full = false; }
+        t += '<td><b>' + (full ? tot : '–') + '</b></td></tr>';
+      });
+      return t + '</tbody></table></div>';
+    }
+    h += '<section class="lv-card lv-pad"><b class="lv-h">The card</b>' + nine(0, 'Out') + nine(9, 'In') +
+      '<div class="lv-legend"><span>' + scoreCell(3, 4) + ' birdie</span><span>' + scoreCell(5, 4) + ' bogey</span><span>' + scoreCell(6, 4) + ' double or worse</span><span>' + scoreCell(0, 4) + ' picked up</span></div></section>';
+    return h;
+  }
+  // The final picture: result, a stats line each, and the card (up to eight golfers).
+  function finalImage(d) {
+    var cs = cardStats(d).slice(0, 8), n = cs.length;
+    var H = 260 + n * 74 + 20 + 2 * (92 + n * 58) + 20 + 120;
+    var cv = document.createElement('canvas'); cv.width = 1080; cv.height = Math.max(1080, H);
+    var x = cv.getContext('2d');
+    function rr(cx, cy, w, h, r) { x.beginPath(); x.moveTo(cx + r, cy); x.arcTo(cx + w, cy, cx + w, cy + h, r); x.arcTo(cx + w, cy + h, cx, cy + h, r); x.arcTo(cx, cy + h, cx, cy, r); x.arcTo(cx, cy, cx + w, cy, r); x.closePath(); }
+    function t(s, px, py, font, col, al) { x.font = font; x.fillStyle = col; x.textAlign = al || 'left'; x.fillText(s, px, py); }
+    function fit(s, max, font) { x.font = font; while (s.length > 3 && x.measureText(s).width > max) s = s.slice(0, -2) + '…'; return s; }
+    x.fillStyle = '#14211a'; x.fillRect(0, 0, cv.width, cv.height);
+    var y = 100;
+    t('Golf', 64, y, '800 40px Poppins, sans-serif', '#fff'); var w = x.measureText('Golf').width;
+    t('Price', 64 + w, y, '800 40px Poppins, sans-serif', '#5fd14a'); var w2 = x.measureText('Price').width;
+    t(' AI', 64 + w + w2, y, '800 40px Poppins, sans-serif', '#fff');
+    t('FINAL · ' + (FMT[d.fmt] || 'STABLEFORD'), 1016, y - 4, '700 22px Inter, sans-serif', '#8fd97c', 'right');
+    y += 84; t(fit(d.title, 950, '800 56px Poppins, sans-serif'), 64, y, '800 56px Poppins, sans-serif', '#fff');
+    var win = cs[0], sub = (d.society ? d.society + ' · ' : '') + nice(d.day) + ' · ' + win.nick + (win.tie ? ' shares it on ' : ' wins on ') + win.pts;
+    if (d.fmt === 'bb' && d.teams && d.teams[0]) sub = nice(d.day) + ' · ' + pair(d.teams[0].names) + ' win on ' + d.teams[0].pts;
+    if (d.fmt === 'skins' && d.skins && d.skins[0]) sub = nice(d.day) + ' · ' + d.skins[0].nick + ' takes ' + d.skins[0].n + ' skins';
+    y += 46; t(fit(sub.toUpperCase(), 950, '700 22px Inter, sans-serif'), 64, y, '700 22px Inter, sans-serif', '#8fd97c');
+    y += 30;
+    cs.forEach(function (o, i) {
+      if (i === 0) { x.fillStyle = '#1f3127'; rr(48, y, 984, 66, 16); x.fill(); }
+      t((o.tie ? '=' : '') + o.pos, 70, y + 45, '800 28px Poppins, sans-serif', i === 0 ? '#8fd97c' : '#c4d0c8');
+      t(fit(o.nick, 300, '700 28px Poppins, sans-serif'), 130, y + 45, '700 28px Poppins, sans-serif', '#fff');
+      t(grossTxt(o) + (o.played === 18 && !o.pickups ? ' gross' : ''), 600, y + 43, '500 22px Inter, sans-serif', '#c4d0c8', 'right');
+      t(o.birdies + (o.birdies === 1 ? ' birdie' : ' birdies'), 790, y + 43, '500 22px Inter, sans-serif', '#c4d0c8', 'right');
+      t(o.blobs + (o.blobs === 1 ? ' blob' : ' blobs'), 920, y + 43, '500 22px Inter, sans-serif', '#c4d0c8', 'right');
+      t(String(o.pts), 1012, y + 47, '800 34px Poppins, sans-serif', '#fff', 'right');
+      y += 74;
+    });
+    y += 20;
+    x.fillStyle = '#1a2a21'; rr(48, y, 984, 2 * (92 + n * 58) + 20, 20); x.fill();
+    var col0 = 72, colW = 76, colX = function (i) { return 220 + i * colW + colW / 2; };
+    [0, 9].forEach(function (off) {
+      y += 46;
+      t('HOLE', col0, y, '700 18px Inter, sans-serif', '#8fd97c');
+      for (var i = 0; i < 9; i++) t(String(off + i + 1), colX(i), y, '700 22px Inter, sans-serif', '#c4d0c8', 'center');
+      t(off ? 'IN' : 'OUT', 975, y, '700 18px Inter, sans-serif', '#8fd97c', 'center');
+      y += 14;
+      var parY = y + 22; t('PAR', col0, parY, '600 17px Inter, sans-serif', '#8a9a90');
+      var ps = 0; for (i = 0; i < 9; i++) { t(String(d.pars[off + i]), colX(i), parY, '500 20px Inter, sans-serif', '#8a9a90', 'center'); ps += d.pars[off + i]; }
+      t(String(ps), 975, parY, '500 20px Inter, sans-serif', '#8a9a90', 'center');
+      y = parY + 10;
+      cs.forEach(function (o) {
+        var cy = y + 30, tot = 0, full = true;
+        t(fit(nm(o.nick), 140, '700 22px Poppins, sans-serif'), col0, cy + 8, '700 22px Poppins, sans-serif', '#fff');
+        for (var j = 0; j < 9; j++) {
+          var st = o.holes[off + j + 1], par = d.pars[off + j], cx = colX(j);
+          if (st === undefined) { t('·', cx, cy + 8, '700 22px Inter, sans-serif', '#8a9a90', 'center'); full = false; continue; }
+          if (st === 0) { t('–', cx, cy + 8, '700 22px Inter, sans-serif', '#c4d0c8', 'center'); full = false; continue; }
+          tot += st; var dd = st - par;
+          if (dd < 0) { x.strokeStyle = '#5fd14a'; x.lineWidth = 3; x.beginPath(); x.arc(cx, cy, 21, 0, Math.PI * 2); x.stroke(); if (dd <= -2) { x.beginPath(); x.arc(cx, cy, 16, 0, Math.PI * 2); x.stroke(); } }
+          else if (dd === 1) { x.fillStyle = '#2c3f34'; rr(cx - 21, cy - 21, 42, 42, 6); x.fill(); }
+          else if (dd >= 2) { x.fillStyle = '#5a3a1c'; rr(cx - 21, cy - 21, 42, 42, 6); x.fill(); }
+          t(String(st), cx, cy + 8, (dd < 0 || dd >= 2 ? '800' : '600') + ' 22px Inter, sans-serif', dd >= 2 ? '#f8c48a' : '#fff', 'center');
+        }
+        t(full ? String(tot) : '–', 975, cy + 8, '800 22px Poppins, sans-serif', '#fff', 'center');
+        y += 58;
+      });
+    });
+    y += 60;
+    t('Circled = birdie or better · ' + (d.kind === 'quick' ? 'Free live scorecard' : 'Live scoring by Society HQ') + ' at golfpriceai.com', 64, Math.min(cv.height - 40, y), '500 22px Inter, sans-serif', '#c4d0c8');
+    return new Promise(function (ok) { cv.toBlob(function (b) { ok(b); }, 'image/png'); });
+  }
   function shareImage(d) {
+    if (d.status === 'final' && cardStats(d)) return finalImage(d);
     var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
     var x = cv.getContext('2d');
     function rr(cx, cy, w, h, r) { x.beginPath(); x.moveTo(cx + r, cy); x.arcTo(cx + w, cy, cx + w, cy + h, r); x.arcTo(cx + w, cy + h, cx, cy + h, r); x.arcTo(cx, cy + h, cx, cy, r); x.arcTo(cx, cy, cx + w, cy, r); x.closePath(); }
@@ -181,12 +296,15 @@
         '<p class="lv-small" style="padding:10px 14px;text-align:left">' + (d.carry ? '<b>' + d.carry + (d.carry === 1 ? ' skin' : ' skins') + ' carrying over</b> to the next hole. ' : '') + (d.skinHoles && d.skinHoles.length ? 'Last won: ' + d.skinHoles.slice(-3).reverse().map(function (x) { return esc(x.nick) + ' on the ' + ord(x.h) + (x.n > 1 ? ' (' + x.n + ')' : ''); }).join(', ') + '.' : 'Lowest net score on a hole wins it outright. A tie carries the skin on.') + '</p></section>' +
         '<span class="lv-kick" style="color:#2f8a1f">STABLEFORD POINTS</span>';
     }
-    h += '<section class="lv-card" aria-label="Leaderboard"><div class="lv-th"><span>#</span><span>GOLFER</span><span>THRU</span><span>PTS</span></div>' +
+    var finCard = d.status === 'final' && quick && cardStats(d);
+    if (finCard) h = h.replace(/<span class="lv-kick" style="color:#2f8a1f">(INDIVIDUAL STABLEFORD|STABLEFORD POINTS)<\/span>$/, '') + finalHtml(d);
+    else h += '<section class="lv-card" aria-label="Leaderboard"><div class="lv-th"><span>#</span><span>GOLFER</span><span>THRU</span><span>PTS</span></div>' +
       rows.map(function (r, i) { return '<div class="lv-tr' + (i === 0 && r.thru ? ' lv-lead' : '') + '"><b class="lv-pos">' + (r.tie && r.thru ? '=' : '') + r.pos + '</b><span class="lv-who"><b>' + esc(r.nick) + '</b>' + move(r) + '</span><span class="lv-thru">' + thruTxt(r) + '</span><b class="lv-pts">' + r.pts + '</b></div>'; }).join('') +
       (n > 8 ? '<button type="button" class="lv-more" id="lv-all">' + (showAll ? 'Show the top 8' : 'Show all ' + n + ' golfers') + '</button>' : '') + '</section>';
     if (d.feed && d.feed.length) h += '<section class="lv-feed" aria-live="polite"><small>ON THE COURSE</small>' + d.feed.slice(0, 5).map(function (f) { return '<span>' + esc(f.txt) + '</span>'; }).join('') + '</section>';
+    if (d.status === 'final' && !finCard) h += finalHtml(d);
     if (!quick || d.extras.ntp || d.extras.ld) h += '<section class="lv-card lv-extras">' + extra('Nearest the pin', d.extras.ntp) + extra('Longest drive', d.extras.ld) + '</section>';
-    h += '<div class="lv-btns"><button type="button" class="lv-btn" id="lv-share">Send the leaderboard to the group</button>';
+    h += '<div class="lv-btns"><button type="button" class="lv-btn" id="lv-share">' + (d.status === 'final' && d.pars ? 'Send the result and card to the group' : 'Send the leaderboard to the group') + '</button>';
     if (d.report) h += '<a class="lv-btn2" href="' + esc(d.report) + '">Read the match report</a>';
     if (!quick && d.organiser && d.status !== 'final') h += '<button type="button" class="lv-btn2" id="lv-final">Everyone’s in? Publish the results</button>';
     if (quick && d.tokens) h += d.tokens.map(function (g) { return '<a class="lv-btn2" href="/play/scorecard/card/?t=' + esc(g.token) + '">' + (d.tokens.length > 1 ? 'Group ' + g.grp + ' scorecard' : 'Open the scorecard') + '</a>'; }).join('');

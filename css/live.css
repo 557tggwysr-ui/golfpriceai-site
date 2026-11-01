@@ -173,3 +173,34 @@
 .qr-done p { margin: 0; color: #c4d0c8; font-size: 14px; line-height: 1.5; }
 .qr-done b { font: 700 18px 'Poppins', sans-serif; }
 @media (max-width: 400px) { .qr-fmts { grid-template-columns: 1fr 1fr; } }
+/* The final card and stats (1 Nov 2026 mock-up) */
+.lv-stats { display: flex; flex-direction: column; gap: 8px; }
+.lv-st { background: #fff; border: 1px solid #e4e6e0; border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+.lv-st.is-win { background: #14211a; color: #fff; border: 0; }
+.lv-st-h { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.lv-st-h b:first-child { font: 700 16px 'Poppins', sans-serif; }
+.lv-st-p { font: 800 22px 'Poppins', sans-serif; }
+.lv-st.is-win .lv-st-p { color: #8fd97c; }
+.lv-st-p small { font: 600 11px 'Inter', sans-serif; color: #5b665f; }
+.lv-st.is-win .lv-st-p small { color: #c4d0c8; }
+.lv-st-g { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; font-size: 11.5px; color: #5b665f; }
+.lv-st.is-win .lv-st-g { color: #c4d0c8; }
+.lv-st-g b { display: block; font: 800 16px 'Poppins', sans-serif; color: #14211a; }
+.lv-st.is-win .lv-st-g b { color: #fff; }
+.lv-st-n { font-size: 12.5px; color: #4a554e; }
+.lv-st.is-win .lv-st-n { color: #c4d0c8; }
+.lv-nine { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.lv-nine table { border-collapse: collapse; width: 100%; min-width: 330px; font-size: 13px; text-align: center; }
+.lv-nine th, .lv-nine td { padding: 3px 1px; }
+.lv-nine thead th { color: #5b665f; font-weight: 700; font-size: 12px; }
+.lv-nine th[scope="row"] { text-align: left; font-weight: 700; font-size: 12.5px; max-width: 64px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-right: 4px; }
+.lv-nine thead th:first-child, .lv-nine .lv-par th { color: #5b665f; font-size: 11px; }
+.lv-par td { color: #5b665f; }
+.lv-c { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; box-sizing: border-box; }
+.lv-c.lv-cb { border: 2px solid #2f8a1f; border-radius: 50%; color: #1f6a12; font-weight: 800; }
+.lv-c.lv-ce { border: 3px double #2f8a1f; border-radius: 50%; color: #1f6a12; font-weight: 800; }
+.lv-c.lv-cg { background: #eef0ec; border-radius: 4px; }
+.lv-c.lv-cd { background: #fde3c8; border-radius: 4px; color: #8a4a12; font-weight: 700; }
+.lv-c.lv-cp { color: #5b665f; }
+.lv-legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 11.5px; color: #5b665f; align-items: center; }
+.lv-legend span { display: flex; gap: 4px; align-items: center; }

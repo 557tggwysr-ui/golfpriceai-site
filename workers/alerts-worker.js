@@ -902,7 +902,10 @@ async function liveScoring(request, url, env, cors) {
       organiser, event: quick ? null : r.event, report, groups,
       claim: quick ? table.map((p) => ({ m: p.m, nick: p.nick, taken: !!p.pid, mine: !!pid && p.pid === pid })) : null,
       tokens: quick && organiser ? (await db.prepare('SELECT grp, token FROM sc_groups WHERE event = ? ORDER BY grp').bind(r.event).all()).results : null,
-      rows: table.map((p) => ({ nick: p.nick, team: p.team, pts: p.pts, back: p.back, thru: p.thru, pos: p.pos, tie: p.tie, move: last[p.m] && p.thru ? last[p.m] - p.pos : 0 })),
+      // Once it's final: everyone's card, hole by hole, for the scorecard and stats.
+      pars: r.status === 'final' ? lvCard(r.pars) : null, si: r.status === 'final' ? lvCard(r.si) : null,
+      rows: table.map((p) => Object.assign({ nick: p.nick, team: p.team, pts: p.pts, back: p.back, thru: p.thru, pos: p.pos, tie: p.tie, move: last[p.m] && p.thru ? last[p.m] - p.pos : 0 },
+        r.status === 'final' ? { ph: p.ph, holes: p.holes } : {})),
       feed: feed.map((f) => ({ at: f.at, txt: f.txt })), extras }, lvGames(r, table)), 200, noStore);
   }
   // A quick round: friends, no society. Anyone can start one.

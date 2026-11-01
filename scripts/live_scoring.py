@@ -11,8 +11,8 @@ stay out of search: they only make sense with a society's own link.
 """
 from price_pages import SITE, _write, breadcrumb, page_shell
 
-LIVE_CSS = '<link rel="stylesheet" href="/css/live.css?v=20261101b">\n'
-LIVE_JS = '<script src="/js/live.js?v=20261101b" defer></script>'
+LIVE_CSS = '<link rel="stylesheet" href="/css/live.css?v=20261101c">\n'
+LIVE_JS = '<script src="/js/live.js?v=20261101c" defer></script>'
 URL = f"{SITE}/societies/live-scoring/"
 
 FEATURES = [
