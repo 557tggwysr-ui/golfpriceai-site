@@ -383,7 +383,9 @@ def build_society_pages(root, rows):
             changed.append(f"/societies/find/{slug}/")
         urls.append(f"societies/find/{slug}/")
     for d in (root / "societies" / "find").iterdir():
-        if d.is_dir() and re.search(r"-[a-z0-9]{8}$", d.name) and d.name not in keep:
+        # Society pages end in the society's 8-character id (no i, l, o, 0 or 1), which
+        # keeps county pages like /west-midlands/ (ending "-midlands") safe.
+        if d.is_dir() and re.search(r"-[a-hj-km-np-z2-9]{8}$", d.name) and d.name not in keep and d.name not in COUNTY_SLUGS:
             shutil.rmtree(d)
             changed.append(f"/societies/find/{d.name}/")
     return changed, urls
@@ -506,6 +508,7 @@ def build_counties(root, rows):
 
 
 COUNTY_URLS = []
+COUNTY_SLUGS = set()
 COUNTY_CHIPS = []
 
 
@@ -650,6 +653,7 @@ def build(root=None):
         c_changed, c_urls, chips_html = county_pages.build(root, rows, find_cards, spare_panel, list_schema)
         changed += c_changed
         COUNTY_URLS[:] = c_urls
+        COUNTY_SLUGS.update(u.split('/')[2] for u in c_urls)
         COUNTY_CHIPS[:] = [chips_html]
     except Exception as exc:  # never stop the build
         print(f"County pages skipped: {exc}")

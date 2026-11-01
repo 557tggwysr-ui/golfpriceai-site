@@ -1767,6 +1767,12 @@ def build(models_list, products, today_str):
                           ("/price-check.html", "Is this a good price?", "Check any price against our own history")] + list(seasonal_links) \
             + ([("/prices/watch/", "UK golf price watch", "Monthly: what got cheaper, and what didn’t")] if has_watch else []) \
             + [("/prices/data/", "Open price data", "Free CSV downloads, updated every 6 hours")]
+    if mode == "live":
+        try:
+            import buying_guides
+            changed += buying_guides.apply(passing, built, products, today)
+        except Exception as e:  # never stop the main build
+            print(f"Buying guides skipped: {e}")
     if _write(PRICES_DIR / "index.html", build_index_page(passing, hubs, today, noindex, seasonal_links, brand_counts, clothing_links)):
         changed.append("/prices/")
     sitemap.append(("prices/", max((lm or "" for _, lm in sitemap), default=None) or None))

@@ -51,7 +51,7 @@
         list.innerHTML = rows.map(function (x, i) {
           return '<li><a class="gp-rank" href="/prices/' + esc(x.slug) + '/" data-slug="' + esc(x.slug) + '">' +
             '<span class="gp-rank-n">' + (i + 1) + '</span>' +
-            '<span class="gp-rank-img"><img src="' + esc(x.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></span>' +
+            '<span class="gp-rank-img"><img src="' + esc(x.image) + '" alt="' + esc(x.name || '') + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"></span>' +
             '<span class="gp-rank-txt"><span class="gp-rank-name">' + esc(x.name) + '</span>' +
             '<span class="gp-rank-sub">Cheapest of ' + x.retailers + ' retailer' + (x.retailers === 1 ? '' : 's') + '</span></span>' +
             '<span class="gp-rank-pr"><strong>' + money(x.now) + (x.unit ? '<small>' + esc(x.unit) + '</small>' : '') + '</strong>' + move(x, i) + '</span>' +

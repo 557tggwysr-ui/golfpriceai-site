@@ -463,3 +463,20 @@ button.pp-btn svg { flex: none; }
 .wyh-p { font-size: 14px; color: #4a554e; line-height: 1.45; }
 .wyh-go { margin-top: auto; padding-top: 6px; font-weight: 700; font-size: 14px; color: #2f8a1f; }
 @media (max-width: 700px) { .wyh-g { grid-template-columns: 1fr; } .bd-pick a { width: 100%; text-align: center; box-sizing: border-box; } }
+/* Buying guides (scripts/buying_guides.py), Nov 2026 */
+.bg-guide { background: #fff; border: 1px solid var(--gp-line, #e4e6e0); border-radius: 18px; padding: 20px; }
+.bg-guide h2 { margin-top: 0; }
+.bg-guide h3 { font: 700 17px/1.3 Poppins, sans-serif; margin: 18px 0 6px; }
+.bg-guide p { line-height: 1.6; margin: 0 0 8px; }
+.bg-lead { font-size: 15.5px; color: var(--gp-text-2, #4a554e); }
+.bg-bands { margin: 4px 0 8px; padding-left: 20px; line-height: 1.7; }
+.bg-picks { list-style: none; margin: 0 0 6px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.bg-pick { border: 1px solid var(--gp-line, #e4e6e0); border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 3px; }
+.bg-w { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gp-green-dark, #2f8a1f); }
+.bg-pick b { font-size: 15px; line-height: 1.35; }
+.bg-pick b a { color: var(--gp-ink, #14211a); }
+.bg-pick small { color: var(--gp-text-3, #5b665f); font-size: 13px; line-height: 1.4; }
+.bg-guide details { border-top: 1px solid #eef0ec; padding: 10px 0; }
+.bg-guide details summary { cursor: pointer; font-weight: 700; min-height: 32px; }
+.bg-guide details p { margin: 8px 0 0; }
+@media (max-width: 600px) { .bg-guide { padding: 16px; } }

@@ -38,7 +38,7 @@
   }
   function photo(d) {
     return '<span class="gp-deal-photo">' + badge(d) +
-      '<img src="' + esc(d.image) + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add(\'is-missing\');this.remove()">' +
+      '<img src="' + esc(d.image) + '" alt="' + esc(d.name || '') + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add(\'is-missing\');this.remove()">' +
       '<span class="gp-deal-ph">' + esc(d.brand) + '</span></span>';
   }
   function priceLine(d, big) {
