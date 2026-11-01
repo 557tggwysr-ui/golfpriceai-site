@@ -16,7 +16,7 @@ from price_pages import SITE, _write, breadcrumb, page_shell
 LAUNCHED = True
 PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
 FIND_PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/find-a-society-wide.jpg"><img src="/assets/photos/tools/find-a-society-banner.jpg" alt="Golfers shaking hands on the first tee, meeting new playing partners" width="1536" height="512"></picture>'
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101f">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101g">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -449,7 +449,7 @@ def find_page(rows=()):
     <section class="soc-card fd-start"><span class="soc-kick">Nothing close enough?</span><h2>Start your own</h2><p>Four mates and a WhatsApp group is all it takes. Society HQ runs the rest, free.</p><a class="soc-link-a" href="/societies/guides/how-to-start-a-golf-society/">How to start a golf society &rarr;</a></section>
   </aside>
 </div>
-<div class="soc-card"><h2>Golf societies by county</h2>{county_chips(rows) or '<p class="soc-help">County pages appear once three societies in a county are listed.</p>'}</div>
+<div class="soc-card"><h2>Golf societies by county</h2>{COUNTY_CHIPS[0] if COUNTY_CHIPS else county_chips(rows) or '<p class="soc-help">County pages appear once three societies in a county are listed.</p>'}</div>
 <section class="soc-card soc-next"><span class="soc-kick">Run a society?</span><h2>List yours here, free</h2><p>Start your society in Society HQ, pick your home course and tick “Open to new members”. Golfers nearby can ask to join; you say yes or no.</p><a class="soc-btn" href="/societies/hq/">Start your society</a></section>
 <p class="soc-small">Distances are from each society’s home course. “Use my location” works it out on your phone and is never sent to us; a town or postcode you type is looked up with postcodes.io.</p>
 </div>
@@ -506,6 +506,7 @@ def build_counties(root, rows):
 
 
 COUNTY_URLS = []
+COUNTY_CHIPS = []
 
 
 def clubs_page():
@@ -644,14 +645,16 @@ def build(root=None):
     if _write(root / "societies" / "hq" / "index.html", hq_page()):
         changed.append("/societies/hq/")
     rows = listings(root)
-    if _write(root / "societies" / "find" / "index.html", find_page(rows)):
-        changed.append("/societies/find/")
     try:
-        c_changed, c_urls = build_counties(root, rows)
+        import county_pages
+        c_changed, c_urls, chips_html = county_pages.build(root, rows, find_cards, spare_panel, list_schema)
         changed += c_changed
         COUNTY_URLS[:] = c_urls
+        COUNTY_CHIPS[:] = [chips_html]
     except Exception as exc:  # never stop the build
         print(f"County pages skipped: {exc}")
+    if _write(root / "societies" / "find" / "index.html", find_page(rows)):
+        changed.append("/societies/find/")
     try:
         s_changed, s_urls = build_society_pages(root, rows)
         changed += s_changed

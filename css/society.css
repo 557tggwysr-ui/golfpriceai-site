@@ -470,3 +470,34 @@ a.fd-card:hover { border-color: #3fae29; }
 .hq-poll span { font-size: 13px; color: var(--gp-text-3); }
 .hq-poll.is-new { border: 2px solid #3fae29; background: #f3faf0; padding: 11px 13px; }
 .hq-poll.is-new span { color: var(--gp-green-dark); font-weight: 600; }
+/* County pages (/societies/find/<county>/), 1 Nov 2026 */
+.cp-hero { background: #14211a; color: #fff; border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; gap: 8px; }
+.cp-hero .soc-kick { color: #8fd97c; }
+.cp-hero h1 { margin: 0; font: 800 38px/1.08 Poppins, sans-serif; letter-spacing: -0.01em; }
+.cp-hero p { margin: 0; color: #c4d0c8; font-size: 15.5px; line-height: 1.55; max-width: 720px; }
+.cp-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+.cp-stats div { background: #1f3127; border-radius: 12px; padding: 10px 12px; display: flex; flex-direction: column; min-width: 0; }
+.cp-stats b { font: 800 24px Poppins, sans-serif; color: #8fd97c; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cp-stats small { color: #c4d0c8; font-size: 12px; }
+.cp-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; margin-top: 16px; }
+.cp-col { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.cp-col .fd-list { display: flex; flex-direction: column; gap: 12px; }
+.cp-h h2 { margin: 0; font: 800 22px Poppins, sans-serif; }
+.cp-towns { display: flex; flex-wrap: wrap; gap: 6px; }
+.cp-town { border: 1px solid var(--gp-line); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; font-weight: 600; }
+.cp-town b { color: var(--gp-green-dark); }
+.cp-az summary { cursor: pointer; font-weight: 700; color: var(--gp-green-dark); min-height: 44px; display: flex; align-items: center; }
+.cp-az ul { list-style: none; padding: 0; margin: 4px 0 0; columns: 2; column-gap: 18px; font-size: 14px; }
+.cp-az li { break-inside: avoid; padding: 4px 0; }
+.cp-az li a { color: var(--gp-ink); font-weight: 600; }
+.cp-az li small { color: var(--gp-text-3); }
+.cp-near { font-size: 14px; color: var(--gp-text-2); }
+.cp-near a { font-weight: 700; color: var(--gp-green-dark); }
+.cp-start, .sh-faq, .cp-wrap > .soc-card { margin-top: 16px; }
+@media (max-width: 760px) {
+  .cp-grid { grid-template-columns: 1fr; }
+  .cp-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cp-hero h1 { font-size: 28px; }
+  .cp-hero { padding: 20px 16px; }
+  .cp-az ul { columns: 1; }
+}
