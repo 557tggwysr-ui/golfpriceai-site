@@ -443,33 +443,35 @@
 "2026-11-01": {
 "pp": {
 "callaway-apex-ai300-irons": [
-4,
--0.3675
+5,
+-0.9297
 ],
 "ping-scottsdale-putter": [
-4,
--0.4949
+5,
+-0.853
 ],
 "srixon-zxi-rkt-driver": [
-4,
--3.2572
+5,
+-3.3138
 ],
 "taylormade-milled-grind-5-chrome-wedge": [
-4,
--0.7053
+5,
+-1.3383
 ],
 "wilson-alpine-cart-bag-golf-bag": [
-4,
-0.8678
+5,
+1.1462
 ]
 },
 "view": {
 "callaway-elyte-x-driver": 1,
+"garmin-approach-s70-gps-watch": 1,
+"scotty-cameron-phantom-7-2-putter": 1,
 "taylormade-storm-dry-waterproof-cart-bag-golf-bag": 1
 }
 }
 },
-"fetched": "2026-11-01T11:29Z",
+"fetched": "2026-11-01T12:48Z",
 "fourball": 0,
 "search": {
 "7 wood": 2,
@@ -499,7 +501,7 @@
 "ping": 1,
 "ping g425 sft 3 wood": 1,
 "ping golf bag": 2,
-"putters": 1,
+"putters": 2,
 "pxg": 1,
 "s70": 1,
 "s72": 1,
