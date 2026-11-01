@@ -197,9 +197,10 @@
     box.innerHTML = h;
     document.getElementById('qr-send').onclick = function () {
       track('qr_send');
-      var g = r.groups.map(function (x) { return (r.groups.length > 1 ? 'Group ' + x.grp + ' (' + list(x.names) + ') scorecard: ' : 'Scorecard (anyone can score): ') + SITE + '/play/scorecard/card/?t=' + x.token; }).join('\n');
-      var fmt = { stb: 'stableford', bb: 'better-ball', skins: 'skins' }[st.fmt];
-      share('Right then, ' + fmt + (st.cname ? ' at ' + st.cname : '') + '. ' + g + '\nLive leaderboard: ' + board + '\nTap your name on it to keep the round in your stats.');
+      var fmt = { stb: 'STABLEFORD', bb: 'BETTER-BALL', skins: 'SKINS' }[st.fmt];
+      var g = r.groups.map(function (x) { return (r.groups.length > 1 ? '*Group ' + x.grp + '* _(' + list(x.names) + ')_ scorecard:' : '*The scorecard* _(anyone in the four-ball can score)_:') + '\n' + SITE + '/play/scorecard/card/?t=' + x.token; }).join('\n\n');
+      var who = r.groups.length === 1 ? '\n_' + list(r.groups[0].names) + '_' : '';
+      share('*' + fmt + ' · QUICK ROUND*\n*' + (st.title || (st.cname ? 'Quick round at ' + st.cname : 'Quick round')) + '*' + who + '\n\n' + g + '\n\n*Live leaderboard:*\n' + board + '\n\n_Tap your name on the leaderboard to keep the round in your free My Game stats._');
     };
   }
 

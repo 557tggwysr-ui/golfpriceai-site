@@ -205,7 +205,7 @@
   }
   var liveJs = null;
   function openLive(e) {
-    if (!liveJs) liveJs = new Promise(function (ok, no) { var sc = document.createElement('script'); sc.src = '/js/live-setup.js?v=20261101a'; sc.onload = ok; sc.onerror = no; document.head.appendChild(sc); });
+    if (!liveJs) liveJs = new Promise(function (ok, no) { var sc = document.createElement('script'); sc.src = '/js/live-setup.js?v=20261101b'; sc.onload = ok; sc.onerror = no; document.head.appendChild(sc); });
     liveJs.then(function () { window.gpLiveSetup({ e: e, S: S, pid: pid, api: function (path, body) { return fetch(API + path, body ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) } : {}).then(function (r) { return r.json(); }); }, done: load }); });
   }
   /* ---- The Form Guide: preview before the day, report after it */

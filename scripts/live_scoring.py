@@ -12,7 +12,7 @@ stay out of search: they only make sense with a society's own link.
 from price_pages import SITE, _write, breadcrumb, page_shell
 
 LIVE_CSS = '<link rel="stylesheet" href="/css/live.css?v=20261101c">\n'
-LIVE_JS = '<script src="/js/live.js?v=20261101c" defer></script>'
+LIVE_JS = '<script src="/js/live.js?v=20261101d" defer></script>'
 URL = f"{SITE}/societies/live-scoring/"
 
 FEATURES = [
@@ -261,7 +261,7 @@ def scorecard_page():
 </section>
 <p class="gp-real">Nicknames and points only. Your stats are kept against your phone’s random player number; nobody else sees them. <a href="/legal/privacy-policy.html">Privacy</a></p>
 </div>
-<script src="/js/quick-round.js?v=20261101b" defer></script>"""
+<script src="/js/quick-round.js?v=20261101c" defer></script>"""
     return page_shell(title="Free Golf Scorecard App: Live Stableford, Better-Ball & Skins | GolfPrice AI",
                       description="A free live golf scorecard for a round with friends: stableford, better-ball pairs or skins, worked out from handicaps, with a live leaderboard for the group chat and your own golf stats. No app, no sign-up.",
                       canonical=url, body=body, section="play", schema=[crumbs_schema, app, howto, faq_schema],

@@ -62,31 +62,33 @@
   function err(box, msg) { box.innerHTML = '<div class="lv-err"><p>' + esc(msg) + '</p><p><a href="/societies/">Society HQ</a></p></div>'; }
 
   /* ------------------------------------------------------------------ the leaderboard */
+  // WhatsApp: *bold*, _italic_, one golfer a line, the link on its own line so the preview card shows.
   function shareText(d) {
-    var rows = d.rows.filter(function (r) { return r.thru; }), url = SITE + boardPath(d.kind) + d.code;
-    if (!rows.length) return d.title + ' is under way. Follow it live: ' + url;
-    var fin = d.status === 'final';
+    var rows = d.rows.filter(function (r) { return r.thru; }), url = SITE + boardPath(d.kind) + d.code, fin = d.status === 'final';
+    var top = '*' + (d.society || FMT[d.fmt] || 'STABLEFORD').toUpperCase() + ' · ' + (fin ? 'FINAL' : 'LIVE') + '*\n*' + d.title + '*';
+    if (!rows.length) return top + '\n_' + [d.venue, 'first scores coming soon'].filter(Boolean).join(' · ') + '_\n\nFollow it live:\n' + url;
+    var thrus = rows.map(function (r) { return r.thru; }).sort(function (a, b) { return a - b; }), mid = thrus[Math.floor(thrus.length / 2)];
+    var stage = fin || thrus[0] >= 18 ? 'Final result' : mid >= 9 && mid <= 10 ? 'At the turn' : mid >= 13 && mid <= 17 ? NUM[18 - mid] + ' to play' : 'After ' + mid + (mid === 1 ? ' hole' : ' holes');
+    var sub = '_' + [stage, d.venue].filter(Boolean).join(' · ') + '_';
+    var lines = [], line = '';
     if (d.fmt === 'bb' && d.teams && d.teams.length > 1) {
       var A = d.teams[0], B = d.teams[1], g2 = A.pts - B.pts;
-      if (fin) return 'Final: ' + pair(A.names) + (g2 ? ' win the better-ball by ' + g2 + ', ' + A.pts + ' points to ' + B.pts + '.' : ' and ' + pair(B.names) + ' halve it on ' + A.pts + '.') + ' Full card: ' + url;
-      return 'Better-ball, thru ' + Math.min(A.thru, B.thru) + ': ' + (g2 ? pair(A.names) + ' lead ' + pair(B.names) + ' by ' + g2 + ' (' + A.pts + ' to ' + B.pts + ').' : 'all square on ' + A.pts + '.') + ' Live: ' + url;
+      lines = d.teams.map(function (t, i) { return (i === 0 && g2 ? '*' : '') + pair(t.names) + ' ' + t.pts + (i === 0 && g2 ? '*' : ''); });
+      line = g2 ? '*' + pair(A.names) + '* ' + (fin ? 'win the better-ball by ' : 'lead by ') + g2 + '.' : 'All square on ' + A.pts + '.';
+    } else if (d.fmt === 'skins' && d.skins) {
+      lines = d.skins.map(function (x, i) { return (i === 0 && x.n ? '*' : '') + x.nick + ' ' + x.n + (x.n === 1 ? ' skin' : ' skins') + (i === 0 && x.n ? '*' : ''); });
+      line = d.carry ? '_' + d.carry + (d.carry === 1 ? ' skin' : ' skins') + ' carrying over._' : '';
+    } else {
+      lines = rows.slice(0, 6).map(function (r, i) { var t = (r.tie ? '=' : '') + r.pos + '. ' + r.nick + ' ' + r.pts + (r.thru < 18 && !fin ? ' _(thru ' + r.thru + ')_' : ''); return i === 0 ? '*' + t.replace(/ _\(thru \d+\)_$/, '') + '*' + (r.thru < 18 && !fin ? ' _(thru ' + r.thru + ')_' : '') : t; });
+      if (rows.length > 6) lines.push('_…and ' + (rows.length - 6) + ' more_');
+      var a = rows[0], b = rows[1], gap = b ? a.pts - b.pts : 0;
+      if (fin || thrus[0] >= 18) line = '*' + a.nick + '* ' + (a.tie ? 'shares it on ' + a.pts + '.' : 'wins with ' + a.pts + ' points' + (b && b.pts === a.pts ? ', on countback.' : '.'));
+      else line = '*' + a.nick + '* ' + (a.tie ? 'shares the lead.' : 'leads by ' + (gap === 1 ? 'one' : gap === 2 ? 'two' : gap) + '.');
+      var bird = (d.feed || []).filter(function (f) { return /birdies|eagles|HOLE-IN-ONE|albatross/.test(f.txt); })[0];
+      if (bird && !fin) line += ' ' + bird.txt.replace(/\. \d+ points and a smug face\./, ' and won’t stop talking about it.');
     }
-    if (d.fmt === 'skins' && d.skins) {
-      var top = d.skins[0];
-      return (fin ? 'Final skins: ' : 'Skins so far: ') + d.skins.filter(function (x) { return x.n; }).map(function (x) { return x.nick + ' ' + x.n; }).join(', ') + (d.carry ? '. ' + d.carry + (d.carry === 1 ? ' skin' : ' skins') + ' carrying over.' : '.') + (top && !top.n ? ' Nobody’s won one yet.' : '') + ' ' + (fin ? 'Card: ' : 'Live: ') + url;
-    }
-    var thrus = rows.map(function (r) { return r.thru; }).sort(function (a, b) { return a - b; }), mid = thrus[Math.floor(thrus.length / 2)];
-    var a = rows[0], b = rows[1], s;
-    if (d.status === 'final' || thrus[0] >= 18) {
-      s = 'Final result: ' + a.nick + ' wins ' + d.title + ' with ' + a.pts + ' points' + (b ? ', ' + b.nick + ' ' + (b.pts === a.pts ? 'level but beaten on countback.' : 'second on ' + b.pts + '.') : '.');
-      return s + (d.report ? ' The report: ' + SITE + d.report : ' Full board: ' + url);
-    }
-    var when = mid >= 9 && mid <= 10 ? 'At the turn' : mid >= 13 && mid <= 17 ? NUM[18 - mid] + ' to play' : 'After ' + mid + ' holes';
-    var gap = b ? a.pts - b.pts : 0;
-    s = when + ': ' + a.nick + (a.tie ? ' shares the lead on ' : ' leads on ') + a.pts + (b && !a.tie ? ', ' + b.nick + ' ' + (gap === 1 ? 'one' : gap === 2 ? 'two' : gap) + ' back.' : '.');
-    var bird = (d.feed || []).filter(function (f) { return /birdies|eagles|HOLE-IN-ONE|albatross/.test(f.txt); })[0];
-    if (bird) s += ' ' + bird.txt.replace(/ \d+ points and a smug face\./, ' and won’t stop talking about it.');
-    return s + ' Live: ' + url;
+    return top + '\n' + sub + '\n\n' + lines.join('\n') + (line ? '\n\n' + line : '') + '\n\n' +
+      (fin && d.report ? 'The match report:\n' + SITE + d.report : (fin ? 'The full card:' : 'Follow it live:') + '\n' + url);
   }
   // Once a round is final: each golfer's stats and the full card.
   function cardStats(d) {

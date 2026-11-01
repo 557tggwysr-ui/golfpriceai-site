@@ -171,17 +171,17 @@
         var board = SITE + '/societies/live/?c=' + st.code;
         var lines = st.links.map(function (g) {
           var who = on().filter(function (m) { return st.players[m].grp === g.grp; }).map(nick);
-          return (g.tee ? g.tee + ' ' : '') + 'Group ' + g.grp + ': ' + who.join(', ') + '. Marker ' + nick(g.marker) + ', your scorecard: ' + SITE + '/societies/live/score/?t=' + g.token;
+          return '*' + (g.tee ? g.tee + ' · ' : '') + 'Group ' + g.grp + '*\n' + who.join(', ') + '\n_Marker ' + nick(g.marker) + ', your scorecard:_\n' + SITE + '/societies/live/score/?t=' + g.token;
         });
         track('lv_send', { kind: 'all' });
-        share(S.name + ', ' + e.title + (st.cname ? ' at ' + st.cname : '') + '. The draw:\n' + lines.join('\n') + '\nEveryone else, follow it live: ' + board + '\nMarkers: tap your link on the first tee, then a score for everyone at the end of each hole.');
+        share('*' + S.name.toUpperCase() + ' · THE DRAW*\n*' + e.title + '*' + (st.cname ? '\n_' + st.cname + '_' : '') + '\n\n' + lines.join('\n\n') + '\n\n*Everyone else, follow it live:*\n' + board + '\n\n_Markers: open your link on the first tee and tap a score for everyone at the end of each hole. No signal? It saves and sends later._');
       };
       box.querySelectorAll('.lvs-send').forEach(function (b) {
         b.onclick = function () {
           var g = st.links.filter(function (x) { return x.grp === Number(b.getAttribute('data-g')); })[0];
           var who = on().filter(function (m) { return st.players[m].grp === g.grp; }).map(nick);
           track('lv_send', { kind: 'marker' });
-          share(nick(g.marker) + ', you’re marking Group ' + g.grp + (g.tee ? ' (' + g.tee + ')' : '') + ': ' + who.join(', ') + '. Your scorecard for ' + e.title + ': ' + SITE + '/societies/live/score/?t=' + g.token + ' Tap a score for everyone at the end of each hole. No signal? It saves and sends later.');
+          share('*' + e.title.toUpperCase() + ' · YOUR SCORECARD*\n*' + nick(g.marker) + ', you’re marking Group ' + g.grp + '*' + (g.tee ? ' _(' + g.tee + ')_' : '') + '\n' + who.join(', ') + '\n\n' + SITE + '/societies/live/score/?t=' + g.token + '\n\n_Tap a score for everyone at the end of each hole. No signal? It saves and sends later._');
         };
       });
     }
