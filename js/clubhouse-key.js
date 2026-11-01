@@ -7,7 +7,8 @@
    backup of this browser's Clubhouse (nickname, saved kit, Shot Saver rounds:
    the same bundle "Move my Clubhouse" carries). No email, no name.
 
-   Backups of the key itself, all on the golfer's side:
+   Passkeys (Face ID, fingerprint or the phone's PIN) unlock it too, with the
+   key as the fallback. Backups of the key itself, all on the golfer's side:
      - the phone's own password manager (iCloud Keychain, Google, Chrome)
      - WhatsApp to yourself, or your own email app (we never see the address)
      - the Clubhouse card: an image with a QR code that restores in one scan
@@ -91,7 +92,10 @@
 
   /* ------------------------------------------------------------ restore */
   function restore(key) {
-    return post('/ck/restore', { key: key }).then(function (r) {
+    return post('/ck/restore', { key: key }).then(apply);
+  }
+  function apply(r) {
+    {
       if (!r.ok) throw new Error(r.error || 'That key didn’t work.');
       put('gpPid', r.pid);
       var d = r.data || {};
@@ -105,7 +109,56 @@
       try { localStorage.removeItem('gpKeyCode'); } catch (e) { /* the code isn't kept: they have it already */ }
       track('clubhouse_restored');
       return r;
+    }
+  }
+
+  /* ------------------------------------------------------------ passkeys (Face ID, fingerprint, PIN)
+     A standard passkey for golfpriceai.com, kept and synced by Apple, Google or
+     the browser. Only the public half reaches us. */
+  function pkOk() { return !!(window.PublicKeyCredential && navigator.credentials && navigator.credentials.create); }
+  function rpId() { return /(^|\.)golfpriceai\.com$/.test(location.hostname) ? 'golfpriceai.com' : location.hostname; }
+  function b64u(buf) { var s = '', u = new Uint8Array(buf); for (var i = 0; i < u.length; i++) s += String.fromCharCode(u[i]); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+  function unb64u(t) { t = String(t).replace(/-/g, '+').replace(/_/g, '/'); var b = atob(t + '==='.slice((t.length + 3) % 4)), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+  function pkError(e) {
+    var n = e && e.name;
+    if (n === 'NotAllowedError' || n === 'AbortError') return new Error('No problem, nothing was saved. Try again whenever you like.');
+    if (n === 'InvalidStateError') return new Error('This phone already has a passkey for your Clubhouse.');
+    return new Error('This phone couldn’t make a passkey. Your Clubhouse key still works.');
+  }
+  function addPasskey() {
+    if (!pkOk()) return Promise.reject(new Error('This browser doesn’t do passkeys. Your Clubhouse key still works.'));
+    var me = pid(), nick = String(get('gpNick', '') || '').slice(0, 24);
+    return post('/ck/pk/begin', { pid: me }).then(function (b) {
+      if (!b.ok) throw new Error(b.error || 'Please try again.');
+      var uid = new Uint8Array(16); crypto.getRandomValues(uid);
+      return navigator.credentials.create({ publicKey: {
+        challenge: unb64u(b.challenge), rp: { id: rpId(), name: 'GolfPrice AI' },
+        user: { id: uid, name: 'GolfPrice AI Clubhouse' + (nick ? ' (' + nick + ')' : ''), displayName: nick || 'My Clubhouse' },
+        pubKeyCredParams: [{ type: 'public-key', alg: -7 }, { type: 'public-key', alg: -257 }],
+        authenticatorSelection: { residentKey: 'required', requireResidentKey: true, userVerification: 'required' },
+        excludeCredentials: (b.have || []).map(function (id) { return { type: 'public-key', id: unb64u(id) }; }),
+        attestation: 'none', timeout: 120000 } }).catch(function (e) { throw pkError(e); });
+    }).then(function (cred) {
+      var res = cred.response, spki = res.getPublicKey ? res.getPublicKey() : null, alg = res.getPublicKeyAlgorithm ? res.getPublicKeyAlgorithm() : null;
+      if (!spki || alg == null) throw new Error('This phone is a little too old for passkeys. Your Clubhouse key still works.');
+      return post('/ck/pk/add', { pid: me, id: cred.id, publicKey: b64u(spki), alg: alg, clientDataJSON: b64u(res.clientDataJSON) });
+    }).then(function (r) {
+      if (!r.ok) throw new Error(r.error || 'Please try again.');
+      var i = info(); if (!i.at) i.at = today(); i.saved = true; i.how = (i.how || []).filter(function (x) { return x !== 'passkey'; }).concat(['passkey']); put('gpKeyInfo', i);
+      put('gpPasskey', today()); gpUse('pk_added'); track('clubhouse_passkey_added'); sync(true);
+      return true;
     });
+  }
+  function unlock() {
+    if (!pkOk()) return Promise.reject(new Error('This browser doesn’t do passkeys. Use your Clubhouse key instead.'));
+    return post('/ck/pk/begin', {}).then(function (b) {
+      if (!b.ok) throw new Error(b.error || 'Please try again.');
+      return navigator.credentials.get({ publicKey: { challenge: unb64u(b.challenge), rpId: rpId(), userVerification: 'required', allowCredentials: [], timeout: 120000 } })
+        .catch(function (e) { if (e && e.name === 'NotAllowedError') throw new Error('No passkey found on this phone, or it was cancelled. Try your Clubhouse key instead.'); throw pkError(e); });
+    }).then(function (cred) {
+      var res = cred.response;
+      return post('/ck/pk/unlock', { id: cred.id, clientDataJSON: b64u(res.clientDataJSON), authenticatorData: b64u(res.authenticatorData), signature: b64u(res.signature) });
+    }).then(function (r) { var out = apply(r); put('gpPasskey', today()); var i = info(); i.how = ['passkey']; put('gpKeyInfo', i); return out; });
   }
   // The Clubhouse card's QR code opens /play/my-clubhouse/#key=XXXX-XXXX-XXXX.
   function fromLink() {
@@ -158,6 +211,7 @@
     lock: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 11V7a5 5 0 0110 0v4M5 11h14v10H5z"/></svg>',
     wa: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 12a9 9 0 01-13.5 7.8L3 21l1.2-4.5A9 9 0 1121 12z"/></svg>',
     mail: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 6h18v12H3zM3 6l9 7 9-7"/></svg>',
+    face: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 8V5a1 1 0 011-1h3M16 4h3a1 1 0 011 1v3M20 16v3a1 1 0 01-1 1h-3M8 20H5a1 1 0 01-1-1v-3M9 10v1M15 10v1M12 10v3h-1M9.5 16a4 4 0 005 0"/></svg>',
     qr: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2M18 14h2v2M14 18h2v2h4"/></svg>'
   };
 
@@ -251,7 +305,8 @@
       '<section class="ck-box"><label for="ck-code" style="font:600 13px Inter,sans-serif;color:#4a554e">Your Clubhouse key</label><input id="ck-code" class="ck-code" type="text" readonly value="Making your key…">' +
       '<p class="ck-small" style="text-align:center">Anyone with this key can open your Clubhouse. Keep it to yourself.</p></section>' +
       '<section class="ck-box"><b class="ck-h">Save it two ways (it takes 10 seconds)</b>' +
-      '<button type="button" class="ck-btn" data-ck="pw">' + IC.lock + '<span>Save to my phone’s passwords</span></button>' +
+      (pkOk() ? '<button type="button" class="ck-btn" data-ck="pk">' + IC.face + '<span>Use Face ID, fingerprint or PIN</span></button>' : '') +
+      '<button type="button" class="' + (pkOk() ? 'ck-btn2' : 'ck-btn') + '" data-ck="pw">' + IC.lock + '<span>Save to my phone’s passwords</span></button>' +
       '<form class="ck-pw" hidden autocomplete="on" action="#" method="post"><span class="ck-small">Tap Save and your phone should offer to keep it as a password for golfpriceai.com.</span>' +
       '<input type="text" name="username" autocomplete="username" value="GolfPrice AI Clubhouse" readonly aria-label="Name">' +
       '<input type="password" name="password" autocomplete="new-password" aria-label="Clubhouse key"><button type="submit" class="ck-btn2" style="justify-content:center"><span>Save</span></button></form>' +
@@ -268,6 +323,11 @@
     make().then(function (c) { code = c; back.querySelector('#ck-code').value = c; form.querySelector('[name=password]').value = c; },
       function (e) { msg.className = 'ck-msg ck-err'; msg.textContent = e.message || 'We couldn’t make a key just now. Please try again in a minute.'; });
     back.querySelector('[data-ck=pw]').onclick = function () { if (code) toPasswords(code, this, form); };
+    var pkb = back.querySelector('[data-ck=pk]'); if (pkb) pkb.onclick = function () {
+      var b = this; b.disabled = true;
+      addPasskey().then(function () { b.disabled = false; done(b, 'Face ID / fingerprint added'); msg.className = 'ck-msg'; msg.textContent = 'Passkey saved. Save the key one more way too, just in case.'; },
+        function (e) { b.disabled = false; msg.className = 'ck-msg ck-err'; msg.textContent = e.message; });
+    };
     form.addEventListener('submit', function (e) { e.preventDefault(); done(back.querySelector('[data-ck=pw]'), 'Offered to your passwords'); note('passwords'); gpUse('ck_saved'); form.hidden = true; });
     back.querySelector('[data-ck=wa]').onclick = function () { if (code) toWhatsApp(code, this); };
     back.querySelector('[data-ck=mail]').onclick = function () { if (code) toEmail(code, this); };
@@ -290,17 +350,19 @@
     var s = status();
     if (!s.saved) return '<div class="ck-warn"><b>Your Clubhouse isn’t backed up</b><span>' + esc(why || 'If this browser forgets you, your Clubhouse goes with it.') + ' Save your key: it takes 10 seconds.</span>' +
       '<button type="button" class="ck-btn ck-dark" data-ckw="save">Save my Clubhouse key</button></div>';
-    var how = s.how.map(function (h) { return { passwords: 'your phone’s passwords', whatsapp: 'your WhatsApp', email: 'your email', card: 'your Clubhouse card', restored: 'your key' }[h]; }).filter(Boolean);
+    var how = s.how.map(function (h) { return { passwords: 'your phone’s passwords', whatsapp: 'your WhatsApp', email: 'your email', card: 'your Clubhouse card', restored: 'your key', passkey: 'your phone’s Face ID / fingerprint' }[h]; }).filter(Boolean);
     return '<div class="ck-ok"><div class="ck-ok-top"><b>Backed up</b><span class="ck-pill">Safe</span></div>' +
       '<span class="ck-small" style="font-size:14px;color:#4a554e">' + (how.length ? 'Saved to ' + how.join(' and ') : 'Saved') + (s.at ? ', ' + longDay(s.at) : '') + '. Works on any phone.</span>' +
       '<div class="ck-row">' + (s.hasCode ? '<button type="button" class="ck-btn2" data-ckw="show">Show my key</button><button type="button" class="ck-btn2" data-ckw="card">My Clubhouse card</button>' : '') +
-      '<button type="button" class="ck-btn2" data-ckw="again">Save it again</button></div><div data-ckw-out></div>' +
+      '<button type="button" class="ck-btn2" data-ckw="again">Save it again</button>' +
+      (pkOk() && s.how.indexOf('passkey') < 0 && !get('gpPasskey', '') ? '<button type="button" class="ck-btn2" data-ckw="pk">' + IC.face + 'Add Face ID or fingerprint</button>' : '') + '</div><div data-ckw-out></div>' +
       '<span class="ck-small">Think someone’s seen your key? <button type="button" class="ck-link" data-ckw="new">Get a new one</button> and the old one stops working.</span></div>';
   }
   function restoreForm() {
     css();
-    return '<form class="ck-box" data-ckr novalidate autocomplete="on"><b class="ck-h">Got a Clubhouse key?</b>' +
+    return '<form class="ck-box" data-ckr novalidate autocomplete="on"><b class="ck-h">Been here before?</b>' +
       '<span class="ck-small" style="font-size:14px;color:#4a554e">New phone, or cleared your browser? Your societies, leagues, handicap and rounds come straight back.</span>' +
+      (pkOk() ? '<button type="button" class="ck-btn" data-ckw="unlock" style="justify-content:center">' + IC.face + 'Unlock with Face ID, fingerprint or PIN</button><div class="ck-or">or</div>' : '') +
       '<input type="text" name="username" autocomplete="username" value="GolfPrice AI Clubhouse" hidden>' +
       '<label for="ck-in" class="ck-small">Type your key (or tap the box, if your phone saved it)</label>' +
       '<input id="ck-in" class="ck-field" name="password" type="text" autocomplete="current-password" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX" maxlength="16">' +
@@ -315,6 +377,16 @@
         if (w === 'save' || w === 'again') prompt({ kick: 'MY CLUBHOUSE', after: function () { location.reload(); } });
         else if (w === 'show' && out) out.innerHTML = '<div class="ck-show">' + esc(get('gpKeyCode', '')) + '</div>';
         else if (w === 'card') saveCard(get('gpKeyCode', ''), b);
+        else if (w === 'pk') {
+          b.disabled = true;
+          addPasskey().then(function () { location.reload(); }, function (e) { b.disabled = false; if (out) out.innerHTML = '<p class="ck-msg ck-err">' + esc(e.message) + '</p>'; });
+        }
+        else if (w === 'unlock') {
+          var m = el.querySelector('[data-ckr] .ck-msg'); b.disabled = true;
+          if ((get('gpSocs', []).length || get('gpNick', '')) && !window.confirm('Bring back your Clubhouse? It replaces what’s on this phone now.')) { b.disabled = false; return; }
+          unlock().then(function () { location.replace('/play/my-clubhouse/?restored=1'); },
+            function (e) { b.disabled = false; if (m) { m.className = 'ck-msg ck-err'; m.textContent = e.message; } });
+        }
         else if (w === 'new') {
           if (!window.confirm('Get a new key? Your old key stops working straight away.')) return;
           fresh().then(function () { put('gpKeyInfo', { at: today(), saved: false, how: [] }); prompt({ kick: 'YOUR NEW KEY', after: function () { location.reload(); } }); },
@@ -334,5 +406,6 @@
     });
   }
 
-  window.gpKey = { prompt: prompt, status: status, statusCard: statusCard, restoreForm: restoreForm, wire: wire, sync: sync, fromLink: fromLink, restore: restore, make: make };
+  window.gpKey = { prompt: prompt, status: status, statusCard: statusCard, restoreForm: restoreForm, wire: wire, sync: sync, fromLink: fromLink, restore: restore, make: make,
+    addPasskey: addPasskey, unlock: unlock, passkeys: pkOk };
 })();

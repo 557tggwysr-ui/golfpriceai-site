@@ -235,7 +235,7 @@ def hq_page():
 </section>
 {REAL}
 </div>
-<script src="/js/clubhouse-key.js?v=20261101" defer></script>
+<script src="/js/clubhouse-key.js?v=20261101b" defer></script>
 <script src="/js/society-hq.js?v=20261101c" defer></script>"""
     return page_shell(title="Run your golf society free | Society HQ | GolfPrice AI",
                       description="Run your golf society for free: fixtures, sign-ups, who’s paid, a waiting list and the prize fund, all from one link in the WhatsApp group.",

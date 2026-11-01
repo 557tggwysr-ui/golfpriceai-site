@@ -67,7 +67,7 @@
   var KEY = window.gpKey;
   if (KEY && KEY.status().saved) KEY.sync();
   if (!anything) {
-    box.innerHTML = starters() + (KEY ? '<section class="mc-row-sec" id="restore">' + KEY.restoreForm() + '</section>' : '');
+    box.innerHTML = (KEY ? '<section class="mc-row-sec" id="restore">' + KEY.restoreForm() + '</section>' : '') + starters();
     if (KEY) KEY.wire(box);
     if (location.hash === '#restore') { var r = document.getElementById('restore'); if (r) r.scrollIntoView(); }
     track('my_clubhouse_view', { state: 'new' }); return;
@@ -405,6 +405,6 @@
     ];
     return '<section class="mc-row-sec"><div class="mc-row-head"><h2>Four ways to fill it</h2></div><div class="mc-grid mc-starts">' + c.map(function (x) {
       return '<a class="mc-card mc-start" href="' + x[0] + '"><b class="mc-name">' + x[1] + ' <span>→</span></b><span class="mc-dim">' + x[2] + '</span></a>';
-    }).join('') + '</div></section><p class="mc-dim mc-have">Already got a Clubhouse? Type your Clubhouse key below, or use <b>Move my Clubhouse</b> from your other phone.</p>';
+    }).join('') + '</div></section><p class="mc-dim mc-have">Already got a Clubhouse on another phone? Unlock it above with Face ID or your Clubhouse key, or use <b>Move my Clubhouse</b>.</p>';
   }
 })();

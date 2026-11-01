@@ -433,6 +433,9 @@ async function ckSetup(env) {
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS ck_keys (h TEXT PRIMARY KEY, pid TEXT, created TEXT) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS ck_keys_pid ON ck_keys (pid)'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS ck_vault (pid TEXT PRIMARY KEY, data TEXT, at TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pk_creds (id TEXT PRIMARY KEY, pid TEXT, pk TEXT, alg INTEGER, created TEXT, used TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS pk_creds_pid ON pk_creds (pid)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS pk_chal (c TEXT PRIMARY KEY, pid TEXT, exp INTEGER) WITHOUT ROWID'),
   ]);
   ckReady = true;
 }
@@ -466,7 +469,26 @@ async function clubhouseKey(request, url, env, cors) {
     if (k.length !== 12) return json({ ok: false, error: 'A Clubhouse key is 12 letters and numbers, like 7KQ2-M9XR-4HTD.' }, 400, cors);
     const who = await db.prepare('SELECT pid FROM ck_keys WHERE h = ?').bind(await ckHash(env, k)).first('pid');
     if (!who) return json({ ok: false, error: 'That key doesn’t match a Clubhouse. Check it and try again.' }, 404, cors);
-    let socs = [], nick = '', data = null;
+    await useBump(env, 'ck_restored');
+    return json(await ckPayload(env, who), 200, cors);
+  }
+  if (path.startsWith('/ck/pk/')) return await ckPasskey(env, path, body, pid, ip, cors);
+  if (path === '/ck/sync') {
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    if (await tooMany('cksync-' + ip, 30, 3600)) return json({ ok: false }, 429, cors);
+    if (!(await db.prepare('SELECT h FROM ck_keys WHERE pid = ? UNION SELECT id FROM pk_creds WHERE pid = ?').bind(pid, pid).first())) return json({ ok: false, error: 'No key yet.' }, 403, cors);
+    const data = JSON.stringify(body.data && typeof body.data === 'object' ? body.data : {});
+    if (data.length > 8000) return json({ ok: false, error: 'Too big.' }, 400, cors);
+    await db.prepare('INSERT INTO ck_vault (pid, data, at) VALUES (?, ?, ?) ON CONFLICT (pid) DO UPDATE SET data = excluded.data, at = excluded.at').bind(pid, data, hqDay()).run();
+    return json({ ok: true }, 200, cors);
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
+// Everything a restored Clubhouse needs: the player id, its societies, a nickname and the backup.
+async function ckPayload(env, who) {
+  const db = env.DEMAND;
+  let socs = [], nick = '', data = null;
+  {
     try {
       await socSetup(env);
       socs = ((await db.prepare('SELECT id, name FROM soc_socs WHERE pid = ? OR co = ? UNION SELECT s.id, s.name FROM soc_members m JOIN soc_socs s ON s.id = m.soc WHERE m.pid = ?').bind(who, who, who).all()).results || []).slice(0, 10);
@@ -474,17 +496,79 @@ async function clubhouseKey(request, url, env, cors) {
     } catch (e) { /* no societies yet */ }
     if (!nick) try { nick = (await db.prepare('SELECT nick FROM pp_members WHERE pid = ? ORDER BY joined DESC LIMIT 1').bind(who).first('nick')) || ''; } catch (e) { /* no leagues */ }
     try { const v = await db.prepare('SELECT data FROM ck_vault WHERE pid = ?').bind(who).first('data'); data = v ? JSON.parse(v) : null; } catch (e) { /* none */ }
-    await useBump(env, 'ck_restored');
-    return json({ ok: true, pid: who, socs, nick, data }, 200, cors);
   }
-  if (path === '/ck/sync') {
-    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
-    if (await tooMany('cksync-' + ip, 30, 3600)) return json({ ok: false }, 429, cors);
-    if (!(await db.prepare('SELECT h FROM ck_keys WHERE pid = ?').bind(pid).first('h'))) return json({ ok: false, error: 'No key yet.' }, 403, cors);
-    const data = JSON.stringify(body.data && typeof body.data === 'object' ? body.data : {});
-    if (data.length > 8000) return json({ ok: false, error: 'Too big.' }, 400, cors);
-    await db.prepare('INSERT INTO ck_vault (pid, data, at) VALUES (?, ?, ?) ON CONFLICT (pid) DO UPDATE SET data = excluded.data, at = excluded.at').bind(pid, data, hqDay()).run();
+  return { ok: true, pid: who, socs, nick, data };
+}
+
+/* Passkeys: Face ID, fingerprint or the phone's PIN unlock the Clubhouse.
+   Standard WebAuthn with discoverable credentials ("passkeys"), synced by
+   Apple or Google to the golfer's other devices. We keep the credential id,
+   its public key and the player id. Nothing biometric ever leaves the phone.
+     pk_creds  id (credential id, base64url), pid, pk (SPKI, base64url), alg, created, used
+     pk_chal   c (one-time challenge), pid ('' for sign-in), exp */
+const PK_ORIGINS = { 'https://golfpriceai.com': 'golfpriceai.com', 'https://www.golfpriceai.com': 'golfpriceai.com' };
+function b64u(buf) { let s = ''; new Uint8Array(buf).forEach((b) => { s += String.fromCharCode(b); }); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+function unb64u(str) { const t = String(str || '').replace(/-/g, '+').replace(/_/g, '/'); const b = atob(t + '==='.slice((t.length + 3) % 4)); const u = new Uint8Array(b.length); for (let i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+// WebAuthn's ES256 signatures are DER; WebCrypto wants the raw 64-byte r||s.
+function derToRaw(der) {
+  let i = 2; if (der[1] & 0x80) i += der[1] & 0x7f;
+  const part = () => { i++; const len = der[i++]; let v = der.slice(i, i + len); i += len; while (v.length > 32 && v[0] === 0) v = v.slice(1); const o = new Uint8Array(32); o.set(v, 32 - v.length); return o; };
+  const r = part(), s2 = part(), out = new Uint8Array(64); out.set(r, 0); out.set(s2, 32); return out;
+}
+async function ckPasskey(env, path, body, pid, ip, cors) {
+  const db = env.DEMAND;
+  const origins = Object.assign({}, PK_ORIGINS, env.PK_DEV_ORIGIN ? { [env.PK_DEV_ORIGIN]: new URL(env.PK_DEV_ORIGIN).hostname } : {});
+  const now = Date.now();
+  if (await tooMany('pk-' + ip, 30, 600)) return json({ ok: false, error: 'Too many tries. Please wait ten minutes and try again.' }, 429, cors);
+  if (path === '/ck/pk/begin') {   // a challenge: for adding a passkey (with pid) or signing in (without)
+    const c = b64u(crypto.getRandomValues(new Uint8Array(32)));
+    await db.prepare('DELETE FROM pk_chal WHERE exp < ?').bind(now).run();
+    await db.prepare('INSERT INTO pk_chal (c, pid, exp) VALUES (?, ?, ?)').bind(c, pid || '', now + 5 * 60000).run();
+    const ids = pid ? ((await db.prepare('SELECT id FROM pk_creds WHERE pid = ?').bind(pid).all()).results || []).map((r) => r.id) : [];
+    return json({ ok: true, challenge: c, have: ids }, 200, cors);
+  }
+  // Both finishing steps check the browser's signed-off "client data".
+  let cd;
+  try { cd = JSON.parse(new TextDecoder().decode(unb64u(body.clientDataJSON))); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+  const rp = origins[cd.origin];
+  if (!rp) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  const ch = await db.prepare('SELECT pid FROM pk_chal WHERE c = ? AND exp >= ?').bind(String(cd.challenge || ''), now).first();
+  if (!ch) return json({ ok: false, error: 'That took a little too long. Please try again.' }, 400, cors);
+  await db.prepare('DELETE FROM pk_chal WHERE c = ?').bind(String(cd.challenge)).run();
+  if (path === '/ck/pk/add') {
+    if (cd.type !== 'webauthn.create' || !pid || ch.pid !== pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const id = String(body.id || ''), pk = String(body.publicKey || ''), alg = Number(body.alg);
+    if (!/^[A-Za-z0-9_-]{16,400}$/.test(id) || !/^[A-Za-z0-9_-]{40,1200}$/.test(pk) || (alg !== -7 && alg !== -257)) return json({ ok: false, error: 'This phone’s passkey isn’t one we can use. Your Clubhouse key still works.' }, 400, cors);
+    const n = await db.prepare('SELECT COUNT(*) AS c FROM pk_creds WHERE pid = ?').bind(pid).first('c');
+    if (n >= 10) return json({ ok: false, error: 'Ten passkeys is plenty. Remove one first.' }, 400, cors);
+    await db.prepare('INSERT OR REPLACE INTO pk_creds (id, pid, pk, alg, created, used) VALUES (?, ?, ?, ?, ?, ?)').bind(id, pid, pk, alg, hqDay(), hqDay()).run();
+    await useBump(env, 'pk_added');
     return json({ ok: true }, 200, cors);
+  }
+  if (path === '/ck/pk/unlock') {
+    if (cd.type !== 'webauthn.get') return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const cred = await db.prepare('SELECT * FROM pk_creds WHERE id = ?').bind(String(body.id || '')).first();
+    if (!cred) return json({ ok: false, error: 'That passkey isn’t linked to a Clubhouse any more. Use your Clubhouse key instead.' }, 404, cors);
+    const auth = unb64u(body.authenticatorData), sig = unb64u(body.signature);
+    const rpHash = new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(rp)));
+    if (auth.length < 37 || rpHash.some((b, i) => auth[i] !== b)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    if (!(auth[32] & 0x01) || !(auth[32] & 0x04)) return json({ ok: false, error: 'Your phone needs to check it’s you (Face ID, fingerprint or PIN).' }, 400, cors);
+    const cdHash = new Uint8Array(await crypto.subtle.digest('SHA-256', unb64u(body.clientDataJSON)));
+    const signed = new Uint8Array(auth.length + 32); signed.set(auth, 0); signed.set(cdHash, auth.length);
+    let ok = false;
+    try {
+      if (cred.alg === -7) {
+        const key = await crypto.subtle.importKey('spki', unb64u(cred.pk), { name: 'ECDSA', namedCurve: 'P-256' }, false, ['verify']);
+        ok = await crypto.subtle.verify({ name: 'ECDSA', hash: 'SHA-256' }, key, derToRaw(sig), signed);
+      } else {
+        const key = await crypto.subtle.importKey('spki', unb64u(cred.pk), { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' }, false, ['verify']);
+        ok = await crypto.subtle.verify('RSASSA-PKCS1-v1_5', key, sig, signed);
+      }
+    } catch (e) { ok = false; }
+    if (!ok) return json({ ok: false, error: 'That didn’t check out. Please try again, or use your Clubhouse key.' }, 403, cors);
+    await db.prepare('UPDATE pk_creds SET used = ? WHERE id = ?').bind(hqDay(), cred.id).run();
+    await useBump(env, 'pk_unlocked');
+    return json(await ckPayload(env, cred.pid), 200, cors);
   }
   return json({ ok: false, error: 'Not found.' }, 404, cors);
 }
@@ -1126,7 +1210,7 @@ async function clubStats(request, env, cors) {
   try {
     await ckSetup(env);
     out.keys = { keys: await one('SELECT COUNT(*) AS c FROM ck_keys'), vaults: await one('SELECT COUNT(*) AS c FROM ck_vault'),
-      made7: sumUse('ck_made', d7), restored30: sumUse('ck_restored', d30),
+      made7: sumUse('ck_made', d7), restored30: sumUse('ck_restored', d30), passkeys: await one('SELECT COUNT(DISTINCT pid) AS c FROM pk_creds'), pkUnlocked30: sumUse('pk_unlocked', d30),
       orgs: await one('SELECT COUNT(*) AS c FROM soc_socs'), orgKeys: await one('SELECT COUNT(*) AS c FROM soc_socs s JOIN ck_keys k ON k.pid = s.pid'),
       co: await one('SELECT COUNT(*) AS c FROM soc_socs WHERE co IS NOT NULL') };
   } catch (e) { out.keys = null; }

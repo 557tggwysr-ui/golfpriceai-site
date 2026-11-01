@@ -215,7 +215,7 @@ td:first-child { font-weight: 400; }
     var ck = d.keys;
     if (ck) {
       html += '<section class="card" id="keys"><div class="head"><h2>Clubhouse keys</h2><span class="dim">' + n(ck.orgKeys) + ' of ' + n(ck.orgs) + ' organisers backed up \u00b7 ' + n(ck.co) + ' co-organisers</span></div>' +
-        '<div class="nums">' + num(ck.keys, 'golfers with a key') + num(ck.vaults, 'with a backup') + num(ck.made7, 'keys made, 7 days') + num(ck.restored30, 'Clubhouses restored, 30 days') + '</div></section>';
+        '<div class="nums">' + num(ck.keys, 'golfers with a key') + num(ck.vaults, 'with a backup') + num(ck.made7, 'keys made, 7 days') + num(ck.restored30, 'Clubhouses restored, 30 days') + num(ck.passkeys, 'golfers with Face ID / fingerprint') + num(ck.pkUnlocked30, 'unlocked with Face ID, 30 days') + '</div></section>';
     }
 
     var ss = d.shotSaver;
