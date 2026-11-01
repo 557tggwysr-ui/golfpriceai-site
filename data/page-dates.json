@@ -81,7 +81,7 @@
 },
 "improve/my-game/": {
 "d": "2026-11-01",
-"h": "e6eea5987d1a14ec"
+"h": "d722542f1c1f42a7"
 },
 "improve/playing-handicap-calculator/": {
 "d": "2026-11-01",
@@ -137,11 +137,11 @@
 },
 "play/poll/": {
 "d": "2026-11-01",
-"h": "28453ea480769db9"
+"h": "a12bb2695ed201a3"
 },
 "play/scorecard/": {
 "d": "2026-11-01",
-"h": "d895c50a5cb7bfab"
+"h": "71f4b77ce26ec5e4"
 },
 "price-check.html": {
 "d": "2026-11-01",
@@ -209,70 +209,294 @@
 },
 "societies/": {
 "d": "2026-11-01",
-"h": "e6bdb1b61b560dee"
+"h": "f3e72a8209e49de2"
 },
 "societies/awards/": {
 "d": "2026-11-01",
-"h": "4f276e488f55a56b"
+"h": "9fb85583406c0376"
 },
 "societies/clubs/": {
 "d": "2026-11-01",
-"h": "b9dbecd85067d342"
+"h": "121bd76d9d1af9bd"
 },
 "societies/find/": {
 "d": "2026-11-01",
-"h": "59828b0ce9da7b09"
+"h": "21ba11cea68e372d"
+},
+"societies/find/aberdeenshire/": {
+"d": "2026-11-01",
+"h": "b707d29f3323a6f5"
+},
+"societies/find/angus-and-dundee/": {
+"d": "2026-11-01",
+"h": "4d4677e11a421e3a"
+},
+"societies/find/ayrshire-and-arran/": {
+"d": "2026-11-01",
+"h": "41137a72071f22fa"
+},
+"societies/find/bedfordshire/": {
+"d": "2026-11-01",
+"h": "04992f35a98864fa"
+},
+"societies/find/berkshire/": {
+"d": "2026-11-01",
+"h": "b9ca9e6ca793380c"
+},
+"societies/find/bristol/": {
+"d": "2026-11-01",
+"h": "0fb4ee5846976651"
+},
+"societies/find/buckinghamshire/": {
+"d": "2026-11-01",
+"h": "824c9820010296cf"
+},
+"societies/find/cambridgeshire/": {
+"d": "2026-11-01",
+"h": "d1a36d008d832549"
+},
+"societies/find/cheshire/": {
+"d": "2026-11-01",
+"h": "03abd5c03fb75059"
+},
+"societies/find/cornwall/": {
+"d": "2026-11-01",
+"h": "211427d013604e2e"
+},
+"societies/find/cumbria/": {
+"d": "2026-11-01",
+"h": "0f650b510bbb86dc"
+},
+"societies/find/derbyshire/": {
+"d": "2026-11-01",
+"h": "b7008b8af2476176"
+},
+"societies/find/devon/": {
+"d": "2026-11-01",
+"h": "b4bf610c76c9c428"
+},
+"societies/find/dorset/": {
+"d": "2026-11-01",
+"h": "683e5b0c3fb2556a"
+},
+"societies/find/durham/": {
+"d": "2026-11-01",
+"h": "27cfe73f2fc3d917"
+},
+"societies/find/east-sussex/": {
+"d": "2026-11-01",
+"h": "b3c9bd52e18555c9"
+},
+"societies/find/essex/": {
+"d": "2026-11-01",
+"h": "4684e4e1d47cd3a5"
+},
+"societies/find/fife/": {
+"d": "2026-11-01",
+"h": "7256a1899f6b4c01"
+},
+"societies/find/glasgow-and-clyde/": {
+"d": "2026-11-01",
+"h": "eaeaf325fb6b670a"
+},
+"societies/find/gloucestershire/": {
+"d": "2026-11-01",
+"h": "66e0ef87288b4d02"
+},
+"societies/find/greater-london/": {
+"d": "2026-11-01",
+"h": "532be8d5d45a6091"
+},
+"societies/find/greater-manchester/": {
+"d": "2026-11-01",
+"h": "cbacd13ca1bc285b"
+},
+"societies/find/hampshire/": {
+"d": "2026-11-01",
+"h": "85fb373bc52df9be"
+},
+"societies/find/herefordshire/": {
+"d": "2026-11-01",
+"h": "bcd04f94c31daa29"
+},
+"societies/find/hertfordshire/": {
+"d": "2026-11-01",
+"h": "3cf1cdb4463a85b3"
+},
+"societies/find/highlands-and-islands/": {
+"d": "2026-11-01",
+"h": "8e0deb37d4c05bc8"
+},
+"societies/find/isle-of-wight/": {
+"d": "2026-11-01",
+"h": "1ac8a2a5d9df64c4"
+},
+"societies/find/kent/": {
+"d": "2026-11-01",
+"h": "66f8fc5a9d53961b"
+},
+"societies/find/lancashire/": {
+"d": "2026-11-01",
+"h": "33d02fd9c30c15f6"
+},
+"societies/find/leicestershire/": {
+"d": "2026-11-01",
+"h": "94fce8a58a6e6003"
+},
+"societies/find/lincolnshire/": {
+"d": "2026-11-01",
+"h": "6b8e327be79b4571"
+},
+"societies/find/merseyside/": {
+"d": "2026-11-01",
+"h": "886ee69953d1be3b"
+},
+"societies/find/mid-wales/": {
+"d": "2026-11-01",
+"h": "49874f482032f76c"
+},
+"societies/find/norfolk/": {
+"d": "2026-11-01",
+"h": "a95c4b61b53d2ee2"
+},
+"societies/find/north-wales/": {
+"d": "2026-11-01",
+"h": "6f39ef4888471ca0"
+},
+"societies/find/northamptonshire/": {
+"d": "2026-11-01",
+"h": "8a16407216d7bcb3"
+},
+"societies/find/northern-ireland/": {
+"d": "2026-11-01",
+"h": "72f2805749c88167"
+},
+"societies/find/northumberland/": {
+"d": "2026-11-01",
+"h": "bbd86f395e3f1fe6"
+},
+"societies/find/nottinghamshire/": {
+"d": "2026-11-01",
+"h": "2fc5b95750cafe4a"
+},
+"societies/find/oxfordshire/": {
+"d": "2026-11-01",
+"h": "752d73a12b9a27c7"
+},
+"societies/find/perth-and-kinross/": {
+"d": "2026-11-01",
+"h": "35355a93bbd0e297"
+},
+"societies/find/rutland/": {
+"d": "2026-11-01",
+"h": "ac91ff9a55b25895"
+},
+"societies/find/scottish-borders/": {
+"d": "2026-11-01",
+"h": "d01e17edcbb18b9a"
+},
+"societies/find/shropshire/": {
+"d": "2026-11-01",
+"h": "a2ea65cee7982d3b"
+},
+"societies/find/somerset/": {
+"d": "2026-11-01",
+"h": "6d7d22ad29ee4ed2"
+},
+"societies/find/south-wales/": {
+"d": "2026-11-01",
+"h": "38e3e40b54d2c5df"
+},
+"societies/find/staffordshire/": {
+"d": "2026-11-01",
+"h": "f9468c1d084c80dd"
+},
+"societies/find/suffolk/": {
+"d": "2026-11-01",
+"h": "3c5d8e23cfa4eae3"
+},
+"societies/find/surrey/": {
+"d": "2026-11-01",
+"h": "27e7444db39eab4d"
+},
+"societies/find/tyne-and-wear/": {
+"d": "2026-11-01",
+"h": "d2d419f22390001c"
+},
+"societies/find/warwickshire/": {
+"d": "2026-11-01",
+"h": "d3f65eb95a7fdd7e"
+},
+"societies/find/west-sussex/": {
+"d": "2026-11-01",
+"h": "c0bbde80bef1f1e8"
+},
+"societies/find/west-wales/": {
+"d": "2026-11-01",
+"h": "ed9f362e30d515a1"
+},
+"societies/find/wiltshire/": {
+"d": "2026-11-01",
+"h": "5f5e5a846dec27db"
+},
+"societies/find/worcestershire/": {
+"d": "2026-11-01",
+"h": "fa36a8cc6468b809"
+},
+"societies/find/yorkshire/": {
+"d": "2026-11-01",
+"h": "15d2e5b30ea4cc2c"
 },
 "societies/guides/": {
 "d": "2026-11-01",
-"h": "4782b508cb0e2aac"
+"h": "7ba1e090a9bbf101"
 },
 "societies/guides/golf-society-apps-compared/": {
 "d": "2026-11-01",
-"h": "c32c8399fbee04d6"
+"h": "bdd0fbd98f47837d"
 },
 "societies/guides/golf-society-awards-ideas/": {
 "d": "2026-11-01",
-"h": "740272e70d56c1de"
+"h": "e8379ab2288dee2e"
 },
 "societies/guides/golf-society-handicap-systems/": {
 "d": "2026-11-01",
-"h": "772d8ae046d78723"
+"h": "3755cf4b2075ab35"
 },
 "societies/guides/golf-society-prize-ideas/": {
 "d": "2026-11-01",
-"h": "8a6e4562f9d0243c"
+"h": "b571f23c1f36d60d"
 },
 "societies/guides/golf-society-rules-template/": {
 "d": "2026-11-01",
-"h": "4ab9bb622ca34d99"
+"h": "610a883e9cc3c2f1"
 },
 "societies/guides/how-much-to-charge-for-a-golf-society-day/": {
 "d": "2026-11-01",
-"h": "425e91b54e5c5973"
+"h": "5154b72c435a95ec"
 },
 "societies/guides/how-to-run-a-golf-society/": {
 "d": "2026-11-01",
-"h": "77ff768cee0aae9a"
+"h": "e049f2e06ec9843f"
 },
 "societies/guides/how-to-start-a-golf-society/": {
 "d": "2026-11-01",
-"h": "ad41426c5fbb76b0"
+"h": "412475e01d7a4322"
 },
 "societies/hq/": {
 "d": "2026-11-01",
-"h": "af9b0c6052dc3ffc"
+"h": "fa6bc94ef269acf2"
 },
 "societies/league/": {
 "d": "2026-11-01",
-"h": "17a5edec0cc9e50c"
+"h": "af7c79809515e59b"
 },
 "societies/live-scoring/": {
 "d": "2026-11-01",
-"h": "30c434804b9317f7"
+"h": "4bf84bc5df14ed48"
 },
 "societies/prize-fund-calculator/": {
 "d": "2026-11-01",
-"h": "3fbaf0502f166aff"
+"h": "39150b92c771adb5"
 }
 }
