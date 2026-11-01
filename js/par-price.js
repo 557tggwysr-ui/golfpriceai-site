@@ -362,7 +362,7 @@
   /* ---------------------------------------------------------- leagues */
   function leagueUrl(id) { return 'https://golfpriceai.com/play/league/?l=' + id; }
   function invite(id, name, nick) {
-    var text = (nick || 'Someone') + ' has started a Par Price league: ' + name + '. Five golf prices a day, scored like a round. Loser buys the first round? ' + leagueUrl(id);
+    var text = (nick || 'Someone') + ' has started a golf league: ' + name + '. Par Price every day, the Bag Draft every month. Loser buys the first round? ' + leagueUrl(id);
     if (navigator.share) navigator.share({ text: text }).catch(function () {});
     else window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener');
     track('par_price_league_invite');

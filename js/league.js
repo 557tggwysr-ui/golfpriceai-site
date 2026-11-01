@@ -44,6 +44,7 @@
       data = d;
       document.title = d.name + ' · Par Price league | GolfPrice AI';
       d.members.some(function (m) { return m.you; }) ? table() : join();
+      draftCard();
       milestones(d);
     }).catch(function () { fail('We couldn’t reach the clubhouse. Please refresh in a minute.'); });
   }
@@ -63,6 +64,41 @@
       '<a class="gp-af-btn lg-btn" href="/play/par-price/">Play today’s round anyway</a>';
   }
 
+  /* ---------------------------------------------------------- the Bag Draft
+     The same league plays the Bag Draft (/play/draft/) every month. This card
+     shows this month's Major for the league: who's drafted, then the points
+     once bags are revealed on the 8th. */
+  var bd = null, bdHtml = '', bdWire = null;
+  function paintBd() { var el = document.getElementById('lg-bd'); if (el && bdHtml) { el.innerHTML = bdHtml; if (bdWire) bdWire(el); } }
+  function draftCard() {
+    fetch('/data/draft/catalogue.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (cat) {
+      if (!cat || !cat.season || !cat.major) return;
+      return api('/draft/league?l=' + code + '&pid=' + pid() + '&season=' + cat.season).then(function (r) {
+        if (!r.ok || !r.phase || !r.phase.live) return;
+        bd = { major: cat.major.name };
+        var ph = r.phase, me = r.members.filter(function (m) { return m.you; })[0], done = r.members.filter(function (m) { return m.drafted; }).length;
+        var line = ph.canEdit ? 'Draft six real bits of kit within £' + (cat.budget || 1500).toLocaleString('en-GB') + ' by the 7th. Bags are revealed on the 8th, then real UK price drops decide the winner.'
+          : ph.canJoin ? 'Bags are revealed. Late entries are open until the 21st.' : 'The table settles at the end of the month.';
+        var rows = r.members.map(function (m, i) {
+          return '<li class="' + (m.you ? 'is-you' : '') + '"><span><b>' + esc(m.nick) + (m.you ? ' (you)' : '') + '</b><small>' +
+            (m.drafted ? (ph.revealed ? (m.picks ? m.picks.length + ' picks' : 'Drafted') : 'Bag sealed') : m.you ? 'Not drafted yet' : 'No bag yet. Nudge them.') + '</small></span>' +
+            '<b>' + (m.drafted && ph.revealed ? (m.pts > 0 ? '+' : '') + m.pts + ' pts' : m.drafted ? '✓' : '') + '</b></li>';
+        }).join('');
+        bdHtml = '<section class="lg-card lg-bd" style="border-color:' + esc(cat.major.accent || '#f08a24') + '"><div class="lg-bd-top" style="background:' + esc(cat.major.colour || '#14211a') + '">' +
+          '<span class="lg-bd-kick" style="color:' + esc(cat.major.accent || '#f08a24') + '">THE BAG DRAFT · THIS MONTH</span><h2>' + esc(cat.major.name) + '</h2><p>' + esc(line) + '</p></div>' +
+          '<div class="lg-bd-body"><p class="lg-bd-count">' + done + ' of ' + r.members.length + (r.members.length === 1 ? ' golfer has' : ' golfers have') + ' drafted</p><ol class="lg-bd-rows">' + rows + '</ol>' +
+          '<div class="lg-actions">' + (me && !me.drafted && ph.canJoin ? '<a class="gp-af-btn" href="/play/draft/?utm_source=league">Draft my bag</a>' : '<a class="gp-af-btn" href="/play/draft/?utm_source=league">See the draft</a>') +
+          (me && done < r.members.length && ph.canJoin ? '<button type="button" class="lg-btn2 lg-bd-nudge">Nudge the undrafted</button>' : '') + '</div></div></section>';
+        bdWire = function (el) { var nu = el.querySelector('.lg-bd-nudge'); if (nu) nu.onclick = function () {
+          var slow = r.members.filter(function (m) { return !m.drafted; }).map(function (m) { return m.nick; });
+          share((slow.length === 1 ? slow[0] + ', you haven’t' : slow.slice(0, 3).join(', ') + (slow.length > 3 ? ' and co' : '') + ', you haven’t') + ' drafted your bag for ' + cat.major.name + ' yet. Six picks, £' + (cat.budget || 1500) + ', two minutes: https://golfpriceai.com/play/draft/ (our league: ' + link() + ')');
+          track('draft_league_nudge');
+        }; };
+        paintBd();
+      });
+    }).catch(function () { /* the Par Price table still works */ });
+  }
+
   /* ---------------------------------------------------------- join */
   function leader(rows) {
     var played = rows.filter(function (m) { return m.today; }).sort(function (a, b) { return a.today.total - b.today.total; });
@@ -74,12 +110,14 @@
       '<h1>' + (data.members[0] ? esc(data.members[0].nick) + ' wants to beat you at ' : 'Join ') + esc(data.name) + '</h1>' +
       '<p>' + n + (n === 1 ? ' golfer' : ' golfers') + ' so far.' + (lead ? ' Today’s leader: ' + esc(lead.nick) + ' (' + fmt(lead.today.total) + '), who will be telling everyone.' : ' Nobody’s teed off today yet.') + '</p></div>' +
       '<div class="lg-card" style="padding:14px"><b>How it works</b><ol class="lg-how"><li>Five real golf products a day. Guess each one’s UK price.</li>' +
-      '<li>Scored like a round: within 2% is an eagle, 5% a birdie, 10% par.</li><li>Your score lands on the league table. Lowest wins, as golf intended.</li></ol></div>' +
+      '<li>Scored like a round: within 2% is an eagle, 5% a birdie, 10% par.</li><li>Your score lands on the league table. Lowest wins, as golf intended.</li>' +
+      '<li>Every month, the same league plays the <b>Bag Draft</b>: pick six real bits of kit within £1,500, and real UK price drops decide the winner.</li></ol></div>' + '<div id="lg-bd"></div>' +
       '<form class="lg-join" novalidate><h2>Pick a nickname for the table</h2>' +
       '<div class="pr-lg-form"><label>Nickname<input name="nick" maxlength="20" placeholder="e.g. The Shank Redemption" autocomplete="nickname" value="' + esc(get('gpNick', '')) + '"></label>' +
       '<button type="submit" class="gp-af-btn">Join and tee off</button><p class="pr-msg" role="status"></p>' +
       '<p class="pr-lg-small">Nicknames only: no email, no sign-up, no real names needed. What happens in the league stays in the league. Join on your usual phone, not a private tab: there’s no login, so a private tab forgets you when it closes.</p></div></form>' +
       '<p style="text-align:center;margin:0"><a href="/play/par-price/">Just play today’s round without joining</a></p>';
+    paintBd();
     var f = box.querySelector('form');
     f.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -168,7 +206,7 @@
     var tag = lead && data.members.filter(function (m) { return m.today; }).length > 1 ? esc(lead.nick) + ' is leading today and has mentioned it at least twice.'
       : lead ? esc(lead.nick) + ' has posted a score. The pressure is on.' : 'Nobody’s teed off yet today. Be the first.';
     box.innerHTML = '<div class="lg-hero"><span class="pr-kicker">League · ' + n + (n === 1 ? ' golfer' : ' golfers') + ' · Par Price #' + data.n + '</span>' +
-      '<h1>' + esc(data.name) + '</h1><p>' + tag + '</p></div>' + socPanel(me) +
+      '<h1>' + esc(data.name) + '</h1><p>' + tag + '</p></div>' + '<div id="lg-bd"></div>' + socPanel(me) +
       '<section class="lg-card"><div class="lg-card-head"><h2>' + (view === 'today' ? 'Today’s round' : view === 'week' ? 'This week' : view === 'hl' ? 'Higher or Lower today' : 'All time') + '</h2>' +
       '<div class="lg-tabs" role="group" aria-label="Which table">' +
       [['today', 'Today'], ['week', 'Week'], ['all', 'All time'], ['hl', 'Hi-Lo']].map(function (t) { return '<button type="button" data-v="' + t[0] + '" aria-pressed="' + (view === t[0]) + '">' + t[1] + '</button>'; }).join('') +
@@ -184,6 +222,7 @@
       '<span>Nicknames only. No emails, no sign-up. What happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. Play on the same phone and browser each time (not a private tab) so the table knows it’s you. Got a phone and a laptop? <a href="/play/#move">Bring your player with you</a>.</span>' +
       '<button type="button" class="lg-leave">Leave this league</button></div>';
     wireSoc(me);
+    paintBd();
     box.querySelectorAll('.lg-tabs button').forEach(function (b) { b.addEventListener('click', function () { view = b.getAttribute('data-v'); table(); }); });
     var s = box.querySelector('.lg-share'); if (s) s.addEventListener('click', shareTable);
     var nu = box.querySelector('.lg-nudge'); if (nu) nu.addEventListener('click', function () {
@@ -191,7 +230,7 @@
       track('par_price_league_nudge');
     });
     box.querySelectorAll('.lg-invite, .lg-invite2').forEach(function (b) { b.addEventListener('click', function () {
-      share('Join ' + data.name + ', our Par Price league: five golf prices a day, scored like a round. ' + link());
+      share('Join ' + data.name + ', our golf league: Par Price every day (five golf prices, scored like a round) and the Bag Draft every month' + (bd && bd.major ? ' (this month: ' + bd.major + ')' : '') + '. Free, no sign-up. ' + link());
       track('par_price_league_invite');
     }); });
     box.querySelector('.lg-leave').addEventListener('click', function () {

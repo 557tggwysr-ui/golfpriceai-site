@@ -20,7 +20,7 @@ from price_pages import PRICES_DIR, SITE, TYPES, breadcrumb, esc, long_date, met
 
 DATA_DIR = PRICES_DIR / "data"
 LICENCE = "https://creativecommons.org/licenses/by/4.0/"
-DOI = "https://doi.org/10.5281/zenodo.23436242"
+DOI = "https://doi.org/10.5281/zenodo.23436241"
 # The same data, listed where researchers, data scientists and AI developers look.
 MIRRORS = [
     ("Hugging Face", "https://huggingface.co/datasets/GolfPriceAI/uk-golf-prices", "Load it straight into Python with the datasets library, and preview it in the browser."),

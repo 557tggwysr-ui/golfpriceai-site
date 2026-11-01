@@ -552,3 +552,17 @@
 .lg-badge { font: 800 10px Inter, sans-serif; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 3px 7px; }
 .lg-scratch { background: #14211a; color: #fff; }
 .lg-bandit { background: #fff3e0; color: #8a4b00; }
+
+/* The Bag Draft card on a league page (Nov 2026) */
+.lg-bd { border-width: 2px; margin-bottom: 14px; }
+.lg-bd-top { color: #fff; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.lg-bd-kick { font: 700 11px Inter, sans-serif; letter-spacing: .14em; }
+.lg-bd-top h2 { margin: 0; font: 800 24px/1.1 Poppins, sans-serif; color: #fff; }
+.lg-bd-top p { margin: 0; font-size: 14px; line-height: 1.5; color: #e6ece8; }
+.lg-bd-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px; }
+.lg-bd-count { margin: 0; font-weight: 700; font-size: 14px; }
+.lg-bd-rows { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.lg-bd-rows li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid #eef0ec; }
+.lg-bd-rows li span { display: flex; flex-direction: column; min-width: 0; }
+.lg-bd-rows small { color: #5b665f; font-size: 12.5px; }
+.lg-bd-rows li.is-you b:first-child { color: #2f8a1f; }
