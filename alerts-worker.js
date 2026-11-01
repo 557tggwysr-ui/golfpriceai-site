@@ -403,7 +403,7 @@ const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_1
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
   ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1,
   ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1,
-  ck_saved: 1, ck_card: 1, co_set: 1 };
+  ck_saved: 1, ck_card: 1, co_set: 1, fd_near: 1, soc_ask: 1 };
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -1821,6 +1821,13 @@ async function socSetup(env) {
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_results (event TEXT, mkey TEXT, pts INTEGER, back INTEGER, PRIMARY KEY (event, mkey)) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_reports (event TEXT PRIMARY KEY, extras TEXT, prize TEXT, published TEXT) WITHOUT ROWID'),
   ]);
+  // Find a Society (added Nov 2026): home course, when they play, who it suits, typical cost;
+  // spare places on a golf day; and "ask to join" requests (nickname and a note only).
+  for (const col of ['course TEXT', 'cname TEXT', 'ctown TEXT', 'lat REAL', 'lon REAL', 'days TEXT', 'ability TEXT', 'cost TEXT']) {
+    try { await env.DEMAND.prepare('ALTER TABLE soc_socs ADD COLUMN ' + col).run(); } catch (e) { /* already there */ }
+  }
+  try { await env.DEMAND.prepare('ALTER TABLE soc_events ADD COLUMN spare INTEGER').run(); } catch (e) { /* already there */ }
+  await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_requests (id TEXT PRIMARY KEY, soc TEXT, pid TEXT, nick TEXT, note TEXT, event TEXT, at TEXT, status TEXT) WITHOUT ROWID').run();
   // Co-organiser (added Nov 2026): a second member who can run the society too.
   try { await env.DEMAND.prepare('ALTER TABLE soc_socs ADD COLUMN co TEXT').run(); } catch (e) { /* already there */ }
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_handback (token TEXT PRIMARY KEY, soc TEXT, exp INTEGER) WITHOUT ROWID').run();
@@ -1854,6 +1861,9 @@ async function society(request, url, env, cors) {
   if (path === '/soc/prize' && request.method === 'POST') return await socPick(env, body, cors);
   if (path === '/soc/prize') return await socPrize(env, String(url.searchParams.get('t') || ''), cors);
   if (path === '/soc/find') return await hqFind(env, cors);
+  if (path === '/soc/asks') return await hqAsks(env, pid, cors);
+  if (request.method === 'POST' && path === '/soc/ask') return await hqAsk(env, body, pid, request, cors);
+  if (request.method === 'POST' && path === '/soc/answer') return await hqAnswer(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/fromleague') return await hqFromLeague(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/leaguereq') return await hqLeagueReq(env, body, pid, cors);
   if (path === '/soc/s') return await hqGet(env, String(url.searchParams.get('s') || ''), pid, cors);
@@ -2006,7 +2016,17 @@ function hqFields(body) {
   const pay = String(body.pay || '').trim();
   if (pay && !PAY_RX.test(pay)) return { error: 'The payment link must be your own PayPal.me, Monzo.me or Revolut.me link.' };
   const county = socText(body.county, 40);
-  return { name, area: area || '', about: about || '', pay, open: body.open ? 1 : 0, county: county || '' };
+  const cname = socText(body.cname, 60), ctown = socText(body.ctown, 40), cost = socText(body.cost, 24);
+  if (cname === null || ctown === null || cost === null) return { error: 'Let’s keep it clean for the clubhouse. Please check the wording.' };
+  const course = ACE_COURSE_RX.test(String(body.course || '')) ? String(body.course) : '';
+  const lat = Number(body.lat), lon = Number(body.lon), placed = course && lat >= 49 && lat <= 61.5 && lon >= -9 && lon <= 2.5;
+  return { name, area: area || '', about: about || '', pay, open: body.open ? 1 : 0, county: county || '',
+    course: placed ? course : '', cname: placed ? cname || '' : '', ctown: placed ? ctown || '' : '', lat: placed ? Math.round(lat * 1e4) / 1e4 : null, lon: placed ? Math.round(lon * 1e4) / 1e4 : null,
+    days: ['sat', 'sun', 'wkend', 'wkday', 'mix'].includes(body.days) ? body.days : '', ability: ['all', 'beg', 'hcp'].includes(body.ability) ? body.ability : '', cost: cost || '' };
+}
+async function hqExtras(env, id, f) {
+  await env.DEMAND.prepare('UPDATE soc_socs SET course = ?, cname = ?, ctown = ?, lat = ?, lon = ?, days = ?, ability = ?, cost = ? WHERE id = ?')
+    .bind(f.course, f.cname, f.ctown, f.lat, f.lon, f.days, f.ability, f.cost, id).run();
 }
 async function hqNew(env, body, pid, cors) {
   if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
@@ -2029,6 +2049,7 @@ async function hqNew(env, body, pid, cors) {
     const id = socCode(8);
     const r = await env.DEMAND.prepare('INSERT OR IGNORE INTO soc_socs (id, pid, name, area, about, pay, open, created, updated, county) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').bind(id, pid, f.name, f.area, f.about, f.pay, f.open, day, day, f.county).run();
     if (r.meta && r.meta.changes) {
+      await hqExtras(env, id, f);
       await env.DEMAND.prepare('INSERT INTO soc_members (soc, pid, mkey, nick, joined) VALUES (?, ?, ?, ?, ?)').bind(id, pid, socCode(8), nick, day).run();
       return json({ ok: true, id }, 200, cors);
     }
@@ -2080,6 +2101,7 @@ async function hqEdit(env, body, pid, cors) {
   const f = hqFields(body);
   if (f.error) return json({ ok: false, error: f.error }, 400, cors);
   await env.DEMAND.prepare('UPDATE soc_socs SET name = ?, area = ?, about = ?, pay = ?, open = ?, county = ?, updated = ? WHERE id = ?').bind(f.name, f.area, f.about, f.pay, f.open, f.county, hqDay(), s.id).run();
+  await hqExtras(env, s.id, f);
   return json({ ok: true }, 200, cors);
 }
 async function hqGet(env, id, pid, cors) {
@@ -2091,7 +2113,8 @@ async function hqGet(env, id, pid, cors) {
   const founding = (await env.DEMAND.prepare('SELECT n FROM soc_founding WHERE soc = ?').bind(s.id).first('n')) || 0;
   const coM = s.co ? members.find((m) => m.pid === s.co) : null;
   const base = { ok: true, id: s.id, name: s.name, area: s.area, county: s.county || '', about: s.about, open: !!s.open, count: members.length, founding, organiser, member: !!me,
-    lead: !!pid && pid === s.pid, co: !!pid && !!s.co && pid === s.co, coNick: organiser && coM ? coM.nick : null, coKey: organiser && coM ? coM.mkey : null };
+    lead: !!pid && pid === s.pid, co: !!pid && !!s.co && pid === s.co, coNick: organiser && coM ? coM.nick : null, coKey: organiser && coM ? coM.mkey : null,
+    course: s.course || '', cname: s.cname || '', ctown: s.ctown || '', lat: s.lat, lon: s.lon, days: s.days || '', ability: s.ability || '', cost: s.cost || '' };
   if (!me) return json(base, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
   const since = new Date(Date.now() - 60 * 864e5).toISOString().slice(0, 10);
   const events = (await env.DEMAND.prepare('SELECT * FROM soc_events WHERE soc = ? AND day >= ? ORDER BY day').bind(s.id, since).all()).results || [];
@@ -2101,10 +2124,11 @@ async function hqGet(env, id, pid, cors) {
   const nickOf = {}; members.forEach((m) => { nickOf[m.mkey] = m.nick; });
   const reported = {};
   if (ids.length) (((await env.DEMAND.prepare(`SELECT event FROM soc_reports WHERE event IN (${ids.map(() => '?').join(',')})`).bind(...ids).all()).results) || []).forEach((r) => { reported[r.event] = 1; });
+  const requests = organiser ? ((await env.DEMAND.prepare("SELECT id, nick, note, event, at FROM soc_requests WHERE soc = ? AND status = 'new' ORDER BY at").bind(s.id).all()).results || []) : [];
   const out = Object.assign(base, {
-    you: me.mkey, pay: s.pay,
+    you: me.mkey, pay: s.pay, requests,
     members: members.map((m) => ({ m: m.mkey, nick: m.nick, organiser: m.pid === s.pid, co: !!s.co && m.pid === s.co })),
-    events: events.map((e) => ({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, cap: e.cap, deadline: e.deadline, notes: e.notes, report: !!reported[e.id],
+    events: events.map((e) => ({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, cap: e.cap, deadline: e.deadline, notes: e.notes, report: !!reported[e.id], spare: e.spare || 0,
       entries: entries.filter((x) => x.event === e.id && nickOf[x.mkey]).map((x) => ({ m: x.mkey, nick: nickOf[x.mkey], status: x.status, paid: !!x.paid, at: x.at })) })),
   });
   return json(out, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
@@ -2232,16 +2256,17 @@ async function hqEvent(env, body, pid, cors) {
   if (tee && !/^\d{2}:\d{2}$/.test(tee)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
   const entry = Math.round(Math.min(500, Math.max(0, Number(body.entry) || 0)) * 100) / 100;
   const cap = Math.round(Math.min(200, Math.max(0, Number(body.cap) || 0)));
+  const spare = Math.round(Math.min(12, Math.max(0, Number(body.spare) || 0)));
   if (eid) {
     if (!SOC_RX.test(eid)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
-    await env.DEMAND.prepare('UPDATE soc_events SET title = ?, venue = ?, day = ?, tee = ?, entry = ?, cap = ?, deadline = ?, notes = ? WHERE id = ? AND soc = ?').bind(title, venue || '', day, tee, entry, cap, deadline, notes || '', eid, s.id).run();
+    await env.DEMAND.prepare('UPDATE soc_events SET title = ?, venue = ?, day = ?, tee = ?, entry = ?, cap = ?, deadline = ?, notes = ?, spare = ? WHERE id = ? AND soc = ?').bind(title, venue || '', day, tee, entry, cap, deadline, notes || '', spare, eid, s.id).run();
     await hqTouch(env, s.id);
     return json({ ok: true, id: eid }, 200, cors);
   }
   const n = await env.DEMAND.prepare('SELECT COUNT(*) AS c FROM soc_events WHERE soc = ? AND day >= ?').bind(s.id, hqDay()).first('c');
   if (n >= 30) return json({ ok: false, error: 'Thirty fixtures ahead is plenty.' }, 400, cors);
   const id = socCode(8);
-  await env.DEMAND.prepare('INSERT INTO soc_events (id, soc, title, venue, day, tee, entry, cap, deadline, notes, created) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').bind(id, s.id, title, venue || '', day, tee, entry, cap, deadline, notes || '', hqDay()).run();
+  await env.DEMAND.prepare('INSERT INTO soc_events (id, soc, title, venue, day, tee, entry, cap, deadline, notes, created, spare) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').bind(id, s.id, title, venue || '', day, tee, entry, cap, deadline, notes || '', hqDay(), spare).run();
   await hqTouch(env, s.id);
   return json({ ok: true, id }, 200, cors);
 }
@@ -2639,8 +2664,82 @@ async function nationalLeague(request, url, env, cors) {
   return json({ ok: false, error: 'Not found.' }, 404, cors);
 }
 async function hqFind(env, cors) {
-  const rows = (await env.DEMAND.prepare('SELECT s.id, s.name, s.area, s.county, s.about, s.updated, (SELECT COUNT(*) FROM soc_members m WHERE m.soc = s.id) AS members, (SELECT n FROM soc_founding f WHERE f.soc = s.id) AS founding FROM soc_socs s WHERE s.open = 1 ORDER BY s.updated DESC LIMIT 300').all()).results || [];
-  return json({ ok: true, societies: rows.map((r) => ({ id: r.id, name: r.name, area: r.area, county: r.county || '', about: r.about, members: r.members, founding: r.founding || 0 })) }, 200, Object.assign({ 'cache-control': 'public, max-age=300' }, cors));
+  const rows = (await env.DEMAND.prepare('SELECT s.id, s.name, s.area, s.county, s.about, s.updated, s.cname, s.ctown, s.lat, s.lon, s.days, s.ability, s.cost, (SELECT COUNT(*) FROM soc_members m WHERE m.soc = s.id) AS members, (SELECT n FROM soc_founding f WHERE f.soc = s.id) AS founding FROM soc_socs s WHERE s.open = 1 ORDER BY s.updated DESC LIMIT 300').all()).results || [];
+  const ids = rows.map((r) => r.id), spare = {}, league = {};
+  if (ids.length) {
+    const q = ids.map(() => '?').join(',');
+    // Spare places on golf days in the next 60 days, shown only when the organiser asked.
+    const until = new Date(Date.now() + 60 * 864e5).toISOString().slice(0, 10);
+    (((await env.DEMAND.prepare(`SELECT id, soc, title, venue, day, tee, entry, spare FROM soc_events WHERE soc IN (${q}) AND spare > 0 AND day >= ? AND day <= ? ORDER BY day`).bind(...ids, hqDay(), until).all()).results) || [])
+      .forEach((e) => { (spare[e.soc] = spare[e.soc] || []).push({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, spare: e.spare }); });
+    try { (((await env.DEMAND.prepare(`SELECT soc, region, division FROM lg_entries WHERE soc IN (${q}) AND hidden = 0 AND public = 1`).bind(...ids).all()).results) || []).forEach((l) => { league[l.soc] = { region: l.region, division: l.division }; }); } catch (e) { /* no league yet */ }
+  }
+  return json({ ok: true, societies: rows.map((r) => ({ id: r.id, name: r.name, area: r.area, county: r.county || '', about: r.about, members: r.members, founding: r.founding || 0,
+    course: r.cname || '', town: r.ctown || '', lat: r.lat, lon: r.lon, days: r.days || '', ability: r.ability || '', cost: r.cost || '',
+    spare: (spare[r.id] || []).slice(0, 3), league: league[r.id] || null })) }, 200, Object.assign({ 'cache-control': 'public, max-age=300' }, cors));
+}
+/* Ask to join: a golfer finds a society (or a spare place on one golf day)
+   and asks. The organiser sees the nickname and note in Society HQ and says
+   yes or no. Yes adds them as a member (and, for a spare place, puts them in
+   for that day). No email, no phone number: the asker checks back on the
+   society's page or in My Clubhouse. */
+async function hqAsk(env, body, pid, request, cors) {
+  const ip = request.headers.get('cf-connecting-ip') || '';
+  if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  if (await tooMany('ask-' + ip, 8, 3600)) return json({ ok: false, error: 'That’s a lot of asking. Please try again in an hour.' }, 429, cors);
+  const s = await hqSoc(env, String(body.s || ''));
+  if (!s || !s.open) return json({ ok: false, error: 'This society isn’t taking new members just now.' }, 404, cors);
+  if (await env.DEMAND.prepare('SELECT 1 AS x FROM soc_members WHERE soc = ? AND pid = ?').bind(s.id, pid).first('x')) return json({ ok: false, error: 'You’re already in this society.', member: true }, 400, cors);
+  const nick = cleanName(body.nick, 2, 20), note = socText(body.note, 200);
+  if (nick === null || note === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse. Please check the wording.' }, 400, cors);
+  if (!nick) return json({ ok: false, error: 'Pick a nickname (at least 2 letters).' }, 400, cors);
+  let event = '';
+  if (body.e) {
+    const e = await env.DEMAND.prepare('SELECT id, spare FROM soc_events WHERE id = ? AND soc = ? AND day >= ?').bind(String(body.e), s.id, hqDay()).first();
+    if (!e || !(e.spare > 0)) return json({ ok: false, error: 'Those spare places have gone. Ask to join the society instead.' }, 400, cors);
+    event = e.id;
+  }
+  const open = await env.DEMAND.prepare("SELECT COUNT(*) AS c FROM soc_requests WHERE soc = ? AND status = 'new'").bind(s.id).first('c');
+  if (open >= 30) return json({ ok: false, error: 'The organiser has lots of requests to get through. Try again in a few days.' }, 429, cors);
+  await env.DEMAND.prepare("DELETE FROM soc_requests WHERE soc = ? AND pid = ? AND status = 'new'").bind(s.id, pid).run();
+  await env.DEMAND.prepare("INSERT INTO soc_requests (id, soc, pid, nick, note, event, at, status) VALUES (?, ?, ?, ?, ?, ?, ?, 'new')").bind(socCode(10), s.id, pid, nick, note || '', event, new Date().toISOString()).run();
+  await useBump(env, 'soc_ask');
+  return json({ ok: true }, 200, cors);
+}
+async function hqAnswer(env, body, pid, cors) {
+  const s = await hqSoc(env, String(body.s || ''));
+  if (!s || !socOrg(s, pid)) return json({ ok: false, error: 'Only the organiser can answer requests.' }, 403, cors);
+  const r = await env.DEMAND.prepare("SELECT * FROM soc_requests WHERE id = ? AND soc = ? AND status = 'new'").bind(String(body.r || ''), s.id).first();
+  if (!r) return json({ ok: false, error: 'That request has already been answered.' }, 404, cors);
+  if (!body.yes) {
+    await env.DEMAND.prepare("UPDATE soc_requests SET status = 'no' WHERE id = ?").bind(r.id).run();
+    return json({ ok: true }, 200, cors);
+  }
+  const db = env.DEMAND;
+  let mk = await db.prepare('SELECT mkey FROM soc_members WHERE soc = ? AND pid = ?').bind(s.id, r.pid).first('mkey');
+  if (!mk) {
+    let nick = r.nick;
+    for (let i = 2; i < 9 && await db.prepare('SELECT 1 AS x FROM soc_members WHERE soc = ? AND lower(nick) = lower(?)').bind(s.id, nick).first('x'); i++) nick = (r.nick + ' ' + i).slice(0, 20);
+    mk = socCode(8);
+    await db.prepare('INSERT INTO soc_members (soc, pid, mkey, nick, joined) VALUES (?, ?, ?, ?, ?)').bind(s.id, r.pid, mk, nick, hqDay()).run();
+    await hqFounding(env, s.id);
+  }
+  if (r.event) {
+    await db.batch([
+      db.prepare("INSERT INTO soc_entries (event, mkey, status, paid, at) VALUES (?, ?, 'in', 0, ?) ON CONFLICT (event, mkey) DO UPDATE SET status = 'in'").bind(r.event, mk, new Date().toISOString()),
+      db.prepare('UPDATE soc_events SET spare = MAX(0, COALESCE(spare, 0) - 1) WHERE id = ?').bind(r.event),
+    ]);
+  }
+  await db.prepare("UPDATE soc_requests SET status = 'yes' WHERE id = ?").bind(r.id).run();
+  await hqTouch(env, s.id);
+  await useBump(env, 'soc_ask_yes');
+  return json({ ok: true }, 200, cors);
+}
+// The asker's own requests, so the society page and My Clubhouse can show the answer.
+async function hqAsks(env, pid, cors) {
+  if (!pid) return json({ ok: true, asks: [] }, 200, cors);
+  const rows = (await env.DEMAND.prepare('SELECT r.soc, s.name, r.event, r.status, r.at, e.day, e.title FROM soc_requests r JOIN soc_socs s ON s.id = r.soc LEFT JOIN soc_events e ON e.id = r.event WHERE r.pid = ? ORDER BY r.at DESC LIMIT 20').bind(pid).all()).results || [];
+  return json({ ok: true, asks: rows.map((r) => ({ s: r.soc, name: r.name, status: r.status, event: r.event || '', day: r.day || '', title: r.title || '' })) }, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
 }
 
 /* ------------------------------------------------------------------ The Bag Draft (monthly fantasy golf kit)

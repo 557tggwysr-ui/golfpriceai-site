@@ -83,6 +83,7 @@
     socs: Promise.all(socs.slice(0, 6).map(function (s) {
       return json(API + '/soc/s?s=' + encodeURIComponent(s.id) + (pid ? '&pid=' + pid : '')).then(function (d) { return d && d.ok ? d : null; }).catch(function () { return null; });
     })),
+    asks: get('gpAsks', []).length && pid ? json(API + '/soc/asks?pid=' + pid).catch(function () { return null; }) : Promise.resolve(null),
     kit: Promise.all(shortlist.map(function (s) {
       return json('/prices/' + s + '/data.json').then(function (d) { d.slug = s; return d; }).catch(function () { return null; });
     })),
@@ -105,7 +106,7 @@
     var saved = KEY && KEY.status().saved;
     box.innerHTML = (saved ? '' : keyRow) + games(g.pp, g.hl, g.locker, g.majors) + handicap(g.leagues && g.leagues.hcp) + shotSaver() +
       row('Milestones', '', '/play/par-price/', 'Play Par Price', '<div id="mc-ms"></div>', 'mc-ms-sec') +
-      (soc.length || lg.length ? societies(soc) + leagues(lg) : group()) +
+      asksRow(g.asks, soc) + (soc.length || lg.length ? societies(soc) + leagues(lg) : group()) +
       kit(g.kit, g.bag) +
       '<div class="mc-pair">' + alerts() + '</div>' + (saved ? keyRow : '') +
       (KEY ? '<details class="mc-restore" id="restore"><summary>Got a Clubhouse key from another phone?</summary>' + KEY.restoreForm() + '</details>' : '');
@@ -285,6 +286,20 @@
     return row('Play with your group', 0, '', '', '<div class="mc-grid mc-n2">' +
       '<a class="mc-card mc-invite" href="/societies/"><b class="mc-name">Your golf society</b><span class="mc-dim">Fixtures, who’s in and who’s paid, all from one WhatsApp link. Free.</span><span class="mc-go">Find or start a society →</span></a>' +
       '<a class="mc-card mc-invite" href="/play/leagues/"><b class="mc-name">A league with your mates</b><span class="mc-dim">Par Price every morning, scored against each other in a weekly table.</span><span class="mc-go">Start a league →</span></a></div>');
+  }
+
+  // ---------------------------------------------------------------- Find a Society requests
+  function asksRow(d, soc) {
+    var urls = {}; get('gpAsks', []).forEach(function (x) { if (x.url) urls[x.s] = x.url; });
+    var mine = ((d && d.asks) || []).filter(function (a) { return a.status !== 'yes' || !soc.some(function (s) { return s.id === a.s; }); }).slice(0, 4);
+    if (!mine.length) return '';
+    return row('Societies you asked to join', 0, '/societies/find/', 'Find a Society', '<div class="mc-grid">' + mine.map(function (a) {
+      var t = a.status === 'yes' ? '<b class="mc-name">You’re in: ' + esc(a.name) + '</b><span class="mc-dim">' + (a.day ? 'Down to play ' + esc(niceDay(a.day)) + '. ' : '') + 'Open it in Society HQ.</span><span class="mc-go">Open the society →</span>'
+        : a.status === 'no' ? '<b class="mc-name">' + esc(a.name) + '</b><span class="mc-dim">Not this time. Plenty more on Find a Society.</span><span class="mc-go">Find another →</span>'
+        : '<b class="mc-name">' + esc(a.name) + '</b><span class="mc-dim">Waiting for the organiser’s yes' + (a.day ? ' for ' + esc(niceDay(a.day)) : '') + '.</span><span class="mc-go">See the society →</span>';
+      var href = a.status === 'yes' ? '/societies/hq/?s=' + esc(a.s) : a.status === 'no' ? '/societies/find/' : esc(urls[a.s] || '/societies/find/');
+      return '<a class="mc-card" href="' + href + '">' + t + '</a>';
+    }).join('') + '</div>');
   }
 
   // ---------------------------------------------------------------- Shot Saver

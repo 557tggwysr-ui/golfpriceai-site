@@ -72,6 +72,7 @@
       '<p class="soc-msg" role="status"></p><button type="submit" class="soc-btn">Start the society →</button>' +
       '<p class="soc-small">Looking for a society to join? <a href="/societies/find/">Find a Society</a></p></form>';
     var f = box.querySelector('#hq-new');
+    coursePicker(f);
     f.addEventListener('submit', function (e) {
       e.preventDefault();
       var msg = f.querySelector('.soc-msg'), btn = f.querySelector('.soc-btn'), body = read(f);
@@ -93,9 +94,39 @@
       '<label>About the society (optional)<input name="about" maxlength="240" value="' + esc(d.about || '') + '" placeholder="e.g. Monthly Stableford, all handicaps, one tour a year"></label>' +
       '<label>Your payment link (optional)<input name="pay" maxlength="120" inputmode="url" value="' + esc(d.pay || '') + '" placeholder="https://monzo.me/yourname"></label>' +
       '<p class="soc-small">Your own PayPal.me, Monzo.me or Revolut.me link. Members tap “Pay the organiser” and pay you directly; we never see the money.</p>' +
-      '<label class="soc-check"><input type="checkbox" name="open"' + (d.open ? ' checked' : '') + '> Open to new members: list us in Find a Society (name, area and description only)</label>';
+      '<div class="hq-course"><label>Home course (for Find a Society distances)<input name="cq" autocomplete="off" value="' + esc(d.cname ? d.cname + (d.ctown ? ', ' + d.ctown : '') : '') + '" placeholder="Start typing a course or town"></label>' +
+      '<input type="hidden" name="course" value="' + esc(d.course || '') + '"><input type="hidden" name="cname" value="' + esc(d.cname || '') + '"><input type="hidden" name="ctown" value="' + esc(d.ctown || '') + '">' +
+      '<input type="hidden" name="lat" value="' + esc(d.lat == null ? '' : d.lat) + '"><input type="hidden" name="lon" value="' + esc(d.lon == null ? '' : d.lon) + '"><div class="hq-cpick" hidden></div></div>' +
+      '<div class="soc-two"><label>When you play<select name="days">' + [['', 'Choose…'], ['sat', 'Saturdays'], ['sun', 'Sundays'], ['wkend', 'Weekends'], ['wkday', 'Weekdays'], ['mix', 'Weekdays and weekends']].map(function (o) { return '<option value="' + o[0] + '"' + (d.days === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label>' +
+      '<label>Who it suits<select name="ability">' + [['', 'Choose…'], ['all', 'All abilities'], ['beg', 'Beginners welcome'], ['hcp', 'Official handicap needed']].map(function (o) { return '<option value="' + o[0] + '"' + (d.ability === o[0] ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') + '</select></label></div>' +
+      '<label>A golf day usually costs (optional)<input name="cost" maxlength="24" value="' + esc(d.cost || '') + '" placeholder="e.g. £45 to £60"></label>' +
+      '<label class="soc-check"><input type="checkbox" name="open"' + (d.open ? ' checked' : '') + '> Open to new members: list us in Find a Society, so golfers nearby can ask to join (we show the name, area, home course, description and any spare places you choose; never members)</label>';
   }
-  function read(f) { return { name: f.name.value, area: f.area.value, county: f.county.value, about: f.about.value, pay: f.pay.value.trim(), open: f.open.checked }; }
+  function read(f) {
+    return { name: f.name.value, area: f.area.value, county: f.county.value, about: f.about.value, pay: f.pay.value.trim(), open: f.open.checked,
+      course: f.course.value, cname: f.cname.value, ctown: f.ctown.value, lat: f.lat.value, lon: f.lon.value, days: f.days.value, ability: f.ability.value, cost: f.cost.value };
+  }
+  // Home course picker: the UK course list (OpenStreetMap), searched by course or town.
+  var COURSES = null;
+  function coursePicker(f) {
+    var q = f.querySelector('[name=cq]'), pick = f.querySelector('.hq-cpick');
+    if (!q) return;
+    var load = function () { if (!COURSES) COURSES = fetch('/data/courses/uk.json').then(function (r) { return r.json(); }).then(function (d) { return d.courses || []; }).catch(function () { return []; }); return COURSES; };
+    q.addEventListener('focus', load);
+    q.addEventListener('input', function () {
+      var t = q.value.trim().toLowerCase();
+      ['course', 'cname', 'ctown', 'lat', 'lon'].forEach(function (k) { f[k].value = ''; });
+      if (t.length < 3) { pick.hidden = true; return; }
+      load().then(function (list) {
+        var hits = list.filter(function (c) { return (c.n + ' ' + (c.t || '')).toLowerCase().indexOf(t) >= 0; }).slice(0, 8);
+        pick.innerHTML = hits.length ? hits.map(function (c, i) { return '<button type="button" data-i="' + i + '"><b>' + esc(c.n) + '</b><span>' + esc(c.t || '') + '</span></button>'; }).join('') : '<p class="soc-small">No match yet. Try the town instead.</p>';
+        pick.hidden = false;
+        pick.querySelectorAll('button').forEach(function (b) {
+          b.onclick = function () { var c = hits[+b.getAttribute('data-i')]; f.course.value = c.id; f.cname.value = c.n; f.ctown.value = c.t || ''; f.lat.value = c.lat; f.lon.value = c.lon; q.value = c.n + (c.t ? ', ' + c.t : ''); pick.hidden = true; };
+        });
+      });
+    });
+  }
 
   /* ---------------------------------------------------------------- join */
   function join() {
@@ -236,6 +267,7 @@
       '<label>Course<input name="venue" maxlength="60" value="' + esc(e.venue || '') + '" placeholder="Course name"></label>' +
       '<div class="soc-two"><label>Society entry £ (optional)<input name="entry" inputmode="decimal" value="' + esc(e.entry || '') + '" placeholder="15"></label><label>Places (optional)<input name="cap" inputmode="numeric" value="' + esc(e.cap || '') + '" placeholder="e.g. 24"></label></div>' +
       '<label>Final numbers to the club by (optional)<input type="date" name="deadline" value="' + esc(e.deadline || '') + '"></label>' +
+      (S.open ? '<label>Spare places to show on Find a Society (optional)<input name="spare" inputmode="numeric" value="' + esc(e.spare || '') + '" placeholder="0: don’t show"></label><p class="soc-small">Golfers nearby can ask for a place on this day. Only the date, course, format and cost are shown, and nobody plays without your yes.</p>' : '') +
       '<label>Notes (optional)<input name="notes" maxlength="300" value="' + esc(e.notes || '') + '" placeholder="e.g. Bacon roll on arrival, two-course meal after"></label>' +
       '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="submit" class="soc-btn">' + (e.id ? 'Save' : 'Add the fixture') + '</button>' +
       (e.id ? '<button type="button" class="soc-btn2 hq-cancel">Cancel</button><button type="button" class="soc-x hq-del">Delete this fixture</button>' : '') + '</div></form>';
@@ -252,6 +284,13 @@
     if (S.co && !S.lead) h += '<section class="soc-card hq-co"><span class="soc-kick">You’re the co-organiser</span><h2>Organiser lost their phone?</h2>' +
       '<p class="soc-help">If they’ve lost their phone and their Clubhouse key, send them a one-time link. It hands the organiser role back to them on their new phone, and works once, for 24 hours.</p>' +
       '<p class="soc-msg" role="status"></p><button type="button" class="soc-btn hq-handback">Send the hand-back link on WhatsApp</button></section>';
+    if (S.organiser && S.requests && S.requests.length) {
+      var evName = {}; S.events.forEach(function (e) { evName[e.id] = nice(e.day) + (e.venue ? ' at ' + e.venue : ''); });
+      h += '<section class="soc-card hq-reqs"><h2>' + S.requests.length + (S.requests.length === 1 ? ' golfer wants in' : ' golfers want in') + '</h2>' + S.requests.map(function (r) {
+        return '<div class="hq-req" data-r="' + esc(r.id) + '"><span><b>' + esc(r.nick) + '</b> · ' + (r.event ? 'a spare place on ' + esc(evName[r.event] || 'a golf day') : 'wants to join') +
+          (r.note ? '<br><small>“' + esc(r.note) + '”</small>' : '') + '</span><div class="soc-btns"><button type="button" class="soc-btn hq-yes">' + (r.event ? 'Yes, they’re in' : 'Yes, welcome') + '</button><button type="button" class="soc-btn2 hq-no">Not this time</button></div></div>';
+      }).join('') + '<p class="soc-small">From Find a Society. A yes adds them to the society' + (S.requests.some(function (r) { return r.event; }) ? ' (and puts them down for that day)' : '') + '. They see your answer on your society’s page.</p></section>';
+    }
     if (open.editSoc) h += '<form class="soc-card" id="hq-soc" novalidate><h2>Edit society</h2>' + fields(S) + '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="submit" class="soc-btn">Save</button><button type="button" class="soc-btn2 hq-cancel-soc">Cancel</button></div></form>';
     h += '<section class="soc-card"><h2>Fixtures</h2>' + (up.length ? up.map(function (e) { return open['edit-' + e.id] ? eventForm(e) : eventCard(e, false); }).join('') :
       '<p class="soc-help">' + (S.organiser ? 'No fixtures yet. Add your first one below, then send the sign-up link to the group.' : 'No fixtures yet. The organiser will add them here.') + '</p>') + '</section>';
@@ -281,6 +320,7 @@
     var se = box.querySelector('.hq-soc-edit'); if (se) se.onclick = function () { open.editSoc = !open.editSoc; page(); };
     var cs = box.querySelector('.hq-cancel-soc'); if (cs) cs.onclick = function () { open.editSoc = false; page(); };
     var fs = box.querySelector('#hq-soc');
+    if (fs) coursePicker(fs);
     if (fs) fs.addEventListener('submit', function (e) {
       e.preventDefault(); var msg = fs.querySelector('.soc-msg'), b = read(fs); b.s = S.id;
       api('/soc/edit', b).then(function (r) { if (!r.ok) { msg.textContent = r.error; return; } open.editSoc = false; remember(S.id, b.name.trim()); load(); });
@@ -289,7 +329,7 @@
       var eid = f.getAttribute('data-id');
       f.addEventListener('submit', function (ev) {
         ev.preventDefault(); var msg = f.querySelector('.soc-msg'), btn = f.querySelector('.soc-btn');
-        var b = { s: S.id, e: eid || undefined, title: f.title.value, day: f.day.value, tee: f.tee.value, venue: f.venue.value, entry: f.entry.value.replace(/[£\s]/g, ''), cap: f.cap.value, deadline: f.deadline.value, notes: f.notes.value };
+        var b = { s: S.id, e: eid || undefined, title: f.title.value, day: f.day.value, tee: f.tee.value, venue: f.venue.value, entry: f.entry.value.replace(/[£\s]/g, ''), cap: f.cap.value, deadline: f.deadline.value, notes: f.notes.value, spare: f.spare ? f.spare.value : 0 };
         btn.disabled = true; msg.textContent = 'Pencilling it in…';
         api('/soc/event', b).then(function (r) {
           btn.disabled = false;
@@ -390,6 +430,11 @@
       };
     });
     league();
+    box.querySelectorAll('.hq-req').forEach(function (rq) {
+      var answer = function (yes) { rq.querySelectorAll('button').forEach(function (b) { b.disabled = true; }); api('/soc/answer', { s: S.id, r: rq.getAttribute('data-r'), yes: yes }).then(function () { track('society_request_' + (yes ? 'yes' : 'no')); load(); }); };
+      rq.querySelector('.hq-yes').onclick = function () { answer(true); };
+      rq.querySelector('.hq-no').onclick = function () { answer(false); };
+    });
     var kg = box.querySelector('.hq-key-go'); if (kg) kg.onclick = function () { keyPrompt('SOCIETY HQ', null, 'Done', function () { page(); }, true); };
     var cf = box.querySelector('.hq-co-form'); if (cf) {
       cf.addEventListener('submit', function (ev) {
