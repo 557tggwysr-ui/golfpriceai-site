@@ -6,16 +6,12 @@
  "checked": "2026-11-01",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 399.0,
+ "lowestNewPrice": 449.0,
  "lowestAt": [
-  "Major Golf Direct"
+  "Affordable Golf",
+  "Clarkes Golf"
  ],
  "retailers": [
-  {
-   "name": "Major Golf Direct",
-   "from": 399.0,
-   "options": 1
-  },
   {
    "name": "Affordable Golf",
    "from": 449.0,
@@ -53,7 +49,7 @@
   "label": "typical",
   "summary": "Typical price: steady for 66 days"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/GT2DVR4.jpg?v=1722325347",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TitleistGT2Driver6.jpg?v=1777950482",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-01"
 }
