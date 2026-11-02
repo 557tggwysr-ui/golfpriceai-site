@@ -6,15 +6,14 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 211.65,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 249.0,
+   "from": 211.65,
    "options": 1
   },
   {
@@ -25,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 55,
-  "low": 249.0,
+  "low": 211.65,
   "high": 249.0,
-  "average": 249.0,
-  "priceChanges": 0,
+  "average": 248.32,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-09",
@@ -36,13 +35,13 @@
    ],
    [
     "2026-11-02",
-    249.0
+    211.65
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 55 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/WG1R04170140-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

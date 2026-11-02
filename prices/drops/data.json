@@ -1,8 +1,18 @@
 {
- "checked": "2026-11-02T15:38+00:00",
+ "checked": "2026-11-02T16:01+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Srixon Tour Staff Golf Bag",
+   "model_id": "srixon-tour-staff-golf-bag",
+   "date": "2026-11-02",
+   "was": 349.0,
+   "now": 279.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-tour-staff-golf-bag/"
+  },
   {
    "model": "Shot Scope Pro L5 Laser Rangefinder",
    "model_id": "shot-scope-pro-l5-laser-rangefinder",
@@ -24,6 +34,16 @@
    "url": "https://golfpriceai.com/prices/shot-scope-v5-performance-tracking-gps-watch/"
   },
   {
+   "model": "Ping Scottsdale Putter",
+   "model_id": "ping-scottsdale-putter",
+   "date": "2026-11-02",
+   "was": 229.0,
+   "now": 189.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-scottsdale-putter/"
+  },
+  {
    "model": "Shot Scope G6 GPS Watch",
    "model_id": "shot-scope-g6-gps-watch",
    "date": "2026-11-02",
@@ -34,6 +54,16 @@
    "url": "https://golfpriceai.com/prices/shot-scope-g6-gps-watch/"
   },
   {
+   "model": "Wilson Profile Ages 11-14 Junior Golf Set",
+   "model_id": "wilson-profile-ages-11-14-junior-golf-set",
+   "date": "2026-11-02",
+   "was": 249.0,
+   "now": 211.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-profile-ages-11-14-junior-golf-set/"
+  },
+  {
    "model": "Shot Scope Pro L2 Laser Rangefinder",
    "model_id": "shot-scope-pro-l2-laser-rangefinder",
    "date": "2026-11-02",
@@ -42,6 +72,66 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/shot-scope-pro-l2-laser-rangefinder/"
+  },
+  {
+   "model": "Wilson X-31 Advantage Package Set",
+   "model_id": "wilson-x-31-advantage-package-set",
+   "date": "2026-11-02",
+   "was": 339.0,
+   "now": 296.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-x-31-advantage-package-set/"
+  },
+  {
+   "model": "Bushnell Pro X3+ Laser Rangefinder",
+   "model_id": "bushnell-pro-x3-plus-laser-rangefinder",
+   "date": "2026-11-02",
+   "was": 529.0,
+   "now": 479.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-pro-x3-plus-laser-rangefinder/"
+  },
+  {
+   "model": "Cobra Ultralight 2 Pro Stand Bag Golf Bag",
+   "model_id": "cobra-ultralight-2-pro-stand-bag-golf-bag",
+   "date": "2026-11-02",
+   "was": 139.0,
+   "now": 126.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-ultralight-2-pro-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Bushnell A1 Slope Laser Rangefinder",
+   "model_id": "bushnell-a1-slope-laser-rangefinder",
+   "date": "2026-11-02",
+   "was": 269.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/"
+  },
+  {
+   "model": "Titleist LINKSLEGEND Members Stand Bag Golf Bag",
+   "model_id": "titleist-linkslegend-members-stand-bag-golf-bag",
+   "date": "2026-11-02",
+   "was": 319.0,
+   "now": 297.5,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-linkslegend-members-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Bushnell Tour V7 Shift Laser Rangefinder",
+   "model_id": "bushnell-tour-v7-shift-laser-rangefinder",
+   "date": "2026-11-02",
+   "was": 399.0,
+   "now": 379.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-tour-v7-shift-laser-rangefinder/"
   },
   {
    "model": "Cobra 3D Printed Putter",
@@ -364,16 +454,6 @@
    "url": "https://golfpriceai.com/prices/mizuno-br-dri-cart-bag-golf-bag/"
   },
   {
-   "model": "Srixon Tour Staff Golf Bag",
-   "model_id": "srixon-tour-staff-golf-bag",
-   "date": "2026-10-30",
-   "was": 429.0,
-   "now": 349.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/srixon-tour-staff-golf-bag/"
-  },
-  {
    "model": "PRGR Portable Launch Monitor",
    "model_id": "prgr-portable-launch-monitor",
    "date": "2026-10-30",
@@ -574,6 +654,16 @@
    "url": "https://golfpriceai.com/prices/callaway-reva-rise-fairway-wood/"
   },
   {
+   "model": "Wilson Profile Ages 8-11 Junior Golf Set",
+   "model_id": "wilson-profile-ages-8-11-junior-golf-set",
+   "date": "2026-10-30",
+   "was": 219.0,
+   "now": 189.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-profile-ages-8-11-junior-golf-set/"
+  },
+  {
    "model": "Ping Hoofer Monsoon Waterproof Stand Bag Golf Bag",
    "model_id": "ping-hoofer-monsoon-waterproof-stand-bag-golf-bag",
    "date": "2026-10-30",
@@ -672,16 +762,6 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/powerbilt-gsx-14-piece-package-set/"
-  },
-  {
-   "model": "Wilson X-31 Advantage Package Set",
-   "model_id": "wilson-x-31-advantage-package-set",
-   "date": "2026-10-30",
-   "was": 379.0,
-   "now": 339.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-x-31-advantage-package-set/"
   },
   {
    "model": "Callaway Chase 14 Dry Cart Bag Golf Bag",
@@ -882,6 +962,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-x-vessel-core-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Mizuno Tour Stand Bag Golf Bag",
+   "model_id": "mizuno-tour-stand-bag-golf-bag",
+   "date": "2026-10-30",
+   "was": 249.0,
+   "now": 234.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-tour-stand-bag-golf-bag/"
   },
   {
    "model": "Ogio Featherlite Stand Bag Golf Bag",

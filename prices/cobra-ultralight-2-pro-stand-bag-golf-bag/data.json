@@ -6,14 +6,14 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 126.65,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 149.0,
+   "from": 126.65,
    "options": 3
   },
   {
@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 67,
-  "low": 139.0,
+  "low": 126.65,
   "high": 139.0,
-  "average": 139.0,
-  "priceChanges": 0,
+  "average": 138.82,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -35,13 +35,13 @@
    ],
    [
     "2026-11-02",
-    139.0
+    126.65
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 67 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/imgi_251_Cobra-Ultralight-2-Pro-Golf-Stand-Bag-Black-Sugared-Almond-1.jpg?v=1769702391",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

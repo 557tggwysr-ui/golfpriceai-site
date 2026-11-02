@@ -6,20 +6,18 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 529.0,
+ "lowestNewPrice": 479.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 529.0,
+   "name": "Clarkes Golf",
+   "from": 479.0,
    "options": 1
   },
   {
-   "name": "Clarkes Golf",
+   "name": "Affordable Golf",
    "from": 529.0,
    "options": 1
   },
@@ -43,8 +41,8 @@
   "daysTracked": 79,
   "low": 479.0,
   "high": 529.0,
-  "average": 511.28,
-  "priceChanges": 2,
+  "average": 510.65,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -60,15 +58,15 @@
    ],
    [
     "2026-11-02",
-    529.0
+    479.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £50.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BushnellProX3_LaserRangefinderHERO.jpg?v=1777956930",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Bushnell-PRO-X3-Laser-Rangefinder-8.jpg?v=1715486550",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-02"
 }

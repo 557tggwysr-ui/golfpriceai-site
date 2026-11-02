@@ -6,14 +6,14 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.0,
+ "lowestNewPrice": 159.2,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 169.0,
+   "from": 159.2,
    "options": 2
   },
   {
@@ -31,7 +31,7 @@
   "daysTracked": 79,
   "low": 154.0,
   "high": 179.0,
-  "average": 171.28,
+  "average": 171.15,
   "priceChanges": 21,
   "series": [
    [
@@ -120,13 +120,13 @@
    ],
    [
     "2026-11-02",
-    169.0
+    159.2
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £15.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra-Golf-ACE-WP-Stand-Bag-953025-06-1_900x.progressive_24ef148e-c4c8-4a81-8020-5d4c6e125efa.jpg?v=1779261377",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

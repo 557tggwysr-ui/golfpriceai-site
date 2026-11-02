@@ -6,29 +6,28 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 229.0,
+ "lowestNewPrice": 189.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
+   "name": "Clarkes Golf",
+   "from": 189.0,
+   "options": 7
+  },
+  {
    "name": "Affordable Golf",
    "from": 229.0,
    "options": 29
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 229.0,
-   "options": 7
   }
  ],
  "history": {
   "daysTracked": 60,
-  "low": 229.0,
+  "low": 189.0,
   "high": 229.0,
-  "average": 229.0,
-  "priceChanges": 0,
+  "average": 228.33,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
@@ -36,15 +35,15 @@
    ],
    [
     "2026-11-02",
-    229.0
+    189.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PingScottsdalePutter-Anser1.jpg?v=1776300582",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/ScottsPut_Anser_Face-Photoroom.jpg?v=1740825120",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-02"
 }
