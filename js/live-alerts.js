@@ -167,8 +167,38 @@
     });
   }
 
+  // iPhone: a Home Screen web app starts with empty storage. So before the
+  // golfer saves the board, put a one-use hand-over code in its link: the
+  // Home Screen copy swaps it for this phone's player id and saved fours, so
+  // the organiser still sees their scorecard and "Finish the round" buttons.
+  function handOver() {
+    var p = get('gpPid', '');
+    if (!/^[a-z0-9]{12,32}$/.test(p) || /[?&]h=/.test(location.search)) return;
+    var crews = ''; try { crews = localStorage.getItem('gpCrews') || ''; } catch (e) { /* fine */ }
+    post('/lv/hand', { pid: p, crews: crews.length <= 6000 ? crews : '' }).then(function (r) {
+      if (r.ok) history.replaceState(null, '', location.pathname + location.search + '&h=' + r.code + location.hash);
+    }).catch(function () { /* they'll just be a follower on the Home Screen */ });
+  }
+  function takeOver() {
+    var h = (location.search.match(/[?&]h=([a-z0-9]{12})/) || [])[1];
+    if (!h) return;
+    var clean = location.pathname + location.search.replace(/[?&]h=[a-z0-9]{12}/, '').replace(/^&/, '?') + location.hash;
+    history.replaceState(null, '', clean);
+    // Only a Home Screen copy with no player id of its own takes one over.
+    if (!standalone || get('gpPid', '')) return;
+    post('/lv/take', { h: h }).then(function (r) {
+      if (!r.ok || !/^[a-z0-9]{12,32}$/.test(r.pid || '')) return;
+      put('gpPid', r.pid);
+      if (r.crews) { try { JSON.parse(r.crews); localStorage.setItem('gpCrews', r.crews); } catch (e) { /* skip */ } }
+      track('lv_alerts_handover');
+      location.replace(clean);
+    }).catch(function () { /* fine */ });
+  }
+  takeOver();
+
   function iphone() {
     track('lv_alerts_ios');
+    handOver();
     sheet('<span class="lva-kick">ON AN IPHONE</span><h2 id="lva-h" class="lva-h">One quick step first</h2>' +
       '<p class="lva-p">iPhones only send alerts to sites saved on the Home Screen. It takes ten seconds and you’ll land straight back on this board.</p>' +
       '<ol class="lva-steps"><li><b>1</b><span>Tap Share at the bottom of Safari (the square with an arrow).</span></li><li><b>2</b><span>Choose “Add to Home Screen”, then Add.</span></li><li><b>3</b><span>Open GolfPrice AI from your Home Screen and tap Alert me.</span></li></ol>' +

@@ -21,7 +21,7 @@ BOARD_HEAD = ('<link rel="stylesheet" href="/css/live-alerts.css?v=20261102a">\n
               '<link rel="apple-touch-icon" href="/assets/icons/app-180.png">\n'
               '<meta name="theme-color" content="#14211a">\n'
               '<meta name="apple-mobile-web-app-title" content="GolfPrice AI">\n')
-ALERTS_JS = '\n<script src="/js/live-alerts.js?v=20261102a" defer></script>'
+ALERTS_JS = '\n<script src="/js/live-alerts.js?v=20261102b" defer></script>'
 URL = f"{SITE}/societies/live-scoring/"
 
 FEATURES = [

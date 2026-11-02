@@ -762,6 +762,7 @@ async function pushSetup(env) {
   await env.DEMAND.batch([
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_push (event TEXT, ep TEXT, p256dh TEXT, auth TEXT, kinds TEXT, who TEXT, created TEXT, PRIMARY KEY (event, ep)) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_vapid (id INTEGER PRIMARY KEY, pub TEXT, priv TEXT)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_hand (code TEXT PRIMARY KEY, pid TEXT, crews TEXT, created TEXT) WITHOUT ROWID'),
   ]);
   pushReady = true;
 }
@@ -1086,6 +1087,27 @@ async function liveScoring(request, url, env, cors, ctx) {
       .bind(r.event, ep, pushB64(p256), pushB64(au), kinds.join(','), who.length ? JSON.stringify(who) : '', new Date().toISOString()).run();
     if (!(have && have.me)) await useBump(env, 'lv_push_on');
     return json({ ok: true }, 200, cors);
+  }
+  // iPhone hand-over: a Home Screen web app starts with empty storage, so the
+  // board passes this browser's player id (and saved fours) to it through a
+  // one-use code in the saved link, good for 30 minutes.
+  if (path === '/lv/hand' && request.method === 'POST') {
+    if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    await pushSetup(env);
+    const crews = typeof body.crews === 'string' && body.crews.length <= 6000 ? body.crews : '';
+    const code = socCode(12), cut = new Date(Date.now() - 1800000).toISOString();
+    await db.batch([db.prepare('DELETE FROM sc_hand WHERE created < ? OR pid = ?').bind(cut, pid),
+      db.prepare('INSERT INTO sc_hand (code, pid, crews, created) VALUES (?, ?, ?, ?)').bind(code, pid, crews, new Date().toISOString())]);
+    return json({ ok: true, code }, 200, cors);
+  }
+  if (path === '/lv/take' && request.method === 'POST') {
+    const h = String(body.h || '');
+    if (!/^[a-z0-9]{12}$/.test(h)) return json({ ok: false }, 400, cors);
+    await pushSetup(env);
+    const row = await db.prepare('SELECT pid, crews, created FROM sc_hand WHERE code = ?').bind(h).first();
+    if (row) await db.prepare('DELETE FROM sc_hand WHERE code = ?').bind(h).run();
+    if (!row || Date.now() - new Date(row.created).getTime() > 1800000) return json({ ok: false }, 200, cors);
+    return json({ ok: true, pid: row.pid, crews: row.crews || '' }, 200, cors);
   }
   // A quick round: friends, no society. Anyone can start one.
   if (path === '/lv/quick' && request.method === 'POST') {
