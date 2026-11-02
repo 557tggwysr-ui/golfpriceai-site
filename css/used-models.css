@@ -1,0 +1,77 @@
+/* Used-only price pages: scripts/used_models.py */
+.um-hero { margin-top: 14px; background: #14211a; color: #fff; border-radius: 18px; padding: 26px; display: flex; flex-wrap: wrap; gap: 22px; align-items: flex-start; }
+.um-hero-txt { flex: 999 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.um-hero h1 { margin: 0; color: #fff; font: 800 34px/1.15 'Poppins', sans-serif; }
+.um-hero .pp-answer { color: #dfe8e1; }
+.um-hero .pp-answer b { color: #fff; }
+.um-kick { font: 700 12px 'Inter', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #8fd97c; }
+.um-kick-d { color: #2f6f22; }
+.um-checked { font-size: 13px; color: #a9b8ad; }
+.um-tiles { flex: 1 1 250px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.um-tiles div { background: #1f3127; border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px; }
+.um-tiles small { font-size: 12.5px; color: #a9b8ad; }
+.um-tiles b { font: 700 21px 'Poppins', sans-serif; color: #fff; }
+.um-tiles .um-hi b { color: #8fd97c; }
+.um-card { background: #fff; border: 1px solid #dfe6dc; border-radius: 18px; padding: 22px; margin-top: 22px; }
+.um-card h2, .um-side h2 { margin: 0 0 10px; font: 700 22px/1.25 'Poppins', sans-serif; }
+.um-card h3 { margin: 0 0 8px; font: 700 16px 'Poppins', sans-serif; }
+.um-note { margin: 0 0 10px; font-size: 14px; color: #4a554e; }
+.um-strip { position: relative; height: 46px; background: #f4f7f3; border-radius: 10px; margin-top: 8px; }
+.um-strip i { position: absolute; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: #3fae29; border: 2px solid #fff; }
+.um-axis { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; color: #4a554e; margin-top: 6px; }
+.um-fit { border-top: 1px solid #eef3ec; margin-top: 16px; padding-top: 14px; }
+.um-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; }
+.um-row > span { width: 44px; flex: none; font-size: 13px; font-weight: 700; color: #4a554e; padding-top: 13px; }
+.um-row > div { display: flex; gap: 8px; flex-wrap: wrap; }
+.um-chip { min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #c9d3c6; background: #fff; color: #14211a; font: 600 14px 'Inter', sans-serif; cursor: pointer; }
+.um-chip small { color: #4a554e; font-weight: 500; }
+.um-chip[aria-pressed="true"] { background: #14211a; border-color: #14211a; color: #fff; }
+.um-chip[aria-pressed="true"] small { color: #c9d6cc; }
+.um-tw { overflow-x: auto; border: 1px solid #e3ebe1; border-radius: 12px; margin-top: 14px; }
+.um-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+.um-table th { text-align: left; font: 700 12px 'Inter', sans-serif; letter-spacing: .05em; text-transform: uppercase; color: #4a554e; background: #f4f7f3; padding: 10px; }
+.um-table td, .um-table tbody th { padding: 10px; border-top: 1px solid #eef3ec; text-align: left; }
+.um-table tbody th { text-transform: none; letter-spacing: 0; font: 600 15px 'Inter', sans-serif; background: none; color: #14211a; }
+.um-table td b { font: 700 16px 'Poppins', sans-serif; }
+.um-table tr[hidden] { display: none; }
+.um-shaft { color: #4a554e; }
+.um-go { text-align: right; }
+.um-go a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 999px; background: #3fae29; color: #0d1a10; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.um-go a:hover { background: #2f8a1f; color: #fff; }
+.um-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.um-showing { margin: 10px 0 0; font-size: 13px; color: #4a554e; }
+.um-chart { width: 100%; height: 160px; display: block; }
+.um-two { display: flex; flex-wrap: wrap; gap: 16px; padding-top: 22px; }
+.um-side { flex: 1 1 380px; background: #fff; border: 1px solid #dfe6dc; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.um-side h2 { margin: 0; font-size: 20px; }
+.um-new { display: flex; justify-content: space-between; gap: 10px; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 12px; background: #f4f7f3; color: #14211a; text-decoration: none; font-weight: 600; }
+.um-new b { white-space: nowrap; }
+.um-others { display: flex; flex-wrap: wrap; gap: 8px; }
+.um-others small { color: #4a554e; }
+.um-all { font-weight: 700; font-size: 14px; }
+.um-q { border-top: 1px solid #eef3ec; padding-top: 12px; margin-top: 12px; }
+.um-q p { margin: 0; font-size: 15px; line-height: 1.55; color: #33433a; }
+.um-small { margin-top: 18px; }
+.um-find { display: flex; flex-direction: column; gap: 4px; font-size: 13px; font-weight: 700; max-width: 420px; }
+.um-find input { min-height: 44px; border: 1px solid #c9d3c6; border-radius: 12px; padding: 0 14px; font: 16px 'Inter', sans-serif; }
+.um-sec h2 { margin: 0 0 10px; }
+.um-sec[hidden] { display: none; }
+.um-card0 { background: #fff; margin-top: 0; }
+.um-hubt { min-width: 480px; font-size: 15px; }
+.um-none { color: #4a554e; font-size: 14px; }
+.um-dark { background: #14211a; color: #fff; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+.um-dark b { font: 700 18px 'Poppins', sans-serif; }
+.um-dark span { color: #dfe8e1; }
+.um-dark a { color: #8fd97c; font-weight: 700; }
+.um-older { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.um-older a { display: flex; flex-direction: column; gap: 2px; padding: 14px; border-radius: 14px; background: #fff; border: 1px solid #dfe6dc; color: #14211a; text-decoration: none; }
+.um-older a b { font: 700 16px 'Poppins', sans-serif; }
+.um-older a span { font-size: 13px; color: #4a554e; }
+@media (max-width: 640px) { .um-hero { padding: 20px; } .um-hero h1 { font-size: 26px; } .um-card { padding: 16px; } }
+@media (max-width: 640px) {
+  #for-sale .um-table { min-width: 0; font-size: 14px; }
+  #for-sale .um-shaft, #for-sale .um-cond { display: none; }
+  #for-sale .um-table th, #for-sale .um-table td { padding: 10px 6px; }
+  #for-sale .um-table td b { font-size: 15px; }
+  .um-go a { padding: 0 12px; }
+}

@@ -6,7 +6,7 @@ Each row links to the model page's "New or used?" section.
 from price_pages import PRICES_DIR, SITE, TYPES, breadcrumb, esc, method_note, money, page_shell, plural, _write
 
 ORDER = ["driver", "wood", "hybrid", "irons", "single-iron", "wedge", "putter", "set", "bag"]
-CSS = '<link rel="stylesheet" href="/css/used.css?v=20261102a">\n'
+CSS = '<link rel="stylesheet" href="/css/used.css?v=20261102a">\n<link rel="stylesheet" href="/css/used-models.css?v=20261102a">\n'
 
 
 def rows_for(models, built):
@@ -19,7 +19,19 @@ def rows_for(models, built):
     return out
 
 
-def build(models, built, today):
+def older_html(older):
+    """Links to the used-only hubs (scripts/used_models.py): older clubs no
+    longer sold new, one hub per club type."""
+    if not older:
+        return ""
+    cards = "".join(f'<a href="/prices/used/{hub}/"><b>Used {esc(label.lower())}</b><span>{plural(n, 'older model')} · {plural(c, 'for sale', 'for sale')}</span></a>'
+                    for hub, label, n, c in older)
+    return f"""<section class="pp-block" id="older"><h2>Older clubs, no longer sold new</h2>
+<p class="pp-small">Every older model with used stock has its own price guide: what it’s worth today, every one on sale and its value over time.</p>
+<div class="um-older">{cards}</div></section>"""
+
+
+def build(models, built, today, older=()):
     rows = rows_for(models, built)
     if len(rows) < 10:
         return [], []
@@ -60,10 +72,11 @@ def build(models, built, today):
   <h1>Used golf club prices UK: what’s a used club worth?</h1>
   <p class="pp-answer">{answer}</p>
   <label class="ug-find"><span class="pp-small">Find a club</span><input type="search" id="ug-q" placeholder="e.g. Qi35 driver, G430 hybrid" autocomplete="off"></label>
-  <div class="ug-chips">{''.join(chips)}</div>
+  <div class="ug-chips">{''.join(chips)}{'<a class="pp-chip" href="#older">Older models, used only</a>' if older else ''}</div>
   <p class="pp-disclose">“Typical used” is the middle price of every used and ex-demo listing on sale today. Tap a model for its full used price guide and a hand, loft and flex finder.</p>
 </section>
 {''.join(sections)}
+{older_html(older)}
 <p class="pp-small" id="ug-none" hidden>No model matches that search. Try a shorter name, like “Qi35”.</p>
 <section class="pp-block"><div class="pp-chips"><a class="pp-chip" href="/shop.html?source=awin-callawaypreowned">Shop all preowned clubs</a><a class="pp-chip" href="/prices/drops/">Price drops today</a><a class="pp-chip" href="/prices/">All price guides</a></div></section>
 {method_note(today)}

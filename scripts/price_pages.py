@@ -1849,9 +1849,17 @@ def build(models_list, products, today_str):
             sitemap += dm_sitemap
         except Exception as e:  # never stop the main build
             print(f"Demand Index skipped: {e}")
+        older = []
+        try:
+            import used_models
+            o_changed, o_sitemap, older = used_models.build(models_list, products, built, today)
+            changed += o_changed
+            sitemap += o_sitemap
+        except Exception as e:  # never stop the main build
+            print(f"Used-only pages skipped: {e}")
         try:
             import used_guide
-            u_changed, u_sitemap = used_guide.build(passing, built, today)
+            u_changed, u_sitemap = used_guide.build(passing, built, today, older)
             changed += u_changed
             sitemap += u_sitemap
         except Exception as e:  # never stop the main build
