@@ -244,7 +244,7 @@ def shop_short(m=None):
                                 ("Wedges", "Wedges"), ("Hybrids", "Hybrids"), ("Putters", "Putters"),
                                 ("Package sets", "Package sets"), ("Preowned and trade-ins", "Preowned")]),
         "apparel": pick("apparel", [("Polo Tees", "Polos and tops"), ("Bottoms", "Trousers"), ("Outerwear", "Outerwear"),
-                                    ("Shorts & Skorts", "Shorts"), ("Golf shoes", "Shoes"), ("Headwear & Extras", "Headwear"),
+                                    ("Shorts & Skorts", "Shorts"), ("Golf shoes", "Shoes"), (_shop("apparel", "Caps & Hats", ["cap"]), "Headwear"),
                                     ("Golf Suits", "Waterproof suits"), ("/complete-the-look.html", "Outfit builder")]),
         "accessories": pick("accessories", [("Golf Balls", "Golf balls"), ("Rangefinders", "Rangefinders"),
                                             ("Golf bags", "Golf bags"), ("GPS Watches", "GPS watches"), ("Gloves", "Gloves"),

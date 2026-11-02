@@ -239,7 +239,7 @@
     ['Polo shirts', '/shop.html?category=apparel&types=polo&label=Polo+Tees', 'polo polos shirt shirts top tops'],
     ['Trousers', '/shop.html?category=apparel&types=trousers&label=Bottoms', 'trousers pants bottoms chinos joggers'],
     ['Outerwear', '/shop.html?category=apparel&types=jacket,hoodie,base-layer&label=Outerwear', 'jacket jackets waterproof hoodie midlayer layer quarter zip'],
-    ['Caps and hats', '/shop.html?category=apparel&types=cap,sunglasses,belt,socks&label=Headwear+%26+Extras', 'cap caps hat hats beanie visor'],
+    ['Caps and hats', '/shop.html?category=apparel&types=cap&label=Caps+%26+Hats', 'cap caps hat hats beanie visor'],
     ['GPS watches', '/shop.html?category=accessories&types=gps-watch&label=GPS+Watches', 'gps watch watches garmin'],
     ['Rangefinders', '/shop.html?category=accessories&types=rangefinder&label=Rangefinders', 'rangefinder rangefinders laser bushnell'],
     ['Push and electric trolleys', '/shop.html?category=accessories&types=pushcart&label=Push+Carts', 'trolley trolleys push cart electric motocaddy'],
