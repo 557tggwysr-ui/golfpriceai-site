@@ -1,0 +1,46 @@
+/* Live alerts on the live leaderboards: the "Alert me" card and its sheet (js/live-alerts.js). */
+#lv-alerts:empty { display: none; }
+.lva-card { background: #fff; border: 1px solid #d6e3d3; border-radius: 14px; padding: 14px; display: flex; gap: 12px; align-items: center; font-family: 'Inter', sans-serif; color: #14211a; }
+.lva-bell { width: 42px; height: 42px; border-radius: 12px; background: #e6f4e1; color: #2f8a1f; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.lva-txt { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.lva-txt b { font: 700 15px 'Poppins', sans-serif; }
+.lva-txt span { font-size: 13px; color: #4a5a4f; }
+.lva-go { min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: #3fae29; color: #0d1a10; font: 700 14px 'Inter', sans-serif; cursor: pointer; flex-shrink: 0; }
+.lva-go:hover { background: #2f8a1f; color: #fff; }
+.lva-go:disabled { opacity: .6; cursor: default; }
+.lva-on { background: #e6f4e1; border-color: #b9dfb0; padding: 8px 8px 8px 14px; gap: 10px; }
+.lva-on svg { color: #2f8a1f; flex-shrink: 0; }
+.lva-on > span { flex: 1; font-size: 14px; }
+.lva-link { min-height: 44px; padding: 0 10px; border: 0; background: none; color: #2f6f22; font: 700 14px 'Inter', sans-serif; text-decoration: underline; cursor: pointer; }
+.lva-blocked { background: #fff6e8; border-color: #f0d3a2; flex-direction: column; align-items: flex-start; gap: 4px; }
+.lva-blocked b { font: 700 14px 'Poppins', sans-serif; }
+.lva-blocked span { font-size: 13px; color: #5c4a2a; }
+.lva-sheet > div { gap: 14px; padding: 10px 20px 24px; max-height: 92vh; overflow-y: auto; font-family: 'Inter', sans-serif; color: #14211a; }
+.lva-grab { width: 40px; height: 4px; border-radius: 4px; background: #c9d3c6; align-self: center; flex-shrink: 0; }
+.lva-h { margin: 0; font: 700 21px/1.25 'Poppins', sans-serif; }
+.lva-p { margin: -6px 0 0; font-size: 14px; color: #4a5a4f; }
+.lva-kick { font: 700 11px 'Inter', sans-serif; letter-spacing: .12em; color: #2f6f22; margin-bottom: -10px; }
+.lva-kinds { display: flex; flex-direction: column; border: 1px solid #d6e3d3; border-radius: 14px; overflow: hidden; }
+.lva-sheet label.lva-kind { flex-direction: row; align-items: center; gap: 12px; padding: 10px 14px; min-height: 44px; border-bottom: 1px solid #eef3ec; cursor: pointer; font-weight: 400; }
+.lva-kind:last-child { border-bottom: 0; }
+.lva-kind > span { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.lva-kind b { font-size: 15px; }
+.lva-kind small { font-size: 13px; color: #56665b; }
+.lva-sheet .lva-kind input { width: 22px; height: 22px; min-height: 0; padding: 0; accent-color: #2f8a1f; flex-shrink: 0; }
+.lva-whose { display: flex; flex-direction: column; gap: 8px; }
+.lva-whose[hidden], .lva-chips[hidden], .lva-msg[hidden] { display: none; }
+.lva-sh { font: 700 14px 'Poppins', sans-serif; }
+.lva-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.lva-two button { min-height: 44px; border-radius: 12px; font: 700 14px 'Inter', sans-serif; cursor: pointer; border: 2px solid #d6e3d3; background: #fff; color: #14211a; }
+.lva-two button[aria-pressed="true"] { border-color: #2f8a1f; background: #e6f4e1; }
+.lva-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.lva-chip { min-height: 44px; padding: 0 14px; border-radius: 999px; font: 600 14px 'Inter', sans-serif; cursor: pointer; border: 1px solid #c9d3c6; background: #fff; color: #14211a; }
+.lva-chip[aria-pressed="true"] { background: #14211a; border-color: #14211a; color: #fff; }
+.lva-msg { margin: 0; font-size: 14px; font-weight: 600; color: #8a3b00; }
+.lva-big { width: 100%; min-height: 52px; font-size: 16px; }
+.lva-dark { background: #14211a; color: #fff; }
+.lva-off { min-height: 44px; border: 0; background: none; color: #4a5a4f; font: 600 14px 'Inter', sans-serif; text-decoration: underline; cursor: pointer; margin-top: -6px; }
+.lva-small { margin: 0; font-size: 12px; color: #56665b; text-align: center; }
+.lva-steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.lva-steps li { display: flex; gap: 12px; align-items: center; background: #f4f7f3; border-radius: 12px; padding: 12px 14px; font-size: 15px; line-height: 1.35; }
+.lva-steps b { width: 30px; height: 30px; border-radius: 999px; background: #14211a; color: #8fd97c; font: 700 14px 'Poppins', sans-serif; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }

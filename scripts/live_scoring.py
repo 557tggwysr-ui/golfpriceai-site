@@ -12,7 +12,16 @@ stay out of search: they only make sense with a society's own link.
 from price_pages import SITE, _write, breadcrumb, page_shell
 
 LIVE_CSS = '<link rel="stylesheet" href="/css/live.css?v=20261101c">\n'
-LIVE_JS = '<script src="/js/live.js?v=20261101d" defer></script>'
+LIVE_JS = '<script src="/js/live.js?v=20261102a" defer></script>'
+# The two leaderboards also offer live alerts (web push): the alert sheet, the
+# web app manifest (an iPhone only sends alerts to a site on its Home Screen)
+# and /sw.js, which shows the alerts.
+BOARD_HEAD = ('<link rel="stylesheet" href="/css/live-alerts.css?v=20261102a">\n'
+              '<link rel="manifest" href="/manifest.webmanifest">\n'
+              '<link rel="apple-touch-icon" href="/assets/icons/app-180.png">\n'
+              '<meta name="theme-color" content="#14211a">\n'
+              '<meta name="apple-mobile-web-app-title" content="GolfPrice AI">\n')
+ALERTS_JS = '\n<script src="/js/live-alerts.js?v=20261102a" defer></script>'
 URL = f"{SITE}/societies/live-scoring/"
 
 FEATURES = [
@@ -171,11 +180,11 @@ def board_page():
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Society HQ", "/societies/"), ("Live leaderboard", None)])
     body = f"""<div class="lv" id="lv-board" aria-live="polite"><p class="soc-loading" style="padding:24px 16px">Getting the scores…</p></div>
 <noscript><p>The live leaderboard needs JavaScript switched on. <a href="/societies/live-scoring/">About live scoring</a></p></noscript>
-{LIVE_JS}"""
+{LIVE_JS}{ALERTS_JS}"""
     return page_shell(title="Live leaderboard | Society HQ | GolfPrice AI",
                       description="A golf society day's live stableford leaderboard, from Society HQ.",
                       canonical=f"{SITE}/societies/live/", body=body, section="societies", schema=[crumbs_schema],
-                      noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=LIVE_CSS)
+                      noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=LIVE_CSS + BOARD_HEAD)
 
 
 def score_page():
@@ -272,10 +281,10 @@ def quick_board_page():
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Golf scorecard", "/play/scorecard/"), ("Live leaderboard", None)])
     body = f"""<div class="lv" id="lv-board" aria-live="polite"><p class="soc-loading" style="padding:24px 16px">Getting the scores…</p></div>
 <noscript><p>The live leaderboard needs JavaScript switched on.</p></noscript>
-{LIVE_JS}"""
+{LIVE_JS}{ALERTS_JS}"""
     return page_shell(title="Live leaderboard | Golf scorecard | GolfPrice AI", description="A round’s live golf leaderboard.",
                       canonical=f"{SITE}/play/scorecard/live/", body=body, section="play", schema=[crumbs_schema],
-                      noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=LIVE_CSS)
+                      noindex=True, og_image="/assets/cards/society-hq.jpg", extra_head=LIVE_CSS + BOARD_HEAD)
 
 
 def quick_card_page():

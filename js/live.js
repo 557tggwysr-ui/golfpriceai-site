@@ -285,7 +285,7 @@
     var quick = d.kind === 'quick';
     var h = '<section class="lv-hero"><div class="lv-top"><span class="lv-kick">' + esc(quick ? FMT[d.fmt] + ' · QUICK ROUND' : d.society + ' · STABLEFORD') + '</span><span class="lv-live' + (d.status === 'final' ? ' lv-final' : '') + '">' + (d.status === 'final' ? 'FINAL' : 'LIVE') + '</span></div>' +
       '<h1>' + esc(d.title) + '</h1><span class="lv-meta">' + esc([d.venue, nice(d.day)].filter(Boolean).join(' · ')) + ' · ' + n + ' golfers' + (groups > 1 ? ' in ' + groups + ' groups' : '') + ' · ' + upd + '</span></section>';
-    h += '<div class="lv-main">' + claimBox(d);
+    h += '<div class="lv-main">' + claimBox(d) + '<div id="lv-alerts"></div>';
     if (d.fmt === 'bb' && d.teams) {
       var lead = d.teams.length > 1 ? d.teams[0].pts - d.teams[1].pts : 0;
       h += '<section class="lv-card" aria-label="The better-ball"><div class="lv-th"><span>#</span><span>PAIR</span><span>THRU</span><span>PTS</span></div>' +
@@ -320,6 +320,7 @@
     }
     h += '<p class="lv-small">Nicknames and points only. ' + (d.status === 'final' ? 'Final scores.' : 'Updates itself every few seconds.') + ' <a href="' + (quick ? '/play/scorecard/' : '/societies/live-scoring/') + '">How it works</a></p></div>';
     board.innerHTML = h;
+    if (window.gpLiveAlerts) window.gpLiveAlerts(d, document.getElementById('lv-alerts'), boardPath(d.kind) + d.code);
     var all = document.getElementById('lv-all'); if (all) all.onclick = function () { showAll = !showAll; paintBoard(last); };
     document.getElementById('lv-share').onclick = function () { share(d, this); };
     wireClaim(board, d, load);

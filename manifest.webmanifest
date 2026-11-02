@@ -1,0 +1,13 @@
+{
+  "name": "GolfPrice AI",
+  "short_name": "GolfPrice AI",
+  "description": "Live golf leaderboards, scorecards and UK golf price alerts.",
+  "display": "standalone",
+  "background_color": "#14211a",
+  "theme_color": "#14211a",
+  "icons": [
+    { "src": "/assets/icons/app-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icons/app-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/icons/app-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

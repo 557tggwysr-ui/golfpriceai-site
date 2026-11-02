@@ -97,7 +97,7 @@ function budgetName(key) {
 const BOUGHT_RX = /^[a-z0-9-]{3,100}\|\d{1,5}\.\d{2}\|\d{4}-\d{2}-\d{2}$/; // in unsubscribe links: stop the Friday email only
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const cors = corsHeaders(request, env);
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
@@ -115,7 +115,7 @@ export default {
       if (url.pathname.startsWith('/pb/')) return await peoplesBag(request, url, env, cors);
       if (url.pathname.startsWith('/lg/')) return await nationalLeague(request, url, env, cors);
       if (url.pathname.startsWith('/ck/')) return await clubhouseKey(request, url, env, cors);
-      if (url.pathname.startsWith('/lv/')) return await liveScoring(request, url, env, cors);
+      if (url.pathname.startsWith('/lv/')) return await liveScoring(request, url, env, cors, ctx);
       if (url.pathname.startsWith('/pl/')) return await polls(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
@@ -642,6 +642,11 @@ async function lvSetup(env) {
   lvReady = true;
 }
 const LV_FMT = { stb: 'Stableford', bb: 'Better-ball pairs', skins: 'Skins' };
+// The final-result alert: the winner's line, plus who came second.
+function lvFinalLine(r, table, line) {
+  const two = table[1] && table[1].thru && r.fmt !== 'bb' && r.fmt !== 'skins' ? ` ${table[1].nick} ${table[1].pos === table[0].pos ? 'level' : 'second'} on ${table[1].pts}.` : '';
+  return line + two;
+}
 // The title, course and day of a round: a society day, or a quick round.
 async function lvInfo(env, r) {
   if (r.kind === 'quick') return { title: r.title || 'Quick round', venue: r.cname || '', day: r.day || String(r.created || '').slice(0, 10), society: '', tee: '', org: r.owner, co: null };
@@ -715,7 +720,142 @@ async function lvTable(env, r) {
 async function lvRound(env, by, val) {
   return await env.DEMAND.prepare(`SELECT * FROM sc_rounds WHERE ${by} = ?`).bind(val).first();
 }
-async function liveScoring(request, url, env, cors) {
+/* ------------------------------------------------------------------ live alerts (web push)
+   "Alert me" on a live leaderboard: a phone's browser hands over a push
+   address, and the worker buzzes it for a new leader, birdies (everyone's, or
+   just the golfers picked) and the final result. Standard Web Push (VAPID,
+   RFC 8291 encryption) with the browser's own push service: no app, no email.
+   The worker makes its own VAPID key pair the first time and keeps it in D1,
+   so there is no secret to add. Stored per alert: the round, the push address
+   and its two keys, the alert kinds and the nicknames picked. All of it is
+   deleted when the result is in, or after 3 days. The free plan allows 50
+   outside requests per request, hence the cap of PUSH_MAX phones per round. */
+const PUSH_MAX = 40;
+const PUSH_KINDS = ['lead', 'birdie', 'final'];
+const PUSH_HOST = /^(fcm\.googleapis\.com|updates\.push\.services\.mozilla\.com|[a-z0-9-]+\.push\.services\.mozilla\.com|web\.push\.apple\.com|[a-z0-9-]+\.push\.apple\.com|[a-z0-9-]+\.notify\.windows\.com)$/;
+let pushReady = false, pushVapid = null;
+const pushTe = new TextEncoder();
+function pushB64(buf) {
+  const b = buf instanceof Uint8Array ? buf : new Uint8Array(buf);
+  let s = ''; for (let i = 0; i < b.length; i++) s += String.fromCharCode(b[i]);
+  return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function pushUnb64(s) {
+  try {
+    const t = String(s || '').replace(/-/g, '+').replace(/_/g, '/');
+    const bin = atob(t + '==='.slice((t.length + 3) % 4));
+    const out = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  } catch (e) { return null; }
+}
+function pushCat(...parts) {
+  const out = new Uint8Array(parts.reduce((n, p) => n + p.length, 0)); let o = 0;
+  parts.forEach((p) => { out.set(p, o); o += p.length; });
+  return out;
+}
+async function pushHmac(key, data) {
+  const k = await crypto.subtle.importKey('raw', key, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  return new Uint8Array(await crypto.subtle.sign('HMAC', k, data));
+}
+async function pushSetup(env) {
+  if (pushReady) return;
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_push (event TEXT, ep TEXT, p256dh TEXT, auth TEXT, kinds TEXT, who TEXT, created TEXT, PRIMARY KEY (event, ep)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_vapid (id INTEGER PRIMARY KEY, pub TEXT, priv TEXT)'),
+  ]);
+  pushReady = true;
+}
+// The VAPID key pair: made once, then kept.
+async function pushKeys(env) {
+  if (pushVapid) return pushVapid;
+  await pushSetup(env);
+  let row = await env.DEMAND.prepare('SELECT pub, priv FROM sc_vapid WHERE id = 1').first();
+  if (!row) {
+    const kp = await crypto.subtle.generateKey({ name: 'ECDSA', namedCurve: 'P-256' }, true, ['sign', 'verify']);
+    const pub = pushB64(await crypto.subtle.exportKey('raw', kp.publicKey));
+    const priv = JSON.stringify(await crypto.subtle.exportKey('jwk', kp.privateKey));
+    await env.DEMAND.prepare('INSERT OR IGNORE INTO sc_vapid (id, pub, priv) VALUES (1, ?, ?)').bind(pub, priv).run();
+    row = await env.DEMAND.prepare('SELECT pub, priv FROM sc_vapid WHERE id = 1').first();
+  }
+  const key = await crypto.subtle.importKey('jwk', JSON.parse(row.priv), { name: 'ECDSA', namedCurve: 'P-256' }, false, ['sign']);
+  pushVapid = { pub: row.pub, key, jwt: {} };
+  return pushVapid;
+}
+async function pushJwt(v, aud, site) {
+  const now = Math.floor(Date.now() / 1000), hit = v.jwt[aud];
+  if (hit && hit.exp - now > 3600) return hit.t;
+  const exp = now + 12 * 3600;
+  const head = pushB64(pushTe.encode(JSON.stringify({ typ: 'JWT', alg: 'ES256' })));
+  const body = pushB64(pushTe.encode(JSON.stringify({ aud, exp, sub: site || 'https://golfpriceai.com' })));
+  const sig = await crypto.subtle.sign({ name: 'ECDSA', hash: 'SHA-256' }, v.key, pushTe.encode(head + '.' + body));
+  const t = head + '.' + body + '.' + pushB64(sig);
+  v.jwt[aud] = { t, exp };
+  return t;
+}
+// RFC 8291 (aes128gcm): the message, readable only by that one browser.
+async function pushEncrypt(sub, text) {
+  const ua = pushUnb64(sub.p256dh), secret = pushUnb64(sub.auth);
+  const eph = await crypto.subtle.generateKey({ name: 'ECDH', namedCurve: 'P-256' }, true, ['deriveBits']);
+  const asPub = new Uint8Array(await crypto.subtle.exportKey('raw', eph.publicKey));
+  const uaKey = await crypto.subtle.importKey('raw', ua, { name: 'ECDH', namedCurve: 'P-256' }, false, []);
+  const shared = new Uint8Array(await crypto.subtle.deriveBits({ name: 'ECDH', public: uaKey }, eph.privateKey, 256));
+  const ikm = await pushHmac(await pushHmac(secret, shared), pushCat(pushTe.encode('WebPush: info\0'), ua, asPub, new Uint8Array([1])));
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const prk = await pushHmac(salt, ikm);
+  const cek = (await pushHmac(prk, pushCat(pushTe.encode('Content-Encoding: aes128gcm\0'), new Uint8Array([1])))).slice(0, 16);
+  const nonce = (await pushHmac(prk, pushCat(pushTe.encode('Content-Encoding: nonce\0'), new Uint8Array([1])))).slice(0, 12);
+  const k = await crypto.subtle.importKey('raw', cek, { name: 'AES-GCM' }, false, ['encrypt']);
+  const ct = new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv: nonce }, k, pushCat(pushTe.encode(text), new Uint8Array([2]))));
+  return pushCat(salt, new Uint8Array([0, 0, 16, 0, 65]), asPub, ct);
+}
+async function pushOne(env, v, sub, msg) {
+  const u = new URL(sub.ep);
+  const jwt = await pushJwt(v, u.origin, env.SITE);
+  const res = await fetch(sub.ep, { method: 'POST', body: await pushEncrypt(sub, JSON.stringify(msg)), headers: {
+    authorization: `vapid t=${jwt}, k=${v.pub}`, 'content-encoding': 'aes128gcm', 'content-type': 'application/octet-stream', ttl: '3600', urgency: 'high' } });
+  return res.status;
+}
+// What one phone hears about a batch of news: birdies rolled into one line.
+function pushText(sub, alerts) {
+  const kinds = String(sub.kinds || '').split(','), who = sub.who ? JSON.parse(sub.who) : [];
+  const fin = alerts.find((a) => a.kind === 'final');
+  if (fin) return kinds.includes('final') ? { final: true, b: fin.txt } : null;
+  const parts = [];
+  if (kinds.includes('birdie')) {
+    const b = alerts.filter((a) => a.kind === 'birdie' && (!who.length || who.includes(a.nick)));
+    if (b.length === 1) parts.push(b[0].txt);
+    else if (b.length > 1) parts.push(`${b.length} birdies or better: ${b.map((a) => a.short).join(', ')}.`);
+  }
+  const lead = alerts.find((a) => a.kind === 'lead');
+  if (lead && kinds.includes('lead')) parts.push(lead.txt);
+  return parts.length ? { final: false, b: parts.join(' ') } : null;
+}
+async function pushRound(env, r, alerts) {
+  try {
+    if (!alerts.length) return;
+    await pushSetup(env);
+    const subs = (await env.DEMAND.prepare('SELECT * FROM sc_push WHERE event = ? LIMIT ?').bind(r.event, PUSH_MAX).all()).results || [];
+    if (!subs.length) return;
+    const v = await pushKeys(env), ev = await lvInfo(env, r);
+    const site = env.SITE || 'https://golfpriceai.com';
+    const url = site + (r.kind === 'quick' ? '/play/scorecard/live/?c=' : '/societies/live/?c=') + r.code;
+    const gone = [];
+    await Promise.all(subs.map(async (s) => {
+      const m = pushText(s, alerts);
+      if (!m) return;
+      try {
+        const st = await pushOne(env, v, s, { t: (ev.title || 'Live leaderboard') + (m.final ? ' · Final' : ''), b: m.b, u: url });
+        if (st === 404 || st === 410 || st === 403) gone.push(s.ep);
+      } catch (e) { /* the next one */ }
+    }));
+    const fin = alerts.some((a) => a.kind === 'final');
+    if (fin) await env.DEMAND.prepare('DELETE FROM sc_push WHERE event = ?').bind(r.event).run();
+    else if (gone.length) await env.DEMAND.batch(gone.map((ep) => env.DEMAND.prepare('DELETE FROM sc_push WHERE event = ? AND ep = ?').bind(r.event, ep)));
+    await useBump(env, 'lv_push_sent');
+  } catch (e) { console.log('push', e && e.stack); }
+}
+function later(ctx, p) { if (ctx && ctx.waitUntil) ctx.waitUntil(p); else return p; }
+async function liveScoring(request, url, env, cors, ctx) {
   if (!env.DEMAND) return json({ ok: false, error: 'Live scoring is taking a short break. Please try again in a minute.' }, 503, cors);
   await lvSetup(env);
   const db = env.DEMAND, path = url.pathname, ip = request.headers.get('cf-connecting-ip') || '';
@@ -840,19 +980,23 @@ async function liveScoring(request, url, env, cors) {
     if (!steps.length) return json({ ok: false, error: 'Bad request.' }, 400, cors);
     await db.batch(steps);
     // The feed: birdies and better, and a new leader.
-    const after = await lvTable(env, r), pars = lvCard(r.pars), feed = [];
+    const after = await lvTable(env, r), pars = lvCard(r.pars), feed = [], alerts = [];
     for (const m of mine) {
       const s = body.scores && body.scores[m], n = Math.round(Number(s)), p = after.find((x) => x.m === m);
       if (!p || !(n >= 1)) continue;
       const was = before.find((x) => x.m === m), had = was && was.holes[hole] !== undefined;
       if (had && was.holes[hole] === n) continue;
-      const diff = n - pars[hole - 1];
+      const diff = n - pars[hole - 1], fl = feed.length;
       if (diff <= -3) feed.push(`${p.nick} makes an albatross on the ${fgOrd(hole)}. Somebody frame that card.`);
       else if (diff === -2) feed.push(n === 1 ? `${p.nick} has a HOLE-IN-ONE on the ${fgOrd(hole)}! Drinks are on them.` : `${p.nick} eagles the ${fgOrd(hole)}. The bar has been warned.`);
       else if (diff === -1) feed.push(`${p.nick} birdies the ${fgOrd(hole)}. ${lvPoints(n, pars[hole - 1], p.ph, lvCard(r.si)[hole - 1])} points and a smug face.`);
+      if (feed.length > fl) alerts.push({ kind: 'birdie', nick: p.nick, short: `${p.nick} on the ${fgOrd(hole)}`, txt: feed[feed.length - 1] });
     }
     const lead0 = before.filter((x) => x.thru && x.pos === 1).map((x) => x.m), lead1 = after.filter((x) => x.thru && x.pos === 1);
-    if (lead1.length === 1 && !(lead0.length === 1 && lead0[0] === lead1[0].m) && after.filter((x) => x.thru).length > 1) feed.push(`${lead1[0].nick} takes the lead on ${lead1[0].pts} points.`);
+    if (lead1.length === 1 && !(lead0.length === 1 && lead0[0] === lead1[0].m) && after.filter((x) => x.thru).length > 1) {
+      feed.push(`${lead1[0].nick} takes the lead on ${lead1[0].pts} points.`);
+      alerts.push({ kind: 'lead', txt: `${lead1[0].nick} takes the lead on ${lead1[0].pts} points, thru ${lead1[0].thru}.` });
+    }
     // Movers: positions now against a snapshot taken at most every 10 minutes.
     let snap = {}; try { snap = JSON.parse(r.lastpos || '{}'); } catch (e) { /* none */ }
     if (!snap.at || Date.now() - new Date(snap.at).getTime() > 600000) {
@@ -869,8 +1013,10 @@ async function liveScoring(request, url, env, cors) {
       if (r.fmt === 'skins' && gm.skins && gm.skins[0]) txt = `${gm.skins[0].nick} takes the most skins: ${gm.skins[0].n}.`;
       fsteps.push(db.prepare("UPDATE sc_rounds SET status = 'final' WHERE event = ?").bind(g.event));
       fsteps.push(db.prepare('INSERT INTO sc_feed (event, at, txt) VALUES (?, ?, ?)').bind(g.event, new Date(Date.now() + 1000).toISOString(), 'Final: ' + txt));
+      alerts.length = 0; alerts.push({ kind: 'final', txt: lvFinalLine(r, after, txt) });
     }
     await db.batch(fsteps);
+    await later(ctx, pushRound(env, r, alerts));
     return json({ ok: true, players: after.filter((p) => p.grp === g.grp).map((p) => ({ m: p.m, pts: p.pts, thru: p.thru, pos: p.pos })) }, 200, cors);
   }
   if (path === '/lv/extra' && request.method === 'POST') {
@@ -908,6 +1054,38 @@ async function liveScoring(request, url, env, cors) {
       rows: table.map((p) => Object.assign({ nick: p.nick, team: p.team, pts: p.pts, back: p.back, thru: p.thru, pos: p.pos, tie: p.tie, move: last[p.m] && p.thru ? last[p.m] - p.pos : 0 },
         r.status === 'final' ? { ph: p.ph, holes: p.holes } : {})),
       feed: feed.map((f) => ({ at: f.at, txt: f.txt })), extras }, lvGames(r, table)), 200, noStore);
+  }
+  // Live alerts: the key a browser needs, then "Alert me" and "Turn off".
+  if (path === '/lv/pushkey') {
+    const v = await pushKeys(env);
+    return json({ ok: true, key: v.pub }, 200, Object.assign({ 'cache-control': 'public, max-age=3600' }, cors));
+  }
+  if ((path === '/lv/push' || path === '/lv/unpush') && request.method === 'POST') {
+    const r = LV_CODE.test(q('c')) ? await lvRound(env, 'code', q('c')) : null;
+    if (!r) return json({ ok: false, error: 'We couldn’t find that leaderboard.' }, 404, cors);
+    await pushSetup(env);
+    let ep = String(body.ep || '').slice(0, 1000), host = '';
+    try { const u = new URL(ep); host = u.protocol === 'https:' ? u.hostname : ''; } catch (e) { /* bad */ }
+    if (!PUSH_HOST.test(host)) return json({ ok: false, error: 'This browser can’t do alerts, sorry. The board still updates itself.' }, 400, cors);
+    if (path === '/lv/unpush') {
+      await db.prepare('DELETE FROM sc_push WHERE event = ? AND ep = ?').bind(r.event, ep).run();
+      return json({ ok: true }, 200, cors);
+    }
+    if (r.status === 'final') return json({ ok: false, error: 'This round has finished: the result’s on the board.' }, 400, cors);
+    const p256 = pushUnb64(body.p256dh), au = pushUnb64(body.auth);
+    if (!p256 || p256.length !== 65 || p256[0] !== 4 || !au || au.length !== 16) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const kinds = PUSH_KINDS.filter((k) => Array.isArray(body.kinds) && body.kinds.includes(k));
+    if (!kinds.length) return json({ ok: false, error: 'Pick at least one alert.' }, 400, cors);
+    const nicks = new Set((((await db.prepare('SELECT nick FROM sc_players WHERE event = ?').bind(r.event).all()).results) || []).map((x) => x.nick));
+    const who = (Array.isArray(body.who) ? body.who : []).map(String).filter((n) => nicks.has(n)).slice(0, 40);
+    if (Array.isArray(body.who) && body.who.length && !who.length) return json({ ok: false, error: 'Pick at least one golfer.' }, 400, cors);
+    await db.prepare('DELETE FROM sc_push WHERE created < ?').bind(new Date(Date.now() - 3 * 86400000).toISOString()).run();
+    const have = await db.prepare('SELECT COUNT(*) AS n, SUM(ep = ?) AS me FROM sc_push WHERE event = ?').bind(ep, r.event).first();
+    if (!(have && have.me) && have && have.n >= PUSH_MAX) return json({ ok: false, error: 'This round already has as many phones on alerts as we can buzz. The board still updates itself every few seconds.' }, 400, cors);
+    await db.prepare('INSERT INTO sc_push (event, ep, p256dh, auth, kinds, who, created) VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT (event, ep) DO UPDATE SET p256dh = excluded.p256dh, auth = excluded.auth, kinds = excluded.kinds, who = excluded.who')
+      .bind(r.event, ep, pushB64(p256), pushB64(au), kinds.join(','), who.length ? JSON.stringify(who) : '', new Date().toISOString()).run();
+    if (!(have && have.me)) await useBump(env, 'lv_push_on');
+    return json({ ok: true }, 200, cors);
   }
   // A quick round: friends, no society. Anyone can start one.
   if (path === '/lv/quick' && request.method === 'POST') {
@@ -958,6 +1136,9 @@ async function liveScoring(request, url, env, cors) {
     const r = LV_CODE.test(q('c')) ? await lvRound(env, 'code', q('c')) : null;
     if (!r || r.kind !== 'quick' || !pid || pid !== r.owner) return json({ ok: false, error: 'Only the golfer who started the round can finish it.' }, 403, cors);
     await db.prepare("UPDATE sc_rounds SET status = 'final', updated = ? WHERE event = ?").bind(new Date().toISOString(), r.event).run();
+    const t = await lvTable(env, r);
+    if (t[0] && t[0].thru) await later(ctx, pushRound(env, r, [{ kind: 'final', txt: lvFinalLine(r, t, `${t[0].nick} wins on ${t[0].pts} points.`) }]));
+    else await later(ctx, pushRound(env, r, [{ kind: 'final', txt: 'The round has finished.' }]));
     return json({ ok: true }, 200, cors);
   }
   // My Game: every round this golfer played, quick rounds and society days.
@@ -992,6 +1173,7 @@ async function liveScoring(request, url, env, cors) {
       await db.prepare("UPDATE sc_rounds SET status = 'final', updated = ? WHERE event = ?").bind(new Date().toISOString(), e.id).run();
       await db.prepare('INSERT INTO sc_feed (event, at, txt) VALUES (?, ?, ?)').bind(e.id, new Date().toISOString(), table[0] ? `${table[0].nick} wins with ${table[0].pts} points. The report’s in.` : 'The report’s in.').run();
       await useBump(env, 'lv_final');
+      if (table[0]) await later(ctx, pushRound(env, r, [{ kind: 'final', txt: lvFinalLine(r, table, `${table[0].nick} wins with ${table[0].pts} points.`) + ' The match report’s in.' }]));
     }
     return res;
   }
