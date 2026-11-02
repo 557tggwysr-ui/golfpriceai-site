@@ -186,20 +186,44 @@ def page(county, rows, d, data, chips_html, spare_html, cards_html, list_schema,
     schema = [crumbs_schema, place, faq_schema] + ([list_schema] if k else [])
     return page_shell(title=title, description=desc, canonical=url, body=body, section="societies", schema=schema, noindex=False,
                       og_image="/assets/cards/society-hq.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/society.css?v=20261102a">\n')
+                      extra_head='<link rel="stylesheet" href="/css/society.css?v=20261102b">\n')
 
 
-def chips(all_counties, rows, live, current=None):
-    """Every county with a page, and how many societies each has listed."""
+NATIONS = [
+    ("England", None),
+    ("Scotland", ["Aberdeenshire", "Angus and Dundee", "Ayrshire and Arran", "Dumfries and Galloway", "Edinburgh and the Lothians",
+                  "Fife", "Glasgow and Clyde", "Highlands and Islands", "Perth and Kinross", "Scottish Borders", "Stirling and Central Scotland"]),
+    ("Wales, Northern Ireland and the islands", ["North Wales", "Mid Wales", "South Wales", "West Wales", "Northern Ireland",
+                                                 "Channel Islands", "Isle of Man"]),
+]
+
+
+def chips(all_counties, rows, live, current=None, data=None):
+    """Every county with a page, grouped by nation, with its golf course count
+    (and its listed societies, once there are any)."""
     import society_counties as sc
+    data = data or {}
     counts = {}
     for x in rows:
         counts[x.get("county")] = counts.get(x.get("county"), 0) + 1
-    out = []
-    for c in sorted(live):
-        label = e(c) + (f" ({counts[c]})" if counts.get(c) else "")
-        out.append(f'<span class="fd-chip is-on">{label}</span>' if c == current else f'<a class="fd-chip" href="/societies/find/{sc.slug(c)}/">{label}</a>')
-    return '<nav class="fd-chips" aria-label="Golf societies by county">' + "".join(out) + "</nav>"
+    others = {c for _, cs in NATIONS if cs for c in cs}
+    groups = []
+    for name, cs in NATIONS:
+        items = [c for c in sorted(live) if (c in cs if cs else c not in others)]
+        if not items:
+            continue
+        lis = []
+        for c in items:
+            n = len((data.get(c) or {}).get("courses") or [])
+            k = counts.get(c, 0)
+            meta = (f'<b>{k} {"society" if k == 1 else "societies"}</b>' if k else "") + (f'<small>{n:,} courses</small>' if n else "")
+            inner = f'<span class="cty-n">{e(c)}</span><span class="cty-m">{meta}</span>'
+            if c == current:
+                lis.append(f'<li><span class="cty-a is-on" aria-current="page">{inner}</span></li>')
+            else:
+                lis.append(f'<li><a class="cty-a" href="/societies/find/{sc.slug(c)}/">{inner}</a></li>')
+        groups.append(f'<section class="cty-grp{" cty-wide" if not cs else ""}"><h3>{e(name)}</h3><ul>{"".join(lis)}</ul></section>')
+    return '<nav class="cty-dir" aria-label="Golf societies by county">' + "".join(groups) + "</nav>"
 
 
 def build(root, rows, find_cards, spare_panel, list_schema_fn, counties_map=None):
@@ -219,7 +243,7 @@ def build(root, rows, find_cards, spare_panel, list_schema_fn, counties_map=None
         if sc.known(x.get("county") or ""):
             by.setdefault(x["county"], []).append(x)
     live = sorted(c for c in sc.COUNTIES if by.get(c) or len((data.get(c) or {}).get("courses") or []) >= MIN_COURSES)
-    chip_html = lambda cur=None: chips(sc.COUNTIES, rows, live, current=cur)
+    chip_html = lambda cur=None: chips(sc.COUNTIES, rows, live, current=cur, data=data)
     changed, urls = [], []
     for c in live:
         rs = by.get(c, [])

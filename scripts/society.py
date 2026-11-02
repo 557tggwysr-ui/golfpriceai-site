@@ -16,7 +16,7 @@ from price_pages import SITE, _write, breadcrumb, page_shell
 LAUNCHED = True
 PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
 FIND_PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/find-a-society-wide.jpg"><img src="/assets/photos/tools/find-a-society-banner.jpg" alt="Golfers shaking hands on the first tee, meeting new playing partners" width="1536" height="512"></picture>'
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261102a">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261102b">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
