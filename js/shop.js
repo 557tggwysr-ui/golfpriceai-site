@@ -113,6 +113,13 @@ function conditionBadgeHTML(d) {
   return `<span class="condition-badge">${d.condition}</span>`;
 }
 
+function specLineHTML(d) {
+  if (typeof inPreowned !== 'function' || !inPreowned()) return '';
+  const s = usedSpecs(d);
+  const bits = [s.hand ? s.hand + '-handed' : '', s.loft, s.flex, s.shaft].filter(Boolean);
+  return bits.length ? `<p class="spec-line">${bits.join(' \u00b7 ')}</p>` : '';
+}
+
 function cardHTML(d) {
   const badge = badgeFor(d.savePct);
   return `
@@ -125,6 +132,7 @@ function cardHTML(d) {
       </div>
       <div class="deal-body">
         <h3>${d.name}</h3>
+        ${specLineHTML(d)}
         <div class="price-row"><span class="retail-price">${money(d.retailPrice)}</span></div>
         <div class="price-row"><span class="sale-price">${money(d.salePrice)}</span></div>
         <span class="save-pill">Save ${money(d.retailPrice - d.salePrice)} (${d.savePct}%)</span>
@@ -396,6 +404,46 @@ let activeBrands = new Set();
 let activeColours = new Set();
 let activeAudience = new Set();
 let activeCondition = new Set();
+// Hand, loft, flex and shaft for used clubs, read from the listing name
+// (same rules as scripts/used_specs.py). Only in Clubs › Preowned.
+const SPEC_KEYS = ['hand', 'loft', 'flex', 'shaft'];
+const SPEC_LABELS = { hand: 'Hand', loft: 'Loft', flex: 'Flex', shaft: 'Shaft' };
+let activeSpecs = { hand: new Set(), loft: new Set(), flex: new Set(), shaft: new Set() };
+const FLEX_RULES = [
+  ['Extra stiff', /\b(extra[ -]?stiff|x[ -]?stiff|tour x|x flex)\b/i],
+  ['Stiff/Regular', /\b(stiff\/regular|regular\/stiff|firm)\b/i],
+  ['Stiff', /\b(stiff|s flex)\b/i],
+  ['Regular', /\b(regular|r flex)\b/i],
+  ['Senior', /\b(senior|a flex|lite|amateur)\b/i],
+  ['Ladies', /\b(ladies|l flex)\b/i],
+];
+const FLEX_ORDER = ['Ladies', 'Senior', 'Regular', 'Stiff/Regular', 'Stiff', 'Extra stiff'];
+const LOFTED = { driver: 1, wood: 1, hybrid: 1, wedge: 1 };
+const specCache = new Map();
+function usedSpecs(p) {
+  let s = specCache.get(p);
+  if (s) return s;
+  const head = (p.name || '').split(' - ')[0];
+  s = { hand: null, loft: null, flex: null, shaft: null };
+  let m = head.match(/\b(right|left)[ -]?hand(?:ed)?\b/i);
+  if (m) s.hand = m[1][0].toUpperCase() + m[1].slice(1).toLowerCase();
+  if (LOFTED[p.category]) {
+    m = head.match(/\b(\d{1,2}(?:\.\d)?)\s*(?:\*|°|º|\s?deg(?:ree)?s?\b)/i);
+    if (!m && p.category === 'driver') m = head.match(/\bhand\s+(?:\w+\s+)?(\d{1,2}(?:\.\d)?)(?=\s|$)(?!\s*(?:-|"|pw|sw))/i);
+    if (m) { const v = parseFloat(m[1]); if (v >= 5 && v <= 64) s.loft = String(v) + '°'; }
+  }
+  for (const [label, rx] of FLEX_RULES) { if (rx.test(head)) { s.flex = label; break; } }
+  m = head.match(/\b(graphite|steel)\b/i);
+  if (m) s.shaft = m[1][0].toUpperCase() + m[1].slice(1).toLowerCase();
+  specCache.set(p, s);
+  return s;
+}
+function inPreowned() { return baseSource === 'awin-callawaypreowned'; }
+function matchesSpecs(p, exclude) {
+  if (!inPreowned()) return true;
+  const s = usedSpecs(p);
+  return SPEC_KEYS.every(k => exclude === k || activeSpecs[k].size === 0 || activeSpecs[k].has(s[k]));
+}
 let priceMin = null;
 let priceMax = null;
 let sortMode = 'featured';
@@ -478,9 +526,10 @@ function matchesFilters(p, exclude) {
   // Every word typed must appear somewhere in the name, in any order — so
   // "qi35 driver" finds "TaylorMade Qi35 Max Driver". Always finds at least
   // everything the old exact-phrase match found.
+  // A word starting with "-" leaves out names containing it ("qi35 driver -max").
   const words = searchQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const lowerName = words.length ? p.name.toLowerCase() : '';
-  const matchesQuery = words.every(w => lowerName.includes(w));
+  const matchesQuery = words.every(w => (w[0] === '-' && w.length > 1) ? !new RegExp('\\b' + w.slice(1).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b').test(lowerName) : lowerName.includes(w));
   const matchesType = exclude === 'type' || matchesTypeCheckboxes(p);
   const matchesBrand = exclude === 'brand' || activeBrands.size === 0 || activeBrands.has(extractBrand(p));
   const matchesColour = exclude === 'colour' || activeColours.size === 0 || activeColours.has(extractColour(p));
@@ -488,7 +537,7 @@ function matchesFilters(p, exclude) {
   const matchesCondition = exclude === 'condition' || activeCondition.size === 0 || activeCondition.has(classifyCondition(p));
   const matchesPriceMin = exclude === 'price' || priceMin === null || p.salePrice >= priceMin;
   const matchesPriceMax = exclude === 'price' || priceMax === null || p.salePrice <= priceMax;
-  return matchesQuery && matchesType && matchesBrand && matchesColour && matchesAudience && matchesCondition && matchesPriceMin && matchesPriceMax;
+  return matchesQuery && matchesType && matchesBrand && matchesColour && matchesAudience && matchesCondition && matchesPriceMin && matchesPriceMax && matchesSpecs(p, exclude);
 }
 
 function scopedFor(exclude, base) {
@@ -610,6 +659,7 @@ function renderActiveChips() {
   activeColours.forEach(c => chips.push({ label: c, remove: () => { activeColours.delete(c); refreshAfterFilterChange(); } }));
   activeAudience.forEach(a => chips.push({ label: a, remove: () => { activeAudience.delete(a); refreshAfterFilterChange(); } }));
   activeCondition.forEach(c => chips.push({ label: c, remove: () => { activeCondition.delete(c); refreshAfterFilterChange(); } }));
+  SPEC_KEYS.forEach(k => activeSpecs[k].forEach(v => chips.push({ label: k === 'hand' ? v + '-handed' : v, remove: () => { activeSpecs[k].delete(v); refreshAfterFilterChange(); } })));
   if (priceMin !== null || priceMax !== null) {
     chips.push({
       label: `${money(priceMin || 0)} \u2013 ${money(priceMax || 99999)}`,
@@ -718,6 +768,27 @@ function renderSidebar() {
       <div class="filter-group-body">${buildOptionList('condition', conditionOpts, activeCondition)}</div>
     </div>`;
 
+  let specSections = '';
+  if (inPreowned()) {
+    SPEC_KEYS.forEach(k => {
+      const counts = {};
+      scopedFor(k, base).forEach(p => { const v = usedSpecs(p)[k]; if (v) counts[v] = (counts[v] || 0) + 1; });
+      let keys = Object.keys(counts);
+      if (k === 'loft') keys.sort((a, b) => parseFloat(a) - parseFloat(b));
+      else if (k === 'flex') keys.sort((a, b) => FLEX_ORDER.indexOf(a) - FLEX_ORDER.indexOf(b));
+      else keys.sort((a, b) => counts[b] - counts[a]);
+      activeSpecs[k].forEach(v => { if (!keys.includes(v)) keys.push(v); });
+      if (k === 'loft') keys = keys.filter(v => counts[v] >= 3 || activeSpecs[k].has(v));
+      if (!keys.length) return;
+      const opts = keys.map(v => ({ key: v, label: k === 'hand' ? v + '-handed' : v, count: counts[v] || 0 }));
+      specSections += `
+    <div class="filter-group" data-group-name="${k}">
+      <div class="filter-group-head">${SPEC_LABELS[k]} <span class="chevron">\u25be</span></div>
+      <div class="filter-group-body">${buildOptionList(k, opts, activeSpecs[k])}</div>
+    </div>`;
+    });
+  }
+
   // Plain loop rather than Math.min(...prices)/Math.max(...prices) --
   // spreading tens of thousands of numbers as call arguments is both
   // slower and, in some browsers, can hit a real call-stack limit on
@@ -738,6 +809,7 @@ function renderSidebar() {
     </div>
     ${audienceSection}
     ${conditionSection}
+    ${specSections}
     <div class="filter-group" data-group-name="price">
       <div class="filter-group-head">Price <span class="chevron">\u25be</span></div>
       <div class="filter-group-body">
@@ -758,7 +830,7 @@ function renderSidebar() {
   sidebar.querySelectorAll('input[type="checkbox"]').forEach(cb => {
     cb.addEventListener('change', () => {
       const group = cb.dataset.group;
-      const targetSet = group === 'type' ? activeTypeCheckboxes : group === 'brand' ? activeBrands : group === 'audience' ? activeAudience : group === 'condition' ? activeCondition : activeColours;
+      const targetSet = group === 'type' ? activeTypeCheckboxes : group === 'brand' ? activeBrands : group === 'audience' ? activeAudience : group === 'condition' ? activeCondition : activeSpecs[group] ? activeSpecs[group] : activeColours;
       if (cb.checked) targetSet.add(cb.value); else targetSet.delete(cb.value);
       if (group === 'type') renderCategoryBanner();
       renderSidebar();
@@ -796,6 +868,7 @@ function updateURL() {
   if (activeColours.size) params.set('colour', [...activeColours].join(',')); else params.delete('colour');
   if (activeAudience.size) params.set('audience', [...activeAudience].join(',')); else params.delete('audience');
   if (activeCondition.size) params.set('condition', [...activeCondition].join(',')); else params.delete('condition');
+  SPEC_KEYS.forEach(k => { if (activeSpecs[k].size) params.set(k, [...activeSpecs[k]].join(',')); else params.delete(k); });
   if (activeTypeCheckboxes.size) params.set('types', [...activeTypeCheckboxes].join(',')); else params.delete('types');
   if (priceMin !== null) params.set('pricemin', priceMin); else params.delete('pricemin');
   if (priceMax !== null) params.set('pricemax', priceMax); else params.delete('pricemax');
@@ -927,7 +1000,7 @@ function setMeta(canonicalUrl, title, description) {
 
 function updateSeoMeta(params, categoryParam, validCategory, groupParam) {
   const BASE = 'https://golfpriceai.com/shop.html';
-  const hasDeeperFacet = ['types', 'brand', 'colour', 'audience', 'condition', 'pricemin', 'pricemax', 'label'].some(k => params.get(k))
+  const hasDeeperFacet = ['types', 'brand', 'colour', 'audience', 'condition', 'pricemin', 'pricemax', 'label', 'hand', 'loft', 'flex', 'shaft'].some(k => params.get(k))
     || (params.get('sort') && params.get('sort') !== 'featured')
     || params.get('q');
   const sourceParam = params.get('source');
@@ -1015,6 +1088,7 @@ fetch('data/products.json')
 
     const conditionParam = params.get('condition');
     if (conditionParam) activeCondition = new Set(conditionParam.split(','));
+    SPEC_KEYS.forEach(k => { const v = params.get(k); if (v) activeSpecs[k] = new Set(v.split(',')); });
 
     if (params.get('pricemin')) priceMin = Number(params.get('pricemin'));
     if (params.get('pricemax')) priceMax = Number(params.get('pricemax'));
@@ -1065,6 +1139,7 @@ if (clearAllBtn) {
     activeColours = new Set();
     activeAudience = new Set();
     activeCondition = new Set();
+    activeSpecs = { hand: new Set(), loft: new Set(), flex: new Set(), shaft: new Set() };
     priceMin = null;
     priceMax = null;
     refreshAfterFilterChange();

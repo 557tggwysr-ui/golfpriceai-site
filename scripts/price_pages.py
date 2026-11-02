@@ -794,6 +794,101 @@ def while_here(gift=False):
 </section>"""
 
 
+PREOWNED_SHOP = "/shop.html?source=awin-callawaypreowned"
+USED_FIT_V = "20261102a"
+
+
+def _pounds(n):
+    return f"£{round(n):,}"
+
+
+ALL_MODELS = []  # every model this run, passing or not (set in build)
+
+
+def used_query(model, all_models):
+    """Shop search for this model's used stock: its name, minus words that
+    only its sibling models have ("Qi35 Driver" leaves out "LS" and "Max")."""
+    mine = set(model.name.lower().split())
+    minus = set()
+    for o in (ALL_MODELS or all_models):
+        if o["slug"] == model.slug or o["type"] != model.type:
+            continue
+        words = set(o["name"].lower().split())
+        if mine < words:
+            minus |= {w for w in words - mine if re.fullmatch(r"[a-z0-9.+]{2,}", w)}
+    return "+".join(model.name.split() + ["-" + w for w in sorted(minus)][:8])
+
+
+def used_section(model, new_price, all_models=()):
+    """"New or used?" on a model page: the lowest new price next to used and
+    ex-demo, a strip of every used price on sale, and a hand / loft / flex
+    finder that opens Clubs › Preowned with those filters set."""
+    u = model.m.get("used")
+    if not u or not u.get("count"):
+        return ""
+    name, n = model.name, u["count"]
+    lo, med, hi = u["min"], u["median"], u["max"]
+    save = new_price - lo
+    shop = f"{PREOWNED_SHOP}&amp;q={esc(used_query(model, all_models))}"
+    used_txt = (f"cheapest used · <b>{_pounds(save)} less than new ({round(save / new_price * 100)}%)</b>"
+                if save >= 1 else "cheapest used today")
+    if med < new_price - 1:
+        take = (f"A typical used {esc(name)} costs <b>{money(med)}</b>, about {_pounds(new_price - med)} less than new."
+                + (f" The cheapest saves {_pounds(save)}: worth it if the spec fits you." if save > new_price - med + 1 else ""))
+    else:
+        take = (f"Used ones cost about the same as new today (typically {money(med)}), so new, with a full warranty, "
+                f"is the better buy unless you need a spec only a used one has.")
+    strip = ""
+    items = u.get("items") or []
+    if len(items) >= 3:
+        top = max(hi, new_price) * 1.04
+        bot = min(lo, new_price) * 0.96
+        span = (top - bot) or 1
+        pos = lambda v: round((v - bot) / span * 100, 1)
+        dots = "".join(f'<i style="left:{pos(it[0])}%;top:{6 + (k % 4) * 8}px"></i>' for k, it in enumerate(items))
+        strip = f"""<div class="nu-strip" role="img" aria-label="{n} used prices from {money(lo)} to {money(hi)}; new {money(new_price)}">{dots}
+<span class="nu-new" style="left:{pos(new_price)}%"><small>New {money(new_price).replace('.00', '')}</small></span></div>
+<div class="nu-axis"><span>{money(bot).split('.')[0]}</span><span>Each dot is one used or ex-demo listing on sale today</span><span>{money(top).split('.')[0]}</span></div>"""
+    tiles = [("Cheapest used", money(lo)), ("Typical used", money(med)), ("Dearest used", money(hi))]
+    if u.get("exdemo"):
+        tiles.append(("Ex-demo from", money(u["exdemo"])))
+    tiles_html = "".join(f"<div><small>{a}</small><b>{v}</b></div>" for a, v in tiles)
+    fit = ""
+    if model.type in CLUB_TYPES and any(u.get(k) for k in ("hand", "loft", "flex")):
+        def row(key, label, order=None):
+            vals = u.get(key) or {}
+            if len(vals) < 1:
+                return ""
+            keys = sorted(vals, key=(lambda v: float(v.rstrip("°"))) if key == "loft" else (lambda v: (order or []).index(v) if v in (order or []) else 99))
+            btns = "".join(f'<button type="button" class="nu-chip" data-k="{key}" data-v="{esc(v)}" aria-pressed="false">{esc(v)}{" hand" if key == "hand" else ""} <small>({vals[v]})</small></button>' for v in keys)
+            return f'<div class="nu-row"><span>{label}</span><div>{btns}</div></div>'
+        rows_html = (row("hand", "Hand", ["Right", "Left"]) + row("loft", "Loft")
+                     + row("flex", "Flex", ["Ladies", "Senior", "Regular", "Stiff/Regular", "Stiff", "Extra stiff"]))
+        data = json.dumps([[it[0], it[1], it[2], it[3]] for it in items], separators=(",", ":"))
+        fit = f"""<div class="nu-fit" data-items='{esc(data)}' data-shop="{shop}" data-noun="{esc(model.noun)}">
+  <h3>Find a used one that fits you</h3>
+  {rows_html}
+  <div class="nu-go"><a class="nu-btn" href="{shop}">See all {n} used from {money(lo)}</a><span>Opens Clubs › Preowned with your filters</span></div>
+</div>
+<script src="/js/used-fit.js?v={USED_FIT_V}" defer></script>"""
+    else:
+        fit = f'<div class="nu-go"><a class="nu-btn" href="{shop}">See all {n} used from {money(lo)}</a></div>'
+    return f"""<link rel="stylesheet" href="/css/used.css?v={USED_FIT_V}">
+<section class="pp-block nu" id="new-or-used">
+  <div class="nu-head"><h2>New or used?</h2><span>{plural(n, "used or ex-demo " + model.noun)} for sale today</span></div>
+  <div class="nu-cards">
+    <div class="nu-c"><small>New</small><b>{money(new_price)}</b><span>lowest new, in stock · multiple UK retailers</span></div>
+    <div class="nu-c nu-used"><small>Used</small><b>{money(lo)}</b><span>{used_txt}</span></div>
+    <div class="nu-c nu-take"><small>Our take</small><span>{take}</span></div>
+  </div>
+  <h3>Used price guide</h3>
+  {strip}
+  <div class="nu-tiles">{tiles_html}</div>
+  {fit}
+  <p class="pp-small">Used and ex-demo prices from multiple UK retailers, checked every 6 hours. Condition is the retailer’s own grading. Used clubs never count towards the new price, the verdict or price alerts.</p>
+</section>"""
+
+
 def build_model_page(model, all_models, built, hubs_built, today, noindex):
     m, name = model.m, model.name
     rows = model.retailer_rows()
@@ -878,19 +973,8 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
   <div class="pp-card pp-chart-wrap">{chart_svg(model)}{chart_svg(model, phone=True)}</div>
 </section>"""
 
-    # Pre-owned
-    pre_html = ""
-    if model.preowned:
-        items = []
-        for p in model.preowned[:4]:
-            cond = p.get("condition") or ("Preowned" if p.get("source") == "awin-callawaypreowned" else "Used")
-            items.append(f"""<li><a href="{esc(p['affiliateUrl'])}" target="_blank" rel="sponsored nofollow noopener">
-  <span>{esc(p['name'])}</span><span class="pp-sub">{esc(cond)} · {esc(retailer_name(p['source']))}</span><strong>{money(p['salePrice'])}</strong></a></li>""")
-        pre_html = f"""<section class="pp-block">
-  <h2>Pre-owned and ex-demo {esc(name)}</h2>
-  <p class="pp-small">Kept separate from the new prices above, because condition changes what a fair price is.</p>
-  <ul class="pp-card pp-list">{''.join(items)}</ul>
-</section>"""
+    # New or used? (the used price guide)
+    pre_html = used_section(model, low["price"], all_models) if model.type != "ball" else ""
 
     # Questions, answered from the data
     qs = []
@@ -951,7 +1035,12 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     if colours and not model.is_ball:
         qs.append((f"Which colours can I get the {name} in?",
                    join_words(f"{v['value']} ({plural(v['retailers'], 'retailer')})" for v in colours) + "."))
-    if model.preowned:
+    if (m.get("used") or {}).get("count"):
+        u = m["used"]
+        qs.append((f"How much is a used {name}?",
+                   f"{plural(u['count'], 'used or ex-demo listing')} on sale today, from {money(u['min'])}"
+                   f" (typically {money(u['median'])}), against {money(low['price'])}{per} new."))
+    elif model.preowned:
         pm = min(p["salePrice"] for p in model.preowned)
         qs.append((f"Can I buy the {name} pre-owned?",
                    f"Yes: {plural(len(model.preowned), 'pre-owned or ex-demo listing')} from {money(pm)}."))
@@ -1477,6 +1566,7 @@ def write_sitemaps(entries, today):
 
 def build(models_list, products, today_str):
     """Called from update_deals.py after the models are built."""
+    ALL_MODELS[:] = models_list
     cfg = load_config()
     mode = cfg.get("mode", "off")
     PRICES_DIR.mkdir(exist_ok=True)
@@ -1494,7 +1584,7 @@ def build(models_list, products, today_str):
         m["_image"] = pics[0][3] if pics else None
     from seasonal_pages import SEASONAL_SLUGS
     existing = {d.name for d in PRICES_DIR.iterdir()
-                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name not in ("brands", "drops", "data", "watch", "best", "compare")}
+                if d.is_dir() and d.name not in HUB_TYPES and d.name not in SEASONAL_SLUGS and d.name not in ("brands", "drops", "data", "watch", "best", "compare", "used")}
     if mode == "pilot":
         wanted = cfg.get("pilot", [])
         chosen = [m for m in passing if m["slug"] in wanted]
@@ -1759,6 +1849,13 @@ def build(models_list, products, today_str):
             sitemap += dm_sitemap
         except Exception as e:  # never stop the main build
             print(f"Demand Index skipped: {e}")
+        try:
+            import used_guide
+            u_changed, u_sitemap = used_guide.build(passing, built, today)
+            changed += u_changed
+            sitemap += u_sitemap
+        except Exception as e:  # never stop the main build
+            print(f"Used price guide skipped: {e}")
         import price_watch
         w_changed, w_sitemap, has_watch = price_watch.build(passing, built, today)
         changed += w_changed
@@ -1766,6 +1863,7 @@ def build(models_list, products, today_str):
         seasonal_links = [("/prices/drops/", "Price drops today", "Genuine drops only, updated every 6 hours"),
                           ("/price-check.html", "Is this a good price?", "Check any price against our own history")] + list(seasonal_links) \
             + ([("/prices/watch/", "UK Golf Price Report", "Monthly: what got cheaper, and what didn’t")] if has_watch else []) \
+            + [("/prices/used/", "Used golf club prices", "Cheapest and typical used price next to new")] \
             + [("/prices/data/", "Open price data", "Free CSV downloads, updated every 6 hours")]
     if mode == "live":
         try:

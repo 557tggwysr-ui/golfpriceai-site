@@ -775,6 +775,7 @@ def build_models(products, price_history, today_str):
             "options": _options(new_in_stock, type_key),
             "verifiedDrops": sum(1 for p in new_in_stock if (p.get("priceInsight") or {}).get("verifiedDiscount")),
             "preowned": {"count": len(used), "min": min((p["salePrice"] for p in used), default=None)} if used else None,
+            "used": _used_summary(used, type_key),
             "historyDays": history_days,
             "history": [[d.isoformat(), price] for i, (d, price, _) in enumerate(series)
                         if i == 0 or price != series[i - 1][1] or i == len(series) - 1],
@@ -865,3 +866,27 @@ def save_search_suggest(models, products, today_str):
     rows.sort(key=lambda r: -r[2])
     SUGGEST_FILE.write_text(json.dumps({"lastUpdated": today_str, "m": rows}, separators=(",", ":")))
     print(f"Search suggestions: {len(rows)} model names.")
+
+
+def _used_summary(used, type_key):
+    """The used price guide on a model page: every used or ex-demo listing's
+    price, and how many come in each hand, loft and flex."""
+    import used_specs
+    used = [p for p in used if p.get("salePrice") and not re.search(r"\bjunior\b", p.get("name", ""), re.I)]
+    if not used:
+        return None
+    used = sorted(used, key=lambda p: p["salePrice"])
+    prices = [round(p["salePrice"], 2) for p in used]
+    counts = {"hand": {}, "loft": {}, "flex": {}, "grade": {}}
+    items = []
+    for p in used:
+        sp = used_specs.specs(p["name"], type_key)
+        items.append([round(p["salePrice"], 2), sp["hand"] or "", sp["loft"] or "", sp["flex"] or ""])
+        for k in ("hand", "loft", "flex"):
+            if sp[k]:
+                counts[k][sp[k]] = counts[k].get(sp[k], 0) + 1
+        g = used_specs.grade(p)
+        counts["grade"][g] = counts["grade"].get(g, 0) + 1
+    demo = [p["salePrice"] for p in used if used_specs.grade(p) == "Ex-demo"]
+    return {"count": len(prices), "min": prices[0], "median": round(statistics.median(prices), 2), "max": prices[-1],
+            "exdemo": min(demo) if demo else None, "items": items[:150], **counts}
