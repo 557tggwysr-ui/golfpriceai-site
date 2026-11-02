@@ -1,0 +1,44 @@
+{
+ "name": "Blue Tees Series 3 Max Rangefinder",
+ "brand": "Blue Tees",
+ "type": "rangefinder",
+ "url": "https://golfpriceai.com/prices/blue-tees-series-3-max-rangefinder/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 199.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 199.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 199.0,
+  "high": 199.0,
+  "average": 199.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    199.0
+   ],
+   [
+    "2026-11-02",
+    199.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/BlueTees-S3Max-White-3.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

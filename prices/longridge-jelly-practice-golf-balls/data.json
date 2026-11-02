@@ -1,0 +1,44 @@
+{
+ "name": "Longridge Jelly Practice Golf Balls",
+ "brand": "Longridge",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/longridge-jelly-practice-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 11.98,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 11.98,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 11.98,
+  "high": 11.98,
+  "average": 11.98,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    11.98
+   ],
+   [
+    "2026-11-02",
+    11.98
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/longridge_jelly_practice_balls_1.jpg?v=1777979876",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

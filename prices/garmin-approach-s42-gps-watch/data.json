@@ -1,0 +1,44 @@
+{
+ "name": "Garmin Approach S42 GPS Watch",
+ "brand": "Garmin",
+ "type": "GPS watch",
+ "url": "https://golfpriceai.com/prices/garmin-approach-s42-gps-watch/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 269.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 269.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 269.99,
+  "high": 269.99,
+  "average": 269.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    269.99
+   ],
+   [
+    "2026-11-02",
+    269.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/garmin-approach-S42-rosegold-1.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

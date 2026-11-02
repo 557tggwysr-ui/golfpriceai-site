@@ -1,0 +1,44 @@
+{
+ "name": "Shot Scope G5 GPS Watch",
+ "brand": "Shot Scope",
+ "type": "GPS watch",
+ "url": "https://golfpriceai.com/prices/shot-scope-g5-gps-watch/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 129.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 129.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 129.99,
+  "high": 129.99,
+  "average": 129.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    129.99
+   ],
+   [
+    "2026-11-02",
+    129.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": null,
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

@@ -1,0 +1,44 @@
+{
+ "name": "Cobra KING PUR Wedge",
+ "brand": "Cobra",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/cobra-king-pur-wedge/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 89.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 89.95,
+   "options": 11
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 89.95,
+  "high": 89.95,
+  "average": 89.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    89.95
+   ],
+   [
+    "2026-11-02",
+    89.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/SMUWedge3.jpg?v=1777956455",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

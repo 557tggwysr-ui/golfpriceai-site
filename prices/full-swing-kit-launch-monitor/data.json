@@ -1,0 +1,44 @@
+{
+ "name": "Full Swing KIT Launch Monitor",
+ "brand": "Full Swing",
+ "type": "launch monitor",
+ "url": "https://golfpriceai.com/prices/full-swing-kit-launch-monitor/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 4999.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 4999.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 4999.0,
+  "high": 4999.0,
+  "average": 4999.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    4999.0
+   ],
+   [
+    "2026-11-02",
+    4999.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": null,
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

@@ -1,0 +1,44 @@
+{
+ "name": "Masters 4.5m Golf Balls",
+ "brand": "Masters",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/masters-4-5m-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 19.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 19.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 19.99,
+  "high": 19.99,
+  "average": 19.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    19.99
+   ],
+   [
+    "2026-11-02",
+    19.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Masters4.5mBallRetreiver1.jpg?v=1782264883",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

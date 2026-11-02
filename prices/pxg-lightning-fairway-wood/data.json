@@ -1,0 +1,44 @@
+{
+ "name": "PXG Lightning Fairway Wood",
+ "brand": "PXG",
+ "type": "fairway wood",
+ "url": "https://golfpriceai.com/prices/pxg-lightning-fairway-wood/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 269.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 269.0,
+   "options": 10
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 269.0,
+  "high": 269.0,
+  "average": 269.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    269.0
+   ],
+   [
+    "2026-11-02",
+    269.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/LightningFairwayWood3.jpg?v=1783149987",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

@@ -1,0 +1,44 @@
+{
+ "name": "Minimal Golf Terra SE1 Stand Bag Golf Bag",
+ "brand": "Minimal Golf",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/minimal-golf-terra-se1-stand-bag-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 399.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 399.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 399.0,
+  "high": 399.0,
+  "average": 399.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    399.0
+   ],
+   [
+    "2026-11-02",
+    399.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/GAIA_Stand_SE1_Flint_Grey_9.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-fx1-electric-trolley/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 469.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 469.0,
   "high": 499.0,
-  "average": 486.05,
+  "average": 485.84,
   "priceChanges": 14,
   "series": [
    [
@@ -105,7 +105,7 @@
     469.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     469.0
    ]
   ]
@@ -116,5 +116,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-FX1-Electric-Golf_Trolley-18-Hole-Lithium.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

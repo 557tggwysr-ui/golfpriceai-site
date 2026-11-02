@@ -1,0 +1,44 @@
+{
+ "name": "Masters GX1 11-Piece Ladies Package Set",
+ "brand": "Masters",
+ "type": "package set",
+ "url": "https://golfpriceai.com/prices/masters-gx1-11-piece-ladies-package-set/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 349.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 349.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 349.99,
+  "high": 349.99,
+  "average": 349.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    349.99
+   ],
+   [
+    "2026-11-02",
+    349.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/masters-gx1-ladies-package-set-1.jpeg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

@@ -1,0 +1,44 @@
+{
+ "name": "Golfway Champion Sand Wedge",
+ "brand": "Golfway",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/golfway-champion-sand-wedge/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 19.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 19.99,
+   "options": 28
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 19.99,
+  "high": 19.99,
+  "average": 19.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    19.99
+   ],
+   [
+    "2026-11-02",
+    19.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/champion-sw-1copy.jpg?v=1773185116",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

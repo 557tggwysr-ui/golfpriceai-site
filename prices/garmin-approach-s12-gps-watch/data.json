@@ -3,7 +3,7 @@
  "brand": "Garmin",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/garmin-approach-s12-gps-watch/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 66,
+  "daysTracked": 67,
   "low": 109.95,
   "high": 129.0,
-  "average": 122.65,
+  "average": 122.74,
   "priceChanges": 4,
   "series": [
    [
@@ -50,7 +50,7 @@
     129.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     129.0
    ]
   ]
@@ -61,5 +61,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/s12_white_1.jpg?v=1777970450",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

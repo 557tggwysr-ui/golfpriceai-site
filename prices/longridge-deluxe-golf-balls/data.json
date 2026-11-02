@@ -1,0 +1,44 @@
+{
+ "name": "Longridge deluxe Golf Balls",
+ "brand": "Longridge",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/longridge-deluxe-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 5.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 5.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 5.99,
+  "high": 5.99,
+  "average": 5.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    5.99
+   ],
+   [
+    "2026-11-02",
+    5.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/longridge_deluxe_ball_line_up_1.jpg?v=1777979703",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

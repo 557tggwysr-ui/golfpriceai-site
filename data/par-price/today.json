@@ -1,66 +1,66 @@
 {
- "n": 15,
- "date": "2026-11-01",
+ "n": 16,
+ "date": "2026-11-02",
  "items": [
   {
-   "slug": "srixon-zxi-rkt-driver",
-   "name": "Srixon ZXi RKT Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfZXiRKTDriver_6.jpg?v=1788424622",
-   "price": 529.0,
+   "slug": "odyssey-ai-one-milled-putter",
+   "name": "Odyssey Ai-ONE Milled Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Odyssey-Ai-ONE-Milled-Golf-Putter-Wide-T-0.jpg?v=1729915416",
+   "price": 198.97,
    "unit": "each",
-   "type": "driver",
+   "type": "putter",
    "low": true,
-   "url": "/prices/srixon-zxi-rkt-driver/"
+   "url": "/prices/odyssey-ai-one-milled-putter/"
   },
   {
-   "slug": "taylormade-milled-grind-5-chrome-wedge",
-   "name": "TaylorMade Milled Grind 5 Chrome Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TM25WDG-TC647-N2914309-Chrome-MG5-60.08-LB-3Q-v1-Photoroom_1.jpg?v=1761905541",
+   "slug": "cobra-optm-hybrid",
+   "name": "Cobra OPTM Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/OPTM-Hybrid-Hero.jpg",
+   "price": 249.0,
+   "unit": "each",
+   "type": "hybrid",
+   "low": false,
+   "url": "/prices/cobra-optm-hybrid/"
+  },
+  {
+   "slug": "ping-s259-chrome-wedge",
+   "name": "Ping S259 Chrome Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Pings259Wedge9.jpg?v=1773172590",
    "price": 179.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/taylormade-milled-grind-5-chrome-wedge/"
+   "url": "/prices/ping-s259-chrome-wedge/"
   },
   {
-   "slug": "wilson-alpine-cart-bag-golf-bag",
-   "name": "Wilson Alpine Cart Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WG4006001_0_WS_Alpine_Cart_Bag_White_Black.png.high-res-Photoroom.jpg?v=1750844056",
-   "price": 159.0,
+   "slug": "titleist-gt3-driver",
+   "name": "Titleist GT3 Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TitleistGT3Driver5_b276c76c-17e9-435f-852d-1cbd96fedb5b.jpg?v=1777950479",
+   "price": 449.0,
    "unit": "each",
-   "type": "golf bag",
-   "low": true,
-   "url": "/prices/wilson-alpine-cart-bag-golf-bag/"
-  },
-  {
-   "slug": "ping-scottsdale-putter",
-   "name": "Ping Scottsdale Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PingScottsdalePutter-Anser1.jpg?v=1776300582",
-   "price": 229.0,
-   "unit": "each",
-   "type": "putter",
+   "type": "driver",
    "low": false,
-   "url": "/prices/ping-scottsdale-putter/"
+   "url": "/prices/titleist-gt3-driver/"
   },
   {
-   "slug": "callaway-apex-ai300-irons",
-   "name": "Callaway Apex Ai300 Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Callaway-Apex-Ai300-Golf-Irons-Graphite-2.jpg?v=1723694788",
-   "price": 859.0,
+   "slug": "taylormade-stealth-irons",
+   "name": "TaylorMade Stealth Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/taylormade_stealth_irons_10.jpg?v=1777973250",
+   "price": 599.0,
    "unit": "each",
    "type": "iron set",
-   "low": true,
-   "url": "/prices/callaway-apex-ai300-irons/"
+   "low": false,
+   "url": "/prices/taylormade-stealth-irons/"
   }
  ],
  "pin": {
-  "slug": "mizuno-jpx-one-fairway-wood",
-  "name": "Mizuno JPX ONE Fairway Wood",
-  "image": "https://www.clickgolf.co.uk/images/product/main/JPX-ONE-Fairway-Hero.jpg",
-  "price": 239.0,
+  "slug": "ogio-fuse-stand-bag-golf-bag",
+  "name": "Ogio Fuse Stand Bag Golf Bag",
+  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/F9.webp?v=1778071397",
+  "price": 149.0,
   "unit": "each",
-  "type": "fairway wood",
+  "type": "golf bag",
   "low": true,
-  "url": "/prices/mizuno-jpx-one-fairway-wood/"
+  "url": "/prices/ogio-fuse-stand-bag-golf-bag/"
  }
 }

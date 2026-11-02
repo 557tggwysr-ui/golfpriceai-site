@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/mizuno-pro-fli-hi-utility-irons/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 169.0,
   "high": 249.0,
-  "average": 231.56,
+  "average": 230.77,
   "priceChanges": 2,
   "series": [
    [
@@ -57,7 +57,7 @@
     169.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     169.0
    ]
   ]
@@ -68,5 +68,5 @@
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/mizuno-flihi-1.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

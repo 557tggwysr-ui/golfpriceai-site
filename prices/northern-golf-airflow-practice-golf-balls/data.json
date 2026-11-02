@@ -1,0 +1,44 @@
+{
+ "name": "Northern Golf Airflow Practice Golf Balls",
+ "brand": "Northern Golf",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/northern-golf-airflow-practice-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 3.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 3.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 3.99,
+  "high": 3.99,
+  "average": 3.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    3.99
+   ],
+   [
+    "2026-11-02",
+    3.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/northerngolf-airflow-white-1.png",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

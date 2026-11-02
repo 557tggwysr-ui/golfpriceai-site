@@ -1,0 +1,44 @@
+{
+ "name": "Vega SVP Fibre Tour Staff Golf Bag",
+ "brand": "Vega",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/vega-svp-fibre-tour-staff-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 2999.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 2999.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 2999.0,
+  "high": 2999.0,
+  "average": 2999.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    2999.0
+   ],
+   [
+    "2026-11-02",
+    2999.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/vega-carbon-staff-bag-1.png",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

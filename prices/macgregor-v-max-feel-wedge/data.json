@@ -1,0 +1,44 @@
+{
+ "name": "MacGregor V-Max Feel Wedge",
+ "brand": "MacGregor",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/macgregor-v-max-feel-wedge/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 37.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 37.99,
+   "options": 9
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 37.99,
+  "high": 37.99,
+  "average": 37.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    37.99
+   ],
+   [
+    "2026-11-02",
+    37.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/V-MaxWedgesBlack1.jpg?v=1775356265",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

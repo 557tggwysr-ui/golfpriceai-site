@@ -1,0 +1,44 @@
+{
+ "name": "Bushnell Launch Pro Indoor Launch Monitor",
+ "brand": "Bushnell",
+ "type": "launch monitor",
+ "url": "https://golfpriceai.com/prices/bushnell-launch-pro-indoor-launch-monitor/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1890.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 1890.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 1890.0,
+  "high": 1890.0,
+  "average": 1890.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    1890.0
+   ],
+   [
+    "2026-11-02",
+    1890.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BushnellLaunchProIndoor-CircleBEdition5.jpg?v=1773171679",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

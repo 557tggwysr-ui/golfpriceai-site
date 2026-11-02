@@ -1,0 +1,48 @@
+{
+ "name": "Cleveland HB Soft 2 UST Putter",
+ "brand": "Cleveland",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/cleveland-hb-soft-2-ust-putter/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 149.95,
+   "options": 20
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 149.95,
+  "high": 159.95,
+  "average": 152.28,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    159.95
+   ],
+   [
+    "2026-09-18",
+    149.95
+   ],
+   [
+    "2026-11-02",
+    149.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 46 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ClevelandHBSoft2USTBlackPutter-_14.jpg?v=1776296389",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

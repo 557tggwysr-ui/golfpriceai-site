@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/mizuno-pro-s-3-irons/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1179.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 1179.0,
   "high": 1379.0,
-  "average": 1227.72,
+  "average": 1227.1,
   "priceChanges": 1,
   "series": [
    [
@@ -44,16 +44,16 @@
     1179.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     1179.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 59 days"
+  "summary": "Typical price: steady for 60 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MizunoProS-3Irons1.jpg?v=1776298157",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

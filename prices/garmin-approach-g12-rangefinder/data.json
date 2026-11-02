@@ -1,0 +1,44 @@
+{
+ "name": "Garmin Approach G12 Rangefinder",
+ "brand": "Garmin",
+ "type": "rangefinder",
+ "url": "https://golfpriceai.com/prices/garmin-approach-g12-rangefinder/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 129.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 129.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 129.99,
+  "high": 129.99,
+  "average": 129.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    129.99
+   ],
+   [
+    "2026-11-02",
+    129.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/garming12-2.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

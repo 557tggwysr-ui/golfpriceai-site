@@ -1,0 +1,44 @@
+{
+ "name": "J Lindeberg Prime X Back Pack Golf Bag",
+ "brand": "J Lindeberg",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/j-lindeberg-prime-x-back-pack-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 279.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 279.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 279.0,
+  "high": 279.0,
+  "average": 279.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    279.0
+   ],
+   [
+    "2026-11-02",
+    279.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": null,
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

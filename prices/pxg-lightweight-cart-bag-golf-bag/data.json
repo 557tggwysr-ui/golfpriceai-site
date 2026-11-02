@@ -1,0 +1,44 @@
+{
+ "name": "PXG Lightweight Cart Bag Golf Bag",
+ "brand": "PXG",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/pxg-lightweight-cart-bag-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 289.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 289.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 289.0,
+  "high": 289.0,
+  "average": 289.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    289.0
+   ],
+   [
+    "2026-11-02",
+    289.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/B-PG-082-WHT-Lightweight-Cart-Bag-Listing-5-50.jpg?v=1773178059",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

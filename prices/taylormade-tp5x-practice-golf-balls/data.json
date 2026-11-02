@@ -1,0 +1,44 @@
+{
+ "name": "TaylorMade TP5x Practice Golf Balls",
+ "brand": "TaylorMade",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/taylormade-tp5x-practice-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 24.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 24.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 24.99,
+  "high": 24.99,
+  "average": 24.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    24.99
+   ],
+   [
+    "2026-11-02",
+    24.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/taylormade-tp5-practice-4.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

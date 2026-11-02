@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-two-t-putter/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.4,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 269.4,
   "high": 449.0,
-  "average": 280.91,
+  "average": 280.77,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     269.4
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     269.4
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 73 days"
+  "summary": "Typical price: steady for 74 days"
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1793441478362/sits/putters-2024-ai-one-milled-two-t-ch/putters-2024-ai-one-milled-two-t-ch___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

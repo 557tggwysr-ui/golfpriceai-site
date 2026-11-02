@@ -1,0 +1,44 @@
+{
+ "name": "Masters Lite Flite Foam Golf Balls",
+ "brand": "Masters",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/masters-lite-flite-foam-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 11.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 11.99,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 11.99,
+  "high": 11.99,
+  "average": 11.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    11.99
+   ],
+   [
+    "2026-11-02",
+    11.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/32992-19_c87ce5ea-710f-4d4d-bd94-9dacf77a1354.jpg?v=1773174771",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

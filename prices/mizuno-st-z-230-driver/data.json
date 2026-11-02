@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/mizuno-st-z-230-driver/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 249.0,
   "high": 289.95,
-  "average": 268.42,
+  "average": 268.18,
   "priceChanges": 2,
   "series": [
    [
@@ -42,16 +42,16 @@
     249.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     249.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 22 days"
+  "summary": "Typical price: steady for 23 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/46350-Mizuno-ST-Z-230-Driver-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

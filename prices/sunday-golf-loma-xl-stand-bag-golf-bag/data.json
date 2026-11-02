@@ -1,0 +1,44 @@
+{
+ "name": "Sunday Golf Loma XL Stand Bag Golf Bag",
+ "brand": "Sunday Golf",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/sunday-golf-loma-xl-stand-bag-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 169.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 169.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 169.99,
+  "high": 169.99,
+  "average": 169.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    169.99
+   ],
+   [
+    "2026-11-02",
+    169.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": null,
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

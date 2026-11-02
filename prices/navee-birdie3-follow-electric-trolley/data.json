@@ -1,0 +1,44 @@
+{
+ "name": "Navee Birdie3 Follow Electric Trolley",
+ "brand": "Navee",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/navee-birdie3-follow-electric-trolley/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1299.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 1299.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 1299.0,
+  "high": 1299.0,
+  "average": 1299.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    1299.0
+   ],
+   [
+    "2026-11-02",
+    1299.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/NaveeBirdie3ElectricFollowTrolley-Black9.jpg?v=1783345105",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

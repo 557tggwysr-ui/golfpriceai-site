@@ -1,0 +1,44 @@
+{
+ "name": "Wilson Core Pro Distance Golf Balls",
+ "brand": "Wilson",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/wilson-core-pro-distance-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 10.39,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 10.39,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 10.39,
+  "high": 10.39,
+  "average": 10.39,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    10.39
+   ],
+   [
+    "2026-11-02",
+    10.39
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/WG2002301_0_Smartcore_Prodistance_15Ball_1.jpg?v=1788179609",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

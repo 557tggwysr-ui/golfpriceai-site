@@ -1,0 +1,44 @@
+{
+ "name": "Bridgestone Tour B RX Mindset Golf Balls",
+ "brand": "Bridgestone",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/bridgestone-tour-b-rx-mindset-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 39.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 39.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 39.99,
+  "high": 39.99,
+  "average": 39.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    39.99
+   ],
+   [
+    "2026-11-02",
+    39.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": null,
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

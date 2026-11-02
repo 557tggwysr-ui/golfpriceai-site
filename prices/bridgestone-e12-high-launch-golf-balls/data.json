@@ -1,0 +1,44 @@
+{
+ "name": "Bridgestone e12 High Launch Golf Balls",
+ "brand": "Bridgestone",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/bridgestone-e12-high-launch-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 28.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 28.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 28.99,
+  "high": 28.99,
+  "average": 28.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    28.99
+   ],
+   [
+    "2026-11-02",
+    28.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/bsxs1_8_copy_47f3c0e4-2762-49a7-a961-1ae1fababbe8.jpg?v=1776287137",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

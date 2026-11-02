@@ -1,0 +1,44 @@
+{
+ "name": "Jones Bags Original Maverick Carry Bag Golf Bag",
+ "brand": "Jones",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/jones-bags-original-maverick-carry-bag-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 152.1,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 152.1,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 152.1,
+  "high": 152.1,
+  "average": 152.1,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    152.1
+   ],
+   [
+    "2026-11-02",
+    152.1
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/jones-original-maverick-2.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

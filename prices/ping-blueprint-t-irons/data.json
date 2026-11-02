@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/ping-blueprint-t-irons/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1129.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 1129.0,
   "high": 1399.0,
-  "average": 1194.77,
+  "average": 1193.94,
   "priceChanges": 1,
   "series": [
    [
@@ -44,16 +44,16 @@
     1129.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     1129.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 59 days"
+  "summary": "Typical price: steady for 60 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ping_blueprint_t_irons_5.jpg?v=1777959830",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

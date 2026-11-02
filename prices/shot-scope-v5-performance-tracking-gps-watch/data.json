@@ -3,7 +3,7 @@
  "brand": "Shot Scope",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/shot-scope-v5-performance-tracking-gps-watch/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 239.99,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 66,
+  "daysTracked": 67,
   "low": 199.0,
   "high": 239.99,
-  "average": 232.54,
+  "average": 232.65,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     239.99
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     239.99
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/V54.jpg?v=1710951106",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

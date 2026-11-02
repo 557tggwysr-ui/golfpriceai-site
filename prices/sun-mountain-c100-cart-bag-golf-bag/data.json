@@ -1,0 +1,52 @@
+{
+ "name": "Sun Mountain C100 Cart Bag Golf Bag",
+ "brand": "Sun Mountain",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/sun-mountain-c100-cart-bag-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 229.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 229.0,
+   "options": 3
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 219.0,
+  "high": 229.0,
+  "average": 227.5,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-09-04",
+    229.0
+   ],
+   [
+    "2026-09-22",
+    219.0
+   ],
+   [
+    "2026-10-01",
+    229.0
+   ],
+   [
+    "2026-11-02",
+    229.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/26C100-B.jpg?v=1773180737",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

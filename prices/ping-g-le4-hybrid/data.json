@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/ping-g-le4-hybrid/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 249.0,
   "high": 269.0,
-  "average": 268.23,
+  "average": 267.99,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     249.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     249.0
    ]
   ]
@@ -49,5 +49,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/g-le4-ladies-hybrid-5h-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

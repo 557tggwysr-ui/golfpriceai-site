@@ -1,0 +1,44 @@
+{
+ "name": "Masters GX1 12-Piece Package Set",
+ "brand": "Masters",
+ "type": "package set",
+ "url": "https://golfpriceai.com/prices/masters-gx1-12-piece-package-set/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 329.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 329.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 329.99,
+  "high": 329.99,
+  "average": 329.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    329.99
+   ],
+   [
+    "2026-11-02",
+    329.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/CP0155_1.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

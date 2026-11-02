@@ -1,8 +1,18 @@
 {
- "checked": "2026-11-01T21:46+00:00",
+ "checked": "2026-11-02T04:44+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Cobra 3D Printed Putter",
+   "model_id": "cobra-3d-printed-putter",
+   "date": "2026-10-31",
+   "was": 279.0,
+   "now": 209.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-3d-printed-putter/"
+  },
   {
    "model": "Blue Tees Playmaker+ GPS Watch",
    "model_id": "blue-tees-playmaker-plus-gps-watch",
@@ -24,6 +34,16 @@
    "url": "https://golfpriceai.com/prices/odyssey-ai-dual-square-2-square-max-putter/"
   },
   {
+   "model": "Callaway Elyte Tour Certified Fairway Wood",
+   "model_id": "callaway-elyte-tour-certified-fairway-wood",
+   "date": "2026-10-31",
+   "was": 229.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-tour-certified-fairway-wood/"
+  },
+  {
    "model": "Cleveland RTZ Tour Satin Wedge",
    "model_id": "cleveland-rtz-tour-satin-wedge",
    "date": "2026-10-31",
@@ -34,6 +54,16 @@
    "url": "https://golfpriceai.com/prices/cleveland-rtz-tour-satin-wedge/"
   },
   {
+   "model": "Callaway Elyte Tour Certified Driver",
+   "model_id": "callaway-elyte-tour-certified-driver",
+   "date": "2026-10-31",
+   "was": 329.0,
+   "now": 279.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-tour-certified-driver/"
+  },
+  {
    "model": "Odyssey Ai-DUAL Square 2 Square Jailbird OS Putter",
    "model_id": "odyssey-ai-dual-square-2-square-jailbird-os-putter",
    "date": "2026-10-31",
@@ -42,6 +72,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/odyssey-ai-dual-square-2-square-jailbird-os-putter/"
+  },
+  {
+   "model": "Callaway Apex Tour Certified Utility Fairway Wood",
+   "model_id": "callaway-apex-tour-certified-utility-fairway-wood",
+   "date": "2026-10-31",
+   "was": 229.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-apex-tour-certified-utility-fairway-wood/"
   },
   {
    "model": "Titleist Pro V1 Golf Balls",
@@ -64,6 +104,16 @@
    "url": "https://golfpriceai.com/prices/titleist-pro-v1x-golf-balls/"
   },
   {
+   "model": "Callaway Elyte Tour Certified Hybrid",
+   "model_id": "callaway-elyte-tour-certified-hybrid",
+   "date": "2026-10-31",
+   "was": 169.95,
+   "now": 149.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-tour-certified-hybrid/"
+  },
+  {
    "model": "Odyssey Ai-ONE Putter",
    "model_id": "odyssey-ai-one-putter",
    "date": "2026-10-31",
@@ -84,6 +134,16 @@
    "url": "https://golfpriceai.com/prices/mizuno-pro-t-1-ion-wedge/"
   },
   {
+   "model": "Mizuno Pro T-1 IP Wedge",
+   "model_id": "mizuno-pro-t-1-ip-wedge",
+   "date": "2026-10-31",
+   "was": 149.95,
+   "now": 139.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-t-1-ip-wedge/"
+  },
+  {
    "model": "Mizuno Pro 241 Irons",
    "model_id": "mizuno-pro-241-irons",
    "date": "2026-10-31",
@@ -92,6 +152,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/mizuno-pro-241-irons/"
+  },
+  {
+   "model": "Callaway XR 13-Piece Stand Bag Package Set",
+   "model_id": "callaway-xr-13-piece-stand-bag-package-set",
+   "date": "2026-10-31",
+   "was": 1099.0,
+   "now": 1049.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-xr-13-piece-stand-bag-package-set/"
   },
   {
    "model": "Cobra Darkspeed LS Driver",

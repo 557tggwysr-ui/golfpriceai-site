@@ -1,0 +1,44 @@
+{
+ "name": "Bridgestone e12 Splash Golf Balls",
+ "brand": "Bridgestone",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/bridgestone-e12-splash-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 28.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 28.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 28.99,
+  "high": 28.99,
+  "average": 28.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    28.99
+   ],
+   [
+    "2026-11-02",
+    28.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/bsgsplashset_2ac86b5f-fdaa-4838-8bf3-6ebf9ec53c60.jpg?v=1773185312",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

@@ -1,0 +1,44 @@
+{
+ "name": "Bridgestone Percept Golf Balls",
+ "brand": "Bridgestone",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/bridgestone-percept-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 23.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 23.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 23.99,
+  "high": 23.99,
+  "average": 23.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    23.99
+   ],
+   [
+    "2026-11-02",
+    23.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": null,
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

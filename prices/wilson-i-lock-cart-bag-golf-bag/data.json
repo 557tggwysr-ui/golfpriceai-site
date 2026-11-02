@@ -1,0 +1,44 @@
+{
+ "name": "Wilson I-Lock Cart Bag Golf Bag",
+ "brand": "Wilson",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/wilson-i-lock-cart-bag-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 169.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 169.95,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 169.95,
+  "high": 169.95,
+  "average": 169.95,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    169.95
+   ],
+   [
+    "2026-11-02",
+    169.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/WG4007401_0_Ilock_Cart_Bag_Black_Redcopy.jpg?v=1776297061",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

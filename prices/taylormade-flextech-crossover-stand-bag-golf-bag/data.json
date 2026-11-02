@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-flextech-crossover-stand-bag-golf-bag/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 159.0,
   "high": 179.0,
-  "average": 164.51,
+  "average": 164.44,
   "priceChanges": 4,
   "series": [
    [
@@ -55,16 +55,16 @@
     159.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     159.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 52 days"
+  "summary": "Typical price: steady for 53 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-FlexTech-Crossover-Golf-Stand-Bag-Navy-3.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

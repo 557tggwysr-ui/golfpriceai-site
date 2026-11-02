@@ -1,0 +1,52 @@
+{
+ "name": "Callaway Elyte Tour Certified Driver",
+ "brand": "Callaway",
+ "type": "driver",
+ "url": "https://golfpriceai.com/prices/callaway-elyte-tour-certified-driver/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 279.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 279.0,
+   "options": 29
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 279.0,
+  "high": 329.0,
+  "average": 323.5,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-09-04",
+    299.0
+   ],
+   [
+    "2026-09-10",
+    329.0
+   ],
+   [
+    "2026-10-31",
+    279.0
+   ],
+   [
+    "2026-11-02",
+    279.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteDriver-TD2_1.jpg?v=1788341925",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

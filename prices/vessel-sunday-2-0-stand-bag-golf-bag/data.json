@@ -1,0 +1,44 @@
+{
+ "name": "Vessel Sunday 2.0 Stand Bag Golf Bag",
+ "brand": "Vessel",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/vessel-sunday-2-0-stand-bag-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 225.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 225.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 225.0,
+  "high": 225.0,
+  "average": 225.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    225.0
+   ],
+   [
+    "2026-11-02",
+    225.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/Vessel-Sunday2StandBag-TechGrey-1.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

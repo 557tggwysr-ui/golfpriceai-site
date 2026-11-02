@@ -1,0 +1,44 @@
+{
+ "name": "Mileseey Golf IONME2 Rangefinder",
+ "brand": "Mileseey Golf",
+ "type": "rangefinder",
+ "url": "https://golfpriceai.com/prices/mileseey-golf-ionme2-rangefinder/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 399.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 399.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 399.0,
+  "high": 399.0,
+  "average": 399.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    399.0
+   ],
+   [
+    "2026-11-02",
+    399.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MileseeyGolfIONME2GolfRangefinder8.jpg?v=1783355925",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

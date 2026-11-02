@@ -1,0 +1,48 @@
+{
+ "name": "Cobra MIM Putter",
+ "brand": "Cobra",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/cobra-mim-putter/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 219.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 219.0,
+   "options": 22
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 219.0,
+  "high": 229.0,
+  "average": 221.33,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    229.0
+   ],
+   [
+    "2026-09-18",
+    219.0
+   ],
+   [
+    "2026-11-02",
+    219.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 46 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Widesport405.jpg?v=1773177902",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

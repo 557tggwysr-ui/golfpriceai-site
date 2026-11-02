@@ -1,0 +1,44 @@
+{
+ "name": "TaylorMade Team TM 7-Piece Junior Golf Set",
+ "brand": "TaylorMade",
+ "type": "junior golf set",
+ "url": "https://golfpriceai.com/prices/taylormade-team-tm-7-piece-junior-golf-set/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 499.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 499.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 499.0,
+  "high": 499.0,
+  "average": 499.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    499.0
+   ],
+   [
+    "2026-11-02",
+    499.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/190005_FSH.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

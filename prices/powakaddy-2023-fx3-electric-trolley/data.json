@@ -1,0 +1,44 @@
+{
+ "name": "PowaKaddy 2023 FX3 Electric Trolley",
+ "brand": "PowaKaddy",
+ "type": "electric trolley",
+ "url": "https://golfpriceai.com/prices/powakaddy-2023-fx3-electric-trolley/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 629.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 629.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 629.0,
+  "high": 629.0,
+  "average": 629.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    629.0
+   ],
+   [
+    "2026-11-02",
+    629.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/powakaddy-2023-FX3-gunmetal-6.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

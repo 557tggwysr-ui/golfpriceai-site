@@ -1,0 +1,44 @@
+{
+ "name": "TaylorMade TP5 Clear Stripe Golf Balls",
+ "brand": "TaylorMade",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/taylormade-tp5-clear-stripe-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 49.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 49.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 49.99,
+  "high": 49.99,
+  "average": 49.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    49.99
+   ],
+   [
+    "2026-11-02",
+    49.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TP5ClearStripe3.jpg?v=1777949436",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

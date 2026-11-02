@@ -3,7 +3,7 @@
  "brand": "Yonex",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/yonex-ezone-elite-4-driver/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 199.95,
   "high": 249.0,
-  "average": 223.85,
+  "average": 223.54,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     199.95
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     199.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 40 days"
+  "summary": "Typical price: steady for 41 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/yonex_ezone_elite_4_driver_3.jpg?v=1686740706",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

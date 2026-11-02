@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/titleist-gt3-fairway-wood/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 59,
+  "daysTracked": 60,
   "low": 269.0,
   "high": 349.0,
-  "average": 293.24,
+  "average": 292.83,
   "priceChanges": 2,
   "series": [
    [
@@ -48,16 +48,16 @@
     269.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     269.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 33 days"
+  "summary": "Typical price: steady for 34 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TitleistGT3FairwayWood5.jpg?v=1777950793",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

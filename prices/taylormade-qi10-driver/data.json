@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/taylormade-qi10-driver/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 379.0,
@@ -29,7 +29,7 @@
   }
  ],
  "history": {
-  "daysTracked": 59,
+  "daysTracked": 60,
   "low": 379.0,
   "high": 379.0,
   "average": 379.0,
@@ -40,16 +40,16 @@
     379.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     379.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 59 days"
+  "summary": "Typical price: steady for 60 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/qi10_driver_2.jpg?v=1777960212",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

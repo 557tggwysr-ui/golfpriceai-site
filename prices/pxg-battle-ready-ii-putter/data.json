@@ -1,0 +1,44 @@
+{
+ "name": "PXG Battle Ready II Putter",
+ "brand": "PXG",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/pxg-battle-ready-ii-putter/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 349.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 349.0,
+   "options": 9
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 349.0,
+  "high": 349.0,
+  "average": 349.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    349.0
+   ],
+   [
+    "2026-11-02",
+    349.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PXGBattleReadyIIApachePutter-Platinum_PlumbersNeck_2.jpg?v=1773178133",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

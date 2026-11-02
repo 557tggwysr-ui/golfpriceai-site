@@ -1,0 +1,44 @@
+{
+ "name": "Pinnacle Rush Golf Balls",
+ "brand": "Pinnacle",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/pinnacle-rush-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 18.99,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 18.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 18.99,
+  "high": 18.99,
+  "average": 18.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    18.99
+   ],
+   [
+    "2026-11-02",
+    18.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/PInnacle-Soft-15-Rush-2.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

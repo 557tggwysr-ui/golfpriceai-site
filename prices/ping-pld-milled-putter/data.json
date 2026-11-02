@@ -1,0 +1,44 @@
+{
+ "name": "Ping PLD Milled Putter",
+ "brand": "Ping",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/ping-pld-milled-putter/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 399.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 399.0,
+   "options": 12
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 399.0,
+  "high": 399.0,
+  "average": 399.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    399.0
+   ],
+   [
+    "2026-11-02",
+    399.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PingPLDMilledPutter-Anser2D2.jpg?v=1777956825",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

@@ -1,0 +1,44 @@
+{
+ "name": "Golfzon WAVE Simulator Portable Launch Monitor",
+ "brand": "Golfzon",
+ "type": "launch monitor",
+ "url": "https://golfpriceai.com/prices/golfzon-wave-simulator-portable-launch-monitor/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 3999.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 3999.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 3999.0,
+  "high": 3999.0,
+  "average": 3999.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    3999.0
+   ],
+   [
+    "2026-11-02",
+    3999.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GolfzonWaveSimulator13.jpg?v=1777953635",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

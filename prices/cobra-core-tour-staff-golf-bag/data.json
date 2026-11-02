@@ -1,0 +1,44 @@
+{
+ "name": "Cobra Core Tour Staff Golf Bag",
+ "brand": "Cobra",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/cobra-core-tour-staff-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 329.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 329.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 329.0,
+  "high": 329.0,
+  "average": 329.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    329.0
+   ],
+   [
+    "2026-11-02",
+    329.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": null,
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

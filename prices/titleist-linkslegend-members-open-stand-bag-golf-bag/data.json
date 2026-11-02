@@ -1,0 +1,44 @@
+{
+ "name": "Titleist LINKSLEGEND Members Open Stand Bag Golf Bag",
+ "brand": "Titleist",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/titleist-linkslegend-members-open-stand-bag-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 360.0,
+ "lowestAt": [
+  "Scottsdale Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Scottsdale Golf",
+   "from": 360.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 360.0,
+  "high": 360.0,
+  "average": 360.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    360.0
+   ],
+   [
+    "2026-11-02",
+    360.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://www.scottsdalegolf.co.uk/uploads/linkslegends-bag-1.png",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/mizuno-pro-s-1-irons/",
- "checked": "2026-11-01",
+ "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1179.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 1179.0,
   "high": 1289.0,
-  "average": 1284.77,
+  "average": 1283.43,
   "priceChanges": 1,
   "series": [
    [
@@ -43,7 +43,7 @@
     1179.0
    ],
    [
-    "2026-11-01",
+    "2026-11-02",
     1179.0
    ]
   ]
@@ -54,5 +54,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Pro-S1-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-01"
+ "changed": "2026-11-02"
 }

@@ -1,0 +1,48 @@
+{
+ "name": "Masters 30 Distance Golf Balls",
+ "brand": "Masters",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/masters-30-distance-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 9.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 9.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 7.99,
+  "high": 9.99,
+  "average": 9.49,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    7.99
+   ],
+   [
+    "2026-09-19",
+    9.99
+   ],
+   [
+    "2026-11-02",
+    9.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £2.00 above its tracked low"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ZDGB0000-Limited-DistanceBalls_1.jpg?v=1783171439",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

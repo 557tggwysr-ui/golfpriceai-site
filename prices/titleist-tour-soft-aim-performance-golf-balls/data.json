@@ -1,0 +1,44 @@
+{
+ "name": "Titleist Tour Soft AIM Performance Golf Balls",
+ "brand": "Titleist",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/titleist-tour-soft-aim-performance-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 32.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 32.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 32.99,
+  "high": 32.99,
+  "average": 32.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    32.99
+   ],
+   [
+    "2026-11-02",
+    32.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TourSoftAIM3.jpg?v=1776257381",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

@@ -1,0 +1,52 @@
+{
+ "name": "EzeGlide 84 Tour Golf Bag",
+ "brand": "EzeGlide",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/ezeglide-84-tour-golf-bag/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 149.95,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 149.95,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 139.95,
+  "high": 149.95,
+  "average": 148.95,
+  "priceChanges": 2,
+  "series": [
+   [
+    "2026-09-04",
+    149.95
+   ],
+   [
+    "2026-09-25",
+    139.95
+   ],
+   [
+    "2026-10-01",
+    149.95
+   ],
+   [
+    "2026-11-02",
+    149.95
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £10.00 above its tracked low"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/longridge_eze_glide_eze_84_cart_bag_-_greyred_1.jpg?v=1777966931",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

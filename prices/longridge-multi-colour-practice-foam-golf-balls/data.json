@@ -1,0 +1,44 @@
+{
+ "name": "Longridge Multi Colour Practice Foam Golf Balls",
+ "brand": "Longridge",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/longridge-multi-colour-practice-foam-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 2.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 2.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 2.99,
+  "high": 2.99,
+  "average": 2.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    2.99
+   ],
+   [
+    "2026-11-02",
+    2.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/d_3614_13.jpg?v=1777969751",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}

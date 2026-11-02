@@ -1,0 +1,48 @@
+{
+ "name": "Callaway Supersoft Valentines Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-supersoft-valentines-golf-balls/",
+ "checked": "2026-11-02",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 24.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 24.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 24.99,
+  "high": 29.99,
+  "average": 26.16,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    29.99
+   ],
+   [
+    "2026-09-18",
+    24.99
+   ],
+   [
+    "2026-11-02",
+    24.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 46 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/balls-2025-supersoft-valentine_2___1.jpg?v=1791455362",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-02"
+}
