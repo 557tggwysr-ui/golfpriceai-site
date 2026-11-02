@@ -17,14 +17,14 @@
    "options": 1
   },
   {
-   "name": "Clickgolf",
-   "from": 299.99,
-   "options": 1
-  },
-  {
    "name": "Major Golf Direct",
    "from": 329.0,
    "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 329.99,
+   "options": 1
   }
  ],
  "history": {
@@ -120,7 +120,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-CG4000-Golf-Club-Package-Set-Ladies.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign_39.jpg?v=1704461279",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-02"
 }

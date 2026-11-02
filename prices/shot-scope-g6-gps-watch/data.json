@@ -6,11 +6,16 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 149.99,
  "lowestAt": [
-  "Clarkes Golf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 149.99,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 179.0,
@@ -25,19 +30,14 @@
    "name": "Clickgolf",
    "from": 179.99,
    "options": 1
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 179.99,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 79,
   "low": 149.0,
   "high": 179.95,
-  "average": 168.54,
-  "priceChanges": 2,
+  "average": 168.17,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -53,7 +53,7 @@
    ],
    [
     "2026-11-02",
-    179.0
+    149.99
    ]
   ]
  },
@@ -61,7 +61,7 @@
   "label": "typical",
   "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/SS-WAT-G6-DAR-1-Photoroom.jpg?v=1742976666",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/G6WATCH1.jpg?v=1739192151",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-02"
 }

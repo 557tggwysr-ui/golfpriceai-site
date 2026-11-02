@@ -6,14 +6,14 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 229.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 199.0,
+   "from": 229.0,
    "options": 2
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 79,
   "low": 199.0,
   "high": 229.0,
-  "average": 202.42,
-  "priceChanges": 4,
+  "average": 202.8,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -46,13 +46,13 @@
    ],
    [
     "2026-11-02",
-    199.0
+    229.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 67 days"
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Leve-1-Junior-Set-Bag-Black-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

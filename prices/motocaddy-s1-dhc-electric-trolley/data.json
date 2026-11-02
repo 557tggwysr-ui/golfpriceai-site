@@ -6,18 +6,20 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 649.0,
+ "lowestNewPrice": 679.0,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf",
+  "Clickgolf",
+  "Scottsdale Golf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 649.0,
+   "name": "Affordable Golf",
+   "from": 679.0,
    "options": 2
   },
   {
-   "name": "Affordable Golf",
+   "name": "Clickgolf",
    "from": 679.0,
    "options": 2
   },
@@ -36,8 +38,8 @@
   "daysTracked": 79,
   "low": 629.0,
   "high": 679.0,
-  "average": 673.05,
-  "priceChanges": 7,
+  "average": 673.43,
+  "priceChanges": 8,
   "series": [
    [
     "2026-08-16",
@@ -73,13 +75,13 @@
    ],
    [
     "2026-11-02",
-    649.0
+    679.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £50.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/S1-DHC-2025-Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

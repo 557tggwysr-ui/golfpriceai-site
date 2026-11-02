@@ -6,18 +6,19 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 304.0,
+ "lowestNewPrice": 329.0,
  "lowestAt": [
+  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 304.0,
+   "name": "Clarkes Golf",
+   "from": 329.0,
    "options": 1
   },
   {
-   "name": "Clarkes Golf",
+   "name": "Clickgolf",
    "from": 329.0,
    "options": 1
   }
@@ -26,8 +27,8 @@
   "daysTracked": 79,
   "low": 304.0,
   "high": 329.0,
-  "average": 323.3,
-  "priceChanges": 11,
+  "average": 323.62,
+  "priceChanges": 12,
   "series": [
    [
     "2026-08-16",
@@ -79,13 +80,13 @@
    ],
    [
     "2026-11-02",
-    304.0
+    329.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £25.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/M2382401-Qi4D-Tour-Stand-Bag-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

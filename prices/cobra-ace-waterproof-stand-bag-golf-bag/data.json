@@ -6,19 +6,19 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 159.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 159.0,
+   "name": "Clarkes Golf",
+   "from": 169.0,
    "options": 2
   },
   {
-   "name": "Clarkes Golf",
-   "from": 169.0,
+   "name": "Clickgolf",
+   "from": 179.0,
    "options": 2
   },
   {
@@ -31,8 +31,8 @@
   "daysTracked": 79,
   "low": 154.0,
   "high": 179.0,
-  "average": 171.15,
-  "priceChanges": 20,
+  "average": 171.28,
+  "priceChanges": 21,
   "series": [
    [
     "2026-08-16",
@@ -120,15 +120,15 @@
    ],
    [
     "2026-11-02",
-    159.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £15.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/cobra-ace-standbag-black1.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra-Golf-ACE-WP-Stand-Bag-953025-06-1_900x.progressive_24ef148e-c4c8-4a81-8020-5d4c6e125efa.jpg?v=1779261377",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-02"
 }

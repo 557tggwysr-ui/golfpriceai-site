@@ -6,11 +6,16 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 129.99,
  "lowestAt": [
-  "Clarkes Golf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 129.99,
+   "options": 2
+  },
   {
    "name": "Clarkes Golf",
    "from": 149.0,
@@ -27,11 +32,6 @@
    "options": 2
   },
   {
-   "name": "Major Golf Direct",
-   "from": 149.99,
-   "options": 2
-  },
-  {
    "name": "Scottsdale Golf",
    "from": 149.99,
    "options": 1
@@ -41,8 +41,8 @@
   "daysTracked": 79,
   "low": 129.0,
   "high": 149.95,
-  "average": 142.21,
-  "priceChanges": 2,
+  "average": 141.97,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -58,7 +58,7 @@
    ],
    [
     "2026-11-02",
-    149.0
+    129.99
    ]
   ]
  },
@@ -66,7 +66,7 @@
   "label": "typical",
   "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Shot-Scope-Pro-L2-Golf-Laser-Rangefinder-6.jpg?v=1700625823",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/SS-LSR-L2-GRY_1.jpg?v=1676307439",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-02"
 }

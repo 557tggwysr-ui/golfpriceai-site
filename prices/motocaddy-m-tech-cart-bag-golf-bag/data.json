@@ -6,19 +6,19 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 259.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 249.0,
+   "name": "Clarkes Golf",
+   "from": 259.0,
    "options": 1
   },
   {
-   "name": "Clarkes Golf",
-   "from": 259.0,
+   "name": "Clickgolf",
+   "from": 279.0,
    "options": 1
   }
  ],
@@ -26,8 +26,8 @@
   "daysTracked": 79,
   "low": 249.0,
   "high": 279.0,
-  "average": 257.73,
-  "priceChanges": 15,
+  "average": 257.86,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -95,13 +95,13 @@
    ],
    [
     "2026-11-02",
-    249.0
+    259.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/BG26MTBKCH-M-Tech-2026-Cart-Bag-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

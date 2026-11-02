@@ -6,16 +6,12 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 159.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf",
+  "Major Golf Direct"
  ],
  "retailers": [
-  {
-   "name": "Clickgolf",
-   "from": 159.0,
-   "options": 6
-  },
   {
    "name": "Clarkes Golf",
    "from": 169.0,
@@ -32,6 +28,11 @@
    "options": 9
   },
   {
+   "name": "Clickgolf",
+   "from": 179.0,
+   "options": 6
+  },
+  {
    "name": "Scottsdale Golf",
    "from": 179.0,
    "options": 2
@@ -41,8 +42,8 @@
   "daysTracked": 79,
   "low": 129.95,
   "high": 179.0,
-  "average": 161.31,
-  "priceChanges": 16,
+  "average": 161.43,
+  "priceChanges": 17,
   "series": [
    [
     "2026-08-16",
@@ -114,15 +115,15 @@
    ],
    [
     "2026-11-02",
-    159.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £39.05 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-FlexTech-Golf-Stand-Bag-Black.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/flextechblk2.png?v=1705056637",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-02"
 }

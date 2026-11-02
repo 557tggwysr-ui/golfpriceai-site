@@ -17,11 +17,6 @@
    "options": 2
   },
   {
-   "name": "Clickgolf",
-   "from": 179.0,
-   "options": 3
-  },
-  {
    "name": "Major Golf Direct",
    "from": 189.0,
    "options": 2
@@ -29,6 +24,11 @@
   {
    "name": "Affordable Golf",
    "from": 189.95,
+   "options": 3
+  },
+  {
+   "name": "Clickgolf",
+   "from": 199.0,
    "options": 3
   }
  ],

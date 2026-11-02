@@ -6,28 +6,28 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 389.0,
+ "lowestNewPrice": 419.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
-  {
-   "name": "Clickgolf",
-   "from": 389.0,
-   "options": 4
-  },
   {
    "name": "Clarkes Golf",
    "from": 419.0,
    "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 429.0,
+   "options": 4
   }
  ],
  "history": {
   "daysTracked": 79,
   "low": 389.0,
   "high": 429.0,
-  "average": 414.7,
-  "priceChanges": 18,
+  "average": 415.08,
+  "priceChanges": 19,
   "series": [
    [
     "2026-08-16",
@@ -107,15 +107,15 @@
    ],
    [
     "2026-11-02",
-    389.0
+    419.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Macgregor-ZT1-Golf-Club-Package-Set---Graphite-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-MacGregor-ZT1-Steel-Golf-Package-Set-M-0.jpg?v=1718942727",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-02"
 }
