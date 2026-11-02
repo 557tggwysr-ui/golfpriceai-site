@@ -537,3 +537,11 @@ a.fd-card:hover { border-color: #3fae29; }
   .gd-wrap > .gd-toc b { font-size: 16px; }
 }
 @media (min-width: 768px) { .soc-wrap { padding-left: 24px; padding-right: 24px; } }
+
+/* Society badges in Society HQ */
+.hq-bopts { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 12px; }
+.hq-bopt input { width: 18px; height: 18px; min-height: 0; margin: 0; padding: 0; accent-color: var(--gp-green-dark); flex: none; }
+.soc-card .hq-bopt { display: inline-flex; flex-direction: row; margin: 0; color: var(--gp-ink); align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border: 1px solid var(--gp-line); border-radius: 999px; font-weight: 600; font-size: 14px; cursor: pointer; }
+.hq-bopt:has(input:checked) { border-color: var(--gp-green-dark); background: #f3faf0; color: var(--gp-green-dark); }
+.hq-bprev { padding: 20px; border-radius: 14px; background: #f6f6f3; margin-bottom: 8px; overflow: hidden; }
+.hq-bprev.is-dark { background: #eef0ec; }

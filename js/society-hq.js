@@ -330,6 +330,7 @@
     h += pollsCard();
     if (S.organiser) h += eventForm(FIX);
     h += '<section class="soc-card hq-lg" id="hq-lg" hidden></section>';
+    if (S.organiser) h += badgeCard();
     if (past.length) h += '<section class="soc-card"><h2>Recent</h2>' + past.map(function (e) { return eventCard(e, true); }).join('') + '</section>';
     h += '<section class="soc-card"><h2>Members (' + S.members.length + ')</h2><div class="hq-members">' + S.members.map(function (m) {
       return '<span class="hq-mem">' + esc(m.nick) + (m.organiser ? ' <small>organiser</small>' : m.co ? ' <small>co-organiser</small>' : '') + (S.organiser && !m.organiser && m.m !== S.you ? ' <button type="button" class="hq-rm" data-m="' + esc(m.m) + '" aria-label="Remove ' + esc(m.nick) + '">✕</button>' : '') + '</span>';
@@ -466,6 +467,7 @@
       };
     });
     league();
+    wireBadge();
     box.querySelectorAll('.hq-req').forEach(function (rq) {
       var answer = function (yes) { rq.querySelectorAll('button').forEach(function (b) { b.disabled = true; }); api('/soc/answer', { s: S.id, r: rq.getAttribute('data-r'), yes: yes }).then(function () { track('society_request_' + (yes ? 'yes' : 'no')); load(); }); };
       rq.querySelector('.hq-yes').onclick = function () { answer(true); };
@@ -500,6 +502,86 @@
     };
   }
   /* ---- The National Society League: enter (organiser) or see where we are (members) */
+
+  /* ---- "Find us on GolfPrice AI" badges: for the society's own website, club page or Instagram.
+     Only for societies listed in Find a Society, so a private society's page is never linked. */
+  var BADGE = { style: 'light' };
+  function socSlug() { return (S.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 48) || 'golf-society') + '-' + S.id; }
+  function badgeUrl() { return SITE + '/societies/find/' + socSlug() + '/'; }
+  function badgeSub() { return [S.name, S.area].filter(Boolean).join(' · '); }
+  var FLAG = function (c, size) { return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="' + c + '" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V4M6 4l11 4-11 4M3 21h8"/></svg>'; };
+  function badgeHtml(style) {
+    var F = 'font-family:Inter,Arial,Helvetica,sans-serif;', url = esc(badgeUrl()), name = esc(S.name), sub = esc(badgeSub());
+    var logo = function (dark) { return '<b style="' + F + 'font-size:16px;font-weight:800;color:' + (dark ? '#fff' : '#14211a') + '">Golf<span style="color:' + (dark ? '#5fd14a' : '#2f8a1f') + '">Price</span> AI</b>'; };
+    if (style === 'small') return '<a href="' + url + '" target="_blank" rel="noopener" title="' + name + ' on GolfPrice AI" style="' + F + 'display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #d5d9d1;border-radius:999px;padding:6px 14px 6px 8px;color:#14211a;text-decoration:none;font-size:13px;font-weight:700;line-height:1.2">' +
+      '<span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;background:#14211a">' + FLAG('#8fd97c', 13) + '</span>Find us on GolfPrice AI</a>';
+    if (style === 'dark') return '<a href="' + url + '" target="_blank" rel="noopener" style="' + F + 'display:inline-flex;align-items:center;gap:14px;background:#14211a;border-radius:14px;padding:12px 16px;color:#fff;text-decoration:none;line-height:1.25;max-width:100%;box-sizing:border-box">' +
+      '<span style="display:flex;flex-direction:column;gap:2px"><small style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#8fd97c">NEW MEMBERS WELCOME</small>' + logo(true) + '<small style="font-size:12px;color:#c4d0c8">Join ' + name + ' &rarr;</small></span>' +
+      (S.founding ? '<span style="border:1px solid #c9a64a;color:#e6c66b;border-radius:999px;padding:4px 9px;font-size:10px;font-weight:700;letter-spacing:.08em;white-space:nowrap">FOUNDING No. ' + S.founding + '</span>' : '') + '</a>';
+    return '<a href="' + url + '" target="_blank" rel="noopener" style="' + F + 'display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid #d5d9d1;border-radius:14px;padding:12px 16px;color:#14211a;text-decoration:none;line-height:1.25;max-width:100%;box-sizing:border-box">' +
+      '<span style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#14211a;flex:none">' + FLAG('#8fd97c', 22) + '</span>' +
+      '<span style="display:flex;flex-direction:column;gap:2px"><small style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#2f8a1f">FIND US ON</small>' + logo(false) + '<small style="font-size:12px;color:#4a554e">' + sub + '</small></span></a>';
+  }
+  function badgeCard() {
+    if (!S.open) return '<section class="soc-card hq-badge"><h2>Show off your society</h2><p class="soc-help">Get a “Find us on GolfPrice AI” badge for your website, club page or Instagram, so new golfers can find you and ask to join. Tick <b>Open to new members</b> in <i>Edit society</i> first: the badge links to your page in Find a Society.</p></section>';
+    var opt = function (v, l) { return '<label class="hq-bopt"><input type="radio" name="hq-bstyle" value="' + v + '"' + (BADGE.style === v ? ' checked' : '') + '> ' + l + '</label>'; };
+    return '<section class="soc-card hq-badge"><h2>Show off your society</h2>' +
+      '<p class="soc-help">A badge for your website, club page or Instagram bio. It links to ' + esc(S.name) + '’s page in Find a Society, so new golfers can find you and ask to join.</p>' +
+      '<div class="hq-bopts" role="radiogroup" aria-label="Badge style">' + opt('light', 'Light') + opt('dark', 'Dark') + opt('small', 'Small') + '</div>' +
+      '<div class="hq-bprev' + (BADGE.style === 'dark' ? ' is-dark' : '') + '">' + badgeHtml(BADGE.style) + '</div>' +
+      '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="button" class="soc-btn hq-bcopy">Copy website code</button><button type="button" class="soc-btn2 hq-bpic">Save as a picture</button></div>' +
+      '<p class="soc-small">Works on Wix, Squarespace, WordPress, Google Sites and club websites: paste it into an “Embed” or “Custom HTML” block. Your society’s page goes live within 6 hours of ticking Open to new members.</p></section>';
+  }
+  function badgePng(style) {
+    var c = document.createElement('canvas'), k = 2, W = style === 'small' ? 300 : 420, H = style === 'small' ? 52 : 92;
+    c.width = W * k; c.height = H * k;
+    var x = c.getContext('2d'); x.scale(k, k);
+    var dark = style === 'dark', rr = function (X, Y, w, h, r) { x.beginPath(); x.moveTo(X + r, Y); x.arcTo(X + w, Y, X + w, Y + h, r); x.arcTo(X + w, Y + h, X, Y + h, r); x.arcTo(X, Y + h, X, Y, r); x.arcTo(X, Y, X + w, Y, r); x.closePath(); };
+    rr(1, 1, W - 2, H - 2, style === 'small' ? 25 : 16); x.fillStyle = dark ? '#14211a' : '#fff'; x.fill();
+    if (!dark) { x.strokeStyle = '#d5d9d1'; x.lineWidth = 1.5; x.stroke(); }
+    var flag = function (X, Y, s) { x.save(); x.translate(X, Y); x.scale(s / 24, s / 24); x.strokeStyle = '#8fd97c'; x.lineWidth = 2.2; x.lineCap = 'round'; x.lineJoin = 'round'; x.beginPath(); x.moveTo(6, 21); x.lineTo(6, 4); x.lineTo(17, 8); x.lineTo(6, 12); x.moveTo(3, 21); x.lineTo(11, 21); x.stroke(); x.restore(); };
+    var fit = function (t, w) { while (t.length > 3 && x.measureText(t).width > w) t = t.slice(0, -2); return t === arguments[0] ? t : t.replace(/\s+$/, '') + '…'; };
+    var logo = function (X, Y) { x.font = '800 20px Poppins, Inter, Arial, sans-serif'; x.fillStyle = dark ? '#fff' : '#14211a'; x.fillText('Golf', X, Y); var a = x.measureText('Golf').width; x.fillStyle = dark ? '#5fd14a' : '#2f8a1f'; x.fillText('Price', X + a, Y); var b = x.measureText('Price').width; x.fillStyle = dark ? '#fff' : '#14211a'; x.fillText(' AI', X + a + b, Y); };
+    x.textBaseline = 'alphabetic';
+    if (style === 'small') { rr(10, 13, 26, 26, 7); x.fillStyle = '#14211a'; x.fill(); flag(14, 17, 18); x.font = '700 15px Inter, Arial, sans-serif'; x.fillStyle = '#14211a'; x.fillText('Find us on GolfPrice AI', 46, 31); }
+    else if (dark) {
+      x.font = '700 11px Inter, Arial, sans-serif'; x.fillStyle = '#8fd97c'; x.fillText('NEW MEMBERS WELCOME', 20, 28); logo(20, 54);
+      x.font = '500 13px Inter, Arial, sans-serif'; x.fillStyle = '#c4d0c8'; x.fillText(fit('Join ' + S.name + ' →', S.founding ? 250 : 380), 20, 76);
+      if (S.founding) { var t = 'FOUNDING No. ' + S.founding; x.font = '700 11px Inter, Arial, sans-serif'; var tw = x.measureText(t).width + 20; rr(W - tw - 18, 34, tw, 24, 12); x.strokeStyle = '#c9a64a'; x.lineWidth = 1; x.stroke(); x.fillStyle = '#e6c66b'; x.fillText(t, W - tw - 8, 50); }
+    } else {
+      rr(18, 22, 48, 48, 12); x.fillStyle = '#14211a'; x.fill(); flag(29, 33, 26);
+      x.font = '700 11px Inter, Arial, sans-serif'; x.fillStyle = '#2f8a1f'; x.fillText('FIND US ON', 80, 30); logo(80, 55);
+      x.font = '500 13px Inter, Arial, sans-serif'; x.fillStyle = '#4a554e'; x.fillText(fit(badgeSub(), 320), 80, 76);
+    }
+    return c;
+  }
+  function wireBadge() {
+    var card = box.querySelector('.hq-badge');
+    if (!card || !S.open) return;
+    var msg = card.querySelector('.soc-msg');
+    card.querySelectorAll('input[name="hq-bstyle"]').forEach(function (r) { r.onchange = function () { BADGE.style = r.value; page(); var c = box.querySelector('.hq-badge input:checked'); if (c) c.focus(); }; });
+    card.querySelector('.hq-bcopy').onclick = function () {
+      var code = badgeHtml(BADGE.style), done = function () { msg.textContent = 'Copied. Paste it into your website’s Embed or Custom HTML block.'; track('society_badge_copy', { style: BADGE.style }); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(done, function () { window.prompt('Copy this code:', code); });
+      else window.prompt('Copy this code:', code);
+    };
+    card.querySelector('.hq-bpic').onclick = function () {
+      var fonts = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+      fonts.then(function () {
+        badgePng(BADGE.style).toBlob(function (blob) {
+          if (!blob) return;
+          var name = 'golfpriceai-badge-' + socSlug().slice(0, 40) + '.png';
+          track('society_badge_picture', { style: BADGE.style });
+          try {
+            var f = new File([blob], name, { type: 'image/png' });
+            if (navigator.canShare && navigator.canShare({ files: [f] }) && /Android|iPhone|iPad/i.test(navigator.userAgent)) { navigator.share({ files: [f], text: 'Find ' + S.name + ' on GolfPrice AI: ' + badgeUrl() }).catch(function () {}); return; }
+          } catch (e) { /* older browser: download instead */ }
+          var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove();
+          msg.textContent = 'Saved. Your page link: ' + badgeUrl();
+        }, 'image/png');
+      });
+    };
+  }
   function league() {
     var el = box.querySelector('#hq-lg');
     if (!el) return;

@@ -1765,7 +1765,7 @@ def build(models_list, products, today_str):
         sitemap += w_sitemap
         seasonal_links = [("/prices/drops/", "Price drops today", "Genuine drops only, updated every 6 hours"),
                           ("/price-check.html", "Is this a good price?", "Check any price against our own history")] + list(seasonal_links) \
-            + ([("/prices/watch/", "UK golf price watch", "Monthly: what got cheaper, and what didn’t")] if has_watch else []) \
+            + ([("/prices/watch/", "UK Golf Price Report", "Monthly: what got cheaper, and what didn’t")] if has_watch else []) \
             + [("/prices/data/", "Open price data", "Free CSV downloads, updated every 6 hours")]
     if mode == "live":
         try:

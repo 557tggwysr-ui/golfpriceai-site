@@ -1,18 +1,36 @@
 {
  "month": "2026-10",
  "name": "October 2026",
- "models": 959,
- "fell": 126,
- "rose": 5,
- "flat": 828,
+ "models": 1286,
+ "fell": 142,
+ "rose": 9,
+ "flat": 1135,
  "median_pct": 0.0,
- "new_seller": 177,
+ "new_seller": 182,
+ "at_low": 122,
+ "biggest_fall": 200.0,
  "top_falls": [
+  {
+   "name": "Cobra 3D Printed Putter",
+   "slug": "cobra-3d-printed-putter",
+   "from": 279.0,
+   "to": 209.0,
+   "pct": -25,
+   "unit": ""
+  },
   {
    "name": "Wilson DYNAPWR Forged Irons",
    "slug": "wilson-dynapwr-forged-irons",
    "from": 799.0,
    "to": 599.0,
+   "pct": -25,
+   "unit": ""
+  },
+  {
+   "name": "Scotty Cameron Ltd Phantom Putter",
+   "slug": "scotty-cameron-ltd-phantom-putter",
+   "from": 729.0,
+   "to": 549.0,
    "pct": -25,
    "unit": ""
   },
@@ -25,14 +43,6 @@
    "unit": ""
   },
   {
-   "name": "MacGregor V-Max Ages 3-5 Junior Golf Set",
-   "slug": "macgregor-v-max-ages-3-5-junior-golf-set",
-   "from": 129.99,
-   "to": 99.99,
-   "pct": -23,
-   "unit": ""
-  },
-  {
    "name": "Titleist Scotty Cameron Studio Style Newport Putter",
    "slug": "titleist-scotty-cameron-studio-style-newport-putter",
    "from": 449.0,
@@ -41,19 +51,11 @@
    "unit": ""
   },
   {
-   "name": "Mizuno Pro T-3 Wedge",
-   "slug": "mizuno-pro-t-3-wedge",
-   "from": 149.0,
-   "to": 119.0,
-   "pct": -20,
-   "unit": ""
-  },
-  {
-   "name": "MacGregor V-Max Ages 6-8 Junior Golf Set",
-   "slug": "macgregor-v-max-ages-6-8-junior-golf-set",
-   "from": 149.0,
-   "to": 119.0,
-   "pct": -20,
+   "name": "Callaway Elyte Tour Certified Fairway Wood",
+   "slug": "callaway-elyte-tour-certified-fairway-wood",
+   "from": 229.0,
+   "to": 179.0,
+   "pct": -22,
    "unit": ""
   }
  ],
@@ -96,8 +98,8 @@
    "type": "driver",
    "label": "Drivers",
    "hub": "drivers",
-   "models": 70,
-   "fell": 13,
+   "models": 86,
+   "fell": 14,
    "rose": 1,
    "median_pct": 0.0
   },
@@ -105,8 +107,8 @@
    "type": "wood",
    "label": "Fairway woods",
    "hub": "fairway-woods",
-   "models": 57,
-   "fell": 4,
+   "models": 68,
+   "fell": 7,
    "rose": 0,
    "median_pct": 0.0
   },
@@ -114,8 +116,8 @@
    "type": "hybrid",
    "label": "Hybrids",
    "hub": "hybrids",
-   "models": 39,
-   "fell": 2,
+   "models": 43,
+   "fell": 3,
    "rose": 0,
    "median_pct": 0.0
   },
@@ -123,7 +125,7 @@
    "type": "irons",
    "label": "Iron sets",
    "hub": "irons",
-   "models": 90,
+   "models": 91,
    "fell": 9,
    "rose": 2,
    "median_pct": 0.0
@@ -132,8 +134,8 @@
    "type": "wedge",
    "label": "Wedges",
    "hub": "wedges",
-   "models": 57,
-   "fell": 3,
+   "models": 78,
+   "fell": 4,
    "rose": 0,
    "median_pct": 0.0
   },
@@ -141,8 +143,8 @@
    "type": "putter",
    "label": "Putters",
    "hub": "putters",
-   "models": 61,
-   "fell": 4,
+   "models": 99,
+   "fell": 7,
    "rose": 0,
    "median_pct": 0.0
   },
@@ -150,7 +152,7 @@
    "type": "ball",
    "label": "Golf balls",
    "hub": "golf-balls",
-   "models": 153,
+   "models": 202,
    "fell": 0,
    "rose": 0,
    "median_pct": 0.0
@@ -159,16 +161,16 @@
    "type": "bag",
    "label": "Golf bags",
    "hub": "golf-bags",
-   "models": 230,
-   "fell": 49,
-   "rose": 2,
+   "models": 363,
+   "fell": 59,
+   "rose": 3,
    "median_pct": 0.0
   },
   {
    "type": "gps-watch",
    "label": "GPS watches",
    "hub": "gps-watches",
-   "models": 16,
+   "models": 22,
    "fell": 0,
    "rose": 0,
    "median_pct": 0.0
@@ -177,8 +179,8 @@
    "type": "rangefinder",
    "label": "Rangefinders",
    "hub": "rangefinders",
-   "models": 28,
-   "fell": 3,
+   "models": 51,
+   "fell": 4,
    "rose": 0,
    "median_pct": 0.0
   },
@@ -186,16 +188,16 @@
    "type": "electric-trolley",
    "label": "Electric trolleys",
    "hub": "electric-trolleys",
-   "models": 48,
+   "models": 58,
    "fell": 16,
    "rose": 0,
-   "median_pct": -0.1
+   "median_pct": 0.0
   },
   {
    "type": "launch-monitor",
    "label": "Launch monitors",
    "hub": "launch-monitors",
-   "models": 20,
+   "models": 29,
    "fell": 3,
    "rose": 0,
    "median_pct": 0.0
@@ -204,18 +206,9 @@
    "type": "set",
    "label": "Golf package sets",
    "hub": "golf-package-sets",
-   "models": 45,
-   "fell": 12,
-   "rose": 0,
-   "median_pct": 0.0
-  },
-  {
-   "type": "junior-set",
-   "label": "Junior golf sets",
-   "hub": "junior-golf-sets",
-   "models": 45,
-   "fell": 8,
-   "rose": 0,
+   "models": 96,
+   "fell": 16,
+   "rose": 3,
    "median_pct": 0.0
   }
  ],
