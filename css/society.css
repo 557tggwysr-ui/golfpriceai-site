@@ -1,5 +1,5 @@
 /* GolfPrice AI: Society HQ pages (Awards Night Kit, Prize Picker). */
-.soc-wrap { max-width: 860px; margin: 0 auto; padding: 16px var(--gp-gutter, 16px) 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; }
+.soc-wrap { max-width: 1232px; margin: 0 auto; padding: 16px var(--gp-gutter, 16px) 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; }
 .soc-hero, .pz-hero { background: #1b1508; color: #fff; border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
 .soc-hero h1, .pz-hero h1 { margin: 0; font: 800 32px/1.1 Poppins, sans-serif; color: #fff; }
 .soc-hero p, .pz-hero p { margin: 0; color: #e7dcc3; line-height: 1.55; max-width: 60ch; }
@@ -164,13 +164,13 @@ button.soc-link { margin: 0; padding: 8px 0; border: 0; background: none; font: 
 .fd-card .soc-btn { align-self: flex-start; margin-top: 4px; }
 @media (max-width: 520px) { .soc-two { grid-template-columns: minmax(0, 1fr); } }
 .soc-photo { display: block; margin: -24px -24px 8px; }
-.soc-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover; border-radius: 18px 18px 0 0; }
+.soc-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; max-height: 300px; object-fit: cover; border-radius: 18px 18px 0 0; }
 @media (max-width: 700px) { .soc-photo img { aspect-ratio: 3 / 2; } }
 .fd-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
 .fd-foot .soc-btn { margin-top: 0; }
 .fd-report { font-size: 13px; color: var(--gp-text-3); text-decoration: underline; padding: 8px 0; }
 /* Society HQ hub */
-.sh-wrap { max-width: 1120px; }
+.sh-wrap { max-width: 1232px; }
 .sh-hero .soc-btns { margin-top: 6px; }
 .sh-btn-dark { background: transparent; color: #fff; border-color: #6b5a2c; }
 .sh-btn-dark:hover { color: #fff; border-color: #d9b45a; }
@@ -220,7 +220,7 @@ button.soc-link { margin: 0; padding: 8px 0; border: 0; background: none; font: 
 .sh-glinks b { font: 700 16px Poppins, sans-serif; color: var(--gp-green-dark); }
 .sh-glinks span { font-size: 14px; color: var(--gp-text-2); line-height: 1.45; }
 .soc-link-a { font-weight: 700; color: var(--gp-green-dark); align-self: flex-start; padding: 6px 0; }
-.gd-wrap { max-width: 900px; }
+.gd-wrap { max-width: 1232px; }
 .gd-answer { font-size: 16px !important; }
 .gd-toc { font-size: 14px; line-height: 2; display: block; }
 .gd-toc b { display: block; font: 700 16px Poppins, sans-serif; line-height: 1.4; margin-bottom: 4px; }
@@ -501,3 +501,19 @@ a.fd-card:hover { border-color: #3fae29; }
   .cp-hero { padding: 20px 16px; }
   .cp-az ul { columns: 1; }
 }
+
+/* One width for every Society page (2 Nov 2026): the same frame as the National Society League.
+   Text and form fields keep a comfortable width inside the wider cards. */
+.soc-wrap .soc-card > p, .soc-wrap .soc-help, .soc-hero > p, .soc-faq p { max-width: 760px; }
+.soc-wrap form.soc-card > label, .soc-wrap form.soc-card > .soc-two, .soc-wrap form.soc-card > .hq-course, .soc-wrap form.soc-card > .soc-btns { max-width: 760px; }
+.soc-wrap .soc-faq-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+/* Guides: the article on the left, "On this page" alongside it on a wide screen */
+@media (min-width: 1000px) {
+  .gd-wrap:has(> .gd-toc) { display: grid; grid-template-columns: minmax(0, 1fr) 320px; column-gap: 24px; row-gap: 16px; align-items: start; }
+  .gd-wrap:has(> .gd-toc) > * { grid-column: 1; }
+  .gd-wrap:has(> .gd-toc) > .pp-crumbs, .gd-wrap:has(> .gd-toc) > .soc-hero, .gd-wrap:has(> .gd-toc) > .gd-more { grid-column: 1 / -1; }
+  .gd-wrap:has(> .gd-toc) > .gd-toc { grid-column: 2; grid-row: 3 / span 40; position: sticky; top: 96px; font-size: 0; line-height: 1; display: flex; flex-direction: column; gap: 2px; }
+  .gd-wrap > .gd-toc a { font-size: 14.5px; line-height: 1.4; padding: 7px 0; border-top: 1px solid #eef0ec; }
+  .gd-wrap > .gd-toc b { font-size: 16px; }
+}
+@media (min-width: 768px) { .soc-wrap { padding-left: 24px; padding-right: 24px; } }

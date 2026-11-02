@@ -186,7 +186,7 @@ def page(county, rows, d, data, chips_html, spare_html, cards_html, list_schema,
     schema = [crumbs_schema, place, faq_schema] + ([list_schema] if k else [])
     return page_shell(title=title, description=desc, canonical=url, body=body, section="societies", schema=schema, noindex=False,
                       og_image="/assets/cards/society-hq.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/society.css?v=20261101g">\n')
+                      extra_head='<link rel="stylesheet" href="/css/society.css?v=20261102a">\n')
 
 
 def chips(all_counties, rows, live, current=None):

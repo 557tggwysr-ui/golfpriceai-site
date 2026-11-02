@@ -8,7 +8,7 @@ Both are filled by js/poll.js from the alerts worker (/pl/...). Nicknames only.
 """
 from price_pages import SITE, _write, breadcrumb, page_shell
 
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261101g">\n<link rel="stylesheet" href="/css/poll.css?v=20261101a">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261102a">\n<link rel="stylesheet" href="/css/poll.css?v=20261101a">\n'
 JS = '<script src="/js/poll.js?v=20261101b" defer></script>'
 FAQS = [
     ("Is it free?", "Yes. No sign-up, no app and no fees. Start a poll, send one link to the group chat, and everyone answers in one tap."),
