@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-02T16:42+00:00",
+ "checked": "2026-11-02T19:59+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -82,6 +82,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/wilson-x-31-advantage-package-set/"
+  },
+  {
+   "model": "Scotty Cameron Studio Style Fastback OC Putter",
+   "model_id": "scotty-cameron-studio-style-fastback-oc-putter",
+   "date": "2026-11-02",
+   "was": 499.0,
+   "now": 449.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/scotty-cameron-studio-style-fastback-oc-putter/"
   },
   {
    "model": "Bushnell Pro X3+ Laser Rangefinder",

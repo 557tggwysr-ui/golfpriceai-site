@@ -6,23 +6,23 @@
  "checked": "2026-11-02",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 449.0,
+ "lowestNewPrice": 429.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 449.0,
+   "from": 429.0,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 79,
-  "low": 449.0,
+  "low": 429.0,
   "high": 449.0,
-  "average": 449.0,
-  "priceChanges": 0,
+  "average": 448.75,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-02",
-    449.0
+    429.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 79 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Scotty-Cameron-Studio-Style-Fastback-Golf-Putter-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
