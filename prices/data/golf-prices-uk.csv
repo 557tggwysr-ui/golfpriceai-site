@@ -35,7 +35,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-03,fujikura-extra-stiff-driver,Fujikura Extra Stiff Driver,Fujikura,driver,59.99,each,1,61,59.99,119.99,good,https://golfpriceai.com/prices/fujikura-extra-stiff-driver/
 2026-11-03,golfway-champion-driver,Golfway Champion Driver,Golfway,driver,24.99,each,1,61,24.99,24.99,typical,https://golfpriceai.com/prices/golfway-champion-driver/
 2026-11-03,macgregor-zt-plus-driver,MacGregor ZT Plus Driver,MacGregor,driver,139.00,each,3,68,139.00,139.00,typical,https://golfpriceai.com/prices/macgregor-zt-plus-driver/
-2026-11-03,mizuno-jpx-one-driver,Mizuno JPX ONE Driver,Mizuno,driver,429.00,each,4,80,379.00,529.00,wait,https://golfpriceai.com/prices/mizuno-jpx-one-driver/
+2026-11-03,mizuno-jpx-one-driver,Mizuno JPX ONE Driver,Mizuno,driver,399.00,each,4,80,379.00,529.00,typical,https://golfpriceai.com/prices/mizuno-jpx-one-driver/
 2026-11-03,mizuno-jpx-one-select-driver,Mizuno JPX ONE Select Driver,Mizuno,driver,429.00,each,2,80,399.00,529.00,typical,https://golfpriceai.com/prices/mizuno-jpx-one-select-driver/
 2026-11-03,mizuno-st-g-driver,Mizuno ST-G Driver,Mizuno,driver,199.95,each,2,61,199.95,229.00,good,https://golfpriceai.com/prices/mizuno-st-g-driver/
 2026-11-03,pxg-lightning-driver,PXG Lightning Driver,PXG,driver,429.00,each,1,61,429.00,429.00,typical,https://golfpriceai.com/prices/pxg-lightning-driver/
@@ -327,7 +327,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-03,macgregor-zt-plus-wedge,MacGregor ZT Plus Wedge,MacGregor,wedge,44.95,each,3,68,44.95,44.95,typical,https://golfpriceai.com/prices/macgregor-zt-plus-wedge/
 2026-11-03,mizuno-pro-t-1-ion-wedge,Mizuno Pro T-1 ION Wedge,Mizuno,wedge,109.00,each,2,68,109.00,149.00,good,https://golfpriceai.com/prices/mizuno-pro-t-1-ion-wedge/
 2026-11-03,mizuno-pro-t-1-ip-wedge,Mizuno Pro T-1 IP Wedge,Mizuno,wedge,139.95,each,1,61,139.95,169.95,good,https://golfpriceai.com/prices/mizuno-pro-t-1-ip-wedge/
-2026-11-03,mizuno-pro-t-1-soft-satin-wedge,Mizuno Pro T-1 Soft Satin Wedge,Mizuno,wedge,119.00,each,2,68,119.00,149.00,typical,https://golfpriceai.com/prices/mizuno-pro-t-1-soft-satin-wedge/
+2026-11-03,mizuno-pro-t-1-soft-satin-wedge,Mizuno Pro T-1 Soft Satin Wedge,Mizuno,wedge,119.00,each,2,68,99.95,149.00,typical,https://golfpriceai.com/prices/mizuno-pro-t-1-soft-satin-wedge/
 2026-11-03,mizuno-pro-t-3-soft-satin-wedge,Mizuno Pro T-3 Soft Satin Wedge,Mizuno,wedge,119.00,each,2,68,119.00,149.00,typical,https://golfpriceai.com/prices/mizuno-pro-t-3-soft-satin-wedge/
 2026-11-03,mizuno-pro-t-3-wedge,Mizuno Pro T-3 Wedge,Mizuno,wedge,119.00,each,2,80,119.00,149.00,good,https://golfpriceai.com/prices/mizuno-pro-t-3-wedge/
 2026-11-03,odyssey-chipper-wedge,Odyssey Chipper Wedge,Odyssey,wedge,129.00,each,3,80,129.00,129.00,typical,https://golfpriceai.com/prices/odyssey-chipper-wedge/
@@ -993,7 +993,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-03,titleist-players-s4-open-stand-bag-golf-bag,Titleist Players S4 Open Stand Bag Golf Bag,Titleist,golf bag,169.00,each,1,62,169.00,189.00,good,https://golfpriceai.com/prices/titleist-players-s4-open-stand-bag-golf-bag/
 2026-11-03,titleist-players-s4-stadry-stand-bag-golf-bag,Titleist Players S4 StaDry Stand Bag Golf Bag,Titleist,golf bag,224.00,each,2,80,204.00,229.00,wait,https://golfpriceai.com/prices/titleist-players-s4-stadry-stand-bag-golf-bag/
 2026-11-03,titleist-players-s4-stadry-waterproof-stand-bag-golf-bag,Titleist Players S4 StaDry Waterproof Stand Bag Golf Bag,Titleist,golf bag,229.00,each,2,61,229.00,249.00,good,https://golfpriceai.com/prices/titleist-players-s4-stadry-waterproof-stand-bag-golf-bag/
-2026-11-03,titleist-players-s4-stand-bag-golf-bag,Titleist Players S4 Stand Bag Golf Bag,Titleist,golf bag,159.00,each,4,80,159.00,179.00,typical,https://golfpriceai.com/prices/titleist-players-s4-stand-bag-golf-bag/
+2026-11-03,titleist-players-s4-stand-bag-golf-bag,Titleist Players S4 Stand Bag Golf Bag,Titleist,golf bag,179.00,each,4,80,159.00,179.00,wait,https://golfpriceai.com/prices/titleist-players-s4-stand-bag-golf-bag/
 2026-11-03,titleist-players-s5-stadry-stand-bag-golf-bag,Titleist Players S5 StaDry Stand Bag Golf Bag,Titleist,golf bag,289.00,each,1,80,264.00,289.00,wait,https://golfpriceai.com/prices/titleist-players-s5-stadry-stand-bag-golf-bag/
 2026-11-03,titleist-players-s5-stadry-waterproof-stand-bag-golf-bag,Titleist Players S5 StaDry Waterproof Stand Bag Golf Bag,Titleist,golf bag,269.00,each,2,61,269.00,279.00,typical,https://golfpriceai.com/prices/titleist-players-s5-stadry-waterproof-stand-bag-golf-bag/
 2026-11-03,titleist-premium-carry-bag-golf-bag,Titleist Premium Carry Bag Golf Bag,Titleist,golf bag,109.00,each,4,68,109.00,109.00,typical,https://golfpriceai.com/prices/titleist-premium-carry-bag-golf-bag/

@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 68,
-  "low": 119.0,
+  "low": 99.95,
   "high": 149.0,
-  "average": 131.35,
-  "priceChanges": 1,
+  "average": 131.07,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-28",
@@ -39,13 +39,13 @@
    ],
    [
     "2026-11-03",
-    119.0
+    99.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 40 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/T-1SATINWEDGE1.jpg?v=1737715912",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

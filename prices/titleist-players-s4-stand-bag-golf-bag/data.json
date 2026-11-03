@@ -6,20 +6,22 @@
  "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 159.0,
+ "lowestNewPrice": 179.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf",
+  "Clickgolf",
+  "Major Golf Direct"
  ],
  "retailers": [
-  {
-   "name": "Clickgolf",
-   "from": 159.0,
-   "options": 6
-  },
   {
    "name": "Clarkes Golf",
    "from": 179.0,
    "options": 3
+  },
+  {
+   "name": "Clickgolf",
+   "from": 179.0,
+   "options": 6
   },
   {
    "name": "Major Golf Direct",
@@ -36,8 +38,8 @@
   "daysTracked": 80,
   "low": 159.0,
   "high": 179.0,
-  "average": 161.25,
-  "priceChanges": 4,
+  "average": 161.5,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -61,15 +63,15 @@
    ],
    [
     "2026-11-03",
-    159.0
+    179.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 68 days"
+  "label": "wait",
+  "summary": "Wait if you can: £20.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX4-001-S4-Hero.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX4-222-S4-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-03"
 }
