@@ -6,11 +6,16 @@
  "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.95,
+ "lowestNewPrice": 149.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 149.0,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 149.95,
@@ -25,18 +30,13 @@
    "name": "Major Golf Direct",
    "from": 149.99,
    "options": 1
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 179.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 80,
   "low": 149.0,
   "high": 179.95,
-  "average": 167.95,
+  "average": 167.93,
   "priceChanges": 4,
   "series": [
    [
@@ -57,15 +57,15 @@
    ],
    [
     "2026-11-03",
-    149.95
+    149.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ShotScopeG62.jpg?v=1776293761",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/SS-WAT-G6-DAR-1-Photoroom.jpg?v=1742976666",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-03"
 }

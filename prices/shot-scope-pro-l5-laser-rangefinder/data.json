@@ -6,28 +6,28 @@
  "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.99,
+ "lowestNewPrice": 179.0,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 179.0,
+   "options": 1
+  },
   {
    "name": "Major Golf Direct",
    "from": 179.99,
    "options": 2
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 219.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 68,
-  "low": 179.99,
+  "low": 179.0,
   "high": 219.0,
-  "average": 217.85,
-  "priceChanges": 1,
+  "average": 217.84,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-28",
@@ -39,7 +39,7 @@
    ],
    [
     "2026-11-03",
-    179.99
+    179.0
    ]
   ]
  },
@@ -47,7 +47,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ShotScopeProL5GolfLaserRangefinder5.jpg?v=1751018713",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/imgi_129_pro-l5-black-gallery-image-1-Photoroom_1.jpg?v=1754292243",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-03"
 }

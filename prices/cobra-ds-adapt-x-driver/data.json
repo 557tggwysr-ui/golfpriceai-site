@@ -6,20 +6,20 @@
  "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 319.0,
+ "lowestNewPrice": 299.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 299.0,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 319.0,
    "options": 2
-  },
-  {
-   "name": "Clickgolf",
-   "from": 329.0,
-   "options": 1
   },
   {
    "name": "Major Golf Direct",
@@ -29,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 80,
-  "low": 319.0,
+  "low": 299.0,
   "high": 329.0,
-  "average": 328.38,
-  "priceChanges": 1,
+  "average": 328.12,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -44,15 +44,15 @@
    ],
    [
     "2026-11-03",
-    319.0
+    299.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 5 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Cobra-DS-Adapt-X-Golf-Driver-2.png?v=1734064862",
+ "image": "https://www.clickgolf.co.uk/images/product/main/cobra-ds-adapt-x-driver-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-03"
 }

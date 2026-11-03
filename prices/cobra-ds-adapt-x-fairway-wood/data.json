@@ -6,20 +6,20 @@
  "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 195.0,
+ "lowestNewPrice": 189.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 189.0,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 195.0,
    "options": 3
-  },
-  {
-   "name": "Clickgolf",
-   "from": 199.0,
-   "options": 1
   },
   {
    "name": "Major Golf Direct",
@@ -52,7 +52,7 @@
   "label": "typical",
   "summary": "Typical price: steady for 42 days"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Cobra-DS-Adapt-X-Golf-Fairway-Wood-2769.jpg?v=1734408441",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-DS-ADAPT-X-Fairway-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-03"
 }

@@ -6,11 +6,16 @@
  "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.95,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 199.0,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 199.95,
@@ -22,11 +27,6 @@
    "options": 1
   },
   {
-   "name": "Clarkes Golf",
-   "from": 239.0,
-   "options": 2
-  },
-  {
    "name": "Scottsdale Golf",
    "from": 239.99,
    "options": 1
@@ -36,7 +36,7 @@
   "daysTracked": 80,
   "low": 199.0,
   "high": 239.0,
-  "average": 222.74,
+  "average": 222.72,
   "priceChanges": 4,
   "series": [
    [
@@ -57,15 +57,15 @@
    ],
    [
     "2026-11-03",
-    199.95
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/shotscopeV516.jpg?v=1777954846",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Shot-Scope-V5-GPS-Golf-Watch-0.jpg?v=1712030904",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-03"
 }

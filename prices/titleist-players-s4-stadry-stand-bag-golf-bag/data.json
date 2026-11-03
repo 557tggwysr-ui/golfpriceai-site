@@ -6,14 +6,14 @@
  "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 224.0,
+ "lowestNewPrice": 229.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 224.0,
+   "from": 229.0,
    "options": 6
   },
   {
@@ -26,8 +26,8 @@
   "daysTracked": 80,
   "low": 204.0,
   "high": 229.0,
-  "average": 222.56,
-  "priceChanges": 9,
+  "average": 222.62,
+  "priceChanges": 10,
   "series": [
    [
     "2026-08-16",
@@ -71,15 +71,15 @@
    ],
    [
     "2026-11-03",
-    224.0
+    229.0
    ]
   ]
  },
  "verdict": {
   "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "summary": "Wait if you can: £25.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX2-300-S4-StaDry-Hero.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX2-482-S4-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-03"
 }

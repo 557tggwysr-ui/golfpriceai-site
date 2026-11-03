@@ -8,9 +8,15 @@
  "unit": "each",
  "lowestNewPrice": 559.0,
  "lowestAt": [
+  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 559.0,
+   "options": 7
+  },
   {
    "name": "Clickgolf",
    "from": 559.0,
@@ -20,11 +26,6 @@
    "name": "Affordable Golf",
    "from": 779.0,
    "options": 10
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 779.0,
-   "options": 7
   },
   {
    "name": "Major Golf Direct",

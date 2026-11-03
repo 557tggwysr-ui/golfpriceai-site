@@ -6,16 +6,14 @@
  "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 479.0,
+ "lowestNewPrice": 399.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 479.0,
+   "from": 399.0,
    "options": 6
   },
   {
@@ -31,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 80,
-  "low": 479.0,
+  "low": 399.0,
   "high": 479.0,
-  "average": 479.0,
-  "priceChanges": 0,
+  "average": 478.0,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -42,13 +40,13 @@
    ],
    [
     "2026-11-03",
-    479.0
+    399.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 80 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/OPTM-Max-K-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
