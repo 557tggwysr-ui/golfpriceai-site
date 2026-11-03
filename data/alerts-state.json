@@ -3,8 +3,6 @@
  "budget": {
   "driver-300": {
    "above": {
-    "callaway-elyte-driver": 329.0,
-    "callaway-elyte-x-driver": 329.0,
     "callaway-quantum-driver": 529.0,
     "callaway-quantum-max-d-driver": 529.0,
     "callaway-quantum-max-driver": 529.0,
@@ -13,15 +11,11 @@
     "callaway-quantum-triple-diamond-max-driver": 569.0,
     "callaway-reva-rise-driver": 399.0,
     "cobra-ds-adapt-driver": 329.0,
-    "cobra-ds-adapt-ls-driver": 329.0,
-    "cobra-ds-adapt-max-d-driver": 329.0,
-    "cobra-ds-adapt-max-k-driver": 329.0,
-    "cobra-ds-adapt-x-driver": 319.0,
     "cobra-king-tec-mini-driver": 379.0,
     "cobra-optm-driver": 479.0,
-    "cobra-optm-ls-driver": 479.0,
+    "cobra-optm-ls-driver": 399.0,
     "cobra-optm-max-d-driver": 479.0,
-    "cobra-optm-max-k-driver": 479.0,
+    "cobra-optm-max-k-driver": 399.0,
     "cobra-optm-x-driver": 399.0,
     "mizuno-jpx-one-driver": 399.0,
     "mizuno-jpx-one-select-driver": 429.0,
@@ -67,7 +61,9 @@
     "aldila-extra-stiff-driver",
     "aldila-regular-driver",
     "aldila-stiff-driver",
+    "callaway-elyte-driver",
     "callaway-elyte-tour-certified-driver",
+    "callaway-elyte-x-driver",
     "callaway-paradym-ai-smoke-max-driver",
     "cleveland-hibore-xl-driver",
     "cleveland-hibore-xl-lite-driver",
@@ -76,6 +72,10 @@
     "cobra-baffler-driver",
     "cobra-baffler-offset-driver",
     "cobra-darkspeed-ls-driver",
+    "cobra-ds-adapt-ls-driver",
+    "cobra-ds-adapt-max-d-driver",
+    "cobra-ds-adapt-max-k-driver",
+    "cobra-ds-adapt-x-driver",
     "cobra-rad-s-driver",
     "fujikura-extra-stiff-driver",
     "golfway-champion-driver",
@@ -116,7 +116,7 @@
  },
  "remind": "2026-11-03",
  "sent": {
-  "2026-11-03": 1
+  "2026-11-03": 2
  },
  "stock": {
   "apparel-adidas-rain-rdy-waterproof-golf-jacket-hn4128-black-m-majorgolf": {
