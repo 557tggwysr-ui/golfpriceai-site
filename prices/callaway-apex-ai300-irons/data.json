@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-apex-ai300-irons/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 859.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 859.0,
   "high": 1299.0,
-  "average": 1229.67,
+  "average": 1223.59,
   "priceChanges": 2,
   "series": [
    [
@@ -42,7 +42,7 @@
     859.0
    ],
    [
-    "2026-11-02",
+    "2026-11-03",
     859.0
    ]
   ]
@@ -53,5 +53,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Callaway-Apex-Ai300-Golf-Irons-Graphite-2.jpg?v=1723694788",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

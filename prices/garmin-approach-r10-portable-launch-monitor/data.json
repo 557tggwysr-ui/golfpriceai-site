@@ -3,18 +3,17 @@
  "brand": "Garmin",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/garmin-approach-r10-portable-launch-monitor/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 459.0,
+ "lowestNewPrice": 429.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 459.0,
+   "from": 429.0,
    "options": 1
   },
   {
@@ -29,11 +28,11 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
-  "low": 449.0,
+  "daysTracked": 68,
+  "low": 429.0,
   "high": 529.99,
-  "average": 493.73,
-  "priceChanges": 2,
+  "average": 492.77,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-28",
@@ -48,16 +47,16 @@
     449.0
    ],
    [
-    "2026-11-02",
-    449.0
+    "2026-11-03",
+    429.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 23 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/garmin_approach_r10_portable_golf_launch_monitor_5.jpg?v=1777979938",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

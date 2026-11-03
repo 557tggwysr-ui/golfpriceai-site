@@ -3,7 +3,7 @@
  "brand": "Ben Sayers",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ben-sayers-hydra-pro-waterproof-cart-bag-golf-bag/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 139.95,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 139.95,
   "high": 149.95,
-  "average": 140.95,
+  "average": 140.93,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     139.95
    ],
    [
-    "2026-11-02",
+    "2026-11-03",
     139.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 54 days"
+  "summary": "Typical price: steady for 55 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BSG7015.1.jpg?v=1776274059",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

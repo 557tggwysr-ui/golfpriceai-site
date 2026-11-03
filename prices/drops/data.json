@@ -1,8 +1,98 @@
 {
- "checked": "2026-11-02T19:59+00:00",
+ "checked": "2026-11-03T00:38+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Shot Scope Pro L5 Rangefinder",
+   "model_id": "shot-scope-pro-l5-rangefinder",
+   "date": "2026-11-03",
+   "was": 219.0,
+   "now": 179.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/shot-scope-pro-l5-rangefinder/"
+  },
+  {
+   "model": "Shot Scope V5 GPS Watch",
+   "model_id": "shot-scope-v5-gps-watch",
+   "date": "2026-11-03",
+   "was": 239.0,
+   "now": 199.95,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/shot-scope-v5-gps-watch/"
+  },
+  {
+   "model": "Garmin Approach S70 GPS Watch",
+   "model_id": "garmin-approach-s70-gps-watch",
+   "date": "2026-11-03",
+   "was": 499.0,
+   "now": 429.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
+  },
+  {
+   "model": "Garmin Approach S50 GPS Watch",
+   "model_id": "garmin-approach-s50-gps-watch",
+   "date": "2026-11-03",
+   "was": 339.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-s50-gps-watch/"
+  },
+  {
+   "model": "Cobra RADSPEED-S 2026 Package Set",
+   "model_id": "cobra-radspeed-s-2026-package-set",
+   "date": "2026-11-03",
+   "was": 999.0,
+   "now": 895.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-radspeed-s-2026-package-set/"
+  },
+  {
+   "model": "Garmin Approach S44 GPS Watch",
+   "model_id": "garmin-approach-s44-gps-watch",
+   "date": "2026-11-03",
+   "was": 239.0,
+   "now": 219.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-s44-gps-watch/"
+  },
+  {
+   "model": "Garmin Approach Z10 Laser Rangefinder",
+   "model_id": "garmin-approach-z10-laser-rangefinder",
+   "date": "2026-11-03",
+   "was": 249.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-z10-laser-rangefinder/"
+  },
+  {
+   "model": "Shot Scope H50 Performance Tracking Handheld Rangefinder",
+   "model_id": "shot-scope-h50-performance-tracking-handheld-rangefinder",
+   "date": "2026-11-03",
+   "was": 249.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/shot-scope-h50-performance-tracking-handheld-rangefinder/"
+  },
+  {
+   "model": "Garmin Approach R10 Portable Launch Monitor",
+   "model_id": "garmin-approach-r10-portable-launch-monitor",
+   "date": "2026-11-03",
+   "was": 449.0,
+   "now": 429.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-r10-portable-launch-monitor/"
+  },
   {
    "model": "Srixon Tour Staff Golf Bag",
    "model_id": "srixon-tour-staff-golf-bag",
@@ -1222,36 +1312,6 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/ping-g440-k-driver/"
-  },
-  {
-   "model": "Cobra RAD-S Driver",
-   "model_id": "cobra-rad-s-driver",
-   "date": "2026-10-26",
-   "was": 249.0,
-   "now": 219.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-rad-s-driver/"
-  },
-  {
-   "model": "Cobra RAD-S Irons",
-   "model_id": "cobra-rad-s-irons",
-   "date": "2026-10-26",
-   "was": 449.0,
-   "now": 399.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-rad-s-irons/"
-  },
-  {
-   "model": "Cobra RAD-S Fairway Wood",
-   "model_id": "cobra-rad-s-fairway-wood",
-   "date": "2026-10-26",
-   "was": 179.0,
-   "now": 169.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-rad-s-fairway-wood/"
   }
  ]
 }

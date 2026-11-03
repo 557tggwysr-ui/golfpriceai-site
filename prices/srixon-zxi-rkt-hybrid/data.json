@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/srixon-zxi-rkt-hybrid/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 259.0,
@@ -36,10 +36,10 @@
   }
  ],
  "history": {
-  "daysTracked": 46,
+  "daysTracked": 47,
   "low": 259.0,
   "high": 289.0,
-  "average": 268.78,
+  "average": 268.57,
   "priceChanges": 1,
   "series": [
    [
@@ -51,16 +51,16 @@
     259.0
    ],
    [
-    "2026-11-02",
+    "2026-11-03",
     259.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 32 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfZXiRKTHybridRescue_6.jpg?v=1788428695",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

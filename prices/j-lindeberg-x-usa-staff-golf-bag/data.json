@@ -3,7 +3,7 @@
  "brand": "J Lindeberg",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/j-lindeberg-x-usa-staff-golf-bag/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 489.3,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 489.3,
   "high": 489.3,
   "average": 489.3,
@@ -29,16 +29,16 @@
     489.3
    ],
    [
-    "2026-11-02",
+    "2026-11-03",
     489.3
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "summary": "Typical price: steady for 61 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/GMAC11898-A051_1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

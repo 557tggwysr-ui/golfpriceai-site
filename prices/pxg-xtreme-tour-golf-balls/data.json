@@ -3,7 +3,7 @@
  "brand": "PXG",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/pxg-xtreme-tour-golf-balls/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 29.75,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 27.25,
   "high": 29.75,
-  "average": 29.45,
+  "average": 29.46,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     29.75
    ],
    [
-    "2026-11-02",
+    "2026-11-03",
     29.75
    ]
   ]
@@ -49,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PXGXtremeTourGolfBalls-White4For3.jpg?v=1777639279",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

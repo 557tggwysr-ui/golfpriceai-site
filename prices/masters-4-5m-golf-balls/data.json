@@ -3,7 +3,7 @@
  "brand": "Masters",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/masters-4-5m-golf-balls/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 19.99,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 19.99,
   "high": 19.99,
   "average": 19.99,
@@ -29,16 +29,16 @@
     19.99
    ],
    [
-    "2026-11-02",
+    "2026-11-03",
     19.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "summary": "Typical price: steady for 61 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Masters4.5mBallRetreiver1.jpg?v=1782264883",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

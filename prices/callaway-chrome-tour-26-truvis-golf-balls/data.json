@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-tour-26-truvis-golf-balls/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 49.99,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 49.99,
   "high": 54.95,
-  "average": 51.15,
+  "average": 51.13,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     49.99
    ],
    [
-    "2026-11-02",
+    "2026-11-03",
     49.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 46 days"
+  "summary": "Typical price: steady for 47 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/balls-2026-chrome-tour-truvis-suits_2___1.jpg?v=1787754872",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

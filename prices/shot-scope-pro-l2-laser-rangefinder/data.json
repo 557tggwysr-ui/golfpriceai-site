@@ -3,14 +3,19 @@
  "brand": "Shot Scope",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/shot-scope-pro-l2-laser-rangefinder/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.99,
+ "lowestNewPrice": 129.95,
  "lowestAt": [
-  "Major Golf Direct"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 129.95,
+   "options": 2
+  },
   {
    "name": "Major Golf Direct",
    "from": 129.99,
@@ -19,11 +24,6 @@
   {
    "name": "Clarkes Golf",
    "from": 149.0,
-   "options": 2
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 149.95,
    "options": 2
   },
   {
@@ -38,11 +38,11 @@
   }
  ],
  "history": {
-  "daysTracked": 79,
+  "daysTracked": 80,
   "low": 129.0,
   "high": 149.95,
-  "average": 141.97,
-  "priceChanges": 3,
+  "average": 141.82,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -59,6 +59,10 @@
    [
     "2026-11-02",
     129.99
+   ],
+   [
+    "2026-11-03",
+    129.95
    ]
   ]
  },
@@ -66,7 +70,7 @@
   "label": "typical",
   "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/SS-LSR-L2-GRY_1.jpg?v=1676307439",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/shot_scope_pro_l2_laser_rangefinder_-_blue_1.jpg?v=1777976003",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

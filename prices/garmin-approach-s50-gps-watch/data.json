@@ -3,23 +3,23 @@
  "brand": "Garmin",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/garmin-approach-s50-gps-watch/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 339.0,
+ "lowestNewPrice": 299.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 299.0,
+   "options": 2
+  },
   {
    "name": "Clarkes Golf",
    "from": 339.0,
    "options": 1
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 349.0,
-   "options": 2
   },
   {
    "name": "Clickgolf",
@@ -33,11 +33,11 @@
   }
  ],
  "history": {
-  "daysTracked": 79,
-  "low": 319.0,
+  "daysTracked": 80,
+  "low": 299.0,
   "high": 349.0,
-  "average": 337.1,
-  "priceChanges": 3,
+  "average": 336.62,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -56,16 +56,16 @@
     339.0
    ],
    [
-    "2026-11-02",
-    339.0
+    "2026-11-03",
+    299.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Garmin-Approach-S50-Golf-GPS-Watch-Black-1-Photoroom.jpg?v=1738335926",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/S50_neutral_1.jpg?v=1776307261",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

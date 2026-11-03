@@ -3,7 +3,7 @@
  "brand": "Shot Scope",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/shot-scope-pro-l5-laser-rangefinder/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.99,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 179.99,
   "high": 219.0,
-  "average": 218.42,
+  "average": 217.85,
   "priceChanges": 1,
   "series": [
    [
@@ -35,6 +35,10 @@
    ],
    [
     "2026-11-02",
+    179.99
+   ],
+   [
+    "2026-11-03",
     179.99
    ]
   ]
@@ -45,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ShotScopeProL5GolfLaserRangefinder5.jpg?v=1751018713",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

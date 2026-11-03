@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/wilson-profile-ages-8-11-junior-golf-set/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 186.15,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 55,
+  "daysTracked": 56,
   "low": 186.15,
   "high": 219.0,
-  "average": 207.49,
+  "average": 207.11,
   "priceChanges": 14,
   "series": [
    [
@@ -88,6 +88,10 @@
    [
     "2026-11-02",
     186.15
+   ],
+   [
+    "2026-11-03",
+    186.15
    ]
   ]
  },
@@ -97,5 +101,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/WG1R04160130-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-pioneer-monsoon-waterproof-cart-bag-golf-bag/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 219.0,
   "high": 229.99,
-  "average": 229.26,
+  "average": 229.09,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     219.0
    ],
    [
-    "2026-11-02",
+    "2026-11-03",
     219.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 4 days"
+  "summary": "Typical price: steady for 5 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/36418_06_PioneerMonsoon_231_Black_Blue_01-Photoroom.jpg?v=1741767143",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

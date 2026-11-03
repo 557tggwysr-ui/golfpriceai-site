@@ -3,42 +3,42 @@
  "brand": "Shot Scope",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/shot-scope-h50-performance-tracking-handheld-rangefinder/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 229.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 249.0,
+   "from": 229.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 60,
-  "low": 249.0,
+  "daysTracked": 61,
+  "low": 229.0,
   "high": 249.0,
-  "average": 249.0,
-  "priceChanges": 0,
+  "average": 248.67,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     249.0
    ],
    [
-    "2026-11-02",
-    249.0
+    "2026-11-03",
+    229.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/H501.jpg?v=1776254803",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

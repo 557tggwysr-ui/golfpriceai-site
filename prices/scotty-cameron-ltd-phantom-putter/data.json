@@ -3,7 +3,7 @@
  "brand": "Scotty Cameron",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/scotty-cameron-ltd-phantom-putter/",
- "checked": "2026-11-02",
+ "checked": "2026-11-03",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 549.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 60,
+  "daysTracked": 61,
   "low": 549.0,
   "high": 729.0,
-  "average": 672.0,
+  "average": 669.98,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     549.0
    ],
    [
-    "2026-11-02",
+    "2026-11-03",
     549.0
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PhantomBlackLtdEdition-7DB3.jpg?v=1782291932",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-02"
+ "changed": "2026-11-03"
 }

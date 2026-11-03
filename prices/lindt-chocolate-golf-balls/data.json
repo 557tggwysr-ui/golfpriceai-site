@@ -1,0 +1,48 @@
+{
+ "name": "Lindt Chocolate Golf Balls",
+ "brand": "Lindt",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/lindt-chocolate-golf-balls/",
+ "checked": "2026-11-03",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 8.49,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 8.49,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 7.99,
+  "high": 8.49,
+  "average": 8.4,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-05",
+    7.99
+   ],
+   [
+    "2026-09-16",
+    8.49
+   ],
+   [
+    "2026-11-03",
+    8.49
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "wait",
+  "summary": "Wait if you can: £0.50 above its tracked low"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Lindt_Chocolate_Golf_Balls_1.jpg?v=1776308677",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-03"
+}
