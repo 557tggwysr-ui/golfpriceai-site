@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-1914-stand-bag-golf-bag/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 269.0,
   "high": 289.0,
-  "average": 278.51,
+  "average": 278.35,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     269.0
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     269.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 32 days"
+  "summary": "Typical price: steady for 33 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/1914White2.jpg?v=1776257187",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

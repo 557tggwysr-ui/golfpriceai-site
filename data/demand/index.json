@@ -3,23 +3,23 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-03",
+ "date": "2026-11-04",
  "status": "warming up",
  "week": {
-  "from": "2026-10-28",
-  "to": "2026-11-03"
+  "from": "2026-10-29",
+  "to": "2026-11-04"
  },
  "chart": [],
  "wishfulThinking": [
   {
    "category": "Golf bags",
-   "averageGuessVsRealPricePct": 29,
-   "guesses": 39
+   "averageGuessVsRealPricePct": 27,
+   "guesses": 44
   },
   {
-   "category": "Hybrids",
-   "averageGuessVsRealPricePct": 17,
-   "guesses": 48
+   "category": "Putters",
+   "averageGuessVsRealPricePct": -24,
+   "guesses": 22
   },
   {
    "category": "Golf balls",

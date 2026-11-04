@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-king-max-irons/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 559.0,
@@ -24,7 +24,7 @@
   },
   {
    "name": "Affordable Golf",
-   "from": 779.0,
+   "from": 679.0,
    "options": 10
   },
   {
@@ -34,7 +34,7 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 559.0,
   "high": 559.0,
   "average": 559.0,
@@ -45,16 +45,16 @@
     559.0
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     559.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 80 days"
+  "summary": "Typical price: steady for 81 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-King-Max-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

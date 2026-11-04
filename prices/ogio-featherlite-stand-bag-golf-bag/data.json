@@ -3,7 +3,7 @@
  "brand": "Ogio",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ogio-featherlite-stand-bag-golf-bag/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 149.0,
   "high": 209.0,
-  "average": 186.63,
+  "average": 186.17,
   "priceChanges": 16,
   "series": [
    [
@@ -103,7 +103,7 @@
     149.0
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     149.0
    ]
   ]
@@ -114,5 +114,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/p_ogio-featherlite-stand-bag-volcanic-1000x1000-ogio-21.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

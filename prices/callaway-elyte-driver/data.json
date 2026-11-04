@@ -3,23 +3,24 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-elyte-driver/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 279.0,
  "lowestAt": [
+  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
+   "name": "Affordable Golf",
+   "from": 279.0,
+   "options": 16
+  },
+  {
    "name": "Clarkes Golf",
    "from": 279.0,
    "options": 8
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 329.0,
-   "options": 16
   },
   {
    "name": "Clickgolf",
@@ -38,10 +39,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 279.0,
   "high": 339.0,
-  "average": 330.75,
+  "average": 330.11,
   "priceChanges": 2,
   "series": [
    [
@@ -55,6 +56,10 @@
    [
     "2026-11-03",
     279.0
+   ],
+   [
+    "2026-11-04",
+    279.0
    ]
   ]
  },
@@ -62,7 +67,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-Golf-Driver-1.jpg?v=1737101554",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteDriver-X3.jpg?v=1776306338",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

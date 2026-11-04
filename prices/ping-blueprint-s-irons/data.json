@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/ping-blueprint-s-irons/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1129.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 1129.0,
   "high": 1259.0,
-  "average": 1210.97,
+  "average": 1209.96,
   "priceChanges": 3,
   "series": [
    [
@@ -51,16 +51,16 @@
     1129.0
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     1129.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 5 days"
+  "summary": "Typical price: steady for 6 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-Blueprint-S-Golf-Irons-Steel-2.jpg?v=1704341098",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

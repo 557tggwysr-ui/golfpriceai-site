@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-stealth-irons/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 599.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 599.0,
   "high": 629.0,
-  "average": 622.61,
+  "average": 622.23,
   "priceChanges": 1,
   "series": [
    [
@@ -44,16 +44,16 @@
     599.0
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     599.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 13 days"
+  "summary": "Typical price: steady for 14 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/taylormade_stealth_irons_10.jpg?v=1777973250",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

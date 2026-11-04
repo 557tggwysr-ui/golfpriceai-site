@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-storm-dry-waterproof-stand-bag-golf-bag/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -24,10 +24,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 199.0,
   "high": 219.0,
-  "average": 213.0,
+  "average": 213.07,
   "priceChanges": 16,
   "series": [
    [
@@ -99,7 +99,7 @@
     219.0
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     219.0
    ]
   ]
@@ -110,5 +110,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/M2396301-Storm-Dry-Stand-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

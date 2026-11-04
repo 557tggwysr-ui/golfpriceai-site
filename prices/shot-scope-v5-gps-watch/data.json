@@ -3,7 +3,7 @@
  "brand": "Shot Scope",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/shot-scope-v5-gps-watch/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 199.0,
   "high": 239.0,
-  "average": 222.72,
+  "average": 222.43,
   "priceChanges": 4,
   "series": [
    [
@@ -58,6 +58,10 @@
    [
     "2026-11-03",
     199.0
+   ],
+   [
+    "2026-11-04",
+    199.0
    ]
   ]
  },
@@ -67,5 +71,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Shot-Scope-V5-GPS-Golf-Watch-0.jpg?v=1712030904",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

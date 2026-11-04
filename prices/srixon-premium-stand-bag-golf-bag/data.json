@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/srixon-premium-stand-bag-golf-bag/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 159.95,
   "high": 184.0,
-  "average": 167.54,
+  "average": 167.44,
   "priceChanges": 9,
   "series": [
    [
@@ -70,16 +70,16 @@
     159.95
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     159.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 32 days"
+  "summary": "Typical price: steady for 33 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/SrixonPremiumStandBag-Black-RedCamo1.jpg?v=1776296731",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

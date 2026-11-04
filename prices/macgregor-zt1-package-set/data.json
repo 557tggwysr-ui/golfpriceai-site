@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/macgregor-zt1-package-set/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 419.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 389.0,
   "high": 429.0,
-  "average": 415.12,
+  "average": 415.17,
   "priceChanges": 19,
   "series": [
    [
@@ -110,7 +110,7 @@
     419.0
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     419.0
    ]
   ]
@@ -121,5 +121,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-MacGregor-ZT1-Steel-Golf-Package-Set-M-0.jpg?v=1718942727",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

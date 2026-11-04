@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-i-lock-organiser-cart-bag-golf-bag/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 144.0,
   "high": 169.0,
-  "average": 156.81,
+  "average": 156.96,
   "priceChanges": 15,
   "series": [
    [
@@ -89,7 +89,7 @@
     169.0
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     169.0
    ]
   ]
@@ -100,5 +100,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-I-Lock-Organiser-Golf-Cart-Bag-Grey-White-Black.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

@@ -1,66 +1,66 @@
 {
- "n": 17,
- "date": "2026-11-03",
+ "n": 18,
+ "date": "2026-11-04",
  "items": [
   {
-   "slug": "cobra-king-max-irons",
-   "name": "Cobra KING Max Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-King-Max-Irons-Hero.jpg",
-   "price": 559.0,
+   "slug": "wilson-staff-model-zm-wedge",
+   "name": "Wilson Staff Model ZM Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Wilson-Staff-Model-ZM-Golf-Wedge-9.jpg?v=1713931502",
+   "price": 99.0,
    "unit": "each",
-   "type": "iron set",
-   "low": false,
-   "url": "/prices/cobra-king-max-irons/"
+   "type": "wedge",
+   "low": true,
+   "url": "/prices/wilson-staff-model-zm-wedge/"
   },
   {
-   "slug": "titleist-gt2-hybrid",
-   "name": "Titleist GT2 Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-GT2-Hybrid-Hero.jpg",
+   "slug": "ping-scottsdale-tec-putter",
+   "name": "Ping Scottsdale TEC Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/AllyBlueH1.jpg?v=1776262845",
+   "price": 349.0,
+   "unit": "each",
+   "type": "putter",
+   "low": true,
+   "url": "/prices/ping-scottsdale-tec-putter/"
+  },
+  {
+   "slug": "titleist-gts3-driver",
+   "name": "Titleist GTS3 Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS3GolfDriver_1.jpg?v=1778746355",
+   "price": 629.0,
+   "unit": "each",
+   "type": "driver",
+   "low": false,
+   "url": "/prices/titleist-gts3-driver/"
+  },
+  {
+   "slug": "srixon-zxi-rkt-fairway-wood",
+   "name": "Srixon ZXi RKT Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ZXi-RKT-Fairway-Hero.jpg",
    "price": 299.0,
    "unit": "each",
-   "type": "hybrid",
-   "low": false,
-   "url": "/prices/titleist-gt2-hybrid/"
+   "type": "fairway wood",
+   "low": true,
+   "url": "/prices/srixon-zxi-rkt-fairway-wood/"
   },
   {
-   "slug": "taylormade-flextech-superlite-stand-bag-golf-bag",
-   "name": "TaylorMade FlexTech SuperLite Stand Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TM26ACC-JE958-M2341101-M2342301-Flextech-Super-Lite-Lite-Grey-Neon-Green-3QR-v1.png?v=1771068346",
-   "price": 159.0,
+   "slug": "nike-air-max-lite-stand-bag-golf-bag",
+   "name": "Nike Air Max Lite Stand Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ChatGPT_Image_Aug_4,_2026,_12_25_23_PM.png",
+   "price": 149.0,
    "unit": "each",
    "type": "golf bag",
    "low": false,
-   "url": "/prices/taylormade-flextech-superlite-stand-bag-golf-bag/"
-  },
-  {
-   "slug": "odyssey-damascus-milled-putter",
-   "name": "Odyssey Damascus Milled Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Damascus2CH1.jpg?v=1780529096",
-   "price": 499.0,
-   "unit": "each",
-   "type": "putter",
-   "low": false,
-   "url": "/prices/odyssey-damascus-milled-putter/"
-  },
-  {
-   "slug": "callaway-opus-sp-plus-brushed-chrome-wedge",
-   "name": "Callaway Opus SP+ Brushed Chrome Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/OpusSP_3.jpg?v=1783171424",
-   "price": 199.0,
-   "unit": "each",
-   "type": "wedge",
-   "low": false,
-   "url": "/prices/callaway-opus-sp-plus-brushed-chrome-wedge/"
+   "url": "/prices/nike-air-max-lite-stand-bag-golf-bag/"
   }
  ],
  "pin": {
-  "slug": "mizuno-jpx-one-driver",
-  "name": "Mizuno JPX ONE Driver",
-  "image": "https://www.clickgolf.co.uk/images/product/main/jpx-one-driver-hero.jpg",
-  "price": 429.0,
-  "unit": "each",
-  "type": "driver",
+  "slug": "taylormade-distance-plus-golf-balls",
+  "name": "TaylorMade Distance+ Golf Balls",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DISTANCE_2025WHITE1.jpg?v=1738751403",
+  "price": 21.95,
+  "unit": "per dozen",
+  "type": "golf ball",
   "low": false,
-  "url": "/prices/mizuno-jpx-one-driver/"
+  "url": "/prices/taylormade-distance-plus-golf-balls/"
  }
 }

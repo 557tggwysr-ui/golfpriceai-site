@@ -3,7 +3,7 @@
  "brand": "Garmin",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/garmin-approach-r50-premium-portable-launch-monitor/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 4299.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 3879.0,
   "high": 4299.0,
-  "average": 4147.52,
+  "average": 4149.97,
   "priceChanges": 2,
   "series": [
    [
@@ -37,7 +37,7 @@
     4299.0
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     4299.0
    ]
   ]
@@ -48,5 +48,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/R50_11.jpg?v=1776312501",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

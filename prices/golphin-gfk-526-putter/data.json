@@ -1,0 +1,44 @@
+{
+ "name": "GolPhin GFK 526 Putter",
+ "brand": "GolPhin",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/golphin-gfk-526-putter/",
+ "checked": "2026-11-04",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 14.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 14.99,
+   "options": 8
+  }
+ ],
+ "history": {
+  "daysTracked": 62,
+  "low": 14.99,
+  "high": 14.99,
+  "average": 14.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    14.99
+   ],
+   [
+    "2026-11-04",
+    14.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 62 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GolphinPutter7.jpg?v=1782293120",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-04"
+}

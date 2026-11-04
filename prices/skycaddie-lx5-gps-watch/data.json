@@ -3,7 +3,7 @@
  "brand": "SkyCaddie",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/skycaddie-lx5-gps-watch/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 199.95,
   "high": 249.0,
-  "average": 228.8,
+  "average": 228.38,
   "priceChanges": 1,
   "series": [
    [
@@ -43,7 +43,7 @@
     199.95
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     199.95
    ]
   ]
@@ -54,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/skycaddie_lx5_gps_golf_watch_5.jpg?v=1777974004",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

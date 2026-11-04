@@ -3,26 +3,26 @@
  "brand": "Sun Mountain",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/sun-mountain-eclipse-e2-5-h2no-waterproof-stand-bag-golf-bag/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 259.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 259.0,
+   "from": 199.0,
    "options": 4
   }
  ],
  "history": {
-  "daysTracked": 61,
-  "low": 249.0,
+  "daysTracked": 62,
+  "low": 199.0,
   "high": 259.0,
-  "average": 257.52,
-  "priceChanges": 2,
+  "average": 256.58,
+  "priceChanges": 3,
   "series": [
    [
     "2026-09-04",
@@ -37,16 +37,16 @@
     259.0
    ],
    [
-    "2026-11-03",
-    259.0
+    "2026-11-04",
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/26E25H2NO-BNR.jpg?v=1773180621",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

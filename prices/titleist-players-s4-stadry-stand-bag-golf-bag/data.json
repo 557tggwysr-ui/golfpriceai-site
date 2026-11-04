@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/titleist-players-s4-stadry-stand-bag-golf-bag/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 204.0,
   "high": 229.0,
-  "average": 222.62,
+  "average": 222.7,
   "priceChanges": 10,
   "series": [
    [
@@ -72,6 +72,10 @@
    [
     "2026-11-03",
     229.0
+   ],
+   [
+    "2026-11-04",
+    229.0
    ]
   ]
  },
@@ -81,5 +85,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX2-482-S4-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

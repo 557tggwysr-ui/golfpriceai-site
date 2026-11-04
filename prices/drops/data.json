@@ -1,8 +1,48 @@
 {
- "checked": "2026-11-03T22:59+00:00",
+ "checked": "2026-11-04T05:04+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Sun Mountain Eclipse E2.5 H2NO Waterproof Stand Bag Golf Bag",
+   "model_id": "sun-mountain-eclipse-e2-5-h2no-waterproof-stand-bag-golf-bag",
+   "date": "2026-11-04",
+   "was": 259.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/sun-mountain-eclipse-e2-5-h2no-waterproof-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Sun Mountain Eclipse E4.5 H2NO Waterproof Stand Bag Golf Bag",
+   "model_id": "sun-mountain-eclipse-e4-5-h2no-waterproof-stand-bag-golf-bag",
+   "date": "2026-11-04",
+   "was": 299.0,
+   "now": 239.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/sun-mountain-eclipse-e4-5-h2no-waterproof-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Callaway Elyte Fairway Wood",
+   "model_id": "callaway-elyte-fairway-wood",
+   "date": "2026-11-04",
+   "was": 219.0,
+   "now": 179.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-fairway-wood/"
+  },
+  {
+   "model": "Sun Mountain Eclipse E3.5 H2NO Waterproof Stand Bag Golf Bag",
+   "model_id": "sun-mountain-eclipse-e3-5-h2no-waterproof-stand-bag-golf-bag",
+   "date": "2026-11-04",
+   "was": 259.0,
+   "now": 219.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/sun-mountain-eclipse-e3-5-h2no-waterproof-stand-bag-golf-bag/"
+  },
   {
    "model": "Shot Scope Pro L5 Rangefinder",
    "model_id": "shot-scope-pro-l5-rangefinder",

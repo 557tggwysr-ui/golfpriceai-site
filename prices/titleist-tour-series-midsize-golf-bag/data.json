@@ -1,0 +1,44 @@
+{
+ "name": "Titleist Tour Series Midsize Golf Bag",
+ "brand": "Titleist",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/titleist-tour-series-midsize-golf-bag/",
+ "checked": "2026-11-04",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 259.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 259.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 259.0,
+  "high": 259.0,
+  "average": 259.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-06",
+    259.0
+   ],
+   [
+    "2026-11-04",
+    259.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/titleist_tour_series_midsize_cart_bag_1.jpg?v=1777976229",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-04"
+}

@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-kalea-stand-bag-golf-bag/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.95,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 179.95,
   "high": 189.95,
-  "average": 182.08,
+  "average": 182.05,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     179.95
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     179.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "summary": "Typical price: steady for 49 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeKaleaGoldLadiesStandBag-Navy1.jpg?v=1776303743",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

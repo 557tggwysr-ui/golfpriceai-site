@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/titleist-gt3-driver/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 449.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 449.0,
   "high": 499.0,
-  "average": 470.31,
+  "average": 469.97,
   "priceChanges": 1,
   "series": [
    [
@@ -44,16 +44,16 @@
     449.0
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     449.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 35 days"
+  "summary": "Typical price: steady for 36 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TitleistGT3Driver5_b276c76c-17e9-435f-852d-1cbd96fedb5b.jpg?v=1777950479",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }

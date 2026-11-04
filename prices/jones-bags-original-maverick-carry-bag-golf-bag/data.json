@@ -3,7 +3,7 @@
  "brand": "Jones",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/jones-bags-original-maverick-carry-bag-golf-bag/",
- "checked": "2026-11-03",
+ "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 152.1,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 61,
+  "daysTracked": 62,
   "low": 152.1,
   "high": 152.1,
   "average": 152.1,
@@ -29,16 +29,16 @@
     152.1
    ],
    [
-    "2026-11-03",
+    "2026-11-04",
     152.1
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 61 days"
+  "summary": "Typical price: steady for 62 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/jones-original-maverick-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-03"
+ "changed": "2026-11-04"
 }
