@@ -4,17 +4,16 @@
   "driver-300": {
    "above": {
     "callaway-quantum-driver": 529.0,
-    "callaway-quantum-max-d-driver": 529.0,
-    "callaway-quantum-max-driver": 529.0,
-    "callaway-quantum-mini-driver": 429.0,
-    "callaway-quantum-triple-diamond-driver": 569.0,
-    "callaway-quantum-triple-diamond-max-driver": 569.0,
+    "callaway-quantum-max-d-driver": 465.0,
+    "callaway-quantum-max-driver": 465.0,
+    "callaway-quantum-mini-driver": 365.0,
+    "callaway-quantum-triple-diamond-driver": 485.0,
+    "callaway-quantum-triple-diamond-max-driver": 485.0,
     "callaway-reva-rise-driver": 399.0,
-    "cobra-ds-adapt-driver": 329.0,
     "cobra-king-tec-mini-driver": 379.0,
     "cobra-optm-driver": 479.0,
     "cobra-optm-ls-driver": 399.0,
-    "cobra-optm-max-d-driver": 479.0,
+    "cobra-optm-max-d-driver": 399.0,
     "cobra-optm-max-k-driver": 399.0,
     "cobra-optm-x-driver": 399.0,
     "mizuno-jpx-one-driver": 399.0,
@@ -46,10 +45,10 @@
     "taylormade-qi4d-max-driver": 549.0,
     "taylormade-qi4d-max-lite-driver": 549.0,
     "taylormade-r7-quad-mini-driver": 379.0,
-    "titleist-gt1-driver": 449.0,
-    "titleist-gt2-driver": 449.0,
+    "titleist-gt1-driver": 419.0,
+    "titleist-gt2-driver": 419.0,
     "titleist-gt280-mini-driver": 439.0,
-    "titleist-gt3-driver": 449.0,
+    "titleist-gt3-driver": 419.0,
     "titleist-gt4-driver": 399.0,
     "titleist-gts2-driver": 629.0,
     "titleist-gts3-driver": 629.0,
@@ -72,6 +71,7 @@
     "cobra-baffler-driver",
     "cobra-baffler-offset-driver",
     "cobra-darkspeed-ls-driver",
+    "cobra-ds-adapt-driver",
     "cobra-ds-adapt-ls-driver",
     "cobra-ds-adapt-max-d-driver",
     "cobra-ds-adapt-max-k-driver",
@@ -116,7 +116,7 @@
  },
  "remind": "2026-11-04",
  "sent": {
-  "2026-11-04": 0
+  "2026-11-04": 1
  },
  "stock": {
   "apparel-adidas-rain-rdy-waterproof-golf-jacket-hn4128-black-m-majorgolf": {
