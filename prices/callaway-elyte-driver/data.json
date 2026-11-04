@@ -9,7 +9,8 @@
  "lowestNewPrice": 279.0,
  "lowestAt": [
   "Affordable Golf",
-  "Clarkes Golf"
+  "Clarkes Golf",
+  "Clickgolf"
  ],
  "retailers": [
   {
@@ -24,7 +25,7 @@
   },
   {
    "name": "Clickgolf",
-   "from": 339.0,
+   "from": 279.0,
    "options": 3
   },
   {
@@ -67,7 +68,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteDriver-X3.jpg?v=1776306338",
+ "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-driver-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-04"
 }

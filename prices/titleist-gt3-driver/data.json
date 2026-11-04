@@ -6,21 +6,20 @@
  "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 449.0,
+ "lowestNewPrice": 419.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
+   "name": "Clarkes Golf",
+   "from": 419.0,
+   "options": 11
+  },
+  {
    "name": "Affordable Golf",
    "from": 449.0,
    "options": 9
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 449.0,
-   "options": 11
   },
   {
    "name": "Scottsdale Golf",
@@ -30,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 62,
-  "low": 449.0,
+  "low": 419.0,
   "high": 499.0,
-  "average": 469.97,
-  "priceChanges": 1,
+  "average": 469.48,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -45,15 +44,15 @@
    ],
    [
     "2026-11-04",
-    449.0
+    419.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 36 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TitleistGT3Driver5_b276c76c-17e9-435f-852d-1cbd96fedb5b.jpg?v=1777950479",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Titleist-GT3-Golf-Driver-Premium-Shafts-1.jpg?v=1724400530",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-04"
 }

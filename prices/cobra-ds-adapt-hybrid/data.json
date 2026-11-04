@@ -6,28 +6,28 @@
  "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 159.95,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 159.95,
+   "options": 4
+  },
   {
    "name": "Clickgolf",
    "from": 179.0,
    "options": 1
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 179.95,
-   "options": 4
   }
  ],
  "history": {
   "daysTracked": 81,
-  "low": 179.0,
+  "low": 159.95,
   "high": 179.0,
-  "average": 179.0,
-  "priceChanges": 0,
+  "average": 178.76,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -35,15 +35,15 @@
    ],
    [
     "2026-11-04",
-    179.0
+    159.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 81 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-DS-ADAPT-Hybrid-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CobraDS-AdaptHybrid3.jpg?v=1776308890",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-04"
 }

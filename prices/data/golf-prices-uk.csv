@@ -7,11 +7,11 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,callaway-elyte-x-driver,Callaway Elyte X Driver,Callaway,driver,279.00,each,3,81,279.00,339.00,good,https://golfpriceai.com/prices/callaway-elyte-x-driver/
 2026-11-04,callaway-paradym-ai-smoke-max-driver,Callaway Paradym Ai Smoke Max Driver,Callaway,driver,299.00,each,3,69,299.00,299.00,typical,https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-driver/
 2026-11-04,callaway-quantum-driver,Callaway Quantum Driver,Callaway,driver,529.00,each,1,69,529.00,529.00,typical,https://golfpriceai.com/prices/callaway-quantum-driver/
-2026-11-04,callaway-quantum-max-d-driver,Callaway Quantum Max D Driver,Callaway,driver,529.00,each,5,81,529.00,529.00,typical,https://golfpriceai.com/prices/callaway-quantum-max-d-driver/
-2026-11-04,callaway-quantum-max-driver,Callaway Quantum Max Driver,Callaway,driver,529.00,each,5,81,529.00,529.00,typical,https://golfpriceai.com/prices/callaway-quantum-max-driver/
-2026-11-04,callaway-quantum-mini-driver,Callaway Quantum Mini Driver,Callaway,driver,429.00,each,4,81,429.00,429.00,typical,https://golfpriceai.com/prices/callaway-quantum-mini-driver/
-2026-11-04,callaway-quantum-triple-diamond-driver,Callaway Quantum Triple Diamond Driver,Callaway,driver,569.00,each,3,81,569.00,569.00,typical,https://golfpriceai.com/prices/callaway-quantum-triple-diamond-driver/
-2026-11-04,callaway-quantum-triple-diamond-max-driver,Callaway Quantum Triple Diamond Max Driver,Callaway,driver,569.00,each,3,81,569.00,569.00,typical,https://golfpriceai.com/prices/callaway-quantum-triple-diamond-max-driver/
+2026-11-04,callaway-quantum-max-d-driver,Callaway Quantum Max D Driver,Callaway,driver,465.00,each,5,81,465.00,529.00,good,https://golfpriceai.com/prices/callaway-quantum-max-d-driver/
+2026-11-04,callaway-quantum-max-driver,Callaway Quantum Max Driver,Callaway,driver,465.00,each,5,81,465.00,529.00,good,https://golfpriceai.com/prices/callaway-quantum-max-driver/
+2026-11-04,callaway-quantum-mini-driver,Callaway Quantum Mini Driver,Callaway,driver,365.00,each,4,81,365.00,429.00,good,https://golfpriceai.com/prices/callaway-quantum-mini-driver/
+2026-11-04,callaway-quantum-triple-diamond-driver,Callaway Quantum Triple Diamond Driver,Callaway,driver,485.00,each,3,81,485.00,569.00,good,https://golfpriceai.com/prices/callaway-quantum-triple-diamond-driver/
+2026-11-04,callaway-quantum-triple-diamond-max-driver,Callaway Quantum Triple Diamond Max Driver,Callaway,driver,485.00,each,3,81,485.00,569.00,good,https://golfpriceai.com/prices/callaway-quantum-triple-diamond-max-driver/
 2026-11-04,callaway-reva-rise-driver,Callaway Reva Rise Driver,Callaway,driver,399.00,each,2,81,399.00,469.00,good,https://golfpriceai.com/prices/callaway-reva-rise-driver/
 2026-11-04,cleveland-hibore-xl-driver,Cleveland HiBore XL Driver,Cleveland,driver,199.00,each,2,81,199.00,229.00,good,https://golfpriceai.com/prices/cleveland-hibore-xl-driver/
 2026-11-04,cleveland-hibore-xl-lite-driver,Cleveland HiBore XL Lite Driver,Cleveland,driver,199.00,each,2,81,199.00,229.00,good,https://golfpriceai.com/prices/cleveland-hibore-xl-lite-driver/
@@ -19,7 +19,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,cleveland-launcher-xl2-driver,Cleveland Launcher XL2 Driver,Cleveland,driver,179.00,each,3,81,179.00,199.00,good,https://golfpriceai.com/prices/cleveland-launcher-xl2-driver/
 2026-11-04,cobra-baffler-driver,Cobra Baffler Driver,Cobra,driver,299.00,each,3,81,299.00,299.00,typical,https://golfpriceai.com/prices/cobra-baffler-driver/
 2026-11-04,cobra-baffler-offset-driver,Cobra Baffler Offset Driver,Cobra,driver,299.00,each,3,81,299.00,299.00,typical,https://golfpriceai.com/prices/cobra-baffler-offset-driver/
-2026-11-04,cobra-ds-adapt-driver,Cobra DS-Adapt Driver,Cobra,driver,329.00,each,1,62,329.00,329.00,typical,https://golfpriceai.com/prices/cobra-ds-adapt-driver/
+2026-11-04,cobra-ds-adapt-driver,Cobra DS-Adapt Driver,Cobra,driver,299.00,each,1,62,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-driver/
 2026-11-04,cobra-ds-adapt-ls-driver,Cobra DS-Adapt LS Driver,Cobra,driver,299.00,each,3,81,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-ls-driver/
 2026-11-04,cobra-ds-adapt-max-d-driver,Cobra DS-Adapt Max D Driver,Cobra,driver,299.00,each,2,81,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-max-d-driver/
 2026-11-04,cobra-ds-adapt-max-k-driver,Cobra DS-Adapt Max K Driver,Cobra,driver,299.00,each,2,81,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-max-k-driver/
@@ -28,10 +28,10 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,cobra-king-tec-mini-driver,Cobra KING TEC Mini Driver,Cobra,driver,379.00,each,3,81,379.00,379.00,typical,https://golfpriceai.com/prices/cobra-king-tec-mini-driver/
 2026-11-04,cobra-optm-driver,Cobra OPTM Driver,Cobra,driver,479.00,each,1,62,479.00,479.00,typical,https://golfpriceai.com/prices/cobra-optm-driver/
 2026-11-04,cobra-optm-ls-driver,Cobra OPTM LS Driver,Cobra,driver,399.00,each,2,81,399.00,479.00,good,https://golfpriceai.com/prices/cobra-optm-ls-driver/
-2026-11-04,cobra-optm-max-d-driver,Cobra OPTM MAX-D Driver,Cobra,driver,479.00,each,3,81,479.00,479.00,typical,https://golfpriceai.com/prices/cobra-optm-max-d-driver/
+2026-11-04,cobra-optm-max-d-driver,Cobra OPTM MAX-D Driver,Cobra,driver,399.00,each,3,81,399.00,479.00,good,https://golfpriceai.com/prices/cobra-optm-max-d-driver/
 2026-11-04,cobra-optm-max-k-driver,Cobra OPTM MAX-K Driver,Cobra,driver,399.00,each,3,81,399.00,479.00,good,https://golfpriceai.com/prices/cobra-optm-max-k-driver/
 2026-11-04,cobra-optm-x-driver,Cobra OPTM X Driver,Cobra,driver,399.00,each,3,81,399.00,479.00,good,https://golfpriceai.com/prices/cobra-optm-x-driver/
-2026-11-04,cobra-rad-s-driver,Cobra RAD-S Driver,Cobra,driver,219.00,each,3,81,219.00,249.00,good,https://golfpriceai.com/prices/cobra-rad-s-driver/
+2026-11-04,cobra-rad-s-driver,Cobra RAD-S Driver,Cobra,driver,199.00,each,3,81,199.00,249.00,good,https://golfpriceai.com/prices/cobra-rad-s-driver/
 2026-11-04,fujikura-extra-stiff-driver,Fujikura Extra Stiff Driver,Fujikura,driver,59.99,each,1,62,59.99,119.99,good,https://golfpriceai.com/prices/fujikura-extra-stiff-driver/
 2026-11-04,golfway-champion-driver,Golfway Champion Driver,Golfway,driver,24.99,each,1,62,24.99,24.99,typical,https://golfpriceai.com/prices/golfway-champion-driver/
 2026-11-04,macgregor-zt-plus-driver,MacGregor ZT Plus Driver,MacGregor,driver,139.00,each,3,69,139.00,139.00,typical,https://golfpriceai.com/prices/macgregor-zt-plus-driver/
@@ -66,10 +66,10 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,taylormade-qi4d-max-driver,TaylorMade Qi4D Max Driver,TaylorMade,driver,549.00,each,3,81,549.00,549.00,typical,https://golfpriceai.com/prices/taylormade-qi4d-max-driver/
 2026-11-04,taylormade-qi4d-max-lite-driver,TaylorMade Qi4D Max Lite Driver,TaylorMade,driver,549.00,each,2,81,549.00,549.00,typical,https://golfpriceai.com/prices/taylormade-qi4d-max-lite-driver/
 2026-11-04,taylormade-r7-quad-mini-driver,TaylorMade R7 Quad Mini Driver,TaylorMade,driver,379.00,each,3,81,379.00,399.00,typical,https://golfpriceai.com/prices/taylormade-r7-quad-mini-driver/
-2026-11-04,titleist-gt1-driver,Titleist GT1 Driver,Titleist,driver,449.00,each,3,81,449.00,499.00,good,https://golfpriceai.com/prices/titleist-gt1-driver/
-2026-11-04,titleist-gt2-driver,Titleist GT2 Driver,Titleist,driver,449.00,each,3,69,399.00,399.00,typical,https://golfpriceai.com/prices/titleist-gt2-driver/
+2026-11-04,titleist-gt1-driver,Titleist GT1 Driver,Titleist,driver,419.00,each,3,81,419.00,499.00,good,https://golfpriceai.com/prices/titleist-gt1-driver/
+2026-11-04,titleist-gt2-driver,Titleist GT2 Driver,Titleist,driver,419.00,each,3,69,399.00,399.00,typical,https://golfpriceai.com/prices/titleist-gt2-driver/
 2026-11-04,titleist-gt280-mini-driver,Titleist GT280 Mini Driver,Titleist,driver,439.00,each,4,81,439.00,459.00,typical,https://golfpriceai.com/prices/titleist-gt280-mini-driver/
-2026-11-04,titleist-gt3-driver,Titleist GT3 Driver,Titleist,driver,449.00,each,3,62,449.00,499.00,typical,https://golfpriceai.com/prices/titleist-gt3-driver/
+2026-11-04,titleist-gt3-driver,Titleist GT3 Driver,Titleist,driver,419.00,each,3,62,419.00,499.00,good,https://golfpriceai.com/prices/titleist-gt3-driver/
 2026-11-04,titleist-gt4-driver,Titleist GT4 Driver,Titleist,driver,399.00,each,4,81,399.00,399.00,typical,https://golfpriceai.com/prices/titleist-gt4-driver/
 2026-11-04,titleist-gts2-driver,Titleist GTS2 Driver,Titleist,driver,629.00,each,3,69,629.00,629.00,typical,https://golfpriceai.com/prices/titleist-gts2-driver/
 2026-11-04,titleist-gts3-driver,Titleist GTS3 Driver,Titleist,driver,629.00,each,3,69,629.00,629.00,typical,https://golfpriceai.com/prices/titleist-gts3-driver/
@@ -91,7 +91,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,callaway-apex-tour-certified-utility-fairway-wood,Callaway Apex Tour Certified Utility Fairway Wood,Callaway,fairway wood,199.00,each,1,62,199.00,229.00,good,https://golfpriceai.com/prices/callaway-apex-tour-certified-utility-fairway-wood/
 2026-11-04,callaway-apex-uw-utility-fairway-wood,Callaway Apex UW Utility Fairway Wood,Callaway,fairway wood,299.00,each,2,81,179.00,299.00,wait,https://golfpriceai.com/prices/callaway-apex-uw-utility-fairway-wood/
 2026-11-04,callaway-apex-utility-fairway-wood,Callaway Apex Utility Fairway Wood,Callaway,fairway wood,299.00,each,2,81,299.00,339.00,good,https://golfpriceai.com/prices/callaway-apex-utility-fairway-wood/
-2026-11-04,callaway-elyte-fairway-wood,Callaway Elyte Fairway Wood,Callaway,fairway wood,179.95,each,5,81,179.95,239.00,good,https://golfpriceai.com/prices/callaway-elyte-fairway-wood/
+2026-11-04,callaway-elyte-fairway-wood,Callaway Elyte Fairway Wood,Callaway,fairway wood,179.00,each,5,81,179.00,239.00,good,https://golfpriceai.com/prices/callaway-elyte-fairway-wood/
 2026-11-04,callaway-elyte-tour-certified-fairway-wood,Callaway Elyte Tour Certified Fairway Wood,Callaway,fairway wood,179.00,each,1,62,179.00,229.00,good,https://golfpriceai.com/prices/callaway-elyte-tour-certified-fairway-wood/
 2026-11-04,callaway-elyte-triple-diamond-fairway-wood,Callaway Elyte Triple Diamond Fairway Wood,Callaway,fairway wood,249.00,each,2,81,249.00,359.00,good,https://golfpriceai.com/prices/callaway-elyte-triple-diamond-fairway-wood/
 2026-11-04,callaway-elyte-x-fairway-wood,Callaway Elyte X Fairway Wood,Callaway,fairway wood,229.00,each,3,81,229.00,239.00,typical,https://golfpriceai.com/prices/callaway-elyte-x-fairway-wood/
@@ -99,25 +99,25 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,callaway-paradym-ai-smoke-max-fairway-wood,Callaway Paradym Ai Smoke Max Fairway Wood,Callaway,fairway wood,288.04,each,2,81,288.04,379.00,typical,https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-fairway-wood/
 2026-11-04,callaway-paradym-fairway-wood,Callaway Paradym Fairway Wood,Callaway,fairway wood,149.95,each,2,62,149.95,149.95,typical,https://golfpriceai.com/prices/callaway-paradym-fairway-wood/
 2026-11-04,callaway-quantum-fairway-wood,Callaway Quantum Fairway Wood,Callaway,fairway wood,319.00,each,1,62,319.00,319.00,typical,https://golfpriceai.com/prices/callaway-quantum-fairway-wood/
-2026-11-04,callaway-quantum-max-d-fairway-wood,Callaway Quantum Max D Fairway Wood,Callaway,fairway wood,319.00,each,4,81,319.00,319.00,typical,https://golfpriceai.com/prices/callaway-quantum-max-d-fairway-wood/
-2026-11-04,callaway-quantum-max-fairway-wood,Callaway Quantum Max Fairway Wood,Callaway,fairway wood,319.00,each,5,81,319.00,319.00,typical,https://golfpriceai.com/prices/callaway-quantum-max-fairway-wood/
+2026-11-04,callaway-quantum-max-d-fairway-wood,Callaway Quantum Max D Fairway Wood,Callaway,fairway wood,269.00,each,4,81,269.00,319.00,good,https://golfpriceai.com/prices/callaway-quantum-max-d-fairway-wood/
+2026-11-04,callaway-quantum-max-fairway-wood,Callaway Quantum Max Fairway Wood,Callaway,fairway wood,269.00,each,5,81,269.00,319.00,good,https://golfpriceai.com/prices/callaway-quantum-max-fairway-wood/
 2026-11-04,callaway-quantum-mini-spinner-fairway-wood,Callaway Quantum Mini Spinner Fairway Wood,Callaway,fairway wood,319.00,each,4,81,319.00,319.00,typical,https://golfpriceai.com/prices/callaway-quantum-mini-spinner-fairway-wood/
-2026-11-04,callaway-quantum-ti-fairway-wood,Callaway Quantum Ti Fairway Wood,Callaway,fairway wood,399.00,each,3,81,399.00,399.00,typical,https://golfpriceai.com/prices/callaway-quantum-ti-fairway-wood/
-2026-11-04,callaway-quantum-triple-diamond-fairway-wood,Callaway Quantum Triple Diamond Fairway Wood,Callaway,fairway wood,329.00,each,3,81,329.00,329.00,typical,https://golfpriceai.com/prices/callaway-quantum-triple-diamond-fairway-wood/
+2026-11-04,callaway-quantum-ti-fairway-wood,Callaway Quantum Ti Fairway Wood,Callaway,fairway wood,339.00,each,3,81,339.00,399.00,good,https://golfpriceai.com/prices/callaway-quantum-ti-fairway-wood/
+2026-11-04,callaway-quantum-triple-diamond-fairway-wood,Callaway Quantum Triple Diamond Fairway Wood,Callaway,fairway wood,269.00,each,3,81,269.00,329.00,good,https://golfpriceai.com/prices/callaway-quantum-triple-diamond-fairway-wood/
 2026-11-04,callaway-reva-rise-fairway-wood,Callaway Reva Rise Fairway Wood,Callaway,fairway wood,249.00,each,2,81,249.00,289.00,good,https://golfpriceai.com/prices/callaway-reva-rise-fairway-wood/
 2026-11-04,cleveland-halo-xl-fairway-wood,Cleveland Halo XL Fairway Wood,Cleveland,fairway wood,119.95,each,2,81,119.95,149.00,good,https://golfpriceai.com/prices/cleveland-halo-xl-fairway-wood/
 2026-11-04,cleveland-halo-xl-hy-wood,Cleveland Halo XL Hy-Wood,Cleveland,fairway wood,119.95,each,2,81,119.95,149.00,good,https://golfpriceai.com/prices/cleveland-halo-xl-hy-wood/
 2026-11-04,cleveland-halo-xl-lite-fairway-wood,Cleveland Halo XL Lite Fairway Wood,Cleveland,fairway wood,129.95,each,2,81,129.95,149.00,typical,https://golfpriceai.com/prices/cleveland-halo-xl-lite-fairway-wood/
 2026-11-04,cobra-baffler-fairway-wood,Cobra Baffler Fairway Wood,Cobra,fairway wood,189.00,each,4,81,189.00,189.00,typical,https://golfpriceai.com/prices/cobra-baffler-fairway-wood/
-2026-11-04,cobra-ds-adapt-fairway-wood,Cobra DS-Adapt Fairway Wood,Cobra,fairway wood,179.95,each,1,62,179.95,199.95,good,https://golfpriceai.com/prices/cobra-ds-adapt-fairway-wood/
+2026-11-04,cobra-ds-adapt-fairway-wood,Cobra DS-Adapt Fairway Wood,Cobra,fairway wood,189.95,each,1,62,179.95,199.95,wait,https://golfpriceai.com/prices/cobra-ds-adapt-fairway-wood/
 2026-11-04,cobra-ds-adapt-ls-fairway-wood,Cobra DS-Adapt LS Fairway Wood,Cobra,fairway wood,189.00,each,2,69,189.00,199.00,typical,https://golfpriceai.com/prices/cobra-ds-adapt-ls-fairway-wood/
 2026-11-04,cobra-ds-adapt-x-fairway-wood,Cobra DS-Adapt X Fairway Wood,Cobra,fairway wood,189.00,each,3,81,189.00,199.00,typical,https://golfpriceai.com/prices/cobra-ds-adapt-x-fairway-wood/
 2026-11-04,cobra-darkspeed-fairway-wood,Cobra Darkspeed Fairway Wood,Cobra,fairway wood,169.00,each,1,62,169.00,189.00,typical,https://golfpriceai.com/prices/cobra-darkspeed-fairway-wood/
 2026-11-04,cobra-darkspeed-max-fairway-wood,Cobra Darkspeed Max Fairway Wood,Cobra,fairway wood,189.00,each,2,81,189.00,189.00,typical,https://golfpriceai.com/prices/cobra-darkspeed-max-fairway-wood/
 2026-11-04,cobra-optm-fairway-wood,Cobra OPTM Fairway Wood,Cobra,fairway wood,299.00,each,1,62,299.00,299.00,typical,https://golfpriceai.com/prices/cobra-optm-fairway-wood/
-2026-11-04,cobra-optm-ls-fairway-wood,Cobra OPTM LS Fairway Wood,Cobra,fairway wood,349.00,each,3,81,349.00,349.00,typical,https://golfpriceai.com/prices/cobra-optm-ls-fairway-wood/
+2026-11-04,cobra-optm-ls-fairway-wood,Cobra OPTM LS Fairway Wood,Cobra,fairway wood,299.00,each,3,81,299.00,349.00,good,https://golfpriceai.com/prices/cobra-optm-ls-fairway-wood/
 2026-11-04,cobra-optm-max-fairway-wood,Cobra OPTM Max Fairway Wood,Cobra,fairway wood,249.00,each,2,81,249.00,299.00,good,https://golfpriceai.com/prices/cobra-optm-max-fairway-wood/
-2026-11-04,cobra-optm-x-fairway-wood,Cobra OPTM X Fairway Wood,Cobra,fairway wood,279.00,each,3,81,279.00,299.00,typical,https://golfpriceai.com/prices/cobra-optm-x-fairway-wood/
+2026-11-04,cobra-optm-x-fairway-wood,Cobra OPTM X Fairway Wood,Cobra,fairway wood,249.00,each,3,81,249.00,299.00,good,https://golfpriceai.com/prices/cobra-optm-x-fairway-wood/
 2026-11-04,cobra-rad-s-fairway-wood,Cobra RAD-S Fairway Wood,Cobra,fairway wood,169.00,each,3,81,169.00,179.00,good,https://golfpriceai.com/prices/cobra-rad-s-fairway-wood/
 2026-11-04,golfway-champion-fairway-wood,Golfway Champion Fairway Wood,Golfway,fairway wood,24.99,each,1,62,24.99,24.99,typical,https://golfpriceai.com/prices/golfway-champion-fairway-wood/
 2026-11-04,golfway-champion-youth-fairway-wood,Golfway Champion Youth Fairway Wood,Golfway,fairway wood,29.99,each,1,62,29.99,29.99,typical,https://golfpriceai.com/prices/golfway-champion-youth-fairway-wood/
@@ -155,20 +155,21 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,yonex-ezone-gt3-fairway-wood,Yonex EZONE GT3 Fairway Wood,Yonex,fairway wood,139.95,each,1,62,139.95,149.95,good,https://golfpriceai.com/prices/yonex-ezone-gt3-fairway-wood/
 2026-11-04,yonex-ezone-elite-fairway-wood,Yonex Ezone Elite Fairway Wood,Yonex,fairway wood,149.95,each,2,81,149.95,199.00,typical,https://golfpriceai.com/prices/yonex-ezone-elite-fairway-wood/
 2026-11-04,yonex-ezone-gs-i-tech-fairway-wood,Yonex Ezone GS i-Tech Fairway Wood,Yonex,fairway wood,119.95,each,2,62,119.95,119.95,typical,https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-fairway-wood/
+2026-11-04,yonex-ezone-gt4-fairway-wood,Yonex Ezone GT4 Fairway Wood,Yonex,fairway wood,329.00,each,2,62,329.00,329.00,typical,https://golfpriceai.com/prices/yonex-ezone-gt4-fairway-wood/
 2026-11-04,callaway-elyte-hybrid,Callaway Elyte Hybrid,Callaway,hybrid,149.00,each,5,81,149.00,179.00,good,https://golfpriceai.com/prices/callaway-elyte-hybrid/
 2026-11-04,callaway-elyte-tour-certified-hybrid,Callaway Elyte Tour Certified Hybrid,Callaway,hybrid,149.95,each,1,62,149.95,169.95,good,https://golfpriceai.com/prices/callaway-elyte-tour-certified-hybrid/
 2026-11-04,callaway-elyte-x-hybrid,Callaway Elyte X Hybrid,Callaway,hybrid,169.00,each,3,81,169.00,179.00,good,https://golfpriceai.com/prices/callaway-elyte-x-hybrid/
 2026-11-04,callaway-quantum-hybrid,Callaway Quantum Hybrid,Callaway,hybrid,269.00,each,1,62,269.00,269.00,typical,https://golfpriceai.com/prices/callaway-quantum-hybrid/
-2026-11-04,callaway-quantum-max-fast-hybrid,Callaway Quantum Max Fast Hybrid,Callaway,hybrid,269.00,each,2,81,269.00,329.00,good,https://golfpriceai.com/prices/callaway-quantum-max-fast-hybrid/
-2026-11-04,callaway-quantum-max-hybrid,Callaway Quantum Max Hybrid,Callaway,hybrid,269.00,each,4,81,269.00,269.00,typical,https://golfpriceai.com/prices/callaway-quantum-max-hybrid/
-2026-11-04,callaway-quantum-max-os-hybrid,Callaway Quantum Max OS Hybrid,Callaway,hybrid,269.00,each,5,81,269.00,269.00,typical,https://golfpriceai.com/prices/callaway-quantum-max-os-hybrid/
+2026-11-04,callaway-quantum-max-fast-hybrid,Callaway Quantum Max Fast Hybrid,Callaway,hybrid,229.00,each,2,81,229.00,329.00,good,https://golfpriceai.com/prices/callaway-quantum-max-fast-hybrid/
+2026-11-04,callaway-quantum-max-hybrid,Callaway Quantum Max Hybrid,Callaway,hybrid,229.00,each,4,81,229.00,269.00,good,https://golfpriceai.com/prices/callaway-quantum-max-hybrid/
+2026-11-04,callaway-quantum-max-os-hybrid,Callaway Quantum Max OS Hybrid,Callaway,hybrid,229.00,each,5,81,229.00,269.00,good,https://golfpriceai.com/prices/callaway-quantum-max-os-hybrid/
 2026-11-04,cleveland-halo-xl-hybrid,Cleveland Halo XL Hybrid,Cleveland,hybrid,109.00,each,2,81,99.00,129.00,typical,https://golfpriceai.com/prices/cleveland-halo-xl-hybrid/
 2026-11-04,cobra-air-x-hybrid,Cobra Air-X Hybrid,Cobra,hybrid,99.00,each,2,81,99.00,99.00,typical,https://golfpriceai.com/prices/cobra-air-x-hybrid/
 2026-11-04,cobra-baffler-hybrid,Cobra Baffler Hybrid,Cobra,hybrid,169.00,each,4,81,169.00,169.00,typical,https://golfpriceai.com/prices/cobra-baffler-hybrid/
-2026-11-04,cobra-ds-adapt-hybrid,Cobra DS-Adapt Hybrid,Cobra,hybrid,179.00,each,2,81,179.00,179.00,typical,https://golfpriceai.com/prices/cobra-ds-adapt-hybrid/
+2026-11-04,cobra-ds-adapt-hybrid,Cobra DS-Adapt Hybrid,Cobra,hybrid,159.95,each,2,81,159.95,179.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-hybrid/
 2026-11-04,cobra-darkspeed-hybrid,Cobra Darkspeed Hybrid,Cobra,hybrid,129.00,each,3,81,129.00,149.00,typical,https://golfpriceai.com/prices/cobra-darkspeed-hybrid/
 2026-11-04,cobra-king-tec-hybrid,Cobra KING Tec Hybrid,Cobra,hybrid,149.95,each,2,62,149.95,279.00,typical,https://golfpriceai.com/prices/cobra-king-tec-hybrid/
-2026-11-04,cobra-optm-hybrid,Cobra OPTM Hybrid,Cobra,hybrid,249.00,each,4,81,249.00,249.00,typical,https://golfpriceai.com/prices/cobra-optm-hybrid/
+2026-11-04,cobra-optm-hybrid,Cobra OPTM Hybrid,Cobra,hybrid,199.00,each,4,81,199.00,249.00,good,https://golfpriceai.com/prices/cobra-optm-hybrid/
 2026-11-04,cobra-rad-s-hybrid,Cobra RAD-S Hybrid,Cobra,hybrid,149.00,each,3,81,149.00,159.00,good,https://golfpriceai.com/prices/cobra-rad-s-hybrid/
 2026-11-04,golfway-champion-hybrid,Golfway Champion Hybrid,Golfway,hybrid,24.99,each,1,62,24.99,24.99,typical,https://golfpriceai.com/prices/golfway-champion-hybrid/
 2026-11-04,golfway-champion-youth-hybrid,Golfway Champion Youth Hybrid,Golfway,hybrid,29.99,each,1,62,29.99,29.99,typical,https://golfpriceai.com/prices/golfway-champion-youth-hybrid/
@@ -183,7 +184,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,ping-g440-hybrid,Ping G440 Hybrid,Ping,hybrid,269.00,each,3,81,269.00,269.00,typical,https://golfpriceai.com/prices/ping-g440-hybrid/
 2026-11-04,srixon-zxi-hybrid,Srixon ZXi Hybrid,Srixon,hybrid,169.00,each,3,81,169.00,249.00,typical,https://golfpriceai.com/prices/srixon-zxi-hybrid/
 2026-11-04,srixon-zxi-rkt-hybrid,Srixon ZXi RKT Hybrid,Srixon,hybrid,259.00,each,4,48,259.00,289.00,typical,https://golfpriceai.com/prices/srixon-zxi-rkt-hybrid/
-2026-11-04,taylormade-qi10-hybrid,TaylorMade Qi10 Hybrid,TaylorMade,hybrid,149.95,each,3,62,139.00,179.00,typical,https://golfpriceai.com/prices/taylormade-qi10-hybrid/
+2026-11-04,taylormade-qi10-hybrid,TaylorMade Qi10 Hybrid,TaylorMade,hybrid,179.00,each,3,62,139.00,179.00,wait,https://golfpriceai.com/prices/taylormade-qi10-hybrid/
 2026-11-04,taylormade-qi10-max-hybrid,TaylorMade Qi10 Max Hybrid,TaylorMade,hybrid,199.00,each,2,62,199.00,249.00,good,https://golfpriceai.com/prices/taylormade-qi10-max-hybrid/
 2026-11-04,taylormade-qi35-hybrid,TaylorMade Qi35 Hybrid,TaylorMade,hybrid,149.00,each,2,69,139.00,139.00,typical,https://golfpriceai.com/prices/taylormade-qi35-hybrid/
 2026-11-04,taylormade-qi4d-hybrid,TaylorMade Qi4D Hybrid,TaylorMade,hybrid,269.00,each,4,81,269.00,269.00,typical,https://golfpriceai.com/prices/taylormade-qi4d-hybrid/
@@ -447,7 +448,6 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,scotty-cameron-studio-style-fastback-oc-putter,Scotty Cameron Studio Style Fastback OC Putter,Scotty Cameron,putter,449.00,each,2,81,449.00,499.00,good,https://golfpriceai.com/prices/scotty-cameron-studio-style-fastback-oc-putter/
 2026-11-04,scotty-cameron-studio-style-putter,Scotty Cameron Studio Style Putter,Scotty Cameron,putter,449.00,each,2,62,449.00,449.00,typical,https://golfpriceai.com/prices/scotty-cameron-studio-style-putter/
 2026-11-04,taylormade-spider-5k-zt-putter,TaylorMade Spider 5K ZT Putter,TaylorMade,putter,399.00,each,3,81,399.00,449.00,typical,https://golfpriceai.com/prices/taylormade-spider-5k-zt-putter/
-2026-11-04,taylormade-spider-tour-double-bend-putter,TaylorMade Spider Tour Double Bend Putter,TaylorMade,putter,269.00,each,3,81,269.00,299.00,typical,https://golfpriceai.com/prices/taylormade-spider-tour-double-bend-putter/
 2026-11-04,taylormade-spider-tour-putter,TaylorMade Spider Tour Putter,TaylorMade,putter,299.00,each,2,62,299.00,299.00,typical,https://golfpriceai.com/prices/taylormade-spider-tour-putter/
 2026-11-04,taylormade-spider-tour-torched-f-putter,TaylorMade Spider Tour Torched F Putter,TaylorMade,putter,299.00,each,1,62,299.00,299.00,typical,https://golfpriceai.com/prices/taylormade-spider-tour-torched-f-putter/
 2026-11-04,taylormade-spider-tour-torched-true-path-putter,TaylorMade Spider Tour Torched True Path Putter,TaylorMade,putter,299.00,each,1,62,299.00,299.00,typical,https://golfpriceai.com/prices/taylormade-spider-tour-torched-true-path-putter/
@@ -500,7 +500,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,callaway-chrome-tour-golf-balls,Callaway Chrome Tour Golf Balls,Callaway,golf ball,44.99,per dozen,5,81,39.99,51.99,typical,https://golfpriceai.com/prices/callaway-chrome-tour-golf-balls/
 2026-11-04,callaway-chrome-tour-happy-gilmore-2-golf-balls,Callaway Chrome Tour Happy Gilmore 2 Golf Balls,Callaway,golf ball,60.00,per dozen,1,81,60.00,60.00,typical,https://golfpriceai.com/prices/callaway-chrome-tour-happy-gilmore-2-golf-balls/
 2026-11-04,callaway-chrome-tour-lab-dog-golf-balls,Callaway Chrome Tour Lab Dog Golf Balls,Callaway,golf ball,55.00,per dozen,1,81,55.00,55.00,typical,https://golfpriceai.com/prices/callaway-chrome-tour-lab-dog-golf-balls/
-2026-11-04,callaway-chrome-tour-major-series-limited-edition-golf-balls,Callaway Chrome Tour Major Series Limited Edition Golf Balls,Callaway,golf ball,47.99,per dozen,2,81,47.99,47.99,typical,https://golfpriceai.com/prices/callaway-chrome-tour-major-series-limited-edition-golf-balls/
+2026-11-04,callaway-chrome-tour-major-series-limited-edition-golf-balls,Callaway Chrome Tour Major Series Limited Edition Golf Balls,Callaway,golf ball,39.99,per dozen,2,81,39.99,47.99,good,https://golfpriceai.com/prices/callaway-chrome-tour-major-series-limited-edition-golf-balls/
 2026-11-04,callaway-chrome-tour-td-golf-balls,Callaway Chrome Tour TD Golf Balls,Callaway,golf ball,43.96,per dozen,1,62,43.96,44.99,good,https://golfpriceai.com/prices/callaway-chrome-tour-td-golf-balls/
 2026-11-04,callaway-chrome-tour-triple-diamond-golf-balls,Callaway Chrome Tour Triple Diamond Golf Balls,Callaway,golf ball,44.95,per dozen,4,81,44.95,47.99,typical,https://golfpriceai.com/prices/callaway-chrome-tour-triple-diamond-golf-balls/
 2026-11-04,callaway-chrome-tour-triple-diamond-triple-track-golf-balls,Callaway Chrome Tour Triple Diamond Triple Track Golf Balls,Callaway,golf ball,44.95,per dozen,4,81,44.95,47.99,typical,https://golfpriceai.com/prices/callaway-chrome-tour-triple-diamond-triple-track-golf-balls/
@@ -662,7 +662,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,wilson-staff-model-golf-balls,Wilson Staff Model Golf Balls,Wilson,golf ball,37.95,per dozen,3,69,37.95,44.99,good,https://golfpriceai.com/prices/wilson-staff-model-golf-balls/
 2026-11-04,wilson-staff-model-trk360-golf-balls,Wilson Staff Model TRK360 Golf Balls,Wilson,golf ball,44.95,per dozen,3,81,44.95,85.00,typical,https://golfpriceai.com/prices/wilson-staff-model-trk360-golf-balls/
 2026-11-04,wilson-staff-model-x-golf-balls,Wilson Staff Model X Golf Balls,Wilson,golf ball,42.95,per dozen,4,81,42.95,85.00,typical,https://golfpriceai.com/prices/wilson-staff-model-x-golf-balls/
-2026-11-04,wilson-staff-model-x-trk360-golf-balls,Wilson Staff Model X TRK360 Golf Balls,Wilson,golf ball,44.95,per dozen,4,81,44.95,85.00,typical,https://golfpriceai.com/prices/wilson-staff-model-x-trk360-golf-balls/
+2026-11-04,wilson-staff-model-x-trk360-golf-balls,Wilson Staff Model X TRK360 Golf Balls,Wilson,golf ball,44.95,per dozen,3,81,44.95,85.00,typical,https://golfpriceai.com/prices/wilson-staff-model-x-trk360-golf-balls/
 2026-11-04,wilson-staff-practice-golf-balls,Wilson Staff Practice Golf Balls,Wilson,golf ball,7.97,per dozen,1,69,7.97,7.97,typical,https://golfpriceai.com/prices/wilson-staff-practice-golf-balls/
 2026-11-04,wilson-tour-accuracy-golf-balls,Wilson Tour Accuracy Golf Balls,Wilson,golf ball,14.39,per dozen,1,62,14.39,14.39,typical,https://golfpriceai.com/prices/wilson-tour-accuracy-golf-balls/
 2026-11-04,wilson-tour-velocity-distance-golf-balls,Wilson Tour Velocity Distance Golf Balls,Wilson,golf ball,14.39,per dozen,1,62,14.39,14.39,typical,https://golfpriceai.com/prices/wilson-tour-velocity-distance-golf-balls/
@@ -1126,6 +1126,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,motocaddy-m5-ultra-electric-trolley,Motocaddy M5 Ultra Electric Trolley,Motocaddy,electric trolley,1099.00,each,1,69,1099.00,1099.00,typical,https://golfpriceai.com/prices/motocaddy-m5-ultra-electric-trolley/
 2026-11-04,motocaddy-m7-remote-control-ultra-electric-trolley,Motocaddy M7 Remote Control Ultra Electric Trolley,Motocaddy,electric trolley,1199.00,each,1,69,1199.00,1199.00,typical,https://golfpriceai.com/prices/motocaddy-m7-remote-control-ultra-electric-trolley/
 2026-11-04,motocaddy-m7-remote-electric-trolley,Motocaddy M7 Remote Electric Trolley,Motocaddy,electric trolley,1149.00,each,2,81,1049.00,1199.00,typical,https://golfpriceai.com/prices/motocaddy-m7-remote-electric-trolley/
+2026-11-04,motocaddy-me-remote-control-ultra-electric-trolley,Motocaddy ME Remote Control Ultra Electric Trolley,Motocaddy,electric trolley,949.00,each,1,69,949.00,949.00,typical,https://golfpriceai.com/prices/motocaddy-me-remote-control-ultra-electric-trolley/
 2026-11-04,motocaddy-me-remote-electric-trolley,Motocaddy ME Remote Electric Trolley,Motocaddy,electric trolley,949.00,each,2,81,919.00,999.00,typical,https://golfpriceai.com/prices/motocaddy-me-remote-electric-trolley/
 2026-11-04,motocaddy-s1-dhc-electric-trolley,Motocaddy S1 DHC Electric Trolley,Motocaddy,electric trolley,679.00,each,4,81,629.00,679.00,wait,https://golfpriceai.com/prices/motocaddy-s1-dhc-electric-trolley/
 2026-11-04,motocaddy-s1-electric-trolley,Motocaddy S1 Electric Trolley,Motocaddy,electric trolley,595.00,each,5,81,595.00,629.00,typical,https://golfpriceai.com/prices/motocaddy-s1-electric-trolley/
@@ -1143,7 +1144,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-04,powakaddy-ct10-xl-electric-trolley,PowaKaddy CT10 XL Electric Trolley,PowaKaddy,electric trolley,1029.00,each,1,69,1029.00,1029.00,typical,https://golfpriceai.com/prices/powakaddy-ct10-xl-electric-trolley/
 2026-11-04,powakaddy-ct12-ebs-electric-trolley,PowaKaddy CT12 EBS Electric Trolley,PowaKaddy,electric trolley,1199.00,each,4,81,1199.00,1299.00,good,https://golfpriceai.com/prices/powakaddy-ct12-ebs-electric-trolley/
 2026-11-04,powakaddy-ct12-ebs-xl-electric-trolley,PowaKaddy CT12 EBS XL Electric Trolley,PowaKaddy,electric trolley,1349.00,each,1,69,1349.00,1349.00,typical,https://golfpriceai.com/prices/powakaddy-ct12-ebs-xl-electric-trolley/
-2026-11-04,powakaddy-ct12-electric-trolley,PowaKaddy CT12 Electric Trolley,PowaKaddy,electric trolley,1199.00,each,4,81,1169.00,1249.00,typical,https://golfpriceai.com/prices/powakaddy-ct12-electric-trolley/
+2026-11-04,powakaddy-ct12-electric-trolley,PowaKaddy CT12 Electric Trolley,PowaKaddy,electric trolley,1149.00,each,4,81,1149.00,1249.00,good,https://golfpriceai.com/prices/powakaddy-ct12-electric-trolley/
 2026-11-04,powakaddy-ct12-xl-electric-trolley,PowaKaddy CT12 XL Electric Trolley,PowaKaddy,electric trolley,1299.00,each,1,69,1299.00,1299.00,typical,https://golfpriceai.com/prices/powakaddy-ct12-xl-electric-trolley/
 2026-11-04,powakaddy-ct6-ebs-electric-trolley,PowaKaddy CT6 EBS Electric Trolley,PowaKaddy,electric trolley,799.00,each,5,81,749.00,799.00,wait,https://golfpriceai.com/prices/powakaddy-ct6-ebs-electric-trolley/
 2026-11-04,powakaddy-ct6-ebs-xl-electric-trolley,PowaKaddy CT6 EBS XL Electric Trolley,PowaKaddy,electric trolley,849.00,each,1,69,849.00,849.00,typical,https://golfpriceai.com/prices/powakaddy-ct6-ebs-xl-electric-trolley/

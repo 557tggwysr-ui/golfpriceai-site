@@ -6,15 +6,14 @@
  "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 399.0,
+ "lowestNewPrice": 339.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 399.0,
+   "from": 339.0,
    "options": 6
   },
   {
@@ -30,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 81,
-  "low": 399.0,
+  "low": 339.0,
   "high": 399.0,
-  "average": 399.0,
-  "priceChanges": 0,
+  "average": 398.26,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -41,13 +40,13 @@
    ],
    [
     "2026-11-04",
-    399.0
+    339.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 81 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/quantum-ti-fairway-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

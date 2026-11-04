@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-04T13:54+00:00",
+ "checked": "2026-11-04T23:19+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -24,14 +24,74 @@
    "url": "https://golfpriceai.com/prices/sun-mountain-eclipse-e4-5-h2no-waterproof-stand-bag-golf-bag/"
   },
   {
+   "model": "Cobra OPTM Hybrid",
+   "model_id": "cobra-optm-hybrid",
+   "date": "2026-11-04",
+   "was": 249.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-optm-hybrid/"
+  },
+  {
    "model": "Callaway Elyte Fairway Wood",
    "model_id": "callaway-elyte-fairway-wood",
    "date": "2026-11-04",
    "was": 219.0,
-   "now": 179.95,
+   "now": 179.0,
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-elyte-fairway-wood/"
+  },
+  {
+   "model": "Callaway Quantum Triple Diamond Fairway Wood",
+   "model_id": "callaway-quantum-triple-diamond-fairway-wood",
+   "date": "2026-11-04",
+   "was": 329.0,
+   "now": 269.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-triple-diamond-fairway-wood/"
+  },
+  {
+   "model": "Callaway Chrome Tour Major Series Limited Edition Golf Balls",
+   "model_id": "callaway-chrome-tour-major-series-limited-edition-golf-balls",
+   "date": "2026-11-04",
+   "was": 47.99,
+   "now": 39.99,
+   "unit": "per dozen",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-chrome-tour-major-series-limited-edition-golf-balls/"
+  },
+  {
+   "model": "Cobra OPTM MAX-D Driver",
+   "model_id": "cobra-optm-max-d-driver",
+   "date": "2026-11-04",
+   "was": 479.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-optm-max-d-driver/"
+  },
+  {
+   "model": "Callaway Quantum Max D Fairway Wood",
+   "model_id": "callaway-quantum-max-d-fairway-wood",
+   "date": "2026-11-04",
+   "was": 319.0,
+   "now": 269.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-d-fairway-wood/"
+  },
+  {
+   "model": "Callaway Quantum Max Fairway Wood",
+   "model_id": "callaway-quantum-max-fairway-wood",
+   "date": "2026-11-04",
+   "was": 319.0,
+   "now": 269.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-fairway-wood/"
   },
   {
    "model": "Sun Mountain Eclipse E3.5 H2NO Waterproof Stand Bag Golf Bag",
@@ -42,6 +102,166 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/sun-mountain-eclipse-e3-5-h2no-waterproof-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Callaway Quantum Mini Driver",
+   "model_id": "callaway-quantum-mini-driver",
+   "date": "2026-11-04",
+   "was": 429.0,
+   "now": 365.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-mini-driver/"
+  },
+  {
+   "model": "Callaway Quantum Triple Diamond Driver",
+   "model_id": "callaway-quantum-triple-diamond-driver",
+   "date": "2026-11-04",
+   "was": 569.0,
+   "now": 485.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-triple-diamond-driver/"
+  },
+  {
+   "model": "Callaway Quantum Triple Diamond Max Driver",
+   "model_id": "callaway-quantum-triple-diamond-max-driver",
+   "date": "2026-11-04",
+   "was": 569.0,
+   "now": 485.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-triple-diamond-max-driver/"
+  },
+  {
+   "model": "Callaway Quantum Max Fast Hybrid",
+   "model_id": "callaway-quantum-max-fast-hybrid",
+   "date": "2026-11-04",
+   "was": 269.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-fast-hybrid/"
+  },
+  {
+   "model": "Callaway Quantum Max Hybrid",
+   "model_id": "callaway-quantum-max-hybrid",
+   "date": "2026-11-04",
+   "was": 269.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-hybrid/"
+  },
+  {
+   "model": "Callaway Quantum Max OS Hybrid",
+   "model_id": "callaway-quantum-max-os-hybrid",
+   "date": "2026-11-04",
+   "was": 269.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-os-hybrid/"
+  },
+  {
+   "model": "Callaway Quantum Ti Fairway Wood",
+   "model_id": "callaway-quantum-ti-fairway-wood",
+   "date": "2026-11-04",
+   "was": 399.0,
+   "now": 339.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-ti-fairway-wood/"
+  },
+  {
+   "model": "Cobra OPTM LS Fairway Wood",
+   "model_id": "cobra-optm-ls-fairway-wood",
+   "date": "2026-11-04",
+   "was": 349.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-optm-ls-fairway-wood/"
+  },
+  {
+   "model": "Callaway Quantum Max D Driver",
+   "model_id": "callaway-quantum-max-d-driver",
+   "date": "2026-11-04",
+   "was": 529.0,
+   "now": 465.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-d-driver/"
+  },
+  {
+   "model": "Callaway Quantum Max Driver",
+   "model_id": "callaway-quantum-max-driver",
+   "date": "2026-11-04",
+   "was": 529.0,
+   "now": 465.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-driver/"
+  },
+  {
+   "model": "Cobra DS-Adapt Hybrid",
+   "model_id": "cobra-ds-adapt-hybrid",
+   "date": "2026-11-04",
+   "was": 179.0,
+   "now": 159.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-hybrid/"
+  },
+  {
+   "model": "Cobra OPTM X Fairway Wood",
+   "model_id": "cobra-optm-x-fairway-wood",
+   "date": "2026-11-04",
+   "was": 279.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-optm-x-fairway-wood/"
+  },
+  {
+   "model": "Cobra DS-Adapt Driver",
+   "model_id": "cobra-ds-adapt-driver",
+   "date": "2026-11-04",
+   "was": 329.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-driver/"
+  },
+  {
+   "model": "Cobra RAD-S Driver",
+   "model_id": "cobra-rad-s-driver",
+   "date": "2026-11-04",
+   "was": 219.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-rad-s-driver/"
+  },
+  {
+   "model": "Titleist GT1 Driver",
+   "model_id": "titleist-gt1-driver",
+   "date": "2026-11-04",
+   "was": 449.0,
+   "now": 419.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gt1-driver/"
+  },
+  {
+   "model": "Titleist GT3 Driver",
+   "model_id": "titleist-gt3-driver",
+   "date": "2026-11-04",
+   "was": 449.0,
+   "now": 419.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gt3-driver/"
   },
   {
    "model": "Titleist Vokey SM10 Nickel Wedge",
@@ -62,6 +282,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/titleist-vokey-sm10-tour-chrome-wedge/"
+  },
+  {
+   "model": "PowaKaddy CT12 Electric Trolley",
+   "model_id": "powakaddy-ct12-electric-trolley",
+   "date": "2026-11-04",
+   "was": 1199.0,
+   "now": 1149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct12-electric-trolley/"
   },
   {
    "model": "Shot Scope Pro L5 Rangefinder",
@@ -732,16 +962,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/prgr-portable-launch-monitor/"
-  },
-  {
-   "model": "Callaway Quantum Max Fast Hybrid",
-   "model_id": "callaway-quantum-max-fast-hybrid",
-   "date": "2026-10-30",
-   "was": 329.0,
-   "now": 269.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-fast-hybrid/"
   },
   {
    "model": "Callaway Apex Ti Fusion Irons",

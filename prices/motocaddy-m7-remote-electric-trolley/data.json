@@ -8,17 +8,18 @@
  "unit": "each",
  "lowestNewPrice": 1149.0,
  "lowestAt": [
+  "Affordable Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
+   "name": "Affordable Golf",
    "from": 1149.0,
    "options": 2
   },
   {
-   "name": "Affordable Golf",
-   "from": 1199.0,
+   "name": "Clickgolf",
+   "from": 1149.0,
    "options": 2
   }
  ],

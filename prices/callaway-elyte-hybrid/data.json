@@ -8,7 +8,8 @@
  "unit": "each",
  "lowestNewPrice": 149.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clarkes Golf",
+  "Clickgolf"
  ],
  "retailers": [
   {
@@ -17,14 +18,14 @@
    "options": 9
   },
   {
+   "name": "Clickgolf",
+   "from": 149.0,
+   "options": 1
+  },
+  {
    "name": "Affordable Golf",
    "from": 149.95,
    "options": 11
-  },
-  {
-   "name": "Clickgolf",
-   "from": 179.0,
-   "options": 1
   },
   {
    "name": "Major Golf Direct",
@@ -70,7 +71,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-Golf-Hybrid-1.jpg?v=1737086939",
+ "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-hybrid-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-04"
 }

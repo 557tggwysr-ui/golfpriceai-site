@@ -6,15 +6,21 @@
  "checked": "2026-11-04",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.95,
+ "lowestNewPrice": 179.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Affordable Golf",
+  "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 179.95,
+   "from": 179.0,
    "options": 31
+  },
+  {
+   "name": "Clickgolf",
+   "from": 179.0,
+   "options": 1
   },
   {
    "name": "Clarkes Golf",
@@ -27,11 +33,6 @@
    "options": 10
   },
   {
-   "name": "Clickgolf",
-   "from": 239.0,
-   "options": 1
-  },
-  {
    "name": "Callaway Golf",
    "from": 261.75,
    "options": 2
@@ -39,9 +40,9 @@
  ],
  "history": {
   "daysTracked": 81,
-  "low": 179.95,
+  "low": 179.0,
   "high": 239.0,
-  "average": 223.21,
+  "average": 223.2,
   "priceChanges": 2,
   "series": [
    [
@@ -54,7 +55,7 @@
    ],
    [
     "2026-11-04",
-    179.95
+    179.0
    ]
   ]
  },
@@ -62,7 +63,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteFairwayWood4.jpg?v=1782263416",
+ "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-fairway-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-04"
 }
