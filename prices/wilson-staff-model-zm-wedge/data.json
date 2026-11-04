@@ -8,7 +8,8 @@
  "unit": "each",
  "lowestNewPrice": 99.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clarkes Golf",
+  "Clickgolf"
  ],
  "retailers": [
   {
@@ -17,14 +18,14 @@
    "options": 13
   },
   {
+   "name": "Clickgolf",
+   "from": 99.0,
+   "options": 3
+  },
+  {
    "name": "Affordable Golf",
    "from": 99.95,
    "options": 14
-  },
-  {
-   "name": "Clickgolf",
-   "from": 129.0,
-   "options": 3
   }
  ],
  "history": {
@@ -56,7 +57,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Wilson-Staff-Model-ZM-Golf-Wedge-9.jpg?v=1713931502",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Staff-Model-ZM-Golf-Wedges.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-04"
 }

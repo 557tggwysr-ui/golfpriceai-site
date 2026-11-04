@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-04T05:04+00:00",
+ "checked": "2026-11-04T13:54+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -42,6 +42,26 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/sun-mountain-eclipse-e3-5-h2no-waterproof-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Titleist Vokey SM10 Nickel Wedge",
+   "model_id": "titleist-vokey-sm10-nickel-wedge",
+   "date": "2026-11-04",
+   "was": 139.0,
+   "now": 129.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-vokey-sm10-nickel-wedge/"
+  },
+  {
+   "model": "Titleist Vokey SM10 Tour Chrome Wedge",
+   "model_id": "titleist-vokey-sm10-tour-chrome-wedge",
+   "date": "2026-11-04",
+   "was": 139.0,
+   "now": 129.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-vokey-sm10-tour-chrome-wedge/"
   },
   {
    "model": "Shot Scope Pro L5 Rangefinder",

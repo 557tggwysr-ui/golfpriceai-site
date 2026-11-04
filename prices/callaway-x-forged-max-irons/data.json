@@ -15,38 +15,17 @@
    "name": "Affordable Golf",
    "from": 1049.0,
    "options": 3
-  },
-  {
-   "name": "Callaway Golf",
-   "from": 1302.0,
-   "options": 1
   }
  ],
  "history": {
-  "daysTracked": 81,
-  "low": 217.0,
-  "high": 1302.0,
-  "average": 803.8,
-  "priceChanges": 4,
+  "daysTracked": 62,
+  "low": 1049.0,
+  "high": 1049.0,
+  "average": 1049.0,
+  "priceChanges": 0,
   "series": [
    [
-    "2026-08-16",
-    1302.0
-   ],
-   [
-    "2026-08-18",
-    217.0
-   ],
-   [
-    "2026-08-21",
-    1302.0
-   ],
-   [
-    "2026-08-26",
-    217.0
-   ],
-   [
-    "2026-09-18",
+    "2026-09-04",
     1049.0
    ],
    [
@@ -56,8 +35,8 @@
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £832.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price: steady for 62 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ForgedXMaxIrons9.jpg?v=1773174946",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
