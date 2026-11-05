@@ -1,8 +1,18 @@
 {
- "checked": "2026-11-05T05:26+00:00",
+ "checked": "2026-11-05T14:07+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Callaway Elyte X Irons",
+   "model_id": "callaway-elyte-x-irons",
+   "date": "2026-11-05",
+   "was": 549.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-x-irons/"
+  },
   {
    "model": "Sun Mountain Eclipse E2.5 H2NO Waterproof Stand Bag Golf Bag",
    "model_id": "sun-mountain-eclipse-e2-5-h2no-waterproof-stand-bag-golf-bag",
@@ -992,16 +1002,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-optm-x-driver/"
-  },
-  {
-   "model": "Callaway Elyte X Irons",
-   "model_id": "callaway-elyte-x-irons",
-   "date": "2026-10-30",
-   "was": 659.0,
-   "now": 549.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-elyte-x-irons/"
   },
   {
    "model": "Voice Caddie T11 Pro GPS Watch",
