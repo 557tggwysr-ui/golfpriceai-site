@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-elyte-hl-irons/",
- "checked": "2026-11-04",
+ "checked": "2026-11-05",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 599.0,
@@ -20,14 +20,19 @@
    "name": "Affordable Golf",
    "from": 699.0,
    "options": 1
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 786.75,
+   "options": 1
   }
  ],
  "history": {
-  "daysTracked": 62,
-  "low": 599.0,
+  "daysTracked": 63,
+  "low": 175.0,
   "high": 699.0,
-  "average": 689.32,
-  "priceChanges": 1,
+  "average": 681.16,
+  "priceChanges": 3,
   "series": [
    [
     "2026-09-04",
@@ -39,15 +44,19 @@
    ],
    [
     "2026-11-04",
+    175.0
+   ],
+   [
+    "2026-11-05",
     599.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £424.00 above its tracked low"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-HL-Golf-Irons-Steel-1.jpg?v=1737087156",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-04"
+ "changed": "2026-11-05"
 }

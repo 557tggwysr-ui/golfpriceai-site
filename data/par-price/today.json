@@ -1,66 +1,66 @@
 {
- "n": 18,
- "date": "2026-11-04",
+ "n": 19,
+ "date": "2026-11-05",
  "items": [
   {
-   "slug": "wilson-staff-model-zm-wedge",
-   "name": "Wilson Staff Model ZM Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Wilson-Staff-Model-ZM-Golf-Wedge-9.jpg?v=1713931502",
-   "price": 99.0,
-   "unit": "each",
-   "type": "wedge",
-   "low": true,
-   "url": "/prices/wilson-staff-model-zm-wedge/"
-  },
-  {
-   "slug": "ping-scottsdale-tec-putter",
-   "name": "Ping Scottsdale TEC Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/AllyBlueH1.jpg?v=1776262845",
-   "price": 349.0,
-   "unit": "each",
-   "type": "putter",
-   "low": true,
-   "url": "/prices/ping-scottsdale-tec-putter/"
-  },
-  {
-   "slug": "titleist-gts3-driver",
-   "name": "Titleist GTS3 Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS3GolfDriver_1.jpg?v=1778746355",
-   "price": 629.0,
-   "unit": "each",
-   "type": "driver",
+   "slug": "titleist-trufeel-golf-balls",
+   "name": "Titleist TruFeel Golf Balls",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2026-01-19T093234.019.jpg?v=1768831278",
+   "price": 24.95,
+   "unit": "per dozen",
+   "type": "golf ball",
    "low": false,
-   "url": "/prices/titleist-gts3-driver/"
+   "url": "/prices/titleist-trufeel-golf-balls/"
   },
   {
-   "slug": "srixon-zxi-rkt-fairway-wood",
-   "name": "Srixon ZXi RKT Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/ZXi-RKT-Fairway-Hero.jpg",
-   "price": 299.0,
+   "slug": "taylormade-qi10-fairway-wood",
+   "name": "TaylorMade Qi10 Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/qi10_fairway_wood_1.jpg?v=1777960185",
+   "price": 229.0,
    "unit": "each",
    "type": "fairway wood",
-   "low": true,
-   "url": "/prices/srixon-zxi-rkt-fairway-wood/"
+   "low": false,
+   "url": "/prices/taylormade-qi10-fairway-wood/"
   },
   {
-   "slug": "nike-air-max-lite-stand-bag-golf-bag",
-   "name": "Nike Air Max Lite Stand Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/ChatGPT_Image_Aug_4,_2026,_12_25_23_PM.png",
-   "price": 149.0,
+   "slug": "wilson-dynapwr-max-irons",
+   "name": "Wilson DYNAPWR Max Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-DYNAPWR-Max-Irons-Hero.jpg",
+   "price": 459.0,
    "unit": "each",
-   "type": "golf bag",
+   "type": "iron set",
+   "low": true,
+   "url": "/prices/wilson-dynapwr-max-irons/"
+  },
+  {
+   "slug": "scotty-cameron-studio-style-putter",
+   "name": "Scotty Cameron Studio Style Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ScottyCameronStudioStylePutter-Catalina4.jpg?v=1776299901",
+   "price": 449.0,
+   "unit": "each",
+   "type": "putter",
    "low": false,
-   "url": "/prices/nike-air-max-lite-stand-bag-golf-bag/"
+   "url": "/prices/scotty-cameron-studio-style-putter/"
+  },
+  {
+   "slug": "cleveland-cbz-full-face-wedge",
+   "name": "Cleveland CBZ Full Face Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CBZFullFace4.jpg?v=1775354636",
+   "price": 139.0,
+   "unit": "each",
+   "type": "wedge",
+   "low": false,
+   "url": "/prices/cleveland-cbz-full-face-wedge/"
   }
  ],
  "pin": {
-  "slug": "taylormade-distance-plus-golf-balls",
-  "name": "TaylorMade Distance+ Golf Balls",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DISTANCE_2025WHITE1.jpg?v=1738751403",
-  "price": 21.95,
-  "unit": "per dozen",
-  "type": "golf ball",
-  "low": false,
-  "url": "/prices/taylormade-distance-plus-golf-balls/"
+  "slug": "big-max-dri-lite-hybrid-tour-2-golf-bag",
+  "name": "Big Max Dri Lite Hybrid Tour 2 Golf Bag",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/HYBRIDTOUR2BLK1.jpg?v=1736515453",
+  "price": 179.0,
+  "unit": "each",
+  "type": "golf bag",
+  "low": true,
+  "url": "/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/"
  }
 }

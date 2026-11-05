@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-x-forged-max-irons/",
- "checked": "2026-11-04",
+ "checked": "2026-11-05",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1049.0,
@@ -15,30 +15,55 @@
    "name": "Affordable Golf",
    "from": 1049.0,
    "options": 3
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 1302.0,
+   "options": 1
   }
  ],
  "history": {
-  "daysTracked": 62,
-  "low": 1049.0,
-  "high": 1049.0,
-  "average": 1049.0,
-  "priceChanges": 0,
+  "daysTracked": 82,
+  "low": 217.0,
+  "high": 1302.0,
+  "average": 796.65,
+  "priceChanges": 6,
   "series": [
    [
-    "2026-09-04",
+    "2026-08-16",
+    1302.0
+   ],
+   [
+    "2026-08-18",
+    217.0
+   ],
+   [
+    "2026-08-21",
+    1302.0
+   ],
+   [
+    "2026-08-26",
+    217.0
+   ],
+   [
+    "2026-09-18",
     1049.0
    ],
    [
     "2026-11-04",
+    217.0
+   ],
+   [
+    "2026-11-05",
     1049.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 62 days"
+  "label": "wait",
+  "summary": "Wait if you can: £832.00 above its tracked low"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ForgedXMaxIrons9.jpg?v=1773174946",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-04"
+ "changed": "2026-11-05"
 }

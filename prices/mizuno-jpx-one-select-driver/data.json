@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/mizuno-jpx-one-select-driver/",
- "checked": "2026-11-04",
+ "checked": "2026-11-05",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 429.0,
@@ -24,10 +24,10 @@
   }
  ],
  "history": {
-  "daysTracked": 81,
+  "daysTracked": 82,
   "low": 399.0,
   "high": 529.0,
-  "average": 452.83,
+  "average": 452.17,
   "priceChanges": 2,
   "series": [
    [
@@ -43,16 +43,16 @@
     399.0
    ],
    [
-    "2026-11-04",
+    "2026-11-05",
     399.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 41 days"
+  "summary": "Typical price: steady for 42 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/jpx-one-select-driver-sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-04"
+ "changed": "2026-11-05"
 }

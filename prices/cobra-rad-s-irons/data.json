@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-rad-s-irons/",
- "checked": "2026-11-04",
+ "checked": "2026-11-05",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 81,
+  "daysTracked": 82,
   "low": 399.0,
   "high": 449.0,
-  "average": 442.83,
+  "average": 442.29,
   "priceChanges": 1,
   "series": [
    [
@@ -44,7 +44,7 @@
     399.0
    ],
    [
-    "2026-11-04",
+    "2026-11-05",
     399.0
    ]
   ]
@@ -55,5 +55,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/RAD-S-Irons-7i-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-04"
+ "changed": "2026-11-05"
 }

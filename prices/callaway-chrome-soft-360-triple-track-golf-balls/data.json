@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-soft-360-triple-track-golf-balls/",
- "checked": "2026-11-04",
+ "checked": "2026-11-05",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 44.95,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 81,
+  "daysTracked": 82,
   "low": 44.95,
   "high": 47.99,
-  "average": 45.69,
+  "average": 45.68,
   "priceChanges": 2,
   "series": [
    [
@@ -57,16 +57,16 @@
     44.95
    ],
    [
-    "2026-11-04",
+    "2026-11-05",
     44.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 6 days"
+  "summary": "Typical price: steady for 7 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/16_ca9e0f14-3423-4bee-b523-00426fcbf3f5.jpg?v=1773183295",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-04"
+ "changed": "2026-11-05"
 }

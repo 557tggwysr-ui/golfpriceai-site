@@ -3,7 +3,7 @@
  "brand": "Fujikura",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/fujikura-extra-stiff-driver/",
- "checked": "2026-11-04",
+ "checked": "2026-11-05",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 59.99,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 59.99,
   "high": 119.99,
-  "average": 106.44,
+  "average": 105.7,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     59.99
    ],
    [
-    "2026-11-04",
+    "2026-11-05",
     59.99
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CA3545742.jpg?v=1777951416",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-04"
+ "changed": "2026-11-05"
 }

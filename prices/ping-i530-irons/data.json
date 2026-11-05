@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/ping-i530-irons/",
- "checked": "2026-11-04",
+ "checked": "2026-11-05",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1199.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 62,
+  "daysTracked": 63,
   "low": 1199.0,
   "high": 1249.0,
-  "average": 1244.16,
+  "average": 1243.44,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     1199.0
    ],
    [
-    "2026-11-04",
+    "2026-11-05",
     1199.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 6 days"
+  "summary": "Typical price: steady for 7 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-i530-Golf-Irons-Graphite-3.jpg?v=1709784184",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-04"
+ "changed": "2026-11-05"
 }

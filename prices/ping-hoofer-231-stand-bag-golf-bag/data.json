@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-hoofer-231-stand-bag-golf-bag/",
- "checked": "2026-11-04",
+ "checked": "2026-11-05",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 81,
+  "daysTracked": 82,
   "low": 159.0,
   "high": 179.0,
-  "average": 172.09,
+  "average": 172.17,
   "priceChanges": 19,
   "series": [
    [
@@ -110,7 +110,7 @@
     179.0
    ],
    [
-    "2026-11-04",
+    "2026-11-05",
     179.0
    ]
   ]
@@ -121,5 +121,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/ping-hoofer-golf-carry-bag-national-graffiti-36414-30.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-04"
+ "changed": "2026-11-05"
 }
