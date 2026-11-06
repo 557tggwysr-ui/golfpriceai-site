@@ -137,7 +137,7 @@ def league_page():
 <p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
 <script src="/js/milestones.js?v=20261106a" defer></script>
-<script src="/js/league.js?v=20261101" defer></script>
+<script src="/js/league.js?v=20261106a" defer></script>
 <script src="/js/report.js?v=20261024b" defer></script>"""
     return page_shell(title="Par Price league | GolfPrice AI",
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",

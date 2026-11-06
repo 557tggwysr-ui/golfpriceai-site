@@ -2252,7 +2252,7 @@ const LEAGUE_RX = /^[a-hj-km-np-z2-9]{6}$/;
 const GRID_RX = /^[EBPOD]{5}$/;
 const PP_GRID_PTS = { E: -2, B: -1, P: 0, O: 1, D: 2 };
 const MAX_MEMBERS = 40;
-const MISSED = 5; // a missed round counts as +5 in the weekly table
+const MISSED = 10; // a missed round counts as +10 in the weekly table: the worst a round can score, so not playing never beats playing
 /* Price Handicap: worked out like a real handicap. Take your last 20 Par Price
    rounds, average the best 8 (with fewer than 20 rounds, the best 40% of them),
    one decimal place. Needs 5 rounds. Lower is better; below 0 is a "plus"
@@ -2574,7 +2574,7 @@ async function ppReport(env, id, pid, wParam) {
       rows.forEach((r) => { if (per[r.pid]) { per[r.pid].played++; per[r.pid].week += r.total; } });
       const days = nB - Math.max(1, nA) + 1;
       const active = Object.values(per).filter((p) => p.played > 0).map((p) => Object.assign(p, { week: p.week + (days - p.played) * MISSED }));
-      active.sort((a, b) => a.week - b.week);
+      active.sort((a, b) => a.week - b.week || b.played - a.played);
       const best = rows.slice().sort((a, b) => a.total - b.total || a.n - b.n)[0];
       pp = { rounds: rows.length, winner: { nick: active[0].nick, week: active[0].week },
         round: { nick: nickOf[best.pid], total: best.total, day: ppDay(best.n) },

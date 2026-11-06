@@ -149,7 +149,7 @@
   function sorted(v) {
     var ms = data.members.slice();
     if (v === 'today') ms.sort(function (a, b) { return (a.today ? a.today.total : 99) - (b.today ? b.today.total : 99); });
-    else if (v === 'week') ms.sort(function (a, b) { return a.week - b.week; });
+    else if (v === 'week') ms.sort(function (a, b) { return a.week - b.week || b.played - a.played; });
     else if (v === 'hl') ms.sort(function (a, b) { var x = a.hl && a.hl.today !== null ? a.hl.today : -1, y = b.hl && b.hl.today !== null ? b.hl.today : -1; return y - x; });
     else ms.sort(function (a, b) { return b.wins - a.wins || b.streak - a.streak; });
     return ms;

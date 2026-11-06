@@ -642,7 +642,7 @@ def hub_page():
 
 PP_FAQS = [
     ("How does Society v Society work?", "Every golf society on Society HQ has its own Par Price league: members play the free daily golf price game and get a weekly table. Each week, a society’s score is the average of its best four members’ weeks, so big and small societies compete fairly."),
-    ("How is a member’s week scored?", "Their best five Par Price rounds from Monday to Sunday count, so missing a day or two doesn’t matter. A round they can no longer play that week counts +5."),
+    ("How is a member’s week scored?", "Their best five Par Price rounds from Monday to Sunday count, so missing a day or two doesn’t matter. A round they can no longer play that week counts +10, the worst a round can score, so playing always beats not playing."),
     ("How do we get our society on the table?", "Run your golf society on Society HQ (free, no sign-up). Every member is in automatically, and the society appears once four members have played that week. The organiser can switch it off at any time."),
     ("Is there a prize?", "Bragging rights. The top society each week gets the headline here, and every society gets a weekly picture for the WhatsApp group."),
 ]
