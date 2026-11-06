@@ -28,6 +28,14 @@ from datetime import date, timedelta
 
 from price_pages import PRICES_DIR, SITE, TYPES, NOT_IN_PICKS, _write, breadcrumb, esc, page_shell
 
+
+def faq_schema(html):
+    """FAQPage markup from a page's own question cards (their visible text only)."""
+    qs = re.findall(r'<div class="pp-card pp-q"><h3>(.*?)</h3><p>(.*?)</p></div>', html)
+    strip = lambda t: re.sub(r"<[^>]+>", "", t).replace("&amp;", "&")
+    return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": strip(q), "acceptedAnswer": {"@type": "Answer", "text": strip(a)}} for q, a in qs]}
+
 ROOT = PRICES_DIR.parent
 TODAY_FILE = ROOT / "data" / "par-price" / "today.json"
 STATE = ROOT / "data" / "par-price-state.json"
@@ -98,6 +106,8 @@ def page(n, today):
     <div class="pp-card pp-q"><h3>Can I play against my mates?</h3><p>Yes. Finish a round and start a league: one link for the group chat, nicknames only, and a table that updates itself. There’s a bonus Closest to the Pin hole every day too.</p></div>
     <div class="pp-card pp-q"><h3>Can I play on my phone and my laptop?</h3><p>Yes. There’s no login, so the game knows you by a code saved in your browser. To bring your leagues, streak and Bag Draft to another device, use <a href="/play/#move">Play on another device</a> in the Clubhouse. Avoid private or incognito tabs: they forget you when they close.</p></div>
     <div class="pp-card pp-q"><h3>When is the next round?</h3><p>A new round every morning, with five different products from five different brands.</p></div>
+    <div class="pp-card pp-q"><h3>Is there a free daily golf game, like Wordle for golfers?</h3><p>That’s Par Price: one round a day, five real UK golf prices, a streak to keep and a picture of your score to share. Free, in the browser, nothing to download.</p></div>
+    <div class="pp-card pp-q"><h3>Do I need an account or an app?</h3><p>No. There’s no sign-up, no password and no app: it runs in your phone or laptop browser. Add it to your home screen if you want it one tap away.</p></div>
   </div>
 </section>
 <p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
@@ -110,7 +120,7 @@ def page(n, today):
            "description": "A free daily game: guess the lowest UK price of five real golf products and score it like a round of golf."}
     return page_shell(title=f"Par Price #{n}: the daily golf price game | GolfPrice AI",
                       description="Guess today’s lowest UK price of five real golf products and score it like a round: eagle, birdie, par. A new round every day. Free.",
-                      canonical=f"{SITE}/play/par-price/", body=body, section="play", schema=[app, crumbs_schema], noindex=False,
+                      canonical=f"{SITE}/play/par-price/", body=body, section="play", schema=[app, crumbs_schema, faq_schema(body)], noindex=False,
                       og_image=CARD,
                       extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261106b">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
@@ -170,13 +180,24 @@ def leagues_page():
   </section>
   <p class="lh-invited">Been sent an invite? Just tap the link your mate shared and pick a nickname.</p>
   <p class="lh-invited">Run a real golf society too? <a href="/societies/">Society HQ</a> handles the fixtures, sign-ups, who’s paid and awards night, free.</p>
+  <section class="pp-block">
+    <h2>League questions</h2>
+    <div class="pp-q-grid">
+      <div class="pp-card pp-q"><h3>How do I set up a free golf league with my mates?</h3><p>Give the league a name, pick your nickname and share the link to your group chat. That’s it: about ten seconds, free, no sign-up.</p></div>
+      <div class="pp-card pp-q"><h3>Can we run a golf game in our WhatsApp group?</h3><p>Yes, that’s what it’s built for. One link in the WhatsApp (or any group chat), everyone plays on their own phone, and the table updates itself.</p></div>
+      <div class="pp-card pp-q"><h3>Do my mates need an account?</h3><p>No. They tap the link and pick a nickname. No email, no password, no app.</p></div>
+      <div class="pp-card pp-q"><h3>Is it only for golf societies?</h3><p>No. Any group can start one: a four-ball, work mates, the family. Golf societies can use it too, alongside <a href="/societies/">Society HQ</a>.</p></div>
+      <div class="pp-card pp-q"><h3>What do we play?</h3><p>Par Price every day (five real UK golf prices, scored like a round of golf) and the Bag Draft every month (fantasy golf kit, where real price drops score points). One league covers both.</p></div>
+      <div class="pp-card pp-q"><h3>Does it cost anything?</h3><p>No. Free to play, no money changes hands and there are no stakes. The prize is bragging rights (and the loser buying the first round).</p></div>
+    </div>
+  </section>
 </div>
 <p class="gp-real">Every price in our games is real: the lowest new UK price we found this morning, across multiple UK retailers. <a href="/about.html">How we track prices</a> · <a href="/shop.html">Browse the shop</a> · <a href="/deal-tools.html">Free deal tools</a></p>
 </div>
 <script src="/js/leagues-home.js?v=20261022" defer></script>"""
     return page_shell(title="Golf leagues for your group chat | GolfPrice AI",
                       description="Start a free golf league for your group chat in ten seconds: Par Price every day, the Bag Draft every month, nicknames only. Loser buys the first round.",
-                      canonical=f"{SITE}/play/leagues/", body=body, section="play", schema=[crumbs_schema], noindex=False,
+                      canonical=f"{SITE}/play/leagues/", body=body, section="play", schema=[crumbs_schema, faq_schema(body)], noindex=False,
                       og_image="/assets/cards/par-price/league.jpg",
                       extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261106b">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
