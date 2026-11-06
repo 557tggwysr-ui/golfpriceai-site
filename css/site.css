@@ -496,3 +496,5 @@ footer.gp-footer {
 .gp-guide-q p { padding: 0 16px 14px; margin: 0; font-size: 14.5px; }
 @media (max-width: 860px) { .gp-guide { grid-template-columns: 1fr; gap: 18px; margin: 32px auto 40px; } }
 @media (max-width: 520px) { .gp-guide-links { grid-template-columns: 1fr; } .gp-guide h2 { font-size: 21px; } }
+/* Shop menu: each column's "Biggest drop" card sits at the bottom, level with the Quick ways in panel. */
+.gp-drop .gp-shop-col a.gp-cat-drop { margin-top: auto; min-height: 96px; box-sizing: border-box; }

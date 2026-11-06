@@ -1,6 +1,6 @@
 /* My Clubhouse (/play/my-clubhouse/), v2: one full-width row per kind of thing,
    each a grid that adapts to how many cards it holds. */
-.mc-wrap { max-width: 1120px; margin: 0 auto; padding: 24px var(--gp-gutter, 16px) 48px; display: flex; flex-direction: column; gap: 24px; color: var(--gp-ink); }
+.mc-wrap { max-width: 1280px; margin: 0 auto; padding: 24px 48px 48px; display: flex; flex-direction: column; gap: 24px; color: var(--gp-ink); }
 .mc-hero { background: #14211a; color: #fff; border-radius: 20px; padding: 24px 26px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 28px; align-items: center; }
 .mc-hero > * { grid-column: 1; }
 .mc-kick { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #8fd77e; }
