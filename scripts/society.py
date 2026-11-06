@@ -16,7 +16,7 @@ from price_pages import SITE, _write, breadcrumb, page_shell
 LAUNCHED = True
 PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
 FIND_PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/find-a-society-wide.jpg"><img src="/assets/photos/tools/find-a-society-banner.jpg" alt="Golfers shaking hands on the first tee, meeting new playing partners" width="1536" height="512"></picture>'
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261102b">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261106a">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -241,7 +241,8 @@ def hq_page():
 {REAL}
 </div>
 <script src="/js/clubhouse-key.js?v=20261101b" defer></script>
-<script src="/js/society-hq.js?v=20261102a" defer></script>"""
+<script src="/js/milestones.js?v=20261106a" defer></script>
+<script src="/js/society-hq.js?v=20261106a" defer></script>"""
     return page_shell(title="Run your golf society free | Society HQ | GolfPrice AI",
                       description="Run your golf society for free: fixtures, sign-ups, who’s paid, a waiting list and the prize fund, all from one link in the WhatsApp group.",
                       canonical=f"{SITE}/societies/hq/", body=body, section="societies", schema=[crumbs_schema, app_schema(f"{SITE}/societies/hq/")],
@@ -639,6 +640,46 @@ def hub_page():
                       noindex=not LAUNCHED, og_image="/assets/cards/society-hq.jpg", extra_head=CSS)
 
 
+PP_FAQS = [
+    ("How does Society v Society work?", "Every golf society on Society HQ has its own Par Price league: members play the free daily golf price game and get a weekly table. Each week, a society’s score is the average of its best four members’ weeks, so big and small societies compete fairly."),
+    ("How is a member’s week scored?", "Their best five Par Price rounds from Monday to Sunday count, so missing a day or two doesn’t matter. A round they can no longer play that week counts +5."),
+    ("How do we get our society on the table?", "Run your golf society on Society HQ (free, no sign-up). Every member is in automatically, and the society appears once four members have played that week. The organiser can switch it off at any time."),
+    ("Is there a prize?", "Bragging rights. The top society each week gets the headline here, and every society gets a weekly picture for the WhatsApp group."),
+]
+
+
+def pp_table_page():
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Society HQ", "/societies/"), ("Society v Society", None)])
+    faqs = "".join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q, a in PP_FAQS)
+    body = f"""<div class="soc-wrap spp">
+{crumbs_html}
+<section class="soc-hero spp-hero">
+  <span class="soc-kick">Par Price · Society v Society</span>
+  <h1>Which golf society knows its prices?</h1>
+  <p>Every society on Society HQ plays <a href="/play/par-price/">Par Price</a>, the free daily golf price game. Each week, a society’s score is the average of its best four members. Lowest wins.</p>
+</section>
+<section class="soc-card" aria-live="polite">
+  <h2 id="spp-h">This week</h2>
+  <p class="soc-small" id="spp-sub">Loading the table…</p>
+  <ol class="spp-table" id="spp-table"></ol>
+</section>
+<section class="soc-card" id="spp-last-card" hidden>
+  <h2>Last week</h2>
+  <ol class="spp-table" id="spp-last"></ol>
+</section>
+<section class="soc-card soc-next"><span class="soc-kick">Run a golf society?</span><h2>Get your society on the table</h2><p>Society HQ is free: fixtures, sign-ups, who’s paid, live scoring and a Par Price league for every member. Four members playing in a week puts you on the table.</p><a class="soc-btn" href="/societies/hq/">Start your society free</a></section>
+<section class="soc-faq or-faqs"><h2>Society v Society questions</h2>{faqs}</section>
+</div>
+<noscript><p>The table needs JavaScript switched on.</p></noscript>
+<script src="/js/society-pp-table.js?v=20261106a" defer></script>"""
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in PP_FAQS]}
+    return page_shell(title="Society v Society: the golf society Par Price table | GolfPrice AI",
+                      description="UK golf societies go head to head at Par Price, the free daily golf price game. Each society’s best four members count. See this week’s table.",
+                      canonical=f"{SITE}/societies/par-price/", body=body, section="societies", schema=[crumbs_schema, faq_schema],
+                      noindex=False, og_image="/assets/cards/society-hq.jpg", extra_head=CSS)
+
+
 def build(root=None):
     from pathlib import Path
     root = root or Path(__file__).resolve().parent.parent
@@ -673,6 +714,8 @@ def build(root=None):
         changed.append("/societies/prize/")
     if _write(root / "societies" / "league" / "index.html", league_page()):
         changed.append("/societies/league/")
+    if _write(root / "societies" / "par-price" / "index.html", pp_table_page()):
+        changed.append("/societies/par-price/")
     if _write(root / "societies" / "form-guide" / "index.html", fg_page()):
         changed.append("/societies/form-guide/")
     try:

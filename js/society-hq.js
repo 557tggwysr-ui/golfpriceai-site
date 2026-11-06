@@ -329,6 +329,7 @@
       '<p class="soc-help">' + (S.organiser ? 'No fixtures yet. Add your first one below, then send the sign-up link to the group.' : 'No fixtures yet. The organiser will add them here.') + '</p>') + '</section>';
     h += pollsCard();
     if (S.organiser) h += eventForm(FIX);
+    h += '<section class="soc-card hq-pp" id="hq-pp" hidden></section>';
     h += '<section class="soc-card hq-lg" id="hq-lg" hidden></section>';
     if (S.organiser) h += badgeCard();
     if (past.length) h += '<section class="soc-card"><h2>Recent</h2>' + past.map(function (e) { return eventCard(e, true); }).join('') + '</section>';
@@ -467,6 +468,7 @@
       };
     });
     league();
+    ppLeague();
     wireBadge();
     box.querySelectorAll('.hq-req').forEach(function (rq) {
       var answer = function (yes) { rq.querySelectorAll('button').forEach(function (b) { b.disabled = true; }); api('/soc/answer', { s: S.id, r: rq.getAttribute('data-r'), yes: yes }).then(function () { track('society_request_' + (yes ? 'yes' : 'no')); load(); }); };
@@ -630,6 +632,81 @@
       });
     }).catch(function () {});
   }
+  // Par Price league: every member is in, worked out from their daily rounds.
+  function ppSc(t) { t = Number(t); return t === 0 ? 'E' : t < 0 ? '−' + Math.abs(t) : '+' + t; }
+  function ppAvg(t) { t = Math.round(Number(t) * 100) / 100; return t === 0 ? 'E' : t < 0 ? '−' + Math.abs(t) : '+' + t; }
+  function ppLeague() {
+    var el = box.querySelector('#hq-pp');
+    if (!el) return;
+    api('/soc/pp?s=' + S.id + '&pid=' + pid()).then(function (d) {
+      if (!d.ok) return;
+      var h = '';
+      if (!d.on) {
+        if (!S.organiser) return;
+        h = '<span class="soc-kick">Par Price league · switched off</span><h2>A daily game for the society</h2><p class="soc-help">Five real golf prices a day, scored like a round. Every member is in automatically, with a weekly table, and the society can take on other societies.</p>' +
+          '<div class="soc-btns"><button type="button" class="soc-btn hq-pp-on">Switch it on</button></div>';
+        el.innerHTML = h; el.hidden = false;
+        el.querySelector('.hq-pp-on').onclick = function () { ppSave(true, true); };
+        return;
+      }
+      var t = d.table || [], you = t.filter(function (p) { return p.you; })[0], lead = t[0];
+      var left = d.daysLeft === 0 ? 'last day' : d.daysLeft === 1 ? '1 day left' : d.daysLeft + ' days left';
+      h += '<span class="soc-kick">Par Price league · this week · ' + left + '</span>';
+      h += '<h2>' + (!lead ? 'No rounds yet this week' : t.length > 1 && t[1].week === lead.week ? 'All square at the top' : lead.you ? 'You’re leading ' + esc(S.name) : esc(lead.nick) + ' leads ' + esc(S.name)) + '</h2>';
+      h += '<p class="soc-help">Every member’s in. Your best ' + d.best + ' rounds of the week count, Monday to Sunday. A round you can’t play any more counts +' + d.missed + '.</p>';
+      if (t.length) {
+        var show = t.slice(0, 10);
+        if (you && show.indexOf(you) < 0) show.push(you);
+        h += '<ol class="hq-pp-table">' + show.map(function (p) {
+          var pos = 1 + t.filter(function (x) { return x.week < p.week; }).length;
+          return '<li class="' + (p.you ? 'you' : '') + '"><span class="hq-pp-pos">' + pos + '</span><span class="hq-pp-nick">' + esc(p.nick) + (p.you ? ' (you)' : '') + '</span><span class="hq-pp-rds">' + p.rounds + (p.rounds === 1 ? ' round' : ' rounds') + '</span><b' + (p.week > 0 ? ' class="over"' : '') + '>' + ppSc(p.week) + '</b></li>';
+        }).join('') + '</ol>';
+      }
+      h += '<p class="soc-small">' + t.length + ' of ' + d.count + ' members have played this week.</p>';
+      if (d.national && d.rank) {
+        h += '<div class="hq-pp-nat"><span class="soc-kick">Society v Society</span>' + (d.rank.pos ? '<b>' + esc(S.name) + ' are ' + ordinal(d.rank.pos) + ' of ' + d.rank.of + '</b><span>The best ' + d.team + ' average ' + ppAvg(d.rank.avg) + ' this week.</span>' :
+          '<b>' + d.rank.need + ' more ' + (d.rank.need === 1 ? 'member needs' : 'members need') + ' to play</b><span>A society needs ' + d.team + ' members playing in a week to go on the national table.</span>') +
+          '<a href="/societies/par-price/">See the national table →</a></div>';
+      }
+      var last = d.last || [];
+      if (last.length >= 2) h += '<p class="hq-pp-last"><b>Last week:</b> ' + esc(last[0].nick) + ' won (' + ppSc(last[0].week) + ')' + (last.length >= 3 ? '. Wooden spoon: ' + esc(last[last.length - 1].nick) : '') + '.</p>';
+      h += '<div class="soc-btns">';
+      if (!you || you.today === null) h += '<a class="soc-btn" href="/play/par-price/">Play today’s round</a>';
+      if (S.organiser && d.waiting && d.waiting.length) h += '<button type="button" class="soc-btn2 hq-pp-nudge">Nudge the ' + d.waiting.length + ' who haven’t played</button>';
+      if (t.length >= 2 || last.length >= 2) h += '<button type="button" class="soc-btn2 hq-pp-pic">' + (t.length >= 2 ? 'Share the table' : 'Share last week') + '</button>';
+      h += '</div>';
+      if (S.organiser) h += '<details class="hq-pp-set"><summary>League settings</summary><label class="hq-lg-check"><input type="checkbox" name="on" checked> Run a Par Price league for the society</label>' +
+        '<label class="hq-lg-check"><input type="checkbox" name="national"' + (d.national ? ' checked' : '') + '> Enter the Society v Society table (shows the society’s name and area)</label><p class="soc-msg" role="status"></p></details>';
+      el.innerHTML = h; el.hidden = false;
+      var nudge = el.querySelector('.hq-pp-nudge');
+      if (nudge) nudge.onclick = function () {
+        track('soc_pp_nudge');
+        shareText('⛳ ' + S.name + ' Par Price: ' + t.length + ' of us have played this week' + (lead ? ' and ' + lead.nick + ' is out in front on ' + ppSc(lead.week) : '') + '. Still to tee off: ' + d.waiting.slice(0, 12).join(', ') + (d.waiting.length > 12 ? ' and more' : '') + '. Two minutes, five golf prices: ' + SITE + '/play/par-price/');
+      };
+      var pic = el.querySelector('.hq-pp-pic');
+      if (pic) pic.onclick = function () {
+        var cur = t.length >= 2, rows = cur ? t : last;
+        track('soc_pp_picture', { week: cur ? 'this' : 'last' });
+        if (!window.gpMilestones || !gpMilestones.shareSociety) return shareText(S.name + ' Par Price table: ' + rows.slice(0, 5).map(function (p, i) { return (i + 1) + '. ' + p.nick + ' ' + ppSc(p.week); }).join(', ') + '. ' + SITE + '/play/par-price/');
+        gpMilestones.shareSociety({ soc: S.name, current: cur, left: left, rows: rows.slice(0, 3).map(function (p) { return { nick: p.nick, week: p.week }; }),
+          spoon: rows.length >= 4 ? { nick: rows[rows.length - 1].nick, week: rows[rows.length - 1].week, pos: rows.length } : null,
+          played: rows.length, count: d.count, rank: cur ? (d.rank && d.rank.pos ? d.rank : null) : d.lastRank }, pic);
+      };
+      var set = el.querySelector('.hq-pp-set');
+      if (set) set.addEventListener('change', function () {
+        var on = set.querySelector('[name=on]').checked, nat = set.querySelector('[name=national]');
+        if (!on && !window.confirm('Switch off the Par Price league for ' + S.name + '? Members’ own rounds and streaks aren’t touched.')) { set.querySelector('[name=on]').checked = true; return; }
+        ppSave(on, nat.checked);
+      });
+    }).catch(function () {});
+  }
+  function ppSave(on, national) {
+    api('/soc/ppset', { s: S.id, on: on, national: national }).then(function (r) {
+      if (!r.ok) { var m = box.querySelector('.hq-pp-set .soc-msg'); if (m) m.textContent = r.error || 'Something went wrong.'; return; }
+      track('soc_pp_settings', { on: on, national: national }); ppLeague();
+    }).catch(function () {});
+  }
+  function ordinal(n) { var s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
   function alertMsg(art, t) { var p = document.createElement('p'); p.className = 'hq-note'; p.textContent = t || 'Something went wrong.'; art.appendChild(p); }
 
   function load() {

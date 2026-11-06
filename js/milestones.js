@@ -56,6 +56,7 @@
       case 'socwin': return { label: 'Society winner', sub: (d.title || '') + (d.society ? ' · ' + d.society : ''), text: 'Winner of ' + (d.title || 'the society day') + (d.society ? ' with ' + d.society : '') + ', ' + d.pts + ' points. The Form Guide had me down as... well, never mind.', url: 'https://golfpriceai.com/societies/' };
       case 'saved': return { label: 'Saved a shot', sub: Number(d.from).toFixed(1) + ' down to ' + Number(d.to).toFixed(1), text: 'Saved a shot. Shot Saver had me at ' + Number(d.from).toFixed(1) + ' shots to save, now it’s ' + Number(d.to).toFixed(1) + '. Where do yours go?', url: 'https://golfpriceai.com/improve/shot-saver/' };
       case 'underpar': return { label: 'First round under par', sub: 'Par Price #' + d.n + ' · ' + sc(d.t), text: 'First round under par on Par Price: ' + sc(d.t) + '. Can you beat it?', url: 'https://golfpriceai.com/play/par-price/' };
+      case 'socweek': return { label: d.soc + ' · Par Price', sub: d.current ? 'This week' : 'Last week', text: '⛳ ' + d.soc + ' Par Price: ' + (d.rows && d.rows[0] ? d.rows[0].nick + (d.current ? ' leads on ' : ' won on ') + sc(d.rows[0].week) : 'the table') + '. Play today’s round:', url: 'https://golfpriceai.com/play/par-price/' };
       case 'daily': return { label: 'Par Price #' + d.n, sub: sc(d.t), text: 'Par Price #' + d.n + ': ' + words(d.t) + ' ⛳ Can you beat me?', url: 'https://golfpriceai.com/play/par-price/' };
       case 'streak': return { label: d.n + '-day Par Price streak', sub: STREAK[d.n] ? STREAK[d.n].title : '', text: d.n + ' days in a row on Par Price. Beat that.', url: 'https://golfpriceai.com/play/par-price/' };
     }
@@ -238,6 +239,7 @@
     if (m.kind === 'socwin') return drawSocwin(m);
     if (m.kind === 'ace') return drawAce(m);
     if (m.kind === 'daily' || m.kind === 'underpar') return drawRound(m);
+    if (m.kind === 'socweek') return drawSociety(m);
     var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
     var x = cv.getContext('2d'), d = m.d || {}, me = nick();
     var L = 120, R = 960, light = (m.kind === 'scratch' || (m.kind === 'streak' && d.n === 90)), green = m.kind === 'streak' && d.n === 30;
@@ -330,6 +332,42 @@
     pill(x, 'golfpriceai.com/play', R, 1230, first ? C.ink : C.green, '#fff');
     return cv;
   }
+
+  // A society's Par Price week, for the WhatsApp group: the top three, the spoon.
+  function drawSociety(m) {
+    var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
+    var x = cv.getContext('2d'), d = m.d || {}, L = 120, R = 960, rows = d.rows || [];
+    x.fillStyle = C.ink; x.fillRect(0, 0, 1080, 1350);
+    x.lineWidth = 2; x.strokeStyle = 'rgba(255,255,255,.14)'; rr(x, 56, 56, 968, 1238, 36); x.stroke();
+    logo(x, L, 172, '#fff', C.bright);
+    text(x, d.current ? 'THIS WEEK' : 'LAST WEEK', R, 166, '700 22px Inter, sans-serif', C.soft, 'right');
+    text(x, (String(d.soc || '').toUpperCase().slice(0, 34)) + ' · PAR PRICE', L, 320, '700 28px Inter, sans-serif', C.soft);
+    var top = rows[0] ? rows[0].nick : '', head = d.current ? top + ' leads' : top + ' wins';
+    x.font = '800 104px Poppins, sans-serif';
+    var size = 104; while (x.measureText(head).width > R - L && size > 60) { size -= 4; x.font = '800 ' + size + 'px Poppins, sans-serif'; }
+    text(x, head, L, 440, '800 ' + size + 'px Poppins, sans-serif', '#fff');
+    text(x, d.current ? 'the week. ' + (d.left || '') + '.' : 'the week.', L, 440 + size + 6, '800 ' + Math.round(size * 0.62) + 'px Poppins, sans-serif', '#fff');
+    var y = 690;
+    rows.slice(0, 3).forEach(function (r, i) {
+      if (i === 0) { x.fillStyle = 'rgba(95,209,74,.16)'; rr(x, L - 24, y - 62, R - L + 48, 92, 20); x.fill(); }
+      text(x, String(i + 1), L, y, '800 40px Inter, sans-serif', '#fff');
+      text(x, String(r.nick).slice(0, 22), L + 70, y, (i ? '600' : '700') + ' 40px Inter, sans-serif', '#fff');
+      text(x, sc(r.week), R, y, '800 40px Inter, sans-serif', Number(r.week) <= 0 ? C.bright : '#fff', 'right');
+      y += 104;
+    });
+    if (d.spoon) {
+      text(x, String(d.spoon.pos), L, y, '800 40px Inter, sans-serif', C.orange);
+      text(x, String(d.spoon.nick).slice(0, 16) + ' · wooden spoon', L + 70, y, '600 40px Inter, sans-serif', C.orange);
+      text(x, sc(d.spoon.week), R, y, '800 40px Inter, sans-serif', C.orange, 'right');
+    }
+    if (d.rank && d.rank.pos) text(x, 'Society v Society: ' + ordinalM(d.rank.pos) + ' of ' + d.rank.of + (d.current ? ' this week' : ''), L, 1120, '400 32px Inter, sans-serif', C.grey);
+    x.fillStyle = 'rgba(255,255,255,.14)'; x.fillRect(L, 1160, R - L, 2);
+    text(x, d.played + ' of ' + d.count + ' members played', L, 1236, '400 30px Inter, sans-serif', C.grey);
+    pill(x, 'golfpriceai.com/play', R, 1230, C.green, '#fff');
+    return cv;
+  }
+  function ordinalM(n) { var s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
+  function shareSociety(d, btn) { share({ id: 'socweek', kind: 'socweek', date: today(), d: d }, btn); }
 
   function share(m, btn) {
     var info = meta(m);
@@ -458,5 +496,5 @@
   // "Save as picture" for today's round: drawn and shared, not kept on the shelf.
   function shareRound(d, btn) { share({ id: 'daily', kind: 'daily', date: today(), d: d }, btn); }
 
-  window.gpMilestones = { award: award, shelf: shelf, list: list, fromHandicap: fromHandicap, fromStreak: fromStreak, fromRound: fromRound, shareRound: shareRound, draw: draw, open: open };
+  window.gpMilestones = { award: award, shelf: shelf, list: list, fromHandicap: fromHandicap, fromStreak: fromStreak, fromRound: fromRound, shareRound: shareRound, shareSociety: shareSociety, draw: draw, open: open };
 })();

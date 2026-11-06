@@ -2720,6 +2720,9 @@ async function society(request, url, env, cors) {
   if (request.method === 'POST' && path === '/soc/fromleague') return await hqFromLeague(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/leaguereq') return await hqLeagueReq(env, body, pid, cors);
   if (path === '/soc/s') return await hqGet(env, String(url.searchParams.get('s') || ''), pid, cors);
+  if (path === '/soc/pp') return await sppGet(env, String(url.searchParams.get('s') || ''), pid, cors);
+  if (path === '/soc/ppnat') return await sppNational(env, cors);
+  if (request.method === 'POST' && path === '/soc/ppset') return await sppSet(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/new') return await hqNew(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/edit') return await hqEdit(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/join') return await hqJoin(env, body, pid, cors);
@@ -2998,6 +3001,115 @@ async function hqGet(env, id, pid, cors) {
   });
   return json(out, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
 }
+/* Society Par Price leagues. Every Society HQ society has its own Par Price
+   table, worked out from its members' rounds (members already have a player
+   id, so nobody joins anything new). A member's week = their best SPP_BEST
+   rounds, Monday to Sunday; a round they can no longer play counts +MISSED.
+   Society v Society = the average week of each society's best SPP_TEAM
+   members (at least SPP_TEAM must have played), like the National Society
+   League's best four. The organiser can switch either off. */
+const SPP_BEST = 5, SPP_TEAM = 4;
+let sppReady = false;
+async function sppSetup(env) {
+  if (sppReady) return;
+  await ppSetup(env);
+  await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_pp (soc TEXT PRIMARY KEY, off INTEGER DEFAULT 0, solo INTEGER DEFAULT 0, updated TEXT) WITHOUT ROWID').run();
+  sppReady = true;
+}
+// One member's week from their round totals; `upto` = the last round number that has happened.
+function sppWeek(totals, monday, upto, playedUpto) {
+  const best = totals.slice().sort((a, b) => a - b).slice(0, SPP_BEST);
+  const finished = upto < ppToday();
+  const left = finished ? 0 : Math.max(0, (monday + 6) - upto) + (playedUpto ? 0 : 1); // rounds still to come
+  const short = Math.max(0, SPP_BEST - totals.length - left);
+  return best.reduce((t, x) => t + x, 0) + MISSED * short;
+}
+// Every society's table for the week starting `monday` (round numbers), as of round `upto`.
+async function sppTables(env, socIds, monday, upto) {
+  const q = socIds ? `AND m.soc IN (${socIds.map(() => '?').join(',')})` : '';
+  const rows = (await env.DEMAND.prepare(`SELECT m.soc, m.pid, m.nick, s.n, s.total FROM soc_members m JOIN pp_scores s ON s.pid = m.pid WHERE s.n >= ? AND s.n <= ? ${q}`)
+    .bind(monday, upto, ...(socIds || [])).all()).results || [];
+  const out = {};
+  rows.forEach((r) => {
+    const t = (out[r.soc] = out[r.soc] || {});
+    const p = (t[r.pid] = t[r.pid] || { nick: r.nick, totals: [], last: null });
+    p.totals.push(r.total);
+    if (r.n === upto) p.last = r.total;
+  });
+  Object.keys(out).forEach((soc) => {
+    out[soc] = Object.entries(out[soc]).map(([pid, p]) => ({ pid, nick: p.nick, rounds: p.totals.length, best: Math.min(...p.totals), today: p.last,
+      week: sppWeek(p.totals, monday, upto, p.last !== null) })).sort((a, b) => a.week - b.week || b.rounds - a.rounds || a.nick.localeCompare(b.nick));
+  });
+  return out;
+}
+function sppTeam(table) {
+  if (!table || table.length < SPP_TEAM) return null;
+  return Math.round(table.slice(0, SPP_TEAM).reduce((t, p) => t + p.week, 0) / SPP_TEAM * 100) / 100;
+}
+// The national table: every society that's in, ranked by its best-four average.
+async function sppRank(env, monday, upto) {
+  const flags = {};
+  (((await env.DEMAND.prepare('SELECT soc, off, solo FROM soc_pp').all()).results) || []).forEach((r) => { flags[r.soc] = r; });
+  const tables = await sppTables(env, null, monday, upto);
+  const ids = Object.keys(tables).filter((id) => !(flags[id] && (flags[id].off || flags[id].solo)) && sppTeam(tables[id]) !== null);
+  const names = {};
+  if (ids.length) (((await env.DEMAND.prepare(`SELECT id, name, area FROM soc_socs WHERE id IN (${ids.map(() => '?').join(',')})`).bind(...ids).all()).results) || []).forEach((r) => { names[r.id] = r; });
+  const list = ids.filter((id) => names[id]).map((id) => ({ id, name: names[id].name, area: names[id].area || '', avg: sppTeam(tables[id]), played: tables[id].length }))
+    .sort((a, b) => a.avg - b.avg || b.played - a.played || a.name.localeCompare(b.name));
+  list.forEach((x, i) => { x.pos = i && list[i - 1].avg === x.avg ? list[i - 1].pos : i + 1; });
+  return list;
+}
+async function sppGet(env, id, pid, cors) {
+  await sppSetup(env);
+  const s = await hqSoc(env, id);
+  if (!s || !pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  const me = await env.DEMAND.prepare('SELECT mkey FROM soc_members WHERE soc = ? AND pid = ?').bind(s.id, pid).first('mkey');
+  if (!me) return json({ ok: false, error: 'Members only.' }, 403, cors);
+  const f = (await env.DEMAND.prepare('SELECT off, solo FROM soc_pp WHERE soc = ?').bind(s.id).first()) || { off: 0, solo: 0 };
+  const organiser = socOrg(s, pid);
+  const base = { ok: true, on: !f.off, national: !f.off && !f.solo, organiser, best: SPP_BEST, team: SPP_TEAM, missed: MISSED };
+  if (f.off) return json(base, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+  const today = ppToday(), monday = ppMonday(today);
+  const count = await env.DEMAND.prepare('SELECT COUNT(*) AS c FROM soc_members WHERE soc = ?').bind(s.id).first('c');
+  const mine = (await sppTables(env, [s.id], monday, today))[s.id] || [];
+  const lastT = (await sppTables(env, [s.id], monday - 7, monday - 1))[s.id] || [];
+  const strip = (t) => t.map((p) => ({ nick: p.nick, rounds: p.rounds, best: p.best, week: p.week, today: p.today, you: p.pid === pid }));
+  const out = Object.assign(base, { n: today, monday, daysLeft: monday + 6 - today, count, table: strip(mine), last: strip(lastT).slice(0, 12), lastCount: lastT.length });
+  // Who hasn't played this week: only the organiser sees it (for the nudge).
+  if (organiser) {
+    const all = (((await env.DEMAND.prepare('SELECT pid, nick FROM soc_members WHERE soc = ?').bind(s.id).all()).results) || []);
+    const played = new Set(mine.map((p) => p.pid));
+    out.waiting = all.filter((m) => !played.has(m.pid)).map((m) => m.nick);
+  }
+  if (!f.solo) {
+    try {
+      const nat = await sppRank(env, monday, today);
+      const pos = nat.find((x) => x.id === s.id);
+      out.rank = { of: nat.length, pos: pos ? pos.pos : null, avg: pos ? pos.avg : sppTeam(mine), need: Math.max(0, SPP_TEAM - mine.length) };
+      const natLast = await sppRank(env, monday - 7, monday - 1);
+      const pl = natLast.find((x) => x.id === s.id);
+      out.lastRank = pl ? { pos: pl.pos, of: natLast.length } : null;
+    } catch (e) { /* no national table this time */ }
+  }
+  return json(out, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
+}
+async function sppNational(env, cors) {
+  await sppSetup(env);
+  const today = ppToday(), monday = ppMonday(today);
+  const strip = (l) => l.slice(0, 100).map(({ id, ...x }) => x);
+  const now = await sppRank(env, monday, today), last = await sppRank(env, monday - 7, monday - 1);
+  return json({ ok: true, n: today, monday, daysLeft: monday + 6 - today, team: SPP_TEAM, table: strip(now), last: strip(last).slice(0, 10) }, 200,
+    Object.assign({ 'cache-control': 'public, max-age=300' }, cors));
+}
+async function sppSet(env, body, pid, cors) {
+  await sppSetup(env);
+  const s = await hqSoc(env, String(body.s || ''));
+  if (!s || !socOrg(s, pid)) return json({ ok: false, error: 'Only the organiser can change this.' }, 403, cors);
+  await env.DEMAND.prepare('INSERT INTO soc_pp (soc, off, solo, updated) VALUES (?, ?, ?, ?) ON CONFLICT (soc) DO UPDATE SET off = excluded.off, solo = excluded.solo, updated = excluded.updated')
+    .bind(s.id, body.on === false ? 1 : 0, body.national === false ? 1 : 0, hqDay()).run();
+  return json({ ok: true, on: body.on !== false, national: body.on !== false && body.national !== false }, 200, cors);
+}
+
 /* Founding Societies: the first 50 golf societies to reach four members get a
    permanent, numbered Founding Society badge (four members, so test societies
    and one-person sign-ups don't use up the places). Numbers never change. */

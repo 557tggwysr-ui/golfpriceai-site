@@ -545,3 +545,21 @@ a.fd-card:hover { border-color: #3fae29; }
 .hq-bopt:has(input:checked) { border-color: var(--gp-green-dark); background: #f3faf0; color: var(--gp-green-dark); }
 .hq-bprev { padding: 20px; border-radius: 14px; background: #f6f6f3; margin-bottom: 8px; overflow: hidden; }
 .hq-bprev.is-dark { background: #eef0ec; }
+
+/* Par Price league (Society HQ) and Society v Society (/societies/par-price/) */
+.hq-pp-table, .spp-table { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.hq-pp-table li, .spp-table li { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid #e4e6e0; border-radius: 12px; padding: 10px 14px; font-size: 15px; }
+.hq-pp-table li.you, .spp-table li.top { background: #eef8eb; border: 2px solid #3fae29; padding: 9px 13px; }
+.hq-pp-pos, .spp-pos { font-weight: 800; min-width: 20px; }
+.hq-pp-nick, .spp-name { flex: 1; font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.spp-name small { display: block; font-weight: 400; font-size: 12px; color: var(--gp-text-3); }
+.hq-pp-rds, .spp-n { font-size: 13px; color: var(--gp-text-3); white-space: nowrap; }
+.hq-pp-table b, .spp-table b { font-weight: 800; color: #2b7a1e; min-width: 40px; text-align: right; }
+.hq-pp-nat { display: flex; flex-direction: column; gap: 4px; background: #14211a; color: #fff; border-radius: 14px; padding: 14px 16px; }
+.hq-pp-nat .soc-kick { color: #8fd97c; }
+.hq-pp-nat span:not(.soc-kick) { color: #c4d0c8; font-size: 14px; }
+.hq-pp-nat a { color: #5fd14a; font-weight: 600; font-size: 14px; }
+.hq-pp-last { margin: 0; font-size: 14px; }
+.hq-pp-set summary { cursor: pointer; font-weight: 600; font-size: 14px; padding: 6px 0; }
+.hq-pp-set .hq-lg-check { display: flex; margin-top: 8px; font-size: 14px; }
+.hq-pp-table b.over, .spp-table b.over { color: #14211a; }
