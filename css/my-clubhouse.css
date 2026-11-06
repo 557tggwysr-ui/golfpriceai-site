@@ -192,3 +192,16 @@ a.mc-card:hover { border-color: var(--gp-green); color: var(--gp-ink); }
 .mc-restore { margin-top: 18px; max-width: 560px; }
 .mc-restore summary { cursor: pointer; font-weight: 700; color: var(--gp-green-dark); padding: 8px 0; }
 #restore .ck-box { max-width: 520px; }
+/* Shot Saver: "Where your shots go" leak bars beside the trend card. */
+.mc-ss-leaks { text-decoration: none; color: var(--gp-ink); }
+.mc-ss-leaks:hover { border-color: var(--gp-green); }
+.mc-ss-bars { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+.mc-ss-bar { display: grid; grid-template-columns: minmax(110px, 38%) minmax(0, 1fr) 34px; gap: 10px; align-items: center; font-size: 14px; }
+.mc-ss-bar b { text-align: right; font-weight: 700; }
+.mc-ss-track { height: 12px; background: #eef1ec; border-radius: 999px; overflow: hidden; }
+.mc-ss-track i { display: block; height: 100%; background: #14211a; border-radius: 999px; }
+.mc-ss-track i.top { background: #f08a24; }
+.mc-ss-go { margin-top: auto; font-weight: 700; color: #2f6f22; font-size: 14px; }
+.mc-ss-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.mc-ss-pair .mc-ss { max-width: none; }
+@media (max-width: 760px) { .mc-ss-pair { grid-template-columns: 1fr; } }

@@ -321,7 +321,18 @@
       '<div class="mc-ss-line"><b class="mc-ss-num">' + (lead ? one(sum.total) : '0') + '</b><span class="mc-dim">shots to save a round, your last ' + plural(sum.n, 'round') + '</span></div>' + chart +
       '<span class="mc-dim">' + (lead ? 'Working on: <b>' + esc(lead.label.toLowerCase()) + '</b>, ' + one(lead.v) + ' a round.' : 'No leaks against ' + esc(sum.aim.who) + '. Time to pick the next level up.') + '</span>' +
       '<div class="mc-ss-btns"><a class="mc-btn" href="/improve/shot-saver/#ss-form">Add today’s round</a><a class="mc-ss-ghost" href="/improve/shot-saver/#ss-out">See my leaks</a></div></div>';
-    return row('Shot Saver', 0, '/improve/shot-saver/', 'Open Shot Saver', card);
+    // Where the shots go: the same leak bars as Shot Saver, at a glance.
+    var leaks = '';
+    if (lead) {
+      var top = lead.v || 1;
+      leaks = '<a class="mc-card mc-ss mc-ss-leaks" href="/improve/shot-saver/#ss-fix"><span class="mc-k">Where your shots go</span>' +
+        '<div class="mc-ss-bars" role="list">' + sum.leaks.slice(0, 4).map(function (c, i) {
+          return '<div class="mc-ss-bar" role="listitem"><span>' + esc(c.label) + '</span><span class="mc-ss-track"><i class="' + (i === 0 ? 'top' : '') + '" style="width:' + Math.max(4, Math.round(c.v / top * 100)) + '%"></i></span><b>' + one(c.v) + '</b></div>';
+        }).join('') + '</div>' +
+        (sum.strengths && sum.strengths.length ? '<span class="mc-dim">Already beating ' + esc(sum.aim.who) + ' on <b>' + esc(sum.strengths[0].label.toLowerCase()) + '</b>.</span>' : '') +
+        '<span class="mc-ss-go">See the free fix for ' + esc(lead.label.toLowerCase()) + ' &rarr;</span></a>';
+    }
+    return row('Shot Saver', 0, '/improve/shot-saver/', 'Open Shot Saver', leaks ? '<div class="mc-ss-pair">' + card + leaks + '</div>' : card);
   }
 
   // ---------------------------------------------------------------- My kit

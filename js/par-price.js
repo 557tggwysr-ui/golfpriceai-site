@@ -252,7 +252,7 @@
       st.last = round.n;
       st.best = st.best == null ? t : Math.min(st.best, t);
       put('gpParStreak', st);
-      if (window.gpMilestones) gpMilestones.fromStreak(st.streak, round.n);
+      if (window.gpMilestones) { gpMilestones.fromStreak(st.streak, round.n); gpMilestones.fromRound(t, round.n, results().map(function (r) { return r.s.pts; })); }
       track('par_price_round', { total: t });
       // Anonymous: how far golfers' guesses are from the real prices, for the
       // Demand Index's Wishful Thinking Index. No score, no streak, no visitor.
@@ -301,6 +301,15 @@
       track('par_price_share', { total: t });
     });
     stage.appendChild(share);
+    // A picture of the round for stories (Instagram, TikTok), where links don't preview.
+    if (window.gpMilestones && gpMilestones.shareRound) {
+      var pic = el('button', 'gp-af-btn pr-share pr-pic', 'Save as a picture'); pic.type = 'button';
+      pic.addEventListener('click', function () {
+        gpMilestones.shareRound({ n: round.n, t: t, holes: results().map(function (r) { return r.s.pts; }), streak: st.streak, quip: shareQuip(t) }, pic);
+        track('par_price_picture', { total: t });
+      });
+      stage.appendChild(pic);
+    }
     var lows = round.items.filter(function (it) { return it.low; }).length;
     var off = pinOff();
     var info = el('p', 'pr-info');

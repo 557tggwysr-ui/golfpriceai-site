@@ -272,7 +272,7 @@ def page(kits, today):
                       description=desc, canonical=f"{SITE}/improve/{SLUG}/", body=body, section="improve", schema=schema,
                       noindex=False, extra_head=f'<link rel="stylesheet" href="/css/improve.css?v={IM_V}">\n'
                                                 f'<link rel="stylesheet" href="/css/shot-saver.css?v={V}">\n'
-                                                f'<script src="/js/milestones.js?v=20261101c" defer></script>\n')
+                                                f'<script src="/js/milestones.js?v=20261106a" defer></script>\n')
 
 
 def build(passing, built, products, today):

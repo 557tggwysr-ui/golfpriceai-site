@@ -587,3 +587,6 @@
 .ch-course-foot { margin: 0; color: var(--gp-text-2); font-size: 14.5px; }
 .ch-course-foot a { font-weight: 700; color: var(--gp-green-dark); }
 @media (max-width: 760px) { .ch-course-grid { grid-template-columns: 1fr; } .ch-course { padding: 16px; } }
+/* "Save as a picture": the second button under "Share my score". */
+.pr-pic { margin-top: 10px; background: transparent; color: inherit; border: 2px solid #3fae29; }
+.pr-pic:hover { background: rgba(63,174,41,.12); }

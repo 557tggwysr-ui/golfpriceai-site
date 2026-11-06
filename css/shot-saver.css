@@ -138,3 +138,14 @@ main.pp:has(.ss) { max-width: none; padding: 0; }
   .ss-chip b { font-size: 18px; }
   .ss-link { margin-left: 0; }
 }
+/* Desktop: the results column's cards sit in the same grid as the form, so
+   "Add a round" runs down to the bottom of the Biggest leak box. */
+@media (min-width: 1001px) {
+  .ss-grid { align-items: stretch; row-gap: 18px; }
+  .ss-out { display: contents; }
+  .ss-grid > .ss-form { grid-column: 1; grid-row: 1 / span 2; }
+  .ss-out > * { grid-column: 2; }
+  .ss-out > .ss-res { grid-row: 1; }
+  .ss-out > .ss-dark { grid-row: 2; }
+  .ss-out > .ss-also, .ss-out > #ss-trend-sec { align-self: start; }
+}

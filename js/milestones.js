@@ -28,11 +28,19 @@
   function gpUse(k) { try { var d = today(), key = 'gpUse_' + k; if (localStorage.getItem(key) === d) return; localStorage.setItem(key, d); fetch('https://golfpriceai-alerts.golfpriceai.workers.dev/use', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: k }), keepalive: true }).catch(function () {}); } catch (e) { /* counts are a nice-to-have */ } }
 
   var STREAK = {
+    3: { title: 'days in a row.', line: 'Three mornings, three rounds. The habit’s forming. Don’t tell the range.', next: 'Next stop: 7' },
+    7: { title: 'A full week.', line: 'Seven mornings straight of real UK golf prices. That’s more than most manage at the range.', next: 'Next stop: 14' },
+    14: { title: 'Two weeks straight.', line: 'A fortnight without missing a morning. The streak’s got legs now.', next: 'Next stop: 30' },
     30: { title: 'days in a row.', line: 'A month of guessing real UK golf prices every single morning. More dedicated than most to the range.', next: 'Next stop: 60' },
     60: { title: 'Two months straight.', line: 'Sixty mornings, sixty rounds. The coffee goes cold. The streak doesn’t.', next: 'Next stop: 90' },
     90: { title: 'A full season.', line: 'Three months without missing a morning. Most golfers can’t say that about the range.', next: 'Next stop: 120' },
     120: { title: 'Ever-present.', line: 'Four months. Every single morning. Par Price royalty.', next: 'Ever-present' }
   };
+
+  // Par Price scores: −2, E, +3, and in words.
+  function sc(t) { t = Number(t); return t === 0 ? 'E' : t < 0 ? '−' + Math.abs(t) : '+' + t; }
+  function words(t) { t = Number(t); return t === 0 ? 'level par' : Math.abs(t) + (t > 0 ? ' over par' : ' under par'); }
+  var HOLE = { '-2': ['#f5c84c', 'Eagle'], '-1': ['#5fd14a', 'Birdie'], '0': ['#e9ede7', 'Par'], '1': ['#f08a24', 'Bogey'], '2': ['#e0533d', 'Double'] };
 
   // What each milestone is called, and the words that go with sharing it.
   function ord(n) { n = Number(n); var s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
@@ -47,6 +55,8 @@
       case 'called': return { label: 'You called it', sub: (d.name || 'a golf price'), text: 'Called it. I said ' + ({ down: 'cheaper', same: 'it would hold', up: 'pricier' }[d.call] || 'it') + ' on the ' + (d.name || 'price') + ': ' + money(d.from) + ' then, ' + money(d.to) + ' now. Make your call:', url: 'https://golfpriceai.com/prices/' + (d.slug ? d.slug + '/#crowd-caddie' : '') };
       case 'socwin': return { label: 'Society winner', sub: (d.title || '') + (d.society ? ' · ' + d.society : ''), text: 'Winner of ' + (d.title || 'the society day') + (d.society ? ' with ' + d.society : '') + ', ' + d.pts + ' points. The Form Guide had me down as... well, never mind.', url: 'https://golfpriceai.com/societies/' };
       case 'saved': return { label: 'Saved a shot', sub: Number(d.from).toFixed(1) + ' down to ' + Number(d.to).toFixed(1), text: 'Saved a shot. Shot Saver had me at ' + Number(d.from).toFixed(1) + ' shots to save, now it’s ' + Number(d.to).toFixed(1) + '. Where do yours go?', url: 'https://golfpriceai.com/improve/shot-saver/' };
+      case 'underpar': return { label: 'First round under par', sub: 'Par Price #' + d.n + ' · ' + sc(d.t), text: 'First round under par on Par Price: ' + sc(d.t) + '. Can you beat it?', url: 'https://golfpriceai.com/play/par-price/' };
+      case 'daily': return { label: 'Par Price #' + d.n, sub: sc(d.t), text: 'Par Price #' + d.n + ': ' + words(d.t) + ' ⛳ Can you beat me?', url: 'https://golfpriceai.com/play/par-price/' };
       case 'streak': return { label: d.n + '-day Par Price streak', sub: STREAK[d.n] ? STREAK[d.n].title : '', text: d.n + ' days in a row on Par Price. Beat that.', url: 'https://golfpriceai.com/play/par-price/' };
     }
     return { label: 'Milestone', sub: '', text: 'A GolfPrice AI milestone.', url: 'https://golfpriceai.com/play/' };
@@ -227,6 +237,7 @@
     if (m.kind === 'called') return drawCalled(m);
     if (m.kind === 'socwin') return drawSocwin(m);
     if (m.kind === 'ace') return drawAce(m);
+    if (m.kind === 'daily' || m.kind === 'underpar') return drawRound(m);
     var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
     var x = cv.getContext('2d'), d = m.d || {}, me = nick();
     var L = 120, R = 960, light = (m.kind === 'scratch' || (m.kind === 'streak' && d.n === 90)), green = m.kind === 'streak' && d.n === 30;
@@ -294,6 +305,32 @@
   }
 
   /* ------------------------------------------------------------ sharing */
+  // Today's Par Price round (and the first round under par): the score, the
+  // five holes as coloured squares (spoiler-free: no prices), the streak.
+  function drawRound(m) {
+    var cv = document.createElement('canvas'); cv.width = 1080; cv.height = 1350;
+    var x = cv.getContext('2d'), d = m.d || {}, L = 120, R = 960, under = Number(d.t) < 0, first = m.kind === 'underpar';
+    x.fillStyle = first ? C.green : C.ink; x.fillRect(0, 0, 1080, 1350);
+    x.lineWidth = 2; x.strokeStyle = first ? 'rgba(255,255,255,.35)' : 'rgba(255,255,255,.14)'; rr(x, 56, 56, 968, 1238, 36); x.stroke();
+    logo(x, L, 172, first ? C.ink : '#fff', first ? '#fff' : C.bright);
+    text(x, 'PAR PRICE #' + d.n, R, 166, '700 22px Inter, sans-serif', first ? C.ink : C.soft, 'right');
+    text(x, first ? 'FIRST ROUND UNDER PAR' : 'TODAY’S ROUND', L, 330, '700 30px Inter, sans-serif', first ? C.ink : C.soft);
+    text(x, sc(d.t), L - 10, 640, '800 330px Poppins, sans-serif', first ? '#fff' : under ? C.bright : Number(d.t) === 0 ? '#fff' : C.orange);
+    text(x, words(d.t).charAt(0).toUpperCase() + words(d.t).slice(1) + '.', L, 750, '800 76px Poppins, sans-serif', first ? C.ink : '#fff');
+    var holes = (d.holes || []).slice(0, 5), w = 150, gap = (R - L - w * 5) / 4;
+    holes.forEach(function (p, i) {
+      var h = HOLE[String(Math.max(-2, Math.min(2, p)))] || HOLE['0'];
+      x.fillStyle = h[0]; rr(x, L + i * (w + gap), 820, w, w, 22); x.fill();
+      text(x, h[1], L + i * (w + gap) + w / 2, 1010, '700 26px Inter, sans-serif', first ? C.ink : C.grey, 'center');
+    });
+    wrap(x, d.quip || (first ? 'Better than par at guessing golf prices.' : 'Five real UK golf prices. Can you beat it?'), L, 1072, 840, 40, '400 30px Inter, sans-serif', first ? C.ink : C.grey);
+    x.fillStyle = first ? 'rgba(20,33,26,.25)' : 'rgba(255,255,255,.14)'; x.fillRect(L, 1120, R - L, 2);
+    text(x, nick(), L, 1192, '700 44px Poppins, sans-serif', first ? C.ink : '#fff');
+    text(x, d.streak > 1 ? 'Streak: ' + d.streak + ' days' : longDate(m.date), L, 1238, '400 28px Inter, sans-serif', first ? C.ink : C.dim);
+    pill(x, 'golfpriceai.com/play', R, 1230, first ? C.ink : C.green, '#fff');
+    return cv;
+  }
+
   function share(m, btn) {
     var info = meta(m);
     gpUse('ms_share');
@@ -393,7 +430,7 @@
     css();
     var all = list();
     if (!all.length) {
-      el.innerHTML = '<p class="ms-empty">No milestones yet. Your first one: play 5 rounds of <a href="/play/par-price/">Par Price</a> to get a Price Handicap. Streaks of 30, 60, 90 and 120 days, Scratch Club, Bandit of the Month, Bag Draft champion, Crowd Caddie, society winner and Shot Saver cards are all up for grabs.</p>';
+      el.innerHTML = '<p class="ms-empty">No milestones yet. Your first one: play 5 rounds of <a href="/play/par-price/">Par Price</a> to get a Price Handicap. Streaks of 3, 7, 14, 30, 60, 90 and 120 days, Scratch Club, Bandit of the Month, Bag Draft champion, Crowd Caddie, society winner and Shot Saver cards are all up for grabs.</p>';
       return;
     }
     el.innerHTML = '<div class="ms-shelf">' + all.map(function (m, i) {
@@ -414,6 +451,12 @@
   function fromStreak(streak, n) {
     if (STREAK[streak]) award('streak' + streak + '_' + (n - streak), 'streak', { n: streak });
   }
+  // A Par Price round just finished: the first round under par is a milestone.
+  function fromRound(t, n, holes) {
+    if (Number(t) < 0) award('underpar', 'underpar', { t: Number(t), n: n, holes: holes || [] });
+  }
+  // "Save as picture" for today's round: drawn and shared, not kept on the shelf.
+  function shareRound(d, btn) { share({ id: 'daily', kind: 'daily', date: today(), d: d }, btn); }
 
-  window.gpMilestones = { award: award, shelf: shelf, list: list, fromHandicap: fromHandicap, fromStreak: fromStreak, draw: draw, open: open };
+  window.gpMilestones = { award: award, shelf: shelf, list: list, fromHandicap: fromHandicap, fromStreak: fromStreak, fromRound: fromRound, shareRound: shareRound, draw: draw, open: open };
 })();
