@@ -28,21 +28,20 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "courses" / "cards.json"
 REFRESH_DAYS = 30
 RETRY_DAYS = 3
-VERSION = 1
+VERSION = 2  # 2: fetched in batches of courses, not one UK-wide query
+BATCH = 150
 ENDPOINTS = ["https://overpass-api.de/api/interpreter",
              "https://overpass.kumi.systems/api/interpreter",
              "https://overpass.private.coffee/api/interpreter"]
-# Holes with a stroke index, the golf course areas their nodes sit in, then
-# each of those courses followed by its holes.
-QUERY = """[out:json][timeout:900][maxsize:1073741824];
-area["ISO3166-1"="GB"][admin_level=2]->.gb;
-way["golf"="hole"][~"^handicap"~"."](area.gb)->.h;
-node(w.h)->.hn;
-.hn is_in->.ins;
-area.ins["leisure"="golf_course"]->.cs;
-foreach.cs->.c(
+# One batch of courses from data/courses/uk.json at a time: each course, then
+# the golf holes inside its area. Small batches keep OpenStreetMap's servers
+# well inside their time limits.
+QUERY = """[out:json][timeout:300];
+({ids});
+foreach->.c(
   .c out ids;
-  way["golf"="hole"](area.c);
+  .c map_to_area->.a;
+  way(area.a)["golf"="hole"];
   out tags;
 );
 """
@@ -51,13 +50,16 @@ SI_KEYS = ("handicap", "handicap:men", "handicap:yellow", "handicap:white", "han
 RED_SI_KEYS = ("handicap:red", "handicap:women", "handicap:ladies", "handicap:female")
 
 
-def _fetch():
-    data = urllib.parse.urlencode({"data": QUERY}).encode()
+def _fetch_batch(ids):
+    ways = [i[1:] for i in ids if i.startswith("w")]
+    rels = [i[1:] for i in ids if i.startswith("r")]
+    parts = (f"way(id:{','.join(ways)});" if ways else "") + (f"relation(id:{','.join(rels)});" if rels else "")
+    data = urllib.parse.urlencode({"data": QUERY.format(ids=parts)}).encode()
     last = None
     for url in ENDPOINTS:
         try:
             req = urllib.request.Request(url, data=data, headers={"User-Agent": "GolfPriceAI/1.0 (golfpriceai.com; course cards)"})
-            with urllib.request.urlopen(req, timeout=960) as r:
+            with urllib.request.urlopen(req, timeout=330) as r:
                 return json.loads(r.read().decode("utf-8"))
         except Exception as e:  # try the next mirror
             last = e
@@ -82,15 +84,41 @@ def _valid(pars, si):
             and sorted(x for x in si if x is not None) == list(range(1, 19)))
 
 
+def _fetch():
+    """Every UK course's holes, batch by batch. Elements in order: a course
+    (no tags), then its holes, then the next course."""
+    import time
+    try:
+        ids = [c["id"] for c in json.loads((ROOT / "data" / "courses" / "uk.json").read_text())["courses"] if c["id"][0] in "wr"]
+    except Exception as e:
+        raise RuntimeError(f"no course list: {e}")
+    elements, failed = [], 0
+    batches = [ids[i:i + BATCH] for i in range(0, len(ids), BATCH)]
+    for b in batches:
+        try:
+            elements += _fetch_batch(b).get("elements", [])
+        except Exception as e:
+            failed += 1
+            print(f"Course cards: a batch failed ({e})")
+        time.sleep(2)
+    if failed > len(batches) // 2:
+        raise RuntimeError(f"{failed} of {len(batches)} batches failed")
+    return {"elements": elements}
+
+
 def build_cards(elements):
-    """Overpass elements (course area, its holes, next area, ...) → {id: card}."""
+    """Overpass elements (course, its holes, next course, ...) → {id: card}."""
     holes, cur = {}, None
     for el in elements:
+        tags = el.get("tags") or {}
         if el.get("type") == "area":
             cur = _course_id(el.get("id", 0))
             if cur:
                 holes.setdefault(cur, [])
-        elif el.get("type") == "way" and cur and (el.get("tags") or {}).get("golf") == "hole":
+        elif el.get("type") in ("way", "relation") and not tags:
+            cur = ("w" if el["type"] == "way" else "r") + str(el.get("id"))
+            holes.setdefault(cur, [])
+        elif el.get("type") == "way" and cur and tags.get("golf") == "hole":
             holes[cur].append(el["tags"])
     cards = {}
     for cid, tags in holes.items():
@@ -139,7 +167,7 @@ def refresh(today, force=False):
     # A failed fetch is only retried after RETRY_DAYS, so a slow OpenStreetMap
     # doesn't hold up every 6-hourly run.
     try:
-        if not force and old and date.fromisoformat(old.get("tried", "2000-01-01")) > today - timedelta(days=RETRY_DAYS):
+        if not force and old and old.get("v") == VERSION and date.fromisoformat(old.get("tried", "2000-01-01")) > today - timedelta(days=RETRY_DAYS):
             return False
     except ValueError:
         pass
@@ -148,7 +176,7 @@ def refresh(today, force=False):
     except Exception as e:
         print(f"Course cards: kept the old file ({e})")
         keep = old or {"v": VERSION, "updated": "2000-01-01", "attribution": ATTRIBUTION, "cards": {}}
-        keep["tried"] = today.isoformat()
+        keep["tried"], keep["v"] = today.isoformat(), VERSION
         OUT.parent.mkdir(parents=True, exist_ok=True)
         OUT.write_text(json.dumps(keep, separators=(",", ":")))
         return False
