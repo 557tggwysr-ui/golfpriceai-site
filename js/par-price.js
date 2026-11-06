@@ -309,6 +309,7 @@
         track('par_price_picture', { total: t });
       });
       stage.appendChild(pic);
+      stage.appendChild(el('p', 'pr-pic-note', 'Pop it on your Instagram or TikTok story, or keep it for bragging rights at the 19th.'));
     }
     var lows = round.items.filter(function (it) { return it.low; }).length;
     var off = pinOff();

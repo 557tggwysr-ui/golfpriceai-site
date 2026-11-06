@@ -590,3 +590,4 @@
 /* "Save as a picture": the second button under "Share my score". */
 .pr-pic { margin-top: 10px; background: transparent; color: inherit; border: 2px solid #3fae29; }
 .pr-pic:hover { background: rgba(63,174,41,.12); }
+.pr-pic-note { margin: 8px 0 0; font-size: 14px; opacity: .75; text-align: center; }

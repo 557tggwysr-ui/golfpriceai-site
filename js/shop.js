@@ -361,7 +361,10 @@ const APPAREL_TYPE_OPTIONS = [
   { key: 'polo', label: 'Polo Tees' }, { key: 'trousers', label: 'Trousers' },
   { key: 'shorts', label: 'Shorts' }, { key: 'skort', label: 'Skorts' },
   { key: 'jacket', label: 'Jackets & Layers' }, { key: 'hoodie', label: 'Hoodies' },
-  { key: 'cap', label: 'Caps & Hats' }, { key: 'sunglasses', label: 'Sunglasses' },
+  { key: 'caps', label: 'Caps' }, { key: 'visor', label: 'Visors' },
+  { key: 'bucket-hat', label: 'Bucket & Sun Hats' }, { key: 'beanie', label: 'Beanies & Headbands' },
+  { key: 'bobble-hat', label: 'Bobble Hats' }, { key: 'hat-other', label: 'Hat Clips & Extras' },
+  { key: 'sunglasses', label: 'Sunglasses' },
   { key: 'belt', label: 'Belts' }, { key: 'socks', label: 'Socks' },
 ];
 const ACCESSORIES_TYPE_OPTIONS = [
@@ -394,6 +397,25 @@ const ALL_TOP_CATEGORY_OPTIONS = [
   { key: 'shoes', label: 'Shoes' }, { key: 'apparel', label: 'Apparel' },
   { key: 'accessories', label: 'Accessories' },
 ];
+
+// Headwear all carries the "cap" icon; the filter splits it by name. Many
+// "Hat" names are caps (TaylorMade Tour Radar Hat), so caps are the default.
+const HAT_KEYS = ['caps', 'visor', 'bucket-hat', 'beanie', 'bobble-hat', 'hat-other'];
+const HAT_RULES = [
+  ['visor', /\bvisor/i],
+  ['bobble-hat', /\bbobble|\bpom[ -]?pom|\bpom\b/i],
+  ['beanie', /\bbeanie|\bknit|\btoque|headband|winter hat|thermal hat/i],
+  ['bucket-hat', /\bbucket|\bboonie|\baussie|sun hat|sun golf hat|\bstraw\b|rain hat|rain golf hat|waterproof hat|oversize/i],
+  ['caps', /\bcaps?\b/i],
+  ['hat-other', /\b(clip|marker|scarf|snood|boxer|trunks?|briefs?|holder|belt|tees|gift pack)\b/i],
+];
+function hatKind(p) {
+  const n = p.name || '';
+  for (const [k, re] of HAT_RULES) if (re.test(n)) return k;
+  return 'caps';
+}
+// The product's sub-type for the "Product Type" filter.
+function typeKey(p) { return p.icon === 'cap' ? hatKind(p) : p.icon; }
 
 let ALL_PRODUCTS = [];
 
@@ -519,7 +541,7 @@ function isTopCategoryTypeMode() {
 function matchesTypeCheckboxes(p) {
   if (activeTypeCheckboxes.size === 0) return true;
   if (isTopCategoryTypeMode()) return activeTypeCheckboxes.has(p.category);
-  return activeTypeCheckboxes.has(p.icon);
+  return activeTypeCheckboxes.has(typeKey(p));
 }
 
 function matchesFilters(p, exclude) {
@@ -709,7 +731,7 @@ function renderSidebar() {
     const isTopCat = isTopCategoryTypeMode();
     const counted = typeOptsRaw.map(o => ({
       ...o,
-      count: typeScoped.filter(p => (isTopCat ? p.category : p.icon) === o.key).length
+      count: typeScoped.filter(p => (isTopCat ? p.category : typeKey(p)) === o.key).length
     })).filter(o => o.count > 0 || activeTypeCheckboxes.has(o.key));
     typeSection = `
       <div class="filter-group" data-group-name="type">
@@ -1075,7 +1097,8 @@ fetch('data/products.json')
     updateSeoMeta(params, categoryParam, validCategory, groupParam);
 
     const typesParam = params.get('types');
-    if (typesParam) activeTypeCheckboxes = new Set(typesParam.split(','));
+    // Older links say types=cap for all headwear: tick every kind of hat.
+    if (typesParam) activeTypeCheckboxes = new Set(typesParam.split(',').flatMap(t => t === 'cap' ? HAT_KEYS : [t]));
 
     const brandParam = params.get('brand');
     if (brandParam) activeBrands = new Set(brandParam.split(','));
