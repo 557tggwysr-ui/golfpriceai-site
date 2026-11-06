@@ -6,28 +6,28 @@
  "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.95,
+ "lowestNewPrice": 129.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 129.0,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 129.95,
    "options": 13
-  },
-  {
-   "name": "Clickgolf",
-   "from": 159.0,
-   "options": 2
   }
  ],
  "history": {
   "daysTracked": 83,
-  "low": 129.95,
+  "low": 129.0,
   "high": 159.0,
-  "average": 141.18,
-  "priceChanges": 2,
+  "average": 141.17,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -43,15 +43,15 @@
    ],
    [
     "2026-11-06",
-    129.95
+    129.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 45 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/yonex_ezone_elite_4_hybrid_2.jpg?v=1686740273",
+ "image": "https://www.clickgolf.co.uk/images/product/main/yonex-ezone-elite-4-hybrid-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-06"
 }

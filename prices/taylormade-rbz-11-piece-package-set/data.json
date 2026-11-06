@@ -6,28 +6,28 @@
  "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 999.0,
+ "lowestNewPrice": 959.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 959.0,
+   "options": 4
+  },
   {
    "name": "Clarkes Golf",
    "from": 999.0,
    "options": 1
-  },
-  {
-   "name": "Clickgolf",
-   "from": 1029.0,
-   "options": 4
   }
  ],
  "history": {
   "daysTracked": 83,
   "low": 959.0,
   "high": 1029.0,
-  "average": 1004.42,
-  "priceChanges": 19,
+  "average": 1003.94,
+  "priceChanges": 20,
   "series": [
    [
     "2026-08-16",
@@ -111,15 +111,15 @@
    ],
    [
     "2026-11-06",
-    999.0
+    959.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-RBZ-2-Golf-Package-11-Piece-Golf-Packag-0.jpg?v=1737000487",
+ "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-RBZ-Mens-11-Piece-Package-Set-Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-06"
 }

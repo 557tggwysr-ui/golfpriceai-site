@@ -6,23 +6,23 @@
  "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 999.0,
+ "lowestNewPrice": 799.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 999.0,
+   "from": 799.0,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 83,
-  "low": 999.0,
+  "low": 799.0,
   "high": 999.0,
-  "average": 999.0,
-  "priceChanges": 0,
+  "average": 996.59,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-06",
-    999.0
+    799.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 83 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/g_yonex-ezone-elite-4-package-set-3.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

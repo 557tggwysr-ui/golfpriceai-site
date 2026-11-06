@@ -6,19 +6,19 @@
  "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.15,
+ "lowestNewPrice": 159.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Clarkes Golf",
-   "from": 169.15,
+   "name": "Clickgolf",
+   "from": 159.0,
    "options": 1
   },
   {
-   "name": "Clickgolf",
-   "from": 189.0,
+   "name": "Clarkes Golf",
+   "from": 169.15,
    "options": 1
   }
  ],
@@ -26,8 +26,8 @@
   "daysTracked": 59,
   "low": 159.0,
   "high": 189.0,
-  "average": 177.15,
-  "priceChanges": 14,
+  "average": 176.98,
+  "priceChanges": 15,
   "series": [
    [
     "2026-09-09",
@@ -91,13 +91,13 @@
    ],
    [
     "2026-11-06",
-    169.15
+    159.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £10.15 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/wilson-profile-golf-package-set-stand-bag-white-grey-red-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

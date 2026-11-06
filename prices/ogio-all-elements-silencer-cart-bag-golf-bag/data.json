@@ -6,15 +6,15 @@
  "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 229.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 229.0,
-   "options": 8
+   "from": 199.0,
+   "options": 9
   },
   {
    "name": "Scottsdale Golf",
@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 83,
-  "low": 229.0,
+  "low": 199.0,
   "high": 279.0,
-  "average": 257.07,
-  "priceChanges": 14,
+  "average": 256.71,
+  "priceChanges": 15,
   "series": [
    [
     "2026-08-16",
@@ -91,7 +91,7 @@
    ],
    [
     "2026-11-06",
-    229.0
+    199.0
    ]
   ]
  },

@@ -6,14 +6,16 @@
  "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 499.0,
+ "lowestNewPrice": 469.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 469.0,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 499.0,
@@ -21,11 +23,6 @@
   },
   {
    "name": "Clarkes Golf",
-   "from": 499.0,
-   "options": 2
-  },
-  {
-   "name": "Clickgolf",
    "from": 499.0,
    "options": 2
   },
@@ -44,8 +41,8 @@
   "daysTracked": 83,
   "low": 469.0,
   "high": 499.0,
-  "average": 486.83,
-  "priceChanges": 15,
+  "average": 486.47,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -113,13 +110,13 @@
    ],
    [
     "2026-11-06",
-    499.0
+    469.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-FX1-Electric-Golf_Trolley-18-Hole-Lithium.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

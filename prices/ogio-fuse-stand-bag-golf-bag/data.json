@@ -8,7 +8,8 @@
  "unit": "each",
  "lowestNewPrice": 149.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clarkes Golf",
+  "Clickgolf"
  ],
  "retailers": [
   {
@@ -18,7 +19,7 @@
   },
   {
    "name": "Clickgolf",
-   "from": 169.0,
+   "from": 149.0,
    "options": 8
   },
   {
@@ -121,7 +122,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/20251016_OGIOSEUSTUDIO_03063_WEB.jpg?v=1769089794",
+ "image": "https://www.clickgolf.co.uk/images/product/main/ogio-fuse-stand-bag-paradise-front-1000x1000-ogio1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-06"
 }

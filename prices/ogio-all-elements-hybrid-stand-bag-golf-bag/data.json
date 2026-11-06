@@ -8,7 +8,8 @@
  "unit": "each",
  "lowestNewPrice": 159.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clarkes Golf",
+  "Clickgolf"
  ],
  "retailers": [
   {
@@ -18,8 +19,8 @@
   },
   {
    "name": "Clickgolf",
-   "from": 199.0,
-   "options": 8
+   "from": 159.0,
+   "options": 9
   },
   {
    "name": "Scottsdale Golf",
