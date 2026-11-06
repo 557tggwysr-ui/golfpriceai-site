@@ -3,47 +3,47 @@
  "brand": "Wilson",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/wilson-profile-fairway-wood/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 64.99,
+ "lowestNewPrice": 59.95,
  "lowestAt": [
-  "Major Golf Direct"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 59.95,
+   "options": 10
+  },
   {
    "name": "Major Golf Direct",
    "from": 64.99,
    "options": 3
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 69.95,
-   "options": 10
   }
  ],
  "history": {
-  "daysTracked": 70,
-  "low": 64.99,
+  "daysTracked": 71,
+  "low": 59.95,
   "high": 64.99,
-  "average": 64.99,
-  "priceChanges": 0,
+  "average": 64.92,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
     64.99
    ],
    [
-    "2026-11-05",
-    64.99
+    "2026-11-06",
+    59.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 70 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonGolfProfileFairwayWood2.jpg?v=1742980438",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Profile20.jpg?v=1776296992",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

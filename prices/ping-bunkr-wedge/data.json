@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/ping-bunkr-wedge/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 159.0,
   "high": 169.0,
-  "average": 168.15,
+  "average": 168.04,
   "priceChanges": 1,
   "series": [
    [
@@ -43,7 +43,7 @@
     159.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     159.0
    ]
   ]
@@ -54,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/BunkRcavity-Photoroom.jpg?v=1740669062",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

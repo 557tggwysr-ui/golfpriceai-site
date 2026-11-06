@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-talus-5-stand-bag-golf-bag/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 159.0,
   "high": 179.95,
-  "average": 173.34,
+  "average": 173.11,
   "priceChanges": 2,
   "series": [
    [
@@ -42,7 +42,7 @@
     159.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     159.0
    ]
   ]
@@ -53,5 +53,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TalusWhite2.jpg?v=1776257195",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

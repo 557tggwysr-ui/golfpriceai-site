@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-reserve-stand-bag-golf-bag/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 279.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 254.0,
   "high": 279.0,
-  "average": 271.68,
+  "average": 271.77,
   "priceChanges": 16,
   "series": [
    [
@@ -93,7 +93,7 @@
     279.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     279.0
    ]
   ]
@@ -104,5 +104,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Reserve_Black_Whitebg_1000X1000_1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-x-forged-max-irons/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1049.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 217.0,
   "high": 1302.0,
-  "average": 796.65,
+  "average": 799.69,
   "priceChanges": 6,
   "series": [
    [
@@ -56,6 +56,10 @@
    [
     "2026-11-05",
     1049.0
+   ],
+   [
+    "2026-11-06",
+    1049.0
    ]
   ]
  },
@@ -65,5 +69,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ForgedXMaxIrons9.jpg?v=1773174946",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

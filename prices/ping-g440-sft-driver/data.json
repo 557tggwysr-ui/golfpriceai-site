@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g440-sft-driver/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 499.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 499.0,
   "high": 529.0,
-  "average": 526.44,
+  "average": 526.11,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     499.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     499.0
    ]
   ]
@@ -49,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-G440-SFT-HL-Golf-Driver-8.jpg?v=1733285094",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

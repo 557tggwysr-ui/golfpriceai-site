@@ -1,17 +1,167 @@
 {
- "checked": "2026-11-05T14:07+00:00",
+ "checked": "2026-11-06T05:25+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
   {
-   "model": "Callaway Elyte X Irons",
-   "model_id": "callaway-elyte-x-irons",
-   "date": "2026-11-05",
-   "was": 549.0,
+   "model": "Cobra OPTM Driver",
+   "model_id": "cobra-optm-driver",
+   "date": "2026-11-06",
+   "was": 479.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-optm-driver/"
+  },
+  {
+   "model": "Wilson Infinite Putter",
+   "model_id": "wilson-infinite-putter",
+   "date": "2026-11-06",
+   "was": 119.95,
+   "now": 99.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-infinite-putter/"
+  },
+  {
+   "model": "Cobra OPTM Fairway Wood",
+   "model_id": "cobra-optm-fairway-wood",
+   "date": "2026-11-06",
+   "was": 299.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-optm-fairway-wood/"
+  },
+  {
+   "model": "Callaway Quantum Fairway Wood",
+   "model_id": "callaway-quantum-fairway-wood",
+   "date": "2026-11-06",
+   "was": 319.0,
+   "now": 269.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-fairway-wood/"
+  },
+  {
+   "model": "Garmin Approach S12 GPS Watch",
+   "model_id": "garmin-approach-s12-gps-watch",
+   "date": "2026-11-06",
+   "was": 129.0,
+   "now": 109.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-s12-gps-watch/"
+  },
+  {
+   "model": "Callaway Quantum Hybrid",
+   "model_id": "callaway-quantum-hybrid",
+   "date": "2026-11-06",
+   "was": 269.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-hybrid/"
+  },
+  {
+   "model": "Motocaddy Dry Series Waterproof Cart Bag Golf Bag",
+   "model_id": "motocaddy-dry-series-waterproof-cart-bag-golf-bag",
+   "date": "2026-11-06",
+   "was": 249.0,
+   "now": 219.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-dry-series-waterproof-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Callaway Quantum Driver",
+   "model_id": "callaway-quantum-driver",
+   "date": "2026-11-06",
+   "was": 529.0,
+   "now": 465.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-driver/"
+  },
+  {
+   "model": "Ping G440 Driver",
+   "model_id": "ping-g440-driver",
+   "date": "2026-11-06",
+   "was": 529.0,
+   "now": 479.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-driver/"
+  },
+  {
+   "model": "Wilson Profile Fairway Wood",
+   "model_id": "wilson-profile-fairway-wood",
+   "date": "2026-11-06",
+   "was": 64.99,
+   "now": 59.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-profile-fairway-wood/"
+  },
+  {
+   "model": "MacGregor ZT Plus Driver",
+   "model_id": "macgregor-zt-plus-driver",
+   "date": "2026-11-06",
+   "was": 139.0,
+   "now": 129.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/macgregor-zt-plus-driver/"
+  },
+  {
+   "model": "Titleist GT1 3Tour Fairway Wood",
+   "model_id": "titleist-gt1-3tour-fairway-wood",
+   "date": "2026-11-06",
+   "was": 269.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gt1-3tour-fairway-wood/"
+  },
+  {
+   "model": "Titleist GT1 Fairway Wood",
+   "model_id": "titleist-gt1-fairway-wood",
+   "date": "2026-11-06",
+   "was": 269.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gt1-fairway-wood/"
+  },
+  {
+   "model": "Titleist GT3 Fairway Wood",
+   "model_id": "titleist-gt3-fairway-wood",
+   "date": "2026-11-06",
+   "was": 269.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gt3-fairway-wood/"
+  },
+  {
+   "model": "Ping G440 HL Driver",
+   "model_id": "ping-g440-hl-driver",
+   "date": "2026-11-06",
+   "was": 529.0,
    "now": 499.0,
    "unit": "each",
    "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-elyte-x-irons/"
+   "url": "https://golfpriceai.com/prices/ping-g440-hl-driver/"
+  },
+  {
+   "model": "Ping G440 Fairway Wood",
+   "model_id": "ping-g440-fairway-wood",
+   "date": "2026-11-06",
+   "was": 319.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-fairway-wood/"
   },
   {
    "model": "Sun Mountain Eclipse E2.5 H2NO Waterproof Stand Bag Golf Bag",
@@ -352,6 +502,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-optm-max-fairway-wood/"
+  },
+  {
+   "model": "Mizuno Pro T-1 Soft Satin Wedge",
+   "model_id": "mizuno-pro-t-1-soft-satin-wedge",
+   "date": "2026-11-03",
+   "was": 119.0,
+   "now": 99.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-t-1-soft-satin-wedge/"
   },
   {
    "model": "Callaway Elyte Driver",
@@ -1002,6 +1162,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-optm-x-driver/"
+  },
+  {
+   "model": "Callaway Elyte X Irons",
+   "model_id": "callaway-elyte-x-irons",
+   "date": "2026-10-30",
+   "was": 659.0,
+   "now": 549.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-x-irons/"
   },
   {
    "model": "Voice Caddie T11 Pro GPS Watch",

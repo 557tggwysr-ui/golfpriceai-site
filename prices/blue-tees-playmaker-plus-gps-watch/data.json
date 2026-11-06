@@ -3,7 +3,7 @@
  "brand": "Blue Tees",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/blue-tees-playmaker-plus-gps-watch/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 114.5,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 114.5,
   "high": 199.0,
-  "average": 190.16,
+  "average": 188.98,
   "priceChanges": 2,
   "series": [
    [
@@ -42,7 +42,7 @@
     114.5
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     114.5
    ]
   ]
@@ -53,5 +53,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/bluetees-playmakerwatch-black-7-compressed.png?v=1748085337",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

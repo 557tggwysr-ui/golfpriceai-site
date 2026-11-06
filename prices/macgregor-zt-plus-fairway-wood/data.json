@@ -3,14 +3,20 @@
  "brand": "MacGregor",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/macgregor-zt-plus-fairway-wood/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 74.95,
  "lowestAt": [
+  "Affordable Golf",
   "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 74.95,
+   "options": 8
+  },
   {
    "name": "Major Golf Direct",
    "from": 74.95,
@@ -20,15 +26,10 @@
    "name": "Clarkes Golf",
    "from": 79.95,
    "options": 7
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 89.95,
-   "options": 8
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 74.95,
   "high": 74.95,
   "average": 74.95,
@@ -39,16 +40,16 @@
     74.95
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     74.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 70 days"
+  "summary": "Typical price: steady for 71 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MacGregorGolfZTPlusFairway2026_4.jpg?v=1772009289",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

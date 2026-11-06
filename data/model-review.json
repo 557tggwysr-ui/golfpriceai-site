@@ -1,10 +1,10 @@
 {
- "lastUpdated": "2026-11-05",
+ "lastUpdated": "2026-11-06",
  "uncertainGroupings": [
   {
    "model": "Titleist vokey sm11",
    "issue": "cheapest retailer \u00a3179.00 vs dearest \u00a3507.00: check for used stock or a different product",
-   "listings": 92
+   "listings": 93
   },
   {
    "model": "Callaway quantum max",
@@ -143,8 +143,8 @@
   },
   {
    "model": "Mizuno rb 566",
-   "issue": "2 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
-   "listings": 2
+   "issue": "1 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
+   "listings": 1
   },
   {
    "model": "Cleveland RTZ 2 Wedge",
@@ -167,9 +167,9 @@
    "listings": 1
   },
   {
-   "model": "MacGregor V Foil Chrome Wedge",
-   "issue": "price spread \u00a339.99 to \u00a3129.00: may mix different products",
-   "listings": 4
+   "model": "Yonex ezone gt4",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
   },
   {
    "model": "Aldila Stiff Fairway Wood",
@@ -790,6 +790,11 @@
   },
   {
    "name": "Rife Roll Groove Series RG4 Mens Right Hand Putter 34\" Mallet - Rife",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "TaylorMade Spider ZT Max Mens Right Hand Putter 38\" Mallet KBS Tour GPS - Super Stroke Zenergy Tour 3.0.17",
    "from": "accessories",
    "to": "putter"
   },
@@ -2124,6 +2129,11 @@
    "to": "putter"
   },
   {
+   "name": "Odyssey DFX Putter - Ten S Slant Right Hand / 34\" / Mid Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
    "name": "Odyssey DFX Putter - Ten S Slant Right Hand / 35\" / Mid Pistol Grip",
    "from": "accessories",
    "to": "putter"
@@ -2335,6 +2345,11 @@
   },
   {
    "name": "Evnroll V12 Black Mallet Putter - Inline Short Slant High MOI Right Hand / 33\" / TourTac Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll V12 Black Mallet Putter - Inline Short Slant High MOI Right Hand / 34\" / TourTac Grip",
    "from": "accessories",
    "to": "putter"
   },
@@ -2602,6 +2617,11 @@
    "name": "Scotty Cameron Phantom 11R OC Golf Putter - 35\" / Stock Grip",
    "from": "accessories",
    "to": "putter"
+  },
+  {
+   "name": "Wilson ZM Grooves Steel Mens Right Hand Gap Wedge 50* 8 Bounce S Grind Stiff - Nippon Modus 120",
+   "from": "accessories",
+   "to": "wedge"
   },
   {
    "name": "Wilson ZM Grooves Steel Mens Right Hand Lob Wedge 60* 12 Bounce Wedge - Dynamic Gold wedge flex",

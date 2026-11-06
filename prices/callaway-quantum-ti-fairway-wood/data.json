@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-quantum-ti-fairway-wood/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 339.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 339.0,
   "high": 399.0,
-  "average": 397.54,
+  "average": 396.83,
   "priceChanges": 1,
   "series": [
    [
@@ -43,7 +43,7 @@
     339.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     339.0
    ]
   ]
@@ -54,5 +54,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/quantum-ti-fairway-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/callaway-quantum-max-hybrid/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -14,7 +14,7 @@
   {
    "name": "Clarkes Golf",
    "from": 229.0,
-   "options": 7
+   "options": 8
   },
   {
    "name": "Clickgolf",
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 229.0,
   "high": 269.0,
-  "average": 268.02,
+  "average": 267.55,
   "priceChanges": 1,
   "series": [
    [
@@ -48,7 +48,7 @@
     229.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     229.0
    ]
   ]
@@ -59,5 +59,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-hybrid-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

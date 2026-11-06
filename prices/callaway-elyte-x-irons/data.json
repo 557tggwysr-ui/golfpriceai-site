@@ -3,23 +3,23 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-elyte-x-irons/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 499.0,
+ "lowestNewPrice": 549.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
-  {
-   "name": "Clickgolf",
-   "from": 499.0,
-   "options": 1
-  },
   {
    "name": "Clarkes Golf",
    "from": 549.0,
    "options": 14
+  },
+  {
+   "name": "Clickgolf",
+   "from": 599.0,
+   "options": 1
   },
   {
    "name": "Affordable Golf",
@@ -28,11 +28,11 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 499.0,
   "high": 659.0,
-  "average": 649.0,
-  "priceChanges": 2,
+  "average": 647.8,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -45,14 +45,18 @@
    [
     "2026-11-05",
     499.0
+   ],
+   [
+    "2026-11-06",
+    549.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £50.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-x-iron-back.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-X-Golf-Irons-Graphite-1.jpg?v=1737087065",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

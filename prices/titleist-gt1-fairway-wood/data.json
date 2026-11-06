@@ -3,18 +3,17 @@
  "brand": "Titleist",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/titleist-gt1-fairway-wood/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 269.0,
+ "lowestNewPrice": 249.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 269.0,
+   "from": 249.0,
    "options": 6
   },
   {
@@ -29,11 +28,11 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
-  "low": 269.0,
+  "daysTracked": 83,
+  "low": 249.0,
   "high": 299.0,
-  "average": 285.46,
-  "priceChanges": 1,
+  "average": 285.02,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -44,8 +43,8 @@
     269.0
    ],
    [
-    "2026-11-05",
-    269.0
+    "2026-11-06",
+    249.0
    ]
   ]
  },
@@ -55,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GT1Fairway3.jpg?v=1776299756",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

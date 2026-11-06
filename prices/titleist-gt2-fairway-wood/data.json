@@ -3,15 +3,21 @@
  "brand": "Titleist",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/titleist-gt2-fairway-wood/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
  "lowestAt": [
+  "Affordable Golf",
   "Clickgolf",
   "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 249.0,
+   "options": 18
+  },
   {
    "name": "Clickgolf",
    "from": 249.0,
@@ -21,11 +27,6 @@
    "name": "Major Golf Direct",
    "from": 249.0,
    "options": 3
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 269.0,
-   "options": 18
   },
   {
    "name": "Clarkes Golf",
@@ -39,7 +40,7 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 249.0,
   "high": 249.0,
   "average": 249.0,
@@ -50,16 +51,16 @@
     249.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     249.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 82 days"
+  "summary": "Typical price: steady for 83 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/GT2-Fairway-Wood-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/cobra-optm-max-fairway-wood/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
@@ -24,10 +24,10 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 249.0,
   "high": 299.0,
-  "average": 297.17,
+  "average": 296.59,
   "priceChanges": 1,
   "series": [
    [
@@ -39,7 +39,7 @@
     249.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     249.0
    ]
   ]
@@ -50,5 +50,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/OPTM-Max-Fairway-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

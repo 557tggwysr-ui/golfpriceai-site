@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/wilson-dynapower-driver/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.95,
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 199.95,
   "high": 199.95,
   "average": 199.95,
@@ -34,16 +34,16 @@
     199.95
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     199.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 63 days"
+  "summary": "Typical price: steady for 64 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/dynapower_carbon_hero.jpg?v=1777980953",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

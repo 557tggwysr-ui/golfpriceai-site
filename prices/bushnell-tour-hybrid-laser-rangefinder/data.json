@@ -3,23 +3,21 @@
  "brand": "Bushnell",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/bushnell-tour-hybrid-laser-rangefinder/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 479.0,
+ "lowestNewPrice": 469.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 479.0,
+   "name": "Clarkes Golf",
+   "from": 469.0,
    "options": 1
   },
   {
-   "name": "Clarkes Golf",
+   "name": "Affordable Golf",
    "from": 479.0,
    "options": 1
   },
@@ -35,11 +33,11 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 449.0,
   "high": 479.0,
   "average": 468.76,
-  "priceChanges": 2,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -54,16 +52,16 @@
     479.0
    ],
    [
-    "2026-11-05",
-    479.0
+    "2026-11-06",
+    469.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Bushnell_Tour_Hybrid_Laser_Rangefinder_1.jpg?v=1776307286",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Bushnell-Tour-Hybrid-Rangefinder-Navy-Grey-Blue-1-Photoroom.jpg?v=1748343303",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cobra-king-tec-mini-driver/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 379.0,
@@ -16,7 +16,7 @@
   {
    "name": "Affordable Golf",
    "from": 379.0,
-   "options": 3
+   "options": 4
   },
   {
    "name": "Clarkes Golf",
@@ -30,7 +30,7 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 379.0,
   "high": 379.0,
   "average": 379.0,
@@ -41,16 +41,16 @@
     379.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     379.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 82 days"
+  "summary": "Typical price: steady for 83 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/King-Tec-Mini-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

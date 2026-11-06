@@ -3,22 +3,23 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-quantum-mini-driver/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 365.0,
  "lowestAt": [
+  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Clarkes Golf",
+   "name": "Affordable Golf",
    "from": 365.0,
    "options": 7
   },
   {
-   "name": "Affordable Golf",
-   "from": 429.0,
+   "name": "Clarkes Golf",
+   "from": 365.0,
    "options": 7
   },
   {
@@ -33,10 +34,10 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 365.0,
   "high": 429.0,
-  "average": 427.44,
+  "average": 426.69,
   "priceChanges": 1,
   "series": [
    [
@@ -48,7 +49,7 @@
     365.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     365.0
    ]
   ]
@@ -57,7 +58,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2026-Quantum-Driver-Mini-Sole-B-004.jpg?v=1776162589",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/QuantumMiniDriver6.jpg?v=1776263539",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

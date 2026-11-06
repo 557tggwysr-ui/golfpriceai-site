@@ -3,15 +3,19 @@
  "brand": "MacGregor",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/macgregor-zt-plus-driver/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 139.0,
+ "lowestNewPrice": 129.95,
  "lowestAt": [
-  "Clarkes Golf",
-  "Major Golf Direct"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 129.95,
+   "options": 4
+  },
   {
    "name": "Clarkes Golf",
    "from": 139.0,
@@ -21,35 +25,30 @@
    "name": "Major Golf Direct",
    "from": 139.0,
    "options": 3
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 139.95,
-   "options": 4
   }
  ],
  "history": {
-  "daysTracked": 70,
-  "low": 139.0,
+  "daysTracked": 71,
+  "low": 129.95,
   "high": 139.0,
-  "average": 139.0,
-  "priceChanges": 0,
+  "average": 138.87,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
     139.0
    ],
    [
-    "2026-11-05",
-    139.0
+    "2026-11-06",
+    129.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 70 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MacGregorGolfZTPlusDriver2026_4.jpg?v=1772009148",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MacGregorZTPlusDriver2.jpg?v=1780535130",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

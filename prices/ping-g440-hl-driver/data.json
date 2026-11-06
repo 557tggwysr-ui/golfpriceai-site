@@ -3,42 +3,42 @@
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g440-hl-driver/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 529.0,
+ "lowestNewPrice": 499.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 529.0,
+   "from": 499.0,
    "options": 10
   }
  ],
  "history": {
-  "daysTracked": 63,
-  "low": 529.0,
+  "daysTracked": 64,
+  "low": 499.0,
   "high": 529.0,
-  "average": 529.0,
-  "priceChanges": 0,
+  "average": 528.53,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     529.0
    ],
    [
-    "2026-11-05",
-    529.0
+    "2026-11-06",
+    499.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 63 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Ping_G440_HL_Driver_-_SFT_2.jpg?v=1776300598",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

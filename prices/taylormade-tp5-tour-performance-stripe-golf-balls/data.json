@@ -3,34 +3,34 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-tp5-tour-performance-stripe-golf-balls/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 49.98,
+ "lowestNewPrice": 45.98,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 49.98,
+   "from": 45.98,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 63,
-  "low": 49.98,
+  "daysTracked": 64,
+  "low": 45.98,
   "high": 49.98,
-  "average": 49.98,
-  "priceChanges": 0,
+  "average": 49.92,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     49.98
    ],
    [
-    "2026-11-05",
-    49.98
+    "2026-11-06",
+    45.98
    ]
   ]
  },
@@ -40,5 +40,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeTP5TourPerformanceStripeGolfBalls-White_6BallPack_3.jpg?v=1781185397",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

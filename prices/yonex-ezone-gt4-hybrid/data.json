@@ -1,0 +1,50 @@
+{
+ "name": "Yonex Ezone GT4 Hybrid",
+ "brand": "Yonex",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/yonex-ezone-gt4-hybrid/",
+ "checked": "2026-11-06",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 299.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 299.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
+   "from": 299.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 64,
+  "low": 299.0,
+  "high": 299.0,
+  "average": 299.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-04",
+    299.0
+   ],
+   [
+    "2026-11-06",
+    299.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 64 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GT4Hybrid2.jpg?v=1726053224",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-06"
+}

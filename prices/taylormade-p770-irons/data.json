@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-p770-irons/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1029.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 1029.0,
   "high": 1249.0,
-  "average": 1079.98,
+  "average": 1079.36,
   "priceChanges": 1,
   "series": [
    [
@@ -48,16 +48,16 @@
     1029.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     1029.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 63 days"
+  "summary": "Typical price: steady for 64 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-2024-P770-Golf-Irons-Steel-7.jpg?v=1722312106",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

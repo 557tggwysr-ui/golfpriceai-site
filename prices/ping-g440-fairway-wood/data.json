@@ -3,42 +3,42 @@
  "brand": "Ping",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/ping-g440-fairway-wood/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 319.0,
+ "lowestNewPrice": 299.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 319.0,
-   "options": 44
+   "from": 299.0,
+   "options": 45
   }
  ],
  "history": {
-  "daysTracked": 63,
-  "low": 319.0,
+  "daysTracked": 64,
+  "low": 299.0,
   "high": 319.0,
-  "average": 319.0,
-  "priceChanges": 0,
+  "average": 318.69,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     319.0
    ],
    [
-    "2026-11-05",
-    319.0
+    "2026-11-06",
+    299.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 63 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PingG440FairwayWood-MAX1.jpg?v=1776300842",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PingG440FairwayWood-SFT1.jpg?v=1776300841",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

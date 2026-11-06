@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/callaway-xr-13-piece-stand-bag-package-set/",
- "checked": "2026-11-05",
+ "checked": "2026-11-06",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1049.0,
@@ -14,14 +14,14 @@
   {
    "name": "Affordable Golf",
    "from": 1049.0,
-   "options": 16
+   "options": 17
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 1049.0,
   "high": 1099.0,
-  "average": 1094.24,
+  "average": 1093.53,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     1049.0
    ],
    [
-    "2026-11-05",
+    "2026-11-06",
     1049.0
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/XR26_blue_red_2.jpg?v=1788424402",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-05"
+ "changed": "2026-11-06"
 }

@@ -1,66 +1,66 @@
 {
- "n": 19,
- "date": "2026-11-05",
+ "n": 20,
+ "date": "2026-11-06",
  "items": [
   {
-   "slug": "titleist-trufeel-golf-balls",
-   "name": "Titleist TruFeel Golf Balls",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2026-01-19T093234.019.jpg?v=1768831278",
-   "price": 24.95,
-   "unit": "per dozen",
-   "type": "golf ball",
+   "slug": "mizuno-br-d3-stand-bag-golf-bag",
+   "name": "Mizuno BR-D3 Stand Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-BR-D3-Golf-Stand-Bag-Black.jpg",
+   "price": 119.0,
+   "unit": "each",
+   "type": "golf bag",
    "low": false,
-   "url": "/prices/titleist-trufeel-golf-balls/"
+   "url": "/prices/mizuno-br-d3-stand-bag-golf-bag/"
   },
   {
-   "slug": "taylormade-qi10-fairway-wood",
-   "name": "TaylorMade Qi10 Fairway Wood",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/qi10_fairway_wood_1.jpg?v=1777960185",
-   "price": 229.0,
+   "slug": "cobra-optm-x-fairway-wood",
+   "name": "Cobra OPTM X Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/OPTM-X-Fairway-Hero-2.jpg",
+   "price": 249.0,
    "unit": "each",
    "type": "fairway wood",
-   "low": false,
-   "url": "/prices/taylormade-qi10-fairway-wood/"
-  },
-  {
-   "slug": "wilson-dynapwr-max-irons",
-   "name": "Wilson DYNAPWR Max Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-DYNAPWR-Max-Irons-Hero.jpg",
-   "price": 459.0,
-   "unit": "each",
-   "type": "iron set",
    "low": true,
-   "url": "/prices/wilson-dynapwr-max-irons/"
+   "url": "/prices/cobra-optm-x-fairway-wood/"
   },
   {
-   "slug": "scotty-cameron-studio-style-putter",
-   "name": "Scotty Cameron Studio Style Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ScottyCameronStudioStylePutter-Catalina4.jpg?v=1776299901",
-   "price": 449.0,
-   "unit": "each",
-   "type": "putter",
-   "low": false,
-   "url": "/prices/scotty-cameron-studio-style-putter/"
-  },
-  {
-   "slug": "cleveland-cbz-full-face-wedge",
-   "name": "Cleveland CBZ Full Face Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CBZFullFace4.jpg?v=1775354636",
-   "price": 139.0,
+   "slug": "callaway-opus-sp-brushed-chrome-wedge",
+   "name": "Callaway Opus SP Brushed Chrome Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025-Opus-SP-Wedge-HERO-006-Photoroom.jpg?v=1754985607",
+   "price": 159.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/cleveland-cbz-full-face-wedge/"
+   "url": "/prices/callaway-opus-sp-brushed-chrome-wedge/"
+  },
+  {
+   "slug": "cleveland-hb-soft-2-putter",
+   "name": "Cleveland HB Soft 2 Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cleveland-HB-Soft-2-Golf-Putter-1-7.jpg?v=1707365138",
+   "price": 119.0,
+   "unit": "each",
+   "type": "putter",
+   "low": false,
+   "url": "/prices/cleveland-hb-soft-2-putter/"
+  },
+  {
+   "slug": "ping-g430-hybrid",
+   "name": "Ping G430 Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g430-hybrid-1.jpg",
+   "price": 209.0,
+   "unit": "each",
+   "type": "hybrid",
+   "low": false,
+   "url": "/prices/ping-g430-hybrid/"
   }
  ],
  "pin": {
-  "slug": "big-max-dri-lite-hybrid-tour-2-golf-bag",
-  "name": "Big Max Dri Lite Hybrid Tour 2 Golf Bag",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/HYBRIDTOUR2BLK1.jpg?v=1736515453",
-  "price": 179.0,
+  "slug": "yonex-ezone-elite-4-irons",
+  "name": "Yonex Ezone Elite 4 Irons",
+  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/yonex_ezone_elite_4_irons_3.jpg?v=1686740350",
+  "price": 499.0,
   "unit": "each",
-  "type": "golf bag",
+  "type": "iron set",
   "low": true,
-  "url": "/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/"
+  "url": "/prices/yonex-ezone-elite-4-irons/"
  }
 }
