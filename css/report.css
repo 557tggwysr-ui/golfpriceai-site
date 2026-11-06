@@ -74,3 +74,16 @@
   .rp-release header { border-bottom: 2px solid #14211a; }
   body { background: #fff !important; }
 }
+/* "Get the report each month" sign-up (scripts/price_watch.py signup_box). */
+.rp-sign { max-width: 794px; margin: 22px auto 0; width: 100%; box-sizing: border-box; background: #fff; border: 1px solid #dfe6dc; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.rp-sign > div { display: flex; flex-direction: column; gap: 4px; }
+.rp-sign b { font: 700 18px Poppins, sans-serif; color: #14211a; }
+.rp-sign span, .rp-sign small { color: #4a554e; font-size: 14px; }
+.rp-sign small { font-size: 12.5px; }
+.rp-sign-f { display: flex; gap: 8px; flex-wrap: wrap; }
+.rp-sign-f input[type=email] { flex: 1 1 240px; min-height: 46px; border: 1px solid #c9d3c6; border-radius: 12px; padding: 0 14px; font: 16px Inter, sans-serif; }
+.rp-sign-msg { margin: 0; font-size: 14px; font-weight: 600; color: #2f6f22; }
+.rp-sign-msg:empty { display: none; }
+.rp-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.rp-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+@media print { .rp-sign { display: none !important; } }

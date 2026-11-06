@@ -157,6 +157,11 @@ async function subscribe(request, env, cors) {
     const entry = `${slug}|${paid.toFixed(2)}|${new Date().toISOString().slice(0, 10)}`;
     return await startSubscription({ email, models: [], stock: '', bought: entry, name: String(d.name || modelName).slice(0, 120), request, env, cors });
   }
+  if (!model && !stock && body.press) {
+    // The UK Golf Price Report: one email a month when a new edition is out
+    // (for journalists and anyone who wants the numbers). Sent by scripts/press_email.py.
+    return await startSubscription({ email, models: [], stock: '', press: true, name: 'The UK Golf Price Report', request, env, cors });
+  }
   if (!model && !stock && (body.remind === 'daily' || body.remind === 'weekly')) {
     // Par Price tee-time reminder: one email when the round is ready.
     return await startSubscription({ email, models: [], stock: '', remind: body.remind, name: 'Par Price', request, env, cors });
@@ -193,7 +198,7 @@ async function subscribe(request, env, cors) {
 }
 
 // Shared by /subscribe and the "also alert me" box on /send-list.
-async function startSubscription({ email, models, stock, bought = '', budget = '', remind = '', name, list = '', fb = '', request, env, cors, quiet }) {
+async function startSubscription({ email, models, stock, bought = '', budget = '', remind = '', press = false, name, list = '', fb = '', request, env, cors, quiet }) {
 
   // Already confirmed? Add the model straight away.
   const existing = await brevo(env, 'GET', `/contacts/${encodeURIComponent(email)}`);
@@ -201,6 +206,10 @@ async function startSubscription({ email, models, stock, bought = '', budget = '
   const attrs = (existing.ok && existing.data.attributes) || {};
   if (existing.ok && (existing.data.listIds || []).includes(listId) && !existing.data.emailBlacklisted) {
     await ensureAttributes(env);
+    if (press) {
+      await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { PRESS: 'yes' } });
+      return json({ ok: true, status: 'added-press' }, 200, cors);
+    }
     if (remind) {
       await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { PPREMIND: remind } });
       return json({ ok: true, status: 'added-remind' }, 200, cors);
@@ -228,10 +237,11 @@ async function startSubscription({ email, models, stock, bought = '', budget = '
     return json({ ok: true, status: models.length ? 'added' : 'added-digest' }, 200, cors);
   }
 
-  const payload = b64url(JSON.stringify({ e: email, m: models.join(','), k: stock, b: bought, g: budget, r: remind, f: fb, l: list === 'compare' ? 2 : list ? 1 : 0, t: Date.now() }));
+  const payload = b64url(JSON.stringify({ e: email, m: models.join(','), k: stock, b: bought, g: budget, r: remind, p: press ? 1 : 0, f: fb, l: list === 'compare' ? 2 : list ? 1 : 0, t: Date.now() }));
   const sig = await sign(env, payload);
   const link = `${new URL(request.url).origin}/confirm?d=${payload}&s=${sig}`;
-  const subject = remind ? 'Confirm your Par Price tee-time reminder'
+  const subject = press ? 'Confirm your monthly UK Golf Price Report email'
+    : remind ? 'Confirm your Par Price tee-time reminder'
     : budget ? `Confirm your budget alert: ${name}`
     : bought ? `Confirm your price watch for the ${name} you bought`
     : stock ? `Confirm your back-in-stock alert for the ${name}`
@@ -242,7 +252,7 @@ async function startSubscription({ email, models, stock, bought = '', budget = '
     sender: { name: 'GolfPrice AI', email: env.SENDER_EMAIL || 'alerts@golfpriceai.com' },
     to: [{ email }],
     subject,
-    htmlContent: confirmEmail(link, name, { remind, stock: !!stock, bought: !!bought, budget: !!budget, count: models.length, list, fb: !!fb }),
+    htmlContent: confirmEmail(link, name, { press, remind, stock: !!stock, bought: !!bought, budget: !!budget, count: models.length, list, fb: !!fb }),
     tags: ['confirm'],
   });
   if (!sent.ok) return json({ ok: false, error: 'We couldn’t send the confirmation email. Please try again shortly.' }, 502, cors);
@@ -312,7 +322,10 @@ async function confirm(url, env) {
   if (data.b && BOUGHT_RX.test(data.b)) attributes.BOUGHTWATCH = mergeBought(attrsNow.BOUGHTWATCH, data.b);
   if (data.g && budgetName(data.g)) attributes.BUDGETWATCH = mergeWatch(attrsNow.BUDGETWATCH, data.g, 10);
   if (data.r === 'daily' || data.r === 'weekly') attributes.PPREMIND = data.r;
-  if (!data.m && !data.k && !data.b && !data.g && !data.r) attributes.DIGEST = 'yes';
+  if (data.p) attributes.PRESS = 'yes';
+  if (!data.m && !data.k && !data.b && !data.g && !data.r && !data.p) attributes.DIGEST = 'yes';
+  // A report-only sign-up doesn't opt into the Friday email.
+  if (data.p && !existing.ok) attributes.DIGEST = 'no';
   if (existing.ok) {
     await brevo(env, 'PUT', `/contacts/${encodeURIComponent(data.e)}`, { attributes, listIds: [listId], emailBlacklisted: false });
   } else {
@@ -326,6 +339,7 @@ async function confirm(url, env) {
   const fbq = data.f && FB_RX.test(data.f) ? '&fb=1' : '';
   if (data.g && budgetName(data.g)) return Response.redirect(`${site}/alerts-confirmed.html?status=budget&g=${data.g}`, 302);
   if (data.r === 'daily' || data.r === 'weekly') return Response.redirect(`${site}/alerts-confirmed.html?status=remind&r=${data.r}`, 302);
+  if (data.p) return Response.redirect(`${site}/alerts-confirmed.html?status=press`, 302);
   return Response.redirect(`${site}/alerts-confirmed.html?status=${data.b ? 'bought' : data.k ? 'stock' : multi}${one}${fbq}`, 302);
 }
 
@@ -344,6 +358,10 @@ async function unsubscribe(url, env, oneClick) {
   if (!email || !(await verify(env, email, s))) return Response.redirect(`${site}/alerts-unsubscribed.html?status=invalid`, 302);
   const existing = await brevo(env, 'GET', `/contacts/${encodeURIComponent(email)}`);
   if (!existing.ok) return Response.redirect(`${site}/alerts-unsubscribed.html?status=ok`, 302);
+  if (model === 'press-report') {
+    await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { PRESS: '' } });
+    return Response.redirect(`${site}/alerts-unsubscribed.html?status=press`, 302);
+  }
   if (model === 'remind') {
     await brevo(env, 'PUT', `/contacts/${encodeURIComponent(email)}`, { attributes: { PPREMIND: '' } });
     return Response.redirect(`${site}/alerts-unsubscribed.html?status=remind`, 302);
@@ -4006,7 +4024,7 @@ function money(n) {
 }
 
 async function ensureAttributes(env) {
-  for (const name of ['WATCHLIST', 'CONSENT_AT', 'DIGEST', 'STOCKWATCH', 'BOUGHTWATCH', 'BUDGETWATCH', 'PPREMIND']) {
+  for (const name of ['WATCHLIST', 'CONSENT_AT', 'DIGEST', 'STOCKWATCH', 'BOUGHTWATCH', 'BUDGETWATCH', 'PPREMIND', 'PRESS']) {
     // Fails harmlessly with 400 when the attribute already exists.
     await brevo(env, 'POST', `/contacts/attributes/normal/${name}`, { type: 'text' });
   }
@@ -4086,7 +4104,9 @@ function button(href, text) {
 }
 
 function confirmEmail(link, name, opts = {}) {
-  const what = opts.remind
+  const what = opts.press
+    ? `<strong>The UK Golf Price Report</strong>: one email a month, when the new edition is out, with the headline figures and a link to the press note`
+    : opts.remind
     ? `a Par Price tee-time reminder: one email ${opts.remind === 'weekly' ? 'every Monday morning' : 'each morning'} when the new round is ready`
     : opts.budget
     ? `a budget alert for <strong>${escapeHtml(name)}</strong>. When a model we track drops under that price, we’ll email you about it`

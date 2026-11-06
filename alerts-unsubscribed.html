@@ -272,6 +272,9 @@
       show('Alert stopped.', '<p>You won’t get any more emails about the ' + esc(name || 'that model') + '. Any other alerts you’ve set are unchanged.</p>',
         slug ? '<a class="al-btn alt" href="/prices/' + slug + '/">Changed your mind? Back to the price page</a>' : null);
     });
+  } else if (status === 'press') {
+    show('Report emails stopped.', '<p>No more monthly UK Golf Price Report emails. The report is still published at golfpriceai.com/prices/watch/ every month, and any other alerts you’ve set are unchanged.</p>',
+      '<a class="al-btn alt" href="/prices/watch/">See the latest report</a>');
   } else if (status === 'remind') {
     show('Tee-time reminders stopped.', '<p>No more Par Price reminder emails. The game’s still there whenever you fancy a round, and any other alerts you’ve set are unchanged.</p>',
       '<a class="al-btn alt" href="/play/">Play Par Price</a>');

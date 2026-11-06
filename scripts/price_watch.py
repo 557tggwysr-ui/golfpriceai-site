@@ -89,7 +89,7 @@ def pct(v):
 
 
 REPORT = "The UK Golf Price Report"
-CSS = '<link rel="stylesheet" href="/css/report.css?v=20261102a">\n'
+CSS = '<link rel="stylesheet" href="/css/report.css?v=20261106a">\n'
 
 
 def findings(f):
@@ -177,6 +177,7 @@ def edition_page(f, editions, today, images=None):
   <section class="rp-card rp-dark"><h2>Cite this report</h2><p class="rp-cite">{esc(cite)}</p></section>
 </div>
 <section class="rp-press"><p><b>Journalists and writers:</b> a ready-to-use press note for {esc(f['name'])}, and any figure for any category on request.</p><a class="rp-btn" href="{month_url}press/">Read the press note</a></section>
+{signup_box()}
 <p class="rp-more">{('Past reports: ' + others + ' · ') if others else ''}Next report: early {esc(nxt_name)}</p>
 {method_note(today)}
 </div>"""
@@ -188,6 +189,18 @@ def edition_page(f, editions, today, images=None):
                       description=f"{quote} The biggest genuine falls and rises, and every category, from our own UK price tracking.",
                       canonical=f"{SITE}{month_url}", body=body, section="",
                       schema=[article, crumbs_schema], noindex=False, extra_head=CSS)
+
+
+def signup_box():
+    """'Get the report each month': a double opt-in email sign-up (the alerts
+    worker's /subscribe with press: 1). One email a month, sent by
+    scripts/press_email.py. Hidden when printing."""
+    return """<section class="rp-sign" id="rp-sign"><div><b>Get the UK Golf Price Report each month</b>
+<span>One email when each new edition is out: the headline figures and the press note. For journalists, writers and anyone who wants the numbers.</span></div>
+<form class="rp-sign-f" novalidate><label class="rp-sr" for="rp-email">Email address</label><input id="rp-email" type="email" autocomplete="email" placeholder="you@newsroom.co.uk" required>
+<input type="text" name="website" tabindex="-1" autocomplete="off" class="rp-hp" aria-hidden="true"><button type="submit" class="rp-btn">Sign me up</button></form>
+<p class="rp-sign-msg" role="status"></p><small>We’ll email you once to confirm. One-click unsubscribe in every email.</small></section>
+<script src="/js/press-signup.js?v=20261106a" defer></script>"""
 
 
 def press_page(f, quotes):
@@ -231,6 +244,7 @@ def press_page(f, quotes):
   <p class="rp-end">Ends</p>
 </article>
 <div class="rp-print"><button type="button" class="rp-btn" onclick="window.print()">Print or save as PDF</button><a href="/prices/watch/{f['month']}/">&larr; Back to the {esc(month)} report</a></div>
+{signup_box()}
 </div>"""
     return page_shell(title=f"Press release: UK golf prices in {f['name']} | GolfPrice AI",
                       description=f"Press release: {headline(f)}. Figures from {REPORT}.",

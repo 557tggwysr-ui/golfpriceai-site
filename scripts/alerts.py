@@ -169,8 +169,10 @@ def subscribers(key):
             budget = [s.strip() for s in str(attrs.get("BUDGETWATCH") or "").split(",") if BUDGET_RX.match(s.strip())]
             remind = str(attrs.get("PPREMIND") or "").lower()
             remind = remind if remind in ("daily", "weekly") else ""
+            press = str(attrs.get("PRESS") or "").lower() == "yes"
             out.append({"email": c["email"].lower(), "watch": watch, "stock": stock, "bought": bought, "budget": budget, "remind": remind,
-                        "digest": digest == "yes" or (not digest and not watch and not stock and not bought and not budget and not remind)})
+                        "press": press,
+                        "digest": digest == "yes" or (not digest and not watch and not stock and not bought and not budget and not remind and not press)})
         offset += len(batch)
         if len(batch) < 500 or offset >= (data.get("count") or 0):
             return out
