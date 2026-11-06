@@ -1,0 +1,25 @@
+/* Quick round set-up: the course card step (js/quick-round.js). */
+.qr-tees { display: flex; flex-wrap: wrap; gap: 6px; }
+.qr-tees button { min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid #c9d3c6; background: #fff; color: #14211a; font: 600 13px Inter, sans-serif; cursor: pointer; }
+.qr-tees button[aria-pressed="true"] { background: #14211a; border-color: #14211a; color: #fff; }
+.qr-card { border: 1px solid #b9dfb0; border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 12px; background: #fff; }
+.qr-card-h { display: flex; gap: 10px; align-items: flex-start; }
+.qr-card-h > span:last-child { display: flex; flex-direction: column; gap: 2px; }
+.qr-card-h b { font: 700 16px Poppins, sans-serif; }
+.qr-card-h small { font-size: 13px; color: #4a5a4f; }
+.qr-tick { width: 34px; height: 34px; border-radius: 999px; background: #e6f4e1; color: #2f8a1f; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none; }
+.qr-mini { display: grid; grid-template-columns: 34px repeat(9, minmax(0, 1fr)); gap: 3px; font-size: 12px; text-align: center; }
+.qr-mini b { color: #5b665f; }
+.qr-mini .qr-mp { background: #f4f7f3; border-radius: 6px; padding: 4px 0; font-weight: 700; font-size: 14px; }
+.qr-mini span:not(.lvs-lab):not(.qr-mp) { padding: 4px 0; color: #33433a; }
+.qr-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.qr-two button { min-height: 48px; }
+.qr-thanks { margin: 0; background: #e6f4e1; border-radius: 12px; padding: 10px 12px; font-size: 14px; }
+.qr-si { display: flex; flex-direction: column; gap: 8px; }
+.qr-si label { display: flex; flex-direction: row; gap: 10px; align-items: flex-start; border: 1px solid #d6e3d3; border-radius: 12px; padding: 10px 12px; cursor: pointer; font-weight: 400; }
+.qr-si input { width: 20px; height: 20px; margin-top: 2px; accent-color: #2f8a1f; flex: none; }
+.qr-si span { display: flex; flex-direction: column; gap: 2px; }
+.qr-si small { font-size: 13px; color: #4a5a4f; }
+/* The editable card: keep each par and stroke index readable in its box. */
+.qr .lvs-grid select, .qr .lvs-grid input { font-size: 14px; padding: 0 !important; text-align: center; text-align-last: center; text-indent: 0; line-height: 34px; letter-spacing: 0; color: #14211a; min-width: 0; overflow: visible; }
+.qr .lvs-grid select { background-image: none; }

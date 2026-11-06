@@ -36,7 +36,7 @@
 
   var st = null;
   function fresh(crew) {
-    st = { course: '', cname: '', pars: [], si: [], known: false, fmt: 'stb', allowance: 95, title: '', players: [] };
+    st = { course: '', cname: '', pars: [], si: [], known: false, tee: '', src: '', checks: 0, ok: false, fix: false, noSI: false, fmt: 'stb', allowance: 95, title: '', players: [] };
     if (crew) {
       st.course = crew.course || ''; st.cname = crew.cname || ''; st.fmt = crew.fmt || 'stb';
       st.players = crew.names.map(function (p, i) { return { nick: p.nick, ch: p.ch, team: p.team || (i < 2 ? 1 : 2), me: i === (crew.me || 0) }; });
@@ -67,18 +67,70 @@
       for (var i = 0; i < 9; i++) h += '<b>' + (off + i + 1) + '</b>';
       h += '<span class="lvs-lab">Par</span>';
       for (i = 0; i < 9; i++) h += '<select data-par="' + (off + i) + '" aria-label="Hole ' + (off + i + 1) + ' par">' + [3, 4, 5, 6].map(function (p) { return '<option' + ((st.pars[off + i] || 4) === p ? ' selected' : '') + '>' + p + '</option>'; }).join('') + '</select>';
-      h += '<span class="lvs-lab">SI</span>';
-      for (i = 0; i < 9; i++) h += '<input data-si="' + (off + i) + '" inputmode="numeric" maxlength="2" aria-label="Hole ' + (off + i + 1) + ' stroke index" value="' + esc(st.si[off + i] || '') + '">';
+      if (!st.noSI) h += '<span class="lvs-lab">SI</span>';
+      for (i = 0; i < 9 && !st.noSI; i++) h += '<input data-si="' + (off + i) + '" inputmode="numeric" maxlength="2" aria-label="Hole ' + (off + i + 1) + ' stroke index" value="' + esc(st.si[off + i] || '') + '">';
       h += '</div>';
     });
     return h;
   }
+  // The course card: golfers' shared card first (with how many rounds have
+  // checked it), else the one from the course map (data/courses/cards.json,
+  // from OpenStreetMap, refreshed monthly), else a blank card to fill in.
+  var mapCards = null;
+  function mapCard(id, tee) {
+    if (!mapCards) mapCards = fetch('/data/courses/cards.json').then(function (r) { return r.json(); }).then(function (d) { return d.cards || {}; }).catch(function () { return {}; });
+    return mapCards.then(function (all) {
+      var c = all[id]; if (!c) return null;
+      if (tee === 'red') return c.rs ? { pars: c.rp || c.p, si: c.rs } : null;
+      return { pars: c.p, si: c.s };
+    });
+  }
   function loadCard(then) {
+    st.ok = false; st.fix = false; st.noSI = false; st.src = ''; st.checks = 0;
     if (!st.course) { st.known = false; return then(); }
-    api('/lv/course?c=' + encodeURIComponent(st.course)).then(function (r) {
-      if (r.ok && r.card) { st.pars = r.card.pars; st.si = r.card.si; st.known = true; } else { st.known = false; st.pars = []; st.si = []; }
-      then();
-    }).catch(function () { st.known = false; then(); });
+    function blank() { st.known = false; st.pars = []; st.si = []; then(); }
+    function fromMap() { mapCard(st.course, st.tee).then(function (c) { if (c) { st.pars = c.pars.slice(); st.si = c.si.slice(); st.known = true; st.src = 'map'; then(); } else blank(); }, blank); }
+    api('/lv/course?c=' + encodeURIComponent(st.course) + (st.tee === 'red' ? '&t=red' : '')).then(function (r) {
+      if (r.ok && r.card) { st.pars = r.card.pars; st.si = r.card.si; st.known = true; st.src = 'ours'; st.checks = r.card.checks || 0; then(); } else fromMap();
+    }).catch(fromMap);
+  }
+  function miniCard() {
+    var h = '';
+    [0, 9].forEach(function (off) {
+      h += '<div class="qr-mini" role="table" aria-label="' + (off ? 'Back nine' : 'Front nine') + '"><span class="lvs-lab">Hole</span>';
+      for (var i = 0; i < 9; i++) h += '<b>' + (off + i + 1) + '</b>';
+      h += '<span class="lvs-lab">Par</span>';
+      for (i = 0; i < 9; i++) h += '<span class="qr-mp">' + esc(st.pars[off + i]) + '</span>';
+      h += '<span class="lvs-lab">SI</span>';
+      for (i = 0; i < 9; i++) h += '<span>' + esc(st.si[off + i]) + '</span>';
+      h += '</div>';
+    });
+    return h;
+  }
+  function courseBox() {
+    var h = '';
+    if (st.course) h += '<div class="qr-tees" role="group" aria-label="Tees">' + [['', 'Yellow / white tees'], ['red', 'Red tees']].map(function (t) {
+      return '<button type="button" data-tee="' + t[0] + '" aria-pressed="' + (st.tee === t[0]) + '">' + t[1] + '</button>';
+    }).join('') + '</div>';
+    if (st.known && !st.fix) {
+      var par = st.pars.reduce(function (a, b) { return a + b; }, 0);
+      var src = st.src === 'map' ? 'From the course map (© OpenStreetMap contributors) · not checked yet' : st.checks ? 'Checked by ' + st.checks + ' round' + (st.checks === 1 ? '' : 's') + ' at this course' : 'Added by golfers here · not checked yet';
+      h += '<div class="qr-card"><div class="qr-card-h"><span class="qr-tick" aria-hidden="true">✓</span><span><b>Course card ready · Par ' + par + '</b><small>' + src + '</small></span></div>' + miniCard();
+      h += st.ok ? '<p class="qr-thanks"><b>Thanks!</b> That helps the next group too.</p>' :
+        '<div class="qr-two"><button type="button" class="soc-btn" id="qr-ok">Looks right</button><button type="button" class="soc-btn2" id="qr-fix">Fix a hole</button></div>' +
+        '<span class="soc-small">Check it against the scorecard in the clubhouse or on the first tee.</span>';
+      h += '</div>';
+    } else if (st.known && st.fix) {
+      h += '<p class="soc-small" style="margin:0">Change any par or stroke index that doesn’t match the scorecard. Your round uses your fix straight away; everyone else sees it once another round agrees, so one typo can’t spoil the card.</p>' + cardGrid() +
+        '<button type="button" class="soc-link" id="qr-unfix" style="align-self:flex-start">Undo: the card was right</button>';
+    } else {
+      h += '<p class="soc-small" style="margin:0">' + (st.course ? '<b>Be the first to add this card.</b> Copy the par and stroke index (SI) from the scorecard: everyone who plays here after you gets it filled in.' : 'Pick your course and the card usually fills itself in. If not, copy the par and stroke index (SI) from the scorecard.') + '</p>' +
+        '<div class="qr-si" role="radiogroup" aria-label="Stroke index">' +
+        '<label><input type="radio" name="qr-si" value="1"' + (st.noSI ? '' : ' checked') + '> <span><b>Add stroke index</b><small>Handicaps count: Stableford points and net scores.</small></span></label>' +
+        '<label><input type="radio" name="qr-si" value="0"' + (st.noSI ? ' checked' : '') + '> <span><b>Skip it: gross scores only</b><small>No scorecard to hand? Scores count as played, no handicap shots.</small></span></label></div>' +
+        cardGrid();
+    }
+    return h;
   }
   function read() {
     box.querySelectorAll('[data-par]').forEach(function (s) { st.pars[+s.getAttribute('data-par')] = Number(s.value); });
@@ -94,14 +146,15 @@
   function problem() {
     var named = st.players.filter(function (p) { return p.nick.trim(); });
     if (named.length < 2) return 'Add at least two golfers.';
-    var noH = named.filter(function (p) { return p.ch === '' || isNaN(Number(p.ch)); });
+    var noH = st.noSI && !st.known ? [] : named.filter(function (p) { return p.ch === '' || isNaN(Number(p.ch)); });
     if (noH.length) return 'Add a handicap for ' + list(noH.map(function (p) { return p.nick.trim(); })) + ' (0 if they haven’t got one yet: or a guess!).';
     if (st.fmt === 'bb') {
       var sizes = {}; named.forEach(function (p) { sizes[p.team] = (sizes[p.team] || 0) + 1; });
       if (Object.keys(sizes).length < 2 || Object.keys(sizes).some(function (k) { return sizes[k] !== 2; })) return 'Better-ball needs pairs: two golfers on each side.';
     }
-    if (!st.known) {
+    if (!st.known || st.fix) {
       for (var i = 0; i < 18; i++) if (!st.pars[i]) return 'Add a par for every hole.';
+      if (st.noSI && !st.known) return '';
       var seen = {};
       for (i = 0; i < 18; i++) { var v = st.si[i]; if (!(v >= 1 && v <= 18)) return 'Hole ' + (i + 1) + ' needs a stroke index from 1 to 18 (it’s on the club’s scorecard).'; if (seen[v]) return 'Stroke index ' + v + ' is on two holes (' + seen[v] + ' and ' + (i + 1) + '). Each one is used once.'; seen[v] = i + 1; }
     }
@@ -111,8 +164,7 @@
     var bb = st.fmt === 'bb';
     var h = '<div class="qr"><div style="display:flex;justify-content:space-between;align-items:center"><span class="soc-kick" style="color:#2f8a1f">QUICK ROUND · NO SIGN-UP</span><button type="button" class="soc-link" id="qr-back">Back</button></div>';
     h += '<section class="qr-sec"><label>Where are you playing?<input id="qr-cq" autocomplete="off" placeholder="Start typing a course or town" value="' + esc(st.cname) + '"></label><div class="hq-cpick" hidden id="qr-pick"></div>';
-    if (st.known) h += '<span class="qr-ok">✓ Course card on file (par and stroke index for all 18). <button type="button" class="soc-link" id="qr-check">Check it</button></span>';
-    if (!st.known || st.check) h += '<p class="soc-small" style="margin:0">' + (st.known ? 'Change anything that doesn’t match your tees.' : st.course ? 'New course to us. Copy the par and stroke index (SI) from the club’s scorecard once, and every golfer after you gets them.' : 'Pick your course and the card usually fills itself in. If not, copy the par and stroke index (SI) from the scorecard.') + '</p>' + cardGrid();
+    h += courseBox();
     h += '</section>';
     h += '<section class="qr-sec"><b>Who’s playing?</b>' + st.players.map(function (p, i) {
       return '<div class="qr-pl' + (bb ? ' has-team' : '') + '"><label>Nickname<input data-nick="' + i + '" maxlength="20" autocomplete="off" value="' + esc(p.nick) + '" placeholder="' + (i === 0 ? 'You' : 'e.g. Big Dave') + '"></label>' +
@@ -137,11 +189,15 @@
   }
   function wire() {
     document.getElementById('qr-back').onclick = choose;
-    var ck = document.getElementById('qr-check'); if (ck) ck.onclick = function () { read(); st.check = true; setup(); };
+    var ok = document.getElementById('qr-ok'); if (ok) ok.onclick = function () { read(); st.ok = true; track('qr_card_ok', { src: st.src }); setup(); };
+    var fx = document.getElementById('qr-fix'); if (fx) fx.onclick = function () { read(); st.fix = true; st.ok = false; st.saved = { pars: st.pars.slice(), si: st.si.slice() }; track('qr_card_fix'); setup(); };
+    var uf = document.getElementById('qr-unfix'); if (uf) uf.onclick = function () { if (st.saved) { st.pars = st.saved.pars; st.si = st.saved.si; } st.fix = false; read(); setup(); };
+    box.querySelectorAll('[data-tee]').forEach(function (b) { b.onclick = function () { read(); st.tee = b.getAttribute('data-tee'); loadCard(setup); }; });
+    box.querySelectorAll('input[name="qr-si"]').forEach(function (r) { r.onchange = function () { read(); st.noSI = r.value === '0'; setup(); }; });
     var q = document.getElementById('qr-cq'), pick = document.getElementById('qr-pick'), timer;
     q.addEventListener('input', function () {
       clearTimeout(timer); var t = q.value.trim().toLowerCase();
-      if (st.course) { st.course = ''; st.known = false; }
+      if (st.course) { st.course = ''; st.known = false; st.ok = false; st.fix = false; }
       if (t.length < 3) { pick.hidden = true; return; }
       timer = setTimeout(function () {
         courses().then(function (lst) {
@@ -166,8 +222,13 @@
     var named = st.players.filter(function (p) { return p.nick.trim(); });
     // Four-balls: in order, by fours (better-ball keeps pairs together).
     var ordered = st.fmt === 'bb' ? named.slice().sort(function (a, b) { return a.team - b.team; }) : named;
-    var body = { pid: pid(), course: st.course, cname: st.cname, pars: st.pars, si: st.si, fmt: st.fmt, allowance: st.allowance, title: st.title,
-      players: ordered.map(function (p, i) { return { nick: p.nick.trim(), ch: Number(p.ch), team: p.team, grp: Math.floor(i / 4) + 1, me: p.me }; }) };
+    // Gross only (no stroke index): every hole in order and no handicap shots,
+    // so the points are gross; the card isn't shared.
+    var gross = st.noSI && !st.known;
+    var si = gross ? st.pars.map(function (_, i) { return i + 1; }) : st.si;
+    var body = { pid: pid(), course: st.course, cname: st.cname, pars: st.pars, si: si, fmt: st.fmt, allowance: st.allowance, title: st.title,
+      tee: st.tee, cardok: st.ok && !st.fix, gross: gross,
+      players: ordered.map(function (p, i) { return { nick: p.nick.trim(), ch: gross ? 0 : Number(p.ch), team: p.team, grp: Math.floor(i / 4) + 1, me: p.me }; }) };
     btn.disabled = true; btn.textContent = 'Teeing it up…';
     api('/lv/quick', body).then(function (r) {
       if (!r.ok) { btn.disabled = false; btn.textContent = 'Start the round'; box.querySelector('.qr-msg').textContent = r.error; return; }

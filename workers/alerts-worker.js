@@ -856,6 +856,49 @@ async function pushRound(env, r, alerts) {
   } catch (e) { console.log('push', e && e.stack); }
 }
 function later(ctx, p) { if (ctx && ctx.waitUntil) ctx.waitUntil(p); else return p; }
+/* ------------------------------------------------------------------ shared course cards
+   One card per course (and per tee: "<id>-red" for red tees) in sc_courses,
+   with "checks": how many rounds confirmed it ("Looks right"). A round that
+   changes the card votes for its version in sc_card_votes; a version that two
+   or more rounds agree on, and more than have confirmed the current card,
+   becomes the card everyone gets. So one typo can't spoil a card. The round
+   itself always uses what its own golfers entered. */
+let cardReady = false;
+async function cardSetup(env) {
+  if (cardReady) return;
+  try { await env.DEMAND.prepare('ALTER TABLE sc_courses ADD COLUMN checks INTEGER DEFAULT 0').run(); } catch (e) { /* already there */ }
+  await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS sc_card_votes (course TEXT, sig TEXT, voter TEXT, pars TEXT, si TEXT, last TEXT, PRIMARY KEY (course, sig, voter)) WITHOUT ROWID').run();
+  cardReady = true;
+}
+const CARD_KEY_RX = /^(?:[nwr]\d{1,12}|x\d{1,6})(?:-red)?$/;
+async function cardVote(env, key, cname, pars, si, ok, voter) {
+  try {
+    if (!CARD_KEY_RX.test(key)) return;
+    await cardSetup(env);
+    const db = env.DEMAND, P = JSON.stringify(pars), S = JSON.stringify(si), sig = P + '|' + S, day = hqDay();
+    const cur = await db.prepare('SELECT pars, si, checks FROM sc_courses WHERE course = ?').bind(key).first();
+    if (!cur) {
+      await db.prepare('INSERT INTO sc_courses (course, name, pars, si, updated, checks) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT (course) DO NOTHING')
+        .bind(key, cname || '', P, S, day, ok ? 1 : 0).run();
+      return;
+    }
+    if (cur.pars + '|' + cur.si === sig) {
+      if (ok) await db.prepare('UPDATE sc_courses SET checks = COALESCE(checks, 0) + 1, updated = ? WHERE course = ?').bind(day, key).run();
+      return;
+    }
+    // One vote per golfer (their device's player id), however often they save.
+    await db.prepare('INSERT INTO sc_card_votes (course, sig, voter, pars, si, last) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT (course, sig, voter) DO UPDATE SET last = excluded.last')
+      .bind(key, sig, String(voter || 'anon').slice(0, 40), P, S, day).run();
+    const v = await db.prepare('SELECT COUNT(*) AS n FROM sc_card_votes WHERE course = ? AND sig = ?').bind(key, sig).first('n');
+    if (v >= 2 && v > (cur.checks || 0)) {
+      await db.batch([
+        db.prepare('UPDATE sc_courses SET pars = ?, si = ?, checks = ?, updated = ? WHERE course = ?').bind(P, S, v, day, key),
+        db.prepare('DELETE FROM sc_card_votes WHERE course = ?').bind(key),
+      ]);
+    }
+  } catch (e) { console.log('card', e && e.message); }
+}
+
 async function liveScoring(request, url, env, cors, ctx) {
   if (!env.DEMAND) return json({ ok: false, error: 'Live scoring is taking a short break. Please try again in a minute.' }, 503, cors);
   await lvSetup(env);
@@ -871,10 +914,11 @@ async function liveScoring(request, url, env, cors, ctx) {
 
   // A course card someone has already typed in.
   if (path === '/lv/course') {
-    const c = q('c');
+    const c = q('c'), key = c + (q('t') === 'red' ? '-red' : '');
     if (!ACE_COURSE_RX.test(c)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
-    const row = await db.prepare('SELECT name, pars, si FROM sc_courses WHERE course = ?').bind(c).first();
-    return json({ ok: true, card: row ? { name: row.name, pars: lvCard(row.pars), si: lvCard(row.si) } : null }, 200, noStore);
+    await cardSetup(env);
+    const row = await db.prepare('SELECT name, pars, si, checks FROM sc_courses WHERE course = ?').bind(key).first();
+    return json({ ok: true, card: row ? { name: row.name, pars: lvCard(row.pars), si: lvCard(row.si), checks: row.checks || 0 } : null }, 200, noStore);
   }
   // The organiser's set-up: what's there already, and last time's handicaps.
   if (path === '/lv/setup' && request.method === 'GET') {
@@ -929,9 +973,8 @@ async function liveScoring(request, url, env, cors, ctx) {
     });
     // Scores for anyone taken out of the round go with them.
     steps.push(db.prepare(`DELETE FROM sc_scores WHERE event = ? AND mkey NOT IN (${players.map(() => '?').join(',')})`).bind(e.id, ...players.map((p) => p.m)));
-    if (course) steps.push(db.prepare('INSERT INTO sc_courses (course, name, pars, si, updated) VALUES (?, ?, ?, ?, ?) ON CONFLICT (course) DO UPDATE SET name = excluded.name, pars = excluded.pars, si = excluded.si, updated = excluded.updated')
-      .bind(course, cname, JSON.stringify(pars), JSON.stringify(si), hqDay()));
     await db.batch(steps);
+    if (course && !body.gross) await cardVote(env, course + (body.tee === 'red' ? '-red' : ''), cname, pars, si, !!body.cardok, pid);
     await useBump(env, 'lv_setup');
     const gl = (await db.prepare('SELECT grp, tee, marker, token FROM sc_groups WHERE event = ? ORDER BY grp').bind(e.id).all()).results || [];
     return json({ ok: true, code, groups: gl }, 200, cors);
@@ -1132,15 +1175,14 @@ async function liveScoring(request, url, env, cors, ctx) {
       if (Object.keys(sizes).length < 2 || Object.values(sizes).some((n) => n !== 2)) return json({ ok: false, error: 'Better-ball needs pairs: two golfers on each side.' }, 400, cors);
     }
     const id = socCode(8), code = socCode(8), now = new Date().toISOString();
-    const title = socText(body.title, 50) || (cname ? 'Quick round at ' + cname : 'Quick round');
+    const title = socText(body.title, 50) || ((cname ? 'Quick round at ' + cname : 'Quick round') + (body.gross ? ' (gross)' : ''));
     const steps = [db.prepare('INSERT INTO sc_rounds (event, soc, code, course, cname, pars, si, allowance, status, lastpos, created, updated, kind, fmt, owner, title, day) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
       .bind(id, '', code, course, cname || '', JSON.stringify(pars), JSON.stringify(si), allowance, 'live', '{}', now, now, 'quick', fmt, pid, title, hqDay())];
     players.forEach((p) => steps.push(db.prepare('INSERT INTO sc_players (event, mkey, nick, ch, ph, grp, team, pid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)').bind(id, p.m, p.nick, p.ch, p.ph, p.grp, p.team, p.me ? pid : null)));
     const grps = [...new Set(players.map((p) => p.grp))].sort((a, b) => a - b), toks = {};
     grps.forEach((gn) => { toks[gn] = socCode(12); steps.push(db.prepare('INSERT INTO sc_groups (event, grp, tee, marker, token) VALUES (?, ?, ?, ?, ?)').bind(id, gn, '', players.find((p) => p.grp === gn).m, toks[gn])); });
-    if (course) steps.push(db.prepare('INSERT INTO sc_courses (course, name, pars, si, updated) VALUES (?, ?, ?, ?, ?) ON CONFLICT (course) DO UPDATE SET name = excluded.name, pars = excluded.pars, si = excluded.si, updated = excluded.updated')
-      .bind(course, cname || '', JSON.stringify(pars), JSON.stringify(si), hqDay()));
     await db.batch(steps);
+    if (course && !body.gross) await cardVote(env, course + (body.tee === 'red' ? '-red' : ''), cname || '', pars, si, !!body.cardok, pid);
     await useBump(env, 'lv_quick');
     return json({ ok: true, code, groups: grps.map((gn) => ({ grp: gn, token: toks[gn], names: players.filter((p) => p.grp === gn).map((p) => p.nick) })) }, 200, cors);
   }

@@ -270,11 +270,11 @@ def scorecard_page():
 </section>
 <p class="gp-real">Nicknames and points only. Your stats are kept against your phone’s random player number; nobody else sees them. <a href="/legal/privacy-policy.html">Privacy</a></p>
 </div>
-<script src="/js/quick-round.js?v=20261101c" defer></script>"""
+<script src="/js/quick-round.js?v=20261106a" defer></script>"""
     return page_shell(title="Free Golf Scorecard App: Live Stableford, Better-Ball & Skins | GolfPrice AI",
                       description="A free live golf scorecard for a round with friends: stableford, better-ball pairs or skins, worked out from handicaps, with a live leaderboard for the group chat and your own golf stats. No app, no sign-up.",
                       canonical=url, body=body, section="play", schema=[crumbs_schema, app, howto, faq_schema],
-                      noindex=False, og_image="/assets/cards/society-hq.jpg", extra_head='<link rel="stylesheet" href="/css/society.css?v=20261102b">\n' + LIVE_CSS)
+                      noindex=False, og_image="/assets/cards/society-hq.jpg", extra_head='<link rel="stylesheet" href="/css/society.css?v=20261102b">\n' + LIVE_CSS + '<link rel="stylesheet" href="/css/course-cards.css?v=20261106a">\n')
 
 
 def quick_board_page():

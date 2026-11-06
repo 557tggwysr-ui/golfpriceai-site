@@ -1781,6 +1781,11 @@ def build(models_list, products, today_str):
         except Exception as e:  # never stop the main build
             print(f"Course list skipped: {e}")
         try:
+            import course_cards
+            course_cards.refresh(today)
+        except Exception as e:  # never stop the main build
+            print(f"Course cards skipped: {e}")
+        try:
             import aces_pages
             changed += aces_pages.build()
             sitemap.append(("play/aces/", None))
