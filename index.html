@@ -533,7 +533,7 @@
       function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
       track.innerHTML = pick.map(function (n) {
         var t = T[n];
-        return '<a class="gp-banner" href="' + t[0] + '"><img src="' + t[1] + '" alt="" loading="lazy" style="object-position: ' + t[2] + '">' +
+        return '<a class="gp-banner" href="' + t[0] + '"><img src="' + t[1] + '" alt="' + esc(t[4]) + '" loading="lazy" style="object-position: ' + t[2] + '">' +
           '<span class="gp-banner-body"><span class="gp-banner-kicker">' + esc(t[3]) + '</span><span class="gp-banner-title">' + esc(t[4]) + '</span>' +
           '<span class="gp-banner-line">' + esc(t[5]) + '</span><span class="gp-banner-cta">' + esc(t[6]) + ' \u2192</span></span></a>';
       }).join('');

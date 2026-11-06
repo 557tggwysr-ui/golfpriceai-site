@@ -18,7 +18,7 @@
         var f = n ? t.cheaper / n * 100 : 0, r = n ? t.dearer / n * 100 : 0;
         var said = t.cheaper + ' cheaper, ' + t.dearer + ' dearer';
         return '<a class="gp-pulse-tile" href="' + esc(t.hub) + '" data-type="' + esc(t.type) + '">' +
-          '<img src="' + esc(t.photo) + '" alt="" loading="lazy" style="object-position:' + esc(t.pos) + '">' +
+          '<img src="' + esc(t.photo) + '" alt="' + esc(t.label) + ' price trends" loading="lazy" style="object-position:' + esc(t.pos) + '">' +
           '<span class="gp-pulse-in"><span class="gp-pulse-title">' + esc(t.label) + '</span>' +
           '<span class="gp-pulse-from">From <b>' + money(t.from) + '</b>' + esc(t.unit || '') + '<span class="gp-pulse-n"> · ' + t.models + ' models</span></span>' +
           '<span class="gp-pulse-bar" role="img" aria-label="' + said + '"><i class="is-f" style="width:' + f.toFixed(1) + '%"></i><i class="is-r" style="width:' + r.toFixed(1) + '%"></i></span>' +
