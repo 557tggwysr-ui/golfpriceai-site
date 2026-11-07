@@ -497,7 +497,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css?v=20261101b">
-<link rel="stylesheet" href="/css/prices.css?v=20261029">
+<link rel="stylesheet" href="/css/prices.css?v=20261107a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -889,6 +889,41 @@ def used_section(model, new_price, all_models=()):
 </section>"""
 
 
+# ---------------------------------------------------------------- embeddable price charts
+# /embed/price/<slug>/: a model's price-history chart on its own, for bloggers,
+# forums and journalists to put in their articles. Plain HTML and an inline SVG
+# (no scripts, nothing fetched), rebuilt with every price run. The copy-paste
+# code adds a normal text link under the frame, since links inside an iframe
+# don't count as the host page's own.
+def embed_page(model):
+    daily = model.series_daily()
+    if len(daily) < 2:
+        return None
+    prices = [p for _, p in daily]
+    now = prices[-1]
+    url = f"{SITE}/prices/{model.slug}/?utm_source=chart-embed&utm_medium=embed&utm_campaign={model.slug}"
+    return f"""<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow"><link rel="canonical" href="{SITE}/prices/{model.slug}/">
+<title>{esc(model.name)} UK price history | GolfPrice AI</title>
+<style>*{{box-sizing:border-box}}html,body{{margin:0;background:#fff}}body{{font:14px/1.4 Inter,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#14211a;padding:14px 16px}}
+h1{{font-size:17px;margin:0 0 2px}}.s{{color:#4a5a50;font-size:13px;margin:0 0 6px}}.s b{{color:#2b7a1e}}svg{{width:100%;height:auto;display:block}}
+.f{{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12px;color:#4a5a50;border-top:1px solid #eef0ea;padding-top:8px;margin-top:4px}}
+.f a{{color:#14211a;font-weight:700;text-decoration:none}}.f a em{{font-style:normal;color:#2b7a1e}}</style></head>
+<body>
+<h1>{esc(model.name)}: UK price history</h1>
+<p class="s">Lowest new UK price today: <b>{money(now)}{' per dozen' if model.type == 'ball' else ''}</b> · tracked low {money(min(prices))} · high {money(max(prices))}</p>
+{chart_svg(model)}
+<div class="f"><span>Cheapest new, in-stock price across UK retailers, checked every 6 hours.</span><a href="{esc(url)}" target="_blank" rel="noopener">Live prices: Golf<em>Price</em> AI</a></div>
+</body></html>"""
+
+
+def embed_code(model):
+    src = f"{SITE}/embed/price/{model.slug}/"
+    return (f'<iframe src="{src}" title="{esc(model.name)} UK price history" width="100%" height="370" style="border:0;max-width:760px" loading="lazy"></iframe>\n'
+            f'<p style="font-size:12px">Price history: <a href="{SITE}/prices/{model.slug}/">{esc(model.name)} UK prices</a> from GolfPrice AI.</p>')
+
+
 def build_model_page(model, all_models, built, hubs_built, today, noindex):
     m, name = model.m, model.name
     rows = model.retailer_rows()
@@ -971,6 +1006,10 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
   <h2>{esc(name)} price history</h2>
   <p class="pp-small">Cheapest new price available each day{per} · {plural(f['days'], 'day')} tracked · low {money(f['low'])} · high {money(f['high'])} · average {money(f['avg'])} · {plural(f['changes'], 'price change')}</p>
   <div class="pp-card pp-chart-wrap">{chart_svg(model)}{chart_svg(model, phone=True)}</div>
+  <details class="pp-embed"><summary>Embed this chart on your site</summary>
+    <p class="pp-small">Writing about the {esc(name)}? Paste this into your article, blog or forum post. The chart updates itself every 6 hours. Free to use; please keep the credit link.</p>
+    <textarea readonly rows="4" onclick="this.select()" aria-label="Embed code for the {esc(name)} price chart">{esc(embed_code(model))}</textarea>
+  </details>
 </section>"""
 
     # New or used? (the used price guide)
@@ -1732,6 +1771,12 @@ def build(models_list, products, today_str):
         old_facts = _facts_only(old_raw) if old_raw else None
         if _write(PRICES_DIR / m["slug"] / "index.html", page):
             changed.append(url)
+        try:
+            ep = embed_page(Model(m, by_id, today))
+            if ep:
+                _write(ROOT / "embed" / "price" / m["slug"] / "index.html", ep)
+        except Exception as e:  # an embed never stops the build
+            print(f"Chart embed for {m['slug']} skipped: {e}")
         # "changed": the day the page's facts last changed (a price, or a
         # retailer joining or leaving). It feeds the sitemap's lastmod, so
         # Google re-reads a page when a new retailer adds itself, not only
@@ -1874,6 +1919,7 @@ def build(models_list, products, today_str):
             import aces_pages
             changed += aces_pages.build()
             sitemap.append(("play/aces/", None))
+            sitemap.append(("courses/widget/", None))
         except Exception as e:  # never stop the main build
             print(f"Ace Register skipped: {e}")
         try:

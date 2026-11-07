@@ -95,7 +95,7 @@
         '<div class="cs-tile"><b>' + within10 + '</b><span>other courses within 10 miles</span></div>' +
         '<div class="cs-tile"><b>' + (near[0] ? near[0].d.toFixed(1) + ' mi' : '–') + '</b><span>to the nearest other course</span></div></section>' +
         '<section class="cs-grid"><div class="cs-main"><div class="cs-card cs-board"><div class="cs-head"><h2>The ace board</h2><a href="/play/aces/">From the Ace Register</a></div>' +
-        boardRows([]) + '<div class="cs-ctas"><a class="cs-btn" href="/play/aces/?c=' + encodeURIComponent(c.id) + '#log">Log an ace here</a><button type="button" class="cs-btn cs-ghost" id="cs-share">Share the board with the club</button></div></div>' +
+        boardRows([]) + '<div class="cs-ctas"><a class="cs-btn" href="/play/aces/?c=' + encodeURIComponent(c.id) + '#log">Log an ace here</a><button type="button" class="cs-btn cs-ghost" id="cs-share">Share the board with the club</button></div><p class="cs-widget"><a href="/courses/widget/?c=' + encodeURIComponent(c.id) + '">Put this ace board on the club’s website (free)</a></p></div>' +
         '<form class="cs-card cs-calc" id="cs-calc" onsubmit="return false"><div class="cs-calc-copy"><span class="cs-kick">YOUR SHOTS HERE</span><b>How many shots do you get at ' + esc(c.n) + '?</b>' +
         '<span>Pop in your handicap index and the slope rating from the scorecard.</span></div><div class="cs-calc-box"><div class="cs-calc-in"><label>Your index<input id="cs-i" type="number" inputmode="decimal" step="0.1" value="14.2"></label>' +
         '<label>Slope<input id="cs-s" type="number" inputmode="numeric" value="125"></label></div><div class="cs-calc-out"><b id="cs-ch">16</b><span>shots, before the course rating and par adjustment</span></div>' +

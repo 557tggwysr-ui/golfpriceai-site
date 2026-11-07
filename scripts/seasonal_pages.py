@@ -884,6 +884,155 @@ def build_gift_index(built_slugs, today, items):
                       canonical=f"{SITE}/prices/golf-gifts/", body=body, section="", schema=[crumbs_schema, faq_schema], noindex=False)
 
 
+# ---------------------------------------------------------------- the Black Friday report
+# "How many Black Friday golf deals were real?", worked out from our own price
+# history: each model's typical October price against its lowest price from the
+# Monday of Black Friday week to Cyber Monday. Appears on Black Friday ("so far"),
+# final from the day after Cyber Monday, and stays up as that year's record.
+# Told the positive way: what WAS genuinely cheaper, and by how much.
+def bf_report_data(models, built, today):
+    year = today.year
+    bf = black_friday_date(year)
+    start, end = bf - timedelta(days=4), bf + timedelta(days=3)
+    upto = min(end, today)
+    out = []
+    tracked = 0
+    for m in models:
+        if m["slug"] not in built:
+            continue
+        base = baseline_price(m, date(year, 10, 1), date(year, 10, 31), today)
+        if not base:
+            continue
+        days = daily_prices(m.get("history"), today)
+        if start <= today <= end:
+            days[today] = float(m["minPrice"])
+        win = {d: p for d, p in days.items() if start <= d <= upto}
+        if not win:
+            continue
+        low = min(win.values())
+        if not 0.5 <= low / base <= 1.5:
+            continue
+        tracked += 1
+        if base - low < max(5, base * 0.05):
+            continue
+        when = min(d for d, p in win.items() if p == low)
+        before = [p for d, p in days.items() if d < start]
+        out.append({"m": m, "base": base, "low": low, "save": base - low, "pct": round((base - low) / base * 100),
+                    "when": when, "ever": not before or low <= min(before)})
+    out.sort(key=lambda r: -r["save"])
+    return {"year": year, "bf": bf, "start": start, "end": end, "final": today > end, "tracked": tracked, "deals": out}
+
+
+def build_bf_report(models, built, today):
+    D = bf_report_data(models, built, today)
+    year, bf, start, end, deals = D["year"], D["bf"], D["start"], D["end"], D["deals"]
+    if today < bf or not D["tracked"]:
+        return None
+    n, tr = len(deals), D["tracked"]
+    share = round(n / tr * 100) if tr else 0
+    saves = [r["save"] for r in deals]
+    avg = statistics.mean(saves) if saves else 0
+    med_pct = statistics.median([r["pct"] for r in deals]) if deals else 0
+    ever = sum(1 for r in deals if r["ever"])
+    # by category
+    cats = {}
+    for r in deals:
+        c = cats.setdefault(r["m"]["type"], [])
+        c.append(r)
+    cat_rows = sorted(cats.items(), key=lambda kv: -len(kv[1]))
+    # the day each deal was at its lowest
+    day_count = {}
+    for r in deals:
+        day_count[r["when"]] = day_count.get(r["when"], 0) + 1
+    best_day = max(day_count.items(), key=lambda kv: kv[1]) if day_count else None
+    on_bf = day_count.get(bf, 0)
+    on_cm = day_count.get(end, 0)
+    early = sum(v for d, v in day_count.items() if d < bf)
+    status = "Final figures" if D["final"] else f"So far (updated every 6 hours until Cyber Monday, {end.day} November)"
+    window = f"Monday {start.day} November and Cyber Monday {end.day} November {year}"
+    def dname(d):
+        return "Black Friday" if d == bf else "Cyber Monday" if d == end else d.strftime("%A") + f" {d.day} November"
+    headline = (f"{n} golf models were genuinely cheaper than in October this Black Friday"
+                if D["final"] else f"So far, {n} golf models are genuinely cheaper than in October this Black Friday")
+    big = deals[0] if deals else None
+    stats = [
+        (f"{n:,}", f"golf models genuinely cheaper than their own October price ({share}% of the {tr:,} we tracked)"),
+        (money(avg), f"average real saving; the typical deal was {med_pct:.0f}% off"),
+        (f"{ever:,}", "of them hit the lowest price we've ever tracked"),
+    ]
+    if big:
+        stats.append((money(big["save"]), f"biggest saving: the {big['m']['name']}"))
+    stat_html = "".join(f'<div class="pp-card bfr-stat"><b>{esc(a)}</b><span>{esc(b)}</span></div>' for a, b in stats)
+    cat_html = "".join(
+        f"<tr><th scope=\"row\"><a href=\"/prices/black-friday/{TYPES[t][0]}/\">{esc(TYPES[t][1])}</a></th><td>{len(rs)}</td>"
+        f"<td>{money(statistics.mean(r['save'] for r in rs))}</td><td>{esc(max(rs, key=lambda r: r['save'])['m']['name'])} ({money(max(r['save'] for r in rs))})</td></tr>"
+        for t, rs in cat_rows)
+    top_html = "".join(
+        f"<tr><th scope=\"row\"><a href=\"/prices/{r['m']['slug']}/\">{esc(r['m']['name'])}</a></th><td>{money(r['base'])}{per(r['m'])}</td>"
+        f"<td class=\"pp-price\">{money(r['low'])}{per(r['m'])}</td><td class=\"bf-save\">{money(r['save'])} ({r['pct']}%)</td><td>{esc(dname(r['when']))}</td></tr>"
+        for r in deals[:25])
+    when_line = ""
+    if best_day:
+        when_line = (f"Most deals first hit their lowest price on <strong>{dname(best_day[0])}</strong> ({best_day[1]} of {n}). "
+                     f"{early} were there before Black Friday, {on_bf} on Black Friday itself and {on_cm} on Cyber Monday.")
+    cite = f"GolfPrice AI, Black Friday {year} golf price report (golfpriceai.com/prices/black-friday/report-{year}/)"
+    faqs = [
+        (f"Were Black Friday {year} golf deals genuine?",
+         f"Many were. Measured against each model's own October price, {n:,} of the {tr:,} golf models we tracked ({share}%) were genuinely cheaper at some point between {window}, by {money(avg)} on average."),
+        (f"What was the best day to buy golf equipment on Black Friday {year}?",
+         (f"{dname(best_day[0])}: {best_day[1]} of the {n} genuine deals first hit their lowest price that day. "
+          + (f"{early} were already there before Black Friday, so waiting for the day itself often wasn't necessary." if early >= max(1, on_bf) else
+             f"{on_bf} first hit their lowest price on Black Friday itself.") if best_day else "We're still counting.")),
+        ("How did you measure it?",
+         "We record the lowest new, in-stock UK price for every golf model at the UK retailers we track, every 6 hours. A deal counts when the lowest price "
+         f"during {window} was at least £5 and 5% below the model's typical October price. We never use a retailer's own “was” or RRP price."),
+        ("Can I use these figures?",
+         f"Yes, please do. Credit “{cite}”. The full data is free to use under our open data licence."),
+    ]
+    faq_html, faq_schema = faq_block(faqs)
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), ("Black Friday", "/prices/black-friday/"), (f"{year} report", None)])
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="pp-hub-top">
+  <span class="sb-kicker">Black Friday {year} report · {esc(status)}</span>
+  <h1>Black Friday {year} golf deals: how many were real?</h1>
+  <p class="pp-answer"><strong>{esc(headline)}.</strong> We compared every golf model's lowest UK price between {window} with its typical October price. {n:,} of the {tr:,} models we tracked ({share}%) were at least £5 and 5% cheaper, saving {money(avg)} on average. {when_line}</p>
+</section>
+<section class="pp-block"><div class="bfr-stats">{stat_html}</div></section>
+<section class="pp-block">
+  <h2>Where the real savings were</h2>
+  <div class="pp-card pp-table-wrap"><table class="pp-table">
+  <thead><tr><th scope="col">Category</th><th scope="col">Genuine deals</th><th scope="col">Average saving</th><th scope="col">Biggest saving</th></tr></thead>
+  <tbody>{cat_html}</tbody></table></div>
+</section>
+<section class="pp-block">
+  <h2>The biggest genuine Black Friday golf savings</h2>
+  <div class="pp-card pp-table-wrap"><table class="pp-table">
+  <thead><tr><th scope="col">Model</th><th scope="col">October price</th><th scope="col">Black Friday low</th><th scope="col">Saving</th><th scope="col">First at that price</th></tr></thead>
+  <tbody>{top_html}</tbody></table></div>
+  <p class="pp-small">Lowest new, in-stock UK price across the retailers we track, {window}. October price: the model's typical lowest price that month.</p>
+</section>
+<section class="pp-block pp-card bfr-press">
+  <h2>For journalists</h2>
+  <p>Free to quote, with credit: <em>{esc(cite)}</em>. For more figures or a comment, email <a href="mailto:GolfPriceAI@outlook.com">GolfPriceAI@outlook.com</a>. Each month's figures are in <a href="/prices/watch/">The UK Golf Price Report</a>.</p>
+</section>
+{faq_html}
+{method_note(today)}
+</div>"""
+    article = {"@context": "https://schema.org", "@type": "Article", "headline": f"Black Friday {year} golf deals: how many were real?",
+               "datePublished": bf.isoformat(), "dateModified": today.isoformat(), "author": {"@type": "Organization", "name": "GolfPrice AI"},
+               "publisher": {"@type": "Organization", "name": "GolfPrice AI", "url": SITE}, "description": headline + "."}
+    dataset = {"@context": "https://schema.org", "@type": "Dataset", "name": f"Black Friday {year} UK golf price report",
+               "description": f"Lowest UK prices for {tr} golf models during Black Friday {year}, compared with their October prices.",
+               "creator": {"@type": "Organization", "name": "GolfPrice AI"}, "temporalCoverage": f"{year}-10-01/{end.isoformat()}",
+               "license": f"{SITE}/legal/", "url": f"{SITE}/prices/black-friday/report-{year}/"}
+    return page_shell(title=f"Black Friday {year} Golf Deals: How Many Were Real? The Data | GolfPrice AI",
+                      description=f"{headline}: {share}% of the {tr:,} we tracked, saving {money(avg)} on average. Category by category, the biggest savings and the best day to buy.",
+                      canonical=f"{SITE}/prices/black-friday/report-{year}/", body=body, section="",
+                      schema=[crumbs_schema, faq_schema, article, dataset], noindex=False,
+                      extra_head='<style>.bfr-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}.bfr-stat{padding:18px 20px;display:flex;flex-direction:column;gap:6px}.bfr-stat b{font-family:Poppins,sans-serif;font-size:34px;color:#2b7a1e}.bfr-stat span{font-size:14px;color:var(--gp-text-3)}.bfr-press{padding:20px 24px}</style>')
+
+
 # ---------------------------------------------------------------- Black Friday by category, brand and retailer
 # Each page is the main Black Friday list cut one way, with the same honest rule
 # (at least £5 and 5% below the model's own October price). The set of pages is
@@ -1029,6 +1178,16 @@ def build(passing, built, products, today):
         changed.append("/prices/black-friday/")
     sitemap.append(("prices/black-friday/", today.isoformat()))
     links.append(("/prices/black-friday/", f"Black Friday {today.year}", "Real deals only, checked against October prices"))
+    try:
+        rep_page = build_bf_report(passing, built, today)
+        if rep_page:
+            rp = f"black-friday/report-{today.year}"
+            if _write(PRICES_DIR / rp / "index.html", rep_page):
+                changed.append(f"/prices/{rp}/")
+            sitemap.append((f"prices/{rp}/", today.isoformat()))
+            links.append((f"/prices/{rp}/", f"Black Friday {today.year}: how many deals were real?", "The data, category by category"))
+    except Exception as e:
+        print(f"Black Friday report: skipped ({e}).")
     page, _ = build_black_friday(passing, built, today, images, cyber_page=True)
     if _write(PRICES_DIR / "cyber-monday" / "index.html", page):
         changed.append("/prices/cyber-monday/")

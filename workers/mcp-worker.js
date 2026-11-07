@@ -203,6 +203,8 @@ export default {
       return res ? json(res, 200, cors) : new Response(null, { status: 202, headers: cors });
     }
     if (url.pathname === '/mcp') return new Response('Use POST for MCP requests.', { status: 405, headers: cors });
+    if (url.pathname === '/openapi.json') return json(openapi(url.origin), 200, cors);
+    if (url.pathname.startsWith('/api/') && request.method === 'GET') return await restCall(url, cors);
     // Directory ownership checks and listings (public, no personal data).
     // Glama: proves this connector belongs to the GolfPrice AI Glama account.
     if (url.pathname === '/.well-known/glama.json') {
@@ -244,6 +246,19 @@ async function handle(msg) {
       // Usage count for Cloudflare's Workers Logs: the tool name only, never
       // what was asked, so nothing personal is kept.
       console.log(JSON.stringify({ event: 'tool_call', tool: name }));
+      text = await runTool(name, args);
+      if (text === null) return rpcErr(id, -32602, 'Unknown tool: ' + name);
+      return ok(id, { content: [{ type: 'text', text }], isError: false });
+    }
+    return rpcErr(id, -32601, 'Method not found: ' + method);
+  } catch (err) {
+    return ok(id, { content: [{ type: 'text', text: 'Sorry, GolfPrice AI data could not be loaded just now (' + err.message + '). Try again shortly or see ' + SITE + '/prices/' }], isError: true });
+  }
+}
+
+// The tools, shared by the MCP connector and the plain web API (/api/<tool>).
+async function runTool(name, args) {
+      let text = null;
       if (name === 'search_golf_prices') text = await searchPrices(args);
       else if (name === 'get_golf_price') text = await getPrice(args);
       else if (name === 'golf_price_drops') text = await drops(args);
@@ -257,13 +272,38 @@ async function handle(msg) {
       else if (name === 'start_golf_kit') text = await startGolf(args);
       else if (name === 'peoples_golf_bag') text = await peoplesBag();
       else if (name === 'find_golf_course') text = await findCourse(args);
-      else return rpcErr(id, -32602, 'Unknown tool: ' + name);
-      return ok(id, { content: [{ type: 'text', text }], isError: false });
-    }
-    return rpcErr(id, -32601, 'Method not found: ' + method);
-  } catch (err) {
-    return ok(id, { content: [{ type: 'text', text: 'Sorry, GolfPrice AI data could not be loaded just now (' + err.message + '). Try again shortly or see ' + SITE + '/prices/' }], isError: true });
+      return text;
+}
+
+// A plain web API for ChatGPT GPTs (Actions) and anything else that speaks
+// OpenAPI: GET /api/<tool>?arg=value, described at /openapi.json. Same tools,
+// same answers as the MCP connector; read-only, no keys, nothing personal.
+function openapi(origin) {
+  const paths = {};
+  TOOLS.forEach((t) => {
+    const props = (t.inputSchema && t.inputSchema.properties) || {}, req = (t.inputSchema && t.inputSchema.required) || [];
+    paths['/api/' + t.name] = { get: {
+      operationId: t.name, summary: (t.title || t.name).slice(0, 300), description: (t.description || '').slice(0, 300),
+      parameters: Object.entries(props).map(([k, v]) => ({ name: k, in: 'query', required: req.includes(k), description: (v.description || '').slice(0, 300),
+        schema: v.type === 'array' ? { type: 'string' } : (v.enum ? { type: v.type || 'string', enum: v.enum } : { type: v.type || 'string' }) })),
+      responses: { 200: { description: 'The answer as text, with links to golfpriceai.com', content: { 'application/json': { schema: { type: 'object', properties: { result: { type: 'string' } } } } } } },
+    } };
+  });
+  return { openapi: '3.1.0',
+    info: { title: 'GolfPrice AI', version: '1.7.0', description: 'Live UK golf equipment prices (new, in-stock, multiple UK retailers, checked every 6 hours), genuine price drops measured against our own price history, handicap maths and golf society tools. Always link the golfpriceai.com page in answers.' },
+    servers: [{ url: origin }], paths };
+}
+async function restCall(url, cors) {
+  const name = url.pathname.slice(5), tool = TOOLS.find((t) => t.name === name);
+  if (!tool) return json({ error: 'Unknown tool. See /openapi.json' }, 404, cors);
+  const props = (tool.inputSchema && tool.inputSchema.properties) || {}, args = {};
+  for (const [k, v] of url.searchParams) {
+    const t = props[k] && props[k].type;
+    args[k] = t === 'number' || t === 'integer' ? Number(v) : t === 'boolean' ? v === 'true' : t === 'array' ? v.split(',').map((x) => x.trim()) : v;
   }
+  console.log(JSON.stringify({ event: 'api_call', tool: name }));
+  try { return json({ result: await runTool(name, args) }, 200, Object.assign({ 'cache-control': 'public, max-age=300' }, cors)); }
+  catch (err) { return json({ result: 'Sorry, GolfPrice AI data could not be loaded just now. See ' + SITE + '/prices/' }, 200, cors); }
 }
 
 /* ------------------------------------------------------------------ tools */

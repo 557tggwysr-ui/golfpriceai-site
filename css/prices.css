@@ -480,3 +480,7 @@ button.pp-btn svg { flex: none; }
 .bg-guide details summary { cursor: pointer; font-weight: 700; min-height: 32px; }
 .bg-guide details p { margin: 8px 0 0; }
 @media (max-width: 600px) { .bg-guide { padding: 16px; } }
+/* "Embed this chart" under each model's price history */
+.pp-embed { margin-top: 10px; font-size: 14px; }
+.pp-embed summary { cursor: pointer; font-weight: 600; color: #2f8a1f; padding: 6px 0; }
+.pp-embed textarea { width: 100%; font: 12px/1.4 ui-monospace, Menlo, monospace; border: 1px solid #e4e6e0; border-radius: 10px; padding: 10px; margin-top: 6px; }

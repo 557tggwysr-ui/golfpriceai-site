@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DIR = ROOT / "courses"
 DATA = ROOT / "data" / "courses"
 API = "https://golfpriceai-alerts.golfpriceai.workers.dev"
-V = "20261031"
+V = "20261107a"
 CSS = f'<link rel="stylesheet" href="/css/courses.css?v={V}">\n'
 NATIONS = ["England", "Scotland", "Wales", "Northern Ireland"]
 ATTR = 'Course location © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap contributors</a> (ODbL).'
@@ -152,6 +152,7 @@ def course_body(c, near, within10, summ, aces, pages):
       <div class="cs-head"><h2>The ace board</h2><a href="/play/aces/">From the Ace Register</a></div>
       {board_html}
       <div class="cs-ctas"><a class="cs-btn" href="/play/aces/?c={esc(c['id'])}#log">Log an ace here</a><button type="button" class="cs-btn cs-ghost" id="cs-share">Share the board with the club</button></div>
+      <p class="cs-widget"><a href="/courses/widget/?c={esc(c['id'])}">Put this ace board on the club’s website (free)</a></p>
     </div>
     <form class="cs-card cs-calc" id="cs-calc" onsubmit="return false">
       <div class="cs-calc-copy"><span class="cs-kick">YOUR SHOTS HERE</span><b>How many shots do you get at {esc(c['n'])}?</b>

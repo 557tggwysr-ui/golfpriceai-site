@@ -129,3 +129,5 @@ main.pp:has(.cs) { max-width: none; padding: 0; }
   .cs-list { top: 66px; }
   .cs-kit { padding: 18px; }
 }
+.cs-widget { margin: 10px 0 0; font-size: 14px; }
+.cs-widget a { color: #2b7a1e; font-weight: 600; }

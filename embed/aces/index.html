@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>Hole-in-one board | GolfPrice AI</title>
+<style>
+/* The Ace Board a golf club puts on its own website. Live from the Ace Register. */
+*{box-sizing:border-box}
+html,body{margin:0;background:transparent}
+body{font:15px/1.4 Inter,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#14211a}
+.ab{border:1px solid #dfe4dc;border-radius:16px;background:#fff;overflow:hidden;max-width:520px}
+.ab-head{background:#14211a;color:#fff;padding:16px 18px}
+.ab-kick{font-size:11px;font-weight:700;letter-spacing:.08em;color:#8fd97c;text-transform:uppercase}
+.ab-name{font-weight:700;font-size:19px;margin:4px 0 2px}
+.ab-count{font-size:13px;color:#c4d0c8}
+.ab-count b{color:#5fd14a;font-size:15px}
+ul{list-style:none;margin:0;padding:6px 0}
+li{display:flex;justify-content:space-between;gap:10px;padding:9px 18px;border-bottom:1px solid #eef0ea;font-size:14px}
+li:last-child{border-bottom:0}
+li b{color:#2b7a1e}
+.ab-date{color:#5b665f;white-space:nowrap;font-size:13px}
+.ab-empty{padding:16px 18px;margin:0;color:#4a5a50;font-size:14px}
+.ab-foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:12px 18px;background:#f6f6f3;border-top:1px solid #eef0ea}
+.ab-btn{display:inline-block;background:#2b7a1e;color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:9px 14px;border-radius:10px}
+.ab-by{font-size:12px;color:#4a5a50;text-decoration:none}
+.ab-by span{font-weight:700;color:#14211a}.ab-by em{font-style:normal;color:#2b7a1e}
+body.dark .ab{background:#1b2a21;border-color:#2c3d33;color:#fff}body.dark li{border-color:#2c3d33}body.dark .ab-date,body.dark .ab-empty{color:#c4d0c8}body.dark .ab-foot{background:#14211a;border-color:#2c3d33}body.dark .ab-by,body.dark .ab-by span{color:#c4d0c8}
+</style>
+</head>
+<body>
+<div class="ab" id="ab">
+  <div class="ab-head">
+    <div class="ab-kick">Hole-in-one board</div>
+    <div class="ab-name" id="ab-name">Loading…</div>
+    <div class="ab-count" id="ab-count"></div>
+  </div>
+  <div id="ab-list"><p class="ab-empty">Loading the board…</p></div>
+  <div class="ab-foot">
+    <a class="ab-btn" id="ab-log" href="https://golfpriceai.com/play/aces/" target="_blank" rel="noopener">Had an ace here? Log it free</a>
+    <a class="ab-by" href="https://golfpriceai.com/play/aces/" target="_blank" rel="noopener">UK Ace Register by <span>Golf<em>Price</em> AI</span></a>
+  </div>
+</div>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), id = q.get('c') || '', n = Math.max(1, Math.min(10, +q.get('n') || 5));
+  if (q.get('theme') === 'dark') document.body.classList.add('dark');
+  var utm = 'utm_source=club-widget&utm_medium=embed&utm_campaign=' + encodeURIComponent(id);
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function ord(h) { h = +h; var s = ['th', 'st', 'nd', 'rd'], v = h % 100; return h + (s[(v - 20) % 10] || s[v] || s[0]); }
+  function day(d) { try { return new Date(d + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }); } catch (e) { return d; } }
+  document.getElementById('ab-log').href = 'https://golfpriceai.com/play/aces/?' + utm;
+  if (!/^[a-z0-9]{2,20}$/i.test(id)) { document.getElementById('ab-name').textContent = 'Golf club'; document.getElementById('ab-list').innerHTML = '<p class="ab-empty">This board needs a course code. Get yours at golfpriceai.com/courses/widget/</p>'; return; }
+  fetch('https://golfpriceai-alerts.golfpriceai.workers.dev/ace/board?c=' + encodeURIComponent(id)).then(function (r) { return r.json(); }).then(function (r) {
+    if (!r || !r.ok) throw 0;
+    var c = r.course || {}, aces = r.aces || [];
+    document.getElementById('ab-name').textContent = c.n || 'Golf club';
+    document.getElementById('ab-count').innerHTML = aces.length ? '<b>' + aces.length + '</b> ' + (aces.length === 1 ? 'ace' : 'aces') + ' on record' : 'The board is open';
+    document.getElementById('ab-list').innerHTML = aces.length ? '<ul>' + aces.slice(0, n).map(function (a) {
+      return '<li><span><b>' + ord(a.hole) + '</b> · ' + esc(a.nick) + ' · ' + esc(a.club) + '</span><span class="ab-date">' + day(a.day) + '</span></li>';
+    }).join('') + '</ul>' : '<p class="ab-empty">No holes-in-one on the board yet. The first one gets the top line for good.</p>';
+    document.title = 'Holes-in-one at ' + (c.n || 'the club') + ' | GolfPrice AI';
+    document.querySelector('.ab-by').href = 'https://golfpriceai.com/courses/course/?c=' + encodeURIComponent(id) + '&' + utm;
+  }).catch(function () { document.getElementById('ab-list').innerHTML = '<p class="ab-empty">The board is taking a breather. Please refresh in a minute.</p>'; });
+})();
+</script>
+</body>
+</html>
