@@ -36,6 +36,11 @@
 127.95,
 "typical"
 ],
+"ben-sayers-xf-pro-chipper-wedge": [
+"047cf1a659",
+24.95,
+"typical"
+],
 "big-max-aqua-eight-h-stand-bag-golf-bag": [
 "0cfa30b628",
 175.0,
@@ -236,6 +241,11 @@
 "typical"
 ],
 "caddytalk-cube-laser-rangefinder": "6bfc99107f",
+"callaway-apex-24-utility-fairway-wood": [
+"17d33ecf5c",
+199.0,
+"typical"
+],
 "callaway-apex-ai-150-irons": [
 "77235036e3",
 859.0,
@@ -256,6 +266,11 @@
 "wait"
 ],
 "callaway-apex-utility-fairway-wood": "e9ab9c6b6b",
+"callaway-apex-uw-utility-fairway-wood": [
+"1cd7db25ee",
+299.0,
+"wait"
+],
 "callaway-carry-plus-pencil-bag-carry-bag-golf-bag": [
 "ea909886cc",
 109.0,
@@ -264,6 +279,11 @@
 "callaway-carry-plus-stand-bag-carry-bag-golf-bag": [
 "15c7cc26bb",
 139.0,
+"typical"
+],
+"callaway-cb12-wedge": [
+"d98f94d29c",
+119.0,
 "typical"
 ],
 "callaway-chase-14-cart-bag-golf-bag": [
@@ -475,6 +495,11 @@
 "callaway-elyte-tour-certified-hybrid": "2a4c385551",
 "callaway-elyte-triple-diamond-fairway-wood": "20d6d6a83f",
 "callaway-elyte-x-driver": "080f9b3d7b",
+"callaway-elyte-x-fairway-wood": [
+"f53fc7c021",
+229.0,
+"typical"
+],
 "callaway-elyte-x-hybrid": "58642dd38c",
 "callaway-elyte-x-irons": [
 "418d283576",
@@ -636,7 +661,47 @@
 26.99,
 "typical"
 ],
+"callaway-opus-brushed-chrome-wedge": [
+"db36686bc5",
+119.0,
+"typical"
+],
+"callaway-opus-platinum-chrome-wedge": [
+"d9b478322f",
+149.0,
+"typical"
+],
 "callaway-opus-platinum-wedge": "e0844b801e",
+"callaway-opus-sp-brushed-chrome-wedge": [
+"e1f89e1161",
+159.0,
+"typical"
+],
+"callaway-opus-sp-chrome-wedge": [
+"433f8713c0",
+159.0,
+"typical"
+],
+"callaway-opus-sp-plus-brushed-chrome-wedge": [
+"553ce21e5c",
+199.0,
+"typical"
+],
+"callaway-opus-sp-plus-chrome-wedge": [
+"0642ad03ed",
+199.0,
+"typical"
+],
+"callaway-opus-sp-shadow-wedge": [
+"5baa85f916",
+159.95,
+"typical"
+],
+"callaway-opus-sp-wedge": [
+"c4d5c4caeb",
+159.0,
+"typical"
+],
 "callaway-org-14-cart-bag-golf-bag": "55f444451d",
 "callaway-org-14-hd-waterproof-cart-bag-golf-bag": [
 "17e1006129",
@@ -655,9 +720,24 @@
 ],
 "callaway-par-3-hd-waterproof-pencil-bag-golf-bag": "b573fd7a7a",
 "callaway-par-3-hd-waterproof-stand-bag-golf-bag": "634069b4d8",
+"callaway-paradym-ai-smoke-max-d-fairway-wood": [
+"fdb8565bad",
+265.3,
+"typical"
+],
 "callaway-paradym-ai-smoke-max-driver": [
 "ad085858d2",
 299.0,
+"typical"
+],
+"callaway-paradym-ai-smoke-max-fairway-wood": [
+"12cc66b8e9",
+288.04,
+"typical"
+],
+"callaway-paradym-fairway-wood": [
+"92c714a719",
+149.95,
 "typical"
 ],
 "callaway-quantum-driver": "e821cefd63",
@@ -681,6 +761,11 @@
 "typical"
 ],
 "callaway-quantum-mini-driver": "ee84bc87ac",
+"callaway-quantum-mini-spinner-fairway-wood": [
+"73d85ca261",
+319.0,
+"typical"
+],
 "callaway-quantum-staff-golf-bag": [
 "9896a6502a",
 469.0,
@@ -764,6 +849,21 @@
 "callaway-xr-2026-package-set": "b65abe47d3",
 "callaway-xt-11-piece-junior-golf-set": "0011f7e51d",
 "cleveland-cbx4-zipcore-wedge": "ccc2d1557b",
+"cleveland-cbz-full-face-wedge": [
+"ca0999c7be",
+139.0,
+"typical"
+],
+"cleveland-cbz-tour-satin-wedge": [
+"83b52feba8",
+124.95,
+"typical"
+],
+"cleveland-cbz-wedge": [
+"cc68dc1992",
+139.0,
+"typical"
+],
 "cleveland-halo-xl-fairway-wood": "f206c1d05d",
 "cleveland-halo-xl-full-face-irons": "75a4f6c00a",
 "cleveland-halo-xl-hy-wood": "0b5e70f206",
@@ -772,19 +872,94 @@
 109.0,
 "typical"
 ],
+"cleveland-halo-xl-lite-fairway-wood": [
+"d9078ed444",
+129.95,
+"typical"
+],
+"cleveland-hb-soft-2-1-putter": [
+"bfe91cdee9",
+109.0,
+"typical"
+],
+"cleveland-hb-soft-2-8s-putter": [
+"2c0b994421",
+109.0,
+"typical"
+],
 "cleveland-hb-soft-2-putter": "0b5b280adb",
+"cleveland-hb-soft-2-ust-putter": [
+"2684df58da",
+149.95,
+"typical"
+],
+"cleveland-hb-soft-milled-putter": [
+"09ae9060d9",
+159.95,
+"typical"
+],
+"cleveland-hb-soft-milled-ust-putter": [
+"06ba8f3dee",
+199.95,
+"typical"
+],
 "cleveland-hibore-xl-driver": "9e939d609a",
 "cleveland-hibore-xl-lite-driver": "109722800b",
 "cleveland-launcher-xl2-draw-driver": "9af7273e16",
 "cleveland-launcher-xl2-driver": "c241e2bfe8",
+"cleveland-rtz-2-satin-wedge": [
+"81a17e863a",
+139.0,
+"typical"
+],
+"cleveland-rtz-2-tour-rack-wedge": [
+"8ff3c5d00e",
+149.0,
+"typical"
+],
+"cleveland-rtz-2-tour-satin-wedge": [
+"3c677cecae",
+139.0,
+"typical"
+],
+"cleveland-rtz-satin-wedge": [
+"cbef4b2e6e",
+129.0,
+"typical"
+],
 "cleveland-rtz-tour-rack-raw-wedge": "acc88b543d",
 "cleveland-rtz-tour-satin-wedge": "5a1d8b38b8",
+"cleveland-smart-sole-full-face-tour-satin-wedge": [
+"159ab9a63a",
+109.0,
+"typical"
+],
+"cleveland-smart-sole-full-face-wedge": [
+"cc67bc9234",
+119.0,
+"typical"
+],
 "cleveland-zipcore-xl-irons": [
 "03bad03401",
 399.0,
 "wait"
 ],
 "cobra-3d-printed-putter": "79e51fe380",
+"cobra-3dp-putter": [
+"8646eee906",
+249.0,
+"typical"
+],
+"cobra-3dp-tour-agera-sb-putter": [
+"d96bc49926",
+299.0,
+"typical"
+],
+"cobra-3dp-tour-supernova-sb-putter": [
+"f6dffe27df",
+299.0,
+"typical"
+],
 "cobra-ace-waterproof-cart-bag-golf-bag": "edf24b42a2",
 "cobra-ace-waterproof-stand-bag-golf-bag": [
 "4f8c538120",
@@ -811,6 +986,11 @@
 299.0,
 "typical"
 ],
+"cobra-baffler-fairway-wood": [
+"62e2b48052",
+189.0,
+"typical"
+],
 "cobra-baffler-hybrid": [
 "31aff8ea8e",
 169.0,
@@ -826,6 +1006,11 @@
 148.95,
 "typical"
 ],
+"cobra-darkspeed-fairway-wood": [
+"5472cabacc",
+169.0,
+"typical"
+],
 "cobra-darkspeed-irons": [
 "8fad356f95",
 449.0,
@@ -833,9 +1018,19 @@
 ],
 "cobra-darkspeed-ls-driver": "dbe04d2920",
 "cobra-ds-adapt-driver": "55a69431b1",
+"cobra-ds-adapt-fairway-wood": [
+"6656f26eac",
+189.95,
+"wait"
+],
 "cobra-ds-adapt-hybrid": "0605f4bef5",
 "cobra-ds-adapt-irons": "4cfe193157",
 "cobra-ds-adapt-ls-driver": "c26a1de5f4",
+"cobra-ds-adapt-ls-fairway-wood": [
+"45c1c6a83f",
+189.0,
+"typical"
+],
 "cobra-ds-adapt-max-d-driver": "621180d9a2",
 "cobra-ds-adapt-max-irons": [
 "fbec9bbe45",
@@ -844,6 +1039,11 @@
 ],
 "cobra-ds-adapt-max-k-driver": "dd320e45ef",
 "cobra-ds-adapt-x-driver": "0cfaa0b78b",
+"cobra-ds-adapt-x-fairway-wood": [
+"3fac920c6e",
+189.0,
+"typical"
+],
 "cobra-fly-xl-2-irons": [
 "e0ec2b8c0d",
 219.0,
@@ -857,6 +1057,16 @@
 "cobra-king-max-irons": [
 "47cfaa0a70",
 559.0,
+"typical"
+],
+"cobra-king-pur-wedge": [
+"437bcb373e",
+89.95,
+"typical"
+],
+"cobra-king-snakebite-wedge": [
+"252f954e0e",
+99.0,
 "typical"
 ],
 "cobra-king-tec-hybrid": [
@@ -879,6 +1089,41 @@
 "cobra-king-tour-irons": "5e4da25779",
 "cobra-king-wedge": "55d768bda8",
 "cobra-king-x-wedge": "5c0d66d60b",
+"cobra-mim-blazer-sb-putter": [
+"5dbea0575a",
+219.0,
+"typical"
+],
+"cobra-mim-camino-sb-putter": [
+"ff9d706068",
+219.0,
+"typical"
+],
+"cobra-mim-nova-sb-putter": [
+"400841c43d",
+219.0,
+"typical"
+],
+"cobra-mim-putter": [
+"f919c793db",
+219.0,
+"typical"
+],
+"cobra-mim-sport-40-pl-putter": [
+"e694d61748",
+219.0,
+"typical"
+],
+"cobra-mim-stingray-sb-putter": [
+"a3177de514",
+219.0,
+"typical"
+],
+"cobra-mim-widesport-40-sb-putter": [
+"a9f178000a",
+219.0,
+"typical"
+],
 "cobra-optm-driver": "a006f1f20e",
 "cobra-optm-fairway-wood": "06e1beeb0c",
 "cobra-optm-hybrid": "e30366678b",
@@ -908,6 +1153,11 @@
 "cobra-signature-stand-bag-golf-bag": [
 "8f325314ec",
 109.0,
+"typical"
+],
+"cobra-tour-trusty-wedge": [
+"6f5873060a",
+89.99,
 "typical"
 ],
 "cobra-ultradry-pro-cart-bag-golf-bag": "1fdbaad751",
@@ -961,6 +1211,56 @@
 "cobra-x-vessel-staff-tour-stand-bag-golf-bag": [
 "3f4840b9da",
 329.0,
+"typical"
+],
+"evnroll-neo-classic-1-2-tour-blade-putter": [
+"ff64f8abc3",
+299.0,
+"typical"
+],
+"evnroll-neo-classic-2-2-mid-blade-putter": [
+"c1c4802df2",
+299.0,
+"typical"
+],
+"evnroll-neo-classic-2-mid-blade-putter": [
+"b25e7a40ff",
+299.0,
+"typical"
+],
+"evnroll-neo-classic-5-hatchback-mallet-putter": [
+"49360ccda0",
+299.0,
+"typical"
+],
+"evnroll-neo-classic-8-tour-mallet-putter": [
+"b4dc594a27",
+299.0,
+"typical"
+],
+"evnroll-v12-mallet-putter": [
+"d881d3cb3c",
+429.0,
+"typical"
+],
+"evnroll-v2-midblade-putter": [
+"e75a6c2f41",
+429.0,
+"typical"
+],
+"evnroll-v5-1-duo-mallet-putter": [
+"f44c9596c3",
+429.0,
+"typical"
+],
+"evnroll-v5-2-duo-mallet-putter": [
+"5418e17183",
+429.0,
+"typical"
+],
+"evnroll-zero-z1-putter": [
+"30d8be431e",
+449.0,
 "typical"
 ],
 "ezeglide-84-tour-golf-bag": [
@@ -1045,9 +1345,39 @@
 24.99,
 "typical"
 ],
+"golfway-champion-fairway-wood": [
+"401ed51e3e",
+24.99,
+"typical"
+],
 "golfway-champion-hybrid": [
 "53f059f569",
 24.99,
+"typical"
+],
+"golfway-champion-pitching-wedge": [
+"f5f69a5568",
+19.99,
+"typical"
+],
+"golfway-champion-sand-wedge": [
+"16f3a37579",
+19.99,
+"typical"
+],
+"golfway-champion-sla-putter": [
+"4635d4c748",
+19.99,
+"typical"
+],
+"golfway-champion-sq2-putter": [
+"bc45492db0",
+19.99,
+"typical"
+],
+"golfway-champion-youth-fairway-wood": [
+"441d9b9f5e",
+29.99,
 "typical"
 ],
 "golfway-champion-youth-hybrid": [
@@ -1055,9 +1385,24 @@
 29.99,
 "typical"
 ],
+"golfway-champion-youth-pitching-wedge": [
+"167ec04c26",
+19.99,
+"typical"
+],
+"golfway-champion-youth-sand-wedge": [
+"8da8a76809",
+19.99,
+"typical"
+],
 "golfzon-wave-simulator-portable-launch-monitor": [
 "be1b4b400a",
 3999.0,
+"typical"
+],
+"golphin-gfk-526-putter": [
+"b62045a40d",
+14.99,
 "typical"
 ],
 "izzo-golf-izzo-swami-lzi-laser-range-golf-bag": [
@@ -1073,6 +1418,21 @@
 "izzo-swami-launch-master-launch-monitor": [
 "773399fc7e",
 249.0,
+"typical"
+],
+"l-a-b-golf-df3-i-putter": [
+"693a7654bc",
+499.0,
+"typical"
+],
+"l-a-b-golf-l-a-b-link-putter": [
+"43c795f2f3",
+499.0,
+"typical"
+],
+"l-a-b-golf-l-a-b-vzn-1i-putter": [
+"ddfc6e63c8",
+499.0,
 "typical"
 ],
 "lindt-chocolate-golf-balls": [
@@ -1122,15 +1482,40 @@
 ],
 "macgregor-cg4000-ladies-package-set": "f09d1a4665",
 "macgregor-cg4000-package-set": "5e05ce3b03",
+"macgregor-v-foil-putter": [
+"d7d8efe189",
+39.95,
+"typical"
+],
 "macgregor-v-max-ages-3-5-junior-golf-set": "9639b2d17c",
 "macgregor-v-max-ages-6-8-junior-golf-set": "faa7ec9224",
+"macgregor-v-max-feel-wedge": [
+"bfc412a0f3",
+37.99,
+"typical"
+],
 "macgregor-v-max-hybrid": "991480ca68",
+"macgregor-v-max-speed-fairway-wood": [
+"a2a41d9754",
+49.99,
+"typical"
+],
 "macgregor-v-max-speed-hybrid": [
 "fcef414c55",
 39.99,
 "typical"
 ],
+"macgregor-zt-plus-chipper-wedge": [
+"ad2a6d4486",
+44.95,
+"typical"
+],
 "macgregor-zt-plus-driver": "9ea077727b",
+"macgregor-zt-plus-fairway-wood": [
+"a61eb809b1",
+74.95,
+"typical"
+],
 "macgregor-zt-plus-hybrid": [
 "e0618ecd1a",
 74.95,
@@ -1139,6 +1524,11 @@
 "macgregor-zt-plus-irons": [
 "2a3e58041d",
 249.0,
+"typical"
+],
+"macgregor-zt-plus-wedge": [
+"0163fc5ada",
+44.95,
 "typical"
 ],
 "macgregor-zt1-ladies-package-set": "4919fefac2",
@@ -1302,6 +1692,11 @@
 399.0,
 "typical"
 ],
+"mizuno-jpx-one-fairway-wood": [
+"5a0767f2f8",
+239.0,
+"typical"
+],
 "mizuno-jpx-one-hybrid": [
 "abecd55818",
 209.0,
@@ -1310,6 +1705,21 @@
 "mizuno-jpx-one-select-driver": [
 "ad850e1402",
 429.0,
+"typical"
+],
+"mizuno-m-craft-osaka-p-putter": [
+"f9e24a39de",
+239.0,
+"typical"
+],
+"mizuno-m-craft-putter": [
+"1cb8bf4613",
+249.0,
+"typical"
+],
+"mizuno-m-craft-tokyo-s-putter": [
+"85b951f577",
+239.0,
 "typical"
 ],
 "mizuno-mid-tour-staff-golf-bag": [
@@ -1354,6 +1764,11 @@
 "mizuno-pro-t-1-ion-wedge": "8f2ab3f40f",
 "mizuno-pro-t-1-ip-wedge": "4dbe3f28ff",
 "mizuno-pro-t-1-soft-satin-wedge": "63b8e2805a",
+"mizuno-pro-t-3-soft-satin-wedge": [
+"415df82444",
+119.0,
+"typical"
+],
 "mizuno-pro-t-3-wedge": "6a9fdbffcc",
 "mizuno-pro-x-golf-balls": [
 "2d72ae73b1",
@@ -1582,13 +1997,73 @@
 ],
 "odyssey-ai-dual-2-ball-db-putter": "fd2d83393c",
 "odyssey-ai-dual-jailbird-mini-1-2-ball-putter": "d06895be68",
+"odyssey-ai-dual-putter": [
+"09d5703218",
+199.0,
+"typical"
+],
 "odyssey-ai-dual-square-2-square-jailbird-os-putter": "421b55f677",
 "odyssey-ai-dual-square-2-square-max-putter": "136a8aa471",
+"odyssey-ai-dual-square-2-square-seven-putter": [
+"2853275afc",
+229.0,
+"typical"
+],
 "odyssey-ai-one-1-ch-putter": "9640da3bea",
 "odyssey-ai-one-milled-cruiser-putter": "c8e7eb7d30",
 "odyssey-ai-one-milled-putter": "4a539ad9a7",
+"odyssey-ai-one-milled-seven-t-db-putter": [
+"89ae15c349",
+291.85,
+"typical"
+],
 "odyssey-ai-one-putter": "1a771c94d5",
+"odyssey-ai-one-square-2-square-double-wide-putter": [
+"2274371fc6",
+231.2,
+"typical"
+],
+"odyssey-ai-one-square-2-square-max-putter": [
+"d8ceebb5dd",
+199.0,
+"typical"
+],
+"odyssey-ai-one-square-2-square-putter": [
+"4fc5122cd9",
+179.0,
+"typical"
+],
+"odyssey-chipper-wedge": [
+"f1155d72da",
+129.0,
+"typical"
+],
+"odyssey-damascus-milled-putter": [
+"b3b357a41e",
+499.0,
+"typical"
+],
 "odyssey-dfx-putter": "f67c35ea48",
+"odyssey-square-2-square-ai-dual-putter": [
+"250adc882c",
+229.0,
+"typical"
+],
+"odyssey-square-to-square-tri-hot-putter": [
+"1b2b1e1321",
+449.0,
+"typical"
+],
+"odyssey-tri-hot-square-2-square-putter": [
+"147e28c4d2",
+429.0,
+"typical"
+],
+"odyssey-tri-hot-square-to-square-sb-putter": [
+"29d5f5ad7a",
+429.0,
+"typical"
+],
 "ogio-all-elements-hybrid-stand-bag-golf-bag": "ff937e7b31",
 "ogio-all-elements-hybrid-waterproof-stand-bag-golf-bag": [
 "75dcc2629a",
@@ -1616,7 +2091,22 @@
 "ogio-fuse-stand-bag-golf-bag": "0e404a1805",
 "ogio-shadow-stand-bag-golf-bag": "aeaed5d1bf",
 "ping-243-tour-staff-golf-bag": "94a7c6dec5",
+"ping-blueprint-s-irons": [
+"53f5f51433",
+1129.0,
+"typical"
+],
+"ping-blueprint-t-irons": [
+"6c7f9ac98b",
+1129.0,
+"typical"
+],
 "ping-bunkr-wedge": "e7f61531b3",
+"ping-chipr-chipper-wedge": [
+"bfa29cf9bd",
+129.0,
+"typical"
+],
 "ping-chipr-le-chipper-wedge": "5a05d9f3e7",
 "ping-dlx-224-cart-bag-golf-bag": [
 "2076e94fe8",
@@ -1628,6 +2118,11 @@
 249.0,
 "wait"
 ],
+"ping-g-le-fairway-wood": [
+"0d46dcd25a",
+269.0,
+"typical"
+],
 "ping-g-le-hybrid": [
 "8a8f02e59d",
 199.0,
@@ -1638,9 +2133,19 @@
 "ping-g-le4-fairway-wood": "567c54d147",
 "ping-g-le4-hybrid": "0a73a02ad8",
 "ping-g-le4-irons": "38d0a58ade",
+"ping-g-le4-louise-putter": [
+"c797065f9e",
+299.0,
+"typical"
+],
 "ping-g430-hybrid": [
 "44949bb292",
 209.0,
+"typical"
+],
+"ping-g430-irons": [
+"7c304e764e",
+599.0,
 "typical"
 ],
 "ping-g430-max-10k-driver": [
@@ -1651,6 +2156,11 @@
 "ping-g430-max-driver": [
 "1a7948c15d",
 369.0,
+"typical"
+],
+"ping-g430-max-fairway-wood": [
+"887225e3fd",
+239.0,
 "typical"
 ],
 "ping-g440-driver": "72ee28d2a8",
@@ -1666,6 +2176,11 @@
 269.0,
 "typical"
 ],
+"ping-g440-irons": [
+"ca68a37299",
+719.0,
+"typical"
+],
 "ping-g440-k-driver": [
 "c33557aa8a",
 579.0,
@@ -1678,8 +2193,18 @@
 499.0,
 "typical"
 ],
+"ping-g440-max-fairway-wood": [
+"1484d7acc1",
+319.0,
+"typical"
+],
 "ping-g440-max-hl-driver": "20462ca8c6",
 "ping-g440-sft-driver": "769e6921f2",
+"ping-g440-sft-fairway-wood": [
+"f012b6cbb1",
+319.0,
+"typical"
+],
 "ping-g440-sft-hl-driver": [
 "364c1df4a0",
 529.0,
@@ -1696,6 +2221,11 @@
 "typical"
 ],
 "ping-g730-irons": "822a0afb9b",
+"ping-g740-irons": [
+"8cf82aede3",
+1049.0,
+"typical"
+],
 "ping-hoofer-14-231-stand-bag-golf-bag": "e10fa4ed5f",
 "ping-hoofer-14-stand-bag-golf-bag": [
 "6b1c015c83",
@@ -1746,7 +2276,32 @@
 169.0,
 "typical"
 ],
+"ping-i240-irons": [
+"add0b12fd7",
+1059.0,
+"typical"
+],
+"ping-i530-irons": [
+"bad5297843",
+1199.0,
+"typical"
+],
+"ping-i540-irons": [
+"4a84a69786",
+1129.0,
+"typical"
+],
 "ping-i59-irons": "4a7d319f4e",
+"ping-idi-driving-irons": [
+"aa6a0b25ff",
+269.0,
+"typical"
+],
+"ping-idi-utility-irons": [
+"5977d99e10",
+269.0,
+"typical"
+],
 "ping-moonlander-244-stand-bag-golf-bag": [
 "9d7df33f78",
 114.0,
@@ -1774,9 +2329,44 @@
 219.0,
 "typical"
 ],
+"ping-pld-milled-putter": [
+"c09d9f31f5",
+399.0,
+"typical"
+],
 "ping-pld-milled-se-ds72-hovland-putter": "38d06b8a02",
+"ping-prodi-g-24-fairway-wood": [
+"a3abc66e93",
+139.0,
+"typical"
+],
+"ping-prodi-g-24-putter": [
+"162ed22bda",
+89.0,
+"typical"
+],
+"ping-prodi-g-24-wedge": [
+"684ed27dab",
+84.95,
+"typical"
+],
 "ping-reserve-stand-bag-golf-bag": "ed98b16af2",
+"ping-s259-chrome-wedge": [
+"5049e2f15d",
+179.0,
+"typical"
+],
+"ping-s259-midnight-wedge": [
+"3fa6a86180",
+179.0,
+"typical"
+],
 "ping-scottsdale-putter": "eb6e17a3cc",
+"ping-scottsdale-tec-putter": [
+"946bc9a280",
+349.0,
+"tracking"
+],
 "ping-tour-staff-243-golf-bag": [
 "d0f576f1c2",
 399.0,
@@ -1953,6 +2543,11 @@
 "wait"
 ],
 "powerbilt-gsx-14-piece-package-set": "372120dff1",
+"powerbilt-x-grind-satin-wedge": [
+"02f0308e02",
+24.95,
+"typical"
+],
 "prgr-golf-portable-compact-launch-monitor": [
 "1922ec675b",
 179.0,
@@ -1962,6 +2557,11 @@
 "puttout-devil-golf-balls": [
 "b018a4274d",
 24.99,
+"typical"
+],
+"pxg-0311-3x-forged-chrome-wedge": [
+"9ea6e3278a",
+149.95,
 "typical"
 ],
 "pxg-aloha-25-hybrid-stand-bag-golf-bag": [
@@ -1985,9 +2585,19 @@
 349.0,
 "typical"
 ],
+"pxg-hawk-putter": [
+"bccccc862c",
+249.0,
+"typical"
+],
 "pxg-lightning-driver": [
 "b424f95f7b",
 429.0,
+"typical"
+],
+"pxg-lightning-fairway-wood": [
+"b1ef8e96fc",
+269.0,
 "typical"
 ],
 "pxg-lightweight-carry-bag-stand-bag-golf-bag": [
@@ -2013,6 +2623,21 @@
 "pxg-ops-driver": [
 "703b52c3b2",
 379.0,
+"typical"
+],
+"pxg-stick-em-forged-chrome-wedge": [
+"05fddb0a76",
+179.95,
+"typical"
+],
+"pxg-sugar-daddy-iii-chrome-wedge": [
+"ee19899f0c",
+279.0,
+"typical"
+],
+"pxg-sugar-daddy-iii-full-face-wedge": [
+"7992ba19ac",
+279.0,
 "typical"
 ],
 "pxg-water-resistant-light-weight-cart-bag-golf-bag": [
@@ -2073,6 +2698,66 @@
 "scotty-cameron-ltd-phantom-putter": "bde74c7219",
 "scotty-cameron-onset-centre-putter": "45dfa34c18",
 "scotty-cameron-phantom-11-putter": "5d3bf885a5",
+"scotty-cameron-phantom-11r-oc-putter": [
+"6d914abf90",
+499.0,
+"typical"
+],
+"scotty-cameron-phantom-12-putter": [
+"f5477230c0",
+449.0,
+"typical"
+],
+"scotty-cameron-phantom-3-2-putter": [
+"a2b073629a",
+449.0,
+"typical"
+],
+"scotty-cameron-phantom-5-2-putter": [
+"f1a37c3c13",
+329.0,
+"typical"
+],
+"scotty-cameron-phantom-5-5-putter": [
+"ca4a21d89b",
+429.0,
+"typical"
+],
+"scotty-cameron-phantom-5-oc-putter": [
+"47bb6d8c4a",
+499.0,
+"typical"
+],
+"scotty-cameron-phantom-5-putter": [
+"da1ec5811b",
+429.0,
+"typical"
+],
+"scotty-cameron-phantom-7-2-putter": [
+"89872dd042",
+329.0,
+"typical"
+],
+"scotty-cameron-phantom-7-5-putter": [
+"a6487f855c",
+429.0,
+"typical"
+],
+"scotty-cameron-phantom-9-2r-putter": [
+"fe75ffd56c",
+449.0,
+"typical"
+],
+"scotty-cameron-phantom-9r-putter": [
+"d9ad50c9fb",
+449.0,
+"typical"
+],
+"scotty-cameron-phantom-putter": [
+"2bda3d51ec",
+449.0,
+"typical"
+],
 "scotty-cameron-studio-style-fastback-oc-putter": "f5d0ff7bc1",
 "scotty-cameron-studio-style-fastback-putter": "2fffbf6b1a",
 "scotty-cameron-studio-style-newport-2-putter": "96eff79ce2",
@@ -2339,6 +3024,11 @@
 "typical"
 ],
 "srixon-zxi-driver": "be5d33c718",
+"srixon-zxi-fairway-wood": [
+"16474ce30d",
+199.0,
+"typical"
+],
 "srixon-zxi-hybrid": [
 "a985d916d6",
 169.0,
@@ -2368,7 +3058,32 @@
 "typical"
 ],
 "srixon-zxi-utility-irons": "b9d6a7ab69",
+"srixon-zxi4-irons": [
+"c1f67ff2ce",
+699.0,
+"typical"
+],
+"srixon-zxi5-irons": [
+"f1f79e4172",
+699.0,
+"typical"
+],
 "srixon-zxi7-irons": "10aa334e02",
+"srixon-zxir-hl-irons": [
+"62412dea95",
+899.0,
+"typical"
+],
+"srixon-zxir-irons": [
+"e7c7cbd43d",
+879.0,
+"typical"
+],
+"srixon-zxiu-utility-irons": [
+"bdbac8c619",
+159.0,
+"typical"
+],
 "sun-mountain-3-5ls-stand-bag-golf-bag": "a7f912eb37",
 "sun-mountain-c100-cart-bag-golf-bag": [
 "b8e9ce8871",
@@ -2511,6 +3226,16 @@
 "typical"
 ],
 "taylormade-flextech-waterproof-stand-bag-golf-bag": "427e2082c0",
+"taylormade-hi-toe-4-wedge": [
+"ec38466664",
+129.95,
+"typical"
+],
+"taylormade-hi-toe-5-aged-copper-wedge": [
+"11c12ff7c4",
+179.0,
+"typical"
+],
 "taylormade-kalea-cart-bag-golf-bag": "7596586e58",
 "taylormade-kalea-stand-bag-golf-bag": [
 "55f9e636d7",
@@ -2523,7 +3248,42 @@
 "typical"
 ],
 "taylormade-milled-grind-4-wedge": "0101aa41f5",
+"taylormade-milled-grind-5-charcoal-wedge": [
+"122a2fabf6",
+179.95,
+"typical"
+],
+"taylormade-milled-grind-5-chrome-wedge": [
+"1874c3c30d",
+179.0,
+"typical"
+],
+"taylormade-p-dhy-utility-irons": [
+"16dc958d9a",
+229.0,
+"typical"
+],
+"taylormade-p-udi-utility-irons": [
+"2f8ead01af",
+229.0,
+"typical"
+],
+"taylormade-p770-irons": [
+"ee09988182",
+1029.0,
+"typical"
+],
+"taylormade-p790-irons": [
+"202156d811",
+979.0,
+"typical"
+],
 "taylormade-p7cb-irons": "4f07676488",
+"taylormade-p7mb-irons": [
+"bbac9e3793",
+1029.0,
+"typical"
+],
 "taylormade-players-golf-bag": [
 "bfb76ddf1d",
 129.95,
@@ -2535,9 +3295,24 @@
 "typical"
 ],
 "taylormade-pro-stand-bag-golf-bag": "1ba9de6f6d",
+"taylormade-qi-max-hl-irons": [
+"348e089b17",
+849.0,
+"typical"
+],
+"taylormade-qi-max-irons": [
+"819e320c30",
+849.0,
+"typical"
+],
 "taylormade-qi10-driver": [
 "bc45a4a907",
 379.0,
+"typical"
+],
+"taylormade-qi10-fairway-wood": [
+"75ffd6328c",
+229.0,
 "typical"
 ],
 "taylormade-qi10-hybrid": [
@@ -2550,6 +3325,11 @@
 349.0,
 "typical"
 ],
+"taylormade-qi35-fairway-wood": [
+"71a54f5817",
+199.0,
+"typical"
+],
 "taylormade-qi35-hybrid": [
 "4ca8453da4",
 149.0,
@@ -2559,6 +3339,11 @@
 "taylormade-qi4d-driver": [
 "1bbe404856",
 549.0,
+"typical"
+],
+"taylormade-qi4d-fairway-wood": [
+"fb01f35943",
+319.0,
 "typical"
 ],
 "taylormade-qi4d-flextech-crossover-stand-bag-golf-bag": [
@@ -2650,10 +3435,50 @@
 24.99,
 "typical"
 ],
+"taylormade-spider-5k-zt-putter": [
+"10525e6a63",
+399.0,
+"typical"
+],
+"taylormade-spider-tour-putter": [
+"2c88ce6c34",
+299.0,
+"typical"
+],
+"taylormade-spider-tour-torched-f-putter": [
+"dbc8ecb537",
+299.0,
+"typical"
+],
+"taylormade-spider-tour-torched-true-path-putter": [
+"ec18e6d99e",
+299.0,
+"typical"
+],
+"taylormade-spider-tour-torched-x-true-putter": [
+"b6edfabedf",
+299.0,
+"typical"
+],
+"taylormade-spider-tour-x-putter": [
+"9a37b30936",
+299.0,
+"typical"
+],
+"taylormade-spider-zt-max-putter": [
+"b5bff915d2",
+449.0,
+"typical"
+],
 "taylormade-stealth-2-hd-hybrid": "7bcf2a553d",
 "taylormade-stealth-hybrid": [
 "475f9b1e20",
 99.95,
+"typical"
+],
+"taylormade-stealth-irons": [
+"4b1559b7ab",
+599.0,
 "typical"
 ],
 "taylormade-storm-dry-cart-bag-golf-bag": "db22b05a2d",
@@ -2668,6 +3493,11 @@
 "typical"
 ],
 "taylormade-storm-dry-waterproof-stand-bag-golf-bag": "5a0692cc53",
+"taylormade-systm2-putter": [
+"e7acecdc9e",
+219.0,
+"typical"
+],
 "taylormade-team-tm-ages-4-6-junior-golf-set": "3fa8fd8c8c",
 "taylormade-team-tm-ages-7-9-junior-golf-set": "aca191d551",
 "taylormade-tm-cart-bag-golf-bag": "db29f73b52",
@@ -2689,6 +3519,11 @@
 "taylormade-tour-stand-bag-golf-bag": [
 "ae65ce4ab3",
 349.0,
+"typical"
+],
+"taylormade-tp-reserve-putter": [
+"62ade16a24",
+199.95,
 "typical"
 ],
 "taylormade-tp-soto-1-l-neck-putter": "2b8920d3e3",
@@ -2755,6 +3590,11 @@
 "taylormade-us-open-major-tour-staff-golf-bag": [
 "5233dfe5f5",
 549.0,
+"typical"
+],
+"titleist-620-cb-irons": [
+"4e79ab1307",
+799.0,
 "typical"
 ],
 "titleist-620-mb-irons": "5207493ca5",
@@ -2970,6 +3810,31 @@
 465.0,
 "typical"
 ],
+"titleist-t100-irons": [
+"aae0ba0082",
+1069.0,
+"typical"
+],
+"titleist-t150-irons": [
+"57aafbc9e5",
+1179.0,
+"typical"
+],
+"titleist-t250-irons": [
+"3417636719",
+1179.0,
+"typical"
+],
+"titleist-t250-launch-spec-irons": [
+"0b018a6ee9",
+989.0,
+"typical"
+],
+"titleist-t250-utility-irons": [
+"c0bfe80ef9",
+259.0,
+"typical"
+],
 "titleist-titlesit-tour-soft-golf-balls": [
 "95506de65a",
 64.0,
@@ -3056,9 +3921,29 @@
 24.99,
 "typical"
 ],
+"titleist-vokey-sm10-jet-wedge": [
+"859309bb94",
+139.0,
+"typical"
+],
 "titleist-vokey-sm10-nickel-wedge": "13e7cfd5b1",
 "titleist-vokey-sm10-tour-chrome-wedge": "14028f5d6f",
 "titleist-vokey-sm10-wedge": "e1373cd145",
+"titleist-vokey-sm11-jet-wedge": [
+"ccc821dd8a",
+179.0,
+"typical"
+],
+"titleist-vokey-sm11-nickel-wedge": [
+"d7ec180a50",
+179.0,
+"typical"
+],
+"titleist-vokey-sm11-tour-chrome-wedge": [
+"f9eb6ccad7",
+179.0,
+"typical"
+],
 "tourdri-waterproof-standbag-golf-bag": [
 "7868239a57",
 119.95,
@@ -3068,9 +3953,54 @@
 "true-temper-light-driver": "80fadb8079",
 "true-temper-regular-driver": "80df4e87ec",
 "true-temper-stiff-driver": "13c612b021",
+"us-kids-golf-u-s-kids-ultralight-7-39-wedge": [
+"81dfff0761",
+29.99,
+"typical"
+],
+"us-kids-golf-u-s-kids-ultralight-7-42-wedge": [
+"20c657ca6c",
+29.99,
+"typical"
+],
+"us-kids-golf-u-s-kids-ultralight-7-45-wedge": [
+"ca719777f5",
+29.99,
+"typical"
+],
+"us-kids-golf-u-s-kids-ultralight-7-48-wedge": [
+"e04d844f29",
+31.99,
+"typical"
+],
+"us-kids-golf-u-s-kids-ultralight-7-51-wedge": [
+"f59658a4b8",
+31.99,
+"typical"
+],
+"us-kids-golf-u-s-kids-ultralight-7-54-wedge": [
+"115f2d2a97",
+31.99,
+"typical"
+],
+"us-kids-golf-u-s-kids-ultralight-7-57-wedge": [
+"c3893cafc6",
+31.99,
+"typical"
+],
 "us-kids-golf-ul7-driver": [
 "d76e1f5182",
 39.95,
+"typical"
+],
+"us-kids-golf-ul7-pitching-wedge": [
+"cf1e5fc743",
+27.95,
+"typical"
+],
+"us-kids-golf-ul7-putter": [
+"a7c21fe9d6",
+27.95,
 "typical"
 ],
 "voice-caddie-l6-laser-rangefinder": [
@@ -3153,6 +4083,11 @@
 "wilson-dynapwr-driver": "a8412263ac",
 "wilson-dynapwr-forged-irons": "607a90c721",
 "wilson-dynapwr-hybrid": "26f6c6cd12",
+"wilson-dynapwr-irons": [
+"b73d319110",
+489.0,
+"typical"
+],
 "wilson-dynapwr-max-driver": "cdc4092e35",
 "wilson-dynapwr-max-irons": "2a3a10a43d",
 "wilson-dynapwr-max-plus-driver": [
@@ -3167,6 +4102,31 @@
 ],
 "wilson-feather-cart-bag-golf-bag": "bcf64c9902",
 "wilson-feather-stand-bag-golf-bag": "927b8ad26f",
+"wilson-harmonized-chipper-wedge": [
+"fbafdfb427",
+44.95,
+"typical"
+],
+"wilson-harmonized-wedge": [
+"3ddb2e44bc",
+49.99,
+"typical"
+],
+"wilson-harmonized-x1-putter": [
+"9c23306a6a",
+49.95,
+"typical"
+],
+"wilson-harmonized-x2-putter": [
+"15ee5ff4b9",
+49.95,
+"typical"
+],
+"wilson-harmonized-x5-putter": [
+"ed4983a9e0",
+49.95,
+"typical"
+],
 "wilson-i-lock-4-dry-organiser-cart-bag-golf-bag": [
 "875361efaf",
 189.0,
@@ -3194,7 +4154,17 @@
 "typical"
 ],
 "wilson-infinite-putter": "f02fd38f11",
+"wilson-infinite-wedge": [
+"f5b15841e6",
+94.95,
+"typical"
+],
 "wilson-infinite-zero-torque-putter": "d8877c065e",
+"wilson-model-putter": [
+"2d576946e8",
+295.0,
+"typical"
+],
 "wilson-player-fit-12-piece-cart-bag-ladies-package-set": "4db336e0e8",
 "wilson-player-fit-package-set": "087a1059ae",
 "wilson-profile-11-piece-package-set": "26552b643f",
@@ -3225,6 +4195,11 @@
 ],
 "wilson-staff-infinite-putter": "b95e49d794",
 "wilson-staff-model-blade-irons": "6a456f91eb",
+"wilson-staff-model-cb-irons": [
+"64738434d0",
+599.0,
+"typical"
+],
 "wilson-staff-model-golf-balls": "5d91c1f9fc",
 "wilson-staff-model-rb-utility-irons": "15927f992d",
 "wilson-staff-model-trk360-golf-balls": [
@@ -3240,6 +4215,16 @@
 "wilson-staff-model-x-trk360-golf-balls": [
 "dff11385d8",
 44.95,
+"typical"
+],
+"wilson-staff-model-xb-irons": [
+"68104ad015",
+799.0,
+"typical"
+],
+"wilson-staff-model-zm-forged-wedge": [
+"0fa9bcb7ea",
+125.0,
 "typical"
 ],
 "wilson-staff-model-zm-wedge": "a4030adb0a",
@@ -3303,6 +4288,11 @@
 "wilson-x-31-advantage-package-set": "40155b0fc4",
 "yonex-ezone-elite-4-driver": "c1dcf92158",
 "yonex-ezone-elite-4-irons": "7a281f7d3e",
+"yonex-ezone-elite-4-putter": [
+"37e8478f6f",
+129.0,
+"typical"
+],
 "yonex-ezone-elite-fairway-wood": "5181608302",
 "yonex-ezone-elite-full-ladies-package-set": "a22a2830fc",
 "yonex-ezone-elite-full-package-set": "afcff4c3ca",
@@ -3317,7 +4307,17 @@
 99.0,
 "typical"
 ],
+"yonex-ezone-gs-i-tech-irons": [
+"6c8b260b94",
+429.0,
+"typical"
+],
 "yonex-ezone-gt3-fairway-wood": "6ed8715e91",
 "yonex-ezone-gt4-fairway-wood": "aa4fea24a9",
-"yonex-ezone-gt4-hybrid": "af2e9c0356"
+"yonex-ezone-gt4-hybrid": "af2e9c0356",
+"yonex-ezone-gt4-irons": [
+"484ad6fd83",
+999.0,
+"typical"
+]
 }
