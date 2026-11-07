@@ -1203,6 +1203,85 @@ def _budget_chips(hub_slug):
             + "".join(f'<a class="pp-chip" href="{u}">{esc(t)}</a>' for t, u in chips) + "</div>")
 
 
+# Questions on each category guide, answered from today's data: the shape AI
+# search tools and Google lift answers from (a question as the heading, a
+# short factual answer under it). Seasonal lines say "tend to", never promise.
+HUB_SEASON = {
+    "driver": "New drivers usually launch in January and February, so last season’s models tend to get cheaper through the autumn and winter, Black Friday especially.",
+    "wood": "New fairway woods launch alongside the drivers in January and February, so last season’s tend to get cheaper through the autumn and winter.",
+    "hybrid": "New hybrids launch alongside the drivers in the new year, so last season’s tend to get cheaper through the autumn and winter.",
+    "irons": "New iron ranges tend to arrive in late summer and the new year, and the outgoing range usually drops as stock clears.",
+    "wedge": "Wedge prices are fairly steady, but the previous generation often drops when a new one arrives.",
+    "putter": "Putter prices are fairly steady; the bigger savings tend to come around Black Friday and the January sales.",
+    "ball": "Golf ball prices are fairly steady. The savings tend to be in multi-buys, last year’s version of a ball and Black Friday.",
+    "bag": "Bags tend to get cheaper in the autumn and winter, as retailers clear the year’s colours.",
+    "gps-watch": "Golf tech tends to see its biggest cash discounts around Black Friday and the January sales, and when a newer model launches.",
+    "rangefinder": "Golf tech tends to see its biggest cash discounts around Black Friday and the January sales, and when a newer model launches.",
+    "launch-monitor": "Launch monitors tend to see their biggest discounts around Black Friday and the January sales, and when a newer model launches.",
+    "electric-trolley": "Electric trolleys are often cheaper in the autumn and winter, before the spring rush.",
+    "set": "Package sets are often cheapest in the autumn, around Black Friday and again in the January sales.",
+    "junior-set": "Junior sets are often cheapest in the autumn, around Black Friday and again in the January sales.",
+}
+
+
+def hub_faqs(ms, type_key, noun, per, built):
+    """[(question, answer html)] from today's prices for one category."""
+    import statistics
+    plural_noun = TYPES[type_key][1].lower() if not TYPES[type_key][1].startswith("GPS") else TYPES[type_key][1]
+    a_noun = ("an " if noun[0].lower() in "aeiou" else "a ") + noun
+    many = type_key == "ball"          # golf balls are bought by the dozen: "do golf balls cost"
+    if many:
+        a_noun = "golf balls"
+    prices = [m["minPrice"] for m in ms]
+    cheap = ms[0]
+    out = []
+    # 1. What it costs
+    by_brand = {}
+    for m in ms:
+        if m.get("brand"):
+            by_brand.setdefault(m["brand"], []).append(m["minPrice"])
+    big = sorted(by_brand, key=lambda b: -len(by_brand[b]))[:4]
+    bp = sorted(p for b in big for p in by_brand[b])
+    ans = (f"New {plural_noun} start from {money(cheap['minPrice'])}{per} today "
+           f"(<a href=\"{model_link(cheap, built)}\">{esc(cheap['name'])}</a>). The typical {noun} we track costs about "
+           f"{money(statistics.median(prices))}{per}")
+    if len(bp) >= 8 and len(big) >= 3:
+        lo, hi = bp[len(bp) // 4], bp[len(bp) * 3 // 4]
+        ans += f", and most models from {', '.join(big[:-1])} and {big[-1]} cost between {money(lo)} and {money(hi)}{per}"
+    out.append((f"How much {'do' if many else 'does'} {a_noun} cost in the UK?", ans + ". Prices are the lowest new, in-stock UK price, checked every 6 hours."))
+    # 2. Where it's cheapest
+    shops = {}
+    for m in ms:
+        if m.get("minRetailer"):
+            shops[m["minRetailer"]] = shops.get(m["minRetailer"], 0) + 1
+    top = sorted(shops.items(), key=lambda kv: -kv[1])[:3]
+    if len(top) >= 2:
+        parts = [f"{retailer_name(r)} on {n}" for r, n in top]
+        out.append((f"Where is the cheapest place to buy {a_noun} in the UK?",
+                    f"It changes model by model. Of the {len(ms)} {plural_noun} we track, the cheapest today is at "
+                    f"{', '.join(parts[:-1])} and {parts[-1]}. Each model’s page compares every UK retailer we track, so check the one you want."))
+    # 3. Is now a good time
+    good = sum(1 for m in ms if (m.get("verdict") or {}).get("label") == "good")
+    wait = sum(1 for m in ms if (m.get("verdict") or {}).get("label") == "wait")
+    out.append((f"Is now a good time to buy {a_noun}?",
+                f"Right now {good} of the {len(ms)} {plural_noun} we track {'is' if good == 1 else 'are'} at the lowest price we’ve recorded"
+                + (f", and {wait} {'is' if wait == 1 else 'are'} above {'its' if wait == 1 else 'their'} usual price" if wait else "")
+                + f". {HUB_SEASON.get(type_key, '')} Set a free price alert on any model and we’ll email you when it drops."))
+    # 4. Biggest genuine drop
+    drops = [m for m in ms if (m.get("verdict") or {}).get("label") == "good" and m.get("high")
+             and float(m["high"]) - m["minPrice"] >= max(5, float(m["high"]) * 0.05)]
+    if drops:
+        d = max(drops, key=lambda m: float(m["high"]) - m["minPrice"])
+        out.append((f"Which {'golf balls have' if many else noun + ' has'} the biggest price drop right now?",
+                    f"The <a href=\"{model_link(d, built)}\">{esc(d['name'])}</a>: {money(d['minPrice'])}{per} today, "
+                    f"{money(float(d['high']) - d['minPrice'])} below the highest price we’ve tracked for it ({money(float(d['high']))}{per}), "
+                    f"and the lowest we’ve recorded."))
+    out.append(("How do you check these prices?",
+                "We record the lowest new, in-stock price for every model at the UK retailers we track, every 6 hours, and keep the history. "
+                "A drop only counts against our own records, never a retailer’s “was” or RRP price."))
+    return out
+
+
 def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
     type_key = HUB_TYPES[hub_slug]
     _, label, noun, section = TYPES[type_key]
@@ -1234,6 +1313,11 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
     if others:
         links = "".join(f'<a class="pp-chip" href="/prices/{h}/">{TYPES[HUB_TYPES[h]][1]}</a>' for h in others)
         other_html += f'<section class="pp-block"><h2>More price guides</h2><div class="pp-chips">{links}</div></section>'
+    faqs = hub_faqs(ms, type_key, noun, per, built)
+    faq_html = ('<section class="pp-block pp-hub-faq"><h2>' + esc(noun if noun.startswith('GPS') else noun[0].upper() + noun[1:]) + ' questions</h2>'
+                + '<div class="pp-q-grid">' + "".join(f'<div class="pp-card pp-q"><h3>{esc(q)}</h3><p>{a}</p></div>' for q, a in faqs) + '</div></section>')
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub(r"<[^>]+>", "", a)}} for q, a in faqs]}
     body = f"""<div class="pp-wrap">
 {crumbs_html}
 <section class="pp-hub-top">
@@ -1255,6 +1339,7 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
   </table></div>
   <p class="pp-small">Lowest new, in-stock price{per} for each model, checked every 6 hours. Verdicts compare today's price with the model's own tracked history.</p>
 </section>
+{faq_html}
 {other_html}
 {method_note(today)}
 </div>
@@ -1288,7 +1373,7 @@ def build_hub_page(hub_slug, all_models, built, hubs_built, today, noindex):
     desc = (f"{plural(len(ms), noun)} tracked across UK retailers, lowest first, with each one's price history "
             f"and a verdict on whether now's a good time to buy.")
     return page_shell(title=title, description=desc, canonical=canonical, body=body, section=section,
-                      schema=[item_list, crumbs_schema], noindex=noindex)
+                      schema=[item_list, crumbs_schema, faq_schema], noindex=noindex)
 
 
 # Photos for the price-guide index cards (17 Oct 2026): the site's own
