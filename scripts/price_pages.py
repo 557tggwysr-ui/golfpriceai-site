@@ -917,6 +917,7 @@ h1{{font-size:17px;margin:0 0 2px}}.s{{color:#4a5a50;font-size:13px;margin:0 0 6
 <p class="s">Lowest new UK price today: <b>{money(now)}{' per dozen' if model.type == 'ball' else ''}</b> · tracked low {money(min(prices))} · high {money(max(prices))}</p>
 {chart_svg(model)}
 <div class="f"><span>Cheapest new, in-stock price across UK retailers, checked every 6 hours.</span><a href="{esc(url)}" target="_blank" rel="noopener">Live prices: Golf<em>Price</em> AI</a></div>
+<script>try{{var h=document.referrer?new URL(document.referrer).hostname.replace(/^www\\./,''):'';if(h&&window.top!==window&&!/(^|\\.)golfpriceai\\.com$/.test(h))navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/signal',JSON.stringify({{k:'emb',q:'price '+h}}))}}catch(e){{}}</script>
 </body></html>"""
 
 

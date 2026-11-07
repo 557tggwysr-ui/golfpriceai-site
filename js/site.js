@@ -436,6 +436,60 @@
     });
   }, true);
 
+  /* ------------------------------------------------------------ money stats */
+  // Anonymous daily totals for our private stats page: clicks through to a
+  // shop by the kind of page, and where visits came from. No cookie, nothing
+  // stored in the browser; the counter counts each visitor once a day.
+  function gpPageKind() {
+    var p = location.pathname;
+    if (/^\/prices\/(black-friday|cyber-monday|christmas|golf-gifts|drops)\b/.test(p)) return 'deals';
+    if (/^\/prices\//.test(p)) return 'guide';
+    if (/^\/(shop\/|shop\.html|clubs\.html|apparel\.html|accessories\.html|search\.html|wishlist\/)/.test(p)) return 'shop';
+    if (p === '/' || p === '/index.html') return 'home';
+    if (/^\/fourball\//.test(p)) return 'fourball';
+    if (/^\/(play|improve|courses)\//.test(p)) return 'play';
+    if (/^\/societies\//.test(p)) return 'societies';
+    if (/^\/(demand\/|deal-tools|receipts|price-check|build-your-bag|complete-the-|best-time|find-your-fit|back-in-stock|fairway-index)/.test(p)) return 'tools';
+    return 'other';
+  }
+  window.gpPageKind = gpPageKind;
+  function gpCount(k) {
+    try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/use', JSON.stringify({ k: k })); } catch (e) { /* nice-to-have */ }
+  }
+  // Where this visit came from, worked out from this page's own address and
+  // the page that sent it. Null when it came from another page of ours.
+  var ARRIVAL = (function () {
+    var q = new URLSearchParams(location.search), s = (q.get('utm_source') || '').toLowerCase(), m = (q.get('utm_medium') || '').toLowerCase();
+    var r = '';
+    try { r = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) { /* none */ }
+    if (/(^|\.)golfpriceai\.com$/.test(r)) return null;
+    if (s || m) {
+      if (m === 'email') return /friday/.test(s) ? 'email_friday' : /alert|bag-list|remind/.test(s) ? 'email_alert' : 'email_other';
+      if (s === 'whatsapp' || m === 'whatsapp') return 'whatsapp';
+      if (s === 'extension') return 'extension';
+      if (m === 'embed' || /embed/.test(s)) return 'embed';
+      if (m === 'social' || m === 'share') return 'social';
+    }
+    if (/chatgpt\.com|openai\.com|perplexity\.ai|claude\.ai|gemini\.google|copilot\.microsoft|you\.com|meta\.ai/.test(r)) return 'ai';
+    if (/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|brave|startpage|qwant)\./.test(r)) return 'search';
+    if (/bsky\.app|facebook|instagram|(^|\.)t\.co$|(^|\.)x\.com$|tiktok|pinterest|reddit|youtube|linkedin|threads\.net/.test(r)) return 'social';
+    if (/whatsapp/.test(r)) return 'whatsapp';
+    if (r) return 'site';
+    return s ? 'site' : 'direct';
+  })();
+  if (ARRIVAL) gpCount('arr_' + ARRIVAL);
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    if (a.classList.contains('pp-ask')) { gpCount('ask_group'); return; }
+    var href = a.href;
+    if (!(/awin1\.com|tidd\.ly|amazon\.|amzn\.to/.test(href) || /\bsponsored\b/.test(a.getAttribute('rel') || ''))) return;
+    gpCount('out_any');
+    var kind = gpPageKind();
+    gpCount('out_' + (kind === 'fourball' ? 'tools' : kind));
+    if (ARRIVAL) gpCount('outf_' + ARRIVAL);
+  }, true);
+
   /* ------------------------------------------------------------ Demand Index */
   // One anonymous count per model page view, for the UK Golf Demand Index
   // (/demand/). Only the model's name is sent: no cookie, nothing stored in
@@ -473,7 +527,7 @@
     fetch(ALERTS_URL + '/subscribe', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(bought
+      body: JSON.stringify(Object.assign({ from: window.gpPageKind ? window.gpPageKind() : '' }, bought
         ? { email: email, bought: bought, paid: paid, website: hp ? hp.value : '' }
         : form.getAttribute('data-budget')
         ? { email: email, budget: form.getAttribute('data-budget'), website: hp ? hp.value : '' }
@@ -482,7 +536,7 @@
             fb: form.getAttribute('data-fb') || '', website: hp ? hp.value : '' }
         : { email: email, model: form.getAttribute('data-model') || '',
             modelName: form.getAttribute('data-model-name') || '', fb: form.getAttribute('data-fb') || '',
-            website: hp ? hp.value : '' })
+            website: hp ? hp.value : '' }))
     }).then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
       .then(function (res) {
         btn.disabled = false;

@@ -126,12 +126,14 @@
       choose(hit.slug, hit.name);
       linkNote('Found it from your link: <b>' + esc(hit.name) + '</b>. Not right? Type the name instead.');
       track('price_check_link', { found: 1 });
+      try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/use', JSON.stringify({ k: 'pc_link' })); } catch (e) { /* fine */ }
       return true;
     }
     var items = info.text ? search(info.text) : [];
     if (items.length) { showList(items); linkNote('Pick the model from your link:'); }
     else { list.hidden = true; linkNote('That link doesn’t include the product’s name' + (/ebay\./.test(info.host) ? ' (eBay links don’t)' : '') + '. Type the model instead, e.g. “Qi35 driver”.'); }
     track('price_check_link', { found: 0 });
+    try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/use', JSON.stringify({ k: 'pc_link' })); } catch (e) { /* fine */ }
     return true;
   }
   var note = document.getElementById('pc-link-note');

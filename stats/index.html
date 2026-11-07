@@ -36,6 +36,7 @@ main { max-width: 1160px; margin: 0 auto; padding: 24px; display: flex; flex-dir
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th { text-align: right; font-weight: 500; font-size: 12px; color: var(--dim); padding: 4px 0 6px; }
 th:first-child, td:first-child { text-align: left; }
+th + th, td + td { padding-left: 12px; }
 td { padding: 6px 0; border-top: 1px solid #eef0ec; text-align: right; font-weight: 700; }
 td:first-child { font-weight: 400; }
 .chart { position: relative; height: 180px; display: flex; align-items: flex-end; gap: 4px; border-bottom: 1px solid #d5dbd2; }
@@ -144,6 +145,46 @@ td:first-child { font-weight: 400; }
       '<div class="chart" role="img" aria-label="Golfers playing each day over the last 30 days">' + d.daily.map(function (x, i) {
         return '<span class="' + (i === d.daily.length - 1 ? 'now' : '') + '" style="height:' + Math.round(x.players / max * 100) + '%" title="' + short(x.day) + ': ' + x.players + ' golfers, ' + x.rounds + ' Par Price rounds"></span>';
       }).join('') + '</div><div class="axis"><span>' + short(d.daily[0].day) + '</span><span>Busiest day: ' + max + ' golfers</span><span>Today</span></div></section>';
+
+    // ---- Money: clicks out to shops, where visits come from, alert sources, gaps
+    var mo = d.money;
+    if (mo) {
+      var PAGE = { guide: 'Price guides', shop: 'The Shop and search', home: 'Homepage', deals: 'Deals pages (Black Friday, drops, gifts)', tools: 'Deal tools', play: 'Games, Improve and Courses', societies: 'Societies', other: 'Everything else', fourball: 'Fourball Alerts', extension: 'Browser extension' };
+      var FROM = { email_alert: 'Alert emails', email_friday: 'Friday email', email_other: 'Other emails', social: 'Social media', whatsapp: 'WhatsApp', extension: 'Browser extension', embed: 'Embedded charts', search: 'Search engines', ai: 'AI assistants (ChatGPT, Claude…)', site: 'Other websites and links', direct: 'Typed in or bookmarked' };
+      var row3 = function (label, x) { return '<tr><td>' + label + '</td><td>' + n(x.today) + '</td><td>' + n(x.d7) + '</td><td>' + n(x.d30) + '</td></tr>'; };
+      var head3 = '<tr><th></th><th>Today</th><th>7 days</th><th>30 days</th></tr>';
+      var byBig = function (a, b) { return (b[1].d30 || 0) - (a[1].d30 || 0); };
+      html += '<section class="kpis">' +
+        kpi('Shoppers sent to a shop today', mo.out.today, '<span class="dim">clicked through to a retailer</span>') +
+        kpi('Shoppers sent, 7 days', mo.out.d7, '<span class="dim">one per golfer per day</span>') +
+        kpi('Shoppers sent, 30 days', mo.out.d30, '<span class="dim">counting began 8 Nov 2026</span>') +
+        kpi('Alert emails clicked, 7 days', (mo.from.filter(function (x) { return x[0] === 'email_alert'; })[0] || [0, {}])[1].d7, '<span class="dim">golfers arriving from an alert email</span>') + '</section>';
+      html += '<div class="two"><section class="card"><h2>Clicks to shops, by page</h2><table>' + head3 +
+        mo.outPage.slice().sort(byBig).map(function (x) { return row3(PAGE[x[0]] || x[0], x[1]); }).join('') + '</table>' +
+        '<span class="dim">Golfers who clicked a buy link on each kind of page, counted once a day each.</span></section>' +
+        '<section class="card"><h2>Where visits come from</h2><table><tr><th></th><th>Visits, 7 days</th><th>30 days</th><th>Clicked to a shop, 30 days</th></tr>' +
+        mo.from.slice().sort(byBig).map(function (x) { return '<tr><td>' + (FROM[x[0]] || x[0]) + '</td><td>' + n(x[1].d7) + '</td><td>' + n(x[1].d30) + '</td><td>' + n(x[2].d30) + '</td></tr>'; }).join('') + '</table>' +
+        '<span class="dim">From the page that sent each golfer. “Clicked to a shop” counts clicks from the page they landed on.</span></section></div>';
+      html += '<div class="two"><section class="card"><h2>Price alert sign-ups, by page</h2><table>' + head3 +
+        mo.alerts.slice().sort(byBig).map(function (x) { return row3(PAGE[x[0]] || x[0], x[1]); }).join('') +
+        row3('<b>Unsubscribes</b> (any email)', mo.unsub) + '</table>' +
+        '<span class="dim">Sign-ups started on each kind of page, before the confirm email. Press list not included.</span></section>' +
+        '<section class="card"><h2>New features</h2><table>' + head3 +
+        row3('“Ask the group chat” taps', mo.ask) + row3('Paste-a-link price checks', mo.pcLink) +
+        row3('Arrivals from the browser extension', (mo.from.filter(function (x) { return x[0] === 'extension'; })[0] || [0, {}])[1]) +
+        row3('Arrivals from WhatsApp', (mo.from.filter(function (x) { return x[0] === 'whatsapp'; })[0] || [0, {}])[1]) + '</table>' +
+        '<span class="dim">Extension installs and weekly users are in the Chrome Web Store and Edge dashboards.</span></section></div>';
+      html += '<div class="two"><section class="card"><h2>Searches that found nothing</h2>' +
+        (mo.misses.length ? '<table><tr><th>Golfers searched for</th><th>Times, 30 days</th></tr>' + mo.misses.map(function (x) { return '<tr><td>' + esc(x[0]) + '</td><td>' + n(x[1]) + '</td></tr>'; }).join('') + '</table>'
+          : '<span class="dim">None yet. Every search on golfpriceai.com that finds no products appears here.</span>') +
+        '<span class="dim">A to-do list for the catalogue: kit golfers want that we don’t list yet.</span></section>' +
+        '<section class="card"><h2>Websites showing our charts</h2>' +
+        (mo.embeds.length ? '<table><tr><th>Website</th><th>What</th><th>Views, 70 days</th><th>Last seen</th></tr>' + mo.embeds.map(function (x) {
+          var parts = String(x[0]).split(' ');
+          return '<tr><td>' + esc(parts[1] || '') + '</td><td>' + (parts[0] === 'aces' ? 'Ace Board' : 'Price chart') + '</td><td>' + n(x[1]) + '</td><td>' + esc(short(String(x[2] || ''))) + '</td></tr>';
+        }).join('') + '</table>' : '<span class="dim">None yet. Any website that embeds a price chart or the Ace Board appears here.</span>') +
+        '<span class="dim">Each one is a backlink and a possible partner.</span></section></div>';
+    }
 
     var r = d.retention || {}, f = d.funnel || {}, e = d.ecosystem || {}, sh = d.shopping || {};
     var pct = function (a, b) { return b ? Math.round(a / b * 100) + '%' : '–'; };

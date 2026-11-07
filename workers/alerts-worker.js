@@ -138,6 +138,7 @@ async function subscribe(request, env, cors) {
   let body;
   try { body = await request.json(); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
   if (body.website) return json({ ok: true, status: 'check-email' }, 200, cors); // honeypot: pretend all is well
+  request.gpFrom = alertFrom(request, body);
   const email = String(body.email || '').trim().toLowerCase();
   const model = body.model && SLUG_RX.test(body.model) ? body.model : '';
   const fb = FB_RX.test(String(body.fb || '')) ? String(body.fb) : '';
@@ -199,6 +200,7 @@ async function subscribe(request, env, cors) {
 
 // Shared by /subscribe and the "also alert me" box on /send-list.
 async function startSubscription({ email, models, stock, bought = '', budget = '', remind = '', press = false, name, list = '', fb = '', request, env, cors, quiet }) {
+  if (!press && request.gpFrom) await useBump(env, 'al_' + request.gpFrom);
 
   // Already confirmed? Add the model straight away.
   const existing = await brevo(env, 'GET', `/contacts/${encodeURIComponent(email)}`);
@@ -356,6 +358,7 @@ async function unsubscribe(url, env, oneClick) {
   const s = url.searchParams.get('s') || '';
   const model = url.searchParams.get('m') || '';
   if (!email || !(await verify(env, email, s))) return Response.redirect(`${site}/alerts-unsubscribed.html?status=invalid`, 302);
+  await useBump(env, 'unsub');
   const existing = await brevo(env, 'GET', `/contacts/${encodeURIComponent(email)}`);
   if (!existing.ok) return Response.redirect(`${site}/alerts-unsubscribed.html?status=ok`, 302);
   if (model === 'press-report') {
@@ -422,8 +425,22 @@ const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_1
   calc_index: 1, calc_course: 1, calc_playing: 1, calc_shoot: 1, calc_share: 1,
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
   ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1,
-  ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1,
+  ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1, ask_group: 1, pc_link: 1,
   ck_saved: 1, ck_card: 1, co_set: 1, fd_near: 1, soc_ask: 1, lv_view: 1, lv_share: 1, lv_card: 1, lv_claim: 1, mg_view: 1, pl_share: 1, pl_view: 1 };
+// Money stats (Nov 2026): shoppers clicking through to a shop, by the kind of
+// page they clicked on and by where they first arrived from; arrivals by
+// source; alert sign-ups by page. Anonymous daily counts only.
+const MONEY_PAGES = ['guide', 'shop', 'home', 'deals', 'tools', 'play', 'societies', 'other'];
+const MONEY_FROM = ['email_alert', 'email_friday', 'email_other', 'social', 'whatsapp', 'extension', 'embed', 'search', 'ai', 'site', 'direct'];
+MONEY_PAGES.concat(['any']).forEach((k) => { USE_KINDS['out_' + k] = 1; });
+MONEY_FROM.forEach((k) => { USE_KINDS['arr_' + k] = 1; USE_KINDS['outf_' + k] = 1; });
+const ALERT_FROM = MONEY_PAGES.concat(['fourball', 'extension']);
+function alertFrom(request, body) {
+  const o = request.headers.get('origin') || '';
+  if (/^(chrome-extension|extension|moz-extension):\/\//.test(o)) return 'extension';
+  const f = String((body && body.from) || '');
+  return ALERT_FROM.includes(f) ? f : 'other';
+}
 async function useSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS use_counts (day TEXT, kind TEXT, n INTEGER, PRIMARY KEY (day, kind)) WITHOUT ROWID').run();
 }
@@ -2104,6 +2121,24 @@ async function clubStats(request, env, cors) {
     moves7: sumUse('move_used', d7),
   };
 
+  // ---- Money: clicks out to shops, where shoppers came from, alert sources, gaps
+  const span = (k) => ({ today: sumUse(k, day), d7: sumUse(k, d7), d30: sumUse(k, d30) });
+  out.money = {
+    out: span('out_any'),
+    outPage: MONEY_PAGES.map((k) => [k, span('out_' + k)]),
+    from: MONEY_FROM.map((k) => [k, span('arr_' + k), span('outf_' + k)]),
+    alerts: ALERT_FROM.map((k) => [k, span('al_' + k)]),
+    ask: span('ask_group'), pcLink: span('pc_link'), unsub: span('unsub'),
+    misses: [], embeds: [],
+  };
+  try {
+    await demandSetup(env);
+    out.money.misses = (await all("SELECT key, SUM(n) AS c FROM counts WHERE kind = 'miss' AND day >= ? GROUP BY key ORDER BY c DESC LIMIT 25", d30))
+      .map((r) => [r.key, Number(r.c) || 0]);
+    out.money.embeds = (await all("SELECT key, SUM(n) AS c, MAX(day) AS last FROM counts WHERE kind = 'emb' GROUP BY key ORDER BY c DESC LIMIT 40"))
+      .map((r) => [r.key, Number(r.c) || 0, r.last]);
+  } catch (e) { /* none yet */ }
+
   out.other = { fourball: 0, alerts: null };
   try { if (env.FOURBALL) out.other.fourball = Number(await env.FOURBALL.get('total')) || 0; } catch (e) { /* fine */ }
   try {
@@ -2124,7 +2159,7 @@ async function clubStats(request, env, cors) {
    no IP address, no cookie, no email. The IP is used only for a moment, as a
    one-way hash in the free edge cache, so one visitor counts once per model
    per day and can't stuff the chart. */
-const SIGNAL_KINDS = { view: 1, heart: 1, search: 1, pp: 1 };
+const SIGNAL_KINDS = { view: 1, heart: 1, search: 1, pp: 1, miss: 1, emb: 1 };
 const DEMAND_TTL = 70 * 86400;
 function cleanSearch(q) {
   const t = String(q || '').toLowerCase().replace(/[^a-z0-9 .'&+-]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -2145,9 +2180,13 @@ async function signal(request, env, cors) {
     items = (Array.isArray(body.items) ? body.items : []).slice(0, 5)
       .filter((x) => Array.isArray(x) && SLUG_RX.test(String(x[0])) && Number(x[1]) > 0)
       .map((x) => [String(x[0]), Math.log(Math.min(5, Math.max(0.2, Number(x[1]))))]);
-  } else if (kind === 'search') {
+  } else if (kind === 'search' || kind === 'miss') {
     const q = cleanSearch(body.q);
     if (q) items = [[q, 0]];
+  } else if (kind === 'emb') {
+    // Which websites show our embedded charts or Ace Board: the site's name only.
+    const m = String(body.q || '').toLowerCase().match(/^(price|aces) ([a-z0-9][a-z0-9.-]{1,80}\.[a-z]{2,})$/);
+    if (m && !/(^|\.)golfpriceai\.com$|^localhost$/.test(m[2])) items = [[m[1] + ' ' + m[2], 0]];
   } else if (SLUG_RX.test(String(body.m || ''))) {
     items = [[String(body.m), 0]];
   }

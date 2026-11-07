@@ -219,7 +219,7 @@
   // What golfers search for, counted anonymously for the Demand Index: just
   // the words, once they've stopped typing. Nothing about the visitor.
   function gpSignal(d) { try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/signal', JSON.stringify(d)); } catch (e) { /* counts are a nice-to-have */ } }
-  var signalTimer;
+  var signalTimer, lastMiss = '';
   function run(q, keepFilters) {
     clearTimeout(signalTimer);
     if (q && q.length <= 60) signalTimer = setTimeout(function () { gpSignal({ k: 'search', q: q }); }, 2500);
@@ -563,6 +563,8 @@
 
   function render() {
     var p = state.parsed, n = state.groups.length;
+    // A search that found nothing: counted anonymously, so we know what to add.
+    if (!n && state.q && state.q !== lastMiss && !state.brandFilter && !state.retailerFilter && state.q.length <= 60) { lastMiss = state.q; gpSignal({ k: 'miss', q: state.q }); }
     var corr = '';
     if (state.corrected) {
       corr = '<p class="sr-corrected">Showing results for ' + Object.keys(state.corrected).map(function (k) { return '<strong>' + esc(state.corrected[k]) + '</strong>'; }).join(', ') +

@@ -41,7 +41,7 @@ document.addEventListener('submit', (e) => {
   fetch(ALERTS_URL + '/subscribe', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ email, stock: form.getAttribute('data-stock'), website: form.querySelector('input[name=website]').value }),
+    body: JSON.stringify({ email, stock: form.getAttribute('data-stock'), from: 'tools', website: form.querySelector('input[name=website]').value }),
   }).then((r) => r.json().catch(() => ({ ok: false })))
     .then((res) => {
       btn.disabled = false;

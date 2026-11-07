@@ -431,7 +431,7 @@
       if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { msg.textContent = 'Please enter a full email address.'; return; }
       btn.disabled = true; msg.textContent = 'Sending…';
       fetch(API + '/subscribe', { method: 'POST', headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email: email, remind: f.querySelector('[name=freq]:checked').value }) })
+        body: JSON.stringify({ email: email, remind: f.querySelector('[name=freq]:checked').value, from: 'play' }) })
         .then(function (r) { return r.json(); })
         .then(function (r) {
           btn.disabled = false;
