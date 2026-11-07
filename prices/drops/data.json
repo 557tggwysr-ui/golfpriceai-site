@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-07T18:37+00:00",
+ "checked": "2026-11-07T19:18+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -52,6 +52,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-staff-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Cleveland HB Soft 2 Putter",
+   "model_id": "cleveland-hb-soft-2-putter",
+   "date": "2026-11-07",
+   "was": 119.0,
+   "now": 109.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cleveland-hb-soft-2-putter/"
   },
   {
    "model": "Wilson Player Fit 12-Piece Cart Bag Ladies Package Set",
