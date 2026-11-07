@@ -7,6 +7,9 @@ on:
     # script only sends once a week, so the second run does nothing.
     - cron: '0 15 * * 5'
     - cron: '0 16 * * 5'
+    # Black Friday and Cyber Monday mornings: 7am UK (Fridays and Mondays in
+    # November and early December; the script only sends on the right days).
+    - cron: '5 7 * 11,12 1,5'
   workflow_dispatch: {}
 
 jobs:
