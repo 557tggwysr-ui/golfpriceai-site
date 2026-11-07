@@ -47,8 +47,8 @@ jobs:
           # Everything the refresh writes: data files, price pages, forwarded
           # old pages and the sitemaps. mkdir: if the course pages ever fail
           # to build, an empty folder keeps git add from stopping the commit.
-          mkdir -p courses
-          git add -A data prices products wishlist fourball play demand societies courses improve assets/cards sitemap.xml sitemap-pages.xml sitemap-prices.xml
+          mkdir -p courses embed
+          git add -A data prices products wishlist fourball play demand societies courses improve embed assets/cards sitemap.xml sitemap-pages.xml sitemap-prices.xml
           git diff --quiet --cached || git commit -m "Automated catalog refresh"
           git pull --rebase
           git push
