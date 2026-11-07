@@ -21,6 +21,7 @@ history matches its real price changes.
 import html
 import json
 import re
+import urllib.parse
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -443,6 +444,7 @@ def chart_svg(model, phone=False):
 
 
 # ---------------------------------------------------------------- shared page parts
+ICON_GROUP_SM = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-right:6px"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"></path></svg>'
 ICON_SHARE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>'
 WOMEN_PHOTO_RX = re.compile(r"\b(ladies|lady|women'?s?|womens|female)\b", re.I)
 FOURBALL_CSS = '<link rel="stylesheet" href="/css/fourball.css?v=20261018c">\n'
@@ -1128,12 +1130,23 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
 
     _p = money(low['price']) + (" per dozen" if per else "")
     _is = "are" if name.lower().endswith(("balls", "irons", "wedges", "shoes", "gloves", "sets")) else "is"
-    if m.get("_card"):
+    if m.get("_card_low"):
         share_text = f"The {name} {_is} {_p} today, the lowest price GolfPrice AI has tracked:"
     elif vlabel == "good":
         share_text = f"The {name} {_is} {_p} today, a good price according to GolfPrice AI:"
     else:
         share_text = f"Compare UK prices for the {name}, from {_p} today on GolfPrice AI:"
+    # "Ask the group": golf kit gets decided in the group chat. The link
+    # preview carries the live verdict card; Fourball Alerts emails everyone.
+    _it = "they're" if _is == "are" else "it's"
+    _verdict_short = {"good": f" and {_it} at the lowest price GolfPrice AI has tracked",
+                      "wait": f", but GolfPrice AI says {_it} above the usual price",
+                      "typical": ", about the usual price according to GolfPrice AI"}.get(vlabel, "")
+    _page = f"{SITE}/prices/{model.slug}/"
+    ask_url = "https://wa.me/?text=" + urllib.parse.quote(
+        f"Thinking of getting the {name}. {_it.capitalize()} {_p} today{_verdict_short}. Buy now or wait? 👇\n"
+        f"{_page}?utm_source=whatsapp&utm_medium=social&utm_campaign=ask-group\n\n"
+        f"If we're all after one, set a four-ball alert and we all get the email when it drops: {_page}#fourball")
     import bag_draft
     draft_card = bag_draft.product_card(m, DRAFTABLE, today, plural=(_is == "are"))
     body = f"""<div class="pp-wrap">
@@ -1156,6 +1169,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     <p class="pp-disclose">We may earn a commission if you buy through these links. It never changes the prices or the verdict.</p>
     <div class="fb-row" hidden><button type="button" class="fb-save" aria-pressed="false">{ICON_HEART}<span>Add to four-ball shortlist</span></button><span class="fb-row-note"></span></div>
     <p class="pp-check fb-nudge" hidden>Buying with mates? <a href="#fourball">Make it a four-ball alert →</a></p>
+    <p class="pp-check pp-ask"><a href="{esc(ask_url)}" target="_blank" rel="noopener">{ICON_GROUP_SM}Ask the group chat: buy now or wait?</a></p>
     <p class="pp-check">Seen it somewhere else? <a href="/price-check.html?m={esc(model.slug)}">Check if that price is any good →</a></p>
     {bought_box(model)}
   </div>

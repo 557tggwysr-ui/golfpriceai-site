@@ -26,6 +26,18 @@ FONTS = ROOT / "assets" / "fonts"
 W, H, SPLIT = 1200, 630, 560
 INK, GREEN, WHITE, GREY = (20, 33, 26), (63, 174, 41), (255, 255, 255), (196, 208, 200)
 BADGE = "LOWEST PRICE WE’VE TRACKED"
+SOFT, AMBER = (196, 230, 186), (226, 128, 36)
+# Every other model with a price page gets a "verdict" card (since 7 Nov 2026),
+# so any shared link previews with its live verdict. To keep the site small,
+# one is only redrawn when the verdict changes or the price moves 3%+, and at
+# most NEW_PER_RUN brand-new cards are drawn per run.
+VERDICT = {
+    "typical": ("TYPICAL PRICE RIGHT NOW", SOFT, "About what it usually costs. Set a free alert for a drop."),
+    "wait": ("ABOVE ITS USUAL PRICE", AMBER, "Higher than usual right now: worth waiting for a drop."),
+    "tracking": ("LIVE UK PRICE COMPARISON", SOFT, "Every UK price we track, compared every 6 hours."),
+}
+NEW_PER_RUN = 200
+MOVE = 0.03
 
 
 def qualifies(m):
@@ -77,7 +89,7 @@ def _photo(url):
     return im.convert("RGB")
 
 
-def draw(photo, name, price, per, saving):
+def draw(photo, name, price, per, saving, badge=BADGE, badge_fill=GREEN, line=None, price_fill=GREEN):
     from PIL import Image, ImageDraw, ImageOps
     if name.endswith(" Golf Bag") and " Bag " in name[:-9] + " ":
         name = name[:-9]  # "Stand Bag Golf Bag" reads oddly on a card
@@ -89,9 +101,9 @@ def draw(photo, name, price, per, saving):
 
     x, y, maxw = SPLIT + 50, 58, W - SPLIT - 90
     f = _font("Inter-SemiBold.otf", 22)
-    bw = d.textlength(BADGE, font=f)
-    d.rounded_rectangle((x, y, x + bw + 36, y + 44), radius=22, fill=GREEN)
-    d.text((x + 18, y + 9), BADGE, font=f, fill=WHITE)
+    bw = d.textlength(badge, font=f)
+    d.rounded_rectangle((x, y, x + bw + 36, y + 44), radius=22, fill=badge_fill)
+    d.text((x + 18, y + 9), badge, font=f, fill=WHITE if badge_fill != SOFT else INK)
     y += 72
     size = 48
     lines = _wrap(d, name, _font("Poppins-Bold.ttf", size), maxw)
@@ -102,18 +114,22 @@ def draw(photo, name, price, per, saving):
         lines = lines[:2]
         lines[1] = lines[1].rstrip(".,") + "…"
     nf = _font("Poppins-Bold.ttf", size)
-    for line in lines:
-        d.text((x, y), line, font=nf, fill=WHITE)
+    for nl in lines:
+        d.text((x, y), nl, font=nf, fill=WHITE)
         y += int(size * 1.3)
     y += 10
     pf = _font("Poppins-Bold.ttf", 84)
-    d.text((x, y), price, font=pf, fill=GREEN)
+    if price.startswith("from "):               # verdict cards: a small "From" above the price
+        d.text((x, y - 4), "From", font=_font("Inter-SemiBold.otf", 24), fill=GREY)
+        y += 26
+        price = price[5:]
+    d.text((x, y), price, font=pf, fill=price_fill)
     if per:
         d.text((x + d.textlength(price, font=pf) + 14, y + 52), per, font=_font("Inter-Regular.otf", 24), fill=GREY)
     y += 110
     sf = _font("Inter-Regular.otf", 26)
-    for line in _wrap(d, f"{saving} below the highest price we’ve tracked", sf, maxw):
-        d.text((x, y), line, font=sf, fill=GREY)
+    for ln in _wrap(d, line or f"{saving} below the highest price we’ve tracked", sf, maxw):
+        d.text((x, y), ln, font=sf, fill=GREY)
         y += 36
     small = _font("Inter-Regular.otf", 20)
     d.text((x, H - 118), "Lowest new UK price today, checked across", font=small, fill=GREY)
@@ -125,7 +141,7 @@ def draw(photo, name, price, per, saving):
     d.text((x2 + d.textlength("Price", font=lf), H - 60), " AI", font=lf, fill=WHITE)
     d.text((x + 250, H - 52), "Full Swing. Not full price.", font=_font("Inter-SemiBold.otf", 20), fill=GREY)
     out = io.BytesIO()
-    im.save(out, "JPEG", quality=84, optimize=True, progressive=True)
+    im.save(out, "JPEG", quality=84 if badge == BADGE else 74, optimize=True, progressive=True)
     return out.getvalue()
 
 
@@ -138,12 +154,43 @@ def build(models, built, site):
         return []
     state = json.loads(STATE.read_text()) if STATE.exists() else {}
     CARD_DIR.mkdir(parents=True, exist_ok=True)
-    keep, changed, made, failed = {}, [], 0, 0
+    keep, changed, made, failed, fresh = {}, [], 0, 0, 0
     for m in models:
         if m["slug"] not in built or not m.get("_image"):
             continue
         saving = qualifies(m)
         if saving is None:
+            # A verdict card: redrawn only when the verdict changes or the price moves 3%+.
+            label = (m.get("verdict") or {}).get("label") or "tracking"
+            label = label if label in VERDICT else "tracking"
+            now = float(m["minPrice"])
+            old = state.get(m["slug"])
+            path = CARD_DIR / f"{m['slug']}.jpg"
+            same = (isinstance(old, list) and old[2] == label and old[1] and abs(now - old[1]) / old[1] < MOVE and path.exists())
+            if same:
+                keep[m["slug"]] = old
+                m["_card"] = f"{site}/assets/cards/{m['slug']}.jpg?v={old[0]}"
+                continue
+            if not isinstance(old, list) and fresh >= NEW_PER_RUN:
+                continue                       # spread the first drawing over a few runs
+            per = "per dozen" if m["type"] == "ball" else ""
+            badge, fill, line = VERDICT[label]
+            try:
+                jpg = draw(_photo(m["_image"]), m["name"], "from " + _money(now), per, None, badge=badge, badge_fill=fill, line=line, price_fill=WHITE)
+            except Exception as e:
+                failed += 1
+                print(f"Share cards: skipped {m['slug']} ({type(e).__name__})")
+                if isinstance(old, list) and path.exists():   # keep yesterday's card rather than none
+                    keep[m["slug"]] = old
+                    m["_card"] = f"{site}/assets/cards/{m['slug']}.jpg?v={old[0]}"
+                continue
+            path.write_bytes(jpg)
+            sig = hashlib.sha1(jpg).hexdigest()[:10]
+            changed.append(f"/assets/cards/{m['slug']}.jpg")
+            made += 1
+            fresh += 0 if isinstance(old, list) else 1
+            keep[m["slug"]] = [sig, now, label]
+            m["_card"] = f"{site}/assets/cards/{m['slug']}.jpg?v={sig}"
             continue
         price = _money(float(m["minPrice"]))
         per = "per dozen" if m["type"] == "ball" else ""
@@ -162,6 +209,7 @@ def build(models, built, site):
             made += 1
         keep[m["slug"]] = sig
         m["_card"] = f"{site}/assets/cards/{m['slug']}.jpg?v={sig}"
+        m["_card_low"] = True                  # the lowest-price card (share text says so)
     for slug in set(state) - set(keep):
         (CARD_DIR / f"{slug}.jpg").unlink(missing_ok=True)
     STATE.write_text(json.dumps(keep, indent=0, sort_keys=True) + "\n")
