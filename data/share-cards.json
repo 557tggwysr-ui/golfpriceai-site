@@ -1,5 +1,15 @@
 {
+"aldila-extra-stiff-driver": [
+"82bd71485f",
+49.99,
+"typical"
+],
 "aldila-regular-driver": "a339400179",
+"aldila-stiff-driver": [
+"cf880f3a27",
+49.99,
+"typical"
+],
 "arccos-laser-rangefinder": "d48f7490ba",
 "bagboy-volt-remote-electric-trolley": [
 "0147060c6d",
@@ -226,10 +236,25 @@
 "typical"
 ],
 "caddytalk-cube-laser-rangefinder": "6bfc99107f",
+"callaway-apex-ai-150-irons": [
+"77235036e3",
+859.0,
+"typical"
+],
 "callaway-apex-ai200-irons": "9c6b6ea8e4",
 "callaway-apex-ai300-irons": "f792432a77",
 "callaway-apex-ti-fusion-irons": "2bf2146338",
+"callaway-apex-ti-fusion-plated-irons": [
+"9aa8b47e4e",
+1669.0,
+"typical"
+],
 "callaway-apex-tour-certified-utility-fairway-wood": "ef472f85e1",
+"callaway-apex-ut-utility-irons": [
+"0c047f54c0",
+249.0,
+"wait"
+],
 "callaway-apex-utility-fairway-wood": "e9ab9c6b6b",
 "callaway-carry-plus-pencil-bag-carry-bag-golf-bag": [
 "ea909886cc",
@@ -429,7 +454,17 @@
 ],
 "callaway-elyte-driver": "aedaac084e",
 "callaway-elyte-fairway-wood": "83ff29d492",
+"callaway-elyte-hl-irons": [
+"c2108340ea",
+599.0,
+"wait"
+],
 "callaway-elyte-hybrid": "a5f2febbc7",
+"callaway-elyte-irons": [
+"96336731ad",
+799.0,
+"typical"
+],
 "callaway-elyte-staff-stand-bag-golf-bag": [
 "664926b0a3",
 449.0,
@@ -441,6 +476,11 @@
 "callaway-elyte-triple-diamond-fairway-wood": "20d6d6a83f",
 "callaway-elyte-x-driver": "080f9b3d7b",
 "callaway-elyte-x-hybrid": "58642dd38c",
+"callaway-elyte-x-irons": [
+"418d283576",
+549.0,
+"wait"
+],
 "callaway-exclusive-x-vitality-supersoft-golf-balls": [
 "460502a2e9",
 29.99,
@@ -615,6 +655,11 @@
 ],
 "callaway-par-3-hd-waterproof-pencil-bag-golf-bag": "b573fd7a7a",
 "callaway-par-3-hd-waterproof-stand-bag-golf-bag": "634069b4d8",
+"callaway-paradym-ai-smoke-max-driver": [
+"ad085858d2",
+299.0,
+"typical"
+],
 "callaway-quantum-driver": "e821cefd63",
 "callaway-quantum-fairway-wood": "be32783fa2",
 "callaway-quantum-hybrid": "16d83497c5",
@@ -624,7 +669,17 @@
 "callaway-quantum-max-fairway-wood": "41ac9fbefa",
 "callaway-quantum-max-fast-hybrid": "3c1722a9f7",
 "callaway-quantum-max-hybrid": "3b86d6435e",
+"callaway-quantum-max-irons": [
+"1c4ec47ce9",
+749.0,
+"typical"
+],
 "callaway-quantum-max-os-hybrid": "8053f697f3",
+"callaway-quantum-max-os-irons": [
+"776e3d0a6c",
+749.0,
+"typical"
+],
 "callaway-quantum-mini-driver": "ee84bc87ac",
 "callaway-quantum-staff-golf-bag": [
 "9896a6502a",
@@ -691,6 +746,16 @@
 18.95,
 "typical"
 ],
+"callaway-x-forged-irons": [
+"65b9da0c84",
+1229.0,
+"typical"
+],
+"callaway-x-forged-max-irons": [
+"d4c91afbe8",
+1049.0,
+"wait"
+],
 "callaway-xj-5-piece-ages-3-5-junior-golf-set": "fc56e66180",
 "callaway-xj-5-piece-ages-5-8-junior-golf-set": "452c3e1acb",
 "callaway-xj-8-piece-ages-9-12-junior-golf-set": "1f69d5bbb2",
@@ -702,6 +767,11 @@
 "cleveland-halo-xl-fairway-wood": "f206c1d05d",
 "cleveland-halo-xl-full-face-irons": "75a4f6c00a",
 "cleveland-halo-xl-hy-wood": "0b5e70f206",
+"cleveland-halo-xl-hybrid": [
+"2f6125f74b",
+109.0,
+"typical"
+],
 "cleveland-hb-soft-2-putter": "0b5b280adb",
 "cleveland-hibore-xl-driver": "9e939d609a",
 "cleveland-hibore-xl-lite-driver": "109722800b",
@@ -709,6 +779,11 @@
 "cleveland-launcher-xl2-driver": "c241e2bfe8",
 "cleveland-rtz-tour-rack-raw-wedge": "acc88b543d",
 "cleveland-rtz-tour-satin-wedge": "5a1d8b38b8",
+"cleveland-zipcore-xl-irons": [
+"03bad03401",
+399.0,
+"wait"
+],
 "cobra-3d-printed-putter": "79e51fe380",
 "cobra-ace-waterproof-cart-bag-golf-bag": "edf24b42a2",
 "cobra-ace-waterproof-stand-bag-golf-bag": [
@@ -721,9 +796,39 @@
 169.0,
 "typical"
 ],
+"cobra-air-x-hybrid": [
+"2405446560",
+99.0,
+"typical"
+],
+"cobra-baffler-combo-irons": [
+"24a8b58a49",
+599.0,
+"typical"
+],
+"cobra-baffler-driver": [
+"f2da15b7fa",
+299.0,
+"typical"
+],
+"cobra-baffler-hybrid": [
+"31aff8ea8e",
+169.0,
+"typical"
+],
+"cobra-baffler-offset-driver": [
+"194282ba4d",
+299.0,
+"typical"
+],
 "cobra-crown-c-rolling-golf-bag": [
 "1eabc9803f",
 148.95,
+"typical"
+],
+"cobra-darkspeed-irons": [
+"8fad356f95",
+449.0,
 "typical"
 ],
 "cobra-darkspeed-ls-driver": "dbe04d2920",
@@ -732,9 +837,44 @@
 "cobra-ds-adapt-irons": "4cfe193157",
 "cobra-ds-adapt-ls-driver": "c26a1de5f4",
 "cobra-ds-adapt-max-d-driver": "621180d9a2",
+"cobra-ds-adapt-max-irons": [
+"fbec9bbe45",
+499.0,
+"typical"
+],
 "cobra-ds-adapt-max-k-driver": "dd320e45ef",
 "cobra-ds-adapt-x-driver": "0cfaa0b78b",
+"cobra-fly-xl-2-irons": [
+"e0ec2b8c0d",
+219.0,
+"typical"
+],
+"cobra-king-irons": [
+"bae18728f4",
+569.0,
+"typical"
+],
+"cobra-king-max-irons": [
+"47cfaa0a70",
+559.0,
+"typical"
+],
+"cobra-king-tec-hybrid": [
+"28b8796915",
+149.95,
+"typical"
+],
 "cobra-king-tec-irons": "ff7e042962",
+"cobra-king-tec-mini-driver": [
+"b868c84102",
+379.0,
+"typical"
+],
+"cobra-king-tec-utility-irons": [
+"12cedd7d45",
+169.0,
+"typical"
+],
 "cobra-king-tec-x-irons": "35f90fcb2c",
 "cobra-king-tour-irons": "5e4da25779",
 "cobra-king-wedge": "55d768bda8",
@@ -900,6 +1040,21 @@
 149.0,
 "typical"
 ],
+"golfway-champion-driver": [
+"b5b4fa11b4",
+24.99,
+"typical"
+],
+"golfway-champion-hybrid": [
+"53f059f569",
+24.99,
+"typical"
+],
+"golfway-champion-youth-hybrid": [
+"d3370ece72",
+29.99,
+"typical"
+],
 "golfzon-wave-simulator-portable-launch-monitor": [
 "be1b4b400a",
 3999.0,
@@ -925,9 +1080,39 @@
 8.49,
 "wait"
 ],
+"longridge-30-distance-golf-balls": [
+"cca6cb9bba",
+13.98,
+"tracking"
+],
+"longridge-airflow-practice-golf-balls": [
+"055f522bae",
+1.5,
+"typical"
+],
+"longridge-deluxe-golf-balls": [
+"168acbadee",
+5.99,
+"typical"
+],
 "longridge-elements-waterproof-cart-bag-golf-bag": [
 "a363ceb105",
 139.95,
+"typical"
+],
+"longridge-jelly-practice-golf-balls": [
+"a06809a6f4",
+11.98,
+"tracking"
+],
+"longridge-multi-colour-practice-foam-golf-balls": [
+"5c54c4a467",
+2.99,
+"typical"
+],
+"longridge-practice-foam-golf-balls": [
+"91be6718ee",
+3.99,
 "typical"
 ],
 "longridge-pro-cart-bag-golf-bag": [
@@ -940,9 +1125,89 @@
 "macgregor-v-max-ages-3-5-junior-golf-set": "9639b2d17c",
 "macgregor-v-max-ages-6-8-junior-golf-set": "faa7ec9224",
 "macgregor-v-max-hybrid": "991480ca68",
+"macgregor-v-max-speed-hybrid": [
+"fcef414c55",
+39.99,
+"typical"
+],
 "macgregor-zt-plus-driver": "9ea077727b",
+"macgregor-zt-plus-hybrid": [
+"e0618ecd1a",
+74.95,
+"typical"
+],
+"macgregor-zt-plus-irons": [
+"2a3e58041d",
+249.0,
+"typical"
+],
 "macgregor-zt1-ladies-package-set": "4919fefac2",
 "macgregor-zt1-package-set": "3f267ac612",
+"masters-30-distance-golf-balls": [
+"fea46a6e8d",
+9.99,
+"wait"
+],
+"masters-4-5m-golf-balls": [
+"09277f72aa",
+19.99,
+"typical"
+],
+"masters-airflow-xp-practice-golf-balls": [
+"0c89ae8557",
+4.98,
+"tracking"
+],
+"masters-airflow-xp-practise-golf-balls": [
+"ee7b67c42b",
+5.99,
+"typical"
+],
+"masters-deluxe-society-pack-golf-balls": [
+"96f1bc4c71",
+3.49,
+"typical"
+],
+"masters-golf-30-distance-practice-golf-balls": [
+"238325226e",
+9.99,
+"typical"
+],
+"masters-golf-airflow-xp-practice-golf-balls": [
+"21ca7f8f5f",
+5.98,
+"tracking"
+],
+"masters-golf-deluxe-society-pack-golf-balls": [
+"8589379aaa",
+2.99,
+"typical"
+],
+"masters-golf-masters-airflow-xp-practice-golf-balls": [
+"544635823e",
+5.99,
+"typical"
+],
+"masters-golf-super-deluxe-society-pack-golf-balls": [
+"cc76c39c51",
+12.99,
+"typical"
+],
+"masters-lite-flite-foam-golf-balls": [
+"919901305a",
+11.99,
+"typical"
+],
+"masters-lite-flite-foam-practice-golf-balls": [
+"0fbfec7d61",
+7.98,
+"tracking"
+],
+"masters-stripe-foam-practise-golf-balls": [
+"1945f3480a",
+11.99,
+"typical"
+],
 "mileseey-golf-genepro-g1-touchscreen-rangefinder": [
 "74d1cd04ed",
 499.0,
@@ -1008,18 +1273,73 @@
 "typical"
 ],
 "mizuno-br-dx-stand-bag-golf-bag": "a579cbadd3",
+"mizuno-jpx-923-forged-irons": [
+"04dbc6286a",
+759.0,
+"typical"
+],
 "mizuno-jpx-923-hot-metal-irons": "7c9534c0e1",
 "mizuno-jpx-923-tour-irons": "6f72084458",
 "mizuno-jpx-925-fli-hi-hybrid": "5153e60d56",
 "mizuno-jpx-925-forged-irons": "eb1bb5b33a",
+"mizuno-jpx-925-hot-metal-high-irons": [
+"812441bd81",
+699.0,
+"typical"
+],
+"mizuno-jpx-925-hot-metal-irons": [
+"d1146c73e2",
+599.0,
+"typical"
+],
+"mizuno-jpx-925-hot-metal-pro-irons": [
+"efd07d43c9",
+679.0,
+"typical"
+],
+"mizuno-jpx-one-driver": [
+"ac318773c4",
+399.0,
+"typical"
+],
+"mizuno-jpx-one-hybrid": [
+"abecd55818",
+209.0,
+"typical"
+],
+"mizuno-jpx-one-select-driver": [
+"ad850e1402",
+429.0,
+"typical"
+],
 "mizuno-mid-tour-staff-golf-bag": [
 "bd8b84d178",
 179.0,
 "wait"
 ],
 "mizuno-pro-241-irons": "37bb16651b",
+"mizuno-pro-m-13-irons": [
+"3f9120a259",
+1369.0,
+"typical"
+],
+"mizuno-pro-m-15-irons": [
+"45914f033d",
+1369.0,
+"typical"
+],
 "mizuno-pro-s-1-irons": "44cafad6e3",
+"mizuno-pro-s-3-irons": [
+"b79d4b1e1d",
+1179.0,
+"typical"
+],
 "mizuno-pro-s-4-irons": "0c86b7f59c",
+"mizuno-pro-s-golf-balls": [
+"6231195e7d",
+34.95,
+"typical"
+],
 "mizuno-pro-scratch-carry-bag-golf-bag": "39cd580daf",
 "mizuno-pro-scratch-golf-bag": [
 "65362878b7",
@@ -1035,6 +1355,26 @@
 "mizuno-pro-t-1-ip-wedge": "4dbe3f28ff",
 "mizuno-pro-t-1-soft-satin-wedge": "63b8e2805a",
 "mizuno-pro-t-3-wedge": "6a9fdbffcc",
+"mizuno-pro-x-golf-balls": [
+"2d72ae73b1",
+69.9,
+"typical"
+],
+"mizuno-rb-566-golf-balls": [
+"2aa3c9cf54",
+34.99,
+"wait"
+],
+"mizuno-rb-max-golf-balls": [
+"0557ccff8c",
+24.99,
+"typical"
+],
+"mizuno-rb566-golf-balls": [
+"c18cb571f7",
+19.95,
+"tracking"
+],
 "mizuno-st-g-driver": "4664ccbfc0",
 "mizuno-st-g-fairway-wood": "82f1763111",
 "mizuno-st200x-fairway-wood": "1d7e45526f",
@@ -1057,6 +1397,11 @@
 "typical"
 ],
 "mizuno-tour-stand-bag-golf-bag": "ad536a8e8e",
+"mkids-lite-driver": [
+"1b38bc8857",
+34.99,
+"typical"
+],
 "motocaddy-26-dry-series-waterproof-cart-bag-golf-bag": [
 "5489139f01",
 219.0,
@@ -1283,18 +1628,73 @@
 249.0,
 "wait"
 ],
+"ping-g-le-hybrid": [
+"8a8f02e59d",
+199.0,
+"typical"
+],
 "ping-g-le3-anser-putter": "b704dc4350",
 "ping-g-le4-driver": "96ca260b63",
 "ping-g-le4-fairway-wood": "567c54d147",
 "ping-g-le4-hybrid": "0a73a02ad8",
 "ping-g-le4-irons": "38d0a58ade",
+"ping-g430-hybrid": [
+"44949bb292",
+209.0,
+"typical"
+],
+"ping-g430-max-10k-driver": [
+"ffc02a004a",
+369.0,
+"typical"
+],
+"ping-g430-max-driver": [
+"1a7948c15d",
+369.0,
+"typical"
+],
 "ping-g440-driver": "72ee28d2a8",
 "ping-g440-fairway-wood": "78fab3861a",
 "ping-g440-hl-driver": "d4d804f232",
+"ping-g440-hl-hybrid": [
+"6c38b9c74d",
+269.0,
+"typical"
+],
+"ping-g440-hybrid": [
+"7f4aa9723f",
+269.0,
+"typical"
+],
+"ping-g440-k-driver": [
+"c33557aa8a",
+579.0,
+"typical"
+],
 "ping-g440-lst-driver": "ed4607606d",
 "ping-g440-lst-fairway-wood": "d015bda1c2",
+"ping-g440-max-driver": [
+"30876f96ec",
+499.0,
+"typical"
+],
 "ping-g440-max-hl-driver": "20462ca8c6",
 "ping-g440-sft-driver": "769e6921f2",
+"ping-g440-sft-hl-driver": [
+"364c1df4a0",
+529.0,
+"typical"
+],
+"ping-g440k-driver": [
+"af61b4b88f",
+579.0,
+"typical"
+],
+"ping-g440k-hl-driver": [
+"273b192b4c",
+579.0,
+"typical"
+],
 "ping-g730-irons": "822a0afb9b",
 "ping-hoofer-14-231-stand-bag-golf-bag": "e10fa4ed5f",
 "ping-hoofer-14-stand-bag-golf-bag": [
@@ -1387,6 +1787,16 @@
 "5877557ad7",
 169.95,
 "typical"
+],
+"pinnacle-distance-15-golf-balls": [
+"1438c44cea",
+54.0,
+"typical"
+],
+"pinnacle-distance-golf-balls": [
+"0634812042",
+15.99,
+"wait"
 ],
 "pinned-golf-prism-plus-rangefinder": [
 "f62b6d40be",
@@ -1549,6 +1959,11 @@
 "wait"
 ],
 "prgr-portable-launch-monitor": "80681eb725",
+"puttout-devil-golf-balls": [
+"b018a4274d",
+24.99,
+"typical"
+],
 "pxg-aloha-25-hybrid-stand-bag-golf-bag": [
 "b36460a9dd",
 359.0,
@@ -1568,6 +1983,11 @@
 "pxg-deluxe-hybrid-stand-bag-golf-bag": [
 "35d1ac6940",
 349.0,
+"typical"
+],
+"pxg-lightning-driver": [
+"b424f95f7b",
+429.0,
 "typical"
 ],
 "pxg-lightweight-carry-bag-stand-bag-golf-bag": [
@@ -1590,6 +2010,11 @@
 349.0,
 "typical"
 ],
+"pxg-ops-driver": [
+"703b52c3b2",
+379.0,
+"typical"
+],
 "pxg-water-resistant-light-weight-cart-bag-golf-bag": [
 "5c2324599b",
 289.0,
@@ -1603,6 +2028,16 @@
 "pxg-xtreme-hybrid-stand-bag-golf-bag": [
 "4d3d6a4ad8",
 279.0,
+"typical"
+],
+"pxg-xtreme-tour-golf-balls": [
+"e511125c82",
+29.75,
+"wait"
+],
+"pxg-xtreme-tour-x-golf-balls": [
+"91b9e9fa68",
+34.99,
 "typical"
 ],
 "rapsodo-mlm-1-launch-monitor": [
@@ -1642,6 +2077,11 @@
 "scotty-cameron-studio-style-fastback-putter": "2fffbf6b1a",
 "scotty-cameron-studio-style-newport-2-putter": "96eff79ce2",
 "scotty-cameron-studio-style-putter": "d1d80a1e17",
+"second-chance-ltd-second-chance-practice-lake-golf-balls": [
+"a1ae3d2831",
+34.99,
+"typical"
+],
 "shot-scope-g6-gps-watch": "28b318a1c1",
 "shot-scope-game-improvement-pack-rangefinder": [
 "c30e5361cd",
@@ -1740,7 +2180,27 @@
 679.0,
 "typical"
 ],
+"srixon-ad333-12-golf-balls": [
+"ceaeacd73f",
+22.95,
+"typical"
+],
+"srixon-ad333-golf-balls": [
+"1346e06c40",
+19.95,
+"typical"
+],
+"srixon-distance-golf-balls": [
+"f7b00aa824",
+14.5,
+"typical"
+],
 "srixon-friday-cart-bag-golf-bag": "922793bb19",
+"srixon-limited-z-star-diamond-2-dozen-golf-balls": [
+"2f87e3947c",
+47.49,
+"typical"
+],
 "srixon-premium-cart-bag-golf-bag": [
 "c0a96aef74",
 159.0,
@@ -1751,9 +2211,44 @@
 159.95,
 "typical"
 ],
+"srixon-q-star-tour-6-divide-golf-balls": [
+"457546268b",
+31.95,
+"typical"
+],
+"srixon-q-star-tour-6-golf-balls": [
+"bdcae6e50d",
+31.95,
+"typical"
+],
+"srixon-q-star-tour-golf-balls": [
+"f90598a27c",
+29.99,
+"typical"
+],
+"srixon-q-star-ultispeed-golf-balls": [
+"40d90c39f8",
+24.99,
+"typical"
+],
+"srixon-q-star-ultispeed-trackline-golf-balls": [
+"c5b82d85b5",
+24.95,
+"typical"
+],
 "srixon-saturday-stand-bag-golf-bag": [
 "383b858309",
 139.0,
+"typical"
+],
+"srixon-sf-tour-special-golf-balls": [
+"fbb975a752",
+11.96,
+"typical"
+],
+"srixon-soft-feel-brite-golf-balls": [
+"b3cee5841e",
+22.95,
 "typical"
 ],
 "srixon-srx-premium-cart-bag-golf-bag": [
@@ -1792,6 +2287,11 @@
 199.95,
 "typical"
 ],
+"srixon-ultisoft-golf-balls": [
+"7e344918ee",
+19.95,
+"typical"
+],
 "srixon-waterproof-cart-bag-golf-bag": [
 "8276d489c8",
 229.0,
@@ -1808,10 +2308,65 @@
 189.95,
 "typical"
 ],
+"srixon-z-star-diamond-golf-balls": [
+"70f1f60681",
+29.99,
+"typical"
+],
+"srixon-z-star-divide-golf-balls": [
+"57ac8320ea",
+38.95,
+"typical"
+],
+"srixon-z-star-gen-9-divide-golf-balls": [
+"3ee9b3f595",
+37.95,
+"typical"
+],
+"srixon-z-star-gen-9-golf-balls": [
+"9033eaf05b",
+37.95,
+"typical"
+],
+"srixon-z-star-xv-gen-9-golf-balls": [
+"6f847d61dd",
+37.95,
+"typical"
+],
+"srixon-z-star-xv-golf-balls": [
+"95f0e7a0eb",
+38.95,
+"typical"
+],
 "srixon-zxi-driver": "be5d33c718",
+"srixon-zxi-hybrid": [
+"a985d916d6",
+169.0,
+"typical"
+],
 "srixon-zxi-ls-driver": "4a055ffab9",
 "srixon-zxi-max-driver": "766827f393",
+"srixon-zxi-rkt-driver": [
+"ca71b34500",
+529.0,
+"typical"
+],
 "srixon-zxi-rkt-fairway-wood": "adacdae065",
+"srixon-zxi-rkt-hybrid": [
+"557ca67820",
+259.0,
+"typical"
+],
+"srixon-zxi-rkt-ls-driver": [
+"c24fa41c89",
+529.0,
+"typical"
+],
+"srixon-zxi-rkt-max-driver": [
+"5896d40613",
+529.0,
+"typical"
+],
 "srixon-zxi-utility-irons": "b9d6a7ab69",
 "srixon-zxi7-irons": "10aa334e02",
 "sun-mountain-3-5ls-stand-bag-golf-bag": "a7f912eb37",
@@ -1925,6 +2480,11 @@
 189.0,
 "typical"
 ],
+"taylormade-distance-plus-golf-balls": [
+"8c398b03b4",
+21.95,
+"wait"
+],
 "taylormade-flextech-carry-bag-stand-bag-golf-bag": [
 "8b3315c43f",
 129.95,
@@ -1975,7 +2535,32 @@
 "typical"
 ],
 "taylormade-pro-stand-bag-golf-bag": "1ba9de6f6d",
+"taylormade-qi10-driver": [
+"bc45a4a907",
+379.0,
+"typical"
+],
+"taylormade-qi10-hybrid": [
+"0d93bf23fb",
+179.0,
+"wait"
+],
+"taylormade-qi35-driver": [
+"eaf4b57a69",
+349.0,
+"typical"
+],
+"taylormade-qi35-hybrid": [
+"4ca8453da4",
+149.0,
+"typical"
+],
 "taylormade-qi4d-designer-series-shadowfall-driver": "5218cf1a44",
+"taylormade-qi4d-driver": [
+"1bbe404856",
+549.0,
+"typical"
+],
 "taylormade-qi4d-flextech-crossover-stand-bag-golf-bag": [
 "23d51fef23",
 189.0,
@@ -1984,6 +2569,36 @@
 "taylormade-qi4d-flextech-stand-bag-golf-bag": [
 "b4062cfa74",
 169.0,
+"typical"
+],
+"taylormade-qi4d-hybrid": [
+"5cd969fe78",
+269.0,
+"typical"
+],
+"taylormade-qi4d-ls-driver": [
+"f4a7994e57",
+549.0,
+"typical"
+],
+"taylormade-qi4d-max-driver": [
+"5351b55597",
+549.0,
+"typical"
+],
+"taylormade-qi4d-max-hybrid": [
+"8790201f73",
+269.0,
+"typical"
+],
+"taylormade-qi4d-max-lite-driver": [
+"f8a8b7112d",
+549.0,
+"typical"
+],
+"taylormade-qi4d-max-lite-hybrid": [
+"c09e3d799a",
+269.0,
 "typical"
 ],
 "taylormade-qi4d-tour-staff-golf-bag": [
@@ -2015,7 +2630,32 @@
 275.0,
 "typical"
 ],
+"taylormade-speed-soft-golf-balls": [
+"585762178c",
+24.95,
+"tracking"
+],
+"taylormade-speedsoft-15-golf-balls": [
+"32cb72745d",
+19.99,
+"typical"
+],
+"taylormade-speedsoft-golf-balls": [
+"e8be90e170",
+23.95,
+"typical"
+],
+"taylormade-speedsoft-ink-golf-balls": [
+"f93e06b6b9",
+24.99,
+"typical"
+],
 "taylormade-stealth-2-hd-hybrid": "7bcf2a553d",
+"taylormade-stealth-hybrid": [
+"475f9b1e20",
+99.95,
+"typical"
+],
 "taylormade-storm-dry-cart-bag-golf-bag": "db22b05a2d",
 "taylormade-storm-dry-stand-bag-golf-bag": [
 "822e039e50",
@@ -2031,18 +2671,113 @@
 "taylormade-team-tm-ages-4-6-junior-golf-set": "3fa8fd8c8c",
 "taylormade-team-tm-ages-7-9-junior-golf-set": "aca191d551",
 "taylormade-tm-cart-bag-golf-bag": "db29f73b52",
+"taylormade-tour-response-golf-balls": [
+"4ee73d7f04",
+28.49,
+"typical"
+],
+"taylormade-tour-response-stripe-golf-balls": [
+"81e03e9f07",
+28.49,
+"typical"
+],
+"taylormade-tour-response-stripe-neon-golf-balls": [
+"ae400e23a8",
+39.99,
+"typical"
+],
 "taylormade-tour-stand-bag-golf-bag": [
 "ae65ce4ab3",
 349.0,
 "typical"
 ],
 "taylormade-tp-soto-1-l-neck-putter": "2b8920d3e3",
+"taylormade-tp5-clear-stripe-golf-balls": [
+"0abac17217",
+49.99,
+"typical"
+],
+"taylormade-tp5-golf-balls": [
+"f0f27fa1e8",
+35.99,
+"typical"
+],
+"taylormade-tp5-performance-stripe-golf-balls": [
+"fd71bb823c",
+49.9,
+"tracking"
+],
+"taylormade-tp5-pix-3-0-golf-balls": [
+"1c01740e25",
+47.99,
+"typical"
+],
+"taylormade-tp5-pix-golf-balls": [
+"91e17191b3",
+47.95,
+"typical"
+],
+"taylormade-tp5-stripe-golf-balls": [
+"75e8e12769",
+47.95,
+"typical"
+],
+"taylormade-tp5-tour-performance-stripe-golf-balls": [
+"41093b1a0e",
+45.98,
+"tracking"
+],
+"taylormade-tp5x-golf-balls": [
+"796602aa8f",
+35.99,
+"typical"
+],
+"taylormade-tp5x-performance-stripe-golf-balls": [
+"66df253348",
+49.9,
+"tracking"
+],
+"taylormade-tp5x-pix-golf-balls": [
+"d0de6cce83",
+47.95,
+"typical"
+],
+"taylormade-tp5x-stripe-golf-balls": [
+"281686a0c5",
+47.95,
+"typical"
+],
+"taylormade-tp5x-tour-performance-stripe-golf-balls": [
+"f6fab5a75d",
+45.98,
+"tracking"
+],
 "taylormade-us-open-major-tour-staff-golf-bag": [
 "5233dfe5f5",
 549.0,
 "typical"
 ],
 "titleist-620-mb-irons": "5207493ca5",
+"titleist-avx-4-for-3-golf-balls": [
+"6618d217b6",
+33.74,
+"typical"
+],
+"titleist-avx-aim-360-golf-balls": [
+"276c4b8608",
+42.95,
+"typical"
+],
+"titleist-avx-golf-balls": [
+"2ab66a3553",
+39.96,
+"tracking"
+],
+"titleist-avx-high-optic-golf-balls": [
+"664b980c4c",
+42.99,
+"typical"
+],
 "titleist-cart-bag-golf-bag": [
 "0bd0f9a0bc",
 149.0,
@@ -2051,8 +2786,58 @@
 "titleist-gt1-3tour-fairway-wood": "ec27fed22f",
 "titleist-gt1-driver": "9583e9e26a",
 "titleist-gt1-fairway-wood": "03753890a2",
+"titleist-gt1-hybrid": [
+"467ed04a9b",
+299.0,
+"typical"
+],
+"titleist-gt2-driver": [
+"5174b0fe24",
+419.0,
+"typical"
+],
+"titleist-gt2-hybrid": [
+"38ce3d92a3",
+299.0,
+"typical"
+],
+"titleist-gt280-mini-driver": [
+"b372b00aaa",
+439.0,
+"typical"
+],
 "titleist-gt3-driver": "2edde0c4ac",
 "titleist-gt3-fairway-wood": "358a150d32",
+"titleist-gt3-hybrid": [
+"428cf0339f",
+299.0,
+"typical"
+],
+"titleist-gt4-driver": [
+"b7e9f97ba5",
+399.0,
+"typical"
+],
+"titleist-gts2-driver": [
+"d971109b22",
+629.0,
+"typical"
+],
+"titleist-gts3-driver": [
+"e700304314",
+629.0,
+"typical"
+],
+"titleist-gts300-mini-driver": [
+"6b4395596a",
+499.0,
+"typical"
+],
+"titleist-gts4-driver": [
+"c3e2f63e1c",
+629.0,
+"typical"
+],
 "titleist-hybrid-14-stadry-stand-bag-golf-bag": [
 "2b3d42b879",
 279.0,
@@ -2090,6 +2875,11 @@
 ],
 "titleist-linkslegend-members-stand-bag-golf-bag": "84778f191d",
 "titleist-open-tour-staff-golf-bag": "201166eb2f",
+"titleist-pinnacle-rush-distance-golf-balls": [
+"c3fc8ef4f2",
+15.19,
+"typical"
+],
 "titleist-players-4-stadry-stand-bag-golf-bag": [
 "56a230c6b8",
 219.0,
@@ -2132,12 +2922,62 @@
 109.0,
 "wait"
 ],
+"titleist-pro-v1-aim-performance-golf-balls": [
+"2e85285a90",
+49.95,
+"typical"
+],
 "titleist-pro-v1-golf-balls": "619d9216bb",
+"titleist-pro-v1-high-number-golf-balls": [
+"c82841eae3",
+49.99,
+"typical"
+],
+"titleist-pro-v1x-4-for-3-golf-balls": [
+"33ea0dc0a1",
+37.49,
+"typical"
+],
+"titleist-pro-v1x-aim-performance-golf-balls": [
+"b36b48c759",
+49.95,
+"typical"
+],
+"titleist-pro-v1x-dash-4-for-golf-balls": [
+"0623eee245",
+41.24,
+"typical"
+],
+"titleist-pro-v1x-dash-aim-line-golf-balls": [
+"da7bf3dda2",
+49.99,
+"typical"
+],
+"titleist-pro-v1x-dash-aim-performance-golf-balls": [
+"a049bd7ec9",
+49.99,
+"typical"
+],
+"titleist-pro-v1x-dash-golf-balls": [
+"49adde1623",
+49.95,
+"typical"
+],
 "titleist-pro-v1x-golf-balls": "4cd72b08db",
 "titleist-scotty-cameron-studio-style-newport-putter": "8239c5da4c",
 "titleist-series-tour-golf-bag": [
 "a2d8f8962d",
 465.0,
+"typical"
+],
+"titleist-titlesit-tour-soft-golf-balls": [
+"95506de65a",
+64.0,
+"typical"
+],
+"titleist-titliest-velocity-golf-balls": [
+"36479c3f86",
+51.0,
 "typical"
 ],
 "titleist-tour-golf-bag": "aa87815a26",
@@ -2176,6 +3016,46 @@
 309.0,
 "wait"
 ],
+"titleist-tour-soft-aim-golf-balls": [
+"60be87bd6b",
+32.99,
+"typical"
+],
+"titleist-tour-soft-aim-performance-golf-balls": [
+"f0ff013f39",
+32.99,
+"typical"
+],
+"titleist-tour-soft-golf-balls": [
+"839bee18aa",
+29.95,
+"tracking"
+],
+"titleist-trufeel-aim-360-golf-balls": [
+"4978c835d1",
+24.95,
+"typical"
+],
+"titleist-trufeel-double-dozen-golf-balls": [
+"3aebfece77",
+44.99,
+"typical"
+],
+"titleist-trufeel-golf-balls": [
+"70a42f298b",
+24.95,
+"typical"
+],
+"titleist-velocity-aim-performance-golf-balls": [
+"37b27d1c3c",
+26.99,
+"typical"
+],
+"titleist-velocity-golf-balls": [
+"d8f5b446eb",
+24.99,
+"typical"
+],
 "titleist-vokey-sm10-nickel-wedge": "13e7cfd5b1",
 "titleist-vokey-sm10-tour-chrome-wedge": "14028f5d6f",
 "titleist-vokey-sm10-wedge": "e1373cd145",
@@ -2188,6 +3068,11 @@
 "true-temper-light-driver": "80fadb8079",
 "true-temper-regular-driver": "80df4e87ec",
 "true-temper-stiff-driver": "13c612b021",
+"us-kids-golf-ul7-driver": [
+"d76e1f5182",
+39.95,
+"typical"
+],
 "voice-caddie-l6-laser-rangefinder": [
 "33fb659c77",
 249.0,
@@ -2220,6 +3105,11 @@
 299.0,
 "typical"
 ],
+"volvik-powersoft-golf-balls": [
+"74b82757d1",
+16.95,
+"typical"
+],
 "wilson-10-inch-pro-tour-golf-bag": [
 "2d1264cd93",
 349.0,
@@ -2234,12 +3124,42 @@
 ],
 "wilson-alpine-dry-waterproof-cart-bag-golf-bag": "d72aebbe7d",
 "wilson-aurora-ladies-package-set": "06c7c0e7e2",
+"wilson-core-pro-distance-golf-balls": [
+"e08f951fce",
+10.39,
+"typical"
+],
 "wilson-duo-soft-golf-balls": "b010273ccf",
+"wilson-duo-soft-trk-360-golf-balls": [
+"6b21776265",
+19.99,
+"typical"
+],
+"wilson-duo-soft-trk360-golf-balls": [
+"9fe6e4b8d8",
+22.95,
+"typical"
+],
+"wilson-dynapower-driver": [
+"f6412fcf94",
+199.95,
+"typical"
+],
+"wilson-dynapower-hybrid": [
+"b15a8ffd74",
+69.95,
+"typical"
+],
 "wilson-dynapwr-driver": "a8412263ac",
 "wilson-dynapwr-forged-irons": "607a90c721",
 "wilson-dynapwr-hybrid": "26f6c6cd12",
 "wilson-dynapwr-max-driver": "cdc4092e35",
 "wilson-dynapwr-max-irons": "2a3a10a43d",
+"wilson-dynapwr-max-plus-driver": [
+"29602bf17f",
+399.0,
+"typical"
+],
 "wilson-exo-lite-stand-bag-golf-bag": [
 "99db7175bd",
 134.0,
@@ -2281,13 +3201,53 @@
 "wilson-profile-ages-11-14-junior-golf-set": "a72b9d771d",
 "wilson-profile-ages-5-8-junior-golf-set": "412dca74c2",
 "wilson-profile-ages-8-11-junior-golf-set": "ffd48f419d",
+"wilson-profile-driver": [
+"2d0792f9b2",
+79.95,
+"typical"
+],
 "wilson-profile-fairway-wood": "49c2ce904c",
+"wilson-profile-hybrid": [
+"da517d86ed",
+54.95,
+"typical"
+],
 "wilson-profile-package-set": "b227cec861",
+"wilson-staff-duo-soft-golf-balls": [
+"d2515c3faa",
+39.99,
+"typical"
+],
+"wilson-staff-duo-soft-trk360-golf-balls": [
+"332b6d8b31",
+22.99,
+"typical"
+],
 "wilson-staff-infinite-putter": "b95e49d794",
 "wilson-staff-model-blade-irons": "6a456f91eb",
 "wilson-staff-model-golf-balls": "5d91c1f9fc",
 "wilson-staff-model-rb-utility-irons": "15927f992d",
+"wilson-staff-model-trk360-golf-balls": [
+"cc6460ee7b",
+44.95,
+"typical"
+],
+"wilson-staff-model-x-golf-balls": [
+"8e9ad0ce33",
+42.95,
+"typical"
+],
+"wilson-staff-model-x-trk360-golf-balls": [
+"dff11385d8",
+44.95,
+"typical"
+],
 "wilson-staff-model-zm-wedge": "a4030adb0a",
+"wilson-staff-practice-golf-balls": [
+"09aeedf1c3",
+7.97,
+"typical"
+],
 "wilson-talus-14-way-stand-bag-golf-bag": [
 "751463d72d",
 159.0,
@@ -2304,9 +3264,39 @@
 169.95,
 "typical"
 ],
+"wilson-tour-accuracy-golf-balls": [
+"c6e53204bf",
+14.39,
+"typical"
+],
 "wilson-tour-carry-bag-on-golf-bag": [
 "8a5d27efdf",
 139.95,
+"typical"
+],
+"wilson-tour-velocity-distance-golf-balls": [
+"b99f31ffc3",
+14.39,
+"typical"
+],
+"wilson-tour-velocity-golf-balls": [
+"219692eb25",
+50.0,
+"typical"
+],
+"wilson-triad-golf-balls": [
+"fd1e374051",
+29.99,
+"typical"
+],
+"wilson-ultra-distance-golf-balls": [
+"38077a6202",
+15.99,
+"typical"
+],
+"wilson-ultra-golf-balls": [
+"028615da97",
+51.0,
 "typical"
 ],
 "wilson-x-31-advantage-ladies-package-set": "54d55f02bc",
@@ -2317,6 +3307,16 @@
 "yonex-ezone-elite-full-ladies-package-set": "a22a2830fc",
 "yonex-ezone-elite-full-package-set": "afcff4c3ca",
 "yonex-ezone-elite-hybrid": "13d0e92d0b",
+"yonex-ezone-gs-i-tech-driver": [
+"3b8f84d4a7",
+179.95,
+"typical"
+],
+"yonex-ezone-gs-i-tech-hybrid": [
+"6e7093cd1e",
+99.0,
+"typical"
+],
 "yonex-ezone-gt3-fairway-wood": "6ed8715e91",
 "yonex-ezone-gt4-fairway-wood": "aa4fea24a9",
 "yonex-ezone-gt4-hybrid": "af2e9c0356"
