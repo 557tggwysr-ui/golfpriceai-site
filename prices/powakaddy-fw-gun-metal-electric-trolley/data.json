@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-fw-gun-metal-electric-trolley/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 449.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 449.0,
   "high": 479.0,
-  "average": 469.24,
+  "average": 469.0,
   "priceChanges": 20,
   "series": [
    [
@@ -107,6 +107,10 @@
    [
     "2026-11-06",
     449.0
+   ],
+   [
+    "2026-11-07",
+    449.0
    ]
   ]
  },
@@ -116,5 +120,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-FW-Gun-Metal-Electric-Trolley-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

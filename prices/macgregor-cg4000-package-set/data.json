@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/macgregor-cg4000-package-set/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 299.99,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 299.99,
   "high": 329.99,
-  "average": 313.55,
+  "average": 313.39,
   "priceChanges": 20,
   "series": [
    [
@@ -117,6 +117,10 @@
    [
     "2026-11-06",
     299.99
+   ],
+   [
+    "2026-11-07",
+    299.99
    ]
   ]
  },
@@ -126,5 +130,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-CG4000-Mens-Golf-Club-Package-Set.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

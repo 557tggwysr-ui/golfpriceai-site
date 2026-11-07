@@ -3,7 +3,7 @@
  "brand": "True Temper",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/true-temper-stiff-driver/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 69.99,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 69.99,
   "high": 89.99,
-  "average": 84.99,
+  "average": 84.76,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     69.99
    ],
    [
-    "2026-11-06",
+    "2026-11-07",
     69.99
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CA3504M32.jpg?v=1777951380",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

@@ -3,7 +3,7 @@
  "brand": "PXG",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/pxg-lightning-driver/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 429.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 429.0,
   "high": 429.0,
   "average": 429.0,
@@ -29,16 +29,16 @@
     429.0
    ],
    [
-    "2026-11-06",
+    "2026-11-07",
     429.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "summary": "Typical price: steady for 65 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/LightningMax10KDriver3.jpg?v=1783149991",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

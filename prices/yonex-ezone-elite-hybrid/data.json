@@ -3,7 +3,7 @@
  "brand": "Yonex",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/yonex-ezone-elite-hybrid/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 129.0,
   "high": 159.0,
-  "average": 141.17,
+  "average": 141.02,
   "priceChanges": 3,
   "series": [
    [
@@ -44,6 +44,10 @@
    [
     "2026-11-06",
     129.0
+   ],
+   [
+    "2026-11-07",
+    129.0
    ]
   ]
  },
@@ -53,5 +57,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/yonex-ezone-elite-4-hybrid-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

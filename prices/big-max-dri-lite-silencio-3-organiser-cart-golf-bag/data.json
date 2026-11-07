@@ -3,17 +3,17 @@
  "brand": "Big Max",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/big-max-dri-lite-silencio-3-organiser-cart-golf-bag/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 209.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 209.0,
+   "from": 199.0,
    "options": 6
   },
   {
@@ -23,11 +23,11 @@
   }
  ],
  "history": {
-  "daysTracked": 71,
-  "low": 209.0,
+  "daysTracked": 72,
+  "low": 199.0,
   "high": 219.0,
-  "average": 214.07,
-  "priceChanges": 1,
+  "average": 213.86,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-28",
@@ -38,16 +38,16 @@
     209.0
    ],
    [
-    "2026-11-06",
-    209.0
+    "2026-11-07",
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 35 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DriLiteSilencio3OrganiserCartBagBlack2.jpg?v=1773174822",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/cobra-ultralight-2-carry-bag-golf-bag/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 109.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 99.0,
   "high": 119.0,
-  "average": 115.27,
+  "average": 115.19,
   "priceChanges": 20,
   "series": [
    [
@@ -107,6 +107,10 @@
    [
     "2026-11-06",
     109.0
+   ],
+   [
+    "2026-11-07",
+    109.0
    ]
   ]
  },
@@ -116,5 +120,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/90990714-Ultralight-2-Stand-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

@@ -3,30 +3,31 @@
  "brand": "Big Max",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/big-max-dri-lite-hybrid-prime-stand-bag-golf-bag/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
  "lowestAt": [
+  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Clarkes Golf",
+   "name": "Affordable Golf",
    "from": 249.0,
    "options": 1
   },
   {
-   "name": "Affordable Golf",
-   "from": 289.0,
+   "name": "Clarkes Golf",
+   "from": 249.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 249.0,
   "high": 289.0,
-  "average": 278.38,
+  "average": 277.92,
   "priceChanges": 3,
   "series": [
    [
@@ -46,7 +47,7 @@
     249.0
    ],
    [
-    "2026-11-06",
+    "2026-11-07",
     249.0
    ]
   ]
@@ -55,7 +56,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Big-Max-Dri-Lite-Hybrid-Prime-Golf-Stand-Bag-WL900-2.png?v=1721793784",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BigMaxDriLiteHybridPrimeStandBag-Black1.jpg?v=1776290928",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct8-ebs-gun-metal-electric-trolley/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 969.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 949.0,
   "high": 999.0,
-  "average": 989.72,
+  "average": 989.48,
   "priceChanges": 15,
   "series": [
    [
@@ -87,6 +87,10 @@
    [
     "2026-11-06",
     969.0
+   ],
+   [
+    "2026-11-07",
+    969.0
    ]
   ]
  },
@@ -96,5 +100,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT8_GPS_EBS_Electric_Golf_Trolley-18-Hole_Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

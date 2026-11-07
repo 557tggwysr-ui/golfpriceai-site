@@ -1,66 +1,66 @@
 {
- "n": 20,
- "date": "2026-11-06",
+ "n": 21,
+ "date": "2026-11-07",
  "items": [
   {
-   "slug": "mizuno-br-d3-stand-bag-golf-bag",
-   "name": "Mizuno BR-D3 Stand Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-BR-D3-Golf-Stand-Bag-Black.jpg",
-   "price": 119.0,
+   "slug": "cobra-king-tour-irons",
+   "name": "Cobra KING Tour Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/cobra_king_tour_irons_1.jpg?v=1777980981",
+   "price": 699.0,
    "unit": "each",
-   "type": "golf bag",
-   "low": false,
-   "url": "/prices/mizuno-br-d3-stand-bag-golf-bag/"
-  },
-  {
-   "slug": "cobra-optm-x-fairway-wood",
-   "name": "Cobra OPTM X Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/OPTM-X-Fairway-Hero-2.jpg",
-   "price": 249.0,
-   "unit": "each",
-   "type": "fairway wood",
+   "type": "iron set",
    "low": true,
-   "url": "/prices/cobra-optm-x-fairway-wood/"
+   "url": "/prices/cobra-king-tour-irons/"
   },
   {
-   "slug": "callaway-opus-sp-brushed-chrome-wedge",
-   "name": "Callaway Opus SP Brushed Chrome Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025-Opus-SP-Wedge-HERO-006-Photoroom.jpg?v=1754985607",
-   "price": 159.0,
+   "slug": "cleveland-rtz-2-tour-rack-wedge",
+   "name": "Cleveland RTZ 2 Tour Rack Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ClevelandGolfRTZ2TourRackWedge2026_4.jpg?v=1785235607",
+   "price": 149.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/callaway-opus-sp-brushed-chrome-wedge/"
+   "url": "/prices/cleveland-rtz-2-tour-rack-wedge/"
   },
   {
-   "slug": "cleveland-hb-soft-2-putter",
-   "name": "Cleveland HB Soft 2 Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cleveland-HB-Soft-2-Golf-Putter-1-7.jpg?v=1707365138",
-   "price": 119.0,
-   "unit": "each",
-   "type": "putter",
-   "low": false,
-   "url": "/prices/cleveland-hb-soft-2-putter/"
-  },
-  {
-   "slug": "ping-g430-hybrid",
-   "name": "Ping G430 Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g430-hybrid-1.jpg",
-   "price": 209.0,
+   "slug": "taylormade-qi35-hybrid",
+   "name": "TaylorMade Qi35 Hybrid",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-Qi35-Golf-Hybrid-1.jpg?v=1736222445",
+   "price": 149.0,
    "unit": "each",
    "type": "hybrid",
    "low": false,
-   "url": "/prices/ping-g430-hybrid/"
+   "url": "/prices/taylormade-qi35-hybrid/"
+  },
+  {
+   "slug": "wilson-staff-infinite-putter",
+   "name": "Wilson Staff Infinite Putter",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Staff-Infinite-Golf-Putter-2024---Bucktown2.jpg",
+   "price": 99.0,
+   "unit": "each",
+   "type": "putter",
+   "low": true,
+   "url": "/prices/wilson-staff-infinite-putter/"
+  },
+  {
+   "slug": "yonex-ezone-elite-4-driver",
+   "name": "Yonex Ezone Elite 4 Driver",
+   "image": "https://www.clickgolf.co.uk/images/product/main/yonex-ezone-elite-4-mens-driver-hero.jpg",
+   "price": 199.0,
+   "unit": "each",
+   "type": "driver",
+   "low": true,
+   "url": "/prices/yonex-ezone-elite-4-driver/"
   }
  ],
  "pin": {
-  "slug": "yonex-ezone-elite-4-irons",
-  "name": "Yonex Ezone Elite 4 Irons",
-  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/yonex_ezone_elite_4_irons_3.jpg?v=1686740350",
-  "price": 499.0,
+  "slug": "callaway-fairway-c-stand-bag-golf-bag",
+  "name": "Callaway Fairway C Stand Bag Golf Bag",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/FairwayCStandGolfBag2025-BluePalmsLightGreyRed1.jpg?v=1739526677",
+  "price": 149.0,
   "unit": "each",
-  "type": "iron set",
-  "low": true,
-  "url": "/prices/yonex-ezone-elite-4-irons/"
+  "type": "golf bag",
+  "low": false,
+  "url": "/prices/callaway-fairway-c-stand-bag-golf-bag/"
  }
 }

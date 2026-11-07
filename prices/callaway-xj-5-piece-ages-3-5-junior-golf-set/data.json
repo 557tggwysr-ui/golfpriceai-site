@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/callaway-xj-5-piece-ages-3-5-junior-golf-set/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 199.0,
   "high": 229.0,
-  "average": 203.7,
+  "average": 203.64,
   "priceChanges": 6,
   "series": [
    [
@@ -51,6 +51,10 @@
    [
     "2026-11-06",
     199.0
+   ],
+   [
+    "2026-11-07",
+    199.0
    ]
   ]
  },
@@ -60,5 +64,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/XJ-Leve-1-Junior-Set-Bag-Black-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

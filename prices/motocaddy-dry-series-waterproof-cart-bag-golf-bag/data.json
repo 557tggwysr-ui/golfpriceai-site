@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/motocaddy-dry-series-waterproof-cart-bag-golf-bag/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 219.0,
   "high": 249.0,
-  "average": 248.53,
+  "average": 248.08,
   "priceChanges": 1,
   "series": [
    [
@@ -35,6 +35,10 @@
    ],
    [
     "2026-11-06",
+    219.0
+   ],
+   [
+    "2026-11-07",
     219.0
    ]
   ]
@@ -45,5 +49,5 @@
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/motocaddy-dryseries-bag-red-1.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

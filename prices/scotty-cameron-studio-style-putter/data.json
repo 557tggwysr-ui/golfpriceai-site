@@ -3,18 +3,17 @@
  "brand": "Scotty Cameron",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/scotty-cameron-studio-style-putter/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 449.0,
+ "lowestNewPrice": 429.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 449.0,
+   "from": 429.0,
    "options": 66
   },
   {
@@ -24,27 +23,27 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
-  "low": 449.0,
+  "daysTracked": 65,
+  "low": 429.0,
   "high": 449.0,
-  "average": 449.0,
-  "priceChanges": 0,
+  "average": 448.69,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     449.0
    ],
    [
-    "2026-11-06",
-    449.0
+    "2026-11-07",
+    429.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ScottyCameronStudioStylePutter-Catalina4.jpg?v=1776299901",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

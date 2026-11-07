@@ -1,0 +1,44 @@
+{
+ "name": "Titleist Tour Golf Bag",
+ "brand": "Titleist",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/titleist-tour-golf-bag/",
+ "checked": "2026-11-07",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 549.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 549.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 549.0,
+  "high": 569.0,
+  "average": 568.67,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-09",
+    569.0
+   ],
+   [
+    "2026-11-07",
+    549.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/2026_tour_bag_new_images_1.jpg?v=1791815366",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-07"
+}

@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/wilson-player-fit-12-piece-cart-bag-package-set/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 649.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 649.0,
   "high": 699.0,
-  "average": 671.66,
+  "average": 671.31,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     649.0
    ],
    [
-    "2026-11-06",
+    "2026-11-07",
     649.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 35 days"
+  "summary": "Typical price: steady for 36 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PlayerFitGraphiteCartHERO.jpg?v=1777956313",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

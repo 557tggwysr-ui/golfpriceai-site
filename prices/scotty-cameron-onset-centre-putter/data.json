@@ -3,42 +3,42 @@
  "brand": "Scotty Cameron",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/scotty-cameron-onset-centre-putter/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 499.0,
+ "lowestNewPrice": 449.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 499.0,
+   "from": 449.0,
    "options": 10
   }
  ],
  "history": {
-  "daysTracked": 64,
-  "low": 499.0,
+  "daysTracked": 65,
+  "low": 449.0,
   "high": 499.0,
-  "average": 499.0,
-  "priceChanges": 0,
+  "average": 498.23,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     499.0
    ],
    [
-    "2026-11-06",
-    499.0
+    "2026-11-07",
+    449.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ScottyCameron11R4.jpg?v=1775347525",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ScottyCameronFastback1.jpg?v=1775344204",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

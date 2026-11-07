@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-putter/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -24,10 +24,10 @@
   }
  ],
  "history": {
-  "daysTracked": 64,
+  "daysTracked": 65,
   "low": 179.0,
   "high": 279.0,
-  "average": 200.88,
+  "average": 200.54,
   "priceChanges": 1,
   "series": [
    [
@@ -39,16 +39,16 @@
     179.0
    ],
    [
-    "2026-11-06",
+    "2026-11-07",
     179.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 50 days"
+  "summary": "Typical price: steady for 51 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Max15.jpg?v=1776287127",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

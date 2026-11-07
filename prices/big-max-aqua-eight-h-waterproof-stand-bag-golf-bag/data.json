@@ -3,42 +3,42 @@
  "brand": "Big Max",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/big-max-aqua-eight-h-waterproof-stand-bag-golf-bag/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.95,
+ "lowestNewPrice": 174.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 179.95,
+   "from": 174.95,
    "options": 4
   }
  ],
  "history": {
-  "daysTracked": 64,
-  "low": 179.95,
+  "daysTracked": 65,
+  "low": 174.95,
   "high": 179.95,
-  "average": 179.95,
-  "priceChanges": 0,
+  "average": 179.87,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     179.95
    ],
    [
-    "2026-11-06",
-    179.95
+    "2026-11-07",
+    174.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BigMaxAquaEightHBlack7.jpg?v=1773174765",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

@@ -3,7 +3,7 @@
  "brand": "Yonex",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/yonex-ezone-elite-fairway-wood/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 149.0,
   "high": 199.0,
-  "average": 168.03,
+  "average": 167.81,
   "priceChanges": 3,
   "series": [
    [
@@ -44,6 +44,10 @@
    [
     "2026-11-06",
     149.0
+   ],
+   [
+    "2026-11-07",
+    149.0
    ]
   ]
  },
@@ -53,5 +57,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/yonex-ezone-elite-4-mens-fairway-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }

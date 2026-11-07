@@ -3,7 +3,7 @@
  "brand": "Yonex",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/yonex-ezone-elite-full-ladies-package-set/",
- "checked": "2026-11-06",
+ "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 799.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 799.0,
   "high": 999.0,
-  "average": 996.59,
+  "average": 994.24,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-06",
+    799.0
+   ],
+   [
+    "2026-11-07",
     799.0
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/g_yonex-ezone-elite-4-package-set-3.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-07"
 }
