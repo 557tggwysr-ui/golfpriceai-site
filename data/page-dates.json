@@ -44,8 +44,12 @@
 "h": "0ed7488337f1955d"
 },
 "courses/": {
-"d": "2026-11-02",
-"h": "80b0eff64759faac"
+"d": "2026-11-07",
+"h": "db824ba83a29af3d"
+},
+"courses/widget/": {
+"d": "2026-11-07",
+"h": "fc26ccad269d6de6"
 },
 "deal-tools.html": {
 "d": "2026-11-02",
@@ -64,8 +68,8 @@
 "h": "617409d296dd38a7"
 },
 "fourball/": {
-"d": "2026-11-02",
-"h": "49dfb85a233445a6"
+"d": "2026-11-07",
+"h": "ec09947e744feb5b"
 },
 "improve/": {
 "d": "2026-11-02",
@@ -80,8 +84,8 @@
 "h": "9fa9f7322f57e736"
 },
 "improve/my-game/": {
-"d": "2026-11-02",
-"h": "60f842ecdbfec302"
+"d": "2026-11-07",
+"h": "b42306e8b3ecb4cf"
 },
 "improve/playing-handicap-calculator/": {
 "d": "2026-11-02",
@@ -89,7 +93,7 @@
 },
 "improve/shot-saver/": {
 "d": "2026-11-07",
-"h": "5f63aadab7b6d83b"
+"h": "a3cbaa76ac2d744b"
 },
 "improve/what-do-i-need-to-shoot/": {
 "d": "2026-11-02",
@@ -105,43 +109,43 @@
 },
 "play/": {
 "d": "2026-11-07",
-"h": "f8a78c37df21adf6"
+"h": "6eddd6dc6cd56c1c"
 },
 "play/aces/": {
-"d": "2026-11-06",
-"h": "3376d36adda0d7af"
+"d": "2026-11-07",
+"h": "3fca5b0379c9021b"
 },
 "play/draft/": {
-"d": "2026-11-06",
-"h": "987fc1d685088f51"
+"d": "2026-11-07",
+"h": "8ad9554f03da5cde"
 },
 "play/higher-or-lower/": {
-"d": "2026-11-02",
-"h": "c45de05de1b143a4"
+"d": "2026-11-07",
+"h": "d91ab771d7461781"
 },
 "play/leagues/": {
-"d": "2026-11-06",
-"h": "8f56317db1dceebc"
+"d": "2026-11-07",
+"h": "843c3febf96be0ae"
 },
 "play/oracle/": {
-"d": "2026-11-02",
-"h": "28a14a8414709123"
+"d": "2026-11-07",
+"h": "7c82c3dbef35ed9d"
 },
 "play/par-price/": {
 "d": "2026-11-07",
-"h": "37d07c63171989ff"
+"h": "2402d43e5583a159"
 },
 "play/peoples-bag/": {
 "d": "2026-11-07",
-"h": "07157b6dd038a538"
+"h": "7f2527da26c4960c"
 },
 "play/poll/": {
-"d": "2026-11-02",
-"h": "ccc469609949eacd"
+"d": "2026-11-07",
+"h": "bb9092d0cec62fde"
 },
 "play/scorecard/": {
-"d": "2026-11-06",
-"h": "489aa720799f1ae9"
+"d": "2026-11-07",
+"h": "feda9ae70717f6d9"
 },
 "price-check.html": {
 "d": "2026-11-02",
@@ -149,7 +153,7 @@
 },
 "prices/brands/": {
 "d": "2026-11-07",
-"h": "985e95a26e3a187e"
+"h": "5e9932c0d2cb05c9"
 },
 "prices/brands/ben-sayers-golf-package-sets/": {
 "d": "2026-11-01",
@@ -157,135 +161,135 @@
 },
 "prices/brands/bridgestone-golf-balls/": {
 "d": "2026-11-07",
-"h": "80c8779c3dfc299c"
+"h": "990251766a71a679"
 },
 "prices/brands/bridgestone/": {
 "d": "2026-11-07",
-"h": "56013481ecb1e50e"
+"h": "90fbe8938e236a07"
 },
 "prices/brands/evnroll-putters/": {
 "d": "2026-11-07",
-"h": "bfbab7bf5514c355"
+"h": "2eafa78ab4a4314f"
 },
 "prices/brands/evnroll/": {
 "d": "2026-11-07",
-"h": "e63ee8a3aa200c7f"
+"h": "5fb76516a0cfea16"
 },
 "prices/brands/golfway-junior-golf-sets/": {
 "d": "2026-11-07",
-"h": "0ef60d44cb97455e"
+"h": "2b9eb227b842fa05"
 },
 "prices/brands/golfway-wedges/": {
 "d": "2026-11-07",
-"h": "22c2ddef77acd33d"
+"h": "893a174c27d5292f"
 },
 "prices/brands/golfway/": {
 "d": "2026-11-07",
-"h": "a3a07d779c7dfba2"
+"h": "fc558eb0eb9f6879"
 },
 "prices/brands/j-lindeberg-golf-bags/": {
 "d": "2026-11-07",
-"h": "59d6c43fbbe84940"
+"h": "0bbc5cc85da7ea31"
 },
 "prices/brands/j-lindeberg/": {
 "d": "2026-11-07",
-"h": "505f79c25fd01b96"
+"h": "9a71329a93a24476"
 },
 "prices/brands/jones-golf-bags/": {
 "d": "2026-11-07",
-"h": "764b6f35c80c84b4"
+"h": "f1c0df03ef855cc0"
 },
 "prices/brands/jones/": {
 "d": "2026-11-07",
-"h": "b44531caff03ae3d"
+"h": "2a5ffd53d85bb79a"
 },
 "prices/brands/lab-golf-putters/": {
 "d": "2026-11-07",
-"h": "cffcc0e2cfd6bfe2"
+"h": "b56f31a4638d1fa0"
 },
 "prices/brands/lab-golf/": {
 "d": "2026-11-07",
-"h": "4033d037bb046d1f"
+"h": "a20151518889ce07"
 },
 "prices/brands/longridge-golf-balls/": {
 "d": "2026-11-07",
-"h": "1831c1a61f76954d"
+"h": "1a9c1e19284682f9"
 },
 "prices/brands/masters-golf-golf-balls/": {
 "d": "2026-11-07",
-"h": "b61efbe922ab2e44"
+"h": "cbaeaa85ba7778aa"
 },
 "prices/brands/masters-golf-package-sets/": {
 "d": "2026-11-07",
-"h": "09580148aa72ef9d"
+"h": "4a6b56044a367791"
 },
 "prices/brands/masters-golf/": {
 "d": "2026-11-07",
-"h": "dfae80f42c0d139a"
+"h": "8b96109896a21f63"
 },
 "prices/brands/minimal-golf-golf-bags/": {
 "d": "2026-11-07",
-"h": "96d628b076f1c54b"
+"h": "37b66ad46d98845d"
 },
 "prices/brands/minimal-golf/": {
 "d": "2026-11-07",
-"h": "b611f42cdd4a7f57"
+"h": "9a544d6f91b910c1"
 },
 "prices/brands/miura-golf-bags/": {
 "d": "2026-11-07",
-"h": "94f0ac4f31200e81"
+"h": "4afec4a929f12142"
 },
 "prices/brands/miura/": {
 "d": "2026-11-07",
-"h": "4bcbb705c4432690"
+"h": "b0e92c0056bd179d"
 },
 "prices/brands/mkids-junior-golf-sets/": {
 "d": "2026-11-07",
-"h": "e4df6fce7c43ae03"
+"h": "7c5fbce6bec5ec85"
 },
 "prices/brands/mkids/": {
 "d": "2026-11-07",
-"h": "29c687b540042048"
+"h": "8374ef338455ac2e"
 },
 "prices/brands/ping-hybrids/": {
 "d": "2026-11-07",
-"h": "4fdf40ba083b733c"
+"h": "5b7d19bc204a018f"
 },
 "prices/brands/rapsodo-launch-monitors/": {
 "d": "2026-11-07",
-"h": "d766796cc0ee0198"
+"h": "c12091836a1ce683"
 },
 "prices/brands/rapsodo/": {
 "d": "2026-11-07",
-"h": "c48978a79be585d9"
+"h": "7a0c78ffaaf8c2de"
 },
 "prices/brands/skymax-junior-golf-sets/": {
 "d": "2026-11-07",
-"h": "ce3d9bc3b77c508b"
+"h": "c038bd2a284a85b5"
 },
 "prices/brands/skymax/": {
 "d": "2026-11-07",
-"h": "bc7299d961e25775"
+"h": "44760dfd0400a544"
 },
 "prices/brands/us-kids-golf-wedges/": {
 "d": "2026-11-07",
-"h": "44d6b9c112949940"
+"h": "9355a9df612ad748"
 },
 "prices/brands/vessel-golf-bags/": {
 "d": "2026-11-07",
-"h": "6d9131e8ded8f9b0"
+"h": "7a3b64654e62022b"
 },
 "prices/brands/vessel/": {
 "d": "2026-11-07",
-"h": "3d9986db6caf2ab4"
+"h": "ee0fb4b7ae6fe39d"
 },
 "prices/brands/voice-caddie-rangefinders/": {
 "d": "2026-11-07",
-"h": "af078af471ebe4c1"
+"h": "30782a6d721c8810"
 },
 "prices/start-golf/": {
 "d": "2026-11-07",
-"h": "485edbf60fc8f9c4"
+"h": "5b94db1b0661ca11"
 },
 "receipts.html": {
 "d": "2026-11-02",
@@ -300,315 +304,315 @@
 "h": "f0595abbfdb4c4c9"
 },
 "societies/": {
-"d": "2026-11-06",
-"h": "3eba925d268bb8f8"
+"d": "2026-11-07",
+"h": "2a4a121c3d4dbd0a"
 },
 "societies/awards/": {
-"d": "2026-11-06",
-"h": "3b650b972bcd279e"
+"d": "2026-11-07",
+"h": "5a23cf79dfeafc52"
 },
 "societies/clubs/": {
-"d": "2026-11-06",
-"h": "e7bbeef2bd727d6f"
+"d": "2026-11-07",
+"h": "642a21b4f7ed1d19"
 },
 "societies/find/": {
-"d": "2026-11-06",
-"h": "4e0deeec5fbf9b9c"
+"d": "2026-11-07",
+"h": "771c9bb2bd6d9475"
 },
 "societies/find/aberdeenshire/": {
-"d": "2026-11-02",
-"h": "180b2f1fd6c53692"
+"d": "2026-11-07",
+"h": "615ee005625e775e"
 },
 "societies/find/angus-and-dundee/": {
-"d": "2026-11-02",
-"h": "fad36bc585c3982c"
+"d": "2026-11-07",
+"h": "cd20e5f69d494c23"
 },
 "societies/find/ayrshire-and-arran/": {
-"d": "2026-11-02",
-"h": "94dcf7c881b3f669"
+"d": "2026-11-07",
+"h": "1330ef21b973e85c"
 },
 "societies/find/bedfordshire/": {
-"d": "2026-11-02",
-"h": "90b499a3308780a9"
+"d": "2026-11-07",
+"h": "4f567b1ba52dea13"
 },
 "societies/find/berkshire/": {
-"d": "2026-11-02",
-"h": "e02edaff7701ede9"
+"d": "2026-11-07",
+"h": "ab93c81a62d4a672"
 },
 "societies/find/bristol/": {
-"d": "2026-11-02",
-"h": "d667d8584c7f5754"
+"d": "2026-11-07",
+"h": "451aae8a2e81c658"
 },
 "societies/find/buckinghamshire/": {
-"d": "2026-11-02",
-"h": "74e713248298b960"
+"d": "2026-11-07",
+"h": "f04f1f41013d9976"
 },
 "societies/find/cambridgeshire/": {
-"d": "2026-11-02",
-"h": "0cb352905c4ad595"
+"d": "2026-11-07",
+"h": "9d365222ee0a1454"
 },
 "societies/find/cheshire/": {
-"d": "2026-11-02",
-"h": "328625e12b7e6919"
+"d": "2026-11-07",
+"h": "62ae8a9db86736d8"
 },
 "societies/find/cornwall/": {
-"d": "2026-11-02",
-"h": "895b8aa218f8c485"
+"d": "2026-11-07",
+"h": "873874555a077861"
 },
 "societies/find/cumbria/": {
-"d": "2026-11-02",
-"h": "ed3ecd1f5795fb0a"
+"d": "2026-11-07",
+"h": "ed6edf093133841f"
 },
 "societies/find/derbyshire/": {
-"d": "2026-11-02",
-"h": "823474234afffe8f"
+"d": "2026-11-07",
+"h": "f890c3b4551c0f69"
 },
 "societies/find/devon/": {
-"d": "2026-11-02",
-"h": "fe8712034a59daf4"
+"d": "2026-11-07",
+"h": "cf0990def3029450"
 },
 "societies/find/dorset/": {
-"d": "2026-11-02",
-"h": "4262d83d0dbbd142"
+"d": "2026-11-07",
+"h": "5344e110378e086e"
 },
 "societies/find/dumfries-and-galloway/": {
-"d": "2026-11-02",
-"h": "4f58f7232b52b717"
+"d": "2026-11-07",
+"h": "334ea6887972274b"
 },
 "societies/find/durham/": {
-"d": "2026-11-02",
-"h": "841bd609010a3fef"
+"d": "2026-11-07",
+"h": "0f9f6273842ea938"
 },
 "societies/find/east-sussex/": {
-"d": "2026-11-02",
-"h": "45f72eb76d004c5f"
+"d": "2026-11-07",
+"h": "21ca4e97ac2a5905"
 },
 "societies/find/edinburgh-and-the-lothians/": {
-"d": "2026-11-02",
-"h": "178d73e09c3124dd"
+"d": "2026-11-07",
+"h": "7f60db98f78753c8"
 },
 "societies/find/essex/": {
-"d": "2026-11-02",
-"h": "410137cd1519f017"
+"d": "2026-11-07",
+"h": "ef28a67af7888506"
 },
 "societies/find/fife/": {
-"d": "2026-11-02",
-"h": "9ea936014b26d434"
+"d": "2026-11-07",
+"h": "76b39010e606aafb"
 },
 "societies/find/glasgow-and-clyde/": {
-"d": "2026-11-02",
-"h": "3dae993ecbbd9389"
+"d": "2026-11-07",
+"h": "34651f856e37eb0d"
 },
 "societies/find/gloucestershire/": {
-"d": "2026-11-02",
-"h": "4aed7b8b984be4d1"
+"d": "2026-11-07",
+"h": "1438513981832f34"
 },
 "societies/find/greater-london/": {
-"d": "2026-11-02",
-"h": "533ed38f37c251ee"
+"d": "2026-11-07",
+"h": "910a73f7ef87e127"
 },
 "societies/find/greater-manchester/": {
-"d": "2026-11-02",
-"h": "f31255828654d1f2"
+"d": "2026-11-07",
+"h": "10d67731fa320f29"
 },
 "societies/find/hampshire/": {
-"d": "2026-11-02",
-"h": "2ba88f5761f2650c"
+"d": "2026-11-07",
+"h": "05637e1cd4933420"
 },
 "societies/find/herefordshire/": {
-"d": "2026-11-02",
-"h": "e324a5328233c885"
+"d": "2026-11-07",
+"h": "a5615a3fe2281abb"
 },
 "societies/find/hertfordshire/": {
-"d": "2026-11-02",
-"h": "5493b4fb00f141da"
+"d": "2026-11-07",
+"h": "67ee22ed51924f99"
 },
 "societies/find/highlands-and-islands/": {
-"d": "2026-11-02",
-"h": "f3511c6ba415e8c8"
+"d": "2026-11-07",
+"h": "dad409cf304762c4"
 },
 "societies/find/isle-of-wight/": {
-"d": "2026-11-02",
-"h": "cd2a0e99cb304727"
+"d": "2026-11-07",
+"h": "b5eeb8369baa2826"
 },
 "societies/find/kent/": {
-"d": "2026-11-02",
-"h": "3a49e8b88186674d"
+"d": "2026-11-07",
+"h": "1a9d339748801043"
 },
 "societies/find/lancashire/": {
-"d": "2026-11-02",
-"h": "cb9256c579de4a9d"
+"d": "2026-11-07",
+"h": "9a2fd2fa5e296c7f"
 },
 "societies/find/leicestershire/": {
-"d": "2026-11-02",
-"h": "bdd41e7b84bea081"
+"d": "2026-11-07",
+"h": "168071fa9cd68477"
 },
 "societies/find/lincolnshire/": {
-"d": "2026-11-02",
-"h": "5bf8f8cf3c271066"
+"d": "2026-11-07",
+"h": "e16ee0fa0b6e0dc6"
 },
 "societies/find/merseyside/": {
-"d": "2026-11-02",
-"h": "30d76f62979c72fc"
+"d": "2026-11-07",
+"h": "f2cc0cd0c0dbeab3"
 },
 "societies/find/mid-wales/": {
-"d": "2026-11-02",
-"h": "5621d5df7d7ba37d"
+"d": "2026-11-07",
+"h": "ed2d0906c98519d6"
 },
 "societies/find/norfolk/": {
-"d": "2026-11-02",
-"h": "bc5042d4b56249ef"
+"d": "2026-11-07",
+"h": "d0d7bac5ddae2bdd"
 },
 "societies/find/north-wales/": {
-"d": "2026-11-02",
-"h": "2cc017765ad01087"
+"d": "2026-11-07",
+"h": "6b1864dc30abffc4"
 },
 "societies/find/northamptonshire/": {
-"d": "2026-11-02",
-"h": "9cba29d4a78023f7"
+"d": "2026-11-07",
+"h": "13e746c5c7b7451d"
 },
 "societies/find/northern-ireland/": {
-"d": "2026-11-02",
-"h": "6daea81a367f1957"
+"d": "2026-11-07",
+"h": "94e3de6c48247f9e"
 },
 "societies/find/northumberland/": {
-"d": "2026-11-02",
-"h": "31b7e7655115efbc"
+"d": "2026-11-07",
+"h": "1f75bc0f22ee358b"
 },
 "societies/find/nottinghamshire/": {
-"d": "2026-11-02",
-"h": "c288dc9f7fa8807c"
+"d": "2026-11-07",
+"h": "a95a5f8a55637c1b"
 },
 "societies/find/oxfordshire/": {
-"d": "2026-11-02",
-"h": "f749188d1f52f813"
+"d": "2026-11-07",
+"h": "a79c8447ff32e1ef"
 },
 "societies/find/perth-and-kinross/": {
-"d": "2026-11-02",
-"h": "0c9116ab6c492095"
+"d": "2026-11-07",
+"h": "778bd7571b972a24"
 },
 "societies/find/rutland/": {
-"d": "2026-11-02",
-"h": "6a32e2738a5d9c8e"
+"d": "2026-11-07",
+"h": "810ad262e768a5df"
 },
 "societies/find/scottish-borders/": {
-"d": "2026-11-02",
-"h": "090aecdd6a46d57b"
+"d": "2026-11-07",
+"h": "140802b8f98135a4"
 },
 "societies/find/shropshire/": {
-"d": "2026-11-02",
-"h": "4e7d3cc31661309b"
+"d": "2026-11-07",
+"h": "285ca685f6f1320d"
 },
 "societies/find/somerset/": {
-"d": "2026-11-02",
-"h": "85e86ddaa5ad1d4d"
+"d": "2026-11-07",
+"h": "a37d47ab8a9d5dd7"
 },
 "societies/find/south-wales/": {
-"d": "2026-11-02",
-"h": "e4fe5e452d24f072"
+"d": "2026-11-07",
+"h": "fe0761c1e47c1ab7"
 },
 "societies/find/staffordshire/": {
-"d": "2026-11-02",
-"h": "5643ec14a937abd8"
+"d": "2026-11-07",
+"h": "96bd1c2b73a16312"
 },
 "societies/find/stirling-and-central-scotland/": {
-"d": "2026-11-02",
-"h": "217b8ae83294ca53"
+"d": "2026-11-07",
+"h": "fc52bfcc9abd824a"
 },
 "societies/find/suffolk/": {
-"d": "2026-11-02",
-"h": "de1f0bd251abf6dc"
+"d": "2026-11-07",
+"h": "c010b12a15ef2356"
 },
 "societies/find/surrey/": {
-"d": "2026-11-02",
-"h": "65d3fc3fc7b6b6c2"
+"d": "2026-11-07",
+"h": "eae8fd3e19b40f4f"
 },
 "societies/find/tyne-and-wear/": {
-"d": "2026-11-02",
-"h": "4210058f74349593"
+"d": "2026-11-07",
+"h": "e4af6a3dbe90c148"
 },
 "societies/find/warwickshire/": {
-"d": "2026-11-02",
-"h": "475e26440bf00a92"
+"d": "2026-11-07",
+"h": "dc30c7cb7bd17d42"
 },
 "societies/find/west-midlands/": {
-"d": "2026-11-02",
-"h": "6f3bc41146139068"
+"d": "2026-11-07",
+"h": "ec737abcbdf79aa8"
 },
 "societies/find/west-sussex/": {
-"d": "2026-11-02",
-"h": "bc9b917d10512d5e"
+"d": "2026-11-07",
+"h": "b27f6a63394b973b"
 },
 "societies/find/west-wales/": {
-"d": "2026-11-02",
-"h": "cf6dfa2faa306ed2"
+"d": "2026-11-07",
+"h": "bd0c25f8cec4446e"
 },
 "societies/find/wiltshire/": {
-"d": "2026-11-02",
-"h": "196c4a6c37955268"
+"d": "2026-11-07",
+"h": "4563cfade4c22b4e"
 },
 "societies/find/worcestershire/": {
-"d": "2026-11-02",
-"h": "d093859f63ce5f1f"
+"d": "2026-11-07",
+"h": "36545027e502380d"
 },
 "societies/find/yorkshire/": {
-"d": "2026-11-02",
-"h": "32b2e38be4376516"
+"d": "2026-11-07",
+"h": "c3d6f5323eddfb15"
 },
 "societies/guides/": {
 "d": "2026-11-07",
-"h": "98aa3a06671fc69d"
+"h": "bcc16f029ef70f73"
 },
 "societies/guides/golf-society-apps-compared/": {
 "d": "2026-11-07",
-"h": "bcb269bca09892b7"
+"h": "d4b98691877183e9"
 },
 "societies/guides/golf-society-awards-ideas/": {
 "d": "2026-11-07",
-"h": "b117ddf7e46d7811"
+"h": "cc3bbf37fd8a5a45"
 },
 "societies/guides/golf-society-handicap-systems/": {
 "d": "2026-11-07",
-"h": "bb818a22644e59b6"
+"h": "a733ca4c50b45696"
 },
 "societies/guides/golf-society-prize-ideas/": {
 "d": "2026-11-07",
-"h": "4c85e475b500130f"
+"h": "85cefb7d214110fa"
 },
 "societies/guides/golf-society-rules-template/": {
 "d": "2026-11-07",
-"h": "61b0dd3aaff264bb"
+"h": "e7d964cd5472dbfe"
 },
 "societies/guides/how-much-to-charge-for-a-golf-society-day/": {
 "d": "2026-11-07",
-"h": "661ab2493b5451aa"
+"h": "71c6f5800c832fd5"
 },
 "societies/guides/how-to-run-a-golf-society/": {
 "d": "2026-11-07",
-"h": "85f16e006b070f50"
+"h": "930c72402f6be0d4"
 },
 "societies/guides/how-to-start-a-golf-society/": {
 "d": "2026-11-07",
-"h": "52e8f884a7a1524f"
+"h": "d39fcc0c09b9fba9"
 },
 "societies/hq/": {
-"d": "2026-11-06",
-"h": "b37bb33a0c22bd1b"
+"d": "2026-11-07",
+"h": "30e86c3113951d06"
 },
 "societies/league/": {
-"d": "2026-11-06",
-"h": "097b1726ecef897d"
+"d": "2026-11-07",
+"h": "fc02bde43bf3edce"
 },
 "societies/live-scoring/": {
-"d": "2026-11-02",
-"h": "10b539a2e68957f6"
+"d": "2026-11-07",
+"h": "45be5510bc684747"
 },
 "societies/par-price/": {
-"d": "2026-11-06",
-"h": "79a0e78ea752290a"
+"d": "2026-11-07",
+"h": "99074dbc451cb93f"
 },
 "societies/prize-fund-calculator/": {
-"d": "2026-11-02",
-"h": "59132bf8036062cd"
+"d": "2026-11-07",
+"h": "14aba39d195db19e"
 }
 }

@@ -1,8 +1,18 @@
 {
- "checked": "2026-11-07T12:42+00:00",
+ "checked": "2026-11-07T18:28+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Powerbilt GSX 14-Piece Package Set",
+   "model_id": "powerbilt-gsx-14-piece-package-set",
+   "date": "2026-11-07",
+   "was": 249.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powerbilt-gsx-14-piece-package-set/"
+  },
   {
    "model": "Big Max Dri Lite Prime Cart Bag Golf Bag",
    "model_id": "big-max-dri-lite-prime-cart-bag-golf-bag",
@@ -112,6 +122,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/titleist-tour-golf-bag/"
+  },
+  {
+   "model": "Cobra King Tec Irons",
+   "model_id": "cobra-king-tec-irons",
+   "date": "2026-11-07",
+   "was": 729.0,
+   "now": 699.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-tec-irons/"
   },
   {
    "model": "Scotty Cameron Studio Style Putter",

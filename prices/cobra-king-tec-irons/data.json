@@ -6,28 +6,28 @@
  "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 729.0,
+ "lowestNewPrice": 699.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 699.0,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 729.0,
    "options": 3
-  },
-  {
-   "name": "Clickgolf",
-   "from": 919.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 84,
-  "low": 729.0,
+  "low": 699.0,
   "high": 919.0,
-  "average": 898.64,
-  "priceChanges": 1,
+  "average": 898.29,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -39,7 +39,7 @@
    ],
    [
     "2026-11-07",
-    729.0
+    699.0
    ]
   ]
  },
@@ -47,7 +47,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra-KING-Tec-Golf-Irons-Steel-1.jpg?v=1736913741",
+ "image": "https://www.clickgolf.co.uk/images/product/main/cobra-king-forged-tec-25-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-07"
 }

@@ -6,14 +6,14 @@
  "checked": "2026-11-07",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 249.0,
+   "from": 199.0,
    "options": 3
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 72,
   "low": 199.0,
   "high": 279.0,
-  "average": 260.81,
-  "priceChanges": 2,
+  "average": 260.11,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-28",
@@ -38,13 +38,13 @@
    ],
    [
     "2026-11-07",
-    249.0
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PowerBiltGolfGSXMen_s14PiecePackageSet-StandBag_14_6d79e9de-79dd-4a25-a121-a983102b6888.jpg?v=1780924743",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
