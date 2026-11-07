@@ -45,7 +45,9 @@
   function radioVal(name) { var r = form.querySelector('input[name="' + name + '"]:checked'); return r ? r.value : ''; }
   function setRadio(name, val) { var r = form.querySelector('input[name="' + name + '"][value="' + val + '"]'); if (r) r.checked = true; }
 
+  var strict = [];   // for pasted shop links: the browser extension's careful matcher (js/gp-match.js)
   var ready = fetch('/data/search-suggest.json').then(function (r) { return r.json(); }).then(function (d) {
+    if (window.GPMatch) strict = window.GPMatch.prep(d.m || []);
     models = (d.m || []).filter(function (m) { return m[4]; })
       .map(function (m) { return { name: m[0], slug: m[4], n: m[2] || 0, lc: norm(m[0]), junior: m[1] === 'junior-set' || JUNIOR_RX.test(m[0]), women: WOMEN_RX.test(m[0]) }; });
   }).catch(function () { models = []; });
@@ -93,9 +95,52 @@
     pInput.focus();
   }
 
+  // Paste-a-link: most shop links carry the product name in the address,
+  // e.g. /srixon-zxi-driver-12345.html, so we read it from there.
+  var LINK_RX = /^\s*(https?:\/\/|www\.)\S+$/i;
+  var SKIP = { products: 1, product: 1, p: 1, dp: 1, gp: 1, itm: 1, html: 1, htm: 1, aspx: 1, php: 1, shop: 1, en: 1, gb: 1, uk: 1, 'en-gb': 1, collections: 1, catalog: 1, catalogue: 1, item: 1, buy: 1, ref: 1 };
+  function linkInfo(v) {
+    var u;
+    try { u = new URL(/^https?:/i.test(v.trim()) ? v.trim() : 'https://' + v.trim()); } catch (e) { return null; }
+    var host = u.hostname.replace(/^www\./, '');
+    var segs = u.pathname.split('/').filter(Boolean), words = [];
+    for (var i = 0; i < segs.length; i++) {
+      var seg = decodeURIComponent(segs[i]).toLowerCase();
+      if (segs[i - 1] && /^(dp|gp|product)$/i.test(segs[i - 1]) && /^[a-z0-9]{8,12}$/i.test(seg)) continue;  // shop item codes
+      seg.replace(/\.(html?|aspx|php)$/, '').split(/[-_+\s.]+/).forEach(function (w) {
+        if (!w || SKIP[w] || /\d{5,}/.test(w) || /^(?=.*\d)[a-z0-9]{9,}$/.test(w)) return;
+        words.push(w);
+      });
+    }
+    var qp = u.searchParams.get('q') || u.searchParams.get('query') || '';
+    return { host: host, text: (words.join(' ') + ' ' + qp).trim() };
+  }
+  function fromLink(v) {
+    var info = linkInfo(v);
+    if (!info) return false;
+    if (/ebay\./.test(info.host)) { setRadio('pc-w', 'ebay'); setRadio('pc-c', 'used'); }
+    else if (/facebook\./.test(info.host)) { setRadio('pc-w', 'facebook'); setRadio('pc-c', 'used'); }
+    else { setRadio('pc-w', 'online'); setRadio('pc-c', 'new'); }
+    var hit = info.text && window.GPMatch ? window.GPMatch.find(info.text, strict) : null;
+    if (hit) {
+      choose(hit.slug, hit.name);
+      linkNote('Found it from your link: <b>' + esc(hit.name) + '</b>. Not right? Type the name instead.');
+      track('price_check_link', { found: 1 });
+      return true;
+    }
+    var items = info.text ? search(info.text) : [];
+    if (items.length) { showList(items); linkNote('Pick the model from your link:'); }
+    else { list.hidden = true; linkNote('That link doesn’t include the product’s name' + (/ebay\./.test(info.host) ? ' (eBay links don’t)' : '') + '. Type the model instead, e.g. “Qi35 driver”.'); }
+    track('price_check_link', { found: 0 });
+    return true;
+  }
+  var note = document.getElementById('pc-link-note');
+  function linkNote(html) { if (note) { note.innerHTML = html; note.hidden = !html; } }
+
   q.addEventListener('input', function () {
     picked = null;
-    ready.then(function () { showList(search(q.value)); });
+    linkNote('');
+    ready.then(function () { if (!(LINK_RX.test(q.value) && fromLink(q.value))) showList(search(q.value)); });
   });
   q.addEventListener('keydown', function (e) {
     var items = list.querySelectorAll('li[data-slug]');

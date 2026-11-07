@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "GolfPrice AI: UK Golf Price Checker",
+  "short_name": "GolfPrice AI",
+  "version": "1.0.0",
+  "description": "See the lowest new UK price, the price history and a fair pre-owned price for golf gear, right on the product page.",
+  "homepage_url": "https://golfpriceai.com/extension/",
+  "icons": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png", "128": "icons/icon-128.png" },
+  "action": { "default_popup": "popup.html", "default_title": "GolfPrice AI", "default_icon": { "16": "icons/icon-16.png", "32": "icons/icon-32.png" } },
+  "background": { "service_worker": "background.js" },
+  "permissions": ["storage"],
+  "host_permissions": ["https://golfpriceai.com/*", "https://golfpriceai-alerts.golfpriceai.workers.dev/*"],
+  "content_scripts": [{
+    "matches": [
+      "https://*.affordablegolf.co.uk/*", "https://*.clarkesgolf.co.uk/*", "https://*.majorgolfdirect.com/*",
+      "https://*.clickgolf.co.uk/*", "https://*.scottsdalegolf.co.uk/*", "https://*.callawaygolfpreowned.com/*",
+      "https://*.callawaygolf.com/*", "https://*.payntr.com/*", "https://*.americangolf.co.uk/*",
+      "https://*.golfonline.co.uk/*", "https://*.onlinegolf.co.uk/*", "https://*.function18.com/*",
+      "https://*.golfbidder.co.uk/*", "https://*.golfgeardirect.co.uk/*", "https://*.ebay.co.uk/*",
+      "https://*.amazon.co.uk/*"
+    ],
+    "js": ["match.js", "content.js"],
+    "run_at": "document_idle"
+  }]
+}

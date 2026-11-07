@@ -71,3 +71,6 @@ fieldset.pc-field { border: 0; margin: 0; padding: 0; min-width: 0; }
   .pc-stats { grid-template-columns: 1fr; }
   .pc-actions .pp-btn { flex: 1 1 100%; }
 }
+
+/* Paste-a-link note under the product field */
+.pc-link-note { margin: 6px 0 0; font-size: 13.5px; color: #2f6b22; }

@@ -499,7 +499,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css?v=20261101b">
-<link rel="stylesheet" href="/css/prices.css?v=20261107a">
+<link rel="stylesheet" href="/css/prices.css?v=20261107b">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -926,6 +926,20 @@ def embed_code(model):
             f'<p style="font-size:12px">Price history: <a href="{SITE}/prices/{model.slug}/">{esc(model.name)} UK prices</a> from GolfPrice AI.</p>')
 
 
+_EXT = []
+
+
+def _ext_line():
+    # The desktop-only extension line, once a store listing is live (data/extension.json).
+    if not _EXT:
+        try:
+            import extension_page
+            _EXT.append(extension_page.model_line())
+        except Exception:
+            _EXT.append("")
+    return _EXT[0]
+
+
 def build_model_page(model, all_models, built, hubs_built, today, noindex):
     m, name = model.m, model.name
     rows = model.retailer_rows()
@@ -1170,6 +1184,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
     <div class="fb-row" hidden><button type="button" class="fb-save" aria-pressed="false">{ICON_HEART}<span>Add to four-ball shortlist</span></button><span class="fb-row-note"></span></div>
     <p class="pp-check fb-nudge" hidden>Buying with mates? <a href="#fourball">Make it a four-ball alert →</a></p>
     <p class="pp-check pp-ask"><a href="{esc(ask_url)}" target="_blank" rel="noopener">{ICON_GROUP_SM}Ask the group chat: buy now or wait?</a></p>
+    {_ext_line()}
     <p class="pp-check">Seen it somewhere else? <a href="/price-check.html?m={esc(model.slug)}">Check if that price is any good →</a></p>
     {bought_box(model)}
   </div>
@@ -1936,6 +1951,18 @@ def build(models_list, products, today_str):
             sitemap.append(("courses/widget/", None))
         except Exception as e:  # never stop the main build
             print(f"Ace Register skipped: {e}")
+        try:
+            import extension_page
+            changed += extension_page.build()
+            sitemap.append(("extension/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Extension page skipped: {e}")
+        try:
+            import embed_info_page
+            changed += embed_info_page.build()
+            sitemap.append(("embed/", None))
+        except Exception as e:  # never stop the main build
+            print(f"Embed info page skipped: {e}")
         try:
             import oracle_page
             changed += oracle_page.build(names={m['slug']: m['name'] for m in passing})

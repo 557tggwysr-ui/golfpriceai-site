@@ -361,7 +361,11 @@ footer.gp-footer {
 }
 .gp-footer a { text-decoration: none; }
 .gp-footer-inner { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
-.gp-foot-grid { display: grid; grid-template-columns: 1.3fr repeat(6, 1fr); gap: 28px; }
+.gp-foot-grid { display: grid; grid-template-columns: 1.2fr repeat(7, 1fr); gap: 24px; }
+@media (min-width: 901px) and (max-width: 1199px) {
+  .gp-foot-grid { grid-template-columns: repeat(4, 1fr); row-gap: 28px; }
+  .gp-foot-brand { grid-column: 1 / -1; }
+}
 .gp-foot-brand { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
 .gp-footer .gp-logo { color: #fff; font-size: 22px; }
 .gp-footer .gp-logo span { color: #5fd14a; }

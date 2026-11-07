@@ -484,3 +484,6 @@ button.pp-btn svg { flex: none; }
 .pp-embed { margin-top: 10px; font-size: 14px; }
 .pp-embed summary { cursor: pointer; font-weight: 600; color: #2f8a1f; padding: 6px 0; }
 .pp-embed textarea { width: 100%; font: 12px/1.4 ui-monospace, Menlo, monospace; border: 1px solid #e4e6e0; border-radius: 10px; padding: 10px; margin-top: 6px; }
+
+/* Browser extension line: computers only */
+@media (max-width: 860px), (hover: none) { .pp-ext { display: none; } }

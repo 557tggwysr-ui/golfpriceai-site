@@ -97,6 +97,8 @@ def menu():
          '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path>'),
         ("Fourball Alerts", "Price alerts for your whole four-ball.", "/fourball/",
          '<path d="M8 8m-3 0a3 3 0 106 0 3 3 0 10-6 0M16 8m-3 0a3 3 0 106 0 3 3 0 10-6 0M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M12 14.5c1-.3 2-.5 4-.5 3.3 0 6 2.7 6 6"></path>'),
+        ("Browser Extension", "Our prices on every golf shop’s product page.", "/extension/",
+         '<path d="M10 3h4v3a2 2 0 104 0V3h3v7h-3a2 2 0 100 4h3v7h-7v-3a2 2 0 10-4 0v3H3v-7h3a2 2 0 100-4H3V3h7z"></path>'),
         ("GolfPrice AI In ChatGPT & Claude", "Ask your AI assistant for live UK prices.", "/ai.html",
          '<path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3zM18 15l.9 2.1L21 18l-2.1.9L18 21l-.9-2.1L15 18l2.1-.9L18 15z"></path>'),
         ("Complete The Look", "Outfits matched by colour, priced piece by piece.", "/complete-the-look.html",
@@ -452,6 +454,9 @@ def footer_html():
                           ("GPS watches", "/prices/gps-watches/"), ("Electric trolleys", "/prices/electric-trolleys/"),
                           ("Package sets", "/prices/golf-package-sets/"), ("Golf shoes", "/prices/golf-shoes/"),
                           ("All price guides", "/prices/")]),
+        ("Work with us", [("For golf clubs", "/courses/widget/"), ("For journalists", "/prices/watch/"),
+                          ("For bloggers & writers", "/embed/"), ("For AI assistants", "/ai.html"),
+                          ("For golf societies", "/societies/")]),
         ("About", [("About us", "/about.html"), ("How we track prices", "/about.html"), ("FAQ", "/faq.html"), ("RSS feed", "/data/deals-feed.xml"),
                    ("Privacy policy", "/legal/privacy-policy.html"), ("Cookie policy", "/legal/cookies.html")]),
     ]
