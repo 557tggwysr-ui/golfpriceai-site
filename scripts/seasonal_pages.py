@@ -277,7 +277,7 @@ def build_black_friday(models, built, today, images=None):
 {crumbs_html}
 <section class="pp-hub-top">
   <span class="sb-kicker">Black Friday {year} · {bf_txt}</span>
-  <h1>Golf Black Friday deals {year} (UK): genuinely cheaper, checked</h1>
+  <h1>Black Friday golf deals {year} (UK): genuinely cheaper, checked</h1>
   <p class="pp-answer">{answer}</p>
   <p class="pp-disclose">We may earn a commission if you buy through links on these pages. It never changes what’s listed or the order.</p>
 </section>
@@ -301,8 +301,8 @@ def build_black_friday(models, built, today, images=None):
 <script src="/js/clothing-guide.js?v=20261018" defer></script>
 <script src="/js/gift-finder.js?v=20261018d" defer></script>"""
     title = f"Black Friday Golf Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
-    desc = (f"Black Friday {year} golf deals that are genuinely cheaper than in October, with the saving on each. "
-            f"Drivers, putters, bags, rangefinders and more, checked every 6 hours.")
+    desc = (f"Black Friday golf deals {year} in the UK that are genuinely cheaper than in October, with the saving on each. "
+            f"Drivers, putters, golf balls, bags, rangefinders and launch monitors, checked every 6 hours.")
     return page_shell(title=title, description=desc, canonical=f"{SITE}/prices/black-friday/", body=body,
                       section="", schema=[crumbs_schema, faq_schema], noindex=False), len(deals)
 
@@ -808,7 +808,11 @@ def build_gift_index(built_slugs, today, items):
             seen.add(it["key"])
             uniq.append(it)
     results = "".join(gift_card(it) for it in _interleave(uniq))
+    low = money(min(it["price"] for it in uniq)) if uniq else "£5"
     faq_html, faq_schema = faq_block([
+        ("What are good inexpensive golf gifts?",
+         f"Golf balls, gloves, tees, ball markers, towels and caps: golfers get through them, and they start from {low} here. "
+         "See golf gifts under £25 for the full list, each at today’s lowest UK price."),
         ("What does “Gift-safe” mean?",
          "You don’t need to know their sizes, which hand they play or their club specs: golf balls, rangefinders, GPS "
          "watches, towels, umbrellas, trolleys and practice kit. Gloves, clothing and clubs say “Check first” and what to find out."),
@@ -823,7 +827,7 @@ def build_gift_index(built_slugs, today, items):
 {crumbs_html}
 <section class="pp-hub-top">
   <span class="sb-kicker">Gift guide · updated {long_date(today)}</span>
-  <h1>Golf gifts for the golfer in your life</h1>
+  <h1>Golf gifts UK: ideas from {low}, with a gift finder</h1>
   <p class="pp-answer">Not a golfer yourself? Answer three quick questions and we’ll show gifts golfers actually use, at today’s lowest UK price across multiple UK retailers, and whether now is a good time to buy. New stock only, and no made-up “was” prices.</p>
   <p class="pp-disclose">We may earn a commission if you buy through these links. It never changes the price or what we pick.</p>
 </section>
@@ -846,8 +850,8 @@ def build_gift_index(built_slugs, today, items):
 {method_note(today)}
 </div>
 <script src="/js/gift-finder.js?v=20261018d" defer></script>"""
-    return page_shell(title=f"Golf Gift Ideas UK {today.year}: Gift Finder at Live Prices | GolfPrice AI",
-                      description="Golf gift ideas for non-golfers: a 3-question gift finder, “gift-safe” picks that need no sizes, and live UK prices checked every 6 hours.",
+    return page_shell(title=f"Golf Gifts UK {today.year}: Gift Finder & Ideas from {low} | GolfPrice AI",
+                      description=f"Golf gifts for every budget, from inexpensive gifts under £25 to gadgets: a 3-question golf gift finder, gift-safe picks that need no sizes, and live UK prices from {low}.",
                       canonical=f"{SITE}/prices/golf-gifts/", body=body, section="", schema=[crumbs_schema, faq_schema], noindex=False)
 
 

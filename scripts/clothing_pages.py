@@ -116,16 +116,20 @@ GUIDES = {
         faq=[("When is the best time to buy golf shorts?",
               "Shorts are often cheaper from late summer into winter, when retailers clear summer stock. Check the genuine drops above to see what's actually reduced.")]),
     "golf-gloves": dict(
-        name="golf gloves", one="glove", h1="Golf glove prices UK",
-        title="Golf Gloves UK: Best Prices & Deals, Leather to Winter | GolfPrice AI",
-        desc="UK golf glove prices from multiple UK retailers, checked every 6 hours: leather, all-weather, winter and rain gloves from FootJoy, Titleist and more.",
+        name="golf gloves", one="glove", h1="Golf glove deals UK: today’s lowest prices",
+        title="Golf Gloves UK: Deals & Sale Prices from {from} | GolfPrice AI",
+        desc="Golf glove deals and sale prices from UK retailers, checked every 6 hours: {n} gloves from {from}, with {drops} genuine price drops today. FootJoy, Titleist, leather, winter and rain.",
         test=(None, {"glove"}, r"glove|mitt", r"trolley|cart|\bbag\b|umbrella|holder|towel", 5),
         under=15,
         subs=[("Leather", r"leather|cabretta"), ("Winter", r"winter|thermal|cold|mitt"), ("Rain", r"\brain\b|\bwet\b|rainsof|raingrip"),
               ("Multi-packs", r"multi|pack|\b[2-6] ?(pk|pack)|pair")],
         blurbs={"Leather": "Best feel, for dry days.", "Winter": "Pairs and mitts for cold hands.",
                 "Rain": "Grip better when wet.", "Multi-packs": "More gloves for less each."},
-        faq=[("How often should I replace my golf glove?",
+        faq=[("Where can I find discount golf gloves in the UK?",
+              "Right here: every glove above is sorted by its lowest new UK price today, across multiple retailers, from {from}. Multi-packs are the cheapest way to buy: the price per glove is often well under a single glove's."),
+             ("Is there a golf glove sale on right now?",
+              "{drops} gloves are at a genuine sale price today, meaning the lowest we've ever tracked them and at least £5 and 3% below their highest. They're in “Biggest genuine drops” at the top. We never use a retailer's own “was” price."),
+             ("How often should I replace my golf glove?",
               "It depends how often you play, but a glove that's shiny, stretched or torn won't grip properly. Multi-packs and genuine drops are the cheapest way to keep a fresh one in the bag.")]),
 }
 # Where each guide is linked from (title, short description) on the price-guide index.
@@ -341,6 +345,14 @@ def build_one(slug, g, products, today):
     chip_html = "".join(f'<button type="button" class="pp-chip cg-chip{" sg-on" if k == "all" else ""}" data-f="{k}" aria-pressed="{"true" if k == "all" else "false"}">{esc(t)}</button>'
                         for k, t in chips)
 
+    live = {"{from}": money(cheapest["price"]), "{n}": str(len(st)), "{drops}": str(sum(1 for x in st if x["low"])) or "no"}
+    if live["{drops}"] == "0":
+        live["{drops}"] = "no"
+    def fill(t):
+        for k, v in live.items():
+            t = t.replace(k, v)
+        return t
+    g = dict(g, title=fill(g["title"]), desc=fill(g["desc"]), h1=fill(g["h1"]), faq=[(fill(q), fill(a)[:1].upper() + fill(a)[1:]) for q, a in g["faq"]])
     faq = [(f"How much should I pay for {g['name']}?",
             f"Today a typical {who}{g['one']} costs about {money(typical)}, and the cheapest {who}{g['name']} start from {money(cheapest['price'])}. "
             f"Anything marked “Lowest we’ve tracked” is cheaper than we’ve seen it before.")] + g["faq"] + [
