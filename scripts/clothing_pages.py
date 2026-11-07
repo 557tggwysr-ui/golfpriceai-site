@@ -363,6 +363,7 @@ def build_one(slug, g, products, today):
                   "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}
     others = "".join(f'<a class="pp-chip" href="/prices/{s}/">{esc(LINKS[s][0])}</a>' for s in GUIDES if s != slug)
 
+    LAST_DROPS[slug] = (g, [d for d in drops if not d["women"]][:6] + [d for d in drops if d["women"]][:2], sum(1 for x in st if x["low"]))
     crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), (LINKS[slug][0], None)])
     drops_html = (f"""<section class="pp-block">
   <h2>Biggest genuine drops on {esc(g['name'])}</h2>
@@ -412,6 +413,57 @@ def build_one(slug, g, products, today):
     return changed
 
 
+LAST_DROPS = {}
+
+
+def bf_clothing_page(today):
+    """Black Friday golf clothing and shoes: each guide's biggest genuine drops."""
+    from seasonal_pages import black_friday_date, faq_block, signup_box
+    year = today.year
+    bf = black_friday_date(year)
+    total = sum(n for _, _, n in LAST_DROPS.values())
+    secs = []
+    for slug, (g, drops, n) in LAST_DROPS.items():
+        if not drops:
+            continue
+        secs.append(f"""<section class="pp-block">
+  <h2>{esc(LINKS[slug][0])}: {n} at their lowest price</h2>
+  <div class="pp-card pp-table-wrap"><table class="pp-table sb-table">
+<thead><tr><th scope="col">Style</th>{THUMB_HEAD}<th scope="col">Highest tracked</th><th scope="col">Now</th><th scope="col">Drop</th></tr></thead>
+<tbody>{''.join(drop_row(d, g) for d in drops)}</tbody></table></div>
+  <p class="pp-small"><a href="/prices/{slug}/">All {esc(g['name'])} prices and drops →</a></p>
+</section>""")
+    if not secs:
+        return None
+    faq_html, faq_schema = faq_block([
+        ("Are there real Black Friday deals on golf clothing and shoes?",
+         f"Yes. Today {total} golf clothing and shoe styles we track are at the lowest price we’ve ever recorded, and at least £5 and 3% below their highest tracked price. "
+         "We never use a retailer’s own “was” price."),
+        ("When do golf clothing Black Friday sales start?",
+         f"Black Friday {year} is Friday {bf.day} November, but many UK golf retailers start clothing and shoe offers in early November and run them to Cyber Monday."),
+        ("What golf clothing is best value on Black Friday?",
+         "Winter kit tends to be the sweet spot: waterproofs, mid-layers, winter gloves and golf shoes. Last season’s colours of the big brands usually drop furthest."),
+    ])
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), ("Black Friday", "/prices/black-friday/"), ("Golf clothing and shoes", None)])
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="pp-hub-top">
+  <span class="sb-kicker">Black Friday {year} · Friday {bf.day} November {year}</span>
+  <h1>Black Friday golf clothing and shoe deals {year} (UK)</h1>
+  <p class="pp-answer">Right now <strong>{total} golf clothing and shoe styles</strong> are at the lowest price we’ve ever tracked: golf shoes, waterproofs, mid-layers, polos, trousers and gloves. Every drop is checked against our own price history across UK retailers, every 6 hours. Never a retailer’s “was” price.</p>
+  <p class="pp-disclose">We may earn a commission if you buy through links on this page. It never changes the prices or the order.</p>
+</section>
+{''.join(secs)}
+<section class="pp-block"><h2>More Black Friday golf deals</h2><div class="pp-chips"><a class="pp-chip" href="/prices/black-friday/">All Black Friday golf deals</a><a class="pp-chip" href="/prices/black-friday/rangefinders/">Rangefinders</a><a class="pp-chip" href="/prices/black-friday/gps-watches/">GPS watches</a><a class="pp-chip" href="/prices/black-friday/drivers/">Drivers</a><a class="pp-chip" href="/prices/cyber-monday/">Cyber Monday</a></div></section>
+{signup_box("Get the real deals by email", "Our Friday email lists the week’s genuine price drops, checked against our own price history.")}
+{faq_html}
+{method_note(today)}
+</div>"""
+    return page_shell(title=f"Black Friday Golf Clothing & Shoe Deals {year} UK: Real Drops Only | GolfPrice AI",
+                      description=f"Black Friday golf clothing and shoe deals {year}: {total} styles at the lowest price we’ve tracked, from golf shoes and waterproofs to polos and gloves. Checked every 6 hours.",
+                      canonical=f"{SITE}/prices/black-friday/golf-clothing/", body=body, section="apparel", schema=[crumbs_schema, faq_schema], noindex=False)
+
+
 def build(products, today):
     """Returns (changed urls, sitemap entries, index links)."""
     changed, sitemap, links = [], [], []
@@ -427,4 +479,12 @@ def build(products, today):
             changed.append(f"/prices/{slug}/")
         sitemap.append((f"prices/{slug}/", today.isoformat() if res else None))
         links.append((f"/prices/{slug}/", LINKS[slug][0], LINKS[slug][1]))
+    try:
+        page = bf_clothing_page(today)
+        if page:
+            if _write(PRICES_DIR / "black-friday" / "golf-clothing" / "index.html", page):
+                changed.append("/prices/black-friday/golf-clothing/")
+            sitemap.append(("prices/black-friday/golf-clothing/", today.isoformat()))
+    except Exception as e:
+        print(f"Black Friday clothing page: skipped ({e}).")
     return changed, sitemap, links

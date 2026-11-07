@@ -199,7 +199,7 @@ def deals_table(rs):
 <tbody class="cg-list" data-show="40">{trs}</tbody></table></div>"""
 
 
-def build_black_friday(models, built, today, images=None):
+def build_black_friday(models, built, today, images=None, cyber_page=False):
     year = today.year
     bf = black_friday_date(year)
     cyber = bf + timedelta(days=3)
@@ -272,12 +272,33 @@ def build_black_friday(models, built, today, images=None):
          "Today’s price is the lowest we’ve recorded for that model since we started tracking it. Each model’s page shows "
          "its full price history so you can see for yourself."),
     ])
-    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), ("Black Friday", None)])
+    if cyber_page:
+        cm_txt = f"Monday {cyber.day} November {year}"
+        answer = (f"Cyber Monday {year} is <strong>{cm_txt}</strong>, the last day of the Black Friday sales. "
+                  + (f"Right now {n_txt}, checked against the prices we recorded ourselves every 6 hours. A retailer’s “was” price never counts."
+                     if deals else "We’re checking every 6 hours: genuine deals appear here as soon as prices drop."))
+        if phase == "after":
+            answer = (f"Cyber Monday {year} ({cm_txt}) is over, but some savings stuck. "
+                      + (f"Today {n_txt}." if deals else "Nothing we track is still meaningfully cheaper than in October."))
+        deals_h = "Cyber Monday golf deals: cheaper than in October" if phase != "after" else "Still cheaper than in October"
+        faq_html, faq_schema = faq_block([
+            (f"When is Cyber Monday {year} in the UK?",
+             f"{cm_txt}, three days after Black Friday ({bf_txt}). Most UK golf retailers run their Black Friday prices through to Cyber Monday night."),
+            ("Are Cyber Monday golf deals better than Black Friday?",
+             "Usually they’re the same deals, and some sell out over the weekend. A few retailers add last-chance offers on the Monday. "
+             "This list shows what’s genuinely cheaper than in October right now, whichever day it is."),
+            ("How do you know a Cyber Monday golf deal is real?",
+             "We compare today’s lowest UK price with the typical lowest price we recorded for the same model in October, checking every 6 hours. "
+             "It has to be at least £5 and 5% cheaper. A retailer’s own “was” or RRP price is never used."),
+        ])
+    sub_html = BF_SUB_LINKS.get("html", "")
+    ev = "Cyber Monday" if cyber_page else "Black Friday"
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), (ev, None)])
     body = f"""<div class="pp-wrap">
 {crumbs_html}
 <section class="pp-hub-top">
-  <span class="sb-kicker">Black Friday {year} · {bf_txt}</span>
-  <h1>Black Friday golf deals {year} (UK): genuinely cheaper, checked</h1>
+  <span class="sb-kicker">{ev} {year} · {f"Monday {cyber.day} November {year}" if cyber_page else bf_txt}</span>
+  <h1>{f"Cyber Monday golf deals {year} (UK): genuinely cheaper, checked" if cyber_page else f"Black Friday golf deals {year} (UK): genuinely cheaper, checked"}</h1>
   <p class="pp-answer">{answer}</p>
   <p class="pp-disclose">We may earn a commission if you buy through links on these pages. It never changes what’s listed or the order.</p>
 </section>
@@ -288,6 +309,7 @@ def build_black_friday(models, built, today, images=None):
   {deals_html}
   <p class="pp-small">October price: the typical lowest new, in-stock price we recorded in October. Today: the lowest now, checked every 6 hours. “Lowest we’ve tracked”: the lowest price we’ve recorded for that model.</p>
 </section>
+{sub_html}
 {share_html}
 <section class="pp-block">
   <h2>Prices we’re watching</h2>
@@ -303,7 +325,14 @@ def build_black_friday(models, built, today, images=None):
     title = f"Black Friday Golf Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
     desc = (f"Black Friday golf deals {year} in the UK that are genuinely cheaper than in October, with the saving on each. "
             f"Drivers, putters, golf balls, bags, rangefinders and launch monitors, checked every 6 hours.")
-    return page_shell(title=title, description=desc, canonical=f"{SITE}/prices/black-friday/", body=body,
+    canon = f"{SITE}/prices/black-friday/"
+    if cyber_page:
+        title = f"Cyber Monday Golf Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
+        desc = (f"Cyber Monday golf deals {year} in the UK that are genuinely cheaper than in October: "
+                f"{len(deals)} golf models with the real saving on each, from drivers and golf balls to rangefinders. Checked every 6 hours.")
+        canon = f"{SITE}/prices/cyber-monday/"
+    build_black_friday.last = dict(deals=deals, rows=rows, phase=phase, bf=bf, cyber=cyber)
+    return page_shell(title=title, description=desc, canonical=canon, body=body,
                       section="", schema=[crumbs_schema, faq_schema], noindex=False), len(deals)
 
 
@@ -855,19 +884,156 @@ def build_gift_index(built_slugs, today, items):
                       canonical=f"{SITE}/prices/golf-gifts/", body=body, section="", schema=[crumbs_schema, faq_schema], noindex=False)
 
 
+# ---------------------------------------------------------------- Black Friday by category, brand and retailer
+# Each page is the main Black Friday list cut one way, with the same honest rule
+# (at least £5 and 5% below the model's own October price). The set of pages is
+# fixed, so addresses stay put; a page with no deals yet shows the prices we're
+# watching for it instead. Tech comes first: it's where the biggest savings are.
+BF_SUB_LINKS = {}
+BF_CATEGORIES = ["rangefinder", "gps-watch", "launch-monitor", "electric-trolley", "driver", "ball", "putter",
+                 "irons", "wedge", "hybrid", "wood", "bag", "set"]
+BF_TECH = {"rangefinder", "gps-watch", "launch-monitor", "electric-trolley"}
+BF_BRANDS = ["TaylorMade", "Callaway", "Titleist", "Ping", "Cobra", "Odyssey", "Mizuno", "Srixon", "Cleveland", "Wilson"]
+BF_RETAILERS = ["awin-scottsdalegolf", "awin-clickgolf", "awin-clarkesgolf", "awin-affordablegolf", "awin-majorgolf"]
+
+
+def _slug(t):
+    import re
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+
+
+def bf_sub_plan():
+    from price_pages import retailer_name
+    plan = []
+    for t in BF_CATEGORIES:
+        plan.append(("cat", TYPES[t][0], TYPES[t][1], lambda m, t=t: m["type"] == t))
+    for b in BF_BRANDS:
+        plan.append(("brand", _slug(b), b, lambda m, b=b: (m.get("brand") or "").lower() == b.lower()))
+    for r in BF_RETAILERS:
+        plan.append(("shop", _slug(retailer_name(r)), retailer_name(r), lambda m, r=r: m.get("minRetailer") == r))
+    return plan
+
+
+def bf_sub_links(counts):
+    """The 'Black Friday by…' chips for the main page, with live deal counts."""
+    def chips(kind):
+        return "".join(f'<a class="pp-chip" href="/prices/black-friday/{slug}/">{esc(label)} ({counts.get(slug, 0)})</a>'
+                       for k, slug, label, _ in bf_sub_plan() if k == kind and slug in counts)
+    return f"""<section class="pp-block bf-subs">
+  <h2>Black Friday golf deals by category, brand and shop</h2>
+  <p class="pp-small">The same genuine deals, cut the way you shop. The number is how many are cheaper than in October today.</p>
+  <h3 class="bf-sub-h">Golf tech and clubs</h3><div class="pp-chips">{chips("cat")}<a class="pp-chip" href="/prices/black-friday/golf-clothing/">Golf clothing and shoes</a></div>
+  <h3 class="bf-sub-h">Brands</h3><div class="pp-chips">{chips("brand")}</div>
+  <h3 class="bf-sub-h">UK golf shops</h3><div class="pp-chips">{chips("shop")}</div>
+</section>"""
+
+
+def bf_sub_page(kind, slug, label, deals, watch, info, today):
+    year, bf, cyber, phase = today.year, info["bf"], info["cyber"], info["phase"]
+    bf_txt = f"Friday {bf.day} November {year}"
+    n = len(deals)
+    lows = sum(1 for r in deals if r.get("low"))
+    noun = (label if label.startswith("GPS") else label.lower()) if kind == "cat" else label
+    if kind == "cat":
+        one = next(v[2] for v in TYPES.values() if v[1] == label)   # "rangefinder", "golf ball"
+        one = one if one.startswith("GPS") else one.lower()
+        h1 = f"Black Friday {one} deals {year} (UK)"
+        title = f"Black Friday {' '.join(w if w.isupper() else w.capitalize() for w in one.split())} Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
+        what = f"{noun}"
+    elif kind == "brand":
+        h1 = f"{label} Black Friday golf deals {year} (UK)"
+        title = f"{label} Black Friday Golf Deals {year} UK: Real Savings Only | GolfPrice AI"
+        what = f"{label} golf models"
+    else:
+        h1 = f"{label} Black Friday deals {year}: genuinely cheaper, checked"
+        title = f"{label} Black Friday Deals {year}: Which Are Genuinely Cheaper? | GolfPrice AI"
+        what = f"golf models where {label} has the lowest UK price we track"
+    count_txt = (f"<strong>{n}</strong> {what} {'is' if n == 1 else 'are'} genuinely cheaper than in October"
+                 + (f", {lows} at the lowest price we’ve ever tracked" if lows else "")) if n else ""
+    if phase == "after":
+        answer = f"Black Friday {year} ({bf_txt}) is over. " + (f"Today {count_txt}." if n else f"No {what} are still meaningfully cheaper than in October.")
+    else:
+        answer = (f"Black Friday {year} is <strong>{bf_txt}</strong> and Cyber Monday is {cyber.day} November. "
+                  + (f"Right now {count_txt}." if n else f"No {what} are genuinely cheaper than in October yet: the ones we’re watching are below, with the October price we’ll measure them against.")
+                  + " We check prices every 6 hours, and a retailer’s own “was” price never counts.")
+    if kind == "shop":
+        answer += f" Prices are {label}’s own, and we only list a deal here when {label} is the cheapest of the UK retailers we track."
+    best = max(deals, key=lambda r: r["base"] - r["now"]) if deals else None
+    faqs = [(f"Are there real Black Friday {noun if kind == 'cat' else label} deals?" if kind != "shop" else f"Does {label} do Black Friday?",
+             (f"Yes. Today {n} {what} {'is' if n == 1 else 'are'} at least £5 and 5% cheaper than their own October price"
+              + (f". The biggest saving is {money(best['base'] - best['now'])} on the {best['m']['name']}." if best else ".")) if n else
+             f"Not yet against our October prices. Most UK golf retailers start their Black Friday offers in the two weeks before {bf_txt}, so check back."),
+            ("How do you check the saving is genuine?",
+             "We record the lowest new, in-stock UK price for every model every 6 hours. The October price is the typical lowest price we "
+             "recorded in October; a deal needs to be at least £5 and 5% below it. We never use a retailer’s RRP or “was” price.")]
+    if kind == "cat" and slug in ("rangefinders", "gps-watches", "launch-monitors", "electric-trolleys"):
+        faqs.append((f"Is Black Friday a good time to buy {noun}?",
+                     f"Often, yes: golf tech gets some of the biggest cash discounts of the year in November, and it makes a popular Christmas present. "
+                     f"Each model’s page shows its full price history, so you can see whether today’s price really is low."))
+    faq_html, faq_schema = faq_block(faqs)
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), ("Black Friday", "/prices/black-friday/"), (label, None)])
+    others = "".join(f'<a class="pp-chip" href="/prices/black-friday/{sl}/">{esc(lb)}</a>' for k, sl, lb, _ in bf_sub_plan() if k == kind and sl != slug)
+    deals_html = deals_table(deals) if deals else ""
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="pp-hub-top">
+  <span class="sb-kicker">Black Friday {year} · {bf_txt}</span>
+  <h1>{esc(h1)}</h1>
+  <p class="pp-answer">{answer}</p>
+  <p class="pp-disclose">We may earn a commission if you buy through links on these pages. It never changes what’s listed or the order.</p>
+</section>
+{f'<section class="pp-block"><h2>Cheaper than in October</h2>{deals_html}<p class="pp-small">October price: the typical lowest new, in-stock UK price we recorded in October. Today: the lowest now, checked every 6 hours.</p></section>' if deals else ''}
+{f'<section class="pp-block"><h2>Prices we’re watching</h2><p class="pp-small">The most widely stocked models, with the October price Black Friday will be measured against.</p>{compare_table(watch, "October price")}</section>' if watch else ''}
+<section class="pp-block"><h2>More Black Friday golf deals</h2><div class="pp-chips"><a class="pp-chip" href="/prices/black-friday/">All Black Friday golf deals</a>{others}<a class="pp-chip" href="/prices/cyber-monday/">Cyber Monday</a></div></section>
+{signup_box("Get the real deals by email", "Our Friday email lists the week’s genuine price drops, checked against our own price history.")}
+{faq_html}
+{method_note(today)}
+</div>
+<script src="/js/clothing-guide.js?v=20261018" defer></script>"""
+    desc = (f"{h1}: " + (f"{n} {what} genuinely cheaper than in October, with the real saving on each" if n else f"the {what} we’re watching, with their October prices")
+            + ". Checked every 6 hours, never a “was” price.")
+    return page_shell(title=title, description=desc[:300], canonical=f"{SITE}/prices/black-friday/{slug}/", body=body,
+                      section="", schema=[crumbs_schema, faq_schema], noindex=False)
+
+
+def build_bf_subpages(today, changed, sitemap):
+    info = build_black_friday.last
+    deals, rows = info["deals"], info["rows"]
+    counts, made = {}, 0
+    for kind, slug, label, keep in bf_sub_plan():
+        ds = [r for r in deals if keep(r["m"])]
+        ws = watch_list([r for r in rows if keep(r["m"])], per_type=4 if kind == "cat" else 2)[:16]
+        if not ds and not ws:
+            continue
+        counts[slug] = len(ds)
+        if _write(PRICES_DIR / "black-friday" / slug / "index.html", bf_sub_page(kind, slug, label, ds, ws, info, today)):
+            changed.append(f"/prices/black-friday/{slug}/")
+        sitemap.append((f"prices/black-friday/{slug}/", today.isoformat()))
+        made += 1
+    return counts, made
+
+
 # ---------------------------------------------------------------- entry point
-SEASONAL_SLUGS = ["black-friday", "boxing-day-sales", "christmas", "golf-gifts"] + list(GIFT_PAGES)
+SEASONAL_SLUGS = ["black-friday", "cyber-monday", "boxing-day-sales", "christmas", "golf-gifts"] + list(GIFT_PAGES)
 
 
 def build(passing, built, products, today):
     """Returns (changed urls, sitemap entries, seasonal hub links for the /prices/ page)."""
     changed, sitemap, links = [], [], []
     images = {p["id"]: p.get("image") for p in products if p.get("image")}
+    build_black_friday(passing, built, today, images)            # first pass: the deals
+    counts, n_sub = build_bf_subpages(today, changed, sitemap)    # by category, brand and shop
+    BF_SUB_LINKS["html"] = bf_sub_links(counts)
     page, n_deals = build_black_friday(passing, built, today, images)
     if _write(PRICES_DIR / "black-friday" / "index.html", page):
         changed.append("/prices/black-friday/")
     sitemap.append(("prices/black-friday/", today.isoformat()))
     links.append(("/prices/black-friday/", f"Black Friday {today.year}", "Real deals only, checked against October prices"))
+    page, _ = build_black_friday(passing, built, today, images, cyber_page=True)
+    if _write(PRICES_DIR / "cyber-monday" / "index.html", page):
+        changed.append("/prices/cyber-monday/")
+    sitemap.append(("prices/cyber-monday/", today.isoformat()))
+    links.append(("/prices/cyber-monday/", f"Cyber Monday {today.year}", "The last day of the sales, checked"))
     made, gift_items = [], []
     for slug, cfg in GIFT_PAGES.items():
         page, its = build_gift_page(slug, cfg, passing, built, products, images, today, list(GIFT_PAGES))
@@ -904,6 +1070,6 @@ def build(passing, built, products, today):
         _write(GIFTS_FILE, json.dumps(gifts, ensure_ascii=False, separators=(",", ":"), sort_keys=True))
         sitemap.append(("prices/golf-gifts/", today.isoformat()))
         links.append(("/prices/golf-gifts/", "Golf gift ideas", "By budget, from under £25 to £100 and up"))
-    print(f"Seasonal pages: Black Friday ({n_deals} model(s) cheaper than October), Christmas ({n_xmas} gift(s) at "
+    print(f"Seasonal pages: Black Friday ({n_deals} model(s) cheaper than October, {n_sub} category/brand/shop pages), Cyber Monday, Christmas ({n_xmas} gift(s) at "
           f"their lowest), Boxing Day ({n_box} cheaper than early December), {len(made)} gift page(s).")
     return changed, sitemap, links

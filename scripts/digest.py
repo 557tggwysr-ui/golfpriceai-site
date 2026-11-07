@@ -152,8 +152,42 @@ def tool_spotlight(today):
 
 
 # ---------------------------------------------------------------- writing
+# Black Friday and Cyber Monday: the week's email goes at 7am on Black Friday
+# itself (deals go live overnight), and there's one extra send on Cyber Monday
+# morning. Both use the same genuine drops; only the framing changes.
+EVENT_HOUR_UK = 7
+
+
+def black_friday(year):
+    nov1 = date(year, 11, 1)
+    return nov1 + timedelta(days=(3 - nov1.weekday()) % 7 + 22)   # the day after the 4th Thursday
+
+
+def event(day):
+    bf = black_friday(day.year)
+    return "bf" if day == bf else "cyber" if day == bf + timedelta(days=3) else None
+
+
+EVENTS = {"bf": ("Black Friday", "black-friday"), "cyber": ("Cyber Monday", "cyber-monday")}
+
+
 def link(slug, part):
     return f"{SITE}/prices/{slug}/?utm_source=friday-email&utm_medium=email&utm_campaign=genuine-drops&utm_content={part}"
+
+
+def event_banner(today):
+    ev = event(today)
+    if not ev:
+        return ""
+    name, slug = EVENTS[ev]
+    line = ("Deals went live overnight. Here are the ones that are genuinely cheaper, checked against the prices we recorded in October."
+            if ev == "bf" else "It’s the last day of the Black Friday sales. These are still genuinely cheaper than in October.")
+    return (f'<div style="background:#14211a;color:#fff;border-radius:14px;padding:18px 20px;margin:0 0 20px">'
+            f'<p style="font-size:18px;font-weight:bold;margin:0 0 6px">{name}: the real deals</p>'
+            f'<p style="font-size:14px;line-height:1.5;margin:0 0 12px;color:#c4d0c8">{line}</p>'
+            f'<a href="{SITE}/prices/{slug}/?utm_source=friday-email&amp;utm_medium=email&amp;utm_campaign={slug}" '
+            f'style="display:inline-block;background:#3fae29;color:#14211a;text-decoration:none;font-weight:bold;padding:10px 18px;border-radius:10px">'
+            f'See every {name} deal</a></div>')
 
 
 def email_html(picks, today, stop_digest, stop_all):
@@ -177,7 +211,8 @@ def email_html(picks, today, stop_digest, stop_all):
 <div style="display:none;max-height:0;overflow:hidden">{html.escape(top['name'])} down {money(top['drop'])}, and {len(rest)} more genuine drops this week.</div>
 <div style="max-width:560px;margin:0 auto;padding:28px 16px">
 <p style="font-size:22px;font-weight:bold;margin:0">Golf<span style="color:#3fae29">Price</span> AI</p>
-<p style="font-size:13px;color:#5b665f;margin:4px 0 20px">Genuine Drops · Friday {today.day} {today.strftime('%B %Y')}</p>
+<p style="font-size:13px;color:#5b665f;margin:4px 0 20px">{EVENTS[event(today)][0] + ' · Genuine Drops' if event(today) else 'Genuine Drops'} · {today.strftime('%A')} {today.day} {today.strftime('%B %Y')}</p>
+{event_banner(today)}
 <p style="font-size:15px;line-height:1.55;margin:0 0 18px">This week’s real UK price falls, measured against the prices we’ve recorded ourselves every 6 hours, not a retailer’s “was” price. Each one is at its lowest price for at least two months, or since we started tracking it.</p>
 <div style="background:#fff;border:1px solid #e7e9e5;border-radius:14px;padding:22px;text-align:center">
 <p style="font-size:12px;font-weight:bold;letter-spacing:.04em;text-transform:uppercase;color:#2f8a1f;margin:0 0 12px">Biggest drop this week</p>
@@ -202,6 +237,11 @@ No countdown timers. No fake discounts.<br>
 def subject(picks):
     top = picks[0]
     more = f", plus {len(picks) - 1} more" if len(picks) > 1 else ""
+    ev = event(date.today())
+    if ev == "bf":
+        return f"Black Friday, checked: {top['name']} down {money(top['drop'])}{more}"
+    if ev == "cyber":
+        return f"Cyber Monday, last day of the sales: {top['name']} down {money(top['drop'])}{more}"
     return f"Genuine Drops: {top['name']} down {money(top['drop'])}{more}"
 
 
@@ -209,7 +249,11 @@ def subject(picks):
 def due(state, now):
     week = now.strftime("%G-W%V")
     uk = now.astimezone(UK)
-    return uk.weekday() == 4 and uk.hour >= SEND_FROM_HOUR_UK and (state.get("digest") or {}).get("week") != week
+    ev = event(uk.date())
+    if ev == "cyber":
+        return uk.hour >= EVENT_HOUR_UK and state.get("cyber") != uk.year
+    start = EVENT_HOUR_UK if ev == "bf" else SEND_FROM_HOUR_UK
+    return uk.weekday() == 4 and uk.hour >= start and (state.get("digest") or {}).get("week") != week
 
 
 def main(argv):
@@ -265,7 +309,10 @@ def main(argv):
             failed += 1
             print(f"Friday email: a send failed ({status}): {data.get('message', '')}")
     if sent or not people:
-        state["digest"] = {"week": now.strftime("%G-W%V"), "sent": sent}
+        if event(now.astimezone(UK).date()) == "cyber":
+            state["cyber"] = now.astimezone(UK).year      # the extra send: once a year
+        else:
+            state["digest"] = {"week": now.strftime("%G-W%V"), "sent": sent}
     state["sent"] = {today_s: sent_today + sent}
     alerts.save_state(state)
     print(f"Friday email: {len(picks)} drop(s); sent to {sent} of {len(people)} subscriber(s)"
