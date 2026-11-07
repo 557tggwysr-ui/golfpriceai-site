@@ -1,0 +1,37 @@
+name: Post genuine drops to Bluesky
+
+on:
+  schedule:
+    # Three times a day (UTC): about 8:25am, 12:25pm and 6:25pm in winter.
+    # Each run posts at most one new genuine drop from data/social-feed.xml.
+    - cron: '25 8,12,18 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Post one new drop
+        env:
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+        run: |
+          python scripts/bluesky_post.py
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/bluesky-state.json 2>/dev/null || true
+          if ! git diff --quiet --cached; then
+            git commit -m "Bluesky post"
+            git pull --rebase
+            git push
+          fi
