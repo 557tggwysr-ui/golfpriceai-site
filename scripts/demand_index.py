@@ -43,7 +43,7 @@ INDEX_JSON = DATA / "index.json"
 REPORTS = DATA / "reports"
 PAGE_DIR = ROOT / "demand"
 CARD = "/assets/cards/demand.jpg"
-CSS = "/css/demand.css?v=20261020"
+CSS = "/css/demand.css?v=20261107a"
 JS = "/js/demand.js?v=20261020"
 
 KEEP_DAYS = 63          # daily counts kept in signals.json
@@ -370,7 +370,15 @@ def page(state, today):
       <h2>The first chart is still on the practice ground</h2>
       <p>We started counting {esc(state["since"])}. The chart appears once enough golfers have eyed up enough kit to make a fair top {MIN_MODELS}, usually within a week or two. Like a new driver, it needs a few rounds before it settles.</p>
       <p><b>Want to help it along?</b> Every price alert you set is a vote. Find something you fancy in our <a href="/prices/">price guides</a>, then tap “Email me when it drops”.</p>
-      {f'<p class="dm-progress">{state["qualified"]} of {MIN_MODELS} models have qualified so far.</p>' if state["qualified"] else ''}
+      <ul class="dm-how">
+        <li><span class="dm-how-n">1</span><b>Look</b><span>Open a model’s price guide</span></li>
+        <li><span class="dm-how-n">2</span><b>Shortlist</b><span>Add it to a four-ball shortlist</span></li>
+        <li><span class="dm-how-n">3</span><b>Alert</b><span>Set a price alert. Counts the most</span></li>
+      </ul>
+      <div class="dm-meter" role="img" aria-label="{state["qualified"]} of {MIN_MODELS} chart places filled">
+        <div class="dm-slots">{''.join(f'<i class="{"on" if i < state["qualified"] else ""}"></i>' for i in range(MIN_MODELS))}</div>
+        <p class="dm-progress">{state["qualified"]} of {MIN_MODELS} models have qualified so far</p>
+      </div>
     </div>"""
 
     if state["climbers"]:

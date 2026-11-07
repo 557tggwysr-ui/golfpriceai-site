@@ -101,7 +101,7 @@
       '<a href="/improve/shot-saver/">' + (dark ? 'Open Shot Saver →' : 'Add a round to Shot Saver →') + '</a></section>';
   }
   function empty(where) {
-    return '<section class="mg-card mg-empty"><b class="mg-h">Your golf, in numbers</b><p>Score a round on the free live scorecard (a quick round with mates, or your society day) and tap your name. After one round you get your points; after a few, where they go: par 3s or 5s, front nine or back, your best and worst holes.</p>' +
+    return '<section class="mg-card mg-empty mg-wide"><b class="mg-h">Your golf, in numbers</b><p>Score a round on the free live scorecard (a quick round with mates, or your society day) and tap your name. After one round you get your points; after a few, where they go: par 3s or 5s, front nine or back, your best and worst holes.</p>' +
       '<a class="mg-btn" href="/play/scorecard/">Start a quick round</a>' + (where === 'full' ? '<p class="mg-small">Played on someone else’s phone? Open the leaderboard link from the group chat and tap “Which one are you?”.</p>' : '') + '</section>';
   }
 
@@ -136,17 +136,17 @@
     if (st.map) {
       var hs = st.map.holes, valid = hs.map(function (v, i) { return { v: v, h: i + 1 }; }).filter(function (x) { return x.v != null; });
       var worst = valid.reduce(function (a, x) { return x.v < a.v ? x : a; }, valid[0]), best = valid.reduce(function (a, x) { return x.v > a.v ? x : a; }, valid[0]);
-      h += '<section class="mg-card"><div class="mg-top"><b class="mg-h">Your ' + esc(st.map.cname || 'course') + ', hole by hole</b><small>avg points</small></div><div class="mg-map">' +
+      h += '<section class="mg-card mg-wide"><div class="mg-top"><b class="mg-h">Your ' + esc(st.map.cname || 'course') + ', hole by hole</b><small>avg points</small></div><div class="mg-map">' +
         hs.map(function (v, i) { return '<div style="background:' + cellCol(v) + ';color:' + (v != null && v >= 2.2 ? '#fff' : '#14211a') + '"><b>' + (i + 1) + '</b><span>' + (v == null ? '–' : one(v)) + '</span></div>'; }).join('') +
         '</div><div class="mg-legend"><span><i style="background:#f08a24"></i> your nemesis</span><span><i style="background:#2f8a1f"></i> your favourite</span></div>' +
         '<p>The <b>' + ord(worst.h) + '</b> (par ' + st.map.pars[worst.h - 1] + ') averages ' + one(worst.v) + ' points; the <b>' + ord(best.h) + '</b> (par ' + st.map.pars[best.h - 1] + ') ' + one(best.v) + '. From ' + st.map.n + ' rounds there.</p></section>';
-    } else h += '<section class="mg-card"><b class="mg-h">Hole by hole</b><p class="mg-small">Play the same course three times and you get its map here: your nemesis holes in orange, your favourites in green.</p></section>';
+    } else h += '<section class="mg-card mg-wide"><b class="mg-h">Hole by hole</b><p class="mg-small">Play the same course three times and you get its map here: your nemesis holes in orange, your favourites in green.</p></section>';
     h += ssBlock(sum, false);
     // Send a detailed round to Shot Saver: score, fairways and putts.
     var sent = get('gpMgSS', []), cand = st.full.filter(function (r) { return !r.pickups && r.fwOf >= 7 && r.puttHoles === 18 && sent.indexOf(r.day + r.course) < 0; }).pop();
     if (cand && window.gpShotSaverCore) h += '<section class="mg-card"><b class="mg-h">Add your ' + nice(cand.day) + ' round to Shot Saver?</b><p>' + cand.gross + ' shots, ' + cand.fwHit + ' fairways, ' + cand.putts + ' putts. Shot Saver adds greens and penalties if you know them.</p><button type="button" class="mg-btn" id="mg-ss">Add it to Shot Saver</button></section>';
     h += '<section class="mg-dark"><b class="mg-h">Want sharper stats?</b><p>Turn on “Extra detail for me” at the bottom of the scorecard and it asks two quick taps a hole for your own score: fairway hit? how many putts? Only on your phone, only if you want it.</p></section>';
-    h += '<section class="mg-card"><b class="mg-h">Your rounds</b>' + st.all.slice(0, 12).map(function (r) {
+    h += '<section class="mg-card mg-wide"><b class="mg-h">Your rounds</b>' + st.all.slice(0, 12).map(function (r) {
       return '<div class="mg-row"><span><b>' + esc(r.cname || r.title || 'Round') + '</b><small>' + nice(r.day) + (r.holes < 18 ? ' · ' + r.holes + ' holes' : '') + (r.kind === 'soc' ? ' · society day' : '') + '</small></span><b>' + r.pts + '</b></div>';
     }).join('') + '</section></div>';
     full.innerHTML = h;

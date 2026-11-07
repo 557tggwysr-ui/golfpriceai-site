@@ -317,18 +317,18 @@ def my_game_page():
            "publisher": {"@type": "Organization", "name": "GolfPrice AI", "url": SITE}}
     faqs = "".join(f'<details class="sh-q"><summary>{q}</summary><p>{a}</p></details>' for q, a in MG_FAQS)
     body = f"""<div class="mg-wrap">
-<div style="padding:0 16px">{crumbs_html}</div>
+<div>{crumbs_html}</div>
 <div id="mg" aria-live="polite"><section class="mg-hero"><span class="mg-k">MY GAME</span><h1>Free golf stats from the rounds you play</h1><p>Points per round, par 3s, 4s and 5s, front v back nine and your nemesis holes, from the live scorecard. No sign-up.</p></section><p class="soc-loading" style="padding:16px">Adding up your rounds…</p></div>
 <noscript><p>My Game needs JavaScript switched on.</p></noscript>
-<div class="mg-main"><section class="mg-card"><h2 class="mg-h" style="margin:0">How My Game works</h2>{faqs}</section>
+<div class="mg-main"><section class="mg-card mg-wide"><h2 class="mg-h" style="margin:0">How My Game works</h2>{faqs}</section>
 <p class="mg-small" style="text-align:center"><a href="/play/scorecard/">Start a quick round</a> · <a href="/improve/shot-saver/">Shot Saver</a> · <a href="/play/my-clubhouse/">My Clubhouse</a></p></div>
 </div>
 <script src="/js/shot-saver-core.js?v=20261101" defer></script>
-<script src="/js/my-game.js?v=20261101a" defer></script>"""
+<script src="/js/my-game.js?v=20261107a" defer></script>"""
     return page_shell(title="My Game: Free Golf Stats Tracker | GolfPrice AI",
                       description="Free golf stats from the rounds you score live: your stableford trend, par 3s, 4s and 5s, front v back nine and a hole-by-hole map of your course. No app, no sign-up.",
                       canonical=url, body=body, section="improve", schema=[crumbs_schema, app, faq_schema],
-                      noindex=False, extra_head='<link rel="stylesheet" href="/css/society.css?v=20261102b">\n<link rel="stylesheet" href="/css/my-game.css?v=20261101a">\n')
+                      noindex=False, extra_head='<link rel="stylesheet" href="/css/society.css?v=20261102b">\n<link rel="stylesheet" href="/css/my-game.css?v=20261107a">\n')
 
 
 def build(root):

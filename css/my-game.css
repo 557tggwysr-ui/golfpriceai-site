@@ -32,7 +32,23 @@
 .mg-hero h1 { margin: 0; font: 800 28px/1.08 'Poppins', sans-serif; }
 .mg-hero p { margin: 0; font-size: 14.5px; color: #c4d0c8; line-height: 1.5; }
 .mg-main { padding: 14px 16px 24px; display: flex; flex-direction: column; gap: 12px; }
-.mg-wrap { max-width: 640px; margin: 0 auto; }
+.mg-wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px 8px; }
+/* The full /improve/my-game/ page: same width as the rest of the site, two columns on a computer */
+.mg-wrap .mg-hero { border-radius: 20px; padding: 28px 30px; margin-top: 4px; }
+.mg-wrap .mg-hero h1 { font-size: clamp(28px, 4vw, 40px); }
+.mg-wrap .mg-hero p { font-size: 16px; max-width: 760px; }
+.mg-wrap .mg-main { padding: 16px 0 28px; gap: 16px; }
+.mg-wrap .mg-card, .mg-wrap .mg-dark { padding: 20px; }
+.mg-wrap .mg-spark { max-width: none; }
+.mg-wrap > .soc-loading { padding: 16px 0; }
+@media (min-width: 900px) {
+  .mg-wrap .mg-main { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: row dense; align-items: stretch; }
+  .mg-wrap .mg-main > .mg-wide, .mg-wrap .mg-main > p { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .mg-wrap { padding: 0 16px 8px; }
+  .mg-wrap .mg-hero { padding: 22px 18px; border-radius: 16px; }
+}
 .mg-map { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 4px; }
 .mg-map div { border-radius: 8px; padding: 6px 0; display: flex; flex-direction: column; align-items: center; font-size: 11px; }
 .mg-map b { font-size: 13px; }
