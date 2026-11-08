@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/mizuno-jpx-one-hybrid/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 209.0,
@@ -36,10 +36,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 209.0,
   "high": 265.0,
-  "average": 230.21,
+  "average": 229.96,
   "priceChanges": 3,
   "series": [
    [
@@ -59,16 +59,16 @@
     209.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     209.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 44 days"
+  "summary": "Typical price: steady for 45 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/JPX-ONE-Hybrid-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/ping-scottsdale-putter/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 189.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 189.0,
   "high": 229.0,
-  "average": 225.31,
+  "average": 224.76,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     189.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     189.0
    ]
   ]
@@ -49,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/ScottsPut_Anser_Face-Photoroom.jpg?v=1740825120",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

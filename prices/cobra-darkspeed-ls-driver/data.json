@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 229.0,
   "high": 419.0,
-  "average": 392.69,
+  "average": 390.21,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     229.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     229.0
    ]
   ]
@@ -49,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-DarkSpeed-LS-Golf-Driver-2.jpg?v=1713978686",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

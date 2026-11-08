@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/wilson-player-fit-12-piece-cart-bag-ladies-package-set/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 599.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 599.0,
   "high": 699.0,
-  "average": 670.54,
+  "average": 669.45,
   "priceChanges": 2,
   "series": [
    [
@@ -35,6 +35,10 @@
    [
     "2026-11-07",
     599.0
+   ],
+   [
+    "2026-11-08",
+    599.0
    ]
   ]
  },
@@ -44,5 +48,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PlayerFitLadiesCartHERO.jpg?v=1777956309",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

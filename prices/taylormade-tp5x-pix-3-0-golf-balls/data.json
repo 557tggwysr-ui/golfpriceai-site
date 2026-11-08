@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-tp5x-pix-3-0-golf-balls/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 47.95,
@@ -23,7 +23,7 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 47.95,
   "high": 47.99,
   "average": 47.98,
@@ -38,16 +38,16 @@
     47.95
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     47.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 9 days"
+  "summary": "Typical price: steady for 10 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/taylormade-TP5x-pix-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

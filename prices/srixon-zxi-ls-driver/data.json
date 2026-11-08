@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/srixon-zxi-ls-driver/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 319.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 319.0,
   "high": 499.0,
-  "average": 363.88,
+  "average": 363.35,
   "priceChanges": 3,
   "series": [
    [
@@ -51,7 +51,7 @@
     319.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     319.0
    ]
   ]
@@ -62,5 +62,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Srixon-ZXi-LS-Golf-Driver-1.jpg?v=1736827574",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

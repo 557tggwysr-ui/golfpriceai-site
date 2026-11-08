@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/cobra-rad-s-fairway-wood/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 169.0,
   "high": 179.0,
-  "average": 177.45,
+  "average": 177.35,
   "priceChanges": 1,
   "series": [
    [
@@ -44,7 +44,7 @@
     169.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     169.0
    ]
   ]
@@ -55,5 +55,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/RAD-S-Fairway-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

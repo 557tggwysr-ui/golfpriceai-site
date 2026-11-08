@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-moonlander-stand-bag-golf-bag/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 125.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 125.0,
   "high": 129.95,
-  "average": 129.26,
+  "average": 129.2,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     125.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     125.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 9 days"
+  "summary": "Typical price: steady for 10 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/37647_01_Moonlander_244_Black_01-Photoroom.jpg?v=1738328509",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

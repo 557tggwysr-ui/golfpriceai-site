@@ -3,7 +3,7 @@
  "brand": "Garmin",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/garmin-approach-g20-solar-rangefinder/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 299.99,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 249.0,
   "high": 299.99,
-  "average": 293.31,
+  "average": 293.39,
   "priceChanges": 2,
   "series": [
    [
@@ -37,7 +37,7 @@
     299.99
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     299.99
    ]
   ]
@@ -48,5 +48,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/g_Garmin-Approach-G20-Handheld-Golf-GPS-Rangefinder-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-m1-electric-trolley/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 699.0,
@@ -39,10 +39,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 699.0,
   "high": 749.0,
-  "average": 716.86,
+  "average": 716.65,
   "priceChanges": 17,
   "series": [
    [
@@ -118,7 +118,7 @@
     699.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     699.0
    ]
   ]
@@ -129,5 +129,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26M1XXMS-M1-2026-Electric-Trolley-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

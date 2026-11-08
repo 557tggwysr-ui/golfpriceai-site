@@ -1,66 +1,66 @@
 {
- "n": 21,
- "date": "2026-11-07",
+ "n": 22,
+ "date": "2026-11-08",
  "items": [
   {
-   "slug": "cobra-king-tour-irons",
-   "name": "Cobra KING Tour Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/cobra_king_tour_irons_1.jpg?v=1777980981",
-   "price": 699.0,
-   "unit": "each",
-   "type": "iron set",
-   "low": true,
-   "url": "/prices/cobra-king-tour-irons/"
-  },
-  {
-   "slug": "cleveland-rtz-2-tour-rack-wedge",
-   "name": "Cleveland RTZ 2 Tour Rack Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ClevelandGolfRTZ2TourRackWedge2026_4.jpg?v=1785235607",
-   "price": 149.0,
-   "unit": "each",
-   "type": "wedge",
-   "low": false,
-   "url": "/prices/cleveland-rtz-2-tour-rack-wedge/"
-  },
-  {
-   "slug": "taylormade-qi35-hybrid",
-   "name": "TaylorMade Qi35 Hybrid",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-Qi35-Golf-Hybrid-1.jpg?v=1736222445",
-   "price": 149.0,
-   "unit": "each",
-   "type": "hybrid",
-   "low": false,
-   "url": "/prices/taylormade-qi35-hybrid/"
-  },
-  {
-   "slug": "wilson-staff-infinite-putter",
-   "name": "Wilson Staff Infinite Putter",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Staff-Infinite-Golf-Putter-2024---Bucktown2.jpg",
-   "price": 99.0,
+   "slug": "taylormade-spider-tour-x-putter",
+   "name": "TaylorMade Spider Tour X Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/spider_tour_putter_x_small_slant_4.jpg?v=1777961160",
+   "price": 299.0,
    "unit": "each",
    "type": "putter",
-   "low": true,
-   "url": "/prices/wilson-staff-infinite-putter/"
+   "low": false,
+   "url": "/prices/taylormade-spider-tour-x-putter/"
   },
   {
-   "slug": "yonex-ezone-elite-4-driver",
-   "name": "Yonex Ezone Elite 4 Driver",
-   "image": "https://www.clickgolf.co.uk/images/product/main/yonex-ezone-elite-4-mens-driver-hero.jpg",
-   "price": 199.0,
+   "slug": "srixon-zxiu-utility-irons",
+   "name": "Srixon ZXiU Utility Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXiU-Utility-Irons-Hero-2.jpg",
+   "price": 159.0,
    "unit": "each",
-   "type": "driver",
+   "type": "iron set",
+   "low": false,
+   "url": "/prices/srixon-zxiu-utility-irons/"
+  },
+  {
+   "slug": "callaway-chase-dry-waterproof-stand-bag-golf-bag",
+   "name": "Callaway Chase Dry Waterproof Stand Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Chase-Dry-Waterproof-Golf-Stand-Bag---Red.jpg",
+   "price": 134.0,
+   "unit": "each",
+   "type": "golf bag",
    "low": true,
-   "url": "/prices/yonex-ezone-elite-4-driver/"
+   "url": "/prices/callaway-chase-dry-waterproof-stand-bag-golf-bag/"
+  },
+  {
+   "slug": "ping-g440-max-fairway-wood",
+   "name": "Ping G440 Max Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-max-fairway-hero.jpg",
+   "price": 319.0,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": false,
+   "url": "/prices/ping-g440-max-fairway-wood/"
+  },
+  {
+   "slug": "mizuno-pro-t-1-soft-satin-wedge",
+   "name": "Mizuno Pro T-1 Soft Satin Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/T-1SATINWEDGE1.jpg?v=1737715912",
+   "price": 99.95,
+   "unit": "each",
+   "type": "wedge",
+   "low": true,
+   "url": "/prices/mizuno-pro-t-1-soft-satin-wedge/"
   }
  ],
  "pin": {
-  "slug": "callaway-fairway-c-stand-bag-golf-bag",
-  "name": "Callaway Fairway C Stand Bag Golf Bag",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/FairwayCStandGolfBag2025-BluePalmsLightGreyRed1.jpg?v=1739526677",
-  "price": 149.0,
-  "unit": "each",
-  "type": "golf bag",
+  "slug": "wilson-staff-model-x-golf-balls",
+  "name": "Wilson Staff Model X Golf Balls",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-08T085841.562.png?v=1756973986",
+  "price": 42.95,
+  "unit": "per dozen",
+  "type": "golf ball",
   "low": false,
-  "url": "/prices/callaway-fairway-c-stand-bag-golf-bag/"
+  "url": "/prices/wilson-staff-model-x-golf-balls/"
  }
 }

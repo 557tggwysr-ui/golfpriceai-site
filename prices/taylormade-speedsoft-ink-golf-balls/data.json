@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-speedsoft-ink-golf-balls/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 24.99,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 24.99,
   "high": 26.99,
-  "average": 25.28,
+  "average": 25.27,
   "priceChanges": 1,
   "series": [
    [
@@ -43,16 +43,16 @@
     24.99
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     24.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 72 days"
+  "summary": "Typical price: steady for 73 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMade_Speed_Soft_Ink_2025_-_Multi_1.jpg?v=1772032059",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

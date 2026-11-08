@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/taylormade-r7-quad-mini-driver/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 369.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 369.0,
   "high": 399.0,
-  "average": 390.31,
+  "average": 390.06,
   "priceChanges": 3,
   "series": [
    [
@@ -51,7 +51,7 @@
     369.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     369.0
    ]
   ]
@@ -62,5 +62,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MiniDriver21.jpg?v=1776283056",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

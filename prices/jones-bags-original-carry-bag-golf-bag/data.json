@@ -3,7 +3,7 @@
  "brand": "Jones",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/jones-bags-original-carry-bag-golf-bag/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 149.0,
   "high": 149.0,
   "average": 149.0,
@@ -29,16 +29,16 @@
     149.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     149.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 65 days"
+  "summary": "Typical price: steady for 66 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/jones-carrybag-blackwhite.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

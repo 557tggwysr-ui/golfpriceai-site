@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/titleist-t250-irons/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1179.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 1179.0,
   "high": 1189.0,
-  "average": 1187.93,
+  "average": 1187.82,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     1179.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     1179.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 9 days"
+  "summary": "Typical price: steady for 10 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025_Titleist_T250_Catalog01_RGB-Photoroom_1113cf1a-de64-4708-85d6-6e74420d39bb.jpg?v=1751962907",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

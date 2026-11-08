@@ -3,7 +3,7 @@
  "brand": "Big Max",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/big-max-dri-lite-prime-cart-bag-golf-bag/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 72,
+  "daysTracked": 73,
   "low": 269.0,
   "high": 329.0,
-  "average": 301.5,
+  "average": 301.05,
   "priceChanges": 2,
   "series": [
    [
@@ -40,6 +40,10 @@
    [
     "2026-11-07",
     269.0
+   ],
+   [
+    "2026-11-08",
+    269.0
    ]
   ]
  },
@@ -49,5 +53,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BigMaxDriLitePrimeCartBag-Black1.jpg?v=1776290927",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

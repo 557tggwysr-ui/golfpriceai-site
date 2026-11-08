@@ -1,0 +1,50 @@
+{
+ "name": "Garmin Approach S72 GPS Watch",
+ "brand": "Garmin",
+ "type": "GPS watch",
+ "url": "https://golfpriceai.com/prices/garmin-approach-s72-gps-watch/",
+ "checked": "2026-11-08",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 699.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 699.0,
+   "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 699.0,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 699.0,
+  "high": 699.0,
+  "average": 699.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-10-10",
+    699.0
+   ],
+   [
+    "2026-11-08",
+    699.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 30 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Garmin_Approach_S72_-_Carbon_Grey_Red_1.jpg?v=1791541766",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-08"
+}

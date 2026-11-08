@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-tour-x-golf-balls/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 44.99,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 44.99,
   "high": 51.99,
-  "average": 46.12,
+  "average": 46.1,
   "priceChanges": 3,
   "series": [
    [
@@ -61,16 +61,16 @@
     44.99
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     44.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 65 days"
+  "summary": "Typical price: steady for 66 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/39.jpg?v=1773183269",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

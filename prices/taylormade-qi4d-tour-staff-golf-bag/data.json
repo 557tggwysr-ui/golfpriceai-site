@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-qi4d-tour-staff-golf-bag/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 469.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 469.0,
   "high": 499.0,
-  "average": 473.29,
+  "average": 473.24,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     469.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     469.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 72 days"
+  "summary": "Typical price: steady for 73 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/M2369001-Qi4D-Tour-Staff-Bag-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

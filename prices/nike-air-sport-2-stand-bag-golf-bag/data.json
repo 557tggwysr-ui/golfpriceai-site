@@ -3,7 +3,7 @@
  "brand": "Nike",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/nike-air-sport-2-stand-bag-golf-bag/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 65,
+  "daysTracked": 66,
   "low": 179.0,
   "high": 179.95,
-  "average": 179.82,
+  "average": 179.81,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     179.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     179.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 9 days"
+  "summary": "Typical price: steady for 10 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/AirSport2StandBag1.jpg?v=1776257498",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

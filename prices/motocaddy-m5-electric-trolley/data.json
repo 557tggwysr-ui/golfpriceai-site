@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-m5-electric-trolley/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 849.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 849.0,
   "high": 999.0,
-  "average": 948.98,
+  "average": 947.81,
   "priceChanges": 13,
   "series": [
    [
@@ -101,7 +101,7 @@
     849.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     849.0
    ]
   ]
@@ -112,5 +112,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26M5GXMS-M5-2026-Electric-Trolle-Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }

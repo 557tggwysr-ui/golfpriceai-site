@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-quantum-max-d-fairway-wood/",
- "checked": "2026-11-07",
+ "checked": "2026-11-08",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -34,10 +34,10 @@
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 269.0,
   "high": 319.0,
-  "average": 316.62,
+  "average": 316.06,
   "priceChanges": 1,
   "series": [
    [
@@ -49,7 +49,7 @@
     269.0
    ],
    [
-    "2026-11-07",
+    "2026-11-08",
     269.0
    ]
   ]
@@ -60,5 +60,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-d-fairway-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-07"
+ "changed": "2026-11-08"
 }
