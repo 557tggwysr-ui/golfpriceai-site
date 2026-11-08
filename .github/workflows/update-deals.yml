@@ -88,3 +88,19 @@ jobs:
             git pull --rebase
             git push
           fi
+
+      - name: Post one new genuine drop to Bluesky
+        # Runs here, after every refresh, because GitHub was skipping the
+        # separate Bluesky schedule. At most one post per run.
+        continue-on-error: true
+        env:
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+        run: |
+          python scripts/bluesky_post.py
+          git add data/bluesky-state.json 2>/dev/null || true
+          if ! git diff --quiet --cached; then
+            git commit -m "Bluesky post"
+            git pull --rebase
+            git push
+          fi

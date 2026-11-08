@@ -1,10 +1,9 @@
 name: Post genuine drops to Bluesky
 
 on:
-  schedule:
-    # Three times a day (UTC): about 8:25am, 12:25pm and 6:25pm in winter.
-    # Each run posts at most one new genuine drop from data/social-feed.xml.
-    - cron: '25 8,12,18 * * *'
+  # Posting now happens at the end of every "Update golf deals" run (every
+  # 6 hours), because GitHub kept skipping this schedule. Run this by hand
+  # any time for an extra post.
   workflow_dispatch: {}
 
 jobs:
