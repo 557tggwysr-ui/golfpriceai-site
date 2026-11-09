@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-tour-major-series-limited-edition-golf-balls/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 39.99,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 39.99,
   "high": 47.99,
-  "average": 47.52,
+  "average": 47.43,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     39.99
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     39.99
    ]
   ]
@@ -49,5 +49,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/chrome-tour-july-major-box.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

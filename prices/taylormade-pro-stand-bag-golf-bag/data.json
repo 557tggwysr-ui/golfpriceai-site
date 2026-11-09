@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-pro-stand-bag-golf-bag/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 124.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 124.0,
   "high": 139.0,
-  "average": 128.82,
+  "average": 128.77,
   "priceChanges": 21,
   "series": [
    [
@@ -133,7 +133,7 @@
     124.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     124.0
    ]
   ]
@@ -144,5 +144,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-Pro-Stand-Bag-Black-Blue.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

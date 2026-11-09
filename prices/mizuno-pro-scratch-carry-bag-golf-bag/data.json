@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-pro-scratch-carry-bag-golf-bag/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 124.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
+  "daysTracked": 76,
   "low": 124.0,
   "high": 139.0,
-  "average": 133.6,
+  "average": 133.47,
   "priceChanges": 17,
   "series": [
    [
@@ -97,7 +97,7 @@
     124.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     124.0
    ]
   ]
@@ -108,5 +108,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/mizuno-grey-golf-carry-bag-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

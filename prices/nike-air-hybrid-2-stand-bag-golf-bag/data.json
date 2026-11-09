@@ -3,7 +3,7 @@
  "brand": "Nike",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/nike-air-hybrid-2-stand-bag-golf-bag/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -14,14 +14,14 @@
   {
    "name": "Major Golf Direct",
    "from": 199.0,
-   "options": 3
+   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 73,
+  "daysTracked": 74,
   "low": 199.0,
   "high": 229.95,
-  "average": 204.51,
+  "average": 204.44,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     199.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     199.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 60 days"
+  "summary": "Typical price: steady for 61 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/NikeAirHybrid2GolfStandBag2026-DR5132-0413.jpg?v=1776248816",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

@@ -3,7 +3,7 @@
  "brand": "Aspire",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/aspire-xd1-12-piece-ladies-package-set/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 66,
+  "daysTracked": 67,
   "low": 199.0,
   "high": 229.0,
-  "average": 205.36,
+  "average": 205.27,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     199.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     199.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 52 days"
+  "summary": "Typical price: steady for 53 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/AspireXD1PackageSet-LadiesHERO2.jpg?v=1773181281",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

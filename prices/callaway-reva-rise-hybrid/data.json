@@ -1,0 +1,53 @@
+{
+ "name": "Callaway Reva Rise Hybrid",
+ "brand": "Callaway",
+ "type": "hybrid",
+ "url": "https://golfpriceai.com/prices/callaway-reva-rise-hybrid/",
+ "checked": "2026-11-09",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 229.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 229.0,
+   "options": 5
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 259.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 229.0,
+  "high": 259.0,
+  "average": 248.0,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-10-11",
+    259.0
+   ],
+   [
+    "2026-10-30",
+    229.0
+   ],
+   [
+    "2026-11-09",
+    229.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794049879320/sits/hybrids-2025-reva-rise-womens/hybrids-2025-reva-rise-womens___1.png?sfrm=png",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-09"
+}

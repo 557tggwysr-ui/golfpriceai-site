@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-243-tour-staff-golf-bag/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 369.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 369.0,
   "high": 399.0,
-  "average": 389.47,
+  "average": 389.23,
   "priceChanges": 17,
   "series": [
    [
@@ -97,7 +97,7 @@
     369.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     369.0
    ]
   ]
@@ -108,5 +108,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ping-243-Tour-Staff-Golf-Bag-White.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

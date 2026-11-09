@@ -1,0 +1,53 @@
+{
+ "name": "Callaway CB-12 Wedge",
+ "brand": "Callaway",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/callaway-cb-12-wedge/",
+ "checked": "2026-11-09",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 119.0,
+ "lowestAt": [
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 119.0,
+   "options": 24
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 134.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 119.0,
+  "high": 134.0,
+  "average": 128.5,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-10-11",
+    134.0
+   ],
+   [
+    "2026-10-30",
+    119.0
+   ],
+   [
+    "2026-11-09",
+    119.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025-CB-12-Wedge-Hero-001-Photoroom.jpg?v=1751527551",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-09"
+}

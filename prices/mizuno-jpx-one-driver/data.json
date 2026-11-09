@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/mizuno-jpx-one-driver/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 379.0,
   "high": 529.0,
-  "average": 456.76,
+  "average": 456.09,
   "priceChanges": 5,
   "series": [
    [
@@ -64,7 +64,7 @@
     399.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     399.0
    ]
   ]
@@ -75,5 +75,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MizunoGolfJPXONEDriver2026_1.png?v=1764595119",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

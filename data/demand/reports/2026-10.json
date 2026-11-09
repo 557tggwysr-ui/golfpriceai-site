@@ -1,0 +1,145 @@
+{
+ "month": "2026-10",
+ "title": "October 2026",
+ "made": "2026-11-09",
+ "items": [
+  {
+   "rank": 1,
+   "slug": "garmin-approach-s70-gps-watch",
+   "name": "Garmin Approach S70 GPS Watch",
+   "brand": "Garmin",
+   "type": "gps-watch",
+   "group": "tech",
+   "price": 429.0,
+   "unit": "",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/garmin_approach_s70_golf_gps_smart_watch_-_white_1.0.jpg?v=1777967156",
+   "url": "/prices/garmin-approach-s70-gps-watch/",
+   "move": null,
+   "low": true
+  },
+  {
+   "rank": 2,
+   "slug": "titleist-pro-v1-golf-balls",
+   "name": "Titleist Pro V1 Golf Balls",
+   "brand": "Titleist",
+   "type": "ball",
+   "group": "balls",
+   "price": 43.96,
+   "unit": "per dozen",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ProV1White4.jpg?v=1782293081",
+   "url": "/prices/titleist-pro-v1-golf-balls/",
+   "move": null,
+   "low": true
+  },
+  {
+   "rank": 3,
+   "slug": "macgregor-cg4000-10-piece-cart-bag-ladies-package-set",
+   "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
+   "brand": "MacGregor",
+   "type": "set",
+   "group": "irons",
+   "price": 299.0,
+   "unit": "",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CG4000LadiesCartHERO.jpg?v=1777954492",
+   "url": "/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/",
+   "move": null,
+   "low": false
+  },
+  {
+   "rank": 4,
+   "slug": "macgregor-zt1-ladies-package-set",
+   "name": "MacGregor ZT1 Ladies Package Set",
+   "brand": "MacGregor",
+   "type": "set",
+   "group": "irons",
+   "price": 379.0,
+   "unit": "",
+   "image": "https://www.clickgolf.co.uk/images/product/main/MACSET118-Ladies-Set-Hero.jpg",
+   "url": "/prices/macgregor-zt1-ladies-package-set/",
+   "move": null,
+   "low": true
+  },
+  {
+   "rank": 5,
+   "slug": "wilson-tpx-ladies-package-set",
+   "name": "Wilson TPX Ladies Package Set",
+   "brand": "Wilson",
+   "type": "set",
+   "group": "irons",
+   "price": 319.0,
+   "unit": "",
+   "image": "https://www.scottsdalegolf.co.uk/uploads/wilson-1200-tpx-package-set-ladies-1.jpg",
+   "url": "/prices/wilson-tpx-ladies-package-set/",
+   "move": null,
+   "low": false
+  },
+  {
+   "rank": 6,
+   "slug": "yonex-ezone-gs-i-tech-driver",
+   "name": "Yonex Ezone GS i-Tech Driver",
+   "brand": "Yonex",
+   "type": "driver",
+   "group": "woods",
+   "price": 179.95,
+   "unit": "",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/YonexEzoneGSi-Tech-Driver3.jpg?v=1777942359",
+   "url": "/prices/yonex-ezone-gs-i-tech-driver/",
+   "move": null,
+   "low": false
+  },
+  {
+   "rank": 7,
+   "slug": "ping-hoofer-14-231-stand-bag-golf-bag",
+   "name": "Ping Hoofer 14 231 Stand Bag Golf Bag",
+   "brand": "Ping",
+   "type": "bag",
+   "group": "kit",
+   "price": 179.0,
+   "unit": "",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Hoofer-14-231-Golf-Stand-Bag---Black.jpg",
+   "url": "/prices/ping-hoofer-14-231-stand-bag-golf-bag/",
+   "move": null,
+   "low": true
+  },
+  {
+   "rank": 8,
+   "slug": "taylormade-qi4d-max-fairway-wood",
+   "name": "TaylorMade Qi4D Max Fairway Wood",
+   "brand": "TaylorMade",
+   "type": "wood",
+   "group": "woods",
+   "price": 319.0,
+   "unit": "",
+   "image": "https://www.clickgolf.co.uk/images/product/main/N8405107-Qi4D-Max-Fairway-Hero.jpg",
+   "url": "/prices/taylormade-qi4d-max-fairway-wood/",
+   "move": null,
+   "low": false
+  }
+ ],
+ "wishful": [
+  {
+   "type": "bag",
+   "label": "Golf bags",
+   "guesses": 55,
+   "off": 28
+  },
+  {
+   "type": "driver",
+   "label": "Drivers",
+   "guesses": 34,
+   "off": -19
+  },
+  {
+   "type": "putter",
+   "label": "Putters",
+   "guesses": 41,
+   "off": -17
+  },
+  {
+   "type": "ball",
+   "label": "Golf balls",
+   "guesses": 24,
+   "off": 15
+  }
+ ]
+}

@@ -3,7 +3,7 @@
  "brand": "PXG",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/pxg-wildcat-premium-package-set/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1439.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 73,
+  "daysTracked": 74,
   "low": 1439.0,
   "high": 1499.0,
-  "average": 1462.01,
+  "average": 1461.7,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     1439.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     1439.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 45 days"
+  "summary": "Typical price: steady for 46 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PXG_WILDCAT_SET_8_516e9451-2da6-4326-accb-0e670e8f4295.jpg?v=1744207533",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

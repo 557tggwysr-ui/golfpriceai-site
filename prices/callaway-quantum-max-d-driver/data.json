@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-quantum-max-d-driver/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 465.0,
@@ -39,10 +39,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 465.0,
   "high": 529.0,
-  "average": 525.24,
+  "average": 524.53,
   "priceChanges": 1,
   "series": [
    [
@@ -54,7 +54,7 @@
     465.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     465.0
    ]
   ]
@@ -65,5 +65,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-d-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-stand-bag-golf-bag/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 154.0,
   "high": 179.0,
-  "average": 170.3,
+  "average": 170.17,
   "priceChanges": 22,
   "series": [
    [
@@ -127,7 +127,7 @@
     159.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     159.0
    ]
   ]
@@ -138,5 +138,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/cobra-ace-standbag-black1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

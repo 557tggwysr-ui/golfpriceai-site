@@ -3,18 +3,119 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-08",
- "status": "warming up",
+ "date": "2026-11-09",
+ "status": "live",
  "week": {
-  "from": "2026-11-02",
-  "to": "2026-11-08"
+  "from": "2026-11-03",
+  "to": "2026-11-09"
  },
- "chart": [],
+ "chart": [
+  {
+   "rank": 1,
+   "name": "Garmin Approach S70 GPS Watch",
+   "brand": "Garmin",
+   "type": "gps-watch",
+   "price": 429.0,
+   "unit": "",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
+  },
+  {
+   "rank": 2,
+   "name": "Titleist Pro V1 Golf Balls",
+   "brand": "Titleist",
+   "type": "ball",
+   "price": 43.96,
+   "unit": "per dozen",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
+  },
+  {
+   "rank": 3,
+   "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
+   "brand": "MacGregor",
+   "type": "set",
+   "price": 299.0,
+   "unit": "",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
+  },
+  {
+   "rank": 4,
+   "name": "MacGregor ZT1 Ladies Package Set",
+   "brand": "MacGregor",
+   "type": "set",
+   "price": 379.0,
+   "unit": "",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
+  },
+  {
+   "rank": 5,
+   "name": "Wilson TPX Ladies Package Set",
+   "brand": "Wilson",
+   "type": "set",
+   "price": 319.0,
+   "unit": "",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
+  },
+  {
+   "rank": 6,
+   "name": "TaylorMade Tour Response Golf Balls",
+   "brand": "TaylorMade",
+   "type": "ball",
+   "price": 28.49,
+   "unit": "per dozen",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/taylormade-tour-response-golf-balls/"
+  },
+  {
+   "rank": 7,
+   "name": "Yonex Ezone GS i-Tech Driver",
+   "brand": "Yonex",
+   "type": "driver",
+   "price": 179.95,
+   "unit": "",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
+  },
+  {
+   "rank": 8,
+   "name": "Callaway Elyte X Driver",
+   "brand": "Callaway",
+   "type": "driver",
+   "price": 279.0,
+   "unit": "",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-x-driver/"
+  },
+  {
+   "rank": 9,
+   "name": "Cobra Darkspeed LS Driver",
+   "brand": "Cobra",
+   "type": "driver",
+   "price": 229.0,
+   "unit": "",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
+  },
+  {
+   "rank": 10,
+   "name": "Wilson DYNAPWR Forged Irons",
+   "brand": "Wilson",
+   "type": "irons",
+   "price": 599.0,
+   "unit": "",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/wilson-dynapwr-forged-irons/"
+  }
+ ],
  "wishfulThinking": [
   {
    "category": "Golf bags",
-   "averageGuessVsRealPricePct": 29,
-   "guesses": 54
+   "averageGuessVsRealPricePct": 28,
+   "guesses": 55
   },
   {
    "category": "Drivers",
@@ -22,16 +123,35 @@
    "guesses": 34
   },
   {
+   "category": "Putters",
+   "averageGuessVsRealPricePct": -17,
+   "guesses": 41
+  },
+  {
    "category": "Golf balls",
    "averageGuessVsRealPricePct": 15,
    "guesses": 24
-  },
-  {
-   "category": "Putters",
-   "averageGuessVsRealPricePct": -15,
-   "guesses": 40
   }
  ],
- "categoryShare": [],
- "reports": []
+ "categoryShare": [
+  {
+   "category": "Irons & wedges",
+   "pct": 38
+  },
+  {
+   "category": "Tech",
+   "pct": 21
+  },
+  {
+   "category": "Balls",
+   "pct": 21
+  },
+  {
+   "category": "Drivers & woods",
+   "pct": 21
+  }
+ ],
+ "reports": [
+  "https://golfpriceai.com/demand/reports/2026-10/"
+ ]
 }

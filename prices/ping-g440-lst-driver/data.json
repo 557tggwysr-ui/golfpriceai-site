@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g440-lst-driver/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 499.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 499.0,
   "high": 529.0,
-  "average": 525.47,
+  "average": 525.16,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     499.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     499.0
    ]
   ]
@@ -49,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-G440-LST-Golf-Driver-9.jpg?v=1733285100",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }

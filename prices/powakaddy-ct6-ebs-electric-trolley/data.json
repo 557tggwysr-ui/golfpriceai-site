@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct6-ebs-electric-trolley/",
- "checked": "2026-11-08",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 769.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 749.0,
   "high": 799.0,
-  "average": 789.24,
+  "average": 789.0,
   "priceChanges": 15,
   "series": [
    [
@@ -109,7 +109,7 @@
     769.0
    ],
    [
-    "2026-11-08",
+    "2026-11-09",
     769.0
    ]
   ]
@@ -120,5 +120,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT6_EBS_Electric_Golf_Trolley-18-Hole_Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-08"
+ "changed": "2026-11-09"
 }
