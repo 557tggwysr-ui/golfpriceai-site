@@ -17,6 +17,11 @@
    "options": 5
   },
   {
+   "name": "Major Golf Direct",
+   "from": 179.0,
+   "options": 1
+  },
+  {
    "name": "Scottsdale Golf",
    "from": 229.0,
    "options": 1
@@ -28,11 +33,6 @@
   },
   {
    "name": "Clickgolf",
-   "from": 249.0,
-   "options": 1
-  },
-  {
-   "name": "Major Golf Direct",
    "from": 249.0,
    "options": 1
   }
@@ -66,7 +66,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.scottsdalegolf.co.uk/uploads/mizuno-flihi-1.png",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MizunoGolfProFli-HiUtilityIron2026_2.jpg?v=1764597480",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-09"
 }

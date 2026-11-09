@@ -8,7 +8,8 @@
  "unit": "each",
  "lowestNewPrice": 249.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clarkes Golf",
+  "Major Golf Direct"
  ],
  "retailers": [
   {
@@ -18,7 +19,7 @@
   },
   {
    "name": "Major Golf Direct",
-   "from": 309.0,
+   "from": 249.0,
    "options": 3
   }
  ],

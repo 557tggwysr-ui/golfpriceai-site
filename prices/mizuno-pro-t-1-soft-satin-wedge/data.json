@@ -6,14 +6,14 @@
  "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 99.95,
+ "lowestNewPrice": 99.99,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 99.95,
+   "from": 99.99,
    "options": 10
   },
   {
@@ -27,7 +27,7 @@
   "low": 99.95,
   "high": 149.0,
   "average": 128.55,
-  "priceChanges": 2,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-28",
@@ -43,13 +43,13 @@
    ],
    [
     "2026-11-09",
-    99.95
+    99.99
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/T-1SATINWEDGE1.jpg?v=1737715912",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

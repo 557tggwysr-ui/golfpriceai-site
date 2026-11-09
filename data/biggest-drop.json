@@ -1,30 +1,30 @@
 {
- "checked": "2026-11-09T04:55+00:00",
- "fresh": 0,
- "week": 179,
+ "checked": "2026-11-09T15:24+00:00",
+ "fresh": 4,
+ "week": 110,
  "cats": {
   "clubs": {
-   "name": "Yonex Ezone Elite Full Package Set",
-   "slug": "yonex-ezone-elite-full-package-set",
-   "url": "/prices/yonex-ezone-elite-full-package-set/",
-   "image": "https://www.clickgolf.co.uk/images/product/main/yonex-ezone-elite-4-package-set-2.jpg",
-   "was": 1099.0,
-   "now": 799.0,
-   "fall": 300.0,
-   "pct": 27,
-   "date": "2026-11-06",
+   "name": "Mizuno Pro T-3 Soft Satin Wedge",
+   "slug": "mizuno-pro-t-3-soft-satin-wedge",
+   "url": "/prices/mizuno-pro-t-3-soft-satin-wedge/",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/T-3SATINWEDGE1.jpg?v=1737716340",
+   "was": 119.0,
+   "now": 109.0,
+   "fall": 10.0,
+   "pct": 8,
+   "date": "2026-11-09",
    "unit": ""
   },
   "accessories": {
-   "name": "Srixon Tour Staff Golf Bag",
-   "slug": "srixon-tour-staff-golf-bag",
-   "url": "/prices/srixon-tour-staff-golf-bag/",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/25SRXStaffBagHero-Photoroom.jpg?v=1740497840",
-   "was": 349.0,
-   "now": 279.0,
-   "fall": 70.0,
+   "name": "Nike Air Max Lite Stand Bag Golf Bag",
+   "slug": "nike-air-max-lite-stand-bag-golf-bag",
+   "url": "/prices/nike-air-max-lite-stand-bag-golf-bag/",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ChatGPT_Image_Aug_4,_2026,_12_25_23_PM.png",
+   "was": 149.0,
+   "now": 119.0,
+   "fall": 30.0,
    "pct": 20,
-   "date": "2026-11-02",
+   "date": "2026-11-09",
    "unit": ""
   },
   "apparel": {
@@ -37,5 +37,17 @@
    "fall": 100.0,
    "unit": ""
   }
+ },
+ "drop": {
+  "name": "Nike Air Max Lite Stand Bag Golf Bag",
+  "slug": "nike-air-max-lite-stand-bag-golf-bag",
+  "url": "/prices/nike-air-max-lite-stand-bag-golf-bag/",
+  "image": "https://www.clickgolf.co.uk/images/product/main/ChatGPT_Image_Aug_4,_2026,_12_25_23_PM.png",
+  "was": 149.0,
+  "now": 119.0,
+  "fall": 30.0,
+  "pct": 20,
+  "date": "2026-11-09",
+  "unit": ""
  }
 }

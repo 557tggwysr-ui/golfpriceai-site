@@ -6,28 +6,28 @@
  "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.0,
+ "lowestNewPrice": 159.0,
  "lowestAt": [
-  "Clickgolf"
+  "Major Golf Direct"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 169.0,
+   "name": "Major Golf Direct",
+   "from": 159.0,
    "options": 3
   },
   {
-   "name": "Major Golf Direct",
-   "from": 179.0,
+   "name": "Clickgolf",
+   "from": 169.0,
    "options": 3
   }
  ],
  "history": {
   "daysTracked": 47,
-  "low": 169.0,
+  "low": 159.0,
   "high": 179.0,
-  "average": 171.55,
-  "priceChanges": 1,
+  "average": 171.34,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-24",
@@ -39,15 +39,15 @@
    ],
    [
     "2026-11-09",
-    169.0
+    159.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 35 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/BRD2S2619NS-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MizunoBR-D2GolfStandBag2026-GreyYellow_2.jpg?v=1787825665",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-09"
 }

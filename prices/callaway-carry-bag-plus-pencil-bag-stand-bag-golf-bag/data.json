@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-carry-bag-plus-pencil-bag-stand-bag-golf-bag/",
- "checked": "2026-11-06",
+ "checked": "2026-11-09",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 109.0,
@@ -18,11 +18,11 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 86,
   "low": 94.0,
   "high": 109.0,
-  "average": 105.2,
-  "priceChanges": 14,
+  "average": 104.81,
+  "priceChanges": 16,
   "series": [
    [
     "2026-08-16",
@@ -86,6 +86,10 @@
    ],
    [
     "2026-11-06",
+    94.0
+   ],
+   [
+    "2026-11-09",
     109.0
    ]
   ]
@@ -96,5 +100,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Carry-Plus-Golf-Pencil-Stand-Bag---Navy-White-Red.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-06"
+ "changed": "2026-11-09"
 }
