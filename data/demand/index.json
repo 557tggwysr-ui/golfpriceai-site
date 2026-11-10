@@ -102,6 +102,16 @@
   },
   {
    "rank": 10,
+   "name": "TaylorMade Milled Grind 4 Wedge",
+   "brand": "TaylorMade",
+   "type": "wedge",
+   "price": 99.0,
+   "unit": "",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/taylormade-milled-grind-4-wedge/"
+  },
+  {
+   "rank": 11,
    "name": "Wilson DYNAPWR Forged Irons",
    "brand": "Wilson",
    "type": "irons",
@@ -114,8 +124,8 @@
  "wishfulThinking": [
   {
    "category": "Golf bags",
-   "averageGuessVsRealPricePct": 28,
-   "guesses": 55
+   "averageGuessVsRealPricePct": 29,
+   "guesses": 58
   },
   {
    "category": "Drivers",
@@ -124,8 +134,8 @@
   },
   {
    "category": "Putters",
-   "averageGuessVsRealPricePct": -17,
-   "guesses": 41
+   "averageGuessVsRealPricePct": -18,
+   "guesses": 44
   },
   {
    "category": "Golf balls",
@@ -136,19 +146,19 @@
  "categoryShare": [
   {
    "category": "Irons & wedges",
-   "pct": 36
+   "pct": 40
   },
   {
    "category": "Balls",
-   "pct": 22
+   "pct": 21
   },
   {
    "category": "Drivers & woods",
-   "pct": 22
+   "pct": 21
   },
   {
    "category": "Tech",
-   "pct": 20
+   "pct": 19
   }
  ],
  "reports": [
