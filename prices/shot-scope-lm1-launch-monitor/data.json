@@ -6,16 +6,14 @@
  "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 189.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 199.0,
+   "from": 189.0,
    "options": 1
   },
   {
@@ -38,8 +36,8 @@
   "daysTracked": 87,
   "low": 189.0,
   "high": 199.0,
-  "average": 198.2,
-  "priceChanges": 2,
+  "average": 198.08,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -55,13 +53,13 @@
    ],
    [
     "2026-11-10",
-    199.0
+    189.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £10.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/shot-scope-lm1-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

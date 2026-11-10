@@ -9,6 +9,7 @@
  "lowestNewPrice": 799.0,
  "lowestAt": [
   "Affordable Golf",
+  "Clarkes Golf",
   "Clickgolf",
   "Major Golf Direct",
   "Scottsdale Golf"
@@ -16,6 +17,11 @@
  "retailers": [
   {
    "name": "Affordable Golf",
+   "from": 799.0,
+   "options": 2
+  },
+  {
+   "name": "Clarkes Golf",
    "from": 799.0,
    "options": 2
   },
@@ -32,11 +38,6 @@
   {
    "name": "Scottsdale Golf",
    "from": 799.0,
-   "options": 1
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 849.0,
    "options": 1
   }
  ],

@@ -6,21 +6,20 @@
  "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 599.0,
+ "lowestNewPrice": 529.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
+   "name": "Clarkes Golf",
+   "from": 529.0,
+   "options": 8
+  },
+  {
    "name": "Affordable Golf",
    "from": 599.0,
    "options": 15
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 599.0,
-   "options": 8
   },
   {
    "name": "Scottsdale Golf",
@@ -30,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 68,
-  "low": 599.0,
+  "low": 529.0,
   "high": 629.0,
-  "average": 620.18,
-  "priceChanges": 1,
+  "average": 619.15,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -45,15 +44,15 @@
    ],
    [
     "2026-11-10",
-    599.0
+    529.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 20 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/taylormade_stealth_irons_10.jpg?v=1777973250",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/TaylorMade_Stealth_Golf_Irons_Steel_93.jpg?v=1674573080",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-10"
 }

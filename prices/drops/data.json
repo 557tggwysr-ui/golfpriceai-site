@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-10T14:28+00:00",
+ "checked": "2026-11-10T22:55+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -12,6 +12,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/mileseey-golf-genepro-g1-touchscreen-rangefinder/"
+  },
+  {
+   "model": "Mizuno Pro Fli-Hi Utility Irons",
+   "model_id": "mizuno-pro-fli-hi-utility-irons",
+   "date": "2026-11-10",
+   "was": 169.0,
+   "now": 139.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-fli-hi-utility-irons/"
   },
   {
    "model": "Blue Tees Rainmaker Portable Launch Monitor",
@@ -64,6 +74,16 @@
    "url": "https://golfpriceai.com/prices/callaway-quantum-max-driver/"
   },
   {
+   "model": "Bushnell ION Elite GPS Watch",
+   "model_id": "bushnell-ion-elite-gps-watch",
+   "date": "2026-11-10",
+   "was": 159.0,
+   "now": 139.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-ion-elite-gps-watch/"
+  },
+  {
    "model": "Callaway Quantum Max Hybrid",
    "model_id": "callaway-quantum-max-hybrid",
    "date": "2026-11-10",
@@ -84,6 +104,16 @@
    "url": "https://golfpriceai.com/prices/callaway-quantum-max-os-hybrid/"
   },
   {
+   "model": "TaylorMade Stealth Irons",
+   "model_id": "taylormade-stealth-irons",
+   "date": "2026-11-10",
+   "was": 599.0,
+   "now": 529.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-stealth-irons/"
+  },
+  {
    "model": "TaylorMade Qi35 Driver",
    "model_id": "taylormade-qi35-driver",
    "date": "2026-11-10",
@@ -92,6 +122,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/taylormade-qi35-driver/"
+  },
+  {
+   "model": "Shot Scope LM1 Launch Monitor",
+   "model_id": "shot-scope-lm1-launch-monitor",
+   "date": "2026-11-10",
+   "was": 199.0,
+   "now": 189.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/shot-scope-lm1-launch-monitor/"
   },
   {
    "model": "Odyssey Square to Square Tri-Hot Putter",

@@ -6,20 +6,15 @@
  "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.0,
+ "lowestNewPrice": 139.0,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 169.0,
+   "from": 139.0,
    "options": 5
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 179.0,
-   "options": 1
   },
   {
    "name": "Scottsdale Golf",
@@ -39,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 87,
-  "low": 169.0,
+  "low": 139.0,
   "high": 249.0,
-  "average": 225.09,
-  "priceChanges": 2,
+  "average": 224.75,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -58,7 +53,7 @@
    ],
    [
     "2026-11-10",
-    169.0
+    139.0
    ]
   ]
  },
@@ -66,7 +61,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MizunoGolfProFli-HiUtilityIron2026_2.jpg?v=1764597480",
+ "image": "https://www.scottsdalegolf.co.uk/uploads/mizuno-flihi-1.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-10"
 }
