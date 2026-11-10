@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-par-3-hd-waterproof-pencil-bag-golf-bag/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 139.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 86,
+  "daysTracked": 87,
   "low": 134.0,
   "high": 149.0,
-  "average": 145.41,
+  "average": 145.34,
   "priceChanges": 14,
   "series": [
    [
@@ -88,6 +88,10 @@
    [
     "2026-11-09",
     139.95
+   ],
+   [
+    "2026-11-10",
+    139.95
    ]
   ]
  },
@@ -97,5 +101,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayPar3HDWaterproofPencilBag4.jpg?v=1776305942",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

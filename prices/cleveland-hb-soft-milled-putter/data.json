@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/cleveland-hb-soft-milled-putter/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.95,
@@ -14,14 +14,14 @@
   {
    "name": "Affordable Golf",
    "from": 159.95,
-   "options": 31
+   "options": 33
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 159.95,
   "high": 179.95,
-  "average": 164.13,
+  "average": 164.07,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     159.95
    ],
    [
-    "2026-11-09",
+    "2026-11-10",
     159.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 53 days"
+  "summary": "Typical price: steady for 54 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/hb_soft_milled_22_-_11s_2.jpg?v=1777981176",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

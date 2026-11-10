@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/srixon-zxi-rkt-ls-driver/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 529.0,
@@ -30,10 +30,10 @@
   }
  ],
  "history": {
-  "daysTracked": 53,
+  "daysTracked": 54,
   "low": 529.0,
   "high": 569.0,
-  "average": 540.32,
+  "average": 540.11,
   "priceChanges": 1,
   "series": [
    [
@@ -45,16 +45,16 @@
     529.0
    ],
    [
-    "2026-11-09",
+    "2026-11-10",
     529.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 38 days"
+  "summary": "Typical price: steady for 39 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfZXiRKTLSDriver_5.jpg?v=1788421414",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-br-d2-stand-bag-golf-bag/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 47,
+  "daysTracked": 48,
   "low": 159.0,
   "high": 179.0,
-  "average": 171.34,
+  "average": 171.08,
   "priceChanges": 2,
   "series": [
    [
@@ -40,6 +40,10 @@
    [
     "2026-11-09",
     159.0
+   ],
+   [
+    "2026-11-10",
+    159.0
    ]
   ]
  },
@@ -49,5 +53,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MizunoBR-D2GolfStandBag2026-GreyYellow_2.jpg?v=1787825665",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

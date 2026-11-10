@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-br-dri-waterproof-cart-bag-golf-bag/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 184.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 86,
+  "daysTracked": 87,
   "low": 174.0,
   "high": 184.0,
-  "average": 182.08,
+  "average": 182.1,
   "priceChanges": 21,
   "series": [
    [
@@ -121,6 +121,10 @@
    [
     "2026-11-09",
     184.0
+   ],
+   [
+    "2026-11-10",
+    184.0
    ]
   ]
  },
@@ -130,5 +134,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-BR-DRI-Waterproof-Golf-Cart-Bag---Navy-Blue.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

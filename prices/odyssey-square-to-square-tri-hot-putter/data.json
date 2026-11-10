@@ -3,42 +3,42 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-square-to-square-tri-hot-putter/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 449.0,
+ "lowestNewPrice": 429.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 449.0,
+   "from": 429.0,
    "options": 14
   }
  ],
  "history": {
-  "daysTracked": 67,
-  "low": 449.0,
+  "daysTracked": 68,
+  "low": 429.0,
   "high": 449.0,
-  "average": 449.0,
-  "priceChanges": 0,
+  "average": 448.71,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     449.0
    ],
    [
-    "2026-11-09",
-    449.0
+    "2026-11-10",
+    429.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 67 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/7Black1.jpg?v=1782228208",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

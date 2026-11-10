@@ -1,8 +1,108 @@
 {
- "checked": "2026-11-09T15:24+00:00",
+ "checked": "2026-11-10T01:16+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Mileseey Golf GenePro G1 Touchscreen Rangefinder",
+   "model_id": "mileseey-golf-genepro-g1-touchscreen-rangefinder",
+   "date": "2026-11-10",
+   "was": 499.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mileseey-golf-genepro-g1-touchscreen-rangefinder/"
+  },
+  {
+   "model": "Blue Tees Rainmaker Portable Launch Monitor",
+   "model_id": "blue-tees-rainmaker-portable-launch-monitor",
+   "date": "2026-11-10",
+   "was": 599.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/blue-tees-rainmaker-portable-launch-monitor/"
+  },
+  {
+   "model": "Blue Tees Captain Pro Connected Laser Rangefinder",
+   "model_id": "blue-tees-captain-pro-connected-laser-rangefinder",
+   "date": "2026-11-10",
+   "was": 299.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/blue-tees-captain-pro-connected-laser-rangefinder/"
+  },
+  {
+   "model": "Callaway Quantum Max Fairway Wood",
+   "model_id": "callaway-quantum-max-fairway-wood",
+   "date": "2026-11-10",
+   "was": 269.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-fairway-wood/"
+  },
+  {
+   "model": "Callaway Quantum Max D Driver",
+   "model_id": "callaway-quantum-max-d-driver",
+   "date": "2026-11-10",
+   "was": 465.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-d-driver/"
+  },
+  {
+   "model": "Callaway Quantum Max Driver",
+   "model_id": "callaway-quantum-max-driver",
+   "date": "2026-11-10",
+   "was": 465.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-driver/"
+  },
+  {
+   "model": "Callaway Quantum Max Hybrid",
+   "model_id": "callaway-quantum-max-hybrid",
+   "date": "2026-11-10",
+   "was": 229.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-hybrid/"
+  },
+  {
+   "model": "Callaway Quantum Max OS Hybrid",
+   "model_id": "callaway-quantum-max-os-hybrid",
+   "date": "2026-11-10",
+   "was": 229.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-max-os-hybrid/"
+  },
+  {
+   "model": "TaylorMade Qi35 Driver",
+   "model_id": "taylormade-qi35-driver",
+   "date": "2026-11-10",
+   "was": 349.0,
+   "now": 329.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-qi35-driver/"
+  },
+  {
+   "model": "Odyssey Square to Square Tri-Hot Putter",
+   "model_id": "odyssey-square-to-square-tri-hot-putter",
+   "date": "2026-11-10",
+   "was": 449.0,
+   "now": 429.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-square-to-square-tri-hot-putter/"
+  },
   {
    "model": "Nike Air Max Lite Stand Bag Golf Bag",
    "model_id": "nike-air-max-lite-stand-bag-golf-bag",
@@ -554,16 +654,6 @@
    "url": "https://golfpriceai.com/prices/callaway-quantum-max-d-fairway-wood/"
   },
   {
-   "model": "Callaway Quantum Max Fairway Wood",
-   "model_id": "callaway-quantum-max-fairway-wood",
-   "date": "2026-11-04",
-   "was": 319.0,
-   "now": 269.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-fairway-wood/"
-  },
-  {
    "model": "Sun Mountain Eclipse E3.5 H2NO Waterproof Stand Bag Golf Bag",
    "model_id": "sun-mountain-eclipse-e3-5-h2no-waterproof-stand-bag-golf-bag",
    "date": "2026-11-04",
@@ -614,26 +704,6 @@
    "url": "https://golfpriceai.com/prices/callaway-quantum-max-fast-hybrid/"
   },
   {
-   "model": "Callaway Quantum Max Hybrid",
-   "model_id": "callaway-quantum-max-hybrid",
-   "date": "2026-11-04",
-   "was": 269.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-hybrid/"
-  },
-  {
-   "model": "Callaway Quantum Max OS Hybrid",
-   "model_id": "callaway-quantum-max-os-hybrid",
-   "date": "2026-11-04",
-   "was": 269.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-os-hybrid/"
-  },
-  {
    "model": "Callaway Quantum Ti Fairway Wood",
    "model_id": "callaway-quantum-ti-fairway-wood",
    "date": "2026-11-04",
@@ -652,26 +722,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-optm-ls-fairway-wood/"
-  },
-  {
-   "model": "Callaway Quantum Max D Driver",
-   "model_id": "callaway-quantum-max-d-driver",
-   "date": "2026-11-04",
-   "was": 529.0,
-   "now": 465.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-d-driver/"
-  },
-  {
-   "model": "Callaway Quantum Max Driver",
-   "model_id": "callaway-quantum-max-driver",
-   "date": "2026-11-04",
-   "was": 529.0,
-   "now": 465.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-driver/"
   },
   {
    "model": "Cobra DS-Adapt Hybrid",
@@ -962,146 +1012,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/garmin-approach-r10-portable-launch-monitor/"
-  },
-  {
-   "model": "Srixon Tour Staff Golf Bag",
-   "model_id": "srixon-tour-staff-golf-bag",
-   "date": "2026-11-02",
-   "was": 349.0,
-   "now": 279.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/srixon-tour-staff-golf-bag/"
-  },
-  {
-   "model": "Shot Scope Pro L5 Laser Rangefinder",
-   "model_id": "shot-scope-pro-l5-laser-rangefinder",
-   "date": "2026-11-02",
-   "was": 219.0,
-   "now": 179.99,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/shot-scope-pro-l5-laser-rangefinder/"
-  },
-  {
-   "model": "Shot Scope V5 Performance Tracking GPS Watch",
-   "model_id": "shot-scope-v5-performance-tracking-gps-watch",
-   "date": "2026-11-02",
-   "was": 239.99,
-   "now": 199.99,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/shot-scope-v5-performance-tracking-gps-watch/"
-  },
-  {
-   "model": "Ping Scottsdale Putter",
-   "model_id": "ping-scottsdale-putter",
-   "date": "2026-11-02",
-   "was": 229.0,
-   "now": 189.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ping-scottsdale-putter/"
-  },
-  {
-   "model": "Shot Scope G6 GPS Watch",
-   "model_id": "shot-scope-g6-gps-watch",
-   "date": "2026-11-02",
-   "was": 179.0,
-   "now": 149.99,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/shot-scope-g6-gps-watch/"
-  },
-  {
-   "model": "Wilson Profile Ages 11-14 Junior Golf Set",
-   "model_id": "wilson-profile-ages-11-14-junior-golf-set",
-   "date": "2026-11-02",
-   "was": 249.0,
-   "now": 211.65,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-profile-ages-11-14-junior-golf-set/"
-  },
-  {
-   "model": "Shot Scope Pro L2 Laser Rangefinder",
-   "model_id": "shot-scope-pro-l2-laser-rangefinder",
-   "date": "2026-11-02",
-   "was": 149.0,
-   "now": 129.99,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/shot-scope-pro-l2-laser-rangefinder/"
-  },
-  {
-   "model": "Wilson X-31 Advantage Package Set",
-   "model_id": "wilson-x-31-advantage-package-set",
-   "date": "2026-11-02",
-   "was": 339.0,
-   "now": 296.65,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-x-31-advantage-package-set/"
-  },
-  {
-   "model": "Scotty Cameron Studio Style Fastback OC Putter",
-   "model_id": "scotty-cameron-studio-style-fastback-oc-putter",
-   "date": "2026-11-02",
-   "was": 499.0,
-   "now": 449.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/scotty-cameron-studio-style-fastback-oc-putter/"
-  },
-  {
-   "model": "Bushnell Pro X3+ Laser Rangefinder",
-   "model_id": "bushnell-pro-x3-plus-laser-rangefinder",
-   "date": "2026-11-02",
-   "was": 529.0,
-   "now": 479.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/bushnell-pro-x3-plus-laser-rangefinder/"
-  },
-  {
-   "model": "Cobra Ultralight 2 Pro Stand Bag Golf Bag",
-   "model_id": "cobra-ultralight-2-pro-stand-bag-golf-bag",
-   "date": "2026-11-02",
-   "was": 139.0,
-   "now": 126.65,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-ultralight-2-pro-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Bushnell A1 Slope Laser Rangefinder",
-   "model_id": "bushnell-a1-slope-laser-rangefinder",
-   "date": "2026-11-02",
-   "was": 269.0,
-   "now": 249.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/"
-  },
-  {
-   "model": "Titleist LINKSLEGEND Members Stand Bag Golf Bag",
-   "model_id": "titleist-linkslegend-members-stand-bag-golf-bag",
-   "date": "2026-11-02",
-   "was": 319.0,
-   "now": 297.5,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/titleist-linkslegend-members-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Bushnell Tour V7 Shift Laser Rangefinder",
-   "model_id": "bushnell-tour-v7-shift-laser-rangefinder",
-   "date": "2026-11-02",
-   "was": 399.0,
-   "now": 379.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/bushnell-tour-v7-shift-laser-rangefinder/"
   }
  ]
 }

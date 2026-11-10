@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-11-09",
+ "lastUpdated": "2026-11-10",
  "uncertainGroupings": [
   {
    "model": "Titleist vokey sm11",
@@ -17,9 +17,9 @@
    "listings": 1
   },
   {
-   "model": "Cobra KING Wedge",
+   "model": "Cobra King Wedge",
    "issue": "price spread \u00a3119.00 to \u00a3387.00: may mix different products",
-   "listings": 38
+   "listings": 40
   },
   {
    "model": "TaylorMade milled grind 5",
@@ -119,7 +119,7 @@
   {
    "model": "Cobra KING X Wedge",
    "issue": "price spread \u00a3129.00 to \u00a3387.00: may mix different products",
-   "listings": 15
+   "listings": 16
   },
   {
    "model": "Ben Sayers Electric Trolley",
@@ -2064,6 +2064,16 @@
    "to": "putter"
   },
   {
+   "name": "Odyssey DFX Putter - One CH Right Hand / 34\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - One CH Right Hand / 35\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
    "name": "Odyssey DFX Putter - One CH Right Hand / 33\" / Mid Pistol Grip",
    "from": "accessories",
    "to": "putter"
@@ -2145,6 +2155,11 @@
   },
   {
    "name": "Odyssey DFX Putter - V-Line Fang DB Right Hand / 35\" / Oversize Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey DFX Putter - V-Line Fang DB Right Hand / 33\" / Mid Pistol Grip",
    "from": "accessories",
    "to": "putter"
   },
@@ -2635,6 +2650,21 @@
   },
   {
    "name": "Evnroll ER11vx6 Inline Short Slant High MOI Mallet Putter Right Hand / 35\" / TourTac Grip - Black",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Jailbird Mini DB Right Hand / 34\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Odyssey Damascus Milled Putter - Jailbird Mini DB Right Hand / 35\" / Tour Pistol Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Yes! C-Groove Sara-12 Mens Right Hand Putter 35\" Mallet - Super Stroke",
    "from": "accessories",
    "to": "putter"
   }

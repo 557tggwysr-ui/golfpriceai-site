@@ -3,15 +3,19 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-quantum-max-fairway-wood/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 269.0,
+ "lowestNewPrice": 229.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 229.0,
+   "options": 8
+  },
   {
    "name": "Clarkes Golf",
    "from": 269.0,
@@ -28,22 +32,17 @@
    "options": 2
   },
   {
-   "name": "Major Golf Direct",
-   "from": 319.0,
-   "options": 8
-  },
-  {
    "name": "Callaway Golf",
    "from": 359.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 86,
-  "low": 269.0,
+  "daysTracked": 87,
+  "low": 229.0,
   "high": 319.0,
-  "average": 315.51,
-  "priceChanges": 1,
+  "average": 314.52,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -54,8 +53,8 @@
     269.0
    ],
    [
-    "2026-11-09",
-    269.0
+    "2026-11-10",
+    229.0
    ]
   ]
  },
@@ -63,7 +62,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-fairway-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfQuantumMaxFairwayWood_5.jpg?v=1768380177",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

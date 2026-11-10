@@ -3,37 +3,36 @@
  "brand": "TaylorMade",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/taylormade-qi35-driver/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 349.0,
+ "lowestNewPrice": 329.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 329.0,
+   "options": 5
+  },
   {
    "name": "Affordable Golf",
    "from": 349.0,
    "options": 11
   },
   {
-   "name": "Clarkes Golf",
-   "from": 349.0,
-   "options": 5
-  },
-  {
    "name": "Clickgolf",
-   "from": 389.0,
+   "from": 349.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 86,
-  "low": 349.0,
+  "daysTracked": 87,
+  "low": 329.0,
   "high": 389.0,
-  "average": 362.95,
-  "priceChanges": 1,
+  "average": 362.56,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -44,16 +43,16 @@
     349.0
    ],
    [
-    "2026-11-09",
-    349.0
+    "2026-11-10",
+    329.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 56 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeQi35Driver-LS3.jpg?v=1776305300",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-Qi35-Golf-Driver-1.jpg?v=1735877108",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

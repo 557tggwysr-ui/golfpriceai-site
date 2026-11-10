@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-feather-cart-bag-golf-bag/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.0,
@@ -25,14 +25,14 @@
   {
    "name": "Affordable Golf",
    "from": 129.95,
-   "options": 3
+   "options": 4
   }
  ],
  "history": {
-  "daysTracked": 74,
+  "daysTracked": 75,
   "low": 109.0,
   "high": 129.0,
-  "average": 121.7,
+  "average": 121.8,
   "priceChanges": 17,
   "series": [
    [
@@ -106,6 +106,10 @@
    [
     "2026-11-09",
     129.0
+   ],
+   [
+    "2026-11-10",
+    129.0
    ]
   ]
  },
@@ -115,5 +119,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/wilson-feather-golf-cart-bag-black-grey-reverse-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g440-driver/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 479.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 67,
+  "daysTracked": 68,
   "low": 479.0,
   "high": 529.0,
-  "average": 526.01,
+  "average": 525.32,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     479.0
    ],
    [
-    "2026-11-09",
+    "2026-11-10",
     479.0
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PingG440Driver-MAX2.jpg?v=1776300851",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

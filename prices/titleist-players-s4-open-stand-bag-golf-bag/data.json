@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/titleist-players-s4-open-stand-bag-golf-bag/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 169.0,
   "high": 189.0,
-  "average": 177.24,
+  "average": 177.12,
   "priceChanges": 7,
   "series": [
    [
@@ -57,16 +57,16 @@
     169.0
    ],
    [
-    "2026-11-09",
+    "2026-11-10",
     169.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 32 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX4-BRT414-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

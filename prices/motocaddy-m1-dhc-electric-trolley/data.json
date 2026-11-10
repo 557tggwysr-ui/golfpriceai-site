@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-m1-dhc-electric-trolley/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 779.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 86,
+  "daysTracked": 87,
   "low": 749.0,
   "high": 799.0,
-  "average": 774.12,
+  "average": 774.17,
   "priceChanges": 17,
   "series": [
    [
@@ -106,6 +106,10 @@
    [
     "2026-11-09",
     779.0
+   ],
+   [
+    "2026-11-10",
+    779.0
    ]
   ]
  },
@@ -115,5 +119,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26M1XDMS-M1-DHC-2026-Electric-Trolley-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

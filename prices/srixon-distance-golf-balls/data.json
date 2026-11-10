@@ -3,14 +3,19 @@
  "brand": "Srixon",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/srixon-distance-golf-balls/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 14.5,
+ "lowestNewPrice": 13.99,
  "lowestAt": [
-  "Major Golf Direct"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 13.99,
+   "options": 1
+  },
   {
    "name": "Major Golf Direct",
    "from": 14.5,
@@ -22,22 +27,17 @@
    "options": 2
   },
   {
-   "name": "Affordable Golf",
-   "from": 14.99,
-   "options": 1
-  },
-  {
    "name": "Clickgolf",
    "from": 28.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 86,
-  "low": 14.5,
+  "daysTracked": 87,
+  "low": 13.99,
   "high": 28.0,
-  "average": 16.38,
-  "priceChanges": 1,
+  "average": 16.36,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -48,16 +48,16 @@
     14.5
    ],
    [
-    "2026-11-09",
-    14.5
+    "2026-11-10",
+    13.99
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 74 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/Distance2021Main1000.jpg?v=1639495235",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/srixon_distance_golf_balls_-_white_-_12_pack_7.jpg?v=1777976285",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-09",
+ "date": "2026-11-10",
  "status": "live",
  "week": {
-  "from": "2026-11-03",
-  "to": "2026-11-09"
+  "from": "2026-11-04",
+  "to": "2026-11-10"
  },
  "chart": [
   {
@@ -136,18 +136,18 @@
  "categoryShare": [
   {
    "category": "Irons & wedges",
-   "pct": 35
+   "pct": 36
   },
   {
-   "category": "Tech",
-   "pct": 24
+   "category": "Balls",
+   "pct": 22
   },
   {
    "category": "Drivers & woods",
    "pct": 22
   },
   {
-   "category": "Balls",
+   "category": "Tech",
    "pct": 20
   }
  ],

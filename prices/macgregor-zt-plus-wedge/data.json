@@ -3,15 +3,19 @@
  "brand": "MacGregor",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/macgregor-zt-plus-wedge/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 44.95,
+ "lowestNewPrice": 39.99,
  "lowestAt": [
-  "Clarkes Golf",
-  "Major Golf Direct"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 39.99,
+   "options": 4
+  },
   {
    "name": "Clarkes Golf",
    "from": 44.95,
@@ -21,35 +25,30 @@
    "name": "Major Golf Direct",
    "from": 44.95,
    "options": 1
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 44.99,
-   "options": 4
   }
  ],
  "history": {
-  "daysTracked": 74,
-  "low": 44.95,
+  "daysTracked": 75,
+  "low": 39.99,
   "high": 44.95,
-  "average": 44.95,
-  "priceChanges": 0,
+  "average": 44.88,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
     44.95
    ],
    [
-    "2026-11-09",
-    44.95
+    "2026-11-10",
+    39.99
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 74 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MacGregorGolfZTPlusBlackWedge2026_3.jpg?v=1772011462",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MacGregorZTPlusBlackWedge3.jpg?v=1780535108",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

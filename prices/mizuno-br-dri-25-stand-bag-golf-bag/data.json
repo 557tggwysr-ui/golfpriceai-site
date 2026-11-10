@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-br-dri-25-stand-bag-golf-bag/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 74,
+  "daysTracked": 75,
   "low": 179.0,
   "high": 189.0,
-  "average": 188.86,
+  "average": 188.73,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-09",
+    179.0
+   ],
+   [
+    "2026-11-10",
     179.0
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/BR-DISTBLK2.jpg?v=1725371650",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/wilson-player-fit-ladies-package-set/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 599.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 86,
+  "daysTracked": 87,
   "low": 595.0,
   "high": 599.0,
-  "average": 595.56,
+  "average": 595.55,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     595.0
    ],
    [
-    "2026-11-09",
+    "2026-11-10",
     595.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 74 days"
+  "summary": "Typical price: steady for 75 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Player-Fit-Ladies-Package-Golf-Club-Set-6.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }

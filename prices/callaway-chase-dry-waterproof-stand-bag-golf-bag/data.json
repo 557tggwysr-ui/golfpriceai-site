@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-chase-dry-waterproof-stand-bag-golf-bag/",
- "checked": "2026-11-09",
+ "checked": "2026-11-10",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 86,
+  "daysTracked": 87,
   "low": 134.0,
   "high": 149.0,
-  "average": 144.29,
+  "average": 144.34,
   "priceChanges": 18,
   "series": [
    [
@@ -109,6 +109,10 @@
    [
     "2026-11-09",
     149.0
+   ],
+   [
+    "2026-11-10",
+    149.0
    ]
   ]
  },
@@ -118,5 +122,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Chase-Dry-Waterproof-Golf-Stand-Bag---Red.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-09"
+ "changed": "2026-11-10"
 }
