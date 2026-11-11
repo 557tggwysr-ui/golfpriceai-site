@@ -3,26 +3,26 @@
  "brand": "Callaway",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/callaway-quantum-hybrid/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 229.0,
+ "lowestNewPrice": 199.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 229.0,
+   "from": 199.95,
    "options": 15
   }
  ],
  "history": {
-  "daysTracked": 68,
-  "low": 229.0,
+  "daysTracked": 69,
+  "low": 199.95,
   "high": 269.0,
-  "average": 266.06,
-  "priceChanges": 1,
+  "average": 265.1,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -33,8 +33,8 @@
     229.0
    ],
    [
-    "2026-11-10",
-    229.0
+    "2026-11-11",
+    199.95
    ]
   ]
  },
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/QuantumHybrid-Max2.jpg?v=1773174962",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }

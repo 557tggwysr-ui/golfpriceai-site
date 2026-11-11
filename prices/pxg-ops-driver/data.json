@@ -3,7 +3,7 @@
  "brand": "PXG",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/pxg-ops-driver/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 379.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 379.0,
   "high": 379.0,
   "average": 379.0,
@@ -29,16 +29,16 @@
     379.0
    ],
    [
-    "2026-11-10",
+    "2026-11-11",
     379.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 68 days"
+  "summary": "Typical price: steady for 69 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BlackOpsDriver5.jpg?v=1783150008",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }

@@ -3,15 +3,21 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-quantum-max-d-driver/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.0,
  "lowestAt": [
+  "Affordable Golf",
   "Clarkes Golf",
   "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 399.0,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 399.0,
@@ -28,21 +34,16 @@
    "options": 1
   },
   {
-   "name": "Affordable Golf",
-   "from": 529.0,
-   "options": 1
-  },
-  {
    "name": "Callaway Golf",
    "from": 599.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 87,
+  "daysTracked": 88,
   "low": 399.0,
   "high": 529.0,
-  "average": 523.09,
+  "average": 521.68,
   "priceChanges": 2,
   "series": [
    [
@@ -56,6 +57,10 @@
    [
     "2026-11-10",
     399.0
+   ],
+   [
+    "2026-11-11",
+    399.0
    ]
   ]
  },
@@ -65,5 +70,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfQuantumMaxDDriver_5.jpg?v=1768379460",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }

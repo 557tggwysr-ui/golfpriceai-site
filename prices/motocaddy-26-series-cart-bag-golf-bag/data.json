@@ -3,42 +3,42 @@
  "brand": "Motocaddy",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/motocaddy-26-series-cart-bag-golf-bag/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.95,
+ "lowestNewPrice": 129.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 149.95,
+   "from": 129.95,
    "options": 3
   }
  ],
  "history": {
-  "daysTracked": 68,
-  "low": 149.95,
+  "daysTracked": 69,
+  "low": 129.95,
   "high": 149.95,
-  "average": 149.95,
-  "priceChanges": 0,
+  "average": 149.66,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     149.95
    ],
    [
-    "2026-11-10",
-    149.95
+    "2026-11-11",
+    129.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 68 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ClubSeriesBlue1.jpg?v=1773181008",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }

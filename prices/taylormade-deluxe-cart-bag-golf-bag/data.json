@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-deluxe-cart-bag-golf-bag/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 189.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 87,
+  "daysTracked": 88,
   "low": 189.0,
   "high": 234.99,
-  "average": 195.34,
+  "average": 195.27,
   "priceChanges": 1,
   "series": [
    [
@@ -53,16 +53,16 @@
     189.0
    ],
    [
-    "2026-11-10",
+    "2026-11-11",
     189.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 75 days"
+  "summary": "Typical price: steady for 76 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TMDELUXE4.jpg?v=1721124694",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }

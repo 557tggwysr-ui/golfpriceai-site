@@ -3,7 +3,7 @@
  "brand": "True Temper",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/true-temper-light-driver/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 44.99,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 44.99,
   "high": 54.99,
-  "average": 52.05,
+  "average": 51.95,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     44.99
    ],
    [
-    "2026-11-10",
+    "2026-11-11",
     44.99
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CA3501D12.jpg?v=1777951353",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }

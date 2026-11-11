@@ -3,26 +3,26 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-quantum-fairway-wood/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 269.0,
+ "lowestNewPrice": 229.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 269.0,
-   "options": 36
+   "from": 229.0,
+   "options": 38
   }
  ],
  "history": {
-  "daysTracked": 68,
-  "low": 269.0,
+  "daysTracked": 69,
+  "low": 229.0,
   "high": 319.0,
-  "average": 315.32,
-  "priceChanges": 1,
+  "average": 314.07,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -33,8 +33,8 @@
     269.0
    ],
    [
-    "2026-11-10",
-    269.0
+    "2026-11-11",
+    229.0
    ]
   ]
  },
@@ -42,7 +42,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Quantum_Fairway_Wood_-_TD_HERO.jpg?v=1773174965",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/QuantumFairwayWood-Max4.jpg?v=1772714351",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }

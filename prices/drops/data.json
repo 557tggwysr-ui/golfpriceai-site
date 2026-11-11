@@ -1,8 +1,78 @@
 {
- "checked": "2026-11-10T22:55+00:00",
+ "checked": "2026-11-11T04:58+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Callaway Quantum Fairway Wood",
+   "model_id": "callaway-quantum-fairway-wood",
+   "date": "2026-11-11",
+   "was": 269.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-fairway-wood/"
+  },
+  {
+   "model": "Callaway Quantum Driver",
+   "model_id": "callaway-quantum-driver",
+   "date": "2026-11-11",
+   "was": 465.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-driver/"
+  },
+  {
+   "model": "Motocaddy 26 Series Cart Bag Golf Bag",
+   "model_id": "motocaddy-26-series-cart-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 149.95,
+   "now": 129.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-26-series-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Callaway Quantum Hybrid",
+   "model_id": "callaway-quantum-hybrid",
+   "date": "2026-11-11",
+   "was": 229.0,
+   "now": 199.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-hybrid/"
+  },
+  {
+   "model": "Motocaddy 26 M-Tech Cart Bag Golf Bag",
+   "model_id": "motocaddy-26-m-tech-cart-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 279.0,
+   "now": 259.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-26-m-tech-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Motocaddy EliteFLEX Hybrid Stand Bag Golf Bag",
+   "model_id": "motocaddy-eliteflex-hybrid-stand-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 209.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-eliteflex-hybrid-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Motocaddy 26 Dry Series Waterproof Cart Bag Golf Bag",
+   "model_id": "motocaddy-26-dry-series-waterproof-cart-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 229.0,
+   "now": 219.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-26-dry-series-waterproof-cart-bag-golf-bag/"
+  },
   {
    "model": "Mileseey Golf GenePro G1 Touchscreen Rangefinder",
    "model_id": "mileseey-golf-genepro-g1-touchscreen-rangefinder",
@@ -404,16 +474,6 @@
    "url": "https://golfpriceai.com/prices/cobra-optm-fairway-wood/"
   },
   {
-   "model": "Callaway Quantum Fairway Wood",
-   "model_id": "callaway-quantum-fairway-wood",
-   "date": "2026-11-06",
-   "was": 319.0,
-   "now": 269.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-fairway-wood/"
-  },
-  {
    "model": "Garmin Approach S12 GPS Watch",
    "model_id": "garmin-approach-s12-gps-watch",
    "date": "2026-11-06",
@@ -422,16 +482,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/garmin-approach-s12-gps-watch/"
-  },
-  {
-   "model": "Callaway Quantum Hybrid",
-   "model_id": "callaway-quantum-hybrid",
-   "date": "2026-11-06",
-   "was": 269.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-hybrid/"
   },
   {
    "model": "Ogio All Elements Silencer Cart Bag Golf Bag",
@@ -462,16 +512,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/motocaddy-dry-series-waterproof-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Callaway Quantum Driver",
-   "model_id": "callaway-quantum-driver",
-   "date": "2026-11-06",
-   "was": 529.0,
-   "now": 465.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-driver/"
   },
   {
    "model": "Wilson Talus 14 Way Stand Bag Golf Bag",
@@ -852,206 +892,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/powakaddy-ct12-electric-trolley/"
-  },
-  {
-   "model": "Shot Scope Pro L5 Rangefinder",
-   "model_id": "shot-scope-pro-l5-rangefinder",
-   "date": "2026-11-03",
-   "was": 219.0,
-   "now": 179.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/shot-scope-pro-l5-rangefinder/"
-  },
-  {
-   "model": "Shot Scope V5 GPS Watch",
-   "model_id": "shot-scope-v5-gps-watch",
-   "date": "2026-11-03",
-   "was": 239.0,
-   "now": 199.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/shot-scope-v5-gps-watch/"
-  },
-  {
-   "model": "Cobra OPTM LS Driver",
-   "model_id": "cobra-optm-ls-driver",
-   "date": "2026-11-03",
-   "was": 479.0,
-   "now": 399.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-optm-ls-driver/"
-  },
-  {
-   "model": "Cobra OPTM MAX-K Driver",
-   "model_id": "cobra-optm-max-k-driver",
-   "date": "2026-11-03",
-   "was": 479.0,
-   "now": 399.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-optm-max-k-driver/"
-  },
-  {
-   "model": "Cobra OPTM Max Fairway Wood",
-   "model_id": "cobra-optm-max-fairway-wood",
-   "date": "2026-11-03",
-   "was": 299.0,
-   "now": 249.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-optm-max-fairway-wood/"
-  },
-  {
-   "model": "Callaway Elyte Driver",
-   "model_id": "callaway-elyte-driver",
-   "date": "2026-11-03",
-   "was": 329.0,
-   "now": 279.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-elyte-driver/"
-  },
-  {
-   "model": "Callaway Elyte X Driver",
-   "model_id": "callaway-elyte-x-driver",
-   "date": "2026-11-03",
-   "was": 329.0,
-   "now": 279.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-elyte-x-driver/"
-  },
-  {
-   "model": "Garmin Approach S70 GPS Watch",
-   "model_id": "garmin-approach-s70-gps-watch",
-   "date": "2026-11-03",
-   "was": 499.0,
-   "now": 429.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
-  },
-  {
-   "model": "Garmin Approach S50 GPS Watch",
-   "model_id": "garmin-approach-s50-gps-watch",
-   "date": "2026-11-03",
-   "was": 339.0,
-   "now": 299.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/garmin-approach-s50-gps-watch/"
-  },
-  {
-   "model": "Callaway Elyte Hybrid",
-   "model_id": "callaway-elyte-hybrid",
-   "date": "2026-11-03",
-   "was": 169.0,
-   "now": 149.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-elyte-hybrid/"
-  },
-  {
-   "model": "Cobra RADSPEED-S 2026 Package Set",
-   "model_id": "cobra-radspeed-s-2026-package-set",
-   "date": "2026-11-03",
-   "was": 999.0,
-   "now": 895.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-radspeed-s-2026-package-set/"
-  },
-  {
-   "model": "Cobra DS-Adapt LS Driver",
-   "model_id": "cobra-ds-adapt-ls-driver",
-   "date": "2026-11-03",
-   "was": 329.0,
-   "now": 299.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-ls-driver/"
-  },
-  {
-   "model": "Cobra DS-Adapt Max D Driver",
-   "model_id": "cobra-ds-adapt-max-d-driver",
-   "date": "2026-11-03",
-   "was": 329.0,
-   "now": 299.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-max-d-driver/"
-  },
-  {
-   "model": "Cobra DS-Adapt Max K Driver",
-   "model_id": "cobra-ds-adapt-max-k-driver",
-   "date": "2026-11-03",
-   "was": 329.0,
-   "now": 299.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-max-k-driver/"
-  },
-  {
-   "model": "Garmin Approach S44 GPS Watch",
-   "model_id": "garmin-approach-s44-gps-watch",
-   "date": "2026-11-03",
-   "was": 239.0,
-   "now": 219.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/garmin-approach-s44-gps-watch/"
-  },
-  {
-   "model": "Garmin Approach Z10 Laser Rangefinder",
-   "model_id": "garmin-approach-z10-laser-rangefinder",
-   "date": "2026-11-03",
-   "was": 249.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/garmin-approach-z10-laser-rangefinder/"
-  },
-  {
-   "model": "Shot Scope H50 Performance Tracking Handheld Rangefinder",
-   "model_id": "shot-scope-h50-performance-tracking-handheld-rangefinder",
-   "date": "2026-11-03",
-   "was": 249.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/shot-scope-h50-performance-tracking-handheld-rangefinder/"
-  },
-  {
-   "model": "Mizuno JPX ONE Driver",
-   "model_id": "mizuno-jpx-one-driver",
-   "date": "2026-11-03",
-   "was": 429.0,
-   "now": 399.0,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/mizuno-jpx-one-driver/"
-  },
-  {
-   "model": "Cobra DS-Adapt X Driver",
-   "model_id": "cobra-ds-adapt-x-driver",
-   "date": "2026-11-03",
-   "was": 319.0,
-   "now": 299.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-x-driver/"
-  },
-  {
-   "model": "Garmin Approach R10 Portable Launch Monitor",
-   "model_id": "garmin-approach-r10-portable-launch-monitor",
-   "date": "2026-11-03",
-   "was": 449.0,
-   "now": 429.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/garmin-approach-r10-portable-launch-monitor/"
   }
  ]
 }

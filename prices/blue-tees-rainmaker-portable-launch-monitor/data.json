@@ -3,7 +3,7 @@
  "brand": "Blue Tees",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/blue-tees-rainmaker-portable-launch-monitor/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 499.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 499.0,
   "high": 599.0,
-  "average": 597.53,
+  "average": 596.1,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-10",
+    499.0
+   ],
+   [
+    "2026-11-11",
     499.0
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Rainmaker_PDP_1_1800x1800_53edbe6f-05f3-4ab4-8eb0-e4f2f11aa3a1.jpg?v=1782236556",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }

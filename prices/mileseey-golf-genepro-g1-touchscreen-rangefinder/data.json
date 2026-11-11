@@ -3,7 +3,7 @@
  "brand": "Mileseey Golf",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/mileseey-golf-genepro-g1-touchscreen-rangefinder/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 399.0,
   "high": 499.0,
-  "average": 497.53,
+  "average": 496.1,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-10",
+    399.0
+   ],
+   [
+    "2026-11-11",
     399.0
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MileseeyGolfGeneProG1Touchscreen_GPSRangefinder1.jpg?v=1783355926",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }

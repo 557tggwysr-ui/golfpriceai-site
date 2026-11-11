@@ -3,14 +3,20 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-quantum-max-fairway-wood/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
  "lowestAt": [
+  "Affordable Golf",
   "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 229.0,
+   "options": 2
+  },
   {
    "name": "Major Golf Direct",
    "from": 229.0,
@@ -27,21 +33,16 @@
    "options": 1
   },
   {
-   "name": "Affordable Golf",
-   "from": 319.0,
-   "options": 2
-  },
-  {
    "name": "Callaway Golf",
    "from": 359.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 87,
+  "daysTracked": 88,
   "low": 229.0,
   "high": 319.0,
-  "average": 314.52,
+  "average": 313.55,
   "priceChanges": 2,
   "series": [
    [
@@ -55,6 +56,10 @@
    [
     "2026-11-10",
     229.0
+   ],
+   [
+    "2026-11-11",
+    229.0
    ]
   ]
  },
@@ -64,5 +69,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfQuantumMaxFairwayWood_5.jpg?v=1768380177",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }

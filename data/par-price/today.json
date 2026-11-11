@@ -1,66 +1,66 @@
 {
- "n": 24,
- "date": "2026-11-10",
+ "n": 25,
+ "date": "2026-11-11",
  "items": [
   {
-   "slug": "wilson-infinite-zero-torque-putter",
-   "name": "Wilson Infinite Zero Torque Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WG1P039202_0_Lakeview_Infinite_Putter_Hero2.webp?v=1773047555",
-   "price": 189.0,
+   "slug": "srixon-zxi-fairway-wood",
+   "name": "Srixon ZXi Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXi-Fairway-Hero-Hero-Straight.jpg",
+   "price": 199.0,
    "unit": "each",
-   "type": "putter",
-   "low": true,
-   "url": "/prices/wilson-infinite-zero-torque-putter/"
+   "type": "fairway wood",
+   "low": false,
+   "url": "/prices/srixon-zxi-fairway-wood/"
   },
   {
-   "slug": "taylormade-hi-toe-5-aged-copper-wedge",
-   "name": "TaylorMade Hi-Toe 5 Aged Copper Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Hi-Toe5AgedCopper1.jpg?v=1785170178",
-   "price": 179.0,
+   "slug": "callaway-opus-platinum-chrome-wedge",
+   "name": "Callaway Opus Platinum Chrome Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/p_callaway-opus-platinum-chrome-wedge-2.jpg",
+   "price": 149.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/taylormade-hi-toe-5-aged-copper-wedge/"
+   "url": "/prices/callaway-opus-platinum-chrome-wedge/"
   },
   {
-   "slug": "ping-blueprint-s-irons",
-   "name": "Ping Blueprint S Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-Blueprint-S-Golf-Irons-Steel-2.jpg?v=1704341098",
-   "price": 1129.0,
+   "slug": "cobra-rad-s-hybrid",
+   "name": "Cobra RAD-S Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/RAD-S-Hybrid-Hero.jpg",
+   "price": 149.0,
    "unit": "each",
-   "type": "iron set",
-   "low": false,
-   "url": "/prices/ping-blueprint-s-irons/"
+   "type": "hybrid",
+   "low": true,
+   "url": "/prices/cobra-rad-s-hybrid/"
   },
   {
-   "slug": "big-max-aqua-seven-h-stand-bag-golf-bag",
-   "name": "Big Max Aqua Seven H Stand Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/BigMaxAquaSevenHGolfStandBag2026-Black_1.jpg?v=1762781111",
-   "price": 139.0,
+   "slug": "ogio-all-elements-silencer-cart-bag-golf-bag",
+   "name": "Ogio All Elements Silencer Cart Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ogio-all-elements-silencer-stand-bag-black-1000x1000-4.jpg",
+   "price": 199.0,
    "unit": "each",
    "type": "golf bag",
-   "low": false,
-   "url": "/prices/big-max-aqua-seven-h-stand-bag-golf-bag/"
+   "low": true,
+   "url": "/prices/ogio-all-elements-silencer-cart-bag-golf-bag/"
   },
   {
-   "slug": "titleist-gt1-driver",
-   "name": "Titleist GT1 Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GT1Driver2.jpg?v=1776299759",
-   "price": 419.0,
+   "slug": "macgregor-zt-plus-driver",
+   "name": "MacGregor ZT Plus Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MacGregorZTPlusDriver-Ladies3.jpg?v=1780535125",
+   "price": 129.95,
    "unit": "each",
    "type": "driver",
    "low": true,
-   "url": "/prices/titleist-gt1-driver/"
+   "url": "/prices/macgregor-zt-plus-driver/"
   }
  ],
  "pin": {
-  "slug": "cobra-king-tec-hybrid",
-  "name": "Cobra KING Tec Hybrid",
-  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/cobra_king_tec_hybrid_1.jpg?v=1777972450",
-  "price": 149.95,
+  "slug": "mizuno-pro-fli-hi-utility-irons",
+  "name": "Mizuno Pro Fli-Hi Utility Irons",
+  "image": "https://www.scottsdalegolf.co.uk/uploads/mizuno-flihi-1.png",
+  "price": 139.0,
   "unit": "each",
-  "type": "hybrid",
-  "low": false,
-  "url": "/prices/cobra-king-tec-hybrid/"
+  "type": "iron set",
+  "low": true,
+  "url": "/prices/mizuno-pro-fli-hi-utility-irons/"
  }
 }

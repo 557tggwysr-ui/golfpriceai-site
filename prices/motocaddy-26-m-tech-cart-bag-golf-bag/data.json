@@ -3,26 +3,26 @@
  "brand": "Motocaddy",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/motocaddy-26-m-tech-cart-bag-golf-bag/",
- "checked": "2026-11-10",
+ "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 279.0,
+ "lowestNewPrice": 259.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 279.0,
+   "from": 259.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 68,
+  "daysTracked": 69,
   "low": 259.0,
   "high": 279.0,
-  "average": 276.35,
-  "priceChanges": 2,
+  "average": 276.1,
+  "priceChanges": 3,
   "series": [
    [
     "2026-09-04",
@@ -37,16 +37,16 @@
     279.0
    ],
    [
-    "2026-11-10",
-    279.0
+    "2026-11-11",
+    259.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/M-Tech3.jpg?v=1773180998",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-10"
+ "changed": "2026-11-11"
 }
