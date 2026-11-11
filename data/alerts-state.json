@@ -32,8 +32,6 @@
     "ping-g440k-hl-driver": 579.0,
     "pxg-lightning-driver": 429.0,
     "pxg-ops-driver": 379.0,
-    "srixon-zxi-ls-driver": 319.0,
-    "srixon-zxi-max-driver": 319.0,
     "srixon-zxi-rkt-driver": 529.0,
     "srixon-zxi-rkt-ls-driver": 529.0,
     "srixon-zxi-rkt-max-driver": 529.0,
@@ -83,6 +81,8 @@
     "mizuno-st-g-driver",
     "mkids-lite-driver",
     "srixon-zxi-driver",
+    "srixon-zxi-ls-driver",
+    "srixon-zxi-max-driver",
     "true-temper-extra-stiff-driver",
     "true-temper-light-driver",
     "true-temper-regular-driver",
@@ -132,9 +132,9 @@
   "month": "2026-10",
   "sent": 0
  },
- "remind": "2026-11-10",
+ "remind": "2026-11-11",
  "sent": {
-  "2026-11-11": 0
+  "2026-11-11": 1
  },
  "stock": {
   "apparel-adidas-rain-rdy-waterproof-golf-jacket-hn4128-black-m-majorgolf": {
