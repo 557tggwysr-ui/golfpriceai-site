@@ -321,7 +321,7 @@ def build_black_friday(models, built, today, images=None, cyber_page=False):
 {method_note(today)}
 </div>
 <script src="/js/clothing-guide.js?v=20261018" defer></script>
-<script src="/js/gift-finder.js?v=20261018d" defer></script>"""
+<script src="/js/gift-finder.js?v=20261111a" defer></script>"""
     title = f"Black Friday Golf Deals {year} UK: Genuinely Cheaper, Checked | GolfPrice AI"
     desc = (f"Black Friday golf deals {year} in the UK that are genuinely cheaper than in October, with the saving on each. "
             f"Drivers, putters, golf balls, bags, rangefinders and launch monitors, checked every 6 hours.")
@@ -731,7 +731,71 @@ def wish_bar():
   <label class="gf-bar-name"><span>Your first name (optional)</span><input type="text" maxlength="20" autocomplete="given-name" placeholder="e.g. Sam"></label>
   <button type="button" class="gp-af-btn gf-send">Send it as a hint</button>
   <button type="button" class="gf-clear">Clear list</button>
+  <a class="gf-bar-cs" href="/cheat-sheet/">Add your glove, ball and sizes</a>
 </div>"""
+
+
+GLOVE_SIZES = ["S", "M", "M/L", "L", "XL", "XXL", "Cadet S", "Cadet M", "Cadet M/L", "Cadet L", "Cadet XL"]
+SHIRT_SIZES = ["XS", "S", "M", "L", "XL", "XXL", "3XL"]
+
+
+def _opts(values, blank="Not sure"):
+    return f'<option value="">{blank}</option>' + "".join(f'<option value="{esc(v)}">{esc(v)}</option>' for v in values)
+
+
+def build_cheat_page(today):
+    """The Cheat Sheet: a golfer saves their glove, ball and sizes once, then
+    sends one link to whoever is buying their present. Everything stays in the
+    browser and in the link itself (js/gift-finder.js); nothing is sent to us."""
+    crumbs_html, crumbs_schema = breadcrumb([("Home", "/"), ("Prices", "/prices/"), ("Golf gifts", "/prices/golf-gifts/"),
+                                             ("Cheat Sheet", None)])
+    shoes = [f"{n:g}" for n in [x / 2 for x in range(10, 30)]]
+    waists = [str(n) for n in range(28, 48, 2)]
+    faq_html, faq_schema = faq_block([
+        ("What is a golf Cheat Sheet?",
+         "One link with everything someone needs to buy you a golf present that fits: your glove hand and size, your golf ball, "
+         "your clothing and shoe sizes, the gifts you’d like and anything you’d rather not get. Send it to family before Christmas or a birthday."),
+        ("Which hand does a golf glove go on?",
+         "Right-handed golfers wear their glove on the left hand, and left-handed golfers wear it on the right. So a right-handed golfer buys a left-hand glove."),
+        ("What is a Cadet golf glove?",
+         "A Cadet size has shorter fingers and a wider palm than the standard size with the same letter. If a normal glove leaves spare material at the fingertips, try Cadet."),
+        ("Is my information stored anywhere?",
+         "No. Your sizes are kept in this browser and written into the link you send. We don’t store them, and there’s no sign-up."),
+    ])
+    body = f"""<div class="pp-wrap">
+{crumbs_html}
+<section class="pp-hub-top">
+  <span class="sb-kicker">For golfers · free, no sign-up</span>
+  <h1>Your golf Cheat Sheet: the right glove, ball and size, first time</h1>
+  <p class="pp-answer">Save your glove hand and size, your ball and your sizes once, then send one link to whoever’s buying your present. They see exactly what to get, at today’s lowest UK prices.</p>
+</section>
+<form class="pp-block cs-form" id="cs-form" novalidate>
+  <div class="cs-grid">
+    <label>Your first name (optional)<input name="for" maxlength="20" autocomplete="given-name" placeholder="e.g. Sam"></label>
+    <label>Glove goes on my<select name="gh"><option value="">Not sure</option><option value="L">Left hand (most right-handed golfers)</option><option value="R">Right hand (most left-handed golfers)</option></select></label>
+    <label>Glove size<select name="gs">{_opts(GLOVE_SIZES)}</select></label>
+    <label>My golf ball<input name="b" maxlength="40" placeholder="e.g. Titleist Pro V1, white"></label>
+    <label>Shirt size<select name="sh">{_opts(SHIRT_SIZES)}</select></label>
+    <label>Trouser waist (inches)<select name="w">{_opts(waists)}</select></label>
+    <label>Trouser leg<select name="lg"><option value="">Not sure</option><option value="S">Short</option><option value="R">Regular</option><option value="L">Long</option></select></label>
+    <label>Shoe size (UK)<select name="sz">{_opts(shoes)}</select></label>
+  </div>
+  <label class="cs-wide">Please don’t buy me (optional)<input name="no" maxlength="60" placeholder="e.g. novelty balls, another umbrella"></label>
+  <p class="cs-wish"></p>
+  <div class="cs-btns"><button type="submit" class="gp-af-btn">Send my Cheat Sheet</button><a class="cs-preview" href="/wishlist/">See what they’ll see</a></div>
+  <p class="pp-small">Saved in this browser and written into the link you send. We never store your sizes, and there’s no sign-up.</p>
+</form>
+<section class="pp-block"><p>Want to add gifts too? Save them with the heart on our <a href="/prices/golf-gifts/">golf gift ideas</a>, and they’re added to your Cheat Sheet automatically.</p></section>
+{faq_html}
+{method_note(today)}
+</div>
+<script src="/js/gift-finder.js?v=20261111a" defer></script>"""
+    return page_shell(title="Golf Cheat Sheet: send your glove, ball and sizes | GolfPrice AI",
+                      description="Save your golf glove hand and size, ball and clothing sizes once, then send one link to whoever’s buying your golf present. Free, no sign-up.",
+                      canonical=f"{SITE}/cheat-sheet/", body=body, section="", schema=[crumbs_schema, faq_schema],
+                      noindex=False, og_image="/assets/photos/golf-gifts.jpg",
+                      extra_head='<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="750">\n'
+                                 '<meta property="og:image:alt" content="Golf gifts: balls, tees, a glove and a wrapped present">\n')
 
 
 def build_wishlist_page(today):
@@ -745,15 +809,21 @@ def build_wishlist_page(today):
   <p class="pp-answer">Someone saved these on GolfPrice AI and sent you the list. The prices are today’s lowest across multiple UK retailers, checked every 6 hours, and we’ll tell you whether now is a good time to buy.</p>
   <p class="pp-disclose">We may earn a commission if you buy through these links. It never changes the price or what we show.</p>
 </section>
+<section class="pp-block cs-sheet" hidden>
+  <h2 class="cs-sheet-h">The Cheat Sheet</h2>
+  <p class="pp-sub">Their sizes, so it fits first time. Tap a line to see today’s lowest UK prices.</p>
+  <ul class="cs-rows"></ul>
+  <p class="cs-no" hidden></p>
+</section>
 <section class="pp-block">
   <ol class="gf-wl-list"></ol>
   <p class="pp-card sb-empty gf-wl-empty" hidden>This list is empty or has expired. Have a look at our <a href="/prices/golf-gifts/">golf gift ideas</a> instead.</p>
 </section>
 {signup_box("Not buying today?", "Our Friday email lists the week’s genuine price drops, checked against our own price history. For one item, use “Email me if it drops” on its price page.")}
-<section class="pp-block"><p>Buying for a golfer and want more ideas? <a href="/prices/golf-gifts/">Try the gift finder</a>.</p></section>
+<section class="pp-block"><p>Buying for a golfer and want more ideas? <a href="/prices/golf-gifts/">Try the gift finder</a>. A golfer yourself? <a href="/cheat-sheet/">Make your own Cheat Sheet</a>.</p></section>
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018d" defer></script>"""
+<script src="/js/gift-finder.js?v=20261111a" defer></script>"""
     return page_shell(title="A golf wishlist for you | GolfPrice AI",
                       description="Hint, hint: a golfer’s wishlist, with today’s lowest UK prices and whether it’s a good time to buy.",
                       canonical=f"{SITE}/wishlist/", body=body, section="", schema=[crumbs_schema],
@@ -800,7 +870,7 @@ def build_gift_page(slug, cfg, models, built, products, images, today, all_slugs
 <section class="pp-block"><p class="pp-small">How we pick: well-known brands, in stock and new, one per brand where we can so you get a real choice, ordered by price and value, never by brand. Clubs, balls and gadgets link to our price pages so you can compare every retailer; smaller items link straight to the cheapest retailer we found.</p></section>
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018d" defer></script>"""
+<script src="/js/gift-finder.js?v=20261111a" defer></script>"""
     title = f"{cfg['h1']} (UK, {today.year}): {total} Ideas at Today's Prices | GolfPrice AI"
     desc = (f"{cfg['h1']}: {total} ideas from UK retailers, with live prices checked every 6 hours. "
             f"New stock only, from brands golfers actually use.")
@@ -878,7 +948,7 @@ def build_gift_index(built_slugs, today, items):
 {faq_html}
 {method_note(today)}
 </div>
-<script src="/js/gift-finder.js?v=20261018d" defer></script>"""
+<script src="/js/gift-finder.js?v=20261111a" defer></script>"""
     return page_shell(title=f"Golf Gifts UK {today.year}: Gift Finder & Ideas from {low} | GolfPrice AI",
                       description=f"Golf gifts for every budget, from inexpensive gifts under £25 to gadgets: a 3-question golf gift finder, gift-safe picks that need no sizes, and live UK prices from {low}.",
                       canonical=f"{SITE}/prices/golf-gifts/", body=body, section="", schema=[crumbs_schema, faq_schema], noindex=False)
@@ -1220,6 +1290,9 @@ def build(passing, built, products, today):
             changed.append("/prices/golf-gifts/")
         # Shared wishlists live at the short address golfpriceai.com/wishlist/ ;
         # the older address keeps working for links already sent.
+        if _write(PRICES_DIR.parent / "cheat-sheet" / "index.html", build_cheat_page(today)):
+            changed.append("/cheat-sheet/")
+        sitemap.append(("cheat-sheet/", today.isoformat()))
         wl = build_wishlist_page(today)
         _write(PRICES_DIR.parent / "wishlist" / "index.html", wl)
         _write(PRICES_DIR / "golf-gifts" / "wishlist" / "index.html", wl)

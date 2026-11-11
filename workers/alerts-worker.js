@@ -426,7 +426,7 @@ const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_1
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
   ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1,
   ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1, ask_group: 1, pc_link: 1,
-  ck_saved: 1, ck_card: 1, co_set: 1, mny_ipaid: 1, mny_confirm: 1, mny_chase: 1, mny_kitty: 1, mny_drop: 1, mny_ref: 1, fd_near: 1, soc_ask: 1, lv_view: 1, lv_share: 1, lv_card: 1, lv_claim: 1, mg_view: 1, pl_share: 1, pl_view: 1 };
+  ck_saved: 1, ck_card: 1, co_set: 1, mny_ipaid: 1, mny_confirm: 1, mny_chase: 1, mny_kitty: 1, mny_drop: 1, mny_ref: 1, cs_make: 1, cs_view: 1, cs_click: 1, mb_view: 1, mb_signup: 1, fd_near: 1, soc_ask: 1, lv_view: 1, lv_share: 1, lv_card: 1, lv_claim: 1, mg_view: 1, pl_share: 1, pl_view: 1 };
 // Money stats (Nov 2026): shoppers clicking through to a shop, by the kind of
 // page they clicked on and by where they first arrived from; arrivals by
 // source; alert sign-ups by page. Anonymous daily counts only.
@@ -434,7 +434,7 @@ const MONEY_PAGES = ['guide', 'shop', 'home', 'deals', 'tools', 'play', 'societi
 const MONEY_FROM = ['email_alert', 'email_friday', 'email_other', 'social', 'whatsapp', 'extension', 'embed', 'search', 'ai', 'site', 'direct'];
 MONEY_PAGES.concat(['any']).forEach((k) => { USE_KINDS['out_' + k] = 1; });
 MONEY_FROM.forEach((k) => { USE_KINDS['arr_' + k] = 1; USE_KINDS['outf_' + k] = 1; });
-const ALERT_FROM = MONEY_PAGES.concat(['fourball', 'extension']);
+const ALERT_FROM = MONEY_PAGES.concat(['fourball', 'extension', 'myball']);
 function alertFrom(request, body) {
   const o = request.headers.get('origin') || '';
   if (/^(chrome-extension|extension|moz-extension):\/\//.test(o)) return 'extension';
@@ -2129,6 +2129,9 @@ async function clubStats(request, env, cors) {
     from: MONEY_FROM.map((k) => [k, span('arr_' + k), span('outf_' + k)]),
     alerts: ALERT_FROM.map((k) => [k, span('al_' + k)]),
     ask: span('ask_group'), pcLink: span('pc_link'), unsub: span('unsub'),
+    // Growth tests (Nov 2026): the Cheat Sheet, "It's my ball", and Money Sorted on Society HQ.
+    tests: { csMake: span('cs_make'), csView: span('cs_view'), csClick: span('cs_click'), mbView: span('mb_view'), mbSignup: span('mb_signup'), mbMine: span('al_myball'),
+      ipaid: span('mny_ipaid'), confirm: span('mny_confirm'), chase: span('mny_chase'), kitty: span('mny_kitty'), drop: span('mny_drop'), ref: span('mny_ref') },
     misses: [], embeds: [],
   };
   try {

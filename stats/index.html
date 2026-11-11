@@ -149,7 +149,7 @@ td:first-child { font-weight: 400; }
     // ---- Money: clicks out to shops, where visits come from, alert sources, gaps
     var mo = d.money;
     if (mo) {
-      var PAGE = { guide: 'Price guides', shop: 'The Shop and search', home: 'Homepage', deals: 'Deals pages (Black Friday, drops, gifts)', tools: 'Deal tools', play: 'Games, Improve and Courses', societies: 'Societies', other: 'Everything else', fourball: 'Fourball Alerts', extension: 'Browser extension' };
+      var PAGE = { guide: 'Price guides', shop: 'The Shop and search', home: 'Homepage', deals: 'Deals pages (Black Friday, drops, gifts)', tools: 'Deal tools', play: 'Games, Improve and Courses', societies: 'Societies', other: 'Everything else', fourball: 'Fourball Alerts', extension: 'Browser extension', myball: 'Golf ball pages: “It’s my ball”' };
       var FROM = { email_alert: 'Alert emails', email_friday: 'Friday email', email_other: 'Other emails', social: 'Social media', whatsapp: 'WhatsApp', extension: 'Browser extension', embed: 'Embedded charts', search: 'Search engines', ai: 'AI assistants (ChatGPT, Claude…)', site: 'Other websites and links', direct: 'Typed in or bookmarked' };
       var row3 = function (label, x) { return '<tr><td>' + label + '</td><td>' + n(x.today) + '</td><td>' + n(x.d7) + '</td><td>' + n(x.d30) + '</td></tr>'; };
       var head3 = '<tr><th></th><th>Today</th><th>7 days</th><th>30 days</th></tr>';
@@ -174,6 +174,19 @@ td:first-child { font-weight: 400; }
         row3('Arrivals from the browser extension', (mo.from.filter(function (x) { return x[0] === 'extension'; })[0] || [0, {}])[1]) +
         row3('Arrivals from WhatsApp', (mo.from.filter(function (x) { return x[0] === 'whatsapp'; })[0] || [0, {}])[1]) + '</table>' +
         '<span class="dim">Extension installs and weekly users are in the Chrome Web Store and Edge dashboards.</span></section></div>';
+      var t = mo.tests;
+      if (t) {
+        var rate = function (a, b) { return b ? Math.round(a / b * 100) + '%' : '–'; };
+        html += '<div class="two"><section class="card"><h2>Growth tests</h2><table>' + head3 +
+          row3('Cheat Sheets sent', t.csMake) + row3('Cheat Sheets opened', t.csView) + row3('Shop taps from a Cheat Sheet', t.csClick) +
+          row3('Golf ball pages viewed', t.mbView) + row3('Ball page alert sign-ups', t.mbSignup) + row3('… of which “It’s my ball”', t.mbMine) + '</table>' +
+          '<span class="dim">Cheat Sheet pass mark: opened 2+ times per sheet sent (now ' + (t.csMake.d30 ? (t.csView.d30 / t.csMake.d30).toFixed(1) : '–') + ') and 1 in 5 openers tapping to a shop (now ' + rate(t.csClick.d30, t.csView.d30) + '). ' +
+          'Ball pages: ' + rate(t.mbSignup.d30, t.mbView.d30) + ' of viewers sign up, ' + rate(t.mbMine.d30, t.mbSignup.d30) + ' tick “It’s my ball”. All counted once a day per golfer.</span></section>' +
+          '<section class="card"><h2>Money Sorted (Society HQ)</h2><table>' + head3 +
+          row3('“I’ve paid” taps', t.ipaid) + row3('Organiser confirmations', t.confirm) + row3('Payment references copied', t.ref) +
+          row3('Chase and settle-up messages', t.chase) + row3('Kitty changes', t.kitty) + row3('Drop-outs after numbers went in', t.drop) + '</table>' +
+          '<span class="dim">Counting began 11 Nov 2026. Golfers and organisers, once a day each.</span></section></div>';
+      }
       html += '<div class="two"><section class="card"><h2>Searches that found nothing</h2>' +
         (mo.misses.length ? '<table><tr><th>Golfers searched for</th><th>Times, 30 days</th></tr>' + mo.misses.map(function (x) { return '<tr><td>' + esc(x[0]) + '</td><td>' + n(x[1]) + '</td></tr>'; }).join('') + '</table>'
           : '<span class="dim">None yet. Every search on golfpriceai.com that finds no products appears here.</span>') +

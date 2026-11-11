@@ -487,3 +487,31 @@ button.pp-btn svg { flex: none; }
 
 /* Browser extension line: computers only */
 @media (max-width: 860px), (hover: none) { .pp-ext { display: none; } }
+
+/* ---- The Cheat Sheet (Nov 2026): /cheat-sheet/ and the sheet on shared wishlists */
+.cs-form { display: flex; flex-direction: column; gap: 14px; background: #fff; border: 1px solid var(--gp-line); border-radius: 16px; padding: 18px; }
+.cs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px 16px; }
+.cs-form label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; color: var(--gp-ink); }
+.cs-form input, .cs-form select { min-height: 48px; border: 1px solid #cfd5cc; border-radius: 10px; padding: 0 12px; font: 400 16px Inter, sans-serif; color: var(--gp-ink); background: #fff; box-sizing: border-box; width: 100%; }
+.cs-form input:focus-visible, .cs-form select:focus-visible { outline: 3px solid var(--gp-green); outline-offset: 1px; }
+.cs-wish { margin: 0; font-size: 14px; color: var(--gp-text-2); }
+.cs-wish:empty { display: none; }
+.cs-btns { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.cs-preview { font-weight: 700; color: var(--gp-green-dark); }
+.cs-sheet { background: var(--gp-pale); border: 1px solid #d4e8cc; border-radius: 16px; padding: 16px; }
+.cs-sheet[hidden] { display: none; }
+.cs-sheet-h { margin: 0 0 4px; }
+.cs-rows { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.cs-row { display: flex; flex-direction: column; gap: 4px; }
+.cs-link { display: grid; grid-template-columns: minmax(96px, auto) 1fr auto; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--gp-line); border-radius: 12px; padding: 12px 14px; min-height: 52px; box-sizing: border-box; color: var(--gp-ink); text-decoration: none; }
+.cs-link:hover { border-color: var(--gp-green); }
+.cs-k { font-size: 13px; font-weight: 700; color: var(--gp-text-3); }
+.cs-v { font: 700 17px Poppins, sans-serif; }
+.cs-go { font-size: 13px; font-weight: 700; color: var(--gp-green-dark); white-space: nowrap; }
+.cs-tip { padding: 0 4px; }
+.cs-no { margin: 12px 0 0; font-size: 14px; font-weight: 600; color: #8a4a00; background: #fff4e8; border-radius: 10px; padding: 8px 12px; }
+.gf-bar-cs { font-size: 14px; font-weight: 700; color: var(--gp-green-dark); }
+@media (max-width: 520px) { .cs-link { grid-template-columns: 1fr auto; } .cs-k { grid-column: 1 / -1; } }
+/* "It's my ball" on golf ball price pages */
+.gp-af-mine { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.45; color: var(--gp-ink); margin: 0 0 10px; cursor: pointer; }
+.gp-af-mine input { width: 22px; height: 22px; margin: 0; flex: none; accent-color: var(--gp-green); }

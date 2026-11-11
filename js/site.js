@@ -507,6 +507,9 @@
   // on the form say which model to watch; without them it's a general
   // sign-up. The worker sends a "please confirm" email first.
   var ALERTS_URL = 'https://golfpriceai-alerts.golfpriceai.workers.dev';
+  // "It's my ball" test (Nov 2026): golf ball pages count a view and a sign-up, once a day each.
+  function mbCount(k) { try { navigator.sendBeacon(ALERTS_URL + '/use', JSON.stringify({ k: k })); } catch (e) { /* nice-to-have */ } }
+  if (document.querySelector('form.gp-alert-form input[name=mine]')) mbCount('mb_view');
   document.addEventListener('submit', function (e) {
     var form = e.target;
     if (!form.classList || !form.classList.contains('gp-alert-form')) return;
@@ -517,6 +520,7 @@
     var btn = form.querySelector('button[type=submit]');
     var msg = form.querySelector('.gp-af-msg');
     var hp = form.querySelector('input[name=website]');
+    var mineBox = form.querySelector('input[name=mine]'); // "It's my ball" on golf ball pages
     var email = (input.value || '').trim();
     function say(text, kind) { msg.textContent = text; msg.className = 'gp-af-msg' + (kind ? ' is-' + kind : ''); }
     if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email)) { say('Please enter a full email address.', 'error'); input.focus(); return; }
@@ -527,7 +531,7 @@
     fetch(ALERTS_URL + '/subscribe', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(Object.assign({ from: window.gpPageKind ? window.gpPageKind() : '' }, bought
+      body: JSON.stringify(Object.assign({ from: mineBox && mineBox.checked ? 'myball' : (window.gpPageKind ? window.gpPageKind() : '') }, bought
         ? { email: email, bought: bought, paid: paid, website: hp ? hp.value : '' }
         : form.getAttribute('data-budget')
         ? { email: email, budget: form.getAttribute('data-budget'), website: hp ? hp.value : '' }
@@ -541,6 +545,7 @@
       .then(function (res) {
         btn.disabled = false;
         if (!res.ok) { say(res.error || 'Something went wrong. Please try again in a minute.', 'error'); return; }
+        if (mineBox) mbCount('mb_signup');
         form.classList.add('is-done');
         say(res.status === 'added-bought'
           ? 'Done: we’ll watch it for 30 days and email you once if it drops below what you paid.'

@@ -5,6 +5,10 @@
    - Wishlist page (/prices/golf-gifts/wishlist/?i=...): shows the shared list
      with today's prices from /data/gifts.json.
    - Any ".gp-share" button shares the current page.
+   - The Cheat Sheet (/cheat-sheet/): a golfer's glove hand and size, ball,
+     clothing and shoe sizes, kept in this browser (gpSizes) and written into
+     the wishlist link they send, so the buyer sees them on /wishlist/.
+     Anonymous daily counts only (cs_make, cs_view, cs_click).
    Nothing here is sent to us: sharing uses the phone's share menu or WhatsApp.
    The page works without this script; only these extras need it. */
 (function () {
@@ -25,8 +29,28 @@
       window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), '_blank', 'noopener');
     }
   }
-  function listUrl(keys, name) {
-    return BASE + '?' + (name ? 'for=' + encodeURIComponent(name) + '&' : '') + 'i=' + keys.join(',');
+  function count(k) { try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/use', JSON.stringify({ k: k })); } catch (e) { /* nice-to-have */ } }
+  // ---------------------------------------------------------- the Cheat Sheet
+  var SZ = 'gpSizes', FIELDS = ['gh', 'gs', 'b', 'sh', 'w', 'lg', 'sz', 'no'];
+  var OK = {
+    gh: /^[LR]$/, gs: /^(Cadet )?(S|M|M\/L|L|XL|XXL)$/, sh: /^(XS|S|M|L|XL|XXL|3XL)$/, w: /^(2[89]|3\d|4[0-6])$/, lg: /^[SRL]$/,
+    sz: /^(5|6|7|8|9|10|11|12|13|14)(\.5)?$/, b: /^[\w À-ɏ'’&.,+\/-]{2,40}$/, no: /^[\w À-ɏ'’&.,+\/-]{2,60}$/
+  };
+  function clean(k, v) { v = String(v == null ? '' : v).trim(); return OK[k] && OK[k].test(v) ? v : ''; }
+  function sizes() {
+    try { var v = JSON.parse(localStorage.getItem(SZ) || '{}'); var o = {}; FIELDS.forEach(function (k) { var c = clean(k, v[k]); if (c) o[k] = c; }); o.for = cleanName(v.for); return o; }
+    catch (e) { return {}; }
+  }
+  function saveSizes(o) { try { localStorage.setItem(SZ, JSON.stringify(o)); } catch (e) { /* private mode */ } }
+  function cleanName(n) { return String(n || '').replace(/[^A-Za-zÀ-ɏ' -]/g, '').trim().slice(0, 20); }
+  function sheetQuery(o) { return FIELDS.filter(function (k) { return o[k]; }).map(function (k) { return k + '=' + encodeURIComponent(o[k]); }).join('&'); }
+  function hasSheet(o) { return FIELDS.some(function (k) { return o[k] && k !== 'no'; }); }
+  function listUrl(keys, name, withSheet) {
+    var q = [];
+    if (name) q.push('for=' + encodeURIComponent(name));
+    if (keys.length) q.push('i=' + keys.join(','));
+    if (withSheet) { var sq = sheetQuery(sizes()); if (sq) q.push(sq); }
+    return BASE + (q.length ? '?' + q.join('&') : '');
   }
 
   // ---------------------------------------------------------- page sharing
@@ -73,8 +97,10 @@
     bar.querySelector('.gf-send').addEventListener('click', function () {
       if (!wish.length) return;
       var name = (bar.querySelector('input').value || '').trim().replace(/[^A-Za-zÀ-ɏ' -]/g, '').slice(0, 20);
-      share('Hint, hint… ' + (name ? name + '’s' : 'my') + ' golf wishlist, with today’s best UK prices on GolfPrice AI:', listUrl(wish, name));
+      var withSheet = hasSheet(sizes());
+      share('Hint, hint… ' + (name ? name + '’s' : 'my') + ' golf wishlist' + (withSheet ? ' and sizes' : '') + ', with today’s best UK prices on GolfPrice AI:', listUrl(wish, name, withSheet));
       track('drop_hint', { items: wish.length });
+      if (withSheet) count('cs_make');
     });
     bar.querySelector('.gf-clear').addEventListener('click', function () {
       if (!window.confirm('Clear your wishlist? This removes every saved gift.')) return;
@@ -172,4 +198,68 @@
       track('wishlist_view', { items: found });
     }).catch(function () { if (empty) empty.hidden = false; });
   }
+
+  // ---------------------------------------------------------- Cheat Sheet page
+  var csf = document.getElementById('cs-form');
+  if (csf) {
+    var F = csf.elements, mine = sizes();
+    if (mine.for) F['for'].value = mine.for;
+    FIELDS.forEach(function (k) { if (mine[k] && F[k]) F[k].value = mine[k]; });
+    var wishLine = csf.querySelector('.cs-wish'), prev = csf.querySelector('.cs-preview');
+    function readForm() { var o = { for: cleanName(F['for'].value) }; FIELDS.forEach(function (k) { var c = clean(k, F[k].value); if (c) o[k] = c; }); return o; }
+    function refresh() {
+      var o = readForm(); saveSizes(o);
+      var w = load();
+      wishLine.textContent = w.length ? 'Your ' + w.length + (w.length === 1 ? ' saved gift goes' : ' saved gifts go') + ' on the sheet too.' : '';
+      prev.href = listUrl(w, o.for, true);
+      return o;
+    }
+    csf.addEventListener('input', refresh); csf.addEventListener('change', refresh);
+    refresh();
+    csf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var o = refresh();
+      if (!hasSheet(o)) { wishLine.textContent = 'Add at least your glove, ball or a size first.'; return; }
+      share('Buying me a golf present? Here’s my Cheat Sheet: glove, ball and sizes, so it fits first time.', listUrl(load(), o.for, true));
+      track('cheat_sheet_send'); count('cs_make');
+    });
+  }
+
+  // ---------------------------------------------------------- Cheat Sheet on a shared wishlist
+  var sheet = document.querySelector('.cs-sheet');
+  if (sheet) {
+    var qp = new URLSearchParams(location.search), got = {};
+    FIELDS.forEach(function (k) { var c = clean(k, qp.get(k)); if (c) got[k] = c; });
+    if (hasSheet(got)) {
+      var whoName = cleanName(qp.get('for'));
+      var h = document.querySelector('.gf-wl-title'); if (h) h.textContent = (whoName ? whoName + '’s' : 'A') + ' golf Cheat Sheet';
+      var rows = [];
+      if (got.gh || got.gs) rows.push(['Golf glove', [got.gh ? (got.gh === 'L' ? 'Left hand' : 'Right hand') : '', got.gs ? 'size ' + got.gs : ''].filter(Boolean).join(', '), '/prices/golf-gloves/',
+        got.gh ? (got.gh === 'L' ? 'A left-hand glove: the usual one for right-handed golfers.' : 'A right-hand glove: the one left-handed golfers wear.') : '']);
+      if (got.b) rows.push(['Golf ball', got.b, '/search.html?q=' + encodeURIComponent(got.b), 'Golf balls are sold by the dozen. Get the exact model: golfers are fussy about this one.']);
+      if (got.sh) rows.push(['Shirt or polo', got.sh, '/shop.html?category=apparel&types=polo&label=Polo+Tees', '']);
+      if (got.w || got.lg) rows.push(['Trousers', [got.w ? got.w + '-inch waist' : '', got.lg ? { S: 'short', R: 'regular', L: 'long' }[got.lg] + ' leg' : ''].filter(Boolean).join(', '), '/shop.html?category=apparel&types=trousers&label=Bottoms', '']);
+      if (got.sz) rows.push(['Golf shoes', 'UK ' + got.sz, '/prices/golf-shoes/', '']);
+      var ul = sheet.querySelector('.cs-rows');
+      rows.forEach(function (r) {
+        var li = el('li', 'cs-row'), a = el('a', 'cs-link');
+        a.href = r[2];
+        a.appendChild(el('span', 'cs-k', r[0])); a.appendChild(el('b', 'cs-v', r[1])); a.appendChild(el('span', 'cs-go', 'See prices'));
+        li.appendChild(a);
+        if (r[3]) li.appendChild(el('span', 'pp-sub cs-tip', r[3]));
+        ul.appendChild(li);
+      });
+      if (got.no) { var no = sheet.querySelector('.cs-no'); no.textContent = 'Please don’t buy: ' + got.no + '.'; no.hidden = false; }
+      sheet.hidden = false;
+      count('cs_view');
+      var emptyBox = document.querySelector('.gf-wl-empty');
+      if (!(qp.get('i') || '').length && emptyBox) { emptyBox.textContent = ''; emptyBox.appendChild(document.createTextNode('No gifts picked yet. Gifts that need no sizes at all: ')); var ga = el('a', '', 'golf gift ideas'); ga.href = '/prices/golf-gifts/'; emptyBox.appendChild(ga); emptyBox.appendChild(document.createTextNode('.')); }
+      // Any shop click from a Cheat Sheet visit counts once a day.
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a.cs-link, .gf-wl-item a');
+        if (a) count('cs_click');
+      });
+    }
+  }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
 })();

@@ -499,7 +499,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css?v=20261101b">
-<link rel="stylesheet" href="/css/prices.css?v=20261107b">
+<link rel="stylesheet" href="/css/prices.css?v=20261111a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -517,7 +517,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 {site_chrome.footer_html()}
 <script src="/js/analytics.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script src="/js/site.js?v=20261101b" defer></script>
+<script src="/js/site.js?v=20261111a" defer></script>
 </body>
 </html>
 """
@@ -689,13 +689,16 @@ def alert_form(model):
     the emails come from scripts/alerts.py using the rule described here, so
     keep the two in step."""
     per = " per dozen" if model.is_ball else ""
+    # "It's my ball" (Nov 2026 test): the same drop email, for golfers who buy this ball again and again.
+    mine = ('<label class="gp-af-mine"><input type="checkbox" name="mine"> <span><b>It’s my ball.</b> I buy these regularly, '
+            'so tell me when it’s a good time to stock up.</span></label>') if model.is_ball else ""
     return f"""<section class="pp-block pp-alert" id="price-alert">
   <div class="pp-alert-copy">
     <h2>Email me when the {esc(model.name)} drops</h2>
     <p>We’ll email you when the lowest new price{per} drops by at least £5 (or 3%, whichever is bigger). It’s {money(model.low_price)} today. No newsletter, no spam, and you can stop it in one click.</p>
   </div>
   <form class="gp-alert-form" data-model="{esc(model.slug)}" data-model-name="{esc(model.name)}" novalidate>
-    <label class="gp-af-label" for="pp-alert-email">Your email</label>
+    {mine}<label class="gp-af-label" for="pp-alert-email">Your email</label>
     <div class="gp-af-row">
       <input id="pp-alert-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
       <button type="submit" class="gp-af-btn">Email me</button>
@@ -1215,7 +1218,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
 {method_note(today)}
 <p class="pp-small pp-data">The facts on this page as data: <a href="/prices/{model.slug}/data.json">data.json</a></p>
 </div>
-<script src="/js/gift-finder.js?v=20261018d" defer></script>
+<script src="/js/gift-finder.js?v=20261111a" defer></script>
 <script src="/js/fourball.js?v=20261024" defer></script>
 <script src="/js/crowd-caddie.js?v={CADDIE_V}" defer></script>"""
 
