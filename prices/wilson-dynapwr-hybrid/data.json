@@ -6,12 +6,16 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 119.0,
+ "lowestNewPrice": 109.65,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 109.65,
+   "options": 8
+  },
   {
    "name": "Clarkes Golf",
    "from": 119.0,
@@ -26,19 +30,14 @@
    "name": "Affordable Golf",
    "from": 119.95,
    "options": 16
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 129.0,
-   "options": 8
   }
  ],
  "history": {
   "daysTracked": 88,
-  "low": 119.0,
+  "low": 109.65,
   "high": 199.0,
-  "average": 133.88,
-  "priceChanges": 3,
+  "average": 133.77,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -58,7 +57,7 @@
    ],
    [
     "2026-11-11",
-    119.0
+    109.65
    ]
   ]
  },
@@ -66,7 +65,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/wilson-dynapwr-hybrid-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DYNAPOWERHYBRID2.jpg?v=1737728792",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

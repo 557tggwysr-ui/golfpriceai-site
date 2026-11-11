@@ -6,23 +6,23 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 229.0,
+ "lowestNewPrice": 194.65,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 229.0,
+   "from": 194.65,
    "options": 2
   }
  ],
  "history": {
   "daysTracked": 76,
-  "low": 229.0,
+  "low": 194.65,
   "high": 229.0,
-  "average": 229.0,
-  "priceChanges": 0,
+  "average": 228.55,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-11",
-    229.0
+    194.65
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Srixon_SRX_Weatherproof_Golf_Stand_Bag_2025_-_Black_Red_1.jpg?v=1742202640",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

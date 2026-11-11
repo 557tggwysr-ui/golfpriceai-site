@@ -6,21 +6,20 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 169.15,
  "lowestAt": [
-  "Clickgolf",
   "Major Golf Direct"
  ],
  "retailers": [
   {
+   "name": "Major Golf Direct",
+   "from": 169.15,
+   "options": 2
+  },
+  {
    "name": "Clickgolf",
    "from": 199.0,
    "options": 1
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 199.0,
-   "options": 2
   },
   {
    "name": "Clarkes Golf",
@@ -35,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 88,
-  "low": 199.0,
+  "low": 169.15,
   "high": 299.0,
-  "average": 202.41,
-  "priceChanges": 1,
+  "average": 202.07,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -50,15 +49,15 @@
    ],
    [
     "2026-11-11",
-    199.0
+    169.15
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 85 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXi-Fairway-Hero-Hero-Straight.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ZXIFAIRWAY3.jpg?v=1737635531",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

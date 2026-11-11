@@ -6,23 +6,23 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.0,
+ "lowestNewPrice": 143.65,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 169.0,
+   "from": 143.65,
    "options": 4
   }
  ],
  "history": {
   "daysTracked": 76,
-  "low": 169.0,
+  "low": 143.65,
   "high": 169.0,
-  "average": 169.0,
-  "priceChanges": 0,
+  "average": 168.67,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -30,15 +30,15 @@
    ],
    [
     "2026-11-11",
-    169.0
+    143.65
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SRIXONPREMIUMSTANDBAGREDBLACK1.jpg?v=1739353235",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PREMIUMSTANDBAGSLATERED20251.jpg?v=1739451697",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

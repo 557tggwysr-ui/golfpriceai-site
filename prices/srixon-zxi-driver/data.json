@@ -6,11 +6,16 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 299.0,
+ "lowestNewPrice": 279.65,
  "lowestAt": [
-  "Affordable Golf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 279.65,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 299.0,
@@ -22,11 +27,6 @@
    "options": 1
   },
   {
-   "name": "Major Golf Direct",
-   "from": 329.0,
-   "options": 1
-  },
-  {
    "name": "Clickgolf",
    "from": 349.0,
    "options": 1
@@ -34,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 88,
-  "low": 299.0,
+  "low": 279.65,
   "high": 499.0,
-  "average": 328.2,
-  "priceChanges": 3,
+  "average": 327.98,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -57,7 +57,7 @@
    ],
    [
     "2026-11-11",
-    299.0
+    279.65
    ]
   ]
  },
@@ -65,7 +65,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ZXiDriver2.jpg?v=1776296338",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ZXIDRIVER1.jpg?v=1737632020",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

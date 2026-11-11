@@ -6,28 +6,28 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 269.0,
+ "lowestNewPrice": 254.15,
  "lowestAt": [
-  "Affordable Golf"
+  "Major Golf Direct"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 269.0,
+   "name": "Major Golf Direct",
+   "from": 254.15,
    "options": 1
   },
   {
-   "name": "Major Golf Direct",
-   "from": 299.0,
+   "name": "Affordable Golf",
+   "from": 269.0,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 76,
-  "low": 269.0,
+  "low": 254.15,
   "high": 329.0,
-  "average": 299.79,
-  "priceChanges": 2,
+  "average": 299.59,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-28",
@@ -43,7 +43,7 @@
    ],
    [
     "2026-11-11",
-    269.0
+    254.15
    ]
   ]
  },
@@ -51,7 +51,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BigMaxDriLitePrimeCartBag-Black1.jpg?v=1776290927",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/BIGMAXVESSELCART1.jpg?v=1721643376",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

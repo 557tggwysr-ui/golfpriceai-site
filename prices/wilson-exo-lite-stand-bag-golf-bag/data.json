@@ -6,11 +6,16 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 134.0,
+ "lowestNewPrice": 126.65,
  "lowestAt": [
-  "Clickgolf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 126.65,
+   "options": 3
+  },
   {
    "name": "Clickgolf",
    "from": 134.0,
@@ -20,19 +25,14 @@
    "name": "Affordable Golf",
    "from": 139.95,
    "options": 4
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 149.0,
-   "options": 3
   }
  ],
  "history": {
   "daysTracked": 88,
-  "low": 129.0,
+  "low": 126.65,
   "high": 134.0,
-  "average": 133.83,
-  "priceChanges": 3,
+  "average": 133.75,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -52,15 +52,15 @@
    ],
    [
     "2026-11-11",
-    134.0
+    126.65
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-EXO-Lite-Golf-Stand-Bag-Red.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/EXOLITESTANDBAGBLACK1.jpg?v=1738836371",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

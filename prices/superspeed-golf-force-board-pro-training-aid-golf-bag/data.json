@@ -6,23 +6,23 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 189.0,
+ "lowestNewPrice": 160.65,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 189.0,
+   "from": 160.65,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 76,
-  "low": 189.0,
+  "low": 160.65,
   "high": 189.0,
-  "average": 189.0,
-  "priceChanges": 0,
+  "average": 188.63,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-11",
-    189.0
+    160.65
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SuperSpeedGolfForceBoardProTrainingAid3.jpg?v=1742307612",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

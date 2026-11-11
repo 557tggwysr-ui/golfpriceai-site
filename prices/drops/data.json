@@ -1,8 +1,128 @@
 {
- "checked": "2026-11-11T04:58+00:00",
+ "checked": "2026-11-11T13:42+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "PowaKaddy RX10 Remote Control XL Plus Electric Trolley",
+   "model_id": "powakaddy-rx10-remote-control-xl-plus-electric-trolley",
+   "date": "2026-11-11",
+   "was": 1349.99,
+   "now": 1147.49,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-rx10-remote-control-xl-plus-electric-trolley/"
+  },
+  {
+   "model": "Voice Caddie SC300i Swing Caddie Portable Launch Monitor",
+   "model_id": "voice-caddie-sc300i-swing-caddie-portable-launch-monitor",
+   "date": "2026-11-11",
+   "was": 429.0,
+   "now": 364.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/voice-caddie-sc300i-swing-caddie-portable-launch-monitor/"
+  },
+  {
+   "model": "Callaway Org 14 Hyper Dry Cart Bag Golf Bag",
+   "model_id": "callaway-org-14-hyper-dry-cart-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 249.0,
+   "now": 211.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-org-14-hyper-dry-cart-bag-golf-bag/"
+  },
+  {
+   "model": "PXG Xtreme Hybrid Stand Bag Golf Bag",
+   "model_id": "pxg-xtreme-hybrid-stand-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 279.0,
+   "now": 237.15,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/pxg-xtreme-hybrid-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Srixon SRX Premium Stand Bag Golf Bag",
+   "model_id": "srixon-srx-premium-stand-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 169.0,
+   "now": 143.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-srx-premium-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Srixon SRX Tour Staff Golf Bag",
+   "model_id": "srixon-srx-tour-staff-golf-bag",
+   "date": "2026-11-11",
+   "was": 379.0,
+   "now": 322.15,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-srx-tour-staff-golf-bag/"
+  },
+  {
+   "model": "Srixon SRX Weatherproof Stand Bag Golf Bag",
+   "model_id": "srixon-srx-weatherproof-stand-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 229.0,
+   "now": 194.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-srx-weatherproof-stand-bag-golf-bag/"
+  },
+  {
+   "model": "SuperSpeed Golf Force Board Pro Training Aid Golf Bag",
+   "model_id": "superspeed-golf-force-board-pro-training-aid-golf-bag",
+   "date": "2026-11-11",
+   "was": 189.0,
+   "now": 160.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/superspeed-golf-force-board-pro-training-aid-golf-bag/"
+  },
+  {
+   "model": "Wilson Feather Cart Bag Golf Bag",
+   "model_id": "wilson-feather-cart-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 129.0,
+   "now": 109.65,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/wilson-feather-cart-bag-golf-bag/"
+  },
+  {
+   "model": "PXG Hawk Putter",
+   "model_id": "pxg-hawk-putter",
+   "date": "2026-11-11",
+   "was": 249.0,
+   "now": 211.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/pxg-hawk-putter/"
+  },
+  {
+   "model": "Mizuno Pro T-1 ION Wedge",
+   "model_id": "mizuno-pro-t-1-ion-wedge",
+   "date": "2026-11-11",
+   "was": 109.0,
+   "now": 92.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-t-1-ion-wedge/"
+  },
+  {
+   "model": "Wilson Staff Model ZM Forged Wedge",
+   "model_id": "wilson-staff-model-zm-forged-wedge",
+   "date": "2026-11-11",
+   "was": 125.0,
+   "now": 106.25,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-staff-model-zm-forged-wedge/"
+  },
   {
    "model": "Callaway Quantum Fairway Wood",
    "model_id": "callaway-quantum-fairway-wood",
@@ -12,6 +132,36 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-quantum-fairway-wood/"
+  },
+  {
+   "model": "Srixon ZXi Fairway Wood",
+   "model_id": "srixon-zxi-fairway-wood",
+   "date": "2026-11-11",
+   "was": 199.0,
+   "now": 169.15,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-zxi-fairway-wood/"
+  },
+  {
+   "model": "PXG Wildcat Premium Package Set",
+   "model_id": "pxg-wildcat-premium-package-set",
+   "date": "2026-11-11",
+   "was": 1439.0,
+   "now": 1223.15,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/pxg-wildcat-premium-package-set/"
+  },
+  {
+   "model": "Wilson Player Fit Premium Package Set",
+   "model_id": "wilson-player-fit-premium-package-set",
+   "date": "2026-11-11",
+   "was": 549.0,
+   "now": 466.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-player-fit-premium-package-set/"
   },
   {
    "model": "Callaway Quantum Driver",
@@ -44,6 +194,66 @@
    "url": "https://golfpriceai.com/prices/callaway-quantum-hybrid/"
   },
   {
+   "model": "Srixon ZXi LS Driver",
+   "model_id": "srixon-zxi-ls-driver",
+   "date": "2026-11-11",
+   "was": 319.0,
+   "now": 279.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-zxi-ls-driver/"
+  },
+  {
+   "model": "Srixon ZXi Max Driver",
+   "model_id": "srixon-zxi-max-driver",
+   "date": "2026-11-11",
+   "was": 319.0,
+   "now": 279.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-zxi-max-driver/"
+  },
+  {
+   "model": "PowaKaddy CT12 EBS Electric Trolley",
+   "model_id": "powakaddy-ct12-ebs-electric-trolley",
+   "date": "2026-11-11",
+   "was": 1199.0,
+   "now": 1104.15,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct12-ebs-electric-trolley/"
+  },
+  {
+   "model": "PowaKaddy CT12 Electric Trolley",
+   "model_id": "powakaddy-ct12-electric-trolley",
+   "date": "2026-11-11",
+   "was": 1149.0,
+   "now": 1061.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/powakaddy-ct12-electric-trolley/"
+  },
+  {
+   "model": "Wilson DYNAPWR Hybrid",
+   "model_id": "wilson-dynapwr-hybrid",
+   "date": "2026-11-11",
+   "was": 119.0,
+   "now": 109.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-dynapwr-hybrid/"
+  },
+  {
+   "model": "Odyssey Ai-ONE Square 2 Square Double Wide Putter",
+   "model_id": "odyssey-ai-one-square-2-square-double-wide-putter",
+   "date": "2026-11-11",
+   "was": 231.2,
+   "now": 211.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-double-wide-putter/"
+  },
+  {
    "model": "Motocaddy 26 M-Tech Cart Bag Golf Bag",
    "model_id": "motocaddy-26-m-tech-cart-bag-golf-bag",
    "date": "2026-11-11",
@@ -54,6 +264,36 @@
    "url": "https://golfpriceai.com/prices/motocaddy-26-m-tech-cart-bag-golf-bag/"
   },
   {
+   "model": "Big Max Dri Lite Prime Cart Bag Golf Bag",
+   "model_id": "big-max-dri-lite-prime-cart-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 269.0,
+   "now": 254.15,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/big-max-dri-lite-prime-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Srixon ZXi Driver",
+   "model_id": "srixon-zxi-driver",
+   "date": "2026-11-11",
+   "was": 299.0,
+   "now": 279.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-zxi-driver/"
+  },
+  {
+   "model": "Bushnell A1 Slope Laser Rangefinder",
+   "model_id": "bushnell-a1-slope-laser-rangefinder",
+   "date": "2026-11-11",
+   "was": 249.0,
+   "now": 237.15,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/"
+  },
+  {
    "model": "Motocaddy EliteFLEX Hybrid Stand Bag Golf Bag",
    "model_id": "motocaddy-eliteflex-hybrid-stand-bag-golf-bag",
    "date": "2026-11-11",
@@ -62,6 +302,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/motocaddy-eliteflex-hybrid-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Wilson Exo Lite Stand Bag Golf Bag",
+   "model_id": "wilson-exo-lite-stand-bag-golf-bag",
+   "date": "2026-11-11",
+   "was": 134.0,
+   "now": 126.65,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-exo-lite-stand-bag-golf-bag/"
   },
   {
    "model": "Motocaddy 26 Dry Series Waterproof Cart Bag Golf Bag",
@@ -262,16 +512,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/powerbilt-gsx-14-piece-package-set/"
-  },
-  {
-   "model": "Big Max Dri Lite Prime Cart Bag Golf Bag",
-   "model_id": "big-max-dri-lite-prime-cart-bag-golf-bag",
-   "date": "2026-11-07",
-   "was": 299.0,
-   "now": 269.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/big-max-dri-lite-prime-cart-bag-golf-bag/"
   },
   {
    "model": "Scotty Cameron Onset Centre Putter",
@@ -634,26 +874,6 @@
    "url": "https://golfpriceai.com/prices/yonex-ezone-elite-4-irons/"
   },
   {
-   "model": "Srixon ZXi LS Driver",
-   "model_id": "srixon-zxi-ls-driver",
-   "date": "2026-11-06",
-   "was": 329.0,
-   "now": 319.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/srixon-zxi-ls-driver/"
-  },
-  {
-   "model": "Srixon ZXi Max Driver",
-   "model_id": "srixon-zxi-max-driver",
-   "date": "2026-11-06",
-   "was": 329.0,
-   "now": 319.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/srixon-zxi-max-driver/"
-  },
-  {
    "model": "Sun Mountain Eclipse E2.5 H2NO Waterproof Stand Bag Golf Bag",
    "model_id": "sun-mountain-eclipse-e2-5-h2no-waterproof-stand-bag-golf-bag",
    "date": "2026-11-04",
@@ -882,16 +1102,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/titleist-vokey-sm10-tour-chrome-wedge/"
-  },
-  {
-   "model": "PowaKaddy CT12 Electric Trolley",
-   "model_id": "powakaddy-ct12-electric-trolley",
-   "date": "2026-11-04",
-   "was": 1199.0,
-   "now": 1149.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/powakaddy-ct12-electric-trolley/"
   }
  ]
 }

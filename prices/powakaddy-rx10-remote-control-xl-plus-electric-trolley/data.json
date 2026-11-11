@@ -6,23 +6,23 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1349.99,
+ "lowestNewPrice": 1147.49,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 1349.99,
+   "from": 1147.49,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 76,
-  "low": 1349.99,
+  "low": 1147.49,
   "high": 1349.99,
-  "average": 1349.99,
-  "priceChanges": 0,
+  "average": 1347.33,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-11",
-    1349.99
+    1147.49
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/RX10REMOTETROLLEY4.jpg?v=1739443199",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

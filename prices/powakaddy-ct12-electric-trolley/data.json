@@ -6,11 +6,16 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1149.0,
+ "lowestNewPrice": 1061.65,
  "lowestAt": [
-  "Affordable Golf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 1061.65,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 1149.0,
@@ -25,19 +30,14 @@
    "name": "Clickgolf",
    "from": 1249.0,
    "options": 2
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 1249.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 88,
-  "low": 1149.0,
+  "low": 1061.65,
   "high": 1249.0,
-  "average": 1199.57,
-  "priceChanges": 10,
+  "average": 1198.58,
+  "priceChanges": 11,
   "series": [
    [
     "2026-08-16",
@@ -85,7 +85,7 @@
    ],
    [
     "2026-11-11",
-    1149.0
+    1061.65
    ]
   ]
  },
@@ -93,7 +93,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PowaKaddyCT12GPSElectricTrolley1.jpg?v=1776294240",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CT12GPSTROLLEY3_80d48248-216d-435c-9a51-2e6dd8237707.jpg?v=1739446420",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

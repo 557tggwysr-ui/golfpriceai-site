@@ -6,28 +6,28 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 231.2,
+ "lowestNewPrice": 211.65,
  "lowestAt": [
-  "Callaway Golf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 211.65,
+   "options": 1
+  },
   {
    "name": "Callaway Golf",
    "from": 231.2,
    "options": 2
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 249.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 88,
-  "low": 231.2,
+  "low": 211.65,
   "high": 289.0,
-  "average": 234.48,
-  "priceChanges": 1,
+  "average": 234.26,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -39,15 +39,15 @@
    ],
    [
     "2026-11-11",
-    231.2
+    211.65
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 83 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794119998705/sits/putters-2025-square-to-square-dw/putters-2025-square-to-square-dw___1.png?sfrm=png",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SQUARE2SQUAREDW2.jpg?v=1737561505",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

@@ -6,11 +6,16 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1199.0,
+ "lowestNewPrice": 1104.15,
  "lowestAt": [
-  "Clarkes Golf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 1104.15,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 1199.0,
@@ -25,19 +30,14 @@
    "name": "Clickgolf",
    "from": 1299.0,
    "options": 2
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 1299.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 88,
-  "low": 1199.0,
+  "low": 1104.15,
   "high": 1299.0,
-  "average": 1271.73,
-  "priceChanges": 14,
+  "average": 1270.65,
+  "priceChanges": 15,
   "series": [
    [
     "2026-08-16",
@@ -101,7 +101,7 @@
    ],
    [
     "2026-11-11",
-    1199.0
+    1104.15
    ]
   ]
  },
@@ -109,7 +109,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/01_2025_PowaKaddy_-_CT12_GPS_-_Gun_Metal_-_Standard_Plug_n_Play_Lithium_Battery-Photoroom.jpg?v=1739533467",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CT12GPSEBSTROLLEY5_a057e76c-069a-4b20-9990-fd5fc2eb4a70.jpg?v=1739445714",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

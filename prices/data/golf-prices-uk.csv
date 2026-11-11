@@ -53,9 +53,9 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,ping-g440-sft-hl-driver,Ping G440 SFT HL Driver,Ping,driver,529.00,each,2,88,529.00,529.00,typical,https://golfpriceai.com/prices/ping-g440-sft-hl-driver/
 2026-11-11,ping-g440k-driver,Ping G440K Driver,Ping,driver,579.00,each,1,69,579.00,579.00,typical,https://golfpriceai.com/prices/ping-g440k-driver/
 2026-11-11,ping-g440k-hl-driver,Ping G440K HL Driver,Ping,driver,579.00,each,1,69,579.00,579.00,typical,https://golfpriceai.com/prices/ping-g440k-hl-driver/
-2026-11-11,srixon-zxi-driver,Srixon ZXi Driver,Srixon,driver,299.00,each,4,88,299.00,499.00,good,https://golfpriceai.com/prices/srixon-zxi-driver/
-2026-11-11,srixon-zxi-ls-driver,Srixon ZXi LS Driver,Srixon,driver,319.00,each,3,88,319.00,499.00,good,https://golfpriceai.com/prices/srixon-zxi-ls-driver/
-2026-11-11,srixon-zxi-max-driver,Srixon ZXi Max Driver,Srixon,driver,319.00,each,3,88,319.00,499.00,good,https://golfpriceai.com/prices/srixon-zxi-max-driver/
+2026-11-11,srixon-zxi-driver,Srixon ZXi Driver,Srixon,driver,279.65,each,4,88,279.65,499.00,good,https://golfpriceai.com/prices/srixon-zxi-driver/
+2026-11-11,srixon-zxi-ls-driver,Srixon ZXi LS Driver,Srixon,driver,279.65,each,3,88,279.65,499.00,good,https://golfpriceai.com/prices/srixon-zxi-ls-driver/
+2026-11-11,srixon-zxi-max-driver,Srixon ZXi Max Driver,Srixon,driver,279.65,each,3,88,279.65,499.00,good,https://golfpriceai.com/prices/srixon-zxi-max-driver/
 2026-11-11,srixon-zxi-rkt-driver,Srixon ZXi RKT Driver,Srixon,driver,529.00,each,4,55,529.00,569.00,typical,https://golfpriceai.com/prices/srixon-zxi-rkt-driver/
 2026-11-11,srixon-zxi-rkt-ls-driver,Srixon ZXi RKT LS Driver,Srixon,driver,529.00,each,3,55,529.00,569.00,typical,https://golfpriceai.com/prices/srixon-zxi-rkt-ls-driver/
 2026-11-11,srixon-zxi-rkt-max-driver,Srixon ZXi RKT Max Driver,Srixon,driver,529.00,each,3,55,529.00,569.00,typical,https://golfpriceai.com/prices/srixon-zxi-rkt-max-driver/
@@ -135,7 +135,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,ping-g440-max-fairway-wood,Ping G440 Max Fairway Wood,Ping,fairway wood,319.00,each,2,88,319.00,319.00,typical,https://golfpriceai.com/prices/ping-g440-max-fairway-wood/
 2026-11-11,ping-g440-sft-fairway-wood,Ping G440 SFT Fairway Wood,Ping,fairway wood,319.00,each,2,88,319.00,319.00,typical,https://golfpriceai.com/prices/ping-g440-sft-fairway-wood/
 2026-11-11,ping-prodi-g-24-fairway-wood,Ping Prodi G 24 Fairway Wood,Ping,fairway wood,139.00,each,2,69,139.00,139.95,typical,https://golfpriceai.com/prices/ping-prodi-g-24-fairway-wood/
-2026-11-11,srixon-zxi-fairway-wood,Srixon ZXi Fairway Wood,Srixon,fairway wood,199.00,each,4,88,199.00,299.00,typical,https://golfpriceai.com/prices/srixon-zxi-fairway-wood/
+2026-11-11,srixon-zxi-fairway-wood,Srixon ZXi Fairway Wood,Srixon,fairway wood,169.15,each,4,88,169.15,299.00,good,https://golfpriceai.com/prices/srixon-zxi-fairway-wood/
 2026-11-11,srixon-zxi-rkt-fairway-wood,Srixon ZXi RKT Fairway Wood,Srixon,fairway wood,299.00,each,3,44,299.00,339.00,typical,https://golfpriceai.com/prices/srixon-zxi-rkt-fairway-wood/
 2026-11-11,taylormade-qi10-fairway-wood,TaylorMade Qi10 Fairway Wood,TaylorMade,fairway wood,229.00,each,3,69,229.00,229.00,typical,https://golfpriceai.com/prices/taylormade-qi10-fairway-wood/
 2026-11-11,taylormade-qi35-fairway-wood,TaylorMade Qi35 Fairway Wood,TaylorMade,fairway wood,199.00,each,3,88,199.00,229.00,typical,https://golfpriceai.com/prices/taylormade-qi35-fairway-wood/
@@ -197,7 +197,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,titleist-gt1-hybrid,Titleist GT1 Hybrid,Titleist,hybrid,299.00,each,3,88,299.00,299.00,typical,https://golfpriceai.com/prices/titleist-gt1-hybrid/
 2026-11-11,titleist-gt2-hybrid,Titleist GT2 Hybrid,Titleist,hybrid,299.00,each,3,88,249.00,299.00,typical,https://golfpriceai.com/prices/titleist-gt2-hybrid/
 2026-11-11,titleist-gt3-hybrid,Titleist GT3 Hybrid,Titleist,hybrid,299.00,each,4,88,299.00,299.00,typical,https://golfpriceai.com/prices/titleist-gt3-hybrid/
-2026-11-11,wilson-dynapwr-hybrid,Wilson DYNAPWR Hybrid,Wilson,hybrid,119.00,each,4,88,119.00,199.00,good,https://golfpriceai.com/prices/wilson-dynapwr-hybrid/
+2026-11-11,wilson-dynapwr-hybrid,Wilson DYNAPWR Hybrid,Wilson,hybrid,109.65,each,4,88,109.65,199.00,good,https://golfpriceai.com/prices/wilson-dynapwr-hybrid/
 2026-11-11,wilson-dynapower-hybrid,Wilson Dynapower Hybrid,Wilson,hybrid,69.95,each,2,69,69.95,69.95,typical,https://golfpriceai.com/prices/wilson-dynapower-hybrid/
 2026-11-11,wilson-profile-hybrid,Wilson Profile Hybrid,Wilson,hybrid,54.95,each,2,76,54.95,59.99,typical,https://golfpriceai.com/prices/wilson-profile-hybrid/
 2026-11-11,yonex-ezone-elite-hybrid,Yonex Ezone Elite Hybrid,Yonex,hybrid,129.00,each,2,88,129.00,159.00,good,https://golfpriceai.com/prices/yonex-ezone-elite-hybrid/
@@ -333,7 +333,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,macgregor-v-max-feel-wedge,MacGregor V-Max Feel Wedge,MacGregor,wedge,37.99,each,1,69,37.99,37.99,typical,https://golfpriceai.com/prices/macgregor-v-max-feel-wedge/
 2026-11-11,macgregor-zt-plus-chipper-wedge,MacGregor ZT Plus Chipper Wedge,MacGregor,wedge,44.95,each,3,76,44.95,44.99,typical,https://golfpriceai.com/prices/macgregor-zt-plus-chipper-wedge/
 2026-11-11,macgregor-zt-plus-wedge,MacGregor ZT Plus Wedge,MacGregor,wedge,39.99,each,3,76,39.99,44.95,good,https://golfpriceai.com/prices/macgregor-zt-plus-wedge/
-2026-11-11,mizuno-pro-t-1-ion-wedge,Mizuno Pro T-1 ION Wedge,Mizuno,wedge,109.00,each,2,76,109.00,149.00,good,https://golfpriceai.com/prices/mizuno-pro-t-1-ion-wedge/
+2026-11-11,mizuno-pro-t-1-ion-wedge,Mizuno Pro T-1 ION Wedge,Mizuno,wedge,92.65,each,2,76,92.65,149.00,good,https://golfpriceai.com/prices/mizuno-pro-t-1-ion-wedge/
 2026-11-11,mizuno-pro-t-1-ip-wedge,Mizuno Pro T-1 IP Wedge,Mizuno,wedge,139.95,each,1,69,139.95,169.95,good,https://golfpriceai.com/prices/mizuno-pro-t-1-ip-wedge/
 2026-11-11,mizuno-pro-t-1-soft-satin-wedge,Mizuno Pro T-1 Soft Satin Wedge,Mizuno,wedge,99.99,each,2,76,99.95,149.00,typical,https://golfpriceai.com/prices/mizuno-pro-t-1-soft-satin-wedge/
 2026-11-11,mizuno-pro-t-3-soft-satin-wedge,Mizuno Pro T-3 Soft Satin Wedge,Mizuno,wedge,109.00,each,2,76,109.00,149.00,good,https://golfpriceai.com/prices/mizuno-pro-t-3-soft-satin-wedge/
@@ -373,7 +373,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,wilson-harmonized-chipper-wedge,Wilson Harmonized Chipper Wedge,Wilson,wedge,44.95,each,2,76,44.95,44.95,typical,https://golfpriceai.com/prices/wilson-harmonized-chipper-wedge/
 2026-11-11,wilson-harmonized-wedge,Wilson Harmonized Wedge,Wilson,wedge,49.99,each,1,69,49.99,49.99,typical,https://golfpriceai.com/prices/wilson-harmonized-wedge/
 2026-11-11,wilson-infinite-wedge,Wilson Infinite Wedge,Wilson,wedge,94.95,each,3,88,94.95,99.00,typical,https://golfpriceai.com/prices/wilson-infinite-wedge/
-2026-11-11,wilson-staff-model-zm-forged-wedge,Wilson Staff Model ZM Forged Wedge,Wilson,wedge,125.00,each,1,76,125.00,125.00,typical,https://golfpriceai.com/prices/wilson-staff-model-zm-forged-wedge/
+2026-11-11,wilson-staff-model-zm-forged-wedge,Wilson Staff Model ZM Forged Wedge,Wilson,wedge,106.25,each,1,76,106.25,125.00,good,https://golfpriceai.com/prices/wilson-staff-model-zm-forged-wedge/
 2026-11-11,wilson-staff-model-zm-wedge,Wilson Staff Model ZM Wedge,Wilson,wedge,99.00,each,3,88,99.00,129.00,good,https://golfpriceai.com/prices/wilson-staff-model-zm-wedge/
 2026-11-11,cleveland-hb-soft-2-1-putter,Cleveland HB Soft 2 #1 Putter,Cleveland,putter,109.00,each,2,88,109.00,119.00,typical,https://golfpriceai.com/prices/cleveland-hb-soft-2-1-putter/
 2026-11-11,cleveland-hb-soft-2-15-putter,Cleveland HB Soft 2 #15 Putter,Cleveland,putter,119.00,each,2,88,109.00,159.00,typical,https://golfpriceai.com/prices/cleveland-hb-soft-2-15-putter/
@@ -422,7 +422,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,odyssey-ai-one-milled-putter,Odyssey Ai-ONE Milled Putter,Odyssey,putter,198.97,each,2,69,198.97,249.00,good,https://golfpriceai.com/prices/odyssey-ai-one-milled-putter/
 2026-11-11,odyssey-ai-one-milled-seven-t-db-putter,Odyssey Ai-ONE Milled Seven T DB Putter,Odyssey,putter,291.85,each,2,88,291.85,449.00,typical,https://golfpriceai.com/prices/odyssey-ai-one-milled-seven-t-db-putter/
 2026-11-11,odyssey-ai-one-putter,Odyssey Ai-ONE Putter,Odyssey,putter,159.00,each,2,69,159.00,179.00,good,https://golfpriceai.com/prices/odyssey-ai-one-putter/
-2026-11-11,odyssey-ai-one-square-2-square-double-wide-putter,Odyssey Ai-ONE Square 2 Square Double Wide Putter,Odyssey,putter,231.20,each,2,88,231.20,289.00,typical,https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-double-wide-putter/
+2026-11-11,odyssey-ai-one-square-2-square-double-wide-putter,Odyssey Ai-ONE Square 2 Square Double Wide Putter,Odyssey,putter,211.65,each,2,88,211.65,289.00,good,https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-double-wide-putter/
 2026-11-11,odyssey-ai-one-square-2-square-max-putter,Odyssey Ai-ONE Square 2 Square Max Putter,Odyssey,putter,199.00,each,3,88,199.00,199.00,typical,https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-max-putter/
 2026-11-11,odyssey-ai-one-square-2-square-putter,Odyssey Ai-ONE Square 2 Square Putter,Odyssey,putter,179.00,each,2,69,179.00,279.00,typical,https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-putter/
 2026-11-11,odyssey-dfx-1-ch-putter,Odyssey DFX 1 CH Putter,Odyssey,putter,129.00,each,2,32,129.00,149.00,good,https://golfpriceai.com/prices/odyssey-dfx-1-ch-putter/
@@ -434,7 +434,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,odyssey-tri-hot-square-2-square-putter,Odyssey Tri-Hot Square 2 Square Putter,Odyssey,putter,429.00,each,1,69,429.00,429.00,typical,https://golfpriceai.com/prices/odyssey-tri-hot-square-2-square-putter/
 2026-11-11,odyssey-tri-hot-square-to-square-sb-putter,Odyssey Tri-Hot Square to Square SB Putter,Odyssey,putter,429.00,each,1,69,429.00,429.00,typical,https://golfpriceai.com/prices/odyssey-tri-hot-square-to-square-sb-putter/
 2026-11-11,pxg-battle-ready-ii-putter,PXG Battle Ready II Putter,PXG,putter,329.00,each,1,69,329.00,349.00,good,https://golfpriceai.com/prices/pxg-battle-ready-ii-putter/
-2026-11-11,pxg-hawk-putter,PXG Hawk Putter,PXG,putter,249.00,each,2,76,249.00,249.00,typical,https://golfpriceai.com/prices/pxg-hawk-putter/
+2026-11-11,pxg-hawk-putter,PXG Hawk Putter,PXG,putter,211.65,each,2,76,211.65,249.00,good,https://golfpriceai.com/prices/pxg-hawk-putter/
 2026-11-11,ping-g-le4-louise-putter,Ping G Le4 Louise Putter,Ping,putter,299.00,each,2,88,299.00,299.00,typical,https://golfpriceai.com/prices/ping-g-le4-louise-putter/
 2026-11-11,ping-pld-milled-putter,Ping PLD Milled Putter,Ping,putter,399.00,each,1,69,399.00,399.00,typical,https://golfpriceai.com/prices/ping-pld-milled-putter/
 2026-11-11,ping-prodi-g-24-putter,Ping Prodi G 24 Putter,Ping,putter,89.00,each,2,69,89.00,89.95,typical,https://golfpriceai.com/prices/ping-prodi-g-24-putter/
@@ -613,13 +613,13 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,srixon-z-star-gen-9-golf-balls,Srixon Z-Star Gen 9 Golf Balls,Srixon,golf ball,37.95,per dozen,1,76,37.95,37.95,typical,https://golfpriceai.com/prices/srixon-z-star-gen-9-golf-balls/
 2026-11-11,srixon-z-star-xv-gen-9-golf-balls,Srixon Z-Star XV Gen 9 Golf Balls,Srixon,golf ball,37.95,per dozen,1,76,37.95,37.95,typical,https://golfpriceai.com/prices/srixon-z-star-xv-gen-9-golf-balls/
 2026-11-11,srixon-z-star-xv-golf-balls,Srixon Z-Star XV Golf Balls,Srixon,golf ball,38.95,per dozen,4,69,38.95,38.99,typical,https://golfpriceai.com/prices/srixon-z-star-xv-golf-balls/
-2026-11-11,taylormade-distance-plus-golf-balls,TaylorMade Distance+ Golf Balls,TaylorMade,golf ball,21.95,per dozen,5,88,18.95,21.99,wait,https://golfpriceai.com/prices/taylormade-distance-plus-golf-balls/
+2026-11-11,taylormade-distance-plus-golf-balls,TaylorMade Distance+ Golf Balls,TaylorMade,golf ball,21.95,per dozen,4,76,18.95,21.95,wait,https://golfpriceai.com/prices/taylormade-distance-plus-golf-balls/
 2026-11-11,taylormade-kalea-golf-balls,TaylorMade Kalea Golf Balls,TaylorMade,golf ball,19.99,per dozen,1,69,19.99,19.99,typical,https://golfpriceai.com/prices/taylormade-kalea-golf-balls/
 2026-11-11,taylormade-speed-soft-golf-balls,TaylorMade Speed Soft Golf Balls,TaylorMade,golf ball,24.95,per dozen,2,69,24.95,26.99,good,https://golfpriceai.com/prices/taylormade-speed-soft-golf-balls/
 2026-11-11,taylormade-speed-soft-ink-golf-balls,TaylorMade Speed Soft Ink Golf Balls,TaylorMade,golf ball,26.99,per dozen,2,69,26.99,26.99,typical,https://golfpriceai.com/prices/taylormade-speed-soft-ink-golf-balls/
 2026-11-11,taylormade-speedsoft-15-golf-balls,TaylorMade SpeedSoft 15 Golf Balls,TaylorMade,golf ball,19.99,per dozen,1,69,19.99,19.99,typical,https://golfpriceai.com/prices/taylormade-speedsoft-15-golf-balls/
 2026-11-11,taylormade-speedsoft-golf-balls,TaylorMade SpeedSoft Golf Balls,TaylorMade,golf ball,23.95,per dozen,3,88,23.95,24.99,typical,https://golfpriceai.com/prices/taylormade-speedsoft-golf-balls/
-2026-11-11,taylormade-speedsoft-ink-golf-balls,TaylorMade SpeedSoft Ink Golf Balls,TaylorMade,golf ball,24.99,per dozen,3,88,24.99,26.99,typical,https://golfpriceai.com/prices/taylormade-speedsoft-ink-golf-balls/
+2026-11-11,taylormade-speedsoft-ink-golf-balls,TaylorMade SpeedSoft Ink Golf Balls,TaylorMade,golf ball,22.99,per dozen,3,88,22.99,26.99,good,https://golfpriceai.com/prices/taylormade-speedsoft-ink-golf-balls/
 2026-11-11,taylormade-tp5-clear-stripe-golf-balls,TaylorMade TP5 Clear Stripe Golf Balls,TaylorMade,golf ball,49.99,per dozen,1,69,49.99,49.99,typical,https://golfpriceai.com/prices/taylormade-tp5-clear-stripe-golf-balls/
 2026-11-11,taylormade-tp5-golf-balls,TaylorMade TP5 Golf Balls,TaylorMade,golf ball,35.99,per dozen,5,88,35.96,35.99,typical,https://golfpriceai.com/prices/taylormade-tp5-golf-balls/
 2026-11-11,taylormade-tp5-performance-stripe-golf-balls,TaylorMade TP5 Performance Stripe Golf Balls,TaylorMade,golf ball,49.90,per dozen,2,76,49.90,49.90,good,https://golfpriceai.com/prices/taylormade-tp5-performance-stripe-golf-balls/
@@ -694,7 +694,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,big-max-aqua-tour-4-waterproof-golf-bag,Big Max Aqua Tour 4 Waterproof Golf Bag,Big Max,golf bag,239.00,each,1,69,239.00,239.00,typical,https://golfpriceai.com/prices/big-max-aqua-tour-4-waterproof-golf-bag/
 2026-11-11,big-max-dri-lite-hybrid-prime-stand-bag-golf-bag,Big Max Dri Lite Hybrid Prime Stand Bag Golf Bag,Big Max,golf bag,249.00,each,2,69,249.00,289.00,good,https://golfpriceai.com/prices/big-max-dri-lite-hybrid-prime-stand-bag-golf-bag/
 2026-11-11,big-max-dri-lite-hybrid-tour-2-golf-bag,Big Max Dri Lite Hybrid Tour 2 Golf Bag,Big Max,golf bag,179.00,each,3,76,179.00,209.00,good,https://golfpriceai.com/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/
-2026-11-11,big-max-dri-lite-prime-cart-bag-golf-bag,Big Max Dri Lite Prime Cart Bag Golf Bag,Big Max,golf bag,269.00,each,2,76,269.00,329.00,good,https://golfpriceai.com/prices/big-max-dri-lite-prime-cart-bag-golf-bag/
+2026-11-11,big-max-dri-lite-prime-cart-bag-golf-bag,Big Max Dri Lite Prime Cart Bag Golf Bag,Big Max,golf bag,254.15,each,2,76,254.15,329.00,good,https://golfpriceai.com/prices/big-max-dri-lite-prime-cart-bag-golf-bag/
 2026-11-11,big-max-dri-lite-seven-g-stand-bag-golf-bag,Big Max Dri Lite Seven G Stand Bag Golf Bag,Big Max,golf bag,104.95,each,2,76,104.95,104.95,typical,https://golfpriceai.com/prices/big-max-dri-lite-seven-g-stand-bag-golf-bag/
 2026-11-11,big-max-dri-lite-silencio-2-organiser-golf-bag,Big Max Dri Lite Silencio 2 Organiser Golf Bag,Big Max,golf bag,209.00,each,1,69,209.00,219.00,typical,https://golfpriceai.com/prices/big-max-dri-lite-silencio-2-organiser-golf-bag/
 2026-11-11,big-max-dri-lite-silencio-3-organiser-cart-golf-bag,Big Max Dri Lite Silencio 3 Organiser Cart Golf Bag,Big Max,golf bag,199.00,each,2,76,199.00,219.00,good,https://golfpriceai.com/prices/big-max-dri-lite-silencio-3-organiser-cart-golf-bag/
@@ -731,7 +731,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,callaway-org-14-cart-bag-golf-bag,Callaway Org 14 Cart Bag Golf Bag,Callaway,golf bag,189.00,each,5,88,179.00,199.00,wait,https://golfpriceai.com/prices/callaway-org-14-cart-bag-golf-bag/
 2026-11-11,callaway-org-14-hd-cart-bag-golf-bag,Callaway Org 14 HD Cart Bag Golf Bag,Callaway,golf bag,279.00,each,1,88,279.00,279.00,typical,https://golfpriceai.com/prices/callaway-org-14-hd-cart-bag-golf-bag/
 2026-11-11,callaway-org-14-hd-waterproof-cart-bag-golf-bag,Callaway Org 14 HD Waterproof Cart Bag Golf Bag,Callaway,golf bag,229.00,each,2,88,229.00,249.00,typical,https://golfpriceai.com/prices/callaway-org-14-hd-waterproof-cart-bag-golf-bag/
-2026-11-11,callaway-org-14-hyper-dry-cart-bag-golf-bag,Callaway Org 14 Hyper Dry Cart Bag Golf Bag,Callaway,golf bag,249.00,each,1,76,249.00,249.00,typical,https://golfpriceai.com/prices/callaway-org-14-hyper-dry-cart-bag-golf-bag/
+2026-11-11,callaway-org-14-hyper-dry-cart-bag-golf-bag,Callaway Org 14 Hyper Dry Cart Bag Golf Bag,Callaway,golf bag,211.65,each,1,76,211.65,249.00,good,https://golfpriceai.com/prices/callaway-org-14-hyper-dry-cart-bag-golf-bag/
 2026-11-11,callaway-org-14-hyper-dry-waterproof-golf-bag,Callaway Org 14 Hyper Dry Waterproof Golf Bag,Callaway,golf bag,269.00,each,1,69,269.00,269.00,typical,https://golfpriceai.com/prices/callaway-org-14-hyper-dry-waterproof-golf-bag/
 2026-11-11,callaway-par-3-hd-stand-bag-golf-bag,Callaway Par 3 HD Stand Bag Golf Bag,Callaway,golf bag,179.00,each,1,88,179.00,179.00,typical,https://golfpriceai.com/prices/callaway-par-3-hd-stand-bag-golf-bag/
 2026-11-11,callaway-par-3-hd-waterproof-pencil-bag-golf-bag,Callaway Par 3 HD Waterproof Pencil Bag Golf Bag,Callaway,golf bag,139.95,each,2,88,134.00,149.00,typical,https://golfpriceai.com/prices/callaway-par-3-hd-waterproof-pencil-bag-golf-bag/
@@ -859,7 +859,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,pxg-nextgen-deluxe-2-0-cart-bag-golf-bag,PXG NextGen Deluxe 2.0 Cart Bag Golf Bag,PXG,golf bag,349.00,each,1,69,349.00,349.00,typical,https://golfpriceai.com/prices/pxg-nextgen-deluxe-2-0-cart-bag-golf-bag/
 2026-11-11,pxg-water-resistant-light-weight-cart-bag-golf-bag,PXG Water Resistant Light Weight Cart Bag Golf Bag,PXG,golf bag,289.00,each,1,69,289.00,389.00,typical,https://golfpriceai.com/prices/pxg-water-resistant-light-weight-cart-bag-golf-bag/
 2026-11-11,pxg-xtreme-carry-bag-stand-bag-golf-bag,PXG Xtreme Carry Bag Stand Bag Golf Bag,PXG,golf bag,199.00,each,2,76,199.00,199.00,typical,https://golfpriceai.com/prices/pxg-xtreme-carry-bag-stand-bag-golf-bag/
-2026-11-11,pxg-xtreme-hybrid-stand-bag-golf-bag,PXG Xtreme Hybrid Stand Bag Golf Bag,PXG,golf bag,279.00,each,1,76,279.00,279.00,typical,https://golfpriceai.com/prices/pxg-xtreme-hybrid-stand-bag-golf-bag/
+2026-11-11,pxg-xtreme-hybrid-stand-bag-golf-bag,PXG Xtreme Hybrid Stand Bag Golf Bag,PXG,golf bag,237.15,each,1,76,237.15,279.00,good,https://golfpriceai.com/prices/pxg-xtreme-hybrid-stand-bag-golf-bag/
 2026-11-11,ping-243-tour-staff-golf-bag,Ping 243 Tour Staff Golf Bag,Ping,golf bag,399.00,each,1,88,369.00,399.00,wait,https://golfpriceai.com/prices/ping-243-tour-staff-golf-bag/
 2026-11-11,ping-dlx-224-cart-bag-golf-bag,Ping DLX 224 Cart Bag Golf Bag,Ping,golf bag,239.00,each,1,88,239.00,269.00,typical,https://golfpriceai.com/prices/ping-dlx-224-cart-bag-golf-bag/
 2026-11-11,ping-dlx-244-cart-bag-golf-bag,Ping DLX 244 Cart Bag Golf Bag,Ping,golf bag,249.00,each,2,64,149.95,249.00,wait,https://golfpriceai.com/prices/ping-dlx-244-cart-bag-golf-bag/
@@ -904,10 +904,10 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,srixon-premium-cart-bag-golf-bag,Srixon Premium Cart Bag Golf Bag,Srixon,golf bag,159.00,each,3,88,159.00,159.00,typical,https://golfpriceai.com/prices/srixon-premium-cart-bag-golf-bag/
 2026-11-11,srixon-premium-stand-bag-golf-bag,Srixon Premium Stand Bag Golf Bag,Srixon,golf bag,159.95,each,2,88,159.95,184.00,typical,https://golfpriceai.com/prices/srixon-premium-stand-bag-golf-bag/
 2026-11-11,srixon-srx-premium-cart-bag-golf-bag,Srixon SRX Premium Cart Bag Golf Bag,Srixon,golf bag,179.00,each,1,76,179.00,179.00,typical,https://golfpriceai.com/prices/srixon-srx-premium-cart-bag-golf-bag/
-2026-11-11,srixon-srx-premium-stand-bag-golf-bag,Srixon SRX Premium Stand Bag Golf Bag,Srixon,golf bag,169.00,each,1,76,169.00,169.00,typical,https://golfpriceai.com/prices/srixon-srx-premium-stand-bag-golf-bag/
-2026-11-11,srixon-srx-tour-staff-golf-bag,Srixon SRX Tour Staff Golf Bag,Srixon,golf bag,379.00,each,1,76,379.00,379.00,typical,https://golfpriceai.com/prices/srixon-srx-tour-staff-golf-bag/
+2026-11-11,srixon-srx-premium-stand-bag-golf-bag,Srixon SRX Premium Stand Bag Golf Bag,Srixon,golf bag,143.65,each,1,76,143.65,169.00,good,https://golfpriceai.com/prices/srixon-srx-premium-stand-bag-golf-bag/
+2026-11-11,srixon-srx-tour-staff-golf-bag,Srixon SRX Tour Staff Golf Bag,Srixon,golf bag,322.15,each,1,76,322.15,379.00,good,https://golfpriceai.com/prices/srixon-srx-tour-staff-golf-bag/
 2026-11-11,srixon-srx-weatherproof-cart-bag-golf-bag,Srixon SRX Weatherproof Cart Bag Golf Bag,Srixon,golf bag,249.00,each,1,76,249.00,249.00,typical,https://golfpriceai.com/prices/srixon-srx-weatherproof-cart-bag-golf-bag/
-2026-11-11,srixon-srx-weatherproof-stand-bag-golf-bag,Srixon SRX Weatherproof Stand Bag Golf Bag,Srixon,golf bag,229.00,each,1,76,229.00,229.00,typical,https://golfpriceai.com/prices/srixon-srx-weatherproof-stand-bag-golf-bag/
+2026-11-11,srixon-srx-weatherproof-stand-bag-golf-bag,Srixon SRX Weatherproof Stand Bag Golf Bag,Srixon,golf bag,194.65,each,1,76,194.65,229.00,good,https://golfpriceai.com/prices/srixon-srx-weatherproof-stand-bag-golf-bag/
 2026-11-11,srixon-saturday-stand-bag-golf-bag,Srixon Saturday Stand Bag Golf Bag,Srixon,golf bag,139.00,each,3,76,139.00,139.00,typical,https://golfpriceai.com/prices/srixon-saturday-stand-bag-golf-bag/
 2026-11-11,srixon-special-july-major-championship-stand-bag-golf-bag,Srixon Special July Major Championship Stand Bag Golf Bag,Srixon,golf bag,189.00,each,1,69,189.00,189.00,typical,https://golfpriceai.com/prices/srixon-special-july-major-championship-stand-bag-golf-bag/
 2026-11-11,srixon-tour-golf-bag,Srixon Tour Golf Bag,Srixon,golf bag,229.00,each,3,88,219.00,229.00,typical,https://golfpriceai.com/prices/srixon-tour-golf-bag/
@@ -923,7 +923,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,sun-mountain-c100-h2no-waterproof-cart-bag-golf-bag,Sun Mountain C100 H2NO Waterproof Cart Bag Golf Bag,Sun Mountain,golf bag,279.00,each,1,69,279.00,279.00,typical,https://golfpriceai.com/prices/sun-mountain-c100-h2no-waterproof-cart-bag-golf-bag/
 2026-11-11,sun-mountain-c130-cart-bag-golf-bag,Sun Mountain C130 Cart Bag Golf Bag,Sun Mountain,golf bag,269.00,each,1,69,269.00,269.00,typical,https://golfpriceai.com/prices/sun-mountain-c130-cart-bag-golf-bag/
 2026-11-11,sun-mountain-c130-h2no-waterproof-cart-bag-golf-bag,Sun Mountain C130 H2NO Waterproof Cart Bag Golf Bag,Sun Mountain,golf bag,299.00,each,1,69,289.00,299.00,typical,https://golfpriceai.com/prices/sun-mountain-c130-h2no-waterproof-cart-bag-golf-bag/
-2026-11-11,sun-mountain-e-lite-14-way-cart-bag-golf-bag,Sun Mountain E-LITE 14-Way Cart Bag Golf Bag,Sun Mountain,golf bag,239.00,each,1,76,189.00,189.00,typical,https://golfpriceai.com/prices/sun-mountain-e-lite-14-way-cart-bag-golf-bag/
+2026-11-11,sun-mountain-e-lite-14-way-cart-bag-golf-bag,Sun Mountain E-LITE 14-Way Cart Bag Golf Bag,Sun Mountain,golf bag,203.15,each,1,76,189.00,189.00,typical,https://golfpriceai.com/prices/sun-mountain-e-lite-14-way-cart-bag-golf-bag/
 2026-11-11,sun-mountain-e-lite-stand-bag-golf-bag,Sun Mountain E-LITE Stand Bag Golf Bag,Sun Mountain,golf bag,159.95,each,1,69,159.95,169.95,good,https://golfpriceai.com/prices/sun-mountain-e-lite-stand-bag-golf-bag/
 2026-11-11,sun-mountain-e-lite-cart-bag-golf-bag,Sun Mountain E-Lite Cart Bag Golf Bag,Sun Mountain,golf bag,169.95,each,1,69,169.95,179.95,good,https://golfpriceai.com/prices/sun-mountain-e-lite-cart-bag-golf-bag/
 2026-11-11,sun-mountain-eclipse-2-5-stand-bag-golf-bag,Sun Mountain Eclipse 2.5 Stand Bag Golf Bag,Sun Mountain,golf bag,179.95,each,1,69,179.95,179.95,typical,https://golfpriceai.com/prices/sun-mountain-eclipse-2-5-stand-bag-golf-bag/
@@ -948,7 +948,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,sunday-golf-loma-xl-stand-bag-golf-bag,Sunday Golf Loma XL Stand Bag Golf Bag,Sunday Golf,golf bag,169.99,each,1,69,169.99,169.99,typical,https://golfpriceai.com/prices/sunday-golf-loma-xl-stand-bag-golf-bag/
 2026-11-11,sunday-golf-ryder-23-stand-bag-golf-bag,Sunday Golf Ryder 23 Stand Bag Golf Bag,Sunday Golf,golf bag,174.95,each,3,69,174.95,174.95,typical,https://golfpriceai.com/prices/sunday-golf-ryder-23-stand-bag-golf-bag/
 2026-11-11,sunday-golf-storm-ryder-waterproof-stand-bag-golf-bag,Sunday Golf Storm Ryder Waterproof Stand Bag Golf Bag,Sunday Golf,golf bag,259.00,each,1,69,209.00,259.00,wait,https://golfpriceai.com/prices/sunday-golf-storm-ryder-waterproof-stand-bag-golf-bag/
-2026-11-11,superspeed-golf-force-board-pro-training-aid-golf-bag,SuperSpeed Golf Force Board Pro Training Aid Golf Bag,SuperSpeed Golf,golf bag,189.00,each,1,76,189.00,189.00,typical,https://golfpriceai.com/prices/superspeed-golf-force-board-pro-training-aid-golf-bag/
+2026-11-11,superspeed-golf-force-board-pro-training-aid-golf-bag,SuperSpeed Golf Force Board Pro Training Aid Golf Bag,SuperSpeed Golf,golf bag,160.65,each,1,76,160.65,189.00,good,https://golfpriceai.com/prices/superspeed-golf-force-board-pro-training-aid-golf-bag/
 2026-11-11,taylormade-cart-bag-golf-bag,TaylorMade Cart Bag Golf Bag,TaylorMade,golf bag,145.00,each,3,76,145.00,149.00,typical,https://golfpriceai.com/prices/taylormade-cart-bag-golf-bag/
 2026-11-11,taylormade-deluxe-cart-bag-golf-bag,TaylorMade Deluxe Cart Bag Golf Bag,TaylorMade,golf bag,189.00,each,5,88,189.00,234.99,typical,https://golfpriceai.com/prices/taylormade-deluxe-cart-bag-golf-bag/
 2026-11-11,taylormade-flextech-carry-bag-stand-bag-golf-bag,TaylorMade FlexTech Carry Bag Stand Bag Golf Bag,TaylorMade,golf bag,129.95,each,5,88,129.95,169.00,typical,https://golfpriceai.com/prices/taylormade-flextech-carry-bag-stand-bag-golf-bag/
@@ -1035,8 +1035,8 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,wilson-alpine-cart-bag-golf-bag,Wilson Alpine Cart Bag Golf Bag,Wilson,golf bag,159.00,each,4,88,159.00,189.00,good,https://golfpriceai.com/prices/wilson-alpine-cart-bag-golf-bag/
 2026-11-11,wilson-alpine-dry-cart-bag-golf-bag,Wilson Alpine Dry Cart Bag Golf Bag,Wilson,golf bag,225.00,each,2,76,225.00,225.00,typical,https://golfpriceai.com/prices/wilson-alpine-dry-cart-bag-golf-bag/
 2026-11-11,wilson-alpine-dry-waterproof-cart-bag-golf-bag,Wilson Alpine Dry Waterproof Cart Bag Golf Bag,Wilson,golf bag,225.00,each,2,88,199.00,229.00,wait,https://golfpriceai.com/prices/wilson-alpine-dry-waterproof-cart-bag-golf-bag/
-2026-11-11,wilson-exo-lite-stand-bag-golf-bag,Wilson Exo Lite Stand Bag Golf Bag,Wilson,golf bag,134.00,each,3,88,129.00,134.00,typical,https://golfpriceai.com/prices/wilson-exo-lite-stand-bag-golf-bag/
-2026-11-11,wilson-feather-cart-bag-golf-bag,Wilson Feather Cart Bag Golf Bag,Wilson,golf bag,129.00,each,3,76,109.00,129.00,wait,https://golfpriceai.com/prices/wilson-feather-cart-bag-golf-bag/
+2026-11-11,wilson-exo-lite-stand-bag-golf-bag,Wilson Exo Lite Stand Bag Golf Bag,Wilson,golf bag,126.65,each,3,88,126.65,134.00,good,https://golfpriceai.com/prices/wilson-exo-lite-stand-bag-golf-bag/
+2026-11-11,wilson-feather-cart-bag-golf-bag,Wilson Feather Cart Bag Golf Bag,Wilson,golf bag,109.65,each,3,76,109.00,129.00,typical,https://golfpriceai.com/prices/wilson-feather-cart-bag-golf-bag/
 2026-11-11,wilson-feather-stand-bag-golf-bag,Wilson Feather Stand Bag Golf Bag,Wilson,golf bag,124.95,each,3,76,109.99,124.95,wait,https://golfpriceai.com/prices/wilson-feather-stand-bag-golf-bag/
 2026-11-11,wilson-i-lock-4-dry-organiser-cart-bag-golf-bag,Wilson I-Lock 4 Dry Organiser Cart Bag Golf Bag,Wilson,golf bag,189.00,each,1,76,189.00,189.00,typical,https://golfpriceai.com/prices/wilson-i-lock-4-dry-organiser-cart-bag-golf-bag/
 2026-11-11,wilson-i-lock-4-organiser-cart-bag-golf-bag,Wilson I-Lock 4 Organiser Cart Bag Golf Bag,Wilson,golf bag,169.00,each,1,76,169.00,169.00,typical,https://golfpriceai.com/prices/wilson-i-lock-4-organiser-cart-bag-golf-bag/
@@ -1076,7 +1076,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,blue-tees-captain-pro-connected-laser-rangefinder,Blue Tees Captain Pro Connected Laser Rangefinder,Blue Tees,rangefinder,249.00,each,1,69,249.00,299.00,good,https://golfpriceai.com/prices/blue-tees-captain-pro-connected-laser-rangefinder/
 2026-11-11,blue-tees-series-3-max-rangefinder,Blue Tees Series 3 Max Rangefinder,Blue Tees,rangefinder,199.00,each,1,69,199.00,199.00,typical,https://golfpriceai.com/prices/blue-tees-series-3-max-rangefinder/
 2026-11-11,blue-tees-series-4-ultra-rangefinder,Blue Tees Series 4 Ultra Rangefinder,Blue Tees,rangefinder,249.00,each,1,69,249.00,269.00,typical,https://golfpriceai.com/prices/blue-tees-series-4-ultra-rangefinder/
-2026-11-11,bushnell-a1-slope-laser-rangefinder,Bushnell A1 Slope Laser Rangefinder,Bushnell,rangefinder,249.00,each,4,88,249.00,269.00,good,https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/
+2026-11-11,bushnell-a1-slope-laser-rangefinder,Bushnell A1 Slope Laser Rangefinder,Bushnell,rangefinder,237.15,each,4,88,237.15,269.00,good,https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/
 2026-11-11,bushnell-phantom-3-handheld-rangefinder,Bushnell Phantom 3 Handheld Rangefinder,Bushnell,rangefinder,129.95,each,1,69,109.95,129.95,wait,https://golfpriceai.com/prices/bushnell-phantom-3-handheld-rangefinder/
 2026-11-11,bushnell-phantom-3-rangefinder,Bushnell Phantom 3 Rangefinder,Bushnell,rangefinder,129.00,each,1,88,129.00,129.00,typical,https://golfpriceai.com/prices/bushnell-phantom-3-rangefinder/
 2026-11-11,bushnell-pro-x3-plus-laser-rangefinder,Bushnell Pro X3+ Laser Rangefinder,Bushnell,rangefinder,479.00,each,5,88,479.00,529.00,good,https://golfpriceai.com/prices/bushnell-pro-x3-plus-laser-rangefinder/
@@ -1154,9 +1154,9 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,powakaddy-ct10-ebs-electric-trolley,PowaKaddy CT10 EBS Electric Trolley,PowaKaddy,electric trolley,1029.00,each,4,88,979.00,1029.00,wait,https://golfpriceai.com/prices/powakaddy-ct10-ebs-electric-trolley/
 2026-11-11,powakaddy-ct10-electric-trolley,PowaKaddy CT10 Electric Trolley,PowaKaddy,electric trolley,979.00,each,4,88,929.00,979.00,wait,https://golfpriceai.com/prices/powakaddy-ct10-electric-trolley/
 2026-11-11,powakaddy-ct10-xl-electric-trolley,PowaKaddy CT10 XL Electric Trolley,PowaKaddy,electric trolley,1029.00,each,1,76,1029.00,1029.00,typical,https://golfpriceai.com/prices/powakaddy-ct10-xl-electric-trolley/
-2026-11-11,powakaddy-ct12-ebs-electric-trolley,PowaKaddy CT12 EBS Electric Trolley,PowaKaddy,electric trolley,1199.00,each,4,88,1199.00,1299.00,good,https://golfpriceai.com/prices/powakaddy-ct12-ebs-electric-trolley/
+2026-11-11,powakaddy-ct12-ebs-electric-trolley,PowaKaddy CT12 EBS Electric Trolley,PowaKaddy,electric trolley,1104.15,each,4,88,1104.15,1299.00,good,https://golfpriceai.com/prices/powakaddy-ct12-ebs-electric-trolley/
 2026-11-11,powakaddy-ct12-ebs-xl-electric-trolley,PowaKaddy CT12 EBS XL Electric Trolley,PowaKaddy,electric trolley,1349.00,each,1,76,1349.00,1349.00,typical,https://golfpriceai.com/prices/powakaddy-ct12-ebs-xl-electric-trolley/
-2026-11-11,powakaddy-ct12-electric-trolley,PowaKaddy CT12 Electric Trolley,PowaKaddy,electric trolley,1149.00,each,4,88,1149.00,1249.00,good,https://golfpriceai.com/prices/powakaddy-ct12-electric-trolley/
+2026-11-11,powakaddy-ct12-electric-trolley,PowaKaddy CT12 Electric Trolley,PowaKaddy,electric trolley,1061.65,each,4,88,1061.65,1249.00,good,https://golfpriceai.com/prices/powakaddy-ct12-electric-trolley/
 2026-11-11,powakaddy-ct12-xl-electric-trolley,PowaKaddy CT12 XL Electric Trolley,PowaKaddy,electric trolley,1299.00,each,1,76,1299.00,1299.00,typical,https://golfpriceai.com/prices/powakaddy-ct12-xl-electric-trolley/
 2026-11-11,powakaddy-ct6-ebs-electric-trolley,PowaKaddy CT6 EBS Electric Trolley,PowaKaddy,electric trolley,799.00,each,5,88,749.00,799.00,wait,https://golfpriceai.com/prices/powakaddy-ct6-ebs-electric-trolley/
 2026-11-11,powakaddy-ct6-ebs-xl-electric-trolley,PowaKaddy CT6 EBS XL Electric Trolley,PowaKaddy,electric trolley,849.00,each,1,76,849.00,849.00,typical,https://golfpriceai.com/prices/powakaddy-ct6-ebs-xl-electric-trolley/
@@ -1177,7 +1177,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,powakaddy-rx-remote-control-electric-trolley,PowaKaddy RX Remote Control Electric Trolley,PowaKaddy,electric trolley,999.00,each,1,69,999.00,999.00,typical,https://golfpriceai.com/prices/powakaddy-rx-remote-control-electric-trolley/
 2026-11-11,powakaddy-rx-remote-electric-trolley,PowaKaddy RX Remote Electric Trolley,PowaKaddy,electric trolley,999.00,each,2,88,949.00,999.00,wait,https://golfpriceai.com/prices/powakaddy-rx-remote-electric-trolley/
 2026-11-11,powakaddy-rx10-remote-control-electric-trolley,PowaKaddy RX10 Remote Control Electric Trolley,PowaKaddy,electric trolley,1299.00,each,1,69,1299.00,1299.00,typical,https://golfpriceai.com/prices/powakaddy-rx10-remote-control-electric-trolley/
-2026-11-11,powakaddy-rx10-remote-control-xl-plus-electric-trolley,PowaKaddy RX10 Remote Control XL Plus Electric Trolley,PowaKaddy,electric trolley,1349.99,each,1,76,1349.99,1349.99,typical,https://golfpriceai.com/prices/powakaddy-rx10-remote-control-xl-plus-electric-trolley/
+2026-11-11,powakaddy-rx10-remote-control-xl-plus-electric-trolley,PowaKaddy RX10 Remote Control XL Plus Electric Trolley,PowaKaddy,electric trolley,1147.49,each,1,76,1147.49,1349.99,good,https://golfpriceai.com/prices/powakaddy-rx10-remote-control-xl-plus-electric-trolley/
 2026-11-11,powakaddy-rx10-remote-electric-trolley,PowaKaddy RX10 Remote Electric Trolley,PowaKaddy,electric trolley,1299.00,each,2,88,1219.00,1299.00,wait,https://golfpriceai.com/prices/powakaddy-rx10-remote-electric-trolley/
 2026-11-11,powakaddy-rx12-remote-control-electric-trolley,PowaKaddy RX12 Remote Control Electric Trolley,PowaKaddy,electric trolley,1499.00,each,1,69,1499.00,1499.00,typical,https://golfpriceai.com/prices/powakaddy-rx12-remote-control-electric-trolley/
 2026-11-11,powakaddy-rx12-remote-control-xl-plus-electric-trolley,PowaKaddy RX12 Remote Control XL Plus Electric Trolley,PowaKaddy,electric trolley,1499.00,each,1,76,1499.00,1499.00,typical,https://golfpriceai.com/prices/powakaddy-rx12-remote-control-xl-plus-electric-trolley/
@@ -1207,7 +1207,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,square-golf-square-indoor-launch-monitor,Square Golf Square Indoor Launch Monitor,Square Golf,launch monitor,679.00,each,1,76,679.00,679.00,typical,https://golfpriceai.com/prices/square-golf-square-indoor-launch-monitor/
 2026-11-11,swinglogic-slx-hybrid-mini-launch-monitor,SwingLogic SLX Hybrid Mini Launch Monitor,SwingLogic,launch monitor,157.95,each,3,76,157.95,157.95,typical,https://golfpriceai.com/prices/swinglogic-slx-hybrid-mini-launch-monitor/
 2026-11-11,voice-caddie-sc200-plus-swing-caddie-launch-monitor,Voice Caddie SC200 Plus Swing Caddie Launch Monitor,Voice Caddie,launch monitor,249.99,each,1,69,249.99,249.99,typical,https://golfpriceai.com/prices/voice-caddie-sc200-plus-swing-caddie-launch-monitor/
-2026-11-11,voice-caddie-sc300i-swing-caddie-portable-launch-monitor,Voice Caddie SC300i Swing Caddie Portable Launch Monitor,Voice Caddie,launch monitor,429.00,each,1,76,429.00,429.00,typical,https://golfpriceai.com/prices/voice-caddie-sc300i-swing-caddie-portable-launch-monitor/
+2026-11-11,voice-caddie-sc300i-swing-caddie-portable-launch-monitor,Voice Caddie SC300i Swing Caddie Portable Launch Monitor,Voice Caddie,launch monitor,364.65,each,1,76,364.65,429.00,good,https://golfpriceai.com/prices/voice-caddie-sc300i-swing-caddie-portable-launch-monitor/
 2026-11-11,voice-caddie-sc4-pro-launch-monitor,Voice Caddie SC4 Pro Launch Monitor,Voice Caddie,launch monitor,599.00,each,1,76,599.00,599.00,typical,https://golfpriceai.com/prices/voice-caddie-sc4-pro-launch-monitor/
 2026-11-11,voice-caddie-sc4-pro-simulator-plus-launch-monitor,Voice Caddie SC4 Pro Simulator + Launch Monitor,Voice Caddie,launch monitor,549.00,each,2,88,549.00,599.00,good,https://golfpriceai.com/prices/voice-caddie-sc4-pro-simulator-plus-launch-monitor/
 2026-11-11,voice-caddie-swing-caddie-sc300i-launch-monitor,Voice Caddie Swing Caddie SC300I Launch Monitor,Voice Caddie,launch monitor,389.00,each,1,88,389.00,389.00,typical,https://golfpriceai.com/prices/voice-caddie-swing-caddie-sc300i-launch-monitor/
@@ -1270,7 +1270,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,masters-gx1-reloaded-10-piece-cart-bag-ladies-package-set,Masters GX1 Reloaded 10-Piece Cart Bag Ladies Package Set,Masters,package set,299.00,each,1,69,299.00,299.00,typical,https://golfpriceai.com/prices/masters-gx1-reloaded-10-piece-cart-bag-ladies-package-set/
 2026-11-11,masters-gx1-reloaded-12-piece-stand-bag-package-set,Masters GX1 Reloaded 12-Piece Stand Bag Package Set,Masters,package set,299.00,each,1,69,299.00,299.00,typical,https://golfpriceai.com/prices/masters-gx1-reloaded-12-piece-stand-bag-package-set/
 2026-11-11,pxg-wildcat-premium-ladies-package-set,PXG Wildcat Premium Ladies Package Set,PXG,package set,1439.00,each,1,76,1439.00,1499.00,typical,https://golfpriceai.com/prices/pxg-wildcat-premium-ladies-package-set/
-2026-11-11,pxg-wildcat-premium-package-set,PXG Wildcat Premium Package Set,PXG,package set,1439.00,each,1,76,1439.00,1499.00,typical,https://golfpriceai.com/prices/pxg-wildcat-premium-package-set/
+2026-11-11,pxg-wildcat-premium-package-set,PXG Wildcat Premium Package Set,PXG,package set,1223.15,each,1,76,1223.15,1499.00,good,https://golfpriceai.com/prices/pxg-wildcat-premium-package-set/
 2026-11-11,powerbilt-gsx-14-piece-package-set,Powerbilt GSX 14-Piece Package Set,Powerbilt,package set,199.00,each,1,76,199.00,279.00,good,https://golfpriceai.com/prices/powerbilt-gsx-14-piece-package-set/
 2026-11-11,skymax-aspire-xd1-package-set,Skymax Aspire XD1 Package Set,Skymax,package set,195.00,each,1,88,195.00,195.00,typical,https://golfpriceai.com/prices/skymax-aspire-xd1-package-set/
 2026-11-11,taylormade-rbz-10-piece-cart-bag-ladies-package-set,TaylorMade RBZ 10-Piece Cart Bag Ladies Package Set,TaylorMade,package set,1029.00,each,1,69,1029.00,1029.00,typical,https://golfpriceai.com/prices/taylormade-rbz-10-piece-cart-bag-ladies-package-set/
@@ -1288,7 +1288,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-11,wilson-player-fit-12-piece-stand-bag-package-set,Wilson Player Fit 12-Piece Stand Bag Package Set,Wilson,package set,529.00,each,1,69,529.00,599.00,typical,https://golfpriceai.com/prices/wilson-player-fit-12-piece-stand-bag-package-set/
 2026-11-11,wilson-player-fit-ladies-package-set,Wilson Player Fit Ladies Package Set,Wilson,package set,599.00,each,2,88,595.00,599.00,typical,https://golfpriceai.com/prices/wilson-player-fit-ladies-package-set/
 2026-11-11,wilson-player-fit-package-set,Wilson Player Fit Package Set,Wilson,package set,599.00,each,1,88,559.00,599.00,wait,https://golfpriceai.com/prices/wilson-player-fit-package-set/
-2026-11-11,wilson-player-fit-premium-package-set,Wilson Player Fit Premium Package Set,Wilson,package set,549.00,each,1,76,529.99,549.00,typical,https://golfpriceai.com/prices/wilson-player-fit-premium-package-set/
+2026-11-11,wilson-player-fit-premium-package-set,Wilson Player Fit Premium Package Set,Wilson,package set,466.65,each,1,76,466.65,549.00,good,https://golfpriceai.com/prices/wilson-player-fit-premium-package-set/
 2026-11-11,wilson-profile-11-piece-cart-bag-ladies-package-set,Wilson Profile 11-Piece Cart Bag Ladies Package Set,Wilson,package set,499.00,each,1,63,499.00,499.00,typical,https://golfpriceai.com/prices/wilson-profile-11-piece-cart-bag-ladies-package-set/
 2026-11-11,wilson-profile-11-piece-package-set,Wilson Profile 11-Piece Package Set,Wilson,package set,479.00,each,1,88,439.00,479.00,wait,https://golfpriceai.com/prices/wilson-profile-11-piece-package-set/
 2026-11-11,wilson-profile-11-piece-stand-bag-package-set,Wilson Profile 11-Piece Stand Bag Package Set,Wilson,package set,429.00,each,1,69,429.00,429.00,typical,https://golfpriceai.com/prices/wilson-profile-11-piece-stand-bag-package-set/

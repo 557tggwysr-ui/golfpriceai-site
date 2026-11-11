@@ -6,29 +6,28 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 109.0,
+ "lowestNewPrice": 92.65,
  "lowestAt": [
-  "Clarkes Golf",
   "Major Golf Direct"
  ],
  "retailers": [
   {
+   "name": "Major Golf Direct",
+   "from": 92.65,
+   "options": 2
+  },
+  {
    "name": "Clarkes Golf",
    "from": 109.0,
    "options": 3
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 109.0,
-   "options": 2
   }
  ],
  "history": {
   "daysTracked": 76,
-  "low": 109.0,
+  "low": 92.65,
   "high": 149.0,
-  "average": 128.47,
-  "priceChanges": 2,
+  "average": 128.26,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-28",
@@ -44,7 +43,7 @@
    ],
    [
     "2026-11-11",
-    109.0
+    92.65
    ]
   ]
  },

@@ -6,20 +6,20 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 319.0,
+ "lowestNewPrice": 279.65,
  "lowestAt": [
-  "Clarkes Golf"
+  "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Major Golf Direct",
+   "from": 279.65,
+   "options": 2
+  },
   {
    "name": "Clarkes Golf",
    "from": 319.0,
    "options": 3
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 329.0,
-   "options": 2
   },
   {
    "name": "Clickgolf",
@@ -29,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 88,
-  "low": 319.0,
+  "low": 279.65,
   "high": 499.0,
-  "average": 361.84,
-  "priceChanges": 3,
+  "average": 361.39,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -52,7 +52,7 @@
    ],
    [
     "2026-11-11",
-    319.0
+    279.65
    ]
   ]
  },
@@ -60,7 +60,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Srixon-ZXi-Max-Golf-Driver-1.jpg?v=1736827619",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ZXIMAXDRIVER3.jpg?v=1737632489",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }
