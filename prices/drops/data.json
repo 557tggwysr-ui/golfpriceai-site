@@ -1,8 +1,18 @@
 {
- "checked": "2026-11-11T13:42+00:00",
+ "checked": "2026-11-11T18:58+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
+   "model_id": "srixon-limited-z-star-diamond-2-dozen-golf-balls",
+   "date": "2026-11-11",
+   "was": 47.49,
+   "now": 30.0,
+   "unit": "per dozen",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
+  },
   {
    "model": "PowaKaddy RX10 Remote Control XL Plus Electric Trolley",
    "model_id": "powakaddy-rx10-remote-control-xl-plus-electric-trolley",
@@ -264,6 +274,16 @@
    "url": "https://golfpriceai.com/prices/motocaddy-26-m-tech-cart-bag-golf-bag/"
   },
   {
+   "model": "PRGR Portable Launch Monitor",
+   "model_id": "prgr-portable-launch-monitor",
+   "date": "2026-11-11",
+   "was": 179.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/prgr-portable-launch-monitor/"
+  },
+  {
    "model": "Big Max Dri Lite Prime Cart Bag Golf Bag",
    "model_id": "big-max-dri-lite-prime-cart-bag-golf-bag",
    "date": "2026-11-11",
@@ -312,6 +332,26 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/wilson-exo-lite-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Ping G440 K Driver",
+   "model_id": "ping-g440-k-driver",
+   "date": "2026-11-11",
+   "was": 579.0,
+   "now": 549.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-k-driver/"
+  },
+  {
+   "model": "TaylorMade R7 Quad Mini Driver",
+   "model_id": "taylormade-r7-quad-mini-driver",
+   "date": "2026-11-11",
+   "was": 369.0,
+   "now": 349.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-r7-quad-mini-driver/"
   },
   {
    "model": "Motocaddy 26 Dry Series Waterproof Cart Bag Golf Bag",

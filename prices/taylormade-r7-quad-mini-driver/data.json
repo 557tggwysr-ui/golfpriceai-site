@@ -6,11 +6,16 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 369.0,
+ "lowestNewPrice": 349.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 349.0,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 369.0,
@@ -20,19 +25,14 @@
    "name": "Clarkes Golf",
    "from": 379.0,
    "options": 4
-  },
-  {
-   "name": "Clickgolf",
-   "from": 399.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 88,
-  "low": 369.0,
+  "low": 349.0,
   "high": 399.0,
-  "average": 389.34,
-  "priceChanges": 3,
+  "average": 389.11,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -52,7 +52,7 @@
    ],
    [
     "2026-11-11",
-    369.0
+    349.0
    ]
   ]
  },
@@ -60,7 +60,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MiniDriver21.jpg?v=1776283056",
+ "image": "https://www.clickgolf.co.uk/images/product/main/taylormade-r7-quad-mini-driver-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

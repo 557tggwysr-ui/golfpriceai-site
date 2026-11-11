@@ -6,11 +6,16 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 38.95,
+ "lowestNewPrice": 34.99,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 34.99,
+   "options": 4
+  },
   {
    "name": "Clarkes Golf",
    "from": 38.95,
@@ -25,20 +30,19 @@
    "name": "Scottsdale Golf",
    "from": 39.99,
    "options": 1
-  },
-  {
-   "name": "Clickgolf",
-   "from": 42.99,
-   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 69,
-  "low": 38.95,
-  "high": 38.99,
-  "average": 38.98,
-  "priceChanges": 1,
+  "daysTracked": 88,
+  "low": 34.99,
+  "high": 81.0,
+  "average": 48.01,
+  "priceChanges": 3,
   "series": [
+   [
+    "2026-08-16",
+    81.0
+   ],
    [
     "2026-09-04",
     38.99
@@ -49,15 +53,15 @@
    ],
    [
     "2026-11-11",
-    38.95
+    34.99
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 13 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/ZSTRXV9_Pkg_White-Photoroom.jpg?v=1772192213",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-Z-Star-XV-Golf-Balls-White.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

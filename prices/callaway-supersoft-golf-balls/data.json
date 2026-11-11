@@ -6,12 +6,16 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 24.95,
+ "lowestNewPrice": 22.49,
  "lowestAt": [
-  "Clarkes Golf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 22.49,
+   "options": 10
+  },
   {
    "name": "Clarkes Golf",
    "from": 24.95,
@@ -28,11 +32,6 @@
    "options": 16
   },
   {
-   "name": "Clickgolf",
-   "from": 24.99,
-   "options": 10
-  },
-  {
    "name": "Callaway Golf",
    "from": 26.99,
    "options": 6
@@ -40,10 +39,10 @@
  ],
  "history": {
   "daysTracked": 88,
-  "low": 24.95,
+  "low": 22.49,
   "high": 24.99,
-  "average": 24.96,
-  "priceChanges": 1,
+  "average": 24.93,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -55,15 +54,15 @@
    ],
    [
     "2026-11-11",
-    24.95
+    22.49
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 76 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SUPERSOFTWHITE20251_378844b8-9fcd-4a30-b1a8-fd743886aa75.jpg?v=1738245375",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Supersoft-Golf-Balls---Red.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-11"
 }

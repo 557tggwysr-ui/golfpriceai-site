@@ -6,28 +6,28 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 579.0,
+ "lowestNewPrice": 549.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 549.0,
+   "options": 2
+  },
   {
    "name": "Clarkes Golf",
    "from": 579.0,
    "options": 5
-  },
-  {
-   "name": "Clickgolf",
-   "from": 599.0,
-   "options": 2
   }
  ],
  "history": {
   "daysTracked": 88,
-  "low": 579.0,
+  "low": 549.0,
   "high": 599.0,
-  "average": 596.05,
-  "priceChanges": 1,
+  "average": 595.7,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -39,13 +39,13 @@
    ],
    [
     "2026-11-11",
-    579.0
+    549.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 13 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/g440-k-driver-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

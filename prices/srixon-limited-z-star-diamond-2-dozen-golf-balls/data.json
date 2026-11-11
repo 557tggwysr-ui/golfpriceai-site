@@ -6,23 +6,23 @@
  "checked": "2026-11-11",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 47.49,
+ "lowestNewPrice": 29.99,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 47.49,
+   "from": 29.99,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 88,
-  "low": 47.49,
+  "low": 30.0,
   "high": 47.49,
-  "average": 47.49,
-  "priceChanges": 0,
+  "average": 47.29,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-11",
-    47.49
+    30.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 88 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-Z-STAR-DIAMOND-Limited-Edition-Golf-Balls-24-Pack-2025.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
