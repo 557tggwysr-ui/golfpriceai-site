@@ -5,6 +5,10 @@
    ticks, a "Pay the organiser" button (the organiser's own PayPal / Monzo /
    Revolut link: no money ever passes through us), the "final numbers"
    message for the WhatsApp group and a prize fund calculator.
+   Money Sorted (Nov 2026): pay to confirm (In, then "I've paid", then Paid),
+   a payment reference for everyone, "Chase the unpaid", a drop-out rule per
+   fixture and a season kitty (the organiser's record of credit and what's
+   owed). We still never take, hold or move any money.
    Talks to the alerts worker (/soc/...). Player ids stay private: everyone
    else is a nickname and a random member key. */
 (function () {
@@ -49,6 +53,12 @@
     k.prompt({ kick: kick, why: why, done: done, after: after });
   }
   function gpUseCo() { try { fetch(API + '/use', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: 'co_set' }), keepalive: true }).catch(function () {}); } catch (e) { /* fine */ } }
+  function gpUse(k) { try { var d = new Date().toISOString().slice(0, 10), key = 'gpUse_' + k; if (localStorage.getItem(key) === d) return; localStorage.setItem(key, d); fetch(API + '/use', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ k: k }), keepalive: true }).catch(function () {}); } catch (e) { /* fine */ } }
+  function copyText(t, btn) {
+    var done = function () { if (btn) { var o = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = o; }, 1600); } };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, function () { window.prompt('Copy this:', t); });
+    else window.prompt('Copy this:', t);
+  }
   function forget(id) { put('gpSocs', get('gpSocs', []).filter(function (x) { return x.id !== id; })); }
   var DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   function nice(iso, long) {
@@ -97,6 +107,8 @@
       '<label>About the society (optional)<input name="about" maxlength="240" value="' + esc(d.about || '') + '" placeholder="e.g. Monthly Stableford, all handicaps, one tour a year"></label>' +
       '<label>Your payment link (optional)<input name="pay" maxlength="120" inputmode="url" value="' + esc(d.pay || '') + '" placeholder="https://monzo.me/yourname"></label>' +
       '<p class="soc-small">Your own PayPal.me, Monzo.me or Revolut.me link. Members tap “Pay the organiser” and pay you directly; we never see the money.</p>' +
+      '<label>How to pay (optional)<input name="paynote" maxlength="140" value="' + esc(d.paynote || '') + '" placeholder="e.g. Bank transfer to M Smith, ask me for the details"></label>' +
+      '<p class="soc-small">Shown to members next to their payment reference. Anyone with your society’s link can join and see it, so only put what you’d put in the WhatsApp group.</p>' +
       '<div class="hq-course"><label>Home course (for Find a Society distances)<input name="cq" autocomplete="off" value="' + esc(d.cname ? d.cname + (d.ctown ? ', ' + d.ctown : '') : '') + '" placeholder="Start typing a course or town"></label>' +
       '<input type="hidden" name="course" value="' + esc(d.course || '') + '"><input type="hidden" name="cname" value="' + esc(d.cname || '') + '"><input type="hidden" name="ctown" value="' + esc(d.ctown || '') + '">' +
       '<input type="hidden" name="lat" value="' + esc(d.lat == null ? '' : d.lat) + '"><input type="hidden" name="lon" value="' + esc(d.lon == null ? '' : d.lon) + '"><div class="hq-cpick" hidden></div></div>' +
@@ -106,7 +118,7 @@
       '<label class="soc-check"><input type="checkbox" name="open"' + (d.open ? ' checked' : '') + '> Open to new members: list us in Find a Society, so golfers nearby can ask to join (we show the name, area, home course, description and any spare places you choose; never members)</label>';
   }
   function read(f) {
-    return { name: f.name.value, area: f.area.value, county: f.county.value, about: f.about.value, pay: f.pay.value.trim(), open: f.open.checked,
+    return { name: f.name.value, area: f.area.value, county: f.county.value, about: f.about.value, pay: f.pay.value.trim(), paynote: f.paynote.value.trim(), open: f.open.checked,
       course: f.course.value, cname: f.cname.value, ctown: f.ctown.value, lat: f.lat.value, lon: f.lon.value, days: f.days.value, ability: f.ability.value, cost: f.cost.value };
   }
   // Home course picker: the UK course list (OpenStreetMap), searched by course or town.
@@ -156,15 +168,45 @@
 
   /* ---------------------------------------------------------------- the society page */
   function counts(e) {
-    var c = { in: 0, maybe: 0, out: 0, wait: 0, paid: 0 };
-    e.entries.forEach(function (x) { c[x.status] = (c[x.status] || 0) + 1; if (x.status === 'in' && x.paid) c.paid++; });
+    var c = { in: 0, maybe: 0, out: 0, wait: 0, paid: 0, says: 0 };
+    e.entries.forEach(function (x) { c[x.status] = (c[x.status] || 0) + 1; if (x.status === 'in' && x.paid) c.paid++; if (x.status === 'in' && !x.paid && saysPaid(x)) c.says++; });
     return c;
   }
-  function payLink(amount) {
+  function payLink(amount, ref) {
     if (!S.pay) return '';
     var p = S.pay.replace(/\/+$/, '');
     if (amount > 0 && /(paypal\.me|monzo\.me)\/[^\/]+$/.test(p)) p += '/' + (amount % 1 ? amount.toFixed(2) : amount);
+    if (ref && /monzo\.me\//.test(p)) p += '?d=' + encodeURIComponent(ref);
     return p;
+  }
+  /* ---- Money Sorted */
+  // Who to chase: in, not paid, hasn't said they've paid, and not the organiser reading this.
+  function chaseList(e) { return e.entries.filter(function (x) { return x.status === 'in' && !x.paid && !saysPaid(x) && x.m !== S.you; }).map(function (x) { return x.nick; }); }
+  function saysPaid(x) { return !!x.claim && x.claim !== 'no'; }
+  var MON = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  // A payment reference for each member and day, e.g. SWING-22NOV-MO: short enough for any bank (18 characters).
+  function payRef(e, nick) {
+    var words = String(S.name || '').toUpperCase().replace(/[^A-Z0-9 ]/g, '').split(/\s+/).filter(function (w) { return w && ['THE', 'GOLF', 'SOCIETY', 'GS'].indexOf(w) < 0; });
+    var soc = (words[0] || 'GOLF').slice(0, 5);
+    var d = e.day ? +e.day.slice(8, 10) + MON[+e.day.slice(5, 7) - 1] : '';
+    var who = String(nick || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 4) || 'ME';
+    return [soc, d, who].filter(Boolean).join('-');
+  }
+  function kittyOf(mk) {
+    var b = 0; (S.kitty || []).forEach(function (k) { if (k.m === mk) b += Number(k.amount) || 0; });
+    return Math.round(b * 100) / 100;
+  }
+  function dropLine(e, mk) { return (S.kitty || []).filter(function (k) { return k.m === mk && k.event === e.id && /^(drop|held|filled|refund)$/.test(k.kind); })[0] || null; }
+  function afterNumbers(e) { var t = new Date().toISOString().slice(0, 10); return !!(e.droprule && e.deadline && t > e.deadline); }
+  function payBox(e, mine) {
+    var ref = payRef(e, mine.nick), h = '<div class="ms-pay"><div class="ms-pay-h"><b>Pay ' + (e.entry ? money(e.entry) : 'the organiser') + '</b><span>Your place is confirmed once the organiser has your money.</span></div>';
+    if (S.pay) h += '<a class="soc-btn hq-pay" href="' + esc(payLink(e.entry, ref)) + '" target="_blank" rel="noopener">Pay the organiser' + (e.entry ? ' ' + money(e.entry) : '') + '</a>';
+    if (S.paynote) h += '<p class="ms-paynote">' + esc(S.paynote) + '</p>';
+    h += '<div class="ms-ref"><span>Use this reference</span><b>' + esc(ref) + '</b><button type="button" class="ms-copy" data-ref="' + esc(ref) + '">Copy</button></div>';
+    if (mine.claim === 'no') h += '<p class="hq-note">The organiser hasn’t found your payment yet. Check you used the reference above, then tap again once it’s gone.</p>';
+    if (saysPaid(mine)) h += '<p class="hq-note is-good">Thanks. The organiser will check it and confirm your place.</p><button type="button" class="soc-link ms-ipaid" data-on="0">I haven’t paid yet</button>';
+    else h += '<button type="button" class="soc-btn2 ms-ipaid" data-on="1">I’ve paid</button>';
+    return h + '</div>';
   }
   function eventCard(e, past) {
     var c = counts(e), mine = e.entries.filter(function (x) { return x.m === S.you; })[0], st = mine ? mine.status : '';
@@ -177,13 +219,19 @@
       h += '<div class="hq-rsvp" role="group" aria-label="Are you playing?">' +
         [['in', 'I’m in'], ['maybe', 'Maybe'], ['out', 'Can’t make it']].map(function (o) { return '<button type="button" data-st="' + o[0] + '" aria-pressed="' + (st === o[0] || (o[0] === 'in' && st === 'wait')) + '">' + o[1] + '</button>'; }).join('') + '</div>' +
         (st === 'wait' ? '<p class="hq-note">You’re on the waiting list. If someone drops out, you move up automatically.</p>' : '') +
-        (st === 'in' && S.pay && mine && !mine.paid ? '<a class="soc-btn hq-pay" href="' + esc(payLink(e.entry)) + '" target="_blank" rel="noopener">Pay the organiser' + (e.entry ? ' ' + money(e.entry) : '') + '</a><p class="soc-small">Opens the organiser’s own payment link. Once it arrives, they’ll tick you off.</p>' : '') +
-        (st === 'in' && mine && mine.paid ? '<p class="hq-note is-good">Paid and confirmed. See you on the first tee.</p>' : '');
+        (open['drop-' + e.id] ? '<div class="hq-note ms-dropask"><b>Numbers have gone to the club.</b> If you drop out now you still owe your ' + money(e.entry) + ', unless someone takes your place.' +
+          '<div class="soc-btns"><button type="button" class="soc-btn2 ms-dropgo">Drop out anyway</button><button type="button" class="soc-link ms-dropno">Keep my place</button></div></div>' : '') +
+        (st === 'in' && mine && !mine.paid && (e.entry > 0 || S.pay) ? payBox(e, mine) : '') +
+        (st === 'in' && mine && mine.paid ? '<p class="hq-note is-good">' + (mine.via === 'kitty' ? 'Paid from your credit and confirmed.' : 'Paid and confirmed.') + ' See you on the first tee.</p>' : '') +
+        (st === 'in' && e.droprule && e.deadline && !afterNumbers(e) ? '<p class="soc-small ms-rule">Drop-out rule: numbers go to the club on ' + esc(nice(e.deadline, true)) + '. Drop out after that and you still owe your ' + money(e.entry) + ' unless someone takes your place.</p>' : '') +
+        (function () { var d = mine && st !== 'in' ? dropLine(e, S.you) : null; return d ? '<p class="hq-note' + (d.amount >= 0 && d.kind !== 'drop' ? ' is-good' : '') + '">' + esc(d.note) + (d.amount ? ' (' + (d.amount > 0 ? '+' : '−') + money(Math.abs(d.amount)) + ' in your kitty)' : '') + '.</p>' : ''; })();
     }
     h += '<button type="button" class="hq-more" aria-expanded="' + !!open[e.id] + '">' + (open[e.id] ? 'Hide who’s playing' : 'Who’s playing') + (S.organiser ? ' and who’s paid' : '') + '</button>';
     if (open[e.id]) h += whoList(e, c, past);
     if (S.organiser && !past) {
+      if (c.says) h += '<p class="hq-note ms-says"><b>' + c.says + (c.says === 1 ? ' member says they’ve' : ' members say they’ve') + ' paid.</b> Check your bank app, then confirm them under “Who’s playing”.</p>';
       h += '<div class="hq-org"><button type="button" class="soc-btn2 hq-share">Send the sign-up link</button>' +
+        (chaseList(e).length && e.entry > 0 ? '<button type="button" class="soc-btn2 ms-chase">Chase the unpaid (' + chaseList(e).length + ')</button>' : '') +
         (c.in ? '<button type="button" class="soc-btn2 hq-final">Final numbers message</button>' : '') +
         '<button type="button" class="soc-btn2 hq-edit">Edit</button></div>';
     } else if (!past) h += '<button type="button" class="soc-link hq-share">Send the sign-up link to someone</button>';
@@ -252,12 +300,30 @@
     var list = e.entries.slice().sort(function (a, b) { return order[a.status] - order[b.status] || (a.at < b.at ? -1 : 1); });
     var silent = S.members.filter(function (m) { return !e.entries.some(function (x) { return x.m === m.m; }); });
     var h = '<div class="hq-who">';
-    if (S.organiser && c.in) h += '<p class="hq-note">Only paid players are confirmed: <b>' + c.paid + ' of ' + c.in + '</b>.</p>';
+    if (S.organiser && c.in) h += '<div class="ms-stages" aria-label="Pay to confirm"><span><b>' + (c.in - c.paid - c.says) + '</b>Not paid</span><span><b>' + c.says + '</b>Say paid</span><span class="is-ok"><b>' + c.paid + '</b>Confirmed</span></div>' +
+      '<p class="soc-small">Only confirmed players count towards the numbers for the club.</p>';
     h += list.map(function (x) {
-      var label = { in: 'In', wait: 'Waiting list', maybe: 'Maybe', out: 'Out' }[x.status];
-      return '<div class="hq-row"><span class="hq-nick">' + esc(x.nick) + (x.m === S.you ? ' (you)' : '') + '<small>' + label + '</small></span>' +
-        (S.organiser && x.status === 'in' ? '<button type="button" class="hq-paid' + (x.paid ? ' is-paid' : '') + '" data-m="' + esc(x.m) + '" aria-pressed="' + x.paid + '">' + (x.paid ? 'Paid ✓' : 'Not paid') + '</button>'
-          : x.status === 'in' && x.paid ? '<span class="hq-tag">Paid</span>' : '') + '</div>';
+      var label = { in: 'In', wait: 'Waiting list', maybe: 'Maybe', out: 'Out' }[x.status], right = '', sub = '';
+      if (S.organiser) {
+        var bal = kittyOf(x.m), d = dropLine(e, x.m);
+        if (x.status === 'in') {
+          if (x.paid) right = '<button type="button" class="hq-paid is-paid" data-m="' + esc(x.m) + '" aria-pressed="true">' + (x.via === 'kitty' ? 'Paid (credit) ✓' : 'Paid ✓') + '</button>';
+          else if (saysPaid(x)) {
+            sub = ' · says paid ' + esc(nice(x.claim));
+            right = '<span class="ms-btns"><button type="button" class="hq-paid ms-confirm" data-m="' + esc(x.m) + '" aria-pressed="false">Confirm</button><button type="button" class="ms-mini ms-reject" data-m="' + esc(x.m) + '">Not arrived</button></span>';
+          } else {
+            if (x.claim === 'no') sub = ' · told it hasn’t arrived';
+            right = '<span class="ms-btns">' + (e.entry > 0 && bal >= e.entry ? '<button type="button" class="ms-mini ms-usecredit" data-m="' + esc(x.m) + '">Use ' + money(e.entry) + ' credit</button>' : '') +
+              '<button type="button" class="hq-paid" data-m="' + esc(x.m) + '" aria-pressed="false">Not paid</button></span>';
+          }
+          if (e.entry > 0) sub += ' · ' + esc(payRef(e, x.nick));
+        } else if (d) {
+          right = '<span class="hq-tag' + (d.kind === 'drop' ? ' is-owe' : '') + '">' + (d.kind === 'drop' ? 'Owes ' + money(-d.amount) : d.kind === 'held' ? 'Paid, place not filled' : d.kind === 'refund' ? 'Credit ' + money(d.amount) : 'Place filled') + '</span>';
+        } else if (x.paid && e.entry > 0) {
+          right = '<button type="button" class="ms-mini ms-tocredit" data-m="' + esc(x.m) + '">Paid · make it credit</button>';
+        }
+      } else if (x.status === 'in' && x.paid) right = '<span class="hq-tag">Paid</span>';
+      return '<div class="hq-row"><span class="hq-nick">' + esc(x.nick) + (x.m === S.you ? ' (you)' : '') + '<small>' + label + sub + '</small></span>' + right + '</div>';
     }).join('');
     if (silent.length) h += '<p class="soc-small">Not replied yet: ' + silent.map(function (m) { return esc(m.nick); }).join(', ') + '.</p>';
     if (S.organiser && !past) h += prizeFund(e, c);
@@ -292,6 +358,46 @@
     }).join('');
     return h + '</section>';
   }
+  /* ---- The season kitty: credit carried forward, what's owed, season subs */
+  function kittyCard() {
+    var lines = S.kitty || [];
+    if (!S.organiser) {
+      if (!lines.length) return '';
+      var b = kittyOf(S.you);
+      return '<section class="soc-card ms-kitty"><h2>Your kitty</h2>' +
+        '<div class="ms-bal' + (b < 0 ? ' is-owe' : '') + '"><b>' + (b < 0 ? 'You owe ' + money(-b) : b > 0 ? money(b) + ' credit' : 'All square') + '</b><span>' +
+        (b < 0 ? 'Pay the organiser as usual, then they’ll mark it settled.' : b > 0 ? 'The organiser can put it towards your next golf day.' : 'Nothing owed either way.') + '</span></div>' +
+        kittyLines(lines.slice(0, 12), false) + '<p class="soc-small">Kept by your organiser. GolfPrice AI never holds or moves any money.</p></section>';
+    }
+    var bal = {}; lines.forEach(function (k) { bal[k.m] = Math.round(((bal[k.m] || 0) + (Number(k.amount) || 0)) * 100) / 100; });
+    var held = 0, owed = 0, rows = S.members.filter(function (m) { return bal[m.m]; }).map(function (m) {
+      var v = bal[m.m]; if (v > 0) held += v; else owed -= v;
+      return '<div class="hq-row"><span class="hq-nick">' + esc(m.nick) + '<small>' + (v > 0 ? 'In credit' : 'Owes the society') + '</small></span><span class="ms-btns"><b class="ms-amt' + (v < 0 ? ' is-owe' : '') + '">' + (v < 0 ? '−' : '') + money(Math.abs(v)) + '</b>' +
+        '<button type="button" class="ms-mini ms-settle" data-m="' + esc(m.m) + '" data-v="' + v + '">' + (v > 0 ? 'Paid back' : 'Settled') + '</button></span></div>';
+    });
+    var h = '<section class="soc-card ms-kitty"><h2>The kitty</h2><p class="soc-help">Credit carried forward, refunds owed and season subs, per member. Your record only: GolfPrice AI never holds or moves any money.</p>' +
+      '<div class="ms-stages"><span class="is-ok"><b>' + money(held) + '</b>Credit you hold</span><span class="' + (owed ? 'is-owe' : '') + '"><b>' + money(owed) + '</b>Owed to you</span></div>';
+    h += rows.length ? rows.join('') : '<p class="soc-small">Everyone’s square. Drop-out charges and credits from golf days appear here by themselves.</p>';
+    if (owed) h += '<button type="button" class="soc-btn2 ms-settleup">Settle-up message for the group</button>';
+    var who = '<option value="*">Everyone (' + S.members.length + ')</option>' + S.members.map(function (m) { return '<option value="' + esc(m.m) + '">' + esc(m.nick) + '</option>'; }).join('');
+    h += '<details class="ms-add"' + (open.kittyAdd ? ' open' : '') + '><summary>Add to the kitty</summary><form class="ms-kform" novalidate>' +
+      '<label>Who<select name="m">' + who + '</select></label>' +
+      '<div class="soc-two"><label>What<select name="dir"><option value="-1">They owe (e.g. season subs)</option><option value="1">Credit them (e.g. overpaid)</option></select></label>' +
+      '<label>Amount £<input name="amount" inputmode="decimal" placeholder="20"></label></div>' +
+      '<label>Note<input name="note" maxlength="60" placeholder="e.g. Season subs 2027"></label>' +
+      '<p class="soc-msg" role="status"></p><button type="submit" class="soc-btn">Add it</button></form></details>';
+    if (lines.length) h += '<details class="ms-hist"' + (open.kittyHist ? ' open' : '') + '><summary>All kitty lines (' + lines.length + ')</summary>' + kittyLines(lines, true) + '</details>';
+    return h + '</section>';
+  }
+  function kittyLines(lines, org) {
+    var nickOf = {}; S.members.forEach(function (m) { nickOf[m.m] = m.nick; });
+    return '<ul class="ms-lines">' + lines.map(function (k) {
+      var a = Number(k.amount) || 0;
+      return '<li><span>' + (org ? '<b>' + esc(nickOf[k.m] || k.nick) + '</b> · ' : '') + esc(k.note) + '<small>' + esc(nice(String(k.at).slice(0, 10))) + '</small></span>' +
+        '<span class="ms-btns"><b class="ms-amt' + (a < 0 ? ' is-owe' : '') + '">' + (a ? (a > 0 ? '+' : '−') + money(Math.abs(a)) : '£0') + '</b>' +
+        (org && /^(manual|settle)$/.test(k.kind) ? '<button type="button" class="ms-mini ms-kdel" data-id="' + esc(k.id) + '" aria-label="Remove this line">✕</button>' : '') + '</span></li>';
+    }).join('') + '</ul>';
+  }
   function eventForm(e) {
     e = e || {};
     return '<form class="soc-card hq-evf" data-id="' + esc(e.id || '') + '" novalidate><h2>' + (e.id ? 'Edit the fixture' : 'Add a fixture') + '</h2>' +
@@ -300,6 +406,8 @@
       '<label>Course<input name="venue" maxlength="60" value="' + esc(e.venue || '') + '" placeholder="Course name"></label>' +
       '<div class="soc-two"><label>Society entry £ (optional)<input name="entry" inputmode="decimal" value="' + esc(e.entry || '') + '" placeholder="15"></label><label>Places (optional)<input name="cap" inputmode="numeric" value="' + esc(e.cap || '') + '" placeholder="e.g. 24"></label></div>' +
       '<label>Final numbers to the club by (optional)<input type="date" name="deadline" value="' + esc(e.deadline || '') + '"></label>' +
+      '<label class="soc-check ms-rulebox"><input type="checkbox" name="droprule"' + (e.droprule ? ' checked' : '') + '> Drop-out rule: after the final-numbers date, anyone who drops out still owes their entry, unless their place is filled</label>' +
+      '<p class="soc-small">Needs an entry fee and a final-numbers date. Members see the rule when they sign up, and the waiting list fills the place first.</p>' +
       (S.open ? '<label>Spare places to show on Find a Society (optional)<input name="spare" inputmode="numeric" value="' + esc(e.spare || '') + '" placeholder="0: don’t show"></label><p class="soc-small">Golfers nearby can ask for a place on this day. Only the date, course, format and cost are shown, and nobody plays without your yes.</p>' : '') +
       '<label>Notes (optional)<input name="notes" maxlength="300" value="' + esc(e.notes || '') + '" placeholder="e.g. Bacon roll on arrival, two-course meal after"></label>' +
       '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="submit" class="soc-btn">' + (e.id ? 'Save' : 'Add the fixture') + '</button>' +
@@ -327,6 +435,7 @@
     if (open.editSoc) h += '<form class="soc-card" id="hq-soc" novalidate><h2>Edit society</h2>' + fields(S) + '<p class="soc-msg" role="status"></p><div class="soc-btns"><button type="submit" class="soc-btn">Save</button><button type="button" class="soc-btn2 hq-cancel-soc">Cancel</button></div></form>';
     h += '<section class="soc-card"><h2>Fixtures</h2>' + (up.length ? up.map(function (e) { return open['edit-' + e.id] ? eventForm(e) : eventCard(e, false); }).join('') :
       '<p class="soc-help">' + (S.organiser ? 'No fixtures yet. Add your first one below, then send the sign-up link to the group.' : 'No fixtures yet. The organiser will add them here.') + '</p>') + '</section>';
+    h += kittyCard();
     h += pollsCard();
     if (S.organiser) h += eventForm(FIX);
     h += '<section class="soc-card hq-pp" id="hq-pp" hidden></section>';
@@ -350,11 +459,48 @@
     box.innerHTML = h;
     wire();
   }
+  function wireKitty(invite) {
+    var card = box.querySelector('.ms-kitty');
+    if (!card || !S.organiser) return;
+    var add = card.querySelector('.ms-add'); if (add) add.ontoggle = function () { open.kittyAdd = add.open; };
+    var hist = card.querySelector('.ms-hist'); if (hist) hist.ontoggle = function () { open.kittyHist = hist.open; };
+    function send(body, btn, after) {
+      if (btn) btn.disabled = true;
+      return api('/soc/kitty', Object.assign({ s: S.id }, body)).then(function (r) {
+        if (!r.ok) { if (btn) btn.disabled = false; alertMsg(card, r.error); return; }
+        gpUse('mny_kitty'); if (after) after(); load();
+      }).catch(function () { if (btn) btn.disabled = false; alertMsg(card, 'We couldn’t reach the clubhouse. Please try again.'); });
+    }
+    var f = card.querySelector('.ms-kform');
+    if (f) f.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var F = f.elements, msg = f.querySelector('.soc-msg'), amt = Number(String(F.amount.value).replace(/[£,\s]/g, ''));
+      if (!(amt > 0)) { msg.textContent = 'Enter an amount, e.g. 20.'; return; }
+      if (!F.note.value.trim()) { msg.textContent = 'Add a short note, e.g. Season subs 2027.'; return; }
+      var all = F.m.value === '*';
+      if (all && !window.confirm('Add ' + (F.dir.value === '1' ? 'a credit of ' : 'a charge of ') + money(amt) + ' for all ' + S.members.length + ' members?')) return;
+      send({ m: all ? '' : F.m.value, all: all, amount: amt * Number(F.dir.value), note: F.note.value }, f.querySelector('[type=submit]'), function () { open.kittyAdd = false; });
+    });
+    card.querySelectorAll('.ms-settle').forEach(function (b) {
+      b.onclick = function () {
+        var v = +b.getAttribute('data-v');
+        if (window.confirm(v > 0 ? 'Mark ' + money(v) + ' as paid back? Their balance goes to zero.' : 'Mark ' + money(-v) + ' as paid? Their balance goes to zero.')) send({ settle: b.getAttribute('data-m') }, b);
+      };
+    });
+    card.querySelectorAll('.ms-kdel').forEach(function (b) { b.onclick = function () { if (window.confirm('Remove this kitty line?')) send({ del: b.getAttribute('data-id') }, b); }; });
+    var su = card.querySelector('.ms-settleup'); if (su) su.onclick = function () {
+      var bal = {}; (S.kitty || []).forEach(function (k) { bal[k.m] = (bal[k.m] || 0) + (Number(k.amount) || 0); });
+      var owe = S.members.filter(function (m) { return bal[m.m] < -0.004; }).map(function (m) { return m.nick + ' ' + money(Math.round(-bal[m.m] * 100) / 100); });
+      track('society_settle_up'); gpUse('mny_chase');
+      shareText(S.name + ' kitty: a few of us are still to settle up. ' + owe.join(', ') + '.' + (S.pay ? ' Pay here: ' + S.pay + '.' : '') + ' Your balance is on Society HQ: ' + invite + ' Cheers!');
+    };
+  }
   function wire() {
     var invite = SITE + '/societies/hq/?s=' + S.id;
     box.querySelector('.hq-invite').onclick = function () { track('society_invite'); shareText('Join ' + S.name + ' on Society HQ: fixtures, sign-ups and who’s paid in one place. Tap, pick a nickname, done: ' + invite); };
     var se = box.querySelector('.hq-soc-edit'); if (se) se.onclick = function () { open.editSoc = !open.editSoc; page(); };
     var cs = box.querySelector('.hq-cancel-soc'); if (cs) cs.onclick = function () { open.editSoc = false; page(); };
+    wireKitty(invite);
     var fs = box.querySelector('#hq-soc');
     if (fs) coursePicker(fs);
     if (fs) fs.addEventListener('submit', function (e) {
@@ -366,7 +512,8 @@
       if (!eid && FIX && !f.getAttribute('data-fixed')) { f.setAttribute('data-fixed', '1'); f.id = 'hq-fix'; setTimeout(function () { f.scrollIntoView({ block: 'start' }); (FIX.venue ? f.title : f.venue).focus(); }, 50); }
       f.addEventListener('submit', function (ev) {
         ev.preventDefault(); var msg = f.querySelector('.soc-msg'), btn = f.querySelector('.soc-btn');
-        var b = { s: S.id, e: eid || undefined, title: f.title.value, day: f.day.value, tee: f.tee.value, venue: f.venue.value, entry: f.entry.value.replace(/[£\s]/g, ''), cap: f.cap.value, deadline: f.deadline.value, notes: f.notes.value, spare: f.spare ? f.spare.value : 0 };
+        var b = { s: S.id, e: eid || undefined, title: f.title.value, day: f.day.value, tee: f.tee.value, venue: f.venue.value, entry: f.entry.value.replace(/[£\s]/g, ''), cap: f.cap.value, deadline: f.deadline.value, notes: f.notes.value, spare: f.spare ? f.spare.value : 0, droprule: f.droprule.checked };
+        if (b.droprule && (!b.deadline || !(+b.entry > 0))) { msg.textContent = 'The drop-out rule needs an entry fee and a final-numbers date.'; return; }
         btn.disabled = true; msg.textContent = 'Pencilling it in…';
         api('/soc/event', b).then(function (r) {
           btn.disabled = false;
@@ -385,6 +532,8 @@
       var eid = art.getAttribute('data-e'), e = S.events.filter(function (x) { return x.id === eid; })[0];
       art.querySelectorAll('[data-st]').forEach(function (b) {
         b.onclick = function () {
+          var mine = e.entries.filter(function (x) { return x.m === S.you; })[0], to = b.getAttribute('data-st');
+          if (mine && mine.status === 'in' && to !== 'in' && afterNumbers(e) && e.entry > 0) { open['drop-' + eid] = true; open['dropst-' + eid] = to; page(); return; }
           b.disabled = true;
           api('/soc/rsvp', { e: eid, status: b.getAttribute('data-st') }).then(function (r) { if (r.ok) { track('society_rsvp', { status: r.status }); load(); } else { b.disabled = false; alertMsg(art, r.error); } });
         };
@@ -393,7 +542,7 @@
       art.querySelectorAll('.hq-paid').forEach(function (b) {
         b.onclick = function () {
           var paid = b.getAttribute('aria-pressed') !== 'true'; b.disabled = true;
-          api('/soc/paid', { e: eid, m: b.getAttribute('data-m'), paid: paid }).then(function () { load(); });
+          api('/soc/paid', { e: eid, m: b.getAttribute('data-m'), paid: paid }).then(function () { if (paid) gpUse('mny_confirm'); load(); });
         };
       });
       var pct = art.querySelector('.hq-pct'); if (pct) { fundFill(art.querySelector('.hq-fund'), +pct.value); pct.oninput = function () { open['pct-' + eid] = +pct.value; fundFill(art.querySelector('.hq-fund'), +pct.value); }; }
@@ -405,10 +554,40 @@
       });
       var fin = art.querySelector('.hq-final'); if (fin) fin.onclick = function () {
         var unpaid = e.entries.filter(function (x) { return x.status === 'in' && !x.paid; }).map(function (x) { return x.nick; });
-        var text = S.name + ', ' + e.title + ': numbers go to the club ' + (e.deadline ? 'on ' + nice(e.deadline, true) : 'soon') + '. Not paid = not playing.' +
+        var conf = e.entries.filter(function (x) { return x.status === 'in' && x.paid; }).length;
+        var text = S.name + ', ' + e.title + ': numbers go to the club ' + (e.deadline ? 'on ' + nice(e.deadline, true) : 'soon') + '. Not paid = not playing. Confirmed so far: ' + conf + '.' +
           (unpaid.length ? ' Still to pay: ' + unpaid.join(', ') + '. No pressure. Well, a bit.' : ' Everyone’s paid. Look at us!') + (S.pay && unpaid.length ? ' Pay here: ' + S.pay + ' ·' : '') + ' Who’s in: ' + invite + ' (Society HQ, free for golf societies)';
         track('society_final_numbers'); shareText(text);
       };
+      // Money Sorted
+      var ch = art.querySelector('.ms-chase'); if (ch) ch.onclick = function () {
+        var unpaid = chaseList(e);
+        if (!unpaid.length) { alertMsg(art, 'Nobody to chase. Anyone left has tapped “I’ve paid”: check your bank app and confirm them.'); return; }
+        var text = 'Quick one for ' + e.title + ' (' + nice(e.day, true) + '): still waiting on ' + (unpaid.length > 1 ? unpaid.slice(0, -1).join(', ') + ' and ' + unpaid[unpaid.length - 1] + ', ' + money(e.entry) + ' each.' : unpaid[0] + ', ' + money(e.entry) + '.') +
+          (S.pay ? ' Pay here: ' + S.pay + '.' : '') + ' Your payment reference is on Society HQ, and tap “I’ve paid” once it’s gone so I can tick you off: ' + invite + ' Cheers!';
+        track('society_chase'); gpUse('mny_chase'); shareText(text);
+      };
+      art.querySelectorAll('.ms-copy').forEach(function (b) { b.onclick = function () { gpUse('mny_ref'); copyText(b.getAttribute('data-ref'), b); }; });
+      art.querySelectorAll('.ms-ipaid').forEach(function (b) {
+        b.onclick = function () {
+          var on = b.getAttribute('data-on') === '1'; b.disabled = true;
+          api('/soc/ipaid', { e: eid, on: on }).then(function (r) { if (r.ok) { if (on) { gpUse('mny_ipaid'); track('society_ipaid'); } load(); } else { b.disabled = false; alertMsg(art, r.error); } })
+            .catch(function () { b.disabled = false; alertMsg(art, 'We couldn’t reach the clubhouse. Please try again.'); });
+        };
+      });
+      function money1(b, body, use) {
+        b.disabled = true;
+        api('/soc/paid', Object.assign({ e: eid, m: b.getAttribute('data-m') }, body)).then(function (r) { if (r.ok) { if (use) gpUse(use); load(); } else { b.disabled = false; alertMsg(art, r.error); } })
+          .catch(function () { b.disabled = false; alertMsg(art, 'We couldn’t reach the clubhouse. Please try again.'); });
+      }
+      art.querySelectorAll('.ms-reject').forEach(function (b) { b.onclick = function () { money1(b, { reject: 1 }); }; });
+      art.querySelectorAll('.ms-usecredit').forEach(function (b) { b.onclick = function () { money1(b, { paid: true, kitty: 1 }, 'mny_kitty'); }; });
+      art.querySelectorAll('.ms-tocredit').forEach(function (b) { b.onclick = function () { if (window.confirm('Turn their ' + money(e.entry) + ' into credit in the kitty? Their paid tick for this day comes off.')) money1(b, { credit: 1 }, 'mny_kitty'); }; });
+      var dg = art.querySelector('.ms-dropgo'); if (dg) dg.onclick = function () {
+        dg.disabled = true; open['drop-' + eid] = false;
+        api('/soc/rsvp', { e: eid, status: open['dropst-' + eid] || 'out' }).then(function (r) { if (r.ok) { track('society_rsvp', { status: r.status }); if (r.dropped) gpUse('mny_drop'); load(); } else { dg.disabled = false; alertMsg(art, r.error); } });
+      };
+      var dn = art.querySelector('.ms-dropno'); if (dn) dn.onclick = function () { open['drop-' + eid] = false; page(); };
       var ed = art.querySelector('.hq-edit'); if (ed) ed.onclick = function () { open['edit-' + eid] = true; page(); };
       art.querySelectorAll('.hq-fg-share').forEach(function (b) {
         b.onclick = function () {

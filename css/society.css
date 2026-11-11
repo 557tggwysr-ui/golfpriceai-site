@@ -563,3 +563,40 @@ a.fd-card:hover { border-color: #3fae29; }
 .hq-pp-set summary { cursor: pointer; font-weight: 600; font-size: 14px; padding: 6px 0; }
 .hq-pp-set .hq-lg-check { display: flex; margin-top: 8px; font-size: 14px; }
 .hq-pp-table b.over, .spp-table b.over { color: #14211a; }
+
+/* ---- Money Sorted (Nov 2026): pay to confirm, references, the kitty */
+.ms-pay { display: flex; flex-direction: column; gap: 10px; background: var(--gp-pale); border: 1px solid #d9e8d2; border-radius: 12px; padding: 14px; }
+.ms-pay-h { display: flex; flex-direction: column; gap: 2px; }
+.ms-pay-h b { font: 700 17px Poppins, sans-serif; color: var(--gp-ink); }
+.ms-pay-h span, .ms-paynote { font-size: 14px; color: var(--gp-text-2); line-height: 1.45; margin: 0; }
+.ms-paynote { background: #fff; border-radius: 8px; padding: 8px 10px; border: 1px solid var(--gp-line); }
+.ms-ref { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; background: #fff; border: 1px dashed #9fc893; border-radius: 10px; padding: 8px 10px; }
+.ms-ref span { font-size: 12px; font-weight: 700; color: var(--gp-text-3); text-transform: uppercase; letter-spacing: .5px; }
+.ms-ref b { font: 700 17px ui-monospace, Menlo, Consolas, monospace; color: var(--gp-ink); letter-spacing: .5px; flex: 1; }
+.ms-copy, .ms-mini { min-height: 40px; padding: 0 12px; border: 1px solid #cfd5cc; border-radius: 999px; background: #fff; font: 700 13px Inter, sans-serif; color: var(--gp-ink); cursor: pointer; }
+.ms-pay .soc-link, .ms-dropask .soc-link { margin: 0; background: none; border: none; padding: 8px 0; min-height: 44px; font: 700 14px Inter, sans-serif; cursor: pointer; align-self: flex-start; }
+.ms-btns { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.ms-confirm { background: var(--gp-green); border-color: var(--gp-green); color: var(--gp-ink); }
+.ms-stages { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 8px; }
+.ms-stages span { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--gp-line); border-radius: 10px; padding: 8px 10px; font-size: 13px; color: var(--gp-text-2); }
+.ms-stages b { font: 700 20px Poppins, sans-serif; color: var(--gp-ink); }
+.ms-stages .is-ok { background: #eaf6e5; border-color: #9fd28f; }
+.ms-stages .is-owe { background: #fff4e8; border-color: #f3c08a; }
+.hq-tag.is-owe { background: #fff4e8; color: #8a4a00; }
+.ms-says { background: #eaf6e5; color: #1f5c14; }
+.ms-rule { margin-top: -2px; }
+.ms-dropask .soc-btns { margin-top: 8px; }
+.ms-kitty { gap: 12px; }
+.ms-bal { display: flex; flex-direction: column; gap: 2px; background: #eaf6e5; border-radius: 12px; padding: 12px 14px; }
+.ms-bal b { font: 800 24px Poppins, sans-serif; color: #1f5c14; }
+.ms-bal span { font-size: 14px; color: var(--gp-text-2); }
+.ms-bal.is-owe { background: #fff4e8; }
+.ms-bal.is-owe b { color: #8a4a00; }
+.ms-amt { font: 700 15px Inter, sans-serif; color: #1f5c14; white-space: nowrap; }
+.ms-amt.is-owe { color: #a34700; }
+.ms-lines { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.ms-lines li { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--gp-line); border-radius: 10px; padding: 8px 10px; font-size: 14px; }
+.ms-lines li small { display: block; color: var(--gp-text-3); font-size: 12px; }
+.ms-add summary, .ms-hist summary { cursor: pointer; font-weight: 700; font-size: 15px; padding: 10px 0; min-height: 44px; box-sizing: border-box; }
+.ms-kform { display: flex; flex-direction: column; gap: 10px; }
+.ms-copy:focus-visible, .ms-mini:focus-visible, .ms-add summary:focus-visible, .ms-hist summary:focus-visible { outline: 3px solid var(--gp-green); outline-offset: 2px; }

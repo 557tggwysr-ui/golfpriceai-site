@@ -16,7 +16,7 @@ from price_pages import SITE, _write, breadcrumb, page_shell
 LAUNCHED = True
 PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-wide.jpg"><img src="/assets/photos/tools/society-hq-banner.jpg" alt="A golf society gathered by the first tee on a misty morning with coffees and bacon rolls, the organiser smiling at his phone" width="1536" height="512"></picture>'
 FIND_PHOTO = '<picture class="soc-photo"><source media="(max-width: 700px)" srcset="/assets/photos/tools/find-a-society-wide.jpg"><img src="/assets/photos/tools/find-a-society-banner.jpg" alt="Golfers shaking hands on the first tee, meeting new playing partners" width="1536" height="512"></picture>'
-CSS = '<link rel="stylesheet" href="/css/society.css?v=20261106a">\n'
+CSS = '<link rel="stylesheet" href="/css/society.css?v=20261111a">\n'
 REAL = ('<p class="gp-real">Every prize price is real: the lowest new UK price we found today, across multiple UK '
         'retailers. No money is taken or held by GolfPrice AI. <a href="/legal/privacy-policy.html">Privacy</a> · '
         '<a href="/play/">Play</a> · <a href="/shop.html">Browse the shop</a></p>')
@@ -28,6 +28,7 @@ APP_FEATURES = [
     "In, out or maybe sign-ups for every golf society day",
     "Automatic waiting list when a golf day is full",
     "Organiser's paid ticks: only paid players are confirmed",
+    "Money Sorted: a payment reference and an \"I've paid\" button for every member, one-tap confirmation, a chase-the-unpaid WhatsApp message, a drop-out rule and a season kitty",
     "Pay the organiser button using the organiser's own PayPal, Monzo or Revolut link",
     "Final numbers message for the golf club",
     "Golf society prize fund calculator",
@@ -232,7 +233,7 @@ def hq_page():
   <h2>How Society HQ runs your golf society</h2>
   <div class="soc-faq-grid">
     <div><h3>No sign-up</h3><p>Like our games, your phone remembers you. Members join with a nickname from one link in the WhatsApp group. Play on the same phone each time, not a private tab.</p></div>
-    <div><h3>Who’s paid</h3><p>The organiser ticks who has paid. “Pay the organiser” opens the organiser’s own PayPal, Monzo or Revolut link. We never take, hold or see any money.</p></div>
+    <div><h3>Money sorted</h3><p>Every member gets a payment reference and an “I’ve paid” button, and the organiser confirms with one tap. “Chase the unpaid” writes the WhatsApp message for you, an optional drop-out rule covers late drop-outs, and the season kitty keeps track of credit, refunds and subs. Payments go straight to the organiser: we never take, hold or see any money.</p></div>
     <div><h3>Waiting list</h3><p>Set a maximum and anyone after that goes on the waiting list. When someone drops out, the first in the queue moves up automatically.</p></div>
     <div><h3>Who can see it</h3><p>Only members see the fixtures, who’s playing and who’s paid. The Form Guide preview and report for each day can be read by anyone you send the link to: nicknames and points only. If the organiser lists the society in Find a Society, only its name, area and description are public.</p></div>
     <div><h3>The Form Guide</h3><p>Every society day gets a preview with everyone’s form and the players to watch. Enter the scores afterwards and it becomes a report: the leaderboard, the awards, the Order of Merit and a winner’s card.</p></div>
@@ -242,7 +243,7 @@ def hq_page():
 </div>
 <script src="/js/clubhouse-key.js?v=20261101b" defer></script>
 <script src="/js/milestones.js?v=20261106a" defer></script>
-<script src="/js/society-hq.js?v=20261106a" defer></script>"""
+<script src="/js/society-hq.js?v=20261111a" defer></script>"""
     return page_shell(title="Run your golf society free | Society HQ | GolfPrice AI",
                       description="Run your golf society for free: fixtures, sign-ups, who’s paid, a waiting list and the prize fund, all from one link in the WhatsApp group.",
                       canonical=f"{SITE}/societies/hq/", body=body, section="societies", schema=[crumbs_schema, app_schema(f"{SITE}/societies/hq/")],

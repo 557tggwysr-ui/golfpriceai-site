@@ -426,7 +426,7 @@ const USE_KINDS = { pp_start: 1, bd_start: 1, mc_view: 1, band_0_9: 1, band_10_1
   ms_first_hcp: 1, ms_scratch: 1, ms_bandit: 1, ms_champion: 1, ms_streak: 1, ms_share: 1,
   ace_view: 1, ace_share: 1, cc_view: 1, cc_share: 1, oracle_view: 1, ms_called: 1, pb_view: 1, pb_share: 1, fg_view: 1, fg_share: 1, ms_socwin: 1,
   ss_view: 1, ss_round: 1, ss_share: 1, ms_saved: 1, ask_group: 1, pc_link: 1,
-  ck_saved: 1, ck_card: 1, co_set: 1, fd_near: 1, soc_ask: 1, lv_view: 1, lv_share: 1, lv_card: 1, lv_claim: 1, mg_view: 1, pl_share: 1, pl_view: 1 };
+  ck_saved: 1, ck_card: 1, co_set: 1, mny_ipaid: 1, mny_confirm: 1, mny_chase: 1, mny_kitty: 1, mny_drop: 1, mny_ref: 1, fd_near: 1, soc_ask: 1, lv_view: 1, lv_share: 1, lv_card: 1, lv_claim: 1, mg_view: 1, pl_share: 1, pl_view: 1 };
 // Money stats (Nov 2026): shoppers clicking through to a shop, by the kind of
 // page they clicked on and by where they first arrived from; arrivals by
 // source; alert sign-ups by page. Anonymous daily counts only.
@@ -2725,6 +2725,15 @@ async function socSetup(env) {
   await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_handback (token TEXT PRIMARY KEY, soc TEXT, exp INTEGER) WITHOUT ROWID').run();
   // County for Find a Society (added Oct 2026): add the column once; it already exists after that.
   try { await env.DEMAND.prepare('ALTER TABLE soc_socs ADD COLUMN county TEXT').run(); } catch (e) { /* already there */ }
+  // Money Sorted (Nov 2026): "how to pay" note, "I've paid" claims, how a place
+  // was paid (kitty), the drop-out rule per fixture and the season kitty ledger.
+  for (const [t, col] of [['soc_socs', 'paynote TEXT'], ['soc_entries', 'claim TEXT'], ['soc_entries', 'via TEXT'], ['soc_events', 'droprule INTEGER']]) {
+    try { await env.DEMAND.prepare(`ALTER TABLE ${t} ADD COLUMN ${col}`).run(); } catch (e) { /* already there */ }
+  }
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS soc_kitty (id TEXT PRIMARY KEY, soc TEXT, mkey TEXT, amount REAL, note TEXT, event TEXT, kind TEXT, at TEXT) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS soc_kitty_soc ON soc_kitty (soc, mkey)'),
+  ]);
   socReady = true;
 }
 function socCode(n) {
@@ -2769,6 +2778,8 @@ async function society(request, url, env, cors) {
   if (request.method === 'POST' && path === '/soc/event') return await hqEvent(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/rsvp') return await hqRsvp(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/paid') return await hqPaid(env, body, pid, cors);
+  if (request.method === 'POST' && path === '/soc/ipaid') return await hqIPaid(env, body, pid, cors);
+  if (request.method === 'POST' && path === '/soc/kitty') return await hqKitty(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/remove') return await hqRemove(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/coorg') return await hqCoOrg(env, body, pid, cors);
   if (request.method === 'POST' && path === '/soc/handback') return await hqHandback(env, body, pid, cors);
@@ -2911,17 +2922,19 @@ function hqFields(body) {
   const pay = String(body.pay || '').trim();
   if (pay && !PAY_RX.test(pay)) return { error: 'The payment link must be your own PayPal.me, Monzo.me or Revolut.me link.' };
   const county = socText(body.county, 40);
+  const paynote = socText(body.paynote, 140);
+  if (paynote === null) return { error: 'Let’s keep it clean for the clubhouse. Please check the wording.' };
   const cname = socText(body.cname, 60), ctown = socText(body.ctown, 40), cost = socText(body.cost, 24);
   if (cname === null || ctown === null || cost === null) return { error: 'Let’s keep it clean for the clubhouse. Please check the wording.' };
   const course = ACE_COURSE_RX.test(String(body.course || '')) ? String(body.course) : '';
   const lat = Number(body.lat), lon = Number(body.lon), placed = course && lat >= 49 && lat <= 61.5 && lon >= -9 && lon <= 2.5;
-  return { name, area: area || '', about: about || '', pay, open: body.open ? 1 : 0, county: county || '',
+  return { name, area: area || '', about: about || '', pay, paynote: paynote || '', open: body.open ? 1 : 0, county: county || '',
     course: placed ? course : '', cname: placed ? cname || '' : '', ctown: placed ? ctown || '' : '', lat: placed ? Math.round(lat * 1e4) / 1e4 : null, lon: placed ? Math.round(lon * 1e4) / 1e4 : null,
     days: ['sat', 'sun', 'wkend', 'wkday', 'mix'].includes(body.days) ? body.days : '', ability: ['all', 'beg', 'hcp'].includes(body.ability) ? body.ability : '', cost: cost || '' };
 }
 async function hqExtras(env, id, f) {
-  await env.DEMAND.prepare('UPDATE soc_socs SET course = ?, cname = ?, ctown = ?, lat = ?, lon = ?, days = ?, ability = ?, cost = ? WHERE id = ?')
-    .bind(f.course, f.cname, f.ctown, f.lat, f.lon, f.days, f.ability, f.cost, id).run();
+  await env.DEMAND.prepare('UPDATE soc_socs SET course = ?, cname = ?, ctown = ?, lat = ?, lon = ?, days = ?, ability = ?, cost = ?, paynote = ? WHERE id = ?')
+    .bind(f.course, f.cname, f.ctown, f.lat, f.lon, f.days, f.ability, f.cost, f.paynote || '', id).run();
 }
 async function hqNew(env, body, pid, cors) {
   if (!pid) return json({ ok: false, error: 'Bad request.' }, 400, cors);
@@ -2937,6 +2950,7 @@ async function hqNew(env, body, pid, cors) {
     env.DEMAND.prepare('DELETE FROM soc_entries WHERE event IN (SELECT e.id FROM soc_events e JOIN soc_socs s ON s.id = e.soc WHERE s.updated < ?)').bind(stale),
     env.DEMAND.prepare('DELETE FROM soc_events WHERE soc IN (SELECT id FROM soc_socs WHERE updated < ?)').bind(stale),
     env.DEMAND.prepare('DELETE FROM soc_members WHERE soc IN (SELECT id FROM soc_socs WHERE updated < ?)').bind(stale),
+    env.DEMAND.prepare('DELETE FROM soc_kitty WHERE soc IN (SELECT id FROM soc_socs WHERE updated < ?)').bind(stale),
     env.DEMAND.prepare('DELETE FROM soc_socs WHERE updated < ?').bind(stale),
   ]);
   const day = hqDay();
@@ -3032,11 +3046,18 @@ async function hqGet(env, id, pid, cors) {
       pollList.push({ id: p.id, kind: p.kind, q: p.q, closes: p.closes, closed: plClosed(p), votes: n || 0, voted: !!mine, winner: win });
     }
   } catch (e) { /* no polls yet */ }
+  // The season kitty: the organisers see everyone's lines, a member only their own.
+  const kq = organiser
+    ? env.DEMAND.prepare('SELECT id, mkey, amount, note, event, kind, at FROM soc_kitty WHERE soc = ? ORDER BY at DESC LIMIT 400').bind(s.id)
+    : env.DEMAND.prepare('SELECT id, mkey, amount, note, event, kind, at FROM soc_kitty WHERE soc = ? AND mkey = ? ORDER BY at DESC LIMIT 100').bind(s.id, me.mkey);
+  const kitty = ((await kq.all()).results || []).filter((k) => nickOf[k.mkey]).map((k) => ({ id: k.id, m: k.mkey, nick: nickOf[k.mkey], amount: k.amount, note: k.note, event: k.event || '', kind: k.kind, at: k.at }));
   const out = Object.assign(base, {
-    you: me.mkey, pay: s.pay, requests, polls: pollList,
+    you: me.mkey, pay: s.pay, paynote: s.paynote || '', requests, polls: pollList, kitty,
     members: members.map((m) => ({ m: m.mkey, nick: m.nick, organiser: m.pid === s.pid, co: !!s.co && m.pid === s.co })),
-    events: events.map((e) => ({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, cap: e.cap, deadline: e.deadline, notes: e.notes, report: !!reported[e.id], live: live[e.id] || null, spare: e.spare || 0,
-      entries: entries.filter((x) => x.event === e.id && nickOf[x.mkey]).map((x) => ({ m: x.mkey, nick: nickOf[x.mkey], status: x.status, paid: !!x.paid, at: x.at })) })),
+    events: events.map((e) => ({ id: e.id, title: e.title, venue: e.venue, day: e.day, tee: e.tee, entry: e.entry, cap: e.cap, deadline: e.deadline, notes: e.notes, report: !!reported[e.id], live: live[e.id] || null, spare: e.spare || 0, droprule: e.droprule ? 1 : 0,
+      // claim: the date a member tapped "I've paid" ('no' = the organiser couldn't find it); only they and the organisers see it.
+      entries: entries.filter((x) => x.event === e.id && nickOf[x.mkey]).map((x) => ({ m: x.mkey, nick: nickOf[x.mkey], status: x.status, paid: !!x.paid, at: x.at,
+        claim: (organiser || x.mkey === me.mkey) ? (x.claim || '') : '', via: x.via || '' })) })),
   });
   return json(out, 200, Object.assign({ 'cache-control': 'no-store' }, cors));
 }
@@ -3199,6 +3220,7 @@ async function hqRemove(env, body, pid, cors) {
   if (m === s.co) await env.DEMAND.prepare('UPDATE soc_socs SET co = NULL WHERE id = ?').bind(s.id).run();
   await env.DEMAND.batch([
     env.DEMAND.prepare('DELETE FROM soc_entries WHERE mkey = ?').bind(mk),
+    env.DEMAND.prepare('DELETE FROM soc_kitty WHERE soc = ? AND mkey = ?').bind(s.id, mk),
     env.DEMAND.prepare('DELETE FROM soc_members WHERE soc = ? AND mkey = ?').bind(s.id, mk),
   ]);
   return json({ ok: true }, 200, cors);
@@ -3259,6 +3281,8 @@ async function hqEvent(env, body, pid, cors) {
     if (!SOC_RX.test(eid)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
     await env.DEMAND.batch([
       env.DEMAND.prepare('DELETE FROM soc_entries WHERE event = ?').bind(eid),
+      // Drop-out charges and credits for a deleted fixture go too; credit already used stays.
+      env.DEMAND.prepare("DELETE FROM soc_kitty WHERE soc = ? AND event = ? AND kind IN ('drop', 'held', 'filled', 'refund', 'used')").bind(s.id, eid),
       env.DEMAND.prepare('DELETE FROM soc_events WHERE id = ? AND soc = ?').bind(eid, s.id),
     ]);
     return json({ ok: true }, 200, cors);
@@ -3273,16 +3297,17 @@ async function hqEvent(env, body, pid, cors) {
   const entry = Math.round(Math.min(500, Math.max(0, Number(body.entry) || 0)) * 100) / 100;
   const cap = Math.round(Math.min(200, Math.max(0, Number(body.cap) || 0)));
   const spare = Math.round(Math.min(12, Math.max(0, Number(body.spare) || 0)));
+  const droprule = body.droprule && deadline && entry > 0 ? 1 : 0;
   if (eid) {
     if (!SOC_RX.test(eid)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
-    await env.DEMAND.prepare('UPDATE soc_events SET title = ?, venue = ?, day = ?, tee = ?, entry = ?, cap = ?, deadline = ?, notes = ?, spare = ? WHERE id = ? AND soc = ?').bind(title, venue || '', day, tee, entry, cap, deadline, notes || '', spare, eid, s.id).run();
+    await env.DEMAND.prepare('UPDATE soc_events SET title = ?, venue = ?, day = ?, tee = ?, entry = ?, cap = ?, deadline = ?, notes = ?, spare = ?, droprule = ? WHERE id = ? AND soc = ?').bind(title, venue || '', day, tee, entry, cap, deadline, notes || '', spare, droprule, eid, s.id).run();
     await hqTouch(env, s.id);
     return json({ ok: true, id: eid }, 200, cors);
   }
   const n = await env.DEMAND.prepare('SELECT COUNT(*) AS c FROM soc_events WHERE soc = ? AND day >= ?').bind(s.id, hqDay()).first('c');
   if (n >= 30) return json({ ok: false, error: 'Thirty fixtures ahead is plenty.' }, 400, cors);
   const id = socCode(8);
-  await env.DEMAND.prepare('INSERT INTO soc_events (id, soc, title, venue, day, tee, entry, cap, deadline, notes, created, spare) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').bind(id, s.id, title, venue || '', day, tee, entry, cap, deadline, notes || '', hqDay(), spare).run();
+  await env.DEMAND.prepare('INSERT INTO soc_events (id, soc, title, venue, day, tee, entry, cap, deadline, notes, created, spare, droprule) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').bind(id, s.id, title, venue || '', day, tee, entry, cap, deadline, notes || '', hqDay(), spare, droprule).run();
   await hqTouch(env, s.id);
   return json({ ok: true, id }, 200, cors);
 }
@@ -3306,35 +3331,148 @@ async function hqRsvp(env, body, pid, cors) {
     if (!ok) return json({ ok: false, error: 'Bad request.' }, 400, cors);
     who = ok;
   }
+  const db = env.DEMAND;
+  const before = await db.prepare('SELECT status, paid FROM soc_entries WHERE event = ? AND mkey = ?').bind(e.id, who).first();
   let final = status;
-  if (status === 'in' && e.cap > 0) {
-    const ins = await env.DEMAND.prepare("SELECT COUNT(*) AS c FROM soc_entries WHERE event = ? AND status = 'in' AND mkey != ?").bind(e.id, who).first('c');
+  if (status === 'in' && e.cap > 0 && !(before && before.status === 'in')) {
+    const ins = await db.prepare("SELECT COUNT(*) AS c FROM soc_entries WHERE event = ? AND status = 'in' AND mkey != ?").bind(e.id, who).first('c');
     if (ins >= e.cap) final = 'wait';
   }
   const now = new Date().toISOString();
-  await env.DEMAND.prepare('INSERT INTO soc_entries (event, mkey, status, paid, at) VALUES (?, ?, ?, 0, ?) ON CONFLICT (event, mkey) DO UPDATE SET status = excluded.status, at = excluded.at').bind(e.id, who, final, now).run();
-  // Someone dropped out: the first on the waiting list moves up.
-  if (status !== 'in' && e.cap > 0) {
-    const ins = await env.DEMAND.prepare("SELECT COUNT(*) AS c FROM soc_entries WHERE event = ? AND status = 'in'").bind(e.id).first('c');
-    if (ins < e.cap) {
-      const next = await env.DEMAND.prepare("SELECT mkey FROM soc_entries WHERE event = ? AND status = 'wait' ORDER BY at LIMIT 1").bind(e.id).first('mkey');
-      if (next) await env.DEMAND.prepare("UPDATE soc_entries SET status = 'in' WHERE event = ? AND mkey = ?").bind(e.id, next).run();
+  await db.prepare('INSERT INTO soc_entries (event, mkey, status, paid, at) VALUES (?, ?, ?, 0, ?) ON CONFLICT (event, mkey) DO UPDATE SET status = excluded.status, at = CASE WHEN soc_entries.status = excluded.status THEN soc_entries.at ELSE excluded.at END').bind(e.id, who, final, now).run();
+  // Money Sorted's drop-out rule: after the club's final-numbers date, a player who
+  // drops out still owes their entry unless someone takes their place.
+  const rule = !!(e.droprule && e.entry > 0 && e.deadline && hqDay() > e.deadline && e.day >= hqDay());
+  let promoted = null, dropped = false;
+  if (before && before.status === 'in' && final !== 'in') {
+    // Someone dropped out: the first on the waiting list moves up.
+    if (e.cap > 0) {
+      const ins = await db.prepare("SELECT COUNT(*) AS c FROM soc_entries WHERE event = ? AND status = 'in'").bind(e.id).first('c');
+      if (ins < e.cap) {
+        promoted = await db.prepare("SELECT mkey FROM soc_entries WHERE event = ? AND status = 'wait' ORDER BY at LIMIT 1").bind(e.id).first('mkey');
+        if (promoted) await db.prepare("UPDATE soc_entries SET status = 'in', at = ? WHERE event = ? AND mkey = ?").bind(now, e.id, promoted).run();
+      }
     }
+    if (rule) {
+      dropped = true;
+      if (promoted) {
+        // Place filled straight away: nothing owed, and a paid entry comes back as credit.
+        if (before.paid) await hqKittyAdd(db, e.soc, who, e.entry, 'Place filled after you dropped out: your entry back as credit', e.id, 'refund');
+      } else {
+        await hqKittyAdd(db, e.soc, who, before.paid ? 0 : -e.entry, before.paid ? 'Dropped out after numbers went in (already paid)' : 'Dropped out after numbers went in', e.id, before.paid ? 'held' : 'drop');
+      }
+    }
+  } else if (final === 'in' && !(before && before.status === 'in')) {
+    // Back in? Their own drop-out line goes. Someone new? They fill the oldest open place.
+    const mine = await db.prepare("SELECT id FROM soc_kitty WHERE soc = ? AND event = ? AND mkey = ? AND kind IN ('drop', 'held')").bind(e.soc, e.id, who).first('id');
+    if (mine) await db.prepare('DELETE FROM soc_kitty WHERE id = ?').bind(mine).run();
+    else await hqFillPlace(db, e, who);
   }
   await hqTouch(env, e.soc);
-  return json({ ok: true, status: final }, 200, cors);
+  return json({ ok: true, status: final, promoted: !!promoted, dropped }, 200, cors);
+}
+// A new player takes a place someone dropped: their charge is cleared, or a paid entry comes back as credit.
+async function hqFillPlace(db, e, filler) {
+  const open = await db.prepare("SELECT id, mkey, kind FROM soc_kitty WHERE soc = ? AND event = ? AND kind IN ('drop', 'held') AND mkey != ? ORDER BY at LIMIT 1").bind(e.soc, e.id, filler).first();
+  if (!open) return;
+  if (open.kind === 'held') await db.prepare("UPDATE soc_kitty SET kind = 'refund', amount = ?, note = ? WHERE id = ?").bind(e.entry, 'Place filled after you dropped out: your entry back as credit', open.id).run();
+  else await db.prepare("UPDATE soc_kitty SET kind = 'filled', amount = 0, note = ? WHERE id = ?").bind('Dropped out, but the place was filled: nothing owed', open.id).run();
+}
+async function hqKittyAdd(db, soc, mkey, amount, note, event, kind) {
+  await db.prepare('INSERT INTO soc_kitty (id, soc, mkey, amount, note, event, kind, at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
+    .bind(socCode(10), soc, mkey, Math.round(Number(amount) * 100) / 100, String(note).slice(0, 120), event || '', kind, new Date().toISOString()).run();
+}
+async function hqBalance(db, soc, mkey) {
+  return Math.round(((await db.prepare('SELECT SUM(amount) AS b FROM soc_kitty WHERE soc = ? AND mkey = ?').bind(soc, mkey).first('b')) || 0) * 100) / 100;
 }
 async function hqPaid(env, body, pid, cors) {
   const e = await hqEventFor(env, String(body.e || ''), pid);
   if (!e || !evOrg(e, pid)) return json({ ok: false, error: 'Only the organiser can tick who’s paid.' }, 403, cors);
-  const mk = String(body.m || '');
-  const r = await env.DEMAND.prepare('UPDATE soc_entries SET paid = ? WHERE event = ? AND mkey = ?').bind(body.paid ? 1 : 0, e.id, mk).run();
-  if (!(r.meta && r.meta.changes)) {
-    const ok = await env.DEMAND.prepare('SELECT mkey FROM soc_members WHERE soc = ? AND mkey = ?').bind(e.soc, mk).first('mkey');
-    if (!ok) return json({ ok: false, error: 'Bad request.' }, 400, cors);
-    await env.DEMAND.prepare("INSERT INTO soc_entries (event, mkey, status, paid, at) VALUES (?, ?, 'in', ?, ?)").bind(e.id, mk, body.paid ? 1 : 0, new Date().toISOString()).run();
+  const db = env.DEMAND, mk = String(body.m || '');
+  const ok = await db.prepare('SELECT mkey FROM soc_members WHERE soc = ? AND mkey = ?').bind(e.soc, mk).first('mkey');
+  if (!ok) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+  const row = await db.prepare('SELECT status, paid, via FROM soc_entries WHERE event = ? AND mkey = ?').bind(e.id, mk).first();
+  // "Not arrived yet": the organiser couldn't find an "I've paid" payment; the member sees it and can try again.
+  if (body.reject) {
+    await db.prepare("UPDATE soc_entries SET claim = 'no' WHERE event = ? AND mkey = ? AND paid = 0").bind(e.id, mk).run();
+    return json({ ok: true }, 200, cors);
+  }
+  // Paid but not playing (dropped out before numbers went in): their entry becomes credit in the kitty.
+  if (body.credit) {
+    if (!row || !row.paid || row.status === 'in' || !(e.entry > 0)) return json({ ok: false, error: 'Only for someone who paid and isn’t playing.' }, 400, cors);
+    if (row.via === 'kitty') await db.prepare("DELETE FROM soc_kitty WHERE soc = ? AND mkey = ? AND event = ? AND kind = 'used'").bind(e.soc, mk, e.id).run();
+    else await hqKittyAdd(db, e.soc, mk, e.entry, 'Entry back as credit: ' + (e.title || 'golf day'), e.id, 'refund');
+    await db.prepare("DELETE FROM soc_kitty WHERE soc = ? AND mkey = ? AND event = ? AND kind = 'held'").bind(e.soc, mk, e.id).run();
+    await db.prepare("UPDATE soc_entries SET paid = 0, via = '', claim = NULL WHERE event = ? AND mkey = ?").bind(e.id, mk).run();
+    return json({ ok: true }, 200, cors);
+  }
+  let via = '';
+  if (body.paid && body.kitty) {
+    // Paid from the season kitty: only with enough credit, and it shows as a line in their kitty.
+    if (!(e.entry > 0)) return json({ ok: false, error: 'This day has no entry fee to pay.' }, 400, cors);
+    if (row && row.paid) return json({ ok: true }, 200, cors);
+    if (await hqBalance(db, e.soc, mk) < e.entry) return json({ ok: false, error: 'Not enough credit in their kitty for this one.' }, 400, cors);
+    await hqKittyAdd(db, e.soc, mk, -e.entry, 'Paid from credit: ' + (e.title || 'golf day'), e.id, 'used');
+    via = 'kitty';
+  }
+  if (!body.paid && row && row.via === 'kitty') await db.prepare("DELETE FROM soc_kitty WHERE soc = ? AND mkey = ? AND event = ? AND kind = 'used'").bind(e.soc, mk, e.id).run();
+  if (row) await db.prepare('UPDATE soc_entries SET paid = ?, via = ?, claim = NULL WHERE event = ? AND mkey = ?').bind(body.paid ? 1 : 0, via, e.id, mk).run();
+  else await db.prepare("INSERT INTO soc_entries (event, mkey, status, paid, at, via) VALUES (?, ?, 'in', ?, ?, ?)").bind(e.id, mk, body.paid ? 1 : 0, new Date().toISOString(), via).run();
+  // A drop-out who'd been charged and then pays: the charge is settled by the payment.
+  if (body.paid && row && row.status !== 'in') {
+    const drop = await db.prepare("SELECT id FROM soc_kitty WHERE soc = ? AND mkey = ? AND event = ? AND kind = 'drop'").bind(e.soc, mk, e.id).first('id');
+    if (drop) await db.prepare("UPDATE soc_kitty SET kind = 'held', amount = 0, note = 'Dropped out after numbers went in (paid)' WHERE id = ?").bind(drop).run();
   }
   return json({ ok: true }, 200, cors);
+}
+// A member taps "I've paid" (or takes it back); the organiser then confirms with one tap.
+async function hqIPaid(env, body, pid, cors) {
+  const e = await hqEventFor(env, String(body.e || ''), pid);
+  if (!e) return json({ ok: false, error: 'Join the society first.' }, 403, cors);
+  const r = await env.DEMAND.prepare('UPDATE soc_entries SET claim = ? WHERE event = ? AND mkey = ? AND paid = 0').bind(body.on ? hqDay() : null, e.id, e.me).run();
+  if (!(r.meta && r.meta.changes)) return json({ ok: false, error: 'Put yourself down as in first.' }, 400, cors);
+  return json({ ok: true }, 200, cors);
+}
+/* The season kitty: a running balance per member, kept by the organisers.
+   Positive = credit the society holds for them; negative = what they owe.
+   GolfPrice AI never holds any money: this is the organiser's record only.
+   body: { s, m | all, amount (+ credit / - owes), note } · { s, settle: m } · { s, del: id } */
+async function hqKitty(env, body, pid, cors) {
+  const s = await hqSoc(env, String(body.s || ''));
+  if (!s || !socOrg(s, pid)) return json({ ok: false, error: 'Only the organiser can change the kitty.' }, 403, cors);
+  const db = env.DEMAND;
+  if (body.del) {
+    const r = await db.prepare("DELETE FROM soc_kitty WHERE id = ? AND soc = ? AND kind IN ('manual', 'settle')").bind(String(body.del), s.id).run();
+    if (!(r.meta && r.meta.changes)) return json({ ok: false, error: 'That line can’t be removed here. Lines from a golf day change with the day itself.' }, 400, cors);
+    return json({ ok: true }, 200, cors);
+  }
+  if (body.settle) {
+    const mk = String(body.settle);
+    if (!await db.prepare('SELECT mkey FROM soc_members WHERE soc = ? AND mkey = ?').bind(s.id, mk).first('mkey')) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const b = await hqBalance(db, s.id, mk);
+    if (!b) return json({ ok: true }, 200, cors);
+    await hqKittyAdd(db, s.id, mk, -b, b > 0 ? 'Paid back' : 'Paid what they owed', '', 'settle');
+    await hqTouch(env, s.id);
+    return json({ ok: true }, 200, cors);
+  }
+  const amount = Math.round(Number(body.amount) * 100) / 100;
+  if (!amount || !isFinite(amount) || Math.abs(amount) > 2000) return json({ ok: false, error: 'Enter an amount up to £2,000.' }, 400, cors);
+  const note = socText(body.note, 60);
+  if (note === null) return json({ ok: false, error: 'Let’s keep it clean for the clubhouse. Please check the wording.' }, 400, cors);
+  if (!note) return json({ ok: false, error: 'Add a short note, e.g. Season subs 2027.' }, 400, cors);
+  let who = [];
+  if (body.all) who = ((await db.prepare('SELECT mkey FROM soc_members WHERE soc = ?').bind(s.id).all()).results || []).map((m) => m.mkey);
+  else {
+    const mk = await db.prepare('SELECT mkey FROM soc_members WHERE soc = ? AND mkey = ?').bind(s.id, String(body.m || '')).first('mkey');
+    if (mk) who = [mk];
+  }
+  if (!who.length) return json({ ok: false, error: 'Pick a member.' }, 400, cors);
+  const n = await db.prepare('SELECT COUNT(*) AS c FROM soc_kitty WHERE soc = ?').bind(s.id).first('c');
+  if (n + who.length > 3000) return json({ ok: false, error: 'The kitty is full. Settle a few lines first.' }, 400, cors);
+  const now = new Date().toISOString();
+  await db.batch(who.map((mk) => db.prepare('INSERT INTO soc_kitty (id, soc, mkey, amount, note, event, kind, at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)').bind(socCode(10), s.id, mk, amount, note, '', 'manual', now)));
+  await hqTouch(env, s.id);
+  return json({ ok: true, n: who.length }, 200, cors);
 }
 /* ---- The Form Guide: a preview before each society day and a report after it.
      soc_results  event, mkey, pts (stableford points; -1 = no return), back (back-nine points, for countback)
