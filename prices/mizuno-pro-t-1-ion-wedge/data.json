@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/mizuno-pro-t-1-ion-wedge/",
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 92.65,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 92.65,
   "high": 149.0,
-  "average": 128.26,
+  "average": 127.8,
   "priceChanges": 3,
   "series": [
    [
@@ -44,6 +44,10 @@
    [
     "2026-11-11",
     92.65
+   ],
+   [
+    "2026-11-12",
+    92.65
    ]
   ]
  },
@@ -53,5 +57,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Yourparagraphtext_22.jpg?v=1737715484",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-11"
+ "changed": "2026-11-12"
 }

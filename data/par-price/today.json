@@ -1,66 +1,66 @@
 {
- "n": 25,
- "date": "2026-11-11",
+ "n": 26,
+ "date": "2026-11-12",
  "items": [
   {
-   "slug": "srixon-zxi-fairway-wood",
-   "name": "Srixon ZXi Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXi-Fairway-Hero-Hero-Straight.jpg",
-   "price": 199.0,
+   "slug": "titleist-gt3-fairway-wood",
+   "name": "Titleist GT3 Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TitleistGT3FairwayWood5.jpg?v=1777950793",
+   "price": 249.0,
    "unit": "each",
    "type": "fairway wood",
-   "low": false,
-   "url": "/prices/srixon-zxi-fairway-wood/"
+   "low": true,
+   "url": "/prices/titleist-gt3-fairway-wood/"
   },
   {
-   "slug": "callaway-opus-platinum-chrome-wedge",
-   "name": "Callaway Opus Platinum Chrome Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/p_callaway-opus-platinum-chrome-wedge-2.jpg",
-   "price": 149.0,
+   "slug": "ping-s259-midnight-wedge",
+   "name": "Ping S259 Midnight Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Pings259Wedge10.jpg?v=1773172587",
+   "price": 179.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/callaway-opus-platinum-chrome-wedge/"
+   "url": "/prices/ping-s259-midnight-wedge/"
   },
   {
-   "slug": "cobra-rad-s-hybrid",
-   "name": "Cobra RAD-S Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/RAD-S-Hybrid-Hero.jpg",
-   "price": 149.0,
+   "slug": "callaway-elyte-x-irons",
+   "name": "Callaway Elyte X Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-X-Golf-Irons-Graphite-1.jpg?v=1737087065",
+   "price": 549.0,
    "unit": "each",
-   "type": "hybrid",
-   "low": true,
-   "url": "/prices/cobra-rad-s-hybrid/"
+   "type": "iron set",
+   "low": false,
+   "url": "/prices/callaway-elyte-x-irons/"
   },
   {
-   "slug": "ogio-all-elements-silencer-cart-bag-golf-bag",
-   "name": "Ogio All Elements Silencer Cart Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/ogio-all-elements-silencer-stand-bag-black-1000x1000-4.jpg",
-   "price": 199.0,
+   "slug": "srixon-z-star-xv-golf-balls",
+   "name": "Srixon Z-Star XV Golf Balls",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-Z-Star-XV-Golf-Balls-White.jpg",
+   "price": 34.99,
+   "unit": "per dozen",
+   "type": "golf ball",
+   "low": true,
+   "url": "/prices/srixon-z-star-xv-golf-balls/"
+  },
+  {
+   "slug": "cobra-ultralight-2-cart-bag-golf-bag",
+   "name": "Cobra Ultralight 2 Cart Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/cobra-ultralight-2-cart-bag-sugared-almond-sunny-yellow-side-profile-1000x1000.png",
+   "price": 169.0,
    "unit": "each",
    "type": "golf bag",
-   "low": true,
-   "url": "/prices/ogio-all-elements-silencer-cart-bag-golf-bag/"
-  },
-  {
-   "slug": "macgregor-zt-plus-driver",
-   "name": "MacGregor ZT Plus Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MacGregorZTPlusDriver-Ladies3.jpg?v=1780535125",
-   "price": 129.95,
-   "unit": "each",
-   "type": "driver",
-   "low": true,
-   "url": "/prices/macgregor-zt-plus-driver/"
+   "low": false,
+   "url": "/prices/cobra-ultralight-2-cart-bag-golf-bag/"
   }
  ],
  "pin": {
-  "slug": "mizuno-pro-fli-hi-utility-irons",
-  "name": "Mizuno Pro Fli-Hi Utility Irons",
-  "image": "https://www.scottsdalegolf.co.uk/uploads/mizuno-flihi-1.png",
-  "price": 139.0,
+  "slug": "taylormade-qi10-driver",
+  "name": "TaylorMade Qi10 Driver",
+  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/qi10_driver_2.jpg?v=1777960212",
+  "price": 379.0,
   "unit": "each",
-  "type": "iron set",
-  "low": true,
-  "url": "/prices/mizuno-pro-fli-hi-utility-irons/"
+  "type": "driver",
+  "low": false,
+  "url": "/prices/taylormade-qi10-driver/"
  }
 }

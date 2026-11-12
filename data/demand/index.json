@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-11",
+ "date": "2026-11-12",
  "status": "live",
  "week": {
-  "from": "2026-11-05",
-  "to": "2026-11-11"
+  "from": "2026-11-06",
+  "to": "2026-11-12"
  },
  "chart": [
   {
@@ -72,16 +72,6 @@
   },
   {
    "rank": 7,
-   "name": "TaylorMade Tour Response Golf Balls",
-   "brand": "TaylorMade",
-   "type": "ball",
-   "price": 28.49,
-   "unit": "per dozen",
-   "move": null,
-   "url": "https://golfpriceai.com/prices/taylormade-tour-response-golf-balls/"
-  },
-  {
-   "rank": 8,
    "name": "Yonex Ezone GS i-Tech Driver",
    "brand": "Yonex",
    "type": "driver",
@@ -91,7 +81,7 @@
    "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
   },
   {
-   "rank": 9,
+   "rank": 8,
    "name": "Callaway Elyte X Driver",
    "brand": "Callaway",
    "type": "driver",
@@ -101,7 +91,7 @@
    "url": "https://golfpriceai.com/prices/callaway-elyte-x-driver/"
   },
   {
-   "rank": 10,
+   "rank": 9,
    "name": "TaylorMade Milled Grind 4 Wedge",
    "brand": "TaylorMade",
    "type": "wedge",
@@ -111,7 +101,7 @@
    "url": "https://golfpriceai.com/prices/taylormade-milled-grind-4-wedge/"
   },
   {
-   "rank": 11,
+   "rank": 10,
    "name": "Wilson DYNAPWR Forged Irons",
    "brand": "Wilson",
    "type": "irons",
@@ -146,18 +136,18 @@
  "categoryShare": [
   {
    "category": "Irons & wedges",
-   "pct": 40
-  },
-  {
-   "category": "Balls",
-   "pct": 21
+   "pct": 44
   },
   {
    "category": "Drivers & woods",
-   "pct": 21
+   "pct": 23
   },
   {
    "category": "Tech",
+   "pct": 17
+  },
+  {
+   "category": "Balls",
    "pct": 17
   }
  ],

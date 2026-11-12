@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/srixon-srx-tour-staff-golf-bag/",
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 322.15,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 76,
+  "daysTracked": 77,
   "low": 322.15,
   "high": 379.0,
-  "average": 378.25,
+  "average": 377.52,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-11",
+    322.15
+   ],
+   [
+    "2026-11-12",
     322.15
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/STAFFBAG254.jpg?v=1735912071",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-11"
+ "changed": "2026-11-12"
 }

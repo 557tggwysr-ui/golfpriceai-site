@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-m5-dhc-electric-trolley/",
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 929.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 88,
+  "daysTracked": 89,
   "low": 929.0,
   "high": 1049.0,
-  "average": 1000.93,
+  "average": 1000.12,
   "priceChanges": 15,
   "series": [
    [
@@ -109,7 +109,7 @@
     929.0
    ],
    [
-    "2026-11-11",
+    "2026-11-12",
     929.0
    ]
   ]
@@ -120,5 +120,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26M5GDMS-M5-GPS-DHC-Hero-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-11"
+ "changed": "2026-11-12"
 }

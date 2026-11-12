@@ -3,7 +3,7 @@
  "brand": "Golf Buddy",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/golf-buddy-atom-rangefinder/",
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.99,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 88,
+  "daysTracked": 89,
   "low": 199.99,
   "high": 199.99,
   "average": 199.99,
@@ -29,16 +29,16 @@
     199.99
    ],
    [
-    "2026-11-11",
+    "2026-11-12",
     199.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 88 days"
+  "summary": "Typical price: steady for 89 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/p_Golf-Buddy-Atom-Rangefinder---White2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-11"
+ "changed": "2026-11-12"
 }

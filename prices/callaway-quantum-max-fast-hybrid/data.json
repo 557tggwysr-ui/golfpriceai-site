@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/callaway-quantum-max-fast-hybrid/",
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 88,
+  "daysTracked": 89,
   "low": 229.0,
   "high": 329.0,
-  "average": 316.5,
+  "average": 315.52,
   "priceChanges": 2,
   "series": [
    [
@@ -42,7 +42,7 @@
     229.0
    ],
    [
-    "2026-11-11",
+    "2026-11-12",
     229.0
    ]
   ]
@@ -53,5 +53,5 @@
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794323193962/sits/hybrids-2026-quantum-max-fast/hybrids-2026-quantum-max-fast___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-11"
+ "changed": "2026-11-12"
 }

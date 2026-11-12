@@ -3,7 +3,7 @@
  "brand": "L.A.B. Golf",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/l-a-b-golf-mezz-1-max-putter/",
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 539.0,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 69,
+  "daysTracked": 70,
   "low": 539.0,
   "high": 539.0,
   "average": 539.0,
@@ -29,16 +29,16 @@
     539.0
    ],
    [
-    "2026-11-11",
+    "2026-11-12",
     539.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 69 days"
+  "summary": "Typical price: steady for 70 days"
  },
  "image": null,
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-11"
+ "changed": "2026-11-12"
 }

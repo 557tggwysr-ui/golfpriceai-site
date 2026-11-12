@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-pioneer-244-cart-bag-golf-bag/",
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 88,
+  "daysTracked": 89,
   "low": 179.0,
   "high": 199.0,
-  "average": 192.86,
+  "average": 192.93,
   "priceChanges": 18,
   "series": [
    [
@@ -112,7 +112,7 @@
     199.0
    ],
    [
-    "2026-11-11",
+    "2026-11-12",
     199.0
    ]
   ]
@@ -123,5 +123,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/ping-pioneer-cart-bag-heather-sand-black-1000x10001-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-11"
+ "changed": "2026-11-12"
 }

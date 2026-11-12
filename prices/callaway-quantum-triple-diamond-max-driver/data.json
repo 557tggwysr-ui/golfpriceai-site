@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-quantum-triple-diamond-max-driver/",
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 485.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 88,
+  "daysTracked": 89,
   "low": 485.0,
   "high": 569.0,
-  "average": 561.36,
+  "average": 560.51,
   "priceChanges": 1,
   "series": [
    [
@@ -44,7 +44,7 @@
     485.0
    ],
    [
-    "2026-11-11",
+    "2026-11-12",
     485.0
    ]
   ]
@@ -55,5 +55,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/quantum-triple-diamond-max-driver-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-11"
+ "changed": "2026-11-12"
 }

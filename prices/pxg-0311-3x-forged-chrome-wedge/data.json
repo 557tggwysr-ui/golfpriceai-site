@@ -3,7 +3,7 @@
  "brand": "PXG",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/pxg-0311-3x-forged-chrome-wedge/",
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.95,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 69,
+  "daysTracked": 70,
   "low": 149.95,
   "high": 169.95,
-  "average": 154.3,
+  "average": 154.24,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     149.95
    ],
    [
-    "2026-11-11",
+    "2026-11-12",
     149.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 54 days"
+  "summary": "Typical price: steady for 55 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PXG0311V3ForgedChromeWedge1.jpg?v=1773178082",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-11"
+ "changed": "2026-11-12"
 }

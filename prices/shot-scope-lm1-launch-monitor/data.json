@@ -3,17 +3,17 @@
  "brand": "Shot Scope",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/shot-scope-lm1-launch-monitor/",
- "checked": "2026-11-11",
+ "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 189.0,
+ "lowestNewPrice": 179.0,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 189.0,
+   "from": 179.0,
    "options": 1
   },
   {
@@ -33,11 +33,11 @@
   }
  ],
  "history": {
-  "daysTracked": 88,
-  "low": 189.0,
+  "daysTracked": 89,
+  "low": 179.0,
   "high": 199.0,
-  "average": 197.98,
-  "priceChanges": 3,
+  "average": 197.76,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -56,8 +56,8 @@
     189.0
    ],
    [
-    "2026-11-11",
-    189.0
+    "2026-11-12",
+    179.0
    ]
   ]
  },
@@ -67,5 +67,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/shot-scope-lm1-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-11"
+ "changed": "2026-11-12"
 }
