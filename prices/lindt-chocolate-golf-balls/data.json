@@ -6,14 +6,14 @@
  "checked": "2026-11-12",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 8.49,
+ "lowestNewPrice": 7.99,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 8.49,
+   "from": 7.99,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 69,
   "low": 7.99,
   "high": 8.49,
-  "average": 8.41,
-  "priceChanges": 1,
+  "average": 8.4,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-05",
@@ -34,13 +34,13 @@
    ],
    [
     "2026-11-12",
-    8.49
+    7.99
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £0.50 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Lindt_Chocolate_Golf_Balls_1.jpg?v=1776308677",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

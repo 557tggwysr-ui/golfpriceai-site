@@ -8,13 +8,19 @@
  "unit": "each",
  "lowestNewPrice": 159.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clarkes Golf",
+  "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
    "from": 159.0,
    "options": 5
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 159.0,
+   "options": 4
   },
   {
    "name": "Affordable Golf",
@@ -24,11 +30,6 @@
   {
    "name": "Clickgolf",
    "from": 164.0,
-   "options": 4
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 169.0,
    "options": 4
   }
  ],
@@ -129,7 +130,7 @@
   "label": "wait",
   "summary": "Wait if you can: £9.05 above its tracked low"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TM26ACC-JE958-M2341101-M2342301-Flextech-Super-Lite-Lite-Grey-Neon-Green-3QR-v1.png?v=1771068346",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/flextechsuperliteblk1.jpg?v=1704984766",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-12"
 }

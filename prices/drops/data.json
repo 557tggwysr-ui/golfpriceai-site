@@ -1,8 +1,48 @@
 {
- "checked": "2026-11-12T14:45+00:00",
+ "checked": "2026-11-12T23:16+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Wilson Staff Infinite Putter",
+   "model_id": "wilson-staff-infinite-putter",
+   "date": "2026-11-12",
+   "was": 99.0,
+   "now": 79.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-staff-infinite-putter/"
+  },
+  {
+   "model": "Cleveland CBZ Wedge",
+   "model_id": "cleveland-cbz-wedge",
+   "date": "2026-11-12",
+   "was": 139.0,
+   "now": 119.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cleveland-cbz-wedge/"
+  },
+  {
+   "model": "Cobra OPTM LS Fairway Wood",
+   "model_id": "cobra-optm-ls-fairway-wood",
+   "date": "2026-11-12",
+   "was": 299.0,
+   "now": 279.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-optm-ls-fairway-wood/"
+  },
+  {
+   "model": "TaylorMade Signature M4 Stand Bag 4 Way Golf Bag",
+   "model_id": "taylormade-signature-m4-stand-bag-4-way-golf-bag",
+   "date": "2026-11-12",
+   "was": 275.0,
+   "now": 259.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-signature-m4-stand-bag-4-way-golf-bag/"
+  },
   {
    "model": "Shot Scope LM1 Launch Monitor",
    "model_id": "shot-scope-lm1-launch-monitor",
@@ -12,6 +52,36 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/shot-scope-lm1-launch-monitor/"
+  },
+  {
+   "model": "TaylorMade FlexTech Crossover Hybrid Stand Bag Golf Bag",
+   "model_id": "taylormade-flextech-crossover-hybrid-stand-bag-golf-bag",
+   "date": "2026-11-12",
+   "was": 189.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-flextech-crossover-hybrid-stand-bag-golf-bag/"
+  },
+  {
+   "model": "TaylorMade Qi4D FlexTech Crossover Stand Bag Golf Bag",
+   "model_id": "taylormade-qi4d-flextech-crossover-stand-bag-golf-bag",
+   "date": "2026-11-12",
+   "was": 189.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-qi4d-flextech-crossover-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Odyssey Ai-ONE Milled Putter",
+   "model_id": "odyssey-ai-one-milled-putter",
+   "date": "2026-11-12",
+   "was": 198.97,
+   "now": 189.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-putter/"
   },
   {
    "model": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
