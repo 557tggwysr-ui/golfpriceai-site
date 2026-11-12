@@ -114,13 +114,8 @@
  "wishfulThinking": [
   {
    "category": "Golf bags",
-   "averageGuessVsRealPricePct": 27,
-   "guesses": 60
-  },
-  {
-   "category": "Drivers",
-   "averageGuessVsRealPricePct": -20,
-   "guesses": 36
+   "averageGuessVsRealPricePct": 22,
+   "guesses": 64
   },
   {
    "category": "Putters",
@@ -131,6 +126,11 @@
    "category": "Golf balls",
    "averageGuessVsRealPricePct": 15,
    "guesses": 24
+  },
+  {
+   "category": "Hybrids",
+   "averageGuessVsRealPricePct": 12,
+   "guesses": 68
   }
  ],
  "categoryShare": [
