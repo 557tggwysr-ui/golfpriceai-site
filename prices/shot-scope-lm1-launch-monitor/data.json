@@ -9,11 +9,17 @@
  "lowestNewPrice": 179.0,
  "lowestAt": [
   "Clarkes Golf",
+  "Clickgolf",
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
+   "from": 179.0,
+   "options": 1
+  },
+  {
+   "name": "Clickgolf",
    "from": 179.0,
    "options": 1
   },
@@ -25,11 +31,6 @@
   {
    "name": "Affordable Golf",
    "from": 189.0,
-   "options": 1
-  },
-  {
-   "name": "Clickgolf",
-   "from": 199.0,
    "options": 1
   }
  ],
@@ -70,7 +71,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ShotScopeLM1GolfLaunchMonitor_2.jpg?v=1770304358",
+ "image": "https://www.clickgolf.co.uk/images/product/main/shot-scope-lm1-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-13"
 }

@@ -8,9 +8,15 @@
  "unit": "each",
  "lowestNewPrice": 599.0,
  "lowestAt": [
+  "Clickgolf",
   "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 599.0,
+   "options": 5
+  },
   {
    "name": "Major Golf Direct",
    "from": 599.0,
@@ -20,11 +26,6 @@
    "name": "Affordable Golf",
    "from": 699.0,
    "options": 12
-  },
-  {
-   "name": "Clickgolf",
-   "from": 699.0,
-   "options": 5
   }
  ],
  "history": {
