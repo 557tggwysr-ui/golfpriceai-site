@@ -894,13 +894,43 @@
 }
 },
 "2026-11-13": {
+"pp": {
+"callaway-opus-sp-wedge": [
+3,
+-0.1427
+],
+"ping-g440-max-driver": [
+3,
+-1.1612
+],
+"taylormade-qi10-hybrid": [
+3,
+0.8392
+],
+"titleist-t350-irons": [
+3,
+-0.466
+],
+"wilson-dynapwr-max-fairway-wood": [
+3,
+-0.1451
+]
+},
 "view": {
+"bushnell-phantom-3-handheld-rangefinder": 1,
 "callaway-x-forged-max-irons": 1,
-"mizuno-jpx-923-hot-metal-irons": 1
+"mizuno-jpx-923-hot-metal-irons": 1,
+"shot-scope-x5-gps-watch": 1,
+"srixon-limited-z-star-diamond-2-dozen-golf-balls": 1,
+"taylormade-flextech-stand-bag-golf-bag": 1,
+"taylormade-p770-irons": 1,
+"taylormade-tp5-stripe-golf-balls": 1,
+"titleist-avx-4-for-3-golf-balls": 1,
+"titleist-links-legend-members-ii-stand-bag-golf-bag": 1
 }
 }
 },
-"fetched": "2026-11-13T14:03Z",
+"fetched": "2026-11-13T23:22Z",
 "fourball": 0,
 "search": {
 "7 wood": 2,
@@ -908,6 +938,7 @@
 "ai": 1,
 "bags": 2,
 "bushnell gps": 1,
+"bushnell phantom": 1,
 "callaway ai smoke complete set": 1,
 "callaway elyte complete set": 1,
 "callaway paradym ai smoke sw": 1,
@@ -923,7 +954,7 @@
 "golf bags": 1,
 "golf cart bag": 2,
 "golf pride tour velvet": 2,
-"gps": 4,
+"gps": 5,
 "hybrid": 5,
 "hybrid waterproof golf bags": 1,
 "launch monitor": 1,
