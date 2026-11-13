@@ -6,14 +6,14 @@
  "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 42.95,
+ "lowestNewPrice": 39.99,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 42.95,
+   "from": 39.99,
    "options": 2
   },
   {
@@ -34,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 90,
-  "low": 42.95,
+  "low": 39.99,
   "high": 85.0,
-  "average": 48.56,
-  "priceChanges": 1,
+  "average": 48.52,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -49,15 +49,15 @@
    ],
    [
     "2026-11-13",
-    42.95
+    39.99
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 78 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-08T085841.562.png?v=1756973986",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonStaffModelXGolfBalls2026-White_2_91941ecb-98c1-4ce5-8d24-6ec104cd30ad.jpg?v=1765284797",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-13"
 }

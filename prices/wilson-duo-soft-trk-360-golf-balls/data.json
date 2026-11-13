@@ -6,23 +6,23 @@
  "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 19.99,
+ "lowestNewPrice": 15.99,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 19.99,
+   "from": 15.99,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 78,
-  "low": 19.99,
+  "low": 15.99,
   "high": 22.95,
-  "average": 20.48,
-  "priceChanges": 1,
+  "average": 20.43,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-28",
@@ -34,13 +34,13 @@
    ],
    [
     "2026-11-13",
-    19.99
+    15.99
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 65 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DUOSOFTTRK3601.jpg?v=1738682549",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

@@ -6,22 +6,20 @@
  "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 299.0,
+ "lowestNewPrice": 269.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 269.0,
+   "options": 6
+  },
   {
    "name": "Affordable Golf",
    "from": 299.0,
    "options": 9
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 299.0,
-   "options": 6
   },
   {
    "name": "Clickgolf",
@@ -31,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 90,
-  "low": 299.0,
+  "low": 269.0,
   "high": 299.0,
-  "average": 299.0,
-  "priceChanges": 0,
+  "average": 298.67,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -42,13 +40,13 @@
    ],
    [
     "2026-11-13",
-    299.0
+    269.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 90 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-SN-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

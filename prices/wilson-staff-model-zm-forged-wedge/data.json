@@ -6,23 +6,23 @@
  "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 106.25,
+ "lowestNewPrice": 99.0,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 106.25,
+   "from": 99.0,
    "options": 8
   }
  ],
  "history": {
   "daysTracked": 78,
-  "low": 106.25,
+  "low": 99.0,
   "high": 125.0,
-  "average": 124.28,
-  "priceChanges": 1,
+  "average": 124.19,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-28",
@@ -34,7 +34,7 @@
    ],
    [
     "2026-11-13",
-    106.25
+    99.0
    ]
   ]
  },

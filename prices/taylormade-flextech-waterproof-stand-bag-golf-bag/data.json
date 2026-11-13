@@ -6,15 +6,14 @@
  "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 179.0,
  "lowestAt": [
-  "Clickgolf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 199.0,
+   "from": 179.0,
    "options": 1
   },
   {
@@ -32,8 +31,8 @@
   "daysTracked": 90,
   "low": 179.0,
   "high": 199.0,
-  "average": 193.0,
-  "priceChanges": 18,
+  "average": 192.78,
+  "priceChanges": 19,
   "series": [
    [
     "2026-08-16",
@@ -113,13 +112,13 @@
    ],
    [
     "2026-11-13",
-    199.0
+    179.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/taylormade-flextech-waterproof-golf-stand-bag-navy-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

@@ -6,14 +6,14 @@
  "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 466.65,
+ "lowestNewPrice": 549.0,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 466.65,
+   "from": 549.0,
    "options": 3
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 78,
   "low": 466.65,
   "high": 549.0,
-  "average": 542.66,
-  "priceChanges": 2,
+  "average": 543.72,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-28",
@@ -38,13 +38,13 @@
    ],
    [
     "2026-11-13",
-    466.65
+    549.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £82.35 above its tracked low"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Playersfit1.jpg?v=1706016861",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

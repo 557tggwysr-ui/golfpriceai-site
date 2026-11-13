@@ -6,20 +6,18 @@
  "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 979.0,
+ "lowestNewPrice": 929.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 979.0,
+   "name": "Clickgolf",
+   "from": 929.0,
    "options": 2
   },
   {
-   "name": "Clickgolf",
+   "name": "Affordable Golf",
    "from": 979.0,
    "options": 2
   },
@@ -38,8 +36,8 @@
   "daysTracked": 90,
   "low": 929.0,
   "high": 979.0,
-  "average": 967.33,
-  "priceChanges": 16,
+  "average": 966.78,
+  "priceChanges": 17,
   "series": [
    [
     "2026-08-16",
@@ -111,13 +109,13 @@
    ],
    [
     "2026-11-13",
-    979.0
+    929.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £50.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT10_GPS_Electric_Golf_Trolley-18-Hole_Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

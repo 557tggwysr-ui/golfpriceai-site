@@ -6,14 +6,14 @@
  "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 126.65,
+ "lowestNewPrice": 129.0,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 126.65,
+   "from": 129.0,
    "options": 3
   },
   {
@@ -31,8 +31,8 @@
   "daysTracked": 90,
   "low": 126.65,
   "high": 134.0,
-  "average": 133.59,
-  "priceChanges": 4,
+  "average": 133.61,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -56,15 +56,15 @@
    ],
    [
     "2026-11-13",
-    126.65
+    129.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/EXOLITESTANDBAGBLACK1.jpg?v=1738836371",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/EXOLITESTANDBAGSTAFFRED1.jpg?v=1738835569",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-13"
 }

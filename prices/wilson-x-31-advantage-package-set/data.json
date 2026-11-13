@@ -6,28 +6,28 @@
  "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 296.65,
+ "lowestNewPrice": 295.0,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 296.65,
+   "from": 295.0,
    "options": 2
   },
   {
    "name": "Clickgolf",
-   "from": 379.0,
+   "from": 349.0,
    "options": 4
   }
  ],
  "history": {
   "daysTracked": 90,
-  "low": 296.65,
+  "low": 295.0,
   "high": 379.0,
-  "average": 358.35,
-  "priceChanges": 19,
+  "average": 358.34,
+  "priceChanges": 20,
   "series": [
    [
     "2026-08-16",
@@ -111,7 +111,7 @@
    ],
    [
     "2026-11-13",
-    296.65
+    295.0
    ]
   ]
  },

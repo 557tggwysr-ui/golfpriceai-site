@@ -6,20 +6,20 @@
  "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 109.65,
+ "lowestNewPrice": 109.0,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 109.0,
+   "options": 4
+  },
   {
    "name": "Major Golf Direct",
    "from": 109.65,
    "options": 5
-  },
-  {
-   "name": "Clickgolf",
-   "from": 129.0,
-   "options": 4
   },
   {
    "name": "Affordable Golf",
@@ -31,8 +31,8 @@
   "daysTracked": 78,
   "low": 109.0,
   "high": 129.0,
-  "average": 121.33,
-  "priceChanges": 18,
+  "average": 121.32,
+  "priceChanges": 19,
   "series": [
    [
     "2026-08-28",
@@ -112,15 +112,15 @@
    ],
    [
     "2026-11-13",
-    109.65
+    109.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonGolfFeatherCartBag2025-BlackRed1.jpg?v=1740739149",
+ "image": "https://www.clickgolf.co.uk/images/product/main/wilson-feather-golf-cart-bag-black-grey-reverse-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-13"
 }
