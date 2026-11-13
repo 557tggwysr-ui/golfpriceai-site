@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cobra-ds-adapt-driver/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 299.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 299.0,
   "high": 329.0,
-  "average": 325.14,
+  "average": 324.77,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     299.0
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     299.0
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CobraDS-AdaptDriver-MAX-D1.jpg?v=1776308648",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

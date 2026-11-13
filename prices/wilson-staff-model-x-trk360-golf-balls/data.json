@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/wilson-staff-model-x-trk360-golf-balls/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 44.95,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 89,
+  "daysTracked": 90,
   "low": 44.95,
   "high": 85.0,
-  "average": 50.38,
+  "average": 50.32,
   "priceChanges": 2,
   "series": [
    [
@@ -47,16 +47,16 @@
     44.95
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     44.95
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 14 days"
+  "summary": "Typical price: steady for 15 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/WG2009801_0_Staff_Model_X_TRK360_12Ball_12PK_Vert_RT_Hero_2eb775b3-47fe-4f6f-bef9-05fdf5053229.jpg?v=1773187630",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-distance-plus-golf-balls/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 21.95,
@@ -34,10 +34,10 @@
   }
  ],
  "history": {
-  "daysTracked": 77,
+  "daysTracked": 78,
   "low": 18.95,
   "high": 21.95,
-  "average": 21.44,
+  "average": 21.45,
   "priceChanges": 1,
   "series": [
    [
@@ -49,7 +49,7 @@
     21.95
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     21.95
    ]
   ]
@@ -60,5 +60,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DISTANCE_2025WHITE1.jpg?v=1738751403",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/ping-s259-chrome-wedge/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 179.0,
   "high": 179.95,
-  "average": 179.76,
+  "average": 179.75,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     179.0
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     179.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 14 days"
+  "summary": "Typical price: steady for 15 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Pings259Wedge9.jpg?v=1773172590",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

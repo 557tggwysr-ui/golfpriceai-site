@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-m1-electric-trolley/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 699.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 89,
+  "daysTracked": 90,
   "low": 699.0,
   "high": 749.0,
-  "average": 715.85,
+  "average": 715.67,
   "priceChanges": 17,
   "series": [
    [
@@ -117,7 +117,7 @@
     699.0
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     699.0
    ]
   ]
@@ -128,5 +128,5 @@
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/M1_1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

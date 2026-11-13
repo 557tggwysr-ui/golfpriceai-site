@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-supersoft-golf-balls/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 22.49,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 89,
+  "daysTracked": 90,
   "low": 22.49,
   "high": 24.99,
-  "average": 24.9,
+  "average": 24.87,
   "priceChanges": 2,
   "series": [
    [
@@ -57,7 +57,7 @@
     22.49
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     22.49
    ]
   ]
@@ -68,5 +68,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Supersoft-Golf-Balls---Red.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

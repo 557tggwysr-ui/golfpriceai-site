@@ -3,7 +3,7 @@
  "brand": "Garmin",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/garmin-approach-r50-launch-monitor/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 4299.99,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 89,
+  "daysTracked": 90,
   "low": 3879.99,
   "high": 4299.99,
-  "average": 4210.33,
+  "average": 4211.32,
   "priceChanges": 2,
   "series": [
    [
@@ -37,7 +37,7 @@
     4299.99
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     4299.99
    ]
   ]
@@ -48,5 +48,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Garmin-Golf-Approach-R50-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

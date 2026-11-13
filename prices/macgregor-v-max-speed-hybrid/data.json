@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/macgregor-v-max-speed-hybrid/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 39.99,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 77,
+  "daysTracked": 78,
   "low": 39.99,
   "high": 79.95,
-  "average": 44.14,
+  "average": 44.09,
   "priceChanges": 2,
   "series": [
    [
@@ -42,16 +42,16 @@
     39.99
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     39.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 62 days"
+  "summary": "Typical price: steady for 63 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/V-MaxHybrid1.jpg?v=1775356278",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

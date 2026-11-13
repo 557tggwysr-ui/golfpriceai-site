@@ -3,7 +3,7 @@
  "brand": "Garmin",
  "type": "GPS watch",
  "url": "https://golfpriceai.com/prices/garmin-approach-s44-gps-watch/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 219.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 89,
+  "daysTracked": 90,
   "low": 219.0,
   "high": 239.0,
-  "average": 236.75,
+  "average": 236.56,
   "priceChanges": 1,
   "series": [
    [
@@ -44,7 +44,7 @@
     219.0
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     219.0
    ]
   ]
@@ -55,5 +55,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Approach_S44_Black_9.jpg?v=1782293110",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

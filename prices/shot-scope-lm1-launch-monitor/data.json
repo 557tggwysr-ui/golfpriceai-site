@@ -3,7 +3,7 @@
  "brand": "Shot Scope",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/shot-scope-lm1-launch-monitor/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -34,10 +34,10 @@
   }
  ],
  "history": {
-  "daysTracked": 89,
+  "daysTracked": 90,
   "low": 179.0,
   "high": 199.0,
-  "average": 197.76,
+  "average": 197.56,
   "priceChanges": 4,
   "series": [
    [
@@ -59,6 +59,10 @@
    [
     "2026-11-12",
     179.0
+   ],
+   [
+    "2026-11-13",
+    179.0
    ]
   ]
  },
@@ -68,5 +72,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ShotScopeLM1GolfLaunchMonitor_2.jpg?v=1770304358",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

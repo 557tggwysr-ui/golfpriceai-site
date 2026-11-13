@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/srixon-z-star-golf-balls/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 34.99,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 89,
+  "daysTracked": 90,
   "low": 34.99,
   "high": 81.0,
-  "average": 47.86,
+  "average": 47.72,
   "priceChanges": 3,
   "series": [
    [
@@ -56,7 +56,7 @@
     34.99
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     34.99
    ]
   ]
@@ -67,5 +67,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-Z-Star-Golf-Balls-White.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/wilson-infinite-putter/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 99.95,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 99.95,
   "high": 119.95,
-  "average": 117.95,
+  "average": 117.7,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     99.95
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     99.95
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/WilsonInfinitePutter-Bean5.jpg?v=1777956774",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

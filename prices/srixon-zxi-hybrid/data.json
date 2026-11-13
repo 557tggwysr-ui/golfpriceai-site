@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/srixon-zxi-hybrid/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 89,
+  "daysTracked": 90,
   "low": 169.0,
   "high": 249.0,
-  "average": 171.7,
+  "average": 171.67,
   "priceChanges": 1,
   "series": [
    [
@@ -43,16 +43,16 @@
     169.0
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     169.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 86 days"
+  "summary": "Typical price: steady for 87 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-ZXi-Hybrid-Hero-Straight.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

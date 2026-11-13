@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/cobra-radspeed-s-2026-package-set/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 895.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 77,
+  "daysTracked": 78,
   "low": 895.0,
   "high": 999.0,
-  "average": 958.87,
+  "average": 958.05,
   "priceChanges": 3,
   "series": [
    [
@@ -41,7 +41,7 @@
     895.0
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     895.0
    ]
   ]
@@ -52,5 +52,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CobraRADSPEED-SPackageSet2026.jpg?v=1784190432",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-putter/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 189.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 189.0,
   "high": 249.0,
-  "average": 209.42,
+  "average": 209.13,
   "priceChanges": 4,
   "series": [
    [
@@ -48,6 +48,10 @@
    [
     "2026-11-12",
     189.0
+   ],
+   [
+    "2026-11-13",
+    189.0
    ]
   ]
  },
@@ -57,5 +61,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Odyssey-Ai-ONE-Milled-Golf-Putter-Eight-T-S-7_9459645c-e0cd-40a8-88d6-9fd47164cdf4.jpg?v=1752073220",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

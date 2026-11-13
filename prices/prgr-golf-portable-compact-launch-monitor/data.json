@@ -3,7 +3,7 @@
  "brand": "PRGR Golf",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/prgr-golf-portable-compact-launch-monitor/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 77,
+  "daysTracked": 78,
   "low": 169.0,
   "high": 179.0,
-  "average": 178.61,
+  "average": 178.62,
   "priceChanges": 2,
   "series": [
    [
@@ -37,7 +37,7 @@
     179.0
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     179.0
    ]
   ]
@@ -48,5 +48,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/PRGR2021Main1000.jpg?v=1639494695",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

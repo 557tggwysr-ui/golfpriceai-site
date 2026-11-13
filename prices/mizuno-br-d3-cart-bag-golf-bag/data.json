@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-br-d3-cart-bag-golf-bag/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 89,
+  "daysTracked": 90,
   "low": 119.0,
   "high": 139.0,
-  "average": 121.02,
+  "average": 121.0,
   "priceChanges": 4,
   "series": [
    [
@@ -55,16 +55,16 @@
     119.0
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     119.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 77 days"
+  "summary": "Typical price: steady for 78 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-BR-D3-Golf-Cart-Bag---Black-Camo-Copper.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

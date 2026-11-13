@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-staff-golf-bag/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 79,
+  "daysTracked": 80,
   "low": 219.0,
   "high": 249.0,
-  "average": 238.75,
+  "average": 238.88,
   "priceChanges": 18,
   "series": [
    [
@@ -101,7 +101,7 @@
     249.0
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     249.0
    ]
   ]
@@ -112,5 +112,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/mizuno-blue-white-cart-bag-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

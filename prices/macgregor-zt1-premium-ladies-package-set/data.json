@@ -3,42 +3,42 @@
  "brand": "MacGregor",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/macgregor-zt1-premium-ladies-package-set/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 399.0,
+ "lowestNewPrice": 329.0,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 399.0,
+   "from": 329.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 77,
-  "low": 399.0,
+  "daysTracked": 78,
+  "low": 329.0,
   "high": 399.0,
-  "average": 399.0,
-  "priceChanges": 0,
+  "average": 398.1,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
     399.0
    ],
    [
-    "2026-11-12",
-    399.0
+    "2026-11-13",
+    329.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 77 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign_52.jpg?v=1704463187",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }

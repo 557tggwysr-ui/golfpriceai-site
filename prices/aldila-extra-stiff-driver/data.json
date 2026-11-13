@@ -3,7 +3,7 @@
  "brand": "Aldila",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/aldila-extra-stiff-driver/",
- "checked": "2026-11-12",
+ "checked": "2026-11-13",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 49.99,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 70,
+  "daysTracked": 71,
   "low": 49.99,
   "high": 59.99,
-  "average": 52.7,
+  "average": 52.67,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     49.99
    ],
    [
-    "2026-11-12",
+    "2026-11-13",
     49.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 51 days"
+  "summary": "Typical price: steady for 52 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CA3499142.jpg?v=1777951416",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-12"
+ "changed": "2026-11-13"
 }
