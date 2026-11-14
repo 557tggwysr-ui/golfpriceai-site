@@ -178,6 +178,7 @@ td:first-child { font-weight: 400; }
       if (t) {
         var rate = function (a, b) { return b ? Math.round(a / b * 100) + '%' : '–'; };
         html += '<div class="two"><section class="card"><h2>Growth tests</h2><table>' + head3 +
+          row3('“Ask for their Cheat Sheet” taps', t.csAsk || {}) + row3('Asked golfers who opened it', t.csAsked || {}) + row3('Christmas banner seen / tapped', { today: (t.xmView || {}).today + ' / ' + (t.xmTap || {}).today, d7: (t.xmView || {}).d7 + ' / ' + (t.xmTap || {}).d7, d30: (t.xmView || {}).d30 + ' / ' + (t.xmTap || {}).d30 }) +
           row3('Cheat Sheets sent', t.csMake) + row3('Cheat Sheets opened', t.csView) + row3('Shop taps from a Cheat Sheet', t.csClick) +
           row3('Golf ball pages viewed', t.mbView) + row3('Ball page alert sign-ups', t.mbSignup) + row3('… of which “It’s my ball”', t.mbMine) + '</table>' +
           '<span class="dim">Cheat Sheet pass mark: opened 2+ times per sheet sent (now ' + (t.csMake.d30 ? (t.csView.d30 / t.csMake.d30).toFixed(1) : '–') + ') and 1 in 5 openers tapping to a shop (now ' + rate(t.csClick.d30, t.csView.d30) + '). ' +

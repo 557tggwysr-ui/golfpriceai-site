@@ -313,9 +313,39 @@ def inject(html, guide, qas, anchor):
     return html
 
 
+# The golf gift Cheat Sheet box (Nov 2026) on the guides gift-buyers land on.
+CHEAT_START, CHEAT_END = "<!--cheat-->", "<!--/cheat-->"
+CHEAT_PAGES = [("prices/golf-gloves/index.html", "glove"), ("prices/golf-balls/index.html", "ball"), ("prices/golf-shoes/index.html", "shoes")]
+
+
+def add_cheat_boxes(root=ROOT):
+    """Put the Cheat Sheet box just above "While you're here" (or the method
+    note) on the glove, ball and shoe guides; replaced, never stacked."""
+    changed = []
+    try:
+        from seasonal_pages import cheat_box
+    except Exception as exc:
+        print(f"Cheat Sheet boxes skipped: {exc}")
+        return changed
+    for rel, ctx in CHEAT_PAGES:
+        path = root / rel
+        if not path.exists():
+            continue
+        old = path.read_text()
+        html = re.sub(re.escape(CHEAT_START) + r".*?" + re.escape(CHEAT_END) + r"\n?", "", old, flags=re.S)
+        m = re.search(r'<section class="pp-block">\s*<h2>While you’re here', html) or re.search(r'<section class="pp-method">', html)
+        if not m:
+            continue
+        html = html[:m.start()] + CHEAT_START + cheat_box(ctx) + CHEAT_END + "\n" + html[m.start():]
+        if html != old:
+            path.write_text(html)
+            changed.append("/" + rel.replace("index.html", ""))
+    return changed
+
+
 def apply(passing, built, products, today, root=ROOT):
     """Add the guides; returns the page urls that changed."""
-    changed = []
+    changed = add_cheat_boxes(root)
     for rel, fn, anchor in PAGES:
         path = root / rel
         if not path.exists():

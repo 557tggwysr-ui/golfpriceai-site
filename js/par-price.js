@@ -329,6 +329,15 @@
         'If you’ve been eyeing one up, now’s a decent time. <a href="' + esc(tipIt.url) + '?utm_source=parprice&amp;utm_medium=caddie_tip">See its prices</a>';
       stage.appendChild(tip);
     }
+    // Christmas (11 Nov to 24 Dec): the golf gift Cheat Sheet.
+    var xd = new Date(), xm = xd.getMonth();
+    if ((xm === 10 && xd.getDate() >= 11) || (xm === 11 && xd.getDate() <= 24)) {
+      var xt = el('p', 'pr-tip');
+      xt.innerHTML = '<b>Christmas is coming</b> Stop the family guessing your glove size. Send them your golf Cheat Sheet: glove, ball and sizes in one link. <a href="/cheat-sheet/?utm_source=parprice&amp;utm_medium=xmas">Make mine</a>';
+      xt.querySelector('a').addEventListener('click', function () { try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/use', JSON.stringify({ k: 'xm_tap' })); } catch (e) { /* fine */ } });
+      try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/use', JSON.stringify({ k: 'xm_view' })); } catch (e) { /* fine */ }
+      stage.appendChild(xt);
+    }
     var lg = el('section', 'pr-leagues');
     lg.innerHTML = '<p class="pr-rank-line">Loading your leagues…</p>';
     stage.appendChild(lg);

@@ -499,7 +499,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/site.css?v=20261101b">
-<link rel="stylesheet" href="/css/prices.css?v=20261111a">
+<link rel="stylesheet" href="/css/prices.css?v=20261111b">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GolfPrice AI">
 <meta property="og:title" content="{esc(title)}">
@@ -517,7 +517,7 @@ def page_shell(*, title, description, canonical, body, section, schema, noindex,
 {site_chrome.footer_html()}
 <script src="/js/analytics.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script src="/js/site.js?v=20261111a" defer></script>
+<script src="/js/site.js?v=20261111b" defer></script>
 </body>
 </html>
 """
@@ -1218,7 +1218,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
 {method_note(today)}
 <p class="pp-small pp-data">The facts on this page as data: <a href="/prices/{model.slug}/data.json">data.json</a></p>
 </div>
-<script src="/js/gift-finder.js?v=20261111a" defer></script>
+<script src="/js/gift-finder.js?v=20261111b" defer></script>
 <script src="/js/fourball.js?v=20261024" defer></script>
 <script src="/js/crowd-caddie.js?v={CADDIE_V}" defer></script>"""
 

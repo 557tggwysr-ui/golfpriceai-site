@@ -510,6 +510,18 @@
   // "It's my ball" test (Nov 2026): golf ball pages count a view and a sign-up, once a day each.
   function mbCount(k) { try { navigator.sendBeacon(ALERTS_URL + '/use', JSON.stringify({ k: k })); } catch (e) { /* nice-to-have */ } }
   if (document.querySelector('form.gp-alert-form input[name=mine]')) mbCount('mb_view');
+  // The golf gift Cheat Sheet (Nov 2026): "Ask for their Cheat Sheet" opens the phone's
+  // share menu (WhatsApp link without it) and is counted once a day, anonymously.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a.cs-ask');
+    if (!a) return;
+    mbCount('cs_ask');
+    if (!navigator.share) return;
+    var t = decodeURIComponent((a.getAttribute('href').split('text=')[1] || '').replace(/\+/g, ' '));
+    var m = t.match(/https:\/\/\S+$/);
+    e.preventDefault();
+    navigator.share({ text: m ? t.slice(0, m.index).trim() : t, url: m ? m[0] : location.origin + '/cheat-sheet/?ask=1' }).catch(function () {});
+  });
   document.addEventListener('submit', function (e) {
     var form = e.target;
     if (!form.classList || !form.classList.contains('gp-alert-form')) return;

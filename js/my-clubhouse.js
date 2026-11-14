@@ -104,13 +104,15 @@
       : 'If this browser forgets you, your Clubhouse goes with it.';
     var keyRow = KEY ? row('Your Clubhouse key', 0, '', '', '<div class="mc-key">' + KEY.statusCard(why) + '</div>', 'mc-key-sec') : '';
     var saved = KEY && KEY.status().saved;
-    box.innerHTML = (saved ? '' : keyRow) + games(g.pp, g.hl, g.locker, g.majors) + handicap(g.leagues && g.leagues.hcp) + row('My Game', 0, '/improve/my-game/', 'Full stats', '<div id="mc-mygame"></div>', 'mc-mg-sec') + shotSaver() +
+    box.innerHTML = (saved ? '' : keyRow) + games(g.pp, g.hl, g.locker, g.majors) + xmas() + handicap(g.leagues && g.leagues.hcp) + row('My Game', 0, '/improve/my-game/', 'Full stats', '<div id="mc-mygame"></div>', 'mc-mg-sec') + shotSaver() +
       row('Milestones', '', '/play/par-price/', 'Play Par Price', '<div id="mc-ms"></div>', 'mc-ms-sec') +
       asksRow(g.asks, soc) + (soc.length || lg.length ? societies(soc) + leagues(lg) : group()) +
       kit(g.kit, g.bag) +
       '<div class="mc-pair">' + alerts() + '</div>' + (saved ? keyRow : '') +
       (KEY ? '<details class="mc-restore" id="restore"><summary>Got a Clubhouse key from another phone?</summary>' + KEY.restoreForm() + '</details>' : '');
     if (KEY) KEY.wire(box);
+    var xm = box.querySelector('.mc-xmas');
+    if (xm) { xmCount('xm_view'); xm.addEventListener('click', function (e) { if (e.target.closest('a')) xmCount('xm_tap'); }); }
     if (window.gpMyGame) window.gpMyGame.mount();
     if (location.hash === '#restore') { var rs = document.getElementById('restore'); if (rs) { rs.open = true; rs.scrollIntoView(); } }
     // Move my Clubhouse sits beside Price alerts on wide screens.
@@ -132,6 +134,17 @@
   }
 
   // ---------------------------------------------------------------- My games
+  // Christmas (11 Nov to 24 Dec): the golf gift Cheat Sheet, so family get the present right.
+  function xmasOn() { var d = new Date(), m = d.getMonth(); return (m === 10 && d.getDate() >= 11) || (m === 11 && d.getDate() <= 24); }
+  function xmCount(k) { try { navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/use', JSON.stringify({ k: k })); } catch (e) { /* nice-to-have */ } }
+  function xmas() {
+    if (!xmasOn()) return '';
+    var made = false; try { made = !!Object.keys(JSON.parse(localStorage.getItem('gpSizes') || '{}')).filter(function (k) { return k !== 'for'; }).length; } catch (e) { /* none */ }
+    return row('Christmas is coming', 0, '/cheat-sheet/', made ? 'Send it again' : 'Make your Cheat Sheet',
+      '<p class="mc-dim">' + (made ? 'Your Cheat Sheet is ready: your glove, ball and sizes in one link. Send it to whoever’s buying your present.'
+        : 'Send your family one link with your glove hand and size, your ball and your sizes, so this year’s golf present actually fits.') +
+      ' <a href="/cheat-sheet/">' + (made ? 'Open my Cheat Sheet' : 'Make mine, it takes a minute') + '</a></p>', 'mc-xmas');
+  }
   function games(pp, hlDay, locker, majors) {
     var html = '';
     // Par Price

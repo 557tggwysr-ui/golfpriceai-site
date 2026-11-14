@@ -216,11 +216,19 @@
     }
     csf.addEventListener('input', refresh); csf.addEventListener('change', refresh);
     refresh();
+    // Opened from a buyer's "Ask for their Cheat Sheet" message.
+    var asked = /[?&]ask=1\b/.test(location.search);
+    if (asked) {
+      var note = document.querySelector('.cs-ask-note'); if (note) note.hidden = false;
+      var sendBtn = csf.querySelector('.cs-send'); if (sendBtn) sendBtn.textContent = 'Send it back';
+      document.querySelectorAll('.pp-hub-top .cs-box-btns').forEach(function (b) { b.hidden = true; });
+      count('cs_asked');
+    }
     csf.addEventListener('submit', function (e) {
       e.preventDefault();
       var o = refresh();
       if (!hasSheet(o)) { wishLine.textContent = 'Add at least your glove, ball or a size first.'; return; }
-      share('Buying me a golf present? Here’s my Cheat Sheet: glove, ball and sizes, so it fits first time.', listUrl(load(), o.for, true));
+      share(asked ? 'Here’s my golf Cheat Sheet: my glove, ball and sizes, so it fits first time.' : 'Buying me a golf present? Here’s my Cheat Sheet: glove, ball and sizes, so it fits first time.', listUrl(load(), o.for, true));
       track('cheat_sheet_send'); count('cs_make');
     });
   }
