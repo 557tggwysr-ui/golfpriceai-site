@@ -3,7 +3,7 @@
  "brand": "Scotty Cameron",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/scotty-cameron-studio-style-fastback-putter/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 399.0,
   "high": 449.0,
-  "average": 445.0,
+  "average": 444.49,
   "priceChanges": 2,
   "series": [
    [
@@ -37,7 +37,7 @@
     399.0
    ],
    [
-    "2026-11-13",
+    "2026-11-14",
     399.0
    ]
   ]
@@ -48,5 +48,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Scotty-Cameron-Studio-Style-Fastback-Golf-Putter-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

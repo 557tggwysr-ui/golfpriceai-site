@@ -1,0 +1,50 @@
+{
+ "name": "Rapsodo MLM2XPRO Launch Monitor",
+ "brand": "Rapsodo",
+ "type": "launch monitor",
+ "url": "https://golfpriceai.com/prices/rapsodo-mlm2xpro-launch-monitor/",
+ "checked": "2026-11-14",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 799.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 799.0,
+   "options": 2
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 799.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 799.0,
+  "high": 799.0,
+  "average": 799.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-10-16",
+    799.0
+   ],
+   [
+    "2026-11-14",
+    799.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 30 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Image2_f7672250-df96-4be4-81e1-a014f6b279e5.jpg?v=1791973767",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-14"
+}

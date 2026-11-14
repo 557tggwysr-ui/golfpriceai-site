@@ -3,7 +3,7 @@
  "brand": "Bushnell",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 209.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 209.0,
   "high": 269.0,
-  "average": 259.4,
+  "average": 258.85,
   "priceChanges": 5,
   "series": [
    [
@@ -62,6 +62,10 @@
    [
     "2026-11-13",
     209.0
+   ],
+   [
+    "2026-11-14",
+    209.0
    ]
   ]
  },
@@ -71,5 +75,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/BushnellGolfA1SlopeLaserRangefinder1.jpg?v=1742570928",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

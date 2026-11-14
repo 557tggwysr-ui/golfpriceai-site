@@ -1037,11 +1037,6 @@
 149.0,
 "typical"
 ],
-"cleveland-full-ages-7-9-junior-golf-set": [
-"a977483fa8",
-219.0,
-"typical"
-],
 "cleveland-halo-xl-fairway-wood": "f206c1d05d",
 "cleveland-halo-xl-full-face-irons": "75a4f6c00a",
 "cleveland-halo-xl-hy-wood": "0b5e70f206",
@@ -2856,9 +2851,9 @@
 ],
 "ping-scottsdale-putter": "eb6e17a3cc",
 "ping-scottsdale-tec-putter": [
-"946bc9a280",
+"6ade17afcf",
 349.0,
-"tracking"
+"typical"
 ],
 "ping-tour-staff-243-golf-bag": [
 "d0f576f1c2",
@@ -3189,6 +3184,11 @@
 "rapsodo-mlm2pro-mobile-launch-monitor": [
 "d4ead71333",
 549.0,
+"typical"
+],
+"rapsodo-mlm2xpro-launch-monitor": [
+"d434f966b9",
+799.0,
 "typical"
 ],
 "scotty-cameron-ltd-phantom-putter": "bde74c7219",
@@ -3562,7 +3562,11 @@
 699.0,
 "typical"
 ],
-"srixon-zxi7-irons": "10aa334e02",
+"srixon-zxi7-irons": [
+"12c24c542b",
+599.0,
+"typical"
+],
 "srixon-zxir-hl-irons": [
 "62412dea95",
 899.0,
@@ -4771,7 +4775,11 @@
 69.95,
 "typical"
 ],
-"wilson-dynapwr-driver": "a8412263ac",
+"wilson-dynapwr-driver": [
+"e9b62ba757",
+249.0,
+"typical"
+],
 "wilson-dynapwr-fairway-wood": [
 "a802cfe2b1",
 149.95,
@@ -4986,7 +4994,11 @@
 "typical"
 ],
 "wilson-staff-model-zm-forged-wedge": "07582d3c52",
-"wilson-staff-model-zm-wedge": "a4030adb0a",
+"wilson-staff-model-zm-wedge": [
+"b4d0e04e53",
+99.0,
+"typical"
+],
 "wilson-staff-practice-golf-balls": [
 "09aeedf1c3",
 7.97,

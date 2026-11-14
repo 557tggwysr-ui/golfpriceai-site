@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/wilson-staff-model-zm-wedge/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 99.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 99.0,
   "high": 129.0,
-  "average": 114.32,
+  "average": 114.15,
   "priceChanges": 2,
   "series": [
    [
@@ -48,16 +48,16 @@
     99.0
    ],
    [
-    "2026-11-13",
+    "2026-11-14",
     99.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 16 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Staff-Model-ZM-Golf-Wedges.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

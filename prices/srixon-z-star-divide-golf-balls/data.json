@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/srixon-z-star-divide-golf-balls/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 34.99,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 34.99,
   "high": 81.0,
-  "average": 47.72,
+  "average": 47.58,
   "priceChanges": 3,
   "series": [
    [
@@ -51,7 +51,7 @@
     34.99
    ],
    [
-    "2026-11-13",
+    "2026-11-14",
     34.99
    ]
   ]
@@ -62,5 +62,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-Z-Star-Divide-Golf-Balls-White.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

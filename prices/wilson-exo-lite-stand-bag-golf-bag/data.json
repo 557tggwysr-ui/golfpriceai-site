@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-exo-lite-stand-bag-golf-bag/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 129.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 126.65,
   "high": 134.0,
-  "average": 133.61,
+  "average": 133.56,
   "priceChanges": 5,
   "series": [
    [
@@ -57,6 +57,10 @@
    [
     "2026-11-13",
     129.0
+   ],
+   [
+    "2026-11-14",
+    129.0
    ]
   ]
  },
@@ -66,5 +70,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/EXOLITESTANDBAGSTAFFRED1.jpg?v=1738835569",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

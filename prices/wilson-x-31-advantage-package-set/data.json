@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/wilson-x-31-advantage-package-set/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 295.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 295.0,
   "high": 379.0,
-  "average": 358.34,
+  "average": 357.64,
   "priceChanges": 20,
   "series": [
    [
@@ -112,6 +112,10 @@
    [
     "2026-11-13",
     295.0
+   ],
+   [
+    "2026-11-14",
+    295.0
    ]
   ]
  },
@@ -121,5 +125,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/imgi_53_wgg157671_0_x31_advantage_cart_bag_black_orange.-x1024-Photoroom.jpg?v=1754569430",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

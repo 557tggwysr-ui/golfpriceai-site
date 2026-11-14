@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/macgregor-cg4000-ladies-package-set/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 299.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 299.0,
   "high": 329.99,
-  "average": 316.36,
+  "average": 316.17,
   "priceChanges": 18,
   "series": [
    [
@@ -111,7 +111,7 @@
     299.0
    ],
    [
-    "2026-11-13",
+    "2026-11-14",
     299.0
    ]
   ]
@@ -122,5 +122,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-CG4000-Golf-Club-Package-Set-Ladies.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

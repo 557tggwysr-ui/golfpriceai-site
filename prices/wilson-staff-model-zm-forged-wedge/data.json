@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/wilson-staff-model-zm-forged-wedge/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 99.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 99.0,
   "high": 125.0,
-  "average": 124.19,
+  "average": 123.87,
   "priceChanges": 2,
   "series": [
    [
@@ -35,6 +35,10 @@
    [
     "2026-11-13",
     99.0
+   ],
+   [
+    "2026-11-14",
+    99.0
    ]
   ]
  },
@@ -44,5 +48,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ZM5.jpg?v=1706107185",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

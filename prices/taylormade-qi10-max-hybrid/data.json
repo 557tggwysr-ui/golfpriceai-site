@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/taylormade-qi10-max-hybrid/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 71,
+  "daysTracked": 72,
   "low": 199.0,
   "high": 249.0,
-  "average": 238.44,
+  "average": 237.89,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +38,7 @@
     199.0
    ],
    [
-    "2026-11-13",
+    "2026-11-14",
     199.0
    ]
   ]
@@ -49,5 +49,5 @@
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/taylormade-qi10-hybrid-max-2.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

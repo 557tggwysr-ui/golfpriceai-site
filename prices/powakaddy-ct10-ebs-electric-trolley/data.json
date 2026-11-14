@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct10-ebs-electric-trolley/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 979.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 979.0,
   "high": 1029.0,
-  "average": 1016.78,
+  "average": 1016.36,
   "priceChanges": 17,
   "series": [
    [
@@ -110,6 +110,10 @@
    [
     "2026-11-13",
     979.0
+   ],
+   [
+    "2026-11-14",
+    979.0
    ]
   ]
  },
@@ -119,5 +123,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT10_GPS_EBS_Electric_Golf_Trolley-18-Hole_Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

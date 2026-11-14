@@ -3,7 +3,7 @@
  "brand": "MKids",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/mkids-lite-driver/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 34.99,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 69,
+  "daysTracked": 70,
   "low": 34.99,
   "high": 34.99,
   "average": 34.99,
@@ -29,16 +29,16 @@
     34.99
    ],
    [
-    "2026-11-13",
+    "2026-11-14",
     34.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 69 days"
+  "summary": "Typical price: steady for 70 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/2_101_e.jpg?v=1777966221",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

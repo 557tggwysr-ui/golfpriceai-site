@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-13",
+ "date": "2026-11-14",
  "status": "live",
  "week": {
-  "from": "2026-11-07",
-  "to": "2026-11-13"
+  "from": "2026-11-08",
+  "to": "2026-11-14"
  },
  "chart": [
   {
@@ -72,16 +72,6 @@
   },
   {
    "rank": 7,
-   "name": "Cobra Darkspeed LS Driver",
-   "brand": "Cobra",
-   "type": "driver",
-   "price": 229.0,
-   "unit": "",
-   "move": null,
-   "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
-  },
-  {
-   "rank": 8,
    "name": "Yonex Ezone GS i-Tech Driver",
    "brand": "Yonex",
    "type": "driver",
@@ -89,6 +79,16 @@
    "unit": "",
    "move": null,
    "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
+  },
+  {
+   "rank": 8,
+   "name": "Cobra Darkspeed LS Driver",
+   "brand": "Cobra",
+   "type": "driver",
+   "price": 229.0,
+   "unit": "",
+   "move": null,
+   "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
   },
   {
    "rank": 9,
@@ -114,31 +114,31 @@
   },
   {
    "category": "Hybrids",
-   "averageGuessVsRealPricePct": 12,
-   "guesses": 68
+   "averageGuessVsRealPricePct": 13,
+   "guesses": 71
   },
   {
    "category": "Drivers",
-   "averageGuessVsRealPricePct": -11,
-   "guesses": 40
+   "averageGuessVsRealPricePct": -13,
+   "guesses": 43
   }
  ],
  "categoryShare": [
   {
    "category": "Irons & wedges",
-   "pct": 50
+   "pct": 51
   },
   {
    "category": "Balls",
-   "pct": 17
-  },
-  {
-   "category": "Drivers & woods",
-   "pct": 17
+   "pct": 18
   },
   {
    "category": "Tech",
-   "pct": 15
+   "pct": 16
+  },
+  {
+   "category": "Drivers & woods",
+   "pct": 16
   }
  ],
  "reports": [

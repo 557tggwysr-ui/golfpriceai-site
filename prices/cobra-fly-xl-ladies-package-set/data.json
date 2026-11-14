@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/cobra-fly-xl-ladies-package-set/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 649.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 599.0,
   "high": 649.0,
-  "average": 640.44,
+  "average": 640.54,
   "priceChanges": 11,
   "series": [
    [
@@ -73,7 +73,7 @@
     649.0
    ],
    [
-    "2026-11-13",
+    "2026-11-14",
     649.0
    ]
   ]
@@ -84,5 +84,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/cobra-fly-xl-2-ladies-set-bag.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }

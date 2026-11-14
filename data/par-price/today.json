@@ -1,66 +1,66 @@
 {
- "n": 27,
- "date": "2026-11-13",
+ "n": 28,
+ "date": "2026-11-14",
  "items": [
   {
-   "slug": "callaway-opus-sp-wedge",
-   "name": "Callaway Opus SP Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Opus-SP-Black-Hero.jpg",
-   "price": 159.0,
-   "unit": "each",
-   "type": "wedge",
-   "low": false,
-   "url": "/prices/callaway-opus-sp-wedge/"
+   "slug": "titleist-avx-golf-balls",
+   "name": "Titleist AVX Golf Balls",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/AVX2024White3.jpg?v=1777957859",
+   "price": 39.96,
+   "unit": "per dozen",
+   "type": "golf ball",
+   "low": true,
+   "url": "/prices/titleist-avx-golf-balls/"
   },
   {
-   "slug": "taylormade-qi10-hybrid",
-   "name": "TaylorMade Qi10 Hybrid",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/qi10_rescue_hybrid_tour_3.jpg?v=1777960194",
-   "price": 179.0,
+   "slug": "cobra-ace-waterproof-cart-bag-golf-bag",
+   "name": "Cobra Ace Waterproof Cart Bag Golf Bag",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra-Golf-ACE-WP-Cart-Bag-953026-05-2_900x.progressive_d013e7c9-832e-4f62-bd67-e25afe4887fe.jpg?v=1779371335",
+   "price": 169.0,
    "unit": "each",
-   "type": "hybrid",
-   "low": false,
-   "url": "/prices/taylormade-qi10-hybrid/"
+   "type": "golf bag",
+   "low": true,
+   "url": "/prices/cobra-ace-waterproof-cart-bag-golf-bag/"
   },
   {
-   "slug": "ping-g440-max-driver",
-   "name": "Ping G440 MAX Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-G440-MAX-HL-Golf-Driver-5.jpg?v=1733285106",
-   "price": 499.0,
-   "unit": "each",
-   "type": "driver",
-   "low": false,
-   "url": "/prices/ping-g440-max-driver/"
-  },
-  {
-   "slug": "wilson-dynapwr-max-fairway-wood",
-   "name": "Wilson DYNAPWR Max Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/wilson-dynapwr-max-fairway-hero.jpg",
-   "price": 149.0,
-   "unit": "each",
-   "type": "fairway wood",
-   "low": false,
-   "url": "/prices/wilson-dynapwr-max-fairway-wood/"
-  },
-  {
-   "slug": "titleist-t350-irons",
-   "name": "Titleist T350 Irons",
-   "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-T350-G3-1.jpg",
-   "price": 1069.0,
+   "slug": "taylormade-p790-irons",
+   "name": "TaylorMade P790 Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/2021_p790_10.jpg?v=1777962463",
+   "price": 979.0,
    "unit": "each",
    "type": "iron set",
    "low": false,
-   "url": "/prices/titleist-t350-irons/"
+   "url": "/prices/taylormade-p790-irons/"
+  },
+  {
+   "slug": "cleveland-rtz-satin-wedge",
+   "name": "Cleveland RTZ Satin Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cleveland-RTZ-Black-Satin-Golf-Wedge-1.jpg?v=1736568158",
+   "price": 129.0,
+   "unit": "each",
+   "type": "wedge",
+   "low": false,
+   "url": "/prices/cleveland-rtz-satin-wedge/"
+  },
+  {
+   "slug": "callaway-quantum-max-d-fairway-wood",
+   "name": "Callaway Quantum Max D Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-d-fairway-hero.jpg",
+   "price": 269.0,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": true,
+   "url": "/prices/callaway-quantum-max-d-fairway-wood/"
   }
  ],
  "pin": {
-  "slug": "ogio-all-elements-hybrid-stand-bag-golf-bag",
-  "name": "Ogio All Elements Hybrid Stand Bag Golf Bag",
-  "image": "https://www.clickgolf.co.uk/images/product/main/ogio-all-elements-hybrid-stand-bag-tetra-angle-1000x1000-ogio1.jpg",
-  "price": 159.0,
+  "slug": "ping-g-le-hybrid",
+  "name": "Ping G Le Hybrid",
+  "image": "https://www.clickgolf.co.uk/images/product/main/ping-gle-3-ladies-hybrid-hero-1000x100-2.jpg",
+  "price": 199.0,
   "unit": "each",
-  "type": "golf bag",
-  "low": true,
-  "url": "/prices/ogio-all-elements-hybrid-stand-bag-golf-bag/"
+  "type": "hybrid",
+  "low": false,
+  "url": "/prices/ping-g-le-hybrid/"
  }
 }

@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/wilson-player-fit-package-set/",
- "checked": "2026-11-13",
+ "checked": "2026-11-14",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 559.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 559.0,
   "high": 599.0,
-  "average": 585.22,
+  "average": 584.93,
   "priceChanges": 22,
   "series": [
    [
@@ -115,6 +115,10 @@
    [
     "2026-11-13",
     559.0
+   ],
+   [
+    "2026-11-14",
+    559.0
    ]
   ]
  },
@@ -124,5 +128,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Player-Fit-Package-Golf-Club-Set-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-13"
+ "changed": "2026-11-14"
 }
