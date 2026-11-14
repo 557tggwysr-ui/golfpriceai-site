@@ -933,8 +933,31 @@
 }
 },
 "2026-11-14": {
+"pp": {
+"callaway-quantum-max-d-fairway-wood": [
+2,
+-0.1072
+],
+"cleveland-rtz-satin-wedge": [
+2,
+0.0212
+],
+"cobra-ace-waterproof-cart-bag-golf-bag": [
+2,
+0.2849
+],
+"taylormade-p790-irons": [
+2,
+0.1377
+],
+"titleist-avx-golf-balls": [
+2,
+-0.6415
+]
+},
 "view": {
 "ben-sayers-m8-13-piece-package-set": 1,
+"callaway-apex-ai200-irons": 1,
 "callaway-elyte-hybrid": 1,
 "callaway-online-exclusive-mavrik-17-piece-package-set": 2,
 "callaway-quantum-max-fast-hybrid": 1,
@@ -945,14 +968,19 @@
 "motocaddy-26-series-cart-bag-golf-bag": 1,
 "motocaddy-m1-electric-trolley": 1,
 "motocaddy-m7-remote-electric-trolley": 1,
+"odyssey-ai-dual-square-2-square-max-putter": 1,
+"ping-scottsdale-putter": 1,
 "pxg-battle-ready-ii-putter": 1,
 "shot-scope-g6-gps-watch": 1,
+"taylormade-flextech-crossover-stand-bag-golf-bag": 1,
+"taylormade-p7cb-irons": 1,
 "taylormade-storm-dry-cart-bag-golf-bag": 1,
-"taylormade-tp5-performance-stripe-golf-balls": 1
+"taylormade-tp5-performance-stripe-golf-balls": 1,
+"wilson-staff-infinite-putter": 1
 }
 }
 },
-"fetched": "2026-11-14T13:42Z",
+"fetched": "2026-11-14T22:04Z",
 "fourball": 0,
 "search": {
 "7 wood": 2,
@@ -964,6 +992,7 @@
 "callaway ai smoke complete set": 1,
 "callaway elyte complete set": 1,
 "callaway paradym ai smoke sw": 1,
+"callaway quantum max d fairway wood": 1,
 "cbz": 1,
 "clubs": 1,
 "double bend putter": 1,
@@ -988,6 +1017,7 @@
 "ogio": 1,
 "p790": 1,
 "ping": 1,
+"ping g le hybrid": 1,
 "ping g425 sft 3 wood": 1,
 "ping g440 max fairway wood": 1,
 "ping golf bag": 2,
@@ -1012,9 +1042,7 @@
 "trolley": 1,
 "waterproof stand bag": 1,
 "wedge": 1,
-"wedges": 7,
-"wilson package sets ladies": 1,
-"wilson staff model x golf balls": 1
+"wedges": 7
 },
 "snapshot": {
 "alert": {
