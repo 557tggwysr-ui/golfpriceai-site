@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-14T05:13+00:00",
+ "checked": "2026-11-14T13:03+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -862,16 +862,6 @@
    "unit": "per dozen",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
-  },
-  {
-   "model": "PowaKaddy RX10 Remote Control XL Plus Electric Trolley",
-   "model_id": "powakaddy-rx10-remote-control-xl-plus-electric-trolley",
-   "date": "2026-11-11",
-   "was": 1349.99,
-   "now": 1147.49,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/powakaddy-rx10-remote-control-xl-plus-electric-trolley/"
   },
   {
    "model": "Voice Caddie SC300i Swing Caddie Portable Launch Monitor",
