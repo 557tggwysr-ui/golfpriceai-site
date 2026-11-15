@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-hoofer-14-231-stand-bag-golf-bag/",
- "checked": "2026-11-14",
+ "checked": "2026-11-15",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 91,
+  "daysTracked": 92,
   "low": 179.0,
   "high": 199.0,
-  "average": 192.16,
+  "average": 192.02,
   "priceChanges": 22,
   "series": [
    [
@@ -117,7 +117,7 @@
     179.0
    ],
    [
-    "2026-11-14",
+    "2026-11-15",
     179.0
    ]
   ]
@@ -128,5 +128,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Hoofer-14-231-Golf-Stand-Bag---Black.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-14"
+ "changed": "2026-11-15"
 }

@@ -1,30 +1,30 @@
 {
- "checked": "2026-11-14T22:02+00:00",
- "fresh": 77,
- "week": 147,
+ "checked": "2026-11-15T05:05+00:00",
+ "fresh": 0,
+ "week": 132,
  "cats": {
   "clubs": {
-   "name": "MacGregor ZT1 Premium Package Set",
-   "slug": "macgregor-zt1-premium-package-set",
-   "url": "/prices/macgregor-zt1-premium-package-set/",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ZT18.jpg?v=1704462372",
-   "was": 399.95,
-   "now": 329.0,
-   "fall": 70.95,
-   "pct": 18,
-   "date": "2026-11-13",
+   "name": "PXG Wildcat Premium Package Set",
+   "slug": "pxg-wildcat-premium-package-set",
+   "url": "/prices/pxg-wildcat-premium-package-set/",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PXG_WILDCAT_SET_8_516e9451-2da6-4326-accb-0e670e8f4295.jpg?v=1744207533",
+   "was": 1439.0,
+   "now": 1223.15,
+   "fall": 215.85,
+   "pct": 15,
+   "date": "2026-11-11",
    "unit": ""
   },
   "accessories": {
-   "name": "Bushnell Tour Hybrid Laser Rangefinder",
-   "slug": "bushnell-tour-hybrid-laser-rangefinder",
-   "url": "/prices/bushnell-tour-hybrid-laser-rangefinder/",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Bushnell-Tour-Hybrid-Rangefinder-Navy-Grey-Blue-1-Photoroom.jpg?v=1748343303",
-   "was": 469.0,
-   "now": 419.0,
-   "fall": 50.0,
-   "pct": 11,
-   "date": "2026-11-13",
+   "name": "Mileseey Golf GenePro G1 Touchscreen Rangefinder",
+   "slug": "mileseey-golf-genepro-g1-touchscreen-rangefinder",
+   "url": "/prices/mileseey-golf-genepro-g1-touchscreen-rangefinder/",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MileseeyGolfGeneProG1Touchscreen_GPSRangefinder1.jpg?v=1783355926",
+   "was": 499.0,
+   "now": 399.0,
+   "fall": 100.0,
+   "pct": 20,
+   "date": "2026-11-10",
    "unit": ""
   },
   "apparel": {
@@ -37,17 +37,5 @@
    "fall": 100.0,
    "unit": ""
   }
- },
- "drop": {
-  "name": "MacGregor ZT1 Premium Package Set",
-  "slug": "macgregor-zt1-premium-package-set",
-  "url": "/prices/macgregor-zt1-premium-package-set/",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ZT18.jpg?v=1704462372",
-  "was": 399.95,
-  "now": 329.0,
-  "fall": 70.95,
-  "pct": 18,
-  "date": "2026-11-13",
-  "unit": ""
  }
 }

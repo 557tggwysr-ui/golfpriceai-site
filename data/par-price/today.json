@@ -1,66 +1,66 @@
 {
- "n": 28,
- "date": "2026-11-14",
+ "n": 29,
+ "date": "2026-11-15",
  "items": [
   {
-   "slug": "titleist-avx-golf-balls",
-   "name": "Titleist AVX Golf Balls",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/AVX2024White3.jpg?v=1777957859",
-   "price": 39.96,
-   "unit": "per dozen",
-   "type": "golf ball",
-   "low": true,
-   "url": "/prices/titleist-avx-golf-balls/"
+   "slug": "srixon-zxi-rkt-ls-driver",
+   "name": "Srixon ZXi RKT LS Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfZXiRKTLSDriver_5.jpg?v=1788421414",
+   "price": 529.0,
+   "unit": "each",
+   "type": "driver",
+   "low": false,
+   "url": "/prices/srixon-zxi-rkt-ls-driver/"
   },
   {
-   "slug": "cobra-ace-waterproof-cart-bag-golf-bag",
-   "name": "Cobra Ace Waterproof Cart Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra-Golf-ACE-WP-Cart-Bag-953026-05-2_900x.progressive_d013e7c9-832e-4f62-bd67-e25afe4887fe.jpg?v=1779371335",
-   "price": 169.0,
+   "slug": "titleist-players-s4-stadry-stand-bag-golf-bag",
+   "name": "Titleist Players S4 StaDry Stand Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX2-482-S4-Hero.jpg",
+   "price": 229.0,
    "unit": "each",
    "type": "golf bag",
-   "low": true,
-   "url": "/prices/cobra-ace-waterproof-cart-bag-golf-bag/"
+   "low": false,
+   "url": "/prices/titleist-players-s4-stadry-stand-bag-golf-bag/"
   },
   {
-   "slug": "taylormade-p790-irons",
-   "name": "TaylorMade P790 Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/2021_p790_10.jpg?v=1777962463",
-   "price": 979.0,
+   "slug": "wilson-dynapwr-forged-irons",
+   "name": "Wilson DYNAPWR Forged Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonDynapowerForgedSteelGolfIrons2026_3.jpg?v=1765282469",
+   "price": 599.0,
    "unit": "each",
    "type": "iron set",
-   "low": false,
-   "url": "/prices/taylormade-p790-irons/"
-  },
-  {
-   "slug": "cleveland-rtz-satin-wedge",
-   "name": "Cleveland RTZ Satin Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cleveland-RTZ-Black-Satin-Golf-Wedge-1.jpg?v=1736568158",
-   "price": 129.0,
-   "unit": "each",
-   "type": "wedge",
-   "low": false,
-   "url": "/prices/cleveland-rtz-satin-wedge/"
-  },
-  {
-   "slug": "callaway-quantum-max-d-fairway-wood",
-   "name": "Callaway Quantum Max D Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-d-fairway-hero.jpg",
-   "price": 269.0,
-   "unit": "each",
-   "type": "fairway wood",
    "low": true,
-   "url": "/prices/callaway-quantum-max-d-fairway-wood/"
+   "url": "/prices/wilson-dynapwr-forged-irons/"
+  },
+  {
+   "slug": "taylormade-tp5x-golf-balls",
+   "name": "TaylorMade TP5x Golf Balls",
+   "image": "https://www.clickgolf.co.uk/images/product/main/TM-TP5x-2026-Box-4-for-3-Yellow.jpg",
+   "price": 35.99,
+   "unit": "per dozen",
+   "type": "golf ball",
+   "low": false,
+   "url": "/prices/taylormade-tp5x-golf-balls/"
+  },
+  {
+   "slug": "callaway-quantum-max-hybrid",
+   "name": "Callaway Quantum Max Hybrid",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfQuantumMaxHybrid_5.jpg?v=1768380463",
+   "price": 199.0,
+   "unit": "each",
+   "type": "hybrid",
+   "low": true,
+   "url": "/prices/callaway-quantum-max-hybrid/"
   }
  ],
  "pin": {
-  "slug": "ping-g-le-hybrid",
-  "name": "Ping G Le Hybrid",
-  "image": "https://www.clickgolf.co.uk/images/product/main/ping-gle-3-ladies-hybrid-hero-1000x100-2.jpg",
-  "price": 199.0,
+  "slug": "cobra-king-x-wedge",
+  "name": "Cobra KING X Wedge",
+  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/KING_Wedge_X_1.jpg?v=1741950431",
+  "price": 129.0,
   "unit": "each",
-  "type": "hybrid",
-  "low": false,
-  "url": "/prices/ping-g-le-hybrid/"
+  "type": "wedge",
+  "low": true,
+  "url": "/prices/cobra-king-x-wedge/"
  }
 }
