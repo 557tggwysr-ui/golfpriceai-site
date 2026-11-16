@@ -8,11 +8,17 @@
  "unit": "each",
  "lowestNewPrice": 449.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clarkes Golf",
+  "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
+   "from": 449.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
    "from": 449.0,
    "options": 1
   },
@@ -24,11 +30,6 @@
   {
    "name": "Clickgolf",
    "from": 529.0,
-   "options": 1
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 549.0,
    "options": 1
   },
   {
@@ -74,7 +75,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Bushnell-PRO-X3-Laser-Rangefinder-8.jpg?v=1715486550",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PROX3PLUS1.jpg?v=1711056821",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-16"
 }

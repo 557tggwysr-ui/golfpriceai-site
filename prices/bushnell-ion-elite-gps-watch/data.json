@@ -8,7 +8,8 @@
  "unit": "each",
  "lowestNewPrice": 139.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clarkes Golf",
+  "Major Golf Direct"
  ],
  "retailers": [
   {
@@ -18,7 +19,7 @@
   },
   {
    "name": "Major Golf Direct",
-   "from": 169.0,
+   "from": 139.0,
    "options": 2
   },
   {
@@ -60,7 +61,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/Bushnell_Ion_Elite_GPS_Golf_Watch_2.jpg?v=1665594025",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/products/BG-362150_iONEliteWatch_Screen_GreenView_FrontR_1000.png?v=1661849834",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-16"
 }

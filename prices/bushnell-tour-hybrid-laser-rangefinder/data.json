@@ -8,11 +8,17 @@
  "unit": "each",
  "lowestNewPrice": 419.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clarkes Golf",
+  "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
+   "from": 419.0,
+   "options": 1
+  },
+  {
+   "name": "Major Golf Direct",
    "from": 419.0,
    "options": 1
   },
@@ -24,11 +30,6 @@
   {
    "name": "Clickgolf",
    "from": 479.0,
-   "options": 1
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 499.0,
    "options": 1
   }
  ],
@@ -69,7 +70,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Bushnell-Tour-Hybrid-Rangefinder-Navy-Grey-Blue-1-Photoroom.jpg?v=1748343303",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/BushnellGolfTourHybridLaserRangefinder1.jpg?v=1747213087",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-16"
 }
