@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/wilson-profile-11-piece-package-set/",
- "checked": "2026-11-15",
+ "checked": "2026-11-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 439.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 92,
+  "daysTracked": 93,
   "low": 439.0,
   "high": 479.0,
-  "average": 464.65,
+  "average": 464.38,
   "priceChanges": 22,
   "series": [
    [
@@ -117,7 +117,7 @@
     439.0
    ],
    [
-    "2026-11-15",
+    "2026-11-16",
     439.0
    ]
   ]
@@ -128,5 +128,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/g_Wilson-Profile-Package-Set-Hero-4.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-15"
+ "changed": "2026-11-16"
 }

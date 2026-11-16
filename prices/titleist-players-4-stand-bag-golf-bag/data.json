@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/titleist-players-4-stand-bag-golf-bag/",
- "checked": "2026-11-15",
+ "checked": "2026-11-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.0,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 92,
+  "daysTracked": 93,
   "low": 159.0,
   "high": 219.0,
-  "average": 170.52,
+  "average": 170.4,
   "priceChanges": 3,
   "series": [
    [
@@ -61,16 +61,16 @@
     159.0
    ],
    [
-    "2026-11-15",
+    "2026-11-16",
     159.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 73 days"
+  "summary": "Typical price: steady for 74 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-players4-royalgray-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-15"
+ "changed": "2026-11-16"
 }

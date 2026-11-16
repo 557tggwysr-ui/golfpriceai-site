@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-quantum-triple-diamond-fairway-wood/",
- "checked": "2026-11-15",
+ "checked": "2026-11-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 92,
+  "daysTracked": 93,
   "low": 269.0,
   "high": 329.0,
-  "average": 321.17,
+  "average": 320.61,
   "priceChanges": 1,
   "series": [
    [
@@ -44,7 +44,7 @@
     269.0
    ],
    [
-    "2026-11-15",
+    "2026-11-16",
     269.0
    ]
   ]
@@ -55,5 +55,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/quantum-td-fairway-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-15"
+ "changed": "2026-11-16"
 }

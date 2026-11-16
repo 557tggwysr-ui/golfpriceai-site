@@ -1,66 +1,66 @@
 {
- "n": 29,
- "date": "2026-11-15",
+ "n": 30,
+ "date": "2026-11-16",
  "items": [
   {
-   "slug": "srixon-zxi-rkt-ls-driver",
-   "name": "Srixon ZXi RKT LS Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfZXiRKTLSDriver_5.jpg?v=1788421414",
-   "price": 529.0,
-   "unit": "each",
-   "type": "driver",
-   "low": false,
-   "url": "/prices/srixon-zxi-rkt-ls-driver/"
-  },
-  {
-   "slug": "titleist-players-s4-stadry-stand-bag-golf-bag",
-   "name": "Titleist Players S4 StaDry Stand Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX2-482-S4-Hero.jpg",
-   "price": 229.0,
-   "unit": "each",
-   "type": "golf bag",
-   "low": false,
-   "url": "/prices/titleist-players-s4-stadry-stand-bag-golf-bag/"
-  },
-  {
-   "slug": "wilson-dynapwr-forged-irons",
-   "name": "Wilson DYNAPWR Forged Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonDynapowerForgedSteelGolfIrons2026_3.jpg?v=1765282469",
-   "price": 599.0,
+   "slug": "wilson-staff-model-xb-irons",
+   "name": "Wilson Staff Model XB Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Staff-Model-XB-Irons-Hero.jpg",
+   "price": 799.0,
    "unit": "each",
    "type": "iron set",
-   "low": true,
-   "url": "/prices/wilson-dynapwr-forged-irons/"
-  },
-  {
-   "slug": "taylormade-tp5x-golf-balls",
-   "name": "TaylorMade TP5x Golf Balls",
-   "image": "https://www.clickgolf.co.uk/images/product/main/TM-TP5x-2026-Box-4-for-3-Yellow.jpg",
-   "price": 35.99,
-   "unit": "per dozen",
-   "type": "golf ball",
    "low": false,
-   "url": "/prices/taylormade-tp5x-golf-balls/"
+   "url": "/prices/wilson-staff-model-xb-irons/"
   },
   {
-   "slug": "callaway-quantum-max-hybrid",
-   "name": "Callaway Quantum Max Hybrid",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfQuantumMaxHybrid_5.jpg?v=1768380463",
+   "slug": "titleist-linkslegend-members-stand-bag-golf-bag",
+   "name": "Titleist LINKSLEGEND Members Stand Bag Golf Bag",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Titleist-LinksLegend-Members-Golf-Stand-Bag-TB22CC-0706.jpg?v=1736568192",
+   "price": 297.5,
+   "unit": "each",
+   "type": "golf bag",
+   "low": true,
+   "url": "/prices/titleist-linkslegend-members-stand-bag-golf-bag/"
+  },
+  {
+   "slug": "callaway-quantum-max-os-hybrid",
+   "name": "Callaway Quantum Max OS Hybrid",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfQuantumMaxOSHybrid_5.jpg?v=1768380755",
    "price": 199.0,
    "unit": "each",
    "type": "hybrid",
    "low": true,
-   "url": "/prices/callaway-quantum-max-hybrid/"
+   "url": "/prices/callaway-quantum-max-os-hybrid/"
+  },
+  {
+   "slug": "mizuno-pro-t-3-soft-satin-wedge",
+   "name": "Mizuno Pro T-3 Soft Satin Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/T-3SATINWEDGE1.jpg?v=1737716340",
+   "price": 109.0,
+   "unit": "each",
+   "type": "wedge",
+   "low": true,
+   "url": "/prices/mizuno-pro-t-3-soft-satin-wedge/"
+  },
+  {
+   "slug": "taylormade-spider-tour-putter",
+   "name": "TaylorMade Spider Tour Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/spider_tour_putter_small_slant_3.jpg?v=1777961432",
+   "price": 299.0,
+   "unit": "each",
+   "type": "putter",
+   "low": false,
+   "url": "/prices/taylormade-spider-tour-putter/"
   }
  ],
  "pin": {
-  "slug": "cobra-king-x-wedge",
-  "name": "Cobra KING X Wedge",
-  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/KING_Wedge_X_1.jpg?v=1741950431",
-  "price": 129.0,
+  "slug": "cleveland-halo-xl-lite-fairway-wood",
+  "name": "Cleveland Halo XL Lite Fairway Wood",
+  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/HaloXLLiteFairwayWood3_ea0350a3-9d58-4295-9647-c80fc24810f2.jpg?v=1776290933",
+  "price": 129.95,
   "unit": "each",
-  "type": "wedge",
-  "low": true,
-  "url": "/prices/cobra-king-x-wedge/"
+  "type": "fairway wood",
+  "low": false,
+  "url": "/prices/cleveland-halo-xl-lite-fairway-wood/"
  }
 }

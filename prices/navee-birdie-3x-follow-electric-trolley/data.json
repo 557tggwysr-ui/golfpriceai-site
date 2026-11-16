@@ -3,7 +3,7 @@
  "brand": "NAVEE",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/navee-birdie-3x-follow-electric-trolley/",
- "checked": "2026-11-15",
+ "checked": "2026-11-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1299.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 1295.0,
   "high": 1299.99,
-  "average": 1298.62,
+  "average": 1298.57,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     1295.0
    ],
    [
-    "2026-11-15",
+    "2026-11-16",
     1295.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 22 days"
+  "summary": "Typical price: steady for 23 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/navee-3x-main.webp?v=1787130093",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-15"
+ "changed": "2026-11-16"
 }

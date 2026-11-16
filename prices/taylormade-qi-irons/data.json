@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-qi-irons/",
- "checked": "2026-11-15",
+ "checked": "2026-11-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 858.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 858.0,
   "high": 939.0,
-  "average": 865.09,
+  "average": 865.0,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     858.0
    ],
    [
-    "2026-11-15",
+    "2026-11-16",
     858.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 73 days"
+  "summary": "Typical price: steady for 74 days"
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/taylormade-qi10-irons-4.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-15"
+ "changed": "2026-11-16"
 }

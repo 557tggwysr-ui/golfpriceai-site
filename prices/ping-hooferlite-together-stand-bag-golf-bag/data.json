@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-hooferlite-together-stand-bag-golf-bag/",
- "checked": "2026-11-15",
+ "checked": "2026-11-16",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 92,
+  "daysTracked": 93,
   "low": 169.0,
   "high": 189.0,
-  "average": 171.61,
+  "average": 171.58,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     169.0
    ],
    [
-    "2026-11-15",
+    "2026-11-16",
     169.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 80 days"
+  "summary": "Typical price: steady for 81 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PING_Hoofer_Lite_CT_Red_Front_Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-15"
+ "changed": "2026-11-16"
 }

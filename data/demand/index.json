@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-15",
+ "date": "2026-11-16",
  "status": "live",
  "week": {
-  "from": "2026-11-09",
-  "to": "2026-11-15"
+  "from": "2026-11-10",
+  "to": "2026-11-16"
  },
  "chart": [
   {
@@ -22,23 +22,23 @@
   },
   {
    "rank": 2,
-   "name": "Garmin Approach S70 GPS Watch",
-   "brand": "Garmin",
-   "type": "gps-watch",
-   "price": 429.0,
-   "unit": "",
-   "move": -1,
-   "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
-  },
-  {
-   "rank": 3,
    "name": "Titleist Pro V1 Golf Balls",
    "brand": "Titleist",
    "type": "ball",
    "price": 43.96,
    "unit": "per dozen",
-   "move": -1,
+   "move": 0,
    "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
+  },
+  {
+   "rank": 3,
+   "name": "Garmin Approach S70 GPS Watch",
+   "brand": "Garmin",
+   "type": "gps-watch",
+   "price": 429.0,
+   "unit": "",
+   "move": -2,
+   "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
   },
   {
    "rank": 4,
@@ -94,8 +94,8 @@
  "wishfulThinking": [
   {
    "category": "Golf bags",
-   "averageGuessVsRealPricePct": 21,
-   "guesses": 70
+   "averageGuessVsRealPricePct": 19,
+   "guesses": 71
   },
   {
    "category": "Putters",
@@ -103,28 +103,28 @@
    "guesses": 46
   },
   {
-   "category": "Hybrids",
-   "averageGuessVsRealPricePct": 13,
-   "guesses": 72
+   "category": "Drivers",
+   "averageGuessVsRealPricePct": -15,
+   "guesses": 45
   },
   {
-   "category": "Drivers",
-   "averageGuessVsRealPricePct": -12,
-   "guesses": 44
+   "category": "Hybrids",
+   "averageGuessVsRealPricePct": 13,
+   "guesses": 73
   }
  ],
  "categoryShare": [
   {
    "category": "Irons & wedges",
-   "pct": 50
+   "pct": 53
   },
   {
    "category": "Balls",
-   "pct": 24
+   "pct": 25
   },
   {
    "category": "Tech",
-   "pct": 16
+   "pct": 11
   },
   {
    "category": "Drivers & woods",
