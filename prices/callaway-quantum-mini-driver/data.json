@@ -6,22 +6,20 @@
  "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 365.0,
+ "lowestNewPrice": 349.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 349.0,
+   "options": 8
+  },
   {
    "name": "Affordable Golf",
    "from": 365.0,
    "options": 7
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 365.0,
-   "options": 8
   },
   {
    "name": "Clickgolf",
@@ -36,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 94,
-  "low": 365.0,
+  "low": 349.0,
   "high": 429.0,
-  "average": 419.47,
-  "priceChanges": 1,
+  "average": 419.3,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -51,7 +49,7 @@
    ],
    [
     "2026-11-17",
-    365.0
+    349.0
    ]
   ]
  },
@@ -59,7 +57,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Quantum-Mini-Driver-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2026-Quantum-Driver-Mini-Sole-B-004.jpg?v=1776162589",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-17"
 }

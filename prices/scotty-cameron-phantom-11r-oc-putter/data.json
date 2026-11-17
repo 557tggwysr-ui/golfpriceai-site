@@ -6,15 +6,14 @@
  "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 499.0,
+ "lowestNewPrice": 469.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 499.0,
+   "from": 469.0,
    "options": 6
   },
   {
@@ -25,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 94,
-  "low": 499.0,
+  "low": 469.0,
   "high": 499.0,
-  "average": 499.0,
-  "priceChanges": 0,
+  "average": 498.68,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -36,13 +35,13 @@
    ],
    [
     "2026-11-17",
-    499.0
+    469.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 94 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/p_phantom-oc-putter-sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

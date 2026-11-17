@@ -6,29 +6,28 @@
  "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 299.0,
+ "lowestNewPrice": 269.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
+   "name": "Clarkes Golf",
+   "from": 269.0,
+   "options": 3
+  },
+  {
    "name": "Affordable Golf",
    "from": 299.0,
    "options": 14
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 299.0,
-   "options": 3
   }
  ],
  "history": {
   "daysTracked": 75,
-  "low": 299.0,
+  "low": 269.0,
   "high": 299.0,
-  "average": 299.0,
-  "priceChanges": 0,
+  "average": 298.6,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
@@ -36,15 +35,15 @@
    ],
    [
     "2026-11-17",
-    299.0
+    269.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 75 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/spider_tour_putter_small_slant_3.jpg?v=1777961432",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-TaylorMade-Spider-Tour-Black-Golf-Putt-0.jpg?v=1734408509",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-17"
 }

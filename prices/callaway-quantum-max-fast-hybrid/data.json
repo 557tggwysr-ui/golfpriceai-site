@@ -6,14 +6,14 @@
  "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 229.0,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 229.0,
+   "from": 199.0,
    "options": 2
   },
   {
@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 94,
-  "low": 229.0,
+  "low": 199.0,
   "high": 329.0,
-  "average": 310.91,
-  "priceChanges": 2,
+  "average": 310.6,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -43,7 +43,7 @@
    ],
    [
     "2026-11-17",
-    229.0
+    199.0
    ]
   ]
  },
@@ -51,7 +51,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794725045708/sits/hybrids-2026-quantum-max-fast/hybrids-2026-quantum-max-fast___1.png?sfrm=png",
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794843646403/sits/hybrids-2026-quantum-max-fast/hybrids-2026-quantum-max-fast___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-17"
 }

@@ -6,28 +6,28 @@
  "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 429.0,
+ "lowestNewPrice": 419.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 419.0,
+   "options": 49
+  },
   {
    "name": "Affordable Golf",
    "from": 429.0,
    "options": 66
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 449.0,
-   "options": 49
   }
  ],
  "history": {
   "daysTracked": 75,
-  "low": 429.0,
+  "low": 419.0,
   "high": 449.0,
-  "average": 446.07,
-  "priceChanges": 1,
+  "average": 445.93,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -39,7 +39,7 @@
    ],
    [
     "2026-11-17",
-    429.0
+    419.0
    ]
   ]
  },
@@ -47,7 +47,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ScottyCameronStudioStylePutter-Catalina4.jpg?v=1776299901",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/CP-A753_01-Photoroom.jpg?v=1740413356",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-17"
 }

@@ -4,22 +4,123 @@
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
  "date": "2026-11-17",
- "status": "warming up",
+ "status": "live",
  "week": {
   "from": "2026-11-11",
   "to": "2026-11-17"
  },
- "chart": [],
+ "chart": [
+  {
+   "rank": 1,
+   "name": "Callaway Online Exclusive Mavrik 17-Piece Package Set",
+   "brand": "Callaway",
+   "type": "set",
+   "price": 899.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-17-piece-package-set/"
+  },
+  {
+   "rank": 2,
+   "name": "Titleist Pro V1 Golf Balls",
+   "brand": "Titleist",
+   "type": "ball",
+   "price": 43.96,
+   "unit": "per dozen",
+   "move": 0,
+   "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
+  },
+  {
+   "rank": 3,
+   "name": "Garmin Approach S70 GPS Watch",
+   "brand": "Garmin",
+   "type": "gps-watch",
+   "price": 429.0,
+   "unit": "",
+   "move": -2,
+   "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
+  },
+  {
+   "rank": 4,
+   "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
+   "brand": "MacGregor",
+   "type": "set",
+   "price": 299.0,
+   "unit": "",
+   "move": -1,
+   "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
+  },
+  {
+   "rank": 5,
+   "name": "MacGregor ZT1 Ladies Package Set",
+   "brand": "MacGregor",
+   "type": "set",
+   "price": 419.0,
+   "unit": "",
+   "move": -1,
+   "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
+  },
+  {
+   "rank": 6,
+   "name": "Wilson TPX Ladies Package Set",
+   "brand": "Wilson",
+   "type": "set",
+   "price": 319.0,
+   "unit": "",
+   "move": -1,
+   "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
+  },
+  {
+   "rank": 7,
+   "name": "Yonex Ezone GS i-Tech Driver",
+   "brand": "Yonex",
+   "type": "driver",
+   "price": 179.95,
+   "unit": "",
+   "move": 1,
+   "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
+  },
+  {
+   "rank": 8,
+   "name": "Callaway Apex Ai-150 Irons",
+   "brand": "Callaway",
+   "type": "irons",
+   "price": 859.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-apex-ai-150-irons/"
+  },
+  {
+   "rank": 9,
+   "name": "Callaway X Forged Max Irons",
+   "brand": "Callaway",
+   "type": "irons",
+   "price": 1049.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-x-forged-max-irons/"
+  },
+  {
+   "rank": 10,
+   "name": "Powerbilt GSX 14-Piece Package Set",
+   "brand": "Powerbilt",
+   "type": "set",
+   "price": 199.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/powerbilt-gsx-14-piece-package-set/"
+  }
+ ],
  "wishfulThinking": [
   {
    "category": "Golf bags",
-   "averageGuessVsRealPricePct": 19,
-   "guesses": 71
+   "averageGuessVsRealPricePct": 18,
+   "guesses": 72
   },
   {
    "category": "Putters",
    "averageGuessVsRealPricePct": -17,
-   "guesses": 46
+   "guesses": 47
   },
   {
    "category": "Drivers",
@@ -29,10 +130,27 @@
   {
    "category": "Hybrids",
    "averageGuessVsRealPricePct": 13,
-   "guesses": 73
+   "guesses": 74
   }
  ],
- "categoryShare": [],
+ "categoryShare": [
+  {
+   "category": "Irons & wedges",
+   "pct": 64
+  },
+  {
+   "category": "Balls",
+   "pct": 14
+  },
+  {
+   "category": "Tech",
+   "pct": 12
+  },
+  {
+   "category": "Drivers & woods",
+   "pct": 10
+  }
+ ],
  "reports": [
   "https://golfpriceai.com/demand/reports/2026-10/"
  ]

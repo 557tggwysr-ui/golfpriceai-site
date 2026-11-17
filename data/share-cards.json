@@ -350,7 +350,7 @@
 249.0,
 "wait"
 ],
-"callaway-apex-utility-fairway-wood": "d94e4f2807",
+"callaway-apex-utility-fairway-wood": "ef39a1e57f",
 "callaway-apex-uw-utility-fairway-wood": [
 "1cd7db25ee",
 299.0,
@@ -871,10 +871,10 @@
 "wait"
 ],
 "callaway-quantum-max-d-driver": "1d06bec56d",
-"callaway-quantum-max-d-fairway-wood": "f41000c29f",
+"callaway-quantum-max-d-fairway-wood": "8c328f2f6a",
 "callaway-quantum-max-driver": "bf4bd8dcbf",
 "callaway-quantum-max-fairway-wood": "5913d412e2",
-"callaway-quantum-max-fast-hybrid": "ffb1e741de",
+"callaway-quantum-max-fast-hybrid": "ec01e9f3ea",
 "callaway-quantum-max-hybrid": "aa3e98ed09",
 "callaway-quantum-max-irons": [
 "1c4ec47ce9",
@@ -887,7 +887,7 @@
 749.0,
 "typical"
 ],
-"callaway-quantum-mini-driver": "ee84bc87ac",
+"callaway-quantum-mini-driver": "04fb67b595",
 "callaway-quantum-mini-spinner-fairway-wood": [
 "73d85ca261",
 319.0,
@@ -904,10 +904,10 @@
 449.0,
 "wait"
 ],
-"callaway-quantum-ti-fairway-wood": "341a6bd5b8",
-"callaway-quantum-triple-diamond-driver": "4ed08ada13",
-"callaway-quantum-triple-diamond-fairway-wood": "74733e317e",
-"callaway-quantum-triple-diamond-max-driver": "14412b7edf",
+"callaway-quantum-ti-fairway-wood": "1ef82a01cd",
+"callaway-quantum-triple-diamond-driver": "00287da0cd",
+"callaway-quantum-triple-diamond-fairway-wood": "2de1d9d795",
+"callaway-quantum-triple-diamond-max-driver": "6e1c42349f",
 "callaway-reva-11-piece-cart-bag-ladies-package-set": [
 "86005782ce",
 1299.0,
@@ -949,9 +949,9 @@
 1299.0,
 "typical"
 ],
-"callaway-reva-rise-driver": "8326e83157",
-"callaway-reva-rise-fairway-wood": "c42fbaee65",
-"callaway-reva-rise-hybrid": "9555241642",
+"callaway-reva-rise-driver": "5e04f9a922",
+"callaway-reva-rise-fairway-wood": "078ecf5f80",
+"callaway-reva-rise-hybrid": "1a2e098621",
 "callaway-staff-stand-bag-golf-bag": "6e01f3d763",
 "callaway-summit-collection-stand-bag-golf-bag": [
 "45eb6575c1",
@@ -1204,12 +1204,8 @@
 379.0,
 "typical"
 ],
-"cobra-ace-waterproof-cart-bag-golf-bag": "edf24b42a2",
-"cobra-ace-waterproof-stand-bag-golf-bag": [
-"4f8c538120",
-159.0,
-"typical"
-],
+"cobra-ace-waterproof-cart-bag-golf-bag": "4c98355a3a",
+"cobra-ace-waterproof-stand-bag-golf-bag": "c08b84193a",
 "cobra-ace-wp-stand-bag-golf-bag": [
 "c15483dc54",
 169.0,
@@ -1377,7 +1373,7 @@
 ],
 "cobra-king-tec-x-irons": "35f90fcb2c",
 "cobra-king-tour-irons": "5e4da25779",
-"cobra-king-wedge": "fd99d870e7",
+"cobra-king-wedge": "cf59931fc2",
 "cobra-king-x-wedge": "5c0d66d60b",
 "cobra-mim-blazer-sb-putter": [
 "5dbea0575a",
@@ -2420,14 +2416,22 @@
 1199.0,
 "typical"
 ],
-"motocaddy-m1-dhc-electric-trolley": "afbef87564",
+"motocaddy-m1-dhc-electric-trolley": [
+"7b8474b56f",
+769.0,
+"typical"
+],
 "motocaddy-m1-ultra-electric-trolley": [
 "0e75b37966",
 789.0,
 "typical"
 ],
-"motocaddy-m5-dhc-electric-trolley": "4e1b66bfc1",
-"motocaddy-m5-electric-trolley": "d63b4e2906",
+"motocaddy-m5-dhc-electric-trolley": "38e0dae75a",
+"motocaddy-m5-electric-trolley": [
+"b240740257",
+891.65,
+"wait"
+],
 "motocaddy-m5-ultra-electric-trolley": [
 "64d15872fd",
 1099.0,
@@ -2835,7 +2839,7 @@
 "typical"
 ],
 "ping-hoofer-monsoon-231-waterproof-stand-bag-golf-bag": "5056a55415",
-"ping-hoofer-monsoon-waterproof-stand-bag-golf-bag": "11b2d02f73",
+"ping-hoofer-monsoon-waterproof-stand-bag-golf-bag": "b637898d21",
 "ping-hoofer-prodi-g-24-stand-bag-golf-bag": [
 "56af946717",
 129.95,
@@ -3332,21 +3336,9 @@
 "scotty-cameron-ltd-phantom-putter": "bde74c7219",
 "scotty-cameron-onset-centre-putter": "45dfa34c18",
 "scotty-cameron-phantom-11-putter": "5d3bf885a5",
-"scotty-cameron-phantom-11r-oc-putter": [
-"6d914abf90",
-499.0,
-"typical"
-],
-"scotty-cameron-phantom-12-putter": [
-"f5477230c0",
-449.0,
-"typical"
-],
-"scotty-cameron-phantom-3-2-putter": [
-"a2b073629a",
-449.0,
-"typical"
-],
+"scotty-cameron-phantom-11r-oc-putter": "3a5e1db5ce",
+"scotty-cameron-phantom-12-putter": "ea14dafd46",
+"scotty-cameron-phantom-3-2-putter": "6db9c6b1b1",
 "scotty-cameron-phantom-5-2-putter": [
 "f1a37c3c13",
 329.0,
@@ -3382,11 +3374,7 @@
 449.0,
 "typical"
 ],
-"scotty-cameron-phantom-9r-putter": [
-"d9ad50c9fb",
-449.0,
-"typical"
-],
+"scotty-cameron-phantom-9r-putter": "f96d79facf",
 "scotty-cameron-phantom-putter": [
 "2bda3d51ec",
 449.0,
@@ -3395,7 +3383,7 @@
 "scotty-cameron-studio-style-fastback-oc-putter": "f5d0ff7bc1",
 "scotty-cameron-studio-style-fastback-putter": "10ccb8ec4f",
 "scotty-cameron-studio-style-newport-2-putter": "c73494a321",
-"scotty-cameron-studio-style-putter": "d1d80a1e17",
+"scotty-cameron-studio-style-putter": "17f0af3341",
 "second-chance-ltd-second-chance-practice-lake-golf-balls": [
 "a1ae3d2831",
 34.99,
@@ -4120,11 +4108,7 @@
 269.0,
 "typical"
 ],
-"taylormade-spider-tour-putter": [
-"2c88ce6c34",
-299.0,
-"typical"
-],
+"taylormade-spider-tour-putter": "3f595a2a44",
 "taylormade-spider-tour-torched-f-putter": [
 "dbc8ecb537",
 299.0,
@@ -4140,11 +4124,7 @@
 299.0,
 "typical"
 ],
-"taylormade-spider-tour-x-putter": [
-"9a37b30936",
-299.0,
-"typical"
-],
+"taylormade-spider-tour-x-putter": "3624161ef1",
 "taylormade-spider-zt-max-putter": [
 "b5bff915d2",
 449.0,

@@ -6,14 +6,14 @@
  "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 119.0,
+ "lowestNewPrice": 99.0,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 119.0,
+   "from": 99.0,
    "options": 15
   },
   {
@@ -34,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 94,
-  "low": 119.0,
+  "low": 99.0,
   "high": 139.0,
-  "average": 134.96,
-  "priceChanges": 1,
+  "average": 134.74,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -49,7 +49,7 @@
    ],
    [
     "2026-11-17",
-    119.0
+    99.0
    ]
   ]
  },
@@ -57,7 +57,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra_King_Wedge_4.jpg?v=1744287716",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra_KING_Golf_Wedge_1.jpg?v=1741949046",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-17"
 }
