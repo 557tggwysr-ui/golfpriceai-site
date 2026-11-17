@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/cobra-x-vessel-core-tour-stand-bag-golf-bag/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 349.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 93,
+  "daysTracked": 94,
   "low": 319.0,
   "high": 349.0,
-  "average": 339.97,
+  "average": 340.06,
   "priceChanges": 23,
   "series": [
    [
@@ -119,6 +119,10 @@
    [
     "2026-11-16",
     349.0
+   ],
+   [
+    "2026-11-17",
+    349.0
    ]
   ]
  },
@@ -128,5 +132,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/p_cobra-stand-golf-bag-black-cream-side-1000x1000.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }

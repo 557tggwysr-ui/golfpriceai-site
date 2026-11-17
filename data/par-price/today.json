@@ -1,66 +1,66 @@
 {
- "n": 30,
- "date": "2026-11-16",
+ "n": 31,
+ "date": "2026-11-17",
  "items": [
   {
-   "slug": "wilson-staff-model-xb-irons",
-   "name": "Wilson Staff Model XB Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Staff-Model-XB-Irons-Hero.jpg",
-   "price": 799.0,
-   "unit": "each",
-   "type": "iron set",
-   "low": false,
-   "url": "/prices/wilson-staff-model-xb-irons/"
-  },
-  {
-   "slug": "titleist-linkslegend-members-stand-bag-golf-bag",
-   "name": "Titleist LINKSLEGEND Members Stand Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Titleist-LinksLegend-Members-Golf-Stand-Bag-TB22CC-0706.jpg?v=1736568192",
-   "price": 297.5,
-   "unit": "each",
-   "type": "golf bag",
-   "low": true,
-   "url": "/prices/titleist-linkslegend-members-stand-bag-golf-bag/"
-  },
-  {
-   "slug": "callaway-quantum-max-os-hybrid",
-   "name": "Callaway Quantum Max OS Hybrid",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfQuantumMaxOSHybrid_5.jpg?v=1768380755",
-   "price": 199.0,
-   "unit": "each",
-   "type": "hybrid",
-   "low": true,
-   "url": "/prices/callaway-quantum-max-os-hybrid/"
-  },
-  {
-   "slug": "mizuno-pro-t-3-soft-satin-wedge",
-   "name": "Mizuno Pro T-3 Soft Satin Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/T-3SATINWEDGE1.jpg?v=1737716340",
-   "price": 109.0,
+   "slug": "mizuno-pro-t-3-wedge",
+   "name": "Mizuno Pro T-3 Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/pro-t3-black-wedge-hero.jpg",
+   "price": 119.0,
    "unit": "each",
    "type": "wedge",
    "low": true,
-   "url": "/prices/mizuno-pro-t-3-soft-satin-wedge/"
+   "url": "/prices/mizuno-pro-t-3-wedge/"
   },
   {
-   "slug": "taylormade-spider-tour-putter",
-   "name": "TaylorMade Spider Tour Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/spider_tour_putter_small_slant_3.jpg?v=1777961432",
-   "price": 299.0,
+   "slug": "big-max-dri-lite-silencio-3-organiser-cart-golf-bag",
+   "name": "Big Max Dri Lite Silencio 3 Organiser Cart Golf Bag",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DriLiteSilencio3OrganiserCartBagBlack2.jpg?v=1773174822",
+   "price": 199.0,
    "unit": "each",
-   "type": "putter",
+   "type": "golf bag",
+   "low": true,
+   "url": "/prices/big-max-dri-lite-silencio-3-organiser-cart-golf-bag/"
+  },
+  {
+   "slug": "ping-g440-hl-hybrid",
+   "name": "Ping G440 HL Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-hl-hybrid-hero.jpg",
+   "price": 269.0,
+   "unit": "each",
+   "type": "hybrid",
    "low": false,
-   "url": "/prices/taylormade-spider-tour-putter/"
+   "url": "/prices/ping-g440-hl-hybrid/"
+  },
+  {
+   "slug": "callaway-quantum-max-d-driver",
+   "name": "Callaway Quantum Max D Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfQuantumMaxDDriver_5.jpg?v=1768379460",
+   "price": 399.0,
+   "unit": "each",
+   "type": "driver",
+   "low": true,
+   "url": "/prices/callaway-quantum-max-d-driver/"
+  },
+  {
+   "slug": "taylormade-qi4d-max-fairway-wood",
+   "name": "TaylorMade Qi4D Max Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/N8405107-Qi4D-Max-Fairway-Hero.jpg",
+   "price": 319.0,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": false,
+   "url": "/prices/taylormade-qi4d-max-fairway-wood/"
   }
  ],
  "pin": {
-  "slug": "cleveland-halo-xl-lite-fairway-wood",
-  "name": "Cleveland Halo XL Lite Fairway Wood",
-  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/HaloXLLiteFairwayWood3_ea0350a3-9d58-4295-9647-c80fc24810f2.jpg?v=1776290933",
-  "price": 129.95,
-  "unit": "each",
-  "type": "fairway wood",
-  "low": false,
-  "url": "/prices/cleveland-halo-xl-lite-fairway-wood/"
+  "slug": "srixon-z-star-golf-balls",
+  "name": "Srixon Z-Star Golf Balls",
+  "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-Z-Star-Golf-Balls-White.jpg",
+  "price": 34.99,
+  "unit": "per dozen",
+  "type": "golf ball",
+  "low": true,
+  "url": "/prices/srixon-z-star-golf-balls/"
  }
 }

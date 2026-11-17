@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/cobra-ultralight-2-cart-bag-golf-bag/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -35,10 +35,10 @@
   }
  ],
  "history": {
-  "daysTracked": 93,
+  "daysTracked": 94,
   "low": 144.0,
   "high": 169.0,
-  "average": 161.53,
+  "average": 161.61,
   "priceChanges": 23,
   "series": [
    [
@@ -136,6 +136,10 @@
    [
     "2026-11-16",
     169.0
+   ],
+   [
+    "2026-11-17",
+    169.0
    ]
   ]
  },
@@ -145,5 +149,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/cobra-ultralight-2-cart-bag-sugared-almond-sunny-yellow-side-profile-1000x1000.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }

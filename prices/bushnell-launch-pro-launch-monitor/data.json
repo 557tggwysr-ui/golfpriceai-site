@@ -3,42 +3,42 @@
  "brand": "Bushnell",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/bushnell-launch-pro-launch-monitor/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 2790.0,
+ "lowestNewPrice": 2490.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 2790.0,
+   "from": 2490.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 74,
-  "low": 2790.0,
+  "daysTracked": 75,
+  "low": 2490.0,
   "high": 2790.0,
-  "average": 2790.0,
-  "priceChanges": 0,
+  "average": 2786.0,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     2790.0
    ],
    [
-    "2026-11-16",
-    2790.0
+    "2026-11-17",
+    2490.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 74 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BushnellLaunchPro-CircleBEdition2.jpg?v=1773171695",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }

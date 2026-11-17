@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-alpine-dry-waterproof-cart-bag-golf-bag/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 225.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 93,
+  "daysTracked": 94,
   "low": 199.0,
   "high": 229.0,
-  "average": 216.29,
+  "average": 216.38,
   "priceChanges": 24,
   "series": [
    [
@@ -128,6 +128,10 @@
    [
     "2026-11-16",
     225.0
+   ],
+   [
+    "2026-11-17",
+    225.0
    ]
   ]
  },
@@ -137,5 +141,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/WG4007202_1_WS_Alpine_DRY_Cart_Bag_Grey_Navy_Redcopy.jpg?v=1776297116",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }

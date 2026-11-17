@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-par-3-hd-waterproof-stand-bag-golf-bag/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 93,
+  "daysTracked": 94,
   "low": 134.0,
   "high": 149.0,
-  "average": 145.29,
+  "average": 145.33,
   "priceChanges": 16,
   "series": [
    [
@@ -91,6 +91,10 @@
    [
     "2026-11-16",
     149.0
+   ],
+   [
+    "2026-11-17",
+    149.0
    ]
   ]
  },
@@ -100,5 +104,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Par-3-HD-Waterproof-Golf-Stand-Bag---Blue-Palms.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }

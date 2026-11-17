@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/mizuno-pro-s-4-irons/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1289.0,
@@ -20,13 +20,18 @@
    "name": "Affordable Golf",
    "from": 1499.0,
    "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 1499.0,
+   "options": 1
   }
  ],
  "history": {
-  "daysTracked": 53,
+  "daysTracked": 54,
   "low": 1289.0,
   "high": 1499.0,
-  "average": 1427.68,
+  "average": 1425.11,
   "priceChanges": 1,
   "series": [
    [
@@ -38,7 +43,7 @@
     1289.0
    ],
    [
-    "2026-11-16",
+    "2026-11-17",
     1289.0
    ]
   ]
@@ -49,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MizunoProS-4Irons3.jpg?v=1788532401",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }

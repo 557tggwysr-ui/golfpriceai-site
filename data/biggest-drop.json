@@ -1,30 +1,30 @@
 {
- "checked": "2026-11-16T14:58+00:00",
- "fresh": 0,
+ "checked": "2026-11-17T01:40+00:00",
+ "fresh": 6,
  "week": 70,
  "cats": {
   "clubs": {
-   "name": "PXG Wildcat Premium Package Set",
-   "slug": "pxg-wildcat-premium-package-set",
-   "url": "/prices/pxg-wildcat-premium-package-set/",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PXG_WILDCAT_SET_8_516e9451-2da6-4326-accb-0e670e8f4295.jpg?v=1744207533",
-   "was": 1439.0,
-   "now": 1223.15,
-   "fall": 215.85,
-   "pct": 15,
-   "date": "2026-11-11",
+   "name": "Callaway Elyte X Irons",
+   "slug": "callaway-elyte-x-irons",
+   "url": "/prices/callaway-elyte-x-irons/",
+   "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-x-iron-back.jpg",
+   "was": 549.0,
+   "now": 499.0,
+   "fall": 50.0,
+   "pct": 9,
+   "date": "2026-11-17",
    "unit": ""
   },
   "accessories": {
-   "name": "Mileseey Golf GenePro G1 Touchscreen Rangefinder",
-   "slug": "mileseey-golf-genepro-g1-touchscreen-rangefinder",
-   "url": "/prices/mileseey-golf-genepro-g1-touchscreen-rangefinder/",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MileseeyGolfGeneProG1Touchscreen_GPSRangefinder1.jpg?v=1783355926",
-   "was": 499.0,
-   "now": 399.0,
-   "fall": 100.0,
-   "pct": 20,
-   "date": "2026-11-10",
+   "name": "Bushnell Launch Pro Launch Monitor",
+   "slug": "bushnell-launch-pro-launch-monitor",
+   "url": "/prices/bushnell-launch-pro-launch-monitor/",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BushnellLaunchPro-CircleBEdition2.jpg?v=1773171695",
+   "was": 2790.0,
+   "now": 2490.0,
+   "fall": 300.0,
+   "pct": 11,
+   "date": "2026-11-17",
    "unit": ""
   },
   "apparel": {
@@ -37,5 +37,17 @@
    "fall": 100.0,
    "unit": ""
   }
+ },
+ "drop": {
+  "name": "Bushnell Launch Pro Launch Monitor",
+  "slug": "bushnell-launch-pro-launch-monitor",
+  "url": "/prices/bushnell-launch-pro-launch-monitor/",
+  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BushnellLaunchPro-CircleBEdition2.jpg?v=1773171695",
+  "was": 2790.0,
+  "now": 2490.0,
+  "fall": 300.0,
+  "pct": 11,
+  "date": "2026-11-17",
+  "unit": ""
  }
 }

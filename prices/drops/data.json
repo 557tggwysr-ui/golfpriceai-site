@@ -1,8 +1,68 @@
 {
- "checked": "2026-11-16T14:58+00:00",
+ "checked": "2026-11-17T01:40+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Garmin Approach J1 GPS Watch",
+   "model_id": "garmin-approach-j1-gps-watch",
+   "date": "2026-11-17",
+   "was": 309.0,
+   "now": 259.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-j1-gps-watch/"
+  },
+  {
+   "model": "Bushnell Phantom 3 Handheld Rangefinder",
+   "model_id": "bushnell-phantom-3-handheld-rangefinder",
+   "date": "2026-11-17",
+   "was": 129.95,
+   "now": 109.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-phantom-3-handheld-rangefinder/"
+  },
+  {
+   "model": "Bushnell iON Elite Rangefinder",
+   "model_id": "bushnell-ion-elite-rangefinder",
+   "date": "2026-11-17",
+   "was": 159.0,
+   "now": 139.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-ion-elite-rangefinder/"
+  },
+  {
+   "model": "Bushnell Launch Pro Launch Monitor",
+   "model_id": "bushnell-launch-pro-launch-monitor",
+   "date": "2026-11-17",
+   "was": 2790.0,
+   "now": 2490.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-launch-pro-launch-monitor/"
+  },
+  {
+   "model": "Callaway Elyte X Irons",
+   "model_id": "callaway-elyte-x-irons",
+   "date": "2026-11-17",
+   "was": 549.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-x-irons/"
+  },
+  {
+   "model": "Motocaddy M1 DHC Electric Trolley",
+   "model_id": "motocaddy-m1-dhc-electric-trolley",
+   "date": "2026-11-17",
+   "was": 769.0,
+   "now": 745.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-m1-dhc-electric-trolley/"
+  },
   {
    "model": "MacGregor V-Max Ages 6-8 Junior Golf Set",
    "model_id": "macgregor-v-max-ages-6-8-junior-golf-set",
@@ -374,16 +434,6 @@
    "url": "https://golfpriceai.com/prices/pxg-wildcat-premium-package-set/"
   },
   {
-   "model": "Callaway Quantum Driver",
-   "model_id": "callaway-quantum-driver",
-   "date": "2026-11-11",
-   "was": 465.0,
-   "now": 399.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-driver/"
-  },
-  {
    "model": "Motocaddy 26 Series Cart Bag Golf Bag",
    "model_id": "motocaddy-26-series-cart-bag-golf-bag",
    "date": "2026-11-11",
@@ -392,16 +442,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/motocaddy-26-series-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Callaway Quantum Hybrid",
-   "model_id": "callaway-quantum-hybrid",
-   "date": "2026-11-11",
-   "was": 229.0,
-   "now": 199.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-hybrid/"
   },
   {
    "model": "Srixon ZXi LS Driver",
@@ -662,46 +702,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/odyssey-square-to-square-tri-hot-putter/"
-  },
-  {
-   "model": "Nike Air Max Lite Stand Bag Golf Bag",
-   "model_id": "nike-air-max-lite-stand-bag-golf-bag",
-   "date": "2026-11-09",
-   "was": 149.0,
-   "now": 119.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/nike-air-max-lite-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Mizuno Pro T-3 Soft Satin Wedge",
-   "model_id": "mizuno-pro-t-3-soft-satin-wedge",
-   "date": "2026-11-09",
-   "was": 119.0,
-   "now": 109.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-pro-t-3-soft-satin-wedge/"
-  },
-  {
-   "model": "Mizuno BR-D2 Stand Bag Golf Bag",
-   "model_id": "mizuno-br-d2-stand-bag-golf-bag",
-   "date": "2026-11-09",
-   "was": 169.0,
-   "now": 159.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-br-d2-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Mizuno BR-DRI 25 Stand Bag Golf Bag",
-   "model_id": "mizuno-br-dri-25-stand-bag-golf-bag",
-   "date": "2026-11-09",
-   "was": 189.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-br-dri-25-stand-bag-golf-bag/"
   }
  ]
 }

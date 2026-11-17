@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-11-16",
+ "lastUpdated": "2026-11-17",
  "uncertainGroupings": [
   {
    "model": "Titleist vokey sm11",
@@ -410,11 +410,6 @@
   },
   {
    "name": "Ping Gold Putter Printed Polo Shirt - Navy Multi Navy Multi / S",
-   "from": "putter",
-   "to": "apparel"
-  },
-  {
-   "name": "Ping Gold Putter Printed Polo Shirt - Navy Multi Navy Multi / XXL",
    "from": "putter",
    "to": "apparel"
   },
@@ -2470,6 +2465,11 @@
   },
   {
    "name": "Scotty Cameron Phantom Putter - 3.2 Right Hand / 33\" / Scotty Cameron Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Scotty Cameron Phantom Putter - 3.2 Right Hand / 35\" / Scotty Cameron Grip",
    "from": "accessories",
    "to": "putter"
   },

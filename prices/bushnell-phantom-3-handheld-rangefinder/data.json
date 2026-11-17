@@ -3,26 +3,26 @@
  "brand": "Bushnell",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/bushnell-phantom-3-handheld-rangefinder/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.95,
+ "lowestNewPrice": 109.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 129.95,
+   "from": 109.95,
    "options": 4
   }
  ],
  "history": {
-  "daysTracked": 74,
+  "daysTracked": 75,
   "low": 109.95,
   "high": 129.95,
-  "average": 124.27,
-  "priceChanges": 1,
+  "average": 124.08,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -33,16 +33,16 @@
     129.95
    ],
    [
-    "2026-11-16",
-    129.95
+    "2026-11-17",
+    109.95
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PHANTOM3-Green10.jpg?v=1777956942",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }

@@ -3,31 +3,31 @@
  "brand": "Bushnell",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/bushnell-ion-elite-rangefinder/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 159.0,
+ "lowestNewPrice": 139.95,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 139.95,
+   "options": 2
+  },
   {
    "name": "Clickgolf",
    "from": 159.0,
    "options": 2
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 169.95,
-   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 93,
+  "daysTracked": 94,
   "low": 139.95,
   "high": 159.0,
-  "average": 153.67,
-  "priceChanges": 2,
+  "average": 153.53,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -42,16 +42,16 @@
     159.0
    ],
    [
-    "2026-11-16",
-    159.0
+    "2026-11-17",
+    139.95
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £19.05 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/iON-Elite-GPS-Rangefinder-Golf-Watch---Black-2_1.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/bushnell_elite_gps_black_7.jpg?v=1777978254",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }

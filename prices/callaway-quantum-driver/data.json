@@ -3,26 +3,26 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-quantum-driver/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 399.0,
+ "lowestNewPrice": 465.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 399.0,
+   "from": 465.0,
    "options": 17
   }
  ],
  "history": {
-  "daysTracked": 81,
+  "daysTracked": 82,
   "low": 399.0,
   "high": 529.0,
-  "average": 515.42,
-  "priceChanges": 2,
+  "average": 514.8,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-28",
@@ -37,16 +37,16 @@
     399.0
    ],
    [
-    "2026-11-16",
-    399.0
+    "2026-11-17",
+    465.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £66.00 above its tracked low"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/QuantumDriver-Max7.jpg?v=1773174989",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }

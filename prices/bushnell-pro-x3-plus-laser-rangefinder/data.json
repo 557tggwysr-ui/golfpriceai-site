@@ -3,15 +3,21 @@
  "brand": "Bushnell",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/bushnell-pro-x3-plus-laser-rangefinder/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 449.0,
  "lowestAt": [
+  "Affordable Golf",
   "Clarkes Golf",
   "Major Golf Direct"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 449.0,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 449.0,
@@ -20,11 +26,6 @@
   {
    "name": "Major Golf Direct",
    "from": 449.0,
-   "options": 1
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 529.0,
    "options": 1
   },
   {
@@ -39,10 +40,10 @@
   }
  ],
  "history": {
-  "daysTracked": 93,
+  "daysTracked": 94,
   "low": 449.0,
   "high": 529.0,
-  "average": 504.59,
+  "average": 504.0,
   "priceChanges": 4,
   "series": [
    [
@@ -66,7 +67,7 @@
     449.0
    ],
    [
-    "2026-11-16",
+    "2026-11-17",
     449.0
    ]
   ]
@@ -77,5 +78,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PROX3PLUS1.jpg?v=1711056821",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }

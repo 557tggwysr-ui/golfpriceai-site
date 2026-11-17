@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-pro-cart-bag-golf-bag/",
- "checked": "2026-11-16",
+ "checked": "2026-11-17",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.0,
@@ -24,7 +24,7 @@
   {
    "name": "Major Golf Direct",
    "from": 139.0,
-   "options": 4
+   "options": 5
   },
   {
    "name": "Scottsdale Golf",
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 93,
+  "daysTracked": 94,
   "low": 119.0,
   "high": 139.0,
-  "average": 121.26,
+  "average": 121.23,
   "priceChanges": 4,
   "series": [
    [
@@ -65,16 +65,16 @@
     119.0
    ],
    [
-    "2026-11-16",
+    "2026-11-17",
     119.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 81 days"
+  "summary": "Typical price: steady for 82 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/V9736501-TM-Pro-Cart-Golf-Bag-Royal-Blue-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-16"
+ "changed": "2026-11-17"
 }
