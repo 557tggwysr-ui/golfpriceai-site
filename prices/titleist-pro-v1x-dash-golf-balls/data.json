@@ -6,11 +6,16 @@
  "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 49.95,
+ "lowestNewPrice": 44.99,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 44.99,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 49.95,
@@ -25,19 +30,14 @@
    "name": "Major Golf Direct",
    "from": 52.0,
    "options": 1
-  },
-  {
-   "name": "Clickgolf",
-   "from": 94.99,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 95,
   "low": 43.96,
   "high": 94.99,
-  "average": 55.75,
-  "priceChanges": 5,
+  "average": 55.7,
+  "priceChanges": 6,
   "series": [
    [
     "2026-08-16",
@@ -65,7 +65,7 @@
    ],
    [
     "2026-11-18",
-    49.95
+    44.99
    ]
   ]
  },
@@ -73,7 +73,7 @@
   "label": "typical",
   "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ProV1xLeftDash6_74c02e51-4071-4ea2-8147-7a83b525fae2.jpg?v=1773171858",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Pro-V1-Left-Dash-26-Box.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-18"
 }

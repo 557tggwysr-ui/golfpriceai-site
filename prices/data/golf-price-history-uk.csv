@@ -10,9 +10,6 @@ callaway-elyte-driver,2026-11-03,279.00
 callaway-elyte-tour-certified-driver,2026-09-04,299.00
 callaway-elyte-tour-certified-driver,2026-09-10,329.00
 callaway-elyte-tour-certified-driver,2026-10-31,279.00
-callaway-elyte-x-driver,2026-08-16,339.00
-callaway-elyte-x-driver,2026-09-13,329.00
-callaway-elyte-x-driver,2026-11-03,279.00
 callaway-paradym-ai-smoke-max-driver,2026-08-28,299.00
 callaway-quantum-driver,2026-08-28,529.00
 callaway-quantum-driver,2026-11-06,465.00
@@ -219,6 +216,7 @@ callaway-paradym-ai-smoke-max-d-fairway-wood,2026-08-21,265.30
 callaway-paradym-ai-smoke-max-d-fairway-wood,2026-08-28,179.00
 callaway-paradym-ai-smoke-max-fairway-wood,2026-08-16,379.00
 callaway-paradym-ai-smoke-max-fairway-wood,2026-08-21,288.04
+callaway-paradym-ai-smoke-max-fairway-wood,2026-11-18,199.00
 callaway-paradym-fairway-wood,2026-09-04,149.95
 callaway-quantum-fairway-wood,2026-09-04,319.00
 callaway-quantum-fairway-wood,2026-11-06,269.00
@@ -743,6 +741,8 @@ ping-s259-chrome-wedge,2026-09-04,179.95
 ping-s259-chrome-wedge,2026-10-30,179.00
 ping-s259-midnight-wedge,2026-09-04,179.95
 ping-s259-midnight-wedge,2026-10-30,179.00
+ping-s159-chrome-wedge,2026-09-04,129.00
+ping-s159-chrome-wedge,2026-11-18,99.95
 powerbilt-x-grind-satin-wedge,2026-08-28,24.95
 taylormade-hi-toe-4-wedge,2026-08-16,159.00
 taylormade-hi-toe-4-wedge,2026-09-05,129.95
@@ -874,10 +874,12 @@ odyssey-ai-one-square-2-square-putter,2026-09-04,279.00
 odyssey-ai-one-square-2-square-putter,2026-09-18,179.00
 odyssey-dfx-1-ch-putter,2026-10-11,149.00
 odyssey-dfx-1-ch-putter,2026-10-30,129.00
+odyssey-dfx-1-ch-putter,2026-11-18,115.00
 odyssey-dfx-putter,2026-09-04,129.95
 odyssey-dfx-putter,2026-10-21,119.95
 odyssey-dfx-v-line-fang-db-putter,2026-10-11,149.00
 odyssey-dfx-v-line-fang-db-putter,2026-10-30,129.00
+odyssey-dfx-v-line-fang-db-putter,2026-11-18,115.00
 odyssey-damascus-milled-putter,2026-09-04,499.00
 odyssey-square-2-square-ai-dual-putter,2026-09-04,229.00
 odyssey-square-to-square-tri-hot-putter,2026-09-04,449.00
@@ -903,8 +905,10 @@ scotty-cameron-onset-centre-putter,2026-09-04,499.00
 scotty-cameron-onset-centre-putter,2026-11-07,449.00
 scotty-cameron-phantom-11r-oc-putter,2026-08-16,499.00
 scotty-cameron-phantom-11r-oc-putter,2026-11-17,469.00
+scotty-cameron-phantom-11r-oc-putter,2026-11-18,449.00
 scotty-cameron-phantom-12-putter,2026-08-16,449.00
 scotty-cameron-phantom-12-putter,2026-11-17,429.00
+scotty-cameron-phantom-12-putter,2026-11-18,419.00
 scotty-cameron-phantom-3-2-putter,2026-08-16,449.00
 scotty-cameron-phantom-3-2-putter,2026-11-17,429.00
 scotty-cameron-phantom-5-oc-putter,2026-08-16,499.00
@@ -921,9 +925,11 @@ scotty-cameron-phantom-7-5-putter,2026-09-04,429.00
 scotty-cameron-phantom-9-2r-putter,2026-08-16,449.00
 scotty-cameron-phantom-9r-putter,2026-08-16,449.00
 scotty-cameron-phantom-9r-putter,2026-11-17,429.00
+scotty-cameron-phantom-9r-putter,2026-11-18,399.00
 scotty-cameron-phantom-putter,2026-09-04,449.00
 scotty-cameron-studio-style-fastback-oc-putter,2026-08-16,499.00
 scotty-cameron-studio-style-fastback-oc-putter,2026-11-02,449.00
+scotty-cameron-studio-style-fastback-oc-putter,2026-11-18,439.00
 scotty-cameron-studio-style-putter,2026-09-04,449.00
 scotty-cameron-studio-style-putter,2026-11-07,429.00
 scotty-cameron-studio-style-putter,2026-11-17,419.00
@@ -1156,7 +1162,6 @@ second-chance-ltd-second-chance-practice-lake-golf-balls,2026-09-04,19.99
 srixon-ad333-12-golf-balls,2026-08-28,22.95
 srixon-ad333-golf-balls,2026-08-16,20.00
 srixon-ad333-golf-balls,2026-08-28,19.95
-srixon-distance-golf-balls,2026-08-16,28.00
 srixon-distance-golf-balls,2026-08-28,14.50
 srixon-distance-golf-balls,2026-11-10,13.99
 srixon-limited-z-star-diamond-2-dozen-golf-balls,2026-08-16,47.49
@@ -1233,6 +1238,8 @@ titleist-avx-high-optic-golf-balls,2026-08-16,42.99
 titleist-pinnacle-rush-distance-golf-balls,2026-08-28,15.19
 titleist-pro-v1-aim-performance-golf-balls,2026-08-16,49.99
 titleist-pro-v1-aim-performance-golf-balls,2026-11-02,49.95
+titleist-pro-v1-aim-performance-golf-balls,2026-11-18,44.99
+titleist-pro-v1-golf-balls,2026-08-16,94.99
 titleist-pro-v1-golf-balls,2026-08-28,49.99
 titleist-pro-v1-golf-balls,2026-10-30,49.95
 titleist-pro-v1-golf-balls,2026-10-31,43.96
@@ -1249,6 +1256,8 @@ titleist-pro-v1x-dash-golf-balls,2026-09-04,49.99
 titleist-pro-v1x-dash-golf-balls,2026-09-18,43.96
 titleist-pro-v1x-dash-golf-balls,2026-09-19,49.99
 titleist-pro-v1x-dash-golf-balls,2026-10-30,49.95
+titleist-pro-v1x-dash-golf-balls,2026-11-18,44.99
+titleist-pro-v1x-golf-balls,2026-08-16,94.99
 titleist-pro-v1x-golf-balls,2026-08-28,49.99
 titleist-pro-v1x-golf-balls,2026-10-30,49.95
 titleist-pro-v1x-golf-balls,2026-10-31,43.96
@@ -2378,6 +2387,7 @@ ping-pioneer-244-cart-bag-golf-bag,2026-11-06,179.00
 ping-pioneer-244-cart-bag-golf-bag,2026-11-09,199.00
 ping-pioneer-244-cart-bag-golf-bag,2026-11-13,179.00
 ping-pioneer-244-cart-bag-golf-bag,2026-11-16,199.00
+ping-pioneer-244-cart-bag-golf-bag,2026-11-18,179.00
 ping-pioneer-cart-bag-golf-bag,2026-09-04,199.95
 ping-pioneer-monsoon-231-waterproof-cart-bag-golf-bag,2026-08-16,239.00
 ping-pioneer-monsoon-231-waterproof-cart-bag-golf-bag,2026-08-28,209.00
@@ -4095,6 +4105,7 @@ taylormade-rbz-11-piece-package-set,2026-11-06,959.00
 taylormade-rbz-11-piece-package-set,2026-11-09,999.00
 taylormade-rbz-11-piece-package-set,2026-11-13,959.00
 taylormade-rbz-11-piece-package-set,2026-11-16,999.00
+taylormade-rbz-11-piece-package-set,2026-11-18,899.00
 taylormade-rbz-package-set,2026-08-28,1195.00
 taylormade-rbz-speedlite-10-piece-package-set,2026-09-04,829.00
 taylormade-rbz-speedlite-13-piece-package-set,2026-09-04,1049.00
@@ -4348,6 +4359,7 @@ callaway-xt-11-piece-junior-golf-set,2026-11-02,499.00
 callaway-xt-11-piece-junior-golf-set,2026-11-06,449.00
 callaway-xt-11-piece-junior-golf-set,2026-11-09,499.00
 callaway-xt-11-piece-junior-golf-set,2026-11-13,449.00
+callaway-xt-11-piece-junior-golf-set,2026-11-18,499.00
 callaway-xt-junior-golf-set,2026-08-16,569.00
 cleveland-full-ages-4-6-junior-golf-set,2026-08-28,149.00
 cleveland-series-4-piece-stand-bag-ages-4-6-junior-golf-set,2026-09-04,129.00

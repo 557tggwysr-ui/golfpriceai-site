@@ -6,14 +6,14 @@
  "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.0,
+ "lowestNewPrice": 115.0,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 129.0,
+   "from": 115.0,
    "options": 4
   },
   {
@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 39,
-  "low": 129.0,
+  "low": 115.0,
   "high": 149.0,
-  "average": 138.74,
-  "priceChanges": 1,
+  "average": 138.38,
+  "priceChanges": 2,
   "series": [
    [
     "2026-10-11",
@@ -39,13 +39,13 @@
    ],
    [
     "2026-11-18",
-    129.0
+    115.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 20 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Odyssey-2025-DFX-1-Golf-Putter-0496.jpg?v=1737000390",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

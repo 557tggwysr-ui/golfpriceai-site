@@ -72,26 +72,46 @@
   },
   {
    "rank": 7,
+   "name": "TaylorMade SpeedSoft Ink Golf Balls",
+   "brand": "TaylorMade",
+   "type": "ball",
+   "price": 22.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/taylormade-speedsoft-ink-golf-balls/"
+  },
+  {
+   "rank": 8,
    "name": "Wilson TPX Ladies Package Set",
    "brand": "Wilson",
    "type": "set",
    "price": 319.0,
    "unit": "",
-   "move": -2,
+   "move": -3,
    "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
   },
   {
-   "rank": 8,
+   "rank": 9,
    "name": "Yonex Ezone GS i-Tech Driver",
    "brand": "Yonex",
    "type": "driver",
    "price": 179.95,
    "unit": "",
-   "move": 0,
+   "move": -1,
    "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
   },
   {
-   "rank": 9,
+   "rank": 10,
+   "name": "Bridgestone Percept Golf Balls",
+   "brand": "Bridgestone",
+   "type": "ball",
+   "price": 23.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/bridgestone-percept-golf-balls/"
+  },
+  {
+   "rank": 11,
    "name": "Callaway Chrome Soft 26 Golf Balls",
    "brand": "Callaway",
    "type": "ball",
@@ -101,7 +121,7 @@
    "url": "https://golfpriceai.com/prices/callaway-chrome-soft-26-golf-balls/"
   },
   {
-   "rank": 10,
+   "rank": 12,
    "name": "Callaway E R C Soft Truvis Golf Balls",
    "brand": "Callaway",
    "type": "ball",
@@ -111,7 +131,7 @@
    "url": "https://golfpriceai.com/prices/callaway-e-r-c-soft-truvis-golf-balls/"
   },
   {
-   "rank": 11,
+   "rank": 13,
    "name": "Callaway ERC Soft Triple Track Golf Balls",
    "brand": "Callaway",
    "type": "ball",
@@ -121,7 +141,7 @@
    "url": "https://golfpriceai.com/prices/callaway-erc-soft-triple-track-golf-balls/"
   },
   {
-   "rank": 12,
+   "rank": 14,
    "name": "Callaway Online Exclusive Mavrik Golf Balls",
    "brand": "Callaway",
    "type": "ball",
@@ -131,7 +151,7 @@
    "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-golf-balls/"
   },
   {
-   "rank": 13,
+   "rank": 15,
    "name": "Callaway Supersoft Pub Golf Balls",
    "brand": "Callaway",
    "type": "ball",
@@ -141,7 +161,7 @@
    "url": "https://golfpriceai.com/prices/callaway-supersoft-pub-golf-balls/"
   },
   {
-   "rank": 14,
+   "rank": 16,
    "name": "Callaway X Forged Max Irons",
    "brand": "Callaway",
    "type": "irons",
@@ -151,7 +171,7 @@
    "url": "https://golfpriceai.com/prices/callaway-x-forged-max-irons/"
   },
   {
-   "rank": 15,
+   "rank": 17,
    "name": "Cobra DS-Adapt Irons",
    "brand": "Cobra",
    "type": "irons",
@@ -161,7 +181,7 @@
    "url": "https://golfpriceai.com/prices/cobra-ds-adapt-irons/"
   },
   {
-   "rank": 16,
+   "rank": 18,
    "name": "MacGregor ZT Plus Irons",
    "brand": "MacGregor",
    "type": "irons",
@@ -171,7 +191,7 @@
    "url": "https://golfpriceai.com/prices/macgregor-zt-plus-irons/"
   },
   {
-   "rank": 17,
+   "rank": 19,
    "name": "Mizuno Pro S Golf Balls",
    "brand": "Mizuno",
    "type": "ball",
@@ -181,7 +201,7 @@
    "url": "https://golfpriceai.com/prices/mizuno-pro-s-golf-balls/"
   },
   {
-   "rank": 18,
+   "rank": 20,
    "name": "Powerbilt GSX 14-Piece Package Set",
    "brand": "Powerbilt",
    "type": "set",
@@ -189,38 +209,18 @@
    "unit": "",
    "move": "new",
    "url": "https://golfpriceai.com/prices/powerbilt-gsx-14-piece-package-set/"
-  },
-  {
-   "rank": 19,
-   "name": "Srixon Weatherproof Cart Bag Golf Bag",
-   "brand": "Srixon",
-   "type": "bag",
-   "price": 229.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/srixon-weatherproof-cart-bag-golf-bag/"
-  },
-  {
-   "rank": 20,
-   "name": "Srixon ZXi7 Irons",
-   "brand": "Srixon",
-   "type": "irons",
-   "price": 599.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/srixon-zxi7-irons/"
   }
  ],
  "wishfulThinking": [
   {
+   "category": "Golf bags",
+   "averageGuessVsRealPricePct": 17,
+   "guesses": 75
+  },
+  {
    "category": "Putters",
    "averageGuessVsRealPricePct": -17,
    "guesses": 47
-  },
-  {
-   "category": "Golf bags",
-   "averageGuessVsRealPricePct": 16,
-   "guesses": 73
   },
   {
    "category": "Drivers",
@@ -229,18 +229,18 @@
   },
   {
    "category": "Hybrids",
-   "averageGuessVsRealPricePct": 12,
-   "guesses": 75
+   "averageGuessVsRealPricePct": 11,
+   "guesses": 77
   }
  ],
  "categoryShare": [
   {
    "category": "Irons & wedges",
-   "pct": 46
+   "pct": 45
   },
   {
    "category": "Balls",
-   "pct": 36
+   "pct": 39
   },
   {
    "category": "Tech",

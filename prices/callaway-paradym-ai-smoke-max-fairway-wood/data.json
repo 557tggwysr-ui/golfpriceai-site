@@ -6,11 +6,16 @@
  "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 288.04,
+ "lowestNewPrice": 199.0,
  "lowestAt": [
-  "Callaway Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 199.0,
+   "options": 1
+  },
   {
    "name": "Callaway Golf",
    "from": 288.04,
@@ -24,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 95,
-  "low": 288.04,
+  "low": 199.0,
   "high": 379.0,
-  "average": 292.83,
-  "priceChanges": 1,
+  "average": 291.89,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -39,15 +44,15 @@
    ],
    [
     "2026-11-18",
-    288.04
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 90 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794916906403/sits/fwoods-2024-paradym-ai-smoke-max/fwoods-2024-paradym-ai-smoke-max___1.png?sfrm=png",
+ "image": "https://www.clickgolf.co.uk/images/product/main/c_callaway-paradym-ai-smoke-max-fairway-wood-hero-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-18"
 }

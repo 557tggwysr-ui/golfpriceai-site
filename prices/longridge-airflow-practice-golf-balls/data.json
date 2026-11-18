@@ -6,15 +6,15 @@
  "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 1.5,
+ "lowestNewPrice": 3.99,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 1.5,
-   "options": 3
+   "from": 3.99,
+   "options": 2
   }
  ],
  "history": {
@@ -38,7 +38,7 @@
   "label": "typical",
   "summary": "Typical price: steady for 76 days"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/white_practice_balls_12.jpg?v=1777979698",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/134158012_max.jpg?v=1777980461",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-18"
 }

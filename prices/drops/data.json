@@ -1,8 +1,18 @@
 {
- "checked": "2026-11-18T15:15+00:00",
+ "checked": "2026-11-18T23:57+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Callaway Paradym Ai Smoke Max Fairway Wood",
+   "model_id": "callaway-paradym-ai-smoke-max-fairway-wood",
+   "date": "2026-11-18",
+   "was": 288.04,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-fairway-wood/"
+  },
   {
    "model": "Wilson Staff Duo Soft TRK360 Golf Balls",
    "model_id": "wilson-staff-duo-soft-trk360-golf-balls",
@@ -22,6 +32,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-king-x-wedge/"
+  },
+  {
+   "model": "Ping s159 Chrome Wedge",
+   "model_id": "ping-s159-chrome-wedge",
+   "date": "2026-11-18",
+   "was": 129.0,
+   "now": 99.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-s159-chrome-wedge/"
   },
   {
    "model": "Callaway Chrome Tour Happy Gilmore 2 Golf Balls",
@@ -214,6 +234,36 @@
    "url": "https://golfpriceai.com/prices/cobra-rad-s-fairway-wood/"
   },
   {
+   "model": "Odyssey DFX 1 CH Putter",
+   "model_id": "odyssey-dfx-1-ch-putter",
+   "date": "2026-11-18",
+   "was": 129.0,
+   "now": 115.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-dfx-1-ch-putter/"
+  },
+  {
+   "model": "Odyssey DFX V-Line Fang DB Putter",
+   "model_id": "odyssey-dfx-v-line-fang-db-putter",
+   "date": "2026-11-18",
+   "was": 129.0,
+   "now": 115.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-dfx-v-line-fang-db-putter/"
+  },
+  {
+   "model": "Ping Pioneer 244 Cart Bag Golf Bag",
+   "model_id": "ping-pioneer-244-cart-bag-golf-bag",
+   "date": "2026-11-18",
+   "was": 199.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-pioneer-244-cart-bag-golf-bag/"
+  },
+  {
    "model": "TaylorMade Spider Tour Torched X True Putter",
    "model_id": "taylormade-spider-tour-torched-x-true-putter",
    "date": "2026-11-18",
@@ -232,6 +282,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-17-piece-package-set/"
+  },
+  {
+   "model": "TaylorMade RBZ 11-Piece Package Set",
+   "model_id": "taylormade-rbz-11-piece-package-set",
+   "date": "2026-11-18",
+   "was": 999.0,
+   "now": 899.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-rbz-11-piece-package-set/"
   },
   {
    "model": "Ping G440 K Driver",
@@ -254,6 +314,16 @@
    "url": "https://golfpriceai.com/prices/motocaddy-lite-series-cart-bag-golf-bag/"
   },
   {
+   "model": "Scotty Cameron Phantom 9R Putter",
+   "model_id": "scotty-cameron-phantom-9r-putter",
+   "date": "2026-11-18",
+   "was": 429.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-9r-putter/"
+  },
+  {
    "model": "Ping G440 SFT Fairway Wood",
    "model_id": "ping-g440-sft-fairway-wood",
    "date": "2026-11-18",
@@ -272,6 +342,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/ping-g440-max-driver/"
+  },
+  {
+   "model": "Scotty Cameron Phantom 11R OC Putter",
+   "model_id": "scotty-cameron-phantom-11r-oc-putter",
+   "date": "2026-11-18",
+   "was": 469.0,
+   "now": 449.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-11r-oc-putter/"
   },
   {
    "model": "Cobra King Wedge",
@@ -434,16 +514,6 @@
    "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-cart-bag-golf-bag/"
   },
   {
-   "model": "Scotty Cameron Phantom 11R OC Putter",
-   "model_id": "scotty-cameron-phantom-11r-oc-putter",
-   "date": "2026-11-17",
-   "was": 499.0,
-   "now": 469.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-11r-oc-putter/"
-  },
-  {
    "model": "Ping Hoofer Monsoon Waterproof Stand Bag Golf Bag",
    "model_id": "ping-hoofer-monsoon-waterproof-stand-bag-golf-bag",
    "date": "2026-11-17",
@@ -482,16 +552,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-3-2-putter/"
-  },
-  {
-   "model": "Scotty Cameron Phantom 9R Putter",
-   "model_id": "scotty-cameron-phantom-9r-putter",
-   "date": "2026-11-17",
-   "was": 449.0,
-   "now": 429.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-9r-putter/"
   },
   {
    "model": "MacGregor V-Max Ages 6-8 Junior Golf Set",
@@ -562,16 +622,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-baffler-driver/"
-  },
-  {
-   "model": "Callaway XT 11-Piece Junior Golf Set",
-   "model_id": "callaway-xt-11-piece-junior-golf-set",
-   "date": "2026-11-13",
-   "was": 499.0,
-   "now": 449.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-xt-11-piece-junior-golf-set/"
   },
   {
    "model": "Wilson Staff Model ZM Forged Wedge",

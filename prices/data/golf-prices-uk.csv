@@ -4,7 +4,6 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,aldila-stiff-driver,Aldila Stiff Driver,Aldila,driver,49.99,each,1,76,49.99,49.99,typical,https://golfpriceai.com/prices/aldila-stiff-driver/
 2026-11-18,callaway-elyte-driver,Callaway Elyte Driver,Callaway,driver,279.00,each,5,95,279.00,339.00,good,https://golfpriceai.com/prices/callaway-elyte-driver/
 2026-11-18,callaway-elyte-tour-certified-driver,Callaway Elyte Tour Certified Driver,Callaway,driver,279.00,each,1,76,279.00,329.00,good,https://golfpriceai.com/prices/callaway-elyte-tour-certified-driver/
-2026-11-18,callaway-elyte-x-driver,Callaway Elyte X Driver,Callaway,driver,279.00,each,3,95,279.00,339.00,good,https://golfpriceai.com/prices/callaway-elyte-x-driver/
 2026-11-18,callaway-paradym-ai-smoke-max-driver,Callaway Paradym Ai Smoke Max Driver,Callaway,driver,299.00,each,3,83,299.00,299.00,typical,https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-driver/
 2026-11-18,callaway-quantum-driver,Callaway Quantum Driver,Callaway,driver,465.00,each,1,83,399.00,529.00,wait,https://golfpriceai.com/prices/callaway-quantum-driver/
 2026-11-18,callaway-quantum-max-d-driver,Callaway Quantum Max D Driver,Callaway,driver,399.00,each,5,95,399.00,529.00,good,https://golfpriceai.com/prices/callaway-quantum-max-d-driver/
@@ -97,7 +96,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,callaway-elyte-triple-diamond-fairway-wood,Callaway Elyte Triple Diamond Fairway Wood,Callaway,fairway wood,249.00,each,2,95,249.00,359.00,good,https://golfpriceai.com/prices/callaway-elyte-triple-diamond-fairway-wood/
 2026-11-18,callaway-elyte-x-fairway-wood,Callaway Elyte X Fairway Wood,Callaway,fairway wood,229.00,each,3,95,229.00,239.00,typical,https://golfpriceai.com/prices/callaway-elyte-x-fairway-wood/
 2026-11-18,callaway-paradym-ai-smoke-max-d-fairway-wood,Callaway Paradym Ai Smoke Max D Fairway Wood,Callaway,fairway wood,265.30,each,2,95,179.00,379.00,typical,https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-d-fairway-wood/
-2026-11-18,callaway-paradym-ai-smoke-max-fairway-wood,Callaway Paradym Ai Smoke Max Fairway Wood,Callaway,fairway wood,288.04,each,2,95,288.04,379.00,typical,https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-fairway-wood/
+2026-11-18,callaway-paradym-ai-smoke-max-fairway-wood,Callaway Paradym Ai Smoke Max Fairway Wood,Callaway,fairway wood,199.00,each,3,95,199.00,379.00,good,https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-fairway-wood/
 2026-11-18,callaway-paradym-fairway-wood,Callaway Paradym Fairway Wood,Callaway,fairway wood,149.95,each,2,76,149.95,149.95,typical,https://golfpriceai.com/prices/callaway-paradym-fairway-wood/
 2026-11-18,callaway-quantum-fairway-wood,Callaway Quantum Fairway Wood,Callaway,fairway wood,229.00,each,1,76,229.00,319.00,good,https://golfpriceai.com/prices/callaway-quantum-fairway-wood/
 2026-11-18,callaway-quantum-max-d-fairway-wood,Callaway Quantum Max D Fairway Wood,Callaway,fairway wood,229.00,each,4,95,229.00,319.00,good,https://golfpriceai.com/prices/callaway-quantum-max-d-fairway-wood/
@@ -349,6 +348,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,ping-prodi-g-24-wedge,Ping Prodi G 24 Wedge,Ping,wedge,84.95,each,1,76,84.95,84.95,typical,https://golfpriceai.com/prices/ping-prodi-g-24-wedge/
 2026-11-18,ping-s259-chrome-wedge,Ping S259 Chrome Wedge,Ping,wedge,179.00,each,2,76,179.00,179.95,typical,https://golfpriceai.com/prices/ping-s259-chrome-wedge/
 2026-11-18,ping-s259-midnight-wedge,Ping S259 Midnight Wedge,Ping,wedge,179.00,each,2,76,179.00,179.95,typical,https://golfpriceai.com/prices/ping-s259-midnight-wedge/
+2026-11-18,ping-s159-chrome-wedge,Ping s159 Chrome Wedge,Ping,wedge,99.95,each,1,76,99.95,129.00,good,https://golfpriceai.com/prices/ping-s159-chrome-wedge/
 2026-11-18,powerbilt-x-grind-satin-wedge,Powerbilt X-Grind Satin Wedge,Powerbilt,wedge,24.95,each,1,83,24.95,24.95,typical,https://golfpriceai.com/prices/powerbilt-x-grind-satin-wedge/
 2026-11-18,taylormade-hi-toe-4-wedge,TaylorMade Hi-Toe 4 Wedge,TaylorMade,wedge,129.95,each,3,95,129.95,159.00,typical,https://golfpriceai.com/prices/taylormade-hi-toe-4-wedge/
 2026-11-18,taylormade-hi-toe-5-aged-copper-wedge,TaylorMade Hi-Toe 5 Aged Copper Wedge,TaylorMade,wedge,179.00,each,2,76,179.00,179.95,typical,https://golfpriceai.com/prices/taylormade-hi-toe-5-aged-copper-wedge/
@@ -428,9 +428,9 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,odyssey-ai-one-square-2-square-double-wide-putter,Odyssey Ai-ONE Square 2 Square Double Wide Putter,Odyssey,putter,211.65,each,2,95,211.65,289.00,good,https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-double-wide-putter/
 2026-11-18,odyssey-ai-one-square-2-square-max-putter,Odyssey Ai-ONE Square 2 Square Max Putter,Odyssey,putter,199.00,each,3,95,199.00,199.00,typical,https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-max-putter/
 2026-11-18,odyssey-ai-one-square-2-square-putter,Odyssey Ai-ONE Square 2 Square Putter,Odyssey,putter,179.00,each,2,76,179.00,279.00,typical,https://golfpriceai.com/prices/odyssey-ai-one-square-2-square-putter/
-2026-11-18,odyssey-dfx-1-ch-putter,Odyssey DFX 1 CH Putter,Odyssey,putter,129.00,each,2,39,129.00,149.00,typical,https://golfpriceai.com/prices/odyssey-dfx-1-ch-putter/
+2026-11-18,odyssey-dfx-1-ch-putter,Odyssey DFX 1 CH Putter,Odyssey,putter,115.00,each,2,39,115.00,149.00,good,https://golfpriceai.com/prices/odyssey-dfx-1-ch-putter/
 2026-11-18,odyssey-dfx-putter,Odyssey DFX Putter,Odyssey,putter,119.95,each,1,76,119.95,129.95,good,https://golfpriceai.com/prices/odyssey-dfx-putter/
-2026-11-18,odyssey-dfx-v-line-fang-db-putter,Odyssey DFX V-Line Fang DB Putter,Odyssey,putter,129.00,each,2,39,129.00,149.00,typical,https://golfpriceai.com/prices/odyssey-dfx-v-line-fang-db-putter/
+2026-11-18,odyssey-dfx-v-line-fang-db-putter,Odyssey DFX V-Line Fang DB Putter,Odyssey,putter,115.00,each,2,39,115.00,149.00,good,https://golfpriceai.com/prices/odyssey-dfx-v-line-fang-db-putter/
 2026-11-18,odyssey-damascus-milled-putter,Odyssey Damascus Milled Putter,Odyssey,putter,499.00,each,2,76,499.00,499.00,typical,https://golfpriceai.com/prices/odyssey-damascus-milled-putter/
 2026-11-18,odyssey-square-2-square-ai-dual-putter,Odyssey Square 2 Square Ai-Dual Putter,Odyssey,putter,229.00,each,1,76,229.00,229.00,typical,https://golfpriceai.com/prices/odyssey-square-2-square-ai-dual-putter/
 2026-11-18,odyssey-square-to-square-tri-hot-putter,Odyssey Square to Square Tri-Hot Putter,Odyssey,putter,429.00,each,1,76,429.00,449.00,good,https://golfpriceai.com/prices/odyssey-square-to-square-tri-hot-putter/
@@ -445,8 +445,8 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,ping-scottsdale-tec-putter,Ping Scottsdale TEC Putter,Ping,putter,349.00,each,2,76,349.00,359.00,typical,https://golfpriceai.com/prices/ping-scottsdale-tec-putter/
 2026-11-18,scotty-cameron-ltd-phantom-putter,Scotty Cameron Ltd Phantom Putter,Scotty Cameron,putter,499.00,each,1,76,499.00,729.00,good,https://golfpriceai.com/prices/scotty-cameron-ltd-phantom-putter/
 2026-11-18,scotty-cameron-onset-centre-putter,Scotty Cameron Onset Centre Putter,Scotty Cameron,putter,449.00,each,1,76,449.00,499.00,good,https://golfpriceai.com/prices/scotty-cameron-onset-centre-putter/
-2026-11-18,scotty-cameron-phantom-11r-oc-putter,Scotty Cameron Phantom 11R OC Putter,Scotty Cameron,putter,469.00,each,2,95,469.00,499.00,good,https://golfpriceai.com/prices/scotty-cameron-phantom-11r-oc-putter/
-2026-11-18,scotty-cameron-phantom-12-putter,Scotty Cameron Phantom 12 Putter,Scotty Cameron,putter,429.00,each,2,95,429.00,449.00,good,https://golfpriceai.com/prices/scotty-cameron-phantom-12-putter/
+2026-11-18,scotty-cameron-phantom-11r-oc-putter,Scotty Cameron Phantom 11R OC Putter,Scotty Cameron,putter,449.00,each,2,95,449.00,499.00,good,https://golfpriceai.com/prices/scotty-cameron-phantom-11r-oc-putter/
+2026-11-18,scotty-cameron-phantom-12-putter,Scotty Cameron Phantom 12 Putter,Scotty Cameron,putter,419.00,each,2,95,419.00,449.00,good,https://golfpriceai.com/prices/scotty-cameron-phantom-12-putter/
 2026-11-18,scotty-cameron-phantom-3-2-putter,Scotty Cameron Phantom 3.2 Putter,Scotty Cameron,putter,429.00,each,2,95,429.00,449.00,good,https://golfpriceai.com/prices/scotty-cameron-phantom-3-2-putter/
 2026-11-18,scotty-cameron-phantom-5-oc-putter,Scotty Cameron Phantom 5 OC Putter,Scotty Cameron,putter,499.00,each,2,95,499.00,499.00,typical,https://golfpriceai.com/prices/scotty-cameron-phantom-5-oc-putter/
 2026-11-18,scotty-cameron-phantom-5-putter,Scotty Cameron Phantom 5 Putter,Scotty Cameron,putter,429.00,each,3,95,429.00,449.00,typical,https://golfpriceai.com/prices/scotty-cameron-phantom-5-putter/
@@ -455,9 +455,9 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,scotty-cameron-phantom-7-2-putter,Scotty Cameron Phantom 7.2 Putter,Scotty Cameron,putter,329.00,each,3,95,329.00,449.00,typical,https://golfpriceai.com/prices/scotty-cameron-phantom-7-2-putter/
 2026-11-18,scotty-cameron-phantom-7-5-putter,Scotty Cameron Phantom 7.5 Putter,Scotty Cameron,putter,429.00,each,3,95,429.00,449.00,typical,https://golfpriceai.com/prices/scotty-cameron-phantom-7-5-putter/
 2026-11-18,scotty-cameron-phantom-9-2r-putter,Scotty Cameron Phantom 9.2r Putter,Scotty Cameron,putter,449.00,each,2,95,449.00,449.00,typical,https://golfpriceai.com/prices/scotty-cameron-phantom-9-2r-putter/
-2026-11-18,scotty-cameron-phantom-9r-putter,Scotty Cameron Phantom 9R Putter,Scotty Cameron,putter,429.00,each,2,95,429.00,449.00,good,https://golfpriceai.com/prices/scotty-cameron-phantom-9r-putter/
+2026-11-18,scotty-cameron-phantom-9r-putter,Scotty Cameron Phantom 9R Putter,Scotty Cameron,putter,399.00,each,2,95,399.00,449.00,good,https://golfpriceai.com/prices/scotty-cameron-phantom-9r-putter/
 2026-11-18,scotty-cameron-phantom-putter,Scotty Cameron Phantom Putter,Scotty Cameron,putter,449.00,each,1,76,449.00,449.00,typical,https://golfpriceai.com/prices/scotty-cameron-phantom-putter/
-2026-11-18,scotty-cameron-studio-style-fastback-oc-putter,Scotty Cameron Studio Style Fastback OC Putter,Scotty Cameron,putter,449.00,each,2,95,449.00,499.00,good,https://golfpriceai.com/prices/scotty-cameron-studio-style-fastback-oc-putter/
+2026-11-18,scotty-cameron-studio-style-fastback-oc-putter,Scotty Cameron Studio Style Fastback OC Putter,Scotty Cameron,putter,439.00,each,2,95,439.00,499.00,good,https://golfpriceai.com/prices/scotty-cameron-studio-style-fastback-oc-putter/
 2026-11-18,scotty-cameron-studio-style-putter,Scotty Cameron Studio Style Putter,Scotty Cameron,putter,419.00,each,2,76,419.00,449.00,good,https://golfpriceai.com/prices/scotty-cameron-studio-style-putter/
 2026-11-18,taylormade-spider-5k-zt-putter,TaylorMade Spider 5K ZT Putter,TaylorMade,putter,399.00,each,3,95,399.00,449.00,typical,https://golfpriceai.com/prices/taylormade-spider-5k-zt-putter/
 2026-11-18,taylormade-spider-tour-putter,TaylorMade Spider Tour Putter,TaylorMade,putter,269.00,each,2,76,269.00,299.00,good,https://golfpriceai.com/prices/taylormade-spider-tour-putter/
@@ -564,7 +564,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,callaway-warbird-distance-plus-golf-balls,Callaway Warbird Distance+ Golf Balls,Callaway,golf ball,18.95,per dozen,3,95,18.95,21.99,typical,https://golfpriceai.com/prices/callaway-warbird-distance-plus-golf-balls/
 2026-11-18,lindt-chocolate-golf-balls,Lindt Chocolate Golf Balls,Lindt,golf ball,7.99,per dozen,1,75,7.99,8.49,good,https://golfpriceai.com/prices/lindt-chocolate-golf-balls/
 2026-11-18,longridge-30-distance-golf-balls,Longridge 30 Distance Golf Balls,Longridge,golf ball,13.98,per dozen,1,76,13.98,13.98,good,https://golfpriceai.com/prices/longridge-30-distance-golf-balls/
-2026-11-18,longridge-airflow-practice-golf-balls,Longridge Airflow Practice Golf Balls,Longridge,golf ball,1.50,per dozen,1,76,1.50,1.50,typical,https://golfpriceai.com/prices/longridge-airflow-practice-golf-balls/
+2026-11-18,longridge-airflow-practice-golf-balls,Longridge Airflow Practice Golf Balls,Longridge,golf ball,3.99,per dozen,1,76,1.50,1.50,typical,https://golfpriceai.com/prices/longridge-airflow-practice-golf-balls/
 2026-11-18,longridge-jelly-practice-golf-balls,Longridge Jelly Practice Golf Balls,Longridge,golf ball,11.98,per dozen,1,76,11.98,11.98,good,https://golfpriceai.com/prices/longridge-jelly-practice-golf-balls/
 2026-11-18,longridge-multi-colour-practice-foam-golf-balls,Longridge Multi Colour Practice Foam Golf Balls,Longridge,golf ball,2.99,per dozen,1,76,2.99,2.99,typical,https://golfpriceai.com/prices/longridge-multi-colour-practice-foam-golf-balls/
 2026-11-18,longridge-practice-foam-golf-balls,Longridge Practice Foam Golf Balls,Longridge,golf ball,3.99,per dozen,1,76,3.99,3.99,typical,https://golfpriceai.com/prices/longridge-practice-foam-golf-balls/
@@ -584,7 +584,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,masters-rainbow-foam-practice-golf-balls,Masters Rainbow Foam Practice Golf Balls,Masters,golf ball,3.99,per dozen,1,76,3.99,3.99,typical,https://golfpriceai.com/prices/masters-rainbow-foam-practice-golf-balls/
 2026-11-18,masters-stripe-foam-practise-golf-balls,Masters Stripe Foam Practise Golf Balls,Masters,golf ball,11.99,per dozen,1,76,11.99,11.99,typical,https://golfpriceai.com/prices/masters-stripe-foam-practise-golf-balls/
 2026-11-18,mizuno-pro-s-golf-balls,Mizuno Pro S Golf Balls,Mizuno,golf ball,34.95,per dozen,3,95,34.95,39.99,typical,https://golfpriceai.com/prices/mizuno-pro-s-golf-balls/
-2026-11-18,mizuno-pro-x-golf-balls,Mizuno Pro X Golf Balls,Mizuno,golf ball,69.90,per dozen,2,95,34.95,39.99,typical,https://golfpriceai.com/prices/mizuno-pro-x-golf-balls/
+2026-11-18,mizuno-pro-x-golf-balls,Mizuno Pro X Golf Balls,Mizuno,golf ball,34.95,per dozen,3,95,34.95,39.99,typical,https://golfpriceai.com/prices/mizuno-pro-x-golf-balls/
 2026-11-18,mizuno-rb-566-golf-balls,Mizuno RB 566 Golf Balls,Mizuno,golf ball,34.99,per dozen,1,95,17.95,45.00,wait,https://golfpriceai.com/prices/mizuno-rb-566-golf-balls/
 2026-11-18,mizuno-rb-max-golf-balls,Mizuno RB Max Golf Balls,Mizuno,golf ball,24.99,per dozen,3,95,24.99,24.99,typical,https://golfpriceai.com/prices/mizuno-rb-max-golf-balls/
 2026-11-18,mizuno-rb-tour-x-golf-balls,Mizuno RB Tour X Golf Balls,Mizuno,golf ball,37.99,per dozen,1,76,37.99,37.99,typical,https://golfpriceai.com/prices/mizuno-rb-tour-x-golf-balls/
@@ -599,7 +599,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,second-chance-ltd-second-chance-practice-lake-golf-balls,Second Chance Ltd Second Chance Practice Lake Golf Balls,Second Chance Ltd,golf ball,34.99,per dozen,1,76,19.99,19.99,typical,https://golfpriceai.com/prices/second-chance-ltd-second-chance-practice-lake-golf-balls/
 2026-11-18,srixon-ad333-12-golf-balls,Srixon AD333 12 Golf Balls,Srixon,golf ball,22.95,per dozen,1,83,22.95,22.95,typical,https://golfpriceai.com/prices/srixon-ad333-12-golf-balls/
 2026-11-18,srixon-ad333-golf-balls,Srixon AD333 Golf Balls,Srixon,golf ball,19.95,per dozen,5,95,19.95,20.00,typical,https://golfpriceai.com/prices/srixon-ad333-golf-balls/
-2026-11-18,srixon-distance-golf-balls,Srixon Distance Golf Balls,Srixon,golf ball,13.99,per dozen,4,95,13.99,28.00,good,https://golfpriceai.com/prices/srixon-distance-golf-balls/
+2026-11-18,srixon-distance-golf-balls,Srixon Distance Golf Balls,Srixon,golf ball,13.99,per dozen,3,83,13.99,14.50,good,https://golfpriceai.com/prices/srixon-distance-golf-balls/
 2026-11-18,srixon-limited-z-star-diamond-2-dozen-golf-balls,Srixon Limited Z-star Diamond 2 Dozen Golf Balls,Srixon,golf ball,29.99,per dozen,1,95,29.99,47.49,typical,https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/
 2026-11-18,srixon-q-star-tour-6-divide-golf-balls,Srixon Q Star Tour 6 Divide Golf Balls,Srixon,golf ball,31.95,per dozen,2,83,31.95,31.95,typical,https://golfpriceai.com/prices/srixon-q-star-tour-6-divide-golf-balls/
 2026-11-18,srixon-q-star-tour-golf-balls,Srixon Q Star Tour Golf Balls,Srixon,golf ball,29.99,per dozen,3,95,29.99,29.99,typical,https://golfpriceai.com/prices/srixon-q-star-tour-golf-balls/
@@ -646,16 +646,16 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,titleist-avx-golf-balls,Titleist AVX Golf Balls,Titleist,golf ball,39.96,per dozen,4,83,39.96,39.99,good,https://golfpriceai.com/prices/titleist-avx-golf-balls/
 2026-11-18,titleist-avx-high-optic-golf-balls,Titleist AVX High Optic Golf Balls,Titleist,golf ball,42.99,per dozen,1,95,42.99,42.99,typical,https://golfpriceai.com/prices/titleist-avx-high-optic-golf-balls/
 2026-11-18,titleist-pinnacle-rush-distance-golf-balls,Titleist Pinnacle Rush Distance Golf Balls,Titleist,golf ball,15.19,per dozen,1,83,15.19,15.19,typical,https://golfpriceai.com/prices/titleist-pinnacle-rush-distance-golf-balls/
-2026-11-18,titleist-pro-v1-aim-performance-golf-balls,Titleist Pro V1 AIM Performance Golf Balls,Titleist,golf ball,49.95,per dozen,2,95,49.95,49.99,typical,https://golfpriceai.com/prices/titleist-pro-v1-aim-performance-golf-balls/
-2026-11-18,titleist-pro-v1-golf-balls,Titleist Pro V1 Golf Balls,Titleist,golf ball,43.96,per dozen,3,83,43.96,49.99,good,https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/
+2026-11-18,titleist-pro-v1-aim-performance-golf-balls,Titleist Pro V1 AIM Performance Golf Balls,Titleist,golf ball,44.99,per dozen,2,95,44.99,49.99,good,https://golfpriceai.com/prices/titleist-pro-v1-aim-performance-golf-balls/
+2026-11-18,titleist-pro-v1-golf-balls,Titleist Pro V1 Golf Balls,Titleist,golf ball,43.96,per dozen,4,95,43.96,94.99,good,https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/
 2026-11-18,titleist-pro-v1-high-number-golf-balls,Titleist Pro V1 High Number Golf Balls,Titleist,golf ball,49.99,per dozen,1,76,49.99,49.99,typical,https://golfpriceai.com/prices/titleist-pro-v1-high-number-golf-balls/
 2026-11-18,titleist-pro-v1x-4-for-3-golf-balls,Titleist Pro V1x 4 For 3 Golf Balls,Titleist,golf ball,37.49,per dozen,1,95,37.49,37.49,typical,https://golfpriceai.com/prices/titleist-pro-v1x-4-for-3-golf-balls/
 2026-11-18,titleist-pro-v1x-aim-performance-golf-balls,Titleist Pro V1x AIM Performance Golf Balls,Titleist,golf ball,49.95,per dozen,2,95,49.95,49.99,typical,https://golfpriceai.com/prices/titleist-pro-v1x-aim-performance-golf-balls/
 2026-11-18,titleist-pro-v1x-dash-4-for-golf-balls,Titleist Pro V1x Dash 4 For Golf Balls,Titleist,golf ball,41.24,per dozen,1,95,41.24,41.24,typical,https://golfpriceai.com/prices/titleist-pro-v1x-dash-4-for-golf-balls/
 2026-11-18,titleist-pro-v1x-dash-aim-line-golf-balls,Titleist Pro V1x Dash AIM Line Golf Balls,Titleist,golf ball,49.99,per dozen,1,76,49.99,49.99,typical,https://golfpriceai.com/prices/titleist-pro-v1x-dash-aim-line-golf-balls/
 2026-11-18,titleist-pro-v1x-dash-aim-performance-golf-balls,Titleist Pro V1x Dash AIM Performance Golf Balls,Titleist,golf ball,49.99,per dozen,1,95,49.99,49.99,typical,https://golfpriceai.com/prices/titleist-pro-v1x-dash-aim-performance-golf-balls/
-2026-11-18,titleist-pro-v1x-dash-golf-balls,Titleist Pro V1x Dash Golf Balls,Titleist,golf ball,49.95,per dozen,4,95,43.96,94.99,typical,https://golfpriceai.com/prices/titleist-pro-v1x-dash-golf-balls/
-2026-11-18,titleist-pro-v1x-golf-balls,Titleist Pro V1x Golf Balls,Titleist,golf ball,43.96,per dozen,3,83,43.96,49.99,good,https://golfpriceai.com/prices/titleist-pro-v1x-golf-balls/
+2026-11-18,titleist-pro-v1x-dash-golf-balls,Titleist Pro V1x Dash Golf Balls,Titleist,golf ball,44.99,per dozen,4,95,43.96,94.99,typical,https://golfpriceai.com/prices/titleist-pro-v1x-dash-golf-balls/
+2026-11-18,titleist-pro-v1x-golf-balls,Titleist Pro V1x Golf Balls,Titleist,golf ball,43.96,per dozen,4,95,43.96,94.99,good,https://golfpriceai.com/prices/titleist-pro-v1x-golf-balls/
 2026-11-18,titleist-pro-v1x-high-number-golf-balls,Titleist Pro V1x High Number Golf Balls,Titleist,golf ball,49.99,per dozen,1,62,49.99,49.99,typical,https://golfpriceai.com/prices/titleist-pro-v1x-high-number-golf-balls/
 2026-11-18,titleist-titlesit-tour-soft-golf-balls,Titleist Titlesit Tour Soft Golf Balls,Titleist,golf ball,64.00,per dozen,1,95,64.00,64.00,typical,https://golfpriceai.com/prices/titleist-titlesit-tour-soft-golf-balls/
 2026-11-18,titleist-titliest-velocity-golf-balls,Titleist Titliest Velocity Golf Balls,Titleist,golf ball,51.00,per dozen,1,95,51.00,51.00,typical,https://golfpriceai.com/prices/titleist-titliest-velocity-golf-balls/
@@ -886,7 +886,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,ping-moonlander-244-stand-bag-golf-bag,Ping Moonlander 244 Stand Bag Golf Bag,Ping,golf bag,114.00,each,2,95,114.00,129.00,typical,https://golfpriceai.com/prices/ping-moonlander-244-stand-bag-golf-bag/
 2026-11-18,ping-moonlander-stand-bag-golf-bag,Ping Moonlander Stand Bag Golf Bag,Ping,golf bag,125.00,each,2,76,125.00,129.95,typical,https://golfpriceai.com/prices/ping-moonlander-stand-bag-golf-bag/
 2026-11-18,ping-pioneer-224-cart-bag-golf-bag,Ping Pioneer 224 Cart Bag Golf Bag,Ping,golf bag,179.00,each,1,95,179.00,199.00,typical,https://golfpriceai.com/prices/ping-pioneer-224-cart-bag-golf-bag/
-2026-11-18,ping-pioneer-244-cart-bag-golf-bag,Ping Pioneer 244 Cart Bag Golf Bag,Ping,golf bag,199.00,each,3,95,179.00,199.00,wait,https://golfpriceai.com/prices/ping-pioneer-244-cart-bag-golf-bag/
+2026-11-18,ping-pioneer-244-cart-bag-golf-bag,Ping Pioneer 244 Cart Bag Golf Bag,Ping,golf bag,179.00,each,3,95,179.00,199.00,good,https://golfpriceai.com/prices/ping-pioneer-244-cart-bag-golf-bag/
 2026-11-18,ping-pioneer-cart-bag-golf-bag,Ping Pioneer Cart Bag Golf Bag,Ping,golf bag,199.95,each,1,76,199.95,199.95,typical,https://golfpriceai.com/prices/ping-pioneer-cart-bag-golf-bag/
 2026-11-18,ping-pioneer-monsoon-231-waterproof-cart-bag-golf-bag,Ping Pioneer Monsoon 231 Waterproof Cart Bag Golf Bag,Ping,golf bag,209.00,each,2,95,209.00,239.00,typical,https://golfpriceai.com/prices/ping-pioneer-monsoon-231-waterproof-cart-bag-golf-bag/
 2026-11-18,ping-pioneer-monsoon-waterproof-cart-bag-golf-bag,Ping Pioneer Monsoon Waterproof Cart Bag Golf Bag,Ping,golf bag,219.00,each,2,76,219.00,229.99,typical,https://golfpriceai.com/prices/ping-pioneer-monsoon-waterproof-cart-bag-golf-bag/
@@ -1281,7 +1281,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,taylormade-rbz-10-piece-cart-bag-ladies-package-set,TaylorMade RBZ 10-Piece Cart Bag Ladies Package Set,TaylorMade,package set,1029.00,each,1,76,1029.00,1029.00,typical,https://golfpriceai.com/prices/taylormade-rbz-10-piece-cart-bag-ladies-package-set/
 2026-11-18,taylormade-rbz-10-piece-ladies-package-set,TaylorMade RBZ 10-Piece Ladies Package Set,TaylorMade,package set,1029.00,each,1,95,959.00,1029.00,wait,https://golfpriceai.com/prices/taylormade-rbz-10-piece-ladies-package-set/
 2026-11-18,taylormade-rbz-11-piece-cart-bag-package-set,TaylorMade RBZ 11-Piece Cart Bag Package Set,TaylorMade,package set,999.00,each,1,76,999.00,999.00,typical,https://golfpriceai.com/prices/taylormade-rbz-11-piece-cart-bag-package-set/
-2026-11-18,taylormade-rbz-11-piece-package-set,TaylorMade RBZ 11-Piece Package Set,TaylorMade,package set,999.00,each,2,95,959.00,1029.00,typical,https://golfpriceai.com/prices/taylormade-rbz-11-piece-package-set/
+2026-11-18,taylormade-rbz-11-piece-package-set,TaylorMade RBZ 11-Piece Package Set,TaylorMade,package set,899.00,each,2,95,899.00,1029.00,good,https://golfpriceai.com/prices/taylormade-rbz-11-piece-package-set/
 2026-11-18,taylormade-rbz-package-set,TaylorMade RBZ Package Set,TaylorMade,package set,1195.00,each,1,83,1195.00,1195.00,typical,https://golfpriceai.com/prices/taylormade-rbz-package-set/
 2026-11-18,taylormade-rbz-speedlite-10-piece-package-set,TaylorMade RBZ Speedlite 10-Piece Package Set,TaylorMade,package set,829.00,each,1,76,829.00,829.00,typical,https://golfpriceai.com/prices/taylormade-rbz-speedlite-10-piece-package-set/
 2026-11-18,taylormade-rbz-speedlite-13-piece-package-set,TaylorMade RBZ Speedlite 13-Piece Package Set,TaylorMade,package set,1049.00,each,1,76,1049.00,1049.00,typical,https://golfpriceai.com/prices/taylormade-rbz-speedlite-13-piece-package-set/
@@ -1326,7 +1326,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-18,callaway-xj-1-5-piecejunior-junior-golf-set,Callaway XJ-1 5-PieceJunior Junior Golf Set,Callaway,junior golf set,229.00,each,1,76,229.00,229.00,typical,https://golfpriceai.com/prices/callaway-xj-1-5-piecejunior-junior-golf-set/
 2026-11-18,callaway-xj-2-7-piece-junior-golf-set,Callaway XJ-2 7-Piece Junior Golf Set,Callaway,junior golf set,349.00,each,1,76,349.00,349.00,typical,https://golfpriceai.com/prices/callaway-xj-2-7-piece-junior-golf-set/
 2026-11-18,callaway-xj-3-8-piece-junior-golf-set,Callaway XJ-3 8-Piece Junior Golf Set,Callaway,junior golf set,399.00,each,1,76,399.00,399.00,typical,https://golfpriceai.com/prices/callaway-xj-3-8-piece-junior-golf-set/
-2026-11-18,callaway-xt-11-piece-junior-golf-set,Callaway XT 11-Piece Junior Golf Set,Callaway,junior golf set,449.00,each,2,95,449.00,499.00,good,https://golfpriceai.com/prices/callaway-xt-11-piece-junior-golf-set/
+2026-11-18,callaway-xt-11-piece-junior-golf-set,Callaway XT 11-Piece Junior Golf Set,Callaway,junior golf set,499.00,each,2,95,449.00,499.00,wait,https://golfpriceai.com/prices/callaway-xt-11-piece-junior-golf-set/
 2026-11-18,callaway-xt-junior-golf-set,Callaway XT Junior Golf Set,Callaway,junior golf set,569.00,each,1,95,569.00,569.00,typical,https://golfpriceai.com/prices/callaway-xt-junior-golf-set/
 2026-11-18,cleveland-full-ages-4-6-junior-golf-set,Cleveland Full Ages 4-6 Junior Golf Set,Cleveland,junior golf set,149.00,each,1,83,149.00,149.00,typical,https://golfpriceai.com/prices/cleveland-full-ages-4-6-junior-golf-set/
 2026-11-18,cleveland-series-4-piece-stand-bag-ages-4-6-junior-golf-set,Cleveland Series 4-Piece Stand Bag Ages 4-6 Junior Golf Set,Cleveland,junior golf set,139.00,each,1,76,129.00,139.00,wait,https://golfpriceai.com/prices/cleveland-series-4-piece-stand-bag-ages-4-6-junior-golf-set/
