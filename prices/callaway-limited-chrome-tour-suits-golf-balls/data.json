@@ -6,23 +6,23 @@
  "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 55.0,
+ "lowestNewPrice": 46.75,
  "lowestAt": [
   "Callaway Golf"
  ],
  "retailers": [
   {
    "name": "Callaway Golf",
-   "from": 55.0,
+   "from": 46.75,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 86,
-  "low": 55.0,
+  "low": 46.75,
   "high": 55.0,
-  "average": 55.0,
-  "priceChanges": 0,
+  "average": 54.9,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-25",
@@ -30,15 +30,15 @@
    ],
    [
     "2026-11-18",
-    55.0
+    46.75
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 86 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794843646403/sits/balls-2026-chrome-tour-truvis-suits/balls-2026-chrome-tour-truvis-suits_2___1.png?sfrm=png",
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794916906403/sits/balls-2026-chrome-tour-truvis-suits/balls-2026-chrome-tour-truvis-suits_2___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-18"
 }

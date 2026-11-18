@@ -12,23 +12,23 @@
  "chart": [
   {
    "rank": 1,
-   "name": "Callaway Online Exclusive Mavrik 17-Piece Package Set",
-   "brand": "Callaway",
-   "type": "set",
-   "price": 899.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-17-piece-package-set/"
-  },
-  {
-   "rank": 2,
    "name": "Garmin Approach S70 GPS Watch",
    "brand": "Garmin",
    "type": "gps-watch",
    "price": 429.0,
    "unit": "",
-   "move": -1,
+   "move": 0,
    "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
+  },
+  {
+   "rank": 2,
+   "name": "Callaway Online Exclusive Mavrik 17-Piece Package Set",
+   "brand": "Callaway",
+   "type": "set",
+   "price": 809.1,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-17-piece-package-set/"
   },
   {
    "rank": 3,
@@ -42,46 +42,6 @@
   },
   {
    "rank": 4,
-   "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
-   "brand": "MacGregor",
-   "type": "set",
-   "price": 299.0,
-   "unit": "",
-   "move": -1,
-   "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
-  },
-  {
-   "rank": 5,
-   "name": "MacGregor ZT1 Ladies Package Set",
-   "brand": "MacGregor",
-   "type": "set",
-   "price": 419.0,
-   "unit": "",
-   "move": -1,
-   "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
-  },
-  {
-   "rank": 6,
-   "name": "Wilson TPX Ladies Package Set",
-   "brand": "Wilson",
-   "type": "set",
-   "price": 319.0,
-   "unit": "",
-   "move": -1,
-   "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
-  },
-  {
-   "rank": 7,
-   "name": "Yonex Ezone GS i-Tech Driver",
-   "brand": "Yonex",
-   "type": "driver",
-   "price": 179.95,
-   "unit": "",
-   "move": 1,
-   "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
-  },
-  {
-   "rank": 8,
    "name": "Callaway Apex Ai-150 Irons",
    "brand": "Callaway",
    "type": "irons",
@@ -91,7 +51,97 @@
    "url": "https://golfpriceai.com/prices/callaway-apex-ai-150-irons/"
   },
   {
+   "rank": 5,
+   "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
+   "brand": "MacGregor",
+   "type": "set",
+   "price": 299.0,
+   "unit": "",
+   "move": -2,
+   "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
+  },
+  {
+   "rank": 6,
+   "name": "MacGregor ZT1 Ladies Package Set",
+   "brand": "MacGregor",
+   "type": "set",
+   "price": 419.0,
+   "unit": "",
+   "move": -2,
+   "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
+  },
+  {
+   "rank": 7,
+   "name": "Wilson TPX Ladies Package Set",
+   "brand": "Wilson",
+   "type": "set",
+   "price": 319.0,
+   "unit": "",
+   "move": -2,
+   "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
+  },
+  {
+   "rank": 8,
+   "name": "Yonex Ezone GS i-Tech Driver",
+   "brand": "Yonex",
+   "type": "driver",
+   "price": 179.95,
+   "unit": "",
+   "move": 0,
+   "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
+  },
+  {
    "rank": 9,
+   "name": "Callaway Chrome Soft 26 Golf Balls",
+   "brand": "Callaway",
+   "type": "ball",
+   "price": 47.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-chrome-soft-26-golf-balls/"
+  },
+  {
+   "rank": 10,
+   "name": "Callaway E R C Soft Truvis Golf Balls",
+   "brand": "Callaway",
+   "type": "ball",
+   "price": 48.0,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-e-r-c-soft-truvis-golf-balls/"
+  },
+  {
+   "rank": 11,
+   "name": "Callaway ERC Soft Triple Track Golf Balls",
+   "brand": "Callaway",
+   "type": "ball",
+   "price": 37.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-erc-soft-triple-track-golf-balls/"
+  },
+  {
+   "rank": 12,
+   "name": "Callaway Online Exclusive Mavrik Golf Balls",
+   "brand": "Callaway",
+   "type": "ball",
+   "price": 21.59,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-golf-balls/"
+  },
+  {
+   "rank": 13,
+   "name": "Callaway Supersoft Pub Golf Balls",
+   "brand": "Callaway",
+   "type": "ball",
+   "price": 24.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-supersoft-pub-golf-balls/"
+  },
+  {
+   "rank": 14,
    "name": "Callaway X Forged Max Irons",
    "brand": "Callaway",
    "type": "irons",
@@ -101,7 +151,37 @@
    "url": "https://golfpriceai.com/prices/callaway-x-forged-max-irons/"
   },
   {
-   "rank": 10,
+   "rank": 15,
+   "name": "Cobra DS-Adapt Irons",
+   "brand": "Cobra",
+   "type": "irons",
+   "price": 499.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-irons/"
+  },
+  {
+   "rank": 16,
+   "name": "MacGregor ZT Plus Irons",
+   "brand": "MacGregor",
+   "type": "irons",
+   "price": 249.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/macgregor-zt-plus-irons/"
+  },
+  {
+   "rank": 17,
+   "name": "Mizuno Pro S Golf Balls",
+   "brand": "Mizuno",
+   "type": "ball",
+   "price": 34.95,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/mizuno-pro-s-golf-balls/"
+  },
+  {
+   "rank": 18,
    "name": "Powerbilt GSX 14-Piece Package Set",
    "brand": "Powerbilt",
    "type": "set",
@@ -109,6 +189,26 @@
    "unit": "",
    "move": "new",
    "url": "https://golfpriceai.com/prices/powerbilt-gsx-14-piece-package-set/"
+  },
+  {
+   "rank": 19,
+   "name": "Srixon Weatherproof Cart Bag Golf Bag",
+   "brand": "Srixon",
+   "type": "bag",
+   "price": 229.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/srixon-weatherproof-cart-bag-golf-bag/"
+  },
+  {
+   "rank": 20,
+   "name": "Srixon ZXi7 Irons",
+   "brand": "Srixon",
+   "type": "irons",
+   "price": 599.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/srixon-zxi7-irons/"
   }
  ],
  "wishfulThinking": [
@@ -136,19 +236,23 @@
  "categoryShare": [
   {
    "category": "Irons & wedges",
-   "pct": 66
-  },
-  {
-   "category": "Tech",
-   "pct": 12
+   "pct": 46
   },
   {
    "category": "Balls",
-   "pct": 12
+   "pct": 36
+  },
+  {
+   "category": "Tech",
+   "pct": 10
   },
   {
    "category": "Drivers & woods",
-   "pct": 10
+   "pct": 4
+  },
+  {
+   "category": "Bags & trolleys",
+   "pct": 3
   }
  ],
  "reports": [

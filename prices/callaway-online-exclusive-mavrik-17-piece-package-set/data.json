@@ -6,23 +6,23 @@
  "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 899.0,
+ "lowestNewPrice": 809.1,
  "lowestAt": [
   "Callaway Golf"
  ],
  "retailers": [
   {
    "name": "Callaway Golf",
-   "from": 899.0,
+   "from": 809.1,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 95,
-  "low": 899.0,
+  "low": 809.1,
   "high": 899.0,
-  "average": 899.0,
-  "priceChanges": 0,
+  "average": 898.05,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,15 +30,15 @@
    ],
    [
     "2026-11-18",
-    899.0
+    809.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 95 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794843646403/sits/compsets-2024-mavrik-eu/compsets-2024-mavrik-eu_18131___1.png?sfrm=png",
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794916906403/sits/compsets-2024-mavrik-eu/compsets-2024-mavrik-eu_18131___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-18"
 }
