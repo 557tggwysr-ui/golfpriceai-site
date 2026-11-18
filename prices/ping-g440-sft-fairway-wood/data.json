@@ -3,18 +3,17 @@
  "brand": "Ping",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/ping-g440-sft-fairway-wood/",
- "checked": "2026-11-17",
+ "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 319.0,
+ "lowestNewPrice": 299.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 319.0,
+   "from": 299.0,
    "options": 3
   },
   {
@@ -24,27 +23,27 @@
   }
  ],
  "history": {
-  "daysTracked": 94,
-  "low": 319.0,
+  "daysTracked": 95,
+  "low": 299.0,
   "high": 319.0,
-  "average": 319.0,
-  "priceChanges": 0,
+  "average": 318.79,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
     319.0
    ],
    [
-    "2026-11-17",
-    319.0
+    "2026-11-18",
+    299.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 94 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-sft-fairway-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Ping-G440-SFT-Golf-Fairway-Wood-1.jpg?v=1736827562",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-17"
+ "changed": "2026-11-18"
 }

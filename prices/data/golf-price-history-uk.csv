@@ -108,11 +108,13 @@ ping-g440-hl-driver,2026-11-06,499.00
 ping-g440-k-driver,2026-08-16,599.00
 ping-g440-k-driver,2026-10-30,579.00
 ping-g440-k-driver,2026-11-11,549.00
+ping-g440-k-driver,2026-11-18,499.00
 ping-g440-lst-driver,2026-08-16,529.00
 ping-g440-lst-driver,2026-10-30,499.00
 ping-g440-max-driver,2026-08-16,479.00
 ping-g440-max-driver,2026-08-25,529.00
 ping-g440-max-driver,2026-10-30,499.00
+ping-g440-max-driver,2026-11-18,479.00
 ping-g440-max-hl-driver,2026-08-16,529.00
 ping-g440-max-hl-driver,2026-10-30,499.00
 ping-g440-sft-driver,2026-08-16,529.00
@@ -271,6 +273,7 @@ cobra-optm-x-fairway-wood,2026-09-18,279.00
 cobra-optm-x-fairway-wood,2026-11-04,249.00
 cobra-rad-s-fairway-wood,2026-08-16,179.00
 cobra-rad-s-fairway-wood,2026-10-26,169.00
+cobra-rad-s-fairway-wood,2026-11-18,149.00
 golfway-champion-fairway-wood,2026-09-04,24.99
 golfway-champion-youth-fairway-wood,2026-09-04,29.99
 macgregor-v-max-speed-fairway-wood,2026-08-28,69.00
@@ -296,6 +299,7 @@ ping-g440-lst-fairway-wood,2026-08-16,529.00
 ping-g440-lst-fairway-wood,2026-10-30,499.00
 ping-g440-max-fairway-wood,2026-08-16,319.00
 ping-g440-sft-fairway-wood,2026-08-16,319.00
+ping-g440-sft-fairway-wood,2026-11-18,299.00
 ping-prodi-g-24-fairway-wood,2026-09-04,139.95
 ping-prodi-g-24-fairway-wood,2026-10-30,139.00
 srixon-zxi-fairway-wood,2026-08-16,299.00
@@ -373,6 +377,7 @@ cobra-air-x-hybrid,2026-08-16,99.00
 cobra-baffler-hybrid,2026-08-16,169.00
 cobra-ds-adapt-hybrid,2026-08-16,179.00
 cobra-ds-adapt-hybrid,2026-11-04,159.95
+cobra-ds-adapt-hybrid,2026-11-18,159.00
 cobra-darkspeed-hybrid,2026-08-16,149.00
 cobra-darkspeed-hybrid,2026-09-04,139.00
 cobra-darkspeed-hybrid,2026-09-11,129.00
@@ -687,6 +692,7 @@ cleveland-smart-sole-full-face-wedge,2026-08-16,119.00
 cobra-king-pur-wedge,2026-09-04,89.95
 cobra-king-x-wedge,2026-08-16,139.00
 cobra-king-x-wedge,2026-10-30,129.00
+cobra-king-x-wedge,2026-11-18,99.00
 cobra-king-snakebite-wedge,2026-08-16,99.00
 cobra-king-wedge,2026-08-16,139.00
 cobra-king-wedge,2026-10-30,119.00
@@ -776,6 +782,7 @@ wilson-staff-model-zm-forged-wedge,2026-11-13,99.00
 wilson-staff-model-zm-wedge,2026-08-16,129.00
 wilson-staff-model-zm-wedge,2026-09-30,99.95
 wilson-staff-model-zm-wedge,2026-10-30,99.00
+bettinardi-bb28-armlock-putter,2026-09-04,419.99
 cleveland-hb-soft-2-1-putter,2026-08-16,119.00
 cleveland-hb-soft-2-1-putter,2026-08-28,109.00
 cleveland-hb-soft-2-15-putter,2026-08-16,159.00
@@ -927,6 +934,7 @@ taylormade-spider-tour-putter,2026-11-17,269.00
 taylormade-spider-tour-torched-f-putter,2026-09-04,299.00
 taylormade-spider-tour-torched-true-path-putter,2026-09-04,299.00
 taylormade-spider-tour-torched-x-true-putter,2026-09-04,299.00
+taylormade-spider-tour-torched-x-true-putter,2026-11-18,269.00
 taylormade-spider-tour-x-putter,2026-09-04,299.00
 taylormade-spider-tour-x-putter,2026-11-17,269.00
 taylormade-spider-zt-max-putter,2026-08-16,449.00
@@ -949,6 +957,7 @@ wilson-model-putter,2026-09-04,295.00
 wilson-staff-infinite-putter,2026-08-16,109.00
 wilson-staff-infinite-putter,2026-10-30,99.00
 wilson-staff-infinite-putter,2026-11-12,79.00
+wilson-staff-infinite-putter,2026-11-18,94.95
 yonex-ezone-elite-4-putter,2026-08-16,129.00
 bridgestone-percept-golf-balls,2026-09-04,23.99
 bridgestone-tour-b-rx-golf-balls,2026-08-28,37.95
@@ -1247,7 +1256,9 @@ wilson-duo-soft-trk-360-golf-balls,2026-11-13,15.99
 wilson-duo-soft-trk360-golf-balls,2026-08-16,22.99
 wilson-duo-soft-trk360-golf-balls,2026-10-30,22.95
 wilson-staff-duo-soft-golf-balls,2026-09-04,22.99
+wilson-staff-duo-soft-golf-balls,2026-11-18,15.99
 wilson-staff-duo-soft-trk360-golf-balls,2026-09-04,22.99
+wilson-staff-duo-soft-trk360-golf-balls,2026-11-18,15.99
 wilson-staff-model-golf-balls,2026-08-28,44.99
 wilson-staff-model-golf-balls,2026-10-30,37.95
 wilson-staff-model-trk360-golf-balls,2026-08-16,85.00
@@ -2003,6 +2014,7 @@ motocaddy-hydroflex-waterproof-hybrid-stand-bag-golf-bag,2026-08-28,159.00
 motocaddy-hydroflex-waterproof-stand-bag-golf-bag,2026-09-04,189.99
 motocaddy-hydroflex-waterproof-stand-bag-golf-bag,2026-09-12,159.95
 motocaddy-lite-series-cart-bag-golf-bag,2026-08-28,119.00
+motocaddy-lite-series-cart-bag-golf-bag,2026-11-18,109.00
 motocaddy-m-tech-cart-bag-golf-bag,2026-08-16,279.00
 motocaddy-m-tech-cart-bag-golf-bag,2026-08-28,249.00
 motocaddy-m-tech-cart-bag-golf-bag,2026-09-10,259.00
@@ -2047,6 +2059,7 @@ motocaddy-protekta-cart-bag-golf-bag,2026-11-13,209.00
 motocaddy-protekta-cart-bag-golf-bag,2026-11-16,239.00
 motocaddy-protekta-deluxe-cart-bag-golf-bag,2026-08-28,249.00
 motocaddy-series-cart-bag-golf-bag,2026-08-28,149.00
+motocaddy-series-cart-bag-golf-bag,2026-11-18,129.00
 never-compromise-tour-staff-golf-bag,2026-09-04,449.00
 nike-air-hybrid-2-stand-bag-golf-bag,2026-08-28,229.95
 nike-air-hybrid-2-stand-bag-golf-bag,2026-09-10,199.00
@@ -2681,6 +2694,7 @@ taylormade-pro-cart-bag-golf-bag,2026-08-17,139.00
 taylormade-pro-cart-bag-golf-bag,2026-08-22,129.00
 taylormade-pro-cart-bag-golf-bag,2026-08-24,139.00
 taylormade-pro-cart-bag-golf-bag,2026-08-28,119.00
+taylormade-pro-cart-bag-golf-bag,2026-11-18,139.00
 taylormade-pro-stand-bag-golf-bag,2026-08-16,129.00
 taylormade-pro-stand-bag-golf-bag,2026-08-17,139.00
 taylormade-pro-stand-bag-golf-bag,2026-08-22,129.00

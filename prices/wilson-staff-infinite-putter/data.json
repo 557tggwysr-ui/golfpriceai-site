@@ -3,17 +3,17 @@
  "brand": "Wilson",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/wilson-staff-infinite-putter/",
- "checked": "2026-11-17",
+ "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 79.0,
+ "lowestNewPrice": 94.95,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 79.0,
+   "from": 94.95,
    "options": 9
   },
   {
@@ -23,11 +23,11 @@
   }
  ],
  "history": {
-  "daysTracked": 94,
+  "daysTracked": 95,
   "low": 79.0,
   "high": 109.0,
-  "average": 105.7,
-  "priceChanges": 2,
+  "average": 105.59,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -42,16 +42,16 @@
     79.0
    ],
    [
-    "2026-11-17",
-    79.0
+    "2026-11-18",
+    94.95
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £15.95 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Staff-Infinite-Golf-Putter-2024---Bucktown2.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Wilson-Staff-2024-Infinite-Golf-Putter-Windy-City-5.jpg?v=1716523502",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-17"
+ "changed": "2026-11-18"
 }

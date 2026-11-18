@@ -1,66 +1,66 @@
 {
- "n": 31,
- "date": "2026-11-17",
+ "n": 32,
+ "date": "2026-11-18",
  "items": [
   {
-   "slug": "mizuno-pro-t-3-wedge",
-   "name": "Mizuno Pro T-3 Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/pro-t3-black-wedge-hero.jpg",
-   "price": 119.0,
-   "unit": "each",
-   "type": "wedge",
-   "low": true,
-   "url": "/prices/mizuno-pro-t-3-wedge/"
-  },
-  {
-   "slug": "big-max-dri-lite-silencio-3-organiser-cart-golf-bag",
-   "name": "Big Max Dri Lite Silencio 3 Organiser Cart Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DriLiteSilencio3OrganiserCartBagBlack2.jpg?v=1773174822",
-   "price": 199.0,
-   "unit": "each",
-   "type": "golf bag",
-   "low": true,
-   "url": "/prices/big-max-dri-lite-silencio-3-organiser-cart-golf-bag/"
-  },
-  {
-   "slug": "ping-g440-hl-hybrid",
-   "name": "Ping G440 HL Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-hl-hybrid-hero.jpg",
+   "slug": "taylormade-qi4d-hybrid",
+   "name": "TaylorMade Qi4D Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/N8402311-Qi4D-Core-Rescue-Hero.jpg",
    "price": 269.0,
    "unit": "each",
    "type": "hybrid",
    "low": false,
-   "url": "/prices/ping-g440-hl-hybrid/"
+   "url": "/prices/taylormade-qi4d-hybrid/"
   },
   {
-   "slug": "callaway-quantum-max-d-driver",
-   "name": "Callaway Quantum Max D Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfQuantumMaxDDriver_5.jpg?v=1768379460",
-   "price": 399.0,
+   "slug": "mizuno-jpx-925-hot-metal-irons",
+   "name": "Mizuno JPX 925 Hot Metal Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/925HOTMETAL1_6fee0f03-6693-416a-9624-b5427e6f12e4.jpg?v=1724252626",
+   "price": 599.0,
    "unit": "each",
-   "type": "driver",
-   "low": true,
-   "url": "/prices/callaway-quantum-max-d-driver/"
+   "type": "iron set",
+   "low": false,
+   "url": "/prices/mizuno-jpx-925-hot-metal-irons/"
   },
   {
-   "slug": "taylormade-qi4d-max-fairway-wood",
-   "name": "TaylorMade Qi4D Max Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/N8405107-Qi4D-Max-Fairway-Hero.jpg",
-   "price": 319.0,
+   "slug": "callaway-supersoft-golf-balls",
+   "name": "Callaway Supersoft Golf Balls",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Supersoft-Golf-Balls---Red.jpg",
+   "price": 22.49,
+   "unit": "per dozen",
+   "type": "golf ball",
+   "low": true,
+   "url": "/prices/callaway-supersoft-golf-balls/"
+  },
+  {
+   "slug": "titleist-cart-bag-golf-bag",
+   "name": "Titleist Cart Bag Golf Bag",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/cart142022baggraphiteislandredblack.jpg?v=1703926024",
+   "price": 149.0,
+   "unit": "each",
+   "type": "golf bag",
+   "low": false,
+   "url": "/prices/titleist-cart-bag-golf-bag/"
+  },
+  {
+   "slug": "ping-g-le-fairway-wood",
+   "name": "Ping G Le Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ping-gle-3-ladies-fairway-hero-1000x100.jpg",
+   "price": 269.0,
    "unit": "each",
    "type": "fairway wood",
    "low": false,
-   "url": "/prices/taylormade-qi4d-max-fairway-wood/"
+   "url": "/prices/ping-g-le-fairway-wood/"
   }
  ],
  "pin": {
-  "slug": "srixon-z-star-golf-balls",
-  "name": "Srixon Z-Star Golf Balls",
-  "image": "https://www.clickgolf.co.uk/images/product/main/Srixon-Z-Star-Golf-Balls-White.jpg",
-  "price": 34.99,
-  "unit": "per dozen",
-  "type": "golf ball",
-  "low": true,
-  "url": "/prices/srixon-z-star-golf-balls/"
+  "slug": "srixon-zxi-rkt-max-driver",
+  "name": "Srixon ZXi RKT Max Driver",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonGolfZXiRKTMAXDriver_5.jpg?v=1788422852",
+  "price": 529.0,
+  "unit": "each",
+  "type": "driver",
+  "low": false,
+  "url": "/prices/srixon-zxi-rkt-max-driver/"
  }
 }

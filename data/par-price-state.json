@@ -1,13 +1,6 @@
 {
  "about": "Which models each Par Price round used (no personal data).",
  "days": {
-  "2026-10-18": [
-   "mizuno-jpx-925-hot-metal-irons",
-   "titleist-cart-bag-golf-bag",
-   "callaway-supersoft-golf-balls",
-   "taylormade-qi4d-hybrid",
-   "cleveland-cbz-tour-satin-wedge"
-  ],
   "2026-10-19": [
    "wilson-feather-cart-bag-golf-bag",
    "powakaddy-ct6-electric-trolley",
@@ -245,6 +238,14 @@
    "callaway-quantum-max-d-driver",
    "taylormade-qi4d-max-fairway-wood",
    "srixon-z-star-golf-balls"
+  ],
+  "2026-11-18": [
+   "taylormade-qi4d-hybrid",
+   "mizuno-jpx-925-hot-metal-irons",
+   "callaway-supersoft-golf-balls",
+   "titleist-cart-bag-golf-bag",
+   "ping-g-le-fairway-wood",
+   "srixon-zxi-rkt-max-driver"
   ]
  }
 }

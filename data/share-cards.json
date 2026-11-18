@@ -371,7 +371,11 @@
 139.0,
 "typical"
 ],
-"callaway-cb-12-wedge": "d4b3b07771",
+"callaway-cb-12-wedge": [
+"7520717f93",
+119.0,
+"typical"
+],
 "callaway-cb12-wedge": [
 "d98f94d29c",
 119.0,
@@ -870,9 +874,9 @@
 229.0,
 "wait"
 ],
-"callaway-quantum-max-d-driver": "1d06bec56d",
+"callaway-quantum-max-d-driver": "b0f5bc224b",
 "callaway-quantum-max-d-fairway-wood": "8c328f2f6a",
-"callaway-quantum-max-driver": "bf4bd8dcbf",
+"callaway-quantum-max-driver": "e77bca71b8",
 "callaway-quantum-max-fairway-wood": "5913d412e2",
 "callaway-quantum-max-fast-hybrid": "ec01e9f3ea",
 "callaway-quantum-max-hybrid": "aa3e98ed09",
@@ -951,7 +955,11 @@
 ],
 "callaway-reva-rise-driver": "5e04f9a922",
 "callaway-reva-rise-fairway-wood": "078ecf5f80",
-"callaway-reva-rise-hybrid": "1a2e098621",
+"callaway-reva-rise-hybrid": [
+"af428bf4bc",
+229.0,
+"typical"
+],
 "callaway-staff-stand-bag-golf-bag": "6e01f3d763",
 "callaway-summit-collection-stand-bag-golf-bag": [
 "45eb6575c1",
@@ -1079,7 +1087,11 @@
 "typical"
 ],
 "cleveland-halo-xl-fairway-wood": "f206c1d05d",
-"cleveland-halo-xl-full-face-irons": "75a4f6c00a",
+"cleveland-halo-xl-full-face-irons": [
+"935549b0e3",
+349.0,
+"typical"
+],
 "cleveland-halo-xl-hy-wood": "0b5e70f206",
 "cleveland-halo-xl-hybrid": [
 "2f6125f74b",
@@ -1259,7 +1271,7 @@
 189.95,
 "wait"
 ],
-"cobra-ds-adapt-hybrid": "0605f4bef5",
+"cobra-ds-adapt-hybrid": "f500fca957",
 "cobra-ds-adapt-irons": "4cfe193157",
 "cobra-ds-adapt-ls-driver": "c26a1de5f4",
 "cobra-ds-adapt-ls-fairway-wood": [
@@ -1374,7 +1386,7 @@
 "cobra-king-tec-x-irons": "35f90fcb2c",
 "cobra-king-tour-irons": "5e4da25779",
 "cobra-king-wedge": "cf59931fc2",
-"cobra-king-x-wedge": "5c0d66d60b",
+"cobra-king-x-wedge": "789e18112f",
 "cobra-mim-blazer-sb-putter": [
 "5dbea0575a",
 219.0,
@@ -1426,7 +1438,7 @@
 "typical"
 ],
 "cobra-rad-s-driver": "b5da28bfc9",
-"cobra-rad-s-fairway-wood": "c735b647cd",
+"cobra-rad-s-fairway-wood": "e55d8686f0",
 "cobra-rad-s-hybrid": "72db1eaec5",
 "cobra-rad-s-irons": "f6c6743dfb",
 "cobra-radspeed-s-2026-package-set": "34353d3db1",
@@ -2298,12 +2310,13 @@
 ],
 "mizuno-st-g-driver": "4664ccbfc0",
 "mizuno-st-g-fairway-wood": "82f1763111",
+"mizuno-st-max-230-fairway-wood": "d8f494c6ca",
 "mizuno-st-z-230-driver": [
 "e772861ca8",
 249.0,
 "typical"
 ],
-"mizuno-st200x-fairway-wood": "1d7e45526f",
+"mizuno-st200x-fairway-wood": "b26249147c",
 "mizuno-staff-golf-bag": [
 "f8497c8c09",
 249.0,
@@ -2396,11 +2409,7 @@
 159.95,
 "typical"
 ],
-"motocaddy-lite-series-cart-bag-golf-bag": [
-"6df2ff4e1d",
-119.0,
-"typical"
-],
+"motocaddy-lite-series-cart-bag-golf-bag": "468583a463",
 "motocaddy-m-tech-cart-bag-golf-bag": [
 "665dae3df4",
 259.0,
@@ -2498,11 +2507,7 @@
 529.0,
 "typical"
 ],
-"motocaddy-series-cart-bag-golf-bag": [
-"11a9d48a08",
-149.0,
-"typical"
-],
+"motocaddy-series-cart-bag-golf-bag": "0a502f4663",
 "navee-birdie-3-remote-control-electric-trolley": [
 "9a9e04832d",
 849.0,
@@ -2607,9 +2612,17 @@
 499.0,
 "typical"
 ],
-"odyssey-dfx-1-ch-putter": "6b1e5a0670",
+"odyssey-dfx-1-ch-putter": [
+"5cacf08b5e",
+129.0,
+"typical"
+],
 "odyssey-dfx-putter": "f67c35ea48",
-"odyssey-dfx-v-line-fang-db-putter": "e98973e236",
+"odyssey-dfx-v-line-fang-db-putter": [
+"8e5dbe87c0",
+129.0,
+"typical"
+],
 "odyssey-square-2-square-ai-dual-putter": [
 "250adc882c",
 229.0,
@@ -2762,7 +2775,7 @@
 719.0,
 "typical"
 ],
-"ping-g440-k-driver": "c0bb699462",
+"ping-g440-k-driver": "e720e965e7",
 "ping-g440-k-hl-driver": [
 "09d2a18eb5",
 579.0,
@@ -2770,11 +2783,7 @@
 ],
 "ping-g440-lst-driver": "ed4607606d",
 "ping-g440-lst-fairway-wood": "d015bda1c2",
-"ping-g440-max-driver": [
-"30876f96ec",
-499.0,
-"typical"
-],
+"ping-g440-max-driver": "5f8f6fa420",
 "ping-g440-max-fairway-wood": [
 "1484d7acc1",
 319.0,
@@ -2782,11 +2791,7 @@
 ],
 "ping-g440-max-hl-driver": "20462ca8c6",
 "ping-g440-sft-driver": "769e6921f2",
-"ping-g440-sft-fairway-wood": [
-"f012b6cbb1",
-319.0,
-"typical"
-],
+"ping-g440-sft-fairway-wood": "840bc9fd33",
 "ping-g440-sft-hl-driver": [
 "364c1df4a0",
 529.0,
@@ -3192,6 +3197,11 @@
 "pxg-0311-3x-forged-chrome-wedge": [
 "9ea6e3278a",
 149.95,
+"typical"
+],
+"pxg-0311-p-gen7-irons": [
+"2ed9628662",
+899.0,
 "typical"
 ],
 "pxg-aloha-25-hybrid-stand-bag-golf-bag": [
@@ -3919,9 +3929,9 @@
 "typical"
 ],
 "taylormade-pro-cart-bag-golf-bag": [
-"782ef612f9",
-119.0,
-"typical"
+"f43da4a13a",
+139.0,
+"wait"
 ],
 "taylormade-qi-max-hl-irons": [
 "348e089b17",
@@ -4119,12 +4129,8 @@
 299.0,
 "typical"
 ],
-"taylormade-spider-tour-torched-x-true-putter": [
-"b6edfabedf",
-299.0,
-"typical"
-],
-"taylormade-spider-tour-x-putter": "3624161ef1",
+"taylormade-spider-tour-torched-x-true-putter": "c37093305b",
+"taylormade-spider-tour-x-putter": "8d4b6412db",
 "taylormade-spider-zt-max-putter": [
 "b5bff915d2",
 449.0,
@@ -5166,16 +5172,16 @@
 "typical"
 ],
 "wilson-staff-duo-soft-golf-balls": [
-"d2515c3faa",
-39.99,
-"typical"
-],
-"wilson-staff-duo-soft-trk360-golf-balls": [
-"332b6d8b31",
+"f11be9884a",
 22.99,
 "typical"
 ],
-"wilson-staff-infinite-putter": "79beee514e",
+"wilson-staff-duo-soft-trk360-golf-balls": "b286510fdf",
+"wilson-staff-infinite-putter": [
+"e23ba9a023",
+94.95,
+"wait"
+],
 "wilson-staff-model-blade-irons": "6a456f91eb",
 "wilson-staff-model-cb-irons": [
 "64738434d0",

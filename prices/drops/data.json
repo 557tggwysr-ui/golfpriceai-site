@@ -1,8 +1,98 @@
 {
- "checked": "2026-11-17T15:36+00:00",
+ "checked": "2026-11-18T00:38+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Wilson Staff Duo Soft TRK360 Golf Balls",
+   "model_id": "wilson-staff-duo-soft-trk360-golf-balls",
+   "date": "2026-11-18",
+   "was": 22.99,
+   "now": 15.99,
+   "unit": "per dozen",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-staff-duo-soft-trk360-golf-balls/"
+  },
+  {
+   "model": "Cobra KING X Wedge",
+   "model_id": "cobra-king-x-wedge",
+   "date": "2026-11-18",
+   "was": 129.0,
+   "now": 99.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-x-wedge/"
+  },
+  {
+   "model": "Motocaddy Series Cart Bag Golf Bag",
+   "model_id": "motocaddy-series-cart-bag-golf-bag",
+   "date": "2026-11-18",
+   "was": 149.0,
+   "now": 129.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-series-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Cobra RAD-S Fairway Wood",
+   "model_id": "cobra-rad-s-fairway-wood",
+   "date": "2026-11-18",
+   "was": 169.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-rad-s-fairway-wood/"
+  },
+  {
+   "model": "TaylorMade Spider Tour Torched X True Putter",
+   "model_id": "taylormade-spider-tour-torched-x-true-putter",
+   "date": "2026-11-18",
+   "was": 299.0,
+   "now": 269.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-spider-tour-torched-x-true-putter/"
+  },
+  {
+   "model": "Ping G440 K Driver",
+   "model_id": "ping-g440-k-driver",
+   "date": "2026-11-18",
+   "was": 549.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-k-driver/"
+  },
+  {
+   "model": "Motocaddy Lite Series Cart Bag Golf Bag",
+   "model_id": "motocaddy-lite-series-cart-bag-golf-bag",
+   "date": "2026-11-18",
+   "was": 119.0,
+   "now": 109.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-lite-series-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Ping G440 SFT Fairway Wood",
+   "model_id": "ping-g440-sft-fairway-wood",
+   "date": "2026-11-18",
+   "was": 319.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-sft-fairway-wood/"
+  },
+  {
+   "model": "Ping G440 MAX Driver",
+   "model_id": "ping-g440-max-driver",
+   "date": "2026-11-18",
+   "was": 499.0,
+   "now": 479.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-max-driver/"
+  },
   {
    "model": "Cobra King Wedge",
    "model_id": "cobra-king-wedge",
@@ -374,16 +464,6 @@
    "url": "https://golfpriceai.com/prices/motocaddy-me-remote-electric-trolley/"
   },
   {
-   "model": "Wilson Staff Infinite Putter",
-   "model_id": "wilson-staff-infinite-putter",
-   "date": "2026-11-12",
-   "was": 99.0,
-   "now": 79.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-staff-infinite-putter/"
-  },
-  {
    "model": "Cleveland CBZ Wedge",
    "model_id": "cleveland-cbz-wedge",
    "date": "2026-11-12",
@@ -704,16 +784,6 @@
    "url": "https://golfpriceai.com/prices/motocaddy-eliteflex-hybrid-stand-bag-golf-bag/"
   },
   {
-   "model": "Ping G440 K Driver",
-   "model_id": "ping-g440-k-driver",
-   "date": "2026-11-11",
-   "was": 579.0,
-   "now": 549.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ping-g440-k-driver/"
-  },
-  {
    "model": "TaylorMade R7 Quad Mini Driver",
    "model_id": "taylormade-r7-quad-mini-driver",
    "date": "2026-11-11",
@@ -732,136 +802,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/motocaddy-26-dry-series-waterproof-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Mileseey Golf GenePro G1 Touchscreen Rangefinder",
-   "model_id": "mileseey-golf-genepro-g1-touchscreen-rangefinder",
-   "date": "2026-11-10",
-   "was": 499.0,
-   "now": 399.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mileseey-golf-genepro-g1-touchscreen-rangefinder/"
-  },
-  {
-   "model": "Mizuno Pro Fli-Hi Utility Irons",
-   "model_id": "mizuno-pro-fli-hi-utility-irons",
-   "date": "2026-11-10",
-   "was": 169.0,
-   "now": 139.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-pro-fli-hi-utility-irons/"
-  },
-  {
-   "model": "Blue Tees Rainmaker Portable Launch Monitor",
-   "model_id": "blue-tees-rainmaker-portable-launch-monitor",
-   "date": "2026-11-10",
-   "was": 599.0,
-   "now": 499.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/blue-tees-rainmaker-portable-launch-monitor/"
-  },
-  {
-   "model": "Blue Tees Captain Pro Connected Laser Rangefinder",
-   "model_id": "blue-tees-captain-pro-connected-laser-rangefinder",
-   "date": "2026-11-10",
-   "was": 299.0,
-   "now": 249.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/blue-tees-captain-pro-connected-laser-rangefinder/"
-  },
-  {
-   "model": "Callaway Quantum Max Fairway Wood",
-   "model_id": "callaway-quantum-max-fairway-wood",
-   "date": "2026-11-10",
-   "was": 269.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-fairway-wood/"
-  },
-  {
-   "model": "Callaway Quantum Max D Driver",
-   "model_id": "callaway-quantum-max-d-driver",
-   "date": "2026-11-10",
-   "was": 465.0,
-   "now": 399.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-d-driver/"
-  },
-  {
-   "model": "Callaway Quantum Max Driver",
-   "model_id": "callaway-quantum-max-driver",
-   "date": "2026-11-10",
-   "was": 465.0,
-   "now": 399.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-driver/"
-  },
-  {
-   "model": "Bushnell ION Elite GPS Watch",
-   "model_id": "bushnell-ion-elite-gps-watch",
-   "date": "2026-11-10",
-   "was": 159.0,
-   "now": 139.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/bushnell-ion-elite-gps-watch/"
-  },
-  {
-   "model": "Callaway Quantum Max Hybrid",
-   "model_id": "callaway-quantum-max-hybrid",
-   "date": "2026-11-10",
-   "was": 229.0,
-   "now": 199.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-hybrid/"
-  },
-  {
-   "model": "Callaway Quantum Max OS Hybrid",
-   "model_id": "callaway-quantum-max-os-hybrid",
-   "date": "2026-11-10",
-   "was": 229.0,
-   "now": 199.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-quantum-max-os-hybrid/"
-  },
-  {
-   "model": "TaylorMade Stealth Irons",
-   "model_id": "taylormade-stealth-irons",
-   "date": "2026-11-10",
-   "was": 599.0,
-   "now": 529.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-stealth-irons/"
-  },
-  {
-   "model": "TaylorMade Qi35 Driver",
-   "model_id": "taylormade-qi35-driver",
-   "date": "2026-11-10",
-   "was": 349.0,
-   "now": 329.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-qi35-driver/"
-  },
-  {
-   "model": "Odyssey Square to Square Tri-Hot Putter",
-   "model_id": "odyssey-square-to-square-tri-hot-putter",
-   "date": "2026-11-10",
-   "was": 449.0,
-   "now": 429.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/odyssey-square-to-square-tri-hot-putter/"
   }
  ]
 }

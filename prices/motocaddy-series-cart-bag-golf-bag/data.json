@@ -3,18 +3,17 @@
  "brand": "Motocaddy",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/motocaddy-series-cart-bag-golf-bag/",
- "checked": "2026-11-17",
+ "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 129.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 149.0,
+   "from": 129.0,
    "options": 3
   },
   {
@@ -34,27 +33,27 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
-  "low": 149.0,
+  "daysTracked": 83,
+  "low": 129.0,
   "high": 149.0,
-  "average": 149.0,
-  "priceChanges": 0,
+  "average": 148.76,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
     149.0
    ],
    [
-    "2026-11-17",
-    149.0
+    "2026-11-18",
+    129.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 82 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MotocaddyClub-SeriesGolfCartBag2026-Red_1.jpg?v=1770818060",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-17"
+ "changed": "2026-11-18"
 }

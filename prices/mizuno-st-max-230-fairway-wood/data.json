@@ -3,18 +3,17 @@
  "brand": "Mizuno",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/mizuno-st-max-230-fairway-wood/",
- "checked": "2026-11-17",
+ "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 269.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Scottsdale Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 269.0,
+   "from": 169.0,
    "options": 1
   },
   {
@@ -24,27 +23,27 @@
   }
  ],
  "history": {
-  "daysTracked": 75,
-  "low": 269.0,
+  "daysTracked": 76,
+  "low": 169.0,
   "high": 269.0,
-  "average": 269.0,
-  "priceChanges": 0,
+  "average": 267.68,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     269.0
    ],
    [
-    "2026-11-17",
-    269.0
+    "2026-11-18",
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 75 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.scottsdalegolf.co.uk/uploads/mizuno-STMax-fairway-1.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Mizuno-ST-MAX-230-Golf-Fairway-Wood-6.jpg?v=1708661670",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-17"
+ "changed": "2026-11-18"
 }

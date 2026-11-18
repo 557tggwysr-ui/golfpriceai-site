@@ -3,18 +3,17 @@
  "brand": "Cobra",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/cobra-rad-s-fairway-wood/",
- "checked": "2026-11-17",
+ "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.0,
+ "lowestNewPrice": 149.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 169.0,
+   "from": 149.0,
    "options": 4
   },
   {
@@ -29,11 +28,11 @@
   }
  ],
  "history": {
-  "daysTracked": 94,
-  "low": 169.0,
+  "daysTracked": 95,
+  "low": 149.0,
   "high": 179.0,
-  "average": 176.55,
-  "priceChanges": 1,
+  "average": 176.26,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -44,8 +43,8 @@
     169.0
    ],
    [
-    "2026-11-17",
-    169.0
+    "2026-11-18",
+    149.0
    ]
   ]
  },
@@ -53,7 +52,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/RAD-S-Fairway-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/imgi_3_RAD_S_FAIRWAY_HERO-01-compressed.png?v=1774619695",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-17"
+ "changed": "2026-11-18"
 }

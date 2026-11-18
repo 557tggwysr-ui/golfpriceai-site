@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-11-17",
+ "lastUpdated": "2026-11-18",
  "uncertainGroupings": [
   {
    "model": "Titleist vokey sm11",
@@ -73,8 +73,8 @@
   },
   {
    "model": "Wilson staff duo soft",
-   "issue": "7 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
-   "listings": 7
+   "issue": "1 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
+   "listings": 1
   },
   {
    "model": "Mizuno Pro T-3 Wedge",
@@ -113,7 +113,7 @@
   },
   {
    "model": "Cobra KING X Wedge",
-   "issue": "price spread \u00a3129.00 to \u00a3387.00: may mix different products",
+   "issue": "price spread \u00a399.00 to \u00a3387.00: may mix different products",
    "listings": 16
   },
   {
@@ -2640,6 +2640,11 @@
   },
   {
    "name": "Yes! C-Groove Sara-12 Mens Right Hand Putter 35\" Mallet - Super Stroke",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Evnroll ER5 Evnroll Mens Right Hand Putter Mid-Mallet - Evnroll Gravity Grip",
    "from": "accessories",
    "to": "putter"
   }

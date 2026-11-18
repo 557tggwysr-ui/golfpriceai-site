@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-cart-bag-golf-bag/",
- "checked": "2026-11-17",
+ "checked": "2026-11-18",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 145.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
+  "daysTracked": 83,
   "low": 145.0,
   "high": 149.0,
-  "average": 148.07,
+  "average": 148.04,
   "priceChanges": 1,
   "series": [
    [
@@ -44,16 +44,16 @@
     145.0
    ],
    [
-    "2026-11-17",
+    "2026-11-18",
     145.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 19 days"
+  "summary": "Typical price: steady for 20 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/cartliteblk1.jpg?v=1705054444",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-17"
+ "changed": "2026-11-18"
 }
