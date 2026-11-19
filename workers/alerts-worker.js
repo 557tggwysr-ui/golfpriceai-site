@@ -122,6 +122,7 @@ export default {
       if (url.pathname.startsWith('/pl/')) return await polls(request, url, env, cors);
       if (url.pathname.startsWith('/wn/')) return await wildNine(request, url, env, cors);
       if (url.pathname.startsWith('/wp/')) return await wrongPrice(request, url, env, cors);
+      if (url.pathname === '/wd/beat' && request.method === 'POST') return await watchdogBeat(request, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -132,6 +133,12 @@ export default {
       console.log('error', err && err.stack);
       return json({ ok: false, error: 'Something went wrong. Please try again in a minute.' }, 500, cors);
     }
+  },
+  // Watching the watchdog: runs on the worker's cron trigger (Cloudflare > the worker >
+  // Settings > Triggers > Cron, e.g. "40 */6 * * *"). If the agents' watchdog in GitHub
+  // Actions hasn't checked in for 26 hours, email the owner once a day until it does.
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(watchdogCheck(env));
   },
 };
 
@@ -4553,6 +4560,38 @@ async function wrongPrice(request, url, env, cors) {
     return json({ ok: true, reports: rows.results || [] }, 200, cors);
   }
   return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
+
+// The agents' watchdog (GitHub Actions) checks in here every few hours. If it goes quiet,
+// the worker's cron (above) emails the owner: the watcher of the watcher.
+async function watchdogBeat(request, env, cors) {
+  if (!env.DEMAND || !env.ALERTS_SECRET || request.headers.get('x-agent-key') !== env.ALERTS_SECRET) return json({ ok: false }, 404, cors);
+  let body = {};
+  try { body = JSON.parse((await request.text()).slice(0, 2000)); } catch (e) { body = {}; }
+  await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wd_beat (k TEXT PRIMARY KEY, at INTEGER, note TEXT) WITHOUT ROWID').run();
+  await env.DEMAND.prepare('INSERT INTO wd_beat (k, at, note) VALUES (?, ?, ?) ON CONFLICT (k) DO UPDATE SET at = excluded.at, note = excluded.note')
+    .bind('watchdog', Date.now(), String(body.note || '').slice(0, 500)).run();
+  return json({ ok: true }, 200, cors);
+}
+
+async function watchdogCheck(env) {
+  if (!env.DEMAND || !env.BREVO_API_KEY) return;
+  await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wd_beat (k TEXT PRIMARY KEY, at INTEGER, note TEXT) WITHOUT ROWID').run();
+  const beat = await env.DEMAND.prepare("SELECT at FROM wd_beat WHERE k = 'watchdog'").first();
+  if (!beat) return; // never set up yet: nothing to watch
+  const quietHours = (Date.now() - beat.at) / 36e5;
+  if (quietHours < 26) return;
+  const last = await env.DEMAND.prepare("SELECT at FROM wd_beat WHERE k = 'emailed'").first();
+  if (last && Date.now() - last.at < 864e5) return; // at most one email a day
+  await brevo(env, 'POST', '/smtp/email', {
+    sender: { name: 'GolfPrice AI', email: env.SENDER_EMAIL || 'alerts@golfpriceai.com' },
+    to: [{ email: env.OWNER_EMAIL || 'GolfPriceAI@outlook.com' }],
+    subject: 'GolfPrice AI · the agents have gone quiet',
+    htmlContent: `<p>The agents' watchdog hasn't checked in for ${Math.round(quietHours)} hours, so the agents may have stopped running.</p>`
+      + '<p>Check the Actions tab on GitHub (golfpriceai-site): GitHub pauses scheduled workflows after 60 days without activity in the repository, and a failed run shows a red cross. '
+      + 'Re-enable or re-run "Agent: watchdog" and this email stops.</p>',
+  });
+  await env.DEMAND.prepare("INSERT INTO wd_beat (k, at, note) VALUES ('emailed', ?, '') ON CONFLICT (k) DO UPDATE SET at = excluded.at").bind(Date.now()).run();
 }
 
 function json(obj, status, headers) {

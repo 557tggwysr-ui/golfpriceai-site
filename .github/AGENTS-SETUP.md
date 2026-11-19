@@ -1,7 +1,7 @@
 GOLFPRICE AI AGENTS: SETUP AND HOW THEY WORK
 =============================================
 
-Seventeen agents that find problems, fix them (with your approval) and grow the
+Seventeen agents, plus a watchdog that checks on all of them,, fix them (with your approval) and grow the
 site. All run free in GitHub Actions. Nothing changes on the site until you
 approve it.
 
@@ -26,6 +26,7 @@ WHAT'S IN THIS FOLDER
   scripts/agent_email.py     15 email optimiser (Friday subject-line tests, list health)
   scripts/agent_insights.py  16 retailer insights (monthly, private)
   scripts/agent_trends.mjs   17 social trends scout (live hashtags, sounds, formats)
+  scripts/agent_watchdog.py  the watchdog: checks every agent every 3 hours
   plus the "Price look wrong?" link on every price page, read by the claims guardian
   CHANGED: scripts/digest.py (subject test), js/quick-round.js (club scorecards)
   scripts/update_deals.py     CHANGED: 7 lines that apply approved fixes
@@ -92,6 +93,21 @@ STEP 9: YOUTUBE KEY (free, 5 minutes, optional)
   "YouTube Data API v3" > Enable > Credentials > Create credentials > API key.
   Restrict it to the YouTube Data API. Secret YOUTUBE_API_KEY = the key.
   Without it, the trends scout still reads TikTok's trend pages and r/golf.
+
+STEP 10: SWITCH ON THE WORKER'S TIMER (2 minutes, free)
+  Cloudflare > Workers & Pages > the alerts worker > Settings > Triggers >
+  Cron Triggers > Add: 40 */6 * * *  (every 6 hours). This is the watchdog's
+  own watcher: if the agents' watchdog goes quiet for 26 hours, the worker
+  emails you, even if GitHub itself has stopped running things.
+
+THE WATCHDOG
+  Every 3 hours it checks that every agent ran successfully and on time,
+  that each report is fresh and its numbers haven't swung wildly, and that
+  the open Fix pack only touches the files agents are allowed to change. A
+  pack that breaks the rules is labelled "do-not-merge" with the reason.
+  You'll see one GitHub issue, "Agent health": it's open while something's
+  wrong and closes itself when all's well. You get an email for each NEW
+  problem, never repeats.
 
 YOUR DAILY 2 MINUTES: THE FIX PACK
   Each morning (07:30) one pull request lists today's fixes, for example:
