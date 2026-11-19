@@ -624,3 +624,38 @@
   } catch (e) { /* never break the page */ }
 })();
 
+/* gp-games (performance analyst + games lab): which games lead to price pages and buy clicks.
+   Playing a game remembers its name for this visit only (sessionStorage); price-page visits and
+   buy clicks in the same visit are counted against it, and its Awin tag carries the game name.
+   Lab betas also count returning players (first-play date kept in this browser). Counts only. */
+(function () {
+  try {
+    var W = 'https://golfpriceai-alerts.golfpriceai.workers.dev/signal';
+    var send = function (k, m) { try { navigator.sendBeacon(W, JSON.stringify({ k: k, m: m })); } catch (e) { /* nice-to-have */ } };
+    var path = location.pathname;
+    var g = (path.match(/^\/play\/(lab\/)?([a-z0-9-]+)\/$/) || []);
+    if (g[2] && g[2] !== 's') {
+      var game = (g[1] ? 'lab-' : '') + g[2];
+      if (game !== 'lab') {
+        sessionStorage.setItem('gp-game', game);
+        send('gplay', game);
+        if (g[1]) {
+          var key = 'gp-lab-first-' + game, first = localStorage.getItem(key), today = new Date().toISOString().slice(0, 10);
+          if (!first) localStorage.setItem(key, today);
+          else if (first < today && (Date.parse(today) - Date.parse(first)) <= 7 * 864e5) send('lret', game);
+        }
+      }
+      return;
+    }
+    var from = sessionStorage.getItem('gp-game');
+    if (!from || !/^\/prices\/[a-z0-9-]+\/$/.test(path)) return;
+    send('gview', from);
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href*="awin1.com"]') : null;
+      if (!a) return;
+      send('gout', from);
+      if (!/~g-/.test(a.href)) a.href = a.href.replace(/(clickref=[^&]*)/, function (m) { return (m + '~g-' + from).slice(0, 59); });
+    }, false);
+  } catch (e) { /* never break the page */ }
+})();
+

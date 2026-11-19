@@ -113,7 +113,7 @@ def table(rows, heads):
 PACK_FILES = ["data/agent-rules.json", "data/agent-links.json", "llms.txt", "data/model-aliases.json",
               "play/wild-nine/index.html", "data/wild-nine-moderation.json", "data/society-days.json", "societies/days",
               "data/courses/cards-clubs.json", "prices/occasions", "data/agent-pages.json", "data/email-tuning.json",
-              "data/experiments.json"]
+              "data/experiments.json", "data/games-lab.json"]
 
 
 def register_pages(paths):

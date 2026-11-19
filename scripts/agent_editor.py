@@ -125,7 +125,7 @@ def check_json_copy(path, s):
         elif isinstance(x, list):
             for v in x:
                 walk(v, k)
-        elif isinstance(x, str) and k in ("default", "b", "text", "title", "subject", "line", "headline", "sub", "caption"):
+        elif isinstance(x, str) and k in ("default", "b", "text", "title", "subject", "line", "headline", "sub", "caption", "pitch", "verdict"):
             probs.extend(check_text(x, where=f"{path} ({k})"))
     walk(d)
     return probs

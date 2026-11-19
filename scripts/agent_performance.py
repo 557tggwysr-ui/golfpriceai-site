@@ -178,13 +178,55 @@ def run_test(cta_rows, today):
     return line
 
 
+LAB = DATA / "games-lab.json"
+
+
+def run_lab(lab_rows, today):
+    """Judge each running lab beta against its pass mark after 28 days (56 at most). Changes go through the Fix pack."""
+    try:
+        d = json.loads(LAB.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    lines, changed = [], []
+    for g in d.get("games", []):
+        if g.get("status") != "running":
+            continue
+        slug, started = "lab-" + g["slug"], g.get("started") or str(today)
+        play = sum(n for day, k, key, n in lab_rows if key == slug and k == "gplay" and day >= started)
+        ret = sum(n for day, k, key, n in lab_rows if key == slug and k == "lret" and day >= started)
+        out = sum(n for day, k, key, n in lab_rows if key == slug and k == "gout" and day >= started)
+        mark = g.get("passMark") or {}
+        need, want_ret, want_out = mark.get("minPlayers", 50), mark.get("returnRate", 0.3), mark.get("buyClickRate", 0)
+        days = (today - date.fromisoformat(started)).days
+        rate = ret / play if play else 0
+        orate = out / play if play else 0
+        lines.append(f"{g.get('name', slug)}: day {days}, {play} player-days, return rate {rate:.0%} (pass {want_ret:.0%}), "
+                     f"buy clicks per player-day {orate:.1%}.")
+        verdict = None
+        if days >= 28 and play >= need:
+            ok = rate >= want_ret and orate >= want_out
+            verdict = ("passed", "Players came back often enough: ready to graduate to the main games page.") if ok else \
+                      ("retired", "Didn't bring players back often enough; retired so we can try the next idea.")
+        elif days >= 56:
+            verdict = ("retired", "Not enough players after 8 weeks to judge it; retired. Sharing it with a golf group may help a future beta.")
+        if verdict:
+            g["status"], g["verdict"], g["decided"] = verdict[0], verdict[1], str(today)
+            changed.append(f"Games lab: {g.get('name', slug)} {verdict[0]}. {verdict[1]}")
+            lines[-1] += f" Verdict: {verdict[0]}."
+    if changed:
+        LAB.write_text(json.dumps(d, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+        pack_note("data/games-lab.json", " ".join(changed))
+    return lines
+
+
 def main():
     today = now().date()
     start = today - timedelta(days=WINDOW)
     rows = worker_rows()
     names = {m["slug"]: m["name"] for m in models()}
     view, out = defaultdict(int), defaultdict(int)
-    cta_rows = []
+    cta_rows, game_rows = [], []
+    lab_rows = [(d, k, key, n) for d, k, key, n, _ in rows if k in ("gplay", "lret", "gout") and key.startswith("lab-")]
     for day, kind, key, n, s in rows:
         if day < str(start):
             continue
@@ -194,12 +236,20 @@ def main():
             out[key] += n
         elif kind in ("ctaa", "ctab"):
             cta_rows.append((day, kind, key, n, s))
+        if kind in ("gplay", "gview", "gout", "lret"):
+            game_rows.append((day, kind, key, n))
     sales_ref = awin_sales(start, today)
     sales = defaultdict(lambda: [0, 0.0])
+    game_sales = defaultdict(lambda: [0, 0.0])
     for ref, (n, c) in (sales_ref or {}).items():
-        slug = ref.split("~")[0]
+        parts = ref.split("~")
+        slug = parts[0]
         sales[slug][0] += n
         sales[slug][1] += c
+        for part in parts[1:]:
+            if part.startswith("g-"):
+                game_sales[part[2:]][0] += n
+                game_sales[part[2:]][1] += c
     gsc = gsc_pages()
 
     tot_v, tot_o = sum(view.values()), sum(out.values())
@@ -229,11 +279,18 @@ def main():
                           "idea": f"Google shows {names.get(slug, slug)} often (around position {round(pos)}) but few people visit: sharpen the title and description."})
 
     test_line = run_test(cta_rows, today) if rows else "Button test: waiting for page counts (ALERTS_SECRET)."
+    games = defaultdict(lambda: {"gplay": 0, "gview": 0, "gout": 0, "lret": 0})
+    for day, kind, key, n in game_rows:
+        games[key][kind] += n
+    game_tab = sorted(((g, v["gplay"], v["gview"], v["gout"], game_sales.get(g, [0, 0.0])[0], f"£{game_sales.get(g, [0, 0.0])[1]:,.2f}")
+                       for g, v in games.items()), key=lambda r: (-r[3], -r[1]))
+    lab_lines = run_lab(lab_rows, today) if rows else []
     save_report("performance.json", {
         "about": "Performance analyst: pages that could work harder for golfers, ideas only. Never changes prices or their order.",
         "window": f"last {WINDOW} days", "ideas": ideas[:60],
         "counts": {k: sum(1 for i in ideas if i["type"] == k) for k in ("few buy clicks", "clicks, no sales", "seen, not visited")},
         "tracking": "on" if rows else "waiting",
+        "gamesBySales": [r[0] for r in game_tab if r[3] or r[4]][:12],
     })
     if today.weekday() == 0 or os.environ.get("PERF_EMAIL") == "1":
         sales_note = "" if sales_ref is not None else "<p>(Sales by page start once AWIN_API_TOKEN is set and the new site.js is live.)</p>"
@@ -242,6 +299,9 @@ def main():
                     f"<p>{tot_v:,} page visits, {tot_o:,} buy clicks ({site_rate:.1%}), {tot_sales:,} tracked sales.</p>{sales_note}"
                     f"<p>{test_line}</p><h3>Top pages</h3>"
                     + table(priv[:30], ["Page", "Visitors", "Buy clicks", "Click rate", "Sales", "Commission"])
+                    + "<h3>Games: play > price page > buy click</h3>"
+                    + (table(game_tab[:15], ["Game", "Players", "Price pages after", "Buy clicks", "Sales", "Commission"]) if game_tab else "<p>No game counts yet.</p>")
+                    + ("<h3>Games lab</h3><ul>" + "".join(f"<li>{x}</li>" for x in lab_lines) + "</ul>" if lab_lines else "")
                     + "<h3>Ideas</h3><ul>" + "".join(f"<li><b>{i['type']}</b>: {i['idea']}</li>" for i in ideas[:15]) + "</ul>")
     print(f"performance: {len(ideas)} ideas; {test_line}")
 

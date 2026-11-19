@@ -1,7 +1,7 @@
 GOLFPRICE AI AGENTS: SETUP AND HOW THEY WORK
 =============================================
 
-Nineteen agents, plus a watchdog that checks on all of them and an editor that
+Twenty agents, plus a watchdog that checks on all of them and an editor that
 reads everything before it goes out. They find problems, fix them (with your approval) and grow the
 site. All run free in GitHub Actions. Nothing changes on the site until you
 approve it.
@@ -29,6 +29,9 @@ WHAT'S IN THIS FOLDER
   scripts/agent_trends.mjs   17 social trends scout (live hashtags, sounds, formats)
   scripts/agent_performance.py 18 performance analyst (visit > buy click > sale, button tests)
   scripts/agent_editor.py    19 the editor (house-style checks on every change; Claude review)
+  20 games scout and games lab: a monthly Claude scheduled task (no file here)
+  play/lab/index.html        the hidden Games lab page (betas, not on Google)
+  data/games-lab.json        the lab's list of betas and their pass marks
   scripts/agent_watchdog.py  the watchdog: checks every agent every 3 hours
   competitor watch is part of agent_search.py (competitors' public sitemaps, weekly)
   press desk and competitor rank check run as Claude scheduled tasks (no files)
@@ -142,6 +145,18 @@ THE PERFORMANCE ANALYST
   one wording clearly wins (or after 6 weeks) it proposes keeping it. It
   never changes prices, their order or which shop is shown.
 
+GAMES SCOUT AND GAMES LAB
+  Every game visit is remembered for that visit only, so the performance
+  analyst can see which games lead to price pages, buy clicks and sales (your
+  Monday email has a "Games" table; Awin tags carry the game name too).
+  On the 5th of each month, Claude researches what's working in casual games,
+  golf games and gamified shopping, then builds ONE beta game on its own branch
+  (you merge it) at golfpriceai.com/play/lab/. It's hidden from Google: share
+  it with a golf WhatsApp group. After 4 weeks the performance analyst judges
+  it against its pass mark (enough players coming back): "passed" means the
+  next lab run graduates it into the Clubhouse; "retired" means it's removed.
+  Both go through the Fix pack. Only one beta runs at a time.
+
 COMPETITOR WATCH AND PRESS DESK
   Mondays: the search engine reads competitors' public sitemaps (Caddence,
   CaddyCompare, Golf Price Compare, ClubCompass and RiddyGolf; add others in
@@ -225,6 +240,7 @@ THE SCHEDULE (UK time in winter)
   after packs    editor's Claude review (needs step 11)
   Mondays        competitor watch (with the search engine)
   1st Tuesday    press desk (Claude): pitch + tailored writer emails
+  5th of month   games scout and games lab (Claude): research + one beta
 
 PRIVACY
   Reports in the repo are public, so they never hold traffic, usage or money

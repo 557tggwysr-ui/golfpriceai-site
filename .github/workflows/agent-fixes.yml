@@ -74,7 +74,7 @@ jobs:
           python scripts/agent_fixes.py approve
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          for f in data/agent-rules.json data/agent-links.json llms.txt data/model-aliases.json play/wild-nine/index.html data/wild-nine-moderation.json data/society-days.json societies/days data/courses/cards-clubs.json prices/occasions data/agent-pages.json data/email-tuning.json data/experiments.json data/agents/fix-log.json; do git add -A -- "$f" 2>/dev/null || true; done
+          for f in data/agent-rules.json data/agent-links.json llms.txt data/model-aliases.json play/wild-nine/index.html data/wild-nine-moderation.json data/society-days.json societies/days data/courses/cards-clubs.json prices/occasions data/agent-pages.json data/email-tuning.json data/experiments.json data/games-lab.json data/agents/fix-log.json; do git add -A -- "$f" 2>/dev/null || true; done
           if ! git diff --quiet --cached; then
             git commit -m "Fix pack approved"
             git pull --rebase && git push
