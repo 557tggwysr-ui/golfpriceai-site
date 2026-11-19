@@ -6,23 +6,23 @@
  "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 200.33,
+ "lowestNewPrice": 194.35,
  "lowestAt": [
   "Callaway Golf"
  ],
  "retailers": [
   {
    "name": "Callaway Golf",
-   "from": 200.33,
+   "from": 194.35,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 40,
-  "low": 200.33,
+  "low": 194.35,
   "high": 200.33,
-  "average": 200.33,
-  "priceChanges": 0,
+  "average": 200.18,
+  "priceChanges": 1,
   "series": [
    [
     "2026-10-11",
@@ -30,15 +30,15 @@
    ],
    [
     "2026-11-19",
-    200.33
+    194.35
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 40 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794916906403/sits/hybrids-2024-paradym-ai-smoke/hybrids-2024-paradym-ai-smoke___1.png?sfrm=png",
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795026358426/sits/hybrids-2024-paradym-ai-smoke/hybrids-2024-paradym-ai-smoke___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-19"
 }

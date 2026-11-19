@@ -1,8 +1,108 @@
 {
- "checked": "2026-11-19T06:31+00:00",
+ "checked": "2026-11-19T20:02+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Mizuno Pro M-15 Irons",
+   "model_id": "mizuno-pro-m-15-irons",
+   "date": "2026-11-19",
+   "was": 1369.0,
+   "now": 909.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-m-15-irons/"
+  },
+  {
+   "model": "Callaway Limited June Major Staff Golf Bag",
+   "model_id": "callaway-limited-june-major-staff-golf-bag",
+   "date": "2026-11-19",
+   "was": 839.3,
+   "now": 599.5,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-limited-june-major-staff-golf-bag/"
+  },
+  {
+   "model": "Callaway Limited May Major Staff Golf Bag",
+   "model_id": "callaway-limited-may-major-staff-golf-bag",
+   "date": "2026-11-19",
+   "was": 839.3,
+   "now": 599.5,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-limited-may-major-staff-golf-bag/"
+  },
+  {
+   "model": "Mizuno Pro S-4 Irons",
+   "model_id": "mizuno-pro-s-4-irons",
+   "date": "2026-11-19",
+   "was": 1289.0,
+   "now": 975.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-s-4-irons/"
+  },
+  {
+   "model": "Sun Mountain Forerunner Stand Bag Golf Bag",
+   "model_id": "sun-mountain-forerunner-stand-bag-golf-bag",
+   "date": "2026-11-19",
+   "was": 179.0,
+   "now": 142.4,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/sun-mountain-forerunner-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Mizuno Pro M-13 Irons",
+   "model_id": "mizuno-pro-m-13-irons",
+   "date": "2026-11-19",
+   "was": 1369.0,
+   "now": 1099.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-m-13-irons/"
+  },
+  {
+   "model": "Mizuno Pro S-3 Irons",
+   "model_id": "mizuno-pro-s-3-irons",
+   "date": "2026-11-19",
+   "was": 1179.0,
+   "now": 975.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-pro-s-3-irons/"
+  },
+  {
+   "model": "Odyssey Ai-ONE Milled Seven T DB Putter",
+   "model_id": "odyssey-ai-one-milled-seven-t-db-putter",
+   "date": "2026-11-19",
+   "was": 291.85,
+   "now": 269.4,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-seven-t-db-putter/"
+  },
+  {
+   "model": "Callaway Opus SP Wedge",
+   "model_id": "callaway-opus-sp-wedge",
+   "date": "2026-11-19",
+   "was": 159.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-opus-sp-wedge/"
+  },
+  {
+   "model": "Srixon Waterproof Cart Bag Golf Bag",
+   "model_id": "srixon-waterproof-cart-bag-golf-bag",
+   "date": "2026-11-19",
+   "was": 229.0,
+   "now": 219.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-waterproof-cart-bag-golf-bag/"
+  },
   {
    "model": "Callaway Paradym Ai Smoke Max Fairway Wood",
    "model_id": "callaway-paradym-ai-smoke-max-fairway-wood",

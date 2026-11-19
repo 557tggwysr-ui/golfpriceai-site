@@ -6,19 +6,19 @@
  "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 44.99,
+ "lowestNewPrice": 44.95,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 44.99,
+   "name": "Clarkes Golf",
+   "from": 44.95,
    "options": 1
   },
   {
-   "name": "Clarkes Golf",
-   "from": 49.95,
+   "name": "Clickgolf",
+   "from": 44.99,
    "options": 1
   },
   {
@@ -37,7 +37,7 @@
   "low": 43.96,
   "high": 94.99,
   "average": 55.59,
-  "priceChanges": 6,
+  "priceChanges": 7,
   "series": [
    [
     "2026-08-16",
@@ -69,7 +69,7 @@
    ],
    [
     "2026-11-19",
-    44.99
+    44.95
    ]
   ]
  },

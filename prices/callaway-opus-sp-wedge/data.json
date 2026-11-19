@@ -6,15 +6,14 @@
  "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 159.0,
+ "lowestNewPrice": 149.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 159.0,
+   "from": 149.0,
    "options": 24
   },
   {
@@ -25,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 96,
-  "low": 159.0,
+  "low": 149.0,
   "high": 159.0,
-  "average": 159.0,
-  "priceChanges": 0,
+  "average": 158.9,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -36,15 +35,15 @@
    ],
    [
     "2026-11-19",
-    159.0
+    149.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 96 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Opus-SP-Black-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025-Opus-SP-Black-Wedge-HERO-006-Photoroom_d9780f1a-9bb0-4ab2-ac0c-e14fb2208e56.jpg?v=1754987400",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-19"
 }

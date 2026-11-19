@@ -6,19 +6,18 @@
  "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1179.0,
+ "lowestNewPrice": 975.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 1179.0,
+   "name": "Clarkes Golf",
+   "from": 975.0,
    "options": 2
   },
   {
-   "name": "Clarkes Golf",
+   "name": "Affordable Golf",
    "from": 1179.0,
    "options": 2
   },
@@ -30,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 96,
-  "low": 1179.0,
+  "low": 975.0,
   "high": 1379.0,
-  "average": 1218.58,
-  "priceChanges": 1,
+  "average": 1216.46,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -45,15 +44,15 @@
    ],
    [
     "2026-11-19",
-    1179.0
+    975.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 77 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MizunoProS-3Irons1.jpg?v=1776298157",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Mizuno-Pro-S-3-Golf-Irons-Steel-1.png?v=1736395610",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-19"
 }

@@ -6,14 +6,14 @@
  "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 44.0,
+ "lowestNewPrice": 55.0,
  "lowestAt": [
   "Callaway Golf"
  ],
  "retailers": [
   {
    "name": "Callaway Golf",
-   "from": 44.0,
+   "from": 55.0,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 96,
   "low": 44.0,
   "high": 55.0,
-  "average": 44.57,
-  "priceChanges": 1,
+  "average": 44.69,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -34,15 +34,15 @@
    ],
    [
     "2026-11-19",
-    44.0
+    55.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 91 days"
+  "label": "wait",
+  "summary": "Wait if you can: £11.00 above its tracked low"
  },
- "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794916906403/sits/balls-2022-chrome-soft-truvis-team-red-blue/balls-2022-chrome-soft-truvis-team-red-blue_2___1.png?sfrm=png",
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795026358426/sits/balls-2022-chrome-soft-truvis-team-red-blue/balls-2022-chrome-soft-truvis-team-red-blue_2___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-19"
 }

@@ -6,28 +6,28 @@
  "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 44.99,
+ "lowestNewPrice": 44.95,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 44.99,
+   "name": "Clarkes Golf",
+   "from": 44.95,
    "options": 1
   },
   {
-   "name": "Clarkes Golf",
-   "from": 49.95,
+   "name": "Clickgolf",
+   "from": 44.99,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 96,
-  "low": 44.99,
+  "low": 44.95,
   "high": 49.99,
   "average": 49.88,
-  "priceChanges": 2,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -43,7 +43,7 @@
    ],
    [
     "2026-11-19",
-    44.99
+    44.95
    ]
   ]
  },
@@ -51,7 +51,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/T2029S-PA-Pro-V1-AIM-Box.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/imgi_137_T2029S-PA_01-Photoroom-Photoroom.jpg?v=1753183172",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-19"
 }
