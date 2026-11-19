@@ -63,6 +63,8 @@ STEP 3: SECRETS (Settings > Secrets and variables > Actions)
                    CH_API_KEY for the society connector (step 7)
                    YOUTUBE_API_KEY for the trends scout (step 9)
                    CLAUDE_CODE_OAUTH_TOKEN for the editor's Claude review (step 11)
+                   PSI_API_KEY (optional) lifts Google PageSpeed's free limit; it
+                   works without one for the handful of speed checks we run
   Everything else works without them.
 
 STEP 4: RUN EACH ONCE BY HAND
@@ -165,6 +167,19 @@ GAMES SCOUT AND GAMES LAB
   boxes: Retire it, or Give it 4 more weeks. Tick one and your choice goes into
   the next Fix pack. Until you decide, it keeps running. One beta at a time.
 
+SEO: HEALTH CHECK AND SEO NEWS
+  Mondays, with the search engine: every price page's Product markup (what
+  powers Google's price snippets) and duplicate titles are checked; with
+  Search Console access it also reads your sitemap report, asks Google
+  whether a rotating sample of ~45 pages is indexed (and why not), and runs
+  Google PageSpeed for mobile speed on key pages. Results: data/agents/
+  seo-health.json, read by the weekly review, which gives you the fixes.
+  First run here: all 1,697 price pages have valid markup; 36 have no
+  product photo because their feed doesn't supply one.
+  2nd of the month: the Claude check also reads Google's own announcements
+  and reputable SEO news, and tells you only what affects GolfPrice AI and
+  the change to make.
+
 COMPETITOR WATCH AND PRESS DESK
   Mondays: the search engine reads competitors' public sitemaps (Caddence,
   CaddyCompare, Golf Price Compare, ClubCompass and RiddyGolf; add others in
@@ -243,7 +258,8 @@ THE SCHEDULE (UK time in winter)
   2nd of month   retailer insights (emailed to you)
   Sun + Wed      social trends scout (before the content plan)
   daily          game master (inside the fix pack, once Wild Nine is live)
-  2nd of month   AI-answer and competitor rank check (Claude)
+  2nd of month   AI-answer, competitor rank and SEO news check (Claude)
+  Mondays        SEO health check (with the search engine)
   daily          performance analyst + editor (inside the fix pack; email Mondays)
   after packs    editor's Claude review (needs step 11)
   Mondays        competitor watch (with the search engine)

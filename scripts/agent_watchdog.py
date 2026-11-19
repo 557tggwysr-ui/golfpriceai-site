@@ -52,7 +52,7 @@ REPORTS = {
     "answers-report.json": ("AI-answer optimiser", 30), "content-plan.json": ("Content engine", 8 * 24),
     "seo-opportunities.json": ("Search engine", 8 * 24 + 6),
     "performance.json": ("Performance analyst", 30), "editor-findings.json": ("Editor", 30),
-    "competitor-watch.json": ("Competitor watch", 8 * 24 + 6),
+    "competitor-watch.json": ("Competitor watch", 8 * 24 + 6), "seo-health.json": ("SEO health check", 8 * 24 + 6),
 }
 MAX_PACK_FILES = 12
 MAX_PACK_LINES = 80
