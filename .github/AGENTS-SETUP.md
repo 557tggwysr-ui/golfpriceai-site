@@ -153,9 +153,13 @@ GAMES SCOUT AND GAMES LAB
   golf games and gamified shopping, then builds ONE beta game on its own branch
   (you merge it) at golfpriceai.com/play/lab/. It's hidden from Google: share
   it with a golf WhatsApp group. After 4 weeks the performance analyst judges
-  it against its pass mark (enough players coming back): "passed" means the
-  next lab run graduates it into the Clubhouse; "retired" means it's removed.
-  Both go through the Fix pack. Only one beta runs at a time.
+  it against its pass mark (enough players coming back). "Passed" goes into
+  the Fix pack, and the next lab run graduates it into the Clubhouse.
+  A beta is NEVER retired without you: if it misses its pass mark you get an
+  email with its numbers week by week, the improvements made during the beta
+  and a recommendation, plus a GitHub issue "Games lab decision: ..." with two
+  boxes: Retire it, or Give it 4 more weeks. Tick one and your choice goes into
+  the next Fix pack. Until you decide, it keeps running. One beta at a time.
 
 COMPETITOR WATCH AND PRESS DESK
   Mondays: the search engine reads competitors' public sitemaps (Caddence,

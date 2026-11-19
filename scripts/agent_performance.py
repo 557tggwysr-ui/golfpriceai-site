@@ -30,6 +30,7 @@ Outputs
 import json
 import math
 import os
+import re
 import sys
 from collections import defaultdict
 from datetime import date, timedelta
@@ -181,38 +182,126 @@ def run_test(cta_rows, today):
 LAB = DATA / "games-lab.json"
 
 
+def gh(method, path, body=None):
+    """GitHub API (only inside GitHub Actions). Returns parsed JSON or None."""
+    repo, tok = os.environ.get("GITHUB_REPOSITORY"), os.environ.get("GITHUB_TOKEN")
+    if not (repo and tok and os.environ.get("GITHUB_ACTIONS") == "true"):
+        print("(not in GitHub Actions: would", method, path, ")")
+        return None
+    s, _, t = http(f"https://api.github.com/repos/{repo}{path}", method=method, body=body,
+                   headers={"Authorization": "Bearer " + tok, "Accept": "application/vnd.github+json"})
+    try:
+        return json.loads(t) if 200 <= s < 300 and t else None
+    except ValueError:
+        return None
+
+
+def lab_weeks(lab_rows, slug, started, today):
+    """Week-by-week player-days, returning player-days and buy clicks since the beta started."""
+    out, d0 = [], date.fromisoformat(started)
+    w = 0
+    while d0 + timedelta(days=7 * w) <= today:
+        a, b = str(d0 + timedelta(days=7 * w)), str(d0 + timedelta(days=7 * w + 6))
+        sel = [(k, n) for day, k, key, n in lab_rows if key == slug and a <= day <= b]
+        p, r, o = (sum(n for k, n in sel if k == kk) for kk in ("gplay", "lret", "gout"))
+        out.append((f"Week {w + 1} ({a[5:]})", p, r, f"{r / p:.0%}" if p else "-", o))
+        w += 1
+    return out
+
+
 def run_lab(lab_rows, today):
-    """Judge each running lab beta against its pass mark after 28 days (56 at most). Changes go through the Fix pack."""
+    """Judge each running lab beta. A pass goes into the Fix pack. A beta that misses its pass mark is NEVER
+    retired automatically: John gets the data by email and decides in a GitHub issue (retire it, or give it
+    4 more weeks), and only then is his choice put into the Fix pack."""
     try:
         d = json.loads(LAB.read_text(encoding="utf-8"))
     except Exception:
         return []
     lines, changed = [], []
+    issues = gh("GET", "/issues?state=open&labels=games-lab&per_page=30") or []
     for g in d.get("games", []):
         if g.get("status") != "running":
             continue
-        slug, started = "lab-" + g["slug"], g.get("started") or str(today)
+        name, slug, started = g.get("name", g["slug"]), "lab-" + g["slug"], g.get("started") or str(today)
         play = sum(n for day, k, key, n in lab_rows if key == slug and k == "gplay" and day >= started)
         ret = sum(n for day, k, key, n in lab_rows if key == slug and k == "lret" and day >= started)
         out = sum(n for day, k, key, n in lab_rows if key == slug and k == "gout" and day >= started)
         mark = g.get("passMark") or {}
         need, want_ret, want_out = mark.get("minPlayers", 50), mark.get("returnRate", 0.3), mark.get("buyClickRate", 0)
         days = (today - date.fromisoformat(started)).days
-        rate = ret / play if play else 0
-        orate = out / play if play else 0
-        lines.append(f"{g.get('name', slug)}: day {days}, {play} player-days, return rate {rate:.0%} (pass {want_ret:.0%}), "
+        rate, orate = (ret / play if play else 0), (out / play if play else 0)
+        lines.append(f"{name}: day {days}, {play} player-days, return rate {rate:.0%} (pass {want_ret:.0%}), "
                      f"buy clicks per player-day {orate:.1%}.")
-        verdict = None
-        if days >= 28 and play >= need:
-            ok = rate >= want_ret and orate >= want_out
-            verdict = ("passed", "Players came back often enough: ready to graduate to the main games page.") if ok else \
-                      ("retired", "Didn't bring players back often enough; retired so we can try the next idea.")
-        elif days >= 56:
-            verdict = ("retired", "Not enough players after 8 weeks to judge it; retired. Sharing it with a golf group may help a future beta.")
-        if verdict:
-            g["status"], g["verdict"], g["decided"] = verdict[0], verdict[1], str(today)
-            changed.append(f"Games lab: {g.get('name', slug)} {verdict[0]}. {verdict[1]}")
-            lines[-1] += f" Verdict: {verdict[0]}."
+        issue = next((i for i in issues if f"({g['slug']})" in i.get("title", "")), None)
+
+        # 1) John has an open decision: act on his tick (unless that choice is already live)
+        if issue and g.get("extendedUntil") and str(today) < g["extendedUntil"]:
+            continue  # extension applied; the issue is closed below
+        if issue:
+            first = not issue.get("comments")
+            body = issue.get("body") or ""
+            retire = re.search(r"- \[[xX]\] Retire it", body)
+            extend = re.search(r"- \[[xX]\] Give it 4 more weeks", body)
+            if retire:
+                g.update({"status": "retired", "decided": str(today), "verdict": "Retired by John after reviewing its results."})
+                changed.append(f"Games lab: retire {name} (your choice in issue #{issue['number']}).")
+                if first:
+                    gh("POST", f"/issues/{issue['number']}/comments", {"body": "Got it: retiring it is in today's Fix pack. Merge it to apply."})
+                lines[-1] += " You chose: retire (in today's Fix pack)."
+            elif extend:
+                until = str(today + timedelta(days=28))
+                g.update({"extendedUntil": until})
+                changed.append(f"Games lab: {name} gets 4 more weeks, until {until} (your choice in issue #{issue['number']}).")
+                if first:
+                    gh("POST", f"/issues/{issue['number']}/comments", {"body": f"Got it: 4 more weeks, until {until}, is in today's Fix pack. Merge it to apply."})
+                lines[-1] += f" You chose: 4 more weeks (until {until})."
+            else:
+                lines[-1] += f" Waiting for your decision (issue #{issue['number']}). It keeps running meanwhile."
+            continue
+
+        # 2) the extension John approved has been applied: close its issue and wait for the new date
+        if g.get("extendedUntil") and str(today) < g["extendedUntil"]:
+            continue
+
+        # 3) judge it
+        ready = (days >= 28 and play >= need) or days >= 56 or (g.get("extendedUntil") and str(today) >= g["extendedUntil"])
+        if not ready:
+            continue
+        if play >= need and rate >= want_ret and orate >= want_out:
+            g.update({"status": "passed", "decided": str(today),
+                      "verdict": "Players came back often enough: ready to graduate to the Clubhouse."})
+            changed.append(f"Games lab: {name} passed its pass mark and is ready to graduate.")
+            lines[-1] += " Verdict: passed."
+            continue
+        why = (f"only {play} player-days in {days} days (it needs {need})" if play < need else
+               f"players came back on {rate:.0%} of play days (pass mark {want_ret:.0%})")
+        weeks = lab_weeks(lab_rows, slug, started, today)
+        fixes = g.get("changes") or []
+        email_owner(f"GolfPrice AI · Games lab: your decision on {name}",
+                    f"<h2>{name} has missed its pass mark so far</h2><p>In beta since {started} ({days} days): {why}. "
+                    f"Buy clicks per play day: {orate:.1%}.</p><p><b>Recommendation:</b> "
+                    + ("retire it and try the next idea." if play >= need else
+                       "it hasn't had enough players to judge fairly. Share golfpriceai.com/play/lab/ with a golf group and give it 4 more weeks.")
+                    + "</p><h3>Week by week</h3>" + table(weeks, ["Week", "Player-days", "Came back", "Return rate", "Buy clicks"])
+                    + "<h3>Improvements made during the beta</h3>"
+                    + ("<ul>" + "".join(f"<li>{c.get('date', '')}: {c.get('what', '')}</li>" for c in fixes) + "</ul>" if fixes else "<p>None yet.</p>")
+                    + f"<p>Why we tried it: {g.get('why', '')}</p><p>Decide in the GitHub issue \"Games lab decision: {name}\". "
+                      "Nothing is retired until you tick a box; it keeps running meanwhile.</p>")
+        gh("POST", "/labels", {"name": "games-lab", "color": "1d76db", "description": "Games lab decisions for John"})
+        gh("POST", "/issues", {"title": f"Games lab decision: {name} ({g['slug']})", "labels": ["games-lab"],
+                               "body": f"**{name}** has been in beta since {started} and hasn't met its pass mark yet. "
+                                       "The numbers, week by week, and the improvements made are in your email "
+                                       "(\"Games lab: your decision\").\n\nTick ONE, and the next daily run puts it in the Fix pack for you to merge:\n\n"
+                                       "- [ ] Retire it\n- [ ] Give it 4 more weeks\n\n"
+                                       "_Until you decide, it keeps running. Nothing is retired without your tick._"})
+        lines[-1] += " Missed its pass mark: emailed you the data; waiting for your decision."
+    # close decision issues whose choice is now live
+    for i in issues:
+        m = re.search(r"\(([a-z0-9-]+)\)$", i.get("title", ""))
+        g = next((x for x in d.get("games", []) if m and x["slug"] == m.group(1)), None)
+        if g and (g.get("status") == "retired" or (g.get("extendedUntil") and str(today) < g["extendedUntil"])) \
+                and not any(g.get("name", "") in c for c in changed):
+            gh("PATCH", f"/issues/{i['number']}", {"state": "closed"})
     if changed:
         LAB.write_text(json.dumps(d, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         pack_note("data/games-lab.json", " ".join(changed))
