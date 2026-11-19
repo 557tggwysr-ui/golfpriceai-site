@@ -26,6 +26,18 @@ pushy or careless. You do not rewrite; you flag.
 - Facts the data does not support. Figures must come from the site's own data.
 - Traffic, usage or money numbers in anything public.
 
+## Premium visual standard (John, 19 Nov 2026: every post, video and graphic)
+Hold a post (put it in holdPosts) if any of these is true when you look at its card and frames:
+- Text is cut off, cramped against an edge, overlapping another element, or too small to read on a phone.
+- The product photo is blurry, pixelated, stretched, badly cropped, on a clashing background, or the
+  wrong product.
+- Colours clash or text is hard to read against its background.
+- The layout looks unbalanced, empty or cluttered, or two posts in the week look nearly identical.
+- Anything looks broken: blank frames, placeholder boxes, odd characters, a missing price.
+- It wouldn't sit comfortably next to a big golf brand's own posts.
+The automatic checks (agent_video.qc) already catch sizes, frame rate, length, contrast, low-resolution
+photos and cards that cut through text; you judge what only an eye can: does it look premium?
+
 ## Flag (note, don't block)
 - Clumsy or robotic wording, US spelling, odd combinations ("winter essentials: shorts").
 - Titles over 60 characters or descriptions over 155.

@@ -357,6 +357,7 @@ def main():
     names = {m["slug"]: m["name"] for m in models()}
     view, out = defaultdict(int), defaultdict(int)
     cta_rows, game_rows = [], []
+    ai_apps = defaultdict(int)  # visits sent by each AI app (ChatGPT, Perplexity, Claude...)
     lab_rows = [(d, k, key, n) for d, k, key, n, _ in rows if k in ("gplay", "lret", "gout") and key.startswith("lab-")]
     for day, kind, key, n, s in rows:
         if day < str(start):
@@ -367,6 +368,8 @@ def main():
             out[key] += n
         elif kind in ("ctaa", "ctab"):
             cta_rows.append((day, kind, key, n, s))
+        if kind == "aisrc":
+            ai_apps[key] += n
         if kind in ("gplay", "gview", "gout", "lret"):
             game_rows.append((day, kind, key, n))
     sales_ref = awin_sales(start, today)
@@ -422,6 +425,7 @@ def main():
         "counts": {k: sum(1 for i in ideas if i["type"] == k) for k in ("few buy clicks", "clicks, no sales", "seen, not visited")},
         "tracking": "on" if rows else "waiting",
         "gamesBySales": [r[0] for r in game_tab if r[3] or r[4]][:12],
+        "aiAppsByVisits": [a for a, _ in sorted(ai_apps.items(), key=lambda x: -x[1])],
     })
     if today.weekday() == 0 or os.environ.get("PERF_EMAIL") == "1":
         sales_note = "" if sales_ref is not None else "<p>(Sales by page start once AWIN_API_TOKEN is set and the new site.js is live.)</p>"
@@ -430,6 +434,8 @@ def main():
                     f"<p>{tot_v:,} page visits, {tot_o:,} buy clicks ({site_rate:.1%}), {tot_sales:,} tracked sales.</p>{sales_note}"
                     f"<p>{test_line}</p><h3>Top pages</h3>"
                     + table(priv[:30], ["Page", "Visitors", "Buy clicks", "Click rate", "Sales", "Commission"])
+                    + "<h3>Visitors sent by AI apps</h3>"
+                    + (table(sorted(ai_apps.items(), key=lambda x: -x[1]), ["AI app", "Visits"]) if ai_apps else "<p>None counted yet.</p>")
                     + "<h3>Games: play > price page > buy click</h3>"
                     + (table(game_tab[:15], ["Game", "Players", "Price pages after", "Buy clicks", "Sales", "Commission"]) if game_tab else "<p>No game counts yet.</p>")
                     + ("<h3>Games lab</h3><ul>" + "".join(f"<li>{x}</li>" for x in lab_lines) + "</ul>" if lab_lines else "")

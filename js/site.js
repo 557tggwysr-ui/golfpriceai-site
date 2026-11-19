@@ -470,7 +470,7 @@
       if (m === 'embed' || /embed/.test(s)) return 'embed';
       if (m === 'social' || m === 'share') return 'social';
     }
-    if (/chatgpt\.com|openai\.com|perplexity\.ai|claude\.ai|gemini\.google|copilot\.microsoft|you\.com|meta\.ai/.test(r)) return 'ai';
+    if (/chatgpt\.com|openai\.com|perplexity\.ai|claude\.ai|gemini\.google|copilot\.microsoft|you\.com|meta\.ai/.test(r + ' ' + s)) return 'ai';
     if (/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|brave|startpage|qwant)\./.test(r)) return 'search';
     if (/bsky\.app|facebook|instagram|(^|\.)t\.co$|(^|\.)x\.com$|tiktok|pinterest|reddit|youtube|linkedin|threads\.net/.test(r)) return 'social';
     if (/whatsapp/.test(r)) return 'whatsapp';
@@ -656,6 +656,22 @@
       send('gout', from);
       if (!/~g-/.test(a.href)) a.href = a.href.replace(/(clickref=[^&]*)/, function (m) { return (m + '~g-' + from).slice(0, 59); });
     }, false);
+  } catch (e) { /* never break the page */ }
+})();
+
+/* gp-ai-apps (AI-answer optimiser + performance analyst): which AI app sent this visitor.
+   One anonymous count per visit landing from ChatGPT, Perplexity, Claude, Gemini, Copilot and others. */
+(function () {
+  try {
+    if (sessionStorage.getItem('gp-ai-seen')) return;
+    var src = (new URLSearchParams(location.search).get('utm_source') || '').toLowerCase(), ref = '';
+    try { ref = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) { /* none */ }
+    var t = src + ' ' + ref, app = /chatgpt|openai/.test(t) ? 'chatgpt' : /perplexity/.test(t) ? 'perplexity' : /claude\.ai|anthropic/.test(t) ? 'claude'
+      : /gemini\.google|bard\.google/.test(t) ? 'gemini' : /copilot/.test(t) ? 'copilot' : /meta\.ai/.test(t) ? 'meta-ai' : /you\.com/.test(t) ? 'you-com'
+      : /duckduckgo.*assist|duck\.ai/.test(t) ? 'duck-ai' : '';
+    if (!app) return;
+    sessionStorage.setItem('gp-ai-seen', app);
+    navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/signal', JSON.stringify({ k: 'aisrc', m: app }));
   } catch (e) { /* never break the page */ }
 })();
 

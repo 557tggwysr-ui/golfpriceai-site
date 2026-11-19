@@ -114,6 +114,61 @@ def refresh_llms():
     return True
 
 
+# ---------------- LLM health (John, 19 Nov 2026: cover AI apps as well as Google) ----------------
+# The AI apps people ask about golf kit, and the crawler each one uses to read the web.
+AI_BOTS = {
+    "ChatGPT search": "OAI-SearchBot", "ChatGPT browsing": "ChatGPT-User", "OpenAI training": "GPTBot",
+    "Perplexity": "PerplexityBot", "Perplexity browsing": "Perplexity-User",
+    "Claude search": "Claude-SearchBot", "Claude browsing": "Claude-User", "Claude training": "ClaudeBot",
+    "Gemini / AI Overviews": "Google-Extended", "Google": "Googlebot", "Copilot / Bing": "Bingbot",
+    "Apple Intelligence": "Applebot-Extended", "Meta AI": "meta-externalagent", "DuckDuckGo AI": "DuckAssistBot",
+}
+LIVE_UAS = {"OAI-SearchBot": "Mozilla/5.0 (compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot)",
+            "PerplexityBot": "Mozilla/5.0 (compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)",
+            "Claude-SearchBot": "Mozilla/5.0 (compatible; Claude-SearchBot/1.0; +https://www.anthropic.com)",
+            "Bingbot": "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)"}
+
+
+def llm_health(mods):
+    """Can every AI app read the site, and does it see real facts without running JavaScript?"""
+    import urllib.robotparser
+    from agent_common import http
+    out = {"blocked": [], "liveFetch": [], "noJsProblems": [], "llmsTxt": {}, "indexNow": "unknown"}
+    rp = urllib.robotparser.RobotFileParser()
+    robots = ROOT / "robots.txt"
+    rp.parse(robots.read_text(encoding="utf-8").splitlines() if robots.exists() else [])
+    sample = mods[0]["slug"] if mods else "x"
+    for app, ua in AI_BOTS.items():
+        for path in ("/", f"/prices/{sample}/", "/llms.txt"):
+            if not rp.can_fetch(ua, SITE + path):
+                out["blocked"].append(f"{app} ({ua}) is blocked from {path} by robots.txt")
+    # AI crawlers don't run JavaScript: the name and lowest price must be in the page's own HTML
+    for m in mods[:: max(1, len(mods) // 40)][:40]:
+        f = ROOT / "prices" / m["slug"] / "index.html"
+        if not f.exists():
+            continue
+        s = f.read_text(encoding="utf-8", errors="replace")
+        body = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", s)
+        if "£" not in body or not re.search(r"(?is)<h1\b[^>]*>.+?</h1>", body):
+            out["noJsProblems"].append(f"/prices/{m['slug']}/: name or price only appears after JavaScript runs")
+        if not (ROOT / "prices" / m["slug"] / "data.json").exists():
+            out["noJsProblems"].append(f"/prices/{m['slug']}/data.json is missing (llms.txt points AI apps to it)")
+    txt = LLMS.read_text(encoding="utf-8") if LLMS.exists() else ""
+    upd = re.search(r"\(updated ([^)]*)\)", txt)
+    out["llmsTxt"] = {"exists": bool(txt), "kb": round(len(txt.encode()) / 1024, 1), "liveBlockUpdated": upd.group(1) if upd else None}
+    key = re.search(r'KEY = "([0-9a-f]+)"', (ROOT / "scripts" / "indexnow.py").read_text()) if (ROOT / "scripts" / "indexnow.py").exists() else None
+    out["indexNow"] = "ok" if key and (ROOT / f"{key.group(1)}.txt").exists() else "key file missing: Bing and Copilot (and ChatGPT search, which uses Bing) hear about new prices more slowly"
+    # live check (in GitHub Actions): does the host actually serve pages to AI crawlers?
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        for bot, ua in LIVE_UAS.items():
+            for path in ("/", "/llms.txt", f"/prices/{sample}/"):
+                st, _, _ = http(SITE + path, headers={"User-Agent": ua}, timeout=30)
+                if st != 200:
+                    out["liveFetch"].append(f"{bot} got {st} for {path}: check Cloudflare bot settings")
+    out["status"] = "ok" if not (out["blocked"] or out["liveFetch"] or out["noJsProblems"]) and out["indexNow"] == "ok" else "attention"
+    return out
+
+
 def main():
     mods = [m for m in models() if (m.get("gate") or {}).get("passes")]
     checked, stale, missing = check_markup(mods)
@@ -129,6 +184,7 @@ def main():
         "missingMarkup": len(missing), "missingExamples": missing[:20],
         "llmsLinks": len(links), "llmsDeadLinks": dead, "llmsRefreshProposed": changed,
         "status": "ok" if not stale and not missing and not dead else "attention",
+        "llmHealth": llm_health(mods),
     })
     print(json.dumps({k: rep[k] for k in ("pricePagesChecked", "staleMarkup", "missingMarkup", "llmsDeadLinks", "llmsRefreshProposed")}))
 

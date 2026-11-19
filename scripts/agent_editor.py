@@ -180,8 +180,46 @@ def dump_posts():
         plan = {"posts": []}
     today = str(now().date())
     keep = ("id", "date", "theme", "style", "hook", "headline", "sub", "captions", "sound", "editor")
-    print(json.dumps([{k: p.get(k) for k in keep} for p in plan.get("posts", []) if p.get("date", "") >= today],
-                     indent=1, ensure_ascii=False))
+    txt = json.dumps([{k: p.get(k) for k in keep} for p in plan.get("posts", []) if p.get("date", "") >= today],
+                     indent=1, ensure_ascii=False)
+    print(txt)
+    # tell the workflow whether these posts were already reviewed (saves Claude runs)
+    import hashlib
+    h = hashlib.sha1(txt.encode()).hexdigest()
+    try:
+        last = json.loads((OUT / "editor-review.json").read_text(encoding="utf-8")).get("postsHash")
+    except Exception:
+        last = None
+    open("/tmp/posts.hash", "w").write(h)
+    open("/tmp/posts.same", "w").write("1" if h == last else "0")
+
+
+def dump_frames(dest):
+    """Cards and three frames from each coming video, for Claude to look at (premium visual check)."""
+    from agent_common import now
+    from datetime import date, timedelta
+    d = os.path.abspath(dest)
+    os.makedirs(d, exist_ok=True)
+    try:
+        plan = json.loads((OUT / "content-plan.json").read_text(encoding="utf-8"))
+    except Exception:
+        plan = {"posts": []}
+    today = str(now().date())
+    for p in [x for x in plan.get("posts", []) if x.get("date", "") >= today][:10]:
+        card = ROOT / str(p.get("card", "")).lstrip("/")
+        if card.is_file():
+            subprocess.run(["cp", str(card), os.path.join(d, f"{p['id']}-card.jpg")])
+        day = date.fromisoformat(p["date"])
+        monday = day - timedelta(days=day.weekday())
+        vid = os.path.join(d, f"{p['id']}.mp4")
+        subprocess.run(["gh", "release", "download", f"pack-{monday}", "-p", f"{p['id']}.mp4", "-O", vid, "--clobber"],
+                       cwd=ROOT, capture_output=True)
+        if os.path.exists(vid):
+            for i, t in enumerate(("1.0", "4.5", "8.0")):
+                subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-ss", t, "-i", vid, "-frames:v", "1",
+                                "-vf", "scale=540:-1", os.path.join(d, f"{p['id']}-frame{i + 1}.jpg")])
+            os.remove(vid)
+    print("\n".join(sorted(os.listdir(d))))
 
 
 def gh(method, path, body=None):
@@ -205,9 +243,16 @@ def act_on_verdict(path):
         return
     verdict = "block" if str(v.get("verdict", "")).lower() == "block" else "ok"
     points = [str(x) for x in (v.get("points") or [])][:15]
-    save_report("editor-review.json", {"about": "The Editor's last Claude review (house style, facts, tone).",
-                                       "verdict": verdict, "summary": str(v.get("summary", ""))[:300], "points": points,
-                                       "what": os.environ.get("WHAT", "")})
+    rep = {"about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
+           "verdict": verdict, "summary": str(v.get("summary", ""))[:300], "points": points, "what": os.environ.get("WHAT", "")}
+    try:
+        old_rep = json.loads((OUT / "editor-review.json").read_text(encoding="utf-8"))
+        rep["postsHash"] = old_rep.get("postsHash")
+    except Exception:
+        pass
+    if os.path.exists("/tmp/posts.hash") and "content" in os.environ.get("WHAT", ""):
+        rep["postsHash"] = open("/tmp/posts.hash").read().strip()
+    save_report("editor-review.json", rep)
     holds = [str(x) for x in (v.get("holdPosts") or [])]
     if holds:
         f = OUT / "editor-holds.json"
@@ -232,6 +277,8 @@ def act_on_verdict(path):
 def main():
     if "--posts" in sys.argv:
         return dump_posts()
+    if "--frames" in sys.argv:
+        return dump_frames(sys.argv[sys.argv.index("--frames") + 1])
     if "--verdict" in sys.argv:
         return act_on_verdict(sys.argv[sys.argv.index("--verdict") + 1])
     if "--text" in sys.argv:

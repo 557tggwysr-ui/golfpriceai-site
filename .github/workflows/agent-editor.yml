@@ -45,7 +45,9 @@ jobs:
             echo "task=Review the Fix pack pull request #$PR. The diff is /tmp/review.diff and its description (the list of fixes) is /tmp/review-notes.md. You can read any file in the repo for context." >> "$GITHUB_OUTPUT"
           else
             python3 scripts/agent_editor.py --posts > /tmp/review.diff
-            echo "task=Review the coming week's social posts in /tmp/review.diff (captions, hooks and on-screen lines). Put the id of any post that breaks a Never rule in holdPosts." >> "$GITHUB_OUTPUT"
+            if [ "$(cat /tmp/posts.same 2>/dev/null)" = "1" ]; then echo "Posts already reviewed"; echo "skip=1" >> "$GITHUB_OUTPUT"; exit 0; fi
+            python3 scripts/agent_editor.py --frames /tmp/review-images || true
+            echo "task=Review the coming week's social posts in /tmp/review.diff (captions, hooks and on-screen lines) AND look at every image in /tmp/review-images (each post's feed card and three frames from its video) against the Premium visual standard in EDITOR.md. Put the id of any post that breaks a Never rule, or falls short of the premium visual standard, in holdPosts, saying exactly what to fix." >> "$GITHUB_OUTPUT"
           fi
       - name: Claude reads it
         if: env.HAS_TOKEN == 'true' && steps.gather.outputs.skip != '1'

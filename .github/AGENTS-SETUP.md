@@ -180,6 +180,33 @@ SEO: HEALTH CHECK AND SEO NEWS
   and reputable SEO news, and tells you only what affects GolfPrice AI and
   the change to make.
 
+AI APPS (LLMs): COVERED THE SAME WAY AS GOOGLE
+  Daily, the AI-answer optimiser also checks that ChatGPT, Perplexity, Claude,
+  Gemini, Copilot, Apple, Meta and DuckDuckGo's AI crawlers are all allowed in
+  by robots.txt, that the site really serves them pages (a live test as each
+  bot, so a Cloudflare setting can't silently block them), that every price
+  page shows its name and price without JavaScript (AI crawlers don't run it),
+  that llms.txt is fresh, and that IndexNow is set up (Bing feeds Copilot and
+  ChatGPT search). Results: answers-report.json "llmHealth".
+  The site now counts which AI app sent each visitor (anonymous), and your
+  Monday email has an "AI apps" table next to Google. ChatGPT visits tagged
+  utm_source=chatgpt.com were being counted as direct; that's fixed.
+  2nd of the month: the Claude check covers AI-app news too: changes to
+  ChatGPT search and shopping, Perplexity, Gemini and AI Mode, Copilot and
+  Claude, new AI crawlers to allow, and llms.txt practice.
+
+PREMIUM QUALITY FOR POSTS, VIDEOS AND GRAPHICS
+  Videos are now encoded at a much higher quality setting and feed cards are
+  saved at near-lossless quality. Every video and card passes a quality gate
+  before it can post: exact size and frame rate, length, text contrast on
+  every colour, product photos sharp enough (at least 600 pixels), no blank
+  frames, and feed cards that never cut through text (they're framed around
+  the content). One colour (green on light blue) failed the contrast test and
+  has been darkened. Then, with the Claude token (step 11), Claude looks at
+  every card and three frames of every video against the "Premium visual
+  standard" in .github/EDITOR.md and holds anything that falls short, saying
+  what to fix. A held post shows as "Held by the Editor" and never posts.
+
 COMPETITOR WATCH AND PRESS DESK
   Mondays: the search engine reads competitors' public sitemaps (Caddence,
   CaddyCompare, Golf Price Compare, ClubCompass and RiddyGolf; add others in

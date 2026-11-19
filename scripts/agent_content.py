@@ -439,19 +439,21 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
     imgs = [fetch_image(x.get("image")) for x in sc.get("items", [])] if style == "countdown" else None
     still = V.render(style, sc, palette, VIDEOS / f"{pid}.mp4", img=img, photo=photo, imgs=imgs)
     V.feed_card(still, CARDS / f"{pid}.jpg")
+    quality = V.qc(style, palette, VIDEOS / f"{pid}.mp4", still, img=img, imgs=imgs, card=CARDS / f"{pid}.jpg")
     monday = day - timedelta(days=day.weekday())
     return edited({"id": pid, "date": str(day), "theme": theme["theme"], "style": style, "palette": palette, "hook": sc["hook"],
             "trend": tie["match"] if tie else None, "card": f"/social/cards/{pid}.jpg",
             "video": f"https://github.com/{REPO}/releases/download/pack-{monday}/{pid}.mp4",
             "link": theme["link"], "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, tie, social),
-            "sound": sound, "trendingFormats": [f for f in STYLE_FORMATS.get(style, []) if (social or {}).get("formats", {}).get(f)], "posted": {}})
+            "sound": sound, "trendingFormats": [f for f in STYLE_FORMATS.get(style, []) if (social or {}).get("formats", {}).get(f)], "posted": {},
+            "quality": quality})
 
 
 def edited(post):
     """The Editor reads every caption and on-screen line. Problems hold the post back from auto-posting."""
     try:
         import agent_editor
-        probs = []
+        probs = ["quality: " + q for q in (post.get("quality") or [])]  # premium quality gate (agent_video.qc)
         for k, txt in (post.get("captions") or {}).items():
             probs += agent_editor.check_text(txt, where=f"{k} caption")
         for k in ("hook", "headline", "sub"):

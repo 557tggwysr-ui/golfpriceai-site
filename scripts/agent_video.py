@@ -32,7 +32,7 @@ PALETTES = {
     "fairway": {"bg": (20, 33, 26), "bg2": (31, 58, 40), "ink": (255, 255, 255), "soft": (196, 208, 200), "accent": (63, 174, 41), "pop": (227, 178, 60)},
     "clubhouse": {"bg": (244, 238, 224), "bg2": (228, 219, 196), "ink": (20, 33, 26), "soft": (88, 98, 90), "accent": (31, 120, 52), "pop": (196, 64, 48)},
     "gold": {"bg": (16, 18, 16), "bg2": (40, 36, 22), "ink": (255, 247, 225), "soft": (210, 196, 160), "accent": (227, 178, 60), "pop": (255, 255, 255)},
-    "sky": {"bg": (232, 243, 250), "bg2": (204, 228, 242), "ink": (14, 40, 60), "soft": (70, 96, 116), "accent": (21, 118, 196), "pop": (63, 174, 41)},
+    "sky": {"bg": (232, 243, 250), "bg2": (204, 228, 242), "ink": (14, 40, 60), "soft": (70, 96, 116), "accent": (21, 118, 196), "pop": (28, 112, 38)}  # pop darkened for contrast (was 2.5:1),
 }
 
 _fonts = {}
@@ -394,7 +394,7 @@ def render(style, script, palette, out_path, img=None, photo=None, imgs=None):
     frames = int(dur * FPS)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
-           "-i", "-", "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(out_path)]
+           "-i", "-", "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-tune", "animation", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(out_path)]
     still = None
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     try:
@@ -414,8 +414,108 @@ def render(style, script, palette, out_path, img=None, photo=None, imgs=None):
     return still
 
 
+def _edge_busy(im, y):
+    """How much text or graphics a horizontal line at y cuts through (0 = clean background)."""
+    row = im.crop((0, max(0, y - 2), im.width, min(im.height, y + 2))).convert("L").resize((270, 1))
+    px = list(row.getdata())
+    med = sorted(px)[len(px) // 2]
+    return sum(1 for v in px if abs(v - med) > 60)
+
+
 def feed_card(still, path):
-    """Instagram feed card (1080x1350) from the payoff frame."""
-    card = still.crop((0, 285, W, 285 + 1350)) if still.height >= 1635 else ImageOps.fit(still, (1080, 1350))
+    """Instagram feed card (1080x1350) from the payoff frame. Never cuts through text: it finds the band
+    of the frame that holds text and graphics; if that fits in 1350 pixels it crops around it, otherwise
+    it shows the whole band, scaled down, on a soft blurred backdrop of the same frame."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    card.save(path, "JPEG", quality=86, optimize=True, progressive=True)
+    if still.size != (W, H):
+        card = ImageOps.fit(still, (1080, 1350))
+    else:
+        busy = [y for y in range(0, H, 10) if _edge_busy(still, y) > 0] or [285, 1635]
+        top, bot = max(0, busy[0] - 40), min(H, busy[-1] + 50)
+        if bot - top <= 1350:
+            y0 = max(0, min(H - 1350, (top + bot) // 2 - 675))
+            card = still.crop((0, y0, W, y0 + 1350))
+        else:
+            band = still.crop((0, top, W, bot))
+            fw = int(W * 1350 / (bot - top))
+            from PIL import ImageStat
+            edge = ImageStat.Stat(band.crop((0, 0, 24, band.height))).mean[:3]
+            back = Image.new("RGB", (1080, 1350), tuple(int(v) for v in edge))  # calm, flat side margins
+            back.paste(band.resize((fw, 1350), Image.LANCZOS), ((1080 - fw) // 2, 0))
+            card = back
+    card.convert("RGB").save(path, "JPEG", quality=93, optimize=True, progressive=True, subsampling=0)
+    return card
+
+
+def card_cuts_text(card_path):
+    from PIL import Image as _I
+    with _I.open(card_path) as c:
+        c = c.convert("RGB")
+        return _edge_busy(c, 1) + _edge_busy(c, c.height - 2) > 0
+
+
+# ---------------- premium quality gate ----------------
+# John (19 Nov 2026): every post, video and graphic must be premium quality.
+# qc() checks each finished video and card; any problem holds the post (it
+# won't auto-post) and is listed on the content pack page.
+MIN_PHOTO = 600      # shortest side of a product photo, in pixels, before it looks soft at 1080 wide
+MIN_CONTRAST = 3.0   # WCAG large-text contrast for every text colour on its background
+
+
+def _lum(c):
+    def ch(x):
+        x /= 255
+        return x / 12.92 if x <= 0.03928 else ((x + 0.055) / 1.055) ** 2.4
+    r, g, b = c[:3]
+    return 0.2126 * ch(r) + 0.7152 * ch(g) + 0.0722 * ch(b)
+
+
+def contrast(a, b):
+    la, lb = _lum(a), _lum(b)
+    return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
+
+
+def qc(style, palette, out_path, still, img=None, imgs=None, card=None):
+    """Premium-quality checks. Returns a list of plain problems (empty = good to go)."""
+    import json as _json
+    probs = []
+    pal = PALETTES[palette]
+    for k in ("ink", "soft", "accent", "pop"):
+        if contrast(pal[k], pal["bg"]) < MIN_CONTRAST:
+            probs.append(f"{palette} palette: {k} text is hard to read ({contrast(pal[k], pal['bg']):.1f}:1)")
+    for im in [img] + list(imgs or []):
+        if im is not None and min(im.size) < MIN_PHOTO:
+            probs.append(f"product photo is only {im.size[0]}x{im.size[1]}: it would look soft")
+            break
+    try:
+        r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
+                            "stream=width,height,r_frame_rate:format=duration,size", "-of", "json", str(out_path)],
+                           capture_output=True, text=True, timeout=60)
+        info = _json.loads(r.stdout or "{}")
+        st = (info.get("streams") or [{}])[0]
+        fmt = info.get("format") or {}
+        if (st.get("width"), st.get("height")) != (W, H):
+            probs.append(f"video is {st.get('width')}x{st.get('height')}, not {W}x{H}")
+        num, _, den = str(st.get("r_frame_rate", "0/1")).partition("/")
+        if abs(float(num or 0) / float(den or 1) - FPS) > 0.5:
+            probs.append(f"video frame rate is {st.get('r_frame_rate')}, not {FPS}")
+        dur = float(fmt.get("duration") or 0)
+        if abs(dur - STYLES[style][1]) > 0.6:
+            probs.append(f"video is {dur:.1f}s, expected {STYLES[style][1]}s")
+        if int(fmt.get("size") or 0) < 250_000:
+            probs.append("video file is suspiciously small (blank or broken frames?)")
+    except Exception as e:
+        probs.append(f"couldn't check the video ({e})")
+    if still is not None:
+        from PIL import ImageStat
+        sd = ImageStat.Stat(still.convert("L")).stddev[0]
+        if sd < 12:
+            probs.append("payoff frame is nearly blank")
+    if card is not None and card.exists():
+        from PIL import Image as _I
+        with _I.open(card) as c:
+            if c.size != (1080, 1350):
+                probs.append(f"feed card is {c.size[0]}x{c.size[1]}, not 1080x1350")
+        if card_cuts_text(card):
+            probs.append("feed card cuts through text or graphics at its edge")
+    return probs
