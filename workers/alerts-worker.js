@@ -523,25 +523,6 @@ async function clubhouseKey(request, url, env, cors) {
     await db.prepare('INSERT INTO ck_vault (pid, data, at) VALUES (?, ?, ?) ON CONFLICT (pid) DO UPDATE SET data = excluded.data, at = excluded.at').bind(pid, data, hqDay()).run();
     return json({ ok: true }, 200, cors);
   }
-  if (path === '/wn/day') {
-    // the course league: one per daily course, gross and net, only players who chose to post
-    const day = Number(url.searchParams.get('day')) || wnToday();
-    if (!Number.isInteger(day) || day < 1 || day > wnToday() + 1) return json({ ok: false, error: 'No such course.' }, 400, cors);
-    const gross = await db.prepare('SELECT pid, nick, tot, tp, idx FROM wn_scores WHERE day = ? AND league = 1 ORDER BY tp, created LIMIT 25').bind(day).all();
-    const net = await db.prepare('SELECT pid, nick, tot, tp, idx, tot - CAST(ROUND(idx) AS INTEGER) AS net FROM wn_scores WHERE day = ? AND league = 1 AND idx IS NOT NULL ORDER BY net, created LIMIT 25').bind(day).all();
-    let mine = null;
-    if (pid) {
-      const me = await db.prepare('SELECT tot, tp, idx FROM wn_scores WHERE day = ? AND pid = ? AND league = 1').bind(day, pid).first();
-      if (me) {
-        const g = await db.prepare('SELECT COUNT(*) n FROM wn_scores WHERE day = ? AND league = 1 AND tp < ?').bind(day, me.tp).first();
-        let n = null;
-        if (me.idx != null) n = await db.prepare('SELECT COUNT(*) n FROM wn_scores WHERE day = ? AND league = 1 AND idx IS NOT NULL AND tot - CAST(ROUND(idx) AS INTEGER) < ?').bind(day, me.tot - Math.round(me.idx)).first();
-        mine = { gross: (g ? g.n : 0) + 1, net: n ? n.n + 1 : null };
-      }
-    }
-    const strip = rows => (rows.results || []).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, idx: r.idx, net: r.net, me: r.pid === pid }));
-    return json({ ok: true, day, gross: strip(gross), net: strip(net), mine }, 200, cors);
-  }
   return json({ ok: false, error: 'Not found.' }, 404, cors);
 }
 // Everything a restored Clubhouse needs: the player id, its societies, a nickname and the backup.
@@ -4400,7 +4381,30 @@ function corsHeaders(request, env) {
 */
 let wnReady = false;
 const WN_CODE_RX = /^[A-HJ-NP-Z2-9]{6}$/;
-const WN_NICK = s => String(s || '').replace(/[^A-Za-z0-9 '\-]/g, '').trim().slice(0, 14);
+// Nicknames: letters, numbers, spaces. Obviously offensive ones become "Golfer" straight away;
+// anything subtler is flagged by the game master agent for the owner to approve.
+const WN_BAD = /(fuck|fuk|shit|cunt|wank|twat|bollock|bastard|prick|whore|slag|nazi|hitler|rape|dick|cock|piss|nonce|paedo|pedo)/i;
+const WN_NICK = s => {
+  const n = String(s || '').replace(/[^A-Za-z0-9 '\-]/g, '').trim().slice(0, 14);
+  const plain = n.toLowerCase().replace(/0/g, 'o').replace(/1/g, 'i').replace(/3/g, 'e').replace(/4/g, 'a').replace(/5/g, 's').replace(/[^a-z]/g, '');
+  return n && WN_BAD.test(plain) ? 'Golfer' : n;
+};
+// Approved moderation (data/wild-nine-moderation.json, merged through the Fix pack): hidden
+// scores and renamed nicknames. Cached for 10 minutes; if it can't load, nothing is hidden.
+let wnMod = null, wnModAt = 0;
+async function wnModeration() {
+  if (wnMod && Date.now() - wnModAt < 600000) return wnMod;
+  try {
+    const r = await fetch('https://golfpriceai.com/data/wild-nine-moderation.json', { cf: { cacheTtl: 600 } });
+    const d = r.ok ? await r.json() : {};
+    wnMod = { pids: new Set(d.hidePids || []), nicks: new Set((d.renameNicks || []).map(x => String(x).toLowerCase())) };
+  } catch (e) { wnMod = wnMod || { pids: new Set(), nicks: new Set() }; }
+  wnModAt = Date.now();
+  return wnMod;
+}
+function wnModerate(rows, mod) {
+  return (rows.results || []).filter(r => !mod.pids.has(r.pid)).map(r => (mod.nicks.has(String(r.nick || '').toLowerCase()) ? { ...r, nick: 'Golfer' } : r));
+}
 const WN_GNAME = s => String(s || '').replace(/[<>"&\\]/g, '').replace(/\s+/g, ' ').trim().slice(0, 40);
 function wnToday() { return Math.floor((Date.now() - Date.UTC(2026, 10, 1)) / 864e5) + 1; }
 async function wnSetup(env) {
@@ -4484,8 +4488,42 @@ async function wildNine(request, url, env, cors) {
     const mem = await db.prepare('SELECT COUNT(*) n, SUM(pid = ?) me FROM wn_members WHERE code = ?').bind(pid || '-', code).first();
     const today = await db.prepare('SELECT s.pid, m.nick, s.tot, s.tp, s.grid FROM wn_scores s JOIN wn_members m ON m.pid = s.pid AND m.code = ? WHERE s.day = ? ORDER BY s.tp, s.created LIMIT 300').bind(code, day).all();
     const week = await db.prepare('SELECT s.pid, m.nick, COUNT(*) rounds, SUM(s.tp) tp FROM wn_scores s JOIN wn_members m ON m.pid = s.pid AND m.code = ? WHERE s.day > ? AND s.day <= ? GROUP BY s.pid ORDER BY (1.0 * SUM(s.tp) / COUNT(*)), COUNT(*) DESC LIMIT 300').bind(code, day - 7, day).all();
-    const strip = rows => (rows.results || []).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, grid: r.grid, rounds: r.rounds, me: r.pid === pid }));
+    const mod = await wnModeration();
+    const strip = rows => wnModerate(rows, mod).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, grid: r.grid, rounds: r.rounds, me: r.pid === pid }));
     return json({ ok: true, code, name: g.name, members: (mem && mem.n) || 0, me: !!(mem && mem.me), today: strip(today), week: strip(week) }, 200, cors);
+  }
+  if (path === '/wn/day') {
+    // the course league: one per daily course, gross and net, only players who chose to post
+    const day = Number(url.searchParams.get('day')) || wnToday();
+    if (!Number.isInteger(day) || day < 1 || day > wnToday() + 1) return json({ ok: false, error: 'No such course.' }, 400, cors);
+    const gross = await db.prepare('SELECT pid, nick, tot, tp, idx FROM wn_scores WHERE day = ? AND league = 1 ORDER BY tp, created LIMIT 25').bind(day).all();
+    const net = await db.prepare('SELECT pid, nick, tot, tp, idx, tot - CAST(ROUND(idx) AS INTEGER) AS net FROM wn_scores WHERE day = ? AND league = 1 AND idx IS NOT NULL ORDER BY net, created LIMIT 25').bind(day).all();
+    let mine = null;
+    if (pid) {
+      const me = await db.prepare('SELECT tot, tp, idx FROM wn_scores WHERE day = ? AND pid = ? AND league = 1').bind(day, pid).first();
+      if (me) {
+        const g = await db.prepare('SELECT COUNT(*) n FROM wn_scores WHERE day = ? AND league = 1 AND tp < ?').bind(day, me.tp).first();
+        let n = null;
+        if (me.idx != null) n = await db.prepare('SELECT COUNT(*) n FROM wn_scores WHERE day = ? AND league = 1 AND idx IS NOT NULL AND tot - CAST(ROUND(idx) AS INTEGER) < ?').bind(day, me.tot - Math.round(me.idx)).first();
+        mine = { gross: (g ? g.n : 0) + 1, net: n ? n.n + 1 : null };
+      }
+    }
+    const mod = await wnModeration();
+    const strip = rows => wnModerate(rows, mod).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, idx: r.idx, net: r.net, me: r.pid === pid }));
+    return json({ ok: true, day, gross: strip(gross), net: strip(net), mine }, 200, cors);
+  }
+  if (path === '/wn/stats') {
+    // For the game master agent only (GitHub Actions, with the ALERTS_SECRET): anonymous
+    // hole-by-hole results to tune future courses, plus nicknames and outliers to moderate.
+    if (!env.ALERTS_SECRET || request.headers.get('x-agent-key') !== env.ALERTS_SECRET) return json({ ok: false, error: 'Not found.' }, 404, cors);
+    const days = Math.min(14, Math.max(1, Number(url.searchParams.get('days')) || 7)), to = wnToday();
+    const rows = await db.prepare('SELECT day, grid, tp FROM wn_scores WHERE day > ? AND day <= ? LIMIT 20000').bind(to - days, to).all();
+    const byDay = {};
+    for (const r of rows.results || []) (byDay[r.day] = byDay[r.day] || []).push(r.grid);
+    const nicks = await db.prepare('SELECT nick, COUNT(*) n FROM wn_scores WHERE day > ? AND nick IS NOT NULL GROUP BY nick ORDER BY n DESC LIMIT 2000').bind(to - days).all();
+    const odd = await db.prepare('SELECT pid, day, nick, tot, tp, grid FROM wn_scores WHERE day > ? AND (tp <= -9 OR tot <= 18) ORDER BY tp LIMIT 100').bind(to - days).all();
+    return json({ ok: true, today: to, days: Object.entries(byDay).map(([d, g]) => ({ day: Number(d), rounds: g.length, grids: g.slice(0, 3000) })),
+      nicks: nicks.results || [], outliers: odd.results || [] }, 200, cors);
   }
   return json({ ok: false, error: 'Not found.' }, 404, cors);
 }

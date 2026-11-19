@@ -2,7 +2,9 @@ name: "Agent: fix pack"
 
 # Daily 07:30: turn what the agents found into ONE pull request of fixes
 # ("Fix pack"): hidden wrong prices, re-filed products, used stock moved to
-# Preowned, internal links for pages close to ranking, and a fresh llms.txt.
+# Preowned, internal links for pages close to ranking, a fresh llms.txt,
+# clubs merged under one name (Mondays), Wild Nine tuning and moderation, and
+# the Society Day Finder (3rd of the month).
 # Nothing changes until the owner merges it.
 # On merge: skipped fixes are taken out, the fix log is updated and a deal
 # refresh starts, so approved fixes are live within minutes.
@@ -26,14 +28,25 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
       - name: Propose today's fixes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ALERTS_SECRET: ${{ secrets.ALERTS_SECRET }}
+          AWIN_API_TOKEN: ${{ secrets.AWIN_API_TOKEN }}
+          AWIN_PUBLISHER_ID: ${{ secrets.AWIN_PUBLISHER_ID }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          CH_API_KEY: ${{ secrets.CH_API_KEY }}
         run: |
           if [ -f data/agents-paused ]; then echo "Agents paused"; exit 0; fi
           rm -f data/agents/pack-notes.json
-          python scripts/agent_linker.py
-          python scripts/agent_answers.py
+          # each agent that changes files runs here, so its change waits in the Fix pack
+          python scripts/agent_linker.py || echo "linker failed"
+          python scripts/agent_answers.py || echo "answers failed"
+          python scripts/agent_gamemaster.py || echo "game master failed"
+          if [ "$(date -u +%u)" = "1" ]; then python scripts/agent_coverage.py || echo "coverage failed"; fi
+          if [ "$(date -u +%d)" = "03" ]; then python scripts/agent_society.py || echo "society failed"; fi
           python scripts/agent_fixes.py propose
 
   approve:
@@ -53,7 +66,7 @@ jobs:
           python scripts/agent_fixes.py approve
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          for f in data/agent-rules.json data/agent-links.json llms.txt data/agents/fix-log.json; do [ -e "$f" ] && git add "$f"; done
+          for f in data/agent-rules.json data/agent-links.json llms.txt data/model-aliases.json play/wild-nine/index.html data/wild-nine-moderation.json data/society-days.json societies/days data/agents/fix-log.json; do git add -A -- "$f" 2>/dev/null || true; done
           if ! git diff --quiet --cached; then
             git commit -m "Fix pack approved"
             git pull --rebase && git push

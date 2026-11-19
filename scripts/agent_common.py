@@ -110,7 +110,8 @@ def table(rows, heads):
 # write the change into the working tree during the fix-pack run and leave a
 # note here. scripts/agent_fixes.py commits every allowed file that changed,
 # lists the notes in the pull request, and the owner approves by merging.
-PACK_FILES = ["data/agent-rules.json", "data/agent-links.json", "llms.txt"]
+PACK_FILES = ["data/agent-rules.json", "data/agent-links.json", "llms.txt", "data/model-aliases.json",
+              "play/wild-nine/index.html", "data/wild-nine-moderation.json", "data/society-days.json", "societies/days"]
 
 
 def pack_note(path, text):

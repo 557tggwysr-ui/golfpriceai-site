@@ -331,6 +331,7 @@
 </div>
 <div class="party" id="party"><canvas></canvas><div class="ace-text"><small>Hole 10 · Blind Faith</small>HOLE IN ONE<em>1 in 10,000</em></div></div>
 <div class="overlay" id="ov"><div class="ovbox" id="ovBox"></div></div>
+<script id="wn-tuning">window.WN_TUNING={"days":{}};</script>
 <script>// Wild Nine engine v2: course generation, clubs, balls, tech and shot physics (no DOM).
 (function (G) {
   'use strict';
@@ -621,6 +622,18 @@
     const yy = Math.floor(seed / 10000), mo = Math.floor(seed / 100) % 100, dd = seed % 100;
     const major = yy > 2000 && yy < 2200 && mo >= 1 && mo <= 12 && dd >= 1 && dd <= 31 && new Date(Date.UTC(yy, mo - 1, dd)).getUTCDay() === 0;
     if (major) holes.forEach(h => { h.hw *= 0.8; h.wind.mph += 5; h.slope = { x: h.slope.x * 1.15, y: h.slope.y * 1.15 }; if (h.bowl) h.bowl.c *= 1.15; });
+    // Game master tuning (approved through the site's Fix pack): only ever set
+    // for future days, so everyone playing a given day gets the same course.
+    const TU = (G.WN_TUNING && G.WN_TUNING.days && G.WN_TUNING.days[String(seed)]) || null;
+    if (TU) {
+      const cl = (v, lo, hi) => Math.max(lo, Math.min(hi, Number(v) || 0));
+      holes.forEach(h => {
+        const m = (TU.mods && TU.mods[h.mod]) || {};
+        const hw = cl((TU.hw || 1) * (m.hw || 1), 0.8, 1.25), sl = cl((TU.slope || 1) * (m.slope || 1), 0.8, 1.25), gr = cl((TU.GR || 1) * (m.GR || 1), 0.85, 1.2);
+        h.hw *= hw; h.GR *= gr; h.slope = { x: h.slope.x * sl, y: h.slope.y * sl };
+        h.wind.mph = Math.max(0, Math.round(h.wind.mph + cl((TU.wind || 0) + (m.wind || 0), -6, 6)));
+      });
+    }
     return { seed, major, name: courseName(seed), holes, offers, startCard, par: pars.reduce((a, b) => a + b, 0) };
   }
 

@@ -65,7 +65,9 @@ def target_category(name):
     return None  # not obvious (e.g. "shaft irons"): left for the owner
 
 
-REPORTS = ["data/agents/answers-report.json", "data/agents/linker-state.json"]
+REPORTS = ["data/agents/answers-report.json", "data/agents/linker-state.json", "data/agents/coverage-report.json",
+           "data/agents/coverage-state.json", "data/agents/gamemaster-report.json", "data/agents/society-report.json",
+           "data/agents/society-state.json"]
 
 
 def save_reports_to_main():
@@ -120,6 +122,17 @@ def propose():
         days = HIDE_STEPS[min(times_hidden(k), len(HIDE_STEPS) - 1)]
         new["hide"][k] = {"reason": f"buy link {f['problem']}", "until": str(today + timedelta(days=days))}
         lines.append(("hide", k, f"Hide **{p['name']}** for {days} days: its buy link {f['problem']}."))
+    # 2b. our price doesn't match the retailer's own page (claims guardian)
+    for f in load_json(OUT / "claims-findings.json", {}).get("priceMismatch", []):
+        p = by_id.get(f.get("id"))
+        if not p:
+            continue
+        k = key(p)
+        if k in (rules.get("hide") or {}) or k in new["hide"]:
+            continue
+        new["hide"][k] = {"reason": f"retailer's page shows £{f['theirs']:.2f}, we show £{f['ours']:.2f}", "until": str(today + timedelta(days=3))}
+        lines.append(("hide", k, f"Hide **{p['name']}** for 3 days: we show £{f['ours']:.2f} but the retailer's page says £{f['theirs']:.2f}. "
+                                 "It comes back when the feed catches up."))
     # 3. products filed in the wrong category
     for m in findings.get("misfiled", []):
         to = target_category(m["name"])
@@ -261,12 +274,9 @@ def approve():
     skipped = re.findall(r"- \[[xX]\] skip [A-Z]\d+ .*?<!-- key: (\w+)::(.+?) -->", body)
     rules = load_json(RULES, {})
     for kind, k in skipped:
-        if kind == "file":  # put the whole file back as it was before this pack
-            prev = git("show", f"HEAD~1:{k}", check=False)
-            if prev.returncode == 0:
-                (ROOT / k).write_text(prev.stdout, encoding="utf-8")
-            elif (ROOT / k).exists():
-                (ROOT / k).unlink()
+        if kind == "file":  # put the file (or folder) back as it was before this pack
+            if git("checkout", "HEAD~1", "--", k, check=False).returncode != 0:
+                git("rm", "-r", "-q", "--ignore-unmatch", k, check=False)  # it didn't exist before
             continue
         if kind == "category":  # one line per product page: drop every listing on that page
             rules["category"] = {x: v for x, v in (rules.get("category") or {}).items() if v.get("page") != k}

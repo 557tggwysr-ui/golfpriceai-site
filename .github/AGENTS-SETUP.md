@@ -1,7 +1,7 @@
 GOLFPRICE AI AGENTS: SETUP AND HOW THEY WORK
 =============================================
 
-Eight agents that find problems, fix them (with your approval) and grow the
+Twelve agents that find problems, fix them (with your approval) and grow the
 site. All run free in GitHub Actions. Nothing changes on the site until you
 approve it.
 
@@ -17,6 +17,10 @@ WHAT'S IN THIS FOLDER
   scripts/agent_answers.py    6 AI-answer optimiser
   scripts/agent_story.py      7 data stories
   scripts/agent_linker.py     8 internal linker
+  scripts/agent_coverage.py   9 coverage hunter (more retailers per page)
+  scripts/agent_claims.py    10 claims guardian (every claim stays true)
+  scripts/agent_gamemaster.py 11 game master (+ agent_course.mjs: Wild Nine)
+  scripts/agent_society.py   12 society connector (Society Day Finder)
   scripts/update_deals.py     CHANGED: 7 lines that apply approved fixes
   scripts/price_pages.py      CHANGED: the internal-link lift in "Worth comparing"
   .github/workflows/agent-*.yml  the schedules
@@ -33,8 +37,11 @@ STEP 2: ONE GITHUB SETTING (so the agents can propose fixes)
 
 STEP 3: SECRETS (Settings > Secrets and variables > Actions)
   Already there:   AWIN_API_TOKEN, AWIN_PUBLISHER_ID, BREVO_API_KEY
+  Also used:       ALERTS_SECRET (already there: the game master uses it to
+                   read Wild Nine stats from the worker)
   New (optional):  GSC_SERVICE_ACCOUNT_JSON  for the search engine (step 5)
                    IG_USER_ID, IG_ACCESS_TOKEN for Instagram posting (step 6)
+                   CH_API_KEY for the society connector (step 7)
   Everything else works without them.
 
 STEP 4: RUN EACH ONCE BY HAND
@@ -61,11 +68,24 @@ STEP 6: INSTAGRAM AUTO-POSTING (optional, about 15 minutes, free)
   Tokens last about 60 days; when one expires you get an email and the post
   waits in the pack.
 
+STEP 7: COMPANIES HOUSE KEY (free, 5 minutes, for club partnership emails)
+  developer.company-information.service.gov.uk > register > Your applications >
+  Create an application (live, REST) > Create new key (REST). Copy the key
+  into the secret CH_API_KEY. Without it the Society Day Finder still builds
+  its pages; it just won't draft club emails.
+
+STEP 8: DEPLOY THE NEW WORKER BEFORE MERGING
+  The worker (workers/alerts-worker.js) now includes: the course league (a bug
+  had put it in the wrong place, so it's fixed), the game master's stats feed,
+  approved moderation and instant cleaning of offensive nicknames.
+
 YOUR DAILY 2 MINUTES: THE FIX PACK
   Each morning (07:30) one pull request lists today's fixes, for example:
     Hide a wrong price · Re-file a neck warmer that's listed as a fairway
     wood · Move ex-display stock into Preowned · Add internal links to pages
     close to ranking · Refresh llms.txt's live prices
+  Also: clubs merged under one name (Mondays), Wild Nine tuning for future
+  days and moderation, and the Society Day Finder (3rd of each month).
   Approve = Merge (the GitHub phone app works well). The fixes are live within
   minutes. To leave one out, tick its "skip" box before merging. Reject
   the lot = close the pull request.
@@ -108,7 +128,12 @@ THE SCHEDULE (UK time in winter)
   12:30 daily    Instagram posting (ticked posts only)
   Mon 05:10      search engine;  Mon 09:13 weekly review (Claude)
   Sun 17:00      content pack
+  06:55 daily    claims guardian
   1st of month   data story (chart and press angle; feeds the press pitch)
+  3rd of month   society connector (inside the fix pack; drafts emailed to you)
+  Mondays        coverage hunter (inside the fix pack; retailers to apply to
+                 emailed to you)
+  daily          game master (inside the fix pack, once Wild Nine is live)
   2nd of month   AI-answer check (Claude): are AI apps finding you?
 
 PRIVACY

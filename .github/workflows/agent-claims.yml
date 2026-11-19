@@ -1,0 +1,33 @@
+name: "Agent: claims guardian"
+
+# Daily: every claim on the site matches live data, every page with buy links
+# carries the commission disclosure, no urgency or "was" wording anywhere
+# (including the other agents' captions), and a sample of our prices matches
+# the retailers' own pages. Mismatches go into the next Fix pack.
+on:
+  schedule:
+    - cron: '55 6 * * *'
+  workflow_dispatch: {}
+
+concurrency: { group: agents-commit, cancel-in-progress: false }
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    env: { PYTHONDONTWRITEBYTECODE: "1" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Check every claim
+        run: python scripts/agent_claims.py
+      - name: Save the report
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/agents/claims-report.json data/agents/claims-findings.json
+          if ! git diff --quiet --cached; then
+            git commit -m "Agent: claims guardian report"
+            git pull --rebase && git push
+          fi
