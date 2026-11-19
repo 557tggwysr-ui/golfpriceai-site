@@ -1,0 +1,63 @@
+name: "Agent: fix pack"
+
+# Daily 07:30: turn what the agents found into ONE pull request of fixes
+# ("Fix pack"): hidden wrong prices, re-filed products, used stock moved to
+# Preowned, internal links for pages close to ranking, and a fresh llms.txt.
+# Nothing changes until the owner merges it.
+# On merge: skipped fixes are taken out, the fix log is updated and a deal
+# refresh starts, so approved fixes are live within minutes.
+on:
+  schedule:
+    - cron: '30 7 * * *'
+  workflow_dispatch: {}
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+concurrency: { group: agents-commit, cancel-in-progress: false }
+
+jobs:
+  propose:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions: { contents: write, pull-requests: write, issues: write }
+    env: { PYTHONDONTWRITEBYTECODE: "1" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Propose today's fixes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f data/agents-paused ]; then echo "Agents paused"; exit 0; fi
+          rm -f data/agents/pack-notes.json
+          python scripts/agent_linker.py
+          python scripts/agent_answers.py
+          python scripts/agent_fixes.py propose
+
+  approve:
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'agent/fix-pack'
+    runs-on: ubuntu-latest
+    permissions: { contents: write, actions: write }
+    env: { PYTHONDONTWRITEBYTECODE: "1" }
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 2 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Apply the approval
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          python scripts/agent_fixes.py approve
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          for f in data/agent-rules.json data/agent-links.json llms.txt data/agents/fix-log.json; do [ -e "$f" ] && git add "$f"; done
+          if ! git diff --quiet --cached; then
+            git commit -m "Fix pack approved"
+            git pull --rebase && git push
+          fi
+      - name: Refresh the site now so the fixes go live
+        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
+        run: gh workflow run update-deals.yml --ref main

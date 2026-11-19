@@ -44,6 +44,9 @@
  *                       (sent by scripts/alerts.py). Stored in BUDGETWATCH.
  *   POST /subscribe     { email, models: [a, b], list: "compare" }  "Watch both"
  *                       on a /prices/compare/ page.
+ *   /wn/...             Wild Nine group tables (see wildNine() below): groups of
+ *                       mates, one official score per player per day. Stores a
+ *                       random player id and a nickname: never an email or a name.
  *   GET  /fourball      ?c=code  { n, total }: the live "3 golfers watching
  *                       through John's invite" count, and the site-wide total.
  *   GET  /unsubscribe   ?e=email&s=signature[&m=model]  One click: stop
@@ -117,6 +120,7 @@ export default {
       if (url.pathname.startsWith('/ck/')) return await clubhouseKey(request, url, env, cors);
       if (url.pathname.startsWith('/lv/')) return await liveScoring(request, url, env, cors, ctx);
       if (url.pathname.startsWith('/pl/')) return await polls(request, url, env, cors);
+      if (url.pathname.startsWith('/wn/')) return await wildNine(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -518,6 +522,25 @@ async function clubhouseKey(request, url, env, cors) {
     if (data.length > 8000) return json({ ok: false, error: 'Too big.' }, 400, cors);
     await db.prepare('INSERT INTO ck_vault (pid, data, at) VALUES (?, ?, ?) ON CONFLICT (pid) DO UPDATE SET data = excluded.data, at = excluded.at').bind(pid, data, hqDay()).run();
     return json({ ok: true }, 200, cors);
+  }
+  if (path === '/wn/day') {
+    // the course league: one per daily course, gross and net, only players who chose to post
+    const day = Number(url.searchParams.get('day')) || wnToday();
+    if (!Number.isInteger(day) || day < 1 || day > wnToday() + 1) return json({ ok: false, error: 'No such course.' }, 400, cors);
+    const gross = await db.prepare('SELECT pid, nick, tot, tp, idx FROM wn_scores WHERE day = ? AND league = 1 ORDER BY tp, created LIMIT 25').bind(day).all();
+    const net = await db.prepare('SELECT pid, nick, tot, tp, idx, tot - CAST(ROUND(idx) AS INTEGER) AS net FROM wn_scores WHERE day = ? AND league = 1 AND idx IS NOT NULL ORDER BY net, created LIMIT 25').bind(day).all();
+    let mine = null;
+    if (pid) {
+      const me = await db.prepare('SELECT tot, tp, idx FROM wn_scores WHERE day = ? AND pid = ? AND league = 1').bind(day, pid).first();
+      if (me) {
+        const g = await db.prepare('SELECT COUNT(*) n FROM wn_scores WHERE day = ? AND league = 1 AND tp < ?').bind(day, me.tp).first();
+        let n = null;
+        if (me.idx != null) n = await db.prepare('SELECT COUNT(*) n FROM wn_scores WHERE day = ? AND league = 1 AND idx IS NOT NULL AND tot - CAST(ROUND(idx) AS INTEGER) < ?').bind(day, me.tot - Math.round(me.idx)).first();
+        mine = { gross: (g ? g.n : 0) + 1, net: n ? n.n + 1 : null };
+      }
+    }
+    const strip = rows => (rows.results || []).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, idx: r.idx, net: r.net, me: r.pid === pid }));
+    return json({ ok: true, day, gross: strip(gross), net: strip(net), mine }, 200, cors);
   }
   return json({ ok: false, error: 'Not found.' }, 404, cors);
 }
@@ -4362,6 +4385,111 @@ function corsHeaders(request, env) {
     vary: 'origin',
   };
 }
+
+/* ------------------------------------------------------------- Wild Nine groups
+   Group tables for the daily game at /play/wild-nine. A player is a random id
+   the game makes on their phone (pid) plus the nickname they typed. Nothing
+   else: no email, no real name, no location.
+
+   POST /wn/new    { pid, nick, name }        -> { ok, code }   start a group
+   POST /wn/join   { pid, nick, code }        -> { ok, name }
+   POST /wn/leave  { pid, code }              -> { ok }
+   POST /wn/score  { pid, nick, day, tot, tp, grid } -> { ok, first }
+                   The first score a player posts for a day is the one that counts.
+   GET  /wn/group  ?c=CODE&day=N&pid=...      -> { ok, name, members, me, today[], week[] }
+*/
+let wnReady = false;
+const WN_CODE_RX = /^[A-HJ-NP-Z2-9]{6}$/;
+const WN_NICK = s => String(s || '').replace(/[^A-Za-z0-9 '\-]/g, '').trim().slice(0, 14);
+const WN_GNAME = s => String(s || '').replace(/[<>"&\\]/g, '').replace(/\s+/g, ' ').trim().slice(0, 40);
+function wnToday() { return Math.floor((Date.now() - Date.UTC(2026, 10, 1)) / 864e5) + 1; }
+async function wnSetup(env) {
+  if (wnReady) return;
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wn_groups (code TEXT PRIMARY KEY, name TEXT, owner TEXT, created TEXT)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wn_members (code TEXT, pid TEXT, nick TEXT, joined TEXT, PRIMARY KEY (code, pid)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS wn_members_pid ON wn_members (pid)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wn_scores (pid TEXT, day INTEGER, nick TEXT, tot INTEGER, tp INTEGER, grid TEXT, created TEXT, idx REAL, league INTEGER DEFAULT 0, PRIMARY KEY (pid, day)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS wn_scores_day ON wn_scores (day)'),
+  ]);
+  wnReady = true;
+}
+async function wildNine(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'Group tables are taking a short break. Please try again later.' }, 503, cors);
+  await wnSetup(env);
+  const db = env.DEMAND, path = url.pathname, now = new Date().toISOString();
+  let body = {};
+  if (request.method === 'POST') {
+    try { body = JSON.parse((await request.text()).slice(0, 2000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    const ip = request.headers.get('cf-connecting-ip') || '';
+    if (await tooMany('wn-' + ip, 60, 600)) return json({ ok: false, error: 'Easy, tiger. Please try again in a few minutes.' }, 429, cors);
+  }
+  const pidIn = String(body.pid || url.searchParams.get('pid') || '');
+  const pid = PID_RX.test(pidIn) ? pidIn : '';
+
+  if (path === '/wn/new' && request.method === 'POST') {
+    const name = WN_GNAME(body.name), nick = WN_NICK(body.nick);
+    if (!pid || !name || !nick) return json({ ok: false, error: 'Give the group a name and yourself a nickname.' }, 400, cors);
+    const ip = request.headers.get('cf-connecting-ip') || '';
+    if (await tooMany('wnnew-' + ip, 10, 86400)) return json({ ok: false, error: 'That is a lot of new groups for one day. Try again tomorrow.' }, 429, cors);
+    const mine = await db.prepare('SELECT COUNT(*) n FROM wn_groups WHERE owner = ?').bind(pid).first();
+    if (mine && mine.n >= 20) return json({ ok: false, error: 'You already run 20 groups.' }, 400, cors);
+    const A = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    for (let t = 0; t < 6; t++) {
+      const b = crypto.getRandomValues(new Uint8Array(6)), code = [...b].map(x => A[x % A.length]).join('');
+      const r = await db.prepare('INSERT OR IGNORE INTO wn_groups (code, name, owner, created) VALUES (?, ?, ?, ?)').bind(code, name, pid, now).run();
+      if (r.meta && r.meta.changes) {
+        await db.prepare('INSERT OR REPLACE INTO wn_members (code, pid, nick, joined) VALUES (?, ?, ?, ?)').bind(code, pid, nick, now).run();
+        return json({ ok: true, code, name }, 200, cors);
+      }
+    }
+    return json({ ok: false, error: 'Could not make a code. Please try again.' }, 500, cors);
+  }
+  if (path === '/wn/join' && request.method === 'POST') {
+    const code = String(body.code || '').toUpperCase(), nick = WN_NICK(body.nick);
+    if (!pid || !WN_CODE_RX.test(code) || !nick) return json({ ok: false, error: 'That code does not look right.' }, 400, cors);
+    const g = await db.prepare('SELECT name FROM wn_groups WHERE code = ?').bind(code).first();
+    if (!g) return json({ ok: false, error: 'No group with that code.' }, 404, cors);
+    const n = await db.prepare('SELECT COUNT(*) n FROM wn_members WHERE code = ?').bind(code).first();
+    if (n && n.n >= 300) return json({ ok: false, error: 'That group is full (300 players).' }, 400, cors);
+    const many = await db.prepare('SELECT COUNT(*) n FROM wn_members WHERE pid = ?').bind(pid).first();
+    if (many && many.n >= 30) return json({ ok: false, error: 'You are already in 30 groups.' }, 400, cors);
+    await db.prepare('INSERT OR REPLACE INTO wn_members (code, pid, nick, joined) VALUES (?, ?, ?, COALESCE((SELECT joined FROM wn_members WHERE code = ? AND pid = ?), ?))').bind(code, pid, nick, code, pid, now).run();
+    return json({ ok: true, name: g.name }, 200, cors);
+  }
+  if (path === '/wn/leave' && request.method === 'POST') {
+    const code = String(body.code || '').toUpperCase();
+    if (!pid || !WN_CODE_RX.test(code)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    await db.prepare('DELETE FROM wn_members WHERE code = ? AND pid = ?').bind(code, pid).run();
+    return json({ ok: true }, 200, cors);
+  }
+  if (path === '/wn/score' && request.method === 'POST') {
+    const day = Number(body.day), tot = Number(body.tot), tp = Number(body.tp), grid = String(body.grid || ''), nick = WN_NICK(body.nick), today = wnToday();
+    if (!pid || !nick || !Number.isInteger(day) || Math.abs(day - today) > 1 || !Number.isInteger(tot) || tot < 9 || tot > 90 || !Number.isInteger(tp) || tp < -27 || tp > 54 || !/^[0-9a-z]{9}$/.test(grid))
+      return json({ ok: false, error: 'Bad score.' }, 400, cors);
+    const sum = [...grid].reduce((a, c) => a + parseInt(c, 36), 0);
+    if (sum !== tot) return json({ ok: false, error: 'Bad score.' }, 400, cors);
+    const idx = typeof body.idx === 'number' && isFinite(body.idx) && body.idx >= -20 && body.idx <= 54 ? Math.round(body.idx * 10) / 10 : null, league = body.league ? 1 : 0;
+    const r = await db.prepare('INSERT OR IGNORE INTO wn_scores (pid, day, nick, tot, tp, grid, created, idx, league) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)').bind(pid, day, nick, tot, tp, grid, now, idx, league).run();
+    // posting to the course league later is a yes to showing the round that already counts
+    if (league) await db.prepare('UPDATE wn_scores SET league = 1, nick = ? WHERE pid = ? AND day = ?').bind(nick, pid, day).run();
+    await db.prepare('UPDATE wn_members SET nick = ? WHERE pid = ?').bind(nick, pid).run();
+    return json({ ok: true, first: !!(r.meta && r.meta.changes) }, 200, cors);
+  }
+  if (path === '/wn/group') {
+    const code = String(url.searchParams.get('c') || '').toUpperCase(), day = Number(url.searchParams.get('day')) || wnToday();
+    if (!WN_CODE_RX.test(code)) return json({ ok: false, error: 'That code does not look right.' }, 400, cors);
+    const g = await db.prepare('SELECT name FROM wn_groups WHERE code = ?').bind(code).first();
+    if (!g) return json({ ok: false, error: 'No group with that code.' }, 404, cors);
+    const mem = await db.prepare('SELECT COUNT(*) n, SUM(pid = ?) me FROM wn_members WHERE code = ?').bind(pid || '-', code).first();
+    const today = await db.prepare('SELECT s.pid, m.nick, s.tot, s.tp, s.grid FROM wn_scores s JOIN wn_members m ON m.pid = s.pid AND m.code = ? WHERE s.day = ? ORDER BY s.tp, s.created LIMIT 300').bind(code, day).all();
+    const week = await db.prepare('SELECT s.pid, m.nick, COUNT(*) rounds, SUM(s.tp) tp FROM wn_scores s JOIN wn_members m ON m.pid = s.pid AND m.code = ? WHERE s.day > ? AND s.day <= ? GROUP BY s.pid ORDER BY (1.0 * SUM(s.tp) / COUNT(*)), COUNT(*) DESC LIMIT 300').bind(code, day - 7, day).all();
+    const strip = rows => (rows.results || []).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, grid: r.grid, rounds: r.rounds, me: r.pid === pid }));
+    return json({ ok: true, code, name: g.name, members: (mem && mem.n) || 0, me: !!(mem && mem.me), today: strip(today), week: strip(week) }, 200, cors);
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
+
 function json(obj, status, headers) {
   return new Response(JSON.stringify(obj), { status, headers: Object.assign({ 'content-type': 'application/json' }, headers) });
 }

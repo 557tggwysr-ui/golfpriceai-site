@@ -577,7 +577,34 @@ def related(m, all_models, limit=4):
         if len(picks) >= limit - len(brand_sibs):
             break
     out = [("Same brand", x) for x in brand_sibs] + [("Similar price", x) for x in picks]
+    # Internal linker (approved through the Fix pack): pages that need a lift get
+    # a link from their strongest related pages. data/agent-links.json
+    boost = _agent_boosts().get(m["slug"], [])
+    if boost:
+        by_slug = {x["slug"]: x for x in all_models}
+        lifts = [("Popular right now", by_slug[t]) for t in boost if t in by_slug and t != m["slug"]][:1]
+        out = lifts + [o for o in out if o[1]["slug"] not in {l[1]["slug"] for l in lifts}]
     return out[:limit]
+
+
+_BOOSTS = None
+
+
+def _agent_boosts():
+    """source slug -> [target slugs], from data/agent-links.json (empty if missing)."""
+    global _BOOSTS
+    if _BOOSTS is None:
+        _BOOSTS = {}
+        try:
+            import json as _json
+            from pathlib import Path as _Path
+            links = _json.loads((_Path(__file__).resolve().parent.parent / "data" / "agent-links.json").read_text())
+            for target, info in (links.get("boost") or {}).items():
+                for src in info.get("from", []):
+                    _BOOSTS.setdefault(src, []).append(target)
+        except Exception:
+            _BOOSTS = {}
+    return _BOOSTS
 
 
 def compare_block(model, all_models, today):

@@ -1,0 +1,67 @@
+name: "Agent: content engine"
+
+# Sunday 17:00: trend scan, then next week's posts (seven different video
+# styles, each with a hook), feed cards, the pack page and the approval issue.
+# Learns from last week's Instagram results. Daily 08:15: a "moment" post if a popular model hit its
+# lowest price. Daily 12:30: post today's ticked items to Instagram.
+# Cron times are UTC (UK winter time; an hour later in summer).
+on:
+  schedule:
+    - cron: '0 17 * * 0'
+    - cron: '15 8 * * *'
+    - cron: '30 12 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "plan, moment or post"
+        default: plan
+
+concurrency: { group: agents-commit, cancel-in-progress: false }
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions: { contents: write, issues: write }
+    env: { PYTHONDONTWRITEBYTECODE: "1" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install --quiet pillow
+      - name: Make sure ffmpeg is there (for the videos)
+        run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Pick the mode
+        id: mode
+        run: |
+          if [ -n "${{ github.event.inputs.mode }}" ]; then echo "m=${{ github.event.inputs.mode }}" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "0 17 * * 0" ]; then echo "m=plan" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "15 8 * * *" ]; then echo "m=moment" >> $GITHUB_OUTPUT
+          else echo "m=post" >> $GITHUB_OUTPUT; fi
+      - name: Run the content engine
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: python scripts/agent_content.py ${{ steps.mode.outputs.m }}
+      - name: Upload the videos to this week's release
+        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
+        run: |
+          shopt -s nullglob
+          for f in social-videos/*.mp4; do
+            d=$(basename "$f" | cut -c1-10)
+            mon=$(date -d "$d -$(( $(date -d "$d" +%u) - 1 )) days" +%F)
+            tag="pack-$mon"
+            gh release view "$tag" >/dev/null 2>&1 || gh release create "$tag" --title "Content pack w/c $mon" --notes "Videos for the content pack. See /social/pack/." --latest=false
+            gh release upload "$tag" "$f" --clobber
+          done
+          # keep the last six weeks of video packs
+          gh release list --limit 50 --json tagName -q '.[].tagName' | grep '^pack-' | sort -r | tail -n +7 | while read t; do gh release delete "$t" --yes --cleanup-tag; done
+      - name: Save the plan, cards and pack
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A data/agents/content-plan.json data/agents/content-learning.json data/agents/trends.json social/
+          if ! git diff --quiet --cached; then
+            git commit -m "Agent: content engine (${{ steps.mode.outputs.m }})"
+            git pull --rebase && git push
+          fi

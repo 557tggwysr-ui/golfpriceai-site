@@ -1,0 +1,36 @@
+name: "Agent: search-to-page engine"
+
+# Weekly: reads Search Console and ranks the pages to build or improve.
+# Public list (queries and pages only): data/agents/seo-opportunities.json
+# Full numbers go privately to the owner by email.
+on:
+  schedule:
+    - cron: '10 5 * * 1'
+  workflow_dispatch: {}
+
+concurrency: { group: agents-commit, cancel-in-progress: false }
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    env: { PYTHONDONTWRITEBYTECODE: "1" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install --quiet google-auth requests
+      - name: Find search opportunities
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/agent_search.py
+      - name: Save the list
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/agents/seo-opportunities.json
+          if ! git diff --quiet --cached; then
+            git commit -m "Agent: search opportunities"
+            git pull --rebase && git push
+          fi

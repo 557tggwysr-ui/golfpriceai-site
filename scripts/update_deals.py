@@ -3732,6 +3732,13 @@ def main():
     type_changes = product_types.fix_types(catalog["products"], classify_audience)
     if type_changes:
         print(f"Product types: corrected {len(type_changes)} clothing/accessory listing(s) from their own names.")
+    # Fixes the agents proposed and the owner approved (data/agent-rules.json).
+    # Wrapped so a bad rule can never stop the refresh.
+    try:
+        import agent_rules
+        catalog["products"], _ = agent_rules.apply(catalog["products"], today=datetime.now(timezone.utc).date().isoformat())
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARNING: agent rules skipped this run: {exc!r}")
     identity.count_retailers(catalog["products"])
     identity.assign_unique_ids(catalog["products"])
 
