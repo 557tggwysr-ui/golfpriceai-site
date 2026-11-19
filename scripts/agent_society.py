@@ -258,6 +258,8 @@ def main():
         DATA.write_text(json.dumps(data, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         if rows:
             pages = build_pages(rows, now().date())
+            from agent_common import register_pages
+            register_pages(sorted(str(f.parent.relative_to(ROOT)) + "/" for f in PAGES.glob("**/index.html")))
             pack_note("data/society-days.json", f"Society Day Finder: add or refresh **{found} clubs' society day packages** "
                                                 f"({len(rows)} clubs listed in all) and rebuild {pages} 'Golf society days' pages.")
             pack_note("societies/days", "The 'Golf society days' pages that go with the data above.")

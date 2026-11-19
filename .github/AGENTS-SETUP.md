@@ -1,7 +1,7 @@
 GOLFPRICE AI AGENTS: SETUP AND HOW THEY WORK
 =============================================
 
-Twelve agents that find problems, fix them (with your approval) and grow the
+Seventeen agents that find problems, fix them (with your approval) and grow the
 site. All run free in GitHub Actions. Nothing changes on the site until you
 approve it.
 
@@ -21,6 +21,13 @@ WHAT'S IN THIS FOLDER
   scripts/agent_claims.py    10 claims guardian (every claim stays true)
   scripts/agent_gamemaster.py 11 game master (+ agent_course.mjs: Wild Nine)
   scripts/agent_society.py   12 society connector (Society Day Finder)
+  scripts/agent_coursedata.py 13 course data keeper (scorecards from club websites)
+  scripts/agent_seasonal.py  14 seasonal planner (occasion pages 8 weeks ahead)
+  scripts/agent_email.py     15 email optimiser (Friday subject-line tests, list health)
+  scripts/agent_insights.py  16 retailer insights (monthly, private)
+  scripts/agent_trends.mjs   17 social trends scout (live hashtags, sounds, formats)
+  plus the "Price look wrong?" link on every price page, read by the claims guardian
+  CHANGED: scripts/digest.py (subject test), js/quick-round.js (club scorecards)
   scripts/update_deals.py     CHANGED: 7 lines that apply approved fixes
   scripts/price_pages.py      CHANGED: the internal-link lift in "Worth comparing"
   .github/workflows/agent-*.yml  the schedules
@@ -42,6 +49,7 @@ STEP 3: SECRETS (Settings > Secrets and variables > Actions)
   New (optional):  GSC_SERVICE_ACCOUNT_JSON  for the search engine (step 5)
                    IG_USER_ID, IG_ACCESS_TOKEN for Instagram posting (step 6)
                    CH_API_KEY for the society connector (step 7)
+                   YOUTUBE_API_KEY for the trends scout (step 9)
   Everything else works without them.
 
 STEP 4: RUN EACH ONCE BY HAND
@@ -78,6 +86,12 @@ STEP 8: DEPLOY THE NEW WORKER BEFORE MERGING
   The worker (workers/alerts-worker.js) now includes: the course league (a bug
   had put it in the wrong place, so it's fixed), the game master's stats feed,
   approved moderation and instant cleaning of offensive nicknames.
+
+STEP 9: YOUTUBE KEY (free, 5 minutes, optional)
+  In the same Google Cloud project as step 5: APIs & Services > Enable APIs >
+  "YouTube Data API v3" > Enable > Credentials > Create credentials > API key.
+  Restrict it to the YouTube Data API. Secret YOUTUBE_API_KEY = the key.
+  Without it, the trends scout still reads TikTok's trend pages and r/golf.
 
 YOUR DAILY 2 MINUTES: THE FIX PACK
   Each morning (07:30) one pull request lists today's fixes, for example:
@@ -132,7 +146,10 @@ THE SCHEDULE (UK time in winter)
   1st of month   data story (chart and press angle; feeds the press pitch)
   3rd of month   society connector (inside the fix pack; drafts emailed to you)
   Mondays        coverage hunter (inside the fix pack; retailers to apply to
-                 emailed to you)
+                 emailed to you), seasonal planner, email optimiser
+  3rd of month   course data keeper (inside the fix pack)
+  2nd of month   retailer insights (emailed to you)
+  Sun + Wed      social trends scout (before the content plan)
   daily          game master (inside the fix pack, once Wild Nine is live)
   2nd of month   AI-answer check (Claude): are AI apps finding you?
 

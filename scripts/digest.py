@@ -245,6 +245,39 @@ def subject(picks):
     return f"Genuine Drops: {top['name']} down {money(top['drop'])}{more}"
 
 
+def _tuning():
+    try:
+        return json.loads((Path(__file__).resolve().parent.parent / "data" / "email-tuning.json").read_text())
+    except Exception:
+        return {}
+
+
+def variant_for(email):
+    """A or B, fixed per subscriber, so the subject-line test is fair."""
+    import hashlib
+    t = _tuning()
+    if not t.get("challenger"):
+        return "A"
+    return "B" if int(hashlib.sha1(email.lower().encode()).hexdigest(), 16) % 2 else "A"
+
+
+def subject_for(email, picks):
+    """Variant A is the current subject. Variant B is the challenger the email agent is testing
+    (sales-event weeks always use the normal subject)."""
+    base = subject(picks)
+    t = _tuning()
+    tpl = t.get("default") if t.get("default") else None
+    if variant_for(email) == "B":
+        tpl = t.get("challenger")
+    if not tpl or event(date.today()) in ("bf", "cyber"):
+        return base
+    top = picks[0]
+    try:
+        return tpl.format(name=top["name"], drop=money(top["drop"]), n=len(picks), more=len(picks) - 1)
+    except Exception:
+        return base
+
+
 # ---------------------------------------------------------------- main
 def due(state, now):
     week = now.strftime("%G-W%V")
@@ -298,10 +331,10 @@ def main(argv):
         stop_digest = unsubscribe_link(secret, email, DIGEST_SLUG)
         stop_all = unsubscribe_link(secret, email)
         status, data = brevo(key, "POST", "/smtp/email", {
-            "sender": alerts.SENDER, "to": [{"email": email}], "subject": subject(picks),
+            "sender": alerts.SENDER, "to": [{"email": email}], "subject": subject_for(email, picks),
             "htmlContent": email_html(picks, today, stop_digest, stop_all),
             "headers": {"List-Unsubscribe": f"<{stop_all}>", "List-Unsubscribe-Post": "List-Unsubscribe=One-Click"},
-            "tags": ["friday-email"],
+            "tags": ["friday-email", "subj-" + variant_for(email)],
         })
         if status in (200, 201, 202):
             sent += 1

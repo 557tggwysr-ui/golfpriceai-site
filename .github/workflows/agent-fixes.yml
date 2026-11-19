@@ -47,6 +47,9 @@ jobs:
           python scripts/agent_gamemaster.py || echo "game master failed"
           if [ "$(date -u +%u)" = "1" ]; then python scripts/agent_coverage.py || echo "coverage failed"; fi
           if [ "$(date -u +%d)" = "03" ]; then python scripts/agent_society.py || echo "society failed"; fi
+          if [ "$(date -u +%d)" = "03" ]; then python scripts/agent_coursedata.py || echo "course data failed"; fi
+          if [ "$(date -u +%u)" = "1" ]; then python scripts/agent_seasonal.py || echo "seasonal failed"; fi
+          if [ "$(date -u +%u)" = "1" ]; then python scripts/agent_email.py || echo "email optimiser failed"; fi
           python scripts/agent_fixes.py propose
 
   approve:
@@ -66,7 +69,7 @@ jobs:
           python scripts/agent_fixes.py approve
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          for f in data/agent-rules.json data/agent-links.json llms.txt data/model-aliases.json play/wild-nine/index.html data/wild-nine-moderation.json data/society-days.json societies/days data/agents/fix-log.json; do git add -A -- "$f" 2>/dev/null || true; done
+          for f in data/agent-rules.json data/agent-links.json llms.txt data/model-aliases.json play/wild-nine/index.html data/wild-nine-moderation.json data/society-days.json societies/days data/courses/cards-clubs.json prices/occasions data/agent-pages.json data/email-tuning.json data/agents/fix-log.json; do git add -A -- "$f" 2>/dev/null || true; done
           if ! git diff --quiet --cached; then
             git commit -m "Fix pack approved"
             git pull --rebase && git push

@@ -8,12 +8,13 @@ name: "Agent: content engine"
 on:
   schedule:
     - cron: '0 17 * * 0'
+    - cron: '20 16 * * 3'
     - cron: '15 8 * * *'
     - cron: '30 12 * * *'
   workflow_dispatch:
     inputs:
       mode:
-        description: "plan, moment or post"
+        description: "plan, trends, moment or post"
         default: plan
 
 concurrency: { group: agents-commit, cancel-in-progress: false }
@@ -35,9 +36,22 @@ jobs:
         run: |
           if [ -n "${{ github.event.inputs.mode }}" ]; then echo "m=${{ github.event.inputs.mode }}" >> $GITHUB_OUTPUT
           elif [ "${{ github.event.schedule }}" = "0 17 * * 0" ]; then echo "m=plan" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "20 16 * * 3" ]; then echo "m=trends" >> $GITHUB_OUTPUT
           elif [ "${{ github.event.schedule }}" = "15 8 * * *" ]; then echo "m=moment" >> $GITHUB_OUTPUT
           else echo "m=post" >> $GITHUB_OUTPUT; fi
+      - uses: actions/setup-node@v4
+        if: steps.mode.outputs.m == 'plan' || steps.mode.outputs.m == 'trends'
+        with: { node-version: '20' }
+      - name: Scout live trends (hashtags, sounds, formats)
+        if: steps.mode.outputs.m == 'plan' || steps.mode.outputs.m == 'trends'
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          npm install --no-save --silent puppeteer-core@23 || true
+          export CHROME_PATH=$(which google-chrome || which chromium || echo /usr/bin/google-chrome)
+          node scripts/agent_trends.mjs || echo "trend scout failed; planning with what we have"
       - name: Run the content engine
+        if: steps.mode.outputs.m != 'trends'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
@@ -60,7 +74,7 @@ jobs:
         run: |
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add -A data/agents/content-plan.json data/agents/content-learning.json data/agents/trends.json social/
+          git add -A data/agents/content-plan.json data/agents/content-learning.json data/agents/trends.json data/agents/social-trends.json social/ 2>/dev/null || true
           if ! git diff --quiet --cached; then
             git commit -m "Agent: content engine (${{ steps.mode.outputs.m }})"
             git pull --rebase && git push

@@ -67,7 +67,8 @@ def target_category(name):
 
 REPORTS = ["data/agents/answers-report.json", "data/agents/linker-state.json", "data/agents/coverage-report.json",
            "data/agents/coverage-state.json", "data/agents/gamemaster-report.json", "data/agents/society-report.json",
-           "data/agents/society-state.json"]
+           "data/agents/society-state.json", "data/agents/coursedata-report.json", "data/agents/coursedata-state.json",
+           "data/agents/seasonal-report.json", "data/agents/email-report.json"]
 
 
 def save_reports_to_main():

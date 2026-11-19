@@ -118,13 +118,33 @@ def check_wording():
     return hits[:60]
 
 
-def live_price_match(items):
+def reported_pages():
+    """Pages shoppers flagged with 'Price look wrong?' in the last 14 days."""
+    key = os.environ.get("ALERTS_SECRET")
+    if not key or os.environ.get("AGENT_OFFLINE") == "1":
+        return []
+    worker = os.environ.get("ALERTS_WORKER_URL") or "https://golfpriceai-alerts.golfpriceai.workers.dev"
+    s, _, txt = http(f"{worker}/wp/list", headers={"x-agent-key": key})
+    try:
+        return json.loads(txt).get("reports", []) if s == 200 else []
+    except ValueError:
+        return []
+
+
+def live_price_match(items, reported=()):
     if os.environ.get("AGENT_OFFLINE") == "1":
         return None
     random.seed(str(now().date()))
     pool = [p for p in items if p.get("inStock") and not p.get("condition") and p.get("salePrice")]
+    # shoppers' reports first: every in-stock listing on a flagged page, then a random spread
+    flagged_ids = set()
+    mods = {m["slug"]: m for m in models()}
+    for r in reported:
+        flagged_ids.update((mods.get(r["slug"]) or {}).get("listingIds", [])[:8])
+    first = [p for p in pool if p["id"] in flagged_ids][:40]
+    rest = random.sample([p for p in pool if p["id"] not in flagged_ids], min(SAMPLE, len(pool)))
     out = []
-    for p in random.sample(pool, min(SAMPLE, len(pool))):
+    for p in first + rest:
         s, final, h = http(p["affiliateUrl"], timeout=30)
         time.sleep(1.0)
         if s != 200:
@@ -149,7 +169,8 @@ def main():
     buy_pages = pages_with_buy_links()
     no_disclosure = check_disclosure(buy_pages)
     wording = check_wording()
-    match = live_price_match(products())
+    reported = reported_pages()
+    match = live_price_match(products(), reported)
     mism = [m for m in (match or []) if not m["ok"]]
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "claims-findings.json").write_text(json.dumps({"generated": now().strftime("%Y-%m-%dT%H:%MZ"), "priceMismatch": mism}, ensure_ascii=False), encoding="utf-8")
@@ -163,6 +184,7 @@ def main():
         "buyPagesChecked": len(buy_pages), "missingDisclosure": no_disclosure[:40],
         "wordingFlags": wording,
         "priceMatchChecked": len(match) if match is not None else None, "priceMismatches": mism,
+        "shopperReports": reported[:30],
         "status": "ok" if bad == 0 and not wording else "attention",
     })
     print(json.dumps({k: rep[k] for k in ("accuracyPct", "pricePagesChecked", "wrongClaims", "buyPagesChecked", "priceMatchChecked")}),

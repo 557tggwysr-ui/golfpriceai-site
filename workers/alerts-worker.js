@@ -121,6 +121,7 @@ export default {
       if (url.pathname.startsWith('/lv/')) return await liveScoring(request, url, env, cors, ctx);
       if (url.pathname.startsWith('/pl/')) return await polls(request, url, env, cors);
       if (url.pathname.startsWith('/wn/')) return await wildNine(request, url, env, cors);
+      if (url.pathname.startsWith('/wp/')) return await wrongPrice(request, url, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -4524,6 +4525,32 @@ async function wildNine(request, url, env, cors) {
     const odd = await db.prepare('SELECT pid, day, nick, tot, tp, grid FROM wn_scores WHERE day > ? AND (tp <= -9 OR tot <= 18) ORDER BY tp LIMIT 100').bind(to - days).all();
     return json({ ok: true, today: to, days: Object.entries(byDay).map(([d, g]) => ({ day: Number(d), rounds: g.length, grids: g.slice(0, 3000) })),
       nicks: nicks.results || [], outliers: odd.results || [] }, 200, cors);
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
+
+// "Price look wrong?" reports from price pages: anonymous counts per page per day, read by the
+// claims guardian agent (with the ALERTS_SECRET), which re-checks those prices first.
+async function wrongPrice(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false }, 503, cors);
+  const db = env.DEMAND;
+  await db.prepare('CREATE TABLE IF NOT EXISTS wp_reports (day TEXT, slug TEXT, n INTEGER, PRIMARY KEY (day, slug)) WITHOUT ROWID').run();
+  if (url.pathname === '/wp/report' && request.method === 'POST') {
+    let body = {};
+    try { body = JSON.parse((await request.text()).slice(0, 300)); } catch (e) { return json({ ok: false }, 400, cors); }
+    const slug = String(body.s || '').toLowerCase();
+    if (!/^[a-z0-9-]{3,120}$/.test(slug)) return json({ ok: false }, 400, cors);
+    const ip = request.headers.get('cf-connecting-ip') || '';
+    if (await tooMany('wp-' + ip, 10, 3600)) return json({ ok: true }, 200, cors);
+    const day = new Date().toISOString().slice(0, 10);
+    await db.prepare('INSERT INTO wp_reports (day, slug, n) VALUES (?, ?, 1) ON CONFLICT (day, slug) DO UPDATE SET n = n + 1').bind(day, slug).run();
+    return json({ ok: true }, 200, cors);
+  }
+  if (url.pathname === '/wp/list') {
+    if (!env.ALERTS_SECRET || request.headers.get('x-agent-key') !== env.ALERTS_SECRET) return json({ ok: false, error: 'Not found.' }, 404, cors);
+    const since = new Date(Date.now() - 14 * 864e5).toISOString().slice(0, 10);
+    const rows = await db.prepare('SELECT slug, SUM(n) n FROM wp_reports WHERE day >= ? GROUP BY slug ORDER BY n DESC LIMIT 200').bind(since).all();
+    return json({ ok: true, reports: rows.results || [] }, 200, cors);
   }
   return json({ ok: false, error: 'Not found.' }, 404, cors);
 }

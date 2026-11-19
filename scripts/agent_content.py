@@ -47,6 +47,10 @@ import agent_video as V
 PLAN = OUT / "content-plan.json"
 LEARN = OUT / "content-learning.json"
 TRENDS = OUT / "trends.json"
+SOCIAL = OUT / "social-trends.json"   # live hashtags, sounds and formats (scripts/agent_trends.mjs)
+STYLE_FORMATS = {"pov": ["pov", "day in the life"], "countdown": ["tier list", "top 3 / countdown"], "guess": ["guess the price", "challenge"],
+                 "expectation": ["expectation v reality", "reaction"], "receipt": ["budget", "tried it"], "stat": ["budget"], "reveal": ["tried it"]}
+TOPIC_WORDS = re.compile(r"black ?friday|cyber ?monday|christmas|gift|secret ?santa|boxing ?day|new ?year|fathers? ?day|summer|winter|spring|sale|deals?|sport", re.I)
 CARDS = ROOT / "social" / "cards"
 PACK = ROOT / "social" / "pack" / "index.html"
 VIDEOS = ROOT / "social-videos"   # build output: uploaded to a GitHub release (pack-<monday>), never committed
@@ -164,6 +168,29 @@ def learn(plan, L):
         st = L["styles"].setdefault(p.get("style"), {"n": 0, "score": 0.0})
         st["score"] = round((st["score"] * st["n"] + score) / (st["n"] + 1), 4)
         st["n"] += 1
+
+
+def load_social():
+    try:
+        return json.loads(SOCIAL.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
+def format_boost(social, style):
+    """Hot formats right now (from what golfers are watching) give matching styles a lift."""
+    f = social.get("formats") or {}
+    hits = sum(f.get(name, 0) for name in STYLE_FORMATS.get(style, []))
+    return 1 + min(1.5, hits / 5)
+
+
+def live_tags(social, text, n_golf=3, n_topic=1):
+    """Live hashtags that fit this post: golf ones first, a general trend only if the post is about it."""
+    tags = social.get("hashtags") or []
+    golf = [t["tag"] for t in tags if t.get("golf")][:n_golf]
+    topic = [t["tag"] for t in tags if not t.get("golf") and TOPIC_WORDS.search(t["tag"]) and
+             re.sub(r"[^a-z]", "", t["tag"].lower()) in re.sub(r"[^a-z]", "", text.lower())][:n_topic]
+    return [t for t in golf + topic if len(t) <= 30]
 
 
 def weight(L, style):
@@ -330,10 +357,10 @@ FALLBACKS = [lambda d, tr: theme_good(d, tr, rank=1), lambda d, tr: theme_pulse(
 
 # ---------------- picking a style, a hook and a look ----------------
 
-def choose(theme, used_styles, last_palette, L, rnd):
+def choose(theme, used_styles, last_palette, L, rnd, social=None):
     options = [(s, sc) for s, sc in theme["styles"].items() if sc]
     fresh = [(s, sc) for s, sc in options if s not in used_styles] or options
-    weights = [weight(L, s) for s, _ in fresh]
+    weights = [weight(L, s) * format_boost(social or {}, s) for s, _ in fresh]
     style, sc = rnd.choices(fresh, weights=weights)[0]
     palette = rnd.choice([p for p in V.PALETTES if p != last_palette])
     return style, dict(sc), palette
@@ -375,10 +402,13 @@ def build_script(theme, style, sc, L, rnd, tie):
     return sc
 
 
-def captions(t, tie=None):
+def captions(t, tie=None, social=None):
     ig = (tie["opener"] + " " if tie else "") + t["ig"]
     yt_title = (t["tt"].rstrip(" ⛳") + " #golf #shorts")[:95]
-    return {"instagram": f"{ig}\n\n{TAGS}", "tiktok": f"{t['tt']} #golf #golftok #golfuk",
+    extra = live_tags(social or {}, t["ig"] + " " + t["tt"] + " " + (tie["match"] if tie else ""))
+    ig_tags = " ".join(dict.fromkeys(TAGS.split() + extra))
+    tt_tags = " ".join(dict.fromkeys("#golf #golftok #golfuk".split() + extra))[:150]
+    return {"instagram": f"{ig}\n\n{ig_tags}", "tiktok": f"{t['tt']} {tt_tags}",
             "youtube": {"title": yt_title, "description": f"{ig.replace('Link in bio.', '')}\n{t['link']}\n#golf #golfuk #shorts"},
             "x": t["x"], "pinterest": {"title": f"{t['headline']}: {t['sub']}"[:99], "description": ig.replace("Link in bio.", "")[:480], "link": t["link"]},
             "bluesky": t["x"]}
@@ -403,7 +433,7 @@ def fetch_image(src):
         return None
 
 
-def build_post(day, theme, style, sc, palette, pid, tie):
+def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None):
     img = fetch_image(theme.get("image"))
     photo = fetch_image(theme.get("art") or "assets/action-lake-followthrough.jpg") if style in ("stat", "receipt") else None
     imgs = [fetch_image(x.get("image")) for x in sc.get("items", [])] if style == "countdown" else None
@@ -413,7 +443,8 @@ def build_post(day, theme, style, sc, palette, pid, tie):
     return {"id": pid, "date": str(day), "theme": theme["theme"], "style": style, "palette": palette, "hook": sc["hook"],
             "trend": tie["match"] if tie else None, "card": f"/social/cards/{pid}.jpg",
             "video": f"https://github.com/{REPO}/releases/download/pack-{monday}/{pid}.mp4",
-            "link": theme["link"], "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, tie), "posted": {}}
+            "link": theme["link"], "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, tie, social),
+            "sound": sound, "trendingFormats": [f for f in STYLE_FORMATS.get(style, []) if (social or {}).get("formats", {}).get(f)], "posted": {}}
 
 
 # ---------------- plan, moment, post ----------------
@@ -430,6 +461,8 @@ def save_plan(plan):
 
 def plan_week():
     tr = scan_trends()
+    social = load_social()
+    songs = [f"{x['title']} – {x['artist']}".strip(" –") for x in social.get("songs", [])]
     plan, L = load_plan(), load_learning()
     learn(plan, L)
     today = now().date()
@@ -455,10 +488,11 @@ def plan_week():
         if not theme:
             continue
         used_keys.add(key(theme))
-        style, sc, pal = choose(theme, used_styles, last_pal, L, rnd)
+        style, sc, pal = choose(theme, used_styles, last_pal, L, rnd, social)
         tie = ties.pop(0) if ties and i in (0, 3, 5) and style not in ("pov", "guess", "receipt") else None
         sc = build_script(theme, style, sc, L, rnd, tie)
-        plan["posts"].append(build_post(day, theme, style, sc, pal, pid, tie))
+        sound = songs[i % len(songs)] if songs else None
+        plan["posts"].append(build_post(day, theme, style, sc, pal, pid, tie, social, sound))
         used_styles.add(style)
         last_pal = pal
         print(f"{pid}: {theme['theme']} as '{style}' ({pal}) hook: {sc['hook']}")
@@ -515,6 +549,7 @@ def gh(method, path, body=None):
 def issue_line(p):
     d = date.fromisoformat(p["date"])
     tr = f" · tied to {p['trend']}" if p.get("trend") else ""
+    tr += f" · sound: {p['sound']}" if p.get("sound") else ""
     return f"- [ ] **{p['id']}** · {DAYS[d.weekday()]} {d.day} {d.strftime('%b')} · {p.get('style')}: \"{p.get('hook')}\" ({p['theme']}{tr})"
 
 
@@ -625,11 +660,22 @@ def write_pack(plan):
 <h2>“{esc(p.get('hook', p['headline']))}”</h2><p class="sub">{esc(p['sub'])}</p>
 <p class="dl"><a href="{p['video']}">Download video</a> · <a href="{p['card']}" download>Download feed image</a></p>
 {''.join(f'<details><summary>{k}</summary><textarea readonly>{esc(v)}</textarea><button onclick="copy(this)">Copy</button></details>' for k, v in blocks)}
-<p class="tip">TikTok and Reels: add a trending sound from the app's commercial library when you schedule.</p>
+<p class="tip">{('Trending sound (approved for business): <b>' + esc(p['sound']) + '</b>. Search it in the app when you schedule.') if p.get('sound') else 'TikTok and Reels: add a trending sound from the commercial library when you schedule.'}{(' · Rides the trend: ' + esc(', '.join(p['trendingFormats']))) if p.get('trendingFormats') else ''}</p>
 <p class="link">Link: <a href="{p['link']}">{esc(p['link'])}</a></p></div></section>""")
+    social = load_social()
     trend_html = ""
+    if social:
+        fm = sorted((social.get("formats") or {}).items(), key=lambda x: -x[1])
+        trend_html += ("<details class='trends' open><summary>Trending right now (UK)</summary><ul>"
+                       + (f"<li><b>Hashtags:</b> {esc(' '.join(t['tag'] for t in social.get('hashtags', [])[:15]))}</li>" if social.get("hashtags") else "")
+                       + (f"<li><b>Sounds for business:</b> {esc('; '.join(x['title'] + ' – ' + x['artist'] for x in social.get('songs', [])[:8]))}</li>" if social.get("songs") else "")
+                       + (f"<li><b>Formats golfers are watching:</b> {esc(', '.join(f'{k} ({v})' for k, v in fm if v)[:300])}</li>" if fm else "")
+                       + (f"<li><b>Golf videos doing well:</b> {esc(' | '.join(social.get('golfVideos', [])[:5]))}</li>" if social.get("golfVideos") else "")
+                       + (f"<li><b>What the UK is watching:</b> {esc(' | '.join(social.get('watching', [])[:5]))}</li>" if social.get("watching") else "")
+                       + (f"<li><b>Golfers are talking about:</b> {esc(' | '.join(social.get('golfTalk', [])[:5]))}</li>" if social.get("golfTalk") else "")
+                       + "</ul></details>")
     if tr.get("headlines") or tr.get("tieIns"):
-        trend_html = ("<details class='trends'><summary>This week's trends</summary><ul>"
+        trend_html += ("<details class='trends'><summary>This week's news and calendar</summary><ul>"
                       + "".join(f"<li><b>Tie-in:</b> {esc(t['hook'])} ({esc(t['match'])})</li>" for t in tr.get("tieIns", []))
                       + "".join(f"<li>{esc(h)}</li>" for h in tr.get("headlines", [])[:8]) + "</ul></details>")
     html = f"""<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">

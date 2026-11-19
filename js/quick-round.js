@@ -78,7 +78,10 @@
   // from OpenStreetMap, refreshed monthly), else a blank card to fill in.
   var mapCards = null;
   function mapCard(id, tee) {
-    if (!mapCards) mapCards = fetch('/data/courses/cards.json').then(function (r) { return r.json(); }).then(function (d) { return d.cards || {}; }).catch(function () { return {}; });
+    // OpenStreetMap cards first, then cards read from clubs' own published scorecards (course data keeper agent)
+    if (!mapCards) mapCards = Promise.all(['/data/courses/cards.json', '/data/courses/cards-clubs.json'].map(function (u) {
+      return fetch(u).then(function (r) { return r.ok ? r.json() : {}; }).then(function (d) { return d.cards || {}; }).catch(function () { return {}; });
+    })).then(function (both) { return Object.assign({}, both[1], both[0]); });
     return mapCards.then(function (all) {
       var c = all[id]; if (!c) return null;
       if (tee === 'red') return c.rs ? { pars: c.rp || c.p, si: c.rs } : null;

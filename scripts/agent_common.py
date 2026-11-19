@@ -111,7 +111,23 @@ def table(rows, heads):
 # note here. scripts/agent_fixes.py commits every allowed file that changed,
 # lists the notes in the pull request, and the owner approves by merging.
 PACK_FILES = ["data/agent-rules.json", "data/agent-links.json", "llms.txt", "data/model-aliases.json",
-              "play/wild-nine/index.html", "data/wild-nine-moderation.json", "data/society-days.json", "societies/days"]
+              "play/wild-nine/index.html", "data/wild-nine-moderation.json", "data/society-days.json", "societies/days",
+              "data/courses/cards-clubs.json", "prices/occasions", "data/agent-pages.json", "data/email-tuning.json"]
+
+
+def register_pages(paths):
+    """Ask for agent-built pages to be listed in the sitemap (data/agent-pages.json, through the Fix pack)."""
+    f = DATA / "agent-pages.json"
+    try:
+        d = json.loads(f.read_text(encoding="utf-8"))
+    except Exception:
+        d = {"about": "Pages built by the agents, added to sitemap-pages.xml by price_pages.py.", "pages": []}
+    before = set(d["pages"])
+    d["pages"] = sorted(before | set(paths))
+    if set(d["pages"]) != before:
+        f.write_text(json.dumps(d, indent=1) + "\n", encoding="utf-8")
+        return True
+    return False
 
 
 def pack_note(path, text):
