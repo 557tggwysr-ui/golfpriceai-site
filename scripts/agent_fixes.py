@@ -68,7 +68,8 @@ def target_category(name):
 REPORTS = ["data/agents/answers-report.json", "data/agents/linker-state.json", "data/agents/coverage-report.json",
            "data/agents/coverage-state.json", "data/agents/gamemaster-report.json", "data/agents/society-report.json",
            "data/agents/society-state.json", "data/agents/coursedata-report.json", "data/agents/coursedata-state.json",
-           "data/agents/seasonal-report.json", "data/agents/email-report.json"]
+           "data/agents/seasonal-report.json", "data/agents/email-report.json",
+           "data/agents/performance.json", "data/agents/editor-findings.json"]
 
 
 def save_reports_to_main():
@@ -87,6 +88,8 @@ def save_reports_to_main():
 
 
 def propose():
+    # the Editor checks every file the agents changed first; serious problems are held back
+    held, ed_notes = editor_gate()
     save_reports_to_main()
     findings = load_json(OUT / "catalogue-findings.json", {})
     revenue = load_json(OUT / "revenue-report.json", {})
@@ -172,6 +175,8 @@ def propose():
 
     # notes from the other agents for files they changed (internal links, llms.txt...)
     for n in load_json(OUT / "pack-notes.json", []):
+        if n["path"] in held:
+            continue
         lines.append(("file", n["path"], n["text"]))
     lines = lines[:MAX_PER_PACK]
     if not lines:
@@ -190,8 +195,40 @@ def propose():
     # drop expired hides so the file stays small
     merged["hide"] = {k: v for k, v in merged["hide"].items() if v.get("until", "9999") >= str(today)}
     merged["_about"] = "Fixes approved through the daily Fix pack. See scripts/agent_rules.py. Delete a line to undo it."
-    body = pack_body(lines, today)
+    body = pack_body(lines, today) + editor_section(held, ed_notes)
     open_pack(merged, body, today, len(lines))
+
+
+def editor_gate():
+    """Run the Editor over changed pack files. Held files go back to how they were."""
+    try:
+        import agent_editor
+    except Exception as e:
+        print("editor unavailable:", e)
+        return {}, {}
+    changed = [p for p in agent_editor.changed_files()
+               if any(p == f or p.startswith(f.rstrip("/") + "/") for f in PACK_FILES)]
+    held, notes = agent_editor.gate(changed)
+    for p in held:
+        tracked = git("ls-files", "--error-unmatch", p, check=False).returncode == 0
+        if tracked:
+            git("checkout", "HEAD", "--", p, check=False)
+        else:
+            (ROOT / p).unlink(missing_ok=True)
+        print("editor held back", p)
+    return held, notes
+
+
+def editor_section(held, notes):
+    if not held and not notes:
+        return "\n\n### Editor\nAll changed files passed the house-style checks."
+    out = ["\n\n### Editor"]
+    for p, v in held.items():
+        out.append(f"- ⛔ **Held back** `{p}`: " + " ".join(v[:3]))
+    for p, v in list(notes.items())[:10]:
+        out.append(f"- ✏️ `{p}`: " + " ".join(v[:3]))
+    out.append("_Held files are not in this pack. Notes are small style points; merging is still fine._")
+    return "\n".join(out)
 
 
 def pack_body(lines, today):

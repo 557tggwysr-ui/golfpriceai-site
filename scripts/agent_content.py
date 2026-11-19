@@ -440,11 +440,28 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
     still = V.render(style, sc, palette, VIDEOS / f"{pid}.mp4", img=img, photo=photo, imgs=imgs)
     V.feed_card(still, CARDS / f"{pid}.jpg")
     monday = day - timedelta(days=day.weekday())
-    return {"id": pid, "date": str(day), "theme": theme["theme"], "style": style, "palette": palette, "hook": sc["hook"],
+    return edited({"id": pid, "date": str(day), "theme": theme["theme"], "style": style, "palette": palette, "hook": sc["hook"],
             "trend": tie["match"] if tie else None, "card": f"/social/cards/{pid}.jpg",
             "video": f"https://github.com/{REPO}/releases/download/pack-{monday}/{pid}.mp4",
             "link": theme["link"], "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, tie, social),
-            "sound": sound, "trendingFormats": [f for f in STYLE_FORMATS.get(style, []) if (social or {}).get("formats", {}).get(f)], "posted": {}}
+            "sound": sound, "trendingFormats": [f for f in STYLE_FORMATS.get(style, []) if (social or {}).get("formats", {}).get(f)], "posted": {}})
+
+
+def edited(post):
+    """The Editor reads every caption and on-screen line. Problems hold the post back from auto-posting."""
+    try:
+        import agent_editor
+        probs = []
+        for k, txt in (post.get("captions") or {}).items():
+            probs += agent_editor.check_text(txt, where=f"{k} caption")
+        for k in ("hook", "headline", "sub"):
+            probs += agent_editor.check_text(str(post.get(k) or ""), where=k)
+        if probs:
+            post["editor"] = probs
+            print("editor held", post["id"], probs)
+    except Exception as e:
+        print("editor unavailable:", e)
+    return post
 
 
 # ---------------- plan, moment, post ----------------
@@ -599,10 +616,13 @@ def post_today():
     if not todays:
         print("nothing to post today"); return
     ok = approved_ids()
+    held = set((load("agents/editor-holds.json") or {}).get("posts", []))  # Claude's review
     uid, tok = os.environ.get("IG_USER_ID"), os.environ.get("IG_ACCESS_TOKEN")
     for p in todays:
         if p["id"] not in ok:
             print("not approved:", p["id"]); continue
+        if p.get("editor") or p["id"] in held:
+            print("held by the editor:", p["id"], p["editor"]); continue
         if not (uid and tok):
             print("(no Instagram secrets: approved post left for manual posting)", p["id"]); continue
         s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
@@ -657,7 +677,7 @@ def write_pack(plan):
         trend = f" · trend: {esc(p['trend'])}" if p.get("trend") else ""
         cards.append(f"""<section class="post"><video src="{p['video']}" poster="{p['card']}" controls playsinline preload="none"></video>
 <div><p class="when">{DAYS[d.weekday()]} {d.day} {d.strftime('%b')} · {esc(p['theme'])} · {esc(p.get('style', ''))}{trend} <span class="done">{done}</span></p>
-<h2>“{esc(p.get('hook', p['headline']))}”</h2><p class="sub">{esc(p['sub'])}</p>
+{('<p class="tip" style="background:#fde8e8">⛔ Held by the Editor, won\'t auto-post: ' + esc(' '.join(p['editor'])) + '</p>') if p.get('editor') else ''}<h2>“{esc(p.get('hook', p['headline']))}”</h2><p class="sub">{esc(p['sub'])}</p>
 <p class="dl"><a href="{p['video']}">Download video</a> · <a href="{p['card']}" download>Download feed image</a></p>
 {''.join(f'<details><summary>{k}</summary><textarea readonly>{esc(v)}</textarea><button onclick="copy(this)">Copy</button></details>' for k, v in blocks)}
 <p class="tip">{('Trending sound (approved for business): <b>' + esc(p['sound']) + '</b>. Search it in the app when you schedule.') if p.get('sound') else 'TikTok and Reels: add a trending sound from the commercial library when you schedule.'}{(' · Rides the trend: ' + esc(', '.join(p['trendingFormats']))) if p.get('trendingFormats') else ''}</p>

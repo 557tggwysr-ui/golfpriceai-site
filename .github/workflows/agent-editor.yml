@@ -1,0 +1,73 @@
+name: "Agent: editor (Claude review)"
+
+# After each Fix pack and each content plan, Claude reads the changes against
+# .github/EDITOR.md. The Fix pack gets a comment, and the "do-not-merge" label if
+# something breaks a house rule. Social posts it holds are kept off Instagram.
+# Needs the CLAUDE_CODE_OAUTH_TOKEN secret (run `claude setup-token` once on your
+# PC, Pro plan). Without it this workflow does nothing; the rule-based editor
+# inside the Fix pack still runs.
+on:
+  workflow_run:
+    workflows: ["Agent: fix pack", "Agent: content engine"]
+    types: [completed]
+  workflow_dispatch: {}
+
+concurrency: { group: agent-editor, cancel-in-progress: false }
+
+jobs:
+  review:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    permissions: { contents: write, pull-requests: write, issues: write, id-token: write }
+    env:
+      HAS_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      WHAT: "${{ github.event.workflow_run.name || 'Agent: fix pack' }}"
+    steps:
+      - name: Skip without a Claude token
+        if: env.HAS_TOKEN != 'true'
+        run: echo "No CLAUDE_CODE_OAUTH_TOKEN secret yet; the rule-based editor still runs inside the Fix pack."
+      - uses: actions/checkout@v4
+        if: env.HAS_TOKEN == 'true'
+        with: { fetch-depth: 0 }
+      - name: Gather what to review
+        if: env.HAS_TOKEN == 'true'
+        id: gather
+        run: |
+          if [ -f data/agents-paused ]; then echo "skip=1" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "$WHAT" = "Agent: fix pack" ]; then
+            PR=$(gh pr list --head agent/fix-pack --state open --json number --jq '.[0].number')
+            if [ -z "$PR" ]; then echo "skip=1" >> "$GITHUB_OUTPUT"; exit 0; fi
+            gh pr view "$PR" --json body --jq .body > /tmp/review-notes.md
+            git fetch origin agent/fix-pack
+            git diff origin/main...origin/agent/fix-pack -- . ':(exclude)data/agents' | head -c 150000 > /tmp/review.diff
+            echo "pr=$PR" >> "$GITHUB_OUTPUT"
+            echo "task=Review the Fix pack pull request #$PR. The diff is /tmp/review.diff and its description (the list of fixes) is /tmp/review-notes.md. You can read any file in the repo for context." >> "$GITHUB_OUTPUT"
+          else
+            python3 scripts/agent_editor.py --posts > /tmp/review.diff
+            echo "task=Review the coming week's social posts in /tmp/review.diff (captions, hooks and on-screen lines). Put the id of any post that breaks a Never rule in holdPosts." >> "$GITHUB_OUTPUT"
+          fi
+      - name: Claude reads it
+        if: env.HAS_TOKEN == 'true' && steps.gather.outputs.skip != '1'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Read .github/EDITOR.md first and follow it exactly.
+            ${{ steps.gather.outputs.task }}
+            Do not change any repo files. Write only /tmp/editor-verdict.json, as EDITOR.md describes.
+          claude_args: --max-turns 20 --allowedTools "Read,Glob,Grep,Write,Bash(git diff:*),Bash(git log:*),Bash(cat:*)"
+      - name: Act on the verdict
+        if: env.HAS_TOKEN == 'true' && steps.gather.outputs.skip != '1'
+        env: { PR: "${{ steps.gather.outputs.pr }}" }
+        run: |
+          [ -f /tmp/editor-verdict.json ] || { echo "No verdict written"; exit 0; }
+          python3 scripts/agent_editor.py --verdict /tmp/editor-verdict.json
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/agents/editor-review.json data/agents/editor-holds.json 2>/dev/null || true
+          if ! git diff --quiet --cached; then
+            git commit -m "Agent: editor review"
+            git pull --rebase && git push
+          fi

@@ -2174,7 +2174,7 @@ async function clubStats(request, env, cors) {
    no IP address, no cookie, no email. The IP is used only for a moment, as a
    one-way hash in the free edge cache, so one visitor counts once per model
    per day and can't stuff the chart. */
-const SIGNAL_KINDS = { view: 1, heart: 1, search: 1, pp: 1, miss: 1, emb: 1 };
+const SIGNAL_KINDS = { view: 1, heart: 1, search: 1, pp: 1, miss: 1, emb: 1, out: 1, ctaa: 1, ctab: 1 }; // out: buy clicks per page; cta*: button-wording test
 const DEMAND_TTL = 70 * 86400;
 function cleanSearch(q) {
   const t = String(q || '').toLowerCase().replace(/[^a-z0-9 .'&+-]/g, ' ').replace(/\s+/g, ' ').trim();

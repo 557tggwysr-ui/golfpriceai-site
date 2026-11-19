@@ -112,7 +112,8 @@ def table(rows, heads):
 # lists the notes in the pull request, and the owner approves by merging.
 PACK_FILES = ["data/agent-rules.json", "data/agent-links.json", "llms.txt", "data/model-aliases.json",
               "play/wild-nine/index.html", "data/wild-nine-moderation.json", "data/society-days.json", "societies/days",
-              "data/courses/cards-clubs.json", "prices/occasions", "data/agent-pages.json", "data/email-tuning.json"]
+              "data/courses/cards-clubs.json", "prices/occasions", "data/agent-pages.json", "data/email-tuning.json",
+              "data/experiments.json"]
 
 
 def register_pages(paths):

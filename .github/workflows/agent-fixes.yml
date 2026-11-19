@@ -4,7 +4,8 @@ name: "Agent: fix pack"
 # ("Fix pack"): hidden wrong prices, re-filed products, used stock moved to
 # Preowned, internal links for pages close to ranking, a fresh llms.txt,
 # clubs merged under one name (Mondays), Wild Nine tuning and moderation, and
-# the Society Day Finder (3rd of the month).
+# the Society Day Finder (3rd of the month), the performance analyst's
+# button-wording test. The Editor checks every changed file first.
 # Nothing changes until the owner merges it.
 # On merge: skipped fixes are taken out, the fix log is updated and a deal
 # refresh starts, so approved fixes are live within minutes.
@@ -38,6 +39,7 @@ jobs:
           AWIN_PUBLISHER_ID: ${{ secrets.AWIN_PUBLISHER_ID }}
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
           CH_API_KEY: ${{ secrets.CH_API_KEY }}
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -f data/agents-paused ]; then echo "Agents paused"; exit 0; fi
           rm -f data/agents/pack-notes.json
@@ -50,6 +52,9 @@ jobs:
           if [ "$(date -u +%d)" = "03" ]; then python scripts/agent_coursedata.py || echo "course data failed"; fi
           if [ "$(date -u +%u)" = "1" ]; then python scripts/agent_seasonal.py || echo "seasonal failed"; fi
           if [ "$(date -u +%u)" = "1" ]; then python scripts/agent_email.py || echo "email optimiser failed"; fi
+          pip install -q google-auth requests || true
+          python scripts/agent_performance.py || echo "performance analyst failed"
+          # the Editor runs inside propose: it checks every changed file and holds back anything off-brand
           python scripts/agent_fixes.py propose
 
   approve:
@@ -69,7 +74,7 @@ jobs:
           python scripts/agent_fixes.py approve
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          for f in data/agent-rules.json data/agent-links.json llms.txt data/model-aliases.json play/wild-nine/index.html data/wild-nine-moderation.json data/society-days.json societies/days data/courses/cards-clubs.json prices/occasions data/agent-pages.json data/email-tuning.json data/agents/fix-log.json; do git add -A -- "$f" 2>/dev/null || true; done
+          for f in data/agent-rules.json data/agent-links.json llms.txt data/model-aliases.json play/wild-nine/index.html data/wild-nine-moderation.json data/society-days.json societies/days data/courses/cards-clubs.json prices/occasions data/agent-pages.json data/email-tuning.json data/experiments.json data/agents/fix-log.json; do git add -A -- "$f" 2>/dev/null || true; done
           if ! git diff --quiet --cached; then
             git commit -m "Fix pack approved"
             git pull --rebase && git push

@@ -1,6 +1,7 @@
 name: "Agent: search-to-page engine"
 
-# Weekly: reads Search Console and ranks the pages to build or improve.
+# Weekly: reads Search Console and ranks the pages to build or improve,
+# and checks competitors' public sitemaps for new pages (competitor watch).
 # Public list (queries and pages only): data/agents/seo-opportunities.json
 # Full numbers go privately to the owner by email.
 on:
@@ -29,7 +30,7 @@ jobs:
         run: |
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/agents/seo-opportunities.json
+          git add data/agents/seo-opportunities.json data/agents/competitor-watch.json
           if ! git diff --quiet --cached; then
             git commit -m "Agent: search opportunities"
             git pull --rebase && git push

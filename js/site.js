@@ -589,3 +589,38 @@
     if (i) setTimeout(function () { i.focus({ preventScroll: true }); }, 350);
   });
 })();
+
+/* gp-funnel (performance analyst agent): on price pages, count buy-button clicks per page,
+   tag Awin links with the page they came from (clickref) so sales can be traced back to
+   pages, and run the approved button-wording test from /data/experiments.json. Anonymous:
+   counts only, no cookies; the test group is a random letter kept in this browser. */
+(function () {
+  try {
+    var slug = (location.pathname.match(/^\/prices\/([a-z0-9-]+)\/$/) || [])[1];
+    if (!slug) return;
+    var W = 'https://golfpriceai-alerts.golfpriceai.workers.dev/signal', v = '';
+    var send = function (k, m) { try { navigator.sendBeacon(W, JSON.stringify({ k: k, m: m })); } catch (e) { /* counts are a nice-to-have */ } };
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href*="awin1.com"]') : null;
+      if (!a) return;
+      if (!/[?&]clickref=/.test(a.href)) a.href += (a.href.indexOf('?') < 0 ? '?' : '&') + 'clickref=' + encodeURIComponent((slug + (v ? '~' + v : '')).slice(0, 50));
+      send('out', slug);
+      if (v) send('cta' + v, 'clicks');
+    }, true);
+    fetch('/data/experiments.json').then(function (r) { return r.ok ? r.json() : {}; }).then(function (x) {
+      var t = x && x.cta;
+      if (!t || (!t.b && !t.default)) return;
+      if (t.b) {
+        try { v = localStorage.getItem('gp-cta-' + t.id) || (Math.random() < 0.5 ? 'a' : 'b'); localStorage.setItem('gp-cta-' + t.id, v); } catch (e) { v = Math.random() < 0.5 ? 'a' : 'b'; }
+        send('cta' + v, 'views');
+      }
+      var text = v === 'b' ? t.b : t.default;
+      if (!text) return;
+      document.querySelectorAll('.pp-ctas .pp-btn:not(.pp-btn-alt)').forEach(function (b) {
+        var m = b.textContent.match(/£[\d,.]+(\s*per dozen)?/);
+        if (m) b.textContent = text.replace('{price}', m[0]);
+      });
+    }).catch(function () { /* no test running */ });
+  } catch (e) { /* never break the page */ }
+})();
+

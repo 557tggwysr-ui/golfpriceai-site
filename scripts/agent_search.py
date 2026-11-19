@@ -13,6 +13,12 @@ Finds three kinds of opportunity:
   * gaps: queries about a specific model, brand or question that land on the
     homepage or a hub, or on nothing specific. A dedicated page wins these.
 
+Competitor watch (no keys needed): reads the public sitemaps of the sites in
+COMPETITORS each week, lists the pages they added since last week and flags
+the topics we have no page for. data/agents/competitor-watch.json keeps the
+list. A monthly rank check of about 30 keywords is done by the scheduled
+Claude task (web search), which writes data/agents/competitor-ranks.json.
+
 Public output: data/agents/seo-opportunities.json lists the queries, pages and
 a rough position only, never clicks or impressions. Full numbers go
 privately to the owner by email.
@@ -28,6 +34,82 @@ sys.path.insert(0, os.path.dirname(__file__))
 from agent_common import (SITE, models, save_report, email_owner, table, now)
 
 PROPERTY = os.environ.get("GSC_PROPERTY", "sc-domain:golfpriceai.com")
+# Sites to watch (public sitemaps only). Add more as you find them.
+COMPETITORS = [c.strip() for c in os.environ.get("COMPETITORS", "caddence.golf").split(",") if c.strip()]
+WATCH = os.path.join(os.path.dirname(__file__), "..", "data", "agents", "competitor-watch.json")
+
+
+def sitemap_urls(host, limit=20000):
+    """All page URLs in a site's public sitemaps (robots.txt Sitemap: lines first)."""
+    import gzip
+    from agent_common import http
+    seeds = []
+    s, _, t = http(f"https://{host}/robots.txt")
+    if s == 200:
+        seeds = re.findall(r"(?im)^\s*sitemap:\s*(\S+)", t)
+    seeds = seeds or [f"https://{host}/sitemap.xml", f"https://{host}/sitemap_index.xml"]
+    seen, urls, todo = set(), set(), list(seeds)
+    while todo and len(seen) < 60 and len(urls) < limit:
+        u = todo.pop(0)
+        if u in seen:
+            continue
+        seen.add(u)
+        s, _, t = http(u, timeout=40)
+        if s != 200:
+            continue
+        if u.endswith(".gz"):
+            try:
+                t = gzip.decompress(t.encode("latin-1")).decode("utf-8", "replace")
+            except Exception:
+                continue
+        locs = re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", t)
+        if "<sitemapindex" in t:
+            todo += [x for x in locs if x not in seen]
+        else:
+            urls.update(x.replace("&amp;", "&") for x in locs)
+    return urls
+
+
+def competitor_watch():
+    try:
+        old = json.load(open(WATCH, encoding="utf-8"))
+    except Exception:
+        old = {}
+    ours = {m["slug"] for m in models()}
+    our_tokens = [tokens(m["name"]) for m in models()]
+    out = {"about": "Competitor watch: new public pages on sites we watch, and topics we have no page for. Public sitemaps only.",
+           "sites": {}}
+    for host in COMPETITORS:
+        prev = old.get("sites", {}).get(host, {})
+        urls = sitemap_urls(host)
+        if not urls:
+            out["sites"][host] = {**prev, "status": "sitemap not reachable this week"}
+            continue
+        known = set(prev.get("urls", []))
+        new = sorted(urls - known) if known else []
+        gone = len(known - urls) if known else 0
+        ideas = []
+        for u in new[:400]:
+            path = re.sub(r"^https?://[^/]+", "", u).strip("/")
+            slug = path.rsplit("/", 1)[-1]
+            words = tokens(slug.replace("-", " "))
+            if len(words) < 2 or slug in ours:
+                continue
+            if any(len(words & t) >= max(2, len(t) - 1) for t in our_tokens if t):
+                continue  # we already have a page for this model
+            ideas.append({"page": u, "words": " ".join(sorted(words))})
+        sections = defaultdict(int)
+        for u in urls:
+            seg = re.sub(r"^https?://[^/]+", "", u).strip("/").split("/")[0] or "(home)"
+            sections[seg] += 1
+        out["sites"][host] = {"checked": str(now().date()), "pages": len(urls), "newThisWeek": new[:200], "goneThisWeek": gone,
+                              "sections": dict(sorted(sections.items(), key=lambda x: -x[1])[:15]),
+                              "gaps": ideas[:40], "urls": sorted(urls)}
+        print(f"competitor {host}: {len(urls)} pages, {len(new)} new, {len(ideas)} gaps")
+    with open(WATCH, "w", encoding="utf-8") as f:
+        json.dump(out, f, indent=1, ensure_ascii=False)
+        f.write("\n")
+    return out
 
 
 def fetch_rows():
@@ -61,6 +143,10 @@ def tokens(s):
 
 
 def main():
+    try:
+        competitor_watch()
+    except Exception as e:  # never stop the search report
+        print("competitor watch failed:", e)
     rows = fetch_rows()
     if rows is None:
         save_report("seo-opportunities.json", {"about": "Waiting for Search Console access (see README).", "opportunities": []})

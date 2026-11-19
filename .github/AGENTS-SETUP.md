@@ -1,7 +1,8 @@
 GOLFPRICE AI AGENTS: SETUP AND HOW THEY WORK
 =============================================
 
-Seventeen agents, plus a watchdog that checks on all of them,, fix them (with your approval) and grow the
+Nineteen agents, plus a watchdog that checks on all of them and an editor that
+reads everything before it goes out. They find problems, fix them (with your approval) and grow the
 site. All run free in GitHub Actions. Nothing changes on the site until you
 approve it.
 
@@ -26,9 +27,16 @@ WHAT'S IN THIS FOLDER
   scripts/agent_email.py     15 email optimiser (Friday subject-line tests, list health)
   scripts/agent_insights.py  16 retailer insights (monthly, private)
   scripts/agent_trends.mjs   17 social trends scout (live hashtags, sounds, formats)
+  scripts/agent_performance.py 18 performance analyst (visit > buy click > sale, button tests)
+  scripts/agent_editor.py    19 the editor (house-style checks on every change; Claude review)
   scripts/agent_watchdog.py  the watchdog: checks every agent every 3 hours
+  competitor watch is part of agent_search.py (competitors' public sitemaps, weekly)
+  press desk and competitor rank check run as Claude scheduled tasks (no files)
+  .github/EDITOR.md          the house style the editor reviews against (edit freely)
+  data/press-optouts.json    writers who said "no thanks" (the press desk skips them)
   plus the "Price look wrong?" link on every price page, read by the claims guardian
-  CHANGED: scripts/digest.py (subject test), js/quick-round.js (club scorecards)
+  CHANGED: scripts/digest.py (subject test), js/quick-round.js (club scorecards),
+           js/site.js (buy-click counts, Awin page tags, button-wording test)
   scripts/update_deals.py     CHANGED: 7 lines that apply approved fixes
   scripts/price_pages.py      CHANGED: the internal-link lift in "Worth comparing"
   .github/workflows/agent-*.yml  the schedules
@@ -51,6 +59,7 @@ STEP 3: SECRETS (Settings > Secrets and variables > Actions)
                    IG_USER_ID, IG_ACCESS_TOKEN for Instagram posting (step 6)
                    CH_API_KEY for the society connector (step 7)
                    YOUTUBE_API_KEY for the trends scout (step 9)
+                   CLAUDE_CODE_OAUTH_TOKEN for the editor's Claude review (step 11)
   Everything else works without them.
 
 STEP 4: RUN EACH ONCE BY HAND
@@ -99,6 +108,49 @@ STEP 10: SWITCH ON THE WORKER'S TIMER (2 minutes, free)
   Cron Triggers > Add: 40 */6 * * *  (every 6 hours). This is the watchdog's
   own watcher: if the agents' watchdog goes quiet for 26 hours, the worker
   emails you, even if GitHub itself has stopped running things.
+
+STEP 11: THE EDITOR'S CLAUDE REVIEW (5 minutes, uses your Pro plan)
+  On your PC, open PowerShell and run these two lines (the first installs
+  Claude Code, the second makes a long-lived token for GitHub):
+    irm https://claude.ai/install.ps1 | iex
+    claude setup-token
+  (If "claude" isn't found, close and reopen PowerShell first.)
+  Sign in when the browser opens. It prints a long token: copy it, and add it
+  in GitHub as the secret CLAUDE_CODE_OAUTH_TOKEN. From then on, Claude reads
+  each Fix pack and each week's social posts against .github/EDITOR.md, leaves
+  a comment on the pull request, and labels it "do-not-merge" if something
+  breaks a house rule. Posts it holds won't auto-post. It uses your Pro plan's
+  allowance (a few short reviews a day). Without the token, the free rule
+  checks still run inside every Fix pack.
+
+THE EDITOR
+  Before the Fix pack opens, the editor checks every changed file: no retailer
+  names in marketing copy, no urgency or "was" prices, nothing political or
+  tragic, no broken placeholders ({name}, None, £0), UK spelling, one H1,
+  sensible title and description lengths, image alt text. A file that breaks a
+  house rule is held back and listed at the bottom of the pull request; small
+  style points are listed as notes. Every social caption is checked the same
+  way, and a post that fails is marked "Held by the Editor" and never posts.
+
+THE PERFORMANCE ANALYST
+  Every price-page buy button now tags the Awin link with the page it came
+  from (clickref), and counts buy clicks per page (anonymous, no cookies;
+  these counts stay private). Each Monday you get an email: visitors, buy
+  clicks, click rate, sales and commission per page, plus ideas for pages
+  that underperform. It also runs ONE button-wording test at a time (e.g.
+  "Shop from £49.99" vs "See it from £49.99"), proposed in the Fix pack; when
+  one wording clearly wins (or after 6 weeks) it proposes keeping it. It
+  never changes prices, their order or which shop is shown.
+
+COMPETITOR WATCH AND PRESS DESK
+  Mondays: the search engine reads competitors' public sitemaps (caddence.golf
+  to start; add others in COMPETITORS in scripts/agent_search.py) and lists
+  their new pages and topics we have no page for (data/agents/competitor-watch.json).
+  2nd of the month: the Claude check also ranks you against them on ~30 keywords.
+  First Tuesday: the press desk drafts your regular pitch AND up to 5 tailored
+  emails to writers who recently covered golf prices, using only addresses
+  their outlet publishes, each with "why you're getting this" and an opt-out.
+  If someone says no thanks, add them to data/press-optouts.json.
 
 THE WATCHDOG
   Every 3 hours it checks that every agent ran successfully and on time,
@@ -167,7 +219,11 @@ THE SCHEDULE (UK time in winter)
   2nd of month   retailer insights (emailed to you)
   Sun + Wed      social trends scout (before the content plan)
   daily          game master (inside the fix pack, once Wild Nine is live)
-  2nd of month   AI-answer check (Claude): are AI apps finding you?
+  2nd of month   AI-answer and competitor rank check (Claude)
+  daily          performance analyst + editor (inside the fix pack; email Mondays)
+  after packs    editor's Claude review (needs step 11)
+  Mondays        competitor watch (with the search engine)
+  1st Tuesday    press desk (Claude): pitch + tailored writer emails
 
 PRIVACY
   Reports in the repo are public, so they never hold traffic, usage or money
