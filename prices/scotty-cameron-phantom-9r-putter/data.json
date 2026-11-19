@@ -3,7 +3,7 @@
  "brand": "Scotty Cameron",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-9r-putter/",
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 95,
+  "daysTracked": 96,
   "low": 399.0,
   "high": 449.0,
-  "average": 448.26,
+  "average": 447.75,
   "priceChanges": 2,
   "series": [
    [
@@ -40,6 +40,10 @@
    [
     "2026-11-18",
     399.0
+   ],
+   [
+    "2026-11-19",
+    399.0
    ]
   ]
  },
@@ -49,5 +53,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/758RM-Phantom-9R-Sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-18"
+ "changed": "2026-11-19"
 }

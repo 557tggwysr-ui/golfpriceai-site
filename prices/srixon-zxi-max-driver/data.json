@@ -3,7 +3,7 @@
  "brand": "Srixon",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/srixon-zxi-max-driver/",
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 279.65,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 95,
+  "daysTracked": 96,
   "low": 279.65,
   "high": 499.0,
-  "average": 355.37,
+  "average": 354.58,
   "priceChanges": 4,
   "series": [
    [
@@ -55,7 +55,7 @@
     279.65
    ],
    [
-    "2026-11-18",
+    "2026-11-19",
     279.65
    ]
   ]
@@ -66,5 +66,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ZXIMAXDRIVER3.jpg?v=1737632489",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-18"
+ "changed": "2026-11-19"
 }

@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-18",
+ "date": "2026-11-19",
  "status": "live",
  "week": {
-  "from": "2026-11-12",
-  "to": "2026-11-18"
+  "from": "2026-11-13",
+  "to": "2026-11-19"
  },
  "chart": [
   {
@@ -22,86 +22,16 @@
   },
   {
    "rank": 2,
-   "name": "Callaway Online Exclusive Mavrik 17-Piece Package Set",
-   "brand": "Callaway",
-   "type": "set",
-   "price": 809.1,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-17-piece-package-set/"
-  },
-  {
-   "rank": 3,
    "name": "Titleist Pro V1 Golf Balls",
    "brand": "Titleist",
    "type": "ball",
    "price": 43.96,
    "unit": "per dozen",
-   "move": -1,
+   "move": 0,
    "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
   },
   {
-   "rank": 4,
-   "name": "Callaway Apex Ai-150 Irons",
-   "brand": "Callaway",
-   "type": "irons",
-   "price": 859.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-apex-ai-150-irons/"
-  },
-  {
-   "rank": 5,
-   "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
-   "brand": "MacGregor",
-   "type": "set",
-   "price": 299.0,
-   "unit": "",
-   "move": -2,
-   "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
-  },
-  {
-   "rank": 6,
-   "name": "MacGregor ZT1 Ladies Package Set",
-   "brand": "MacGregor",
-   "type": "set",
-   "price": 419.0,
-   "unit": "",
-   "move": -2,
-   "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
-  },
-  {
-   "rank": 7,
-   "name": "TaylorMade SpeedSoft Ink Golf Balls",
-   "brand": "TaylorMade",
-   "type": "ball",
-   "price": 22.99,
-   "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/taylormade-speedsoft-ink-golf-balls/"
-  },
-  {
-   "rank": 8,
-   "name": "Wilson TPX Ladies Package Set",
-   "brand": "Wilson",
-   "type": "set",
-   "price": 319.0,
-   "unit": "",
-   "move": -3,
-   "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
-  },
-  {
-   "rank": 9,
-   "name": "Yonex Ezone GS i-Tech Driver",
-   "brand": "Yonex",
-   "type": "driver",
-   "price": 179.95,
-   "unit": "",
-   "move": -1,
-   "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
-  },
-  {
-   "rank": 10,
+   "rank": 3,
    "name": "Bridgestone Percept Golf Balls",
    "brand": "Bridgestone",
    "type": "ball",
@@ -111,7 +41,7 @@
    "url": "https://golfpriceai.com/prices/bridgestone-percept-golf-balls/"
   },
   {
-   "rank": 11,
+   "rank": 4,
    "name": "Callaway Chrome Soft 26 Golf Balls",
    "brand": "Callaway",
    "type": "ball",
@@ -121,7 +51,17 @@
    "url": "https://golfpriceai.com/prices/callaway-chrome-soft-26-golf-balls/"
   },
   {
-   "rank": 12,
+   "rank": 5,
+   "name": "Callaway Apex Ai-150 Irons",
+   "brand": "Callaway",
+   "type": "irons",
+   "price": 859.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-apex-ai-150-irons/"
+  },
+  {
+   "rank": 6,
    "name": "Callaway E R C Soft Truvis Golf Balls",
    "brand": "Callaway",
    "type": "ball",
@@ -131,57 +71,17 @@
    "url": "https://golfpriceai.com/prices/callaway-e-r-c-soft-truvis-golf-balls/"
   },
   {
-   "rank": 13,
-   "name": "Callaway ERC Soft Triple Track Golf Balls",
-   "brand": "Callaway",
-   "type": "ball",
-   "price": 37.99,
-   "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-erc-soft-triple-track-golf-balls/"
-  },
-  {
-   "rank": 14,
-   "name": "Callaway Online Exclusive Mavrik Golf Balls",
-   "brand": "Callaway",
-   "type": "ball",
-   "price": 21.59,
-   "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-golf-balls/"
-  },
-  {
-   "rank": 15,
-   "name": "Callaway Supersoft Pub Golf Balls",
-   "brand": "Callaway",
-   "type": "ball",
-   "price": 24.99,
-   "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-supersoft-pub-golf-balls/"
-  },
-  {
-   "rank": 16,
-   "name": "Callaway X Forged Max Irons",
-   "brand": "Callaway",
-   "type": "irons",
-   "price": 1049.0,
+   "rank": 7,
+   "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
+   "brand": "MacGregor",
+   "type": "set",
+   "price": 299.0,
    "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-x-forged-max-irons/"
+   "move": -4,
+   "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
   },
   {
-   "rank": 17,
-   "name": "Cobra DS-Adapt Irons",
-   "brand": "Cobra",
-   "type": "irons",
-   "price": 499.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-irons/"
-  },
-  {
-   "rank": 18,
+   "rank": 8,
    "name": "MacGregor ZT Plus Irons",
    "brand": "MacGregor",
    "type": "irons",
@@ -191,31 +91,131 @@
    "url": "https://golfpriceai.com/prices/macgregor-zt-plus-irons/"
   },
   {
-   "rank": 19,
-   "name": "Mizuno Pro S Golf Balls",
-   "brand": "Mizuno",
+   "rank": 9,
+   "name": "MacGregor ZT1 Ladies Package Set",
+   "brand": "MacGregor",
+   "type": "set",
+   "price": 419.0,
+   "unit": "",
+   "move": -5,
+   "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
+  },
+  {
+   "rank": 10,
+   "name": "Srixon UltiSoft Golf Balls",
+   "brand": "Srixon",
    "type": "ball",
-   "price": 34.95,
+   "price": 19.95,
    "unit": "per dozen",
    "move": "new",
-   "url": "https://golfpriceai.com/prices/mizuno-pro-s-golf-balls/"
+   "url": "https://golfpriceai.com/prices/srixon-ultisoft-golf-balls/"
+  },
+  {
+   "rank": 11,
+   "name": "TaylorMade P770 Irons",
+   "brand": "TaylorMade",
+   "type": "irons",
+   "price": 1029.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/taylormade-p770-irons/"
+  },
+  {
+   "rank": 12,
+   "name": "TaylorMade SpeedSoft Ink Golf Balls",
+   "brand": "TaylorMade",
+   "type": "ball",
+   "price": 22.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/taylormade-speedsoft-ink-golf-balls/"
+  },
+  {
+   "rank": 13,
+   "name": "Wilson TPX Ladies Package Set",
+   "brand": "Wilson",
+   "type": "set",
+   "price": 319.0,
+   "unit": "",
+   "move": -8,
+   "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
+  },
+  {
+   "rank": 14,
+   "name": "Wilson Ultra Golf Balls",
+   "brand": "Wilson",
+   "type": "ball",
+   "price": 51.0,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/wilson-ultra-golf-balls/"
+  },
+  {
+   "rank": 15,
+   "name": "Yonex Ezone GS i-Tech Driver",
+   "brand": "Yonex",
+   "type": "driver",
+   "price": 179.95,
+   "unit": "",
+   "move": -8,
+   "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
+  },
+  {
+   "rank": 16,
+   "name": "Callaway Apex Ti Fusion Irons",
+   "brand": "Callaway",
+   "type": "irons",
+   "price": 1399.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-apex-ti-fusion-irons/"
+  },
+  {
+   "rank": 17,
+   "name": "Callaway Chrome Soft 26 360 Triple Golf Balls",
+   "brand": "Callaway",
+   "type": "ball",
+   "price": 47.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-chrome-soft-26-360-triple-golf-balls/"
+  },
+  {
+   "rank": 18,
+   "name": "Callaway Chrome Tour Lab Dog Golf Balls",
+   "brand": "Callaway",
+   "type": "ball",
+   "price": 46.75,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-chrome-tour-lab-dog-golf-balls/"
+  },
+  {
+   "rank": 19,
+   "name": "Callaway Clubhouse Golf Balls",
+   "brand": "Callaway",
+   "type": "ball",
+   "price": 39.0,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/callaway-clubhouse-golf-balls/"
   },
   {
    "rank": 20,
-   "name": "Powerbilt GSX 14-Piece Package Set",
-   "brand": "Powerbilt",
-   "type": "set",
-   "price": 199.0,
-   "unit": "",
+   "name": "Callaway E R C Soft Triple Golf Balls",
+   "brand": "Callaway",
+   "type": "ball",
+   "price": 48.0,
+   "unit": "per dozen",
    "move": "new",
-   "url": "https://golfpriceai.com/prices/powerbilt-gsx-14-piece-package-set/"
+   "url": "https://golfpriceai.com/prices/callaway-e-r-c-soft-triple-golf-balls/"
   }
  ],
  "wishfulThinking": [
   {
    "category": "Golf bags",
    "averageGuessVsRealPricePct": 17,
-   "guesses": 75
+   "guesses": 74
   },
   {
    "category": "Putters",
@@ -230,21 +230,21 @@
   {
    "category": "Hybrids",
    "averageGuessVsRealPricePct": 11,
-   "guesses": 77
+   "guesses": 79
   }
  ],
  "categoryShare": [
   {
-   "category": "Irons & wedges",
-   "pct": 45
+   "category": "Balls",
+   "pct": 46
   },
   {
-   "category": "Balls",
-   "pct": 39
+   "category": "Irons & wedges",
+   "pct": 41
   },
   {
    "category": "Tech",
-   "pct": 10
+   "pct": 6
   },
   {
    "category": "Drivers & woods",
@@ -252,7 +252,7 @@
   },
   {
    "category": "Bags & trolleys",
-   "pct": 3
+   "pct": 4
   }
  ],
  "reports": [

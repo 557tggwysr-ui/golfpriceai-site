@@ -3,7 +3,7 @@
  "brand": "NAVEE",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/navee-birdie-3-remote-electric-trolley/",
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 849.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 95,
+  "daysTracked": 96,
   "low": 849.0,
   "high": 849.99,
-  "average": 849.78,
+  "average": 849.77,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     849.0
    ],
    [
-    "2026-11-18",
+    "2026-11-19",
     849.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 20 days"
+  "summary": "Typical price: steady for 21 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/NAV_001-Navee-Birdie-3-Remote-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-18"
+ "changed": "2026-11-19"
 }

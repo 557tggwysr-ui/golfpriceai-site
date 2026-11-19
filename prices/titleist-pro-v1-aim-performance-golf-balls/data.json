@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/titleist-pro-v1-aim-performance-golf-balls/",
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 44.99,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 95,
+  "daysTracked": 96,
   "low": 44.99,
   "high": 49.99,
-  "average": 49.93,
+  "average": 49.88,
   "priceChanges": 2,
   "series": [
    [
@@ -40,6 +40,10 @@
    [
     "2026-11-18",
     44.99
+   ],
+   [
+    "2026-11-19",
+    44.99
    ]
   ]
  },
@@ -49,5 +53,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/T2029S-PA-Pro-V1-AIM-Box.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-18"
+ "changed": "2026-11-19"
 }

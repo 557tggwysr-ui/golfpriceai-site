@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/titleist-pro-v1x-dash-golf-balls/",
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 44.99,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 95,
+  "daysTracked": 96,
   "low": 43.96,
   "high": 94.99,
-  "average": 55.7,
+  "average": 55.59,
   "priceChanges": 6,
   "series": [
    [
@@ -66,6 +66,10 @@
    [
     "2026-11-18",
     44.99
+   ],
+   [
+    "2026-11-19",
+    44.99
    ]
   ]
  },
@@ -75,5 +79,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Pro-V1-Left-Dash-26-Box.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-18"
+ "changed": "2026-11-19"
 }

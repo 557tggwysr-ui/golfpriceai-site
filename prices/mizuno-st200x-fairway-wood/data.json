@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/mizuno-st200x-fairway-wood/",
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 95,
+  "daysTracked": 96,
   "low": 119.0,
   "high": 149.0,
-  "average": 142.76,
+  "average": 142.52,
   "priceChanges": 2,
   "series": [
    [
@@ -40,6 +40,10 @@
    [
     "2026-11-18",
     119.0
+   ],
+   [
+    "2026-11-19",
+    119.0
    ]
   ]
  },
@@ -49,5 +53,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/108814__89929.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-18"
+ "changed": "2026-11-19"
 }

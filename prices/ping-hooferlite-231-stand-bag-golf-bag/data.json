@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-hooferlite-231-stand-bag-golf-bag/",
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 144.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 95,
+  "daysTracked": 96,
   "low": 144.0,
   "high": 159.0,
-  "average": 145.45,
+  "average": 145.44,
   "priceChanges": 4,
   "series": [
    [
@@ -45,16 +45,16 @@
     144.0
    ],
    [
-    "2026-11-18",
+    "2026-11-19",
     144.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 83 days"
+  "summary": "Typical price: steady for 84 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Hooferlite-231-Golf-Stand-Bag---Black.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-18"
+ "changed": "2026-11-19"
 }

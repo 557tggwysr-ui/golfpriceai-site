@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-quantum-mini-driver/",
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 349.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 95,
+  "daysTracked": 96,
   "low": 349.0,
   "high": 429.0,
-  "average": 418.56,
+  "average": 417.83,
   "priceChanges": 2,
   "series": [
    [
@@ -52,7 +52,7 @@
     349.0
    ],
    [
-    "2026-11-18",
+    "2026-11-19",
     349.0
    ]
   ]
@@ -63,5 +63,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2026-Quantum-Driver-Mini-Sole-B-004.jpg?v=1776162589",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-18"
+ "changed": "2026-11-19"
 }

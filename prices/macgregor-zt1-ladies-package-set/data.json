@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/",
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 419.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 95,
+  "daysTracked": 96,
   "low": 379.0,
   "high": 419.0,
-  "average": 406.26,
+  "average": 406.4,
   "priceChanges": 21,
   "series": [
    [
@@ -113,7 +113,7 @@
     419.0
    ],
    [
-    "2026-11-18",
+    "2026-11-19",
     419.0
    ]
   ]
@@ -124,5 +124,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/MACSET118-Ladies-Set-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-18"
+ "changed": "2026-11-19"
 }

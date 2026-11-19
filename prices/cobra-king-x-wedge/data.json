@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/cobra-king-x-wedge/",
- "checked": "2026-11-18",
+ "checked": "2026-11-19",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 99.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 95,
+  "daysTracked": 96,
   "low": 99.0,
   "high": 139.0,
-  "average": 136.58,
+  "average": 136.19,
   "priceChanges": 2,
   "series": [
    [
@@ -50,6 +50,10 @@
    [
     "2026-11-18",
     99.0
+   ],
+   [
+    "2026-11-19",
+    99.0
    ]
   ]
  },
@@ -59,5 +63,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/KING_Wedge_X_1.jpg?v=1741950431",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-18"
+ "changed": "2026-11-19"
 }
