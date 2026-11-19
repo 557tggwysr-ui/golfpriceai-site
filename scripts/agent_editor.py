@@ -120,7 +120,7 @@ def check_json_copy(path, s):
     def walk(x, k=""):
         if isinstance(x, dict):
             for kk, v in x.items():
-                if not kk.startswith("_") and kk not in ("about", "history"):
+                if not kk.startswith("_") and kk not in ("about", "history", "_scores"):
                     walk(v, kk)
         elif isinstance(x, list):
             for v in x:

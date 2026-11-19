@@ -196,6 +196,33 @@ def gh(method, path, body=None):
         return None
 
 
+def _key():
+    import hashlib
+    return hashlib.sha256(("lab-scores|" + (os.environ.get("ALERTS_SECRET") or "")).encode()).digest()
+
+
+def lab_scores(d):
+    """Each judged beta's return rate, kept scrambled with ALERTS_SECRET so the public file holds no usage numbers."""
+    import base64
+    raw = d.get("_scores")
+    if not raw or not os.environ.get("ALERTS_SECRET"):
+        return {}
+    try:
+        b = base64.b64decode(raw)
+        k = _key()
+        return json.loads(bytes(x ^ k[i % len(k)] for i, x in enumerate(b)).decode())
+    except Exception:
+        return {}
+
+
+def save_scores(d, scores):
+    import base64
+    if not os.environ.get("ALERTS_SECRET"):
+        return
+    b, k = json.dumps(scores).encode(), _key()
+    d["_scores"] = base64.b64encode(bytes(x ^ k[i % len(k)] for i, x in enumerate(b))).decode()
+
+
 def lab_weeks(lab_rows, slug, started, today):
     """Week-by-week player-days, returning player-days and buy clicks since the beta started."""
     out, d0 = [], date.fromisoformat(started)
@@ -218,6 +245,7 @@ def run_lab(lab_rows, today):
     except Exception:
         return []
     lines, changed = [], []
+    scores = lab_scores(d)  # {slug: return rate} for every beta judged so far (private)
     issues = gh("GET", "/issues?state=open&labels=games-lab&per_page=30") or []
     for g in d.get("games", []):
         if g.get("status") != "running":
@@ -267,18 +295,31 @@ def run_lab(lab_rows, today):
         ready = (days >= 28 and play >= need) or days >= 56 or (g.get("extendedUntil") and str(today) >= g["extendedUntil"])
         if not ready:
             continue
-        if play >= need and rate >= want_ret and orate >= want_out:
+        # Rule (John, 19 Nov): each beta must beat the best one before it, not just the pass mark.
+        others = {k: v for k, v in scores.items() if k != g["slug"]}
+        best_before = max(others.values()) if others else 0
+        if play >= need:
+            scores[g["slug"]] = round(rate, 4)
+            g["beatBest"] = rate >= best_before
+            g["rankSoFar"] = 1 + sum(1 for v in others.values() if v > rate)
+            g["rankOf"] = len(others) + 1
+            changed.append(f"Games lab: {name} ranks {g['rankSoFar']} of {g['rankOf']} betas so far"
+                           + (" (a new best)." if g["beatBest"] and others else "."))
+        if play >= need and rate >= want_ret and orate >= want_out and rate >= best_before:
             g.update({"status": "passed", "decided": str(today),
-                      "verdict": "Players came back often enough: ready to graduate to the Clubhouse."})
-            changed.append(f"Games lab: {name} passed its pass mark and is ready to graduate.")
-            lines[-1] += " Verdict: passed."
+                      "verdict": "Players came back often enough, and more than for any beta before it: ready to graduate."})
+            changed.append(f"Games lab: {name} passed its pass mark and beat every beta before it; ready to graduate.")
+            lines[-1] += " Verdict: passed (a new best)."
+            save_scores(d, scores)
             continue
+        if play >= need and rate >= want_ret and rate < best_before:
+            lines[-1] += f" Met its pass mark but didn't beat the best beta so far ({best_before:.0%})."
         why = (f"only {play} player-days in {days} days (it needs {need})" if play < need else
-               f"players came back on {rate:.0%} of play days (pass mark {want_ret:.0%})")
+               f"players came back on {rate:.0%} of play days (pass mark {want_ret:.0%}; best beta so far {best_before:.0%})")
         weeks = lab_weeks(lab_rows, slug, started, today)
         fixes = g.get("changes") or []
         email_owner(f"GolfPrice AI · Games lab: your decision on {name}",
-                    f"<h2>{name} has missed its pass mark so far</h2><p>In beta since {started} ({days} days): {why}. "
+                    f"<h2>{name} hasn't beaten the bar yet</h2><p>In beta since {started} ({days} days): {why}. "
                     f"Buy clicks per play day: {orate:.1%}.</p><p><b>Recommendation:</b> "
                     + ("retire it and try the next idea." if play >= need else
                        "it hasn't had enough players to judge fairly. Share golfpriceai.com/play/lab/ with a golf group and give it 4 more weeks.")
@@ -289,12 +330,12 @@ def run_lab(lab_rows, today):
                       "Nothing is retired until you tick a box; it keeps running meanwhile.</p>")
         gh("POST", "/labels", {"name": "games-lab", "color": "1d76db", "description": "Games lab decisions for John"})
         gh("POST", "/issues", {"title": f"Games lab decision: {name} ({g['slug']})", "labels": ["games-lab"],
-                               "body": f"**{name}** has been in beta since {started} and hasn't met its pass mark yet. "
+                               "body": f"**{name}** has been in beta since {started} and hasn't cleared the bar yet (its pass mark, and beating the best beta before it). "
                                        "The numbers, week by week, and the improvements made are in your email "
                                        "(\"Games lab: your decision\").\n\nTick ONE, and the next daily run puts it in the Fix pack for you to merge:\n\n"
                                        "- [ ] Retire it\n- [ ] Give it 4 more weeks\n\n"
                                        "_Until you decide, it keeps running. Nothing is retired without your tick._"})
-        lines[-1] += " Missed its pass mark: emailed you the data; waiting for your decision."
+        lines[-1] += " Didn't clear the bar: emailed you the data; waiting for your decision."
     # close decision issues whose choice is now live
     for i in issues:
         m = re.search(r"\(([a-z0-9-]+)\)$", i.get("title", ""))
@@ -303,6 +344,7 @@ def run_lab(lab_rows, today):
                 and not any(g.get("name", "") in c for c in changed):
             gh("PATCH", f"/issues/{i['number']}", {"state": "closed"})
     if changed:
+        save_scores(d, scores)
         LAB.write_text(json.dumps(d, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         pack_note("data/games-lab.json", " ".join(changed))
     return lines

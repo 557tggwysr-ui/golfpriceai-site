@@ -153,7 +153,11 @@ GAMES SCOUT AND GAMES LAB
   golf games and gamified shopping, then builds ONE beta game on its own branch
   (you merge it) at golfpriceai.com/play/lab/. It's hidden from Google: share
   it with a golf WhatsApp group. After 4 weeks the performance analyst judges
-  it against its pass mark (enough players coming back). "Passed" goes into
+  it against its pass mark (enough players coming back) AND the best beta
+  before it: each new game has to beat the last best, not just the pass mark.
+  Every beta's lessons are written down, and each new one must say which
+  lessons it builds on. (The scores are scrambled in the public file, so no
+  usage numbers show.) "Passed" goes into
   the Fix pack, and the next lab run graduates it into the Clubhouse.
   A beta is NEVER retired without you: if it misses its pass mark you get an
   email with its numbers week by week, the improvements made during the beta
