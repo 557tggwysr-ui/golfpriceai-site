@@ -34,8 +34,17 @@ sys.path.insert(0, os.path.dirname(__file__))
 from agent_common import (SITE, models, save_report, email_owner, table, now)
 
 PROPERTY = os.environ.get("GSC_PROPERTY", "sc-domain:golfpriceai.com")
-# Sites to watch (public sitemaps only). Add more as you find them.
-COMPETITORS = [c.strip() for c in os.environ.get("COMPETITORS", "caddence.golf").split(",") if c.strip()]
+# Sites to watch (public sitemaps only): host -> (name, what they compete with).
+# Add more as you find them.
+COMPETITOR_SITES = {
+    "caddence.golf": ("Caddence", "price comparison"),
+    "caddycompare.com": ("CaddyCompare", "price comparison"),
+    "golfpricecompare.com": ("Golf Price Compare", "price comparison"),
+    "golfpricecompare.co.uk": ("GolfPriceCompare (.co.uk)", "price comparison"),
+    "golfclubprice.com": ("ClubCompass", "used club values and price comparison"),
+    "riddygolf.com": ("RiddyGolf", "golf society app (vs Society HQ)"),
+}
+COMPETITORS = [c.strip() for c in os.environ.get("COMPETITORS", ",".join(COMPETITOR_SITES)).split(",") if c.strip()]
 WATCH = os.path.join(os.path.dirname(__file__), "..", "data", "agents", "competitor-watch.json")
 
 
@@ -83,7 +92,8 @@ def competitor_watch():
         prev = old.get("sites", {}).get(host, {})
         urls = sitemap_urls(host)
         if not urls:
-            out["sites"][host] = {**prev, "status": "sitemap not reachable this week"}
+            name, kind = COMPETITOR_SITES.get(host, (host, "unknown"))
+            out["sites"][host] = {**prev, "name": name, "competesWith": kind, "status": "sitemap not reachable this week"}
             continue
         known = set(prev.get("urls", []))
         new = sorted(urls - known) if known else []
@@ -102,7 +112,8 @@ def competitor_watch():
         for u in urls:
             seg = re.sub(r"^https?://[^/]+", "", u).strip("/").split("/")[0] or "(home)"
             sections[seg] += 1
-        out["sites"][host] = {"checked": str(now().date()), "pages": len(urls), "newThisWeek": new[:200], "goneThisWeek": gone,
+        name, kind = COMPETITOR_SITES.get(host, (host, "unknown"))
+        out["sites"][host] = {"name": name, "competesWith": kind, "checked": str(now().date()), "pages": len(urls), "newThisWeek": new[:200], "goneThisWeek": gone,
                               "sections": dict(sorted(sections.items(), key=lambda x: -x[1])[:15]),
                               "gaps": ideas[:40], "urls": sorted(urls)}
         print(f"competitor {host}: {len(urls)} pages, {len(new)} new, {len(ideas)} gaps")

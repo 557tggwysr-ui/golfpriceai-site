@@ -143,8 +143,9 @@ THE PERFORMANCE ANALYST
   never changes prices, their order or which shop is shown.
 
 COMPETITOR WATCH AND PRESS DESK
-  Mondays: the search engine reads competitors' public sitemaps (caddence.golf
-  to start; add others in COMPETITORS in scripts/agent_search.py) and lists
+  Mondays: the search engine reads competitors' public sitemaps (Caddence,
+  CaddyCompare, Golf Price Compare, ClubCompass and RiddyGolf; add others in
+  COMPETITOR_SITES in scripts/agent_search.py) and lists
   their new pages and topics we have no page for (data/agents/competitor-watch.json).
   2nd of the month: the Claude check also ranks you against them on ~30 keywords.
   First Tuesday: the press desk drafts your regular pitch AND up to 5 tailored
