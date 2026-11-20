@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-20T05:56+00:00",
+ "checked": "2026-11-20T15:01+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -22,6 +22,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/golfway-champion-youth-fairway-wood/"
+  },
+  {
+   "model": "Titleist GT3 Hybrid",
+   "model_id": "titleist-gt3-hybrid",
+   "date": "2026-11-20",
+   "was": 299.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gt3-hybrid/"
   },
   {
    "model": "Golfway Champion Driver",

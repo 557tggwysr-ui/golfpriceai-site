@@ -8,8 +8,7 @@
  "unit": "each",
  "lowestNewPrice": 189.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
@@ -18,14 +17,14 @@
    "options": 4
   },
   {
-   "name": "Major Golf Direct",
-   "from": 189.0,
-   "options": 2
-  },
-  {
    "name": "Affordable Golf",
    "from": 189.95,
    "options": 5
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 199.0,
+   "options": 2
   }
  ],
  "history": {
@@ -49,7 +48,7 @@
   "label": "typical",
   "summary": "Typical price: steady for 85 days"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/BigMaxDriLiteTour2GolfCartBag2026-BlackCharcoal_1.jpg?v=1762771956",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DriLiteTour2CartBagBlackCharcoal2.jpg?v=1773175109",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-20"
 }
