@@ -36,6 +36,9 @@ WHAT'S IN THIS FOLDER
   competitor watch is part of agent_search.py (competitors' public sitemaps, weekly)
   press desk and competitor rank check run as Claude scheduled tasks (no files)
   .github/EDITOR.md          the house style the editor reviews against (edit freely)
+  .github/IDEAS.md           the ideas loop: every idea is challenged, scored, approved by you, tested and measured
+  data/ideas.json            the ideas board (weekly review runs the loop; the strategy board reviews it monthly)
+  data/competitors.json      extra competitors found by the monthly competitor scout (merged by you)
   data/press-optouts.json    writers who said "no thanks" (the press desk skips them)
   plus the "Price look wrong?" link on every price page, read by the claims guardian
   CHANGED: scripts/digest.py (subject test), js/quick-round.js (club scorecards),
