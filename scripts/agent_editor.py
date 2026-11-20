@@ -179,7 +179,7 @@ def dump_posts():
     except Exception:
         plan = {"posts": []}
     today = str(now().date())
-    keep = ("id", "date", "theme", "style", "hook", "headline", "sub", "captions", "sound", "editor")
+    keep = ("id", "date", "theme", "style", "hook", "headline", "sub", "captions", "sound", "editor", "thumb")
     txt = json.dumps([{k: p.get(k) for k in keep} for p in plan.get("posts", []) if p.get("date", "") >= today],
                      indent=1, ensure_ascii=False)
     print(txt)
@@ -209,6 +209,9 @@ def dump_frames(dest):
         card = ROOT / str(p.get("card", "")).lstrip("/")
         if card.is_file():
             subprocess.run(["cp", str(card), os.path.join(d, f"{p['id']}-card.jpg")])
+        thumb = ROOT / str(p.get("thumb", "")).lstrip("/")
+        if thumb.is_file():
+            subprocess.run(["cp", str(thumb), os.path.join(d, f"{p['id']}-thumbnail.jpg")])
         day = date.fromisoformat(p["date"])
         monday = day - timedelta(days=day.weekday())
         vid = os.path.join(d, f"{p['id']}.mp4")

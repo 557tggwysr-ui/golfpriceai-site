@@ -35,6 +35,9 @@ Hold a post (put it in holdPosts) if any of these is true when you look at its c
 - The layout looks unbalanced, empty or cluttered, or two posts in the week look nearly identical.
 - Anything looks broken: blank frames, placeholder boxes, odd characters, a missing price.
 - It wouldn't sit comfortably next to a big golf brand's own posts.
+- The thumbnail (…-thumbnail.jpg) must stop a thumb mid-scroll: 2 to 4 big words readable at phone-grid size,
+  the product sharp and large, strong contrast, nothing important outside the middle 4:5 (Instagram's grid crop),
+  and it must match the video. A dull, cluttered or misleading thumbnail is a hold.
 - Judge it against data/social-benchmarks.json (reels John picked as the bar): would it hold its own in the
   feed next to them? Pace (a change every ~1-2 seconds), one clear idea, a hook in the first second, big
   confident type. If not, say what would close the gap.

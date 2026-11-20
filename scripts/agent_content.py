@@ -54,6 +54,20 @@ STYLE_FORMATS = {"pov": ["pov", "day in the life"], "countdown": ["tier list", "
                  "sitedemo": ["tutorial", "how to", "tried it"], "story": ["trend", "meme"]}
 TOPIC_WORDS = re.compile(r"black ?friday|cyber ?monday|christmas|gift|secret ?santa|boxing ?day|new ?year|fathers? ?day|summer|winter|spring|sale|deals?|sport", re.I)
 CARDS = ROOT / "social" / "cards"
+THUMBS = ROOT / "social" / "thumbs"
+# Thumbnail headlines must read in a second: 2 to 4 words. Long hooks fall back to these.
+STYLE_THUMB = {"thennow": "Then v now", "truth": "We've all been there", "spec": "New lowest price", "story": "Golf, but make it news",
+               "collage": "Your move", "sitedemo": "Check before you buy", "reveal": "Guess the price", "guess": "Guess the price",
+               "countdown": "Top drops this week", "stat": "The numbers", "pov": "POV: you checked first", "expectation": "Expectation v reality",
+               "receipt": "The receipt"}
+
+
+def thumb_text(sc, style):
+    t = str(sc.get("thumb") or sc.get("hook") or "")
+    first = re.split(r"[.:!?]", t)[0].strip()
+    if 0 < len(first.split()) <= 4:
+        return first
+    return STYLE_THUMB.get(style, "Full Swing. Not full price.")
 PACK = ROOT / "social" / "pack" / "index.html"
 VIDEOS = ROOT / "social-videos"   # build output: uploaded to a GitHub release (pack-<monday>), never committed
 REPO = os.environ.get("GITHUB_REPOSITORY", "557tggwysr-ui/golfpriceai-site")
@@ -495,9 +509,16 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
     still = V.render(style, sc, palette, VIDEOS / f"{pid}.mp4", img=img, photo=photo, imgs=imgs)
     V.feed_card(still, CARDS / f"{pid}.jpg")
     quality = V.qc(style, palette, VIDEOS / f"{pid}.mp4", still, img=img, imgs=imgs, card=CARDS / f"{pid}.jpg")
+    # the thumbnail (cover) for the Reel / Short: its own design, not a frame from the video
+    import agent_cine as CINE
+    tkind = {"spec": "punch", "thennow": "sunrise", "truth": "clean", "story": "night", "collage": "sunrise",
+             "sitedemo": "punch"}.get(style, ["punch", "sunrise", "clean", "night"][sum(map(ord, pid)) % 4])
+    quality += CINE.thumbnail(THUMBS / f"{pid}.jpg", thumb_text(sc, style), img=img or (imgs[0] if imgs else None),
+                              price=sc.get("price"), kind=sc.get("thumb_style", tkind), tag=sc.get("thumb_tag") or theme.get("name", "")[:28],
+                              look=CINE.look_of(sc) if sc.get("look") else None)
     monday = day - timedelta(days=day.weekday())
     return edited({"id": pid, "date": str(day), "theme": theme["theme"], "style": style, "palette": palette, "hook": sc["hook"],
-            "trend": tie["match"] if tie else None, "card": f"/social/cards/{pid}.jpg",
+            "trend": tie["match"] if tie else None, "card": f"/social/cards/{pid}.jpg", "thumb": f"/social/thumbs/{pid}.jpg",
             "video": f"https://github.com/{REPO}/releases/download/pack-{monday}/{pid}.mp4",
             "link": theme["link"], "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, tie, social),
             "sound": sound, "trendingFormats": [f for f in STYLE_FORMATS.get(style, []) if (social or {}).get("formats", {}).get(f)], "posted": {},
@@ -723,7 +744,7 @@ def reel_container(uid, tok, p):
     url = f"https://github.com/{repo}/releases/download/pack-{monday}/{p['id']}.mp4"
     s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
                      body={"media_type": "REELS", "video_url": url, "caption": p["captions"]["instagram"],
-                           "share_to_feed": "true", "cover_url": SITE + p["card"], "access_token": tok})
+                           "share_to_feed": "true", "cover_url": SITE + (p.get("thumb") or p["card"]), "access_token": tok})
     cid = (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
     if not cid:
         print("reel upload not accepted, using the image instead:", s, (txt or "")[:200])
@@ -783,7 +804,7 @@ def post_today():
 
 def prune_cards():
     cut = now().date() - timedelta(days=KEEP_CARDS_DAYS)
-    for f in CARDS.glob("*.jpg"):
+    for f in list(CARDS.glob("*.jpg")) + list(THUMBS.glob("*.jpg")):
         try:
             if date.fromisoformat(f.name[:10]) < cut:
                 f.unlink()
@@ -853,7 +874,8 @@ def write_pack(plan):
         cards.append(f"""<section class="post"><video src="{p['video']}" poster="{p['card']}" controls playsinline preload="none"></video>
 <div><p class="when">{DAYS[d.weekday()]} {d.day} {d.strftime('%b')} · {esc(p['theme'])} · {esc(p.get('style', ''))}{trend} <span class="done">{done}</span></p>
 {('<p class="tip" style="background:#fde8e8">⛔ Held by the Editor, won\'t auto-post: ' + esc(' '.join(p['editor'])) + '</p>') if p.get('editor') else ''}<h2>“{esc(p.get('hook', p['headline']))}”</h2><p class="sub">{esc(p['sub'])}</p>
-<p class="dl"><a href="{p['video']}">Download video</a> · <a href="{p['card']}" download>Download feed image</a></p>
+<p class="dl"><a href="{p['video']}">Download video</a> · <a href="{p.get('thumb') or p['card']}" download>Download thumbnail (cover)</a> · <a href="{p['card']}" download>Download feed image</a></p>
+{('<img src="' + p['thumb'] + '" alt="Thumbnail for ' + esc(p.get('hook', '')) + '" style="width:120px;border-radius:10px;margin:6px 0">') if p.get('thumb') else ''}
 {''.join(f'<details><summary>{k}</summary><textarea readonly>{esc(v)}</textarea><button onclick="copy(this)">Copy</button></details>' for k, v in blocks)}
 <p class="tip">{('Trending sound (approved for business): <b>' + esc(p['sound']) + '</b>. Search it in the app when you schedule.') if p.get('sound') else 'TikTok and Reels: add a trending sound from the commercial library when you schedule.'}{(' · Rides the trend: ' + esc(', '.join(p['trendingFormats']))) if p.get('trendingFormats') else ''}</p>
 <p class="link">Link: <a href="{p['link']}">{esc(p['link'])}</a></p></div></section>""")

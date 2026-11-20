@@ -198,6 +198,15 @@ AI APPS (LLMs): COVERED THE SAME WAY AS GOOGLE
   ChatGPT search and shopping, Perplexity, Gemini and AI Mode, Copilot and
   Claude, new AI crawlers to allow, and llms.txt practice.
 
+THUMBNAILS
+  Every Reel and Short gets its own designed thumbnail (cover), not a frame
+  from the video: 2 to 4 huge words, the product big with a soft shadow, a
+  price badge and the brand, all inside Instagram's grid crop. It's used as the
+  Reel cover automatically and is on the pack page to download for TikTok and
+  YouTube Shorts. Claude's review (step 11) checks every thumbnail too. For the
+  fortnightly hero video, the OpenMontage brief includes an AI-made thumbnail
+  within the $10.
+
 PREMIUM QUALITY FOR POSTS, VIDEOS AND GRAPHICS
   Videos are now encoded at a much higher quality setting and feed cards are
   saved at near-lossless quality. Every video and card passes a quality gate

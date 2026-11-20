@@ -23,6 +23,7 @@ accounts put reels together (benchmarks in data/social-benchmarks.json):
 All styles are 1080x1920, 30fps, designed for the sound to be added in the app.
 """
 import math
+import re
 import random
 from pathlib import Path
 
@@ -753,3 +754,103 @@ def style_collage(t, s, pal, img, photo):
 
 CINE_STYLES = {"spec": (style_spec, 10.5), "thennow": (style_thennow, 10.0), "story": (style_story, 12.6),
                "sitedemo": (style_sitedemo, 11.0), "truth": (style_truth, 10.5), "collage": (style_collage, 12.6)}
+
+
+# ---------------- thumbnails (covers) for every Reel and Short ----------------
+# John (20 Nov 2026): every reel and short gets a polished, professional thumbnail. Designed for the
+# phone grid: one huge 2-4 word hook, the product big with a soft shadow, a price badge, brand corner;
+# everything important inside the middle 4:5 so Instagram's grid crop never cuts it.
+THUMB_STYLES = {
+    "punch": {"bg": [[0, [10, 14, 12]], [1, [30, 60, 40]]], "ink": (255, 255, 255), "hi": (150, 255, 90), "badge": (150, 255, 90), "badge_ink": (10, 20, 10)},
+    "sunrise": {"bg": [[0, [255, 120, 70]], [1, [140, 30, 90]]], "ink": (255, 255, 255), "hi": (255, 230, 120), "badge": (255, 255, 255), "badge_ink": (140, 30, 90)},
+    "clean": {"bg": [[0, [245, 247, 244]], [1, [214, 228, 214]]], "ink": (16, 28, 20), "hi": (28, 140, 50), "badge": (16, 28, 20), "badge_ink": (255, 255, 255)},
+    "night": {"bg": [[0, [8, 10, 30]], [1, [60, 30, 110]]], "ink": (255, 255, 255), "hi": (255, 200, 60), "badge": (255, 200, 60), "badge_ink": (20, 10, 30)},
+}
+
+
+def _short_hook(text, n=4):
+    words = [w for w in re.sub(r"[^\w£'.,!? -]", "", str(text)).split() if w]
+    return " ".join(words[:n]).rstrip(",.") if len(words) > n else " ".join(words)
+
+
+def thumbnail(path, hook, img=None, price=None, kind="punch", tag=None, look=None):
+    """A 1080x1920 cover. Returns the problems found (empty list = good)."""
+    st = THUMB_STYLES.get(kind, THUMB_STYLES["punch"])
+    stops = (look or {}).get("stops") or st["bg"]
+    g = Image.new("RGB", (1, 2))
+    g.putpixel((0, 0), tuple(stops[0][1]))
+    g.putpixel((0, 1), tuple(stops[-1][1]))
+    im = g.resize((W, H), Image.BILINEAR).convert("RGBA")
+    glow = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(glow).ellipse([-200, 520, W + 200, 1500], fill=110)
+    im.alpha_composite(Image.merge("RGBA", (*[Image.new("L", (W, H), 255)] * 3, glow.filter(ImageFilter.GaussianBlur(160)))))
+    d = ImageDraw.Draw(im)
+    if img is not None:
+        card = ImageOps.contain(img.convert("RGB"), (700, 700), Image.LANCZOS)
+        tile = Image.new("RGBA", (card.width + 60, card.height + 60), (255, 255, 255, 255))
+        tile.paste(card, (30, 30))
+        m = Image.new("L", tile.size, 0)
+        ImageDraw.Draw(m).rounded_rectangle([0, 0, tile.width, tile.height], 44, fill=255)
+        tile.putalpha(m)
+        tile = tile.rotate(-4, expand=True, resample=Image.BICUBIC)
+        sh = Image.new("RGBA", (tile.width + 120, tile.height + 120), (0, 0, 0, 0))
+        sh.paste((0, 0, 0, 150), (60, 90), tile.getchannel("A"))
+        sh = sh.filter(ImageFilter.GaussianBlur(34))
+        cx, cy = W // 2, 1080
+        im.alpha_composite(sh, (cx - sh.width // 2 + 10, cy - sh.height // 2 + 20))
+        im.alpha_composite(tile, (cx - tile.width // 2, cy - tile.height // 2))
+    words = _short_hook(hook).upper().split()
+    lines, cur, f = [], "", cfont(190)
+    for w in words:
+        if f.getlength((cur + " " + w).strip()) > W - 120 and cur:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = (cur + " " + w).strip()
+    lines.append(cur)
+    size = 190
+    while (len(lines) > 2 or max(f.getlength(x) for x in lines) > W - 110) and size > 90:
+        size -= 10
+        f = cfont(size)
+        lines, cur = [], ""
+        for w in words:
+            if f.getlength((cur + " " + w).strip()) > W - 120 and cur:
+                lines.append(cur)
+                cur = w
+            else:
+                cur = (cur + " " + w).strip()
+        lines.append(cur)
+    top = 330 if img is not None else 760
+    for i, ln in enumerate(lines):
+        col = st["hi"] if i == len(lines) - 1 and len(lines) > 1 else st["ink"]
+        x = (W - f.getlength(ln)) / 2
+        d.text((x + 6, top + i * size * 1.0 + 8), ln, font=f, fill=(0, 0, 0, 90))
+        d.text((x, top + i * size * 1.0), ln, font=f, fill=col + (255,), stroke_width=max(4, size // 28),
+               stroke_fill=(0, 0, 0, 255) if st["ink"] == (255, 255, 255) else (255, 255, 255, 255))
+    if price:
+        fb = cfont(120)
+        txt = money(price)
+        bw = int(fb.getlength(txt)) + 90
+        badge = Image.new("RGBA", (bw, 190), (0, 0, 0, 0))
+        bd = ImageDraw.Draw(badge)
+        bd.rounded_rectangle([0, 0, bw - 1, 189], 40, fill=st["badge"] + (255,))
+        bd.text((45, 18), txt, font=fb, fill=st["badge_ink"] + (255,))
+        badge = badge.rotate(5, expand=True, resample=Image.BICUBIC)
+        im.alpha_composite(badge, (W - badge.width - 70, 1380 if img is not None else 1150))
+    if tag:
+        ft = cfont(54)
+        tw = ft.getlength(tag.upper())
+        d.rounded_rectangle([60, 250, 60 + tw + 50, 330], 18, fill=(0, 0, 0, 170))
+        d.text((85, 258), tag.upper(), font=ft, fill=st["hi"] + (255,))
+    fl = cfont(46)
+    brand = "GOLFPRICEAI.COM"
+    d.text(((W - fl.getlength(brand)) / 2, 1560), brand, font=fl, fill=st["ink"] + (230,))
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    im.convert("RGB").save(path, "JPEG", quality=94, optimize=True, progressive=True, subsampling=0)
+    probs = []
+    if img is not None and min(img.size) < 600:
+        probs.append("thumbnail photo is low resolution")
+    if size < 110:
+        probs.append("thumbnail headline is too long to read at a glance")
+    return probs
