@@ -72,3 +72,7 @@ its own isn't enough; "Ad" or a plain sentence is.
 - Prices are never ranked or chosen by commission; the cheapest honest price leads.
 - Only savings our own price history proves; no "was" prices, no fake urgency (also CMA and the
   DMCC Act rules on misleading prices and reviews). Never write or invent a review.
+- Social posts that feature a specific product and price start every caption with "#Ad"
+  (John, 20 Nov 2026). The content engine adds it automatically (agent_content.ad_label), so
+  agents writing drafts don't need to. Posts about games, banter or big events with no product
+  price don't need it. Never "aff" on its own, never hidden after "more" or in the hashtags.

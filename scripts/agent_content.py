@@ -527,13 +527,41 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
             "quality": quality})
 
 
+AD_LABEL = "#Ad"
+PRICE_RX = re.compile(r"£\s?\d")
+AD_RX = re.compile(r"^\s*#?ad\b", re.I)
+
+
+def ad_label(post):
+    """ASA/CAP: affiliate content must be obviously identifiable as advertising, with the label upfront
+    (John, 20 Nov 2026: "include #Ad as suggested"). Any post that features a specific product and price
+    gets "#Ad" at the start of every caption. Posts about games, banter or big events without a product
+    price don't need it."""
+    c = post.get("captions") or {}
+    text = " ".join([str(post.get(k) or "") for k in ("hook", "headline", "sub")] +
+                    [v if isinstance(v, str) else " ".join(map(str, v.values())) for v in c.values()])
+    if not (PRICE_RX.search(text) or re.search(r"/prices/[a-z0-9-]+/?$", str(post.get("link") or ""))):
+        return post
+    post["ad"] = True
+    for k in ("instagram", "tiktok", "x", "bluesky"):
+        if isinstance(c.get(k), str) and not AD_RX.search(c[k]):
+            c[k] = f"{AD_LABEL} " + c[k]
+    for k in ("youtube", "pinterest"):
+        if isinstance(c.get(k), dict) and isinstance(c[k].get("description"), str) and not AD_RX.search(c[k]["description"]):
+            c[k]["description"] = f"{AD_LABEL} " + c[k]["description"]
+    return post
+
+
 def edited(post):
     """The Editor reads every caption and on-screen line. Problems hold the post back from auto-posting."""
+    post = ad_label(post)
     try:
         import agent_editor
         probs = ["quality: " + q for q in (post.get("quality") or [])]  # premium quality gate (agent_video.qc)
         for k, txt in (post.get("captions") or {}).items():
-            probs += agent_editor.check_text(txt, where=f"{k} caption")
+            if isinstance(txt, dict):  # YouTube and Pinterest captions have a title and a description
+                txt = " ".join(str(v) for kk, v in txt.items() if kk != "link")
+            probs += agent_editor.check_text(str(txt), where=f"{k} caption")
         for k in ("hook", "headline", "sub"):
             probs += agent_editor.check_text(str(post.get(k) or ""), where=k)
         if probs:
