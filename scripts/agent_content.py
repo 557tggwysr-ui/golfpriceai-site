@@ -64,6 +64,8 @@ STYLE_THUMB = {"thennow": "Then v now", "truth": "We've all been there", "spec":
 
 def thumb_text(sc, style):
     t = str(sc.get("thumb") or sc.get("hook") or "")
+    if 0 < len(t.split()) <= 5:
+        return t
     first = re.split(r"[.:!?]", t)[0].strip()
     if 0 < len(first.split()) <= 4:
         return first
