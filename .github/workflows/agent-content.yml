@@ -99,8 +99,15 @@ jobs:
             style; don't default to one), that style's own script fields (read its function), "look" where the style takes one,
             "link", and "ig", "x" and "tt" captions. Only real figures from data/models.json or data/home-deals.json; images only
             from product image URLs in data/models.json or tile-photos/*.jpg; the story's name in words only (never its logo,
-            artwork, characters, lettering or music); never a real person's name or image; never name retailers ("multiple UK
-            retailers"); no fake urgency; UK spelling. If it's a build-up beat, also add the beat to that moment's "beats" list in
+            artwork, characters, lettering or music); never name retailers ("multiple UK retailers"); no fake urgency; UK spelling.
+            COLOURS ARE THE RECOGNITION: look up the story's own colour scheme (the film's poster and trailer palette, a team's or
+            tournament's colours, a game's key art palette) and give the post a "look" in those colours: a LOOKS name from
+            scripts/agent_cine.py (doom = black and green, versus = Europe blue and gold v USA red, white and blue, vice, christmas,
+            hero, major, night) or a custom look object; carry the same colours into the thumbnail. Colours and moods only, never
+            the artwork itself.
+            Real people: when a player or team wins, congratulate them by name in the captions only ("Congratulations to X") and
+            add their name as a hashtag (#FirstnameLastname); never their name or photo in the video or thumbnail, and nothing
+            that suggests they use, like or endorse GolfPrice AI. Never mock or joke about a real person. If it's a build-up beat, also add the beat to that moment's "beats" list in
             data/moments.json ({"date", "what"}) so we don't repeat it.
             Change no other files.
           claude_args: --max-turns 35 --allowedTools "Read,Glob,Grep,Edit,Write,WebSearch,WebFetch,Bash(cat:*),Bash(date:*)"

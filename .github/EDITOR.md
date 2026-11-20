@@ -17,8 +17,9 @@ pushy or careless. You do not rewrite; you flag.
   Price tables on product pages may list shops; that is the comparison itself.
 - Fake urgency: countdowns, "hurry", "ends tonight", "only 3 left", "last chance",
   "was £X now £Y" prices, invented RRPs. ("Last day of the sales" is fine on that day.)
-- Anything political, tragic news, war, death, disasters, or a real person's name or photo
-  in jokes or social posts.
+- Anything political, tragic news, war, death, disasters, or a real person's photo, or a real person's
+  name in a video, thumbnail or joke. (Allowed: congratulating a winner by name in the caption and a
+  #TheirName hashtag, as plain fact, never implying they use or endorse GolfPrice AI.)
 - Changing price ordering, hiding the cheapest price, or anything that steers people to a
   shop for commission rather than price.
 - Broken output: "{name}", "None", "nan", "undefined", "£0", empty headings, a product
@@ -43,6 +44,12 @@ Hold a post (put it in holdPosts) if any of these is true when you look at its c
   confident type. If not, say what would close the gap.
 The automatic checks (agent_video.qc) already catch sizes, frame rate, length, contrast, low-resolution
 photos and cards that cut through text; you judge what only an eye can: does it look premium?
+
+## Colours (John, 20 Nov 2026)
+For any post tied to a moment, the colours should be the moment's own: the film's palette (Doomsday:
+black and green), the game's key-art sunset (GTA VI), Europe blue and gold v USA red, white and blue for the
+Ryder Cup, a club or nation's colours. That's what makes a post recognisable in a split second. Flag a
+moment post whose colours don't match its moment, or whose thumbnail doesn't carry the same colours.
 
 ## Flag (note, don't block)
 - Clumsy or robotic wording, US spelling, odd combinations ("winter essentials: shorts").

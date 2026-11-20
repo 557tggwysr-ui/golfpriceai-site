@@ -551,6 +551,14 @@ LOOKS = {
               "accent": [255, 214, 90], "panel_colours": [[[24, 90, 50], [10, 50, 28]], [[200, 80, 140], [130, 40, 90]], [[170, 140, 60], [100, 80, 30]]],
               "duo": [[10, 40, 22], [60, 140, 80], [255, 240, 200]]},
     "night": {"stops": [[0, [4, 6, 20]], [1, [30, 40, 90]]], "motif": "stars", "sun": False, "accent": [150, 255, 90]},
+    # Colours ARE the recognition: research each moment's own palette (John, 20 Nov 2026).
+    "doom": {"stops": [[0, [4, 8, 6]], [0.6, [8, 40, 22]], [1, [20, 90, 45]]], "motif": "grid", "sun": False,
+             "accent": [110, 255, 140], "panel_colours": [[[14, 70, 38], [4, 20, 10]], [[30, 30, 34], [6, 6, 8]], [[60, 140, 80], [14, 50, 26]]],
+             "duo": [[2, 10, 6], [30, 120, 60], [190, 255, 200]]},
+    "versus": {"stops": [[0, [0, 40, 120]], [1, [0, 30, 90]]], "stops2": [[0, [170, 20, 40]], [1, [40, 40, 100]]],
+               "motif": "versus", "sun": False, "accent": [255, 204, 0],
+               "panel_colours": [[[0, 51, 153], [0, 30, 90]], [[178, 34, 52], [90, 10, 25]], [[255, 204, 0], [200, 150, 0]]],
+               "duo": [[10, 20, 60], [120, 120, 200], [255, 240, 220]]},
 }
 
 
@@ -584,6 +592,15 @@ def sunset_bg(t, look=None):
                 y = 1450 + i * 34
                 sd.rectangle([0, y, W, y + 6 + i * 2], fill=(0, 0, 0, 0))
             bg.alpha_composite(sun.filter(ImageFilter.GaussianBlur(1)))
+        if motif == "versus" and look.get("stops2"):                            # two sides, split on a diagonal (e.g. Europe v USA)
+            g2 = Image.new("RGB", (1, 2))
+            g2.putpixel((0, 0), tuple(look["stops2"][0][1]))
+            g2.putpixel((0, 1), tuple(look["stops2"][-1][1]))
+            right = g2.resize((W, H), Image.BILINEAR).convert("RGBA")
+            m = Image.new("L", (W, H), 0)
+            ImageDraw.Draw(m).polygon([(W * 0.62, 0), (W, 0), (W, H), (W * 0.38, H)], fill=255)
+            bg.paste(right, (0, 0), m)
+            ImageDraw.Draw(bg).line([(W * 0.62, 0), (W * 0.38, H)], fill=tuple(look.get("accent", (255, 204, 0))) + (255,), width=10)
         if motif == "grid":                                                     # neon perspective grid
             gl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
             gd = ImageDraw.Draw(gl)
@@ -775,12 +792,17 @@ def _short_hook(text, n=5):
 
 def thumbnail(path, hook, img=None, price=None, kind="punch", tag=None, look=None):
     """A 1080x1920 cover. Returns the problems found (empty list = good)."""
-    st = THUMB_STYLES.get(kind, THUMB_STYLES["punch"])
+    st = dict(THUMB_STYLES.get(kind, THUMB_STYLES["punch"]))
     stops = (look or {}).get("stops") or st["bg"]
+    if look and look.get("accent"):  # the moment's own colours carry through to the thumbnail
+        acc = tuple(look["accent"])
+        st.update({"hi": acc, "badge": acc, "badge_ink": (10, 12, 10), "ink": (255, 255, 255)})
     g = Image.new("RGB", (1, 2))
     g.putpixel((0, 0), tuple(stops[0][1]))
     g.putpixel((0, 1), tuple(stops[-1][1]))
     im = g.resize((W, H), Image.BILINEAR).convert("RGBA")
+    if look and look.get("motif") == "versus" and look.get("stops2"):
+        im = sunset_bg(0, look)
     glow = Image.new("L", (W, H), 0)
     ImageDraw.Draw(glow).ellipse([-200, 520, W + 200, 1500], fill=110)
     im.alpha_composite(Image.merge("RGBA", (*[Image.new("L", (W, H), 255)] * 3, glow.filter(ImageFilter.GaussianBlur(160)))))

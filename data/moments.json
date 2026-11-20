@@ -1,5 +1,5 @@
 {
- "about": "Big cultural and golf moments the content plan builds around (John, 19-20 Nov 2026: plan ahead for GTA VI, Avengers: Doomsday, Christmas and the like). The moments planner (Claude, 1st and 15th) keeps this 90 days ahead, verifies dates, and for EACH moment chooses its own format and look to suit the event and what's working on social right now. The GTA VI collage was right for GTA only; no format is the default. Original design only: never a film's, game's or brand's logo, artwork, characters or lettering. 'watch' = keywords the newsroom looks for twice a day to catch each build-up beat (trailers, teasers, ticket releases); 'beats' = the beats we've already posted, so none repeats; 'arc' = known upcoming beats the planner pre-drafts.",
+ "about": "Big cultural and golf moments the content plan builds around (John, 19-20 Nov 2026: plan ahead for GTA VI, Avengers: Doomsday, Christmas and the like). The moments planner (Claude, 1st and 15th) keeps this 90 days ahead, verifies dates, and for EACH moment chooses its own format and look to suit the event and what's working on social right now. The GTA VI collage was right for GTA only; no format is the default. Original design only: never a film's, game's or brand's logo, artwork, characters or lettering. 'watch' = keywords the newsroom looks for twice a day to catch each build-up beat (trailers, teasers, ticket releases); 'beats' = the beats we've already posted, so none repeats; 'arc' = known upcoming beats the planner pre-drafts. Colours are the recognition: each moment's 'colours' and look follow its own palette (GTA VI sunset, Doomsday black and green, Ryder Cup Europe blue and gold v USA red, white and blue).",
  "moments": [
   {
    "name": "GTA VI launch",
@@ -54,7 +54,8 @@
     "doctor doom",
     "marvel"
    ],
-   "beats": []
+   "beats": [],
+   "colours": "black and green (the film's palette); look: doom"
   },
   {
    "name": "Christmas",
