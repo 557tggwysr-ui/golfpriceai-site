@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/callaway-opus-sp-wedge/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 96,
+  "daysTracked": 97,
   "low": 149.0,
   "high": 159.0,
-  "average": 158.9,
+  "average": 158.79,
   "priceChanges": 1,
   "series": [
    [
@@ -35,6 +35,10 @@
    ],
    [
     "2026-11-19",
+    149.0
+   ],
+   [
+    "2026-11-20",
     149.0
    ]
   ]
@@ -45,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025-Opus-SP-Black-Wedge-HERO-006-Photoroom_d9780f1a-9bb0-4ab2-ac0c-e14fb2208e56.jpg?v=1754987400",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

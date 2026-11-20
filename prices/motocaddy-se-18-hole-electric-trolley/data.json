@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-se-18-hole-electric-trolley/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 475.0,
@@ -14,14 +14,14 @@
   {
    "name": "Major Golf Direct",
    "from": 475.0,
-   "options": 1
+   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 475.0,
   "high": 479.0,
-  "average": 478.71,
+  "average": 478.67,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     475.0
    ],
    [
-    "2026-11-19",
+    "2026-11-20",
     475.0
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MotocaddySEElectricGolfTrolley2026_4.jpg?v=1770804159",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

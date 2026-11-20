@@ -1,13 +1,6 @@
 {
  "about": "Which models each Par Price round used (no personal data).",
  "days": {
-  "2026-10-20": [
-   "shot-scope-v5-gps-watch",
-   "callaway-opus-brushed-chrome-wedge",
-   "macgregor-cg4000-package-set",
-   "wilson-staff-model-golf-balls",
-   "taylormade-flextech-stand-bag-golf-bag"
-  ],
   "2026-10-21": [
    "srixon-ad333-golf-balls",
    "taylormade-flextech-carry-bag-stand-bag-golf-bag",
@@ -247,6 +240,14 @@
    "big-max-dri-lite-seven-g-stand-bag-golf-bag",
    "callaway-quantum-max-fairway-wood",
    "powakaddy-ct6-electric-trolley"
+  ],
+  "2026-11-20": [
+   "odyssey-trtl-putter",
+   "taylormade-flextech-stand-bag-golf-bag",
+   "ping-i540-irons",
+   "mizuno-pro-s-golf-balls",
+   "callaway-opus-brushed-chrome-wedge",
+   "titleist-gt1-fairway-wood"
   ]
  }
 }

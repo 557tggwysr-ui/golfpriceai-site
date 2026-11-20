@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-limited-june-major-staff-golf-bag/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 599.5,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 96,
+  "daysTracked": 97,
   "low": 599.5,
   "high": 1199.0,
-  "average": 859.28,
+  "average": 856.61,
   "priceChanges": 2,
   "series": [
    [
@@ -35,6 +35,10 @@
    [
     "2026-11-19",
     599.5
+   ],
+   [
+    "2026-11-20",
+    599.5
    ]
   ]
  },
@@ -44,5 +48,5 @@
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795026358426/sits/bags-2024-june-major-staff/bags-2024-june-major-staff_2___2.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-fx1-xl-electric-trolley/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 545.0,
@@ -14,11 +14,11 @@
   {
    "name": "Major Golf Direct",
    "from": 545.0,
-   "options": 1
+   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 545.0,
   "high": 545.0,
   "average": 545.0,
@@ -29,16 +29,16 @@
     545.0
    ],
    [
-    "2026-11-19",
+    "2026-11-20",
     545.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 84 days"
+  "summary": "Typical price: steady for 85 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/FX11_33fbf4c2-befe-4ed8-bfab-002df856152c.jpg?v=1708962040",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

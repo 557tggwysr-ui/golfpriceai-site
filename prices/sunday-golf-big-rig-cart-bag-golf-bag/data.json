@@ -1,0 +1,50 @@
+{
+ "name": "Sunday Golf Big Rig Cart Bag Golf Bag",
+ "brand": "Sunday Golf",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/sunday-golf-big-rig-cart-bag-golf-bag/",
+ "checked": "2026-11-20",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 279.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 279.0,
+   "options": 4
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 279.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 279.0,
+  "high": 279.0,
+  "average": 279.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-10-22",
+    279.0
+   ],
+   [
+    "2026-11-20",
+    279.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 30 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Big_Rig_Matte_Black_a1_WEB_1000x-Photoroom.jpg?v=1790073093",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-20"
+}

@@ -1,0 +1,53 @@
+{
+ "name": "TaylorMade TP5x Personalised Golf Balls",
+ "brand": "TaylorMade",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/taylormade-tp5x-personalised-golf-balls/",
+ "checked": "2026-11-20",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 33.74,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 33.74,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 35.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 33.74,
+  "high": 35.99,
+  "average": 33.89,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-10-22",
+    35.99
+   ],
+   [
+    "2026-10-24",
+    33.74
+   ],
+   [
+    "2026-11-20",
+    33.74
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 28 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-TP5x-Personalised-Golf-Balls-4-FOR-3.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-20"
+}

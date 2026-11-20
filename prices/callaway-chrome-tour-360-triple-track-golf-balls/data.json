@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-chrome-tour-360-triple-track-golf-balls/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 38.5,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 96,
+  "daysTracked": 97,
   "low": 38.5,
   "high": 55.0,
-  "average": 41.94,
+  "average": 41.9,
   "priceChanges": 2,
   "series": [
    [
@@ -35,6 +35,10 @@
    [
     "2026-11-19",
     38.5
+   ],
+   [
+    "2026-11-20",
+    38.5
    ]
   ]
  },
@@ -44,5 +48,5 @@
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795026358426/sits/balls-2024-chrome-tour-360-triple-track-yellow/balls-2024-chrome-tour-360-triple-track_1446___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

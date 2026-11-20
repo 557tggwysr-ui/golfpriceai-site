@@ -1,0 +1,49 @@
+{
+ "name": "Cobra 3DP MB Irons",
+ "brand": "Cobra",
+ "type": "iron set",
+ "url": "https://golfpriceai.com/prices/cobra-3dp-mb-irons/",
+ "checked": "2026-11-20",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 1899.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 1899.0,
+   "options": 2
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 2199.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 1899.0,
+  "high": 1899.0,
+  "average": 1899.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-10-22",
+    1899.0
+   ],
+   [
+    "2026-11-20",
+    1899.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 30 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/3DPMBIrons5.jpg?v=1773177157",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-20"
+}

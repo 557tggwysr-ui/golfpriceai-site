@@ -3,7 +3,7 @@
  "brand": "Sun Mountain",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/sun-mountain-forerunner-stand-bag-golf-bag/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 142.4,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 77,
+  "daysTracked": 78,
   "low": 142.4,
   "high": 179.95,
-  "average": 178.05,
+  "average": 177.59,
   "priceChanges": 4,
   "series": [
    [
@@ -48,6 +48,10 @@
    [
     "2026-11-19",
     142.4
+   ],
+   [
+    "2026-11-20",
+    142.4
    ]
   ]
  },
@@ -57,5 +61,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/26FORES-B.jpg?v=1773180643",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

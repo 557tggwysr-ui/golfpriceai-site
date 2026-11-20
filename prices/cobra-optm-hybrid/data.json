@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/cobra-optm-hybrid/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -36,10 +36,10 @@
   }
  ],
  "history": {
-  "daysTracked": 96,
+  "daysTracked": 97,
   "low": 199.0,
   "high": 249.0,
-  "average": 240.67,
+  "average": 240.24,
   "priceChanges": 1,
   "series": [
    [
@@ -51,7 +51,7 @@
     199.0
    ],
    [
-    "2026-11-19",
+    "2026-11-20",
     199.0
    ]
   ]
@@ -62,5 +62,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/OPTM-Hybrid-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

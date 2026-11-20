@@ -3,19 +3,17 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-se-electric-trolley/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 479.0,
+ "lowestNewPrice": 449.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 479.0,
+   "from": 449.0,
    "options": 2
   },
   {
@@ -35,11 +33,11 @@
   }
  ],
  "history": {
-  "daysTracked": 96,
+  "daysTracked": 97,
   "low": 449.0,
   "high": 499.0,
-  "average": 478.69,
-  "priceChanges": 17,
+  "average": 478.38,
+  "priceChanges": 18,
   "series": [
    [
     "2026-08-16",
@@ -114,16 +112,16 @@
     479.0
    ],
    [
-    "2026-11-19",
-    479.0
+    "2026-11-20",
+    449.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/TR26SENXLU-SE-26-Electric-Trolley-Hero-2.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/SE6.jpg?v=1783150024",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

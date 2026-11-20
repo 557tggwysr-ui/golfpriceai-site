@@ -3,42 +3,42 @@
  "brand": "Golfway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/golfway-champion-driver/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 24.99,
+ "lowestNewPrice": 19.99,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 24.99,
+   "from": 19.99,
    "options": 19
   }
  ],
  "history": {
-  "daysTracked": 77,
-  "low": 24.99,
+  "daysTracked": 78,
+  "low": 19.99,
   "high": 24.99,
-  "average": 24.99,
-  "priceChanges": 0,
+  "average": 24.93,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     24.99
    ],
    [
-    "2026-11-19",
-    24.99
+    "2026-11-20",
+    19.99
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 77 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/110cmAges3-51_47d0ad5b-87be-4a63-9dbf-1c3c2310a6ae.jpg?v=1773185486",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

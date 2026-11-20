@@ -1,0 +1,50 @@
+{
+ "name": "Sunday Golf Ranger Stand Bag Golf Bag",
+ "brand": "Sunday Golf",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/sunday-golf-ranger-stand-bag-golf-bag/",
+ "checked": "2026-11-20",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 359.0,
+ "lowestAt": [
+  "Affordable Golf",
+  "Clarkes Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 359.0,
+   "options": 3
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 359.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 359.0,
+  "high": 359.0,
+  "average": 359.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-10-22",
+    359.0
+   ],
+   [
+    "2026-11-20",
+    359.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 30 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/0_Ranger_Black_a1_HR_HERO_MGS_1x_1-1.jpg?v=1790008292",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-20"
+}

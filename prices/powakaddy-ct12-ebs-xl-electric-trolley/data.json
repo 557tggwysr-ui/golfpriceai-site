@@ -3,7 +3,7 @@
  "brand": "PowaKaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/powakaddy-ct12-ebs-xl-electric-trolley/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1349.0,
@@ -14,11 +14,11 @@
   {
    "name": "Major Golf Direct",
    "from": 1349.0,
-   "options": 1
+   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 1349.0,
   "high": 1349.0,
   "average": 1349.0,
@@ -29,16 +29,16 @@
     1349.0
    ],
    [
-    "2026-11-19",
+    "2026-11-20",
     1349.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 84 days"
+  "summary": "Typical price: steady for 85 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CT12GPSEBSTROLLEY5.jpg?v=1739445573",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

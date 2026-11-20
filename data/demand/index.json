@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-19",
+ "date": "2026-11-20",
  "status": "live",
  "week": {
-  "from": "2026-11-13",
-  "to": "2026-11-19"
+  "from": "2026-11-14",
+  "to": "2026-11-20"
  },
  "chart": [
   {
@@ -17,7 +17,7 @@
    "type": "gps-watch",
    "price": 429.0,
    "unit": "",
-   "move": 0,
+   "move": 1,
    "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
   },
   {
@@ -27,7 +27,7 @@
    "type": "ball",
    "price": 43.96,
    "unit": "per dozen",
-   "move": 0,
+   "move": -1,
    "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
   },
   {
@@ -72,6 +72,16 @@
   },
   {
    "rank": 7,
+   "name": "Lindt Chocolate Golf Balls",
+   "brand": "Lindt",
+   "type": "ball",
+   "price": 7.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/lindt-chocolate-golf-balls/"
+  },
+  {
+   "rank": 8,
    "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
    "brand": "MacGregor",
    "type": "set",
@@ -81,7 +91,7 @@
    "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
   },
   {
-   "rank": 8,
+   "rank": 9,
    "name": "MacGregor ZT Plus Irons",
    "brand": "MacGregor",
    "type": "irons",
@@ -91,7 +101,7 @@
    "url": "https://golfpriceai.com/prices/macgregor-zt-plus-irons/"
   },
   {
-   "rank": 9,
+   "rank": 10,
    "name": "MacGregor ZT1 Ladies Package Set",
    "brand": "MacGregor",
    "type": "set",
@@ -101,7 +111,7 @@
    "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
   },
   {
-   "rank": 10,
+   "rank": 11,
    "name": "Srixon UltiSoft Golf Balls",
    "brand": "Srixon",
    "type": "ball",
@@ -109,16 +119,6 @@
    "unit": "per dozen",
    "move": "new",
    "url": "https://golfpriceai.com/prices/srixon-ultisoft-golf-balls/"
-  },
-  {
-   "rank": 11,
-   "name": "TaylorMade P770 Irons",
-   "brand": "TaylorMade",
-   "type": "irons",
-   "price": 1029.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/taylormade-p770-irons/"
   },
   {
    "rank": 12,
@@ -137,7 +137,7 @@
    "type": "set",
    "price": 319.0,
    "unit": "",
-   "move": -8,
+   "move": -7,
    "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
   },
   {
@@ -157,7 +157,7 @@
    "type": "driver",
    "price": 179.95,
    "unit": "",
-   "move": -8,
+   "move": -7,
    "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
   },
   {
@@ -214,7 +214,7 @@
  "wishfulThinking": [
   {
    "category": "Golf bags",
-   "averageGuessVsRealPricePct": 17,
+   "averageGuessVsRealPricePct": 19,
    "guesses": 74
   },
   {
@@ -236,11 +236,11 @@
  "categoryShare": [
   {
    "category": "Balls",
-   "pct": 46
+   "pct": 47
   },
   {
    "category": "Irons & wedges",
-   "pct": 41
+   "pct": 39
   },
   {
    "category": "Tech",

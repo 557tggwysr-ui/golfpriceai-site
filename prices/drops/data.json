@@ -1,8 +1,98 @@
 {
- "checked": "2026-11-19T20:02+00:00",
+ "checked": "2026-11-20T05:56+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Golfway Champion Youth Hybrid",
+   "model_id": "golfway-champion-youth-hybrid",
+   "date": "2026-11-20",
+   "was": 29.99,
+   "now": 19.99,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/golfway-champion-youth-hybrid/"
+  },
+  {
+   "model": "Golfway Champion Youth Fairway Wood",
+   "model_id": "golfway-champion-youth-fairway-wood",
+   "date": "2026-11-20",
+   "was": 29.99,
+   "now": 19.99,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/golfway-champion-youth-fairway-wood/"
+  },
+  {
+   "model": "Golfway Champion Driver",
+   "model_id": "golfway-champion-driver",
+   "date": "2026-11-20",
+   "was": 24.99,
+   "now": 19.99,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/golfway-champion-driver/"
+  },
+  {
+   "model": "Golfway Champion Hybrid",
+   "model_id": "golfway-champion-hybrid",
+   "date": "2026-11-20",
+   "was": 24.99,
+   "now": 19.99,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/golfway-champion-hybrid/"
+  },
+  {
+   "model": "Golfway Champion Fairway Wood",
+   "model_id": "golfway-champion-fairway-wood",
+   "date": "2026-11-20",
+   "was": 24.99,
+   "now": 19.99,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/golfway-champion-fairway-wood/"
+  },
+  {
+   "model": "Titleist Pro V1x High Number Golf Balls",
+   "model_id": "titleist-pro-v1x-high-number-golf-balls",
+   "date": "2026-11-20",
+   "was": 49.99,
+   "now": 44.99,
+   "unit": "per dozen",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-pro-v1x-high-number-golf-balls/"
+  },
+  {
+   "model": "Ben Sayers M1i 5-Piece Stand Bag Ages 5-8 Junior Golf Set",
+   "model_id": "ben-sayers-m1i-5-piece-stand-bag-ages-5-8-junior-golf-set",
+   "date": "2026-11-20",
+   "was": 99.95,
+   "now": 89.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ben-sayers-m1i-5-piece-stand-bag-ages-5-8-junior-golf-set/"
+  },
+  {
+   "model": "Ben Sayers M1i 5-Piece Stand Bag Ages 9-11 Junior Golf Set",
+   "model_id": "ben-sayers-m1i-5-piece-stand-bag-ages-9-11-junior-golf-set",
+   "date": "2026-11-20",
+   "was": 99.95,
+   "now": 89.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ben-sayers-m1i-5-piece-stand-bag-ages-9-11-junior-golf-set/"
+  },
+  {
+   "model": "Motocaddy SE Electric Trolley",
+   "model_id": "motocaddy-se-electric-trolley",
+   "date": "2026-11-20",
+   "was": 479.0,
+   "now": 449.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-se-electric-trolley/"
+  },
   {
    "model": "Mizuno Pro M-15 Irons",
    "model_id": "mizuno-pro-m-15-irons",
@@ -792,76 +882,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/motocaddy-me-remote-electric-trolley/"
-  },
-  {
-   "model": "Cleveland CBZ Wedge",
-   "model_id": "cleveland-cbz-wedge",
-   "date": "2026-11-12",
-   "was": 139.0,
-   "now": 119.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cleveland-cbz-wedge/"
-  },
-  {
-   "model": "Cobra OPTM LS Fairway Wood",
-   "model_id": "cobra-optm-ls-fairway-wood",
-   "date": "2026-11-12",
-   "was": 299.0,
-   "now": 279.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-optm-ls-fairway-wood/"
-  },
-  {
-   "model": "TaylorMade Signature M4 Stand Bag 4 Way Golf Bag",
-   "model_id": "taylormade-signature-m4-stand-bag-4-way-golf-bag",
-   "date": "2026-11-12",
-   "was": 275.0,
-   "now": 259.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-signature-m4-stand-bag-4-way-golf-bag/"
-  },
-  {
-   "model": "Shot Scope LM1 Launch Monitor",
-   "model_id": "shot-scope-lm1-launch-monitor",
-   "date": "2026-11-12",
-   "was": 189.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/shot-scope-lm1-launch-monitor/"
-  },
-  {
-   "model": "TaylorMade FlexTech Crossover Hybrid Stand Bag Golf Bag",
-   "model_id": "taylormade-flextech-crossover-hybrid-stand-bag-golf-bag",
-   "date": "2026-11-12",
-   "was": 189.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-flextech-crossover-hybrid-stand-bag-golf-bag/"
-  },
-  {
-   "model": "TaylorMade Qi4D FlexTech Crossover Stand Bag Golf Bag",
-   "model_id": "taylormade-qi4d-flextech-crossover-stand-bag-golf-bag",
-   "date": "2026-11-12",
-   "was": 189.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-qi4d-flextech-crossover-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Odyssey Ai-ONE Milled Putter",
-   "model_id": "odyssey-ai-one-milled-putter",
-   "date": "2026-11-12",
-   "was": 198.97,
-   "now": 189.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-putter/"
   }
  ]
 }

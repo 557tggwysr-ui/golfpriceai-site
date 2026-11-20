@@ -3,7 +3,7 @@
  "brand": "SkyCaddie",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/skycaddie-pro5x-handheld-rangefinder/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 349.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 77,
+  "daysTracked": 78,
   "low": 349.0,
   "high": 399.0,
-  "average": 360.69,
+  "average": 360.54,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     349.0
    ],
    [
-    "2026-11-19",
+    "2026-11-20",
     349.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 59 days"
+  "summary": "Typical price: steady for 60 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Prox510004.jpg?v=1777954067",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

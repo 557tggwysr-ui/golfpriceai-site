@@ -1,66 +1,66 @@
 {
- "n": 33,
- "date": "2026-11-19",
+ "n": 34,
+ "date": "2026-11-20",
  "items": [
   {
-   "slug": "taylormade-tour-response-stripe-golf-balls",
-   "name": "TaylorMade Tour Response Stripe Golf Balls",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeTourResponseStripeGolfBalls2026-Yellow-4FOR3OFFER.jpg?v=1784023204",
-   "price": 28.49,
-   "unit": "per dozen",
-   "type": "golf ball",
-   "low": false,
-   "url": "/prices/taylormade-tour-response-stripe-golf-balls/"
-  },
-  {
-   "slug": "wilson-staff-model-cb-irons",
-   "name": "Wilson Staff Model CB Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Staff-Model-CB-Irons-Main.jpg",
-   "price": 599.0,
+   "slug": "odyssey-trtl-putter",
+   "name": "Odyssey TRTL Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Odyssey_TRTL_S_Putter_5.jpg?v=1791980959",
+   "price": 299.0,
    "unit": "each",
-   "type": "iron set",
+   "type": "putter",
    "low": false,
-   "url": "/prices/wilson-staff-model-cb-irons/"
+   "url": "/prices/odyssey-trtl-putter/"
   },
   {
-   "slug": "titleist-vokey-sm11-tour-chrome-wedge",
-   "name": "Titleist Vokey SM11 Tour Chrome Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-tour-chrome-wedge-hero.jpg",
-   "price": 179.0,
-   "unit": "each",
-   "type": "wedge",
-   "low": false,
-   "url": "/prices/titleist-vokey-sm11-tour-chrome-wedge/"
-  },
-  {
-   "slug": "big-max-dri-lite-seven-g-stand-bag-golf-bag",
-   "name": "Big Max Dri Lite Seven G Stand Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DriLiteSeven_Black_main_1000_1000.png?v=1704288107",
-   "price": 104.95,
+   "slug": "taylormade-flextech-stand-bag-golf-bag",
+   "name": "TaylorMade FlexTech Stand Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/M2333901-Flextech-Stand-Bag-Hero.jpg",
+   "price": 159.0,
    "unit": "each",
    "type": "golf bag",
    "low": false,
-   "url": "/prices/big-max-dri-lite-seven-g-stand-bag-golf-bag/"
+   "url": "/prices/taylormade-flextech-stand-bag-golf-bag/"
   },
   {
-   "slug": "callaway-quantum-max-fairway-wood",
-   "name": "Callaway Quantum Max Fairway Wood",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CallawayGolfQuantumMaxFairwayWood_5.jpg?v=1768380177",
-   "price": 229.0,
+   "slug": "ping-i540-irons",
+   "name": "Ping i540 Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Pingi5402_564f0fb4-485b-45d1-ae35-b452ec963389.jpg?v=1773104257",
+   "price": 1129.0,
    "unit": "each",
-   "type": "fairway wood",
-   "low": true,
-   "url": "/prices/callaway-quantum-max-fairway-wood/"
+   "type": "iron set",
+   "low": false,
+   "url": "/prices/ping-i540-irons/"
+  },
+  {
+   "slug": "mizuno-pro-s-golf-balls",
+   "name": "Mizuno Pro S Golf Balls",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Mizuno-Pro-S-Golf-Balls-White-1-Photoroom.jpg?v=1747321154",
+   "price": 34.95,
+   "unit": "per dozen",
+   "type": "golf ball",
+   "low": false,
+   "url": "/prices/mizuno-pro-s-golf-balls/"
+  },
+  {
+   "slug": "callaway-opus-brushed-chrome-wedge",
+   "name": "Callaway Opus Brushed Chrome Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/p_g_callaway-opus-brushed-chrome-wedge-1.jpg",
+   "price": 119.0,
+   "unit": "each",
+   "type": "wedge",
+   "low": false,
+   "url": "/prices/callaway-opus-brushed-chrome-wedge/"
   }
  ],
  "pin": {
-  "slug": "powakaddy-ct6-electric-trolley",
-  "name": "PowaKaddy CT6 Electric Trolley",
-  "image": "https://www.clickgolf.co.uk/images/product/main/PK_CT6_Electric_Golf_Trolley-18-Hole-Lithium_01_Main.jpg",
-  "price": 749.0,
+  "slug": "titleist-gt1-fairway-wood",
+  "name": "Titleist GT1 Fairway Wood",
+  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GT1Fairway3.jpg?v=1776299756",
+  "price": 249.0,
   "unit": "each",
-  "type": "electric trolley",
-  "low": false,
-  "url": "/prices/powakaddy-ct6-electric-trolley/"
+  "type": "fairway wood",
+  "low": true,
+  "url": "/prices/titleist-gt1-fairway-wood/"
  }
 }

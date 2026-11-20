@@ -78,6 +78,7 @@ cobra-rad-s-driver,2026-11-04,199.00
 fujikura-extra-stiff-driver,2026-09-04,119.99
 fujikura-extra-stiff-driver,2026-10-22,59.99
 golfway-champion-driver,2026-09-04,24.99
+golfway-champion-driver,2026-11-20,19.99
 mkids-lite-driver,2026-09-06,34.99
 macgregor-zt-plus-driver,2026-08-28,139.00
 macgregor-zt-plus-driver,2026-11-06,129.95
@@ -273,7 +274,9 @@ cobra-rad-s-fairway-wood,2026-08-16,179.00
 cobra-rad-s-fairway-wood,2026-10-26,169.00
 cobra-rad-s-fairway-wood,2026-11-18,149.00
 golfway-champion-fairway-wood,2026-09-04,24.99
+golfway-champion-fairway-wood,2026-11-20,19.99
 golfway-champion-youth-fairway-wood,2026-09-04,29.99
+golfway-champion-youth-fairway-wood,2026-11-20,19.99
 macgregor-v-max-speed-fairway-wood,2026-08-28,69.00
 macgregor-v-max-speed-fairway-wood,2026-09-04,49.99
 macgregor-zt-plus-fairway-wood,2026-08-28,74.95
@@ -387,7 +390,9 @@ cobra-rad-s-hybrid,2026-08-16,159.00
 cobra-rad-s-hybrid,2026-09-04,149.95
 cobra-rad-s-hybrid,2026-10-26,149.00
 golfway-champion-hybrid,2026-09-04,24.99
+golfway-champion-hybrid,2026-11-20,19.99
 golfway-champion-youth-hybrid,2026-09-04,29.99
+golfway-champion-youth-hybrid,2026-11-20,19.99
 macgregor-v-max-hybrid,2026-08-16,79.99
 macgregor-v-max-hybrid,2026-10-30,59.95
 macgregor-v-max-speed-hybrid,2026-08-28,79.95
@@ -484,6 +489,10 @@ cleveland-halo-xl-full-face-irons,2026-10-18,349.00
 cleveland-zipcore-xl-irons,2026-08-16,399.00
 cleveland-zipcore-xl-irons,2026-09-11,349.00
 cleveland-zipcore-xl-irons,2026-09-18,399.00
+cobra-3dp-mb-irons,2026-10-22,1899.00
+cobra-3dp-tour-irons,2026-10-22,1899.00
+cobra-3dp-x-irons,2026-10-22,1899.00
+cobra-3dp-x-irons,2026-10-30,1890.00
 cobra-baffler-combo-irons,2026-08-16,699.00
 cobra-baffler-combo-irons,2026-08-28,599.00
 cobra-ds-adapt-irons,2026-08-16,619.00
@@ -702,9 +711,13 @@ cobra-king-wedge,2026-10-30,119.00
 cobra-king-wedge,2026-11-17,99.00
 cobra-tour-trusty-wedge,2026-08-16,89.99
 golfway-champion-pitching-wedge,2026-09-04,19.99
+golfway-champion-pitching-wedge,2026-11-20,14.99
 golfway-champion-sand-wedge,2026-09-04,19.99
+golfway-champion-sand-wedge,2026-11-20,14.99
 golfway-champion-youth-pitching-wedge,2026-09-04,19.99
+golfway-champion-youth-pitching-wedge,2026-11-20,14.99
 golfway-champion-youth-sand-wedge,2026-09-04,19.99
+golfway-champion-youth-sand-wedge,2026-11-20,14.99
 macgregor-v-max-feel-wedge,2026-09-04,37.99
 macgregor-zt-plus-chipper-wedge,2026-08-28,44.99
 macgregor-zt-plus-chipper-wedge,2026-10-30,44.95
@@ -753,6 +766,8 @@ taylormade-hi-toe-4-wedge,2026-08-16,159.00
 taylormade-hi-toe-4-wedge,2026-09-05,129.95
 taylormade-hi-toe-5-aged-copper-wedge,2026-09-04,179.95
 taylormade-hi-toe-5-aged-copper-wedge,2026-10-30,179.00
+taylormade-hi-toe-5-satin-chrome-wedge,2026-10-22,179.95
+taylormade-hi-toe-5-satin-chrome-wedge,2026-10-30,179.00
 taylormade-milled-grind-4-wedge,2026-09-04,159.00
 taylormade-milled-grind-4-wedge,2026-10-30,99.00
 taylormade-milled-grind-5-charcoal-wedge,2026-09-04,179.95
@@ -890,6 +905,8 @@ odyssey-damascus-milled-putter,2026-09-04,499.00
 odyssey-square-2-square-ai-dual-putter,2026-09-04,229.00
 odyssey-square-to-square-tri-hot-putter,2026-09-04,449.00
 odyssey-square-to-square-tri-hot-putter,2026-11-10,429.00
+odyssey-trtl-putter,2026-10-22,339.00
+odyssey-trtl-putter,2026-10-30,299.00
 odyssey-tri-hot-square-2-square-putter,2026-09-04,429.00
 odyssey-tri-hot-square-to-square-sb-putter,2026-09-04,429.00
 pxg-battle-ready-ii-putter,2026-09-04,349.00
@@ -1220,6 +1237,8 @@ taylormade-tp5-clear-stripe-golf-balls,2026-09-04,49.99
 taylormade-tp5-golf-balls,2026-08-16,35.99
 taylormade-tp5-golf-balls,2026-10-12,35.96
 taylormade-tp5-performance-stripe-golf-balls,2026-08-28,49.90
+taylormade-tp5-personalised-golf-balls,2026-10-22,35.99
+taylormade-tp5-personalised-golf-balls,2026-10-24,33.74
 taylormade-tp5-pix-3-0-golf-balls,2026-09-04,47.99
 taylormade-tp5-pix-golf-balls,2026-08-28,47.95
 taylormade-tp5-stripe-golf-balls,2026-08-28,47.95
@@ -1228,6 +1247,8 @@ taylormade-tp5-tour-performance-stripe-golf-balls,2026-11-06,45.98
 taylormade-tp5x-golf-balls,2026-08-16,35.99
 taylormade-tp5x-golf-balls,2026-10-12,35.96
 taylormade-tp5x-performance-stripe-golf-balls,2026-08-28,49.90
+taylormade-tp5x-personalised-golf-balls,2026-10-22,35.99
+taylormade-tp5x-personalised-golf-balls,2026-10-24,33.74
 taylormade-tp5x-pix-3-0-golf-balls,2026-09-04,47.99
 taylormade-tp5x-pix-3-0-golf-balls,2026-10-30,47.95
 taylormade-tp5x-pix-golf-balls,2026-08-28,47.95
@@ -1274,6 +1295,7 @@ titleist-pro-v1x-golf-balls,2026-08-28,49.99
 titleist-pro-v1x-golf-balls,2026-10-30,49.95
 titleist-pro-v1x-golf-balls,2026-10-31,43.96
 titleist-pro-v1x-high-number-golf-balls,2026-09-18,49.99
+titleist-pro-v1x-high-number-golf-balls,2026-11-20,44.99
 titleist-titlesit-tour-soft-golf-balls,2026-08-16,64.00
 titleist-titliest-velocity-golf-balls,2026-08-16,51.00
 titleist-tour-soft-aim-golf-balls,2026-08-16,32.99
@@ -2613,6 +2635,7 @@ sun-mountain-h2no-lite-14-way-waterproof-golf-bag,2026-09-04,339.00
 sun-mountain-h2no-lite-adventure-waterproof-cart-bag-golf-bag,2026-09-04,349.00
 sun-mountain-h2no-lite-waterproof-cart-bag-golf-bag,2026-09-04,339.00
 sun-mountain-h2no-lite-waterproof-stand-bag-golf-bag,2026-09-04,329.00
+sunday-golf-big-rig-cart-bag-golf-bag,2026-10-22,279.00
 sunday-golf-el-camino-stand-bag-golf-bag,2026-09-04,189.95
 sunday-golf-el-camino-stand-bag-golf-bag,2026-09-22,179.95
 sunday-golf-el-camino-stand-bag-golf-bag,2026-10-01,189.95
@@ -2621,7 +2644,9 @@ sunday-golf-loma-pencil-bag-stand-bag-golf-bag,2026-09-19,109.95
 sunday-golf-loma-stand-bag-golf-bag,2026-09-04,119.99
 sunday-golf-loma-xl-pencil-bag-stand-bag-golf-bag,2026-09-04,159.95
 sunday-golf-loma-xl-stand-bag-golf-bag,2026-09-04,169.99
+sunday-golf-ranger-stand-bag-golf-bag,2026-10-22,359.00
 sunday-golf-ryder-23-stand-bag-golf-bag,2026-09-04,174.95
+sunday-golf-s-class-ryder-stand-bag-golf-bag,2026-10-22,259.00
 sunday-golf-storm-ryder-waterproof-stand-bag-golf-bag,2026-09-04,259.00
 sunday-golf-storm-ryder-waterproof-stand-bag-golf-bag,2026-09-22,209.00
 sunday-golf-storm-ryder-waterproof-stand-bag-golf-bag,2026-10-01,259.00
@@ -3476,6 +3501,7 @@ motocaddy-se-electric-trolley,2026-11-06,449.00
 motocaddy-se-electric-trolley,2026-11-09,479.00
 motocaddy-se-electric-trolley,2026-11-13,449.00
 motocaddy-se-electric-trolley,2026-11-16,479.00
+motocaddy-se-electric-trolley,2026-11-20,449.00
 motocaddy-se-ultra-36-hole-electric-trolley,2026-08-28,529.00
 navee-birdie-3-remote-control-electric-trolley,2026-08-28,849.00
 navee-birdie-3-remote-electric-trolley,2026-08-16,849.99
@@ -4290,7 +4316,9 @@ yonex-ezone-elite-full-package-set,2026-08-16,1099.00
 yonex-ezone-elite-full-package-set,2026-11-06,799.00
 ben-sayers-m1i-5-piece-ages-5-8-junior-golf-set,2026-09-04,99.95
 ben-sayers-m1i-5-piece-stand-bag-ages-5-8-junior-golf-set,2026-09-04,99.95
+ben-sayers-m1i-5-piece-stand-bag-ages-5-8-junior-golf-set,2026-11-20,89.95
 ben-sayers-m1i-5-piece-stand-bag-ages-9-11-junior-golf-set,2026-09-04,99.95
+ben-sayers-m1i-5-piece-stand-bag-ages-9-11-junior-golf-set,2026-11-20,89.95
 ben-sayers-m1i-ages-5-8-junior-golf-set,2026-08-28,99.00
 ben-sayers-m1i-ages-9-11-junior-golf-set,2026-08-28,99.00
 ben-sayers-m8-13-piece-stand-bag-67-junior-golf-set,2026-09-04,319.00

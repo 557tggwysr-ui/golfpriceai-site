@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-se-ultra-36-hole-electric-trolley/",
- "checked": "2026-11-19",
+ "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 529.0,
@@ -14,11 +14,11 @@
   {
    "name": "Major Golf Direct",
    "from": 529.0,
-   "options": 1
+   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 84,
+  "daysTracked": 85,
   "low": 529.0,
   "high": 529.0,
   "average": 529.0,
@@ -29,16 +29,16 @@
     529.0
    ],
    [
-    "2026-11-19",
+    "2026-11-20",
     529.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 84 days"
+  "summary": "Typical price: steady for 85 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MotocaddySEElectricGolfTrolley2026_4_2f6457dd-22e4-447a-91f9-020a342602f2.jpg?v=1770804292",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-19"
+ "changed": "2026-11-20"
 }

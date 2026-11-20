@@ -55,16 +55,8 @@
 99.95,
 "typical"
 ],
-"ben-sayers-m1i-5-piece-stand-bag-ages-5-8-junior-golf-set": [
-"32a622c73b",
-99.95,
-"typical"
-],
-"ben-sayers-m1i-5-piece-stand-bag-ages-9-11-junior-golf-set": [
-"72899d7ea7",
-99.95,
-"typical"
-],
+"ben-sayers-m1i-5-piece-stand-bag-ages-5-8-junior-golf-set": "2090c7b942",
+"ben-sayers-m1i-5-piece-stand-bag-ages-9-11-junior-golf-set": "c6f7baadb9",
 "ben-sayers-m1i-ages-5-8-junior-golf-set": [
 "63af75b535",
 99.0,
@@ -1099,6 +1091,11 @@
 "wait"
 ],
 "cobra-3d-printed-putter": "79e51fe380",
+"cobra-3dp-mb-irons": [
+"f064bd04ae",
+1899.0,
+"typical"
+],
 "cobra-3dp-putter": [
 "8646eee906",
 249.0,
@@ -1109,9 +1106,19 @@
 299.0,
 "typical"
 ],
+"cobra-3dp-tour-irons": [
+"6321f8dfc0",
+1899.0,
+"typical"
+],
 "cobra-3dp-tour-supernova-sb-putter": [
 "f6dffe27df",
 299.0,
+"typical"
+],
+"cobra-3dp-x-irons": [
+"f928366b15",
+1890.0,
 "typical"
 ],
 "cobra-7-piece-stand-bag-42-junior-golf-set": [
@@ -1591,30 +1598,18 @@
 209.0,
 "typical"
 ],
-"golfway-champion-driver": [
-"b5b4fa11b4",
-24.99,
-"typical"
-],
-"golfway-champion-fairway-wood": [
-"401ed51e3e",
-24.99,
-"typical"
-],
-"golfway-champion-hybrid": [
-"53f059f569",
-24.99,
-"typical"
-],
+"golfway-champion-driver": "58970e3a01",
+"golfway-champion-fairway-wood": "f2252767ab",
+"golfway-champion-hybrid": "49be5fd1da",
 "golfway-champion-pitching-wedge": [
-"f5f69a5568",
-19.99,
-"typical"
+"c4c7d22a62",
+14.99,
+"tracking"
 ],
 "golfway-champion-sand-wedge": [
-"16f3a37579",
-19.99,
-"typical"
+"384c0643ea",
+14.99,
+"tracking"
 ],
 "golfway-champion-sla-putter": [
 "4635d4c748",
@@ -1626,25 +1621,17 @@
 19.99,
 "typical"
 ],
-"golfway-champion-youth-fairway-wood": [
-"441d9b9f5e",
-29.99,
-"typical"
-],
-"golfway-champion-youth-hybrid": [
-"d3370ece72",
-29.99,
-"typical"
-],
+"golfway-champion-youth-fairway-wood": "aae4d48a69",
+"golfway-champion-youth-hybrid": "30830d76e7",
 "golfway-champion-youth-pitching-wedge": [
-"167ec04c26",
-19.99,
-"typical"
+"ade6d7e3c4",
+14.99,
+"tracking"
 ],
 "golfway-champion-youth-sand-wedge": [
-"8da8a76809",
-19.99,
-"typical"
+"5564d04b84",
+14.99,
+"tracking"
 ],
 "golfzon-wave-simulator-portable-launch-monitor": [
 "be1b4b400a",
@@ -1727,8 +1714,8 @@
 "tracking"
 ],
 "longridge-airflow-practice-golf-balls": [
-"a445bba24d",
-3.99,
+"055f522bae",
+1.5,
 "typical"
 ],
 "longridge-challenger-cadet-5-piece-stand-bag-ages-4-7-junior-golf-set": [
@@ -2393,11 +2380,7 @@
 475.0,
 "tracking"
 ],
-"motocaddy-se-electric-trolley": [
-"c17b4206d9",
-479.0,
-"wait"
-],
+"motocaddy-se-electric-trolley": "0416a30741",
 "motocaddy-se-ultra-36-hole-electric-trolley": [
 "c38c238b7f",
 529.0,
@@ -2522,6 +2505,11 @@
 "odyssey-tri-hot-square-to-square-sb-putter": [
 "29d5f5ad7a",
 429.0,
+"typical"
+],
+"odyssey-trtl-putter": [
+"4b9239dc21",
+299.0,
 "typical"
 ],
 "ogio-all-elements-hybrid-stand-bag-golf-bag": "ff937e7b31",
@@ -3656,6 +3644,11 @@
 "typical"
 ],
 "sun-mountain-forerunner-stand-bag-golf-bag": "496eb0ba70",
+"sunday-golf-big-rig-cart-bag-golf-bag": [
+"5711823af9",
+279.0,
+"typical"
+],
 "sunday-golf-el-camino-stand-bag-golf-bag": [
 "aa7362479e",
 189.95,
@@ -3671,9 +3664,19 @@
 159.95,
 "typical"
 ],
+"sunday-golf-ranger-stand-bag-golf-bag": [
+"ee1fbab489",
+359.0,
+"typical"
+],
 "sunday-golf-ryder-23-stand-bag-golf-bag": [
 "26eea8f4f6",
 174.95,
+"typical"
+],
+"sunday-golf-s-class-ryder-stand-bag-golf-bag": [
+"46089697ee",
+259.0,
 "typical"
 ],
 "sunday-golf-storm-ryder-waterproof-stand-bag-golf-bag": [
@@ -3735,6 +3738,11 @@
 ],
 "taylormade-hi-toe-5-aged-copper-wedge": [
 "11c12ff7c4",
+179.0,
+"typical"
+],
+"taylormade-hi-toe-5-satin-chrome-wedge": [
+"57d5dca0c4",
 179.0,
 "typical"
 ],
@@ -4113,6 +4121,11 @@
 49.9,
 "tracking"
 ],
+"taylormade-tp5-personalised-golf-balls": [
+"052cf01705",
+33.74,
+"typical"
+],
 "taylormade-tp5-pix-3-0-golf-balls": [
 "1c01740e25",
 47.99,
@@ -4142,6 +4155,11 @@
 "66df253348",
 49.9,
 "tracking"
+],
+"taylormade-tp5x-personalised-golf-balls": [
+"b09d9b84d8",
+33.74,
+"typical"
 ],
 "taylormade-tp5x-pix-golf-balls": [
 "d0de6cce83",
@@ -4399,11 +4417,7 @@
 "typical"
 ],
 "titleist-pro-v1x-golf-balls": "2659f79740",
-"titleist-pro-v1x-high-number-golf-balls": [
-"e44e5e0180",
-49.99,
-"typical"
-],
+"titleist-pro-v1x-high-number-golf-balls": "b3c695efd2",
 "titleist-scotty-cameron-studio-style-newport-putter": "8239c5da4c",
 "titleist-series-tour-golf-bag": [
 "a2d8f8962d",
