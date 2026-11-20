@@ -685,7 +685,7 @@ def open_issue(plan, start):
     for old in found:
         gh("PATCH", f"/issues/{old['number']}", {"state": "closed"})
     week = [p for p in plan["posts"] if start <= date.fromisoformat(p["date"]) < start + timedelta(days=7)]
-    body = ("Tick a post to approve it. Ticked posts go to Instagram automatically at 12:30 on their day.\n"
+    body = ("Tick a post to approve it. Ticked posts go to Instagram automatically (as a Reel) at 12:30 or 19:30 UK on their day.\n"
             f"Watch the videos and copy captions for TikTok, YouTube and X in the pack: {SITE}/social/pack/\n\n"
             + "\n".join(issue_line(p) for p in week)
             + "\n\nMoments (new lowest prices) get added here during the week.")
@@ -715,6 +715,32 @@ def token_warning(status, txt):
                     "the IG_ACCESS_TOKEN secret on GitHub. Today's post is still in the pack to post by hand.</p>")
 
 
+def reel_container(uid, tok, p):
+    """Upload the post's video as an Instagram Reel (from this week's GitHub release) and wait until it's ready."""
+    repo = os.environ.get("GITHUB_REPOSITORY", "557tggwysr-ui/golfpriceai-site")
+    d = date.fromisoformat(p["date"])
+    monday = d - timedelta(days=d.weekday())
+    url = f"https://github.com/{repo}/releases/download/pack-{monday}/{p['id']}.mp4"
+    s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
+                     body={"media_type": "REELS", "video_url": url, "caption": p["captions"]["instagram"],
+                           "share_to_feed": "true", "cover_url": SITE + p["card"], "access_token": tok})
+    cid = (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
+    if not cid:
+        print("reel upload not accepted, using the image instead:", s, (txt or "")[:200])
+        return None
+    import time
+    for _ in range(30):  # Instagram processes the video first (usually under a minute)
+        time.sleep(10)
+        s, _, txt = http(f"https://graph.instagram.com/v21.0/{cid}?fields=status_code&access_token={tok}")
+        code = (json.loads(txt or "{}") or {}).get("status_code")
+        if code == "FINISHED":
+            return cid
+        if code in ("ERROR", "EXPIRED"):
+            print("reel processing failed:", txt[:200])
+            return None
+    return None
+
+
 def post_today():
     plan = load_plan()
     today = str(now().date())
@@ -731,9 +757,13 @@ def post_today():
             print("held by the editor:", p["id"], p["editor"]); continue
         if not (uid and tok):
             print("(no Instagram secrets: approved post left for manual posting)", p["id"]); continue
-        s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
-                         body={"image_url": SITE + p["card"], "caption": p["captions"]["instagram"], "access_token": tok})
-        cid = (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
+        cid = reel_container(uid, tok, p)  # the video as a Reel; falls back to the feed card image
+        if not cid:
+            s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
+                             body={"image_url": SITE + p["card"], "caption": p["captions"]["instagram"], "access_token": tok})
+            cid = (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
+        else:
+            s, txt = 200, ""
         if not cid:
             print("instagram container failed:", s, txt[:300])
             token_warning(s, txt)
