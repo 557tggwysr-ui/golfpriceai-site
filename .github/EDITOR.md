@@ -76,3 +76,13 @@ its own isn't enough; "Ad" or a plain sentence is.
   (John, 20 Nov 2026). The content engine adds it automatically (agent_content.ad_label), so
   agents writing drafts don't need to. Posts about games, banter or big events with no product
   price don't need it. Never "aff" on its own, never hidden after "more" or in the hashtags.
+
+## Sound and pace (John, 20 Nov 2026)
+
+- Cut on the beat: pick music with a clear beat and change the text or image on it (on the bar
+  or the beat, never between). That gives the impact without effects.
+- Sound effects in moderation: at most one or two per video, kept for the moment that matters
+  (the price reveal, the punchline). No swoosh or whoosh on every cut.
+- Staggered text lines appear on beats or half-beats too. Loudness about -14 LUFS, peaks under -1 dBFS.
+- OpenMontage briefs follow the same rules: name the tempo, say which beats the cuts land on,
+  and list any sound effect with its single moment.
