@@ -6,7 +6,8 @@ or ticket release), not just the day itself.
 
 Twice a day (08:15 and 17:45 UK, inside the content engine workflow) this script:
   1. reads UK news and trends: BBC golf, sport, entertainment and technology headlines, Google
-     Trends GB, and YouTube's most popular in the UK (gaming, film and entertainment);
+     Trends GB, YouTube's most popular in the UK (gaming, film and entertainment), and what's
+     breaking on TikTok today (rising hashtags and top videos, from scripts/agent_trends.mjs);
   2. flags two kinds of candidate:
        * build-up beats: a new headline about a moment we're watching (data/moments.json "watch"
          keywords), for example "Avengers: Doomsday final trailer";
@@ -112,6 +113,16 @@ def main():
         for it in rss(url):
             items.append({"source": src, **it})
     items += youtube()
+    # what's viral on TikTok right now (the trends scout's daily run): rising hashtags and top videos
+    try:
+        st = json.loads((OUT / "social-today.json").read_text(encoding="utf-8"))
+        for h in st.get("hashtags", []):
+            if h.get("rising") and not h.get("golf"):
+                items.append({"source": "tiktok rising", "title": h["tag"], "link": "", "views": int(h.get("views") or 0)})
+        for v in st.get("videos", [])[:15]:
+            items.append({"source": "tiktok video", "title": v["title"], "link": "", "views": int(v.get("views") or 0)})
+    except Exception:
+        pass
     watches = watch_list()
     cands, new_seen = [], []
     for it in items:
@@ -131,6 +142,10 @@ def main():
             score += min(30, int(re.sub(r"\D", "", it.get("traffic") or "0") or 0) // 20000)
         if it["source"].startswith("youtube"):
             score += min(30, it.get("views", 0) // 500000)
+        if it["source"] == "tiktok rising":
+            score += 20                                      # breaking on TikTok today
+        if it["source"] == "tiktok video":
+            score += min(25, it.get("views", 0) // 1000000)
         if re.search(r"\b(trailer|teaser|first look|release date|tickets?|launch|announced|revealed|out now|premiere)\b", low):
             score += 10
         if score >= 15:

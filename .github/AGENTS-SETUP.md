@@ -213,12 +213,17 @@ PREMIUM QUALITY FOR POSTS, VIDEOS AND GRAPHICS
 THE NEWSROOM (same-day posts) AND THE MOMENTS PLANNER
   Twice a day (08:15 and 17:45 UK) the newsroom reads BBC golf, sport,
   entertainment and tech headlines, Google Trends UK and YouTube's most popular
-  in the UK. It catches two things: build-up beats for the big moments we're
+  in the UK, plus what's breaking on TikTok that day (rising hashtags, top
+  videos, business-approved sounds). Claude also checks the day's Instagram
+  Reels and TikTok trend round-ups on the web, since Instagram itself can't be
+  read automatically. It catches two things: build-up beats for the big moments we're
   riding (each Avengers: Doomsday teaser, trailer or ticket release, matched by
   the "watch" words in data/moments.json) and surprises nobody planned for.
   Political, tragic and private-life stories are dropped automatically. With
   the Claude token (step 11), Claude picks at most one story worth riding,
-  writes the post in whatever format suits it, and it lands in that day's
+  writes the post in whatever format suits it, tying the news of the day back
+  to something real on the site (a price drop, alerts, a game, Society HQ),
+  and it lands in that day's
   content pack; you get an email, tick it, and it posts at 12:30 or 19:30.
   Nothing posts without your tick. Without the token, the stories still show
   on the pack page under "In the news".

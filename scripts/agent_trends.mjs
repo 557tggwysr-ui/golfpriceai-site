@@ -44,7 +44,10 @@ async function creativeCenter() {
     const h = await grab('https://ads.tiktok.com/business/creativecenter/inspiration/popular/hashtag/pc/en?region=GB&period=7', /popular_trend\/hashtag/);
     for (const j of h.hits) for (const it of (j?.data?.list || [])) {
       const tag = it.hashtag_name || it.name; if (!tag || UNSAFE.test(tag)) continue;
-      out.hashtags.push({ tag: '#' + tag.replace(/^#/, ''), views: it.video_views || it.publish_cnt || null, golf: GOLFY.test(tag), source: 'tiktok' });
+      out.hashtags.push({ tag: '#' + tag.replace(/^#/, ''), views: it.video_views || it.publish_cnt || null, golf: GOLFY.test(tag), source: 'tiktok',
+        // rising today: TikTok marks tags that are new to the chart or climbing fast
+        rising: it.rank_diff_type === 4 || it.rank_diff_type === 'new' || it.is_new === true || (Number(it.rank_diff) || 0) >= 10,
+        rankDiff: it.rank_diff ?? null });
     }
     if (!out.hashtags.length) for (const m of (h.text.match(/#[A-Za-z0-9_]{3,30}/g) || [])) if (!UNSAFE.test(m)) out.hashtags.push({ tag: m, golf: GOLFY.test(m), source: 'tiktok' });
     const s = await grab('https://ads.tiktok.com/business/creativecenter/inspiration/popular/music/pc/en?region=GB&period=7&commercialMusic=true', /popular_trend\/sound|music/);
@@ -53,7 +56,14 @@ async function creativeCenter() {
       if (!title || UNSAFE.test(title + ' ' + (artist || ''))) continue;
       out.songs.push({ title, artist: artist || '', businessOk: it.is_commercial !== false, link: it.link || null });
     }
-    out.sources.tiktok = `${out.hashtags.length} hashtags, ${out.songs.length} songs`;
+    // trending videos (what people are actually watching), best effort: the page's data shape changes
+    const v = await grab('https://ads.tiktok.com/business/creativecenter/inspiration/popular/pc/en?region=GB&period=7', /popular_trend\/list|popular_trend\/video|top_video/);
+    out.videos = [];
+    for (const j of v.hits) for (const it of (j?.data?.videos || j?.data?.list || [])) {
+      const title = it.title || it.video_title || it.item_desc || '';
+      if (title && !UNSAFE.test(title)) out.videos.push({ title: title.slice(0, 140), views: it.play_count || it.vv || null, golf: GOLFY.test(title) });
+    }
+    out.sources.tiktok = `${out.hashtags.length} hashtags (${out.hashtags.filter(h => h.rising).length} rising), ${out.songs.length} songs, ${out.videos.length} videos`;
   } catch (e) { out.sources.tiktok = 'failed: ' + e.message.slice(0, 80); }
   await b.close();
 }
@@ -86,5 +96,7 @@ await Promise.all([creativeCenter(), youtube(), reddit()]);
 out.hashtags = out.hashtags.slice(0, 40);
 out.songs = out.songs.filter(s => s.businessOk).slice(0, 20);
 fs.mkdirSync('data/agents', { recursive: true });
-fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + '\n');
+// TREND_DAILY=1 (the newsroom's twice-daily run) writes a separate "today" file, so the weekly scout's file is kept
+const file = process.env.TREND_DAILY === '1' ? 'data/agents/social-today.json' : OUT;
+fs.writeFileSync(file, JSON.stringify(out, null, 1) + '\n');
 console.log(JSON.stringify(out.sources), 'formats:', JSON.stringify(out.formats));
