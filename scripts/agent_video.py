@@ -385,6 +385,11 @@ def style_receipt(t, s, pal, img, photo):
 STYLES = {"reveal": (style_reveal, 9.5), "guess": (style_guess, 9.5), "countdown": (style_countdown, 10.5),
           "stat": (style_stat, 9.0), "pov": (style_pov, 9.0), "expectation": (style_expectation, 9.5),
           "receipt": (style_receipt, 10.5)}
+try:  # cinematic styles (spec, thennow, story, sitedemo), added 20 Nov 2026
+    from agent_cine import CINE_STYLES
+    STYLES.update(CINE_STYLES)
+except Exception as _e:  # never stop the classic styles
+    print("cinematic styles unavailable:", _e)
 
 
 def render(style, script, palette, out_path, img=None, photo=None, imgs=None):

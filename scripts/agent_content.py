@@ -49,7 +49,9 @@ LEARN = OUT / "content-learning.json"
 TRENDS = OUT / "trends.json"
 SOCIAL = OUT / "social-trends.json"   # live hashtags, sounds and formats (scripts/agent_trends.mjs)
 STYLE_FORMATS = {"pov": ["pov", "day in the life"], "countdown": ["tier list", "top 3 / countdown"], "guess": ["guess the price", "challenge"],
-                 "expectation": ["expectation v reality", "reaction"], "receipt": ["budget", "tried it"], "stat": ["budget"], "reveal": ["tried it"]}
+                 "expectation": ["expectation v reality", "reaction"], "receipt": ["budget", "tried it"], "stat": ["budget"], "reveal": ["tried it"],
+                 "spec": ["product launch", "cinematic"], "thennow": ["before and after", "then vs now"], "truth": ["relatable", "skit", "pov"],
+                 "sitedemo": ["tutorial", "how to", "tried it"], "story": ["trend", "meme"]}
 TOPIC_WORDS = re.compile(r"black ?friday|cyber ?monday|christmas|gift|secret ?santa|boxing ?day|new ?year|fathers? ?day|summer|winter|spring|sale|deals?|sport", re.I)
 CARDS = ROOT / "social" / "cards"
 PACK = ROOT / "social" / "pack" / "index.html"
@@ -244,6 +246,8 @@ def theme_drop(d, tr):
                    "stamp": f"{money(c['fall'])} CHEAPER"},
         "expectation": {**sc, "hooks": ["Expectation v reality", "What you think it costs v today"], "banter": "meme"},
         "pov": {**sc},
+        "spec": {**sc, "hooks": [f"{money(c['fall'])} cheaper this week", "Biggest drop of the week"]},
+        "thennow": {**sc, "then_label": "Before this drop", "hooks": ["Same club. Different price.", "Then. Now."]},
     }
     if len(cats) >= 3:
         styles["countdown"] = {"hooks": ["3 golf prices that just fell", "This week's three biggest drops"],
@@ -285,7 +289,12 @@ def theme_good(d, tr, brand=None, rank=0):
             "styles": {"reveal": {**sc, "hooks": ["Lowest price we've ever tracked", "Just hit a new low", "Waiting for the right time? This is it."],
                                   "stamp": "LOWEST WE'VE TRACKED"},
                        "expectation": {**sc, "hooks": ["Expectation v reality", "Thought it was dear? Not today"]},
-                       "pov": {**sc}},
+                       "pov": {**sc},
+                       "spec": {**sc, "days": m.get("historyDays"), "hooks": ["Lowest we've tracked", "New lowest price"]},
+                       "thennow": {**sc, "hooks": ["Same club. Different price.", "Patience pays"]},
+                       "sitedemo": {**sc, "url": link, "sub": "Every UK price in one place",
+                                    "hooks": ["Before you buy, check this", "How to never overpay for golf kit"]}
+                       if (m.get("listingCount") or 0) >= 3 else None},
             "ig": f"Good time to buy ⛳ The {m['name']} is at the lowest price we've tracked in {m.get('historyDays', 'our')} days: {money(m['minPrice'])}, {money(saving)} under its tracked high. Link in bio.",
             "x": f"The {m['name']} is at the lowest price we've tracked: {money(m['minPrice'])} ⛳\n{link}",
             "tt": f"{m['name']}: lowest price we've ever tracked ⛳"}
@@ -350,8 +359,35 @@ def theme_week(d, tr):
             "tt": f"{bd['week']} golf price drops this week: the biggest three ⛳"}
 
 
+TRUTHS = [  # relatable golfer truths for the "truth" style; the joke plays out as balls pour in
+    ("Me preparing for my first round back after winter", "Every single one is going in the water."),
+    ("Packing for a society day with one par 3 over water", "You'll still borrow one off Dave."),
+    ("How many balls I think I need for 18 holes", "Optimistic, but fair."),
+    ("Me after one lesson and a YouTube video", "Confidence high. Ball supply higher."),
+    ("Buying balls before the course with the big lake", "The lake says thank you."),
+]
+
+
+def theme_truth(d, tr):
+    balls = [m for m in models() if "ball" in (m.get("type") or m.get("name", "")).lower() and (m.get("gate") or {}).get("passes")
+             and not re.search(r"practice|airflow|foam|range|plastic|training|marker|retriever|tee|sleeve|single", m["name"], re.I)
+             and float(m.get("minPrice") or 0) >= 12]
+    if not balls:
+        return None
+    m = sorted(balls, key=lambda x: float(x["minPrice"]))[(d.isocalendar()[1]) % min(5, len(balls))]
+    setup, deadpan = TRUTHS[d.isocalendar()[1] % len(TRUTHS)]
+    link = f"{SITE}/prices/{m['slug']}/"
+    return {"theme": "Golfer truths", "link": link, "image": model_image(m), "name": m["name"],
+            "headline": money(m["minPrice"]), "sub": m["name"],
+            "styles": {"truth": {"name": m["name"], "price": float(m["minPrice"]), "per_dozen": True, "setup": setup, "deadpan": deadpan,
+                                 "hooks": [setup]}},
+            "ig": f"{setup} ⛳ {deadpan} When you need to restock, the {m['name']} is {money(m['minPrice'])} a dozen right now, compared across multiple UK retailers. Link in bio.",
+            "x": f"{setup} ⛳\n{deadpan}\n{m['name']}: {money(m['minPrice'])} a dozen today.\n{link}",
+            "tt": f"{setup} ⛳"}
+
+
 SCHEDULE = [theme_drop, theme_wild_nine, theme_pulse, theme_good, theme_start, theme_guess, theme_week]
-FALLBACKS = [lambda d, tr: theme_good(d, tr, rank=1), lambda d, tr: theme_pulse(d, tr, 3), lambda d, tr: theme_good(d, tr, rank=2),
+FALLBACKS = [theme_truth, lambda d, tr: theme_good(d, tr, rank=1), lambda d, tr: theme_pulse(d, tr, 3), lambda d, tr: theme_good(d, tr, rank=2),
              theme_drop, lambda d, tr: theme_pulse(d, tr, 5)]
 
 
@@ -433,10 +469,29 @@ def fetch_image(src):
         return None
 
 
+def record_site(url, pid):
+    """A phone-sized screen recording of the real page (scripts/agent_screen.mjs)."""
+    import subprocess
+    out = VIDEOS / f"screen-{pid}"
+    try:
+        r = subprocess.run(["node", str(ROOT / "scripts" / "agent_screen.mjs"), url, str(out)], capture_output=True, text=True, timeout=240)
+        info = json.loads(r.stdout.strip().splitlines()[-1])
+        return {"frames": str(out), "taps": info.get("taps", [])} if info.get("frames", 0) > 60 else None
+    except Exception as e:
+        print("screen recording skipped:", e)
+        return None
+
+
 def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None):
     img = fetch_image(theme.get("image"))
     photo = fetch_image(theme.get("art") or "assets/action-lake-followthrough.jpg") if style in ("stat", "receipt") else None
     imgs = [fetch_image(x.get("image")) for x in sc.get("items", [])] if style == "countdown" else None
+    if style == "sitedemo":
+        rec = record_site(sc.get("url") or theme["link"], pid)
+        if rec:
+            sc.update(rec)
+        else:  # no recording: fall back to the cinematic product film
+            style = "spec"
     still = V.render(style, sc, palette, VIDEOS / f"{pid}.mp4", img=img, photo=photo, imgs=imgs)
     V.feed_card(still, CARDS / f"{pid}.jpg")
     quality = V.qc(style, palette, VIDEOS / f"{pid}.mp4", still, img=img, imgs=imgs, card=CARDS / f"{pid}.jpg")
@@ -494,10 +549,27 @@ def plan_week():
     if tr.get("brandsInNews"):  # a brand in the golf news: Thursday features its best deal
         schedule[3] = lambda d, t, b=tr["brandsInNews"][0]: theme_good(d, t, b) or theme_good(d, t)
     key = lambda x: x["theme"] + x["headline"] + x["sub"]
+    # trend tie-ins written by Claude (weekly review / on request) wait in data/content-queue.json
+    queue = (load("content-queue.json") or {}).get("posts", [])
+    qdays = {}
+    for q in queue:
+        qd = q.get("date") or ""
+        if str(start) <= qd <= str(start + timedelta(days=6)) and q.get("status", "queued") == "queued":
+            qdays[qd] = q
     for i in range(7):
         day = start + timedelta(days=i)
         pid = f"{day}-{DAYS[i].lower()}"
         if pid in have:
+            continue
+        if str(day) in qdays:
+            q = qdays[str(day)]
+            theme = {"theme": "Trend tie-in: " + q.get("trend", ""), "link": q.get("link", SITE), "image": q.get("image"),
+                     "name": q.get("name", ""), "headline": q.get("headline", ""), "sub": q.get("sub", ""),
+                     "ig": q["ig"], "x": q.get("x", q["ig"]), "tt": q.get("tt", q.get("headline", ""))}
+            sc = {k: q[k] for k in ("beats", "payoff", "price", "name", "payoff_label") if k in q}
+            sc["hook"] = (q.get("beats") or [{"big": q.get("headline", "")}])[0].get("big", "")
+            plan["posts"].append(build_post(day, theme, "story", sc, "gold", pid, None, social, songs[i % len(songs)] if songs else None))
+            print(f"{pid}: queued trend tie-in ({q.get('trend')})")
             continue
         theme = schedule[i](day, tr)
         fresh_style = lambda x: any(st not in used_styles for st, sc in x["styles"].items() if sc)
@@ -661,6 +733,33 @@ def esc(s):
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
+# Skits to film yourself (optional). The funniest golf reels are real people doing relatable things;
+# the agents can't film, so each week the pack suggests two 10-second skits John could shoot on a phone.
+SKITS = [
+    ("Preparing for my first round back after winter", "Tip a bucket of range balls into your golf bag. Keep going. Then a bit more.",
+     "One take, phone on a tripod or a mate holding it. The caption does the talking.", "Restock for less: link in bio ⛳"),
+    ("Realistic range session", "Hit three balls with a tree branch (or a bin bag) hanging in front of you, completely unbothered.",
+     "Deadpan. Don't laugh until the third ball.", "Plan for the inevitable ⛳"),
+    ("Me checking the price before I buy", "Hold a driver, look at your phone, slowly put the driver down and pick up a cheaper one.",
+     "Close-up of your face for the 'oh' moment, then a screen recording of golfpriceai.com.", "Full Swing. Not full price ⛳"),
+    ("The society WhatsApp the night before", "Read out real-sounding group messages in a dramatic voice over shots of your bag.",
+     "No real names or numbers on screen.", "Every society has one ⛳"),
+    ("How I tell my partner about a new driver", "Hide the head cover behind your back, then reveal the price on your phone first.",
+     "Keep it affectionate, never mean.", "It was on offer, honest ⛳"),
+    ("First tee nerves v last hole confidence", "Split screen: shaking hands on the first tee, strutting on the 18th.",
+     "Two clips, side by side in the editor.", "Every round, every time ⛳"),
+]
+
+
+def skit_html(today):
+    wk = today.isocalendar()[1]
+    picks = [SKITS[(wk * 2) % len(SKITS)], SKITS[(wk * 2 + 1) % len(SKITS)]]
+    rows = "".join(f"<li><b>{esc(a)}</b>: {esc(b)} <span class='tip'>{esc(c)} Caption ending: \u201c{esc(d)}\u201d</span></li>" for a, b, c, d in picks)
+    return ("<div class='trends'><h2>Film it yourself (optional)</h2><p class='tip'>Two 10-second skits for this week, in the style of the "
+            "funniest golf reels. Shoot on your phone, add a trending sound, post when you like. Only film people who are happy to be in it.</p>"
+            f"<ul>{rows}</ul></div>")
+
+
 def write_pack(plan):
     today = now().date()
     upcoming = [p for p in plan["posts"] if date.fromisoformat(p["date"]) >= today - timedelta(days=1)]
@@ -712,6 +811,7 @@ button{{background:#14211a;color:#fff;border:0;border-radius:8px;padding:6px 14p
 <h1>Content pack</h1><p>Updated {now().strftime('%a %d %b %H:%M')} UTC. Approve posts by ticking them in the "Content pack" GitHub issue; ticked posts go to Instagram on their day. Download the videos for TikTok, Reels and Shorts and schedule them in each app.</p>
 {trend_html}
 {''.join(cards) or '<p>No posts planned yet.</p>'}
+{skit_html(today)}
 <script>function copy(b){{const t=b.previousElementSibling;t.select();navigator.clipboard.writeText(t.value);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)}}</script>
 </body></html>"""
     PACK.parent.mkdir(parents=True, exist_ok=True)

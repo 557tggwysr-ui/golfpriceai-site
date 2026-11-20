@@ -44,6 +44,9 @@ WHAT'S IN THIS FOLDER
   scripts/price_pages.py      CHANGED: the internal-link lift in "Worth comparing"
   .github/workflows/agent-*.yml  the schedules
   .gitignore                  keeps the weekly videos out of the repo (new file)
+  scripts/agent_cine.py      the cinematic video styles; scripts/agent_screen.mjs records the site
+  assets/fonts/Anton-Regular.ttf  free condensed font for the cinematic styles (SIL Open Font Licence)
+  data/social-benchmarks.json, data/content-queue.json  the reels to beat; queued trend tie-ins
 
 STEP 1: UPLOAD
   Upload "scripts", ".github" and ".gitignore" into the root of
@@ -206,6 +209,25 @@ PREMIUM QUALITY FOR POSTS, VIDEOS AND GRAPHICS
   every card and three frames of every video against the "Premium visual
   standard" in .github/EDITOR.md and holds anything that falls short, saying
   what to fix. A held post shows as "Held by the Editor" and never posts.
+
+NEW VIDEO STYLES (learned from the reels you picked, 19 Nov)
+  The content engine now has five more ways to make a video, on top of the seven:
+    spec      a cinematic product film: dark, huge condensed type, a neon light
+              streak, one real price stat per cut (like a brand launch reel)
+    thennow   split screen: the same club at its highest tracked price v today,
+              then the saving slams in
+    truth     "golfer truths": a relatable line, then hundreds of balls pour in
+              and pile up, a deadpan punchline, then the real ball deal
+    sitedemo  a real phone recording of golfpriceai.com with taps (shop names
+              hidden in the recording), our price history as the hero
+    story     trend tie-ins (a big launch everyone's talking about) written by
+              Claude into data/content-queue.json, rendered on their date
+  Every week the content pack also suggests two 10-second skits you could film
+  on your phone (optional). data/social-benchmarks.json lists the reels you
+  picked; the Editor's Claude review judges every video against them.
+  Optional: a free Pexels key (pexels.com/api, secret PEXELS_API_KEY) would let
+  a future style use real golf-course footage with no people in it, like the
+  "day in your golf ball's life" reel. Not built yet: say the word.
 
 COMPETITOR WATCH AND PRESS DESK
   Mondays: the search engine reads competitors' public sitemaps (Caddence,
