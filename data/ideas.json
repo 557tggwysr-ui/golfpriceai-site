@@ -427,6 +427,99 @@
      "note": "Revisit once Instagram posting is settled."
     }
    ]
+  },
+  {
+   "id": "clean-categories",
+   "title": "Keep accessories and junior clubs out of adult club categories",
+   "owner": "the catalogue autopilot",
+   "objective": "trust and revenue",
+   "problem": "Grips, shafts, practice aids, neck warmers and junior clubs are filed as drivers, woods and putters, so the price hub says \"Drivers from £24.99\" and 22 pages show a suspect price as the lowest.",
+   "evidence": "Our own catalogue report (20 Nov dry run): 17 misfiled models, 109 suspect prices, 22 pages showing one as lowest, 661 duplicates, 625 listings dead for 45 days.",
+   "hypothesis": "If the catalogue moves shafts, grips, practice aids and clothing to their own types, gives junior clubs a junior category, and never shows a flagged price as the lowest or the hub's \"from\" price, golfers trust the first price they see and click more.",
+   "test": "One Fix pack: the reclassification rules, and a guard in price_pages.py so flagged prices can't lead.",
+   "metric": "pages showing a suspect price as lowest; buy clicks per visit on club hubs",
+   "target": "zero suspect prices leading; clicks up",
+   "windowDays": 21,
+   "effort": "M",
+   "risks": "Over-filtering could hide genuine bargains: flagged prices are hidden from the lead spot, not deleted, and the claims guardian checks.",
+   "challenge": "Objective: trust first. Evidence: our own data, confidence 5. Smallest test: one Fix pack. Backfire: hiding a real deal, so flagged items stay listed lower down. No clash. Free. Undo: revert the pack.",
+   "score": {
+    "impact": 4,
+    "confidence": 5,
+    "ease": 3,
+    "total": 60
+   },
+   "kind": "test",
+   "stage": "shortlisted",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Found by Claude in the full dry run of every agent."
+    }
+   ]
+  },
+  {
+   "id": "lighter-pages",
+   "title": "Lighter pages: compress the big images",
+   "owner": "the mystery shopper (with the Fix pack)",
+   "objective": "traffic and revenue",
+   "problem": "The homepage weighs about 2.3 MB on a phone; the favicon alone was 876 KB on every page (now fixed: 106 KB). Several tile and banner photos are 150 to 180 KB each.",
+   "evidence": "Measured on 20 Nov in a phone browser. Page speed is part of Google's page experience signals and phones on slow connections feel it most.",
+   "hypothesis": "If every photo is served at the size it's shown (WebP, about 40 to 80 KB), pages load faster on phones, which helps rankings and fewer people leave before the prices load.",
+   "test": "Re-encode the 20 biggest images once; add a size check to the shopper so new ones can't creep back.",
+   "metric": "homepage weight and load time on a phone; bounce on the homepage",
+   "target": "under 1 MB; faster",
+   "windowDays": 28,
+   "effort": "S",
+   "risks": "Visible quality loss: compare side by side before shipping.",
+   "challenge": "Evidence: our own measurement. Cheap. No clash (the nudge test is on price pages). Undo: restore the files.",
+   "score": {
+    "impact": 3,
+    "confidence": 4,
+    "ease": 5,
+    "total": 60
+   },
+   "kind": "test",
+   "stage": "shortlisted",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Logo already shrunk on the branch (876 KB to 106 KB, looks identical)."
+    }
+   ]
+  },
+  {
+   "id": "retailer-coverage-push",
+   "title": "More retailers per page: match the 1,427 unmatched club listings",
+   "owner": "the coverage hunter (with the catalogue autopilot)",
+   "objective": "revenue",
+   "problem": "Most price pages show a single retailer, so there's nothing to compare: 1,427 club listings didn't match a model, and many models have one shop.",
+   "evidence": "Catalogue report \"unmatchedClubs\": 1,427 (20 Nov dry run); the coverage hunter's multiRetailerPct tracks it.",
+   "hypothesis": "If the matcher handles the common naming differences (loft, shaft flex, left-handed, colour, \"Gen 2\" vs \"2nd gen\") and the coverage hunter applies to the most-needed retailers first, more pages compare 2+ shops, which is the reason to use us and to click.",
+   "test": "Improve the matcher for drivers and irons first; measure multiRetailerPct and buy clicks on those pages.",
+   "metric": "multiRetailerPct; buy clicks per visit on matched pages",
+   "target": "both up",
+   "windowDays": 28,
+   "effort": "M",
+   "risks": "Wrong matches show the wrong product's price: the claims guardian checks every new match and only confident matches go live.",
+   "challenge": "Objective: revenue (comparison is the product). Evidence: our own data, confidence 4. Smallest test: drivers and irons only. Undo: revert the matcher.",
+   "score": {
+    "impact": 5,
+    "confidence": 4,
+    "ease": 2,
+    "total": 40
+   },
+   "kind": "test",
+   "stage": "shortlisted",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Found by Claude in the full dry run of every agent."
+    }
+   ]
   }
  ],
  "lessons": [],
