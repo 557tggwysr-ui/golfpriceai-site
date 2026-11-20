@@ -179,6 +179,108 @@ def run_test(cta_rows, today):
     return line
 
 
+IDEAS = DATA / "ideas.json"
+
+
+def run_nudge(rows, today):
+    """Price-alert nudge test (ideas board "alert-signups"). Starts once John has approved the idea
+    on the board; keeps the bar only if sign-ups clearly rise AND buy clicks don't clearly fall."""
+    d = load_exp()
+    t = d.setdefault("nudge", {})
+    try:
+        board = json.loads(IDEAS.read_text(encoding="utf-8"))
+        stage = next((i.get("stage") for i in board.get("ideas", []) if i.get("id") == "alert-signups"), "")
+    except Exception:
+        stage = ""
+    if not t.get("on"):
+        if stage in ("approved", "testing") and not t.get("id") and not t.get("keep"):
+            t.update({"id": today.strftime("%Y%m%d"), "on": True, "started": str(today)})
+            save_exp(d, "Start the price-alert nudge test: half of price-page visitors may see a small, dismissible "
+                        "\"Not buying today?\" bar pointing to the page's price alert. Prices and order unchanged.")
+            return "Alert nudge test proposed (starts when you merge the Fix pack)."
+        return ""
+    started = t.get("started") or str(today)
+    c = defaultdict(int)
+    for day, kind, key, n, _ in rows:
+        if kind in ("nga", "ngb") and day >= started:
+            c[(kind[-1], key)] += n
+    va, vb = c[("a", "views")], c[("b", "views")]
+    z_sign = z_test(c[("a", "signups")], va, c[("b", "signups")], vb)
+    z_buy = z_test(c[("a", "clicks")], va, c[("b", "clicks")], vb)
+    days = (today - date.fromisoformat(started)).days
+    line = (f"Alert nudge since {started}: sign-ups {c[('a', 'signups')]}/{va} without the bar, {c[('b', 'signups')]}/{vb} with it "
+            f"(z = {z_sign:+.2f}); buy clicks {c[('a', 'clicks')]}/{va} vs {c[('b', 'clicks')]}/{vb} (z = {z_buy:+.2f}).")
+    enough = va >= MIN_VIEWS_PER_ARM and vb >= MIN_VIEWS_PER_ARM and days >= MIN_DAYS
+    if (enough and (z_sign >= 1.96 or z_buy <= -1.96)) or days >= MAX_DAYS:
+        keep = z_sign >= 1.96 and z_buy > -1.96
+        d.setdefault("history", []).append({"id": "nudge-" + t["id"], "test": "alert nudge", "ended": str(today),
+                                             "result": "kept: more sign-ups, buy clicks held" if keep else "removed: no clear gain, or buy clicks fell"})
+        t.update({"on": False, "keep": keep, "ended": str(today)})
+        save_exp(d, "Finish the alert nudge test: " + ("keep the bar for everyone (clearly more alert sign-ups, buy clicks held)."
+                                                       if keep else "remove the bar (no clear gain in sign-ups, or fewer buy clicks)."))
+        line += " Finishing: " + ("keep it." if keep else "remove it.")
+    return line
+
+
+def daily_totals(rows, kinds=("view", "out")):
+    tot = defaultdict(lambda: defaultdict(int))
+    for day, kind, key, n, _ in rows:
+        if kind in kinds:
+            tot[kind][day] += n
+    return tot
+
+
+def sudden_drops(rows, today):
+    """Yesterday against the same weekday over the 4 weeks before: a fall of half or more is an alert."""
+    tot = daily_totals(rows)
+    y = today - timedelta(days=1)
+    alerts = []
+    for kind, label in (("view", "price-page visitors"), ("out", "buy clicks")):
+        base = [tot[kind].get(str(y - timedelta(days=7 * w)), 0) for w in range(1, 5)]
+        avg = sum(base) / 4
+        now_n = tot[kind].get(str(y), 0)
+        if avg >= 30 and now_n < avg * 0.5:
+            alerts.append(f"{label} yesterday: {now_n} against a usual {avg:.0f} for a {y.strftime('%A')} "
+                          f"(down {1 - now_n / avg:.0%}). Check the site loads, the latest Fix pack, prices and buy links.")
+    return alerts
+
+
+def measure_ideas(rows, today):
+    """For every idea on the board that is testing, compare its metric since it started with the
+    same number of days before. Ideas say what to count with "measure": {"kinds": [...], "keys": [prefixes]}
+    (e.g. {"kinds": ["view"], "keys": ["occasions-"]}); otherwise site-wide visitors and buy clicks.
+    Public output is direction only; the numbers go to John's email."""
+    try:
+        board = json.loads(IDEAS.read_text(encoding="utf-8"))
+    except Exception:
+        return [], []
+    pub, priv = [], []
+    for i in board.get("ideas", []):
+        if i.get("stage") != "testing":
+            continue
+        started = next((h["date"] for h in reversed(i.get("history", [])) if h.get("stage") == "testing"), None)
+        if not started:
+            continue
+        m = i.get("measure") or {"kinds": ["view", "out"], "keys": [""]}
+        d0 = date.fromisoformat(started)
+        span = max(1, min((today - d0).days, 60))
+        before_from, after_to = d0 - timedelta(days=span), d0 + timedelta(days=span)
+        for kind in m.get("kinds", []):
+            b = a = 0
+            for day, k, key, n, _ in rows:
+                if k != kind or not any(key.startswith(x) for x in m.get("keys", [""])):
+                    continue
+                if str(before_from) <= day < started:
+                    b += n
+                elif started <= day < str(after_to):
+                    a += n
+            direction = "not enough data yet" if b + a < 40 else ("up" if a > b * 1.1 else "down" if a < b * 0.9 else "flat")
+            done = (today - d0).days >= int(i.get("windowDays") or 14)
+            pub.append({"id": i["id"], "count": kind, "direction": direction, "days": span, "windowEnded": done})
+            priv.append((i.get("title", i["id"]), kind, b, a, direction, "yes" if done else "no"))
+    return pub, priv
+
+
 LAB = DATA / "games-lab.json"
 
 
@@ -419,6 +521,14 @@ def main():
     game_tab = sorted(((g, v["gplay"], v["gview"], v["gout"], game_sales.get(g, [0, 0.0])[0], f"£{game_sales.get(g, [0, 0.0])[1]:,.2f}")
                        for g, v in games.items()), key=lambda r: (-r[3], -r[1]))
     lab_lines = run_lab(lab_rows, today) if rows else []
+    nudge_line = run_nudge(rows, today) if rows else ""
+    drops = sudden_drops(rows, today) if rows else []
+    ideas_pub, ideas_priv = measure_ideas(rows, today) if rows else ([], [])
+    if drops:
+        email_owner("GolfPrice AI · sudden drop: needs a look today",
+                    "<h2>Something fell sharply yesterday</h2><ul>" + "".join(f"<li>{x}</li>" for x in drops) + "</ul>"
+                    "<p>Usual causes: a page or the site not loading, a Fix pack that changed something, a feed that "
+                    "failed, or a lost Google ranking. The watchdog and revenue guardian emails may say more.</p>")
     save_report("performance.json", {
         "about": "Performance analyst: pages that could work harder for golfers, ideas only. Never changes prices or their order.",
         "window": f"last {WINDOW} days", "ideas": ideas[:60],
@@ -426,13 +536,18 @@ def main():
         "tracking": "on" if rows else "waiting",
         "gamesBySales": [r[0] for r in game_tab if r[3] or r[4]][:12],
         "aiAppsByVisits": [a for a, _ in sorted(ai_apps.items(), key=lambda x: -x[1])],
+        "ideasMeasured": ideas_pub,
+        "topPages": [f"/prices/{k}/" for k, _ in sorted(view.items(), key=lambda x: -x[1])[:10]],  # order only, for the mystery shopper's phone check
+        "suddenDrop": bool(drops),
     })
     if today.weekday() == 0 or os.environ.get("PERF_EMAIL") == "1":
         sales_note = "" if sales_ref is not None else "<p>(Sales by page start once AWIN_API_TOKEN is set and the new site.js is live.)</p>"
         email_owner("GolfPrice AI · performance report",
                     f"<h2>Price pages, last {WINDOW} days</h2>"
                     f"<p>{tot_v:,} page visits, {tot_o:,} buy clicks ({site_rate:.1%}), {tot_sales:,} tracked sales.</p>{sales_note}"
-                    f"<p>{test_line}</p><h3>Top pages</h3>"
+                    f"<p>{test_line}</p>" + (f"<p>{nudge_line}</p>" if nudge_line else "")
+                    + ("<h3>Ideas being tested (before vs since)</h3>" + table(ideas_priv, ["Idea", "Count", "Before", "Since", "Direction", "Window ended"]) if ideas_priv else "")
+                    + "<h3>Top pages</h3>"
                     + table(priv[:30], ["Page", "Visitors", "Buy clicks", "Click rate", "Sales", "Commission"])
                     + "<h3>Visitors sent by AI apps</h3>"
                     + (table(sorted(ai_apps.items(), key=lambda x: -x[1]), ["AI app", "Visits"]) if ai_apps else "<p>None counted yet.</p>")

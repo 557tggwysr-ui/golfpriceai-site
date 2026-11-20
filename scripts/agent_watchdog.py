@@ -178,6 +178,53 @@ def update_issue(problems):
         gh("PATCH", f"/issues/{issue['number']}", {"body": f"All agents healthy (checked {stamp}).", "state": "closed"})
 
 
+def check_limits(problems):
+    """Free-tier and budget guard (ideas board "free-tier-guard", John 20 Nov 2026): warn at 80% of a
+    free allowance so nothing stops or gets charged without warning. Messages here are public (the
+    Agent health issue), so they never include usage numbers."""
+    key = os.environ.get("BREVO_API_KEY")
+    if key:
+        s, _, t = http("https://api.brevo.com/v3/account", headers={"api-key": key, "accept": "application/json"})
+        try:
+            plans = json.loads(t).get("plan", []) if s == 200 else []
+        except ValueError:
+            plans = []
+        for pl in plans:
+            if pl.get("type") == "free" and pl.get("creditsType") == "sendLimit":
+                left, cap = pl.get("credits") or 0, 300
+                if left < cap * 0.2:
+                    problems.append(("limit-brevo", "Brevo: today's free email allowance is over 80% used. Emails may stop until "
+                                     "tomorrow; check nothing is sending in a loop (alerts, digest, agent emails)."))
+            elif pl.get("type") not in (None, "free") and pl.get("type") != "payAsYouGo":
+                problems.append(("limit-brevo-plan", f"Brevo account shows a paid plan ({pl.get('type')}): check this is intended."))
+    tok, acct = os.environ.get("CF_API_TOKEN"), os.environ.get("CF_ACCOUNT_ID")
+    if tok and acct:  # optional: a Cloudflare token with Account Analytics: Read
+        day = now().strftime("%Y-%m-%d")
+        q = {"query": "query($a:String!,$d:Date!){viewer{accounts(filter:{accountTag:$a}){"
+                      "workersInvocationsAdaptive(limit:1000,filter:{date:$d}){sum{requests}}"
+                      "d1AnalyticsAdaptiveGroups(limit:1000,filter:{date:$d}){sum{readQueries writeQueries rowsRead rowsWritten}}}}}",
+             "variables": {"a": acct, "d": day}}
+        s, _, t = http("https://api.cloudflare.com/client/v4/graphql", method="POST", body=json.dumps(q).encode(),
+                       headers={"Authorization": "Bearer " + tok, "Content-Type": "application/json"})
+        try:
+            a = json.loads(t)["data"]["viewer"]["accounts"][0]
+            req = sum(x["sum"]["requests"] for x in a.get("workersInvocationsAdaptive") or [])
+            d1 = a.get("d1AnalyticsAdaptiveGroups") or []
+            rows_read = sum(x["sum"].get("rowsRead") or 0 for x in d1)
+            rows_written = sum(x["sum"].get("rowsWritten") or 0 for x in d1)
+        except (ValueError, KeyError, IndexError, TypeError):
+            req = rows_read = rows_written = None
+        # Free plan: 100,000 Worker requests a day; D1 5 million rows read and 100,000 rows written a day.
+        for val, cap, what in ((req, 100_000, "Worker requests"), (rows_read, 5_000_000, "D1 rows read"), (rows_written, 100_000, "D1 rows written")):
+            if val is not None and val >= cap * 0.8:
+                problems.append((f"limit-cf-{what}", f"Cloudflare: today's free {what} allowance is over 80% used. "
+                                 "Requests over the limit fail (no charge on the free plan); check for a loop or a bot."))
+    repo = gh("GET", "")
+    if isinstance(repo, dict) and repo.get("private"):
+        problems.append(("limit-actions", "The repo is private, so GitHub Actions minutes are limited (2,000 a month free). "
+                         "The agents assume a public repo; check the Actions usage page."))
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     state = load("watchdog-state.json") or {"known": [], "listings": None}
@@ -185,6 +232,7 @@ def main():
     check_runs(problems)
     check_reports(problems, state)
     check_pack(problems)
+    check_limits(problems)
     beat = heartbeat(len(problems))
     keys = [k for k, _ in problems]
     new = [t for k, t in problems if k not in state.get("known", [])]

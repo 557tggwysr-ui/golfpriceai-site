@@ -15,8 +15,8 @@ Weekly (inside the Fix pack, Mondays):
   * Pages are listed in the sitemap (data/agent-pages.json) and reach the
     site only when the owner approves the Fix pack.
 
-Occasions: New golf season (spring), Father's Day golf gifts, Summer golf kit,
-Winter golf essentials. Every price is a live retailer price, checked against
+Occasions: New club launch season (January), New golf season (spring), Father's Day
+golf gifts, Summer golf kit, Winter golf essentials. Every price is a live retailer price, checked against
 our own history; never a "was" price; retailers aren't named in the copy.
 """
 import json
@@ -57,6 +57,16 @@ OCCASIONS = [
      "intro": "Keep playing through the winter: waterproofs, warm layers, mitts and winter gloves, at the lowest prices we've tracked across multiple UK retailers.",
      "model_types": ["electric-trolley", "ball"], "apparel": ["waterproof", "jacket", "mitt", "winter glove", "gilet", "mid layer", "beanie", "trouser"], "apparel_first": True},
 ]
+# Ideas board "launch-season" (John, 20 Nov 2026): golf's big club and ball launches arrive early in
+# the year, which is when golfers compare this season's models with last season's. Only models at
+# the lowest price we've tracked are listed (our own history), so no saving is ever implied that we
+# can't show; no "was" prices, no launch dates claimed.
+OCCASIONS.append(
+    {"slug": "new-club-launch-season", "name": "New club launch season", "day": lambda y: date(y, 1, 20),
+     "title": "Club launch season: clubs and balls at their lowest",
+     "intro": "New drivers, irons and balls usually arrive early in the year, and that's when golfers weigh up this season's models against last season's. These are at the lowest price we've tracked across multiple UK retailers right now.",
+     "model_types": ["driver", "wood", "hybrid", "irons", "wedge", "putter", "ball"], "apparel": [], "only_low": True,
+     "status": "New models usually arrive from January into spring; this page is refreshed every week from live prices."})
 BANDS = [(0, 25, "Under £25"), (25, 50, "£25 to £50"), (50, 100, "£50 to £100"), (100, 250, "£100 to £250"), (250, 1e9, "Over £250")]
 
 
@@ -89,6 +99,8 @@ def picks_for(o):
         if pi.get("status") != "lowest_tracked":
             continue
         out.append({"name": p["name"], "price": float(p["salePrice"]), "url": p["affiliateUrl"], "low": True, "retailers": 1, "buy": True})
+    if o.get("only_low"):
+        out = [x for x in out if x["low"]]
     out.sort(key=lambda x: (not x["low"], -x["retailers"], x["price"]))
     seen, uniq = set(), []
     for x in out:
@@ -102,7 +114,7 @@ def picks_for(o):
 def page(o, items, today, when):
     from price_pages import page_shell, breadcrumb
     days = (when - today).days
-    status = (f"{o['name']} is on {when.strftime('%A %d %B')}, {days} days away." if 0 < days <= LEAD
+    status = o.get("status") or (f"{o['name']} is on {when.strftime('%A %d %B')}, {days} days away." if 0 < days <= LEAD
               else f"It's {o['name'].lower()} time." if -1 <= days <= 0
               else f"Back for {when.year}: this page is refreshed weekly from {(when - timedelta(days=LEAD)).strftime('%d %B')}.")
     sections = ""

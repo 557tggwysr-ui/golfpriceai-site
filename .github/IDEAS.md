@@ -43,7 +43,7 @@ not enough evidence yet, with what would bring it back) and `rejected` (with the
 4. **Approve**: John decides. The weekly review puts at most 3 shortlisted
    ideas in front of him, highest score first, each as its own small branch
    (the smallest test). Merging the branch is approval.
-5. **Test**: at most 3 ideas testing at once, and only one change per page
+5. **Test**: at most 3 ideas of kind "test" (changes visitors see) running at once (ideas of kind "duty", such as a new check an agent runs behind the scenes, don't count), and only one change per page
    area at a time, so we know what caused what. Minimum window 14 days, or
    until the performance analyst says there's enough data.
 6. **Measure**: the performance analyst compares the metric with the period

@@ -71,6 +71,9 @@ STEP 3: SECRETS (Settings > Secrets and variables > Actions)
                    CLAUDE_CODE_OAUTH_TOKEN for the editor's Claude review (step 11)
                    PSI_API_KEY (optional) lifts Google PageSpeed's free limit; it
                    works without one for the handful of speed checks we run
+                   CF_API_TOKEN + CF_ACCOUNT_ID (optional) let the watchdog warn
+                   before Cloudflare's free Worker and D1 limits (a token with
+                   Account Analytics: Read only)
   Everything else works without them.
 
 STEP 4: RUN EACH ONCE BY HAND

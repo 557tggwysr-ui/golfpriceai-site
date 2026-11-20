@@ -163,6 +163,33 @@ def awin_private():
     out["advertisers"] = rows
     out["no_sales"] = [r for r in rows if r[1] >= 40 and r[2] == 0]
     out["api_status"] = s
+    # Programme health (ideas board: programme-health, John 20 Nov 2026). Stateless checks, run daily:
+    # 1) a programme we were earning clicks from that is now suspended, rejected or no longer joined;
+    # 2) clicks stopped: a retailer with steady clicks over the month but none in the last 2 days
+    #    (tracking or deep links broken, or the programme paused). Never changes which price leads.
+    s2, _, t2 = http(f"{base}/programmes?relationship=joined", headers=h)
+    try:
+        joined = {(p.get("name") or "").strip().lower() for p in (json.loads(t2) if s2 == 200 else [])}
+    except ValueError:
+        joined = set()
+    out["joined"] = len(joined)
+    lost = set(n.lower() for n in out.get("suspended", []) + out.get("rejected", []))
+    out["programme_alerts"] = []
+    for name, clicks, _sales, _comm in rows:
+        n = (name or "").strip().lower()
+        if clicks >= 10 and (n in lost or (joined and s2 == 200 and n not in joined)):
+            out["programme_alerts"].append((name, "no longer joined (suspended, rejected or closed): clicks to it may not be paid", clicks))
+    recent_start = end - timedelta(days=1)
+    s3, _, t3 = http(f"{base}/reports/advertiser?startDate={recent_start}&endDate={end}&region=GB&timezone=Europe/London", headers=h)
+    try:
+        recent = {(r.get("advertiserName") or "").strip().lower(): (r.get("clicks") or 0) for r in (json.loads(t3) if s3 == 200 else [])}
+    except ValueError:
+        recent = None
+    if recent is not None and s3 == 200:
+        for name, clicks, _sales, _comm in rows:
+            daily = clicks / 28
+            if daily >= 3 and recent.get((name or "").strip().lower(), 0) == 0:
+                out["programme_alerts"].append((name, "clicks stopped being recorded in the last 2 days: check its links and the programme status", clicks))
     return out
 
 
@@ -201,13 +228,15 @@ def main():
 
     aw = awin_private()
     weekly = now().weekday() == 0  # full private email on Mondays, or whenever something needs action
-    urgent = report["status"] != "ok" or (aw and aw.get("no_sales"))
+    urgent = report["status"] != "ok" or (aw and (aw.get("no_sales") or aw.get("programme_alerts")))
     if weekly or urgent:
         parts = [f"<h2>Revenue guardian</h2><p>{report['untrackedTotal']} listings with untracked links. "
                  f"{report['landingOkPct']}% of {report['sampleChecked']} sampled buy links landed correctly.</p>"]
         if fails:
             parts.append("<h3>Links that didn't land right</h3>" + table([(f["name"], f["problem"]) for f in fails], ["Product", "Problem"]))
         if aw:
+            if aw.get("programme_alerts"):
+                parts.append("<h3>Programme health: needs a look today</h3>" + table(aw["programme_alerts"], ["Retailer", "What happened", "Clicks (28 days)"]))
             if aw.get("no_sales"):
                 parts.append("<h3>Clicks but no sales in 28 days (check tracking)</h3>" + table(aw["no_sales"], ["Advertiser", "Clicks", "Sales", "Commission £"]))
             if aw.get("advertisers"):

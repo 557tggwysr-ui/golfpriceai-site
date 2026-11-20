@@ -38,7 +38,14 @@ let sitemap = [];
 const index = await text(SITE + '/sitemap.xml');
 for (const u of locs(index)) sitemap.push(...(u.endsWith('.xml') ? locs(await text(u)) : [u]));
 const prices = sitemap.filter(u => /\/prices\/[^/]+\/$/.test(u));
-const pages = [...new Set([...MAIN.map(p => SITE + p), ...shuffle(prices, seed).slice(0, 20), ...shuffle(sitemap.filter(u => !prices.includes(u)), seed).slice(0, 15)])];
+// Ideas board "mobile-audit" (John, 20 Nov 2026): the 10 most-visited price pages (order only, from the
+// performance analyst) get a first-screen check on a phone: the price and a buy button visible without
+// scrolling, nothing fixed covering them, and buttons big enough to tap.
+let top = [];
+try { top = (JSON.parse(fs.readFileSync('data/agents/performance.json', 'utf8')).topPages || []).slice(0, 10); } catch { /* not yet */ }
+if (!top.length) top = shuffle(prices, seed).slice(0, 5).map(u => u.replace(SITE, ''));
+const topUrls = top.map(p => SITE + p);
+const pages = [...new Set([...topUrls, ...MAIN.map(p => SITE + p), ...shuffle(prices, seed).slice(0, 20), ...shuffle(sitemap.filter(u => !prices.includes(u)), seed).slice(0, 15)])];
 
 const browser = await puppeteer.launch({ executablePath: CHROME, args: ['--no-sandbox'] });
 const findings = [];
@@ -69,6 +76,26 @@ for (const url of pages) {
     };
   }).catch(() => ({ title: '', desc: '', canonical: false, h1: 0, brokenImgs: [], over: false, links: [] }));
   info.links.forEach(l => internal.add(l));
+  let fold = null;
+  if (topUrls.includes(url)) {
+    fold = await page.evaluate(() => {
+      const H = window.innerHeight, out = [];
+      const vis = el => { const r = el.getBoundingClientRect(); const s = getComputedStyle(el); return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none' ? r : null; };
+      const buy = [...document.querySelectorAll('.pp-ctas .pp-btn, a[href*="awin1.com"]')].map(el => [el, vis(el)]).filter(x => x[1]);
+      const first = buy.find(x => x[1].top >= 0 && x[1].bottom <= H);
+      if (!buy.length) out.push('no buy button found');
+      else if (!first) out.push(`buy button not visible without scrolling (first one starts ${Math.round(buy[0][1].top)}px down; the screen is ${H}px)`);
+      if (first) {
+        const r = first[1];
+        if (r.height < 40) out.push(`buy button only ${Math.round(r.height)}px tall (44px is comfortable to tap)`);
+        const cx = r.left + r.width / 2, cy = r.top + r.height / 2, hit = document.elementFromPoint(cx, cy);
+        if (hit && hit !== first[0] && !first[0].contains(hit)) out.push(`something covers the buy button (${(hit.className || hit.tagName).toString().slice(0, 40)})`);
+      }
+      const price = [...document.querySelectorAll('body *')].find(el => el.children.length === 0 && /£\s?\d/.test(el.textContent) && vis(el) && vis(el).top < H);
+      if (!price) out.push('no price visible on the first screen');
+      return out;
+    }).catch(() => []);
+  }
   const problems = [];
   if (status0 >= 400) problems.push(`page returns ${status0}`);
   if (errs.length) problems.push(`script errors: ${[...new Set(errs)].slice(0, 3).join(' | ')}`);
@@ -80,6 +107,8 @@ for (const url of pages) {
   if (!info.canonical) problems.push('no canonical link');
   if (info.h1 !== 1) problems.push(`${info.h1} main headings (should be 1)`);
   if (ms > 6000) problems.push(`slow: ${(ms / 1000).toFixed(1)}s`);
+  if (fold && fold.length) problems.push(...fold.map(x => 'first screen (top page): ' + x));
+  if (topUrls.includes(url) && ms > 3500) problems.push(`top page slower than 3.5s on a phone: ${(ms / 1000).toFixed(1)}s`);
   if (problems.length) findings.push({ page: url.replace(SITE, '') || '/', problems });
   await page.close();
 }
@@ -95,7 +124,7 @@ for (const u of mapSample) { const s = await status(u); if (s >= 400 || s === 0)
 const report = {
   generated: new Date().toISOString().slice(0, 16) + 'Z',
   about: 'Mystery shopper: a phone-sized browser walks the site each night and notes anything broken.',
-  pagesChecked: pages.length, pagesWithProblems: findings.length, findings,
+  pagesChecked: pages.length, pagesWithProblems: findings.length, findings, topPagesChecked: topUrls.length,
   internalLinksChecked: linkSample.length, deadLinks,
   sitemapUrls: sitemap.length, sitemapChecked: mapSample.length, deadInSitemap,
   status: findings.length || deadLinks.length || deadInSitemap.length ? 'attention' : 'ok',

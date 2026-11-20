@@ -106,7 +106,42 @@ def check_page(path, s):
             probs.append(f"{path}: an image has no alt text.")
             break
     probs += check_text(_visible(s), where=path, marketing=False)
+    probs += check_disclosure(path, s)
     return probs
+
+
+# Ads and consumer-law check (ideas board "compliance-check", John 20 Nov 2026). The ASA/CAP Code
+# applies to affiliate marketing, on our own site and social media: it must be obviously
+# identifiable as advertising (asa.org.uk/advice-online/affiliate-marketing.html). Pages with buy
+# links must say plainly that we may earn a commission; "aff" on its own is not enough.
+BUY_LINK = re.compile(r'href="[^"]*(awin1\.com|/go/|clickref=|affiliate)', re.I)
+DISCLOSED = re.compile(r"(earn|receive|get) (a )?commission|reader-supported|affiliate links?\b.{0,60}(commission|earn)|#ad\b|\badvert", re.I)
+
+
+def check_disclosure(path, s):
+    if not BUY_LINK.search(s) and not re.search(r"data-buy|pp-btn", s):
+        return []
+    if DISCLOSED.search(_visible(s)):
+        return []
+    return [f"{path}: has buy links but no affiliate disclosure (say plainly that we may earn a commission, near the links)."]
+
+
+def audit_site():
+    """Whole-site sweep: every built page with buy links must carry the disclosure. Run with --audit."""
+    bad = []
+    for f in ROOT.rglob("*.html"):
+        rel = f.relative_to(ROOT).as_posix()
+        if rel.startswith((".git/", "node_modules/")) or "/wild-nine/" in rel:
+            continue
+        probs = check_disclosure(rel, f.read_text(encoding="utf-8", errors="replace"))
+        if probs:
+            bad.append(rel)
+    save_report("editor-audit.json", {"about": "Editor: whole-site check that every page with buy links says we may earn a commission (ASA/CAP: affiliate ads must be obviously identifiable).",
+                                      "pagesMissingDisclosure": bad[:500], "count": len(bad)})
+    print(f"audit: {len(bad)} pages with buy links and no disclosure")
+    for b in bad[:40]:
+        print("  ", b)
+    return bad
 
 
 def check_json_copy(path, s):
@@ -161,7 +196,7 @@ def gate(paths):
     found = check_files(paths)
     blocked = {}
     for p, probs in found.items():
-        serious = [x for x in probs if "names a retailer" in x or "urgency" in x or "political" in x or "placeholder" in x or "not valid JSON" in x]
+        serious = [x for x in probs if "no affiliate disclosure" in x or "names a retailer" in x or "urgency" in x or "political" in x or "placeholder" in x or "not valid JSON" in x]
         if serious:
             blocked[p] = serious + [x for x in probs if x not in serious]
     save_report("editor-findings.json", {
@@ -284,6 +319,8 @@ def main():
         return dump_frames(sys.argv[sys.argv.index("--frames") + 1])
     if "--verdict" in sys.argv:
         return act_on_verdict(sys.argv[sys.argv.index("--verdict") + 1])
+    if "--audit" in sys.argv:
+        return audit_site()
     if "--text" in sys.argv:
         probs = check_text(sys.argv[sys.argv.index("--text") + 1])
         print("\n".join(probs) or "fine")

@@ -675,3 +675,56 @@
   } catch (e) { /* never break the page */ }
 })();
 
+/* gp-nudge (email optimiser + performance analyst, ideas board "alert-signups"): a polite,
+   non-blocking "Not buying today?" bar on price pages that points to the page's own price-alert
+   form. Split test from /data/experiments.json "nudge": group a sees nothing extra (control),
+   group b sees the bar once, after 25 seconds or most of the page, only if no buy click yet.
+   Dismissed = never again in this browser. Counts only (views, buy clicks, sign-ups per group). */
+(function () {
+  try {
+    var slug = (location.pathname.match(/^\/prices\/([a-z0-9-]+)\/$/) || [])[1];
+    var form = slug && document.getElementById('price-alert');
+    if (!form) return;
+    var W = 'https://golfpriceai-alerts.golfpriceai.workers.dev/signal';
+    var send = function (k, m) { try { navigator.sendBeacon(W, JSON.stringify({ k: k, m: m })); } catch (e) { /* nice-to-have */ } };
+    fetch('/data/experiments.json').then(function (r) { return r.ok ? r.json() : {}; }).then(function (x) {
+      var t = x && x.nudge;
+      if (!t || !t.id || (!t.on && !t.keep)) return;
+      var v = 'b';
+      if (t.on) {
+        try { v = localStorage.getItem('gp-nudge-' + t.id) || (Math.random() < 0.5 ? 'a' : 'b'); localStorage.setItem('gp-nudge-' + t.id, v); } catch (e) { v = Math.random() < 0.5 ? 'a' : 'b'; }
+        send('ng' + v, 'views');
+      }
+      var clicked = false, shown = false;
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href*="awin1.com"]') : null;
+        if (a && !clicked) { clicked = true; if (t.on) send('ng' + v, 'clicks'); }
+      }, true);
+      document.addEventListener('gp:alert-signup', function () { if (t.on) send('ng' + v, 'signups'); });
+      if (v !== 'b') return;
+      try { if (localStorage.getItem('gp-nudge-off')) return; } catch (e) { /* show anyway */ }
+      var show = function () {
+        if (shown || clicked || document.getElementById('cookie-consent-banner')) return;  // never stack on the cookie banner
+        var r = form.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) return;  // the form is already on screen
+        shown = true;
+        var bar = document.createElement('div');
+        bar.setAttribute('role', 'region');
+        bar.setAttribute('aria-label', 'Price alert');
+        bar.style.cssText = 'position:fixed;left:12px;right:12px;bottom:12px;z-index:50;max-width:520px;margin:0 auto;background:#fff;color:#16241c;border:2px solid #3cb43c;border-radius:14px;padding:12px 14px;display:flex;gap:10px;align-items:center;box-shadow:0 6px 24px rgba(0,0,0,.25);font:15px/1.35 system-ui,sans-serif';
+        bar.innerHTML = '<span style="flex:1">Not buying today? We can email you if the price drops.</span>'
+          + '<a href="#price-alert" style="background:#3cb43c;color:#fff;border-radius:10px;padding:8px 12px;font-weight:700;text-decoration:none;white-space:nowrap">Set an alert</a>'
+          + '<button type="button" aria-label="No thanks" style="background:none;border:0;color:#16241c;font-size:22px;line-height:1;cursor:pointer;padding:4px">&times;</button>';
+        var off = function () { try { localStorage.setItem('gp-nudge-off', '1'); } catch (e) { /* fine */ } bar.remove(); };
+        bar.querySelector('button').addEventListener('click', off);
+        bar.querySelector('a').addEventListener('click', function () { setTimeout(function () { var i = form.querySelector('input[type=email]'); if (i) i.focus(); }, 400); off(); });
+        document.body.appendChild(bar);
+      };
+      setTimeout(show, 25000);
+      window.addEventListener('scroll', function () {
+        if ((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight > 0.7) show();
+      }, { passive: true });
+    }).catch(function () { /* no test running */ });
+  } catch (e) { /* never break the page */ }
+})();
+

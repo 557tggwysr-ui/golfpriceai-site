@@ -61,3 +61,14 @@ moment post whose colours don't match its moment, or whose thumbnail doesn't car
 Write /tmp/editor-verdict.json:
 {"verdict": "ok" or "block", "summary": "one sentence", "points": ["file or post id: problem (and the fix)"], "holdPosts": ["post ids to keep off social"]}
 Keep points short and specific. "block" only for the Never list.
+
+## Ads and consumer law (John, 20 Nov 2026)
+
+The ASA/CAP Code applies to affiliate marketing, on our own site and on social media: it must be
+obviously identifiable as advertising (asa.org.uk/advice-online/affiliate-marketing.html). "Aff" on
+its own isn't enough; "Ad" or a plain sentence is.
+- Every page with buy links says plainly that we may earn a commission. The editor holds any page
+  without it, and `python3 scripts/agent_editor.py --audit` sweeps the whole site.
+- Prices are never ranked or chosen by commission; the cheapest honest price leads.
+- Only savings our own price history proves; no "was" prices, no fake urgency (also CMA and the
+  DMCC Act rules on misleading prices and reviews). Never write or invent a review.

@@ -1,5 +1,5 @@
 {
- "about": "The ideas board. Every idea or suggestion goes through the loop in .github/IDEAS.md (propose, challenge, score, John approves, test, measure, learn) before it reaches the site. Targets are directions only: real numbers stay in John's private email.",
+ "about": "The ideas board. Every idea or suggestion goes through the loop in .github/IDEAS.md (propose, challenge, score, John approves, test, measure, learn) before it reaches the site. Targets are directions only: real numbers stay in John's private email. kind \"duty\" = an always-on responsibility (doesn't change what visitors see, so it doesn't count towards the limit of 3 tests at once); kind \"test\" = a change visitors see, tested and measured.",
  "updated": "2026-11-20",
  "wipLimit": 3,
  "shortlistScore": 36,
@@ -19,9 +19,26 @@
    "effort": "S",
    "risks": "Over-labelling could make the site feel salesy: keep the wording short and friendly. The guidance must be read from the ASA/CMA's own pages, not from memory.",
    "challenge": "Objective: trust (it protects revenue). Evidence: the rules are public. Smallest test: one run and one Fix pack. Backfire: only if the wording is clumsy. Duplicate: no. Cost: none. Undo: remove the check.",
-   "score": {"impact": 4, "confidence": 4, "ease": 5, "total": 80},
-   "stage": "shortlisted",
-   "history": [{"date": "2026-11-20", "stage": "shortlisted", "note": "Proposed and challenged by Claude at John's request."}]
+   "score": {
+    "impact": 4,
+    "confidence": 4,
+    "ease": 5,
+    "total": 80
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude at John's request."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the editor holds any page with buy links but no commission disclosure, and --audit sweeps the whole site (first sweep: every page with buy links already discloses)."
+    }
+   ],
+   "kind": "duty"
   },
   {
    "id": "programme-health",
@@ -38,9 +55,26 @@
    "effort": "M",
    "risks": "Must never change which price is shown first because of commission: the cheapest honest price always leads. Private figures stay private.",
    "challenge": "Objective: revenue. Evidence: our own Awin data. Smallest test: an email table. Backfire: none on the site. Duplicate: extends the revenue guardian. Cost: free. Undo: remove the table.",
-   "score": {"impact": 4, "confidence": 4, "ease": 4, "total": 64},
-   "stage": "shortlisted",
-   "history": [{"date": "2026-11-20", "stage": "shortlisted", "note": "Proposed and challenged by Claude."}]
+   "score": {
+    "impact": 4,
+    "confidence": 4,
+    "ease": 4,
+    "total": 64
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the revenue guardian checks daily for programmes no longer joined and for retailers whose clicks stopped being recorded, and emails John the same day."
+    }
+   ],
+   "kind": "duty"
   },
   {
    "id": "launch-season",
@@ -57,9 +91,26 @@
    "effort": "M",
    "risks": "Only show price falls our own data proves (no \"was\" prices, no implied saving we can't show). Never name retailers. Launch dates must be verified.",
    "challenge": "Objective: traffic and revenue. Evidence: benchmark, confidence 3. Smallest test: one page. Backfire: claims that aren't proven, so the claims guardian checks it. Duplicate: no. Cost: free. Undo: unpublish the page.",
-   "score": {"impact": 5, "confidence": 3, "ease": 4, "total": 60},
-   "stage": "shortlisted",
-   "history": [{"date": "2026-11-20", "stage": "shortlisted", "note": "Proposed and challenged by Claude. Time-sensitive: needs approving by mid-December."}]
+   "score": {
+    "impact": 5,
+    "confidence": 3,
+    "ease": 4,
+    "total": 60
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude. Time-sensitive: needs approving by mid-December."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: a \"Club launch season\" occasion page (clubs and balls at the lowest price we have tracked), refreshed weekly from 25 Nov; the moments planner and newsroom can point posts at it."
+    }
+   ],
+   "kind": "test"
   },
   {
    "id": "measure-everything",
@@ -76,9 +127,26 @@
    "effort": "M",
    "risks": "False alarms from normal weekly swings: compare like-for-like days and set a sensible threshold.",
    "challenge": "Needed for the loop to work at all. Evidence: our own data. Cost: free. Undo: remove it.",
-   "score": {"impact": 4, "confidence": 4, "ease": 3, "total": 48},
-   "stage": "shortlisted",
-   "history": [{"date": "2026-11-20", "stage": "shortlisted", "note": "Proposed and challenged by Claude."}]
+   "score": {
+    "impact": 4,
+    "confidence": 4,
+    "ease": 3,
+    "total": 48
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the analyst measures every testing idea (before vs since; directions public, numbers private), emails a sudden-drop alert the same day, and lists the top pages (order only) for the shopper."
+    }
+   ],
+   "kind": "duty"
   },
   {
    "id": "free-tier-guard",
@@ -95,9 +163,26 @@
    "effort": "S",
    "risks": "None on the site.",
    "challenge": "Objective: efficiency and trust. Evidence: our own setup. Cost: free. Undo: remove it.",
-   "score": {"impact": 3, "confidence": 4, "ease": 4, "total": 48},
-   "stage": "shortlisted",
-   "history": [{"date": "2026-11-20", "stage": "shortlisted", "note": "Proposed and challenged by Claude."}]
+   "score": {
+    "impact": 3,
+    "confidence": 4,
+    "ease": 4,
+    "total": 48
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the watchdog warns at 80% of Brevo's daily emails and (with an optional Cloudflare token) Worker and D1 limits, and flags a private repo."
+    }
+   ],
+   "kind": "duty"
   },
   {
    "id": "gap-pages",
@@ -114,9 +199,26 @@
    "effort": "M",
    "risks": "Thin or near-duplicate pages count against us with Google: only build where we have real, distinct value; no doorway pages.",
    "challenge": "Objective: traffic. Evidence: our own gap data, confidence 3. Smallest test: 3 pages. Backfire: thin content, so the editor checks usefulness. Undo: noindex or remove.",
-   "score": {"impact": 4, "confidence": 3, "ease": 3, "total": 36},
-   "stage": "shortlisted",
-   "history": [{"date": "2026-11-20", "stage": "shortlisted", "note": "Proposed and challenged by Claude."}]
+   "score": {
+    "impact": 4,
+    "confidence": 3,
+    "ease": 3,
+    "total": 36
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the monthly AI and competitor check drafts the top 3 search gaps as pages on a branch each month."
+    }
+   ],
+   "kind": "test"
   },
   {
    "id": "alert-signups",
@@ -133,9 +235,36 @@
    "effort": "M",
    "risks": "Pop-ups annoy people: no pop-up that blocks the page, easy to dismiss, shown once.",
    "challenge": "Objective: retention. Evidence: hunch to benchmark. Smallest test: one split test. Guardrail: buy clicks. Undo: switch off.",
-   "score": {"impact": 4, "confidence": 3, "ease": 3, "total": 36},
-   "stage": "shortlisted",
-   "history": [{"date": "2026-11-20", "stage": "shortlisted", "note": "Proposed and challenged by Claude."}]
+   "score": {
+    "impact": 4,
+    "confidence": 3,
+    "ease": 3,
+    "total": 36
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: a polite, dismissible \"Not buying today?\" bar, split-tested by the analyst (sign-ups up, buy clicks as the guardrail); it starts through the Fix pack."
+    }
+   ],
+   "kind": "test",
+   "measure": {
+    "kinds": [
+     "nga",
+     "ngb"
+    ],
+    "keys": [
+     "signups",
+     "clicks"
+    ]
+   }
   },
   {
    "id": "quick-answers",
@@ -152,9 +281,26 @@
    "effort": "S",
    "risks": "Must be written for people and visible on the page (nothing aimed only at AI crawlers).",
    "challenge": "Evidence: our own monthly check, confidence 3. Cheap. Undo: remove the lines.",
-   "score": {"impact": 3, "confidence": 3, "ease": 4, "total": 36},
-   "stage": "shortlisted",
-   "history": [{"date": "2026-11-20", "stage": "shortlisted", "note": "Proposed and challenged by Claude."}]
+   "score": {
+    "impact": 3,
+    "confidence": 3,
+    "ease": 4,
+    "total": 36
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the monthly AI and competitor check writes visible quick-answer lines for the 3 biggest AI-answer gaps on a branch."
+    }
+   ],
+   "kind": "test"
   },
   {
    "id": "mobile-audit",
@@ -171,9 +317,26 @@
    "effort": "S",
    "risks": "None.",
    "challenge": "Evidence: benchmark, confidence 3. Cheap. Undo: revert the fix.",
-   "score": {"impact": 3, "confidence": 3, "ease": 4, "total": 36},
-   "stage": "shortlisted",
-   "history": [{"date": "2026-11-20", "stage": "shortlisted", "note": "Proposed and challenged by Claude."}]
+   "score": {
+    "impact": 3,
+    "confidence": 3,
+    "ease": 4,
+    "total": 36
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the mystery shopper checks the 10 most-visited price pages on a phone every night (price and buy button on the first screen, nothing covering it, big enough to tap, under 3.5 seconds)."
+    }
+   ],
+   "kind": "duty"
   },
   {
    "id": "society-invites",
@@ -190,9 +353,20 @@
    "effort": "M",
    "risks": "No spam: invites are sent by the organiser, never by us.",
    "challenge": "Confidence too low to build yet. Bring back when the analyst has 4 weeks of invite data.",
-   "score": {"impact": 3, "confidence": 2, "ease": 3, "total": 18},
+   "score": {
+    "impact": 3,
+    "confidence": 2,
+    "ease": 3,
+    "total": 18
+   },
    "stage": "parked",
-   "history": [{"date": "2026-11-20", "stage": "parked", "note": "Needs invite data first (the analyst can count it)."}]
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "parked",
+     "note": "Needs invite data first (the analyst can count it)."
+    }
+   ]
   },
   {
    "id": "golf-media-partners",
@@ -209,9 +383,20 @@
    "effort": "M",
    "risks": "Never pay for links (against Google's rules); respect opt-outs.",
    "challenge": "Low confidence and some effort; a cheap 5-pitch test would raise confidence.",
-   "score": {"impact": 4, "confidence": 2, "ease": 2, "total": 16},
+   "score": {
+    "impact": 4,
+    "confidence": 2,
+    "ease": 2,
+    "total": 16
+   },
    "stage": "parked",
-   "history": [{"date": "2026-11-20", "stage": "parked", "note": "Run the 5-pitch test when the press desk has capacity."}]
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "parked",
+     "note": "Run the 5-pitch test when the press desk has capacity."
+    }
+   ]
   },
   {
    "id": "shorts-pinterest",
@@ -228,10 +413,22 @@
    "effort": "M",
    "risks": "Needs new accounts and John's time.",
    "challenge": "Costs John's time and needs accounts; park until Instagram is running smoothly.",
-   "score": {"impact": 3, "confidence": 2, "ease": 3, "total": 18},
+   "score": {
+    "impact": 3,
+    "confidence": 2,
+    "ease": 3,
+    "total": 18
+   },
    "stage": "parked",
-   "history": [{"date": "2026-11-20", "stage": "parked", "note": "Revisit once Instagram posting is settled."}]
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "parked",
+     "note": "Revisit once Instagram posting is settled."
+    }
+   ]
   }
  ],
- "lessons": []
+ "lessons": [],
+ "wipNote": "Tests start one page area at a time: launch season and the alert nudge first; quick answers and gap pages start as their monthly branches are merged, keeping at most 3 tests running."
 }

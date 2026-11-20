@@ -23,6 +23,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ALERTS_SECRET: ${{ secrets.ALERTS_SECRET }}
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
         run: python scripts/agent_watchdog.py
       - name: Save its memory (only when the list of problems changes)
         run: |

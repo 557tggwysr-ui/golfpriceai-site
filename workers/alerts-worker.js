@@ -2174,7 +2174,7 @@ async function clubStats(request, env, cors) {
    no IP address, no cookie, no email. The IP is used only for a moment, as a
    one-way hash in the free edge cache, so one visitor counts once per model
    per day and can't stuff the chart. */
-const SIGNAL_KINDS = { view: 1, heart: 1, search: 1, pp: 1, miss: 1, emb: 1, out: 1, ctaa: 1, ctab: 1, gplay: 1, gview: 1, gout: 1, lret: 1, aisrc: 1 }; // aisrc: which AI app sent a visitor // out: buy clicks per page; cta*: button-wording test; g*: game > price page > buy click; lret: lab returners
+const SIGNAL_KINDS = { view: 1, heart: 1, search: 1, pp: 1, miss: 1, emb: 1, out: 1, ctaa: 1, ctab: 1, gplay: 1, gview: 1, gout: 1, lret: 1, aisrc: 1, nga: 1, ngb: 1 }; // aisrc: which AI app sent a visitor // out: buy clicks per page; cta*: button-wording test; g*: game > price page > buy click; lret: lab returners
 const DEMAND_TTL = 70 * 86400;
 function cleanSearch(q) {
   const t = String(q || '').toLowerCase().replace(/[^a-z0-9 .'&+-]/g, ' ').replace(/\s+/g, ' ').trim();
