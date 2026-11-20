@@ -6,22 +6,20 @@
  "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 599.0,
+ "lowestNewPrice": 529.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 529.0,
+   "options": 4
+  },
   {
    "name": "Affordable Golf",
    "from": 599.0,
    "options": 3
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 599.0,
-   "options": 4
   },
   {
    "name": "Clickgolf",
@@ -36,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 97,
-  "low": 599.0,
+  "low": 529.0,
   "high": 599.0,
-  "average": 599.0,
-  "priceChanges": 0,
+  "average": 598.28,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -47,15 +45,15 @@
    ],
    [
     "2026-11-20",
-    599.0
+    529.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 97 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/g430-irons-1.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-G430-Golf-Irons-Graphite-Pre-Order-3-2.jpg?v=1713976056",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-20"
 }

@@ -6,23 +6,20 @@
  "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 139.0,
+ "lowestNewPrice": 119.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf",
-  "Major Golf Direct",
-  "Scottsdale Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 119.0,
+   "options": 5
+  },
   {
    "name": "Clarkes Golf",
    "from": 139.0,
    "options": 2
-  },
-  {
-   "name": "Clickgolf",
-   "from": 139.0,
-   "options": 5
   },
   {
    "name": "Major Golf Direct",
@@ -44,8 +41,8 @@
   "daysTracked": 97,
   "low": 119.0,
   "high": 139.0,
-  "average": 121.78,
-  "priceChanges": 5,
+  "average": 121.58,
+  "priceChanges": 6,
   "series": [
    [
     "2026-08-16",
@@ -73,13 +70,13 @@
    ],
    [
     "2026-11-20",
-    139.0
+    119.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/V9736701-TM-Pro-Cart-Golf-Bag-Navy-Red-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

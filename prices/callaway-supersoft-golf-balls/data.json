@@ -6,20 +6,20 @@
  "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 22.49,
+ "lowestNewPrice": 19.95,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 19.95,
+   "options": 7
+  },
   {
    "name": "Clickgolf",
    "from": 22.49,
    "options": 10
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 24.95,
-   "options": 7
   },
   {
    "name": "Major Golf Direct",
@@ -39,10 +39,10 @@
  ],
  "history": {
   "daysTracked": 97,
-  "low": 22.49,
+  "low": 19.95,
   "high": 24.99,
-  "average": 24.7,
-  "priceChanges": 2,
+  "average": 24.68,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -58,7 +58,7 @@
    ],
    [
     "2026-11-20",
-    22.49
+    19.95
    ]
   ]
  },
@@ -66,7 +66,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Supersoft-Golf-Balls---Red.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025-Supersoft-White-Lid-002-Photoroom.jpg?v=1738321003",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-20"
 }

@@ -6,23 +6,23 @@
  "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 365.0,
+ "lowestNewPrice": 329.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 365.0,
+   "from": 329.0,
    "options": 3
   }
  ],
  "history": {
   "daysTracked": 78,
-  "low": 365.0,
+  "low": 329.0,
   "high": 365.0,
-  "average": 365.0,
-  "priceChanges": 0,
+  "average": 364.54,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-20",
-    365.0
+    329.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 78 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TeamTaylorMadeJuniorPackageSets2HERO.jpg?v=1777954866",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

@@ -6,15 +6,15 @@
  "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 199.0,
-   "options": 28
+   "from": 169.0,
+   "options": 29
   },
   {
    "name": "Affordable Golf",
@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 78,
-  "low": 199.0,
+  "low": 169.0,
   "high": 199.95,
-  "average": 199.68,
-  "priceChanges": 1,
+  "average": 199.3,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -39,13 +39,13 @@
    ],
    [
     "2026-11-20",
-    199.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 22 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/7-1.2-Ball-S-Ai-Dual-8226.jpg?v=1768640365",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

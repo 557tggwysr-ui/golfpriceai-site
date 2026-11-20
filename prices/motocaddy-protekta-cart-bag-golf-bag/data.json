@@ -6,19 +6,18 @@
  "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 239.0,
+ "lowestNewPrice": 209.0,
  "lowestAt": [
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Clarkes Golf",
-   "from": 239.0,
+   "name": "Clickgolf",
+   "from": 209.0,
    "options": 2
   },
   {
-   "name": "Clickgolf",
+   "name": "Clarkes Golf",
    "from": 239.0,
    "options": 2
   },
@@ -32,8 +31,8 @@
   "daysTracked": 97,
   "low": 209.0,
   "high": 239.0,
-  "average": 222.3,
-  "priceChanges": 14,
+  "average": 221.99,
+  "priceChanges": 15,
   "series": [
    [
     "2026-08-16",
@@ -97,13 +96,13 @@
    ],
    [
     "2026-11-20",
-    239.0
+    209.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/motocaddy-protekta-cart-2025-charcoal-left.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

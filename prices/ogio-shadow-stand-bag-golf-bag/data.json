@@ -6,15 +6,14 @@
  "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 189.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 199.0,
+   "from": 189.0,
    "options": 3
   },
   {
@@ -35,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 97,
-  "low": 199.0,
+  "low": 189.0,
   "high": 329.0,
-  "average": 260.65,
-  "priceChanges": 10,
+  "average": 260.55,
+  "priceChanges": 11,
   "series": [
    [
     "2026-08-16",
@@ -86,7 +85,7 @@
    ],
    [
     "2026-11-20",
-    199.0
+    189.0
    ]
   ]
  },
@@ -94,7 +93,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/ogio-shadow-stand-bag-navy-3-1000x1000-ogio1.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/ogio-golf-bags-stand-2026-shadow_22374___1.jpg?v=1769090391",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-20"
 }

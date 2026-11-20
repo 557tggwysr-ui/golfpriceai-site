@@ -6,14 +6,14 @@
  "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 15.99,
+ "lowestNewPrice": 14.39,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 15.99,
+   "from": 14.39,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 78,
   "low": 14.39,
   "high": 15.99,
-  "average": 15.29,
-  "priceChanges": 2,
+  "average": 15.27,
+  "priceChanges": 3,
   "series": [
    [
     "2026-09-04",
@@ -38,13 +38,13 @@
    ],
    [
     "2026-11-20",
-    15.99
+    14.39
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £1.60 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PinnacleDistanceBalls-15Pack6.jpg?v=1776274330",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

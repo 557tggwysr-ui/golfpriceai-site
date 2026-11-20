@@ -6,23 +6,23 @@
  "checked": "2026-11-20",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.95,
+ "lowestNewPrice": 129.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 149.95,
+   "from": 129.95,
    "options": 2
   }
  ],
  "history": {
   "daysTracked": 78,
-  "low": 149.95,
+  "low": 129.95,
   "high": 159.95,
-  "average": 151.74,
-  "priceChanges": 1,
+  "average": 151.49,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -34,15 +34,15 @@
    ],
    [
     "2026-11-20",
-    149.95
+    129.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 64 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/V-MaxJuniorPackageSet_6-8_PinkHERO.jpg?v=1776294451",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/V-Max_Junior_Package_Set_6-8_Red_HERO.jpg?v=1776294447",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-20"
 }
