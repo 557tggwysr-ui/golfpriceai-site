@@ -3,7 +3,9 @@ name: "Agent: content engine"
 # Sunday 17:00: trend scan, then next week's posts (seven different video
 # styles, each with a hook), feed cards, the pack page and the approval issue.
 # Learns from last week's Instagram results. Daily 08:15: a "moment" post if a popular model hit its
-# lowest price. Daily 12:30: post today's ticked items to Instagram.
+# lowest price, plus the newsroom (also 17:45): fresh news and trends, and Claude writes a
+# same-day post for anything worth riding (build-up beats for big moments, and surprises).
+# Daily 12:30 and 19:30: post today's ticked items to Instagram.
 # Cron times are UTC (UK winter time; an hour later in summer).
 on:
   schedule:
@@ -11,10 +13,12 @@ on:
     - cron: '20 16 * * 3'
     - cron: '15 8 * * *'
     - cron: '30 12 * * *'
+    - cron: '45 17 * * *'
+    - cron: '30 19 * * *'
   workflow_dispatch:
     inputs:
       mode:
-        description: "plan, trends, moment or post"
+        description: "plan, trends, moment (includes the newsroom) or post"
         default: plan
 
 concurrency: { group: agents-commit, cancel-in-progress: false }
@@ -22,8 +26,10 @@ concurrency: { group: agents-commit, cancel-in-progress: false }
 jobs:
   run:
     runs-on: ubuntu-latest
-    permissions: { contents: write, issues: write }
-    env: { PYTHONDONTWRITEBYTECODE: "1" }
+    permissions: { contents: write, issues: write, id-token: write }
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      HAS_CLAUDE: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -37,7 +43,7 @@ jobs:
           if [ -n "${{ github.event.inputs.mode }}" ]; then echo "m=${{ github.event.inputs.mode }}" >> $GITHUB_OUTPUT
           elif [ "${{ github.event.schedule }}" = "0 17 * * 0" ]; then echo "m=plan" >> $GITHUB_OUTPUT
           elif [ "${{ github.event.schedule }}" = "20 16 * * 3" ]; then echo "m=trends" >> $GITHUB_OUTPUT
-          elif [ "${{ github.event.schedule }}" = "15 8 * * *" ]; then echo "m=moment" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "15 8 * * *" ] || [ "${{ github.event.schedule }}" = "45 17 * * *" ]; then echo "m=moment" >> $GITHUB_OUTPUT
           else echo "m=post" >> $GITHUB_OUTPUT; fi
       - uses: actions/setup-node@v4
         if: steps.mode.outputs.m == 'plan' || steps.mode.outputs.m == 'trends'
@@ -50,10 +56,43 @@ jobs:
           npm install --no-save --silent puppeteer-core@23 || true
           export CHROME_PATH=$(which google-chrome || which chromium || echo /usr/bin/google-chrome)
           node scripts/agent_trends.mjs || echo "trend scout failed; planning with what we have"
+      - name: Newsroom scan (fresh news and trends)
+        id: news
+        if: steps.mode.outputs.m == 'moment'
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python scripts/agent_newsroom.py || echo "candidates=0" >> $GITHUB_OUTPUT
+      - name: Claude decides if anything deserves a same-day post
+        if: steps.mode.outputs.m == 'moment' && steps.news.outputs.candidates != '0' && env.HAS_CLAUDE == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            You are the newsroom editor for GolfPrice AI (golfpriceai.com), a UK golf price-comparison site with free golf games.
+            Read /tmp/newsroom-candidates.json (fresh, pre-filtered headlines and trends), data/moments.json (moments we're riding,
+            with their build-up), data/content-queue.json, .github/EDITOR.md, data/social-benchmarks.json and the styles in
+            scripts/agent_cine.py and scripts/agent_video.py.
+            Decide whether ONE candidate deserves a same-day post. Yes only if it's big or fun enough that golfers will be talking
+            about it today, it's safe (nothing political, tragic, about someone's private life, or mocking anyone), and there's a
+            genuinely funny or useful golf angle (a price, a deal, a game or a tool on the site). A build-up beat for a moment
+            we're riding (a trailer, teaser, poster, ticket release) is a strong yes if we haven't posted that beat already.
+            Most runs, the right answer is no: do nothing.
+            If yes: add one entry to data/content-queue.json "posts" with date = today (UTC date), "reactive": true,
+            "status": "queued", "trend", "why" (one line), "style" (pick what suits THIS story and current trends from any engine
+            style; don't default to one), that style's own script fields (read its function), "look" where the style takes one,
+            "link", and "ig", "x" and "tt" captions. Only real figures from data/models.json or data/home-deals.json; images only
+            from product image URLs in data/models.json or tile-photos/*.jpg; the story's name in words only (never its logo,
+            artwork, characters, lettering or music); never a real person's name or image; never name retailers ("multiple UK
+            retailers"); no fake urgency; UK spelling. If it's a build-up beat, also add the beat to that moment's "beats" list in
+            data/moments.json ({"date", "what"}) so we don't repeat it.
+            Change no other files.
+          claude_args: --max-turns 25 --allowedTools "Read,Glob,Grep,Edit,Write,Bash(cat:*),Bash(date:*)"
       - name: Run the content engine
         if: steps.mode.outputs.m != 'trends'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
         run: python scripts/agent_content.py ${{ steps.mode.outputs.m }}
@@ -74,7 +113,7 @@ jobs:
         run: |
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add -A data/agents/content-plan.json data/agents/content-learning.json data/agents/trends.json data/agents/social-trends.json social/ 2>/dev/null || true
+          git add -A data/agents/content-plan.json data/agents/content-learning.json data/agents/trends.json data/agents/social-trends.json data/agents/newsroom.json data/content-queue.json data/moments.json social/ 2>/dev/null || true
           if ! git diff --quiet --cached; then
             git commit -m "Agent: content engine (${{ steps.mode.outputs.m }})"
             git pull --rebase && git push

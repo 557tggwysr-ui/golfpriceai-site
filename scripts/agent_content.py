@@ -533,6 +533,23 @@ def save_plan(plan):
     PLAN.write_text(json.dumps(plan, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def queued_post(q, day, pid, social=None, sound=None):
+    """Render a tie-in from data/content-queue.json (moments planner, newsroom, weekly review) in its own style."""
+    theme = {"theme": ("Reactive: " if q.get("reactive") else "Trend tie-in: ") + q.get("trend", ""), "link": q.get("link", SITE),
+             "image": q.get("image"), "name": q.get("name", ""), "headline": q.get("headline", ""), "sub": q.get("sub", ""),
+             "ig": q["ig"], "x": q.get("x", q["ig"]), "tt": q.get("tt", q.get("headline", ""))}
+    meta = {"date", "trend", "status", "link", "image", "headline", "sub", "ig", "x", "tt", "style", "reactive", "source", "why"}
+    sc = {k: v for k, v in q.items() if k not in meta}
+    for pnl in sc.get("panels") or []:  # panel photos: a product image URL or a site photo path
+        if isinstance(pnl.get("img"), str):
+            pnl["img"] = fetch_image(pnl["img"])
+    qstyle = q.get("style") if q.get("style") in V.STYLES else ("collage" if sc.get("panels") else "story")
+    first = (q.get("beats") or q.get("panels") or [{"big": q.get("headline", "")}])[0]
+    sc.setdefault("hook", first.get("big") or first.get("text") or q.get("headline", ""))
+    print(f"{pid}: queued {'reactive post' if q.get('reactive') else 'trend tie-in'} ({q.get('trend')}) in {qstyle}")
+    return build_post(day, theme, qstyle, sc, "gold", pid, None, social, sound)
+
+
 def plan_week():
     tr = scan_trends()
     social = load_social()
@@ -562,20 +579,7 @@ def plan_week():
         if pid in have:
             continue
         if str(day) in qdays:
-            q = qdays[str(day)]
-            theme = {"theme": "Trend tie-in: " + q.get("trend", ""), "link": q.get("link", SITE), "image": q.get("image"),
-                     "name": q.get("name", ""), "headline": q.get("headline", ""), "sub": q.get("sub", ""),
-                     "ig": q["ig"], "x": q.get("x", q["ig"]), "tt": q.get("tt", q.get("headline", ""))}
-            meta = {"date", "trend", "status", "link", "image", "headline", "sub", "ig", "x", "tt", "style"}
-            sc = {k: v for k, v in q.items() if k not in meta}
-            for pnl in sc.get("panels") or []:  # panel photos: a product image URL or a site photo path
-                if isinstance(pnl.get("img"), str):
-                    pnl["img"] = fetch_image(pnl["img"])
-            qstyle = q.get("style") if q.get("style") in V.STYLES else ("collage" if sc.get("panels") else "story")
-            first = (q.get("beats") or q.get("panels") or [{"big": q.get("headline", "")}])[0]
-            sc["hook"] = first.get("big") or first.get("text") or q.get("headline", "")
-            plan["posts"].append(build_post(day, theme, qstyle, sc, "gold", pid, None, social, songs[i % len(songs)] if songs else None))
-            print(f"{pid}: queued trend tie-in ({q.get('trend')})")
+            plan["posts"].append(queued_post(qdays[str(day)], day, pid, social, songs[i % len(songs)] if songs else None))
             continue
         theme = schedule[i](day, tr)
         fresh_style = lambda x: any(st not in used_styles for st, sc in x["styles"].items() if sc)
@@ -603,6 +607,28 @@ def plan_week():
 def moment():
     plan, L = load_plan(), load_learning()
     today = now().date()
+    # same-day reactive posts from the newsroom (and anything else queued for today)
+    have = {p["id"] for p in plan["posts"]}
+    social = load_social()
+    for n, q in enumerate((load("content-queue.json") or {}).get("posts", [])):
+        if q.get("date") == str(today) and q.get("status", "queued") == "queued":
+            pid = f"{today}-{'reactive' if q.get('reactive') else 'tiein'}{n}"
+            if pid in have:
+                continue
+            post = queued_post(q, today, pid, social)
+            plan["posts"].append(post)
+            save_plan(plan)
+            write_pack(plan)
+            add_to_issue(post)
+            try:
+                from agent_common import email_owner
+                email_owner(f"GolfPrice AI · same-day post ready: {q.get('trend', '')}",
+                            f"<p>The newsroom spotted <b>{esc(q.get('trend', ''))}</b> and made a post for today: "
+                            f"\u201c{esc(post.get('hook', ''))}\u201d.</p><p>Tick it in the Content pack issue to post it "
+                            f"(posting runs at 12:30 and 19:30 UK). If you don't tick it, nothing happens.</p>"
+                            f"<p><a href=\"{SITE}/social/pack/\">See it on the pack page</a></p>")
+            except Exception as e:
+                print("email skipped:", e)
     if any(p["date"] == str(today) and p["id"].endswith("moment") for p in plan["posts"]):
         return
     hd = (load("home-deals.json") or {}).get("deals", [])
@@ -757,6 +783,18 @@ SKITS = [
 ]
 
 
+def news_html():
+    """What the newsroom spotted (so John sees same-day chances even without the Claude token)."""
+    n = load("agents/newsroom.json") or {}
+    c = n.get("candidates") or []
+    if not c:
+        return ""
+    rows = "".join(f"<li><b>{esc(x['kind'])}</b>{(' (' + esc(x['watch']) + ')') if x.get('watch') else ''}: "
+                   f"{esc(x['title'])} <span class='tip'>{esc(x['source'])}</span></li>" for x in c[:6])
+    return (f"<div class='trends'><h2>In the news ({esc(n.get('lastScan', ''))})</h2><p class='tip'>Fresh, safe stories the newsroom "
+            f"spotted. Same-day posts for the best of them appear above when Claude is switched on (setup step 11).</p><ul>{rows}</ul></div>")
+
+
 def skit_html(today):
     wk = today.isocalendar()[1]
     picks = [SKITS[(wk * 2) % len(SKITS)], SKITS[(wk * 2 + 1) % len(SKITS)]]
@@ -817,6 +855,7 @@ button{{background:#14211a;color:#fff;border:0;border-radius:8px;padding:6px 14p
 <h1>Content pack</h1><p>Updated {now().strftime('%a %d %b %H:%M')} UTC. Approve posts by ticking them in the "Content pack" GitHub issue; ticked posts go to Instagram on their day. Download the videos for TikTok, Reels and Shorts and schedule them in each app.</p>
 {trend_html}
 {''.join(cards) or '<p>No posts planned yet.</p>'}
+{news_html()}
 {skit_html(today)}
 <script>function copy(b){{const t=b.previousElementSibling;t.select();navigator.clipboard.writeText(t.value);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)}}</script>
 </body></html>"""
