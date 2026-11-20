@@ -566,9 +566,14 @@ def plan_week():
             theme = {"theme": "Trend tie-in: " + q.get("trend", ""), "link": q.get("link", SITE), "image": q.get("image"),
                      "name": q.get("name", ""), "headline": q.get("headline", ""), "sub": q.get("sub", ""),
                      "ig": q["ig"], "x": q.get("x", q["ig"]), "tt": q.get("tt", q.get("headline", ""))}
-            sc = {k: q[k] for k in ("beats", "payoff", "price", "name", "payoff_label") if k in q}
-            sc["hook"] = (q.get("beats") or [{"big": q.get("headline", "")}])[0].get("big", "")
-            plan["posts"].append(build_post(day, theme, "story", sc, "gold", pid, None, social, songs[i % len(songs)] if songs else None))
+            sc = {k: q[k] for k in ("beats", "panels", "payoff", "price", "name", "payoff_label", "look", "banner", "banner_sub") if k in q}
+            for pnl in sc.get("panels") or []:  # panel photos: a product image URL or a site photo path
+                if isinstance(pnl.get("img"), str):
+                    pnl["img"] = fetch_image(pnl["img"])
+            qstyle = "collage" if sc.get("panels") else "story"
+            first = (q.get("beats") or q.get("panels") or [{"big": q.get("headline", "")}])[0]
+            sc["hook"] = first.get("big") or first.get("text") or q.get("headline", "")
+            plan["posts"].append(build_post(day, theme, qstyle, sc, "gold", pid, None, social, songs[i % len(songs)] if songs else None))
             print(f"{pid}: queued trend tie-in ({q.get('trend')})")
             continue
         theme = schedule[i](day, tr)

@@ -309,7 +309,7 @@ def style_thennow(t, s, pal, img, photo):
 
 def style_story(t, s, pal, img, photo):
     """Trend tie-in: up to six text beats (9.6s shared), then a payoff card. 12.6s."""
-    im = dark_bg(t, tint=(20, 20, 30))
+    im = sunset_bg(t, look_of(s)) if s.get("look") else dark_bg(t, tint=(20, 20, 30))
     beats = (s.get("beats") or [{"big": s.get("hook", "")}])[:6]
     span = 9.6 / len(beats)
     if t < 9.6:
@@ -534,11 +534,36 @@ PANELS = [  # x, y, w, h, angle  (a 2-column, irregular grid like a cover-art co
 ]
 
 
-def sunset_bg(t):
-    key = ("sunset",)
+# A "look" lets the moments planner match a moment's visual language with our own original art:
+#   {"stops": [[0.0, [r,g,b]], ...], "motif": "palms" | "snow" | "grid" | "stars" | "fairway" | "none",
+#    "sun": true/false, "accent": [r,g,b], "panel_colours": [[[r,g,b],[r,g,b]], ...], "ink": [r,g,b], "stroke": [r,g,b]}
+LOOKS = {
+    "vice": {"stops": [[0, [34, 18, 64]], [0.45, [130, 48, 140]], [0.7, [255, 94, 140]], [0.85, [255, 165, 90]], [1, [40, 30, 70]]],
+             "motif": "palms", "sun": True, "accent": [150, 255, 90]},
+    "christmas": {"stops": [[0, [10, 30, 22]], [0.6, [20, 70, 45]], [1, [120, 20, 30]]], "motif": "snow", "sun": False,
+                  "accent": [255, 214, 120], "panel_colours": [[[180, 30, 40], [110, 15, 25]], [[20, 90, 55], [10, 45, 30]], [[200, 150, 60], [120, 80, 30]]],
+                  "duo": [[30, 10, 14], [170, 40, 50], [255, 236, 200]]},
+    "hero": {"stops": [[0, [6, 6, 18]], [0.55, [40, 16, 60]], [1, [140, 20, 30]]], "motif": "grid", "sun": False,
+             "accent": [255, 200, 60], "panel_colours": [[[40, 50, 120], [12, 14, 40]], [[150, 20, 30], [50, 6, 12]], [[60, 60, 70], [20, 20, 26]]],
+             "duo": [[8, 8, 24], [60, 70, 160], [255, 210, 120]]},
+    "major": {"stops": [[0, [12, 50, 30]], [0.7, [30, 100, 55]], [1, [235, 215, 140]]], "motif": "fairway", "sun": False,
+              "accent": [255, 214, 90], "panel_colours": [[[24, 90, 50], [10, 50, 28]], [[200, 80, 140], [130, 40, 90]], [[170, 140, 60], [100, 80, 30]]],
+              "duo": [[10, 40, 22], [60, 140, 80], [255, 240, 200]]},
+    "night": {"stops": [[0, [4, 6, 20]], [1, [30, 40, 90]]], "motif": "stars", "sun": False, "accent": [150, 255, 90]},
+}
+
+
+def look_of(s):
+    lk = s.get("look") or "vice"
+    return dict(LOOKS.get(lk, LOOKS["vice"])) if isinstance(lk, str) else {**LOOKS["vice"], **lk}
+
+
+def sunset_bg(t, look=None):
+    look = look or LOOKS["vice"]
+    key = ("sunset", repr(look.get("stops")), look.get("motif"), look.get("sun"))
     if key not in _cache:
         g = Image.new("RGB", (1, H))
-        stops = [(0, (34, 18, 64)), (0.45, (130, 48, 140)), (0.7, (255, 94, 140)), (0.85, (255, 165, 90)), (1, (40, 30, 70))]
+        stops = [(a, tuple(c)) for a, c in look["stops"]]
         for y in range(H):
             k = y / H
             for (a, ca), (b, cb) in zip(stops, stops[1:]):
@@ -548,14 +573,46 @@ def sunset_bg(t):
                     break
         bg = g.resize((W, H)).convert("RGBA")
         d = ImageDraw.Draw(bg)
-        sun = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-        sd = ImageDraw.Draw(sun)
-        sd.ellipse([W / 2 - 330, 1100, W / 2 + 330, 1760], fill=(255, 190, 110, 255))
-        for i in range(9):                                                      # retro sun stripes
-            y = 1450 + i * 34
-            sd.rectangle([0, y, W, y + 6 + i * 2], fill=(0, 0, 0, 0))
-        bg.alpha_composite(sun.filter(ImageFilter.GaussianBlur(1)))
-        for x0, h0, flip in ((60, 900, 1), (W - 80, 1050, -1), (W - 230, 760, -1)):  # palm silhouettes
+        motif = look.get("motif", "palms")
+        rnd = random.Random(11)
+        if look.get("sun"):
+            sun = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            sd = ImageDraw.Draw(sun)
+            sd.ellipse([W / 2 - 330, 1100, W / 2 + 330, 1760], fill=(255, 190, 110, 255))
+            for i in range(9):                                                  # retro sun stripes
+                y = 1450 + i * 34
+                sd.rectangle([0, y, W, y + 6 + i * 2], fill=(0, 0, 0, 0))
+            bg.alpha_composite(sun.filter(ImageFilter.GaussianBlur(1)))
+        if motif == "grid":                                                     # neon perspective grid
+            gl = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            gd = ImageDraw.Draw(gl)
+            col = tuple(look.get("accent", (255, 200, 60))) + (120,)
+            for i in range(-12, 13):
+                gd.line([(W / 2 + i * 40, 1200), (W / 2 + i * 260, H)], fill=col, width=3)
+            for j in range(12):
+                y = 1200 + (j / 12) ** 2 * (H - 1200)
+                gd.line([(0, y), (W, y)], fill=col, width=3)
+            bg.alpha_composite(gl.filter(ImageFilter.GaussianBlur(1.2)))
+        if motif in ("stars", "grid"):
+            for _ in range(160):
+                x, y, r = rnd.uniform(0, W), rnd.uniform(0, 1150), rnd.choice((1, 1, 2, 3))
+                d.ellipse([x - r, y - r, x + r, y + r], fill=(255, 255, 255, rnd.randint(90, 230)))
+        if motif == "fairway":                                                  # mown stripes and a flag
+            for i in range(8):
+                y = 1250 + i * 85
+                d.rectangle([0, y, W, y + 42], fill=(255, 255, 255, 22))
+            d.line([(W - 200, 1200), (W - 200, 900)], fill=(250, 250, 250, 255), width=8)
+            d.polygon([(W - 196, 900), (W - 80, 940), (W - 196, 980)], fill=tuple(look.get("accent", (255, 214, 90))) + (255,))
+        if motif == "snow":                                                     # fairy lights along the top
+            for i in range(14):
+                x = 40 + i * 76
+                y = 70 + math.sin(i * 0.9) * 26
+                c = rnd.choice([(255, 214, 120), (255, 90, 90), (140, 230, 140), (255, 255, 255)])
+                glow = Image.new("RGBA", (80, 80), (0, 0, 0, 0))
+                ImageDraw.Draw(glow).ellipse([28, 28, 52, 52], fill=c + (255,))
+                bg.alpha_composite(glow.filter(ImageFilter.GaussianBlur(6)), (int(x - 40), int(y - 40)))
+                d.ellipse([x - 7, y - 7, x + 7, y + 7], fill=c + (255,))
+        for x0, h0, flip in (((60, 900, 1), (W - 80, 1050, -1), (W - 230, 760, -1)) if motif == "palms" else ()):  # palm silhouettes
             pc = (20, 12, 36, 255)
             d.line([(x0, H), (x0 + flip * 40, H - h0)], fill=pc, width=26)
             tx, ty = x0 + flip * 40, H - h0
@@ -568,12 +625,13 @@ def sunset_bg(t):
 
 def _panel_img(p, w, h, t):
     """One panel's picture: text on a gradient block, or a photo with a sunset duotone."""
-    key = ("panel", id(p), w, h)
+    key = ("panel", p.get("text"), p.get("sub"), p.get("tag"), id(p.get("img")), repr(p.get("colours")), repr(p.get("duo")), w, h)
     if key not in _cache:
         if p.get("img") is not None:
             ph = ImageOps.fit(p["img"].convert("RGB"), (int(w * 1.12), int(h * 1.12)), Image.LANCZOS)
             lum = ImageOps.grayscale(ph)
-            duo = ImageOps.colorize(lum, black=(40, 16, 70), white=(255, 214, 160), mid=(240, 90, 140))
+            dk, md, lt = p.get("duo") or ((40, 16, 70), (240, 90, 140), (255, 214, 160))
+            duo = ImageOps.colorize(lum, black=dk, white=lt, mid=md)
             base = Image.blend(ph, duo, 0.45).convert("RGBA")
         else:
             c1, c2 = p.get("colours", (SUNSET[2], SUNSET[0]))
@@ -599,7 +657,7 @@ def _panel_img(p, w, h, t):
             else:
                 cur = (cur + " " + wd).strip()
         lines.append(cur)
-        while len(lines) * size * 1.02 > h * (0.5 if p.get("sub") else 0.72) and size > 50:
+        while (len(lines) * size * 1.02 > h * (0.5 if p.get("sub") else 0.72) or max(f.getlength(x) for x in lines) > w - 50) and size > 40:
             size = int(size * 0.88)
             f = cfont(size)
             words, lines, cur = p["text"].upper().split(), [], ""
@@ -639,8 +697,18 @@ def _panel_img(p, w, h, t):
 
 def style_collage(t, s, pal, img, photo):
     """Panels drop in one per beat until the frame is a full collage; then the brand banner. 12.6s."""
-    im = sunset_bg(t)
+    look = look_of(s)
+    im = sunset_bg(t, look)
+    if look.get("motif") == "snow":                                             # gently falling snow
+        rnd = random.Random(5)
+        sd = ImageDraw.Draw(im)
+        for _ in range(120):
+            x0, sp, r = rnd.uniform(0, W), rnd.uniform(40, 120), rnd.choice((2, 3, 4, 5))
+            y = (rnd.uniform(0, H) + t * sp) % H
+            x = x0 + math.sin(t * 1.3 + x0) * 18
+            sd.ellipse([x - r, y - r, x + r, y + r], fill=(255, 255, 255, 200))
     panels = (s.get("panels") or [])[:6]
+    pcols = look.get("panel_colours")
     span = 9.0 / max(1, len(panels))
     for i, p in enumerate(panels):
         st = 0.3 + i * span
@@ -648,6 +716,12 @@ def style_collage(t, s, pal, img, photo):
             break
         x, y, w, h, ang = PANELS[i]
         k = ease((t - st) / 0.45)
+        if pcols and "colours" not in p and p.get("img") is None:
+            p = {**p, "colours": tuple(tuple(c) for c in pcols[i % len(pcols)])}
+            s["panels"][i] = p
+        if look.get("duo") and p.get("img") is not None and "duo" not in p:
+            p = {**p, "duo": tuple(tuple(c) for c in look["duo"])}
+            s["panels"][i] = p
         pim = _panel_img(p, w, h, t - st)
         frame = Image.new("RGBA", (w + 24, h + 24), (18, 10, 30, 255))
         frame.alpha_composite(pim, (12, 12))
@@ -668,10 +742,11 @@ def style_collage(t, s, pal, img, photo):
         bar = Image.new("RGBA", (W, 300), (18, 10, 30, int(235 * k)))
         im.alpha_composite(bar, (0, int(H - 300 * k)))
         kinetic(im, s.get("banner", "GOLFPRICEAI.COM"), H - 190, 120, et - 0.1, colour=(255, 255, 255))
+        look_acc = tuple(look.get("accent", NEON))
         f = cfont(36, body=True)
         d = ImageDraw.Draw(im)
         for i, (txt, col) in enumerate(((s.get("banner_sub", "Every UK golf price, checked every 6 hours"), (255, 215, 170)),
-                                        ("Full Swing. Not full price.", NEON))):
+                                        ("Full Swing. Not full price.", look_acc))):
             d.text(((W - f.getlength(txt)) / 2, H - 112 + i * 46), txt, font=f, fill=col + (int(255 * ease((et - 0.4) / 0.3)),))
     return im, 0
 
