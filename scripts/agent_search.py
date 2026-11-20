@@ -51,6 +51,16 @@ COMPETITOR_SITES = {
     "golfclubprice.com": ("ClubCompass", "used club values and price comparison"),
     "riddygolf.com": ("RiddyGolf", "golf society app (vs Society HQ)"),
 }
+# Extra competitors found by the monthly competitor scout (John, 20 Nov 2026: don't
+# pigeon-hole us against a fixed group). The scout proposes additions to
+# data/competitors.json on a branch; once John merges, the weekly watch covers them too.
+try:
+    with open(os.path.join(os.path.dirname(__file__), "..", "data", "competitors.json"), encoding="utf-8") as _f:
+        for _c in json.load(_f).get("sites", []):
+            if _c.get("host") and _c.get("status", "watch") == "watch":
+                COMPETITOR_SITES.setdefault(_c["host"].lower().removeprefix("www."), (_c.get("name", _c["host"]), _c.get("competesWith", "unknown")))
+except (OSError, ValueError):
+    pass
 COMPETITORS = [c.strip() for c in os.environ.get("COMPETITORS", ",".join(COMPETITOR_SITES)).split(",") if c.strip()]
 WATCH = os.path.join(os.path.dirname(__file__), "..", "data", "agents", "competitor-watch.json")
 
