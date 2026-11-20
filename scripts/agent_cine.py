@@ -522,5 +522,159 @@ def style_truth(t, s, pal, img, photo):
     return im, 0
 
 
+# ---------------- collage: the "loading screen" comic-panel look ----------------
+# Tilted panels with thick dark borders on a sunset gradient, one dropping in per beat until the
+# frame is a full collage (the look of a big game's cover art, as golf brands used for GTA VI).
+# Always our own content: never a game's logo, lettering, characters or artwork.
+SUNSET = [(255, 94, 160), (255, 160, 90), (120, 60, 170), (40, 190, 200)]
+PANELS = [  # x, y, w, h, angle  (a 2-column, irregular grid like a cover-art collage)
+    (40, 210, 560, 520, -2.0), (620, 170, 420, 640, 1.5),
+    (40, 760, 430, 560, 1.2), (490, 840, 550, 470, -1.4),
+    (40, 1350, 560, 400, -1.0), (620, 1340, 420, 420, 2.0),
+]
+
+
+def sunset_bg(t):
+    key = ("sunset",)
+    if key not in _cache:
+        g = Image.new("RGB", (1, H))
+        stops = [(0, (34, 18, 64)), (0.45, (130, 48, 140)), (0.7, (255, 94, 140)), (0.85, (255, 165, 90)), (1, (40, 30, 70))]
+        for y in range(H):
+            k = y / H
+            for (a, ca), (b, cb) in zip(stops, stops[1:]):
+                if a <= k <= b:
+                    f = (k - a) / (b - a)
+                    g.putpixel((0, y), tuple(int(ca[i] + (cb[i] - ca[i]) * f) for i in range(3)))
+                    break
+        bg = g.resize((W, H)).convert("RGBA")
+        d = ImageDraw.Draw(bg)
+        sun = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        sd = ImageDraw.Draw(sun)
+        sd.ellipse([W / 2 - 330, 1100, W / 2 + 330, 1760], fill=(255, 190, 110, 255))
+        for i in range(9):                                                      # retro sun stripes
+            y = 1450 + i * 34
+            sd.rectangle([0, y, W, y + 6 + i * 2], fill=(0, 0, 0, 0))
+        bg.alpha_composite(sun.filter(ImageFilter.GaussianBlur(1)))
+        for x0, h0, flip in ((60, 900, 1), (W - 80, 1050, -1), (W - 230, 760, -1)):  # palm silhouettes
+            pc = (20, 12, 36, 255)
+            d.line([(x0, H), (x0 + flip * 40, H - h0)], fill=pc, width=26)
+            tx, ty = x0 + flip * 40, H - h0
+            for a in range(0, 360, 40):
+                r = math.radians(a)
+                d.polygon([(tx, ty), (tx + math.cos(r) * 230, ty + math.sin(r) * 90 + 40), (tx + math.cos(r + 0.25) * 200, ty + math.sin(r + 0.25) * 70 + 50)], fill=pc)
+        _cache[key] = bg
+    return _cache[key].copy()
+
+
+def _panel_img(p, w, h, t):
+    """One panel's picture: text on a gradient block, or a photo with a sunset duotone."""
+    key = ("panel", id(p), w, h)
+    if key not in _cache:
+        if p.get("img") is not None:
+            ph = ImageOps.fit(p["img"].convert("RGB"), (int(w * 1.12), int(h * 1.12)), Image.LANCZOS)
+            lum = ImageOps.grayscale(ph)
+            duo = ImageOps.colorize(lum, black=(40, 16, 70), white=(255, 214, 160), mid=(240, 90, 140))
+            base = Image.blend(ph, duo, 0.45).convert("RGBA")
+        else:
+            c1, c2 = p.get("colours", (SUNSET[2], SUNSET[0]))
+            g = Image.new("RGB", (1, 2))
+            g.putpixel((0, 0), c1)
+            g.putpixel((0, 1), c2)
+            base = g.resize((int(w * 1.12), int(h * 1.12)), Image.BILINEAR).convert("RGBA")
+        _cache[key] = base
+    base = _cache[key]
+    z = 1 + 0.06 * min(1, t / 8)                                                # slow push-in inside the frame
+    cw, ch = int(w * 1.12 / z), int(h * 1.12 / z)
+    ox, oy = (base.width - cw) // 2, (base.height - ch) // 2
+    im = base.crop((ox, oy, ox + cw, oy + ch)).resize((w, h), Image.LANCZOS)
+    if p.get("text"):
+        d = ImageDraw.Draw(im)
+        size = p.get("size", 150)
+        f = cfont(size)
+        words, lines, cur = p["text"].upper().split(), [], ""
+        for wd in words:
+            if f.getlength((cur + " " + wd).strip()) > w - 60 and cur:
+                lines.append(cur)
+                cur = wd
+            else:
+                cur = (cur + " " + wd).strip()
+        lines.append(cur)
+        while len(lines) * size * 1.02 > h * (0.5 if p.get("sub") else 0.72) and size > 50:
+            size = int(size * 0.88)
+            f = cfont(size)
+            words, lines, cur = p["text"].upper().split(), [], ""
+            for wd in words:
+                if f.getlength((cur + " " + wd).strip()) > w - 60 and cur:
+                    lines.append(cur)
+                    cur = wd
+                else:
+                    cur = (cur + " " + wd).strip()
+            lines.append(cur)
+        y0 = (h - len(lines) * size * 1.02) / 2 - (24 if p.get("sub") else 0)
+        for i, ln in enumerate(lines):
+            x = (w - f.getlength(ln)) / 2
+            d.text((x, y0 + i * size * 1.02), ln, font=f, fill=(255, 255, 255, 255), stroke_width=max(4, size // 22), stroke_fill=(24, 12, 40, 255))
+        if p.get("sub"):
+            fs = cfont(34, body=True)
+            sub_lines, cur = [], ""
+            for wd in p["sub"].split():
+                if fs.getlength((cur + " " + wd).strip()) > w - 70 and cur:
+                    sub_lines.append(cur)
+                    cur = wd
+                else:
+                    cur = (cur + " " + wd).strip()
+            sub_lines.append(cur)
+            yy = y0 + len(lines) * size * 1.02 + 14
+            for ln in sub_lines[:4]:
+                d.text(((w - fs.getlength(ln)) / 2, yy), ln, font=fs, fill=(255, 245, 230, 255), stroke_width=3, stroke_fill=(24, 12, 40, 255))
+                yy += 44
+    if p.get("tag"):
+        d = ImageDraw.Draw(im)
+        ft = cfont(44)
+        tw = ft.getlength(p["tag"])
+        d.rectangle([18, 18, 18 + tw + 28, 82], fill=(20, 12, 36, 255))
+        d.text((32, 22), p["tag"], font=ft, fill=NEON + (255,))
+    return im
+
+
+def style_collage(t, s, pal, img, photo):
+    """Panels drop in one per beat until the frame is a full collage; then the brand banner. 12.6s."""
+    im = sunset_bg(t)
+    panels = (s.get("panels") or [])[:6]
+    span = 9.0 / max(1, len(panels))
+    for i, p in enumerate(panels):
+        st = 0.3 + i * span
+        if t < st:
+            break
+        x, y, w, h, ang = PANELS[i]
+        k = ease((t - st) / 0.45)
+        pim = _panel_img(p, w, h, t - st)
+        frame = Image.new("RGBA", (w + 24, h + 24), (18, 10, 30, 255))
+        frame.alpha_composite(pim, (12, 12))
+        rot = frame.rotate(ang + (1 - k) * 14 * (-1 if i % 2 else 1), expand=True, resample=Image.BICUBIC)
+        sc = 1.35 - 0.35 * k
+        rot = rot.resize((max(1, int(rot.width * sc)), max(1, int(rot.height * sc))), Image.LANCZOS)
+        if k < 1:
+            rot.putalpha(rot.getchannel("A").point(lambda v: int(v * min(1, k * 2.2))))
+        shadow = Image.new("RGBA", rot.size, (0, 0, 0, 0))
+        shadow.putalpha(rot.getchannel("A").point(lambda v: int(v * 0.45)))
+        cx, cy = x + w / 2, y + h / 2
+        im.alpha_composite(shadow.filter(ImageFilter.GaussianBlur(14)), (int(cx - rot.width / 2 + 10), int(cy - rot.height / 2 + 16)))
+        im.alpha_composite(rot, (int(cx - rot.width / 2), int(cy - rot.height / 2)))
+        flash(im, t, st, 0.06)
+    if t >= 9.6:
+        et = t - 9.6
+        k = ease(et / 0.4)
+        bar = Image.new("RGBA", (W, 300), (18, 10, 30, int(235 * k)))
+        im.alpha_composite(bar, (0, int(H - 300 * k)))
+        kinetic(im, s.get("banner", "GOLFPRICEAI.COM"), H - 190, 120, et - 0.1, colour=(255, 255, 255))
+        f = cfont(36, body=True)
+        d = ImageDraw.Draw(im)
+        for i, (txt, col) in enumerate(((s.get("banner_sub", "Every UK golf price, checked every 6 hours"), (255, 215, 170)),
+                                        ("Full Swing. Not full price.", NEON))):
+            d.text(((W - f.getlength(txt)) / 2, H - 112 + i * 46), txt, font=f, fill=col + (int(255 * ease((et - 0.4) / 0.3)),))
+    return im, 0
+
+
 CINE_STYLES = {"spec": (style_spec, 10.5), "thennow": (style_thennow, 10.0), "story": (style_story, 12.6),
-               "sitedemo": (style_sitedemo, 11.0), "truth": (style_truth, 10.5)}
+               "sitedemo": (style_sitedemo, 11.0), "truth": (style_truth, 10.5), "collage": (style_collage, 12.6)}
