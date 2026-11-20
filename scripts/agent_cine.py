@@ -768,7 +768,7 @@ THUMB_STYLES = {
 }
 
 
-def _short_hook(text, n=4):
+def _short_hook(text, n=5):
     words = [w for w in re.sub(r"[^\w£'.,!? -]", "", str(text)).split() if w]
     return " ".join(words[:n]).rstrip(",.") if len(words) > n else " ".join(words)
 
