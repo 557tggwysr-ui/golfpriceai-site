@@ -1,5 +1,5 @@
 {
- "about": "Big cultural and golf moments the content plan builds around (John, 19 Nov 2026: plan ahead for GTA VI, Avengers: Doomsday, Christmas and the like). The monthly moments planner (Claude) keeps this list 90 days ahead, verifies every date, and drafts tie-in posts into data/content-queue.json. Original design only: never a film's, game's or brand's logo, artwork, characters or lettering. Each moment also gets a 'look': the moment's visual language (palette, motifs, layout, type mood) translated into original art the engine can render (scripts/agent_cine.py LOOKS: vice, christmas, hero, major, night, or a custom look).",
+ "about": "Big cultural and golf moments the content plan builds around (John, 19-20 Nov 2026: plan ahead for GTA VI, Avengers: Doomsday, Christmas and the like). The moments planner (Claude, 1st and 15th) keeps this 90 days ahead, verifies dates, and for EACH moment chooses its own format and look to suit the event and what's working on social right now. The GTA VI collage was right for GTA only; no format is the default. Original design only: never a film's, game's or brand's logo, artwork, characters or lettering.",
  "moments": [
   {
    "name": "GTA VI launch",
@@ -16,8 +16,7 @@
    "kind": "shopping",
    "status": "planned",
    "angle": "genuinely cheaper than October, no fake sales",
-   "style": "thennow",
-   "look": "night"
+   "format": "to decide (moments planner picks what suits this event and current trends)"
   },
   {
    "name": "Cyber Monday",
@@ -25,8 +24,7 @@
    "kind": "shopping",
    "status": "planned",
    "angle": "last day of the sales, honestly",
-   "style": "spec",
-   "look": "night"
+   "format": "to decide (moments planner picks what suits this event and current trends)"
   },
   {
    "name": "Avengers: Doomsday (UK cinemas)",
@@ -34,9 +32,8 @@
    "kind": "global launch",
    "status": "to draft",
    "angle": "assemble the perfect bag for less; the real doomsday is paying full price",
-   "style": "collage",
    "verified": "Disney confirmed the UK date (Empire / Digital Spy, Sept 2026)",
-   "look": "hero"
+   "format": "to decide (moments planner picks what suits this event and current trends)"
   },
   {
    "name": "Christmas",
@@ -44,9 +41,8 @@
    "kind": "holiday",
    "status": "to draft",
    "angle": "last-minute golf gifts by budget; what golfers really want under the tree",
-   "style": "story",
    "lead_days": 21,
-   "look": "christmas"
+   "format": "to decide (moments planner picks what suits this event and current trends)"
   },
   {
    "name": "Boxing Day sales",
@@ -54,8 +50,7 @@
    "kind": "shopping",
    "status": "to draft",
    "angle": "which Boxing Day golf deals are real",
-   "style": "thennow",
-   "look": "christmas"
+   "format": "to decide (moments planner picks what suits this event and current trends)"
   },
   {
    "name": "New Year resolutions",
@@ -63,8 +58,7 @@
    "kind": "holiday",
    "status": "to draft",
    "angle": "new year, new handicap, same old excuses",
-   "style": "truth",
-   "look": "night"
+   "format": "to decide (moments planner picks what suits this event and current trends)"
   },
   {
    "name": "Valentine's Day",
@@ -72,8 +66,7 @@
    "kind": "holiday",
    "status": "to draft",
    "angle": "telling your partner about the new driver",
-   "style": "truth",
-   "look": "night"
+   "format": "to decide (moments planner picks what suits this event and current trends)"
   },
   {
    "name": "The Masters",
@@ -81,9 +74,8 @@
    "kind": "golf major",
    "status": "to draft",
    "angle": "Masters week kit and prices; never the tournament's logos or marks",
-   "style": "spec",
    "verified": "Thu 8 to Sun 11 April 2027",
-   "look": "major"
+   "format": "to decide (moments planner picks what suits this event and current trends)"
   }
  ],
  "heroVideo": {

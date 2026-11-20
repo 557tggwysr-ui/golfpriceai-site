@@ -566,11 +566,12 @@ def plan_week():
             theme = {"theme": "Trend tie-in: " + q.get("trend", ""), "link": q.get("link", SITE), "image": q.get("image"),
                      "name": q.get("name", ""), "headline": q.get("headline", ""), "sub": q.get("sub", ""),
                      "ig": q["ig"], "x": q.get("x", q["ig"]), "tt": q.get("tt", q.get("headline", ""))}
-            sc = {k: q[k] for k in ("beats", "panels", "payoff", "price", "name", "payoff_label", "look", "banner", "banner_sub") if k in q}
+            meta = {"date", "trend", "status", "link", "image", "headline", "sub", "ig", "x", "tt", "style"}
+            sc = {k: v for k, v in q.items() if k not in meta}
             for pnl in sc.get("panels") or []:  # panel photos: a product image URL or a site photo path
                 if isinstance(pnl.get("img"), str):
                     pnl["img"] = fetch_image(pnl["img"])
-            qstyle = "collage" if sc.get("panels") else "story"
+            qstyle = q.get("style") if q.get("style") in V.STYLES else ("collage" if sc.get("panels") else "story")
             first = (q.get("beats") or q.get("panels") or [{"big": q.get("headline", "")}])[0]
             sc["hook"] = first.get("big") or first.get("text") or q.get("headline", "")
             plan["posts"].append(build_post(day, theme, qstyle, sc, "gold", pid, None, social, songs[i % len(songs)] if songs else None))
