@@ -127,7 +127,12 @@ Mondays 09:13  Weekly review in the Claude app, with up to 3 ideas for you to de
 
 
 THE FOURBALL (our weekly comedy series, from Wed 25 Nov)
-  Every Wednesday       a new episode in the Content pack (EP 1 Big Dave's par, EP 2 Gaz's new driver)
+  Every Wednesday       a new episode in the Content pack (EP 1 Big Dave's par on 25 Nov, EP 2 Gaz's new
+                        driver on 2 Dec, EP 3 Big Dave's receipts on 9 Dec). Tick it in the pack and
+                        Instagram posts it itself (needs D2). TikTok and YouTube Shorts: download the
+                        video from the pack and post it with the caption shown there.
+                        Episode 1 is only in this week's pack if you ran the content engine in "plan"
+                        mode in step C3 (the automatic weekly plan runs on Sundays).
   Every Thursday 19:37  the writers' room: how the last episode landed, the next episodes,
                         and a photo prompts file if new photos are needed (make them in the
                         same ChatGPT chat as the cast and send them back in that same message thread)
