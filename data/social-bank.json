@@ -674,6 +674,89 @@
         "punch": "Driver?!",
         "tool": "fourball"
       }
+    },
+    {
+      "title": "Big Dave's *receipts*",
+      "thumb": "The scorecard doesn't lie",
+      "caption": "Big Dave's receipts. Phil brought evidence.",
+      "counter": false,
+      "lines": [
+        {
+          "who": "him",
+          "text": "Par. *Again*, lads.",
+          "beats": 2,
+          "pos": "bottom",
+          "bg": "assets/social/library/seq-dave-07-proud.jpg",
+          "focus": [
+            0.3,
+            0.42
+          ]
+        },
+        {
+          "who": "mate",
+          "text": "Live scorecard *says*...",
+          "beats": 2,
+          "bg": "assets/social/library/phil-03-phone.jpg",
+          "label": "Phil",
+          "scene": "Phil holding his phone up to the camera, screen facing us, deadpan"
+        },
+        {
+          "who": "mate",
+          "text": "Big Dave: *six.*",
+          "beats": 2,
+          "pos": "low",
+          "screen": "assets/social/outro/scorecard-dave6.jpg",
+          "bg": "assets/social/library/phil-03-phone.jpg",
+          "label": "The scorecard",
+          "scene": "Our live scorecard: Hole 1, par 4, Big Dave 6"
+        },
+        {
+          "who": "kev",
+          "text": "",
+          "beats": 1,
+          "reaction": [
+            "kev",
+            "stifled"
+          ],
+          "optional": true
+        },
+        {
+          "who": "him",
+          "text": "That app's *broken*.",
+          "beats": 2,
+          "pos": "bottom",
+          "bg": "assets/social/library/dave-03-broken.jpg",
+          "label": "Big Dave",
+          "scene": "Big Dave pointing at the phone, indignant"
+        },
+        {
+          "who": "mate",
+          "text": "It's *free*, Dave.",
+          "beats": 2,
+          "bg": "assets/social/library/seq-dave-08-mate.jpg"
+        }
+      ],
+      "cover": {
+        "ep": 3,
+        "hook": "Phil's got",
+        "punch": "Receipts?!",
+        "names": [
+          "Big Dave",
+          "Phil"
+        ],
+        "left": "assets/social/library/seq-dave-07-proud.jpg",
+        "left_focus": [
+          0.3,
+          0.4
+        ],
+        "right": "assets/social/library/phil-03-phone.jpg",
+        "right_focus": [
+          0.5,
+          0.4
+        ],
+        "tool": "scorecard",
+        "outro_line": "The scorecard *doesn't lie*."
+      }
     }
   ],
   "charactersAbout": "Recurring, obviously fictional characters (AI-generated photos, never based on real people). Keep looks identical in every photo; build running gags across episodes; never mean-spirited: everyone gets a win sometimes. Kev's ribbing is always friendly, and he gets his comeuppance too.",

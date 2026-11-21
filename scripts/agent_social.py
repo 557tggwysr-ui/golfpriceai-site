@@ -251,6 +251,9 @@ def resolve_sequence(q, L, rnd):
                     L["photosUsed"] = (L.get("photosUsed", []) + [it["bg"]])[-60:]
                     if cands[0].get("focus"):
                         it.setdefault("focus", cands[0]["focus"])
+            if it.get("screen") and (ROOT / it["screen"]).exists() and (not it.get("bg") or it["bg"] in files):
+                items.append(it)  # a real site screen on a phone (the scene behind it is optional)
+                continue
             if not it.get("bg") or it["bg"] not in files:
                 if it.get("optional"):
                     continue
@@ -285,7 +288,8 @@ def theme_sketch(d, L, rnd):
         cap = f"The Fourball, EP {ep}: {cap}"
     return {"theme": "The Fourball", "format": "sketch", "series": "The Fourball", "ep": ep, "link": SITE + (f"/fourball/episodes/{ep}/" if ep else "/fourball/"), "image": None, "name": "", "headline": t, "sub": "",
             "styles": {"sequence": dict(sc, outro={"tool": (q.get("cover") or {}).get("tool", "fourball"),
-                                                   "lead": ((q.get("cover") or {}).get("names") or ["Big Dave"])[0]})},
+                                                   "lead": ((q.get("cover") or {}).get("names") or ["Big Dave"])[0],
+                                                   "line": (q.get("cover") or {}).get("outro_line")})},
             "ig": f"{cap} ⛳ Send it to your four-ball group chat. Every episode is on golfpriceai.com/fourball/, with Fourball Alerts so your four-ball can watch kit prices together.",
             "x": f"{cap} ⛳ " + SITE + (f"/fourball/episodes/{ep}/" if ep else "/fourball/"), "tt": f"{cap} ⛳ #golfhumour",
             "whatsapp": f"{cap} 😂 Who's the {((q.get('cover') or {}).get('names') or ['Big Dave'])[0]} in our group? " + SITE + (f"/fourball/episodes/{ep}/" if ep else "/fourball/") + "?utm_source=fourball&utm_medium=whatsapp&utm_campaign=episode",

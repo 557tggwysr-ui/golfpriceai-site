@@ -353,6 +353,7 @@ OUTRO_TOOLS = {  # what each episode hands over to: (screenshot, line, tag, addr
     "fourball": ("assets/social/outro/fourball-screen.jpg", "Got a *{lead}* in your four-ball?", "FOURBALL ALERTS \u00b7 FREE", "golfpriceai.com/fourball"),
     "scorecard": ("assets/social/outro/scorecard-screen.jpg", "Keep *{lead}* honest.", "FREE LIVE SCORECARD", "golfpriceai.com/play/scorecard"),
 }
+# _phone is defined below; _screen_frame only runs at render time, so the order is fine
 
 
 def _phone(shot, w):
@@ -374,6 +375,7 @@ def outro(im, u, s):
     u runs 0..1 over OUTRO seconds; each element lands on a beat."""
     o = s.get("outro") or {}
     shot_p, line, tag, url = OUTRO_TOOLS.get(o.get("tool", "fourball"), OUTRO_TOOLS["fourball"])
+    line = o.get("line") or line
     k = min(1, u * OUTRO / 0.3)
     bg = im.filter(ImageFilter.GaussianBlur(18))
     bg.alpha_composite(Image.new("RGBA", (W, H), GREEN2 + (int(225 * k),)))
@@ -431,7 +433,23 @@ def _placeholder(label, scene, k):
     return im
 
 
+def _screen_frame(item, u):
+    """A real screen from our site on a phone, over the scene blurred behind it (e.g. Phil's live scorecard)."""
+    back = load_photo(item.get("bg")) if item.get("bg") else None
+    im = cover(back, W, H, zoom=1.08).convert("RGBA").filter(ImageFilter.GaussianBlur(22)) if back else Image.new("RGBA", (W, H), GREEN2 + (255,))
+    im.alpha_composite(Image.new("RGBA", (W, H), GREEN2 + (150,)))
+    shot = load_photo(item["screen"])
+    if shot is not None:
+        w = int(600 + 40 * ease(min(1, u * 1.5)))  # a gentle push towards the screen
+        ph = _phone(shot, w)
+        y = int(H / 2 - ph.height / 2 - 60 + 120 * (1 - ease(min(1, u * 2.2))))
+        im.alpha_composite(ph, (int(W / 2 - ph.width / 2), y))
+    return im
+
+
 def _seq_frame(item, t0, t1, t, k):
+    if item.get("screen"):
+        return _screen_frame(item, (t - t0) / max(0.01, t1 - t0))
     bg = item.get("bg")
     img = load_photo(bg) if bg else None
     u = (t - t0) / max(0.01, t1 - t0)
@@ -482,8 +500,9 @@ def style_sequence(t, s, pal, img, photo, dur=None):
         who = item.get("who", "him")
         y = {"top": 420, "bottom": 1500, "low": 1720}.get(item.get("pos"), 1440 if who != "him" else 420)
         col, ink, hi = (YELLOW, INKD, GREEN) if who != "him" else (GREEN, WHITE, YELLOW)
-        banner(im, item.get("text", ""), W / 2, y, W - 200, colour=col, ink=ink, hi=hi, seed=f"q-l{i}",
-               t=min(1, (t - t0) / 0.3), size=98, rot=-2 if i % 2 else 2)
+        if item.get("text"):
+            banner(im, item["text"], W / 2, y, W - 200, colour=col, ink=ink, hi=hi, seed=f"q-l{i}",
+                   t=min(1, (t - t0) / 0.3), size=98, rot=-2 if i % 2 else 2)
     if s.get("outro"):
         if t >= dur - OUTRO:
             outro(im, (t - (dur - OUTRO)) / OUTRO, s)

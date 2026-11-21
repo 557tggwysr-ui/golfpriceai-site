@@ -71,7 +71,7 @@ def render_media(e):
         return False
     sc = {k: r[k] for k in ("top", "shots", "lines", "counter", "cover", "end") if k in r}
     cv = r.get("cover") or {}
-    sc["outro"] = {"tool": cv.get("tool", "fourball"), "lead": (cv.get("names") or ["Big Dave"])[0]}
+    sc["outro"] = {"tool": cv.get("tool", "fourball"), "lead": (cv.get("names") or ["Big Dave"])[0], "line": cv.get("outro_line")}
     BR.thumbnail(str(jpg), "sequence", sc)
     from PIL import Image
     im = Image.open(jpg).convert("RGB")
