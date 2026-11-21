@@ -611,6 +611,36 @@
           "note": "John asked to test it; style 'sequence' built, waiting for the 9 photos."
         }
       ]
+    },
+    {
+      "id": "data-journal",
+      "title": "The Clubhouse Journal: data-led articles from our own numbers",
+      "owner": "the monthly search agent (writing) with the press desk (data and angles); the Editor checks every article",
+      "objective": "traffic (search and AI-app citations), trust",
+      "problem": "We have pages that answer price questions, but few articles that earn links and citations for the bigger questions golfers ask.",
+      "evidence": "John's idea (21 Nov 2026). Google's guidance: AI-made pages without added value may break its scaled content abuse policy, so volume blogging is a risk; articles built on data only we have (price history, Par Price guesses, People's Bag, Oracle, Society League) add value nobody else can.",
+      "hypothesis": "One original, data-led article a fortnight earns more search visits, AI-app citations and links than generic blog posts would.",
+      "test": "Two pilot articles on a branch for John: e.g. 'Do new drivers really get cheaper? What our price history shows' and 'What UK golfers think kit costs (the Par Price guesses)'. Real figures only, a clear method note, John's byline after his review, linked to the price pages and tools.",
+      "metric": "search clicks and AI-app arrivals to the articles; links earned",
+      "target": "beats the average new price page after 8 weeks",
+      "windowDays": 56,
+      "effort": "M",
+      "risks": "Thin or generic posts would hurt the whole site (scaled content abuse); keep it low volume, original and human-reviewed. Overlaps with gap pages and the press report: share the data, don't duplicate topics.",
+      "challenge": "Cheaper test: turn the monthly press report into a public article first. Not a new agent: give the job to existing ones.",
+      "score": {
+        "impact": 4,
+        "confidence": 3,
+        "ease": 3,
+        "total": 36
+      },
+      "stage": "shortlisted",
+      "history": [
+        {
+          "date": "2026-11-21",
+          "stage": "shortlisted",
+          "note": "John asked whether to build a blog agent; proposed as a low-volume, data-led journal instead of a volume blog."
+        }
+      ]
     }
   ],
   "lessons": [],
