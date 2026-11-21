@@ -110,6 +110,41 @@
         "friends"
       ],
       "arrow": "none"
+    },
+    {
+      "top": "Gaz: *new driver*, mate",
+      "punch": "Kev: must need a new one",
+      "tags": [
+        "gaz"
+      ],
+      "reaction": [
+        "kev",
+        "pointing"
+      ]
+    },
+    {
+      "top": "Kev after *my* duff",
+      "punch": "Kev after his own:",
+      "tags": [
+        "kev",
+        "stifled"
+      ],
+      "reaction": [
+        "kev",
+        "caught"
+      ]
+    },
+    {
+      "top": "When your mate *thins* it",
+      "punch": "The back of the group:",
+      "tags": [
+        "big-dave",
+        "swing"
+      ],
+      "reaction": [
+        "kev",
+        "stifled"
+      ]
     }
   ],
   "headlines": [
@@ -473,6 +508,16 @@
           "scene": "Punching out from behind a tree"
         },
         {
+          "cutaway": true,
+          "optional": true,
+          "reaction": [
+            "kev",
+            "stifled"
+          ],
+          "label": "Kev",
+          "scene": "Kev in the background trying not to laugh"
+        },
+        {
           "bg": "assets/social/library/seq-dave-04-bunker.jpg",
           "label": "Wedge",
           "scene": "Sand flying out of a greenside bunker"
@@ -526,7 +571,95 @@
           "pos": "low"
         }
       ]
+    },
+    {
+      "title": "Gaz's *new driver*",
+      "thumb": "Must need a new driver",
+      "caption": "Gaz's new driver. Kev has notes.",
+      "counter": false,
+      "top": "Gaz. *New driver.* Again.",
+      "shots": [
+        {
+          "bg": "assets/social/library/gaz-01-unbox.jpg",
+          "beats": 2,
+          "label": "Gaz",
+          "scene": "Gaz in the car park lifting a gleaming new driver out of its box, thrilled"
+        },
+        {
+          "bg": "assets/social/library/gaz-02-swing.jpg",
+          "label": "Gaz",
+          "scene": "Gaz's huge swing on the tee"
+        },
+        {
+          "cutaway": true,
+          "reaction": [
+            "kev",
+            "wince"
+          ],
+          "label": "Kev",
+          "scene": "Kev wincing, one eye shut"
+        },
+        {
+          "bg": "assets/social/library/gaz-03-trees.jpg",
+          "hide_top": true,
+          "label": "Gaz",
+          "scene": "Gaz shading his eyes, staring into the trees"
+        }
+      ],
+      "lines": [
+        {
+          "who": "kev",
+          "text": "Must need a *new driver*, Gaz.",
+          "beats": 2,
+          "reaction": [
+            "kev",
+            "pointing"
+          ],
+          "label": "Kev",
+          "scene": "Kev pointing and laughing"
+        },
+        {
+          "who": "him",
+          "text": "It's the *shaft*, mate.",
+          "beats": 2,
+          "pos": "bottom",
+          "bg": "assets/social/library/gaz-04-shaft.jpg",
+          "label": "Gaz",
+          "scene": "Gaz pointing at the club shaft, offended"
+        },
+        {
+          "who": "kev",
+          "text": "Last year's model is *way cheaper* now, mind.",
+          "beats": 3,
+          "pos": "low",
+          "bg": "assets/social/library/gaz-05-together.jpg",
+          "label": "Kev and Gaz",
+          "scene": "Kev with an arm round a sulking Gaz, both grinning by the end"
+        }
+      ]
     }
   ],
-  "charactersAbout": "Recurring, obviously fictional characters (AI-generated photos, never based on real people). Keep looks identical in every photo; build running gags across episodes; never mean-spirited: everyone gets a win sometimes. Kev's ribbing is always friendly, and he gets his comeuppance too."
+  "charactersAbout": "Recurring, obviously fictional characters (AI-generated photos, never based on real people). Keep looks identical in every photo; build running gags across episodes; never mean-spirited: everyone gets a win sometimes. Kev's ribbing is always friendly, and he gets his comeuppance too.",
+  "runningGags": [
+    {
+      "between": [
+        "kev",
+        "gaz"
+      ],
+      "about": "Kev knows Gaz is a kit addict. Friendly banter only, never bullying: Gaz gives as good as he gets, and sometimes the new kit actually works.",
+      "kev": [
+        "Must need a new driver, Gaz.",
+        "Is that this week's putter?",
+        "Did it come with a lesson?",
+        "Car park unboxing again?",
+        "Bet it goes further in the box."
+      ],
+      "gaz": [
+        "It's the shaft, mate.",
+        "Says the man with a 2009 rangefinder.",
+        "Laugh all you like, it's last season's, I paid less.",
+        "At least mine went in the air, Kev."
+      ]
+    }
+  ]
 }

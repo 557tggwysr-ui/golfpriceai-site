@@ -229,17 +229,50 @@ def theme_bts(d, L, rnd):
             "keywords": "golf price comparison UK, golf deals"}
 
 
+def resolve_sequence(q, L, rnd):
+    """Fill in rotating reaction shots. An item with "reaction": [tags] (e.g. ["kev", "stifled"]) gets a
+    library photo of that character, least recently used first, so Kev's faces rotate across sketches.
+    Optional cutaways with no photo yet are dropped; a missing required photo means the sketch waits."""
+    lib = library()
+    files = {p["file"] for p in lib}
+    recent = L.setdefault("photosUsed", [])
+    out = dict(q)
+    for part in ("shots", "lines"):
+        items = []
+        for it in q.get(part, []):
+            it = dict(it)
+            if it.get("reaction"):
+                want = it["reaction"]
+                cands = [p for p in lib if want[0] in p.get("tags", [])]
+                last = {f: n for n, f in enumerate(recent)}  # later = used more recently
+                cands.sort(key=lambda p: (-len(set(p.get("tags", [])) & set(want)), last.get(p["file"], -1), rnd.random()))
+                if cands:
+                    it["bg"] = cands[0]["file"]
+                    L["photosUsed"] = (L.get("photosUsed", []) + [it["bg"]])[-60:]
+                    if cands[0].get("focus"):
+                        it.setdefault("focus", cands[0]["focus"])
+            if not it.get("bg") or it["bg"] not in files:
+                if it.get("optional"):
+                    continue
+                return None
+            items.append(it)
+        out[part] = items
+    return out
+
+
 def theme_sketch(d, L, rnd):
     """A quick-cut mini sketch from the bank (style "sequence"): only when every photo it needs exists."""
-    pool = fresh_lines(bank().get("sequences", []), "title", L)
-    lib = {p["file"] for p in library()}
-    pool = [q for q in pool if all(it.get("bg") in lib for it in q.get("shots", []) + q.get("lines", []))]
+    pool = []
+    for q in fresh_lines(bank().get("sequences", []), "title", L):
+        r = resolve_sequence(q, {"photosUsed": list(L.get("photosUsed", []))}, rnd)
+        if r:
+            pool.append(r)
     if not pool:
         return None
     q = rnd.choice(pool)
     mark_used(L, q["title"])
     t = strip_marks(q["title"])
-    sc = {k: q[k] for k in ("top", "shots", "lines", "end") if k in q}
+    sc = {k: q[k] for k in ("top", "shots", "lines", "end", "counter", "top_y") if k in q}
     sc.update({"hook": t, "thumb": strip_marks(q.get("thumb", t))})
     cap = q.get("caption", t)
     return {"theme": "Golf sketch", "format": "sketch", "link": SITE + "/", "image": None, "name": "", "headline": t, "sub": "",

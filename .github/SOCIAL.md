@@ -101,4 +101,6 @@ Big Dave, Phil, Steady Steve, Gaz and Kev (the wind-up merchant) are our recurri
 - Build personalities and running gags across episodes (Dave's scorecard, Phil's props, Steve's 20-year-old irons, Gaz's new driver). Everyone gets a win sometimes; never mean-spirited.
 - Never based on, named after or resembling a real person; never presented as real golfers or real stories.
 - Kev's reaction shots (stifled laugh in the background, slow clap, fake commentary, wince) are a reusable stock: build them up in the library so any sketch can cut to Kev after a duff, thin or misplaced shot.
+- Kev's reaction shots rotate: a sketch asks for a reaction (for example ["kev", "stifled"]) and the engine picks the least recently used matching photo, so the same face never repeats back to back. Optional cutaways are skipped until their photos exist.
+- Running gag, Kev and Gaz: Kev knows Gaz is a kit addict ("must need a new driver"). Banter, never bullying: Gaz gives as good as he gets, and sometimes the new kit works. No character is ever mocked for looks, weight, age or anything personal; the jokes are about golf.
 - Monthly episode: on the 8th the channel scout writes one ready-made episode for John (a short script for a quick-cut sketch plus the photo prompts), using the characters and what's on trend.

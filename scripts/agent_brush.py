@@ -408,13 +408,17 @@ def style_sequence(t, s, pal, img, photo, dur=None):
     k = plan.index(cur) + 1
     im = _seq_frame(item, t0, t1, t, k)
     scrim(im, top=0.35, bottom=0.45)
-    nshots = len(s.get("shots", []))
+    counting = s.get("counter", True)
+    real = [sh for sh in s.get("shots", []) if not sh.get("cutaway")]
+    nshots = len(real)
     if kind == "shot":
+        n_now = sum(1 for sh in s.get("shots", [])[:i + 1] if not sh.get("cutaway"))  # cutaways (Kev's reactions) don't count
         if s.get("top") and not item.get("hide_top"):  # the set-up sits low, so faces near the top of the photos stay clear
             banner(im, s["top"], W / 2, s.get("top_y", 1560), W - 220, colour=GREEN, seed="q-top", t=min(1, 0.55 + t / 0.35), size=92)
-        _counter(im, i + 1, t - t0)
+        if counting and n_now:
+            _counter(im, n_now, (t - t0) if not item.get("cutaway") else 9)
     else:
-        if s.get("keep_count", True) and t < end:
+        if counting and s.get("keep_count", True) and t < end:
             _counter(im, nshots, 9)
         who = item.get("who", "him")
         y = {"top": 420, "bottom": 1500, "low": 1720}.get(item.get("pos"), 1440 if who != "him" else 420)
