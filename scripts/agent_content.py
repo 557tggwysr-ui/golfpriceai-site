@@ -43,6 +43,8 @@ from io import BytesIO
 sys.path.insert(0, os.path.dirname(__file__))
 from agent_common import (ROOT, OUT, SITE, load, models, http, now)
 import agent_video as V
+import agent_social as S   # the 14 formats, the mix, the bank, the photo library (John's brief, 21 Nov 2026)
+import copy
 
 PLAN = OUT / "content-plan.json"
 LEARN = OUT / "content-learning.json"
@@ -183,6 +185,8 @@ def learn(plan, L):
         reach = max(1, vals.get("reach", 0))
         score = (vals.get("likes", 0) + 2 * vals.get("comments", 0) + 3 * vals.get("saved", 0) + 3 * vals.get("shares", 0)) / reach
         L["posts"][p["id"]] = {"style": p.get("style"), "palette": p.get("palette"), "score": round(score, 4), "reach": vals.get("reach", 0)}
+        S.learn_format(L, p.get("format") or "pricedrop", score)
+        L["posts"][p["id"]]["format"] = p.get("format")
         st = L["styles"].setdefault(p.get("style"), {"n": 0, "score": 0.0})
         st["score"] = round((st["score"] * st["n"] + score) / (st["n"] + 1), 4)
         st["n"] += 1
@@ -436,6 +440,10 @@ def kind_of(name):
 
 def build_script(theme, style, sc, L, rnd, tie):
     sc.pop("pov", None)
+    if style in ("humour", "headline", "carousel"):  # written from the bank: the hook is the set-up
+        sc["hook"] = sc.get("hook") or theme["headline"]
+        L["hooksUsed"][sc["hook"]] = str(now().date())
+        return sc
     if style == "pov":
         label, setup, twist, punch = rnd.choice(POV)
         f = dict(fall=money(sc.get("fall", 0)), name=sc["name"], now=money(sc["price"]), kind=kind_of(sc["name"]))
@@ -456,8 +464,14 @@ def build_script(theme, style, sc, L, rnd, tie):
 
 def captions(t, tie=None, social=None):
     ig = (tie["opener"] + " " if tie else "") + t["ig"]
-    yt_title = (t["tt"].rstrip(" ⛳") + " #golf #shorts")[:95]
+    ser = S.series_for(t.get("format") or S.fmt_of(t)) if t.get("series") or t.get("format") in ("myth", "budget") else None
+    ser = ser or (S.series_for("pricedrop") if t.get("series") == "Price Check Friday" else None)
+    yt_title = ((ser["name"] + ": " if ser else "") + t["tt"].rstrip(" ⛳") + " #golf #shorts")[:95]
     extra = live_tags(social or {}, t["ig"] + " " + t["tt"] + " " + (tie["match"] if tie else ""))
+    if ser:
+        extra = [ser["tag"]] + extra
+    if t.get("keywords"):  # TikTok and YouTube are search engines now: plain searchable words in the caption
+        t = dict(t, tt=t["tt"] + " | " + t["keywords"])
     ig_tags = " ".join(dict.fromkeys(TAGS.split() + extra))
     tt_tags = " ".join(dict.fromkeys("#golf #golftok #golfuk".split() + extra))[:150]
     return {"instagram": f"{ig}\n\n{ig_tags}", "tiktok": f"{t['tt']} {tt_tags}",
@@ -499,6 +513,19 @@ def record_site(url, pid):
 
 
 def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None):
+    fid = S.fmt_of(theme)
+    fmeta = next((f for f in S.formats().get("formats", []) if f["id"] == fid), {})
+    extra = {"format": fid, "formatName": fmeta.get("name", fid), "objective": fmeta.get("objective", "reach"),
+             "series": sc.get("series") or theme.get("series")}
+    if style == "carousel":  # a swipeable carousel: slides only, no video
+        import agent_brush as BR
+        paths, quality = BR.carousel(CARDS, pid, sc["slides"], bg=sc.get("bg"), series=sc.get("series"))
+        monday = day - timedelta(days=day.weekday())
+        return edited({"id": pid, "date": str(day), "theme": theme["theme"], "style": "carousel", "palette": "brand", "hook": sc["hook"],
+                       "trend": None, "card": f"/social/cards/{pid}-s1.jpg", "thumb": f"/social/cards/{pid}-s1.jpg",
+                       "slides": [f"/social/cards/{p.name}" for p in paths], "video": None, "link": theme["link"],
+                       "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, None, social), "sound": None,
+                       "trendingFormats": [], "posted": {}, "quality": quality, **extra})
     img = fetch_image(theme.get("image"))
     photo = fetch_image(theme.get("art") or "assets/action-lake-followthrough.jpg") if style in ("stat", "receipt") else None
     imgs = [fetch_image(x.get("image")) for x in sc.get("items", [])] if style == "countdown" else None
@@ -513,6 +540,15 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
     quality = V.qc(style, palette, VIDEOS / f"{pid}.mp4", still, img=img, imgs=imgs, card=CARDS / f"{pid}.jpg")
     # the thumbnail (cover) for the Reel / Short: its own design, not a frame from the video
     import agent_cine as CINE
+    if style in ("humour", "headline"):  # Styles A and B: the cover is their strongest frame
+        import agent_brush as BR
+        quality += BR.thumbnail(THUMBS / f"{pid}.jpg", style, sc)
+        monday = day - timedelta(days=day.weekday())
+        return edited({"id": pid, "date": str(day), "theme": theme["theme"], "style": style, "palette": "brand", "hook": sc["hook"],
+                "trend": tie["match"] if tie else None, "card": f"/social/cards/{pid}.jpg", "thumb": f"/social/thumbs/{pid}.jpg",
+                "video": f"https://github.com/{REPO}/releases/download/pack-{monday}/{pid}.mp4",
+                "link": theme["link"], "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, tie, social),
+                "sound": sound, "trendingFormats": [], "posted": {}, "quality": quality, **extra})
     tkind = {"spec": "punch", "thennow": "sunrise", "truth": "clean", "story": "night", "collage": "sunrise",
              "sitedemo": "punch"}.get(style, ["punch", "sunrise", "clean", "night"][sum(map(ord, pid)) % 4])
     quality += CINE.thumbnail(THUMBS / f"{pid}.jpg", thumb_text(sc, style), img=img or (imgs[0] if imgs else None),
@@ -524,7 +560,7 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
             "video": f"https://github.com/{REPO}/releases/download/pack-{monday}/{pid}.mp4",
             "link": theme["link"], "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, tie, social),
             "sound": sound, "trendingFormats": [f for f in STYLE_FORMATS.get(style, []) if (social or {}).get("formats", {}).get(f)], "posted": {},
-            "quality": quality})
+            "quality": quality, **extra})
 
 
 AD_LABEL = "#Ad"
@@ -588,8 +624,9 @@ def queued_post(q, day, pid, social=None, sound=None):
     """Render a tie-in from data/content-queue.json (moments planner, newsroom, weekly review) in its own style."""
     theme = {"theme": ("Reactive: " if q.get("reactive") else "Trend tie-in: ") + q.get("trend", ""), "link": q.get("link", SITE),
              "image": q.get("image"), "name": q.get("name", ""), "headline": q.get("headline", ""), "sub": q.get("sub", ""),
-             "ig": q["ig"], "x": q.get("x", q["ig"]), "tt": q.get("tt", q.get("headline", ""))}
-    meta = {"date", "trend", "status", "link", "image", "headline", "sub", "ig", "x", "tt", "style", "reactive", "source", "why"}
+             "ig": q["ig"], "x": q.get("x", q["ig"]), "tt": q.get("tt", q.get("headline", "")), "format": q.get("format"),
+             "keywords": q.get("keywords")}
+    meta = {"date", "trend", "status", "link", "image", "headline", "sub", "ig", "x", "tt", "style", "reactive", "source", "why", "format", "keywords"}
     sc = {k: v for k, v in q.items() if k not in meta}
     for pnl in sc.get("panels") or []:  # panel photos: a product image URL or a site photo path
         if isinstance(pnl.get("img"), str):
@@ -632,22 +669,43 @@ def plan_week():
         if str(day) in qdays:
             plan["posts"].append(queued_post(qdays[str(day)], day, pid, social, songs[i % len(songs)] if songs else None))
             continue
-        theme = schedule[i](day, tr)
         fresh_style = lambda x: any(st not in used_styles for st, sc in x["styles"].items() if sc)
-        if not theme or key(theme) in used_keys or not fresh_style(theme):
-            alt = next((x for x in (f(day, tr) for f in FALLBACKS) if x and key(x) not in used_keys and fresh_style(x)), None)
-            theme = alt or (theme if theme and key(theme) not in used_keys else None)
+        # candidates for today: the usual price-led theme, its fallbacks, and one of each new format
+        cands, scratch = {}, {}
+        for f in [schedule[i]] + FALLBACKS:
+            try:
+                x = f(day, tr)
+            except Exception as e:
+                print("theme skipped:", e); x = None
+            if x and key(x) not in used_keys and fresh_style(x):
+                cands.setdefault(S.fmt_of(x), x)
+        for fid, fn in S.NEW_THEMES.items():
+            L2 = copy.deepcopy(L)
+            try:
+                x = fn(day, L2, random.Random(f"{day}-{fid}"))
+            except Exception as e:
+                print("format skipped:", fid, e); x = None
+            if x and key(x) not in used_keys:
+                cands.setdefault(fid, x)
+                scratch[fid] = L2
+        history = [p.get("format") or "pricedrop" for p in plan["posts"] if p["date"] < str(day)][-13:]
+        fid = S.pick_format(history, list(cands), L, day)
+        theme = cands.get(fid)
+        if fid in scratch:  # keep the bank lines and photo it used, so they aren't repeated
+            L["linesUsed"], L["photosUsed"] = scratch[fid].get("linesUsed", {}), scratch[fid].get("photosUsed", [])
+        if theme and fid == "pricedrop" and DAYS[i] == "Fri":
+            theme = dict(theme, series="Price Check Friday")
         if not theme:
             continue
         used_keys.add(key(theme))
         style, sc, pal = choose(theme, used_styles, last_pal, L, rnd, social)
-        tie = ties.pop(0) if ties and i in (0, 3, 5) and style not in ("pov", "guess", "receipt") else None
+        tie = ties.pop(0) if ties and i in (0, 3, 5) and style not in ("pov", "guess", "receipt", "humour", "headline", "carousel", "truth") else None
         sc = build_script(theme, style, sc, L, rnd, tie)
         sound = songs[i % len(songs)] if songs else None
         plan["posts"].append(build_post(day, theme, style, sc, pal, pid, tie, social, sound))
         used_styles.add(style)
         last_pal = pal
-        print(f"{pid}: {theme['theme']} as '{style}' ({pal}) hook: {sc['hook']}")
+        print(f"{pid}: {theme['theme']} [{S.fmt_of(theme)}] as '{style}' ({pal}) hook: {sc['hook']}")
     save_plan(plan)
     save_learning(L)
     write_pack(plan)
@@ -724,7 +782,9 @@ def issue_line(p):
     d = date.fromisoformat(p["date"])
     tr = f" · tied to {p['trend']}" if p.get("trend") else ""
     tr += f" · sound: {p['sound']}" if p.get("sound") else ""
-    return f"- [ ] **{p['id']}** · {DAYS[d.weekday()]} {d.day} {d.strftime('%b')} · {p.get('style')}: \"{p.get('hook')}\" ({p['theme']}{tr})"
+    kind = f"{p.get('formatName') or p.get('style')} ({p.get('style')}, for {p.get('objective', 'reach')})"
+    ser = f" · series: {p['series']}" if p.get("series") else ""
+    return f"- [ ] **{p['id']}** · {DAYS[d.weekday()]} {d.day} {d.strftime('%b')} · {kind}: \"{p.get('hook')}\" ({p['theme']}{tr}{ser})"
 
 
 def open_issue(plan, start):
@@ -792,6 +852,22 @@ def reel_container(uid, tok, p):
     return None
 
 
+def carousel_container(uid, tok, p):
+    """An Instagram carousel: one container per slide, then the carousel itself."""
+    kids = []
+    for url in p["slides"][:10]:
+        s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
+                         body={"image_url": SITE + url, "is_carousel_item": "true", "access_token": tok})
+        cid = (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
+        if not cid:
+            print("carousel slide not accepted:", s, (txt or "")[:200])
+            return None
+        kids.append(cid)
+    s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
+                     body={"media_type": "CAROUSEL", "children": ",".join(kids), "caption": p["captions"]["instagram"], "access_token": tok})
+    return (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
+
+
 def post_today():
     plan = load_plan()
     today = str(now().date())
@@ -808,7 +884,7 @@ def post_today():
             print("held by the editor:", p["id"], p["editor"]); continue
         if not (uid and tok):
             print("(no Instagram secrets: approved post left for manual posting)", p["id"]); continue
-        cid = reel_container(uid, tok, p)  # the video as a Reel; falls back to the feed card image
+        cid = carousel_container(uid, tok, p) if p.get("slides") else reel_container(uid, tok, p)  # carousel, or the video as a Reel
         if not cid:
             s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
                              body={"image_url": SITE + p["card"], "caption": p["captions"]["instagram"], "access_token": tok})
@@ -901,10 +977,12 @@ def write_pack(plan):
                   ("Pinterest title", c["pinterest"]["title"]), ("Pinterest description", c["pinterest"]["description"])]
         done = " · ".join(f"{k} ✓" for k in p.get("posted", {}) if not k.endswith("_id"))
         trend = f" · trend: {esc(p['trend'])}" if p.get("trend") else ""
-        cards.append(f"""<section class="post"><video src="{p['video']}" poster="{p['card']}" controls playsinline preload="none"></video>
-<div><p class="when">{DAYS[d.weekday()]} {d.day} {d.strftime('%b')} · {esc(p['theme'])} · {esc(p.get('style', ''))}{trend} <span class="done">{done}</span></p>
+        media = (f"<div class='slides'>" + "".join(f"<img src='{u}' alt='Slide {n + 1}' loading='lazy'>" for n, u in enumerate(p["slides"])) + "</div>"
+                 if p.get("slides") else f"<video src=\"{p['video']}\" poster=\"{p['card']}\" controls playsinline preload=\"none\"></video>")
+        cards.append(f"""<section class="post">{media}
+<div><p class="when">{DAYS[d.weekday()]} {d.day} {d.strftime('%b')} · {esc(p.get('formatName') or p['theme'])} · {esc(p.get('style', ''))} · for {esc(p.get('objective', 'reach'))}{(' · ' + esc(p['series'])) if p.get('series') else ''}{trend} <span class="done">{done}</span></p>
 {('<p class="tip" style="background:#fde8e8">⛔ Held by the Editor, won\'t auto-post: ' + esc(' '.join(p['editor'])) + '</p>') if p.get('editor') else ''}<h2>“{esc(p.get('hook', p['headline']))}”</h2><p class="sub">{esc(p['sub'])}</p>
-<p class="dl"><a href="{p['video']}">Download video</a> · <a href="{p.get('thumb') or p['card']}" download>Download thumbnail (cover)</a> · <a href="{p['card']}" download>Download feed image</a></p>
+<p class="dl">{('<a href="' + p['video'] + '">Download video</a> · ') if p.get('video') else 'Carousel: download each slide above · '}<a href="{p.get('thumb') or p['card']}" download>Download thumbnail (cover)</a> · <a href="{p['card']}" download>Download feed image</a></p>
 {('<img src="' + p['thumb'] + '" alt="Thumbnail for ' + esc(p.get('hook', '')) + '" style="width:120px;border-radius:10px;margin:6px 0">') if p.get('thumb') else ''}
 {''.join(f'<details><summary>{k}</summary><textarea readonly>{esc(v)}</textarea><button onclick="copy(this)">Copy</button></details>' for k, v in blocks)}
 <p class="tip">{('Trending sound (approved for business): <b>' + esc(p['sound']) + '</b>. Search it in the app when you schedule.') if p.get('sound') else 'TikTok and Reels: add a trending sound from the commercial library when you schedule.'}{(' · Rides the trend: ' + esc(', '.join(p['trendingFormats']))) if p.get('trendingFormats') else ''}</p>
@@ -933,7 +1011,7 @@ h1{{font-size:22px}}.post{{display:grid;grid-template-columns:220px 1fr;gap:16px
 .sub{{color:#555;margin:2px 0 8px}}.done{{color:#888;font-weight:400}}details{{margin:6px 0}}summary{{cursor:pointer;font-weight:600}}
 textarea{{width:100%;min-height:90px;font:14px system-ui;border-radius:8px;border:1px solid #ccc;padding:8px;box-sizing:border-box}}
 button{{background:#14211a;color:#fff;border:0;border-radius:8px;padding:6px 14px;font-weight:600}}.dl,.link,.tip{{font-size:14px}}.tip{{color:#777}}
-.trends{{background:#fff;border-radius:14px;padding:10px 14px}}@media(max-width:600px){{.post{{grid-template-columns:1fr}}.post video{{max-width:260px}}}}</style></head><body>
+.trends{{background:#fff;border-radius:14px;padding:10px 14px}}.slides{{display:flex;gap:6px;overflow-x:auto}}.slides img{{width:180px;border-radius:8px}}@media(max-width:600px){{.post{{grid-template-columns:1fr}}.post video{{max-width:260px}}}}</style></head><body>
 <h1>Content pack</h1><p>Updated {now().strftime('%a %d %b %H:%M')} UTC. Approve posts by ticking them in the "Content pack" GitHub issue; ticked posts go to Instagram on their day. Download the videos for TikTok, Reels and Shorts and schedule them in each app.</p>
 {trend_html}
 {''.join(cards) or '<p>No posts planned yet.</p>'}

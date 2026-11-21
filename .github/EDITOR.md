@@ -86,3 +86,11 @@ its own isn't enough; "Ad" or a plain sentence is.
 - Staggered text lines appear on beats or half-beats too. Loudness about -14 LUFS, peaks under -1 dBFS.
 - OpenMontage briefs follow the same rules: name the tempo, say which beats the cuts land on,
   and list any sound effect with its single moment.
+
+## Social posts: the creative brief (John, 21 Nov 2026)
+
+Social posts also follow `.github/SOCIAL.md`: the 14 formats and the 14-post mix, Styles A
+(golf humour) and B (big headline), carousels, series, and its honesty rules. In particular:
+never invent a golfer's story, comment or review and present it as real; never invent a trend or
+sound; sketch characters are obviously fictional; no words baked into photos. Where SOCIAL.md and
+this file disagree, this file wins.

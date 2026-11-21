@@ -80,8 +80,11 @@ jobs:
           prompt: |
             You are the newsroom editor for GolfPrice AI (golfpriceai.com), a UK golf price-comparison site with free golf games.
             Read /tmp/newsroom-candidates.json (fresh, pre-filtered headlines and trends), data/moments.json (moments we're riding,
-            with their build-up), data/content-queue.json, .github/EDITOR.md, data/social-benchmarks.json and the styles in
-            scripts/agent_cine.py and scripts/agent_video.py.
+            with their build-up), data/content-queue.json, .github/EDITOR.md, .github/SOCIAL.md (the creative brief: the 14
+            formats, Styles A and B, honesty rules), data/social-formats.json, data/social-benchmarks.json and the styles in
+            scripts/agent_cine.py, scripts/agent_brush.py and scripts/agent_video.py. A same-day post may use style "humour"
+            (fields bg, top, punch, arrow) or "headline" (bg, big, sub, price) with a photo from data/social-library.json, and
+            should record "format" (one of the 14 ids).
             Also check what's viral today on Instagram Reels and TikTok that the candidates may miss: use web search for
             today's trend round-ups (trending Reels audio and formats, viral TikTok trends and memes in the UK), and read
             data/agents/social-today.json (TikTok's rising hashtags, top videos and business-approved sounds right now).

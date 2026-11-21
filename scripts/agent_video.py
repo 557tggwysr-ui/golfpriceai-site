@@ -390,6 +390,11 @@ try:  # cinematic styles (spec, thennow, story, sitedemo), added 20 Nov 2026
     STYLES.update(CINE_STYLES)
 except Exception as _e:  # never stop the classic styles
     print("cinematic styles unavailable:", _e)
+try:  # brush styles for everyday posts: humour (Style A) and headline (Style B), added 21 Nov 2026
+    from agent_brush import BRUSH_STYLES
+    STYLES.update(BRUSH_STYLES)
+except Exception as _e:
+    print("brush styles unavailable:", _e)
 
 
 def render(style, script, palette, out_path, img=None, photo=None, imgs=None):
