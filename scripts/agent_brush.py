@@ -283,7 +283,9 @@ def closing(im, t, line="Full Swing. Not full price."):
 
 
 def _photo_frame(s, t, dur):
-    img = load_photo(s.get("bg"))
+    # a second "reaction" photo (bg2) cuts in hard on the punchline beat
+    key = "bg2" if (s.get("bg2") and t >= s.get("cut", 3.0)) else "bg"
+    img = load_photo(s.get(key))
     z = 1.0 + 0.08 * (t / dur)  # a slow push-in, the "subtle zoom" from the brief
     fx, fy = s.get("focus", (0.5, 0.42))
     return cover(img, W, H, zoom=z, focus=(fx, fy)).convert("RGBA")
@@ -310,6 +312,116 @@ def style_humour(t, s, pal, img, photo, dur=8.4):
             if math.hypot(W * tx - start[0], H * ty - start[1]) < 240:  # always a proper, readable arrow
                 ty = max(0.3, (start[1] - 300) / H)
             arrow(im, start, (W * tx, H * ty), (t - 3.25) / 0.45, bend=-0.35 if side == "left" else 0.35)
+    closing(im, (t - (dur - 1.8)) / 0.5, s.get("end") or "Full Swing. Not full price.")
+    return im, 0
+
+
+# ---------------- Sequence: a quick-cut mini sketch ----------------
+# A character's shots cut on every beat while a shot counter ticks up, then the
+# punchline lines, each on its own photo (the character, his mate's reaction,
+# the prop). Missing photos render as labelled storyboard panels, so the timing
+# can be checked before the photos exist (the quality gate holds those posts).
+
+BEAT = 0.6  # 100 bpm: every cut lands on a beat
+
+
+def _seq_plan(s):
+    plan, t = [], 0.0
+    for i, sh in enumerate(s.get("shots", [])):
+        b = sh.get("beats", 1)
+        plan.append(("shot", i, t, t + b * BEAT, sh))
+        t += b * BEAT
+    for j, ln in enumerate(s.get("lines", [])):
+        b = ln.get("beats", 2)
+        plan.append(("line", j, t, t + b * BEAT, ln))
+        t += b * BEAT
+    return plan, t
+
+
+def seq_duration(s):
+    return round(_seq_plan(s)[1] + 1.8, 2)
+
+
+def _placeholder(label, scene, k):
+    im = Image.new("RGBA", (W, H), GREEN2 + (255,))
+    d = ImageDraw.Draw(im)
+    for y in range(0, H, 6):  # soft vertical gradient
+        d.line([(0, y), (W, y)], fill=(GREEN[0] + int(10 * y / H), GREEN[1] + int(18 * y / H), GREEN[2] + int(10 * y / H), 255))
+    m = 70
+    for x in range(m, W - m, 44):
+        d.line([(x, m), (x + 22, m)], fill=(255, 255, 255, 90), width=4)
+        d.line([(x, H - m), (x + 22, H - m)], fill=(255, 255, 255, 90), width=4)
+    for y in range(m, H - m, 44):
+        d.line([(m, y), (m, y + 22)], fill=(255, 255, 255, 90), width=4)
+        d.line([(W - m, y), (W - m, y + 22)], fill=(255, 255, 255, 90), width=4)
+    f, lines, sz = fit(label, W - 260, 150, 80, 2)
+    draw_words(d, lines, f, sz, W / 2, 760, base=WHITE, hi=YELLOW)
+    fb = font(40, "body")
+    words, row, rows = scene.split(), "", []
+    for w_ in words:
+        if fb.getlength(row + " " + w_) > W - 300:
+            rows.append(row.strip()); row = ""
+        row += " " + w_
+    rows.append(row.strip())
+    y = 760 + sz * 1.05 * len(lines) + 40
+    for r in rows[:5]:
+        d.text(((W - fb.getlength(r)) / 2, y), r, font=fb, fill=(255, 255, 255, 170)); y += 56
+    tag = f"PHOTO {k}  ·  storyboard"
+    d.text(((W - fb.getlength(tag)) / 2, H - 190), tag, font=fb, fill=YELLOW + (200,))
+    return im
+
+
+def _seq_frame(item, t0, t1, t, k):
+    bg = item.get("bg")
+    img = load_photo(bg) if bg else None
+    u = (t - t0) / max(0.01, t1 - t0)
+    if img is None:
+        return _placeholder(item.get("label", ""), item.get("scene", ""), k)
+    z = 1.07 - 0.05 * ease(min(1, u * 1.6))  # each cut punches in, then settles
+    fx, fy = item.get("focus", (0.5, 0.42))
+    return cover(img, W, H, zoom=z, focus=(fx, fy)).convert("RGBA")
+
+
+def _counter(im, n, t_since):
+    """The shot tally, scorecard-style, top right; pops each time it ticks."""
+    k = pop(min(1, t_since / 0.22))
+    f = font(int(64 * (0.85 + 0.15 * k)), "head")
+    txt = f"SHOTS: {n}"
+    w = f.getlength(txt) + 70
+    box = Image.new("RGBA", (int(w), 120), (0, 0, 0, 0))
+    d = ImageDraw.Draw(box)
+    d.rounded_rectangle([0, 0, w - 1, 119], 26, fill=YELLOW + (255,))
+    d.text((35, 22), txt, font=f, fill=INKD)
+    im.alpha_composite(box.rotate(3, expand=True, resample=Image.BICUBIC), (int(W - w - 60), 150))
+
+
+def style_sequence(t, s, pal, img, photo, dur=None):
+    plan, end = _seq_plan(s)
+    dur = dur or end + 1.8
+    cur = plan[-1]
+    for p in plan:
+        if p[2] <= t < p[3]:
+            cur = p
+            break
+    kind, i, t0, t1, item = cur
+    k = plan.index(cur) + 1
+    im = _seq_frame(item, t0, t1, t, k)
+    scrim(im, top=0.35, bottom=0.45)
+    nshots = len(s.get("shots", []))
+    if kind == "shot":
+        if s.get("top"):
+            banner(im, s["top"], W / 2, 420, W - 220, colour=GREEN, seed="q-top", t=min(1, 0.55 + t / 0.35), size=92)
+        if item.get("club"):
+            banner(im, item["club"], W / 2, 1560, W - 420, colour=GREEN, seed=f"q-club{i}", t=1.0, size=70, rot=2)
+        _counter(im, i + 1, t - t0)
+    else:
+        if s.get("keep_count", True) and t < end:
+            _counter(im, nshots, 9)
+        who = item.get("who", "him")
+        y = 1440 if who != "him" else 420
+        col, ink, hi = (YELLOW, INKD, GREEN) if who != "him" else (GREEN, WHITE, YELLOW)
+        banner(im, item.get("text", ""), W / 2, y, W - 200, colour=col, ink=ink, hi=hi, seed=f"q-l{i}",
+               t=min(1, (t - t0) / 0.3), size=98, rot=-2 if i % 2 else 2)
     closing(im, (t - (dur - 1.8)) / 0.5, s.get("end") or "Full Swing. Not full price.")
     return im, 0
 
@@ -358,7 +470,7 @@ def style_headline(t, s, pal, img, photo, dur=7.8):
     return im, 0
 
 
-BRUSH_STYLES = {"humour": (style_humour, 8.4), "headline": (style_headline, 7.8)}
+BRUSH_STYLES = {"humour": (style_humour, 8.4), "headline": (style_headline, 7.8), "sequence": (style_sequence, 9.6)}
 
 
 def thumbnail(path, style, s):
@@ -366,11 +478,25 @@ def thumbnail(path, style, s):
     fn, dur = BRUSH_STYLES[style]
     s2 = dict(s)
     s2["end"] = None
-    im, _ = fn(5.0 if style == "humour" else 4.6, s2, None, None, None, dur=99)
+    if style == "sequence":  # the cover is the mate's reaction, with the shot tally showing
+        plan, _ = _seq_plan(s2)
+        lines = [p for p in plan if p[0] == "line"]
+        tt = (lines[1][2] + 0.4) if len(lines) > 1 else (plan[-1][2] + 0.4)
+        im, _ = fn(tt, s2, None, None, None, dur=99)
+    else:
+        im, _ = fn(5.0 if style == "humour" else 4.6, s2, None, None, None, dur=99)
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     im.convert("RGB").save(path, "JPEG", quality=93, optimize=True, progressive=True)
     probs = []
+    if style == "sequence":
+        for n, it in enumerate(list(s.get("shots", [])) + list(s.get("lines", [])), 1):
+            ph = load_photo(it.get("bg"))
+            if ph is None:
+                probs.append(f"sequence photo {n} is missing (storyboard panel shown)")
+            elif min(ph.size) < 900:
+                probs.append(f"sequence photo {n} is low resolution")
+        return probs
     ph = load_photo(s.get("bg"))
     if ph is None:
         probs.append("thumbnail has no background photo")

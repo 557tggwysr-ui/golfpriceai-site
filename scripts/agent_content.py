@@ -440,7 +440,7 @@ def kind_of(name):
 
 def build_script(theme, style, sc, L, rnd, tie):
     sc.pop("pov", None)
-    if style in ("humour", "headline", "carousel"):  # written from the bank: the hook is the set-up
+    if style in ("humour", "headline", "carousel", "sequence"):  # written from the bank: the hook is the set-up
         sc["hook"] = sc.get("hook") or theme["headline"]
         L["hooksUsed"][sc["hook"]] = str(now().date())
         return sc
@@ -540,7 +540,7 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
     quality = V.qc(style, palette, VIDEOS / f"{pid}.mp4", still, img=img, imgs=imgs, card=CARDS / f"{pid}.jpg")
     # the thumbnail (cover) for the Reel / Short: its own design, not a frame from the video
     import agent_cine as CINE
-    if style in ("humour", "headline"):  # Styles A and B: the cover is their strongest frame
+    if style in ("humour", "headline", "sequence"):  # Styles A and B: the cover is their strongest frame
         import agent_brush as BR
         quality += BR.thumbnail(THUMBS / f"{pid}.jpg", style, sc)
         monday = day - timedelta(days=day.weekday())
@@ -699,7 +699,7 @@ def plan_week():
             continue
         used_keys.add(key(theme))
         style, sc, pal = choose(theme, used_styles, last_pal, L, rnd, social)
-        tie = ties.pop(0) if ties and i in (0, 3, 5) and style not in ("pov", "guess", "receipt", "humour", "headline", "carousel", "truth") else None
+        tie = ties.pop(0) if ties and i in (0, 3, 5) and style not in ("pov", "guess", "receipt", "humour", "headline", "carousel", "truth", "sequence") else None
         sc = build_script(theme, style, sc, L, rnd, tie)
         sound = songs[i % len(songs)] if songs else None
         plan["posts"].append(build_post(day, theme, style, sc, pal, pid, tie, social, sound))

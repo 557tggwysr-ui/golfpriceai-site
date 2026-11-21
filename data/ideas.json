@@ -581,6 +581,36 @@
           "note": "John: low priority, build the audience first. Bring back when the analyst says we're near a platform threshold."
         }
       ]
+    },
+    {
+      "id": "sketch-sequence",
+      "title": "Quick-cut mini sketches (Big Dave's par)",
+      "owner": "the content engine",
+      "objective": "traffic (reach and shares)",
+      "problem": "Single-photo memes can't tell a joke that needs a set-up, a reaction and a payoff.",
+      "evidence": "John's idea (21 Nov 2026): a character's ~6 shots cut on the beat, he claims a par, his mate offers an abacus. Multi-shot reaction formats suit the shares-and-saves goal in SOCIAL.md.",
+      "hypothesis": "A beat-cut sketch with a shot counter earns more shares and comments than a single-photo meme.",
+      "test": "Post Big Dave's par once its 9 photos exist, alongside normal memes; compare shares and comments per view over 4 weeks.",
+      "metric": "shares and comments per 1,000 views vs single-photo memes",
+      "target": "higher than the meme average",
+      "windowDays": 28,
+      "effort": "S",
+      "risks": "Needs consistent fictional characters (one ChatGPT conversation per set); never a real person; no words in photos.",
+      "challenge": "Cheapest test is one sketch; the style and storyboard already exist, so the only cost is John's photo time.",
+      "score": {
+        "impact": 4,
+        "confidence": 3,
+        "ease": 4,
+        "total": 48
+      },
+      "stage": "shortlisted",
+      "history": [
+        {
+          "date": "2026-11-21",
+          "stage": "shortlisted",
+          "note": "John asked to test it; style 'sequence' built, waiting for the 9 photos."
+        }
+      ]
     }
   ],
   "lessons": [],

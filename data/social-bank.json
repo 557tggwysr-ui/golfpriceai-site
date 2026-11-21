@@ -1,395 +1,471 @@
 {
- "about": "Original lines the content engine draws on for posts that aren't built from live prices. All written in the house voice (golf-club banter, never mean, British). Add freely; the planner never reuses a set-up within 60 days. Myths must be true as written; nothing here invents a person's real story.",
- "memes": [
-  {
-   "top": "Every golfer *knows* this...",
-   "punch": "...so close!",
-   "tags": [
-    "putting",
-    "lip"
-   ],
-   "arrow": "left"
-  },
-  {
-   "top": "Me on the first tee: *I'm* keeping it in play today",
-   "punch": "Narrator: he did not",
-   "tags": [
-    "tee",
-    "swing"
-   ],
-   "arrow": "none"
-  },
-  {
-   "top": "When the ball's *definitely* in the fairway",
-   "punch": "The fairway:",
-   "tags": [
-    "rough",
-    "lost"
-   ],
-   "arrow": "left"
-  },
-  {
-   "top": "What I said: *one* more bucket",
-   "punch": "Four buckets later...",
-   "tags": [
-    "range"
-   ],
-   "arrow": "none"
-  },
-  {
-   "top": "Golf forecast: *light* showers",
-   "punch": "Still teeing off",
-   "tags": [
-    "rain",
-    "weather"
-   ],
-   "arrow": "none"
-  },
-  {
-   "top": "Partner: how much was the *new driver*?",
-   "punch": "Me: it was on offer",
-   "tags": [
-    "driver",
-    "partner"
-   ],
-   "arrow": "right"
-  },
-  {
-   "top": "Pond: exists",
-   "punch": "My ball: *I'll* go for a swim",
-   "tags": [
-    "water",
-    "pond"
-   ],
-   "arrow": "left"
-  },
-  {
-   "top": "Three-foot putt for the *win*",
-   "punch": "Hands: absolutely not",
-   "tags": [
-    "putting",
-    "nerves"
-   ],
-   "arrow": "none"
-  },
-  {
-   "top": "Me counting my *strokes*",
-   "punch": "Playing partner: hmm",
-   "tags": [
-    "score",
-    "friends"
-   ],
-   "arrow": "none"
-  },
-  {
-   "top": "When the drive goes *straight*",
-   "punch": "Nobody saw it, obviously",
-   "tags": [
-    "tee",
-    "swing"
-   ],
-   "arrow": "none"
-  },
-  {
-   "top": "Me in the bunker: *one* swing",
-   "punch": "Spoiler: it wasn't one",
-   "tags": [
-    "bunker"
-   ],
-   "arrow": "left"
-  },
-  {
-   "top": "The 19th hole version of *my* round",
-   "punch": "Every putt was a 30-footer",
-   "tags": [
-    "clubhouse",
-    "friends"
-   ],
-   "arrow": "none"
-  }
- ],
- "headlines": [
-  {
-   "big": "Three *putt?*",
-   "sub": "You're not alone...",
-   "tags": [
-    "putting"
-   ],
-   "format": "meme"
-  },
-  {
-   "big": "Lost *another* one?",
-   "sub": "Restock without the RRP",
-   "tags": [
-    "lost",
-    "balls"
-   ],
-   "format": "meme"
-  },
-  {
-   "big": "New driver *season*",
-   "sub": "Last year's model is usually the bargain",
-   "tags": [
-    "driver"
-   ],
-   "format": "hottake"
-  },
-  {
-   "big": "Winter *golf*",
-   "sub": "Dress for four seasons in four hours",
-   "tags": [
-    "winter",
-    "weather"
-   ],
-   "format": "meme"
-  }
- ],
- "questions": [
-  {
-   "big": "Most you've spent on *one* club?",
-   "sub": "Be honest. Comments are a safe space.",
-   "tags": [
-    "driver",
-    "clubs"
-   ]
-  },
-  {
-   "big": "How many balls do you *lose* a round?",
-   "sub": "Under 3 is a lie, we've all been there",
-   "tags": [
-    "balls",
-    "lost",
-    "water"
-   ]
-  },
-  {
-   "big": "Which club would you *bin* first?",
-   "sub": "Tell us in the comments",
-   "tags": [
-    "clubs",
-    "bag"
-   ]
-  },
-  {
-   "big": "Sunday medal or *Saturday* bounce game?",
-   "sub": "Pick a side",
-   "tags": [
-    "friends",
-    "course"
-   ]
-  },
-  {
-   "big": "Rangefinder or *GPS watch?*",
-   "sub": "Settle it in the comments",
-   "tags": [
-    "tech"
-   ]
-  },
-  {
-   "big": "Worst weather you've *still* played in?",
-   "sub": "Winners only",
-   "tags": [
-    "rain",
-    "weather",
-    "winter"
-   ]
-  }
- ],
- "carousels": [
-  {
-   "title": "5 things to check before you *buy a driver*",
-   "cover_sub": "Save this for your next upgrade",
-   "tags": [
-    "driver"
-   ],
-   "slides": [
-    [
-     "Get fitted first",
-     "Loft and shaft suit your swing more than the logo does. Many shops fit you free when you buy."
-    ],
-    [
-     "Last season's model",
-     "New drivers launch early in the year, and last season's tend to get cheaper once they do."
-    ],
-    [
-     "Check the price history",
-     "A sale price only means something if you know what it usually costs."
-    ],
-    [
-     "Compare more than one shop",
-     "The same driver can cost very different amounts at different UK retailers."
-    ]
-   ],
-   "close": [
-    "Save this for your *next upgrade*",
-    "Follow for golf banter, real deals and the odd useful tip."
-   ]
-  },
-  {
-   "title": "How to *stop losing* so many balls",
-   "cover_sub": "Your wallet will thank you",
-   "tags": [
-    "balls",
-    "lost"
-   ],
-   "slides": [
-    [
-     "Watch it all the way down",
-     "Pick a landmark where it lands before you look away."
-    ],
-    [
-     "Club down near trouble",
-     "Less club off the tee often means more balls in your bag at the end."
-    ],
-    [
-     "Play the right ball",
-     "A durable, softer two-piece ball suits most club golfers and costs less to lose."
-    ],
-    [
-     "Buy in bulk at the right time",
-     "Balls are cheaper by the dozen and often cheapest in winter sales."
-    ]
-   ],
-   "close": [
-    "Save this before your *next round*",
-    "Tag the mate who needs it most."
-   ]
-  },
-  {
-   "title": "Winter golf: *what you actually need*",
-   "cover_sub": "Stay dry, keep swinging",
-   "tags": [
-    "winter",
-    "weather"
-   ],
-   "slides": [
-    [
-     "Waterproofs first",
-     "A proper waterproof jacket and trousers beat any number of jumpers."
-    ],
-    [
-     "Layers, not bulk",
-     "A thin base layer and a midlayer let you swing freely and stay warm."
-    ],
-    [
-     "Winter gloves",
-     "Rain gloves get grippier when wet. Keep a dry pair in the bag."
-    ],
-    [
-     "Mittens between shots",
-     "Warm hands make a real difference to feel on the greens."
-    ]
-   ],
-   "close": [
-    "Save this for the *next cold snap*",
-    "Follow for more ways to play more and pay less."
-   ]
-  }
- ],
- "myths": [
-  {
-   "title": "Myth: a new driver will *fix your slice*",
-   "cover_sub": "Myth or Mulligan?",
-   "tags": [
-    "driver"
-   ],
-   "slides": [
-    [
-     "MYTH",
-     "A new driver fixes a slice",
-     "The swing path causes a slice. A driver set up with more draw bias or loft can reduce it a bit, but it won't cure it."
-    ],
-    [
-     "TRUTH",
-     "Fitting helps more than a new head",
-     "A fitting matches loft, lie and shaft to your swing. A lesson or two helps most of all."
-    ],
-    [
-     "TIP",
-     "Last season's model is often enough",
-     "If you are buying, last season's version usually performs very close to the new one for less."
-    ]
-   ],
-   "close": [
-    "Myth or *Mulligan?*",
-    "Got a golf myth you want busted? Drop it in the comments."
-   ]
-  },
-  {
-   "title": "Myth: Black Friday is *always* cheapest",
-   "cover_sub": "Myth or Mulligan?",
-   "tags": [
-    "deals"
-   ],
-   "slides": [
-    [
-     "MYTH",
-     "Black Friday prices are always the lowest",
-     "Some are genuine lows. Some are the usual price with a new label."
-    ],
-    [
-     "TRUTH",
-     "Check the history",
-     "We check every price against what it cost in October, so the real deals stand out."
-    ],
-    [
-     "TIP",
-     "Set a price alert",
-     "If it isn't low enough yet, an alert tells you when it drops, whatever the date."
-    ]
-   ],
-   "close": [
-    "Myth or *Mulligan?*",
-    "Save this for next November."
-   ]
-  },
-  {
-   "title": "Myth: expensive balls are *wasted* on you",
-   "cover_sub": "Myth or Mulligan?",
-   "tags": [
-    "balls"
-   ],
-   "slides": [
-    [
-     "MYTH",
-     "Premium balls are only for good players",
-     "Premium balls do give more spin around the greens for everyone."
-    ],
-    [
-     "TRUTH",
-     "It depends how many you lose",
-     "If you lose a few a round, a cheaper ball you can afford to lose may suit you better."
-    ],
-    [
-     "TIP",
-     "Find your middle ground",
-     "Mid-priced urethane balls are a good balance, and dozens are cheapest bought in bulk."
-    ]
-   ],
-   "close": [
-    "Myth or *Mulligan?*",
-    "Which ball do you play? Tell us below."
-   ]
-  }
- ],
- "characters": [
-  {
-   "name": "Big Dave",
-   "about": "society captain, owns every gadget, has never once hit a fairway"
-  },
-  {
-   "name": "Steady Steve",
-   "about": "plays the same 20-year-old irons, never loses a ball, never buys anything"
-  },
-  {
-   "name": "Gaz",
-   "about": "buys a new driver every spring, blames the old one"
-  }
- ],
- "bts": [
-  {
-   "big": "How we check a *real* deal",
-   "sub": "Every price, every 6 hours, against its own history"
-  }
- ]
+  "about": "Original lines the content engine draws on for posts that aren't built from live prices. All written in the house voice (golf-club banter, never mean, British). Add freely; the planner never reuses a set-up within 60 days. Myths must be true as written; nothing here invents a person's real story.",
+  "memes": [
+    {
+      "top": "Every golfer *knows* this...",
+      "punch": "...so close!",
+      "tags": [
+        "putting",
+        "lip"
+      ],
+      "arrow": "left"
+    },
+    {
+      "top": "Me on the first tee: *I'm* keeping it in play today",
+      "punch": "Narrator: he did not",
+      "tags": [
+        "tee",
+        "swing"
+      ],
+      "arrow": "none"
+    },
+    {
+      "top": "When the ball's *definitely* in the fairway",
+      "punch": "The fairway:",
+      "tags": [
+        "rough",
+        "lost"
+      ],
+      "arrow": "left"
+    },
+    {
+      "top": "What I said: *one* more bucket",
+      "punch": "Four buckets later...",
+      "tags": [
+        "range"
+      ],
+      "arrow": "none"
+    },
+    {
+      "top": "Golf forecast: *light* showers",
+      "punch": "Still teeing off",
+      "tags": [
+        "rain",
+        "weather"
+      ],
+      "arrow": "none"
+    },
+    {
+      "top": "Partner: how much was the *new driver*?",
+      "punch": "Me: it was on offer",
+      "tags": [
+        "driver",
+        "partner"
+      ],
+      "arrow": "right"
+    },
+    {
+      "top": "Pond: exists",
+      "punch": "My ball: *I'll* go for a swim",
+      "tags": [
+        "water",
+        "pond"
+      ],
+      "arrow": "left"
+    },
+    {
+      "top": "Three-foot putt for the *win*",
+      "punch": "Hands: absolutely not",
+      "tags": [
+        "putting",
+        "nerves"
+      ],
+      "arrow": "none"
+    },
+    {
+      "top": "Me counting my *strokes*",
+      "punch": "Playing partner: *only 4?* Really?",
+      "tags": [
+        "counting",
+        "big-dave"
+      ],
+      "arrow": "none",
+      "reaction": [
+        "reaction",
+        "mate"
+      ]
+    },
+    {
+      "top": "When the drive goes *straight*",
+      "punch": "Nobody saw it, obviously",
+      "tags": [
+        "tee",
+        "swing"
+      ],
+      "arrow": "none"
+    },
+    {
+      "top": "Me in the bunker: *one* swing",
+      "punch": "Spoiler: it wasn't one",
+      "tags": [
+        "bunker"
+      ],
+      "arrow": "left"
+    },
+    {
+      "top": "The 19th hole version of *my* round",
+      "punch": "Every putt was a 30-footer",
+      "tags": [
+        "clubhouse",
+        "friends"
+      ],
+      "arrow": "none"
+    }
+  ],
+  "headlines": [
+    {
+      "big": "Three *putt?*",
+      "sub": "You're not alone...",
+      "tags": [
+        "putting"
+      ],
+      "format": "meme"
+    },
+    {
+      "big": "Lost *another* one?",
+      "sub": "Restock without the RRP",
+      "tags": [
+        "lost",
+        "balls"
+      ],
+      "format": "meme"
+    },
+    {
+      "big": "New driver *season*",
+      "sub": "Last year's model is usually the bargain",
+      "tags": [
+        "driver"
+      ],
+      "format": "hottake"
+    },
+    {
+      "big": "Winter *golf*",
+      "sub": "Dress for four seasons in four hours",
+      "tags": [
+        "winter",
+        "weather"
+      ],
+      "format": "meme"
+    }
+  ],
+  "questions": [
+    {
+      "big": "Most you've spent on *one* club?",
+      "sub": "Be honest. Comments are a safe space.",
+      "tags": [
+        "driver",
+        "clubs"
+      ]
+    },
+    {
+      "big": "How many balls do you *lose* a round?",
+      "sub": "Under 3 is a lie, we've all been there",
+      "tags": [
+        "balls",
+        "lost",
+        "water"
+      ]
+    },
+    {
+      "big": "Which club would you *bin* first?",
+      "sub": "Tell us in the comments",
+      "tags": [
+        "clubs",
+        "bag"
+      ]
+    },
+    {
+      "big": "Sunday medal or *Saturday* bounce game?",
+      "sub": "Pick a side",
+      "tags": [
+        "friends",
+        "course"
+      ]
+    },
+    {
+      "big": "Rangefinder or *GPS watch?*",
+      "sub": "Settle it in the comments",
+      "tags": [
+        "tech"
+      ]
+    },
+    {
+      "big": "Worst weather you've *still* played in?",
+      "sub": "Winners only",
+      "tags": [
+        "rain",
+        "weather",
+        "winter"
+      ]
+    }
+  ],
+  "carousels": [
+    {
+      "title": "5 things to check before you *buy a driver*",
+      "cover_sub": "Save this for your next upgrade",
+      "tags": [
+        "driver"
+      ],
+      "slides": [
+        [
+          "Get fitted first",
+          "Loft and shaft suit your swing more than the logo does. Many shops fit you free when you buy."
+        ],
+        [
+          "Last season's model",
+          "New drivers launch early in the year, and last season's tend to get cheaper once they do."
+        ],
+        [
+          "Check the price history",
+          "A sale price only means something if you know what it usually costs."
+        ],
+        [
+          "Compare more than one shop",
+          "The same driver can cost very different amounts at different UK retailers."
+        ]
+      ],
+      "close": [
+        "Save this for your *next upgrade*",
+        "Follow for golf banter, real deals and the odd useful tip."
+      ]
+    },
+    {
+      "title": "How to *stop losing* so many balls",
+      "cover_sub": "Your wallet will thank you",
+      "tags": [
+        "balls",
+        "lost"
+      ],
+      "slides": [
+        [
+          "Watch it all the way down",
+          "Pick a landmark where it lands before you look away."
+        ],
+        [
+          "Club down near trouble",
+          "Less club off the tee often means more balls in your bag at the end."
+        ],
+        [
+          "Play the right ball",
+          "A durable, softer two-piece ball suits most club golfers and costs less to lose."
+        ],
+        [
+          "Buy in bulk at the right time",
+          "Balls are cheaper by the dozen and often cheapest in winter sales."
+        ]
+      ],
+      "close": [
+        "Save this before your *next round*",
+        "Tag the mate who needs it most."
+      ]
+    },
+    {
+      "title": "Winter golf: *what you actually need*",
+      "cover_sub": "Stay dry, keep swinging",
+      "tags": [
+        "winter",
+        "weather"
+      ],
+      "slides": [
+        [
+          "Waterproofs first",
+          "A proper waterproof jacket and trousers beat any number of jumpers."
+        ],
+        [
+          "Layers, not bulk",
+          "A thin base layer and a midlayer let you swing freely and stay warm."
+        ],
+        [
+          "Winter gloves",
+          "Rain gloves get grippier when wet. Keep a dry pair in the bag."
+        ],
+        [
+          "Mittens between shots",
+          "Warm hands make a real difference to feel on the greens."
+        ]
+      ],
+      "close": [
+        "Save this for the *next cold snap*",
+        "Follow for more ways to play more and pay less."
+      ]
+    }
+  ],
+  "myths": [
+    {
+      "title": "Myth: a new driver will *fix your slice*",
+      "cover_sub": "Myth or Mulligan?",
+      "tags": [
+        "driver"
+      ],
+      "slides": [
+        [
+          "MYTH",
+          "A new driver fixes a slice",
+          "The swing path causes a slice. A driver set up with more draw bias or loft can reduce it a bit, but it won't cure it."
+        ],
+        [
+          "TRUTH",
+          "Fitting helps more than a new head",
+          "A fitting matches loft, lie and shaft to your swing. A lesson or two helps most of all."
+        ],
+        [
+          "TIP",
+          "Last season's model is often enough",
+          "If you are buying, last season's version usually performs very close to the new one for less."
+        ]
+      ],
+      "close": [
+        "Myth or *Mulligan?*",
+        "Got a golf myth you want busted? Drop it in the comments."
+      ]
+    },
+    {
+      "title": "Myth: Black Friday is *always* cheapest",
+      "cover_sub": "Myth or Mulligan?",
+      "tags": [
+        "deals"
+      ],
+      "slides": [
+        [
+          "MYTH",
+          "Black Friday prices are always the lowest",
+          "Some are genuine lows. Some are the usual price with a new label."
+        ],
+        [
+          "TRUTH",
+          "Check the history",
+          "We check every price against what it cost in October, so the real deals stand out."
+        ],
+        [
+          "TIP",
+          "Set a price alert",
+          "If it isn't low enough yet, an alert tells you when it drops, whatever the date."
+        ]
+      ],
+      "close": [
+        "Myth or *Mulligan?*",
+        "Save this for next November."
+      ]
+    },
+    {
+      "title": "Myth: expensive balls are *wasted* on you",
+      "cover_sub": "Myth or Mulligan?",
+      "tags": [
+        "balls"
+      ],
+      "slides": [
+        [
+          "MYTH",
+          "Premium balls are only for good players",
+          "Premium balls do give more spin around the greens for everyone."
+        ],
+        [
+          "TRUTH",
+          "It depends how many you lose",
+          "If you lose a few a round, a cheaper ball you can afford to lose may suit you better."
+        ],
+        [
+          "TIP",
+          "Find your middle ground",
+          "Mid-priced urethane balls are a good balance, and dozens are cheapest bought in bulk."
+        ]
+      ],
+      "close": [
+        "Myth or *Mulligan?*",
+        "Which ball do you play? Tell us below."
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "name": "Big Dave",
+      "about": "society captain, owns every gadget, has never once hit a fairway"
+    },
+    {
+      "name": "Steady Steve",
+      "about": "plays the same 20-year-old irons, never loses a ball, never buys anything"
+    },
+    {
+      "name": "Gaz",
+      "about": "buys a new driver every spring, blames the old one"
+    }
+  ],
+  "bts": [
+    {
+      "big": "How we check a *real* deal",
+      "sub": "Every price, every 6 hours, against its own history"
+    }
+  ],
+  "sequences": [
+    {
+      "title": "Big Dave's *par*",
+      "thumb": "Only 4? Really?",
+      "caption": "Big Dave's par. Six shots, apparently four.",
+      "top": "Big Dave. *Par 4.*",
+      "shots": [
+        {
+          "club": "Driver",
+          "bg": "assets/social/library/seq-dave-01-driver.jpg",
+          "label": "Driver",
+          "scene": "Big Dave on the tee, mid-swing, ball heading right"
+        },
+        {
+          "club": "3 wood",
+          "bg": "assets/social/library/seq-dave-02-rough.jpg",
+          "label": "3 wood",
+          "scene": "Hacking out of deep rough"
+        },
+        {
+          "club": "7 iron",
+          "bg": "assets/social/library/seq-dave-03-tree.jpg",
+          "label": "7 iron",
+          "scene": "Punching out from behind a tree"
+        },
+        {
+          "club": "Wedge",
+          "bg": "assets/social/library/seq-dave-04-bunker.jpg",
+          "label": "Wedge",
+          "scene": "Sand flying out of a greenside bunker"
+        },
+        {
+          "club": "Putter",
+          "bg": "assets/social/library/seq-dave-05-putt.jpg",
+          "label": "Putter",
+          "scene": "A long putt sliding past, Dave wincing"
+        },
+        {
+          "club": "Putter",
+          "bg": "assets/social/library/seq-dave-06-tapin.jpg",
+          "label": "Putter",
+          "scene": "Tapping in from six inches"
+        }
+      ],
+      "lines": [
+        {
+          "who": "him",
+          "text": "Lovely. *Another par.*",
+          "beats": 2,
+          "bg": "assets/social/library/seq-dave-07-proud.jpg",
+          "label": "Big Dave",
+          "scene": "Dave holding up four fingers, beaming"
+        },
+        {
+          "who": "mate",
+          "text": "*Four?* Really?",
+          "beats": 2,
+          "bg": "assets/social/library/seq-dave-08-mate.jpg",
+          "label": "His mate",
+          "scene": "Mate's deadpan face, one eyebrow raised"
+        },
+        {
+          "who": "mate",
+          "text": "Here. Borrow my *abacus.*",
+          "beats": 3,
+          "bg": "assets/social/library/seq-dave-09-abacus.jpg",
+          "label": "The abacus",
+          "scene": "Mate holding out a wooden abacus to Dave"
+        }
+      ]
+    }
+  ]
 }

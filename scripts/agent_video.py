@@ -400,6 +400,9 @@ except Exception as _e:
 def render(style, script, palette, out_path, img=None, photo=None, imgs=None):
     """Write the mp4 and return a still (the payoff frame) for the feed card."""
     fn, dur = STYLES[style]
+    if style == "sequence":  # its length follows its beats
+        from agent_brush import seq_duration
+        dur = seq_duration(script)
     pal = PALETTES[palette]
     frames = int(dur * FPS)
     out_path.parent.mkdir(parents=True, exist_ok=True)

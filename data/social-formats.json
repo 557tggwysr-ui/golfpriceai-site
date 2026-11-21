@@ -31,10 +31,11 @@
       "bucket": "entertainment",
       "objective": "reach",
       "styles": [
+        "sequence",
         "humour",
         "story"
       ],
-      "status": "active",
+      "status": "trial",
       "auto": true,
       "note": "Text-led sketches with obviously fictional characters; real filmed skits come from John (the pack suggests two a week)."
     },

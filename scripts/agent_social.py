@@ -117,6 +117,11 @@ def theme_meme(d, L, rnd):
             return None
         sc = {"bg": photo, "top": m["top"], "punch": m["punch"], "arrow": m.get("arrow", "left"), "hook": strip_marks(m["top"]),
               "thumb": strip_marks(m["top"])}
+        if m.get("reaction"):  # two-photo joke: the set-up, then the mate's reaction cuts in on the punchline
+            photo2 = pick_photo(m["reaction"], L, rnd, "A", need_match=True)
+            if not photo2:
+                return None
+            sc["bg2"] = photo2
         top = strip_marks(m["top"]).rstrip()
         text = f"{top}{'' if top[-1:] in '.?!:' else '...'} {strip_marks(m['punch'])}"
         style = "humour"
@@ -219,7 +224,25 @@ def theme_bts(d, L, rnd):
             "keywords": "golf price comparison UK, golf deals"}
 
 
-NEW_THEMES = {"meme": theme_meme, "community": theme_question, "carousel": theme_tips, "myth": theme_myth, "budget": theme_budget, "bts": theme_bts}
+def theme_sketch(d, L, rnd):
+    """A quick-cut mini sketch from the bank (style "sequence"): only when every photo it needs exists."""
+    pool = fresh_lines(bank().get("sequences", []), "title", L)
+    lib = {p["file"] for p in library()}
+    pool = [q for q in pool if all(it.get("bg") in lib for it in q.get("shots", []) + q.get("lines", []))]
+    if not pool:
+        return None
+    q = rnd.choice(pool)
+    mark_used(L, q["title"])
+    t = strip_marks(q["title"])
+    sc = {k: q[k] for k in ("top", "shots", "lines", "end") if k in q}
+    sc.update({"hook": t, "thumb": strip_marks(q.get("thumb", t))})
+    cap = q.get("caption", t)
+    return {"theme": "Golf sketch", "format": "sketch", "link": SITE + "/", "image": None, "name": "", "headline": t, "sub": "",
+            "styles": {"sequence": sc}, "ig": f"{cap} ⛳ Tag the mate who counts like this.", "x": f"{cap} ⛳", "tt": f"{cap} ⛳ #golfhumour",
+            "keywords": "golf humour, golf sketch, relatable golf"}
+
+
+NEW_THEMES = {"sketch": theme_sketch, "meme": theme_meme, "community": theme_question, "carousel": theme_tips, "myth": theme_myth, "budget": theme_budget, "bts": theme_bts}
 
 
 # ---------------- the mix ----------------
