@@ -374,7 +374,12 @@ def outro(im, u, s):
     """The episode's hand-over: after the punchline, the brand frame becomes a pointer to our tool.
     u runs 0..1 over OUTRO seconds; each element lands on a beat."""
     o = s.get("outro") or {}
-    shot_p, line, tag, url = OUTRO_TOOLS.get(o.get("tool", "fourball"), OUTRO_TOOLS["fourball"])
+    tool = o.get("tool", "fourball")
+    if tool in OUTRO_TOOLS:
+        shot_p, line, tag, url = OUTRO_TOOLS[tool]
+    else:  # any other feature: its screen, line, tag and address come with the episode (from data/fourball.json "features")
+        shot_p = o.get("screen") or OUTRO_TOOLS["fourball"][0]
+        line, tag, url = "Got a *{lead}* in your four-ball?", (o.get("tag") or "GOLFPRICE AI").upper(), o.get("url") or "golfpriceai.com"
     line = o.get("line") or line
     k = min(1, u * OUTRO / 0.3)
     bg = im.filter(ImageFilter.GaussianBlur(18))

@@ -23,6 +23,16 @@ from price_pages import page_shell, breadcrumb, SITE  # noqa: E402
 
 OUT = ROOT / "fourball" / "episodes"
 MEDIA = ROOT / "assets" / "fourball"
+def _feature_tool(e):
+    """The tool box under an episode: the episode's own featured tool if it has one (data/fourball.json "features")."""
+    fb = load("data/fourball.json", {}) or {}
+    tid = ((e.get("script") or {}).get("cover") or {}).get("tool")
+    f = next((x for x in fb.get("features", []) if x.get("id") == tid), None)
+    if f and tid not in ("scorecard", "fourball"):
+        return (f["path"], f["name"], f["does"] + ".")
+    return None
+
+
 TOOLS = {  # which tool each arc hands over to
     "dave-scorecard": ("/play/scorecard/", "Keep the real score", "The free live scorecard: everyone's score on everyone's phone, no abacus needed."),
     "gaz-driver-count": ("/fourball/", "Before the next new driver", "Fourball Alerts: one link in the group chat, and your whole four-ball hears when the kit you're eyeing genuinely drops."),
@@ -71,7 +81,8 @@ def render_media(e):
         return False
     sc = {k: r[k] for k in ("top", "shots", "lines", "counter", "cover", "end") if k in r}
     cv = r.get("cover") or {}
-    sc["outro"] = {"tool": cv.get("tool", "fourball"), "lead": (cv.get("names") or ["Big Dave"])[0], "line": cv.get("outro_line")}
+    sc["outro"] = {"tool": cv.get("tool", "fourball"), "lead": (cv.get("names") or ["Big Dave"])[0], "line": cv.get("outro_line"),
+                   "screen": cv.get("outro_screen"), "tag": cv.get("outro_tag"), "url": cv.get("outro_url")}
     BR.thumbnail(str(jpg), "sequence", sc)
     from PIL import Image
     im = Image.open(jpg).convert("RGB")
@@ -144,7 +155,8 @@ def build(today, preview=False):
     for i, e in enumerate(eps):
         n = e["ep"]
         url = f"{SITE}/fourball/episodes/{n}/"
-        tool = next((TOOLS[a] for a in e.get("arcs", []) if a in TOOLS), DEFAULT_TOOL)
+        tid = ((e.get("script") or {}).get("cover") or {}).get("tool")
+        tool = _feature_tool(e) or ({"scorecard": TOOLS["dave-scorecard"], "fourball": DEFAULT_TOOL}.get(tid)) or next((TOOLS[a] for a in e.get("arcs", []) if a in TOOLS), DEFAULT_TOOL)
         cast = ", ".join(c.get("name", "") for c in bank.get("characters", []) if c.get("id") in e.get("cast", []))
         text = f"The Fourball, EP {n}: {e['title']} 😂 Who's the {('Big Dave' if 'big-dave' in e.get('cast', []) else 'Gaz')} in our group?"
         wa = "https://wa.me/?text=" + __import__("urllib.parse").parse.quote(f"{text} {url}?utm_source=fourball&utm_medium=whatsapp&utm_campaign=episode")
