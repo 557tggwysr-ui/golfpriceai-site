@@ -427,14 +427,18 @@
     {
       "name": "Phil",
       "id": "phil",
-      "role": "the straight man",
+      "role": "the know-it-all",
       "look": "Lean fifty-something, clean-shaven, tweed flat cap, olive quilted gilet over a white polo, wristwatch.",
-      "personality": "Dave's long-suffering mate. Deadpan, says almost nothing; his eyebrows do the talking.",
+      "personality": "Dave's mate and the group's know-it-all. Deadpan, eyebrows doing half the talking, but he can't let anything go: he corrects everyone, quotes the rules, knows the stats, and has an unrequested tip for every swing. We all have that mate. He's usually right, which is the most annoying part.",
       "quirks": [
-        "keeps the real score",
-        "arrives with the perfect prop (abacus, calculator, rule book, rake)",
+        "starts every other sentence with 'Actually...'",
+        "quotes the Rules of Golf (and the local rules) from memory",
+        "unrequested swing tips, mid-backswing",
+        "knows the price history of everyone's kit, and tells them",
+        "keeps the real score, and the receipts",
+        "arrives with the perfect prop (abacus, calculator, rule book, live scorecard)",
         "arms folded = verdict delivered",
-        "the only one who reads the local rules"
+        "very occasionally wrong, and the group never lets it go"
       ]
     },
     {
@@ -787,6 +791,26 @@
         "Says the man with a 2009 rangefinder.",
         "Laugh all you like, it's last season's, I paid less.",
         "At least mine went in the air, Kev."
+      ]
+    },
+    {
+      "between": [
+        "phil",
+        "everyone"
+      ],
+      "about": "Phil, the know-it-all, can't help correcting people. Likeable, not smug for the sake of it: he's usually right, and the joke is that he can't let it go. Now and then he's wrong, and Kev makes sure everyone hears about it.",
+      "phil": [
+        "Actually, that's a drop, not a free drop.",
+        "Technically, that's a six.",
+        "You're coming over the top. Just saying.",
+        "That driver was cheaper in October.",
+        "Rule 18.2, Dave."
+      ],
+      "others": [
+        "Kev: 'Here we go...'",
+        "Dave: 'Nobody asked, Phil.'",
+        "Gaz: 'Did you read that off the back of a scorecard?'",
+        "Steve: (says nothing, hits it straight)"
       ]
     }
   ]

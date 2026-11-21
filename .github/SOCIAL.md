@@ -95,7 +95,7 @@ Hashtags are never a substitute for a good idea. Every post needs a clear reason
 
 ## Recurring characters (John, 21 Nov 2026)
 
-Big Dave, Phil, Steady Steve, Gaz and Kev (the wind-up merchant) are our recurring, obviously fictional cast (full looks, personalities and quirks in data/social-bank.json "characters"). Recurring characters build familiarity: people follow to see what Dave does next.
+Big Dave, Phil (the know-it-all), Steady Steve, Gaz and Kev (the wind-up merchant) are our recurring, obviously fictional cast (full looks, personalities and quirks in data/social-bank.json "characters"). Recurring characters build familiarity: people follow to see what Dave does next.
 
 - Keep each character's look identical in every photo (same clothes, cap and build). Generate a set in one ChatGPT conversation so faces stay consistent.
 - Build personalities and running gags across episodes (Dave's scorecard, Phil's props, Steve's 20-year-old irons, Gaz's new driver). Everyone gets a win sometimes; never mean-spirited.
