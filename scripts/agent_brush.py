@@ -94,7 +94,10 @@ def parse_marked(text):
     for part in re.split(r"(\*[^*]+\*)", str(text)):
         hi = part.startswith("*") and part.endswith("*")
         for w in part.strip("*").split():
-            out.append((w, hi))
+            if out and re.fullmatch(r"[,.!?;:\u2026]+", w):  # "*shaft*, mate": keep the comma on its word
+                out[-1] = (out[-1][0] + w, out[-1][1])
+            else:
+                out.append((w, hi))
     return out
 
 
@@ -413,7 +416,7 @@ def style_sequence(t, s, pal, img, photo, dur=None):
     nshots = len(real)
     if kind == "shot":
         n_now = sum(1 for sh in s.get("shots", [])[:i + 1] if not sh.get("cutaway"))  # cutaways (Kev's reactions) don't count
-        if s.get("top") and not item.get("hide_top"):  # the set-up sits low, so faces near the top of the photos stay clear
+        if s.get("top") and not item.get("hide_top") and not item.get("cutaway"):  # the set-up sits low, so faces near the top of the photos stay clear
             banner(im, s["top"], W / 2, s.get("top_y", 1560), W - 220, colour=GREEN, seed="q-top", t=min(1, 0.55 + t / 0.35), size=92)
         if counting and n_now:
             _counter(im, n_now, (t - t0) if not item.get("cutaway") else 9)
