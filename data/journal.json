@@ -1,0 +1,254 @@
+{
+  "about": "Frozen figures for each Clubhouse Journal article (computed once, from data/models.json).",
+  "articles": {
+    "is-black-friday-golf-genuinely-cheaper": {
+      "then": "2026-10-15",
+      "now": "2026-11-19",
+      "total": {
+        "n": 1207,
+        "cheaper": 346,
+        "dearer": 11
+      },
+      "pct": 29,
+      "cats": [
+        {
+          "type": "driver",
+          "name": "Drivers",
+          "n": 80,
+          "cheaper": 43,
+          "dearer": 0,
+          "pct": 54,
+          "median_drop": 10.8
+        },
+        {
+          "type": "gps-watch",
+          "name": "GPS watches",
+          "n": 22,
+          "cheaper": 10,
+          "dearer": 0,
+          "pct": 45,
+          "median_drop": 16.0
+        },
+        {
+          "type": "wood",
+          "name": "Fairway woods",
+          "n": 69,
+          "cheaper": 30,
+          "dearer": 0,
+          "pct": 43,
+          "median_drop": 14.4
+        },
+        {
+          "type": "irons",
+          "name": "Iron sets",
+          "n": 92,
+          "cheaper": 34,
+          "dearer": 2,
+          "pct": 37,
+          "median_drop": 11.8
+        },
+        {
+          "type": "hybrid",
+          "name": "Hybrids",
+          "n": 46,
+          "cheaper": 15,
+          "dearer": 1,
+          "pct": 33,
+          "median_drop": 14.9
+        },
+        {
+          "type": "rangefinder",
+          "name": "Rangefinders",
+          "n": 51,
+          "cheaper": 15,
+          "dearer": 0,
+          "pct": 29,
+          "median_drop": 14.0
+        },
+        {
+          "type": "putter",
+          "name": "Putters",
+          "n": 103,
+          "cheaper": 30,
+          "dearer": 0,
+          "pct": 29,
+          "median_drop": 10.0
+        },
+        {
+          "type": "wedge",
+          "name": "Wedges",
+          "n": 82,
+          "cheaper": 22,
+          "dearer": 0,
+          "pct": 27,
+          "median_drop": 16.4
+        },
+        {
+          "type": "launch-monitor",
+          "name": "Launch monitors",
+          "n": 28,
+          "cheaper": 7,
+          "dearer": 2,
+          "pct": 25,
+          "median_drop": 15.0
+        },
+        {
+          "type": "ball",
+          "name": "Golf balls",
+          "n": 205,
+          "cheaper": 52,
+          "dearer": 1,
+          "pct": 25,
+          "median_drop": 15.0
+        },
+        {
+          "type": "bag",
+          "name": "Golf bags",
+          "n": 371,
+          "cheaper": 77,
+          "dearer": 5,
+          "pct": 21,
+          "median_drop": 8.4
+        },
+        {
+          "type": "electric-trolley",
+          "name": "Electric trolleys",
+          "n": 58,
+          "cheaper": 11,
+          "dearer": 0,
+          "pct": 19,
+          "median_drop": 4.4
+        }
+      ],
+      "examples": [
+        {
+          "name": "Cobra Darkspeed LS Driver",
+          "slug": "cobra-darkspeed-ls-driver",
+          "type": "driver",
+          "then": 419.0,
+          "now": 229.0,
+          "pct": 45
+        },
+        {
+          "name": "Mizuno Pro Fli-Hi Utility Irons",
+          "slug": "mizuno-pro-fli-hi-utility-irons",
+          "type": "irons",
+          "then": 229.0,
+          "now": 139.0,
+          "pct": 39
+        },
+        {
+          "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
+          "slug": "srixon-limited-z-star-diamond-2-dozen-golf-balls",
+          "type": "ball",
+          "then": 47.49,
+          "now": 30.0,
+          "pct": 37
+        },
+        {
+          "name": "Callaway Paradym Ai Smoke Max Fairway Wood",
+          "slug": "callaway-paradym-ai-smoke-max-fairway-wood",
+          "type": "wood",
+          "then": 288.04,
+          "now": 199.0,
+          "pct": 31
+        },
+        {
+          "name": "Cobra 3D Printed Putter",
+          "slug": "cobra-3d-printed-putter",
+          "type": "putter",
+          "then": 279.0,
+          "now": 209.0,
+          "pct": 25
+        }
+      ],
+      "rose_then_fell": 2
+    },
+    "same-golf-kit-different-price": {
+      "models": 354,
+      "median_pct": 14,
+      "over20": 40,
+      "over10": 60,
+      "cats": [
+        {
+          "type": "irons",
+          "name": "Iron sets",
+          "n": 56,
+          "median_pct": 17,
+          "median_gbp": 120
+        },
+        {
+          "type": "rangefinder",
+          "name": "Rangefinders",
+          "n": 10,
+          "median_pct": 20,
+          "median_gbp": 60
+        },
+        {
+          "type": "electric-trolley",
+          "name": "Electric trolleys",
+          "n": 20,
+          "median_pct": 5,
+          "median_gbp": 50
+        },
+        {
+          "type": "putter",
+          "name": "Putters",
+          "n": 10,
+          "median_pct": 12,
+          "median_gbp": 50
+        },
+        {
+          "type": "wood",
+          "name": "Fairway woods",
+          "n": 30,
+          "median_pct": 20,
+          "median_gbp": 50
+        },
+        {
+          "type": "gps-watch",
+          "name": "GPS watches",
+          "n": 8,
+          "median_pct": 20,
+          "median_gbp": 45
+        },
+        {
+          "type": "bag",
+          "name": "Golf bags",
+          "n": 76,
+          "median_pct": 20,
+          "median_gbp": 30
+        },
+        {
+          "type": "driver",
+          "name": "Drivers",
+          "n": 43,
+          "median_pct": 11,
+          "median_gbp": 30
+        },
+        {
+          "type": "wedge",
+          "name": "Wedges",
+          "n": 24,
+          "median_pct": 8,
+          "median_gbp": 11
+        },
+        {
+          "type": "ball",
+          "name": "Golf balls",
+          "n": 50,
+          "median_pct": 14,
+          "median_gbp": 5
+        },
+        {
+          "type": "hybrid",
+          "name": "Hybrids",
+          "n": 22,
+          "median_pct": 1,
+          "median_gbp": 1
+        }
+      ],
+      "min_retailers": 3
+    }
+  }
+}

@@ -639,6 +639,11 @@
           "date": "2026-11-21",
           "stage": "shortlisted",
           "note": "John asked whether to build a blog agent; proposed as a low-volume, data-led journal instead of a volume blog."
+        },
+        {
+          "date": "2026-11-21",
+          "stage": "shortlisted",
+          "note": "John said yes to two pilots: built on the branch (journal/ and scripts/journal_pages.py). Merging = approval; then the monthly search agent takes on one article a fortnight."
         }
       ]
     }
