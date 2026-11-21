@@ -428,6 +428,20 @@
         "has three rangefinders and still asks Phil",
         "always 'just looking' at the pro shop"
       ]
+    },
+    {
+      "name": "Kev",
+      "id": "kev",
+      "role": "the wind-up merchant",
+      "look": "Stocky forty-something, ginger stubble, cheeky grin, plain burgundy jumper, grey trousers, black bobble hat in winter (plain grey cap in summer).",
+      "personality": "Can't help himself. Cracks a one-liner after every bad shot, pulls faces, and is always in the background trying (and failing) not to laugh when someone duffs, thins or shanks one.",
+      "quirks": [
+        "shoulders shaking, hand over mouth, in the back of the shot",
+        "commentary voice: 'and it's... gone'",
+        "slow clap for a ball that finally gets airborne",
+        "his own shots are no better, and everyone remembers"
+      ],
+      "use": "Reaction shots of Kev (stifled laugh, hand over mouth, slow clap, wince, fake commentary mic) are reusable: cut one in after any duff, thin or misplaced shot in a sketch. Keep them in the library tagged kev plus the reaction."
     }
   ],
   "bts": [
@@ -514,5 +528,5 @@
       ]
     }
   ],
-  "charactersAbout": "Recurring, obviously fictional characters (AI-generated photos, never based on real people). Keep looks identical in every photo; build running gags across episodes; never mean-spirited: everyone gets a win sometimes."
+  "charactersAbout": "Recurring, obviously fictional characters (AI-generated photos, never based on real people). Keep looks identical in every photo; build running gags across episodes; never mean-spirited: everyone gets a win sometimes. Kev's ribbing is always friendly, and he gets his comeuppance too."
 }

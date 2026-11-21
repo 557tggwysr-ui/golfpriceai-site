@@ -95,9 +95,10 @@ Hashtags are never a substitute for a good idea. Every post needs a clear reason
 
 ## Recurring characters (John, 21 Nov 2026)
 
-Big Dave, Phil, Steady Steve and Gaz are our recurring, obviously fictional cast (full looks, personalities and quirks in data/social-bank.json "characters"). Recurring characters build familiarity: people follow to see what Dave does next.
+Big Dave, Phil, Steady Steve, Gaz and Kev (the wind-up merchant) are our recurring, obviously fictional cast (full looks, personalities and quirks in data/social-bank.json "characters"). Recurring characters build familiarity: people follow to see what Dave does next.
 
 - Keep each character's look identical in every photo (same clothes, cap and build). Generate a set in one ChatGPT conversation so faces stay consistent.
 - Build personalities and running gags across episodes (Dave's scorecard, Phil's props, Steve's 20-year-old irons, Gaz's new driver). Everyone gets a win sometimes; never mean-spirited.
 - Never based on, named after or resembling a real person; never presented as real golfers or real stories.
+- Kev's reaction shots (stifled laugh in the background, slow clap, fake commentary, wince) are a reusable stock: build them up in the library so any sketch can cut to Kev after a duff, thin or misplaced shot.
 - Monthly episode: on the 8th the channel scout writes one ready-made episode for John (a short script for a quick-cut sketch plus the photo prompts), using the characters and what's on trend.
