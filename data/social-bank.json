@@ -572,7 +572,7 @@
       ],
       "cover": {
         "ep": 1,
-        "hook": "Six shots. *Par?*",
+        "hook": "Six shots.",
         "names": [
           "Big Dave",
           "Phil"
@@ -584,7 +584,8 @@
         "right_focus": [
           0.45,
           0.4
-        ]
+        ],
+        "punch": "Par?!"
       }
     },
     {
@@ -654,7 +655,7 @@
       ],
       "cover": {
         "ep": 2,
-        "hook": "New driver. *Again.*",
+        "hook": "Not another",
         "names": [
           "Gaz",
           "Kev"
@@ -668,7 +669,8 @@
         "right_focus": [
           0.45,
           0.4
-        ]
+        ],
+        "punch": "Driver?!"
       }
     }
   ],

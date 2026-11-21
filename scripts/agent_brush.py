@@ -481,16 +481,56 @@ BRUSH_STYLES = {"humour": (style_humour, 8.4), "headline": (style_headline, 7.8)
 
 # ---------------- the cast cover (sketch thumbnails) ----------------
 SERIES = "THE FOURBALL"  # the recurring cast's series name on every sketch cover
+PUNCH_RED = (196, 18, 32)  # covers only: the punch word, for maximum pop on yellow
+
+
+def _cover_hook(im, lead, punch, cy):
+    """Two-tier hook: a short lead line, then the punch word huge in red with a swash underline."""
+    f1 = font(118, "head")
+    l1 = lead.upper()
+    w1 = f1.getlength(l1)
+    size = 250
+    while size > 120:
+        f2 = font(size, "head")
+        if f2.getlength(punch.upper()) <= W - 260:
+            break
+        size -= 10
+    l2 = punch.upper()
+    w2 = f2.getlength(l2)
+    tw = max(w1, w2)
+    bw, bh = int(tw + 150), int(118 * 1.05 + size * 1.0 + 120)
+    mask, pad = brush_mask(bw, bh, "cover-hook" + lead + punch, rough=18)
+    layer = Image.new("RGBA", mask.size, YELLOW + (0,))
+    layer.putalpha(mask)
+    d = ImageDraw.Draw(layer)
+    cx = layer.width / 2
+    y1 = pad + 34
+    d.text((cx - w1 / 2, y1), l1, font=f1, fill=INKD)
+    y2 = y1 + 118 * 1.02
+    d.text((cx - w2 / 2 + 4, y2 + 5), l2, font=f2, fill=(90, 0, 10))  # a little depth
+    d.text((cx - w2 / 2, y2), l2, font=f2, fill=PUNCH_RED)
+    sw, swp = brush_mask(int(w2 * 0.8), 18, "swash" + punch, rough=5)
+    sl = Image.new("RGBA", sw.size, PUNCH_RED + (0,))
+    sl.putalpha(sw)
+    layer.alpha_composite(sl.rotate(-2, expand=True, resample=Image.BICUBIC), (int(cx - w2 * 0.4 - swp), int(y2 + size * 0.98)))
+    layer = layer.rotate(-3, expand=True, resample=Image.BICUBIC)
+    x, y = int(W / 2 - layer.width / 2), int(cy - layer.height / 2)
+    sh = Image.new("RGBA", layer.size, (0, 0, 0, 0))
+    sh.putalpha(layer.getchannel("A").point(lambda v: int(v * 0.4)))
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(12)), (x + 8, y + 14))
+    im.alpha_composite(layer, (x, y))
+    bursts(im, x + 40, y + layer.height * 0.55, 1.0, 1.0)
+    bursts(im, x + layer.width - 40, y + layer.height * 0.55, 1.0, 1.0, flip=True)
 
 
 def _name_pill(im, text, cx, cy, colour=WHITE, ink=INKD):
-    f = font(46, "head")
-    w = f.getlength(text) + 56
-    box = Image.new("RGBA", (int(w), 84), (0, 0, 0, 0))
+    f = font(58, "head")
+    w = f.getlength(text) + 70
+    box = Image.new("RGBA", (int(w), 104), (0, 0, 0, 0))
     d = ImageDraw.Draw(box)
-    d.rounded_rectangle([0, 0, w - 1, 83], 42, fill=colour + (255,))
-    d.text((28, 14), text, font=f, fill=ink)
-    im.alpha_composite(box, (int(cx - w / 2), int(cy - 42)))
+    d.rounded_rectangle([0, 0, w - 1, 103], 52, fill=colour + (255,))
+    d.text((35, 18), text, font=f, fill=ink)
+    im.alpha_composite(box, (int(cx - w / 2), int(cy - 52)))
 
 
 def cast_cover(s):
@@ -522,19 +562,24 @@ def cast_cover(s):
     # series badge, hook, names: all inside the safe middle
     ep = cv.get("ep") or s.get("ep")
     badge = SERIES + (f"  \u00b7  EP {ep}" if ep else "")
-    fb = font(44, "head")
-    bw = fb.getlength(badge) + 60
-    bx = Image.new("RGBA", (int(bw), 80), (0, 0, 0, 0))
-    ImageDraw.Draw(bx).rounded_rectangle([0, 0, bw - 1, 79], 18, fill=GREEN + (255,))
-    ImageDraw.Draw(bx).text((30, 14), badge, font=fb, fill=YELLOW)
-    im.alpha_composite(bx.rotate(-2, expand=True, resample=Image.BICUBIC), (int(W / 2 - bw / 2), 1575))
-    banner(im, cv.get("hook") or s.get("thumb") or s.get("hook", ""), W / 2, 1230, W - 120, colour=YELLOW, ink=INKD, hi=GREEN,
-           seed="cover", t=1.0, size=150, max_lines=2, rot=-3)
+    fb = font(58, "head")
+    bw = fb.getlength(badge) + 90
+    bx = Image.new("RGBA", (int(bw), 110), (0, 0, 0, 0))
+    bd = ImageDraw.Draw(bx)
+    bd.rounded_rectangle([0, 0, bw - 1, 109], 55, fill=YELLOW + (255,))
+    bd.rounded_rectangle([6, 6, bw - 7, 103], 49, fill=GREEN + (255,))
+    bd.text((45, 22), badge, font=fb, fill=YELLOW)
+    im.alpha_composite(bx, (int(W / 2 - bw / 2), 1560))
+    if cv.get("punch"):
+        _cover_hook(im, cv.get("hook", ""), cv["punch"], 1150)
+    else:
+        banner(im, cv.get("hook") or s.get("thumb") or s.get("hook", ""), W / 2, 1230, W - 120, colour=YELLOW, ink=INKD, hi=GREEN,
+               seed="cover", t=1.0, size=150, max_lines=2, rot=-3)
     names = cv.get("names") or []
     if len(names) >= 1:
-        _name_pill(im, names[0].upper(), 270, 1480)
+        _name_pill(im, names[0].upper(), 250, 1440)
     if len(names) >= 2:
-        _name_pill(im, names[1].upper(), W - 270, 1480)
+        _name_pill(im, names[1].upper(), W - 250, 1440)
     return im
 
 
