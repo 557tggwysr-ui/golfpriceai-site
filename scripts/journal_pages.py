@@ -50,6 +50,12 @@ CSS = """<style>
 .jr .cards{display:grid;gap:14px;margin-top:16px}
 .jr .card{display:block;border:1px solid #e2e8e3;border-radius:14px;padding:16px;text-decoration:none;color:inherit}
 .jr .card b{font:800 19px/1.3 Poppins,sans-serif;color:#103420;display:block;margin-bottom:6px}
+.jr .sign{margin-top:34px;border-top:3px solid #ffd600;padding-top:22px;text-align:center}
+.jr .sign img{width:220px;height:auto;display:block;margin:0 auto 10px}
+.jr .sign .tl{font:800 22px/1.2 Poppins,sans-serif;color:#103420;margin:4px 0 8px}
+.jr .sign .tl em{font-style:normal;color:#2f8a1f}
+.jr .sign p{font-size:15px;color:#4b5e52;margin:6px auto;max-width:520px}
+.jr .sign .who{font-size:14px;color:#14251a}
 </style>"""
 
 
@@ -148,6 +154,15 @@ def bars(cats, key, label):
         for c in cats) + "</div>"
 
 
+SIGN_OFF = """<footer class="sign">
+<img src="/assets/journal/logo-signoff.png" alt="GolfPrice AI" width="220" height="145" loading="lazy">
+<div class="tl">Full Swing. <em>Not full price.</em></div>
+<p>GolfPrice AI compares golf prices across multiple UK retailers every six hours, shows you the price history, and tells you plainly when a deal is genuinely good. Free, independent, and never ranked by commission.</p>
+<p class="who">Written by <b>John Willson</b>, founder of GolfPrice AI. Every figure comes from our own price data.</p>
+<p><a class="cta" href="/">Compare golf prices</a><a class="cta" href="/journal/" style="background:#103420">More from the Journal</a></p>
+</footer>"""
+
+
 def article_black_friday(f):
     t, c = f["total"], f["cats"]
     best = c[0]
@@ -174,7 +189,7 @@ def article_black_friday(f):
 <p>Compare against what the same model cost a few weeks ago, not against the price on the sticker. Every price page on GolfPrice AI shows the price history and a plain verdict, and our Black Friday page lists only the models that are genuinely cheaper than in October, updated every six hours.</p>
 <p><a class="cta" href="/prices/black-friday/">See what's genuinely cheaper now</a><a class="cta" href="/fourball/" style="background:#103420">Price alerts for your four-ball</a></p>
 <p class="note"><b>How we worked this out.</b> {t["n"]:,} golf models with prices tracked since at least {nice(f["then"])} across multiple UK retailers, using the lowest price on each date. Junior sets and shafts sold on their own are left out, and a change of 1% or less counts as no change. Categories with fewer than 20 models are not shown. GolfPrice AI earns a commission from some retailers when you buy through our links; it never changes which price we show or the order we show them in.</p>
-</article>"""
+{SIGN_OFF}</article>"""
     return {"slug": "is-black-friday-golf-genuinely-cheaper",
             "title": "Is Black Friday Golf Genuinely Cheaper? Our Price Data",
             "description": f"We tracked {t['n']:,} golf models since mid-October: {f['pct']}% were genuinely cheaper a week before Black Friday. See which kit dropped most.",
@@ -202,7 +217,7 @@ def article_spread(f):
 <p>For anything over about £100, checking a few retailers is worth the minute it takes. For balls, a few pounds a dozen soon adds up over a season. Every price page on GolfPrice AI lists the retailers we track for that model, cheapest first, with the price history and a plain verdict.</p>
 <p><a class="cta" href="/price-check.html">Is this a good price? Check it</a><a class="cta" href="/fourball/" style="background:#103420">Price alerts for your four-ball</a></p>
 <p class="note"><b>How we worked this out.</b> {f["models"]} golf models sold by {f["min_retailers"]} or more UK retailers in our data on {nice(DATE)}, comparing each retailer's lowest price for the same model. Junior sets and shafts sold on their own are left out, and so are the few models where one price was more than double another (usually a different pack size or edition, not a real gap). Categories with fewer than 8 models are not shown. We never name or rank retailers in our reports. GolfPrice AI earns a commission from some retailers when you buy through our links; it never changes which price we show or the order we show them in.</p>
-</article>"""
+{SIGN_OFF}</article>"""
     return {"slug": "same-golf-kit-different-price",
             "title": "Same Golf Kit, Different Price: UK Retailer Gaps",
             "description": f"Across {f['models']} golf models sold by {f['min_retailers']}+ UK retailers, the cheapest-to-dearest gap was typically {f['median_pct']}%. Our data, by category.",
