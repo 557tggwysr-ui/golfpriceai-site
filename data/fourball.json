@@ -107,11 +107,8 @@
       "arcs": [
         "dave-scorecard"
       ],
-      "status": "awaiting photos",
-      "photos": [
-        "assets/social/library/phil-03-phone.jpg",
-        "assets/social/library/dave-03-broken.jpg"
-      ],
+      "status": "ready",
+      "photos": "complete",
       "posted": null,
       "result": null,
       "idea": "John's idea (21 Nov 2026): Phil proves the real score with our live scorecard."
@@ -126,7 +123,8 @@
         "dave-03-broken.jpg"
       ],
       "asked": "2026-11-21",
-      "needBy": "2026-12-06"
+      "needBy": "2026-12-06",
+      "received": "2026-11-21"
     }
   ]
 }

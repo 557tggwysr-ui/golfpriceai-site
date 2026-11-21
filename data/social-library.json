@@ -529,6 +529,42 @@
         "B"
       ],
       "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+    },
+    {
+      "file": "assets/social/library/phil-03-phone.jpg",
+      "tags": [
+        "phil",
+        "big-dave",
+        "phone",
+        "scorecard",
+        "proof"
+      ],
+      "fit": [
+        "A",
+        "B"
+      ],
+      "focus": [
+        0.55,
+        0.42
+      ],
+      "about": "AI-generated, fictional recurring characters; phone screen shows a real capture of our live scorecard (demo round)"
+    },
+    {
+      "file": "assets/social/library/dave-03-broken.jpg",
+      "tags": [
+        "big-dave",
+        "protest",
+        "pointing"
+      ],
+      "fit": [
+        "A",
+        "B"
+      ],
+      "focus": [
+        0.4,
+        0.42
+      ],
+      "about": "AI-generated, fictional recurring characters; phone screen shows a real capture of our live scorecard (demo round)"
     }
   ]
 }

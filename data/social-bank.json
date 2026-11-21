@@ -698,7 +698,11 @@
           "beats": 2,
           "bg": "assets/social/library/phil-03-phone.jpg",
           "label": "Phil",
-          "scene": "Phil holding his phone up to the camera, screen facing us, deadpan"
+          "scene": "Phil holding his phone up to the camera, screen facing us, deadpan",
+          "focus": [
+            0.55,
+            0.42
+          ]
         },
         {
           "who": "mate",
@@ -727,7 +731,11 @@
           "pos": "bottom",
           "bg": "assets/social/library/dave-03-broken.jpg",
           "label": "Big Dave",
-          "scene": "Big Dave pointing at the phone, indignant"
+          "scene": "Big Dave pointing at the phone, indignant",
+          "focus": [
+            0.4,
+            0.42
+          ]
         },
         {
           "who": "mate",
