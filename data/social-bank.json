@@ -77,13 +77,13 @@
       "punch": "Playing partner: *only 4?* Really?",
       "tags": [
         "counting",
-        "big-dave"
+        "scorecard-dave"
       ],
       "arrow": "none",
       "reaction": [
-        "reaction",
-        "mate"
-      ]
+        "steve-sideeye"
+      ],
+      "top_y": 170
     },
     {
       "top": "When the drive goes *straight*",
@@ -404,40 +404,36 @@
       "top": "Big Dave. *Par 4.*",
       "shots": [
         {
-          "club": "Driver",
           "bg": "assets/social/library/seq-dave-01-driver.jpg",
           "label": "Driver",
           "scene": "Big Dave on the tee, mid-swing, ball heading right"
         },
         {
-          "club": "3 wood",
           "bg": "assets/social/library/seq-dave-02-rough.jpg",
           "label": "3 wood",
           "scene": "Hacking out of deep rough"
         },
         {
-          "club": "7 iron",
           "bg": "assets/social/library/seq-dave-03-tree.jpg",
           "label": "7 iron",
           "scene": "Punching out from behind a tree"
         },
         {
-          "club": "Wedge",
           "bg": "assets/social/library/seq-dave-04-bunker.jpg",
           "label": "Wedge",
           "scene": "Sand flying out of a greenside bunker"
         },
         {
-          "club": "Putter",
           "bg": "assets/social/library/seq-dave-05-putt.jpg",
           "label": "Putter",
-          "scene": "A long putt sliding past, Dave wincing"
+          "scene": "A long putt sliding past, Dave wincing",
+          "hide_top": true
         },
         {
-          "club": "Putter",
           "bg": "assets/social/library/seq-dave-06-tapin.jpg",
           "label": "Putter",
-          "scene": "Tapping in from six inches"
+          "scene": "Tapping in from six inches",
+          "hide_top": true
         }
       ],
       "lines": [
@@ -447,7 +443,12 @@
           "beats": 2,
           "bg": "assets/social/library/seq-dave-07-proud.jpg",
           "label": "Big Dave",
-          "scene": "Dave holding up four fingers, beaming"
+          "scene": "Dave holding up four fingers, beaming",
+          "pos": "bottom",
+          "focus": [
+            0.3,
+            0.42
+          ]
         },
         {
           "who": "mate",
@@ -463,7 +464,12 @@
           "beats": 3,
           "bg": "assets/social/library/seq-dave-09-abacus.jpg",
           "label": "The abacus",
-          "scene": "Mate holding out a wooden abacus to Dave"
+          "scene": "Mate holding out a wooden abacus to Dave",
+          "focus": [
+            0.5,
+            0.42
+          ],
+          "pos": "low"
         }
       ]
     }

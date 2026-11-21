@@ -115,13 +115,18 @@ def theme_meme(d, L, rnd):
         photo = pick_photo(m.get("tags"), L, rnd, "A", need_match=True)
         if not photo:
             return None
-        sc = {"bg": photo, "top": m["top"], "punch": m["punch"], "arrow": m.get("arrow", "left"), "hook": strip_marks(m["top"]),
+        sc = {"bg": photo, "top": m["top"], "punch": m["punch"], "arrow": m.get("arrow", "left"), "top_y": m.get("top_y", 330), "hook": strip_marks(m["top"]),
               "thumb": strip_marks(m["top"])}
         if m.get("reaction"):  # two-photo joke: the set-up, then the mate's reaction cuts in on the punchline
             photo2 = pick_photo(m["reaction"], L, rnd, "A", need_match=True)
             if not photo2:
                 return None
             sc["bg2"] = photo2
+        foc = {p["file"]: p.get("focus") for p in library()}
+        if foc.get(sc["bg"]):
+            sc["focus"] = foc[sc["bg"]]
+        if sc.get("bg2") and foc.get(sc["bg2"]):
+            sc["focus2"] = foc[sc["bg2"]]
         top = strip_marks(m["top"]).rstrip()
         text = f"{top}{'' if top[-1:] in '.?!:' else '...'} {strip_marks(m['punch'])}"
         style = "humour"

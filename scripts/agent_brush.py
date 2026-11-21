@@ -287,7 +287,7 @@ def _photo_frame(s, t, dur):
     key = "bg2" if (s.get("bg2") and t >= s.get("cut", 3.0)) else "bg"
     img = load_photo(s.get(key))
     z = 1.0 + 0.08 * (t / dur)  # a slow push-in, the "subtle zoom" from the brief
-    fx, fy = s.get("focus", (0.5, 0.42))
+    fx, fy = s.get("focus2" if key == "bg2" else "focus") or (0.5, 0.42)
     return cover(img, W, H, zoom=z, focus=(fx, fy)).convert("RGBA")
 
 
@@ -297,9 +297,10 @@ def style_humour(t, s, pal, img, photo, dur=8.4):
     im = _photo_frame(s, t, dur)
     scrim(im, top=0.45, bottom=0.55)
     # set-up: on screen from the first frame (the first frame must grab attention)
-    banner(im, s.get("top") or s.get("hook", ""), W / 2, 330, W - 170, colour=GREEN, seed="a-top", t=min(1, 0.55 + t / 0.35), size=104)
-    bursts(im, 120, 300, min(1, 0.4 + t / 0.4), 0.9)
-    bursts(im, W - 120, 300, min(1, 0.4 + t / 0.4), 0.9, flip=True)
+    ty_ = s.get("top_y", 330)  # lower it or raise it to keep faces clear
+    banner(im, s.get("top") or s.get("hook", ""), W / 2, ty_, W - 170, colour=GREEN, seed="a-top", t=min(1, 0.55 + t / 0.35), size=104)
+    bursts(im, 120, ty_ - 30, min(1, 0.4 + t / 0.4), 0.9)
+    bursts(im, W - 120, ty_ - 30, min(1, 0.4 + t / 0.4), 0.9, flip=True)
     # punchline lands on the beat at 3.0s, with the arrow pointing at the joke
     tp = (t - 3.0) / 0.35
     if tp > 0:
@@ -409,16 +410,14 @@ def style_sequence(t, s, pal, img, photo, dur=None):
     scrim(im, top=0.35, bottom=0.45)
     nshots = len(s.get("shots", []))
     if kind == "shot":
-        if s.get("top"):
-            banner(im, s["top"], W / 2, 420, W - 220, colour=GREEN, seed="q-top", t=min(1, 0.55 + t / 0.35), size=92)
-        if item.get("club"):
-            banner(im, item["club"], W / 2, 1560, W - 420, colour=GREEN, seed=f"q-club{i}", t=1.0, size=70, rot=2)
+        if s.get("top") and not item.get("hide_top"):  # the set-up sits low, so faces near the top of the photos stay clear
+            banner(im, s["top"], W / 2, s.get("top_y", 1560), W - 220, colour=GREEN, seed="q-top", t=min(1, 0.55 + t / 0.35), size=92)
         _counter(im, i + 1, t - t0)
     else:
         if s.get("keep_count", True) and t < end:
             _counter(im, nshots, 9)
         who = item.get("who", "him")
-        y = 1440 if who != "him" else 420
+        y = {"top": 420, "bottom": 1500, "low": 1720}.get(item.get("pos"), 1440 if who != "him" else 420)
         col, ink, hi = (YELLOW, INKD, GREEN) if who != "him" else (GREEN, WHITE, YELLOW)
         banner(im, item.get("text", ""), W / 2, y, W - 200, colour=col, ink=ink, hi=hi, seed=f"q-l{i}",
                t=min(1, (t - t0) / 0.3), size=98, rot=-2 if i % 2 else 2)
