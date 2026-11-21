@@ -2957,6 +2957,16 @@ HOME_TILE_GROUPS = {
 }
 
 
+_TROLLEY_RX = re.compile(r"trolley|push ?cart|buggy", re.I)
+_TECH_RX = re.compile(r"rangefinder|\bgps\b|golf watch|launch monitor|swing analy[sz]er|golf speaker", re.I)
+HOME_SUB_TILES = {
+    "balls": lambda p: p.get("category") == "ball",
+    "bags": lambda p: p.get("category") == "bag",
+    "trolleys": lambda p: p.get("category") == "accessories" and bool(_TROLLEY_RX.search(p.get("name") or "")),
+    "tech": lambda p: p.get("category") == "accessories" and bool(_TECH_RX.search(p.get("name") or "")),
+}
+
+
 def compute_home_stats(products):
     """The live numbers on the homepage: genuine drops per category tile
     (verified against our own price history, in stock today) and the
@@ -2968,6 +2978,11 @@ def compute_home_stats(products):
         for key, cats in HOME_TILE_GROUPS.items():
             if p.get("category") in cats:
                 drops[key] += 1
+    # Smaller tiles on the homepage (balls, bags, trolleys, tech). Trolleys and tech live inside
+    # "accessories", so they're told apart by name until they get categories of their own.
+    for key, test in HOME_SUB_TILES.items():
+        drops[key] = sum(1 for p in products
+                         if (p.get("priceInsight") or {}).get("verifiedDiscount") and p.get("inStock") is not False and test(p))
     return {
         "genuineDrops": drops,
         "products": len(products),

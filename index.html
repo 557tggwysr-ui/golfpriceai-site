@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="/css/site.css?v=20261101b">
 <link rel="stylesheet" href="/css/home.css?v=20261024">
+<link rel="stylesheet" href="/css/home-v2.css?v=20261121">
 <link rel="stylesheet" href="/css/fourball.css?v=20261018c">
 <link rel="canonical" href="https://golfpriceai.com/">
 <meta name="p:domain_verify" content="1c434797b8e84dbdde1ad6a319a38e65"/>
@@ -251,328 +252,74 @@
   <div class="gp-menu-foot"><a href="/#alerts" class="gp-alerts gp-alerts-wide"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0112 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 003.4 0"></path></svg><span>Get deal alerts</span></a></div>
 </div><div class="confession-strip">No countdown timers. No "only 2 left!!" lies. Just real prices, and the occasional bad golf joke.</div>
 
-<main id="main-content">
+<main id="main-content" class="hm">
 
-  <section class="gp-hero container">
-    <div class="gp-hero-copy">
-      <h1>Stop overpaying<br>for <span>golf gear.</span></h1>
-      <p class="gp-hero-lede">UK golf price comparison for clubs, clothing and gear. We check prices across multiple UK retailers every 6 hours and show you when it's actually worth buying. We obsess over prices so you can obsess over your slice.</p>
-      <form class="gp-search gp-hero-search" action="/search.html" method="get" role="search" data-suggest>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5b665f" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+  <section class="hm-hero" aria-label="Search UK golf prices">
+    <div class="hm-hin"><div class="hm-hl">
+      <h1><span class="hm-kicker">UK golf price comparison</span>Full swing.<br><em>Not full price.</em></h1>
+      <p class="hm-lead">We check <span id="proof-products">71,183</span> golf products across multiple UK retailers every 6 hours, so you never pay more than you need to.</p>
+      <form class="hm-search" action="/search.html" method="get" role="search" data-suggest>
+        <svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <label for="search-input" class="sr-only">Search golf gear</label>
-        <input id="search-input" name="q" type="search" placeholder="Search clubs, balls, brands..." autocomplete="off" enterkeyhint="search">
-        <button type="submit" class="gp-search-go">Find Deals</button>
+        <input id="search-input" name="q" type="search" placeholder="Search a club, ball or brand" autocomplete="off" enterkeyhint="search">
+        <button type="submit">Search</button>
         <div class="gp-suggest" role="listbox" aria-label="Suggestions" hidden></div>
       </form>
-      <div class="gp-chips gp-hero-chips"><span class="gp-chips-label">Popular:</span><a href="/prices/golf-gifts/" class="gp-chip">Golf gifts</a><a href="/prices/black-friday/" class="gp-chip">Black Friday</a><a href="/shop.html?q=pro+v1" class="gp-chip">Pro V1</a><a href="/shop.html?category=driver&amp;pricemax=300" class="gp-chip">Drivers under £300</a><a href="/shop.html?group=clubs&amp;q=left+hand" class="gp-chip">Left-handed clubs</a></div>
-      <p class="gp-proof">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M8.5 12.5l2.5 2.5 4.5-5"></path></svg>
-        <span><span id="proof-products">48,983</span> products · multiple UK retailers · prices checked every 6 hours</span>
-      </p>
-    </div>
-    <div class="gp-hero-art">
-      <img src="/assets/hero-golfer.jpg" width="1200" height="800" fetchpriority="high" alt="Illustration of a golfer mid-swing with the tagline Full Swing. Not full price.">
-    </div>
-  </section>
-
-  <!-- Seasonal banner: switches itself by date (Winter golf in October, Black
-       Friday 1 Nov to 1 Dec, Christmas 2 to 24 Dec, Boxing Day sales 25 Dec to
-       10 Jan, Winter golf again 11 Jan to end of Feb), hidden the rest of the
-       year. Preview any time with ?season=winter, bf, xmas or boxing. -->
-  <div class="container"><a class="gp-season" id="gp-season" href="/prices/" hidden>
-    <span class="gp-season-kicker" id="gp-season-kicker"></span>
-    <span class="gp-season-text"><strong id="gp-season-title"></strong><span id="gp-season-line"></span></span>
-    <span class="gp-season-cta" id="gp-season-cta"></span>
-  </a></div>
-  <script>
-  (function () {
-    var now = new Date(), y = now.getFullYear(), m = now.getMonth() + 1, d = now.getDate();
-    function bfDay(year) { var n1 = new Date(year, 10, 1), thu = 1 + ((4 - n1.getDay() + 7) % 7); return thu + 22; }
-    var bf = bfDay(y), season = (location.search.match(/[?&]season=(bf|xmas|boxing|winter)/) || [])[1];
-    if (!season) {
-      if (m === 11 || (m === 12 && d <= 1)) season = 'bf';
-      else if (m === 12 && d >= 2 && d <= 24) season = 'xmas';
-      else if ((m === 12 && d >= 25) || (m === 1 && d <= 10)) season = 'boxing';
-      else if (m === 10 || m === 1 || m === 2) season = 'winter';
-    }
-    if (!season) return;
-    var daysToBf = Math.ceil((new Date(y, 10, bf) - now) / 864e5);
-    var c = {
-      bf: ['Black Friday ' + y, 'Real deals only. We checked them against October.',
-           daysToBf > 0 ? 'Friday ' + bf + ' November. We know what every price did in October, so the real deals stand out.'
-                        : 'Every Black Friday price compared with what it cost in October. No made-up “was” prices.',
-           'See what’s really cheaper', '/prices/black-friday/'],
-      xmas: ['Christmas ' + y, 'Golf gifts at their lowest price', 'Gift ideas from under £25, with live UK prices and the ones at their lowest we’ve tracked.',
-             'Find a gift', '/prices/christmas/'],
-      boxing: ['Boxing Day sales', 'Is it really cheaper? We checked.', 'Every sale price compared with what it cost in early December.',
-               'See the real deals', '/prices/boxing-day-sales/'],
-      winter: ['Winter golf', 'Stay dry, stay warm, keep playing', 'Waterproofs, thermals and winter gloves at live UK prices. We flag the ones at the lowest price we’ve tracked.',
-               'Gear up for winter', '/prices/winter-golf/']
-    }[season];
-    var a = document.getElementById('gp-season');
-    document.getElementById('gp-season-kicker').textContent = c[0];
-    document.getElementById('gp-season-title').textContent = c[1];
-    document.getElementById('gp-season-line').textContent = c[2];
-    document.getElementById('gp-season-cta').textContent = c[3] + ' →';
-    a.href = c[4];
-    if (season === 'winter') a.classList.add('is-winter');
-    a.hidden = false;
-  })();
-  </script>
-
-  <section class="gp-doors container" aria-labelledby="doors-title">
-    <div class="gp-sec-head">
-      <h2 id="doors-title">Jump straight in</h2>
-      <span class="gp-sec-note">Genuine drops counted today, checked every 6 hours</span>
-    </div>
-    <div class="gp-door-grid">
-      <div class="gp-door">
-        <img src="/tile-photos/tile-clubs.jpg" alt="Golf ball on a tee with a driver behind it" width="1000" height="1000" style="object-position: 50% 55%">
-        <a class="gp-door-link" href="/clubs.html"><span class="sr-only">Clubs</span></a>
-        <span class="gp-door-pill" data-drops="clubs" hidden></span>
-        <div class="gp-door-body">
-          <h3>Clubs</h3>
-          <p class="gp-door-quip">New sticks. Same excuses. Better price.</p>
-          <span class="gp-door-count" data-drops-short="clubs" hidden></span>
-          <div class="gp-door-foot">
-            <div class="gp-door-chips"><a href="/shop.html?category=driver&amp;label=Drivers">Drivers</a><a href="/shop.html?category=irons&amp;label=Irons">Irons</a><a href="/shop.html?category=putter&amp;label=Putters">Putters</a><a href="/shop.html?category=wedge&amp;label=Wedges">Wedges</a></div>
-            <span class="gp-door-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
-          </div>
+      <div class="hm-chips"><a class="hm-chip is-hot" href="/prices/black-friday/"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>Black Friday</a><a class="hm-chip" href="/prices/drivers/">Drivers</a><a class="hm-chip" href="/prices/irons/">Irons</a><a class="hm-chip" href="/prices/golf-balls/">Balls</a><a class="hm-chip" href="/prices/golf-gifts/">Gifts</a></div>
+      <ul class="hm-ticks"><li><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Checked every 6 hours</li><li><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>No fake countdowns</li><li><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>Free price-drop alerts</li><li><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></i>No sign-up needed</li></ul>
+    </div><div class="hm-hr">
+      <div class="hm-deal" id="hm-deal">
+        <div class="hm-deal-t"><span class="hm-live" aria-hidden="true"></span>Best deal today<small data-deal="date"></small></div>
+        <div class="hm-deal-ph" data-deal="img"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-DarkSpeed-LS-Golf-Driver-2.jpg?v=1713978686" alt="Cobra Darkspeed LS Driver" width="300" height="300" fetchpriority="high"></div>
+        <div>
+          <span data-deal="badge"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 77 days</span></span>
+          <h3 data-deal="name">Cobra Darkspeed LS Driver</h3>
+          <div class="hm-deal-pr" data-deal="price">£229</div>
+          <div class="hm-deal-sub" data-deal="sub">compared across 2 UK retailers</div>
         </div>
+        <a class="hm-deal-btn" href="/prices/cobra-darkspeed-ls-driver/">Compare prices →</a>
       </div>
-      <div class="gp-door">
-        <img src="/tile-photos/tile-apparel.jpg" alt="Golfer in a sage green polo shirt and cap on the course" width="1000" height="1000" style="object-position: 50% 28%">
-        <a class="gp-door-link" href="/apparel.html"><span class="sr-only">Apparel</span></a>
-        <span class="gp-door-pill" data-drops="apparel" hidden></span>
-        <div class="gp-door-body">
-          <h3>Apparel</h3>
-          <p class="gp-door-quip">Dress like a scratch golfer. Pay like a sensible one.</p>
-          <span class="gp-door-count" data-drops-short="apparel" hidden></span>
-          <div class="gp-door-foot">
-            <div class="gp-door-chips"><a href="/shop.html?category=apparel&amp;types=polo&amp;label=Polo+Tees">Tops</a><a href="/shop.html?category=apparel&amp;types=trousers&amp;label=Bottoms">Trousers</a><a href="/shop.html?category=shoes">Shoes</a><a href="/shop.html?category=apparel&amp;types=jacket,hoodie,base-layer&amp;label=Outerwear">Outerwear</a></div>
-            <span class="gp-door-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
-          </div>
-        </div>
-      </div>
-      <div class="gp-door">
-        <img src="/tile-photos/tile-accessories.jpg" alt="Golf glove, golf balls and a rangefinder on the green" width="1000" height="1000" style="object-position: 40% 62%">
-        <a class="gp-door-link" href="/accessories.html"><span class="sr-only">Accessories</span></a>
-        <span class="gp-door-pill" data-drops="accessories" hidden></span>
-        <div class="gp-door-body">
-          <h3>Accessories</h3>
-          <p class="gp-door-quip">Balls you'll lose anyway. Cheaper.</p>
-          <span class="gp-door-count" data-drops-short="accessories" hidden></span>
-          <div class="gp-door-foot">
-            <div class="gp-door-chips"><a href="/shop.html?category=ball&amp;label=Golf+Balls">Balls</a><a href="/shop.html?category=bag">Bags</a><a href="/shop.html?category=accessories&amp;types=glove&amp;label=Gloves">Gloves</a><a href="/shop.html?category=accessories&amp;types=rangefinder&amp;label=Rangefinders">Rangefinders</a></div>
-            <span class="gp-door-arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
-          </div>
-        </div>
-      </div>
+    </div></div>
+  </section>
+
+  <a class="hm-season" id="hm-season" href="/prices/black-friday/" style="background-image:url(/assets/photos/black-friday.jpg)" hidden><span><b>Black Friday: real deals only</b><small>Checked against October prices, so the real ones stand out.</small><em>See what’s really cheaper →</em></span></a>
+
+  <div class="hm-wrap">
+  <section class="hm-sec" aria-labelledby="hm-jump">
+    <div class="hm-sec-h"><h2 id="hm-jump">Jump straight in</h2></div>
+    <div class="hm-tiles">
+      <a class="hm-tile" href="/clubs.html"><img src="/tile-photos/tile-clubs.jpg" alt="Golf ball on a tee with a driver behind it" loading="lazy" width="600" height="600" style="object-position:50% 55%"><span><b>Clubs</b><small data-drops-short="clubs">1,505 drops</small></span></a>
+      <a class="hm-tile" href="/apparel.html"><img src="/tile-photos/tile-apparel.jpg" alt="Golfer in a polo shirt on the course" loading="lazy" width="600" height="600" style="object-position:50% 25%"><span><b>Apparel</b><small data-drops-short="apparel">10,516 drops</small></span></a>
+      <a class="hm-tile" href="/accessories.html"><img src="/tile-photos/tile-accessories.jpg" alt="Golf gloves, balls and a rangefinder" loading="lazy" width="600" height="600" style="object-position:40% 62%"><span><b>Accessories</b><small data-drops-short="accessories">909 drops</small></span></a>
+    </div>
+    <div class="hm-tiles2">
+      <a class="hm-tile is-sm" href="/prices/golf-balls/"><img src="/assets/photos/golf-ball-branded.jpg" alt="Golf ball on the fairway" loading="lazy" width="300" height="300" style="object-position:50% 50%"><span><b>Balls</b><small data-drops-short="balls">37 drops</small></span></a>
+      <a class="hm-tile is-sm" href="/prices/golf-bags/"><img src="/assets/photos/golfbag-with-clubs.jpg" alt="Golf bag full of clubs" loading="lazy" width="300" height="300" style="object-position:50% 40%"><span><b>Bags</b><small data-drops-short="bags">374 drops</small></span></a>
+      <a class="hm-tile is-sm" href="/prices/electric-trolleys/"><img src="/assets/photos/pushcart-loaded.jpg" alt="Golf trolley on the course" loading="lazy" width="300" height="300" style="object-position:50% 50%"><span><b>Trolleys</b><small data-drops-short="trolleys">56 drops</small></span></a>
+      <a class="hm-tile is-sm" href="/prices/rangefinders/"><img src="/assets/photos/rangefinder-real.jpg" alt="Golfer using a rangefinder" loading="lazy" width="300" height="300" style="object-position:40% 50%"><span><b>Tech</b><small data-drops-short="tech">126 drops</small></span></a>
     </div>
   </section>
 
-  <section class="gp-toolsband container" aria-label="Deal tools">
-    <a class="gp-tb" href="/deal-tools.html">
-      <picture>
-        <source media="(max-width: 700px)" srcset="/assets/photos/tools/deal-tools-banner-wide.jpg">
-        <img src="/assets/photos/tools/deal-tools-banner.jpg" alt="Rangefinder, glove, golf balls and a notebook on a bench beside the fairway" width="1536" height="512" loading="lazy">
-      </picture>
-      <span class="gp-tb-body">
-        <span class="gp-banner-kicker">Deal Tools</span>
-        <span class="gp-tb-title">14 free tools that stop you overpaying</span>
-        <span class="gp-tb-line">Check a price, spot a genuine drop, find your fit or build a priced bag.</span>
-        <span class="gp-tb-cta">See all deal tools <span aria-hidden="true">&rarr;</span></span>
-      </span>
-    </a>
-    <div class="gp-duo gp-trio">
-      <a class="gp-tb gp-duo-card" href="/fourball/?utm_source=home&amp;utm_medium=duo">
-        <picture>
-          <source media="(max-width: 700px)" srcset="/assets/photos/tools/fourball-square.jpg">
-          <img src="/assets/photos/tools/fourball-wide.jpg" alt="Four golfers looking at a phone together on an autumn golf course" width="1200" height="800" loading="lazy">
-        </picture>
-        <span class="gp-tb-body">
-          <span class="gp-banner-kicker">Social · Fourball Alerts</span>
-          <span class="gp-tb-title">Your four-ball, all watching the same price</span>
-          <span class="gp-tb-line">One link in the group chat. Everyone gets one email when it genuinely drops.</span>
-          <span class="gp-tb-cta">Try Fourball Alerts <span aria-hidden="true">&rarr;</span></span>
-        </span>
-      </a>
-      <a class="gp-tb gp-duo-card" id="gp-play-card" href="/play/?utm_source=home&amp;utm_medium=duo">
-        <picture>
-          <source media="(max-width: 700px)" srcset="/assets/photos/tools/clubhouse-square.jpg">
-          <img src="/assets/photos/tools/clubhouse-wide.jpg" alt="Golfers laughing round a table in the clubhouse bar" width="1200" height="800" loading="lazy">
-        </picture>
-        <span class="gp-tb-body">
-          <span class="gp-banner-kicker">Play · The Clubhouse</span>
-          <span class="gp-tb-title">Take on your mates</span>
-          <span class="gp-tb-line">Par Price, Higher or Lower, leagues for the group chat and a fantasy golf kit Major every month. Loser buys the first round.</span>
-          <span class="gp-tb-cta">Enter the Clubhouse <span aria-hidden="true">&rarr;</span></span>
-        </span>
-      </a>
-      <a class="gp-tb gp-duo-card" href="/societies/?utm_source=home&amp;utm_medium=duo">
-        <picture>
-          <source media="(max-width: 700px)" srcset="/assets/photos/tools/society-hq-square.jpg">
-          <img src="/assets/photos/tools/society-hq-wide.jpg" alt="Golf society members with their trolleys on a misty morning" width="1200" height="800" loading="lazy">
-        </picture>
-        <span class="gp-tb-body">
-          <span class="gp-banner-kicker">Societies · Society HQ</span>
-          <span class="gp-tb-title">Run your society from the group chat</span>
-          <span class="gp-tb-line">Fixtures, who’s in, who’s paid and awards night. Free, no sign-up.</span>
-          <span class="gp-tb-cta">Open Society HQ <span aria-hidden="true">&rarr;</span></span>
-        </span>
-      </a>
-    </div>
-    <script>
-      // The Play card turns into the Bag Draft from 26 October (teaser) until
-      // the draft closes on the 21st of each month; Par Price the rest of the time.
-      (function () {
-        var d = new Date(), day = d.getDate(), ym = d.getFullYear() * 100 + d.getMonth() + 1;
-        var teaser = ym === 202610 && day >= 26, open = ym >= 202611 && day <= 21;
-        if (!teaser && !open) return;
-        var a = document.getElementById('gp-play-card');
-        a.href = '/play/draft/?utm_source=home&utm_medium=duo';
-        a.querySelector('source').srcset = '/assets/photos/tools/bag-draft-square.jpg';
-        a.querySelector('img').src = '/assets/photos/tools/bag-draft-wide.jpg';
-        a.querySelector('.gp-banner-kicker').textContent = 'Play · The Bag Draft';
-        a.querySelector('.gp-tb-title').textContent = teaser ? 'The Black Friday Open starts 1 November' : 'The draft is open. Pick your bag.';
-        a.querySelector('.gp-tb-line').textContent = 'Fantasy golf kit: draft six real products within £1,500, and let real UK prices pick the winner. Free, glory only.';
-        a.querySelector('.gp-tb-cta').innerHTML = (teaser ? 'Try the practice range' : 'Draft your bag') + ' <span aria-hidden="true">&rarr;</span>';
-        if (teaser) a.href = '/play/draft/?test=1&utm_source=home&utm_medium=duo';
-      })();
-    </script>
+  <section class="hm-sec" aria-labelledby="hm-drops">
+    <div class="hm-sec-h"><h2 id="hm-drops">Today's genuine drops</h2><a href="/prices/drops/">See all →</a></div>
+    <div class="hm-filters" role="group" aria-label="Filter the drops"><button type="button" class="hm-fc" data-f="all" aria-pressed="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>All</button><button type="button" class="hm-fc" data-f="clubs" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21 17 4"/><path d="M17 4c2 0 3 1 3 3l-3 1"/></svg>Clubs</button><button type="button" class="hm-fc" data-f="balls" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="10" cy="10" r=".6"/><circle cx="13" cy="9" r=".6"/><circle cx="11" cy="13" r=".6"/><circle cx="14.5" cy="12.5" r=".6"/></svg>Balls</button><button type="button" class="hm-fc" data-f="tech" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="3"/><path d="M11 17h2"/></svg>Tech</button><button type="button" class="hm-fc" data-f="bags" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="14" rx="3"/><path d="M10 7V4h4v3"/></svg>Bags</button></div>
+    <div class="hm-rail" id="hm-rail"><a class="hm-pc" href="/prices/taylormade-milled-grind-4-wedge/" data-group="clubs" data-type="wedge"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TM23WDG-TC518-N2788809-MG4-Chrome-LBV-3.07-3Q-v1-PhotoRoom.jpg?v=1713970097" alt="TaylorMade Milled Grind 4 Wedge" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 77 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">TaylorMade</span><h3>Milled Grind 4 Wedge</h3><span class="hm-pc-row"><span class="hm-pc-p">£99</span><span class="hm-pc-d">£60 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 2 UK retailers</span></span></a><a class="hm-pc" href="/prices/callaway-paradym-ai-smoke-max-fairway-wood/" data-group="clubs" data-type="wood"><span class="hm-pc-im"><img src="https://www.clickgolf.co.uk/images/product/main/c_callaway-paradym-ai-smoke-max-fairway-wood-hero-1000x1000.jpg" alt="Callaway Paradym Ai Smoke Max Fairway Wood" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Callaway</span><h3>Paradym Ai Smoke Max Fairway Wood</h3><span class="hm-pc-row"><span class="hm-pc-p">£199</span><span class="hm-pc-d">£89 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 3 UK retailers</span></span></a><a class="hm-pc" href="/prices/cleveland-cbx4-zipcore-wedge/" data-group="clubs" data-type="wedge"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Hand-Cleveland-CBX4-ZipCore-Golf-Wedge-Steel-6.jpg?v=1707365096" alt="Cleveland CBX4 Zipcore Wedge" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 77 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Cleveland</span><h3>CBX4 Zipcore Wedge</h3><span class="hm-pc-row"><span class="hm-pc-p">£99</span><span class="hm-pc-d">£40 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 2 UK retailers</span></span></a><a class="hm-pc" href="/prices/mizuno-br-d4-cart-bag-golf-bag/" data-group="bags" data-type="bag"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Mizuno-BR-D4-Golf-Cart-Bag-BRD4C23-17.jpg?v=1726113899" alt="Mizuno BR-D4 Cart Bag Golf Bag" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Mizuno</span><h3>BR-D4 Cart Bag Golf Bag</h3><span class="hm-pc-row"><span class="hm-pc-p">£109</span><span class="hm-pc-d">£35 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 4 UK retailers</span></span></a><a class="hm-pc" href="/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/" data-group="bags" data-type="ball"><span class="hm-pc-im"><img src="https://www.clickgolf.co.uk/images/product/main/Srixon-Z-STAR-DIAMOND-Limited-Edition-Golf-Balls-24-Pack-2025.jpg" alt="Srixon Limited Z-star Diamond 2 Dozen Golf Balls" loading="lazy" width="232" height="140"></span><span class="hm-pc-bd"><span class="hm-pc-br">Srixon</span><h3>Limited Z-star Diamond 2 Dozen Golf Balls</h3><span class="hm-pc-row"><span class="hm-pc-p">£29.99</span><span class="hm-pc-d">£18 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 200.0,4.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Lowest UK price we track</span></span></a><a class="hm-pc" href="/prices/callaway-elyte-triple-diamond-fairway-wood/" data-group="clubs" data-type="wood"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Callaway-Elyte-Triple-Diamond-Golf-Fairway-Wood-1.jpg?v=1737101677" alt="Callaway Elyte Triple Diamond Fairway Wood" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Callaway</span><h3>Elyte Triple Diamond Fairway Wood</h3><span class="hm-pc-row"><span class="hm-pc-p">£249</span><span class="hm-pc-d">£81 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 2 UK retailers</span></span></a><a class="hm-pc" href="/prices/wilson-dynapwr-forged-irons/" data-group="clubs" data-type="irons"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonDynapowerForgedSteelGolfIrons2026_3.jpg?v=1765282469" alt="Wilson DYNAPWR Forged Irons" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Wilson</span><h3>DYNAPWR Forged Irons</h3><span class="hm-pc-row"><span class="hm-pc-p">£599</span><span class="hm-pc-d">£200 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 200.0,4.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 4 UK retailers</span></span></a><a class="hm-pc" href="/prices/wilson-staff-duo-soft-trk360-golf-balls/" data-group="bags" data-type="ball"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DUOTRK6.jpg?v=1782292785" alt="Wilson Staff Duo Soft TRK360 Golf Balls" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 77 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Wilson</span><h3>Staff Duo Soft TRK360 Golf Balls</h3><span class="hm-pc-row"><span class="hm-pc-p">£15.99</span><span class="hm-pc-d">£7 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Lowest UK price we track</span></span></a><a class="hm-pc" href="/prices/cobra-optm-hybrid/" data-group="clubs" data-type="hybrid"><span class="hm-pc-im"><img src="https://www.clickgolf.co.uk/images/product/main/OPTM-Hybrid-Hero.jpg" alt="Cobra OPTM Hybrid" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Cobra</span><h3>OPTM Hybrid</h3><span class="hm-pc-row"><span class="hm-pc-p">£199</span><span class="hm-pc-d">£50 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 200.0,4.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 4 UK retailers</span></span></a><a class="hm-pc" href="/prices/odyssey-ai-dual-square-2-square-max-putter/" data-group="clubs" data-type="putter"><span class="hm-pc-im"><img src="https://www.clickgolf.co.uk/images/product/main/Ai-DUAL-S2S-Max-1-2-Ball-Sole.jpg" alt="Odyssey Ai-DUAL Square 2 Square Max Putter" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Odyssey</span><h3>Ai-DUAL Square 2 Square Max Putter</h3><span class="hm-pc-row"><span class="hm-pc-p">£199</span><span class="hm-pc-d">£60 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 200.0,4.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 2 UK retailers</span></span></a><a class="hm-pc" href="/prices/srixon-tour-staff-golf-bag/" data-group="bags" data-type="bag"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0668/5759/9265/files/12138391_SRX_TOUR_STAFF_BAG_BLACK_2026HERO.jpg?v=1791541775" alt="Srixon Tour Staff Golf Bag" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Srixon</span><h3>Tour Staff Golf Bag</h3><span class="hm-pc-row"><span class="hm-pc-p">£279</span><span class="hm-pc-d">£70 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 3 UK retailers</span></span></a><a class="hm-pc" href="/prices/taylormade-qi10-max-hybrid/" data-group="clubs" data-type="hybrid"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Taylormade-Ladies-Qi10-Max-Golf-Hybrid-1.jpg?v=1708143569" alt="TaylorMade Qi10 Max Hybrid" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 77 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">TaylorMade</span><h3>Qi10 Max Hybrid</h3><span class="hm-pc-row"><span class="hm-pc-p">£199</span><span class="hm-pc-d">£50 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 2 UK retailers</span></span></a><a class="hm-pc" href="/prices/shot-scope-g6-gps-watch/" data-group="tech" data-type="gps-watch"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/SS-WAT-G6-DAR-1-Photoroom.jpg?v=1742976666" alt="Shot Scope G6 GPS Watch" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Shot Scope</span><h3>G6 GPS Watch</h3><span class="hm-pc-row"><span class="hm-pc-p">£149</span><span class="hm-pc-d">£30 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 50.0,4.6 100.0,23.4 150.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 4 UK retailers</span></span></a><a class="hm-pc" href="/prices/shot-scope-v5-gps-watch/" data-group="tech" data-type="gps-watch"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Shot-Scope-V5-GPS-Golf-Watch-0.jpg?v=1712030904" alt="Shot Scope V5 GPS Watch" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Shot Scope</span><h3>V5 GPS Watch</h3><span class="hm-pc-row"><span class="hm-pc-p">£199</span><span class="hm-pc-d">£40 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 50.0,21.0 100.0,4.0 150.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 4 UK retailers</span></span></a><a class="hm-pc" href="/prices/titleist-620-mb-irons/" data-group="clubs" data-type="irons"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/products/620mbirons1.jpg?v=1681123085" alt="Titleist 620 MB Irons" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Titleist</span><h3>620 MB Irons</h3><span class="hm-pc-row"><span class="hm-pc-p">£939</span><span class="hm-pc-d">£160 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 200.0,4.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 3 UK retailers</span></span></a><a class="hm-pc" href="/prices/ping-scottsdale-putter/" data-group="clubs" data-type="putter"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/ScottsPut_Anser_Face-Photoroom.jpg?v=1740825120" alt="Ping Scottsdale Putter" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 77 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Ping</span><h3>Scottsdale Putter</h3><span class="hm-pc-row"><span class="hm-pc-p">£189</span><span class="hm-pc-d">£40 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 2 UK retailers</span></span></a><a class="hm-pc" href="/prices/bushnell-a1-slope-laser-rangefinder/" data-group="tech" data-type="rangefinder"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/BG-202410_A1_Slope_Front-Large.webp?v=1790779342" alt="Bushnell A1 Slope Laser Rangefinder" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Bushnell</span><h3>A1 Slope Laser Rangefinder</h3><span class="hm-pc-row"><span class="hm-pc-p">£209</span><span class="hm-pc-d">£28 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,10.7 40.0,4.0 80.0,10.7 120.0,14.6 160.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 4 UK retailers</span></span></a><a class="hm-pc" href="/prices/bushnell-tour-hybrid-laser-rangefinder/" data-group="tech" data-type="rangefinder"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Bushnell_Tour_Hybrid_Laser_Rangefinder_1.jpg?v=1776307286" alt="Bushnell Tour Hybrid Laser Rangefinder" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Bushnell</span><h3>Tour Hybrid Laser Rangefinder</h3><span class="hm-pc-row"><span class="hm-pc-p">£419</span><span class="hm-pc-d">£50 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,14.0 50.0,4.0 100.0,7.3 150.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 4 UK retailers</span></span></a><a class="hm-pc" href="/prices/titleist-gt1-driver/" data-group="clubs" data-type="driver"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GT1Driver2.jpg?v=1776299759" alt="Titleist GT1 Driver" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Titleist</span><h3>GT1 Driver</h3><span class="hm-pc-row"><span class="hm-pc-p">£419</span><span class="hm-pc-d">£30 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 3 UK retailers</span></span></a><a class="hm-pc" href="/prices/motocaddy-m5-dhc-electric-trolley/" data-group="bags" data-type="electric-trolley"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/imgi_67_tr26m5gd_large_1_2000x2000px_1_4.webp?v=1773058127" alt="Motocaddy M5 DHC Electric Trolley" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Motocaddy</span><h3>M5 DHC Electric Trolley</h3><span class="hm-pc-row"><span class="hm-pc-p">£929</span><span class="hm-pc-d">£70 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,12.3 13.3,4.0 26.7,7.3 40.0,12.3 53.3,7.3 66.7,12.3 80.0,7.3 93.3,12.3 106.7,7.3 120.0,12.3 133.3,17.3 146.7,12.3 160.0,17.3 173.3,12.3 186.7,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 5 UK retailers</span></span></a><a class="hm-pc" href="/prices/garmin-approach-r10-portable-launch-monitor/" data-group="tech" data-type="launch-monitor"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0668/5759/9265/files/garmin_approach_r10_portable_golf_launch_monitor_5.jpg?v=1777979938" alt="Garmin Approach R10 Portable Launch Monitor" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 84 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Garmin</span><h3>Approach R10 Portable Launch Monitor</h3><span class="hm-pc-row"><span class="hm-pc-p">£429</span><span class="hm-pc-d">£20 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,20.0 50.0,4.0 100.0,20.0 150.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 3 UK retailers</span></span></a><a class="hm-pc" href="/prices/motocaddy-me-remote-electric-trolley/" data-group="bags" data-type="electric-trolley"><span class="hm-pc-im"><img src="https://www.clickgolf.co.uk/images/product/main/TR26MEXRM7-ME-Remote-Trolley-Hero.jpg" alt="Motocaddy ME Remote Electric Trolley" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Motocaddy</span><h3>ME Remote Electric Trolley</h3><span class="hm-pc-row"><span class="hm-pc-p">£919</span><span class="hm-pc-d">£30 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,16.5 14.3,4.0 28.6,16.5 42.9,4.0 57.1,16.5 71.4,4.0 85.7,16.5 100.0,24.0 114.3,16.5 128.6,24.0 142.9,16.5 157.1,24.0 171.4,16.5 185.7,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 2 UK retailers</span></span></a><a class="hm-pc" href="/prices/nike-air-max-lite-stand-bag-golf-bag/" data-group="bags" data-type="bag"><span class="hm-pc-im"><img src="https://www.clickgolf.co.uk/images/product/main/ChatGPT_Image_Aug_4,_2026,_12_25_23_PM.png" alt="Nike Air Max Lite Stand Bag Golf Bag" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Nike</span><h3>Air Max Lite Stand Bag Golf Bag</h3><span class="hm-pc-row"><span class="hm-pc-p">£119</span><span class="hm-pc-d">£30 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 66.7,9.0 133.3,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 4 UK retailers</span></span></a><a class="hm-pc" href="/prices/shot-scope-pro-l5-laser-rangefinder/" data-group="tech" data-type="rangefinder"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0601/7459/8330/files/imgi_129_pro-l5-black-gallery-image-1-Photoroom_1.jpg?v=1754292243" alt="Shot Scope Pro L5 Laser Rangefinder" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 84 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Shot Scope</span><h3>Pro L5 Laser Rangefinder</h3><span class="hm-pc-row"><span class="hm-pc-p">£179</span><span class="hm-pc-d">£40 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 66.7,23.5 133.3,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 2 UK retailers</span></span></a><a class="hm-pc" href="/prices/garmin-approach-j1-gps-watch/" data-group="tech" data-type="gps-watch"><span class="hm-pc-im"><img src="https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GarminJ11.jpg?v=1773172299" alt="Garmin Approach J1 GPS Watch" loading="lazy" width="232" height="140"><span class="hm-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Lowest in 96 days</span></span><span class="hm-pc-bd"><span class="hm-pc-br">Garmin</span><h3>Approach J1 GPS Watch</h3><span class="hm-pc-row"><span class="hm-pc-p">£259</span><span class="hm-pc-d">£50 under its high</span></span><svg class="hm-spark" viewBox="0 0 200 28" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,4.0 100.0,24.0 200.0,24.0" fill="none" stroke="#3cb43c" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="hm-pc-r">Compared across 2 UK retailers</span></span></a></div>
+    <p class="hm-note">Every drop is checked against our own price history. No RRP games.</p>
   </section>
 
-<div class="container">
-  <section class="section gp-deals" id="deals" aria-labelledby="deals-title">
-    <div class="gp-deals-head">
-      <div>
-        <h2 id="deals-title">Today's genuine price drops</h2>
-        <p>Checked against our own price history every 6 hours. No RRP games.</p>
-      </div>
-      <a href="/prices/drops/">See all price drops →</a>
+  <section class="hm-sec" aria-labelledby="hm-only">
+    <div class="hm-kicker" style="margin-bottom:6px">Only on GolfPrice AI</div>
+    <div class="hm-sec-h"><h2 id="hm-only">Free games and tools you won't find anywhere else</h2><a href="/play/">All →</a></div>
+    <div class="hm-tools">
+      <a class="hm-tool is-wide" href="/deal-tools.html"><img src="/assets/photos/tools/deal-tools-banner-wide.jpg" alt="" loading="lazy"><span><span class="hm-tag">DEAL TOOLS</span><b>Check a price, spot a real drop, build a priced bag</b></span></a>
+      <a class="hm-tool" href="/fourball/"><img src="/assets/photos/tools/fourball-square.jpg" alt="" loading="lazy"><span><span class="hm-tag">FOURBALL ALERTS</span><b>Your four-ball, one price watch</b><small>One link in the group chat.</small></span></a>
+      <a class="hm-tool" href="/societies/"><img src="/assets/photos/tools/society-hq-square.jpg" alt="" loading="lazy"><span><span class="hm-tag">SOCIETY HQ</span><b>Run your society</b><small>Fixtures, who's in, who's paid.</small></span></a>
     </div>
-    <div class="gp-deals-chips" id="deal-chips" role="group" aria-label="Category" hidden>
-      <button type="button" data-f="all" aria-pressed="true">All</button>
-      <button type="button" data-f="clubs" aria-pressed="false">Clubs</button>
-      <button type="button" data-f="tech" aria-pressed="false">Golf tech</button>
-      <button type="button" data-f="bags" aria-pressed="false">Bags, balls &amp; trolleys</button>
+    <div class="hm-games">
+      <a class="hm-game" href="/play/wild-nine/" style="background-image:url(/assets/videos/home-wild-nine.jpg);background-size:cover"><video src="/assets/videos/home-wild-nine.mp4" poster="/assets/videos/home-wild-nine.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span><span class="hm-tag">PLAY DAILY</span><b>Wild Nine</b><small>A new golf course every day</small></span></a>
+      <a class="hm-game" href="/play/par-price/" style="background-image:url(/assets/videos/home-par-price.jpg);background-size:cover"><video src="/assets/videos/home-par-price.mp4" poster="/assets/videos/home-par-price.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span><span class="hm-tag">PLAY DAILY</span><b>Par Price</b><small>Guess five real prices</small></span></a>
+      <a class="hm-game" href="/play/higher-or-lower/" style="background-image:url(/assets/videos/home-higher-or-lower.jpg);background-size:cover"><video src="/assets/videos/home-higher-or-lower.mp4" poster="/assets/videos/home-higher-or-lower.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span><span class="hm-tag">PLAY NOW</span><b>Higher or Lower</b><small>How long can your streak go?</small></span></a>
     </div>
-    <div id="deal-feature"></div>
-    <div class="gp-deal-grid" id="deal-grid">
-      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-line"></div><div class="skeleton-line short"></div></div>
-    </div>
-    <p class="gp-deals-note">Prices can change on the retailer's site, so check before you buy. Spotted something wrong? Email <a href="mailto:hello@golfpriceai.com?subject=Pricing%20issue">hello@golfpriceai.com</a>.</p>
-  </section>
-</div>
-
-  <section class="gp-smart" aria-labelledby="smart-title">
-    <div class="container gp-smart-head"><h2 id="smart-title">Smarter ways to shop</h2><a href="/deal-tools.html">All deal tools &rarr;</a></div>
-    <div class="gp-smart-track" id="smart-track">
-      <a class="gp-banner" href="/build-your-bag.html">
-        <img src="/assets/photos/arsenal-banner-bag.jpg" alt="Golf bag full of clubs standing on a fairway" loading="lazy" style="object-position: 55% 30%">
-        <span class="gp-banner-body">
-          <span class="gp-banner-kicker">Build</span>
-          <span class="gp-banner-title">Assemble Your Arsenal</span>
-          <span class="gp-banner-line">Pick a bag, add what you need, get a priced shopping list.</span>
-          <span class="gp-banner-cta">Start building →</span>
-        </span>
-      </a>
-      <a class="gp-banner" href="/complete-the-look.html">
-        <img src="/assets/photos/complete-your-look-banner.jpg" alt="Golfer in a white quarter-zip top and navy trousers on the course" loading="lazy" style="object-position: 60% 20%">
-        <span class="gp-banner-body">
-          <span class="gp-banner-kicker">Style</span>
-          <span class="gp-banner-title">Complete The Look</span>
-          <span class="gp-banner-line">Outfits matched with real colour theory, priced piece by piece.</span>
-          <span class="gp-banner-cta">See the looks →</span>
-        </span>
-      </a>
-      <a class="gp-banner" href="/receipts.html">
-        <img src="/assets/photos/receipts-banner.jpg" alt="Golfer celebrating a bargain next to his golf bag" loading="lazy" style="object-position: 72% 30%">
-        <span class="gp-banner-body">
-          <span class="gp-banner-kicker">Proof</span>
-          <span class="gp-banner-title">Show Us The Receipts</span>
-          <span class="gp-banner-line">This week's biggest genuine price drops, paperwork included.</span>
-          <span class="gp-banner-cta">See the receipts →</span>
-        </span>
-      </a>
-    </div>
-    <div class="gp-dots" id="smart-dots" aria-hidden="true"><span class="is-on"></span><span></span><span></span></div>
-    <script>
-    /* Oct 2026: "Smarter ways to shop" shows 3 of the 13 deal tools,
-       a different set on each visit (the three above are the fallback
-       if scripts are off). Runs here, before js/app.js wires up the
-       swipe dots, so the dots follow whatever is shown. */
-    (function () {
-      var T = [
-        ['/build-your-bag.html', '/assets/photos/arsenal-banner-bag.jpg', '55% 30%', 'Build', 'Assemble Your Arsenal', 'Pick a bag, add what you need, get a priced shopping list.', 'Start building'],
-        ['/complete-the-look.html', '/assets/photos/complete-your-look-banner.jpg', '60% 20%', 'Style', 'Complete The Look', 'Outfits matched by colour, priced piece by piece.', 'See the looks'],
-        ['/receipts.html', '/assets/photos/receipts-banner.jpg', '72% 30%', 'Proof', 'Show Us The Receipts', 'This week\u2019s biggest genuine price drops, paperwork included.', 'See the receipts'],
-        ['/price-check.html', '/assets/photos/tools/good-price-wide.jpg', '50% 30%', 'Check', 'Is This A Good Price?', 'Check any price against our own history before you buy.', 'Check a price'],
-        ['/prices/drops/', '/assets/photos/tools/price-drops-wide.jpg', '50% 45%', 'Deals', 'Price Drops Today', 'Genuine drops only, measured against our own price history.', 'See today\u2019s drops'],
-        ['/ai.html', '/assets/photos/tools/ai-assistant-wide.jpg', '30% 35%', 'AI', 'GolfPrice AI In ChatGPT & Claude', 'Ask your AI assistant for live UK golf prices.', 'Set it up'],
-        ['/best-time-to-buy.html', '/assets/photos/tools/best-time-to-buy-wide.jpg', '45% 40%', 'Timing', 'Best Time To Buy', 'Which prices hold steady and which ones swing.', 'See the timing'],
-        ['/complete-the-kit.html', '/assets/photos/tools/complete-the-kit-wide.jpg', '50% 40%', 'Kit', 'Complete The Kit', 'Gear that goes together, at today\u2019s lowest prices.', 'See the kits'],
-        ['/fairway-index.html', '/assets/photos/tools/fairway-index-wide.jpg', '50% 45%', 'Trends', 'The Fairway Index', 'Are golf prices rising or falling? By category, every week.', 'See the index'],
-        ['/prices/', '/assets/photos/tools/price-guides-wide.jpg', '60% 35%', 'Guides', 'Price Guides', 'Every model\u2019s lowest UK price, with its history.', 'Browse the guides'],
-        ['/find-your-fit.html', '/assets/photos/tools/find-your-fit-wide.jpg', '62% 35%', 'Fit', 'Find Your Fit', 'Eight quick taps to the flex, loft and clubs that suit you.', 'Find my fit'],
-        ['/back-in-stock.html', '/assets/photos/tools/back-in-stock-wide.jpg', '72% 40%', 'Stock', 'Back In Stock Radar', 'What\u2019s sold out, and what sells out fast.', 'Check the radar'],
-        ['/fourball/', '/assets/photos/tools/fourball-wide.jpg', '60% 35%', 'Share', 'Fourball Alerts', 'Price alerts for your whole four-ball. One link in the group chat.', 'Try it'],
-        ['/play/par-price/', '/assets/photos/tools/par-price-wide.jpg', '55% 25%', 'Play', 'Par Price', 'The daily golf price game. Five real products, scored like a round.', 'Play today\u2019s round']
-      ];
-      var track = document.getElementById('smart-track');
-      if (!track) return;
-      var last = [];
-      try { last = JSON.parse(localStorage.getItem('gp_smart_last') || '[]'); } catch (e) {}
-      // Shuffle, then put tools not shown last visit first.
-      var order = T.map(function (t, i) { return i; });
-      for (var i = order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var x = order[i]; order[i] = order[j]; order[j] = x; }
-      order.sort(function (a, b) { return (last.indexOf(a) !== -1) - (last.indexOf(b) !== -1); });
-      var pick = order.slice(0, 3);
-      try { localStorage.setItem('gp_smart_last', JSON.stringify(pick)); } catch (e) {}
-      function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
-      track.innerHTML = pick.map(function (n) {
-        var t = T[n];
-        return '<a class="gp-banner" href="' + t[0] + '"><img src="' + t[1] + '" alt="' + esc(t[4]) + '" loading="lazy" style="object-position: ' + t[2] + '">' +
-          '<span class="gp-banner-body"><span class="gp-banner-kicker">' + esc(t[3]) + '</span><span class="gp-banner-title">' + esc(t[4]) + '</span>' +
-          '<span class="gp-banner-line">' + esc(t[5]) + '</span><span class="gp-banner-cta">' + esc(t[6]) + ' \u2192</span></span></a>';
-      }).join('');
-    })();
-    </script>
-  </section>
-
-<div class="container">
-  <section class="section gp-popular" id="popular" aria-labelledby="popular-title" hidden>
-    <div class="gp-deals-head">
-      <div>
-        <h2 id="popular-title">Most compared this week</h2>
-        <p>The models GolfPrice AI visitors looked at most in the last 7 days.</p>
-      </div>
-    </div>
-    <div class="gp-deals-chips" id="popular-chips" role="group" aria-label="Category">
-      <button type="button" data-f="all" aria-pressed="true">All</button>
-      <button type="button" data-f="clubs" aria-pressed="false">Clubs</button>
-      <button type="button" data-f="tech" aria-pressed="false">Golf tech</button>
-      <button type="button" data-f="bags" aria-pressed="false">Bags, balls &amp; trolleys</button>
-    </div>
-    <ol class="gp-ranks" id="popular-list"></ol>
-    <p class="gp-deals-note">Ranked by visits to each model's price page. We never record who you are.</p>
-  </section>
-
-  <section class="gp-toolsband gp-toolsband-dm" aria-label="UK Golf Demand Index">
-    <a class="gp-tb dm-tb" href="/demand/?utm_source=home&amp;utm_medium=banner">
-      <picture>
-        <source media="(max-width: 700px)" srcset="/assets/photos/tools/demand-square.jpg">
-        <img src="/assets/photos/tools/demand-banner.jpg" alt="Golfer weighing up clubs in a golf shop" width="1536" height="512" loading="lazy">
-      </picture>
-      <span class="gp-tb-body">
-        <span class="gp-banner-kicker">New · UK Golf Demand Index</span>
-        <span class="gp-tb-title">What UK golfers want right now</span>
-        <span class="gp-tb-line">The kit the nation is quietly eyeing up this week. We count the nods, never the names: your secret new-driver fund is safe with us.</span>
-        <span class="gp-tb-cta">See what’s wanted <span aria-hidden="true">&rarr;</span></span>
-      </span>
-    </a>
   </section>
 
   <section class="section gp-pulse" id="pulse" aria-labelledby="pulse-title">
@@ -589,20 +336,14 @@
     <div class="gp-pulse-key"><span><i class="is-f"></i>Got cheaper</span><span><i class="is-r"></i>Got dearer</span><span>The rest held their price</span></div>
   </section>
 
-  <section class="newsletter" id="alerts">
-    <div class="newsletter-copy">
-      <span style="font-size:26px;">✉️</span>
+  <section class="hm-sec" id="alerts">
+    <div class="hm-signup">
       <div>
-        <h3>Never miss a deal worth hitting.</h3>
-        <p>A short Friday email with the week’s genuine UK price drops, checked against our own price history. Watching one club? Every price page has an “Email me when it drops” button.</p>
+        <h2>Never miss a deal worth hitting.</h2>
+        <p>One short Friday email with the week's genuine UK price drops.</p>
+        <ul><li>✓ One email a week, zero spam.</li><li>✓ Deals sharper than your short game.</li><li>✓ Unsubscribe faster than a 3-putt.</li></ul>
       </div>
-    </div>
-    <div class="newsletter-benefits">
-      <span>🔔 One email a week. Zero spam.</span>
-      <span>⛳ Deals sharper than your short game.</span>
-      <span>🚫 Unsubscribe faster than a 3-putt.</span>
-    </div>
-    <form class="gp-alert-form" novalidate>
+      <form class="gp-alert-form" novalidate>
       <label class="gp-af-label" for="home-alert-email">Your email</label>
       <div class="gp-af-row">
         <input id="home-alert-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
@@ -612,92 +353,24 @@
       <p class="gp-af-small">We’ll email you once to confirm first. Unsubscribe in one click. <a href="/legal/privacy-policy.html">Privacy policy</a></p>
       <p class="gp-af-msg" role="status" aria-live="polite"></p>
     </form>
+    </div>
   </section>
 
-  <div class="about-teaser">
-    <p>Curious why a website is this obsessed with golf gear prices? <a href="about.html">We explain ourselves →</a></p>
+  <section class="hm-sec" id="about-comparison" aria-labelledby="hm-honest">
+    <h2 class="hm-h2" id="hm-honest">UK golf price comparison, done honestly</h2>
+    <p class="hm-intro">We compare prices across multiple UK retailers so you don't need ten tabs open. Every price is recorded, so we can tell a genuine drop from a made-up "was" price.</p>
+    <div class="hm-lgroups"><div><h3 class="hm-gh">Compare prices</h3><div class="hm-rows"><a class="hm-rw" href="/clubs.html"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21 17 4"/><path d="M17 4c2 0 3 1 3 3l-3 1"/></svg></span><span class="hm-rt"><b>Golf club prices</b><small>Drivers, irons, wedges, putters</small></span><span class="hm-rc" aria-hidden="true">›</span></a><a class="hm-rw" href="/apparel.html"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3 4 6l2 4 2-1v12h8V9l2 1 2-4-4-3c-1 2-2.5 3-4 3S9 5 8 3z"/></svg></span><span class="hm-rt"><b>Golf clothing prices</b><small>Polos, jackets, shoes</small></span><span class="hm-rc" aria-hidden="true">›</span></a><a class="hm-rw" href="/accessories.html"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="7" width="14" height="14" rx="3"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></span><span class="hm-rt"><b>Accessories prices</b><small>Bags, trolleys, tech, balls</small></span><span class="hm-rc" aria-hidden="true">›</span></a><a class="hm-rw" href="/prices/"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg></span><span class="hm-rt"><b>All UK golf price guides</b><small>Every model, with price history</small></span><span class="hm-rc" aria-hidden="true">›</span></a></div></div><div><h3 class="hm-gh">Find a deal</h3><div class="hm-rows"><a class="hm-rw" href="/prices/drops/"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l6 6 4-4 8 8"/><path d="M21 11v6h-6"/></svg></span><span class="hm-rt"><b>Golf price drops today</b><small>Genuine drops, checked against our history</small></span><span class="hm-rc" aria-hidden="true">›</span></a><a class="hm-rw" href="/deal-tools.html"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L12 19l-4 1 1-4 7.7-7.7z"/></svg></span><span class="hm-rt"><b>All deal tools</b><small>Price check, best time to buy, fit finder</small></span><span class="hm-rc" aria-hidden="true">›</span></a></div></div><div><h3 class="hm-gh">Beyond prices</h3><div class="hm-rows"><a class="hm-rw" href="/societies/"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M16 4a3 3 0 0 1 0 6M21 20c0-2-1-4-3-5"/></svg></span><span class="hm-rt"><b>Society HQ</b><small>Free golf society organiser</small></span><span class="hm-rc" aria-hidden="true">›</span></a><a class="hm-rw" href="/play/oracle/"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-12 7l-5 1 1-4a8 8 0 1 1 16-4z"/></svg></span><span class="hm-rt"><b>Crowd Caddie</b><small>Will this price drop? Golfers call it</small></span><span class="hm-rc" aria-hidden="true">›</span></a><a class="hm-rw" href="/play/peoples-bag/"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span><span class="hm-rt"><b>The People's Bag</b><small>The bag UK golfers would build</small></span><span class="hm-rc" aria-hidden="true">›</span></a><a class="hm-rw" href="/prices/start-golf/"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 20H7c2-2 2-4 1-7h6"/><path d="M8 13C6 8 9 4 13 4c2 0 3 1 4 2"/></svg></span><span class="hm-rt"><b>What golf costs</b><small>Starting golf, priced today</small></span><span class="hm-rc" aria-hidden="true">›</span></a><a class="hm-rw" href="/courses/"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="hm-rt"><b>UK golf courses</b><small>Every course, and courses near you</small></span><span class="hm-rc" aria-hidden="true">›</span></a><a class="hm-rw" href="/play/aces/"><span class="hm-ri"><svg class="hm-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-3 4 3 4H5"/></svg></span><span class="hm-rt"><b>The Ace Register</b><small>Log a hole-in-one, get a certificate</small></span><span class="hm-rc" aria-hidden="true">›</span></a></div></div></div>
+    <div class="hm-faqs"><details class="hm-faq"><summary>What is GolfPrice AI?</summary><p>A UK golf price comparison site. We compare prices on golf clubs, clothing, shoes and accessories across multiple UK retailers every 6 hours, keep our own price history for each product, and tell you when a price is genuinely good.</p></details><details class="hm-faq"><summary>How do I find the cheapest price for a golf club?</summary><p>Search for it above, or open its <a href="/prices/">price guide</a>. Each guide shows today's lowest new UK price, which retailer has it, and a verdict on whether to buy now or wait. Seen a price elsewhere? <a href="/price-check.html">Check if it's any good</a>.</p></details><details class="hm-faq"><summary>How often are prices checked?</summary><p>Every 6 hours. Each check pulls the latest prices and stock from the retailers' own product feeds, so what you see is what they're charging now.</p></details><details class="hm-faq"><summary>Are the discounts real?</summary><p>We only call something a price drop when it's cheaper than the prices we've recorded ourselves, by at least £5 and 3%. We don't trust a retailer's own &ldquo;was&rdquo; price, and there are no countdown timers or fake &ldquo;only 2 left&rdquo; messages.</p></details><details class="hm-faq"><summary>What else is on GolfPrice AI?</summary><p>Free tools for golfers and golf societies: <a href="/societies/">Society HQ</a> runs your society’s sign-ups, payments and awards, and its Form Guide previews and reports every society day. The <a href="/play/oracle/">Crowd Caddie</a> shows whether golfers think a price will drop, <a href="/play/peoples-bag/">the People’s Bag</a> shows the bag the nation would build, and there are <a href="/improve/">handicap calculators</a>, <a href="/courses/">every UK golf course</a> and a <a href="/play/aces/">hole-in-one register</a>.</p></details><details class="hm-faq"><summary>Does it cost more to buy through GolfPrice AI?</summary><p>No. You pay the retailer's normal price. We may earn a small commission from some retailers, and it never changes the price you pay or the order things are listed in.</p></details></div>
+  </section>
+
+  <section class="hm-sec" aria-labelledby="hm-partners">
+    <h2 class="hm-h2" id="hm-partners">Where our prices come from</h2>
+    <p class="hm-note" style="font-size:14px">Every price comes from a real UK golf retailer. Tap a shop to browse it.</p>
+    <div class="hm-partners"><a href="shop.html?source=awin-clickgolf"><b>Clickgolf</b><small>Clubs and kit</small></a><a href="shop.html?source=awin-affordablegolf"><b>Affordable Golf</b><small>Clubs and kit</small></a><a href="shop.html?source=awin-majorgolf"><b>Major Golf Direct</b><small>Clubs and kit</small></a><a href="shop.html?source=awin-scottsdalegolf"><b>Scottsdale Golf</b><small>Clubs and kit</small></a><a href="shop.html?source=awin-clarkesgolf"><b>Clarkes Golf</b><small>Clubs and kit</small></a><a href="https://tidd.ly/4gfqeMx" rel="sponsored noopener" target="_blank"><b>Discount Golf Store</b><small>Clubs and kit</small></a><a href="shop.html?source=awin-callaway"><b>Callaway Golf</b><small>Brand store and preowned</small></a><a href="shop.html?source=awin-payntr"><b>PAYNTR Golf</b><small>Golf shoes</small></a></div>
+    <a class="hm-allr" href="/about.html">How we choose retailers →</a>
+  </section>
   </div>
-
-
-  <!-- seo-guide:start -->
-  <section class="gp-guide container" id="about-comparison" aria-labelledby="about-comparison-title">
-    <div class="gp-guide-main">
-      <h2 id="about-comparison-title">UK golf price comparison, done honestly</h2>
-      <p>GolfPrice AI compares golf prices across multiple UK retailers so you don't have to open ten tabs. Clubs, clothing, shoes, balls, bags and tech are all checked every 6 hours, and every product's price is recorded so we can tell a genuine drop from a retailer's made-up &ldquo;was&rdquo; price.</p><p>No hype. No fake discounts. Just the lowest price we can find today, and an honest view on whether it's a good one.</p>
-      <h3>Start comparing</h3>
-      <ul class="gp-guide-links"><li><a href="/clubs.html">Golf club price comparison</a></li><li><a href="/apparel.html">Golf clothing price comparison</a></li><li><a href="/accessories.html">Golf accessories price comparison</a></li><li><a href="/prices/">All UK golf price guides</a></li><li><a href="/prices/drops/">Golf price drops today</a></li><li><a href="/deal-tools.html">All deal tools</a></li></ul>
-      <h3>More than price comparison</h3>
-      <ul class="gp-guide-links"><li><a href="/societies/">Society HQ: free golf society organiser, with a Form Guide for every society day</a></li><li><a href="/play/oracle/">Crowd Caddie: will this golf price drop? Golfers call it, we check</a></li><li><a href="/play/peoples-bag/">The People’s Bag: the golf bag UK golfers would build, priced live</a></li><li><a href="/prices/start-golf/">What it costs to start golf, priced today</a></li><li><a href="/courses/">Every UK golf course, and courses near you</a></li><li><a href="/play/aces/">The Ace Register: log a hole-in-one and get a certificate</a></li><li><a href="/improve/">Golf handicap calculators</a></li><li><a href="/play/">Free golf price games</a></li></ul>
-    </div>
-    <div class="gp-guide-faq">
-      <h3>Common questions</h3>
-      <details class="gp-guide-q"><summary>What is GolfPrice AI?</summary><p>A UK golf price comparison site. We compare prices on golf clubs, clothing, shoes and accessories across multiple UK retailers every 6 hours, keep our own price history for each product, and tell you when a price is genuinely good.</p></details><details class="gp-guide-q"><summary>How do I find the cheapest price for a golf club?</summary><p>Search for it above, or open its <a href="/prices/">price guide</a>. Each guide shows today's lowest new UK price, which retailer has it, and a verdict on whether to buy now or wait. Seen a price elsewhere? <a href="/price-check.html">Check if it's any good</a>.</p></details><details class="gp-guide-q"><summary>How often are prices checked?</summary><p>Every 6 hours. Each check pulls the latest prices and stock from the retailers' own product feeds, so what you see is what they're charging now.</p></details><details class="gp-guide-q"><summary>Are the discounts real?</summary><p>We only call something a price drop when it's cheaper than the prices we've recorded ourselves, by at least £5 and 3%. We don't trust a retailer's own &ldquo;was&rdquo; price, and there are no countdown timers or fake &ldquo;only 2 left&rdquo; messages.</p></details><details class="gp-guide-q"><summary>What else is on GolfPrice AI?</summary><p>Free tools for golfers and golf societies: <a href="/societies/">Society HQ</a> runs your society’s sign-ups, payments and awards, and its Form Guide previews and reports every society day. The <a href="/play/oracle/">Crowd Caddie</a> shows whether golfers think a price will drop, <a href="/play/peoples-bag/">the People’s Bag</a> shows the bag the nation would build, and there are <a href="/improve/">handicap calculators</a>, <a href="/courses/">every UK golf course</a> and a <a href="/play/aces/">hole-in-one register</a>.</p></details><details class="gp-guide-q"><summary>Does it cost more to buy through GolfPrice AI?</summary><p>No. You pay the retailer's normal price. We may earn a small commission from some retailers, and it never changes the price you pay or the order things are listed in.</p></details>
-    </div>
-  </section>
-  <!-- seo-guide:end -->
-  <section class="partners-section">
-    <h2>Our Retail Partners</h2>
-    <p>Every price on this site comes from one of these real retailers. No middlemen, no invented prices — click through to browse each one properly, or head straight to their site.</p>
-    <div class="partners-grid">
-
-      <div class="partner-card">
-        <div class="partner-card-top"><span class="partner-emoji">⛳</span><span class="partner-name">Clickgolf</span></div>
-        <p class="partner-desc">Our longest-serving partner. Still hasn't let us down once.</p>
-        <a class="partner-link" href="shop.html?source=awin-clickgolf">Browse Clickgolf →</a>
-      </div>
-
-      <div class="partner-card">
-        <div class="partner-card-top"><span class="partner-emoji">💰</span><span class="partner-name">Affordable Golf</span></div>
-        <p class="partner-desc">The name undersells it — this is easily our biggest catalog, full stop.</p>
-        <a class="partner-link" href="shop.html?source=awin-affordablegolf">Browse Affordable Golf →</a>
-      </div>
-
-      <div class="partner-card">
-        <div class="partner-card-top"><span class="partner-emoji">🏌️</span><span class="partner-name">Major Golf Direct</span></div>
-        <p class="partner-desc">Their name checks out. A genuinely broad range across clubs, apparel, and accessories.</p>
-        <a class="partner-link" href="shop.html?source=awin-majorgolf">Browse Major Golf Direct →</a>
-      </div>
-
-      <div class="partner-card">
-        <div class="partner-card-top"><span class="partner-emoji">👕</span><span class="partner-name">Scottsdale Golf</span></div>
-        <p class="partner-desc">Great putters, even better polos. We're only a little bit jealous.</p>
-        <a class="partner-link" href="shop.html?source=awin-scottsdalegolf">Browse Scottsdale Golf →</a>
-      </div>
-
-      <div class="partner-card">
-        <div class="partner-card-top"><span class="partner-emoji">🔴</span><span class="partner-name">Callaway Golf</span></div>
-        <p class="partner-desc">Yes, the actual Callaway. Not a lookalike, not a cousin brand — the real one.</p>
-        <a class="partner-link" href="shop.html?source=awin-callaway">Browse Callaway Golf →</a>
-      </div>
-
-      <div class="partner-card">
-        <div class="partner-card-top"><span class="partner-emoji">♻️</span><span class="partner-name">Callaway Golf Preowned</span></div>
-        <p class="partner-desc">Same great clubs, previous owner. Kept in their own corner since trade-in pricing plays by different rules.</p>
-        <a class="partner-link" href="shop.html?source=awin-callawaypreowned">Browse Preowned &amp; Trade Ins →</a>
-      </div>
-
-      <div class="partner-card">
-        <div class="partner-card-top"><span class="partner-emoji">🏆</span><span class="partner-name">Clarkes Golf</span></div>
-        <p class="partner-desc">A huge range across clubs, bags and accessories. Our newest heavyweight, and it shows.</p>
-        <a class="partner-link" href="shop.html?source=awin-clarkesgolf">Browse Clarkes Golf →</a>
-      </div>
-
-      <div class="partner-card">
-        <div class="partner-card-top"><span class="partner-emoji">👟</span><span class="partner-name">PAYNTR Golf</span></div>
-        <p class="partner-desc">Golf shoes built with tour players. Your feet will notice before your scorecard does.</p>
-        <a class="partner-link" href="shop.html?source=awin-payntr">Browse PAYNTR Golf →</a>
-      </div>
-
-      <div class="partner-card">
-        <div class="partner-card-top"><span class="partner-emoji">🆕</span><span class="partner-name">Discount Golf Store</span></div>
-        <p class="partner-desc">Browse their full range on their own site while we finish setting up their catalogue.</p>
-        <a class="partner-link" href="https://tidd.ly/4gfqeMx" rel="sponsored noopener" target="_blank">Browse Discount Golf Store <span class="external-tag">External ↗</span></a>
-      </div>
-
-    </div>
-  </section>
-</div>
-
+  <div class="hm-end"></div>
 </main>
 
 <footer class="gp-footer">
@@ -748,6 +421,7 @@
 <script src="js/app.js?v=20261016"></script>
 <script src="js/home-deals.js"></script>
 <script src="js/home-sections.js"></script>
+<script src="js/home-v2.js?v=20261121" defer></script>
 <script src="js/groups-config.js?v=20261016"></script>
 <script src="js/hub.js"></script>
 <script src="js/analytics.js"></script>
