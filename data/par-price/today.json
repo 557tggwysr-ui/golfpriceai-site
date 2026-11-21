@@ -1,66 +1,66 @@
 {
- "n": 34,
- "date": "2026-11-20",
+ "n": 35,
+ "date": "2026-11-21",
  "items": [
   {
-   "slug": "odyssey-trtl-putter",
-   "name": "Odyssey TRTL Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Odyssey_TRTL_S_Putter_5.jpg?v=1791980959",
-   "price": 299.0,
+   "slug": "wilson-dynapwr-hybrid",
+   "name": "Wilson DYNAPWR Hybrid",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DYNAPOWERHYBRID2.jpg?v=1737728792",
+   "price": 109.65,
    "unit": "each",
-   "type": "putter",
-   "low": false,
-   "url": "/prices/odyssey-trtl-putter/"
+   "type": "hybrid",
+   "low": true,
+   "url": "/prices/wilson-dynapwr-hybrid/"
   },
   {
-   "slug": "taylormade-flextech-stand-bag-golf-bag",
-   "name": "TaylorMade FlexTech Stand Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/M2333901-Flextech-Stand-Bag-Hero.jpg",
-   "price": 159.0,
+   "slug": "callaway-elyte-fairway-wood",
+   "name": "Callaway Elyte Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-fairway-hero.jpg",
+   "price": 179.0,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": true,
+   "url": "/prices/callaway-elyte-fairway-wood/"
+  },
+  {
+   "slug": "ping-g430-irons",
+   "name": "Ping G430 Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-G430-Golf-Irons-Graphite-Pre-Order-3-2.jpg?v=1713976056",
+   "price": 529.0,
+   "unit": "each",
+   "type": "iron set",
+   "low": true,
+   "url": "/prices/ping-g430-irons/"
+  },
+  {
+   "slug": "taylormade-flextech-carry-bag-stand-bag-golf-bag",
+   "name": "TaylorMade FlexTech Carry Bag Stand Bag Golf Bag",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TM25ACC-JE943-N3832601-Flextech-Carry-Script-Icon-3QR-v1copy.jpg?v=1776303263",
+   "price": 129.95,
    "unit": "each",
    "type": "golf bag",
    "low": false,
-   "url": "/prices/taylormade-flextech-stand-bag-golf-bag/"
+   "url": "/prices/taylormade-flextech-carry-bag-stand-bag-golf-bag/"
   },
   {
-   "slug": "ping-i540-irons",
-   "name": "Ping i540 Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Pingi5402_564f0fb4-485b-45d1-ae35-b452ec963389.jpg?v=1773104257",
-   "price": 1129.0,
-   "unit": "each",
-   "type": "iron set",
-   "low": false,
-   "url": "/prices/ping-i540-irons/"
-  },
-  {
-   "slug": "mizuno-pro-s-golf-balls",
-   "name": "Mizuno Pro S Golf Balls",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Mizuno-Pro-S-Golf-Balls-White-1-Photoroom.jpg?v=1747321154",
-   "price": 34.95,
-   "unit": "per dozen",
-   "type": "golf ball",
-   "low": false,
-   "url": "/prices/mizuno-pro-s-golf-balls/"
-  },
-  {
-   "slug": "callaway-opus-brushed-chrome-wedge",
-   "name": "Callaway Opus Brushed Chrome Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/p_g_callaway-opus-brushed-chrome-wedge-1.jpg",
-   "price": 119.0,
+   "slug": "titleist-vokey-sm11-nickel-wedge",
+   "name": "Titleist Vokey SM11 Nickel Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-nickel-wedge-hero.jpg",
+   "price": 179.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/callaway-opus-brushed-chrome-wedge/"
+   "url": "/prices/titleist-vokey-sm11-nickel-wedge/"
   }
  ],
  "pin": {
-  "slug": "titleist-gt1-fairway-wood",
-  "name": "Titleist GT1 Fairway Wood",
-  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GT1Fairway3.jpg?v=1776299756",
-  "price": 249.0,
-  "unit": "each",
-  "type": "fairway wood",
-  "low": true,
-  "url": "/prices/titleist-gt1-fairway-wood/"
+  "slug": "mizuno-pro-x-golf-balls",
+  "name": "Mizuno Pro X Golf Balls",
+  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Mizuno-Pro-X-Golf-Balls-White-1-Photoroom.jpg?v=1747320711",
+  "price": 34.95,
+  "unit": "per dozen",
+  "type": "golf ball",
+  "low": false,
+  "url": "/prices/mizuno-pro-x-golf-balls/"
  }
 }

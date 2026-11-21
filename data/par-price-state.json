@@ -1,14 +1,6 @@
 {
  "about": "Which models each Par Price round used (no personal data).",
  "days": {
-  "2026-10-21": [
-   "srixon-ad333-golf-balls",
-   "taylormade-flextech-carry-bag-stand-bag-golf-bag",
-   "callaway-elyte-fairway-wood",
-   "wilson-dynapwr-hybrid",
-   "titleist-vokey-sm11-nickel-wedge",
-   "cobra-mim-nova-sb-putter"
-  ],
   "2026-10-22": [
    "callaway-quantum-max-irons",
    "taylormade-qi4d-driver",
@@ -248,6 +240,14 @@
    "mizuno-pro-s-golf-balls",
    "callaway-opus-brushed-chrome-wedge",
    "titleist-gt1-fairway-wood"
+  ],
+  "2026-11-21": [
+   "wilson-dynapwr-hybrid",
+   "callaway-elyte-fairway-wood",
+   "ping-g430-irons",
+   "taylormade-flextech-carry-bag-stand-bag-golf-bag",
+   "titleist-vokey-sm11-nickel-wedge",
+   "mizuno-pro-x-golf-balls"
   ]
  }
 }

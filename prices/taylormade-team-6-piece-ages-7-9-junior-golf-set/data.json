@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/taylormade-team-6-piece-ages-7-9-junior-golf-set/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 329.0,
   "high": 365.0,
-  "average": 364.54,
+  "average": 364.09,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-20",
+    329.0
+   ],
+   [
+    "2026-11-21",
     329.0
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TeamTaylorMadeJuniorPackageSets2HERO.jpg?v=1777954866",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }

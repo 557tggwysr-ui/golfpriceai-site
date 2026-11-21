@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-kalea-cart-bag-golf-bag/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 97,
+  "daysTracked": 98,
   "low": 169.0,
   "high": 189.0,
-  "average": 182.61,
+  "average": 182.47,
   "priceChanges": 21,
   "series": [
    [
@@ -121,6 +121,10 @@
    [
     "2026-11-20",
     169.0
+   ],
+   [
+    "2026-11-21",
+    169.0
    ]
   ]
  },
@@ -130,5 +134,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-Kalea-Gold-Golf-Cart-Bag.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }

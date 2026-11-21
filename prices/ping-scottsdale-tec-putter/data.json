@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/ping-scottsdale-tec-putter/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 349.0,
@@ -24,10 +24,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 349.0,
   "high": 359.0,
-  "average": 354.13,
+  "average": 354.06,
   "priceChanges": 1,
   "series": [
    [
@@ -39,16 +39,16 @@
     349.0
    ],
    [
-    "2026-11-20",
+    "2026-11-21",
     349.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 38 days"
+  "summary": "Typical price: steady for 39 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/AllyBlueH1.jpg?v=1776262845",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }

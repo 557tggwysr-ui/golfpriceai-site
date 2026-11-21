@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/taylormade-rbz-11-piece-package-set/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 899.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 97,
+  "daysTracked": 98,
   "low": 899.0,
   "high": 1029.0,
-  "average": 998.07,
+  "average": 997.06,
   "priceChanges": 24,
   "series": [
    [
@@ -130,7 +130,7 @@
     899.0
    ],
    [
-    "2026-11-20",
+    "2026-11-21",
     899.0
    ]
   ]
@@ -141,5 +141,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-RBZ-2-Golf-Package-11-Piece-Golf-Packag-0.jpg?v=1737000487",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }

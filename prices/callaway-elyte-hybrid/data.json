@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/callaway-elyte-hybrid/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -39,10 +39,10 @@
   }
  ],
  "history": {
-  "daysTracked": 97,
+  "daysTracked": 98,
   "low": 149.0,
   "high": 179.0,
-  "average": 167.34,
+  "average": 167.15,
   "priceChanges": 3,
   "series": [
    [
@@ -62,7 +62,7 @@
     149.0
    ],
    [
-    "2026-11-20",
+    "2026-11-21",
     149.0
    ]
   ]
@@ -73,5 +73,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-hybrid-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }

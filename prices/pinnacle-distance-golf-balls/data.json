@@ -3,7 +3,7 @@
  "brand": "Pinnacle",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/pinnacle-distance-golf-balls/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 14.39,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 14.39,
   "high": 15.99,
-  "average": 15.27,
+  "average": 15.26,
   "priceChanges": 3,
   "series": [
    [
@@ -39,14 +39,18 @@
    [
     "2026-11-20",
     14.39
+   ],
+   [
+    "2026-11-21",
+    14.39
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "summary": "Typical price: steady for 2 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PinnacleDistanceBalls-15Pack6.jpg?v=1776274330",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }

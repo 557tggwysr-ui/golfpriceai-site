@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-20",
+ "date": "2026-11-21",
  "status": "live",
  "week": {
-  "from": "2026-11-14",
-  "to": "2026-11-20"
+  "from": "2026-11-15",
+  "to": "2026-11-21"
  },
  "chart": [
   {
@@ -17,7 +17,7 @@
    "type": "gps-watch",
    "price": 429.0,
    "unit": "",
-   "move": 1,
+   "move": 2,
    "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
   },
   {
@@ -167,7 +167,7 @@
    "type": "driver",
    "price": 179.95,
    "unit": "",
-   "move": -8,
+   "move": -9,
    "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
   },
   {
@@ -215,12 +215,12 @@
   {
    "category": "Golf bags",
    "averageGuessVsRealPricePct": 19,
-   "guesses": 75
+   "guesses": 74
   },
   {
    "category": "Putters",
    "averageGuessVsRealPricePct": -17,
-   "guesses": 47
+   "guesses": 50
   },
   {
    "category": "Drivers",
@@ -228,9 +228,9 @@
    "guesses": 48
   },
   {
-   "category": "Hybrids",
-   "averageGuessVsRealPricePct": 11,
-   "guesses": 79
+   "category": "Iron sets",
+   "averageGuessVsRealPricePct": -12,
+   "guesses": 87
   }
  ],
  "categoryShare": [
@@ -240,7 +240,7 @@
   },
   {
    "category": "Irons & wedges",
-   "pct": 41
+   "pct": 39
   },
   {
    "category": "Tech",
@@ -252,7 +252,7 @@
   },
   {
    "category": "Bags & trolleys",
-   "pct": 3
+   "pct": 4
   }
  ],
  "reports": [

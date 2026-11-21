@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-hoofer-tour-244-stand-bag-golf-bag/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 224.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 97,
+  "daysTracked": 98,
   "low": 224.0,
   "high": 249.0,
-  "average": 241.78,
+  "average": 241.6,
   "priceChanges": 19,
   "series": [
    [
@@ -108,6 +108,10 @@
    [
     "2026-11-20",
     224.0
+   ],
+   [
+    "2026-11-21",
+    224.0
    ]
   ]
  },
@@ -117,5 +121,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ping-Hoofer-Tour-244-Golf-Stand-Bag-White.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }

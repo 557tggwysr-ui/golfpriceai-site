@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-one-1-ch-putter/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 216.75,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 78,
+  "daysTracked": 79,
   "low": 216.75,
   "high": 249.0,
-  "average": 232.05,
+  "average": 231.85,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     216.75
    ],
    [
-    "2026-11-20",
+    "2026-11-21",
     216.75
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 41 days"
+  "summary": "Typical price: steady for 42 days"
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1794395478960/sits/putters-2024-ai-one-one-ch/putters-2024-ai-one-one-ch___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }

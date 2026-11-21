@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-p7cb-irons/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 929.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 97,
+  "daysTracked": 98,
   "low": 929.0,
   "high": 1249.0,
-  "average": 1206.95,
+  "average": 1204.11,
   "priceChanges": 2,
   "series": [
    [
@@ -45,6 +45,10 @@
    [
     "2026-11-20",
     929.0
+   ],
+   [
+    "2026-11-21",
+    929.0
    ]
   ]
  },
@@ -54,5 +58,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-2024-P7CB-Golf-Irons-8.jpg?v=1722484976",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }

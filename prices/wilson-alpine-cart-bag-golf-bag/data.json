@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-alpine-cart-bag-golf-bag/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 139.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 97,
+  "daysTracked": 98,
   "low": 139.0,
   "high": 189.0,
-  "average": 176.89,
+  "average": 176.5,
   "priceChanges": 19,
   "series": [
    [
@@ -118,6 +118,10 @@
    [
     "2026-11-20",
     139.0
+   ],
+   [
+    "2026-11-21",
+    139.0
    ]
   ]
  },
@@ -127,5 +131,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WG4006001_0_WS_Alpine_Cart_Bag_White_Black.png.high-res-Photoroom.jpg?v=1750844056",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }

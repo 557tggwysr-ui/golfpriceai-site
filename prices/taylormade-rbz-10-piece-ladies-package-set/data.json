@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/taylormade-rbz-10-piece-ladies-package-set/",
- "checked": "2026-11-20",
+ "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 959.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 97,
+  "daysTracked": 98,
   "low": 959.0,
   "high": 1029.0,
-  "average": 1004.46,
+  "average": 1004.0,
   "priceChanges": 24,
   "series": [
    [
@@ -123,6 +123,10 @@
    [
     "2026-11-20",
     959.0
+   ],
+   [
+    "2026-11-21",
+    959.0
    ]
   ]
  },
@@ -132,5 +136,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-RBZ-10-Piece-Package-Set---Ladies-Full-Set.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-20"
+ "changed": "2026-11-21"
 }
