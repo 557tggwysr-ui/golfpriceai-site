@@ -6,14 +6,14 @@
  "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 92.65,
+ "lowestNewPrice": 99.0,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 92.65,
+   "from": 99.0,
    "options": 1
   },
   {
@@ -26,8 +26,8 @@
   "daysTracked": 86,
   "low": 92.65,
   "high": 149.0,
-  "average": 124.12,
-  "priceChanges": 3,
+  "average": 124.19,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-28",
@@ -47,13 +47,13 @@
    ],
    [
     "2026-11-21",
-    92.65
+    99.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £6.35 above its tracked low"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Yourparagraphtext_22.jpg?v=1737715484",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

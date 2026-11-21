@@ -336,9 +336,9 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-21,macgregor-v-max-feel-wedge,MacGregor V-Max Feel Wedge,MacGregor,wedge,37.99,each,1,79,37.99,37.99,typical,https://golfpriceai.com/prices/macgregor-v-max-feel-wedge/
 2026-11-21,macgregor-zt-plus-chipper-wedge,MacGregor ZT Plus Chipper Wedge,MacGregor,wedge,44.95,each,3,86,44.95,44.99,typical,https://golfpriceai.com/prices/macgregor-zt-plus-chipper-wedge/
 2026-11-21,macgregor-zt-plus-wedge,MacGregor ZT Plus Wedge,MacGregor,wedge,39.99,each,3,86,39.99,44.95,good,https://golfpriceai.com/prices/macgregor-zt-plus-wedge/
-2026-11-21,mizuno-pro-t-1-ion-wedge,Mizuno Pro T-1 ION Wedge,Mizuno,wedge,92.65,each,2,86,92.65,149.00,good,https://golfpriceai.com/prices/mizuno-pro-t-1-ion-wedge/
+2026-11-21,mizuno-pro-t-1-ion-wedge,Mizuno Pro T-1 ION Wedge,Mizuno,wedge,99.00,each,2,86,92.65,149.00,wait,https://golfpriceai.com/prices/mizuno-pro-t-1-ion-wedge/
 2026-11-21,mizuno-pro-t-1-ip-wedge,Mizuno Pro T-1 IP Wedge,Mizuno,wedge,139.95,each,1,79,139.95,169.95,good,https://golfpriceai.com/prices/mizuno-pro-t-1-ip-wedge/
-2026-11-21,mizuno-pro-t-1-soft-satin-wedge,Mizuno Pro T-1 Soft Satin Wedge,Mizuno,wedge,99.99,each,2,86,99.95,149.00,typical,https://golfpriceai.com/prices/mizuno-pro-t-1-soft-satin-wedge/
+2026-11-21,mizuno-pro-t-1-soft-satin-wedge,Mizuno Pro T-1 Soft Satin Wedge,Mizuno,wedge,99.00,each,2,86,99.00,149.00,good,https://golfpriceai.com/prices/mizuno-pro-t-1-soft-satin-wedge/
 2026-11-21,mizuno-pro-t-3-soft-satin-wedge,Mizuno Pro T-3 Soft Satin Wedge,Mizuno,wedge,109.00,each,2,86,109.00,149.00,good,https://golfpriceai.com/prices/mizuno-pro-t-3-soft-satin-wedge/
 2026-11-21,mizuno-pro-t-3-wedge,Mizuno Pro T-3 Wedge,Mizuno,wedge,119.00,each,2,98,119.00,149.00,good,https://golfpriceai.com/prices/mizuno-pro-t-3-wedge/
 2026-11-21,odyssey-chipper-wedge,Odyssey Chipper Wedge,Odyssey,wedge,129.00,each,3,98,129.00,129.00,typical,https://golfpriceai.com/prices/odyssey-chipper-wedge/
@@ -361,8 +361,8 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-21,taylormade-milled-grind-5-charcoal-wedge,TaylorMade Milled Grind 5 Charcoal Wedge,TaylorMade,wedge,179.95,each,1,79,179.95,179.95,typical,https://golfpriceai.com/prices/taylormade-milled-grind-5-charcoal-wedge/
 2026-11-21,taylormade-milled-grind-5-chrome-wedge,TaylorMade Milled Grind 5 Chrome Wedge,TaylorMade,wedge,179.00,each,2,79,179.00,179.95,typical,https://golfpriceai.com/prices/taylormade-milled-grind-5-chrome-wedge/
 2026-11-21,titleist-vokey-sm10-jet-wedge,Titleist Vokey SM10 Jet Wedge,Titleist,wedge,139.00,each,2,98,139.00,139.00,typical,https://golfpriceai.com/prices/titleist-vokey-sm10-jet-wedge/
-2026-11-21,titleist-vokey-sm10-nickel-wedge,Titleist Vokey SM10 Nickel Wedge,Titleist,wedge,129.00,each,3,98,129.00,139.00,good,https://golfpriceai.com/prices/titleist-vokey-sm10-nickel-wedge/
-2026-11-21,titleist-vokey-sm10-tour-chrome-wedge,Titleist Vokey SM10 Tour Chrome Wedge,Titleist,wedge,129.00,each,3,98,129.00,139.00,good,https://golfpriceai.com/prices/titleist-vokey-sm10-tour-chrome-wedge/
+2026-11-21,titleist-vokey-sm10-nickel-wedge,Titleist Vokey SM10 Nickel Wedge,Titleist,wedge,119.00,each,3,98,119.00,139.00,good,https://golfpriceai.com/prices/titleist-vokey-sm10-nickel-wedge/
+2026-11-21,titleist-vokey-sm10-tour-chrome-wedge,Titleist Vokey SM10 Tour Chrome Wedge,Titleist,wedge,119.00,each,3,98,119.00,139.00,good,https://golfpriceai.com/prices/titleist-vokey-sm10-tour-chrome-wedge/
 2026-11-21,titleist-vokey-sm10-wedge,Titleist Vokey SM10 Wedge,Titleist,wedge,139.00,each,2,79,139.00,169.00,good,https://golfpriceai.com/prices/titleist-vokey-sm10-wedge/
 2026-11-21,titleist-vokey-sm11-jet-wedge,Titleist Vokey SM11 Jet Wedge,Titleist,wedge,179.00,each,3,98,179.00,179.00,typical,https://golfpriceai.com/prices/titleist-vokey-sm11-jet-wedge/
 2026-11-21,titleist-vokey-sm11-nickel-wedge,Titleist Vokey SM11 Nickel Wedge,Titleist,wedge,179.00,each,3,98,179.00,179.00,typical,https://golfpriceai.com/prices/titleist-vokey-sm11-nickel-wedge/
@@ -718,7 +718,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-21,callaway-carry-plus-stand-bag-carry-bag-golf-bag,Callaway Carry+ Stand Bag Carry Bag Golf Bag,Callaway,golf bag,139.00,each,1,98,139.00,139.00,typical,https://golfpriceai.com/prices/callaway-carry-plus-stand-bag-carry-bag-golf-bag/
 2026-11-21,callaway-chase-14-cart-bag-golf-bag,Callaway Chase 14 Cart Bag Golf Bag,Callaway,golf bag,129.00,each,3,98,129.00,149.00,typical,https://golfpriceai.com/prices/callaway-chase-14-cart-bag-golf-bag/
 2026-11-21,callaway-chase-14-dry-cart-bag-golf-bag,Callaway Chase 14 Dry Cart Bag Golf Bag,Callaway,golf bag,179.00,each,2,86,179.00,199.00,good,https://golfpriceai.com/prices/callaway-chase-14-dry-cart-bag-golf-bag/
-2026-11-21,callaway-chase-14-dry-waterproof-cart-bag-golf-bag,Callaway Chase 14 Dry Waterproof Cart Bag Golf Bag,Callaway,golf bag,149.00,each,4,98,149.00,169.00,good,https://golfpriceai.com/prices/callaway-chase-14-dry-waterproof-cart-bag-golf-bag/
+2026-11-21,callaway-chase-14-dry-waterproof-cart-bag-golf-bag,Callaway Chase 14 Dry Waterproof Cart Bag Golf Bag,Callaway,golf bag,169.00,each,4,98,149.00,169.00,wait,https://golfpriceai.com/prices/callaway-chase-14-dry-waterproof-cart-bag-golf-bag/
 2026-11-21,callaway-chase-14-dry-waterproof-stand-bag-golf-bag,Callaway Chase 14 Dry Waterproof Stand Bag Golf Bag,Callaway,golf bag,179.95,each,2,82,179.95,229.00,good,https://golfpriceai.com/prices/callaway-chase-14-dry-waterproof-stand-bag-golf-bag/
 2026-11-21,callaway-chase-4-stand-bag-golf-bag,Callaway Chase 4 Stand Bag Golf Bag,Callaway,golf bag,149.95,each,1,79,149.95,149.95,typical,https://golfpriceai.com/prices/callaway-chase-4-stand-bag-golf-bag/
 2026-11-21,callaway-chase-dry-25-stand-bag-golf-bag,Callaway Chase Dry 25 Stand Bag Golf Bag,Callaway,golf bag,229.00,each,1,98,229.00,229.00,typical,https://golfpriceai.com/prices/callaway-chase-dry-25-stand-bag-golf-bag/

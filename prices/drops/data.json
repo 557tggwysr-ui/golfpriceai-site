@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-21T14:20+00:00",
+ "checked": "2026-11-21T22:51+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -12,6 +12,26 @@
    "unit": "per dozen",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-limited-chrome-soft-truvis-team-golf-balls/"
+  },
+  {
+   "model": "Titleist Vokey SM10 Nickel Wedge",
+   "model_id": "titleist-vokey-sm10-nickel-wedge",
+   "date": "2026-11-21",
+   "was": 129.0,
+   "now": 119.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-vokey-sm10-nickel-wedge/"
+  },
+  {
+   "model": "Titleist Vokey SM10 Tour Chrome Wedge",
+   "model_id": "titleist-vokey-sm10-tour-chrome-wedge",
+   "date": "2026-11-21",
+   "was": 129.0,
+   "now": 119.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-vokey-sm10-tour-chrome-wedge/"
   },
   {
    "model": "Cobra King Ages 10-12 Junior Golf Set",

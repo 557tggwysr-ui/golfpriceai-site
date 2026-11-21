@@ -6,21 +6,20 @@
  "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.0,
+ "lowestNewPrice": 119.0,
  "lowestAt": [
-  "Clickgolf",
   "Major Golf Direct"
  ],
  "retailers": [
   {
+   "name": "Major Golf Direct",
+   "from": 119.0,
+   "options": 3
+  },
+  {
    "name": "Clickgolf",
    "from": 129.0,
    "options": 1
-  },
-  {
-   "name": "Major Golf Direct",
-   "from": 129.0,
-   "options": 3
   },
   {
    "name": "Affordable Golf",
@@ -30,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 98,
-  "low": 129.0,
+  "low": 119.0,
   "high": 139.0,
-  "average": 137.16,
-  "priceChanges": 1,
+  "average": 137.06,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -45,7 +44,7 @@
    ],
    [
     "2026-11-21",
-    129.0
+    119.0
    ]
   ]
  },
@@ -53,7 +52,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/titleist-vokey-sm10-tour-chrome-wedge-hero-1000x1000.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Vokeysm10tc1.jpg?v=1706087531",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-21"
 }
