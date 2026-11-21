@@ -520,6 +520,37 @@
      "note": "Found by Claude in the full dry run of every agent."
     }
    ]
+  },
+  {
+   "id": "applovin-test",
+   "title": "Small, capped AppLovin Ads test (maybe for Wild Nine)",
+   "owner": "the channel scout (with the performance analyst)",
+   "objective": "traffic",
+   "problem": "AppLovin opened its self-serve ad platform to all advertisers in 2026 and is growing fast; its ads run inside mobile games, which could suit a free daily golf game.",
+   "evidence": "Public launch news only; we have no conversion data yet to know what a visitor is worth to us.",
+   "hypothesis": "If what we earn per visitor is higher than AppLovin's cost per visitor, a small capped test could bring profitable traffic, especially to Wild Nine.",
+   "test": "Only once we know value per visitor: a capped test with a budget John sets, sending traffic to Wild Nine.",
+   "metric": "cost per visitor against value per visitor",
+   "target": "value higher than cost",
+   "windowDays": 28,
+   "effort": "M",
+   "risks": "Costs money (outside the free-or-Pro rule unless John approves a budget); some affiliate programmes restrict paid traffic; ads inside games need brand-safe placement.",
+   "challenge": "Evidence too thin: we don't yet know value per visitor. Paid, so John must set a budget. Check each retailer programme's paid-traffic rules first.",
+   "score": {
+    "impact": 3,
+    "confidence": 1,
+    "ease": 2,
+    "total": 6
+   },
+   "kind": "test",
+   "stage": "parked",
+   "history": [
+    {
+     "date": "2026-11-21",
+     "stage": "parked",
+     "note": "John spotted it. Bring back after 3 months of conversion data from the performance analyst."
+    }
+   ]
   }
  ],
  "lessons": [],
