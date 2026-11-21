@@ -6,29 +6,28 @@
  "checked": "2026-11-21",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 379.0,
+ "lowestNewPrice": 349.0,
  "lowestAt": [
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
+   "name": "Clickgolf",
+   "from": 349.0,
+   "options": 1
+  },
+  {
    "name": "Clarkes Golf",
    "from": 379.0,
    "options": 2
-  },
-  {
-   "name": "Clickgolf",
-   "from": 379.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 98,
   "low": 339.0,
   "high": 379.0,
-  "average": 373.8,
-  "priceChanges": 11,
+  "average": 373.49,
+  "priceChanges": 12,
   "series": [
    [
     "2026-08-16",
@@ -80,13 +79,13 @@
    ],
    [
     "2026-11-21",
-    379.0
+    349.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £40.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/91759232-10-12-Junior-Set-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

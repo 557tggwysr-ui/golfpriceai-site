@@ -1,8 +1,38 @@
 {
- "checked": "2026-11-21T05:52+00:00",
+ "checked": "2026-11-21T14:20+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Callaway Limited Chrome Soft Truvis Team Golf Balls",
+   "model_id": "callaway-limited-chrome-soft-truvis-team-golf-balls",
+   "date": "2026-11-21",
+   "was": 55.0,
+   "now": 41.25,
+   "unit": "per dozen",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-soft-truvis-team-golf-balls/"
+  },
+  {
+   "model": "Cobra King Ages 10-12 Junior Golf Set",
+   "model_id": "cobra-king-ages-10-12-junior-golf-set",
+   "date": "2026-11-21",
+   "was": 379.0,
+   "now": 349.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/cobra-king-ages-10-12-junior-golf-set/"
+  },
+  {
+   "model": "Cobra King Ages 7-9 Junior Golf Set",
+   "model_id": "cobra-king-ages-7-9-junior-golf-set",
+   "date": "2026-11-21",
+   "was": 349.0,
+   "now": 329.0,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/cobra-king-ages-7-9-junior-golf-set/"
+  },
   {
    "model": "Golfway Champion Youth Hybrid",
    "model_id": "golfway-champion-youth-hybrid",
