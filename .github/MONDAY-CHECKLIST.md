@@ -92,6 +92,8 @@ Full steps for each are in agents/AGENTS-SETUP.txt (step number in brackets).
 [ ] D2. IG_ACCESS_TOKEN and IG_USER_ID (step 6, 15 minutes)
         Switches on: ticked posts going to Instagram as Reels at 12:30 and 19:30.
         Without it, the Content pack still arrives and you post by hand.
+        Also lets the engine post carousels (Myth or Mulligan, tips) and learn
+        which formats earn saves and shares, so the mix gets smarter each week.
 
 [ ] D3. GSC_SERVICE_ACCOUNT_JSON (step 5, 10 minutes)
         Switches on: real Google Search Console data for the SEO agents.
@@ -133,6 +135,11 @@ PART F: DECISIONS WAITING FOR YOU (when you have a minute)
         or change it to "Prices from multiple UK retailers" with no names?
 [ ] F3. GTA VI Reel: before posting, check the "13 years" against GTA VI's real
         launch date, and swap in the full-size driver photo (the content engine can).
+[ ] F5. Social photos: make the 30 scenes in PHOTO-PROMPT-PACK.txt with ChatGPT
+        (portrait, no words in the picture), name them scene-01.png to scene-30.png
+        and send them to Claude. They unlock the meme and big-headline posts fully:
+        the quality gate holds any post whose photo is too small, and only 4 site
+        photos are big enough today.
 [ ] F4. The site-wide banner says "only 2 left!!" as a joke about fake urgency.
         Keep it, or tidy the double "!!"?
 
