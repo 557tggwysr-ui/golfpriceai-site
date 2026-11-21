@@ -81,7 +81,7 @@
       ],
       "arrow": "none",
       "reaction": [
-        "steve-sideeye"
+        "phil-sideeye"
       ],
       "top_y": 170
     },
@@ -379,15 +379,55 @@
   "characters": [
     {
       "name": "Big Dave",
-      "about": "society captain, owns every gadget, has never once hit a fairway"
+      "id": "big-dave",
+      "role": "the lead",
+      "look": "Broad, cheerful fifty-something, ruddy cheeks, short greying hair, neat grey beard, navy quarter-zip, beige trousers, white cap, white golf shoes.",
+      "personality": "Society captain. Loud, optimistic, totally oblivious. Owns every gadget, has never once hit a fairway.",
+      "quirks": [
+        "generous with his own scorecard (six is a par if you squint)",
+        "blames the course, the wind, the ball, the greenkeeper",
+        "announces every drive as 'the one'",
+        "first to the bar, last to the tee"
+      ]
+    },
+    {
+      "name": "Phil",
+      "id": "phil",
+      "role": "the straight man",
+      "look": "Lean fifty-something, clean-shaven, tweed flat cap, olive quilted gilet over a white polo, wristwatch.",
+      "personality": "Dave's long-suffering mate. Deadpan, says almost nothing; his eyebrows do the talking.",
+      "quirks": [
+        "keeps the real score",
+        "arrives with the perfect prop (abacus, calculator, rule book, rake)",
+        "arms folded = verdict delivered",
+        "the only one who reads the local rules"
+      ]
     },
     {
       "name": "Steady Steve",
-      "about": "plays the same 20-year-old irons, never loses a ball, never buys anything"
+      "id": "steve",
+      "role": "the quiet winner",
+      "look": "Tall, thin, sixty-something, short white hair, beige windproof jacket, faded bucket hat, old leather carry bag.",
+      "personality": "Plays the same 20-year-old irons, never loses a ball, never buys anything. 180 yards, dead straight, every single time.",
+      "quirks": [
+        "tea from a thermos on the 10th",
+        "still uses a pencil from 2004",
+        "wins the society cup without anyone noticing",
+        "the receipts guy: knows what everything should cost"
+      ]
     },
     {
       "name": "Gaz",
-      "about": "buys a new driver every spring, blames the old one"
+      "id": "gaz",
+      "role": "the kit addict",
+      "look": "Thirty-something, fresh haircut, bright plain teal top, black cap with sunglasses perched on it, brand-new everything (no logos).",
+      "personality": "Buys a new driver every spring, blames the old one. Knows every launch date and none of his yardages.",
+      "quirks": [
+        "'it's the shaft, mate'",
+        "unboxes kit in the car park",
+        "has three rangefinders and still asks Phil",
+        "always 'just looking' at the pro shop"
+      ]
     }
   ],
   "bts": [
@@ -473,5 +513,6 @@
         }
       ]
     }
-  ]
+  ],
+  "charactersAbout": "Recurring, obviously fictional characters (AI-generated photos, never based on real people). Keep looks identical in every photo; build running gags across episodes; never mean-spirited: everyone gets a win sometimes."
 }

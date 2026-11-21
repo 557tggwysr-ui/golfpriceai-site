@@ -92,3 +92,12 @@ Hashtags are never a substitute for a good idea. Every post needs a clear reason
   retired, proposes new ones with a spec, and writes it to `data/social-formats.json` "review".
   New visual styles and big format changes go on the ideas board for John.
 - The weekly review reports the best formats and hooks, and one trend worth jumping on.
+
+## Recurring characters (John, 21 Nov 2026)
+
+Big Dave, Phil, Steady Steve and Gaz are our recurring, obviously fictional cast (full looks, personalities and quirks in data/social-bank.json "characters"). Recurring characters build familiarity: people follow to see what Dave does next.
+
+- Keep each character's look identical in every photo (same clothes, cap and build). Generate a set in one ChatGPT conversation so faces stay consistent.
+- Build personalities and running gags across episodes (Dave's scorecard, Phil's props, Steve's 20-year-old irons, Gaz's new driver). Everyone gets a win sometimes; never mean-spirited.
+- Never based on, named after or resembling a real person; never presented as real golfers or real stories.
+- Monthly episode: on the 8th the channel scout writes one ready-made episode for John (a short script for a quick-cut sketch plus the photo prompts), using the characters and what's on trend.
