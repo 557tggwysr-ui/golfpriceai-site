@@ -272,7 +272,7 @@ def theme_sketch(d, L, rnd):
     q = rnd.choice(pool)
     mark_used(L, q["title"])
     t = strip_marks(q["title"])
-    sc = {k: q[k] for k in ("top", "shots", "lines", "end", "counter", "top_y") if k in q}
+    sc = {k: q[k] for k in ("top", "shots", "lines", "end", "counter", "top_y", "cover") if k in q}
     sc.update({"hook": t, "thumb": strip_marks(q.get("thumb", t))})
     cap = q.get("caption", t)
     return {"theme": "Golf sketch", "format": "sketch", "link": SITE + "/", "image": None, "name": "", "headline": t, "sub": "",

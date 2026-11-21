@@ -479,16 +479,72 @@ def style_headline(t, s, pal, img, photo, dur=7.8):
 BRUSH_STYLES = {"humour": (style_humour, 8.4), "headline": (style_headline, 7.8), "sequence": (style_sequence, 9.6)}
 
 
+# ---------------- the cast cover (sketch thumbnails) ----------------
+SERIES = "THE FOURBALL"  # the recurring cast's series name on every sketch cover
+
+
+def _name_pill(im, text, cx, cy, colour=WHITE, ink=INKD):
+    f = font(46, "head")
+    w = f.getlength(text) + 56
+    box = Image.new("RGBA", (int(w), 84), (0, 0, 0, 0))
+    d = ImageDraw.Draw(box)
+    d.rounded_rectangle([0, 0, w - 1, 83], 42, fill=colour + (255,))
+    d.text((28, 14), text, font=f, fill=ink)
+    im.alpha_composite(box, (int(cx - w / 2), int(cy - 42)))
+
+
+def cast_cover(s):
+    """Split-face cover: the set-up character on the left, the reaction on the right, a yellow slash between,
+    the hook big in the middle, name tags and the series badge. Everything important sits inside the
+    middle 4:5 (and 3:4 profile-grid) crop."""
+    cv = s.get("cover") or {}
+    lines = s.get("lines", [])
+    shots = s.get("shots", [])
+    left = cv.get("left") or next((l for l in lines if l.get("who") == "him"), None) or (shots[0] if shots else {})
+    right = cv.get("right") or next((l for l in lines if l.get("who") not in (None, "him")), None) or (lines[-1] if lines else {})
+    if isinstance(left, str):
+        left = {"bg": left}
+    if isinstance(right, str):
+        right = {"bg": right}
+    im = Image.new("RGBA", (W, H), GREEN2 + (255,))
+    lw = 620
+    a = cover(load_photo(left.get("bg")), lw, H, zoom=1.0, focus=tuple(cv.get("left_focus") or left.get("focus") or (0.4, 0.4))).convert("RGBA")
+    b = cover(load_photo(right.get("bg")), lw, H, zoom=1.0, focus=tuple(cv.get("right_focus") or right.get("focus") or (0.5, 0.4))).convert("RGBA")
+    im.alpha_composite(a, (0, 0))
+    m = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(m).polygon([(600, 0), (W, 0), (W, H), (480, H)], fill=255)
+    rb = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    rb.paste(b, (W - lw, 0))
+    im.paste(rb, (0, 0), Image.composite(rb.getchannel("A"), Image.new("L", (W, H), 0), m))
+    d = ImageDraw.Draw(im)
+    d.line([(600, -10), (480, H + 10)], fill=YELLOW, width=18)
+    scrim(im, top=0.25, bottom=0.75)
+    # series badge, hook, names: all inside the safe middle
+    ep = cv.get("ep") or s.get("ep")
+    badge = SERIES + (f"  \u00b7  EP {ep}" if ep else "")
+    fb = font(44, "head")
+    bw = fb.getlength(badge) + 60
+    bx = Image.new("RGBA", (int(bw), 80), (0, 0, 0, 0))
+    ImageDraw.Draw(bx).rounded_rectangle([0, 0, bw - 1, 79], 18, fill=GREEN + (255,))
+    ImageDraw.Draw(bx).text((30, 14), badge, font=fb, fill=YELLOW)
+    im.alpha_composite(bx.rotate(-2, expand=True, resample=Image.BICUBIC), (int(W / 2 - bw / 2), 1575))
+    banner(im, cv.get("hook") or s.get("thumb") or s.get("hook", ""), W / 2, 1230, W - 120, colour=YELLOW, ink=INKD, hi=GREEN,
+           seed="cover", t=1.0, size=150, max_lines=2, rot=-3)
+    names = cv.get("names") or []
+    if len(names) >= 1:
+        _name_pill(im, names[0].upper(), 270, 1480)
+    if len(names) >= 2:
+        _name_pill(im, names[1].upper(), W - 270, 1480)
+    return im
+
+
 def thumbnail(path, style, s):
     """The cover: the strongest frame of the video (both lines showing, no closing frame)."""
     fn, dur = BRUSH_STYLES[style]
     s2 = dict(s)
     s2["end"] = None
-    if style == "sequence":  # the cover is the mate's reaction, with the shot tally showing
-        plan, _ = _seq_plan(s2)
-        lines = [p for p in plan if p[0] == "line"]
-        tt = (lines[1][2] + 0.4) if len(lines) > 1 else (plan[-1][2] + 0.4)
-        im, _ = fn(tt, s2, None, None, None, dur=99)
+    if style == "sequence":  # the cast cover: set-up face v reaction face, hook in the middle
+        im = cast_cover(s2)
     else:
         im, _ = fn(5.0 if style == "humour" else 4.6, s2, None, None, None, dur=99)
     path = Path(path)

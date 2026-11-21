@@ -569,7 +569,23 @@
           ],
           "pos": "low"
         }
-      ]
+      ],
+      "cover": {
+        "ep": 1,
+        "hook": "Six shots. *Par?*",
+        "names": [
+          "Big Dave",
+          "Phil"
+        ],
+        "left_focus": [
+          0.35,
+          0.4
+        ],
+        "right_focus": [
+          0.45,
+          0.4
+        ]
+      }
     },
     {
       "title": "Gaz's *new driver*",
@@ -635,7 +651,25 @@
           "label": "Kev and Gaz",
           "scene": "Kev with an arm round a sulking Gaz, both grinning by the end"
         }
-      ]
+      ],
+      "cover": {
+        "ep": 2,
+        "hook": "New driver. *Again.*",
+        "names": [
+          "Gaz",
+          "Kev"
+        ],
+        "left": "assets/social/library/gaz-01-unbox.jpg",
+        "left_focus": [
+          0.3,
+          0.4
+        ],
+        "right": "assets/social/library/kev-05-pointing.jpg",
+        "right_focus": [
+          0.45,
+          0.4
+        ]
+      }
     }
   ],
   "charactersAbout": "Recurring, obviously fictional characters (AI-generated photos, never based on real people). Keep looks identical in every photo; build running gags across episodes; never mean-spirited: everyone gets a win sometimes. Kev's ribbing is always friendly, and he gets his comeuppance too.",
