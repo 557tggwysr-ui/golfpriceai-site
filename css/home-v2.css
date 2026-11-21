@@ -191,3 +191,23 @@
 }
 @media (prefers-reduced-motion:reduce){.hm-game video{display:none}.hm-game{background:#0f1a14 center/cover}}
 .hm-pc-im,.hm-pc-br,.hm-pc-r,.hm-pc-bd{display:block}
+/* live scorecard card (21 Nov): text plus a small drawn leaderboard, no photo needed */
+.hm-tool.is-score{grid-column:1/-1;height:auto;min-height:170px;background:linear-gradient(135deg,#1d4a2a,#0f2216);display:grid;grid-template-columns:1fr 150px;gap:12px;align-items:center;padding:14px}
+.hm-tool.is-score::after{display:none}
+.hm-sc-txt{display:block}
+.hm-sc-txt small{margin-top:4px}
+.hm-lb{background:rgba(255,255,255,.96);border-radius:14px;padding:8px 8px 6px;color:#16241c;display:flex;flex-direction:column;gap:3px;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.hm-lb-h{font-size:9.5px;font-weight:700;letter-spacing:.06em;color:#2a8a2a;display:flex;align-items:center;gap:5px;margin-bottom:2px}
+.hm-lb-h i{width:7px;height:7px;border-radius:50%;background:#e0453a;box-shadow:0 0 0 3px rgba(224,69,58,.18)}
+.hm-lb-r{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 5px;border-radius:7px}
+.hm-lb-r em{font-style:normal;width:16px;height:16px;border-radius:50%;background:#e9f0e7;font-size:10px;display:flex;align-items:center;justify-content:center;flex:none}
+.hm-lb-r strong{margin-left:auto;font-size:11.5px}
+.hm-lb-r.is-1{background:#eaf7e6}.hm-lb-r.is-1 em{background:#f2c94c}
+@media (min-width:1024px){
+ .hm-tools{grid-template-columns:repeat(4,1fr)}
+ .hm-tool.is-wide{grid-column:span 2}
+ .hm-tool.is-score{grid-column:span 2;height:260px;grid-template-columns:1fr 210px;padding:22px}
+ .hm-tool.is-score b{font-size:21px}
+ .hm-lb{padding:12px 12px 10px;gap:5px}.hm-lb-h{font-size:11px}.hm-lb-r{font-size:14px;padding:6px 7px}.hm-lb-r em{width:20px;height:20px;font-size:11px}.hm-lb-r strong{font-size:13px}
+ .hm-tool:not(.is-wide):not(.is-score){grid-column:span 2;height:200px}
+}

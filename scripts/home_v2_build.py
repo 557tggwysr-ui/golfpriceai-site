@@ -119,6 +119,7 @@ def build():
          "chat": '<path d="M21 12a8 8 0 0 1-12 7l-5 1 1-4a8 8 0 1 1 16-4z"/>', "flag": '<path d="M5 21V4"/><path d="M5 4h12l-3 4 3 4H5"/>',
          "pound": '<path d="M17 20H7c2-2 2-4 1-7h6"/><path d="M8 13C6 8 9 4 13 4c2 0 3 1 4 2"/>',
          "pin": '<path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+         "card": '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
          "star": '<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>'}
     groups = [("Compare prices", [("club", "/clubs.html", "Golf club prices", "Drivers, irons, wedges, putters"),
                                   ("shirt", "/apparel.html", "Golf clothing prices", "Polos, jackets, shoes"),
@@ -126,7 +127,8 @@ def build():
                                   ("book", "/prices/", "All UK golf price guides", "Every model, with price history")]),
               ("Find a deal", [("down", "/prices/drops/", "Golf price drops today", "Genuine drops, checked against our history"),
                                ("tool", "/deal-tools.html", "All deal tools", "Price check, best time to buy, fit finder")]),
-              ("Beyond prices", [("users", "/societies/", "Society HQ", "Free golf society organiser"),
+              ("Beyond prices", [("card", "/play/scorecard/", "Live golf scorecard", "Stableford, better-ball and skins, live"),
+                                 ("users", "/societies/", "Society HQ", "Free golf society organiser"),
                                  ("chat", "/play/oracle/", "Crowd Caddie", "Will this price drop? Golfers call it"),
                                  ("star", "/play/peoples-bag/", "The People's Bag", "The bag UK golfers would build"),
                                  ("pound", "/prices/start-golf/", "What golf costs", "Starting golf, priced today"),
@@ -208,6 +210,7 @@ def build():
     <div class="hm-sec-h"><h2 id="hm-only">Free games and tools you won't find anywhere else</h2><a href="/play/">All →</a></div>
     <div class="hm-tools">
       <a class="hm-tool is-wide" href="/deal-tools.html"><img src="/assets/photos/tools/deal-tools-banner-wide.jpg" alt="" loading="lazy"><span><span class="hm-tag">DEAL TOOLS</span><b>Check a price, spot a real drop, build a priced bag</b></span></a>
+      <a class="hm-tool is-score" href="/play/scorecard/"><span class="hm-sc-txt"><span class="hm-tag">LIVE SCORECARD</span><b>Your round, live in the group chat</b><small>Stableford, better-ball or skins, worked out from handicaps. No app, no sign-up.</small></span><span class="hm-lb" aria-hidden="true"><span class="hm-lb-h"><i></i>LIVE · THRU 12</span><span class="hm-lb-r is-1"><em>1</em>Big Dave<strong>27 pts</strong></span><span class="hm-lb-r"><em>2</em>You<strong>25 pts</strong></span><span class="hm-lb-r"><em>3</em>Gaz<strong>22 pts</strong></span><span class="hm-lb-r"><em>4</em>Steve<strong>19 pts</strong></span></span></a>
       <a class="hm-tool" href="/fourball/"><img src="/assets/photos/tools/fourball-square.jpg" alt="" loading="lazy"><span><span class="hm-tag">FOURBALL ALERTS</span><b>Your four-ball, one price watch</b><small>One link in the group chat.</small></span></a>
       <a class="hm-tool" href="/societies/"><img src="/assets/photos/tools/society-hq-square.jpg" alt="" loading="lazy"><span><span class="hm-tag">SOCIETY HQ</span><b>Run your society</b><small>Fixtures, who's in, who's paid.</small></span></a>
     </div>
