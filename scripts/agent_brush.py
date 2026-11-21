@@ -270,7 +270,7 @@ def scrim(im, top=0.0, bottom=0.0):
     im.alpha_composite(Image.merge("RGBA", (*[Image.new("L", (W, H), 0)] * 3, m)))
 
 
-def closing(im, t, line="Full Swing. Not full price."):
+def closing(im, t, line="Full Swing. Not full price.", url="golfpriceai.com"):
     """The quiet brand frame: the photo dims, the line and the address fade up."""
     if t <= 0:
         return
@@ -281,7 +281,7 @@ def closing(im, t, line="Full Swing. Not full price."):
     f, lines, sz = fit(line, W - 200, 92, 60, 2)
     draw_words(d, lines, f, sz, W / 2, 800, base=WHITE, hi=YELLOW, shadow=False)
     fa = font(46, "body")
-    txt = "golfpriceai.com"
+    txt = url
     d.text(((W - fa.getlength(txt)) / 2, 800 + sz * 1.02 * len(lines) + 40), txt, font=fa, fill=YELLOW + (int(255 * k),))
 
 
@@ -428,7 +428,7 @@ def style_sequence(t, s, pal, img, photo, dur=None):
         col, ink, hi = (YELLOW, INKD, GREEN) if who != "him" else (GREEN, WHITE, YELLOW)
         banner(im, item.get("text", ""), W / 2, y, W - 200, colour=col, ink=ink, hi=hi, seed=f"q-l{i}",
                t=min(1, (t - t0) / 0.3), size=98, rot=-2 if i % 2 else 2)
-    closing(im, (t - (dur - 1.8)) / 0.5, s.get("end") or "Full Swing. Not full price.")
+    closing(im, (t - (dur - 1.8)) / 0.5, s.get("end") or "Full Swing. Not full price.", s.get("end_url") or "golfpriceai.com")
     return im, 0
 
 

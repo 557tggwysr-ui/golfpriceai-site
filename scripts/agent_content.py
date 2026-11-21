@@ -477,7 +477,7 @@ def captions(t, tie=None, social=None):
     return {"instagram": f"{ig}\n\n{ig_tags}", "tiktok": f"{t['tt']} {tt_tags}",
             "youtube": {"title": yt_title, "description": f"{ig.replace('Link in bio.', '')}\n{t['link']}\n#golf #golfuk #shorts"},
             "x": t["x"], "pinterest": {"title": f"{t['headline']}: {t['sub']}"[:99], "description": ig.replace("Link in bio.", "")[:480], "link": t["link"]},
-            "bluesky": t["x"]}
+            "bluesky": t["x"], **({"whatsapp": t["whatsapp"]} if t.get("whatsapp") else {})}
 
 
 def fetch_image(src):
@@ -516,7 +516,7 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
     fid = S.fmt_of(theme)
     fmeta = next((f for f in S.formats().get("formats", []) if f["id"] == fid), {})
     extra = {"format": fid, "formatName": fmeta.get("name", fid), "objective": fmeta.get("objective", "reach"),
-             "series": sc.get("series") or theme.get("series")}
+             "series": sc.get("series") or theme.get("series"), "ep": theme.get("ep")}
     if style == "carousel":  # a swipeable carousel: slides only, no video
         import agent_brush as BR
         paths, quality = BR.carousel(CARDS, pid, sc["slides"], bg=sc.get("bg"), series=sc.get("series"))
@@ -976,6 +976,8 @@ def write_pack(plan):
         blocks = [("Instagram", c["instagram"]), ("TikTok", c["tiktok"]), ("YouTube Shorts title", c["youtube"]["title"]),
                   ("YouTube description", c["youtube"]["description"]), ("X", c["x"]),
                   ("Pinterest title", c["pinterest"]["title"]), ("Pinterest description", c["pinterest"]["description"])]
+        if c.get("whatsapp"):
+            blocks.append(("WhatsApp (send to your group, and Stories with a link sticker)", c["whatsapp"]))
         done = " · ".join(f"{k} ✓" for k in p.get("posted", {}) if not k.endswith("_id"))
         trend = f" · trend: {esc(p['trend'])}" if p.get("trend") else ""
         media = (f"<div class='slides'>" + "".join(f"<img src='{u}' alt='Slide {n + 1}' loading='lazy'>" for n, u in enumerate(p["slides"])) + "</div>"

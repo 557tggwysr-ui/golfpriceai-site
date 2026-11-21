@@ -151,9 +151,22 @@ def list_page():
                       extra_head=FOURBALL_CSS + '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
+def _keep_episodes_strip(html):
+    """Keep the "Meet The Fourball" strip (added by fourball_episodes.py in the Fix pack) when this page rebuilds."""
+    a, b = "<!--fourball-episodes-->", "<!--/fourball-episodes-->"
+    try:
+        old = (ROOT / "fourball" / "index.html").read_text(encoding="utf-8")
+    except Exception:
+        return html
+    if a not in old or a in html:
+        return html
+    strip = a + old.split(a, 1)[1].split(b, 1)[0] + b
+    return html.replace('<section class="fb-start"', strip + '\n<section class="fb-start"', 1)
+
+
 def build():
     changed = []
-    if _write(ROOT / "fourball" / "index.html", tool_page()):
+    if _write(ROOT / "fourball" / "index.html", _keep_episodes_strip(tool_page())):
         changed.append("/fourball/")
     if _write(ROOT / "fourball" / "list" / "index.html", list_page()):
         changed.append("/fourball/list/")

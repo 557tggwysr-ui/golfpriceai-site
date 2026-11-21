@@ -283,8 +283,11 @@ def theme_sketch(d, L, rnd):
     cap = q.get("caption", t)
     if ep:
         cap = f"The Fourball, EP {ep}: {cap}"
-    return {"theme": "The Fourball", "format": "sketch", "series": "The Fourball", "ep": ep, "link": SITE + "/", "image": None, "name": "", "headline": t, "sub": "",
-            "styles": {"sequence": sc}, "ig": f"{cap} ⛳ Tag the mate who counts like this.", "x": f"{cap} ⛳", "tt": f"{cap} ⛳ #golfhumour",
+    return {"theme": "The Fourball", "format": "sketch", "series": "The Fourball", "ep": ep, "link": SITE + (f"/fourball/episodes/{ep}/" if ep else "/fourball/"), "image": None, "name": "", "headline": t, "sub": "",
+            "styles": {"sequence": dict(sc, end_url="golfpriceai.com/fourball")},
+            "ig": f"{cap} ⛳ Send it to your four-ball group chat. Every episode is on golfpriceai.com/fourball/, with Fourball Alerts so your four-ball can watch kit prices together.",
+            "x": f"{cap} ⛳ " + SITE + (f"/fourball/episodes/{ep}/" if ep else "/fourball/"), "tt": f"{cap} ⛳ #golfhumour",
+            "whatsapp": f"{cap} 😂 Who's the {((q.get('cover') or {}).get('names') or ['Big Dave'])[0]} in our group? " + SITE + (f"/fourball/episodes/{ep}/" if ep else "/fourball/") + "?utm_source=fourball&utm_medium=whatsapp&utm_campaign=episode",
             "keywords": "golf humour, golf sketch, relatable golf"}
 
 
