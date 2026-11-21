@@ -342,8 +342,64 @@ def _seq_plan(s):
     return plan, t
 
 
+OUTRO = 2.4  # four beats: the tool hand-over at the end of an episode
+
+
 def seq_duration(s):
-    return round(_seq_plan(s)[1] + 1.8, 2)
+    return round(_seq_plan(s)[1] + (OUTRO if s.get("outro") else 1.8), 2)
+
+
+OUTRO_TOOLS = {  # what each episode hands over to: (screenshot, line, tag, address)
+    "fourball": ("assets/social/outro/fourball-screen.jpg", "Got a *{lead}* in your four-ball?", "FOURBALL ALERTS \u00b7 FREE", "golfpriceai.com/fourball"),
+    "scorecard": ("assets/social/outro/scorecard-screen.jpg", "Keep *{lead}* honest.", "FREE LIVE SCORECARD", "golfpriceai.com/play/scorecard"),
+}
+
+
+def _phone(shot, w):
+    """A simple phone: dark rounded body, the site screenshot inside."""
+    h = int(w * 1750 / 975)
+    bez = 22
+    body = Image.new("RGBA", (w + bez * 2, h + bez * 2), (0, 0, 0, 0))
+    d = ImageDraw.Draw(body)
+    d.rounded_rectangle([0, 0, body.width - 1, body.height - 1], 70, fill=(12, 16, 14, 255))
+    scr = shot.resize((w, h), Image.LANCZOS).convert("RGBA")
+    m = Image.new("L", (w, h), 0)
+    ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], 52, fill=255)
+    body.paste(scr, (bez, bez), m)
+    return body
+
+
+def outro(im, u, s):
+    """The episode's hand-over: after the punchline, the brand frame becomes a pointer to our tool.
+    u runs 0..1 over OUTRO seconds; each element lands on a beat."""
+    o = s.get("outro") or {}
+    shot_p, line, tag, url = OUTRO_TOOLS.get(o.get("tool", "fourball"), OUTRO_TOOLS["fourball"])
+    k = min(1, u * OUTRO / 0.3)
+    bg = im.filter(ImageFilter.GaussianBlur(18))
+    bg.alpha_composite(Image.new("RGBA", (W, H), GREEN2 + (int(225 * k),)))
+    im.paste(Image.blend(im.convert("RGBA"), bg, k))
+    tt = u * OUTRO
+    banner(im, line.format(lead=o.get("lead", "Big Dave")), W / 2, 300, W - 160, colour=YELLOW, ink=INKD, hi=GREEN,
+           seed="outro-line", t=min(1, tt / 0.3), size=96, max_lines=2, rot=-2)
+    shot = load_photo(shot_p)
+    if shot is not None and tt > BEAT:  # the phone rises on the second beat
+        ph = _phone(shot, 520)
+        e = ease(min(1, (tt - BEAT) / 0.45))
+        y = int(H - (H - 560) * e)
+        im.alpha_composite(ph, (int(W / 2 - ph.width / 2), y))
+    if tt > 2 * BEAT:  # the name and the address on the third
+        e = pop(min(1, (tt - 2 * BEAT) / 0.25))
+        f = font(int(58 * (0.85 + 0.15 * e)), "head")
+        w = f.getlength(tag) + 80
+        box = Image.new("RGBA", (int(w), 104), (0, 0, 0, 0))
+        bd = ImageDraw.Draw(box)
+        bd.rounded_rectangle([0, 0, w - 1, 103], 52, fill=YELLOW + (255,))
+        bd.rounded_rectangle([6, 6, w - 7, 97], 46, fill=GREEN + (255,))
+        bd.text((40, 20), tag, font=f, fill=YELLOW)
+        im.alpha_composite(box, (int(W / 2 - w / 2), 1560))
+        fa = font(50, "body")
+        d = ImageDraw.Draw(im)
+        d.text(((W - fa.getlength(url)) / 2, 1690), url, font=fa, fill=WHITE + (255,))
 
 
 def _placeholder(label, scene, k):
@@ -428,7 +484,11 @@ def style_sequence(t, s, pal, img, photo, dur=None):
         col, ink, hi = (YELLOW, INKD, GREEN) if who != "him" else (GREEN, WHITE, YELLOW)
         banner(im, item.get("text", ""), W / 2, y, W - 200, colour=col, ink=ink, hi=hi, seed=f"q-l{i}",
                t=min(1, (t - t0) / 0.3), size=98, rot=-2 if i % 2 else 2)
-    closing(im, (t - (dur - 1.8)) / 0.5, s.get("end") or "Full Swing. Not full price.", s.get("end_url") or "golfpriceai.com")
+    if s.get("outro"):
+        if t >= dur - OUTRO:
+            outro(im, (t - (dur - OUTRO)) / OUTRO, s)
+    else:
+        closing(im, (t - (dur - 1.8)) / 0.5, s.get("end") or "Full Swing. Not full price.", s.get("end_url") or "golfpriceai.com")
     return im, 0
 
 

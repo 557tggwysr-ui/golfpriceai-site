@@ -585,7 +585,8 @@
           0.45,
           0.4
         ],
-        "punch": "Par?!"
+        "punch": "Par?!",
+        "tool": "scorecard"
       }
     },
     {
@@ -670,7 +671,8 @@
           0.45,
           0.4
         ],
-        "punch": "Driver?!"
+        "punch": "Driver?!",
+        "tool": "fourball"
       }
     }
   ],
