@@ -1,0 +1,100 @@
+{
+  "series": "The Fourball",
+  "day": "Wed",
+  "tag": "#TheFourball",
+  "about": "A weekly comedy series about a fictional golf four-ball and friends, made from quick-cut photo sketches. Recurring characters, running gags, continuity and character development, funny outcomes. John asked for it on 21 Nov 2026.",
+  "rules": [
+    "Banter, never bullying: jokes are about golf, never anyone's looks, weight, age or anything personal.",
+    "Everyone gets a win sometimes; whoever gets ribbed this week can land the last laugh next week.",
+    "Characters are fictional, never based on or resembling a real person, never presented as real golfers or real stories.",
+    "One clear punchline per episode, a funny outcome, 8 to 12 seconds, cut on the 0.6-second beat.",
+    "No character leads two episodes in a row; Kev's reactions rotate.",
+    "Real figures only: if an episode mentions prices, only true, general statements (e.g. last season's models usually cost less) or real figures from data/.",
+    "No words, logos or brands in photos; keep each character's look identical."
+  ],
+  "bufferEpisodes": 2,
+  "arcs": [
+    {
+      "id": "gaz-driver-count",
+      "about": "Gaz buys a new driver every few weeks; Kev keeps count. Payoff idea: Gaz finally finds his driver was fine all along, or buys last season's model for less and outdrives Kev.",
+      "status": "running",
+      "since": 2
+    },
+    {
+      "id": "dave-scorecard",
+      "about": "Big Dave's creative scoring; Phil's props escalate (abacus, then calculator, then a referee's whistle, then the rule book).",
+      "status": "running",
+      "since": 1
+    },
+    {
+      "id": "steve-quiet-season",
+      "about": "Steady Steve keeps quietly winning with his 20-year-old irons while everyone else blames their kit. Payoff: the society cup.",
+      "status": "planned"
+    },
+    {
+      "id": "kev-comeuppance",
+      "about": "Kev's own duffs get caught on camera; the group finally gets him back.",
+      "status": "planned"
+    },
+    {
+      "id": "christmas-dinner",
+      "about": "December: the society Christmas dinner and awards (Dave's speech, Phil's 'honest scorecard' award, Gaz's gift is a driver).",
+      "status": "planned",
+      "window": "2026-12"
+    }
+  ],
+  "canon": [
+    "EP1: Big Dave took six on a par 4 and called it a par. Phil offered him an abacus. Kev was in the background, trying not to laugh.",
+    "EP2: Gaz unboxed another new driver in the car park and sent his first drive into the trees. Kev: 'Must need a new driver.' Gaz: 'It's the shaft, mate.'"
+  ],
+  "characterNotes": {
+    "big-dave": [],
+    "phil": [
+      "Props are his punchlines."
+    ],
+    "steve": [],
+    "gaz": [
+      "Kev's favourite target; gives as good as he gets."
+    ],
+    "kev": [
+      "Reaction shots are reusable stock."
+    ]
+  },
+  "episodes": [
+    {
+      "ep": 1,
+      "title": "Big Dave's par",
+      "lead": "big-dave",
+      "cast": [
+        "big-dave",
+        "phil",
+        "kev"
+      ],
+      "arcs": [
+        "dave-scorecard"
+      ],
+      "status": "ready",
+      "photos": "complete",
+      "posted": null,
+      "result": null
+    },
+    {
+      "ep": 2,
+      "title": "Gaz's new driver",
+      "lead": "gaz",
+      "cast": [
+        "gaz",
+        "kev"
+      ],
+      "arcs": [
+        "gaz-driver-count"
+      ],
+      "status": "ready",
+      "photos": "complete",
+      "posted": null,
+      "result": null
+    }
+  ],
+  "trendNotes": [],
+  "photoRequests": []
+}

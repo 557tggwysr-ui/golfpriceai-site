@@ -35,7 +35,7 @@
         "humour",
         "story"
       ],
-      "status": "trial",
+      "status": "active",
       "auto": true,
       "note": "Text-led sketches with obviously fictional characters; real filmed skits come from John (the pack suggests two a week)."
     },
@@ -198,6 +198,14 @@
     }
   ],
   "series": [
+    {
+      "name": "The Fourball",
+      "format": "sketch",
+      "day": "Wed",
+      "fixed": true,
+      "tag": "#TheFourball",
+      "about": "Weekly episode of the recurring cast (Big Dave, Phil, Steady Steve, Gaz, Kev). Episodes post in order."
+    },
     {
       "name": "Price Check Friday",
       "format": "pricedrop",

@@ -126,6 +126,13 @@ Mondays 09:13  Weekly review in the Claude app, with up to 3 ideas for you to de
                back, what to start and what to stop.
 
 
+THE FOURBALL (our weekly comedy series, from Wed 25 Nov)
+  Every Wednesday       a new episode in the Content pack (EP 1 Big Dave's par, EP 2 Gaz's new driver)
+  Every Thursday 19:37  the writers' room: how the last episode landed, the next episodes,
+                        and a photo prompts file if new photos are needed (make them in the
+                        same ChatGPT chat as the cast and send them back in that same message thread)
+
+
 PART F: DECISIONS WAITING FOR YOU (when you have a minute)
 ----------------------------------------------------------
 [ ] F1. The ideas board: 3 more ideas are shortlisted (clean up categories so junior

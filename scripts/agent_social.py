@@ -262,20 +262,28 @@ def resolve_sequence(q, L, rnd):
 
 def theme_sketch(d, L, rnd):
     """A quick-cut mini sketch from the bank (style "sequence"): only when every photo it needs exists."""
-    pool = []
-    for q in fresh_lines(bank().get("sequences", []), "title", L):
-        r = resolve_sequence(q, {"photosUsed": list(L.get("photosUsed", []))}, rnd)
+    posted = L.setdefault("fourballPosted", [])
+    eps = sorted([q for q in bank().get("sequences", []) if (q.get("cover") or {}).get("ep") not in posted],
+                 key=lambda q: (q.get("cover") or {}).get("ep", 999))
+    q = None
+    for cand in eps:  # The Fourball posts in episode order: the first unposted episode whose photos are all here
+        r = resolve_sequence(cand, {"photosUsed": list(L.get("photosUsed", []))}, rnd)
         if r:
-            pool.append(r)
-    if not pool:
+            q = r
+            break
+    if not q:
         return None
-    q = rnd.choice(pool)
+    ep = (q.get("cover") or {}).get("ep")
+    if ep:
+        posted.append(ep)
     mark_used(L, q["title"])
     t = strip_marks(q["title"])
     sc = {k: q[k] for k in ("top", "shots", "lines", "end", "counter", "top_y", "cover") if k in q}
     sc.update({"hook": t, "thumb": strip_marks(q.get("thumb", t))})
     cap = q.get("caption", t)
-    return {"theme": "Golf sketch", "format": "sketch", "link": SITE + "/", "image": None, "name": "", "headline": t, "sub": "",
+    if ep:
+        cap = f"The Fourball, EP {ep}: {cap}"
+    return {"theme": "The Fourball", "format": "sketch", "series": "The Fourball", "ep": ep, "link": SITE + "/", "image": None, "name": "", "headline": t, "sub": "",
             "styles": {"sequence": sc}, "ig": f"{cap} ⛳ Tag the mate who counts like this.", "x": f"{cap} ⛳", "tt": f"{cap} ⛳ #golfhumour",
             "keywords": "golf humour, golf sketch, relatable golf"}
 
@@ -315,9 +323,11 @@ def pick_format(history, candidates, L, day):
             s -= 3  # never the same format twice in a row
         if fid in history[-3:]:
             s -= 1
-        for ser in F.get("series", []):  # a series on its day
+        for ser in F.get("series", []):  # a series on its day (a fixed weekly series always gets its slot)
             if ser.get("format") == fid and ser.get("day") == DAYS[day.weekday()]:
-                s += 3
+                s += 100 if ser.get("fixed") else 3
+            elif ser.get("format") == fid and ser.get("fixed"):
+                return -99  # a fixed weekly series only airs on its own day, so episodes keep their rhythm
         return s
     ranked = sorted(candidates, key=lambda f: -score(f))
     return ranked[0] if ranked else None

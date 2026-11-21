@@ -693,6 +693,7 @@ def plan_week():
         theme = cands.get(fid)
         if fid in scratch:  # keep the bank lines and photo it used, so they aren't repeated
             L["linesUsed"], L["photosUsed"] = scratch[fid].get("linesUsed", {}), scratch[fid].get("photosUsed", [])
+            L["fourballPosted"] = scratch[fid].get("fourballPosted", L.get("fourballPosted", []))
         if theme and fid == "pricedrop" and DAYS[i] == "Fri":
             theme = dict(theme, series="Price Check Friday")
         if not theme:
