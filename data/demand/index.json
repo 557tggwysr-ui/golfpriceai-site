@@ -192,6 +192,16 @@
   },
   {
    "rank": 19,
+   "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
+   "brand": "Srixon",
+   "type": "ball",
+   "price": 29.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
+  },
+  {
+   "rank": 20,
    "name": "Srixon Z-Star XV Golf Balls",
    "brand": "Srixon",
    "type": "ball",
@@ -199,16 +209,6 @@
    "unit": "per dozen",
    "move": "new",
    "url": "https://golfpriceai.com/prices/srixon-z-star-xv-golf-balls/"
-  },
-  {
-   "rank": 20,
-   "name": "TaylorMade P7MB Irons",
-   "brand": "TaylorMade",
-   "type": "irons",
-   "price": 1029.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/taylormade-p7mb-irons/"
   }
  ],
  "wishfulThinking": [
@@ -223,28 +223,28 @@
    "guesses": 50
   },
   {
-   "category": "Hybrids",
-   "averageGuessVsRealPricePct": 14,
-   "guesses": 75
+   "category": "Drivers",
+   "averageGuessVsRealPricePct": -15,
+   "guesses": 46
   },
   {
-   "category": "Drivers",
-   "averageGuessVsRealPricePct": -13,
-   "guesses": 44
+   "category": "Hybrids",
+   "averageGuessVsRealPricePct": 13,
+   "guesses": 77
   }
  ],
  "categoryShare": [
   {
    "category": "Balls",
-   "pct": 48
+   "pct": 50
   },
   {
    "category": "Irons & wedges",
-   "pct": 34
+   "pct": 33
   },
   {
    "category": "Tech",
-   "pct": 15
+   "pct": 14
   },
   {
    "category": "Drivers & woods",
