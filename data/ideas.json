@@ -646,6 +646,36 @@
           "note": "John said yes to two pilots: built on the branch (journal/ and scripts/journal_pages.py). Merging = approval; then the monthly search agent takes on one article a fortnight."
         }
       ]
+    },
+    {
+      "id": "paperclip",
+      "title": "Run the agents through Paperclip (open-source agent orchestration)",
+      "owner": "strategy board (review)",
+      "objective": "efficiency",
+      "problem": "Could one dashboard with an org chart, budgets and tickets run our agents better than GitHub Actions plus Claude scheduled tasks?",
+      "evidence": "22 Nov 2026 check: free MIT code, but self-hosted (a Node server and database running all the time) and every agent's model usage is billed separately; one review puts an active company at $20 to $100 a month by Paperclip's own estimate and counts 12 security advisories; reviewers say output still needs human review at every step. Our current setup already has schedules, approvals, budgets and an ideas loop, free within the Pro plan.",
+      "hypothesis": "Only worth it if coordinating our agents becomes the bottleneck.",
+      "test": "None now. Revisit if we outgrow scheduled tasks or it gains a hosted version within budget.",
+      "metric": "John's time spent coordinating agents",
+      "target": "-",
+      "windowDays": 0,
+      "effort": "L",
+      "risks": "New monthly costs, a server to keep running and secure, and a 'zero-human company' approach that clashes with John approving every change.",
+      "challenge": "Breaks the free-or-within-Pro rule and adds moving parts for little gain at our size.",
+      "score": {
+        "impact": 2,
+        "confidence": 2,
+        "ease": 1,
+        "total": 4
+      },
+      "stage": "parked",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "parked",
+          "note": "John asked for an honest review; parked: our setup already covers it, free. Channel scout to keep an eye on it."
+        }
+      ]
     }
   ],
   "lessons": [],
