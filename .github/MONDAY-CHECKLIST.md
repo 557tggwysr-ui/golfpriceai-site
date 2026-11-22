@@ -4,7 +4,8 @@ Everything from the last few days, in the order to do it. Tick each box as you g
 About 45 minutes for Parts A to C. Part D is optional and can wait.
 
 Everything is on GitHub as one branch: claude/wild-nine-and-agents
-It holds Wild Nine, all the agents, the new homepage, the ideas loop and the house rules.
+It holds Wild Nine, all the agents, the new homepage, the social engine and The Fourball,
+the Clubhouse Journal, the ideas loop and the house rules.
 This zip is the backup copy of the same files.
 
 
@@ -129,13 +130,24 @@ Mondays 09:13  Weekly review in the Claude app, with up to 3 ideas for you to de
 THE FOURBALL (our weekly comedy series, from Wed 25 Nov)
   Every Wednesday       a new episode in the Content pack (EP 1 Big Dave's par on 25 Nov, EP 2 Gaz's new
                         driver on 2 Dec, EP 3 Big Dave's receipts on 9 Dec). Tick it in the pack and
-                        Instagram posts it itself (needs D2). TikTok and YouTube Shorts: download the
-                        video from the pack and post it with the caption shown there.
+                        Instagram posts it itself (needs D2). TikTok and YouTube Shorts: Claude sends
+                        you each day's videos, covers and captions at 11:43, ready to post.
                         Episode 1 is only in this week's pack if you ran the content engine in "plan"
                         mode in step C3 (the automatic weekly plan runs on Sundays).
   Every Thursday 19:37  the writers' room: how the last episode landed, the next episodes,
                         and a photo prompts file if new photos are needed (make them in the
                         same ChatGPT chat as the cast and send them back in that same message thread)
+
+
+THE CLUBHOUSE JOURNAL (golfpriceai.com/journal/)
+  Two pilot articles are in this upload: "Is Black Friday golf genuinely cheaper?" and
+  "Same golf kit, different price". Read them before you merge: they carry your name.
+  Merging is your approval; after that, one new data-led article a fortnight at most,
+  each on its own branch for you to read first.
+
+SOCIAL PHOTOS
+  PHOTO-PROMPT-PACK.txt (30 scenes for memes and headlines) is still to do when you have
+  time (step F5). The Fourball's photos for episodes 1 to 3 are already in.
 
 
 PART F: DECISIONS WAITING FOR YOU (when you have a minute)
