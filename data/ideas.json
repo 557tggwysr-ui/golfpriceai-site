@@ -676,6 +676,36 @@
           "note": "John asked for an honest review; parked: our setup already covers it, free. Channel scout to keep an eye on it."
         }
       ]
+    },
+    {
+      "id": "foldables",
+      "title": "Layouts for unfolded foldables (iPhone Duo) and small tablets",
+      "owner": "performance analyst (measuring); Claude built the layouts",
+      "objective": "retention",
+      "problem": "On an unfolded iPhone Duo, Wild Nine stayed phone-sized in the middle of the big screen and the homepage stayed one long column.",
+      "evidence": "John's idea (22 Nov 2026). The iPhone Duo went on sale on 23 Oct 2026 (5.4-inch outer screen, unfolded display 50% larger than the 18 Pro Max). It's a premium phone, so the audience starts small; the same layouts help iPads and small tablets.",
+      "hypothesis": "Unfolded and tablet visitors play more holes of Wild Nine and stay longer when the course fills the screen.",
+      "test": "Built: Wild Nine two-panel layout (course left, controls right) on wide screens and a wider single column when unfolded upright; homepage PC-style layout from 700px; an anonymous screen-shape count (phone-small, phone, unfolded, tablet, desktop, plus 'unfold' when a screen changes shape mid-visit).",
+      "metric": "share of visits by screen shape (screensByVisits); Wild Nine rounds finished per visit on unfolded/tablet v phone",
+      "target": "decide after 8 weeks whether more foldable work is worth it",
+      "windowDays": 56,
+      "effort": "S",
+      "risks": "None to phone users: the phone layouts are unchanged. Only screen shape is counted, never the device or anything identifying.",
+      "challenge": "Cheap, safe and measurable; the count tells us whether to go further.",
+      "score": {
+        "impact": 2,
+        "confidence": 4,
+        "ease": 5,
+        "total": 40
+      },
+      "stage": "shortlisted",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "shortlisted",
+          "note": "John approved building it into Sunday's zip; built on the branch. Merging = test starts."
+        }
+      ]
     }
   ],
   "lessons": [],

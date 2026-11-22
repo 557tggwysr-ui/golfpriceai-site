@@ -304,6 +304,30 @@
   .locker { text-align:left; background:#fffaf0; border:1px solid #e3b23c; border-radius:12px; padding:8px 10px; margin:8px 0; } .locker b { display:block; font-size:13.5px; } .locker span { font-size:11.5px; opacity:.75; }
   .lk-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; } .lk { flex:1 1 30%; border:1px solid var(--ink); background:#fff; border-radius:10px; padding:7px 6px; font-weight:700; font-size:12.5px; color:var(--ink); } .lk small { opacity:.6; margin-left:3px; }
   .lgbox { text-align:left; background:#fff; border:1px solid rgba(19,38,26,.14); border-radius:12px; padding:9px 10px; margin:8px 0; } .lgbox b { display:block; font-size:14px; } .lgbox span { font-size:12px; opacity:.75; }
+
+  /* Big screens: an unfolded foldable (iPhone Duo and the like), tablets and PCs. The course gets the big
+     panel on the left and the controls sit in a column on the right, so the hole fills the screen. */
+  /* Unfolded and held upright (taller than wide): one column, just wider, so the hole gets the whole width. */
+  @media (min-width:640px) and (max-aspect-ratio:1/1) {
+    .app { max-width:760px; }
+    #stage { margin:0 12px; }
+    .clubs .club { font-size:15px; padding:10px 0; }
+  }
+  @media (min-width:700px) and (min-height:540px) and (min-aspect-ratio:1/1) {
+    .app { max-width:1180px; display:grid; grid-template-columns:minmax(0,1fr) minmax(300px,360px);
+           grid-template-rows:auto auto auto auto auto auto 1fr; column-gap:14px; padding:10px 12px; }
+    .app > header { grid-column:2; grid-row:1; padding:4px 0 6px; }
+    .app > .bar { grid-column:2; grid-row:2; flex-wrap:wrap; justify-content:flex-start; padding:0 0 6px; }
+    .app > #stage { grid-column:1; grid-row:1 / span 7; margin:0; min-height:0; }
+    .app > .power { grid-column:2; grid-row:3; margin:6px 0 0; height:26px; }
+    .app > .shape { grid-column:2; grid-row:4; padding:10px 0 0; }
+    .app > .clubs { grid-column:2; grid-row:5; padding:10px 0 0; flex-wrap:wrap; overflow:visible; }
+    .app > .clubs .club { flex:1 0 calc(25% - 5px); }
+    .app > .cards { grid-column:2; grid-row:6; padding:10px 0 4px; flex-wrap:wrap; overflow:visible; }
+    .app > .cards .card { flex:1 0 140px; }
+    .app > #active { grid-column:2; grid-row:7; padding:6px 0 10px; align-self:start; }
+    .ovbox { max-width:560px; }
+  }
 </style>
 </head>
 <body>

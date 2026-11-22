@@ -460,6 +460,7 @@ def main():
     view, out = defaultdict(int), defaultdict(int)
     cta_rows, game_rows = [], []
     ai_apps = defaultdict(int)  # visits sent by each AI app (ChatGPT, Perplexity, Claude...)
+    screens = defaultdict(int)  # visits by screen shape (phone, unfolded, tablet, desktop)
     lab_rows = [(d, k, key, n) for d, k, key, n, _ in rows if k in ("gplay", "lret", "gout") and key.startswith("lab-")]
     for day, kind, key, n, s in rows:
         if day < str(start):
@@ -472,6 +473,8 @@ def main():
             cta_rows.append((day, kind, key, n, s))
         if kind == "aisrc":
             ai_apps[key] += n
+        if kind == "scr":
+            screens[key] += n
         if kind in ("gplay", "gview", "gout", "lret"):
             game_rows.append((day, kind, key, n))
     sales_ref = awin_sales(start, today)
@@ -536,6 +539,9 @@ def main():
         "tracking": "on" if rows else "waiting",
         "gamesBySales": [r[0] for r in game_tab if r[3] or r[4]][:12],
         "aiAppsByVisits": [a for a, _ in sorted(ai_apps.items(), key=lambda x: -x[1])],
+        # screen shapes, order and share only (ideas board "foldables": is the unfolded layout worth more work?)
+        "screensByVisits": [{"shape": k, "share": round(v / max(1, sum(c for kk, c in screens.items() if kk != "unfold")) * 100, 1)}
+                            for k, v in sorted(screens.items(), key=lambda x: -x[1])],
         "ideasMeasured": ideas_pub,
         "topPages": [f"/prices/{k}/" for k, _ in sorted(view.items(), key=lambda x: -x[1])[:10]],  # order only, for the mystery shopper's phone check
         "suddenDrop": bool(drops),

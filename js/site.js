@@ -728,3 +728,38 @@
   } catch (e) { /* never break the page */ }
 })();
 
+/* gp-screen (performance analyst, ideas board "foldables"): one anonymous count per visit of the
+   screen SHAPE only (small phone, phone, unfolded, tablet, desktop), never the device or anything
+   that identifies anyone. If a visitor's screen changes shape mid-visit (folding or unfolding a
+   foldable such as the iPhone Duo), that's counted once as "unfold". */
+(function () {
+  try {
+    if (sessionStorage.getItem('gp-scr')) return;
+    var W = 'https://golfpriceai-alerts.golfpriceai.workers.dev/signal';
+    var shape = function () {
+      var w = window.innerWidth, h = window.innerHeight, touch = window.matchMedia && matchMedia('(pointer:coarse)').matches, r = w / Math.max(1, h);
+      if (!touch) return w >= 1024 ? 'desktop' : 'desktop-small';
+      if (w < 380) return 'phone-small';
+      if (w < 600) return 'phone';
+      if (w < 1024 && r > 0.7 && r < 1.45) return 'unfolded';
+      return 'tablet';
+    };
+    var first = shape();
+    sessionStorage.setItem('gp-scr', first);
+    navigator.sendBeacon(W, JSON.stringify({ k: 'scr', m: first }));
+    var t;
+    window.addEventListener('resize', function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        try {
+          var now = shape();
+          if (now !== first && /phone/.test(first + now) && /unfolded/.test(first + now) && !sessionStorage.getItem('gp-scr-u')) {
+            sessionStorage.setItem('gp-scr-u', '1');
+            navigator.sendBeacon(W, JSON.stringify({ k: 'scr', m: 'unfold' }));
+          }
+        } catch (e) { /* fine */ }
+      }, 600);
+    });
+  } catch (e) { /* never break the page */ }
+})();
+
