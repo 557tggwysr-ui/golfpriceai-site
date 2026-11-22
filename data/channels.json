@@ -1,9 +1,237 @@
 {
- "about": "Channels the channel scout watches: apps, social platforms, forums, communities, newsletters, podcasts, marketplaces and ad networks where GolfPrice AI could spread the word. status: \"watch\" (rising, check again), \"try\" (on the ideas board for John), \"on\" (we're there), \"skip\" (not for us, with why). The scout updates this every fortnight; John approves anything that costs money or his time.",
- "channels": [
-  {"name": "AppLovin Ads", "kind": "ad network (ads inside mobile games and apps)", "found": "2026-11-21", "status": "watch",
-   "why": "Opened its self-serve ads platform to all advertisers in 2026 and growing fast; built for advertisers with return-on-ad-spend data.",
-   "fit": "Not yet: paid, needs our own conversion data first, and some retailer programmes restrict paid traffic. Possible later angle: Wild Nine ads inside mobile games.",
-   "revisit": "2027-02-21"}
- ]
+  "about": "Channels the channel scout watches: apps, social platforms, forums, communities, newsletters, podcasts, marketplaces and ad networks where GolfPrice AI could spread the word. status: \"watch\" (rising, check again), \"try\" (on the ideas board for John), \"on\" (we're there), \"skip\" (not for us, with why). The scout updates this every fortnight; John approves anything that costs money or his time.",
+  "channels": [
+    {
+      "name": "AppLovin Ads",
+      "kind": "ad network (ads inside mobile games and apps)",
+      "found": "2026-11-21",
+      "status": "watch",
+      "why": "Opened its self-serve ads platform to all advertisers in 2026 and growing fast; built for advertisers with return-on-ad-spend data.",
+      "fit": "Not yet: paid, needs our own conversion data first, and some retailer programmes restrict paid traffic. Possible later angle: Wild Nine ads inside mobile games.",
+      "revisit": "2027-02-21",
+      "history": [
+        {
+          "date": "2026-11-21",
+          "status": "watch",
+          "note": "Found."
+        },
+        {
+          "date": "2026-11-22",
+          "status": "watch",
+          "note": "No change: still no conversion data of our own to judge a paid test."
+        }
+      ]
+    },
+    {
+      "name": "YouTube Shorts series (seasons and episodes)",
+      "kind": "feature on a platform we use",
+      "found": "2026-11-22",
+      "status": "try",
+      "why": "Rolled out to creators on 23 Sep 2026: Shorts grouped into seasons and episodes with custom thumbnails and sequential playback. YouTube says microdramas passed 6.5bn views in H1 2026, and 40% of their views came more than 30 days after upload.",
+      "fit": "Strong: The Fourball is already a numbered weekly series. Free; a minute of setup per episode at most.",
+      "revisit": "2026-12-08",
+      "sources": [
+        "https://www.tvtechnology.com/platform/streaming/youtube-embraces-microdramas-with-features-for-episodic-shorts",
+        "https://blog.youtube/culture-and-trends/the-evolution-of-web-series-on-youtube-microdramas/"
+      ]
+    },
+    {
+      "name": "Bluesky",
+      "kind": "social app",
+      "found": "2026-11-22",
+      "status": "on",
+      "why": "We already post there. Similarweb (via TechCrunch, Aug 2026): mobile MAU 10.4m in June 2026, down 27.2% year on year.",
+      "fit": "Keep it automated and cheap; don't add effort while usage shrinks.",
+      "revisit": "2027-02-22",
+      "sources": [
+        "https://techcrunch.com/2026/08/11/blueskys-active-user-base-is-shrinking-as-its-focus-expands-beyond-the-app/"
+      ]
+    },
+    {
+      "name": "Threads",
+      "kind": "social app",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "Sources disagree: Similarweb via TechCrunch says mobile DAU up 21.3% to 147m (July 2026); Apptopia says DAU fell eight months running (May 2026).",
+      "fit": "Possible cheap cross-post from Instagram later; not until the picture is clearer.",
+      "revisit": "2027-01-22",
+      "sources": [
+        "https://techcrunch.com/2026/08/11/blueskys-active-user-base-is-shrinking-as-its-focus-expands-beyond-the-app/",
+        "https://apptopia.com/en/insights/threads-is-bleeding-users/"
+      ]
+    },
+    {
+      "name": "Instagram carousels: a caption per slide, up to 20 slides",
+      "kind": "feature on a platform we use",
+      "found": "2026-11-22",
+      "status": "on",
+      "why": "Per-slide captions added June 2026, on top of the 20-slide limit.",
+      "fit": "Our carousels and Myth or Mulligan can carry a short searchable line per slide.",
+      "revisit": "2027-02-22",
+      "sources": [
+        "https://dataconomy.com/2026/06/19/instagram-adds-unique-captions-carousel-slides/"
+      ]
+    },
+    {
+      "name": "Instagram Features (long horizontal video) and Series",
+      "kind": "feature on a platform we use",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "Announced 26 Oct 2026; tests in the US and Brazil only. Episodic Reels 'Series' testing in the US, India and Mexico since spring.",
+      "fit": "Series would suit The Fourball once it reaches the UK; Features (long video) doesn't fit us.",
+      "revisit": "2027-01-22",
+      "sources": [
+        "https://www.online-tech-tips.com/instagram-features-longform-horizontal-video/"
+      ]
+    },
+    {
+      "name": "TikTok AI shopping assistant and one-click checkout",
+      "kind": "feature on a platform we use",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "Announced 5 Oct 2026 (US article; UK not mentioned).",
+      "fit": "Built for sellers with TikTok Shop, not comparison sites. Watch for any affiliate or creator angle in the UK.",
+      "revisit": "2027-02-22",
+      "sources": [
+        "https://techcrunch.com/2026/10/05/tiktok-rolls-out-an-ai-shopping-assistant-and-one-click-checkout/"
+      ]
+    },
+    {
+      "name": "WhatsApp Channels",
+      "kind": "messaging channel",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "Updates tab used by 1.5bn people daily (Meta, via Search Engine Land); WhatsApp reaches 92% of UK online adult smartphone users (Ofcom data, via Sprout Social).",
+      "fit": "A free channel for the weekly Fourball and one honest price check. We already have WhatsApp share buttons; wait for evidence that our visitors share there.",
+      "revisit": "2027-01-22",
+      "sources": [
+        "https://searchengineland.com/whatsapp-discovery-tools-ads-subscriptions-457079",
+        "https://sproutsocial.com/insights/social-media-statistics-uk/"
+      ]
+    },
+    {
+      "name": "HowDidiDo and intelligentgolf (with Pin Vision GPS)",
+      "kind": "golf club app (scoring, handicap, GPS)",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "July 2026 partnership adds live GPS to the apps; the Play listing claims 1m+ golfers across 2,000+ UK and Irish clubs.",
+      "fit": "Where club golfers already score. No public partner or listing programme found; the society connector could ask about one for Society HQ.",
+      "revisit": "2027-02-22",
+      "sources": [
+        "https://golftoday.co.uk/pin-vision-howdidido-intelligentgolf-gps-scoring/"
+      ]
+    },
+    {
+      "name": "Garmin Golf API",
+      "kind": "golf app integration",
+      "found": "2026-11-22",
+      "status": "skip",
+      "why": "Select partners only, licence fee applies.",
+      "fit": "Costs money and isn't open to us.",
+      "revisit": "2027-05-22",
+      "sources": [
+        "https://developer.garmin.com/golf-api/overview/"
+      ]
+    },
+    {
+      "name": "Reddit r/golf and r/GolfUK",
+      "kind": "community",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "r/golf near 1m members (2024 figure); rules ban solicitation and spam; marketing 'largely frowned upon'. The common 9:1 norm caps self-promotion at about 10%.",
+      "fit": "Only as a genuine, disclosed member answering kit and price questions, which costs John regular time. Never drop links.",
+      "revisit": "2027-02-22",
+      "sources": [
+        "https://golf.com/lifestyle/reddit-golf-community-1-million-members/",
+        "https://www.publishing.co.uk/guides/reddit-self-promotion-rules/"
+      ]
+    },
+    {
+      "name": "Golf Monthly forum",
+      "kind": "golf forum",
+      "found": "2026-11-22",
+      "status": "skip",
+      "why": "Spam and adverts mean an immediate permanent ban.",
+      "fit": "Not for promotion. Fine for John personally as a disclosed member, nothing more.",
+      "revisit": "2027-05-22",
+      "sources": [
+        "https://forums.golfmonthly.com/threads/golf-monthly-forum-community-guidelines.115702/"
+      ]
+    },
+    {
+      "name": "Golf Discord servers",
+      "kind": "community",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "Typical rules (e.g. Broken Tee Society) allow promotion only in a 'promote your stuff' channel with staff permission.",
+      "fit": "Low effort if a UK server has a promo channel; games like Wild Nine fit. Disclose, use the right channel, once.",
+      "revisit": "2027-02-22",
+      "sources": [
+        "https://www.golfersjournal.com/broken-tee-society-discord-server-rules/"
+      ]
+    },
+    {
+      "name": "Indoor golf and simulator venues",
+      "kind": "golf venues",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "Caddi Club calls itself England's largest indoor network: four London venues, 3,000+ active golfers, two new venues a year planned. Industry estimate: about 1,200 UK indoor venues.",
+      "fit": "Winter-league societies could use Society HQ and the live scorecard. A partnership costs John's time: one for the society connector to research.",
+      "revisit": "2027-01-22",
+      "sources": [
+        "https://golfbusinessmonitor.com/golf-club-management/2026/03/caddi-club-celebrates-4th-anniversary.html"
+      ]
+    },
+    {
+      "name": "ChatGPT Shopping (merchant programme)",
+      "kind": "AI app",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "Live for US users; merchants apply to a waitlist; ranking favours 'the maker or primary seller', and no rules for comparison sites are published. ChatGPT Ads reached the UK in June 2026 (vendor source).",
+      "fit": "Not a listing route for a comparison site yet. Our route stays AI-readable pages (quick-answers idea). Ads are paid: John's budget only.",
+      "revisit": "2027-01-22",
+      "sources": [
+        "https://chatgpt.com/merchants/?issue=64",
+        "https://help.openai.com/en/articles/11128490-shopping-in-chatgpt",
+        "https://www.lengow.com/get-to-know-more/chatgpt-shopping-eligibility-rollout-and-how-to-prepare-your-feed"
+      ]
+    },
+    {
+      "name": "HotUKDeals (golf tag)",
+      "kind": "UK deal community",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "Golf tag busy in the Black Friday 2026 sale.",
+      "fit": "We must not post our own links. Watch what golfers vote up as a demand signal; check its posting rules before anything else.",
+      "revisit": "2027-02-22",
+      "sources": [
+        "https://www.hotukdeals.com/tag/golf"
+      ]
+    },
+    {
+      "name": "Fast-growing golf YouTube channels",
+      "kind": "creators",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "MyGolfSpy ranked channels by 365-day view growth (e.g. Grant Horvat +121%); mostly US and the data is from 2025.",
+      "fit": "Press desk route only (data and games, never paid). Need UK-focused, recent growth data first.",
+      "revisit": "2027-02-22",
+      "sources": [
+        "https://mygolfspy.com/news-opinion/these-10-youtube-golf-channels-are-growing-like-wildfire/"
+      ]
+    },
+    {
+      "name": "Pinterest",
+      "kind": "social app",
+      "found": "2026-11-22",
+      "status": "watch",
+      "why": "MAU up 11% to 640m (Q2 2026, vendor summary of company figures).",
+      "fit": "Already on the board as 'shorts-pinterest' (parked low).",
+      "revisit": "2027-02-22",
+      "sources": [
+        "https://postsider.com/blog/social-platform-growth-2026/"
+      ]
+    }
+  ],
+  "updated": "2026-11-22"
 }

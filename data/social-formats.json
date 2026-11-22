@@ -1,6 +1,6 @@
 {
   "about": "The 14 content formats from John's creative brief (21 Nov 2026, .github/SOCIAL.md). 'formats' = WHAT a post is; 'styles' = HOW it looks (engine styles). The planner keeps the 14-post mix close to 'mix', rotates formats, and leans towards formats that earn saves, shares and clicks (content-learning.json). The channel scout reviews this file every fortnight (formats and memes move fast): status 'active', 'trial' (new, given a fair go), 'tired' (used less) or 'retired' (not used), with 'review' notes.",
-  "lastReview": "2026-11-21",
+  "lastReview": "2026-11-22",
   "mix": {
     "entertainment": 4,
     "challenge": 2,
@@ -230,5 +230,74 @@
     "headline": "Style B: big headline. Photo, oversized white and yellow headline, green banner.",
     "carousel": "5 to 7 slides, 1080x1350: Style B cover, numbered green slides, yellow save slide."
   },
-  "review": []
+  "review": [
+    {
+      "date": "2026-11-22",
+      "format": "meme",
+      "status": "active",
+      "why": "Relatable memes still core. 'Me when...' and 'Tell me you're X without telling me' are listed as fading; POV, expectation v reality and 'this is your sign' are peaking or rising. Lean the new lines that way.",
+      "sources": [
+        "https://postdom.com/blog/tiktok-trends"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "format": "sketch",
+      "status": "active",
+      "why": "Cold-opening the funniest beat and opening inside the conflict are working; proposed 'payoff-first-cut'.",
+      "sources": [
+        "https://sosial.app/resources/trending-tiktok-memes-november-2026",
+        "https://tryvolume.app/working",
+        "https://blog.youtube/culture-and-trends/the-evolution-of-web-series-on-youtube-microdramas/"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "format": "drama",
+      "status": "trial",
+      "why": "Episodic series and microdramas growing fast (YouTube 6.5bn microdrama views H1 2026; short-drama app downloads up 95.5% H1 2026). Keep on trial until our own numbers come in.",
+      "sources": [
+        "https://blog.youtube/culture-and-trends/the-evolution-of-web-series-on-youtube-microdramas/",
+        "https://www.emarketer.com/content/microdramas-bring-serial-storytelling-everyday-social-feeds"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "format": "hottake",
+      "status": "active",
+      "why": "'Unpopular opinion' framing is peaking on TikTok; plain reaction videos are fading. Write hot takes as 'unpopular opinion:' not reactions.",
+      "sources": [
+        "https://postdom.com/blog/tiktok-trends"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "format": "carousel",
+      "status": "active",
+      "why": "Carousels reported as outperforming video on saves and shares; Instagram now allows a caption per slide and up to 20 slides.",
+      "sources": [
+        "https://newengen.com/insights/instagram-trends/",
+        "https://dataconomy.com/2026/06/19/instagram-adds-unique-captions-carousel-slides/"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "format": "challenge",
+      "status": "active",
+      "why": "No change; 'This is your sign' rising, which suits challenge hooks.",
+      "sources": [
+        "https://postdom.com/blog/tiktok-trends"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "format": "all (length)",
+      "status": "note",
+      "why": "Buffer (2.7m Reels, Jan-Aug 2026): Reels under 15s reached 1.5% below accounts' baseline, 90-179s 7.4% above; only Reels of 3 minutes or less go to non-followers. Trend formats themselves run 5-15s. Mix and lengths unchanged; worth testing a 60-90s Fourball season recap once we have several episodes.",
+      "sources": [
+        "https://buffer.com/library/instagram-reels-length",
+        "https://newengen.com/insights/instagram-trends/"
+      ]
+    }
+  ]
 }

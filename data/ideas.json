@@ -1,6 +1,6 @@
 {
   "about": "The ideas board. Every idea or suggestion goes through the loop in .github/IDEAS.md (propose, challenge, score, John approves, test, measure, learn) before it reaches the site. Targets are directions only: real numbers stay in John's private email. kind \"duty\" = an always-on responsibility (doesn't change what visitors see, so it doesn't count towards the limit of 3 tests at once); kind \"test\" = a change visitors see, tested and measured.",
-  "updated": "2026-11-21",
+  "updated": "2026-11-22",
   "wipLimit": 3,
   "shortlistScore": 36,
   "ideas": [
@@ -425,6 +425,11 @@
           "date": "2026-11-20",
           "stage": "parked",
           "note": "Revisit once Instagram posting is settled."
+        },
+        {
+          "date": "2026-11-22",
+          "stage": "parked",
+          "note": "Channel scout: Pinterest MAU up 11% to 640m (Q2 2026, vendor summary). Evidence slightly better; no score change without our data."
         }
       ]
     },
@@ -549,6 +554,11 @@
           "date": "2026-11-21",
           "stage": "parked",
           "note": "John spotted it. Bring back after 3 months of conversion data from the performance analyst."
+        },
+        {
+          "date": "2026-11-22",
+          "stage": "parked",
+          "note": "Channel scout re-check: no new evidence; still no conversion data. Stays parked."
         }
       ]
     },
@@ -579,6 +589,11 @@
           "date": "2026-11-21",
           "stage": "parked",
           "note": "John: low priority, build the audience first. Bring back when the analyst says we're near a platform threshold."
+        },
+        {
+          "date": "2026-11-22",
+          "stage": "parked",
+          "note": "Channel scout re-check: YouTube's stricter Shorts ad eligibility (Aug 2026, Tubefilter) is the change already noted. No change; stays parked."
         }
       ]
     },
@@ -854,6 +869,145 @@
           "date": "2026-11-22",
           "stage": "proposed",
           "note": "From John's 'what would Steve Jobs do' question."
+        }
+      ]
+    },
+    {
+      "id": "fourball-shorts-series",
+      "title": "The Fourball as a YouTube Shorts series (Season 1)",
+      "owner": "the content engine",
+      "objective": "traffic, retention",
+      "kind": "test",
+      "problem": "Each Fourball episode is a one-off Short; a viewer who likes one has no easy way to watch the rest in order.",
+      "evidence": "YouTube rolled out Shorts series on 23 Sep 2026 (seasons, episodes, custom thumbnails, sequential playback). YouTube says microdramas passed 6.5bn views in H1 2026 and 40% of their views came more than 30 days after upload (tvtechnology.com; blog.youtube, 27 Oct 2026). Benchmark, not our data.",
+      "hypothesis": "If The Fourball sits in a named series with sequential playback, then views per viewer and subscribers from Shorts go up, because finishing one episode plays the next.",
+      "test": "Put EP1 onwards into 'The Fourball: Season 1' on YouTube; same videos, same covers. Check whether the upload API can set the series; if not, John adds each one in Studio (about a minute a week) or we skip.",
+      "metric": "YouTube Shorts: views per viewer and subscribers gained from Fourball episodes",
+      "target": "views per viewer up, subscribers from Shorts up, over the window (analyst sets the size)",
+      "windowDays": 28,
+      "effort": "S",
+      "risks": "A little of John's time if the API can't set series. No house-rule risk: same content.",
+      "challenge": "Number: views per viewer and subscribers. Evidence: platform benchmark (confidence 3). Smallest test: add existing episodes to one series. Backfire: none on trust. Clash: none. Cost: free; maybe a minute a week. Undo: remove the series.",
+      "score": {
+        "impact": 3,
+        "confidence": 3,
+        "ease": 4,
+        "total": 36
+      },
+      "stage": "shortlisted",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "proposed",
+          "note": "Channel scout: new YouTube feature."
+        },
+        {
+          "date": "2026-11-22",
+          "stage": "challenged",
+          "note": "Passes the rules gate; free."
+        },
+        {
+          "date": "2026-11-22",
+          "stage": "shortlisted",
+          "note": "Score 36."
+        }
+      ]
+    },
+    {
+      "id": "whatsapp-channel",
+      "title": "A GolfPrice AI WhatsApp Channel: the weekly Fourball plus one honest price check",
+      "owner": "the content engine (with the email optimiser)",
+      "objective": "retention, traffic",
+      "kind": "test",
+      "problem": "Our audience shares in group chats, but there is no way to follow us on WhatsApp.",
+      "evidence": "WhatsApp's Updates tab is used by 1.5bn people daily (Meta via Search Engine Land); WhatsApp reaches 92% of UK online adult smartphone users (Ofcom via Sprout Social). No data yet on how many of our visitors share episodes to WhatsApp.",
+      "hypothesis": "If golfers can follow a channel with one Fourball and one real price check a week, then returning visits go up, because it arrives where they already are.",
+      "test": "Once the episode pages' WhatsApp button shows real use: open a free channel and post once a week for four weeks.",
+      "metric": "channel followers and visits from WhatsApp",
+      "target": "returning visits from WhatsApp up",
+      "windowDays": 28,
+      "effort": "S",
+      "risks": "Posting needs a person (no channel posting API found), so it costs John a few minutes a week. Product posts need #Ad; no retailer names; no urgency.",
+      "challenge": "Evidence is reach only, not results (confidence 2). Costs John weekly time. Bring back when the analyst shows the WhatsApp share button gets used.",
+      "score": {
+        "impact": 3,
+        "confidence": 2,
+        "ease": 4,
+        "total": 24
+      },
+      "stage": "parked",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "proposed",
+          "note": "Channel scout."
+        },
+        {
+          "date": "2026-11-22",
+          "stage": "parked",
+          "note": "Score 24: below 36. Needs our own WhatsApp share data."
+        }
+      ]
+    },
+    {
+      "id": "payoff-first-cut",
+      "title": "Payoff-first cut: open on the punchline, then rewind",
+      "owner": "the content engine",
+      "objective": "traffic",
+      "kind": "test",
+      "problem": "Our sketches and memes build to the punchline; trend trackers say openings that show the result first are winning now.",
+      "evidence": "Volume (22 Nov 2026) and Sosial (19 Nov 2026) rank 'finished result flashed in second one' and 'cold-open the funniest beat first' among the strongest formats across many accounts; YouTube's microdrama guidance is to open inside the conflict. Benchmarks, not our data.",
+      "hypothesis": "If a sketch opens on its funniest frame for a second, then more viewers stay past the first seconds, because they want to see how it happened.",
+      "test": "Spec: 0.0-1.2s the payoff frame (e.g. Big Dave holding up four fingers, Kev's stifled laugh), hook text 'How is that a par?'; 1.2-1.6s a quick rewind wipe with a 'REWIND' brush tag; 1.6s on the normal sequence, cut on the 0.6s beat; ends on the payoff again then the outro. Uses data/social-bank.json sequences and existing library photos only. Extends agent_brush.py style_sequence with a 'cold_open' flag (no new photos). Alternate it with the normal cut for four weeks.",
+      "metric": "average watch time and shares on sketches, cold-open v normal",
+      "target": "watch time and shares up on cold-open episodes",
+      "windowDays": 28,
+      "effort": "S",
+      "risks": "Spoiling the joke if overused; keep it to alternate sketches. No house-rule risk.",
+      "challenge": "Number: watch time and shares. Evidence: two trend trackers plus YouTube (confidence 3). Smallest test: one flag on the existing sequence style. Undo: turn the flag off.",
+      "score": {
+        "impact": 3,
+        "confidence": 3,
+        "ease": 4,
+        "total": 36
+      },
+      "stage": "proposed",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "proposed",
+          "note": "Channel scout format review. Score 36 if the board agrees."
+        }
+      ]
+    },
+    {
+      "id": "expectation-reality-price",
+      "title": "Expectation v reality: the sale sticker v our price history",
+      "owner": "the content engine",
+      "objective": "trust, revenue",
+      "kind": "test",
+      "problem": "'Is this a good price?' is our core promise, and expectation v reality is a peaking format, but we have no post that puts them side by side.",
+      "evidence": "Postdom (16-22 Nov 2026) lists 'Expectation vs reality' as peaking on TikTok. Our price-history.json holds the real tracked lows and highs.",
+      "hypothesis": "If a split-screen shows a product's tracked low next to where it sits now, then saves and buy clicks go up, because the honest answer is the punchline.",
+      "test": "Spec: 9:16, 8-10s. 0-1s top half 'EXPECTATION' green brush tag over the product photo, caption 'Black Friday = lowest price ever'; 1-4s bottom half 'REALITY' yellow tag, our tracked price line drawing in; 4-7s the real figure: either 'Lowest we've tracked' or '£X above its tracked low'; 7-8.4s closing frame. Only products where price-history.json has at least 60 days of data; #Ad first in the caption; no retailer names; no 'was' price. Extends agent_brush.py style_headline with a split layout (or agent_cine.py's then-v-now).",
+      "metric": "saves and buy clicks on these posts v other deal posts",
+      "target": "saves and clicks up",
+      "windowDays": 28,
+      "effort": "M",
+      "risks": "Must never imply a 'was' price; the 'expectation' line is a common belief, never a claim about a shop.",
+      "challenge": "Evidence: one trend tracker plus our own data (confidence 3). Ease 3: new split layout. Board to check the honesty wording.",
+      "score": {
+        "impact": 3,
+        "confidence": 3,
+        "ease": 3,
+        "total": 27
+      },
+      "stage": "proposed",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "proposed",
+          "note": "Channel scout format review. Score 27: below shortlist unless the board raises it."
         }
       ]
     }

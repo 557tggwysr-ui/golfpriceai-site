@@ -144,6 +144,62 @@
         "kev",
         "stifled"
       ]
+    },
+    {
+      "top": "POV: Steady Steve's *20-year-old* irons",
+      "punch": "Still straighter than your new ones",
+      "tags": [
+        "irons",
+        "friends"
+      ],
+      "arrow": "none"
+    },
+    {
+      "top": "Big Dave: *this* is the one",
+      "punch": "Kev: and it's... gone",
+      "tags": [
+        "big-dave",
+        "tee"
+      ],
+      "reaction": [
+        "kev",
+        "commentary"
+      ]
+    },
+    {
+      "top": "Me: tees it up on the *fairway*",
+      "punch": "Phil: Actually, preferred lies means place it, not tee it",
+      "tags": [
+        "phil",
+        "winter"
+      ],
+      "arrow": "none"
+    },
+    {
+      "top": "Expectation: first-tee *nerves* gone",
+      "punch": "Reality: three practice swings, one fresh air",
+      "tags": [
+        "tee",
+        "nerves"
+      ],
+      "arrow": "none"
+    },
+    {
+      "top": "Gaz on *Black Friday*",
+      "punch": "\"Just looking.\" He is not just looking.",
+      "tags": [
+        "gaz",
+        "deals"
+      ],
+      "arrow": "none"
+    },
+    {
+      "top": "This is your sign to *check the price history*",
+      "punch": "before the red sticker does the thinking",
+      "tags": [
+        "deals"
+      ],
+      "arrow": "none"
     }
   ],
   "headlines": [
@@ -230,6 +286,37 @@
         "rain",
         "weather",
         "winter"
+      ]
+    },
+    {
+      "big": "Winter rules: *place it* or play it down?",
+      "sub": "Purists, make yourselves known",
+      "tags": [
+        "winter",
+        "weather"
+      ]
+    },
+    {
+      "big": "Which Fourball are *you?*",
+      "sub": "Big Dave, Phil, Steve, Gaz or Kev. Be honest.",
+      "tags": [
+        "friends"
+      ]
+    },
+    {
+      "big": "Best golf present you've *ever* had?",
+      "sub": "Socks count. Just about.",
+      "tags": [
+        "bag",
+        "clubs"
+      ]
+    },
+    {
+      "big": "What's in your bag that's *older than* your car?",
+      "sub": "Steady Steve is watching",
+      "tags": [
+        "irons",
+        "bag"
       ]
     }
   ],
@@ -322,6 +409,35 @@
         "Save this for the *next cold snap*",
         "Follow for more ways to play more and pay less."
       ]
+    },
+    {
+      "title": "Black Friday golf kit: *4 honest checks*",
+      "cover_sub": "Save this before you buy",
+      "tags": [
+        "deals"
+      ],
+      "slides": [
+        [
+          "Check the price history",
+          "A sale price only means something next to what it usually costs. Look at the last few months, not just today."
+        ],
+        [
+          "Same model, more than one shop",
+          "The same club or ball can cost different amounts at different UK retailers. Compare before you buy."
+        ],
+        [
+          "Last season's model",
+          "Last year's version is often very close in performance and usually costs less once the new one is out."
+        ],
+        [
+          "Not low enough? Set an alert",
+          "A price alert tells you when it drops, whatever the date. No rush needed."
+        ]
+      ],
+      "close": [
+        "Save this for *every sale*",
+        "Follow for golf banter, real deals and the odd useful tip."
+      ]
     }
   ],
   "myths": [
@@ -407,6 +523,34 @@
       "close": [
         "Myth or *Mulligan?*",
         "Which ball do you play? Tell us below."
+      ]
+    },
+    {
+      "title": "Myth: golf balls *go off* in the garage",
+      "cover_sub": "Myth or Mulligan?",
+      "tags": [
+        "balls"
+      ],
+      "slides": [
+        [
+          "MYTH",
+          "Old balls lose their distance",
+          "Kept somewhere cool and dry, a new ball keeps performing for years. Ball makers say the same."
+        ],
+        [
+          "TRUTH",
+          "Damage is what matters",
+          "Scuffs and cuts change how a ball flies, and one that has sat in a pond for a long time can lose some distance."
+        ],
+        [
+          "TIP",
+          "Buy the dozen when it's cheap",
+          "Because unused balls keep, buying when the price is genuinely low is fine. Check the history first."
+        ]
+      ],
+      "close": [
+        "Myth or *Mulligan?*",
+        "How old is the oldest ball in your bag?"
       ]
     }
   ],
