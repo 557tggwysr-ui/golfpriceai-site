@@ -3,7 +3,7 @@
  "brand": "PRGR",
  "type": "launch monitor",
  "url": "https://golfpriceai.com/prices/prgr-portable-launch-monitor/",
- "checked": "2026-11-21",
+ "checked": "2026-11-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 169.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 79,
+  "daysTracked": 80,
   "low": 169.0,
   "high": 219.0,
-  "average": 205.96,
+  "average": 205.5,
   "priceChanges": 2,
   "series": [
    [
@@ -42,7 +42,7 @@
     169.0
    ],
    [
-    "2026-11-21",
+    "2026-11-22",
     169.0
    ]
   ]
@@ -53,5 +53,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/PRGR-Portable-Golf-Launch-Monitor-HS-130A-2.jpg?v=1714018857",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-21"
+ "changed": "2026-11-22"
 }

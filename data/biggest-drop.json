@@ -1,31 +1,31 @@
 {
- "checked": "2026-11-21T22:51+00:00",
- "fresh": 94,
+ "checked": "2026-11-22T05:24+00:00",
+ "fresh": 5,
  "week": 157,
  "cats": {
   "clubs": {
-   "name": "TaylorMade P7CB Irons",
-   "slug": "taylormade-p7cb-irons",
-   "url": "/prices/taylormade-p7cb-irons/",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-2024-P7CB-Golf-Irons-8.jpg?v=1722484976",
-   "was": 1070.0,
-   "now": 929.0,
-   "fall": 141.0,
-   "pct": 13,
-   "date": "2026-11-20",
+   "name": "Titleist Vokey SM10 Nickel Wedge",
+   "slug": "titleist-vokey-sm10-nickel-wedge",
+   "url": "/prices/titleist-vokey-sm10-nickel-wedge/",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/vokeysm10nik1.jpg?v=1706088806",
+   "was": 129.0,
+   "now": 119.0,
+   "fall": 10.0,
+   "pct": 8,
+   "date": "2026-11-21",
    "unit": ""
   },
   "accessories": {
-   "name": "Motocaddy M-TECH Electric Trolley",
-   "slug": "motocaddy-m-tech-electric-trolley",
-   "url": "/prices/motocaddy-m-tech-electric-trolley/",
-   "image": "https://www.clickgolf.co.uk/images/product/main/TR26MTGDMT-M-Tech-Trolley-Hero.jpg",
-   "was": 1159.2,
-   "now": 1049.0,
-   "fall": 110.2,
-   "pct": 10,
-   "date": "2026-11-20",
-   "unit": ""
+   "name": "Callaway Limited Chrome Soft Truvis Team Golf Balls",
+   "slug": "callaway-limited-chrome-soft-truvis-team-golf-balls",
+   "url": "/prices/callaway-limited-chrome-soft-truvis-team-golf-balls/",
+   "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795205222518/sits/balls-2022-chrome-soft-truvis-team-red-blue/balls-2022-chrome-soft-truvis-team-red-blue_2___1.png?sfrm=png",
+   "was": 55.0,
+   "now": 41.25,
+   "fall": 13.75,
+   "pct": 25,
+   "date": "2026-11-21",
+   "unit": "per dozen"
   },
   "apparel": {
    "name": "PAYNTR X Tour Proto RS Spiked Golf Shoes - White & Black - UK8 / EU42.5",
@@ -39,15 +39,15 @@
   }
  },
  "drop": {
-  "name": "TaylorMade P7CB Irons",
-  "slug": "taylormade-p7cb-irons",
-  "url": "/prices/taylormade-p7cb-irons/",
-  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/TaylorMade-2024-P7CB-Golf-Irons-8.jpg?v=1722484976",
-  "was": 1070.0,
-  "now": 929.0,
-  "fall": 141.0,
-  "pct": 13,
-  "date": "2026-11-20",
-  "unit": ""
+  "name": "Callaway Limited Chrome Soft Truvis Team Golf Balls",
+  "slug": "callaway-limited-chrome-soft-truvis-team-golf-balls",
+  "url": "/prices/callaway-limited-chrome-soft-truvis-team-golf-balls/",
+  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795205222518/sits/balls-2022-chrome-soft-truvis-team-red-blue/balls-2022-chrome-soft-truvis-team-red-blue_2___1.png?sfrm=png",
+  "was": 55.0,
+  "now": 41.25,
+  "fall": 13.75,
+  "pct": 25,
+  "date": "2026-11-21",
+  "unit": "per dozen"
  }
 }

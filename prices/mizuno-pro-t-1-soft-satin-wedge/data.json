@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/mizuno-pro-t-1-soft-satin-wedge/",
- "checked": "2026-11-21",
+ "checked": "2026-11-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 99.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 86,
+  "daysTracked": 87,
   "low": 99.0,
   "high": 149.0,
-  "average": 124.55,
+  "average": 124.26,
   "priceChanges": 4,
   "series": [
    [
@@ -48,6 +48,10 @@
    [
     "2026-11-21",
     99.0
+   ],
+   [
+    "2026-11-22",
+    99.0
    ]
   ]
  },
@@ -57,5 +61,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/T-1SATINWEDGE1.jpg?v=1737715912",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-21"
+ "changed": "2026-11-22"
 }

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/cobra-king-ages-7-9-junior-golf-set/",
- "checked": "2026-11-21",
+ "checked": "2026-11-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 329.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 98,
+  "daysTracked": 99,
   "low": 309.0,
   "high": 349.0,
-  "average": 343.59,
+  "average": 343.44,
   "priceChanges": 12,
   "series": [
    [
@@ -80,6 +80,10 @@
    [
     "2026-11-21",
     329.0
+   ],
+   [
+    "2026-11-22",
+    329.0
    ]
   ]
  },
@@ -89,5 +93,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/91759431-7-9-Junior-Set-Side-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-21"
+ "changed": "2026-11-22"
 }

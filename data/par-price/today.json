@@ -1,66 +1,66 @@
 {
- "n": 35,
- "date": "2026-11-21",
+ "n": 36,
+ "date": "2026-11-22",
  "items": [
   {
-   "slug": "wilson-dynapwr-hybrid",
-   "name": "Wilson DYNAPWR Hybrid",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/DYNAPOWERHYBRID2.jpg?v=1737728792",
-   "price": 109.65,
-   "unit": "each",
-   "type": "hybrid",
-   "low": true,
-   "url": "/prices/wilson-dynapwr-hybrid/"
-  },
-  {
-   "slug": "callaway-elyte-fairway-wood",
-   "name": "Callaway Elyte Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-fairway-hero.jpg",
-   "price": 179.0,
-   "unit": "each",
-   "type": "fairway wood",
-   "low": true,
-   "url": "/prices/callaway-elyte-fairway-wood/"
-  },
-  {
-   "slug": "ping-g430-irons",
-   "name": "Ping G430 Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-G430-Golf-Irons-Graphite-Pre-Order-3-2.jpg?v=1713976056",
-   "price": 529.0,
-   "unit": "each",
-   "type": "iron set",
-   "low": true,
-   "url": "/prices/ping-g430-irons/"
-  },
-  {
-   "slug": "taylormade-flextech-carry-bag-stand-bag-golf-bag",
-   "name": "TaylorMade FlexTech Carry Bag Stand Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TM25ACC-JE943-N3832601-Flextech-Carry-Script-Icon-3QR-v1copy.jpg?v=1776303263",
-   "price": 129.95,
-   "unit": "each",
-   "type": "golf bag",
-   "low": false,
-   "url": "/prices/taylormade-flextech-carry-bag-stand-bag-golf-bag/"
-  },
-  {
-   "slug": "titleist-vokey-sm11-nickel-wedge",
-   "name": "Titleist Vokey SM11 Nickel Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-nickel-wedge-hero.jpg",
-   "price": 179.0,
+   "slug": "cleveland-rtz-2-tour-satin-wedge",
+   "name": "Cleveland RTZ 2 Tour Satin Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ClevelandGolfRTZ2TourSatinWedge2026_4.jpg?v=1785231438",
+   "price": 139.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/titleist-vokey-sm11-nickel-wedge/"
+   "url": "/prices/cleveland-rtz-2-tour-satin-wedge/"
+  },
+  {
+   "slug": "callaway-quantum-max-irons",
+   "name": "Callaway Quantum Max Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-irons-hero-3.jpg",
+   "price": 749.0,
+   "unit": "each",
+   "type": "iron set",
+   "low": false,
+   "url": "/prices/callaway-quantum-max-irons/"
+  },
+  {
+   "slug": "titleist-gt2-fairway-wood",
+   "name": "Titleist GT2 Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/GT2-Fairway-Wood-Hero.jpg",
+   "price": 249.0,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": false,
+   "url": "/prices/titleist-gt2-fairway-wood/"
+  },
+  {
+   "slug": "taylormade-qi4d-driver",
+   "name": "TaylorMade Qi4D Driver",
+   "image": "https://www.clickgolf.co.uk/images/product/main/N2845107-Qi4D-Core-Driver-Hero.jpg",
+   "price": 549.0,
+   "unit": "each",
+   "type": "driver",
+   "low": false,
+   "url": "/prices/taylormade-qi4d-driver/"
+  },
+  {
+   "slug": "ping-g440-hybrid",
+   "name": "Ping G440 Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-hybrid-hero.jpg",
+   "price": 269.0,
+   "unit": "each",
+   "type": "hybrid",
+   "low": false,
+   "url": "/prices/ping-g440-hybrid/"
   }
  ],
  "pin": {
-  "slug": "mizuno-pro-x-golf-balls",
-  "name": "Mizuno Pro X Golf Balls",
-  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Mizuno-Pro-X-Golf-Balls-White-1-Photoroom.jpg?v=1747320711",
-  "price": 34.95,
-  "unit": "per dozen",
-  "type": "golf ball",
-  "low": false,
-  "url": "/prices/mizuno-pro-x-golf-balls/"
+  "slug": "srixon-friday-cart-bag-golf-bag",
+  "name": "Srixon Friday Cart Bag Golf Bag",
+  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/SRX_FRIDAY_CART_BAG_navy-black_12137813_2.jpg?v=1776425710",
+  "price": 139.0,
+  "unit": "each",
+  "type": "golf bag",
+  "low": true,
+  "url": "/prices/srixon-friday-cart-bag-golf-bag/"
  }
 }

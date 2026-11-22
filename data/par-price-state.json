@@ -1,14 +1,6 @@
 {
  "about": "Which models each Par Price round used (no personal data).",
  "days": {
-  "2026-10-22": [
-   "callaway-quantum-max-irons",
-   "taylormade-qi4d-driver",
-   "titleist-gt2-fairway-wood",
-   "ping-g440-hybrid",
-   "cleveland-rtz-2-tour-satin-wedge",
-   "srixon-z-star-diamond-golf-balls"
-  ],
   "2026-10-23": [
    "taylormade-qi4d-fairway-wood",
    "srixon-soft-feel-golf-balls",
@@ -248,6 +240,14 @@
    "taylormade-flextech-carry-bag-stand-bag-golf-bag",
    "titleist-vokey-sm11-nickel-wedge",
    "mizuno-pro-x-golf-balls"
+  ],
+  "2026-11-22": [
+   "cleveland-rtz-2-tour-satin-wedge",
+   "callaway-quantum-max-irons",
+   "titleist-gt2-fairway-wood",
+   "taylormade-qi4d-driver",
+   "ping-g440-hybrid",
+   "srixon-friday-cart-bag-golf-bag"
   ]
  }
 }

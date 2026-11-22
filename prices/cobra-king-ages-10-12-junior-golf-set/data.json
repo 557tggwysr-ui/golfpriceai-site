@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/cobra-king-ages-10-12-junior-golf-set/",
- "checked": "2026-11-21",
+ "checked": "2026-11-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 349.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 98,
+  "daysTracked": 99,
   "low": 339.0,
   "high": 379.0,
-  "average": 373.49,
+  "average": 373.24,
   "priceChanges": 12,
   "series": [
    [
@@ -80,6 +80,10 @@
    [
     "2026-11-21",
     349.0
+   ],
+   [
+    "2026-11-22",
+    349.0
    ]
   ]
  },
@@ -89,5 +93,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/91759232-10-12-Junior-Set-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-21"
+ "changed": "2026-11-22"
 }

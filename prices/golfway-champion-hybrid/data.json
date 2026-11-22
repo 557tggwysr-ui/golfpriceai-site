@@ -3,7 +3,7 @@
  "brand": "Golfway",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/golfway-champion-hybrid/",
- "checked": "2026-11-21",
+ "checked": "2026-11-22",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 19.99,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 79,
+  "daysTracked": 80,
   "low": 19.99,
   "high": 24.99,
-  "average": 24.86,
+  "average": 24.8,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     19.99
    ],
    [
-    "2026-11-21",
+    "2026-11-22",
     19.99
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Change23to30_copy.jpg?v=1773185241",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-21"
+ "changed": "2026-11-22"
 }
