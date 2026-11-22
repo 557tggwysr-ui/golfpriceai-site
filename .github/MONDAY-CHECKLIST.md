@@ -127,13 +127,20 @@ Mondays 09:13  Weekly review in the Claude app, with up to 3 ideas for you to de
                back, what to start and what to stop.
 
 
+WILD NINE LAUNCH FILM (Tue 24 Nov)
+  A 14-second launch film cut from a real recorded round (island green, a birdie, the Hole 10
+  ace, the scorecard), with its own cover, is queued for Tuesday. It appears in this week's
+  Content pack when you run the content engine in "plan" mode in step C3: tick it and Instagram
+  posts it; TikTok and YouTube copies arrive at 11:43 that morning.
+
 THE FOURBALL (our weekly comedy series, from Wed 25 Nov)
   Every Wednesday       a new episode in the Content pack (EP 1 Big Dave's par on 25 Nov, EP 2 Gaz's new
                         driver on 2 Dec, EP 3 Big Dave's receipts on 9 Dec). Tick it in the pack and
                         Instagram posts it itself (needs D2). TikTok and YouTube Shorts: Claude sends
                         you each day's videos, covers and captions at 11:43, ready to post.
                         Episode 1 is only in this week's pack if you ran the content engine in "plan"
-                        mode in step C3 (the automatic weekly plan runs on Sundays).
+                        mode in step C3 (on a Monday it now plans the rest of this week; the
+                        automatic Sunday run plans each week after that).
   Every Thursday 19:37  the writers' room: how the last episode landed, the next episodes,
                         and a photo prompts file if new photos are needed (make them in the
                         same ChatGPT chat as the cast and send them back in that same message thread)

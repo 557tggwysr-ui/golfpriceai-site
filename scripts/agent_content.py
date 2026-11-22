@@ -526,6 +526,20 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
                        "slides": [f"/social/cards/{p.name}" for p in paths], "video": None, "link": theme["link"],
                        "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, None, social), "sound": None,
                        "trendingFormats": [], "posted": {}, "quality": quality, **extra})
+    if style == "prebuilt":  # a finished film made by Claude (e.g. a launch video): used as made, with its own cover
+        import shutil
+        for d_ in (VIDEOS, THUMBS, CARDS):
+            d_.mkdir(parents=True, exist_ok=True)
+        shutil.copy(ROOT / sc["file"], VIDEOS / f"{pid}.mp4")
+        shutil.copy(ROOT / sc["cover"], THUMBS / f"{pid}.jpg")
+        from PIL import Image as _I
+        _I.open(ROOT / sc["cover"]).convert("RGB").resize((1080, 1920)).crop((0, 285, 1080, 1635)).save(CARDS / f"{pid}.jpg", quality=88)
+        monday = day - timedelta(days=day.weekday())
+        return edited({"id": pid, "date": str(day), "theme": theme["theme"], "style": "prebuilt", "palette": "brand", "hook": sc.get("hook", theme["headline"]),
+                       "trend": None, "card": f"/social/cards/{pid}.jpg", "thumb": f"/social/thumbs/{pid}.jpg",
+                       "video": f"https://github.com/{REPO}/releases/download/pack-{monday}/{pid}.mp4",
+                       "link": theme["link"], "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, None, social),
+                       "sound": None, "trendingFormats": [], "posted": {}, "quality": [], **extra})
     img = fetch_image(theme.get("image"))
     photo = fetch_image(theme.get("art") or "assets/action-lake-followthrough.jpg") if style in ("stat", "receipt") else None
     imgs = [fetch_image(x.get("image")) for x in sc.get("items", [])] if style == "countdown" else None
@@ -631,7 +645,7 @@ def queued_post(q, day, pid, social=None, sound=None):
     for pnl in sc.get("panels") or []:  # panel photos: a product image URL or a site photo path
         if isinstance(pnl.get("img"), str):
             pnl["img"] = fetch_image(pnl["img"])
-    qstyle = q.get("style") if q.get("style") in V.STYLES else ("collage" if sc.get("panels") else "story")
+    qstyle = q.get("style") if (q.get("style") in V.STYLES or q.get("style") == "prebuilt") else ("collage" if sc.get("panels") else "story")
     first = (q.get("beats") or q.get("panels") or [{"big": q.get("headline", "")}])[0]
     sc.setdefault("hook", first.get("big") or first.get("text") or q.get("headline", ""))
     print(f"{pid}: queued {'reactive post' if q.get('reactive') else 'trend tie-in'} ({q.get('trend')}) in {qstyle}")
@@ -646,6 +660,14 @@ def plan_week():
     learn(plan, L)
     today = now().date()
     start = today + timedelta(days=(7 - today.weekday()) % 7 or 7)  # next Monday
+    n_days, issue_start = 7, start
+    # catch-up: run mid-week with nothing planned for the rest of this week (e.g. the first run after the
+    # agents go live), plan tomorrow to Sunday instead, so the week isn't empty (Sunday's run does next week)
+    this_sun = today + timedelta(days=6 - today.weekday())
+    if today.weekday() < 6 and not any(str(today + timedelta(days=1)) <= p["date"] <= str(this_sun) for p in plan["posts"]):
+        start, n_days = today + timedelta(days=1), (this_sun - today).days
+        issue_start = today - timedelta(days=today.weekday())
+        print(f"catch-up: planning {start} to {this_sun}")
     rnd = random.Random(str(start))
     have = {p["id"] for p in plan["posts"]}
     used_styles, used_keys, last_pal = set(), set(), None
@@ -659,10 +681,11 @@ def plan_week():
     qdays = {}
     for q in queue:
         qd = q.get("date") or ""
-        if str(start) <= qd <= str(start + timedelta(days=6)) and q.get("status", "queued") == "queued":
+        if str(start) <= qd <= str(start + timedelta(days=n_days - 1)) and q.get("status", "queued") == "queued":
             qdays[qd] = q
-    for i in range(7):
-        day = start + timedelta(days=i)
+    for k in range(n_days):
+        day = start + timedelta(days=k)
+        i = day.weekday()  # the weekday decides the day's theme (Friday = Price Check Friday, and so on)
         pid = f"{day}-{DAYS[i].lower()}"
         if pid in have:
             continue
@@ -710,7 +733,7 @@ def plan_week():
     save_plan(plan)
     save_learning(L)
     write_pack(plan)
-    open_issue(plan, start)
+    open_issue(plan, issue_start)
     prune_cards()
 
 
@@ -723,8 +746,9 @@ def moment():
     for n, q in enumerate((load("content-queue.json") or {}).get("posts", [])):
         if q.get("date") == str(today) and q.get("status", "queued") == "queued":
             pid = f"{today}-{'reactive' if q.get('reactive') else 'tiein'}{n}"
-            if pid in have:
-                continue
+            tname = ("Reactive: " if q.get("reactive") else "Trend tie-in: ") + q.get("trend", "")
+            if pid in have or any(p["date"] == str(today) and p.get("theme") == tname for p in plan["posts"]):
+                continue  # already made (the weekly plan picked it up from the queue)
             post = queued_post(q, today, pid, social)
             plan["posts"].append(post)
             save_plan(plan)

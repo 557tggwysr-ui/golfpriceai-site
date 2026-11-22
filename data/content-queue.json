@@ -1,4 +1,23 @@
 {
- "about": "Trend tie-in posts written by Claude (moments planner, weekly review, or on request), made on their date. Each sets its own 'style' (any engine style: spec, thennow, truth, story, collage, sitedemo, reveal, guess, countdown, stat, pov, expectation, receipt) with that style's fields, and optionally a 'look'. Plus date, trend, link, ig, x, tt. Original design only.",
- "posts": []
+  "about": "Trend tie-in posts written by Claude (moments planner, weekly review, or on request), made on their date. Each sets its own 'style' (any engine style: spec, thennow, truth, story, collage, sitedemo, reveal, guess, countdown, stat, pov, expectation, receipt) with that style's fields, and optionally a 'look'. Plus date, trend, link, ig, x, tt. Original design only.",
+  "posts": [
+    {
+      "date": "2026-11-24",
+      "trend": "Wild Nine launch",
+      "status": "queued",
+      "style": "prebuilt",
+      "file": "assets/social/launch/wild-nine-launch.mp4",
+      "cover": "assets/social/launch/wild-nine-launch-cover.jpg",
+      "hook": "A new golf course. Every day.",
+      "headline": "Wild Nine: a new golf course every day",
+      "sub": "Free, daily, no sign-up",
+      "link": "https://golfpriceai.com/play/wild-nine/?utm_source=social&utm_medium=launch&utm_campaign=wild-nine",
+      "format": "bts",
+      "ig": "A new nine-hole golf course every day ⛳ Same nine for everyone. Beat par to unlock Hole 10, where a hole in one is 1 in 10,000. Post your card and beat your mates. Free, no sign-up: link in bio.\n#golf #golfgame #golfuk #wildnine #golfbanter #golfer",
+      "x": "A new golf course every day ⛳ Same nine for everyone, beat par to unlock Hole 10. Free, no sign-up. golfpriceai.com/play/wild-nine",
+      "tt": "A new golf course every day ⛳ Beat par to unlock Hole 10 #golf #golfgame #golftok #wildnine",
+      "keywords": "golf game, daily golf game, free golf game, golf course game",
+      "why": "John asked (22 Nov 2026) for a launch video with real game footage. Made by Claude from a recorded round (real gameplay, no mock-ups)."
+    }
+  ]
 }
