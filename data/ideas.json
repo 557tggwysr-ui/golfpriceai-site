@@ -706,6 +706,156 @@
           "note": "John approved building it into Sunday's zip; built on the branch. Merging = test starts."
         }
       ]
+    },
+    {
+      "id": "one-promise",
+      "title": "One promise, one tap: 'Is this a good price?' as the front door",
+      "owner": "the homepage plus the price check tool",
+      "objective": "traffic, revenue",
+      "problem": "The site does a lot; a first-time visitor needs one reason to come back. The sharpest promise we can keep better than anyone: tell a golfer in seconds whether a price is good.",
+      "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
+      "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
+      "test": "Put a verdict-first price check at the very top of the homepage and every price page (Buy now / Good price / Wait), backed by our price history; everything else supports it.",
+      "metric": "repeat visits and buy clicks per visitor",
+      "target": "set by the strategy board",
+      "windowDays": 56,
+      "effort": "S",
+      "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
+      "challenge": "For the strategy board to red-team on the 9th.",
+      "score": {
+        "impact": 4,
+        "confidence": 3,
+        "ease": 4,
+        "total": 48
+      },
+      "stage": "proposed",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "proposed",
+          "note": "From John's 'what would Steve Jobs do' question."
+        }
+      ]
+    },
+    {
+      "id": "golf-price-index",
+      "title": "The UK Golf Price Index: the number everyone quotes",
+      "owner": "press desk + Clubhouse Journal",
+      "objective": "traffic (press, AI apps, links), trust",
+      "problem": "Journalists, AI apps and golfers need a trusted reference for 'are golf prices going up or down?'. We already have the data; it just isn't one famous number.",
+      "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
+      "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
+      "test": "Turn the monthly press report into a named, monthly index (one headline number by category) with a permanent page, an embeddable chart and a press note; AI apps and press cite it.",
+      "metric": "links, press mentions and AI-app arrivals to the index page",
+      "target": "set by the strategy board",
+      "windowDays": 56,
+      "effort": "S",
+      "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
+      "challenge": "For the strategy board to red-team on the 9th.",
+      "score": {
+        "impact": 5,
+        "confidence": 3,
+        "ease": 4,
+        "total": 60
+      },
+      "stage": "proposed",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "proposed",
+          "note": "From John's 'what would Steve Jobs do' question."
+        }
+      ]
+    },
+    {
+      "id": "my-bag",
+      "title": "My Bag: your golf kit and wish list, watched for you",
+      "owner": "games lab + email optimiser",
+      "objective": "retention, revenue",
+      "problem": "Golfers own and want specific kit. If they tell us once (no sign-up, kept on their phone, email optional), we can watch every price and tell them the moment it's genuinely right to buy or sell.",
+      "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
+      "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
+      "test": "A 'My Bag' locker: add clubs you own and want; we show today's verdict, price drops, and a heads-up when a model is replaced (best time to buy last season's). Links Wild Nine's Pro Shop and the Bag Draft to the real thing.",
+      "metric": "returning visitors with a bag; alert sign-ups; buy clicks from bag items",
+      "target": "set by the strategy board",
+      "windowDays": 56,
+      "effort": "L",
+      "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
+      "challenge": "For the strategy board to red-team on the 9th.",
+      "score": {
+        "impact": 5,
+        "confidence": 3,
+        "ease": 2,
+        "total": 30
+      },
+      "stage": "proposed",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "proposed",
+          "note": "From John's 'what would Steve Jobs do' question."
+        }
+      ]
+    },
+    {
+      "id": "society-network",
+      "title": "Every UK golf society runs on GolfPrice AI",
+      "owner": "society connector + press desk",
+      "objective": "traffic, retention",
+      "problem": "Each society captain brings 20 to 40 golfers. Society HQ, the live scorecard, Fourball Alerts, prize calculator and awards already exist: they're our distribution, if captains know about them.",
+      "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
+      "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
+      "test": "Package them as one free 'Society Kit' with a single link for captains, plus a captain's pack (WhatsApp messages, the scorecard for society days). The society connector reaches out to clubs and societies politely and honestly.",
+      "metric": "societies using Society HQ; scorecard rounds; Fourball Alerts groups",
+      "target": "set by the strategy board",
+      "windowDays": 56,
+      "effort": "M",
+      "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
+      "challenge": "For the strategy board to red-team on the 9th.",
+      "score": {
+        "impact": 4,
+        "confidence": 3,
+        "ease": 3,
+        "total": 36
+      },
+      "stage": "proposed",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "proposed",
+          "note": "From John's 'what would Steve Jobs do' question."
+        }
+      ]
+    },
+    {
+      "id": "big-moments",
+      "title": "Two big moments a year: the Black Friday Truth Report and the Honest Gift Guide",
+      "owner": "moments planner + press desk + content engine",
+      "objective": "traffic, trust",
+      "problem": "Golfers' attention spikes at Black Friday and Christmas, and so does distrust of 'deals'. Owning those moments with the honest version (what's genuinely cheaper, what's a red sticker) makes the brand.",
+      "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
+      "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
+      "test": "Turn our Black Friday page and gift tools into two annual 'events' with a launch film, a Fourball episode, press notes, the Journal article and a WhatsApp-friendly summary. Same honest data, launched like a product.",
+      "metric": "visits and links during the two windows, year on year",
+      "target": "set by the strategy board",
+      "windowDays": 56,
+      "effort": "S",
+      "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
+      "challenge": "For the strategy board to red-team on the 9th.",
+      "score": {
+        "impact": 4,
+        "confidence": 4,
+        "ease": 4,
+        "total": 64
+      },
+      "stage": "proposed",
+      "history": [
+        {
+          "date": "2026-11-22",
+          "stage": "proposed",
+          "note": "From John's 'what would Steve Jobs do' question."
+        }
+      ]
     }
   ],
   "lessons": [],
