@@ -1,817 +1,831 @@
 {
-  "about": "Original lines the content engine draws on for posts that aren't built from live prices. All written in the house voice (golf-club banter, never mean, British). Add freely; the planner never reuses a set-up within 60 days. Myths must be true as written; nothing here invents a person's real story.",
-  "memes": [
+ "about": "Original lines the content engine draws on for posts that aren't built from live prices. All written in the house voice (golf-club banter, never mean, British). Add freely; the planner never reuses a set-up within 60 days. Myths must be true as written; nothing here invents a person's real story.",
+ "memes": [
+  {
+   "top": "Every golfer *knows* this...",
+   "punch": "...so close!",
+   "tags": [
+    "putting",
+    "lip"
+   ],
+   "arrow": "left"
+  },
+  {
+   "top": "Me on the first tee: *I'm* keeping it in play today",
+   "punch": "Narrator: he did not",
+   "tags": [
+    "tee",
+    "swing"
+   ],
+   "arrow": "none"
+  },
+  {
+   "top": "When the ball's *definitely* in the fairway",
+   "punch": "The fairway:",
+   "tags": [
+    "rough",
+    "lost"
+   ],
+   "arrow": "left"
+  },
+  {
+   "top": "What I said: *one* more bucket",
+   "punch": "Four buckets later...",
+   "tags": [
+    "range"
+   ],
+   "arrow": "none"
+  },
+  {
+   "top": "Golf forecast: *light* showers",
+   "punch": "Still teeing off",
+   "tags": [
+    "rain",
+    "weather"
+   ],
+   "arrow": "none"
+  },
+  {
+   "top": "Partner: how much was the *new driver*?",
+   "punch": "Me: it was on offer",
+   "tags": [
+    "driver",
+    "partner"
+   ],
+   "arrow": "right"
+  },
+  {
+   "top": "Pond: exists",
+   "punch": "My ball: *I'll* go for a swim",
+   "tags": [
+    "water",
+    "pond"
+   ],
+   "arrow": "left"
+  },
+  {
+   "top": "Three-foot putt for the *win*",
+   "punch": "Hands: absolutely not",
+   "tags": [
+    "putting",
+    "nerves"
+   ],
+   "arrow": "none"
+  },
+  {
+   "top": "Me counting my *strokes*",
+   "punch": "Playing partner: *only 4?* Really?",
+   "tags": [
+    "counting",
+    "scorecard-dave"
+   ],
+   "arrow": "none",
+   "reaction": [
+    "phil-sideeye"
+   ],
+   "top_y": 170
+  },
+  {
+   "top": "When the drive goes *straight*",
+   "punch": "Nobody saw it, obviously",
+   "tags": [
+    "tee",
+    "swing"
+   ],
+   "arrow": "none"
+  },
+  {
+   "top": "Me in the bunker: *one* swing",
+   "punch": "Spoiler: it wasn't one",
+   "tags": [
+    "bunker"
+   ],
+   "arrow": "left"
+  },
+  {
+   "top": "The 19th hole version of *my* round",
+   "punch": "Every putt was a 30-footer",
+   "tags": [
+    "clubhouse",
+    "friends"
+   ],
+   "arrow": "none"
+  },
+  {
+   "top": "Gaz: *new driver*, mate",
+   "punch": "Kev: must need a new one",
+   "tags": [
+    "gaz"
+   ],
+   "reaction": [
+    "kev",
+    "pointing"
+   ]
+  },
+  {
+   "top": "Kev after *my* duff",
+   "punch": "Kev after his own:",
+   "tags": [
+    "kev",
+    "stifled"
+   ],
+   "reaction": [
+    "caught"
+   ]
+  },
+  {
+   "top": "When your mate *thins* it",
+   "punch": "The back of the group:",
+   "tags": [
+    "big-dave",
+    "swing"
+   ],
+   "reaction": [
+    "kev",
+    "stifled"
+   ]
+  }
+ ],
+ "headlines": [
+  {
+   "big": "Three *putt?*",
+   "sub": "You're not alone...",
+   "tags": [
+    "putting"
+   ],
+   "format": "meme"
+  },
+  {
+   "big": "Lost *another* one?",
+   "sub": "Restock without the RRP",
+   "tags": [
+    "lost",
+    "balls"
+   ],
+   "format": "meme"
+  },
+  {
+   "big": "New driver *season*",
+   "sub": "Last year's model is usually the bargain",
+   "tags": [
+    "driver"
+   ],
+   "format": "hottake"
+  },
+  {
+   "big": "Winter *golf*",
+   "sub": "Dress for four seasons in four hours",
+   "tags": [
+    "winter",
+    "weather"
+   ],
+   "format": "meme"
+  }
+ ],
+ "questions": [
+  {
+   "big": "Most you've spent on *one* club?",
+   "sub": "Be honest. Comments are a safe space.",
+   "tags": [
+    "driver",
+    "clubs"
+   ]
+  },
+  {
+   "big": "How many balls do you *lose* a round?",
+   "sub": "Under 3 is a lie, we've all been there",
+   "tags": [
+    "balls",
+    "lost",
+    "water"
+   ]
+  },
+  {
+   "big": "Which club would you *bin* first?",
+   "sub": "Tell us in the comments",
+   "tags": [
+    "clubs",
+    "bag"
+   ]
+  },
+  {
+   "big": "Sunday medal or *Saturday* bounce game?",
+   "sub": "Pick a side",
+   "tags": [
+    "friends",
+    "course"
+   ]
+  },
+  {
+   "big": "Rangefinder or *GPS watch?*",
+   "sub": "Settle it in the comments",
+   "tags": [
+    "tech"
+   ]
+  },
+  {
+   "big": "Worst weather you've *still* played in?",
+   "sub": "Winners only",
+   "tags": [
+    "rain",
+    "weather",
+    "winter"
+   ]
+  }
+ ],
+ "carousels": [
+  {
+   "title": "5 things to check before you *buy a driver*",
+   "cover_sub": "Save this for your next upgrade",
+   "tags": [
+    "driver"
+   ],
+   "slides": [
+    [
+     "Get fitted first",
+     "Loft and shaft suit your swing more than the logo does. Many shops fit you free when you buy."
+    ],
+    [
+     "Last season's model",
+     "New drivers launch early in the year, and last season's tend to get cheaper once they do."
+    ],
+    [
+     "Check the price history",
+     "A sale price only means something if you know what it usually costs."
+    ],
+    [
+     "Compare more than one shop",
+     "The same driver can cost very different amounts at different UK retailers."
+    ]
+   ],
+   "close": [
+    "Save this for your *next upgrade*",
+    "Follow for golf banter, real deals and the odd useful tip."
+   ]
+  },
+  {
+   "title": "How to *stop losing* so many balls",
+   "cover_sub": "Your wallet will thank you",
+   "tags": [
+    "balls",
+    "lost"
+   ],
+   "slides": [
+    [
+     "Watch it all the way down",
+     "Pick a landmark where it lands before you look away."
+    ],
+    [
+     "Club down near trouble",
+     "Less club off the tee often means more balls in your bag at the end."
+    ],
+    [
+     "Play the right ball",
+     "A durable, softer two-piece ball suits most club golfers and costs less to lose."
+    ],
+    [
+     "Buy in bulk at the right time",
+     "Balls are cheaper by the dozen and often cheapest in winter sales."
+    ]
+   ],
+   "close": [
+    "Save this before your *next round*",
+    "Tag the mate who needs it most."
+   ]
+  },
+  {
+   "title": "Winter golf: *what you actually need*",
+   "cover_sub": "Stay dry, keep swinging",
+   "tags": [
+    "winter",
+    "weather"
+   ],
+   "slides": [
+    [
+     "Waterproofs first",
+     "A proper waterproof jacket and trousers beat any number of jumpers.",
+     {
+      "product": "waterproof jacket"
+     }
+    ],
+    [
+     "Layers, not bulk",
+     "A thin base layer and a midlayer let you swing freely and stay warm.",
+     {
+      "product": "thermal base layer"
+     }
+    ],
+    [
+     "Winter gloves",
+     "Rain gloves get grippier when wet. Keep a dry pair in the bag.",
+     {
+      "product": "winter glove"
+     }
+    ],
+    [
+     "Mittens between shots",
+     "Warm hands make a real difference to feel on the greens.",
+     {
+      "product": "winter mitt"
+     }
+    ]
+   ],
+   "close": [
+    "Save this for the *next cold snap*",
+    "Follow for more ways to play more and pay less."
+   ],
+   "warmth": true,
+   "link": "/prices/occasions/winter-golf-essentials/"
+  }
+ ],
+ "myths": [
+  {
+   "title": "Myth: a new driver will *fix your slice*",
+   "cover_sub": "Myth or Mulligan?",
+   "tags": [
+    "driver"
+   ],
+   "slides": [
+    [
+     "MYTH",
+     "A new driver fixes a slice",
+     "The swing path causes a slice. A driver set up with more draw bias or loft can reduce it a bit, but it won't cure it."
+    ],
+    [
+     "TRUTH",
+     "Fitting helps more than a new head",
+     "A fitting matches loft, lie and shaft to your swing. A lesson or two helps most of all."
+    ],
+    [
+     "TIP",
+     "Last season's model is often enough",
+     "If you are buying, last season's version usually performs very close to the new one for less."
+    ]
+   ],
+   "close": [
+    "Myth or *Mulligan?*",
+    "Got a golf myth you want busted? Drop it in the comments."
+   ]
+  },
+  {
+   "title": "Myth: Black Friday is *always* cheapest",
+   "cover_sub": "Myth or Mulligan?",
+   "tags": [
+    "deals"
+   ],
+   "slides": [
+    [
+     "MYTH",
+     "Black Friday prices are always the lowest",
+     "Some are genuine lows. Some are the usual price with a new label."
+    ],
+    [
+     "TRUTH",
+     "Check the history",
+     "We check every price against what it cost in October, so the real deals stand out."
+    ],
+    [
+     "TIP",
+     "Set a price alert",
+     "If it isn't low enough yet, an alert tells you when it drops, whatever the date."
+    ]
+   ],
+   "close": [
+    "Myth or *Mulligan?*",
+    "Save this for next November."
+   ]
+  },
+  {
+   "title": "Myth: expensive balls are *wasted* on you",
+   "cover_sub": "Myth or Mulligan?",
+   "tags": [
+    "balls"
+   ],
+   "slides": [
+    [
+     "MYTH",
+     "Premium balls are only for good players",
+     "Premium balls do give more spin around the greens for everyone."
+    ],
+    [
+     "TRUTH",
+     "It depends how many you lose",
+     "If you lose a few a round, a cheaper ball you can afford to lose may suit you better."
+    ],
+    [
+     "TIP",
+     "Find your middle ground",
+     "Mid-priced urethane balls are a good balance, and dozens are cheapest bought in bulk."
+    ]
+   ],
+   "close": [
+    "Myth or *Mulligan?*",
+    "Which ball do you play? Tell us below."
+   ]
+  }
+ ],
+ "characters": [
+  {
+   "name": "Big Dave",
+   "id": "big-dave",
+   "role": "the lead",
+   "look": "Broad, cheerful fifty-something, ruddy cheeks, short greying hair, neat grey beard, navy quarter-zip, beige trousers, white cap, white golf shoes.",
+   "personality": "Society captain. Loud, optimistic, totally oblivious. Owns every gadget, has never once hit a fairway.",
+   "quirks": [
+    "generous with his own scorecard (six is a par if you squint)",
+    "blames the course, the wind, the ball, the greenkeeper",
+    "announces every drive as 'the one'",
+    "first to the bar, last to the tee"
+   ]
+  },
+  {
+   "name": "Phil",
+   "id": "phil",
+   "role": "the know-it-all",
+   "look": "Lean fifty-something, clean-shaven, tweed flat cap, olive quilted gilet over a white polo, wristwatch.",
+   "personality": "Dave's mate and the group's know-it-all. Deadpan, eyebrows doing half the talking, but he can't let anything go: he corrects everyone, quotes the rules, knows the stats, and has an unrequested tip for every swing. We all have that mate. He's usually right, which is the most annoying part.",
+   "quirks": [
+    "starts every other sentence with 'Actually...'",
+    "quotes the Rules of Golf (and the local rules) from memory",
+    "unrequested swing tips, mid-backswing",
+    "knows the price history of everyone's kit, and tells them",
+    "keeps the real score, and the receipts",
+    "arrives with the perfect prop (abacus, calculator, rule book, live scorecard)",
+    "arms folded = verdict delivered",
+    "very occasionally wrong, and the group never lets it go"
+   ]
+  },
+  {
+   "name": "Steady Steve",
+   "id": "steve",
+   "role": "the quiet winner",
+   "look": "Tall, thin, sixty-something, short white hair, beige windproof jacket, faded bucket hat, old leather carry bag.",
+   "personality": "Plays the same 20-year-old irons, never loses a ball, never buys anything. 180 yards, dead straight, every single time.",
+   "quirks": [
+    "tea from a thermos on the 10th",
+    "still uses a pencil from 2004",
+    "wins the society cup without anyone noticing",
+    "the receipts guy: knows what everything should cost"
+   ]
+  },
+  {
+   "name": "Gaz",
+   "id": "gaz",
+   "role": "the kit addict",
+   "look": "Thirty-something, fresh haircut, bright plain teal top, black cap with sunglasses perched on it, brand-new everything (no logos).",
+   "personality": "Buys a new driver every spring, blames the old one. Knows every launch date and none of his yardages.",
+   "quirks": [
+    "'it's the shaft, mate'",
+    "unboxes kit in the car park",
+    "has three rangefinders and still asks Phil",
+    "always 'just looking' at the pro shop"
+   ]
+  },
+  {
+   "name": "Kev",
+   "id": "kev",
+   "role": "the wind-up merchant",
+   "look": "Stocky forty-something, ginger stubble, cheeky grin, plain burgundy jumper, grey trousers, black bobble hat in winter (plain grey cap in summer).",
+   "personality": "Can't help himself. Cracks a one-liner after every bad shot, pulls faces, and is always in the background trying (and failing) not to laugh when someone duffs, thins or shanks one.",
+   "quirks": [
+    "shoulders shaking, hand over mouth, in the back of the shot",
+    "commentary voice: 'and it's... gone'",
+    "slow clap for a ball that finally gets airborne",
+    "his own shots are no better, and everyone remembers"
+   ],
+   "use": "Reaction shots of Kev (stifled laugh, hand over mouth, slow clap, wince, fake commentary mic) are reusable: cut one in after any duff, thin or misplaced shot in a sketch. Keep them in the library tagged kev plus the reaction."
+  }
+ ],
+ "bts": [
+  {
+   "big": "How we check a *real* deal",
+   "sub": "Every price, every 6 hours, against its own history"
+  }
+ ],
+ "sequences": [
+  {
+   "title": "Big Dave's *par*",
+   "thumb": "Only 4? Really?",
+   "caption": "Big Dave's par. Six shots, apparently four.",
+   "top": "Big Dave. *Par 4.*",
+   "shots": [
     {
-      "top": "Every golfer *knows* this...",
-      "punch": "...so close!",
-      "tags": [
-        "putting",
-        "lip"
-      ],
-      "arrow": "left"
+     "bg": "assets/social/library/seq-dave-01-driver.jpg",
+     "label": "Driver",
+     "scene": "Big Dave on the tee, mid-swing, ball heading right"
     },
     {
-      "top": "Me on the first tee: *I'm* keeping it in play today",
-      "punch": "Narrator: he did not",
-      "tags": [
-        "tee",
-        "swing"
-      ],
-      "arrow": "none"
+     "bg": "assets/social/library/seq-dave-02-rough.jpg",
+     "label": "3 wood",
+     "scene": "Hacking out of deep rough"
     },
     {
-      "top": "When the ball's *definitely* in the fairway",
-      "punch": "The fairway:",
-      "tags": [
-        "rough",
-        "lost"
-      ],
-      "arrow": "left"
+     "bg": "assets/social/library/seq-dave-03-tree.jpg",
+     "label": "7 iron",
+     "scene": "Punching out from behind a tree"
     },
     {
-      "top": "What I said: *one* more bucket",
-      "punch": "Four buckets later...",
-      "tags": [
-        "range"
-      ],
-      "arrow": "none"
+     "cutaway": true,
+     "optional": true,
+     "reaction": [
+      "kev",
+      "stifled"
+     ],
+     "label": "Kev",
+     "scene": "Kev in the background trying not to laugh"
     },
     {
-      "top": "Golf forecast: *light* showers",
-      "punch": "Still teeing off",
-      "tags": [
-        "rain",
-        "weather"
-      ],
-      "arrow": "none"
+     "bg": "assets/social/library/seq-dave-04-bunker.jpg",
+     "label": "Wedge",
+     "scene": "Sand flying out of a greenside bunker"
     },
     {
-      "top": "Partner: how much was the *new driver*?",
-      "punch": "Me: it was on offer",
-      "tags": [
-        "driver",
-        "partner"
-      ],
-      "arrow": "right"
+     "bg": "assets/social/library/seq-dave-05-putt.jpg",
+     "label": "Putter",
+     "scene": "A long putt sliding past, Dave wincing",
+     "hide_top": true
     },
     {
-      "top": "Pond: exists",
-      "punch": "My ball: *I'll* go for a swim",
-      "tags": [
-        "water",
-        "pond"
-      ],
-      "arrow": "left"
-    },
-    {
-      "top": "Three-foot putt for the *win*",
-      "punch": "Hands: absolutely not",
-      "tags": [
-        "putting",
-        "nerves"
-      ],
-      "arrow": "none"
-    },
-    {
-      "top": "Me counting my *strokes*",
-      "punch": "Playing partner: *only 4?* Really?",
-      "tags": [
-        "counting",
-        "scorecard-dave"
-      ],
-      "arrow": "none",
-      "reaction": [
-        "phil-sideeye"
-      ],
-      "top_y": 170
-    },
-    {
-      "top": "When the drive goes *straight*",
-      "punch": "Nobody saw it, obviously",
-      "tags": [
-        "tee",
-        "swing"
-      ],
-      "arrow": "none"
-    },
-    {
-      "top": "Me in the bunker: *one* swing",
-      "punch": "Spoiler: it wasn't one",
-      "tags": [
-        "bunker"
-      ],
-      "arrow": "left"
-    },
-    {
-      "top": "The 19th hole version of *my* round",
-      "punch": "Every putt was a 30-footer",
-      "tags": [
-        "clubhouse",
-        "friends"
-      ],
-      "arrow": "none"
-    },
-    {
-      "top": "Gaz: *new driver*, mate",
-      "punch": "Kev: must need a new one",
-      "tags": [
-        "gaz"
-      ],
-      "reaction": [
-        "kev",
-        "pointing"
-      ]
-    },
-    {
-      "top": "Kev after *my* duff",
-      "punch": "Kev after his own:",
-      "tags": [
-        "kev",
-        "stifled"
-      ],
-      "reaction": [
-        "caught"
-      ]
-    },
-    {
-      "top": "When your mate *thins* it",
-      "punch": "The back of the group:",
-      "tags": [
-        "big-dave",
-        "swing"
-      ],
-      "reaction": [
-        "kev",
-        "stifled"
-      ]
+     "bg": "assets/social/library/seq-dave-06-tapin.jpg",
+     "label": "Putter",
+     "scene": "Tapping in from six inches",
+     "hide_top": true
     }
-  ],
-  "headlines": [
+   ],
+   "lines": [
     {
-      "big": "Three *putt?*",
-      "sub": "You're not alone...",
-      "tags": [
-        "putting"
-      ],
-      "format": "meme"
+     "who": "him",
+     "text": "Lovely. *Another par.*",
+     "beats": 2,
+     "bg": "assets/social/library/seq-dave-07-proud.jpg",
+     "label": "Big Dave",
+     "scene": "Dave holding up four fingers, beaming",
+     "pos": "bottom",
+     "focus": [
+      0.3,
+      0.42
+     ]
     },
     {
-      "big": "Lost *another* one?",
-      "sub": "Restock without the RRP",
-      "tags": [
-        "lost",
-        "balls"
-      ],
-      "format": "meme"
+     "who": "mate",
+     "text": "*Four?* Really?",
+     "beats": 2,
+     "bg": "assets/social/library/seq-dave-08-mate.jpg",
+     "label": "His mate",
+     "scene": "Mate's deadpan face, one eyebrow raised"
     },
     {
-      "big": "New driver *season*",
-      "sub": "Last year's model is usually the bargain",
-      "tags": [
-        "driver"
-      ],
-      "format": "hottake"
-    },
-    {
-      "big": "Winter *golf*",
-      "sub": "Dress for four seasons in four hours",
-      "tags": [
-        "winter",
-        "weather"
-      ],
-      "format": "meme"
+     "who": "mate",
+     "text": "Here. Borrow my *abacus.*",
+     "beats": 3,
+     "bg": "assets/social/library/seq-dave-09-abacus.jpg",
+     "label": "The abacus",
+     "scene": "Mate holding out a wooden abacus to Dave",
+     "focus": [
+      0.5,
+      0.42
+     ],
+     "pos": "low"
     }
-  ],
-  "questions": [
+   ],
+   "cover": {
+    "ep": 1,
+    "hook": "Six shots.",
+    "names": [
+     "Big Dave",
+     "Phil"
+    ],
+    "left_focus": [
+     0.35,
+     0.4
+    ],
+    "right_focus": [
+     0.45,
+     0.4
+    ],
+    "punch": "Par?!",
+    "tool": "scorecard"
+   }
+  },
+  {
+   "title": "Gaz's *new driver*",
+   "thumb": "Must need a new driver",
+   "caption": "Gaz's new driver. Kev has notes.",
+   "counter": false,
+   "top": "Gaz. *New driver.* Again.",
+   "shots": [
     {
-      "big": "Most you've spent on *one* club?",
-      "sub": "Be honest. Comments are a safe space.",
-      "tags": [
-        "driver",
-        "clubs"
-      ]
+     "bg": "assets/social/library/gaz-01-unbox.jpg",
+     "beats": 2,
+     "label": "Gaz",
+     "scene": "Gaz in the car park lifting a gleaming new driver out of its box, thrilled"
     },
     {
-      "big": "How many balls do you *lose* a round?",
-      "sub": "Under 3 is a lie, we've all been there",
-      "tags": [
-        "balls",
-        "lost",
-        "water"
-      ]
+     "bg": "assets/social/library/gaz-02-swing.jpg",
+     "label": "Gaz",
+     "scene": "Gaz's huge swing on the tee"
     },
     {
-      "big": "Which club would you *bin* first?",
-      "sub": "Tell us in the comments",
-      "tags": [
-        "clubs",
-        "bag"
-      ]
+     "cutaway": true,
+     "reaction": [
+      "kev",
+      "wince"
+     ],
+     "label": "Kev",
+     "scene": "Kev wincing, one eye shut"
     },
     {
-      "big": "Sunday medal or *Saturday* bounce game?",
-      "sub": "Pick a side",
-      "tags": [
-        "friends",
-        "course"
-      ]
-    },
-    {
-      "big": "Rangefinder or *GPS watch?*",
-      "sub": "Settle it in the comments",
-      "tags": [
-        "tech"
-      ]
-    },
-    {
-      "big": "Worst weather you've *still* played in?",
-      "sub": "Winners only",
-      "tags": [
-        "rain",
-        "weather",
-        "winter"
-      ]
+     "bg": "assets/social/library/gaz-03-trees.jpg",
+     "hide_top": true,
+     "label": "Gaz",
+     "scene": "Gaz shading his eyes, staring into the trees"
     }
-  ],
-  "carousels": [
+   ],
+   "lines": [
     {
-      "title": "5 things to check before you *buy a driver*",
-      "cover_sub": "Save this for your next upgrade",
-      "tags": [
-        "driver"
-      ],
-      "slides": [
-        [
-          "Get fitted first",
-          "Loft and shaft suit your swing more than the logo does. Many shops fit you free when you buy."
-        ],
-        [
-          "Last season's model",
-          "New drivers launch early in the year, and last season's tend to get cheaper once they do."
-        ],
-        [
-          "Check the price history",
-          "A sale price only means something if you know what it usually costs."
-        ],
-        [
-          "Compare more than one shop",
-          "The same driver can cost very different amounts at different UK retailers."
-        ]
-      ],
-      "close": [
-        "Save this for your *next upgrade*",
-        "Follow for golf banter, real deals and the odd useful tip."
-      ]
+     "who": "kev",
+     "text": "Must need a *new driver*, Gaz.",
+     "beats": 2,
+     "reaction": [
+      "kev",
+      "pointing"
+     ],
+     "label": "Kev",
+     "scene": "Kev pointing and laughing"
     },
     {
-      "title": "How to *stop losing* so many balls",
-      "cover_sub": "Your wallet will thank you",
-      "tags": [
-        "balls",
-        "lost"
-      ],
-      "slides": [
-        [
-          "Watch it all the way down",
-          "Pick a landmark where it lands before you look away."
-        ],
-        [
-          "Club down near trouble",
-          "Less club off the tee often means more balls in your bag at the end."
-        ],
-        [
-          "Play the right ball",
-          "A durable, softer two-piece ball suits most club golfers and costs less to lose."
-        ],
-        [
-          "Buy in bulk at the right time",
-          "Balls are cheaper by the dozen and often cheapest in winter sales."
-        ]
-      ],
-      "close": [
-        "Save this before your *next round*",
-        "Tag the mate who needs it most."
-      ]
+     "who": "him",
+     "text": "It's the *shaft*, mate.",
+     "beats": 2,
+     "pos": "bottom",
+     "bg": "assets/social/library/gaz-04-shaft.jpg",
+     "label": "Gaz",
+     "scene": "Gaz pointing at the club shaft, offended"
     },
     {
-      "title": "Winter golf: *what you actually need*",
-      "cover_sub": "Stay dry, keep swinging",
-      "tags": [
-        "winter",
-        "weather"
-      ],
-      "slides": [
-        [
-          "Waterproofs first",
-          "A proper waterproof jacket and trousers beat any number of jumpers."
-        ],
-        [
-          "Layers, not bulk",
-          "A thin base layer and a midlayer let you swing freely and stay warm."
-        ],
-        [
-          "Winter gloves",
-          "Rain gloves get grippier when wet. Keep a dry pair in the bag."
-        ],
-        [
-          "Mittens between shots",
-          "Warm hands make a real difference to feel on the greens."
-        ]
-      ],
-      "close": [
-        "Save this for the *next cold snap*",
-        "Follow for more ways to play more and pay less."
-      ]
+     "who": "kev",
+     "text": "Last year's model is *way cheaper* now, mind.",
+     "beats": 3,
+     "pos": "low",
+     "bg": "assets/social/library/gaz-05-together.jpg",
+     "label": "Kev and Gaz",
+     "scene": "Kev with an arm round a sulking Gaz, both grinning by the end"
     }
-  ],
-  "myths": [
+   ],
+   "cover": {
+    "ep": 2,
+    "hook": "Not another",
+    "names": [
+     "Gaz",
+     "Kev"
+    ],
+    "left": "assets/social/library/gaz-01-unbox.jpg",
+    "left_focus": [
+     0.3,
+     0.4
+    ],
+    "right": "assets/social/library/kev-05-pointing.jpg",
+    "right_focus": [
+     0.45,
+     0.4
+    ],
+    "punch": "Driver?!",
+    "tool": "fourball"
+   }
+  },
+  {
+   "title": "Big Dave's *receipts*",
+   "thumb": "The scorecard doesn't lie",
+   "caption": "Big Dave's receipts. Phil brought evidence.",
+   "counter": false,
+   "lines": [
     {
-      "title": "Myth: a new driver will *fix your slice*",
-      "cover_sub": "Myth or Mulligan?",
-      "tags": [
-        "driver"
-      ],
-      "slides": [
-        [
-          "MYTH",
-          "A new driver fixes a slice",
-          "The swing path causes a slice. A driver set up with more draw bias or loft can reduce it a bit, but it won't cure it."
-        ],
-        [
-          "TRUTH",
-          "Fitting helps more than a new head",
-          "A fitting matches loft, lie and shaft to your swing. A lesson or two helps most of all."
-        ],
-        [
-          "TIP",
-          "Last season's model is often enough",
-          "If you are buying, last season's version usually performs very close to the new one for less."
-        ]
-      ],
-      "close": [
-        "Myth or *Mulligan?*",
-        "Got a golf myth you want busted? Drop it in the comments."
-      ]
+     "who": "him",
+     "text": "Par. *Again*, lads.",
+     "beats": 2,
+     "pos": "bottom",
+     "bg": "assets/social/library/seq-dave-07-proud.jpg",
+     "focus": [
+      0.3,
+      0.42
+     ]
     },
     {
-      "title": "Myth: Black Friday is *always* cheapest",
-      "cover_sub": "Myth or Mulligan?",
-      "tags": [
-        "deals"
-      ],
-      "slides": [
-        [
-          "MYTH",
-          "Black Friday prices are always the lowest",
-          "Some are genuine lows. Some are the usual price with a new label."
-        ],
-        [
-          "TRUTH",
-          "Check the history",
-          "We check every price against what it cost in October, so the real deals stand out."
-        ],
-        [
-          "TIP",
-          "Set a price alert",
-          "If it isn't low enough yet, an alert tells you when it drops, whatever the date."
-        ]
-      ],
-      "close": [
-        "Myth or *Mulligan?*",
-        "Save this for next November."
-      ]
+     "who": "mate",
+     "text": "Live scorecard *says*...",
+     "beats": 2,
+     "bg": "assets/social/library/phil-03-phone.jpg",
+     "label": "Phil",
+     "scene": "Phil holding his phone up to the camera, screen facing us, deadpan",
+     "focus": [
+      0.55,
+      0.42
+     ]
     },
     {
-      "title": "Myth: expensive balls are *wasted* on you",
-      "cover_sub": "Myth or Mulligan?",
-      "tags": [
-        "balls"
-      ],
-      "slides": [
-        [
-          "MYTH",
-          "Premium balls are only for good players",
-          "Premium balls do give more spin around the greens for everyone."
-        ],
-        [
-          "TRUTH",
-          "It depends how many you lose",
-          "If you lose a few a round, a cheaper ball you can afford to lose may suit you better."
-        ],
-        [
-          "TIP",
-          "Find your middle ground",
-          "Mid-priced urethane balls are a good balance, and dozens are cheapest bought in bulk."
-        ]
-      ],
-      "close": [
-        "Myth or *Mulligan?*",
-        "Which ball do you play? Tell us below."
-      ]
+     "who": "mate",
+     "text": "Big Dave: *six.*",
+     "beats": 2,
+     "pos": "low",
+     "screen": "assets/social/outro/scorecard-dave6.jpg",
+     "bg": "assets/social/library/phil-03-phone.jpg",
+     "label": "The scorecard",
+     "scene": "Our live scorecard: Hole 1, par 4, Big Dave 6"
+    },
+    {
+     "who": "kev",
+     "text": "",
+     "beats": 1,
+     "reaction": [
+      "kev",
+      "stifled"
+     ],
+     "optional": true
+    },
+    {
+     "who": "him",
+     "text": "That app's *broken*.",
+     "beats": 2,
+     "pos": "bottom",
+     "bg": "assets/social/library/dave-03-broken.jpg",
+     "label": "Big Dave",
+     "scene": "Big Dave pointing at the phone, indignant",
+     "focus": [
+      0.4,
+      0.42
+     ]
+    },
+    {
+     "who": "mate",
+     "text": "It's *free*, Dave.",
+     "beats": 2,
+     "bg": "assets/social/library/seq-dave-08-mate.jpg"
     }
-  ],
-  "characters": [
-    {
-      "name": "Big Dave",
-      "id": "big-dave",
-      "role": "the lead",
-      "look": "Broad, cheerful fifty-something, ruddy cheeks, short greying hair, neat grey beard, navy quarter-zip, beige trousers, white cap, white golf shoes.",
-      "personality": "Society captain. Loud, optimistic, totally oblivious. Owns every gadget, has never once hit a fairway.",
-      "quirks": [
-        "generous with his own scorecard (six is a par if you squint)",
-        "blames the course, the wind, the ball, the greenkeeper",
-        "announces every drive as 'the one'",
-        "first to the bar, last to the tee"
-      ]
-    },
-    {
-      "name": "Phil",
-      "id": "phil",
-      "role": "the know-it-all",
-      "look": "Lean fifty-something, clean-shaven, tweed flat cap, olive quilted gilet over a white polo, wristwatch.",
-      "personality": "Dave's mate and the group's know-it-all. Deadpan, eyebrows doing half the talking, but he can't let anything go: he corrects everyone, quotes the rules, knows the stats, and has an unrequested tip for every swing. We all have that mate. He's usually right, which is the most annoying part.",
-      "quirks": [
-        "starts every other sentence with 'Actually...'",
-        "quotes the Rules of Golf (and the local rules) from memory",
-        "unrequested swing tips, mid-backswing",
-        "knows the price history of everyone's kit, and tells them",
-        "keeps the real score, and the receipts",
-        "arrives with the perfect prop (abacus, calculator, rule book, live scorecard)",
-        "arms folded = verdict delivered",
-        "very occasionally wrong, and the group never lets it go"
-      ]
-    },
-    {
-      "name": "Steady Steve",
-      "id": "steve",
-      "role": "the quiet winner",
-      "look": "Tall, thin, sixty-something, short white hair, beige windproof jacket, faded bucket hat, old leather carry bag.",
-      "personality": "Plays the same 20-year-old irons, never loses a ball, never buys anything. 180 yards, dead straight, every single time.",
-      "quirks": [
-        "tea from a thermos on the 10th",
-        "still uses a pencil from 2004",
-        "wins the society cup without anyone noticing",
-        "the receipts guy: knows what everything should cost"
-      ]
-    },
-    {
-      "name": "Gaz",
-      "id": "gaz",
-      "role": "the kit addict",
-      "look": "Thirty-something, fresh haircut, bright plain teal top, black cap with sunglasses perched on it, brand-new everything (no logos).",
-      "personality": "Buys a new driver every spring, blames the old one. Knows every launch date and none of his yardages.",
-      "quirks": [
-        "'it's the shaft, mate'",
-        "unboxes kit in the car park",
-        "has three rangefinders and still asks Phil",
-        "always 'just looking' at the pro shop"
-      ]
-    },
-    {
-      "name": "Kev",
-      "id": "kev",
-      "role": "the wind-up merchant",
-      "look": "Stocky forty-something, ginger stubble, cheeky grin, plain burgundy jumper, grey trousers, black bobble hat in winter (plain grey cap in summer).",
-      "personality": "Can't help himself. Cracks a one-liner after every bad shot, pulls faces, and is always in the background trying (and failing) not to laugh when someone duffs, thins or shanks one.",
-      "quirks": [
-        "shoulders shaking, hand over mouth, in the back of the shot",
-        "commentary voice: 'and it's... gone'",
-        "slow clap for a ball that finally gets airborne",
-        "his own shots are no better, and everyone remembers"
-      ],
-      "use": "Reaction shots of Kev (stifled laugh, hand over mouth, slow clap, wince, fake commentary mic) are reusable: cut one in after any duff, thin or misplaced shot in a sketch. Keep them in the library tagged kev plus the reaction."
-    }
-  ],
-  "bts": [
-    {
-      "big": "How we check a *real* deal",
-      "sub": "Every price, every 6 hours, against its own history"
-    }
-  ],
-  "sequences": [
-    {
-      "title": "Big Dave's *par*",
-      "thumb": "Only 4? Really?",
-      "caption": "Big Dave's par. Six shots, apparently four.",
-      "top": "Big Dave. *Par 4.*",
-      "shots": [
-        {
-          "bg": "assets/social/library/seq-dave-01-driver.jpg",
-          "label": "Driver",
-          "scene": "Big Dave on the tee, mid-swing, ball heading right"
-        },
-        {
-          "bg": "assets/social/library/seq-dave-02-rough.jpg",
-          "label": "3 wood",
-          "scene": "Hacking out of deep rough"
-        },
-        {
-          "bg": "assets/social/library/seq-dave-03-tree.jpg",
-          "label": "7 iron",
-          "scene": "Punching out from behind a tree"
-        },
-        {
-          "cutaway": true,
-          "optional": true,
-          "reaction": [
-            "kev",
-            "stifled"
-          ],
-          "label": "Kev",
-          "scene": "Kev in the background trying not to laugh"
-        },
-        {
-          "bg": "assets/social/library/seq-dave-04-bunker.jpg",
-          "label": "Wedge",
-          "scene": "Sand flying out of a greenside bunker"
-        },
-        {
-          "bg": "assets/social/library/seq-dave-05-putt.jpg",
-          "label": "Putter",
-          "scene": "A long putt sliding past, Dave wincing",
-          "hide_top": true
-        },
-        {
-          "bg": "assets/social/library/seq-dave-06-tapin.jpg",
-          "label": "Putter",
-          "scene": "Tapping in from six inches",
-          "hide_top": true
-        }
-      ],
-      "lines": [
-        {
-          "who": "him",
-          "text": "Lovely. *Another par.*",
-          "beats": 2,
-          "bg": "assets/social/library/seq-dave-07-proud.jpg",
-          "label": "Big Dave",
-          "scene": "Dave holding up four fingers, beaming",
-          "pos": "bottom",
-          "focus": [
-            0.3,
-            0.42
-          ]
-        },
-        {
-          "who": "mate",
-          "text": "*Four?* Really?",
-          "beats": 2,
-          "bg": "assets/social/library/seq-dave-08-mate.jpg",
-          "label": "His mate",
-          "scene": "Mate's deadpan face, one eyebrow raised"
-        },
-        {
-          "who": "mate",
-          "text": "Here. Borrow my *abacus.*",
-          "beats": 3,
-          "bg": "assets/social/library/seq-dave-09-abacus.jpg",
-          "label": "The abacus",
-          "scene": "Mate holding out a wooden abacus to Dave",
-          "focus": [
-            0.5,
-            0.42
-          ],
-          "pos": "low"
-        }
-      ],
-      "cover": {
-        "ep": 1,
-        "hook": "Six shots.",
-        "names": [
-          "Big Dave",
-          "Phil"
-        ],
-        "left_focus": [
-          0.35,
-          0.4
-        ],
-        "right_focus": [
-          0.45,
-          0.4
-        ],
-        "punch": "Par?!",
-        "tool": "scorecard"
-      }
-    },
-    {
-      "title": "Gaz's *new driver*",
-      "thumb": "Must need a new driver",
-      "caption": "Gaz's new driver. Kev has notes.",
-      "counter": false,
-      "top": "Gaz. *New driver.* Again.",
-      "shots": [
-        {
-          "bg": "assets/social/library/gaz-01-unbox.jpg",
-          "beats": 2,
-          "label": "Gaz",
-          "scene": "Gaz in the car park lifting a gleaming new driver out of its box, thrilled"
-        },
-        {
-          "bg": "assets/social/library/gaz-02-swing.jpg",
-          "label": "Gaz",
-          "scene": "Gaz's huge swing on the tee"
-        },
-        {
-          "cutaway": true,
-          "reaction": [
-            "kev",
-            "wince"
-          ],
-          "label": "Kev",
-          "scene": "Kev wincing, one eye shut"
-        },
-        {
-          "bg": "assets/social/library/gaz-03-trees.jpg",
-          "hide_top": true,
-          "label": "Gaz",
-          "scene": "Gaz shading his eyes, staring into the trees"
-        }
-      ],
-      "lines": [
-        {
-          "who": "kev",
-          "text": "Must need a *new driver*, Gaz.",
-          "beats": 2,
-          "reaction": [
-            "kev",
-            "pointing"
-          ],
-          "label": "Kev",
-          "scene": "Kev pointing and laughing"
-        },
-        {
-          "who": "him",
-          "text": "It's the *shaft*, mate.",
-          "beats": 2,
-          "pos": "bottom",
-          "bg": "assets/social/library/gaz-04-shaft.jpg",
-          "label": "Gaz",
-          "scene": "Gaz pointing at the club shaft, offended"
-        },
-        {
-          "who": "kev",
-          "text": "Last year's model is *way cheaper* now, mind.",
-          "beats": 3,
-          "pos": "low",
-          "bg": "assets/social/library/gaz-05-together.jpg",
-          "label": "Kev and Gaz",
-          "scene": "Kev with an arm round a sulking Gaz, both grinning by the end"
-        }
-      ],
-      "cover": {
-        "ep": 2,
-        "hook": "Not another",
-        "names": [
-          "Gaz",
-          "Kev"
-        ],
-        "left": "assets/social/library/gaz-01-unbox.jpg",
-        "left_focus": [
-          0.3,
-          0.4
-        ],
-        "right": "assets/social/library/kev-05-pointing.jpg",
-        "right_focus": [
-          0.45,
-          0.4
-        ],
-        "punch": "Driver?!",
-        "tool": "fourball"
-      }
-    },
-    {
-      "title": "Big Dave's *receipts*",
-      "thumb": "The scorecard doesn't lie",
-      "caption": "Big Dave's receipts. Phil brought evidence.",
-      "counter": false,
-      "lines": [
-        {
-          "who": "him",
-          "text": "Par. *Again*, lads.",
-          "beats": 2,
-          "pos": "bottom",
-          "bg": "assets/social/library/seq-dave-07-proud.jpg",
-          "focus": [
-            0.3,
-            0.42
-          ]
-        },
-        {
-          "who": "mate",
-          "text": "Live scorecard *says*...",
-          "beats": 2,
-          "bg": "assets/social/library/phil-03-phone.jpg",
-          "label": "Phil",
-          "scene": "Phil holding his phone up to the camera, screen facing us, deadpan",
-          "focus": [
-            0.55,
-            0.42
-          ]
-        },
-        {
-          "who": "mate",
-          "text": "Big Dave: *six.*",
-          "beats": 2,
-          "pos": "low",
-          "screen": "assets/social/outro/scorecard-dave6.jpg",
-          "bg": "assets/social/library/phil-03-phone.jpg",
-          "label": "The scorecard",
-          "scene": "Our live scorecard: Hole 1, par 4, Big Dave 6"
-        },
-        {
-          "who": "kev",
-          "text": "",
-          "beats": 1,
-          "reaction": [
-            "kev",
-            "stifled"
-          ],
-          "optional": true
-        },
-        {
-          "who": "him",
-          "text": "That app's *broken*.",
-          "beats": 2,
-          "pos": "bottom",
-          "bg": "assets/social/library/dave-03-broken.jpg",
-          "label": "Big Dave",
-          "scene": "Big Dave pointing at the phone, indignant",
-          "focus": [
-            0.4,
-            0.42
-          ]
-        },
-        {
-          "who": "mate",
-          "text": "It's *free*, Dave.",
-          "beats": 2,
-          "bg": "assets/social/library/seq-dave-08-mate.jpg"
-        }
-      ],
-      "cover": {
-        "ep": 3,
-        "hook": "Phil's got",
-        "punch": "Receipts?!",
-        "names": [
-          "Big Dave",
-          "Phil"
-        ],
-        "left": "assets/social/library/seq-dave-07-proud.jpg",
-        "left_focus": [
-          0.3,
-          0.4
-        ],
-        "right": "assets/social/library/phil-03-phone.jpg",
-        "right_focus": [
-          0.5,
-          0.4
-        ],
-        "tool": "scorecard",
-        "outro_line": "The scorecard *doesn't lie*."
-      }
-    }
-  ],
-  "charactersAbout": "Recurring, obviously fictional characters (AI-generated photos, never based on real people). Keep looks identical in every photo; build running gags across episodes; never mean-spirited: everyone gets a win sometimes. Kev's ribbing is always friendly, and he gets his comeuppance too.",
-  "runningGags": [
-    {
-      "between": [
-        "kev",
-        "gaz"
-      ],
-      "about": "Kev knows Gaz is a kit addict. Friendly banter only, never bullying: Gaz gives as good as he gets, and sometimes the new kit actually works.",
-      "kev": [
-        "Must need a new driver, Gaz.",
-        "Is that this week's putter?",
-        "Did it come with a lesson?",
-        "Car park unboxing again?",
-        "Bet it goes further in the box."
-      ],
-      "gaz": [
-        "It's the shaft, mate.",
-        "Says the man with a 2009 rangefinder.",
-        "Laugh all you like, it's last season's, I paid less.",
-        "At least mine went in the air, Kev."
-      ]
-    },
-    {
-      "between": [
-        "phil",
-        "everyone"
-      ],
-      "about": "Phil, the know-it-all, can't help correcting people. Likeable, not smug for the sake of it: he's usually right, and the joke is that he can't let it go. Now and then he's wrong, and Kev makes sure everyone hears about it.",
-      "phil": [
-        "Actually, that's a drop, not a free drop.",
-        "Technically, that's a six.",
-        "You're coming over the top. Just saying.",
-        "That driver was cheaper in October.",
-        "Rule 18.2, Dave."
-      ],
-      "others": [
-        "Kev: 'Here we go...'",
-        "Dave: 'Nobody asked, Phil.'",
-        "Gaz: 'Did you read that off the back of a scorecard?'",
-        "Steve: (says nothing, hits it straight)"
-      ]
-    }
-  ]
+   ],
+   "cover": {
+    "ep": 3,
+    "hook": "Phil's got",
+    "punch": "Receipts?!",
+    "names": [
+     "Big Dave",
+     "Phil"
+    ],
+    "left": "assets/social/library/seq-dave-07-proud.jpg",
+    "left_focus": [
+     0.3,
+     0.4
+    ],
+    "right": "assets/social/library/phil-03-phone.jpg",
+    "right_focus": [
+     0.5,
+     0.4
+    ],
+    "tool": "scorecard",
+    "outro_line": "The scorecard *doesn't lie*."
+   }
+  }
+ ],
+ "charactersAbout": "Recurring, obviously fictional characters (AI-generated photos, never based on real people). Keep looks identical in every photo; build running gags across episodes; never mean-spirited: everyone gets a win sometimes. Kev's ribbing is always friendly, and he gets his comeuppance too.",
+ "runningGags": [
+  {
+   "between": [
+    "kev",
+    "gaz"
+   ],
+   "about": "Kev knows Gaz is a kit addict. Friendly banter only, never bullying: Gaz gives as good as he gets, and sometimes the new kit actually works.",
+   "kev": [
+    "Must need a new driver, Gaz.",
+    "Is that this week's putter?",
+    "Did it come with a lesson?",
+    "Car park unboxing again?",
+    "Bet it goes further in the box."
+   ],
+   "gaz": [
+    "It's the shaft, mate.",
+    "Says the man with a 2009 rangefinder.",
+    "Laugh all you like, it's last season's, I paid less.",
+    "At least mine went in the air, Kev."
+   ]
+  },
+  {
+   "between": [
+    "phil",
+    "everyone"
+   ],
+   "about": "Phil, the know-it-all, can't help correcting people. Likeable, not smug for the sake of it: he's usually right, and the joke is that he can't let it go. Now and then he's wrong, and Kev makes sure everyone hears about it.",
+   "phil": [
+    "Actually, that's a drop, not a free drop.",
+    "Technically, that's a six.",
+    "You're coming over the top. Just saying.",
+    "That driver was cheaper in October.",
+    "Rule 18.2, Dave."
+   ],
+   "others": [
+    "Kev: 'Here we go...'",
+    "Dave: 'Nobody asked, Phil.'",
+    "Gaz: 'Did you read that off the back of a scorecard?'",
+    "Steve: (says nothing, hits it straight)"
+   ]
+  }
+ ]
 }

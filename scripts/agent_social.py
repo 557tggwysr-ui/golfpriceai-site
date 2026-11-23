@@ -156,20 +156,53 @@ def theme_question(d, L, rnd):
 def _carousel_theme(item, kind, L, rnd, series=None):
     photo = pick_photo(item.get("tags"), L, rnd, "B")
     slides = [{"title": item["title"], "body": item.get("cover_sub", "")}]
+    used = set()
     for s in item["slides"]:
         if kind == "myth":
             slides.append({"kicker": s[0], "title": s[1], "body": s[2]})
         else:
-            slides.append({"title": s[0], "body": s[1]})
+            sl = {"title": s[0], "body": s[1]}
+            q = s[2].get("product") if len(s) > 2 and isinstance(s[2], dict) else None
+            pr = slide_product(q, used) if q else None
+            if pr:
+                sl["product"] = pr
+                used.add(pr["brand"])
+            slides.append(sl)
     slides.append({"title": item["close"][0], "body": item["close"][1]})
     mark_used(L, item["title"])
     t = strip_marks(item["title"])
     fmt = "myth" if kind == "myth" else "carousel"
-    return {"theme": "Myth or Mulligan" if kind == "myth" else "Tips carousel", "format": fmt, "link": SITE + "/", "image": None, "name": "",
+    return {"theme": "Myth or Mulligan" if kind == "myth" else "Tips carousel", "format": fmt, "link": SITE + item.get("link", "/"), "image": None, "name": "",
             "headline": t, "sub": item.get("cover_sub", ""),
-            "styles": {"carousel": {"bg": photo, "slides": slides, "series": series, "hook": t, "thumb": t}},
-            "ig": f"{t} ⛳ Swipe through, and save it for later.", "x": f"{t} ⛳", "tt": f"{t} ⛳",
+            "styles": {"carousel": {"bg": photo, "slides": slides, "series": series, "hook": t, "thumb": t, "warmth": bool(item.get("warmth"))}},
+            "hasPrices": any(sl.get("product") for sl in slides),
+            "ig": f"{t} ⛳ Swipe through, and save it for later." + (" The kit on each slide is at today's lowest price across multiple UK retailers. Link in bio." if any(sl.get("product") for sl in slides) else ""),
+            "x": f"{t} ⛳", "tt": f"{t} ⛳",
             "keywords": "golf tips, golf advice, golf equipment"}
+
+
+def slide_product(query, used=()):
+    """A real product for a tips slide: in stock, new, with a photo, men's or unisex first, a well-known name
+    stocked by several retailers, priced in the middle of the range (not the cheapest, not the dearest).
+    Returns {"name", "price", "image", "brand"} with today's lowest price, or None."""
+    import json as _j
+    from agent_common import ROOT as _R
+    try:
+        P = _j.loads((_R / "data" / "products.json").read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    P = P["products"] if isinstance(P, dict) else P
+    rx = re.compile(r"\b" + r"\w*\s+".join(map(re.escape, query.split())), re.I)
+    hits = [p for p in P if rx.search(p.get("name", "")) and p.get("image") and p.get("inStock") and not p.get("condition")
+            and p.get("salePrice") and not re.search(r"junior|kids|ladies|women|half sleeve|short sleeve|sleeveless|vest", p["name"], re.I) and p.get("brand") not in used]
+    if not hits:
+        return None
+    hits.sort(key=lambda p: (-(p.get("retailerCount") or 1), float(p["salePrice"])))
+    top = sorted(hits[:12], key=lambda p: float(p["salePrice"]))
+    p = top[len(top) // 2]
+    name = re.sub(r"\s+-\s+[^-]*$", "", p["name"]).strip()  # drop the colour or size tail
+    n = float(p["salePrice"])
+    return {"name": name, "price": f"£{n:,.2f}" if n % 1 else f"£{n:,.0f}", "image": p["image"], "brand": p.get("brand") or name.split()[0]}
 
 
 def theme_tips(d, L, rnd):

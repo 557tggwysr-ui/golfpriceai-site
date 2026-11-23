@@ -557,11 +557,12 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
              "series": sc.get("series") or theme.get("series"), "ep": theme.get("ep")}
     if style == "carousel":  # a swipeable carousel: slides only, no video
         import agent_brush as BR
-        paths, quality = BR.carousel(CARDS, pid, sc["slides"], bg=sc.get("bg"), series=sc.get("series"))
+        slides = [dict(sl, img=fetch_image(sl["product"]["image"])) if sl.get("product") else sl for sl in sc["slides"]]
+        paths, quality = BR.carousel(CARDS, pid, slides, bg=sc.get("bg"), series=sc.get("series"), warmth=sc.get("warmth"))
         monday = day - timedelta(days=day.weekday())
         return edited({"id": pid, "date": str(day), "theme": theme["theme"], "style": "carousel", "palette": "brand", "hook": sc["hook"],
                        "trend": None, "card": f"/social/cards/{pid}-s1.jpg", "thumb": f"/social/cards/{pid}-s1.jpg",
-                       "slides": [f"/social/cards/{p.name}" for p in paths], "video": None, "link": theme["link"],
+                       "slides": [f"/social/cards/{p.name}" for p in paths], "video": None, "link": theme["link"], "hasPrices": bool(theme.get("hasPrices")),
                        "headline": theme["headline"], "sub": theme["sub"], "captions": captions(theme, None, social), "sound": None,
                        "trendingFormats": [], "posted": {}, "quality": quality, **extra})
     if style == "prebuilt":  # a finished film made by Claude (e.g. a launch video): used as made, with its own cover
@@ -635,7 +636,7 @@ def ad_label(post):
     c = post.get("captions") or {}
     text = " ".join([str(post.get(k) or "") for k in ("hook", "headline", "sub")] +
                     [v if isinstance(v, str) else " ".join(map(str, v.values())) for v in c.values()])
-    if not (PRICE_RX.search(text) or re.search(r"/prices/[a-z0-9-]+/?$", str(post.get("link") or ""))):
+    if not (post.get("hasPrices") or PRICE_RX.search(text) or re.search(r"/prices/[a-z0-9-]+/?$", str(post.get("link") or ""))):
         return post
     post["ad"] = True
     for k in ("instagram", "tiktok", "x", "bluesky"):
@@ -1383,6 +1384,21 @@ def remake_guess():
                 elif isinstance(v, dict):
                     p["captions"][k] = {kk: vv.replace(old.group(1), new) if isinstance(vv, str) else vv for kk, vv in v.items()}
         print("remade:", p["id"], m["name"], money(price), "guess", money(line))
+    # tips carousels: rebuilt from the bank, so they pick up products on the slides and the warming colours
+    for p in plan["posts"]:
+        if p.get("style") != "carousel" or p.get("theme") != "Tips carousel" or p.get("posted", {}).get("instagram") or p["date"] < str(now().date()):
+            continue
+        item = next((c for c in S.bank().get("carousels", []) if S.strip_marks(c["title"]) == p.get("headline")), None)
+        if not item or not (item.get("warmth") or any(len(sl) > 2 for sl in item.get("slides", []))):
+            continue
+        theme = S._carousel_theme(item, "tips", {"linesUsed": {}, "photosUsed": []}, random.Random(p["id"]))
+        sc = theme["styles"]["carousel"]
+        new = build_post(date.fromisoformat(p["date"]), theme, "carousel", sc, "brand", p["id"], None, load_social())
+        for k in ("slides", "card", "thumb", "captions", "hasPrices", "ad", "editor", "quality", "link", "sub"):
+            if k in new:
+                p[k] = new[k]
+        p["times"] = suggest_times(p)
+        print("remade carousel:", p["id"], [sl.get("product", {}).get("name") for sl in sc["slides"] if sl.get("product")])
     save_plan(plan)
     write_pack(plan)
 
