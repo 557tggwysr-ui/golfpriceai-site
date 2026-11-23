@@ -35,6 +35,7 @@ import json
 import os
 import random
 import re
+import subprocess
 import sys
 from datetime import date, timedelta
 from html import unescape
@@ -1064,6 +1065,50 @@ button{{background:#14211a;color:#fff;border:0;border-radius:8px;padding:6px 14p
     PACK.write_text(html, encoding="utf-8")
 
 
+def _has_audio(path):
+    r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a", "-show_entries", "stream=codec_type", "-of", "csv=p=0", str(path)],
+                       capture_output=True, text=True)
+    return "audio" in (r.stdout or "")
+
+
+def _episode_script(ep, dur):
+    """The episode's script again, for placing its sound effects; picks the version (with or without the
+    optional cutaway) whose length matches the video that was made."""
+    import agent_brush as BR
+    q = next((x for x in S.bank().get("sequences", []) if (x.get("cover") or {}).get("ep") == ep), None)
+    if not q:
+        return {}
+    full = dict(q, outro=True)
+    trimmed = dict(full, shots=[sh for sh in q.get("shots", []) if not sh.get("optional")])
+    return min((full, trimmed), key=lambda s: abs(BR.seq_duration(s) - dur))
+
+
+def add_sound_to_week():
+    """Videos already in this week's pack that were made silent get the soundtrack (scripts/agent_audio.py).
+    Only posts not yet posted; the workflow re-uploads them to the week's release afterwards."""
+    plan = load_plan()
+    today = now().date()
+    VIDEOS.mkdir(parents=True, exist_ok=True)
+    for p in plan["posts"]:
+        if not p.get("video") or p.get("style") in ("carousel", "prebuilt") or p.get("posted", {}).get("instagram"):
+            continue
+        if date.fromisoformat(p["date"]) < today:
+            continue
+        d = date.fromisoformat(p["date"]); monday = d - timedelta(days=d.weekday())
+        path = VIDEOS / f"{p['id']}.mp4"
+        r = subprocess.run(["gh", "release", "download", f"pack-{monday}", "-R", REPO, "-p", path.name, "-D", str(VIDEOS), "--clobber"],
+                           capture_output=True, text=True)
+        if r.returncode or not path.exists():
+            print("couldn't fetch", path.name, (r.stderr or "")[:200]); continue
+        if _has_audio(path):
+            print("already has sound:", path.name); path.unlink(); continue
+        dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
+                                   capture_output=True, text=True).stdout or 0)
+        script = _episode_script(p.get("ep"), dur) if p.get("style") == "sequence" else {}
+        V.add_sound(p.get("style"), script, dur, path)
+        print("sound added:", path.name, "(" + ("ok" if _has_audio(path) else "still silent") + ")")
+
+
 if __name__ == "__main__":
     mode = (sys.argv[1] if len(sys.argv) > 1 else "plan").lower()
-    {"plan": plan_week, "moment": moment, "post": post_today}[mode]()
+    {"plan": plan_week, "moment": moment, "post": post_today, "sound": add_sound_to_week}[mode]()

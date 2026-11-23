@@ -424,7 +424,25 @@ def render(style, script, palette, out_path, img=None, photo=None, imgs=None):
     finally:
         proc.stdin.close()
         proc.wait(timeout=180)
+    add_sound(style, script, dur, out_path)
     return still
+
+
+def add_sound(style, script, dur, out_path):
+    """Lay the soundtrack (scripts/agent_audio.py: original beat and golf sound effects) under the video."""
+    try:
+        import agent_audio
+        wav = out_path.with_suffix(".wav")
+        if not agent_audio.soundtrack(style, script, dur, wav):
+            return
+        tmp = out_path.with_name(out_path.stem + ".snd.mp4")
+        r = subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(out_path), "-i", str(wav), "-map", "0:v", "-map", "1:a",
+                            "-c:v", "copy", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11", "-ar", "44100", "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", str(tmp)], timeout=120)
+        if r.returncode == 0 and tmp.exists():
+            tmp.replace(out_path)
+        wav.unlink(missing_ok=True)
+    except Exception as e:  # a silent video is better than no video
+        print("soundtrack skipped:", e)
 
 
 def _edge_busy(im, y):
