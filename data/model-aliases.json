@@ -4,6 +4,22 @@
     [
       "\\bchase dry 14\\b",
       "chase 14 dry waterproof"
+    ],
+    [
+      "\\b2023\\s+(?=kushin\\b)|(?<=\\bkushin)\\s+2023\\b",
+      ""
+    ],
+    [
+      "\\b2023\\s+(?=mundy\\b)|(?<=\\bmundy)\\s+2023\\b",
+      ""
+    ],
+    [
+      "\\b2023\\s+(?=shea\\b)|(?<=\\bshea)\\s+2023\\b",
+      ""
+    ],
+    [
+      "\\b2023\\s+(?=tomcat\\b)|(?<=\\btomcat)\\s+2023\\b",
+      ""
     ]
   ],
   "names": {
