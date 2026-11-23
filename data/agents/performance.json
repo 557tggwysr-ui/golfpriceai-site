@@ -1,0 +1,38 @@
+{
+ "generated": "2026-11-23T13:25Z",
+ "about": "Performance analyst: pages that could work harder for golfers, ideas only. Never changes prices or their order.",
+ "window": "last 28 days",
+ "ideas": [],
+ "counts": {
+  "few buy clicks": 0,
+  "clicks, no sales": 0,
+  "seen, not visited": 0
+ },
+ "tracking": "on",
+ "gamesBySales": [],
+ "aiAppsByVisits": [],
+ "screensByVisits": [
+  {
+   "shape": "desktop",
+   "share": 66.7
+  },
+  {
+   "shape": "phone",
+   "share": 33.3
+  }
+ ],
+ "ideasMeasured": [],
+ "topPages": [
+  "/prices/garmin-approach-s70-gps-watch/",
+  "/prices/titleist-pro-v1-golf-balls/",
+  "/prices/callaway-online-exclusive-mavrik-17-piece-package-set/",
+  "/prices/callaway-elyte-x-driver/",
+  "/prices/cobra-darkspeed-ls-driver/",
+  "/prices/titleist-players-s4-stand-bag-golf-bag/",
+  "/prices/titleist-t350-irons/",
+  "/prices/taylormade-tp5-golf-balls/",
+  "/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/",
+  "/prices/bridgestone-percept-golf-balls/"
+ ],
+ "suddenDrop": false
+}

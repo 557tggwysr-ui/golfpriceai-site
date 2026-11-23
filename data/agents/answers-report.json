@@ -1,0 +1,25 @@
+{
+ "generated": "2026-11-23T13:24Z",
+ "about": "AI-answer optimiser: structured data matches live prices, llms.txt links work, live facts are fresh.",
+ "pricePagesChecked": 1431,
+ "staleMarkup": 0,
+ "staleExamples": [],
+ "missingMarkup": 0,
+ "missingExamples": [],
+ "llmsLinks": 104,
+ "llmsDeadLinks": [],
+ "llmsRefreshProposed": true,
+ "status": "ok",
+ "llmHealth": {
+  "blocked": [],
+  "liveFetch": [],
+  "noJsProblems": [],
+  "llmsTxt": {
+   "exists": true,
+   "kb": 28.7,
+   "liveBlockUpdated": "23 November 2026"
+  },
+  "indexNow": "ok",
+  "status": "ok"
+ }
+}

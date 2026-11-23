@@ -1,0 +1,191 @@
+{
+ "generated": "2026-11-23T13:24Z",
+ "about": "Coverage hunter: how many price pages compare 2+ retailers, merges proposed, and the pages that most need another retailer.",
+ "models": 3346,
+ "multiRetailerPct": 23.2,
+ "clubs": 2137,
+ "clubsMultiRetailerPct": 20.7,
+ "change": null,
+ "mergesProposed": 4,
+ "merges": [
+  {
+   "from": "Ping 2023 Kushin 4 Golf Putter",
+   "into": "PING Kushin 4 Golf Putter"
+  },
+  {
+   "from": "Ping 2023 Mundy Golf Putter",
+   "into": "PING Mundy Golf Putter"
+  },
+  {
+   "from": "Ping 2023 Shea Golf Putter",
+   "into": "PING Shea Golf Putter"
+  },
+  {
+   "from": "Ping 2023 Tomcat 14 Golf Putter",
+   "into": "PING Tomcat 14 Golf Putter"
+  }
+ ],
+ "mostNeeded": [
+  {
+   "page": "/prices/callaway-elyte-s-bundle-set-driver/",
+   "name": "Callaway Elyte s Bundle Set Driver"
+  },
+  {
+   "page": "/prices/callaway-quantum-max-clubset-driver/",
+   "name": "Callaway Quantum Max Clubset Driver"
+  },
+  {
+   "page": "/prices/callaway-quantum-max-fast-driver/",
+   "name": "Callaway Quantum Max Fast Driver"
+  },
+  {
+   "page": "/prices/callaway-quantum-max-s-bundle-set-driver/",
+   "name": "Callaway Quantum Max s Bundle Set Driver"
+  },
+  {
+   "page": "/prices/callaway-s-quantum-max-fast-driver/",
+   "name": "Callaway s Quantum Max Fast Driver"
+  },
+  {
+   "page": "/prices/ping-g-le4-full-set-driver/",
+   "name": "Ping G Le4 Full Set Driver"
+  },
+  {
+   "page": "/prices/ping-g430-max-full-set-driver/",
+   "name": "Ping G430 Max Full Set Driver"
+  },
+  {
+   "page": "/prices/ping-g430-max-set-driver/",
+   "name": "Ping G430 Max Set Driver"
+  },
+  {
+   "page": "/prices/ping-g430-max-s-bundle-set-driver/",
+   "name": "Ping G430 Max s Bundle Set Driver"
+  },
+  {
+   "page": "/prices/ping-g440-max-s-bundle-set-driver/",
+   "name": "Ping G440 Max s Bundle Set Driver"
+  },
+  {
+   "page": "/prices/taylormade-qi4d-max-clubset-driver/",
+   "name": "TaylorMade Qi4D Max Clubset Driver"
+  },
+  {
+   "page": "/prices/taylormade-qi4d-max-s-bundle-set-driver/",
+   "name": "TaylorMade Qi4D Max s Bundle Set Driver"
+  },
+  {
+   "page": "/prices/titleist-gt-t-series-s-full-set-driver/",
+   "name": "Titleist GT T-Series s Full Set Driver"
+  },
+  {
+   "page": "/prices/titleist-gts-2-driver/",
+   "name": "Titleist GTS 2 Driver"
+  },
+  {
+   "page": "/prices/titleist-gts-2-premium-driver/",
+   "name": "Titleist GTS 2 Premium Driver"
+  },
+  {
+   "page": "/prices/titleist-gts-3-driver/",
+   "name": "Titleist GTS 3 Driver"
+  },
+  {
+   "page": "/prices/titleist-gts-3-premium-driver/",
+   "name": "Titleist GTS 3 Premium Driver"
+  },
+  {
+   "page": "/prices/titleist-gts-4-driver/",
+   "name": "Titleist GTS 4 Driver"
+  },
+  {
+   "page": "/prices/titleist-gts-4-premium-driver/",
+   "name": "Titleist GTS 4 Premium Driver"
+  },
+  {
+   "page": "/prices/titleist-gts3-premium-driver/",
+   "name": "Titleist GTS3 Premium Driver"
+  },
+  {
+   "page": "/prices/callaway-apex-ai200-brushed-copper-irons/",
+   "name": "Callaway APEX Ai200 Brushed Copper Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-24-mb-irons/",
+   "name": "Callaway Apex 24 MB Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-ai-200-irons/",
+   "name": "Callaway Apex Ai 200 Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-ai-300-irons/",
+   "name": "Callaway Apex Ai 300 Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-ai150-irons/",
+   "name": "Callaway Apex Ai150 Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-ai200-shadow-irons/",
+   "name": "Callaway Apex Ai200 Shadow Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-ai300-shadow-irons/",
+   "name": "Callaway Apex Ai300 Shadow Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-cb-irons/",
+   "name": "Callaway Apex CB Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-fusion-250-chrome-plated-irons/",
+   "name": "Callaway Apex Fusion 250 Chrome Plated Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-fusion-chrome-plated-irons/",
+   "name": "Callaway Apex Fusion Chrome Plated Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-fusion-irons/",
+   "name": "Callaway Apex Fusion Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-mb-24-irons/",
+   "name": "Callaway Apex MB 24 Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-pro-24-irons/",
+   "name": "Callaway Apex Pro 24 Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-tcb-irons/",
+   "name": "Callaway Apex TCB Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-ti-fusion-250-chrome-irons/",
+   "name": "Callaway Apex Ti Fusion 250 Chrome Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-ti-fusion-250-irons/",
+   "name": "Callaway Apex Ti Fusion 250 Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-ti-fusion-chrome-plated-irons/",
+   "name": "Callaway Apex Ti Fusion Chrome Plated Irons"
+  },
+  {
+   "page": "/prices/callaway-apex-ti-fusion-250-plated-irons/",
+   "name": "Callaway Apex Ti-Fusion 250 Plated Irons"
+  },
+  {
+   "page": "/prices/callaway-great-big-bertha-irons/",
+   "name": "Callaway Great Big Bertha Irons"
+  },
+  {
+   "page": "/prices/callaway-paradym-ai-smoke-hl-irons/",
+   "name": "Callaway Paradym Ai Smoke HL Irons"
+  }
+ ],
+ "status": "attention"
+}

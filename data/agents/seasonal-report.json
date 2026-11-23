@@ -1,0 +1,33 @@
+{
+ "generated": "2026-11-23T13:24Z",
+ "about": "Seasonal planner: occasion pages built 8 weeks ahead and refreshed weekly in season.",
+ "built": [
+  "prices/occasions/new-golf-season/",
+  "prices/occasions/fathers-day-golf-gifts/",
+  "prices/occasions/summer-golf-kit/",
+  "prices/occasions/winter-golf-essentials/",
+  "prices/occasions/new-club-launch-season/"
+ ],
+ "upcoming": [
+  {
+   "occasion": "New golf season",
+   "date": "2027-03-21"
+  },
+  {
+   "occasion": "Father's Day golf gifts",
+   "date": "2027-06-20"
+  },
+  {
+   "occasion": "Summer golf kit",
+   "date": "2027-06-01"
+  },
+  {
+   "occasion": "Winter golf essentials",
+   "date": "2027-11-01"
+  },
+  {
+   "occasion": "New club launch season",
+   "date": "2027-01-20"
+  }
+ ]
+}
