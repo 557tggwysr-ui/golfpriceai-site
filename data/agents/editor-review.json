@@ -1,20 +1,20 @@
 {
- "generated": "2026-11-23T15:48Z",
+ "generated": "2026-11-23T18:17Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
  "verdict": "ok",
- "summary": "No Never-list breaches in the captions, but 2026-11-24-tue falls short of the premium visual standard and 2026-12-03-thu duplicates 2026-11-26-thu; I could only see images for the first post.",
+ "summary": "No Never-list breaches in the captions, but the Wild Nine post (2026-11-24-tue) falls short of the premium visual standard and is held; only that post's images were supplied, so the other 10 were reviewed on text only.",
  "points": [
-  "2026-11-24-tue (card): the 'FREE · NO SIGN-UP' banner overlaps the in-game hole label and GolfPrice AI badge, so 'GolfPric…' and 'AI' are clipped. Fix: move or shrink the banner, or crop the screenshot above the label and badge.",
-  "2026-11-24-tue (thumbnail): the raw game screenshot is soft and upscaled. Game UI fragments are cut off at the edges ('Island Green', 'Tee', '11 mph', 'hape') and the in-game text ('Drag back from anywhere', 'Full Swing. Not full price.') is tiny and clutters it. Fix: use a sharp, tightly cropped course view with no menu chrome. Keep the 2-4 big words in the middle 4:5 and make the headline match the video's hook.",
-  "2026-11-24-tue (card/thumbnail): the thumbnail is a 9:16 crop of the same screenshot as the card. Use a different composition so the two do not look identical.",
-  "2026-11-24-tue (video): I could not view the three video frames. The folder held only the mp4, and there is no ffmpeg here and I couldn't install a decoder. Someone needs to check pace, the hook in the first second and the frames by eye before this goes out.",
-  "2026-12-03-thu: same product, price, hook and caption as 2026-11-26-thu, so two posts in the week are nearly identical. Fix: swap in a different product or angle, or drop one.",
-  "2026-11-26-thu / 2026-12-03-thu: 'Good time to buy' leans towards pushing a purchase. The TikTok and YouTube lines say 'lowest price we've ever tracked' while the other captions say 'in 81 days'. Fix: use the 81-day wording everywhere and drop 'Good time to buy'.",
-  "2026-11-24-tue: '1 in 10,000' hole-in-one odds must come from the game's own data (please confirm). The Instagram caption has two hashtag blocks, and '#golfdeals #golfgear' don't fit a game post. Fix: keep one block.",
-  "2026-11-25-wed / 2026-12-02-wed: YouTube titles repeat 'The Fourball:' and are cut off at '#go'. Pinterest titles end in a stray colon ('Big Dave's par: '). Fix: dedupe, shorten and strip the trailing colon.",
-  "2026-11-25-wed, 2026-11-27-fri, 2026-11-29-sun, 2026-12-04-fri, 2026-12-06-sun: '#golfdeals #golfgear' on posts with no deal. 2026-11-27-fri and 2026-12-04-fri have the doubled phrasing 'Settle it in the comments Answers in the comments'. Fix: tidy.",
-  "Posts other than 2026-11-24-tue: no card, thumbnail or frames were provided, so only the text was reviewed and their visuals are unchecked."
+  "2026-11-24-tue (thumbnail): raw game screenshot with UI cut off at the edges ('Island Green', 'Tee', '11 mph', 'hape' half-visible) and a stray in-game tag ('Full Swing. Not full price.') sitting right above the title. Fix: crop tightly to the course art or rebuild on a clean background so nothing is clipped, and make the thumbnail 2-4 big words with nothing important outside the middle 4:5.",
+  "2026-11-24-tue (thumbnail and card): the in-game 'GolfPrice AI' badge is cut off and covered by the 'FREE · NO SIGN-UP' banner ('GolfPric', 'GolfPrice Al'), and the 'Par 3 / Davy Jones' panel is half hidden. Fix: crop these out of the screenshot or move the banner so no text overlaps another element.",
+  "2026-11-24-tue (card and thumbnail): the course art is a low-resolution screenshot scaled up, so it looks soft and blocky next to a big golf brand's posts. Fix: use a native-resolution capture or a clean redrawn course graphic at the full 1080 size.",
+  "2026-11-24-tue (card): the 'WILD NINE' title is jammed against the top edge and sits on top of the lake and green, and the bottom banner is crowded by the game UI. Fix: add clear margin and place the title on a calm area.",
+  "2026-11-24-tue (video): no video tooling in the review environment, so the three video frames could not be extracted or viewed. The thumbnail and card use the same screenshot, so fix them and check the video frames for the same clipped UI.",
+  "2026-11-24-tue (caption): '1 in 10,000' hole-in-one odds must come from the game's own data; confirm before it goes out. Colours are a consistent green and yellow, which is fine.",
+  "2026-11-25-wed and 2026-12-02-wed: x and bluesky captions end '⛳ Https://...' with a capital H. Fix: lower-case 'https' or drop the capital.",
+  "2026-12-05-sat: the hook 'You've got 3 seconds' is a game timer and not shopping urgency, so it is not blocked. Check that it does not read as a countdown.",
+  "2026-11-26-thu: '£450 under the highest price we've tracked' and '81 days' must match the price history. 'Good time to buy' is a little pushy; consider 'Lowest price we've tracked'.",
+  "2026-11-26-thu, 2026-11-28-sat, 2026-11-30-mon, 2026-12-01-tue, 2026-12-05-sat: card, thumbnail and frames were not supplied, so the visual standard is unverified for these. No retailers are named, '#Ad' leads every product caption, and UK spelling and £ formatting are correct."
  ],
  "what": "Agent: content engine",
- "postsHash": "135b852346018979fa8796ef4bad87ac7b4072ec"
+ "postsHash": "0ae9af4dc121ca9bc87d3a936df5bbd0c5248395"
 }
