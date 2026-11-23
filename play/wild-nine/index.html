@@ -2246,7 +2246,7 @@ window.WN_QUIPS = {
       <div class="strap">Full Swing. Not full price.</div>
       <div class="today"><span>${E.makeCourse(ymd).major ? 'Sunday Major' : "Today's course"} · #${dayNo}</span><b>${esc(todayName)}</b>${st ? `<i>${st}-day streak</i>` : ''}</div>
       <p class="lede">A new nine every day, the same for everyone. Beat par to unlock Hole 10.</p>
-      ${played ? `<div class="done">Today's card: <b>${played.tot} (${fmtPar(played.tp)})</b>${played.tenth ? ` · Hole 10: ${esc(played.tenth)}` : ''}. New course tomorrow.</div>` : ''}
+      ${played ? `<div class="done">Today's card: <b>${played.tot} (${fmtPar(played.tp)})</b>${played.tenth ? ` · Hole 10: ${esc(played.tenth)}` : ''}. New course tomorrow.</div>${endNav()}` : ''}
       <button class="mode hero" data-m="solo" ${played ? 'data-practice="1"' : ''}><b>${played ? 'Practice round' : "Play today's nine"}</b><span>${played ? 'Your card is in. Have another go for fun.' : "Same course for everyone. Post your card."}</span></button>
       <div class="sect2">Play with a mate <small>2 players, pass the phone</small></div>
       <div class="modes3">${['match', 'scramble', 'alt'].map(k => `<button class="mode mini" data-m="${k}">${ICON[k]}<b>${MODES[k].name.replace('Alternate', 'Alt')}</b><span>${{ match: 'Head to head', scramble: 'Best ball, team', alt: 'One ball, take turns' }[k]}</span></button>`).join('')}</div>
@@ -2726,9 +2726,7 @@ window.WN_QUIPS = {
       <button class="ghost" id="copy">Copy the text version</button>
       ${S.players.map(bagPanel).join('')}
       ${promoStrip()}
-      <div class="endnav"><b>Where next?</b>
-        <a class="en-lg" href="/play/my-clubhouse/?utm_source=wildnine#wn">My Clubhouse: your league tables</a>
-        <a class="en-home" href="/?utm_source=wildnine">Take me back to GolfPrice AI</a></div>
+      ${endNav()}
       <button class="ghost" id="again">Back to the Wild Nine menu</button>`);
     $('#copy').onclick = async () => {
       try { await navigator.clipboard.writeText(shareText()); $('#copy').textContent = 'Copied. Paste it in the group chat'; }
@@ -3898,6 +3896,10 @@ window.WN_QUIPS = {
     $$('[data-lg]').forEach(b => b.onclick = () => { $$('[data-lg]').forEach(x => x.classList.toggle('on', x === b)); $('#lgG').hidden = b.dataset.lg !== 'g'; $('#lgN').hidden = b.dataset.lg !== 'n'; });
     $('#lgBack').onclick = back || showTitle;
   }
+  // after a round (on the result and on the title screen once today's card is in): the way back to the site
+  const endNav = () => `<div class="endnav"><b>Where next?</b>
+        <a class="en-lg" href="/play/my-clubhouse/?utm_source=wildnine#wn">My Clubhouse: your league tables</a>
+        <a class="en-home" href="/?utm_source=wildnine">Take me back to GolfPrice AI</a></div>`;
   const ordinal = n => { const s = ['th', 'st', 'nd', 'rd'], v = n % 100; return s[(v - 20) % 10] || s[v] || s[0]; };
   function postScoreToGroups(sd) {
     if (!LIVE || !myGroups().length || !myNick()) return;
