@@ -326,9 +326,9 @@ def theme_good(d, tr, brand=None, rank=0):
                        "sitedemo": {**sc, "url": link, "sub": "Every UK price in one place",
                                     "hooks": ["Before you buy, check this", "How to never overpay for golf kit"]}
                        if (m.get("listingCount") or 0) >= 3 else None},
-            "ig": f"Good time to buy ⛳ The {m['name']} is at the lowest price we've tracked in {m.get('historyDays', 'our')} days: {money(m['minPrice'])}, {money(saving)} under its tracked high. Link in bio.",
+            "ig": f"Good time to buy ⛳ The {m['name']} is at the lowest price we've tracked in {m.get('historyDays', 'our')} days: {money(m['minPrice'])}, {money(saving)} under the highest price we've tracked. Link in bio.",
             "x": f"The {m['name']} is at the lowest price we've tracked: {money(m['minPrice'])} ⛳\n{link}",
-            "tt": f"{m['name']}: lowest price we've ever tracked ⛳"}
+            "tt": f"{m['name']}: lowest price in {m.get('historyDays', 'our')} days ⛳"}
 
 
 def theme_start(d, tr):
@@ -617,9 +617,91 @@ def ad_label(post):
     return post
 
 
+PLURAL_RX = re.compile(r"\b(Irons|Balls|Wedges|Shoes|Gloves|Tees|Woods|Sets|Trousers|Shorts|Putters|Hybrids|Headcovers) (is|has)\b")
+TAG_RX = re.compile(r"(?<!\w)#(?!Ad\b)[A-Za-z][A-Za-z0-9_]*")
+
+
+def _tags_last(text, limit):
+    """Every hashtag once, at the end; #Ad stays where it is (the start)."""
+    tags = list(dict.fromkeys(TAG_RX.findall(text)))
+    body = re.sub(r"[ \t]*\n?[ \t]*" + r"(?:" + TAG_RX.pattern + r")", "", text)
+    body = re.sub(r"[ \t]+", " ", body).strip()
+    body = re.sub(r"\n{3,}", "\n\n", body)
+    return body, tags[:limit]
+
+
+def tidy_captions(post):
+    """Captions read like a person wrote them, and say the same thing on every platform (John, 23 Nov):
+    no keyword lists, each hashtag once, plural products take "are", one claim everywhere, TikTok as full as Instagram."""
+    c = post.get("captions") or {}
+    fix = lambda t: re.sub(r"⛳ ([a-z])", lambda m: "⛳ " + m.group(1).upper(),
+                           PLURAL_RX.sub(lambda m: m.group(1) + (" are" if m.group(2) == "is" else " have"),
+                                         t.replace("⛳ Good time to buy ⛳ ", "⛳ Good time to buy: ").replace("under its tracked high", "under the highest price we've tracked")))
+    for k, v in list(c.items()):
+        if isinstance(v, str):
+            c[k] = fix(v)
+        elif isinstance(v, dict):
+            c[k] = {kk: fix(vv) if isinstance(vv, str) else vv for kk, vv in v.items()}
+    ig = c.get("instagram")
+    if isinstance(ig, str):
+        body, tags = _tags_last(ig, 8)
+        c["instagram"] = body + ("\n\n" + " ".join(tags) if tags else "")
+    tt = c.get("tiktok")
+    if isinstance(tt, str):
+        tt = re.sub(r" \| [^#\n]*", " ", tt)  # the old keyword list
+        body, tags = _tags_last(tt, 5)
+        if isinstance(ig, str):
+            ig_body, ig_tags = _tags_last(c["instagram"], 8)
+            if len(re.sub(r"^#Ad\s*", "", body)) < 110:  # thin: use the Instagram words, which tell the whole joke or deal
+                body = ig_body
+            tags = list(dict.fromkeys(tags + [t for t in ig_tags if t in ("#TheFourball", "#wildnine")] + ["#golf", "#golftok", "#golfuk"]))[:5]
+        m = re.search(r"lowest price we've tracked in (\d+) days", c.get("instagram") or "")
+        if m:
+            body = body.replace("lowest price we've ever tracked", f"lowest price in {m.group(1)} days")
+        body = re.sub(r"\bon golfpriceai\.com/\S*?(?=[,. ]|$)", "on our site (link in bio)", body)  # TikTok captions can't link
+        c["tiktok"] = body + (" " + " ".join(tags) if tags else "")
+    yt = c.get("youtube")
+    if isinstance(yt, dict) and isinstance(yt.get("title"), str):
+        t = re.sub(r"\s+", " ", TAG_RX.sub("", yt["title"])).strip(" ⛳#")
+        t = re.sub(r"^(The [A-Z][a-z]+): \1,", r"\1,", t)  # "The Fourball: The Fourball, EP 1" -> once
+        m = re.search(r"lowest price we've tracked in (\d+) days", yt.get("description") or "")
+        if m:
+            t = t.replace("lowest price we've ever tracked", f"lowest price in {m.group(1)} days")
+        yt["title"] = (t + " #golf #shorts") if len(t) <= 86 else t[:99]
+    pin = c.get("pinterest")
+    if isinstance(pin, dict) and isinstance(pin.get("title"), str):
+        pt = re.sub(r"\?:\s*", "? ", pin["title"]).rstrip(": ").strip()
+        head, sep, rest = pt.partition(": ")
+        pin["title"] = head + (sep + rest.replace(": ", " · ") if sep else "")
+    return post
+
+
+# Suggested release times, UK time (John, 23 Nov). A starting point from when UK golfers scroll: lunch on
+# weekdays, the evening for TikTok and YouTube, early on weekend mornings before the round. Instagram's time
+# is when the engine posts it (the 12:30 run). The weekly review adjusts these once real results come in.
+POST_TIMES = {  # weekday: (TikTok, YouTube Shorts, X and Bluesky, Pinterest, WhatsApp)
+    0: ("19:00", "18:00", "12:30", "20:30", "19:30"), 1: ("19:00", "18:00", "12:30", "20:30", "19:30"),
+    2: ("19:30", "18:00", "12:30", "20:30", "19:30"), 3: ("19:00", "18:00", "12:30", "20:30", "19:30"),
+    4: ("17:30", "17:00", "12:30", "20:00", "18:00"), 5: ("08:30", "09:00", "08:30", "20:00", "09:00"),
+    6: ("19:00", "10:00", "09:30", "20:30", "19:00"),
+}
+
+
+def suggest_times(post):
+    wd = date.fromisoformat(post["date"]).weekday()
+    tt, yt, x, pin, wa = POST_TIMES[wd]
+    t = {"Instagram": "12:30 (posts itself once ticked)", "TikTok": tt, "YouTube Shorts": yt, "X": x, "Bluesky": x, "Pinterest": pin}
+    if (post.get("captions") or {}).get("whatsapp"):
+        t["WhatsApp"] = wa
+    if post.get("reactive"):  # same-day news: straight away beats the perfect hour
+        t = {k: "as soon as it's ready" for k in t}
+    return t
+
+
 def edited(post):
     """The Editor reads every caption and on-screen line. Problems hold the post back from auto-posting."""
-    post = ad_label(post)
+    post = ad_label(tidy_captions(post))
+    post["times"] = suggest_times(post)
     try:
         import agent_editor
         probs = ["quality: " + q for q in (post.get("quality") or [])]  # premium quality gate (agent_video.qc)
@@ -691,6 +773,9 @@ def plan_week():
     if tr.get("brandsInNews"):  # a brand in the golf news: Thursday features its best deal
         schedule[3] = lambda d, t, b=tr["brandsInNews"][0]: theme_good(d, t, b) or theme_good(d, t)
     key = lambda x: x["theme"] + x["headline"] + x["sub"]
+    for p_ in plan["posts"]:  # the last fortnight's posts count as used, so a deal isn't posted twice in two weeks
+        if p_["date"] >= str(now().date() - timedelta(days=14)):
+            used_keys.add(p_.get("theme", "") + p_.get("headline", "") + p_.get("sub", ""))
     # trend tie-ins written by Claude (weekly review / on request) wait in data/content-queue.json
     queue = (load("content-queue.json") or {}).get("posts", [])
     qdays = {}
@@ -739,6 +824,9 @@ def plan_week():
         used_keys.add(key(theme))
         style, sc, pal = choose(theme, used_styles, last_pal, L, rnd, social)
         tie = ties.pop(0) if ties and i in (0, 3, 5) and style not in ("pov", "guess", "receipt", "humour", "headline", "carousel", "truth", "sequence") else None
+        if tie and ((re.search(r"black friday|cyber monday", tie.get("match", ""), re.I) and (day.month, day.day) > (12, 1))
+                    or (re.search(r"christmas|secret santa|stocking", tie.get("match", ""), re.I) and (day.month, day.day) > (12, 25))):
+            tie = None  # the event is over by the post's day
         sc = build_script(theme, style, sc, L, rnd, tie)
         sound = songs[i % len(songs)] if songs else None
         plan["posts"].append(build_post(day, theme, style, sc, pal, pid, tie, social, sound))
@@ -1026,8 +1114,9 @@ def write_pack(plan):
 {('<p class="tip" style="background:#fde8e8">⛔ Held by the Editor, won\'t auto-post: ' + esc(' '.join(p['editor'])) + '</p>') if p.get('editor') else ''}<h2>“{esc(p.get('hook', p['headline']))}”</h2><p class="sub">{esc(p['sub'])}</p>
 <p class="dl">{('<a href="' + p['video'] + '">Download video</a> · ') if p.get('video') else 'Carousel: download each slide above · '}<a href="{p.get('thumb') or p['card']}" download>Download thumbnail (cover)</a> · <a href="{p['card']}" download>Download feed image</a></p>
 {('<img src="' + p['thumb'] + '" alt="Thumbnail for ' + esc(p.get('hook', '')) + '" style="width:120px;border-radius:10px;margin:6px 0">') if p.get('thumb') else ''}
-{''.join(f'<details><summary>{k}</summary><textarea readonly>{esc(v)}</textarea><button onclick="copy(this)">Copy</button></details>' for k, v in blocks)}
-<p class="tip">{('Trending sound (approved for business): <b>' + esc(p['sound']) + '</b>. Search it in the app when you schedule.') if p.get('sound') else 'TikTok and Reels: add a trending sound from the commercial library when you schedule.'}{(' · Rides the trend: ' + esc(', '.join(p['trendingFormats']))) if p.get('trendingFormats') else ''}</p>
+<p class="times"><b>Suggested release times (UK):</b> {' · '.join(f'{esc(k)} <b>{esc(v)}</b>' for k, v in (p.get('times') or suggest_times(p)).items())}</p>
+{''.join(f'<details><summary>{k}{(" · post at " + esc((p.get("times") or suggest_times(p)).get(k.split(" (")[0].replace(" title", "").replace(" description", "").replace("YouTube", "YouTube Shorts").replace("YouTube Shorts Shorts", "YouTube Shorts"), "").split(" (")[0])) if (p.get("times") or suggest_times(p)).get(k.split(" (")[0].replace(" title", "").replace(" description", "").replace("YouTube", "YouTube Shorts").replace("YouTube Shorts Shorts", "YouTube Shorts")) else ""}</summary><textarea readonly>{esc(v)}</textarea><button onclick="copy(this)">Copy</button></details>' for k, v in blocks)}
+<p class="tip">{('Trending sound (approved for business): <b>' + esc(p['sound']) + '</b>. Search it in the app when you schedule.') if p.get('sound') else 'The video has its own music. Adding a trending sound in TikTok? Turn the original audio down there.'}{(' · Rides the trend: ' + esc(', '.join(p['trendingFormats']))) if p.get('trendingFormats') else ''}</p>
 <p class="link">Link: <a href="{p['link']}">{esc(p['link'])}</a></p></div></section>""")
     social = load_social()
     trend_html = ""
@@ -1050,7 +1139,7 @@ def write_pack(plan):
 <style>body{{font:16px system-ui,sans-serif;background:#f4f1ea;color:#14211a;padding:16px;max-width:900px;margin:auto}}
 h1{{font-size:22px}}.post{{display:grid;grid-template-columns:220px 1fr;gap:16px;background:#fff;border-radius:14px;padding:14px;margin:12px 0}}
 .post video{{width:100%;border-radius:10px;background:#14211a;aspect-ratio:9/16}}h2{{margin:4px 0;font-size:20px}}.when{{color:#3fae29;font-weight:700;margin:0}}
-.sub{{color:#555;margin:2px 0 8px}}.done{{color:#888;font-weight:400}}details{{margin:6px 0}}summary{{cursor:pointer;font-weight:600}}
+.sub{{color:#555;margin:2px 0 8px}}.times{{background:#eef7ec;border-radius:10px;padding:8px 10px;font-size:14px;line-height:1.6}}.done{{color:#888;font-weight:400}}details{{margin:6px 0}}summary{{cursor:pointer;font-weight:600}}
 textarea{{width:100%;min-height:90px;font:14px system-ui;border-radius:8px;border:1px solid #ccc;padding:8px;box-sizing:border-box}}
 button{{background:#14211a;color:#fff;border:0;border-radius:8px;padding:6px 14px;font-weight:600}}.dl,.link,.tip{{font-size:14px}}.tip{{color:#777}}
 .trends{{background:#fff;border-radius:14px;padding:10px 14px}}.slides{{display:flex;gap:6px;overflow-x:auto}}.slides img{{width:180px;border-radius:8px}}@media(max-width:600px){{.post{{grid-template-columns:1fr}}.post video{{max-width:260px}}}}</style></head><body>
