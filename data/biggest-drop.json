@@ -1,31 +1,31 @@
 {
- "checked": "2026-11-22T23:19+00:00",
- "fresh": 5,
+ "checked": "2026-11-23T06:01+00:00",
+ "fresh": 0,
  "week": 157,
  "cats": {
   "clubs": {
-   "name": "Titleist Vokey SM10 Nickel Wedge",
-   "slug": "titleist-vokey-sm10-nickel-wedge",
-   "url": "/prices/titleist-vokey-sm10-nickel-wedge/",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/vokeysm10nik1.jpg?v=1706088806",
-   "was": 129.0,
-   "now": 119.0,
-   "fall": 10.0,
-   "pct": 8,
-   "date": "2026-11-21",
+   "name": "Mizuno Pro S-4 Irons",
+   "slug": "mizuno-pro-s-4-irons",
+   "url": "/prices/mizuno-pro-s-4-irons/",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MizunoProS-4Irons3.jpg?v=1788532401",
+   "was": 1289.0,
+   "now": 975.0,
+   "fall": 314.0,
+   "pct": 24,
+   "date": "2026-11-19",
    "unit": ""
   },
   "accessories": {
-   "name": "Callaway Limited Chrome Soft Truvis Team Golf Balls",
-   "slug": "callaway-limited-chrome-soft-truvis-team-golf-balls",
-   "url": "/prices/callaway-limited-chrome-soft-truvis-team-golf-balls/",
-   "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795205222518/sits/balls-2022-chrome-soft-truvis-team-red-blue/balls-2022-chrome-soft-truvis-team-red-blue_2___1.png?sfrm=png",
-   "was": 55.0,
-   "now": 41.25,
-   "fall": 13.75,
-   "pct": 25,
-   "date": "2026-11-21",
-   "unit": "per dozen"
+   "name": "Bushnell Launch Pro Launch Monitor",
+   "slug": "bushnell-launch-pro-launch-monitor",
+   "url": "/prices/bushnell-launch-pro-launch-monitor/",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BushnellLaunchPro-CircleBEdition2.jpg?v=1773171695",
+   "was": 2790.0,
+   "now": 2490.0,
+   "fall": 300.0,
+   "pct": 11,
+   "date": "2026-11-17",
+   "unit": ""
   },
   "apparel": {
    "name": "PAYNTR X Tour Proto RS Spiked Golf Shoes - White & Black - UK8 / EU42.5",
@@ -37,17 +37,5 @@
    "fall": 100.0,
    "unit": ""
   }
- },
- "drop": {
-  "name": "Callaway Limited Chrome Soft Truvis Team Golf Balls",
-  "slug": "callaway-limited-chrome-soft-truvis-team-golf-balls",
-  "url": "/prices/callaway-limited-chrome-soft-truvis-team-golf-balls/",
-  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795205222518/sits/balls-2022-chrome-soft-truvis-team-red-blue/balls-2022-chrome-soft-truvis-team-red-blue_2___1.png?sfrm=png",
-  "was": 55.0,
-  "now": 41.25,
-  "fall": 13.75,
-  "pct": 25,
-  "date": "2026-11-21",
-  "unit": "per dozen"
  }
 }

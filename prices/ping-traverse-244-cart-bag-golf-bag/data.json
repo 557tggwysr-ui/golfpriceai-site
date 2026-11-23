@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-traverse-244-cart-bag-golf-bag/",
- "checked": "2026-11-22",
+ "checked": "2026-11-23",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 149.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 99,
+  "daysTracked": 100,
   "low": 149.0,
   "high": 169.0,
-  "average": 162.13,
+  "average": 162.0,
   "priceChanges": 21,
   "series": [
    [
@@ -123,7 +123,7 @@
     149.0
    ],
    [
-    "2026-11-22",
+    "2026-11-23",
     149.0
    ]
   ]
@@ -134,5 +134,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ping-Traverse-244-Golf-Cart-Bag---Black.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-22"
+ "changed": "2026-11-23"
 }

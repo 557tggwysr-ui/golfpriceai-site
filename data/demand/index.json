@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-22",
+ "date": "2026-11-23",
  "status": "live",
  "week": {
-  "from": "2026-11-16",
-  "to": "2026-11-22"
+  "from": "2026-11-17",
+  "to": "2026-11-23"
  },
  "chart": [
   {
@@ -17,7 +17,7 @@
    "type": "gps-watch",
    "price": 429.0,
    "unit": "",
-   "move": 1,
+   "move": 2,
    "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
   },
   {
@@ -27,7 +27,7 @@
    "type": "ball",
    "price": 43.96,
    "unit": "per dozen",
-   "move": 1,
+   "move": 0,
    "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
   },
   {
@@ -52,46 +52,26 @@
   },
   {
    "rank": 5,
-   "name": "Callaway Chrome Soft 26 Golf Balls",
-   "brand": "Callaway",
-   "type": "ball",
-   "price": 47.99,
-   "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-chrome-soft-26-golf-balls/"
-  },
-  {
-   "rank": 6,
-   "name": "Lindt Chocolate Golf Balls",
-   "brand": "Lindt",
-   "type": "ball",
-   "price": 7.99,
-   "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/lindt-chocolate-golf-balls/"
-  },
-  {
-   "rank": 7,
    "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
    "brand": "MacGregor",
    "type": "set",
    "price": 299.0,
    "unit": "",
-   "move": -3,
+   "move": -1,
    "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
   },
   {
-   "rank": 8,
+   "rank": 6,
    "name": "MacGregor ZT1 Ladies Package Set",
    "brand": "MacGregor",
    "type": "set",
    "price": 379.0,
    "unit": "",
-   "move": -3,
+   "move": -1,
    "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
   },
   {
-   "rank": 9,
+   "rank": 7,
    "name": "Srixon UltiSoft Golf Balls",
    "brand": "Srixon",
    "type": "ball",
@@ -101,87 +81,47 @@
    "url": "https://golfpriceai.com/prices/srixon-ultisoft-golf-balls/"
   },
   {
-   "rank": 10,
+   "rank": 8,
    "name": "Wilson TPX Ladies Package Set",
    "brand": "Wilson",
    "type": "set",
    "price": 319.0,
    "unit": "",
-   "move": -4,
+   "move": -2,
    "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
   },
   {
-   "rank": 11,
+   "rank": 9,
    "name": "Yonex Ezone GS i-Tech Driver",
    "brand": "Yonex",
    "type": "driver",
    "price": 179.95,
    "unit": "",
-   "move": -4,
+   "move": -2,
    "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
   },
   {
-   "rank": 12,
-   "name": "Callaway Apex Ti Fusion Irons",
-   "brand": "Callaway",
-   "type": "irons",
-   "price": 1399.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-apex-ti-fusion-irons/"
-  },
-  {
-   "rank": 13,
-   "name": "Callaway Chrome Soft 26 360 Triple Golf Balls",
+   "rank": 10,
+   "name": "Callaway Chrome Soft 26 Golf Balls",
    "brand": "Callaway",
    "type": "ball",
    "price": 47.99,
    "unit": "per dozen",
    "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-chrome-soft-26-360-triple-golf-balls/"
+   "url": "https://golfpriceai.com/prices/callaway-chrome-soft-26-golf-balls/"
   },
   {
-   "rank": 14,
-   "name": "Callaway E R C Soft Truvis Golf Balls",
-   "brand": "Callaway",
+   "rank": 11,
+   "name": "Lindt Chocolate Golf Balls",
+   "brand": "Lindt",
    "type": "ball",
-   "price": 48.0,
+   "price": 7.99,
    "unit": "per dozen",
    "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-e-r-c-soft-truvis-golf-balls/"
+   "url": "https://golfpriceai.com/prices/lindt-chocolate-golf-balls/"
   },
   {
-   "rank": 15,
-   "name": "Callaway Warbird Distance Golf Balls",
-   "brand": "Callaway",
-   "type": "ball",
-   "price": 18.95,
-   "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-warbird-distance-golf-balls/"
-  },
-  {
-   "rank": 16,
-   "name": "MacGregor ZT Plus Irons",
-   "brand": "MacGregor",
-   "type": "irons",
-   "price": 249.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/macgregor-zt-plus-irons/"
-  },
-  {
-   "rank": 17,
-   "name": "Mizuno Pro S Golf Balls",
-   "brand": "Mizuno",
-   "type": "ball",
-   "price": 34.95,
-   "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/mizuno-pro-s-golf-balls/"
-  },
-  {
-   "rank": 18,
+   "rank": 12,
    "name": "Ping G440 Irons",
    "brand": "Ping",
    "type": "irons",
@@ -191,7 +131,7 @@
    "url": "https://golfpriceai.com/prices/ping-g440-irons/"
   },
   {
-   "rank": 19,
+   "rank": 13,
    "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
    "brand": "Srixon",
    "type": "ball",
@@ -201,14 +141,14 @@
    "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
   },
   {
-   "rank": 20,
-   "name": "Srixon Z-Star XV Golf Balls",
-   "brand": "Srixon",
+   "rank": 14,
+   "name": "Wilson Ultra Golf Balls",
+   "brand": "Wilson",
    "type": "ball",
-   "price": 34.99,
+   "price": 51.0,
    "unit": "per dozen",
    "move": "new",
-   "url": "https://golfpriceai.com/prices/srixon-z-star-xv-golf-balls/"
+   "url": "https://golfpriceai.com/prices/wilson-ultra-golf-balls/"
   }
  ],
  "wishfulThinking": [
@@ -218,37 +158,37 @@
    "guesses": 78
   },
   {
+   "category": "Drivers",
+   "averageGuessVsRealPricePct": -20,
+   "guesses": 42
+  },
+  {
    "category": "Putters",
    "averageGuessVsRealPricePct": -17,
    "guesses": 50
   },
   {
-   "category": "Drivers",
-   "averageGuessVsRealPricePct": -15,
-   "guesses": 46
-  },
-  {
    "category": "Hybrids",
    "averageGuessVsRealPricePct": 13,
-   "guesses": 77
+   "guesses": 79
   }
  ],
  "categoryShare": [
   {
    "category": "Balls",
-   "pct": 50
+   "pct": 42
   },
   {
    "category": "Irons & wedges",
-   "pct": 33
+   "pct": 31
   },
   {
    "category": "Tech",
-   "pct": 14
+   "pct": 22
   },
   {
    "category": "Drivers & woods",
-   "pct": 4
+   "pct": 6
   }
  ],
  "reports": [

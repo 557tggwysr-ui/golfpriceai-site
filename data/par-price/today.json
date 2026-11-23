@@ -1,66 +1,66 @@
 {
- "n": 36,
- "date": "2026-11-22",
+ "n": 37,
+ "date": "2026-11-23",
  "items": [
   {
-   "slug": "cleveland-rtz-2-tour-satin-wedge",
-   "name": "Cleveland RTZ 2 Tour Satin Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/ClevelandGolfRTZ2TourSatinWedge2026_4.jpg?v=1785231438",
-   "price": 139.0,
+   "slug": "mizuno-br-d1-stand-bag-golf-bag",
+   "name": "Mizuno BR-D1 Stand Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/BRD1S2609NS-Hero.jpg",
+   "price": 199.0,
+   "unit": "each",
+   "type": "golf bag",
+   "low": false,
+   "url": "/prices/mizuno-br-d1-stand-bag-golf-bag/"
+  },
+  {
+   "slug": "wilson-dynapwr-driver",
+   "name": "Wilson DYNAPWR Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WG1P036501_0_DynaPWR_2_Driver_Carbon_Hero.jpg?v=1738142914",
+   "price": 239.0,
+   "unit": "each",
+   "type": "driver",
+   "low": true,
+   "url": "/prices/wilson-dynapwr-driver/"
+  },
+  {
+   "slug": "titleist-vokey-sm11-jet-wedge",
+   "name": "Titleist Vokey SM11 Jet Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-jet-black-wedge-hero.jpg",
+   "price": 179.0,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/cleveland-rtz-2-tour-satin-wedge/"
+   "url": "/prices/titleist-vokey-sm11-jet-wedge/"
   },
   {
-   "slug": "callaway-quantum-max-irons",
-   "name": "Callaway Quantum Max Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-irons-hero-3.jpg",
+   "slug": "taylormade-qi4d-fairway-wood",
+   "name": "TaylorMade Qi4D Fairway Wood",
+   "image": "https://www.clickgolf.co.uk/images/product/main/N8401607-Qi4D-Core-Fairway-Hero.jpg",
+   "price": 319.0,
+   "unit": "each",
+   "type": "fairway wood",
+   "low": false,
+   "url": "/prices/taylormade-qi4d-fairway-wood/"
+  },
+  {
+   "slug": "callaway-quantum-max-os-irons",
+   "name": "Callaway Quantum Max OS Irons",
+   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-os-irons-main.jpg",
    "price": 749.0,
    "unit": "each",
    "type": "iron set",
    "low": false,
-   "url": "/prices/callaway-quantum-max-irons/"
-  },
-  {
-   "slug": "titleist-gt2-fairway-wood",
-   "name": "Titleist GT2 Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/GT2-Fairway-Wood-Hero.jpg",
-   "price": 249.0,
-   "unit": "each",
-   "type": "fairway wood",
-   "low": false,
-   "url": "/prices/titleist-gt2-fairway-wood/"
-  },
-  {
-   "slug": "taylormade-qi4d-driver",
-   "name": "TaylorMade Qi4D Driver",
-   "image": "https://www.clickgolf.co.uk/images/product/main/N2845107-Qi4D-Core-Driver-Hero.jpg",
-   "price": 549.0,
-   "unit": "each",
-   "type": "driver",
-   "low": false,
-   "url": "/prices/taylormade-qi4d-driver/"
-  },
-  {
-   "slug": "ping-g440-hybrid",
-   "name": "Ping G440 Hybrid",
-   "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-hybrid-hero.jpg",
-   "price": 269.0,
-   "unit": "each",
-   "type": "hybrid",
-   "low": false,
-   "url": "/prices/ping-g440-hybrid/"
+   "url": "/prices/callaway-quantum-max-os-irons/"
   }
  ],
  "pin": {
-  "slug": "srixon-friday-cart-bag-golf-bag",
-  "name": "Srixon Friday Cart Bag Golf Bag",
-  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/SRX_FRIDAY_CART_BAG_navy-black_12137813_2.jpg?v=1776425710",
-  "price": 139.0,
+  "slug": "macgregor-cg4000-package-set",
+  "name": "MacGregor CG4000 Package Set",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-05T130000.179.png?v=1704460366",
+  "price": 299.0,
   "unit": "each",
-  "type": "golf bag",
+  "type": "package set",
   "low": true,
-  "url": "/prices/srixon-friday-cart-bag-golf-bag/"
+  "url": "/prices/macgregor-cg4000-package-set/"
  }
 }

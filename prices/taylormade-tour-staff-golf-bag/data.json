@@ -1,0 +1,44 @@
+{
+ "name": "TaylorMade Tour Staff Golf Bag",
+ "brand": "TaylorMade",
+ "type": "golf bag",
+ "url": "https://golfpriceai.com/prices/taylormade-tour-staff-golf-bag/",
+ "checked": "2026-11-23",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 499.0,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 499.0,
+   "options": 2
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 499.0,
+  "high": 499.0,
+  "average": 499.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-25",
+    499.0
+   ],
+   [
+    "2026-11-23",
+    499.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeStaffBag1.jpg?v=1773181492",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-23"
+}

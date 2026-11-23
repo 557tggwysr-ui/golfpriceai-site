@@ -1,14 +1,6 @@
 {
  "about": "Which models each Par Price round used (no personal data).",
  "days": {
-  "2026-10-23": [
-   "taylormade-qi4d-fairway-wood",
-   "srixon-soft-feel-golf-balls",
-   "callaway-quantum-max-os-irons",
-   "wilson-dynapwr-driver",
-   "titleist-vokey-sm11-jet-wedge",
-   "powakaddy-edge-cart-bag-golf-bag"
-  ],
   "2026-10-24": [
    "titleist-gts2-fairway-wood",
    "cobra-baffler-hybrid",
@@ -248,6 +240,14 @@
    "taylormade-qi4d-driver",
    "ping-g440-hybrid",
    "srixon-friday-cart-bag-golf-bag"
+  ],
+  "2026-11-23": [
+   "mizuno-br-d1-stand-bag-golf-bag",
+   "wilson-dynapwr-driver",
+   "titleist-vokey-sm11-jet-wedge",
+   "taylormade-qi4d-fairway-wood",
+   "callaway-quantum-max-os-irons",
+   "macgregor-cg4000-package-set"
   ]
  }
 }

@@ -3,7 +3,7 @@
  "brand": "True Temper",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/true-temper-regular-driver/",
- "checked": "2026-11-22",
+ "checked": "2026-11-23",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 44.99,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 80,
+  "daysTracked": 81,
   "low": 44.99,
   "high": 89.99,
-  "average": 71.99,
+  "average": 71.66,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     44.99
    ],
    [
-    "2026-11-22",
+    "2026-11-23",
     44.99
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CA3501D22.jpg?v=1777951353",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-22"
+ "changed": "2026-11-23"
 }
