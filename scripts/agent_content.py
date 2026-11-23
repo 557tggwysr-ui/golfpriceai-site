@@ -1083,7 +1083,7 @@ def _episode_script(ep, dur):
     return min((full, trimmed), key=lambda s: abs(BR.seq_duration(s) - dur))
 
 
-def add_sound_to_week():
+def add_sound_to_week(redo=False):
     """Videos already in this week's pack that were made silent get the soundtrack (scripts/agent_audio.py).
     Only posts not yet posted; the workflow re-uploads them to the week's release afterwards."""
     plan = load_plan()
@@ -1100,7 +1100,7 @@ def add_sound_to_week():
                            capture_output=True, text=True)
         if r.returncode or not path.exists():
             print("couldn't fetch", path.name, (r.stderr or "")[:200]); continue
-        if _has_audio(path):
+        if _has_audio(path) and not redo:
             print("already has sound:", path.name); path.unlink(); continue
         dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)],
                                    capture_output=True, text=True).stdout or 0)
@@ -1111,4 +1111,4 @@ def add_sound_to_week():
 
 if __name__ == "__main__":
     mode = (sys.argv[1] if len(sys.argv) > 1 else "plan").lower()
-    {"plan": plan_week, "moment": moment, "post": post_today, "sound": add_sound_to_week}[mode]()
+    {"plan": plan_week, "moment": moment, "post": post_today, "sound": add_sound_to_week, "resound": lambda: add_sound_to_week(redo=True)}[mode]()
