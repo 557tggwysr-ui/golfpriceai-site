@@ -92,12 +92,18 @@ STEP 5: SEARCH CONSOLE ACCESS (free, about 10 minutes)
 
 STEP 6: INSTAGRAM AUTO-POSTING (optional, about 15 minutes, free)
   Instagram must be a Business or Creator account. No Facebook Page needed.
-  1. developers.facebook.com > Create app > "Manage messaging & content on
-     Instagram".
-  2. Instagram > API setup with Instagram login > Generate access token >
-     log in as golfpriceai, allow content publishing.
-  3. Secrets: IG_ACCESS_TOKEN = the token, IG_USER_ID = the id beside it.
-  Tokens last about 60 days; when one expires you get an email and the post
+  You need a Facebook login for the developer site (an old personal account is fine;
+  nothing is ever posted to it).
+  1. developers.facebook.com > My Apps > Create app > use case (filter "Content
+     management") "Manage messaging & content on Instagram" > Next.
+  2. Use cases > Customize > "API setup with Unified login". Connect a business
+     portfolio when asked (free: create one called GolfPrice AI).
+  3. App roles > Roles > Add people > Instagram Tester: golfpriceai. Accept the
+     invite at instagram.com/accounts/manage_access > Tester invites.
+  4. Back on Unified login > 2. Generate access tokens > Generate token.
+  5. Secrets: IG_ACCESS_TOKEN = the token (starts "EAA"), IG_USER_ID = the id
+     beside the account.
+  If the token ever expires you get an email and the post
   waits in the pack.
 
 STEP 7: COMPANIES HOUSE KEY (free, 5 minutes, for club partnership emails)
