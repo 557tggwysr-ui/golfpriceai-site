@@ -1357,6 +1357,36 @@ def add_sound_to_week(redo=False):
         print("sound added:", path.name, "(" + ("ok" if _has_audio(path) else "still silent") + ")")
 
 
+def remake_guess():
+    """Remakes the unposted "Higher or lower" videos already in the plan with the new reveal (John, 23 Nov 2026):
+    the guess above today's price, "UNDER!" in green. Updates their captions' guess figure to match; the
+    workflow re-uploads the videos to the week's pack."""
+    plan = load_plan()
+    by_name = {m["name"]: m for m in models()}
+    VIDEOS.mkdir(parents=True, exist_ok=True)
+    for p in plan["posts"]:
+        if p.get("style") != "guess" or p.get("posted", {}).get("instagram") or p["date"] < str(now().date()):
+            continue
+        m = by_name.get(p.get("sub"))
+        if not m:
+            print("model not found for", p["id"], p.get("sub")); continue
+        price = float(m["minPrice"])
+        line = max(5, round(price * random.Random(m["slug"]).choice([1.15, 1.2, 1.3]) / 5) * 5)
+        old = re.search(r"over or under (£[\d,]+(?:\.\d\d)?)", json.dumps(p["captions"], ensure_ascii=False))
+        sc = {"name": m["name"], "price": price, "line": line, "hook": p["hook"]}
+        V.render("guess", sc, p.get("palette", "clubhouse"), VIDEOS / f"{p['id']}.mp4", img=fetch_image(model_image(m)))
+        if old:
+            new = money(line)
+            for k, v in p["captions"].items():
+                if isinstance(v, str):
+                    p["captions"][k] = v.replace(old.group(1), new)
+                elif isinstance(v, dict):
+                    p["captions"][k] = {kk: vv.replace(old.group(1), new) if isinstance(vv, str) else vv for kk, vv in v.items()}
+        print("remade:", p["id"], m["name"], money(price), "guess", money(line))
+    save_plan(plan)
+    write_pack(plan)
+
+
 if __name__ == "__main__":
     mode = (sys.argv[1] if len(sys.argv) > 1 else "plan").lower()
-    {"plan": plan_week, "moment": moment, "post": post_today, "sound": add_sound_to_week, "resound": lambda: add_sound_to_week(redo=True)}[mode]()
+    {"plan": plan_week, "moment": moment, "post": post_today, "sound": add_sound_to_week, "resound": lambda: add_sound_to_week(redo=True), "remake": remake_guess}[mode]()
