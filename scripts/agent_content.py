@@ -167,6 +167,13 @@ def save_learning(L):
     LEARN.write_text(json.dumps(L, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def ig_api():
+    """Instagram's address depends on the token: Unified login (Meta's newer set-up) gives an "EAA..."
+    token that works through graph.facebook.com; the older Instagram login gives "IGAA..." for graph.instagram.com."""
+    tok = os.environ.get("IG_ACCESS_TOKEN") or ""
+    return "https://graph.facebook.com/v21.0" if tok.startswith("EAA") else "https://graph.instagram.com/v21.0"
+
+
 def learn(plan, L):
     """Read Instagram insights for posted items and score each style."""
     tok = os.environ.get("IG_ACCESS_TOKEN")
@@ -178,7 +185,7 @@ def learn(plan, L):
             continue
         if date.fromisoformat(p["date"]) > now().date() - timedelta(days=3):
             continue  # give it a few days to find its audience
-        s, _, txt = http(f"https://graph.instagram.com/v21.0/{mid}/insights?metric=reach,likes,comments,saved,shares&access_token={tok}")
+        s, _, txt = http(f"{ig_api()}/{mid}/insights?metric=reach,likes,comments,saved,shares&access_token={tok}")
         if s != 200:
             continue
         vals = {m["name"]: (m.get("values") or [{}])[0].get("value", 0) for m in json.loads(txt).get("data", [])}
@@ -847,7 +854,7 @@ def token_warning(status, txt):
         from agent_common import email_owner
         email_owner("GolfPrice AI · Instagram token needs renewing",
                     "<p>The content engine couldn't post to Instagram because the access token has expired or been revoked. "
-                    "Generate a new one (Meta developer dashboard, Instagram, API setup with Instagram login) and paste it into "
+                    "Generate a new one (Meta developer dashboard > your app > Use cases > Customize > API setup with Unified login > Generate access tokens) and paste it into "
                     "the IG_ACCESS_TOKEN secret on GitHub. Today's post is still in the pack to post by hand.</p>")
 
 
@@ -857,7 +864,7 @@ def reel_container(uid, tok, p):
     d = date.fromisoformat(p["date"])
     monday = d - timedelta(days=d.weekday())
     url = f"https://github.com/{repo}/releases/download/pack-{monday}/{p['id']}.mp4"
-    s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
+    s, _, txt = http(f"{ig_api()}/{uid}/media", method="POST",
                      body={"media_type": "REELS", "video_url": url, "caption": p["captions"]["instagram"],
                            "share_to_feed": "true", "cover_url": SITE + (p.get("thumb") or p["card"]), "access_token": tok})
     cid = (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
@@ -867,7 +874,7 @@ def reel_container(uid, tok, p):
     import time
     for _ in range(30):  # Instagram processes the video first (usually under a minute)
         time.sleep(10)
-        s, _, txt = http(f"https://graph.instagram.com/v21.0/{cid}?fields=status_code&access_token={tok}")
+        s, _, txt = http(f"{ig_api()}/{cid}?fields=status_code&access_token={tok}")
         code = (json.loads(txt or "{}") or {}).get("status_code")
         if code == "FINISHED":
             return cid
@@ -881,14 +888,14 @@ def carousel_container(uid, tok, p):
     """An Instagram carousel: one container per slide, then the carousel itself."""
     kids = []
     for url in p["slides"][:10]:
-        s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
+        s, _, txt = http(f"{ig_api()}/{uid}/media", method="POST",
                          body={"image_url": SITE + url, "is_carousel_item": "true", "access_token": tok})
         cid = (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
         if not cid:
             print("carousel slide not accepted:", s, (txt or "")[:200])
             return None
         kids.append(cid)
-    s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
+    s, _, txt = http(f"{ig_api()}/{uid}/media", method="POST",
                      body={"media_type": "CAROUSEL", "children": ",".join(kids), "caption": p["captions"]["instagram"], "access_token": tok})
     return (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
 
@@ -911,7 +918,7 @@ def post_today():
             print("(no Instagram secrets: approved post left for manual posting)", p["id"]); continue
         cid = carousel_container(uid, tok, p) if p.get("slides") else reel_container(uid, tok, p)  # carousel, or the video as a Reel
         if not cid:
-            s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media", method="POST",
+            s, _, txt = http(f"{ig_api()}/{uid}/media", method="POST",
                              body={"image_url": SITE + p["card"], "caption": p["captions"]["instagram"], "access_token": tok})
             cid = (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
         else:
@@ -920,7 +927,7 @@ def post_today():
             print("instagram container failed:", s, txt[:300])
             token_warning(s, txt)
             continue
-        s, _, txt = http(f"https://graph.instagram.com/v21.0/{uid}/media_publish", method="POST",
+        s, _, txt = http(f"{ig_api()}/{uid}/media_publish", method="POST",
                          body={"creation_id": cid, "access_token": tok})
         if s == 200:
             p["posted"]["instagram"] = now().strftime("%Y-%m-%dT%H:%MZ")
