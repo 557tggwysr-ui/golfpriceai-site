@@ -218,8 +218,9 @@
       (view === 'week' ? '<p class="lg-note">Weekly champion crowned Monday morning. A missed round counts as ' + fmt(data.missed) + ': golf for “should’ve turned up”.</p>'
         : view === 'hl' ? '<p class="lg-note">Today’s daily-run streaks: longest wins. Free play doesn’t count. <a href="/play/higher-or-lower/?utm_source=league">Play today’s run</a></p>'
         : view === 'all' ? '<p class="lg-note">Wins are rounds where you had the best score in the league (ties share it).</p>' : '') +
-      '</section>' + awards() + '</div>' +
-      '<div class="lg-side"><div id="lg-wn"></div><div id="lg-bd"></div>' + socPanel(me) + '</div></div>' +
+      '</section></div>' +
+      '<div class="lg-side"><div id="lg-wn"></div>' + awards() + '</div></div>' +
+      '<div id="lg-bd"></div>' + socPanel(me) +
       '<div class="lg-foot"><button type="button" class="lg-invite2">Invite more golfers to the league</button>' +
       '<span>Nicknames only. No emails, no sign-up. What happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. Play on the same phone and browser each time (not a private tab) so the table knows it’s you. Got a phone and a laptop? <a href="/play/#move">Bring your player with you</a>.</span>' +
       '<button type="button" class="lg-leave">Leave this league</button></div>';
@@ -245,7 +246,7 @@
   /* ---------------------------------------------------------- the league's Wild Nine table
      Every Par Price league has its own Wild Nine table (made by the worker the first time a member opens it).
      Opening the league puts you on it with your league nickname, and the game posts your daily round there. */
-  var wn = null, wnView = 'today', WN_API = 'https://golfpriceai-alerts.golfpriceai.workers.dev';
+  var wn = null, WN_API = 'https://golfpriceai-alerts.golfpriceai.workers.dev';
   function wnPid() {
     var p = get('wildnine-pid', '');
     if (!/^[a-z0-9]{12,32}$/.test(p)) {
@@ -275,20 +276,16 @@
     }).catch(function () { el.innerHTML = ''; });
   }
   function wnHtml() {
-    var rows = wnView === 'today' ? wn.today : wn.week, myAv = get('wildnine-av', null), mine = rows.filter(function (r) { return r.me; })[0];
-    var line = wnView === 'today'
-      ? (wn.today.length ? wn.today.length + ' of ' + wn.members + ' played today’s course' : 'Nobody’s played today’s course yet.')
-      : 'This week: shots to par, added up over the rounds played.';
-    line = line.replace(/([^.])$/, '$1.');
+    var myAv = get('wildnine-av', null), mine = wn.today.filter(function (r) { return r.me; })[0];
     return '<section class="wn-felt lg-wn"><div class="wn-head"><span class="wn-k">Wild Nine · this league’s table</span><h2>A new course every day</h2>' +
-      '<a class="wn-play" href="/play/wild-nine/?utm_source=league">' + (wnView === 'today' && mine ? 'Play again' : 'Play today’s nine') + ' &rarr;</a></div>' +
-      '<div class="wn-tabs" role="group" aria-label="Which Wild Nine table"><button type="button" data-wv="today" aria-pressed="' + (wnView === 'today') + '">Today</button><button type="button" data-wv="week" aria-pressed="' + (wnView === 'week') + '">This week</button></div>' +
-      window.wnBoard(rows, { myAv: myAv, week: wnView === 'week', empty: wnView === 'today' ? 'Nobody’s on the board yet today. Tee off first and make them chase you.' : 'No rounds this week yet.' }) +
-      '<p class="wn-fine">' + line + ' Your golfer appears as you dressed them in the game. Play on this phone or browser so your rounds land here.</p></section>';
+      '<a class="wn-play" href="/play/wild-nine/?utm_source=league">' + (mine ? 'Play again' : 'Play today’s nine') + ' &rarr;</a></div>' +
+      '<h3 class="lg-wn-sub">Today <small>' + (wn.today.length ? wn.today.length + ' of ' + wn.members + ' played' : 'nobody yet') + '</small></h3>' +
+      window.wnBoard(wn.today, { myAv: myAv, empty: 'Nobody’s on the board yet today. Tee off first and make them chase you.' }) +
+      '<h3 class="lg-wn-sub">This week <small>shots to par, added up</small></h3>' +
+      window.wnBoard(wn.week, { myAv: myAv, week: true, max: 5, empty: 'No rounds this week yet.' }) +
+      '<p class="wn-fine">Your golfer appears as you dressed them in the game. Play on this phone or browser so your rounds land here.</p></section>';
   }
-  function wireWn(el) {
-    el.querySelectorAll('[data-wv]').forEach(function (b) { b.addEventListener('click', function () { wnView = b.getAttribute('data-wv'); el.innerHTML = wnHtml(); wireWn(el); }); });
-  }
+  function wireWn() {}
 
   /* ---------------------------------------------------------- the league's golf society (Society HQ) */
   function socLink(id) { return 'https://golfpriceai.com/societies/hq/?s=' + id; }
