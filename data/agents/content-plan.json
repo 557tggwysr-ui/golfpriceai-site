@@ -39,13 +39,14 @@
    "series": null,
    "ep": null,
    "times": {
-    "Instagram": "12:30 (posts itself once ticked)",
+    "Instagram": "19:30 (posts itself once ticked)",
     "TikTok": "19:00",
     "YouTube Shorts": "18:00",
     "X": "12:30",
     "Bluesky": "12:30",
     "Pinterest": "20:30"
-   }
+   },
+   "slot": "19:30"
   },
   {
    "id": "2026-11-25-wed",
@@ -88,13 +89,14 @@
    "ep": 1,
    "times": {
     "Instagram": "12:30 (posts itself once ticked)",
-    "TikTok": "19:30",
-    "YouTube Shorts": "18:00",
+    "TikTok": "12:30",
+    "YouTube Shorts": "12:30",
     "X": "12:30",
     "Bluesky": "12:30",
     "Pinterest": "20:30",
     "WhatsApp": "19:30"
-   }
+   },
+   "slot": "12:30"
   },
   {
    "id": "2026-11-26-thu",
@@ -136,13 +138,14 @@
    "ep": null,
    "ad": true,
    "times": {
-    "Instagram": "12:30 (posts itself once ticked)",
+    "Instagram": "19:30 (posts itself once ticked)",
     "TikTok": "19:00",
     "YouTube Shorts": "18:00",
     "X": "12:30",
     "Bluesky": "12:30",
     "Pinterest": "20:30"
-   }
+   },
+   "slot": "19:30"
   },
   {
    "id": "2026-11-27-fri",
@@ -184,12 +187,13 @@
    "ep": null,
    "times": {
     "Instagram": "12:30 (posts itself once ticked)",
-    "TikTok": "17:30",
-    "YouTube Shorts": "17:00",
+    "TikTok": "12:30",
+    "YouTube Shorts": "12:30",
     "X": "12:30",
     "Bluesky": "12:30",
     "Pinterest": "20:00"
-   }
+   },
+   "slot": "12:30"
   },
   {
    "id": "2026-11-28-sat",
@@ -233,13 +237,14 @@
    "ep": null,
    "ad": true,
    "times": {
-    "Instagram": "12:30 (posts itself once ticked)",
-    "TikTok": "08:30",
-    "YouTube Shorts": "09:00",
+    "Instagram": "19:30 (posts itself once ticked)",
+    "TikTok": "19:00",
+    "YouTube Shorts": "18:00",
     "X": "08:30",
     "Bluesky": "08:30",
     "Pinterest": "20:00"
-   }
+   },
+   "slot": "19:30"
   },
   {
    "id": "2026-11-29-sun",
@@ -289,12 +294,13 @@
    "ep": null,
    "times": {
     "Instagram": "12:30 (posts itself once ticked)",
-    "TikTok": "19:00",
-    "YouTube Shorts": "10:00",
+    "TikTok": "12:30",
+    "YouTube Shorts": "12:30",
     "X": "09:30",
     "Bluesky": "09:30",
     "Pinterest": "20:30"
-   }
+   },
+   "slot": "12:30"
   },
   {
    "id": "2026-11-30-mon",
@@ -336,13 +342,14 @@
    "ep": null,
    "ad": true,
    "times": {
-    "Instagram": "12:30 (posts itself once ticked)",
+    "Instagram": "19:30 (posts itself once ticked)",
     "TikTok": "19:00",
     "YouTube Shorts": "18:00",
     "X": "12:30",
     "Bluesky": "12:30",
     "Pinterest": "20:30"
-   }
+   },
+   "slot": "19:30"
   },
   {
    "id": "2026-12-01-tue",
@@ -385,12 +392,13 @@
    "ad": true,
    "times": {
     "Instagram": "12:30 (posts itself once ticked)",
-    "TikTok": "19:00",
-    "YouTube Shorts": "18:00",
+    "TikTok": "12:30",
+    "YouTube Shorts": "12:30",
     "X": "12:30",
     "Bluesky": "12:30",
     "Pinterest": "20:30"
-   }
+   },
+   "slot": "12:30"
   },
   {
    "id": "2026-12-02-wed",
@@ -432,14 +440,15 @@
    "series": "The Fourball",
    "ep": 2,
    "times": {
-    "Instagram": "12:30 (posts itself once ticked)",
+    "Instagram": "19:30 (posts itself once ticked)",
     "TikTok": "19:30",
     "YouTube Shorts": "18:00",
     "X": "12:30",
     "Bluesky": "12:30",
     "Pinterest": "20:30",
     "WhatsApp": "19:30"
-   }
+   },
+   "slot": "19:30"
   },
   {
    "id": "2026-12-04-fri",
@@ -480,13 +489,14 @@
    "series": null,
    "ep": null,
    "times": {
-    "Instagram": "12:30 (posts itself once ticked)",
+    "Instagram": "19:30 (posts itself once ticked)",
     "TikTok": "17:30",
     "YouTube Shorts": "17:00",
     "X": "12:30",
     "Bluesky": "12:30",
     "Pinterest": "20:00"
-   }
+   },
+   "slot": "19:30"
   },
   {
    "id": "2026-12-05-sat",
@@ -531,12 +541,13 @@
    "ad": true,
    "times": {
     "Instagram": "12:30 (posts itself once ticked)",
-    "TikTok": "08:30",
-    "YouTube Shorts": "09:00",
+    "TikTok": "12:30",
+    "YouTube Shorts": "12:30",
     "X": "08:30",
     "Bluesky": "08:30",
     "Pinterest": "20:00"
-   }
+   },
+   "slot": "12:30"
   },
   {
    "id": "2026-12-06-sun",
@@ -585,13 +596,14 @@
    "series": null,
    "ep": null,
    "times": {
-    "Instagram": "12:30 (posts itself once ticked)",
+    "Instagram": "19:30 (posts itself once ticked)",
     "TikTok": "19:00",
-    "YouTube Shorts": "10:00",
+    "YouTube Shorts": "18:00",
     "X": "09:30",
     "Bluesky": "09:30",
     "Pinterest": "20:30"
-   }
+   },
+   "slot": "19:30"
   }
  ]
 }
