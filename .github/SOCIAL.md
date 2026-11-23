@@ -54,8 +54,8 @@ Myth or Mulligan (myth buster carousel), Budget or Bougie? (budget vs premium).
 ## Platforms
 - **Instagram:** Reels, carousels and striking single images. Conversational captions with a strong
   first line; ask for saves, shares and comments; a few relevant hashtags; never pushy.
-- **TikTok:** native-feeling, entertaining, hooks in the first second, plain searchable words in the
-  caption and script (TikTok is a search engine now), no long intros.
+- **TikTok:** native-feeling, entertaining, hooks in the first second, searchable words woven into
+  natural sentences (never a list of keywords), no long intros.
 - **YouTube Shorts:** a story with a payoff, understandable without knowing us, searchable titles,
   series names in titles, natural call to action in the description.
 
@@ -110,3 +110,48 @@ Big Dave, Phil (the know-it-all), Steady Steve, Gaz and Kev (the wind-up merchan
 
 ### Features and deal tools in the story (John, 21 Nov 2026)
 Our tools live in the characters' world. About every other Fourball episode builds one real tool into the joke (the prop, the proof, the twist or the punchline), the outro hands over to that same tool, and the episode page's tool box follows it. The joke comes first; one tool per episode; rotate through the whole site. The list of tools, with story angles for each, is data/fourball.json "features"; the writers' room adds angles and logs how each tie-in did in "featureLog". Tools are only ever shown as they really are: real captures of our own pages (demo data with the cast's names is fine), never a made-up screen or a feature we don't have.
+
+## John's social review, 23 Nov 2026 (standing rules for every agent that plans, writes or makes posts)
+The content engine enforces most of these in code (`tidy_captions`, `suggest_times`, `slot_test`,
+`agent_audio.py`, the carousel and cover builders); everyone else (the writers' room, the moments
+planner, the channel scout, the joke hopper, the Editor) writes to them too.
+
+**Captions**
+- One message on every platform. TikTok carries the same full wording as Instagram, never a short line
+  plus a keyword list. Hashtags: each once, at the end, up to 8 on Instagram and 5 on TikTok. TikTok
+  says "link in bio", not a web address.
+- One claim everywhere: if Instagram says "lowest price in 81 days", every platform says exactly that
+  (never "lowest we've ever tracked" on one of them).
+- Plural products take plural verbs ("the irons are", "the balls are"). Read captions aloud.
+- YouTube titles: the series name once ("The Fourball, EP 1: ..."), no hashtags cut off mid-word.
+  Pinterest titles: no stray colons.
+- No product twice within a fortnight. Event tie-ins stop when the event ends (no Black Friday wording
+  after Cyber Monday, no Christmas after the 25th).
+
+**Covers and videos**
+- The cover matches its video's colours (the video's palette), unless a big moment has its own look.
+- Guessing games never show the answer on the cover. The guess sits above the real price, so the
+  reveal is the good news: "UNDER!" in green, with how much cheaper it is.
+- Every video has sound: an original backing track (made in `scripts/agent_audio.py`, nothing borrowed)
+  with cuts on the beat. The Fourball keeps its own theme tune every week, so the series is recognisable;
+  every other post rotates through six grooves (bossa, funk, arcade, lo-fi, oompah, clubhouse) in five
+  keys, never the same groove two days running. Golf sound effects go only on the action (club strikes,
+  sand, putts, the cup) and the punchline (a flourish, a rimshot, the music dropping out for a deadpan look).
+
+**Carousels**
+- Every slide can be downloaded from the pack page.
+- Give a carousel a colour journey when the subject has one (winter golf warms from icy blue to
+  fireside orange, with a COLD to TOASTY thermometer).
+- When a tip names kit, show a real product on that slide: photo, name and today's lowest price
+  (in stock, new, men's or unisex, widely stocked, mid-priced, a different brand on each slide). The
+  caption then starts with #Ad.
+
+**When and where posts go out**
+- Every post carries suggested release times (UK) for each platform, shown on the pack page and in the
+  11:43 daily message.
+- Timing test from 24 Nov 2026: posts alternate between lunchtime (12:30) and evening (19:30); after four
+  weeks with 8+ posts each, the engine picks the winner (`data/agents/content-learning.json` "slotTest")
+  and uses it from then on. John reports TikTok and YouTube on Mondays ("lunch" or "evening").
+- Instagram and Bluesky post themselves once ticked; John posts TikTok, YouTube Shorts, X and Pinterest
+  by hand from the 11:43 message.
+

@@ -81,8 +81,9 @@ its own isn't enough; "Ad" or a plain sentence is.
 
 - Cut on the beat: pick music with a clear beat and change the text or image on it (on the bar
   or the beat, never between). That gives the impact without effects.
-- Sound effects in moderation: at most one or two per video, kept for the moment that matters
-  (the price reveal, the punchline). No swoosh or whoosh on every cut.
+- Sound effects in moderation: only on an action you can see (a club strike, sand, a putt, the ball in
+  the cup) and the moment that matters (the claim, the punchline, the price reveal). No swoosh or whoosh
+  on every cut. (John approved this level for The Fourball, 23 Nov 2026.)
 - Staggered text lines appear on beats or half-beats too. Loudness about -14 LUFS, peaks under -1 dBFS.
 - OpenMontage briefs follow the same rules: name the tempo, say which beats the cuts land on,
   and list any sound effect with its single moment.
@@ -94,3 +95,11 @@ Social posts also follow `.github/SOCIAL.md`: the 14 formats and the 14-post mix
 never invent a golfer's story, comment or review and present it as real; never invent a trend or
 sound; sketch characters are obviously fictional; no words baked into photos. Where SOCIAL.md and
 this file disagree, this file wins.
+
+## Social review checks (John, 23 Nov 2026)
+Hold a post (block) if: a guessing game's cover or opening shows the answer; a price or claim differs
+between platforms ("81 days" on one, "ever" on another); a product repeats within 14 days; a tie-in names
+an event that has already ended. Flag (note) if: TikTok's caption is much thinner than Instagram's or
+holds a keyword list; a hashtag appears twice; a plural product takes "is"; a cover's colours don't
+match its video; a video has no sound. Full rules: `.github/SOCIAL.md`, "John's social review".
+
