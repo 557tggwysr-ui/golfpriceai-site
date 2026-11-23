@@ -2957,6 +2957,16 @@ HOME_TILE_GROUPS = {
 }
 
 
+_TROLLEY_RX = re.compile(r"trolley|push ?cart|buggy", re.I)
+_TECH_RX = re.compile(r"rangefinder|\bgps\b|golf watch|launch monitor|swing analy[sz]er|golf speaker", re.I)
+HOME_SUB_TILES = {
+    "balls": lambda p: p.get("category") == "ball",
+    "bags": lambda p: p.get("category") == "bag",
+    "trolleys": lambda p: p.get("category") == "accessories" and bool(_TROLLEY_RX.search(p.get("name") or "")),
+    "tech": lambda p: p.get("category") == "accessories" and bool(_TECH_RX.search(p.get("name") or "")),
+}
+
+
 def compute_home_stats(products):
     """The live numbers on the homepage: genuine drops per category tile
     (verified against our own price history, in stock today) and the
@@ -2968,6 +2978,11 @@ def compute_home_stats(products):
         for key, cats in HOME_TILE_GROUPS.items():
             if p.get("category") in cats:
                 drops[key] += 1
+    # Smaller tiles on the homepage (balls, bags, trolleys, tech). Trolleys and tech live inside
+    # "accessories", so they're told apart by name until they get categories of their own.
+    for key, test in HOME_SUB_TILES.items():
+        drops[key] = sum(1 for p in products
+                         if (p.get("priceInsight") or {}).get("verifiedDiscount") and p.get("inStock") is not False and test(p))
     return {
         "genuineDrops": drops,
         "products": len(products),
@@ -3732,6 +3747,13 @@ def main():
     type_changes = product_types.fix_types(catalog["products"], classify_audience)
     if type_changes:
         print(f"Product types: corrected {len(type_changes)} clothing/accessory listing(s) from their own names.")
+    # Fixes the agents proposed and the owner approved (data/agent-rules.json).
+    # Wrapped so a bad rule can never stop the refresh.
+    try:
+        import agent_rules
+        catalog["products"], _ = agent_rules.apply(catalog["products"], today=datetime.now(timezone.utc).date().isoformat())
+    except Exception as exc:  # noqa: BLE001
+        print(f"WARNING: agent rules skipped this run: {exc!r}")
     identity.count_retailers(catalog["products"])
     identity.assign_unique_ids(catalog["products"])
 
