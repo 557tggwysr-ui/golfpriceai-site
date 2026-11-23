@@ -1,0 +1,15 @@
+{
+ "about": "Button-wording test run by the performance analyst. Wording only: prices and their order never change.",
+ "cta": {
+  "id": "20261123",
+  "default": "Shop from {price}",
+  "b": "See it from {price}",
+  "started": "2026-11-23"
+ },
+ "history": [],
+ "nudge": {
+  "id": "20261123",
+  "on": true,
+  "started": "2026-11-23"
+ }
+}
