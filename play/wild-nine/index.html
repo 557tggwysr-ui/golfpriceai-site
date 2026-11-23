@@ -181,6 +181,15 @@
   .ps-preview { display:flex; align-items:center; justify-content:center; gap:12px; background:radial-gradient(circle,#e7f2e2,#f6f1e3); border-radius:14px; padding:6px; margin:6px 0; }
   .ps-preview .ghost { width:auto; margin:0; padding:8px 12px; }
   .tabs { display:flex; gap:6px; overflow-x:auto; padding:4px 0 8px; scrollbar-width:none; }
+  .tabwrap { position:relative; }
+  .tabarr { position:absolute; top:2px; z-index:2; width:34px; height:32px; border:1px solid rgba(19,38,26,.2); border-radius:999px; background:var(--deep); color:var(--cream); font-size:22px; line-height:1; padding:0 0 3px; box-shadow:0 2px 8px rgba(0,0,0,.18); }
+  .tabarr.l { left:-4px; } .tabarr.r { right:-4px; } .tabarr[hidden] { display:none; }
+  @media (pointer:fine) { .tabs { scrollbar-width:thin; } }
+  .endnav { display:flex; flex-direction:column; gap:8px; margin:14px 0 4px; padding:12px; border-radius:14px; background:rgba(227,178,60,.14); border:1px solid rgba(227,178,60,.5); }
+  .endnav b { font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#8a6d22; }
+  .endnav a { display:block; text-align:center; text-decoration:none; font-weight:800; border-radius:12px; padding:12px; }
+  .endnav .en-lg { background:var(--deep); color:var(--cream); }
+  .endnav .en-home { background:#3fae29; color:#fff; }
   .tab { flex:none; border:1px solid rgba(19,38,26,.2); background:#fff; border-radius:999px; padding:6px 11px; font-size:12px; font-weight:600; color:var(--ink); }
   .tab.on { background:var(--deep); color:var(--cream); }
   .ps-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
@@ -2717,8 +2726,10 @@ window.WN_QUIPS = {
       <button class="ghost" id="copy">Copy the text version</button>
       ${S.players.map(bagPanel).join('')}
       ${promoStrip()}
-      <div class="soon">Coming next on the site: your society's Wild Nine table, the national Hall of Fame, and Wild Nine as a trophy inside the Bag Draft majors.</div>
-      <button class="ghost" id="again">Back to the clubhouse</button>`);
+      <div class="endnav"><b>Where next?</b>
+        <a class="en-lg" href="/play/my-clubhouse/?utm_source=wildnine#wn">My Clubhouse: your league tables</a>
+        <a class="en-home" href="/?utm_source=wildnine">Take me back to GolfPrice AI</a></div>
+      <button class="ghost" id="again">Back to the Wild Nine menu</button>`);
     $('#copy').onclick = async () => {
       try { await navigator.clipboard.writeText(shareText()); $('#copy').textContent = 'Copied. Paste it in the group chat'; }
       catch (e) { const r = document.createRange(); r.selectNodeContents($('#share')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); $('#copy').textContent = 'Selected. Copy it from the box'; }
@@ -3418,7 +3429,7 @@ window.WN_QUIPS = {
   const CC_COST = { mulligan: 12, tailwind: 8, bigstick: 10, laser: 10, sandwizard: 6, gimme: 10, bounceback: 12, stillair: 8, steady: 10 };
   const locker = () => wallet().cards || {};
   const lockerCount = () => Object.values(locker()).reduce((a, b) => a + b, 0);
-  let shopTab = 'head';
+  let shopTab = 'head', shopTabX = 0;
   function showShop(back) {
     const w = wallet();
     const nowDrop = ITEMS.filter(i => i.drop === monthKey());
@@ -3427,11 +3438,11 @@ window.WN_QUIPS = {
     const nextDrop = DROPS[monthKey(1)];
     const goal = w.goal && ITEM[w.goal] && !w.owned.includes(w.goal) ? ITEM[w.goal] : null;
     overlay(`<div class="kicker">The Pro Shop</div><h2>${bz(w.bal, true)} <small class="bzw">Birdies</small></h2>
-      <p class="fine">Earn Birdies by playing: 2 for today's course, 1 for every shot under par, streak bonuses, and 50 for a Hole 10 ace. Kit is looks only and never changes a shot. Caddie cards are the one thing that helps, so you can bring just one into a round. Nothing here costs real money: every Birdie is earned on the course.. </p>
+      <p class="fine">Earn Birdies by playing: 2 for today's course, 1 for every shot under par, streak bonuses, and 50 for a Hole 10 ace. Kit is looks only and never changes a shot. Caddie cards are the one thing that helps, so you can bring just one into a round. Nothing here costs real money: every Birdie is earned on the course. </p>
       ${w.gift ? '<div class="done">Welcome gift: 5 Birdies to get you started.</div>' : ''}
       <div class="ps-preview">${golferSvg(w, 140)}<button class="ghost" id="myGolfer">My golfer card</button></div>
       ${goal ? `<div class="goal"><b>Saving for: ${esc(goal.name)}</b><div class="se-bar"><i style="width:${Math.min(100, w.bal / goal.cost * 100)}%"></i></div><span>${w.bal} of ${goal.cost} Birdies${w.bal >= goal.cost ? ' \u00B7 you can buy it now' : ''}</span></div>` : ''}
-      <div class="tabs"><button class="tab ${shopTab === 'new' ? 'on' : ''}" data-t="new">New this month</button>${SLOTS.filter(s => !s.buggy).map(s => `<button class="tab ${s.k === shopTab ? 'on' : ''}" data-t="${s.k}">${s.label}</button>`).join('')}<button class="tab ${shopTab === 'buggy' ? 'on' : ''}" data-t="buggy">Buggy upgrades</button><button class="tab ${shopTab === 'cc' ? 'on' : ''}" data-t="cc">Caddie cards</button></div>
+      <div class="tabwrap"><button class="tabarr l" aria-label="Earlier categories">&lsaquo;</button><div class="tabs"><button class="tab ${shopTab === 'new' ? 'on' : ''}" data-t="new">New this month</button>${SLOTS.filter(s => !s.buggy).map(s => `<button class="tab ${s.k === shopTab ? 'on' : ''}" data-t="${s.k}">${s.label}</button>`).join('')}<button class="tab ${shopTab === 'buggy' ? 'on' : ''}" data-t="buggy">Buggy upgrades</button><button class="tab ${shopTab === 'cc' ? 'on' : ''}" data-t="cc">Caddie cards</button></div><button class="tabarr r" aria-label="More categories">&rsaquo;</button></div>
       ${shopTab === 'cc' ? `<p class="fine">Cards wait in your locker. At the first tee of a solo round you can bring <b>one</b> with you, so they help without making the game easy. In your locker: ${lockerCount()}.</p><div class="ps-grid">${E.CARD_IDS.map(id => { const C = E.CARDS[id], have = (w.cards || {})[id] || 0; return `<div class="ps-item"><span class="sw sw-cc"><b>${esc(C.name)}</b></span><span class="ps-real">${esc(C.desc)}</span>${have ? `<em class="newb">In locker: ${have}</em>` : ''}<button class="ps-btn buy" data-cc="${id}" ${w.bal >= CC_COST[id] ? '' : 'disabled'}>${bz(CC_COST[id])}</button></div>`; }).join('')}</div>` : ''}
       ${shopTab === 'buggy' ? `<p class="fine">${hasBuggy ? 'Make it yours. Paint and wheels swap freely; extras stack, so fit as many as you like.' : 'These fit the golf buggy. Save up for the buggy first (in Rides), then kit it out.'}</p>` : ''}
       ${shopTab === 'new' ? `<p class="fine">A new set lands on the 1st of every month and stays in the shop for good, so you never miss out.${nextDrop ? ` Coming next month: ${nextDrop.map(i => esc(i.name)).join(', ')}.` : ''}</p>${nowDrop.length ? '' : '<div class="done">This month\'s set arrives on the 1st. Until then, every item below is in the main tabs.</div>'}` : ''}
@@ -3459,7 +3470,18 @@ window.WN_QUIPS = {
       toastTop(`${x.name}: fitted.`); showShop(back);
     }));
     if (w.gift) { w.gift = false; saveWallet(w); }
-    $$('.tab').forEach(b => b.onclick = () => { shopTab = b.dataset.t; showShop(back); });
+    $$('.tab').forEach(b => b.onclick = () => { const tb = $('.tabs'); shopTabX = tb ? tb.scrollLeft : 0; shopTab = b.dataset.t; showShop(back); });
+    // the category row: keep its place, bring the chosen one into view, arrows and the mouse wheel move it along
+    { const tb = $('.tabs'), on = tb && tb.querySelector('.tab.on');
+      if (tb) {
+        tb.scrollLeft = shopTabX;
+        if (on) { const want = on.offsetLeft - (tb.clientWidth - on.offsetWidth) / 2; tb.scrollTo({ left: Math.max(0, want), behavior: 'smooth' }); }
+        const arrows = () => { const l = $('.tabarr.l'), r = $('.tabarr.r'); if (l) l.hidden = tb.scrollLeft < 4; if (r) r.hidden = tb.scrollLeft + tb.clientWidth > tb.scrollWidth - 4; };
+        tb.addEventListener('scroll', arrows, { passive: true }); setTimeout(arrows, 350); arrows();
+        $('.tabarr.l').onclick = () => tb.scrollBy({ left: -tb.clientWidth * 0.7, behavior: 'smooth' });
+        $('.tabarr.r').onclick = () => tb.scrollBy({ left: tb.clientWidth * 0.7, behavior: 'smooth' });
+        tb.addEventListener('wheel', e => { if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) { tb.scrollLeft += e.deltaY; e.preventDefault(); } }, { passive: false });
+      } }
     $$('[data-eq]').forEach(b => b.onclick = () => { const w2 = wallet(); w2.eq[ITEM[b.dataset.eq].slot] = b.dataset.eq; saveWallet(w2); showShop(back); });
     $$('[data-goal]').forEach(b => b.onclick = () => { const w2 = wallet(); w2.goal = w2.goal === b.dataset.goal ? null : b.dataset.goal; saveWallet(w2); showShop(back); });
     $$('[data-buy]').forEach(b => b.onclick = once(() => {
