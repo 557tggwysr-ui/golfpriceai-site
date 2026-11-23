@@ -3147,8 +3147,19 @@ window.WN_QUIPS = {
     for (const i of ITEMS) if (!i.cost && !i.season && !w.owned.includes(i.id)) w.owned.push(i.id);
     return w;
   }
-  const saveWallet = w => store.set('wildnine-wallet', w);
+  // A small snapshot of how your golfer looks (colours and shapes, not item ids), so My Clubhouse and the
+  // league tables can draw your golfer without the whole game. Kept next to the wallet and sent with scores.
+  const avPick = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] != null) r[k] = o[k]; return r; };
+  function avSnap(w) {
+    w = w || wallet(); const L = s => look(w, s);
+    return { s: w.skin || 0, h: w.hair || 0, hs: defaultStyle(w), b: w.body === 'f' ? 'f' : 'm',
+      hd: avPick(L('head'), ['hat', 'c', 'c2']), tp: avPick(L('top'), ['top', 'c', 'c2']), ly: avPick(L('layer'), ['gilet', 'c', 'trim']),
+      ey: avPick(L('eyes'), ['shades', 'lens', 'frame']) };
+  }
+  const avStr = () => { try { return JSON.stringify(avSnap()); } catch (e) { return null; } };
+  const saveWallet = w => { store.set('wildnine-wallet', w); try { store.set('wildnine-av', avSnap(w)); } catch (e) { /* drawing data only */ } };
   const look = (w, slot) => (ITEM[(w || wallet()).eq[slot]] || ITEM[DEFAULT_EQ[slot]]).look;
+  try { store.set('wildnine-av', avSnap()); } catch (e) { /* drawing data only */ }
 
   // Earning: something for turning up, more for playing well. Practice is capped so it can't be farmed.
   function awardRound() {
@@ -3842,7 +3853,7 @@ window.WN_QUIPS = {
   function postToLeague(sd, btn) {
     const nick = myNick(); if (!nick) { toastTop('Add a name on your golfer card first.'); return; }
     const tot = sd.scores.reduce((a, b) => a + b, 0), idx = wildIndex();
-    return api('/wn/score', { pid: myPid(), nick, day: S.cfg.day || dayNo, tot, tp: toPar(sd), idx: idx == null ? null : idx, league: 1, grid: sd.scores.map(s => Math.min(35, s).toString(36)).join('') });
+    return api('/wn/score', { pid: myPid(), nick, day: S.cfg.day || dayNo, tot, tp: toPar(sd), idx: idx == null ? null : idx, league: 1, av: avStr(), grid: sd.scores.map(s => Math.min(35, s).toString(36)).join('') });
   }
   async function showLeague(day, back) {
     overlay(`<div class="kicker">Course league · #${day}</div><h2>Loading…</h2>`);
@@ -3869,7 +3880,7 @@ window.WN_QUIPS = {
   function postScoreToGroups(sd) {
     if (!LIVE || !myGroups().length || !myNick()) return;
     const tot = sd.scores.reduce((a, b) => a + b, 0);
-    api('/wn/score', { pid: myPid(), nick: myNick(), day: S.cfg.day || dayNo, tot, tp: toPar(sd), grid: sd.scores.map(s => Math.min(35, s).toString(36)).join('') });
+    api('/wn/score', { pid: myPid(), nick: myNick(), day: S.cfg.day || dayNo, tot, tp: toPar(sd), av: avStr(), grid: sd.scores.map(s => Math.min(35, s).toString(36)).join('') });
   }
   function nickField() { return `<input class="name" id="gNick" maxlength="14" placeholder="Your nickname on the table" value="${esc(myNick())}">`; }
   function takeNick() { const v = ($('#gNick') && $('#gNick').value || '').replace(/[^A-Za-z0-9 '\-]/g, '').trim().slice(0, 14); if (v) { const w = wallet(); w.name = v; saveWallet(w); } return v; }

@@ -51,7 +51,11 @@
   var hour = NOW.getHours();
   var hi = hour < 12 ? 'Morning' : hour < 18 ? 'Afternoon' : 'Evening';
   var ssCore = window.gpShotSaverCore, ss = ssCore ? ssCore.get() : { rounds: [] };
-  var anything = pid || socs.length || shortlist.length || wish.length || fit || bagIds.length || streak || ss.rounds.length;
+  // Wild Nine (the daily course game) keeps its own player number, groups and golfer look
+  var wnPid = get('wildnine-pid', ''), wnGroups = get('wildnine-groups', []), wnAv = get('wildnine-av', null);
+  if (typeof wnPid !== 'string' || !/^[a-z0-9]{8,40}$/.test(wnPid)) wnPid = '';
+  wnGroups = (Array.isArray(wnGroups) ? wnGroups : []).filter(function (g) { return g && /^[A-Z0-9]{6}$/.test(g.c); }).slice(0, 3);
+  var anything = wnPid || pid || socs.length || shortlist.length || wish.length || fit || bagIds.length || streak || ss.rounds.length;
   if (nick) document.getElementById('mc-hello').textContent = hi + ', ' + nick + '.';
   else if (!anything) {
     document.getElementById('mc-hello').textContent = 'Your locker’s empty. For now.';
@@ -87,7 +91,11 @@
     kit: Promise.all(shortlist.map(function (s) {
       return json('/prices/' + s + '/data.json').then(function (d) { d.slug = s; return d; }).catch(function () { return null; });
     })),
-    bag: bagItems(bagIds)
+    bag: bagItems(bagIds),
+    wn: json(API + '/wn/day' + (wnPid ? '?pid=' + wnPid : '')).catch(function () { return null; }),
+    wnG: Promise.all(wnGroups.map(function (gr) {
+      return json(API + '/wn/group?c=' + gr.c + (wnPid ? '&pid=' + wnPid : '')).then(function (d) { return d && d.ok ? d : null; }).catch(function () { return null; });
+    }))
   };
   var keys = Object.keys(jobs);
   Promise.all(keys.map(function (k) { return jobs[k]; })).then(function (r) {
@@ -104,7 +112,7 @@
       : 'If this browser forgets you, your Clubhouse goes with it.';
     var keyRow = KEY ? row('Your Clubhouse key', 0, '', '', '<div class="mc-key">' + KEY.statusCard(why) + '</div>', 'mc-key-sec') : '';
     var saved = KEY && KEY.status().saved;
-    box.innerHTML = (saved ? '' : keyRow) + games(g.pp, g.hl, g.locker, g.majors) + xmas() + handicap(g.leagues && g.leagues.hcp) + row('My Game', 0, '/improve/my-game/', 'Full stats', '<div id="mc-mygame"></div>', 'mc-mg-sec') + shotSaver() +
+    box.innerHTML = (saved ? '' : keyRow) + games(g.pp, g.hl, g.locker, g.majors) + wildNine(g.wn, (g.wnG || []).filter(Boolean)) + xmas() + handicap(g.leagues && g.leagues.hcp) + row('My Game', 0, '/improve/my-game/', 'Full stats', '<div id="mc-mygame"></div>', 'mc-mg-sec') + shotSaver() +
       row('Milestones', '', '/play/par-price/', 'Play Par Price', '<div id="mc-ms"></div>', 'mc-ms-sec') +
       asksRow(g.asks, soc) + (soc.length || lg.length ? societies(soc) + leagues(lg) : group()) +
       kit(g.kit, g.bag) +
@@ -122,6 +130,34 @@
     if (window.gpMilestones) { gpMilestones.fromHandicap(g.leagues && g.leagues.hcp); gpMilestones.shelf(document.getElementById('mc-ms')); }
     track('my_clubhouse_view', { state: 'regular', societies: soc.length, leagues: lg.length, kit: shortlist.length, bag: bagIds.length });
   });
+
+  // ---------------------------------------------------------------- Wild Nine: today's course league
+  // A scoreboard in the game's own colours, with each player's golfer as they dressed them in the game.
+  function wnPar(n) { return n === 0 ? 'E' : n > 0 ? '+' + n : String(n); }
+  function wnFace(av) { return '<span class="wn-face">' + (window.wnAvatar ? window.wnAvatar(av, 44) : '') + '</span>'; }
+  function wnTable(rows, mineLabel) {
+    if (!rows.length) return '<p class="wn-empty">No rounds on the board yet today. Be the first name up there.</p>';
+    var top = rows.slice(0, 10), me = rows.filter(function (r) { return r.me; })[0];
+    var html = top.map(function (r, i) {
+      return '<li class="' + (r.me ? 'is-me' : '') + (i === 0 ? ' is-lead' : '') + '"><span class="wn-pos">' + (i + 1) + '</span>' + wnFace(r.me && wnAv ? wnAv : r.av) +
+        '<span class="wn-nick">' + esc(r.nick) + (r.me ? ' <small>you</small>' : '') + '</span><span class="wn-tot">' + (r.tot || '') + '</span><b class="wn-tp' + (r.tp < 0 ? ' is-red' : '') + '">' + wnPar(r.tp) + '</b></li>';
+    }).join('');
+    if (mineLabel && !top.some(function (r) { return r.me; })) html += '<li class="is-me is-gap"><span class="wn-pos">' + mineLabel + '</span>' + wnFace(wnAv) + '<span class="wn-nick">You</span><span class="wn-tot"></span><b class="wn-tp">' + (me ? wnPar(me.tp) : '') + '</b></li>';
+    return '<ol class="wn-board">' + html + '</ol>';
+  }
+  function wildNine(day, groups) {
+    if (!day || !day.ok) return '';
+    var gross = day.gross || [], mine = day.mine;
+    var you = wnAv ? '<div class="wn-me">' + wnFace(wnAv) + '<span><b>' + (mine ? 'You’re ' + ord(mine.gross) + ' on today’s course' : wnPid ? 'Not on today’s board yet' : 'Dress your golfer, then play') + '</b>' +
+      '<small>' + (mine ? 'Gross, out of everyone who posted their round.' : 'Play today’s nine and post your round to the course league.') + '</small></span></div>' : '';
+    var gtabs = groups.map(function (gr) {
+      return '<div class="wn-group"><h3>' + esc(gr.name) + ' <small>' + (gr.today || []).length + ' of ' + gr.members + ' played today</small></h3>' + wnTable(gr.today || []) + '</div>';
+    }).join('');
+    return '<section class="mc-row-sec wn-sec"><div class="wn-felt"><div class="wn-head"><span class="wn-k">Wild Nine · course #' + day.day + '</span><h2>Today’s course league</h2>' +
+      '<a class="wn-play" href="/play/wild-nine/?utm_source=myclubhouse">' + (mine ? 'Play again' : 'Play today’s nine') + ' &rarr;</a></div>' + you +
+      wnTable(gross, mine ? String(mine.gross) : '') + gtabs +
+      '<p class="wn-fine">Top 10 gross. Only rounds players chose to post to the league, and only the first official round of the day counts.</p></div></section>';
+  }
 
   // ---------------------------------------------------------------- helpers for sections
   function row(title, count, link, label, inner, cls) {

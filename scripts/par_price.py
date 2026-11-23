@@ -217,11 +217,21 @@ def hub_page(n, rnd):
       <span class="pr-kicker">Play · The Clubhouse</span>
       <h1>The Clubhouse</h1>
       <p>Free golf games on real UK prices, and free tools for when you’re out on the course. Bragging rights only; handicaps not required.</p>
-      <p class="ch-jump"><a href="#price-games">Price games</a><a href="#on-the-course">On the course</a></p>
+      <p class="ch-jump"><a href="#price-games">Games</a><a href="#on-the-course">On the course</a></p>
     </div>
   </section>
 
-  <div class="ch-sec" id="price-games"><h2>Price games</h2><span>Play from the sofa: real UK golf prices, bragging rights only</span></div>
+  <div class="ch-sec" id="price-games"><h2>Games</h2><span>Play from the sofa: a daily golf course and real UK golf prices, bragging rights only</span></div>
+
+  <a class="ch-card ch-wn" href="/play/wild-nine/?utm_source=clubhouse">
+    <picture><source media="(max-width: 760px)" srcset="/assets/photos/tools/wild-nine-square.jpg"><img src="/assets/photos/tools/wild-nine-banner.jpg" alt="" width="1536" height="512" loading="eager"></picture>
+    <span class="ch-body">
+      <span class="ch-kicker">Daily · New game</span>
+      <b class="ch-title">Wild Nine</b>
+      <span class="ch-line">A new golf course every day, the same nine holes for everyone. Then see where you finish in today’s league.</span>
+      <span class="ch-cta">Play today’s nine <span aria-hidden="true">&rarr;</span></span>
+    </span>
+  </a>
 
   <a class="ch-card ch-today" href="/play/par-price/?utm_source=clubhouse">
     <picture><source media="(max-width: 760px)" srcset="/assets/photos/tools/par-price-square.jpg"><img src="/assets/photos/tools/par-price-banner.jpg" alt="" width="1536" height="512" loading="eager"></picture>

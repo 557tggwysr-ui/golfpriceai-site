@@ -763,3 +763,54 @@
   } catch (e) { /* never break the page */ }
 })();
 
+
+/* gp-find (23 Nov 2026): "Find on this page" on price, deal and promotion pages with a long list.
+   One box above the first long list; it narrows every long list on the page (tables and card grids)
+   to the items containing every word typed. Lists run by js/clothing-guide.js (chips, "show more")
+   are narrowed through that script so chips and search work together. */
+(function () {
+  if (!/^\/(prices|shop|receipts|trending)/.test(location.pathname)) return;
+  var main = document.getElementById('main-content') || document.body;
+  var lists = [];
+  main.querySelectorAll('table.pp-table tbody, .cg-list, .sg-grid, .pp-cards').forEach(function (el) {
+    if (lists.indexOf(el) !== -1) return;
+    var items = el.classList.contains('cg-list') ? el.querySelectorAll('.cg-item') : el.children;
+    if (items.length >= 10 || (el.classList.contains('cg-list') && items.length >= 10)) lists.push(el);
+  });
+  if (!lists.length) return;
+  var first = lists[0].closest('.pp-table-wrap') || lists[0];
+  var block = first.closest('.pp-block');
+  var anchor = (block && block.querySelector('.cg-chips')) || first;
+  var box = document.createElement('label');
+  box.className = 'gp-find';
+  box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>' +
+    '<span class="sr-only">Find on this page</span><input type="search" placeholder="Find a brand or model on this page" autocomplete="off" enterkeyhint="search"><small></small>';
+  anchor.parentNode.insertBefore(box, anchor);
+  var none = document.createElement('p');
+  none.className = 'gp-find-none'; none.hidden = true;
+  none.textContent = 'Nothing on this page matches that. Try the main search at the top for everything we track.';
+  box.parentNode.insertBefore(none, box.nextSibling);
+  var input = box.querySelector('input'), count = box.querySelector('small'), timer;
+  function words(v) { return v.toLowerCase().replace(/[’']/g, '').split(/\s+/).filter(Boolean); }
+  function run() {
+    var q = words(input.value);
+    window.gpFindQ = q;
+    var hits = 0;
+    lists.forEach(function (list) {
+      if (list.classList.contains('cg-list') && window.gpFindRender) return;
+      Array.prototype.forEach.call(list.children, function (el) {
+        var t = el.textContent.toLowerCase().replace(/[’']/g, '');
+        var ok = q.every(function (w) { return t.indexOf(w) !== -1; });
+        el.classList.toggle('gp-nf', !ok);
+      });
+    });
+    if (window.gpFindRender) window.gpFindRender();
+    lists.forEach(function (list) {
+      var items = list.classList.contains('cg-list') ? list.querySelectorAll('.cg-item') : list.children;
+      Array.prototype.forEach.call(items, function (el) { if (!el.hidden && !el.classList.contains('gp-nf')) hits++; });
+    });
+    count.textContent = q.length ? hits + (hits === 1 ? ' match' : ' matches') : '';
+    none.hidden = !q.length || hits > 0;
+  }
+  input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(run, 120); });
+})();

@@ -4423,8 +4423,29 @@ async function wnSetup(env) {
     env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS wn_members_pid ON wn_members (pid)'),
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wn_scores (pid TEXT, day INTEGER, nick TEXT, tot INTEGER, tp INTEGER, grid TEXT, created TEXT, idx REAL, league INTEGER DEFAULT 0, PRIMARY KEY (pid, day)) WITHOUT ROWID'),
     env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS wn_scores_day ON wn_scores (day)'),
+    // each player's golfer look (colours and shapes only), so tables can draw everyone's golfer
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wn_av (pid TEXT PRIMARY KEY, av TEXT, at TEXT) WITHOUT ROWID'),
   ]);
   wnReady = true;
+}
+// A golfer look from the game, rebuilt from known keys only: small numbers, short words and #rrggbb colours.
+function wnAv(raw) {
+  let a; try { a = typeof raw === 'string' ? JSON.parse(raw.slice(0, 600)) : raw; } catch (e) { return null; }
+  if (!a || typeof a !== 'object') return null;
+  const n = (v, max) => Number.isInteger(v) && v >= 0 && v <= max ? v : 0;
+  const w = v => typeof v === 'string' && /^[a-z]{1,10}$/.test(v) ? v : null;
+  const c = v => typeof v === 'string' && /^#[0-9a-fA-F]{6}$/.test(v) ? v : null;
+  const part = (o, keys) => { const r = {}; if (o && typeof o === 'object') for (const [k, t] of keys) { const v = t === 'c' ? c(o[k]) : w(o[k]); if (v) r[k] = v; } return r; };
+  return { s: n(a.s, 9), h: n(a.h, 9), hs: n(a.hs, 20), b: a.b === 'f' ? 'f' : 'm',
+    hd: part(a.hd, [['hat', 'w'], ['c', 'c'], ['c2', 'c']]), tp: part(a.tp, [['top', 'w'], ['c', 'c'], ['c2', 'c']]),
+    ly: part(a.ly, [['gilet', 'w'], ['c', 'c'], ['trim', 'c']]), ey: part(a.ey, [['shades', 'w'], ['lens', 'c'], ['frame', 'c']]) };
+}
+async function wnAvs(db, rows) {
+  const pids = [...new Set(rows.map(r => r.pid))].slice(0, 100);
+  if (!pids.length) return {};
+  const got = await db.prepare(`SELECT pid, av FROM wn_av WHERE pid IN (${pids.map(() => '?').join(',')})`).bind(...pids).all();
+  const out = {}; for (const r of got.results || []) { try { out[r.pid] = JSON.parse(r.av); } catch (e) { /* skip */ } }
+  return out;
 }
 async function wildNine(request, url, env, cors) {
   if (!env.DEMAND) return json({ ok: false, error: 'Group tables are taking a short break. Please try again later.' }, 503, cors);
@@ -4486,6 +4507,8 @@ async function wildNine(request, url, env, cors) {
     // posting to the course league later is a yes to showing the round that already counts
     if (league) await db.prepare('UPDATE wn_scores SET league = 1, nick = ? WHERE pid = ? AND day = ?').bind(nick, pid, day).run();
     await db.prepare('UPDATE wn_members SET nick = ? WHERE pid = ?').bind(nick, pid).run();
+    const av = body.av ? wnAv(body.av) : null;
+    if (av) await db.prepare('INSERT OR REPLACE INTO wn_av (pid, av, at) VALUES (?, ?, ?)').bind(pid, JSON.stringify(av), now).run();
     return json({ ok: true, first: !!(r.meta && r.meta.changes) }, 200, cors);
   }
   if (path === '/wn/group') {
@@ -4497,7 +4520,8 @@ async function wildNine(request, url, env, cors) {
     const today = await db.prepare('SELECT s.pid, m.nick, s.tot, s.tp, s.grid FROM wn_scores s JOIN wn_members m ON m.pid = s.pid AND m.code = ? WHERE s.day = ? ORDER BY s.tp, s.created LIMIT 300').bind(code, day).all();
     const week = await db.prepare('SELECT s.pid, m.nick, COUNT(*) rounds, SUM(s.tp) tp FROM wn_scores s JOIN wn_members m ON m.pid = s.pid AND m.code = ? WHERE s.day > ? AND s.day <= ? GROUP BY s.pid ORDER BY (1.0 * SUM(s.tp) / COUNT(*)), COUNT(*) DESC LIMIT 300').bind(code, day - 7, day).all();
     const mod = await wnModeration();
-    const strip = rows => wnModerate(rows, mod).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, grid: r.grid, rounds: r.rounds, me: r.pid === pid }));
+    const avs = await wnAvs(db, [...(today.results || []), ...(week.results || [])]);
+    const strip = rows => wnModerate(rows, mod).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, grid: r.grid, rounds: r.rounds, me: r.pid === pid, av: avs[r.pid] || null }));
     return json({ ok: true, code, name: g.name, members: (mem && mem.n) || 0, me: !!(mem && mem.me), today: strip(today), week: strip(week) }, 200, cors);
   }
   if (path === '/wn/day') {
@@ -4517,7 +4541,8 @@ async function wildNine(request, url, env, cors) {
       }
     }
     const mod = await wnModeration();
-    const strip = rows => wnModerate(rows, mod).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, idx: r.idx, net: r.net, me: r.pid === pid }));
+    const avs = await wnAvs(db, [...(gross.results || []), ...(net.results || [])]);
+    const strip = rows => wnModerate(rows, mod).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, idx: r.idx, net: r.net, me: r.pid === pid, av: avs[r.pid] || null }));
     return json({ ok: true, day, gross: strip(gross), net: strip(net), mine }, 200, cors);
   }
   if (path === '/wn/stats') {

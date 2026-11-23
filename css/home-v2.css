@@ -175,7 +175,7 @@
  .hm-tiles2{gap:16px;margin-top:16px}.hm-tile.is-sm{height:150px;border-radius:16px}.hm-tile.is-sm span{padding:10px 12px}.hm-tile.is-sm b{font-size:17px}.hm-tile.is-sm small{font-size:12px}
  .hm-filters{margin:0 0 16px;padding:2px 0 4px}
  .hm-rail{margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);overflow:visible}.hm-pc{width:auto}
- .hm-rail .hm-pc:nth-child(n+5){display:none}
+ .hm-rail .hm-pc.is-5{display:none}
  .hm-tools{grid-template-columns:2fr 1fr 1fr;gap:16px}.hm-tool,.hm-tool.is-wide{height:260px;grid-column:auto}
  .hm-tool b{font-size:19px}
  .hm-games{margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;overflow:visible}.hm-game{width:auto;height:280px}
@@ -210,7 +210,23 @@
  .hm-deal-ph{flex:1;min-height:120px;height:auto}
  .hm-wrap{padding:0 24px}
  .hm-rail{margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);overflow:visible}.hm-pc{width:auto}
- .hm-rail .hm-pc:nth-child(n+4){display:none}
+ .hm-rail .hm-pc.is-4{display:none}
  .hm-games{margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;overflow:visible}.hm-game{width:auto}
  .hm-signup{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;align-items:center}
+}
+/* 23 Nov: the Best deal card matches the left column exactly (top of the kicker to the bottom of the ticks),
+   instead of growing with its photo. */
+@media (min-width:700px){
+ .hm-hr{position:relative;min-height:400px}
+ .hm-hr .hm-deal{position:absolute;inset:0}
+ .hm-hl{justify-content:flex-start}
+ .hm-deal-ph{min-height:0;flex:1 1 0}
+}
+.hm-pc[hidden]{display:none!important}
+/* 23 Nov: "Find a deal" ends level with "Beyond prices" (PC): its card stretches and the rows share the height */
+@media (min-width:1024px){
+ .hm-lgroups{align-items:stretch}
+ .hm-lgroups>div:nth-child(2){display:flex;flex-direction:column}
+ .hm-lgroups>div:nth-child(2) .hm-rows{flex:1;display:flex;flex-direction:column}
+ .hm-lgroups>div:nth-child(2) .hm-rw{flex:1}
 }
