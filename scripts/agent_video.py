@@ -239,11 +239,14 @@ def style_guess(t, s, pal, img, photo):
         if st <= t < st + 0.8:
             k = (t - st) / 0.8
             text_block(im, n, 1480, 220 * (1.4 - 0.4 * ease_out(k * 2)), pal["accent"], alpha=1 - max(0, k - 0.7) / 0.3)
-    if t > 5.0:
-        pill(im, "TODAY'S PRICE", 1390, pal, alpha=ease_out((t - 5.0) / 0.3), size=36)
-        text_block(im, money(s["price"]), 1510, 150 * ease_back((t - 5.0) / 0.4), pal["pop"])
+    under = s["price"] < s["line"]
+    if t > 5.0:  # the reveal: UNDER is good news, so it's green (cheaper than you'd think); OVER keeps the pop colour
+        pill(im, ("UNDER! " if under else "OVER! ") + "TODAY'S PRICE", 1390, pal, alpha=ease_out((t - 5.0) / 0.3), size=36)
+        text_block(im, money(s["price"]), 1510, 150 * ease_back((t - 5.0) / 0.4), pal["accent"] if under else pal["pop"])
     if t > 6.2:
-        text_block(im, s.get("banter", "Get it right? Your round's on you."), 1650, 40, pal["soft"], alpha=ease_out((t - 6.2) / 0.4), max_lines=2)
+        line2 = s.get("banter") or (f"{money(s['line'] - s['price'])} cheaper than the guess. Get it right? Your round's on you." if under
+                                    else "Get it right? Your round's on you.")
+        text_block(im, line2, 1650, 40, pal["soft"], alpha=ease_out((t - 6.2) / 0.4), max_lines=2)
     if t > 7.6:
         footer(im, pal, ease_out((t - 7.6) / 0.4))
     return im, shake(t, 5.0)
