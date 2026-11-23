@@ -138,13 +138,13 @@ def league_page():
 </div>
 <script src="/js/milestones.js?v=20261106a" defer></script>
 <script src="/js/wn-avatar.js?v=20261123b" defer></script>
-<script src="/js/league.js?v=20261123a" defer></script>
+<script src="/js/league.js?v=20261123b" defer></script>
 <script src="/js/report.js?v=20261024b" defer></script>"""
     return page_shell(title="Par Price league | GolfPrice AI",
                       description="You’ve been invited to a Par Price league: five golf prices a day, scored like a round. Lowest score wins.",
                       canonical=f"{SITE}/play/league/", body=body, section="play", schema=[crumbs_schema], noindex=True,
                       og_image="/assets/cards/par-price/league.jpg",
-                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261123a">\n<link rel="stylesheet" href="/css/wn-board.css?v=20261123a">\n'
+                      extra_head='<link rel="stylesheet" href="/css/par-price.css?v=20261123b">\n<link rel="stylesheet" href="/css/wn-board.css?v=20261123a">\n'
                                  '<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n')
 
 
