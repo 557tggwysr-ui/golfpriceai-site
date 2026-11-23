@@ -151,7 +151,9 @@ def live_price_match(items, reported=()):
             continue
         price = None
         for rx in PRICE_RX:
-            vals = [float(v) for v in rx.findall(h[:300_000]) if 0.5 < float(v) < 20000]
+            vals = [float(v) for v in rx.findall(h[:300_000]) if 0.5 < float(v) < 2_000_000]
+            # some shops write prices in pence in their page data (7495 = £74.95): read those as pounds too
+            vals = [v for v in vals if v < 20000] + [v / 100 for v in vals if v >= 100 and v == int(v)]
             if vals:
                 price = min(vals, key=lambda v: abs(v - p["salePrice"]))
                 break
