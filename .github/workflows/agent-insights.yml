@@ -1,0 +1,23 @@
+name: "Agent: retailer insights"
+
+# 2nd of each month: a short, ready-to-send summary for each retailer (where
+# their prices sit against the market, popular models they're cheapest on,
+# missing or out of stock). Emailed to the owner only.
+on:
+  schedule:
+    - cron: '10 7 2 * *'
+  workflow_dispatch: {}
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    env: { PYTHONDONTWRITEBYTECODE: "1" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Build the retailer summaries
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/agent_insights.py

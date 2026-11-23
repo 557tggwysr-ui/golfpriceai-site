@@ -1,0 +1,34 @@
+name: "Agent: mystery shopper"
+
+# Nightly: a phone-sized browser walks the live site and notes anything
+# broken (script errors, failed requests, broken images, sideways scrolling,
+# missing titles and headings, slow pages, dead links, dead sitemap entries).
+on:
+  schedule:
+    - cron: '10 2 * * *'
+  workflow_dispatch: {}
+
+concurrency: { group: agents-commit, cancel-in-progress: false }
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm install --no-save --silent puppeteer-core@23
+      - name: Walk the site
+        run: |
+          export CHROME_PATH=$(which google-chrome || which chromium || echo /usr/bin/google-chrome)
+          node scripts/agent_shopper.mjs
+      - name: Save the report
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/agents/shopper-report.json
+          if ! git diff --quiet --cached; then
+            git commit -m "Agent: mystery shopper report"
+            git pull --rebase && git push
+          fi

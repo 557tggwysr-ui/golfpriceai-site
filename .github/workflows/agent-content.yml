@@ -1,0 +1,146 @@
+name: "Agent: content engine"
+
+# Sunday 17:00: trend scan, then next week's posts (seven different video
+# styles, each with a hook), feed cards, the pack page and the approval issue.
+# Learns from last week's Instagram results. Daily 08:15: a "moment" post if a popular model hit its
+# lowest price, plus the newsroom (also 17:45): fresh news and trends, and Claude writes a
+# same-day post for anything worth riding (build-up beats for big moments, and surprises).
+# Daily 12:30 and 19:30: post today's ticked items to Instagram.
+# Cron times are UTC (UK winter time; an hour later in summer).
+on:
+  schedule:
+    - cron: '0 17 * * 0'
+    - cron: '20 16 * * 3'
+    - cron: '15 8 * * *'
+    - cron: '30 12 * * *'
+    - cron: '45 17 * * *'
+    - cron: '30 19 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "plan, trends, moment (includes the newsroom) or post"
+        default: plan
+
+concurrency: { group: agents-commit, cancel-in-progress: false }
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions: { contents: write, issues: write, id-token: write }
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+      HAS_CLAUDE: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install --quiet pillow
+      - name: Make sure ffmpeg is there (for the videos)
+        run: which ffmpeg || (sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg)
+      - name: Pick the mode
+        id: mode
+        run: |
+          if [ -n "${{ github.event.inputs.mode }}" ]; then echo "m=${{ github.event.inputs.mode }}" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "0 17 * * 0" ]; then echo "m=plan" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "20 16 * * 3" ]; then echo "m=trends" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event.schedule }}" = "15 8 * * *" ] || [ "${{ github.event.schedule }}" = "45 17 * * *" ]; then echo "m=moment" >> $GITHUB_OUTPUT
+          else echo "m=post" >> $GITHUB_OUTPUT; fi
+      - uses: actions/setup-node@v4
+        if: steps.mode.outputs.m == 'plan' || steps.mode.outputs.m == 'trends' || steps.mode.outputs.m == 'moment'
+        with: { node-version: '20' }
+      - name: Scout live trends (hashtags, sounds, formats)
+        if: steps.mode.outputs.m == 'plan' || steps.mode.outputs.m == 'trends'
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          npm install --no-save --silent puppeteer-core@23 || true
+          export CHROME_PATH=$(which google-chrome || which chromium || echo /usr/bin/google-chrome)
+          node scripts/agent_trends.mjs || echo "trend scout failed; planning with what we have"
+      - name: What's breaking on TikTok today
+        if: steps.mode.outputs.m == 'moment'
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          TREND_DAILY: "1"
+        run: |
+          npm install --no-save --silent puppeteer-core@23 || true
+          export CHROME_PATH=$(which google-chrome || which chromium || echo /usr/bin/google-chrome)
+          node scripts/agent_trends.mjs || echo "daily trend scout failed; the newsroom carries on"
+      - name: Newsroom scan (fresh news and trends)
+        id: news
+        if: steps.mode.outputs.m == 'moment'
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python scripts/agent_newsroom.py || echo "candidates=0" >> $GITHUB_OUTPUT
+      - name: Claude decides if anything deserves a same-day post
+        if: steps.mode.outputs.m == 'moment' && steps.news.outputs.candidates != '0' && env.HAS_CLAUDE == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            You are the newsroom editor for GolfPrice AI (golfpriceai.com), a UK golf price-comparison site with free golf games.
+            Read /tmp/newsroom-candidates.json (fresh, pre-filtered headlines and trends), data/moments.json (moments we're riding,
+            with their build-up), data/content-queue.json, .github/EDITOR.md, .github/SOCIAL.md (the creative brief: the 14
+            formats, Styles A and B, honesty rules), data/social-formats.json, data/social-benchmarks.json and the styles in
+            scripts/agent_cine.py, scripts/agent_brush.py and scripts/agent_video.py. A same-day post may use style "humour"
+            (fields bg, top, punch, arrow) or "headline" (bg, big, sub, price) with a photo from data/social-library.json, and
+            should record "format" (one of the 14 ids).
+            Also check what's viral today on Instagram Reels and TikTok that the candidates may miss: use web search for
+            today's trend round-ups (trending Reels audio and formats, viral TikTok trends and memes in the UK), and read
+            data/agents/social-today.json (TikTok's rising hashtags, top videos and business-approved sounds right now).
+            THE SMART BIT is the link back to GolfPrice AI: the best posts tie the news or trend of the day to something
+            specific on the site, for example a real price drop or the lowest price we've tracked, price alerts, the deal
+            tools, Build Your Bag, Par Price, the Bag Draft, Wild Nine, the Ace Board, Society HQ or a seasonal gift page.
+            A trending format or sound used to show a real golf price or game beats a generic joke.
+            Decide whether ONE candidate deserves a same-day post. Yes only if it's big or fun enough that golfers will be talking
+            about it today, it's safe (nothing political, tragic, about someone's private life, or mocking anyone), and there's a
+            genuinely funny or useful golf angle (a price, a deal, a game or a tool on the site). A build-up beat for a moment
+            we're riding (a trailer, teaser, poster, ticket release) is a strong yes if we haven't posted that beat already.
+            Most runs, the right answer is no: do nothing.
+            If yes: add one entry to data/content-queue.json "posts" with date = today (UTC date), "reactive": true,
+            "status": "queued", "trend", "why" (one line), "style" (pick what suits THIS story and current trends from any engine
+            style; don't default to one), that style's own script fields (read its function), "look" where the style takes one,
+            "link", and "ig", "x" and "tt" captions. Only real figures from data/models.json or data/home-deals.json; images only
+            from product image URLs in data/models.json or tile-photos/*.jpg; the story's name in words only (never its logo,
+            artwork, characters, lettering or music); never name retailers ("multiple UK retailers"); no fake urgency; UK spelling.
+            COLOURS ARE THE RECOGNITION: look up the story's own colour scheme (the film's poster and trailer palette, a team's or
+            tournament's colours, a game's key art palette) and give the post a "look" in those colours: a LOOKS name from
+            scripts/agent_cine.py (doom = black and green, versus = Europe blue and gold v USA red, white and blue, vice, christmas,
+            hero, major, night) or a custom look object; carry the same colours into the thumbnail. Colours and moods only, never
+            the artwork itself.
+            Real people: when a player or team wins, congratulate them by name in the captions only ("Congratulations to X") and
+            add their name as a hashtag (#FirstnameLastname); never their name or photo in the video or thumbnail, and nothing
+            that suggests they use, like or endorse GolfPrice AI. Never mock or joke about a real person. If it's a build-up beat, also add the beat to that moment's "beats" list in
+            data/moments.json ({"date", "what"}) so we don't repeat it.
+            Change no other files.
+          claude_args: --max-turns 35 --allowedTools "Read,Glob,Grep,Edit,Write,WebSearch,WebFetch,Bash(cat:*),Bash(date:*)"
+      - name: Run the content engine
+        if: steps.mode.outputs.m != 'trends'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: python scripts/agent_content.py ${{ steps.mode.outputs.m }}
+      - name: Upload the videos to this week's release
+        env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }
+        run: |
+          shopt -s nullglob
+          for f in social-videos/*.mp4; do
+            d=$(basename "$f" | cut -c1-10)
+            mon=$(date -d "$d -$(( $(date -d "$d" +%u) - 1 )) days" +%F)
+            tag="pack-$mon"
+            gh release view "$tag" >/dev/null 2>&1 || gh release create "$tag" --title "Content pack w/c $mon" --notes "Videos for the content pack. See /social/pack/." --latest=false
+            gh release upload "$tag" "$f" --clobber
+          done
+          # keep the last six weeks of video packs
+          gh release list --limit 50 --json tagName -q '.[].tagName' | grep '^pack-' | sort -r | tail -n +7 | while read t; do gh release delete "$t" --yes --cleanup-tag; done
+      - name: Save the plan, cards and pack
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A data/agents/content-plan.json data/agents/content-learning.json data/agents/trends.json data/agents/social-trends.json data/agents/newsroom.json data/agents/social-today.json data/content-queue.json data/moments.json social/ 2>/dev/null || true
+          if ! git diff --quiet --cached; then
+            git commit -m "Agent: content engine (${{ steps.mode.outputs.m }})"
+            git pull --rebase && git push
+          fi

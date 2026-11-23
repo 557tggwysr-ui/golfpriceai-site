@@ -1,0 +1,36 @@
+name: "Agent: watchdog"
+
+# Every 3 hours: did every agent run, is its output fresh and sane, is the
+# open Fix pack within bounds (it labels a bad one "do-not-merge"). Keeps the
+# "Agent health" issue up to date and emails new problems. Checks in with the
+# alerts worker, whose own timer emails the owner if this watchdog goes quiet.
+on:
+  schedule:
+    - cron: '25 */3 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    permissions: { contents: write, actions: read, pull-requests: write, issues: write }
+    env: { PYTHONDONTWRITEBYTECODE: "1" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Check on the agents
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ALERTS_SECRET: ${{ secrets.ALERTS_SECRET }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: python scripts/agent_watchdog.py
+      - name: Save its memory (only when the list of problems changes)
+        run: |
+          if [ -f /tmp/watchdog-changed ]; then
+            git config user.name "golfpriceai-bot"
+            git config user.email "bot@users.noreply.github.com"
+            git add data/agents/watchdog-state.json
+            git diff --quiet --cached || { git commit -m "Agent: watchdog state"; git pull --rebase && git push; }
+          fi

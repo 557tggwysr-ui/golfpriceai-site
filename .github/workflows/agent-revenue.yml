@@ -1,0 +1,37 @@
+name: "Agent: revenue guardian"
+
+# Daily check that every buy link is tracked and lands on the right page.
+# Public link-health report: data/agents/revenue-report.json
+# Private money report (Awin) goes to the owner by email on Mondays, or
+# whenever something needs a look. Cron times are UTC (UK winter time).
+on:
+  schedule:
+    - cron: '20 6 * * *'
+  workflow_dispatch: {}
+
+concurrency: { group: agents-commit, cancel-in-progress: false }
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    env: { PYTHONDONTWRITEBYTECODE: "1" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Check buy links
+        env:
+          AWIN_API_TOKEN: ${{ secrets.AWIN_API_TOKEN }}
+          AWIN_PUBLISHER_ID: ${{ secrets.AWIN_PUBLISHER_ID }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: python scripts/agent_revenue.py
+      - name: Save the public report
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/agents/revenue-report.json
+          if ! git diff --quiet --cached; then
+            git commit -m "Agent: revenue guardian report"
+            git pull --rebase && git push
+          fi

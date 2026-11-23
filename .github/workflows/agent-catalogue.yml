@@ -1,0 +1,36 @@
+name: "Agent: catalogue autopilot"
+
+# Price sanity, feed health, second-hand rule, misfiled products,
+# duplicates, new launches, and a check that approved fixes took effect.
+# Runs after every deal refresh (every 6 hours), so problems are caught fast.
+on:
+  workflow_run:
+    workflows: ["Update golf deals"]
+    types: [completed]
+  schedule:
+    - cron: '50 6 * * *'
+  workflow_dispatch: {}
+
+concurrency: { group: agents-commit, cancel-in-progress: false }
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions: { contents: write }
+    env: { PYTHONDONTWRITEBYTECODE: "1" }
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Check the catalogue
+        run: python scripts/agent_catalogue.py
+      - name: Save the reports
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/agents/catalogue-report.json data/agents/catalogue-findings.json data/agents/price-quarantine.json data/agents/catalogue-state.json
+          if ! git diff --quiet --cached; then
+            git commit -m "Agent: catalogue autopilot report"
+            git pull --rebase && git push
+          fi
