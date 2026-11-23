@@ -23,7 +23,8 @@ PART A: BEFORE YOU MERGE (about 15 minutes)
         Run these two lines, one at a time:
           ALTER TABLE wn_scores ADD COLUMN idx REAL;
           ALTER TABLE wn_scores ADD COLUMN league INTEGER DEFAULT 0;
-        (If it says the column already exists, that's fine: skip it.)
+        (If it says "no such table" or "column already exists", that's fine: skip it.
+         The new worker in A3 creates the table with both columns the first time it's used.)
 
 [ ] A3. Cloudflare worker: deploy the new version
         Workers & Pages > the alerts worker > Edit code.
