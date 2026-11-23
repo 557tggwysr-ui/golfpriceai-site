@@ -111,6 +111,7 @@ TIE_INS = [  # (trigger words, hook, caption opener)
 UNSAFE = re.compile(r"\b(dies|died|death|dead|killed|kill|tragic|tragedy|crash|war|attack|election|vote|minister|government|"
                     r"parliament|police|court|arrest|charged|victims?|injur\w*|cancer|funeral|abuse|racis\w*|scandal|"
                     r"shooting|stabb\w*|missing|trump|starmer|labour|tory|conservative|reform uk|israel|gaza|ukraine|russia)\b", re.I)
+MAJORS_LIVE = {4: "masters", 5: "pga championship", 6: "us open", 7: "the open", 9: "ryder cup"}
 CALENDAR = {11: ["black friday"], 12: ["christmas"], 1: ["new year"], 4: ["masters"], 6: ["father's day"], 7: ["the open"]}
 
 
@@ -138,6 +139,8 @@ def scan_trends():
     words = " ".join(h["title"] for h in safe).lower() + " " + " ".join(CALENDAR.get(now().month, []))
     for pat, hook, opener in TIE_INS:
         hit = re.search(pat, words, re.I)
+        if hit and pat == TIE_INS[0][0] and not MAJORS_LIVE.get(now().month):
+            continue  # a major in the news (venue, preview) isn't a golf weekend on the telly: only tie in during its month
         if hit:
             ties.append({"match": hit.group(0), "hook": hook, "opener": opener})
     for b in BRANDS:
