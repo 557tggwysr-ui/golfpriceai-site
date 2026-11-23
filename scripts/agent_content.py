@@ -201,6 +201,32 @@ def learn(plan, L):
         st = L["styles"].setdefault(p.get("style"), {"n": 0, "score": 0.0})
         st["score"] = round((st["score"] * st["n"] + score) / (st["n"] + 1), 4)
         st["n"] += 1
+        L["posts"][p["id"]]["slot"] = p.get("slot", "12:30")
+    slot_test(L)
+
+
+def slot_test(L):
+    """Lunchtime v evening: each post's reach and engagement against its own format's average, then the
+    average of that per slot. Decided after four weeks with at least 8 posts in each slot."""
+    ps = [v for k, v in L.get("posts", {}).items() if v.get("slot") in SLOTS and k >= str(TEST_START)]
+    fmt = {}
+    for v in ps:
+        f = fmt.setdefault(v.get("format") or "x", [0, 0.0, 0.0]); f[0] += 1; f[1] += v.get("reach", 0); f[2] += v.get("score", 0)
+    res = {sl: {"n": 0, "reach": 0.0, "eng": 0.0} for sl in SLOTS}
+    for v in ps:
+        n, r, e = fmt[v.get("format") or "x"]
+        r_avg, e_avg = (r / n) or 1, (e / n) or 1
+        x = res[v["slot"]]; x["n"] += 1; x["reach"] += v.get("reach", 0) / r_avg; x["eng"] += v.get("score", 0) / e_avg
+    for x in res.values():
+        if x["n"]:
+            x["reach"], x["eng"] = round(x["reach"] / x["n"], 3), round(x["eng"] / x["n"], 3)
+    t = L.setdefault("slotTest", {"started": str(TEST_START)})
+    t["slots"] = res
+    if not t.get("winner") and now().date() >= TEST_START + timedelta(days=28) and all(res[sl]["n"] >= 8 for sl in SLOTS):
+        val = {sl: res[sl]["reach"] * 0.6 + res[sl]["eng"] * 0.4 for sl in SLOTS}
+        t["winner"] = max(SLOTS, key=lambda sl: val[sl])
+        t["decided"] = str(now().date())
+        t["why"] = f"{t['winner']} did better on reach and engagement, each post compared with its own format"
 
 
 def load_social():
@@ -687,10 +713,34 @@ POST_TIMES = {  # weekday: (TikTok, YouTube Shorts, X and Bluesky, Pinterest, Wh
 }
 
 
+# Timing test (John, 23 Nov 2026): lunchtime (12:30) v evening (19:30). Posts alternate day by day, flipping
+# each week so every weekday gets both; learn() compares reach and engagement per slot (each post against its
+# own format's average, so a strong format can't skew it) and, after four weeks with 8+ posts each, picks the winner.
+SLOTS = ("12:30", "19:30")
+TEST_START = date(2026, 11, 24)
+
+
+def slot_for(d):
+    try:
+        w = (load_learning().get("slotTest") or {}).get("winner")
+    except Exception:
+        w = None
+    if w in SLOTS:
+        return w
+    return SLOTS[(d.isocalendar()[1] + d.weekday()) % 2]
+
+
 def suggest_times(post):
-    wd = date.fromisoformat(post["date"]).weekday()
+    d = date.fromisoformat(post["date"])
+    wd = d.weekday()
     tt, yt, x, pin, wa = POST_TIMES[wd]
-    t = {"Instagram": "12:30 (posts itself once ticked)", "TikTok": tt, "YouTube Shorts": yt, "X": x, "Bluesky": x, "Pinterest": pin}
+    post.setdefault("slot", slot_for(d))
+    if post["slot"] == "12:30":  # the lunchtime side of the test: TikTok and YouTube at lunch too
+        tt, yt = "12:30", "12:30"
+    else:  # the evening side: TikTok and YouTube in the evening too
+        tt = tt if tt >= "17:00" else "19:00"
+        yt = yt if yt >= "17:00" else "18:00"
+    t = {"Instagram": post["slot"] + " (posts itself once ticked)", "TikTok": tt, "YouTube Shorts": yt, "X": x, "Bluesky": x, "Pinterest": pin}
     if (post.get("captions") or {}).get("whatsapp"):
         t["WhatsApp"] = wa
     if post.get("reactive"):  # same-day news: straight away beats the perfect hour
@@ -999,7 +1049,9 @@ def carousel_container(uid, tok, p):
 def post_today():
     plan = load_plan()
     today = str(now().date())
-    todays = [p for p in plan["posts"] if p["date"] == today and not p["posted"].get("instagram")]
+    run = "12:30" if now().hour < 16 else "19:30"
+    todays = [p for p in plan["posts"] if p["date"] == today and not p["posted"].get("instagram")
+              and (run == "19:30" or p.get("slot", "12:30") == "12:30")]
     if not todays:
         print("nothing to post today"); return
     ok = approved_ids()
@@ -1114,7 +1166,7 @@ def write_pack(plan):
 {('<p class="tip" style="background:#fde8e8">⛔ Held by the Editor, won\'t auto-post: ' + esc(' '.join(p['editor'])) + '</p>') if p.get('editor') else ''}<h2>“{esc(p.get('hook', p['headline']))}”</h2><p class="sub">{esc(p['sub'])}</p>
 <p class="dl">{('<a href="' + p['video'] + '">Download video</a> · ') if p.get('video') else 'Carousel: download each slide above · '}<a href="{p.get('thumb') or p['card']}" download>Download thumbnail (cover)</a> · <a href="{p['card']}" download>Download feed image</a></p>
 {('<img src="' + p['thumb'] + '" alt="Thumbnail for ' + esc(p.get('hook', '')) + '" style="width:120px;border-radius:10px;margin:6px 0">') if p.get('thumb') else ''}
-<p class="times"><b>Suggested release times (UK):</b> {' · '.join(f'{esc(k)} <b>{esc(v)}</b>' for k, v in (p.get('times') or suggest_times(p)).items())}</p>
+<p class="times"><b>Suggested release times (UK){(" · timing test: the " + ("lunchtime" if p.get("slot") == "12:30" else "evening") + " side") if p.get("slot") and not (load_learning().get("slotTest") or {}).get("winner") else ""}:</b> {' · '.join(f'{esc(k)} <b>{esc(v)}</b>' for k, v in (p.get('times') or suggest_times(p)).items())}</p>
 {''.join(f'<details><summary>{k}{(" · post at " + esc((p.get("times") or suggest_times(p)).get(k.split(" (")[0].replace(" title", "").replace(" description", "").replace("YouTube", "YouTube Shorts").replace("YouTube Shorts Shorts", "YouTube Shorts"), "").split(" (")[0])) if (p.get("times") or suggest_times(p)).get(k.split(" (")[0].replace(" title", "").replace(" description", "").replace("YouTube", "YouTube Shorts").replace("YouTube Shorts Shorts", "YouTube Shorts")) else ""}</summary><textarea readonly>{esc(v)}</textarea><button onclick="copy(this)">Copy</button></details>' for k, v in blocks)}
 <p class="tip">{('Trending sound (approved for business): <b>' + esc(p['sound']) + '</b>. Search it in the app when you schedule.') if p.get('sound') else 'The video has its own music. Adding a trending sound in TikTok? Turn the original audio down there.'}{(' · Rides the trend: ' + esc(', '.join(p['trendingFormats']))) if p.get('trendingFormats') else ''}</p>
 <p class="link">Link: <a href="{p['link']}">{esc(p['link'])}</a></p></div></section>""")
