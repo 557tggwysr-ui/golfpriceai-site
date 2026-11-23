@@ -18,7 +18,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "plan, trends, moment (includes the newsroom), post, or sound (adds music and sound effects to this week's silent videos)"
+        description: "plan, trends, moment (includes the newsroom), post, sound (adds music and sound effects to this week's silent videos) or resound (redoes this week's music)"
         default: plan
 
 concurrency: { group: agents-commit, cancel-in-progress: false }
