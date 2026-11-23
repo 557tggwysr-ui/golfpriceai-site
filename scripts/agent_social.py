@@ -149,7 +149,7 @@ def theme_question(d, L, rnd):
     big = strip_marks(q["big"])
     return {"theme": "Community question", "format": "community", "link": SITE + "/", "image": None, "name": "", "headline": big, "sub": q.get("sub", ""),
             "styles": {"headline": {"bg": photo, "big": q["big"], "sub": q.get("sub"), "hook": big, "thumb": big}},
-            "ig": f"{big} ⛳ {q.get('sub', '')} Answers in the comments, we're reading every one.", "x": f"{big} ⛳ {q.get('sub', '')}",
+            "ig": f"{big} ⛳ {q.get('sub', '').rstrip('.!? ')}. We're reading every one.", "x": f"{big} ⛳ {q.get('sub', '')}",
             "tt": f"{big} ⛳ answer in the comments", "keywords": "golf question, golfers, golf community"}
 
 

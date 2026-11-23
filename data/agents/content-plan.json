@@ -15,15 +15,15 @@
    "headline": "Wild Nine: a new golf course every day",
    "sub": "Free, daily, no sign-up",
    "captions": {
-    "instagram": "A new nine-hole golf course every day ⛳ Same nine for everyone. Beat par to unlock Hole 10, where a hole in one is 1 in 10,000. Post your card and beat your mates. Free, no sign-up: link in bio.\n#golf #golfgame #golfuk #wildnine #golfbanter #golfer\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "A new golf course every day ⛳ Beat par to unlock Hole 10 #golf #golfgame #golftok #wildnine | golf game, daily golf game, free golf game, golf course game #golf #golftok #golfuk",
+    "instagram": "A new nine-hole golf course every day ⛳ Same nine for everyone. Beat par to unlock Hole 10, where a hole in one is 1 in 10,000. Post your card and beat your mates. Free, no sign-up: link in bio.\n\n#golf #golfgame #golfuk #wildnine #golfbanter #golfer #golfdeals #golfgear",
+    "tiktok": "A new nine-hole golf course every day ⛳ Same nine for everyone. Beat par to unlock Hole 10, where a hole in one is 1 in 10,000. Post your card and beat your mates. Free, no sign-up: link in bio. #golf #golfgame #golftok #wildnine #golfuk",
     "youtube": {
-     "title": "A new golf course every day ⛳ Beat par to unlock Hole 10 #golf #golfgame #golftok #wildnine #go",
+     "title": "A new golf course every day ⛳ Beat par to unlock Hole 10 #golf #shorts",
      "description": "A new nine-hole golf course every day ⛳ Same nine for everyone. Beat par to unlock Hole 10, where a hole in one is 1 in 10,000. Post your card and beat your mates. Free, no sign-up: link in bio.\n#golf #golfgame #golfuk #wildnine #golfbanter #golfer\nhttps://golfpriceai.com/play/wild-nine/?utm_source=social&utm_medium=launch&utm_campaign=wild-nine\n#golf #golfuk #shorts"
     },
     "x": "A new golf course every day ⛳ Same nine for everyone, beat par to unlock Hole 10. Free, no sign-up. golfpriceai.com/play/wild-nine",
     "pinterest": {
-     "title": "Wild Nine: a new golf course every day: Free, daily, no sign-up",
+     "title": "Wild Nine: a new golf course every day · Free, daily, no sign-up",
      "description": "A new nine-hole golf course every day ⛳ Same nine for everyone. Beat par to unlock Hole 10, where a hole in one is 1 in 10,000. Post your card and beat your mates. Free, no sign-up: link in bio.\n#golf #golfgame #golfuk #wildnine #golfbanter #golfer",
      "link": "https://golfpriceai.com/play/wild-nine/?utm_source=social&utm_medium=launch&utm_campaign=wild-nine"
     },
@@ -37,7 +37,15 @@
    "formatName": "Behind the scenes / lo-fi",
    "objective": "trust",
    "series": null,
-   "ep": null
+   "ep": null,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "19:00",
+    "YouTube Shorts": "18:00",
+    "X": "12:30",
+    "Bluesky": "12:30",
+    "Pinterest": "20:30"
+   }
   },
   {
    "id": "2026-11-25-wed",
@@ -55,18 +63,18 @@
    "sub": "",
    "captions": {
     "instagram": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. ⛳ Send it to your four-ball group chat. Every episode is on golfpriceai.com/fourball/, with Fourball Alerts so your four-ball can watch kit prices together.\n\n#golf #golfuk #golfdeals #golfgear #golfer #TheFourball",
-    "tiktok": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. ⛳ #golfhumour | golf humour, golf sketch, relatable golf #golf #golftok #golfuk #TheFourball",
+    "tiktok": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. ⛳ Send it to your four-ball group chat. Every episode is on our site (link in bio), with Fourball Alerts so your four-ball can watch kit prices together. #golfhumour #golf #golftok #golfuk #TheFourball",
     "youtube": {
-     "title": "The Fourball: The Fourball, EP 1: Big Dave's par. Six shots, apparently four. ⛳ #golfhumour #go",
+     "title": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. #golf #shorts",
      "description": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. ⛳ Send it to your four-ball group chat. Every episode is on golfpriceai.com/fourball/, with Fourball Alerts so your four-ball can watch kit prices together.\nhttps://golfpriceai.com/fourball/episodes/1/\n#golf #golfuk #shorts"
     },
-    "x": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. ⛳ https://golfpriceai.com/fourball/episodes/1/",
+    "x": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. ⛳ Https://golfpriceai.com/fourball/episodes/1/",
     "pinterest": {
-     "title": "Big Dave's par: ",
+     "title": "Big Dave's par",
      "description": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. ⛳ Send it to your four-ball group chat. Every episode is on golfpriceai.com/fourball/, with Fourball Alerts so your four-ball can watch kit prices together.",
      "link": "https://golfpriceai.com/fourball/episodes/1/"
     },
-    "bluesky": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. ⛳ https://golfpriceai.com/fourball/episodes/1/",
+    "bluesky": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. ⛳ Https://golfpriceai.com/fourball/episodes/1/",
     "whatsapp": "The Fourball, EP 1: Big Dave's par. Six shots, apparently four. 😂 Who's the Big Dave in our group? https://golfpriceai.com/fourball/episodes/1/?utm_source=fourball&utm_medium=whatsapp&utm_campaign=episode"
    },
    "sound": null,
@@ -77,7 +85,16 @@
    "formatName": "Golf comedy sketch",
    "objective": "reach",
    "series": "The Fourball",
-   "ep": 1
+   "ep": 1,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "19:30",
+    "YouTube Shorts": "18:00",
+    "X": "12:30",
+    "Bluesky": "12:30",
+    "Pinterest": "20:30",
+    "WhatsApp": "19:30"
+   }
   },
   {
    "id": "2026-11-26-thu",
@@ -94,19 +111,19 @@
    "headline": "£919",
    "sub": "Callaway Apex Ai200 Irons",
    "captions": {
-    "instagram": "#Ad Black Friday, minus the nonsense ⛳ Good time to buy ⛳ The Callaway Apex Ai200 Irons is at the lowest price we've tracked in 81 days: £919, £450 under its tracked high. Link in bio.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "#Ad Callaway Apex Ai200 Irons: lowest price we've ever tracked ⛳ #golf #golftok #golfuk",
+    "instagram": "#Ad Black Friday, minus the nonsense ⛳ Good time to buy: The Callaway Apex Ai200 Irons are at the lowest price we've tracked in 81 days: £919, £450 under the highest price we've tracked. Link in bio.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
+    "tiktok": "#Ad Black Friday, minus the nonsense ⛳ Good time to buy: The Callaway Apex Ai200 Irons are at the lowest price we've tracked in 81 days: £919, £450 under the highest price we've tracked. Link in bio. #golf #golftok #golfuk",
     "youtube": {
-     "title": "Callaway Apex Ai200 Irons: lowest price we've ever tracked #golf #shorts",
-     "description": "#Ad Black Friday, minus the nonsense ⛳ Good time to buy ⛳ The Callaway Apex Ai200 Irons is at the lowest price we've tracked in 81 days: £919, £450 under its tracked high. \nhttps://golfpriceai.com/prices/callaway-apex-ai200-irons/\n#golf #golfuk #shorts"
+     "title": "Callaway Apex Ai200 Irons: lowest price in 81 days #golf #shorts",
+     "description": "#Ad Black Friday, minus the nonsense ⛳ Good time to buy: The Callaway Apex Ai200 Irons are at the lowest price we've tracked in 81 days: £919, £450 under the highest price we've tracked. \nhttps://golfpriceai.com/prices/callaway-apex-ai200-irons/\n#golf #golfuk #shorts"
     },
-    "x": "#Ad The Callaway Apex Ai200 Irons is at the lowest price we've tracked: £919 ⛳\nhttps://golfpriceai.com/prices/callaway-apex-ai200-irons/",
+    "x": "#Ad The Callaway Apex Ai200 Irons are at the lowest price we've tracked: £919 ⛳\nhttps://golfpriceai.com/prices/callaway-apex-ai200-irons/",
     "pinterest": {
      "title": "£919: Callaway Apex Ai200 Irons",
-     "description": "#Ad Black Friday, minus the nonsense ⛳ Good time to buy ⛳ The Callaway Apex Ai200 Irons is at the lowest price we've tracked in 81 days: £919, £450 under its tracked high. ",
+     "description": "#Ad Black Friday, minus the nonsense ⛳ Good time to buy: The Callaway Apex Ai200 Irons are at the lowest price we've tracked in 81 days: £919, £450 under the highest price we've tracked. ",
      "link": "https://golfpriceai.com/prices/callaway-apex-ai200-irons/"
     },
-    "bluesky": "#Ad The Callaway Apex Ai200 Irons is at the lowest price we've tracked: £919 ⛳\nhttps://golfpriceai.com/prices/callaway-apex-ai200-irons/"
+    "bluesky": "#Ad The Callaway Apex Ai200 Irons are at the lowest price we've tracked: £919 ⛳\nhttps://golfpriceai.com/prices/callaway-apex-ai200-irons/"
    },
    "sound": null,
    "trendingFormats": [],
@@ -117,7 +134,15 @@
    "objective": "conversions",
    "series": null,
    "ep": null,
-   "ad": true
+   "ad": true,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "19:00",
+    "YouTube Shorts": "18:00",
+    "X": "12:30",
+    "Bluesky": "12:30",
+    "Pinterest": "20:30"
+   }
   },
   {
    "id": "2026-11-27-fri",
@@ -134,16 +159,16 @@
    "headline": "Rangefinder or GPS watch?",
    "sub": "Settle it in the comments",
    "captions": {
-    "instagram": "Rangefinder or GPS watch? ⛳ Settle it in the comments Answers in the comments, we're reading every one.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "Rangefinder or GPS watch? ⛳ answer in the comments | golf question, golfers, golf community #golf #golftok #golfuk",
+    "instagram": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
+    "tiktok": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one. #golf #golftok #golfuk",
     "youtube": {
-     "title": "Rangefinder or GPS watch? ⛳ answer in the comments #golf #shorts",
-     "description": "Rangefinder or GPS watch? ⛳ Settle it in the comments Answers in the comments, we're reading every one.\nhttps://golfpriceai.com/\n#golf #golfuk #shorts"
+     "title": "Rangefinder or GPS watch? ⛳ Answer in the comments #golf #shorts",
+     "description": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one.\nhttps://golfpriceai.com/\n#golf #golfuk #shorts"
     },
     "x": "Rangefinder or GPS watch? ⛳ Settle it in the comments",
     "pinterest": {
-     "title": "Rangefinder or GPS watch?: Settle it in the comments",
-     "description": "Rangefinder or GPS watch? ⛳ Settle it in the comments Answers in the comments, we're reading every one.",
+     "title": "Rangefinder or GPS watch? Settle it in the comments",
+     "description": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one.",
      "link": "https://golfpriceai.com/"
     },
     "bluesky": "Rangefinder or GPS watch? ⛳ Settle it in the comments"
@@ -156,7 +181,15 @@
    "formatName": "Community / UGC",
    "objective": "engagement",
    "series": null,
-   "ep": null
+   "ep": null,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "17:30",
+    "YouTube Shorts": "17:00",
+    "X": "12:30",
+    "Bluesky": "12:30",
+    "Pinterest": "20:00"
+   }
   },
   {
    "id": "2026-11-28-sat",
@@ -174,14 +207,14 @@
    "sub": "PowaKaddy CT6 Electric Trolley",
    "captions": {
     "instagram": "#Ad Guess the price ⛳ PowaKaddy CT6 Electric Trolley: over or under £600? Answer in the comments, then play today's Par Price (link in bio).\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "#Ad Golf price guessing game: how close can you get? ⛳ #golf #golftok #golfuk",
+    "tiktok": "#Ad Guess the price ⛳ PowaKaddy CT6 Electric Trolley: over or under £600? Answer in the comments, then play today's Par Price (link in bio). #golf #golftok #golfuk",
     "youtube": {
      "title": "Golf price guessing game: how close can you get? #golf #shorts",
      "description": "#Ad Guess the price ⛳ PowaKaddy CT6 Electric Trolley: over or under £600? Answer in the comments, then play today's Par Price (link in bio).\nhttps://golfpriceai.com/play/par-price/\n#golf #golfuk #shorts"
     },
     "x": "#Ad Guess the price ⛳ PowaKaddy CT6 Electric Trolley: over or under £600?\nPlay today's Par Price: https://golfpriceai.com/play/par-price/",
     "pinterest": {
-     "title": "Higher or lower?: PowaKaddy CT6 Electric Trolley",
+     "title": "Higher or lower? PowaKaddy CT6 Electric Trolley",
      "description": "#Ad Guess the price ⛳ PowaKaddy CT6 Electric Trolley: over or under £600? Answer in the comments, then play today's Par Price (link in bio).",
      "link": "https://golfpriceai.com/play/par-price/"
     },
@@ -198,7 +231,15 @@
    "objective": "engagement",
    "series": null,
    "ep": null,
-   "ad": true
+   "ad": true,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "08:30",
+    "YouTube Shorts": "09:00",
+    "X": "08:30",
+    "Bluesky": "08:30",
+    "Pinterest": "20:00"
+   }
   },
   {
    "id": "2026-11-29-sun",
@@ -224,14 +265,14 @@
    "sub": "Stay dry, keep swinging",
    "captions": {
     "instagram": "Winter golf: what you actually need ⛳ Swipe through, and save it for later.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "Winter golf: what you actually need ⛳ | golf tips, golf advice, golf equipment #golf #golftok #golfuk",
+    "tiktok": "Winter golf: what you actually need ⛳ Swipe through, and save it for later. #golf #golftok #golfuk",
     "youtube": {
      "title": "Winter golf: what you actually need #golf #shorts",
      "description": "Winter golf: what you actually need ⛳ Swipe through, and save it for later.\nhttps://golfpriceai.com/\n#golf #golfuk #shorts"
     },
     "x": "Winter golf: what you actually need ⛳",
     "pinterest": {
-     "title": "Winter golf: what you actually need: Stay dry, keep swinging",
+     "title": "Winter golf: what you actually need · Stay dry, keep swinging",
      "description": "Winter golf: what you actually need ⛳ Swipe through, and save it for later.",
      "link": "https://golfpriceai.com/"
     },
@@ -245,7 +286,15 @@
    "formatName": "Educational carousel",
    "objective": "trust",
    "series": null,
-   "ep": null
+   "ep": null,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "19:00",
+    "YouTube Shorts": "10:00",
+    "X": "09:30",
+    "Bluesky": "09:30",
+    "Pinterest": "20:30"
+   }
   },
   {
    "id": "2026-11-30-mon",
@@ -262,16 +311,16 @@
    "headline": "£14.39",
    "sub": "Wilson Tour Accuracy Golf Balls",
    "captions": {
-    "instagram": "#Ad Buying balls before the course with the big lake ⛳ The lake says thank you. When you need to restock, the Wilson Tour Accuracy Golf Balls is £14.39 a dozen right now, compared across multiple UK retailers. Link in bio.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "#Ad Buying balls before the course with the big lake ⛳ #golf #golftok #golfuk",
+    "instagram": "#Ad Buying balls before the course with the big lake ⛳ The lake says thank you. When you need to restock, the Wilson Tour Accuracy Golf Balls are £14.39 a dozen right now, compared across multiple UK retailers. Link in bio.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
+    "tiktok": "#Ad Buying balls before the course with the big lake ⛳ The lake says thank you. When you need to restock, the Wilson Tour Accuracy Golf Balls are £14.39 a dozen right now, compared across multiple UK retailers. Link in bio. #golf #golftok #golfuk",
     "youtube": {
      "title": "Buying balls before the course with the big lake #golf #shorts",
-     "description": "#Ad Buying balls before the course with the big lake ⛳ The lake says thank you. When you need to restock, the Wilson Tour Accuracy Golf Balls is £14.39 a dozen right now, compared across multiple UK retailers. \nhttps://golfpriceai.com/prices/wilson-tour-accuracy-golf-balls/\n#golf #golfuk #shorts"
+     "description": "#Ad Buying balls before the course with the big lake ⛳ The lake says thank you. When you need to restock, the Wilson Tour Accuracy Golf Balls are £14.39 a dozen right now, compared across multiple UK retailers. \nhttps://golfpriceai.com/prices/wilson-tour-accuracy-golf-balls/\n#golf #golfuk #shorts"
     },
     "x": "#Ad Buying balls before the course with the big lake ⛳\nThe lake says thank you.\nWilson Tour Accuracy Golf Balls: £14.39 a dozen today.\nhttps://golfpriceai.com/prices/wilson-tour-accuracy-golf-balls/",
     "pinterest": {
      "title": "£14.39: Wilson Tour Accuracy Golf Balls",
-     "description": "#Ad Buying balls before the course with the big lake ⛳ The lake says thank you. When you need to restock, the Wilson Tour Accuracy Golf Balls is £14.39 a dozen right now, compared across multiple UK retailers. ",
+     "description": "#Ad Buying balls before the course with the big lake ⛳ The lake says thank you. When you need to restock, the Wilson Tour Accuracy Golf Balls are £14.39 a dozen right now, compared across multiple UK retailers. ",
      "link": "https://golfpriceai.com/prices/wilson-tour-accuracy-golf-balls/"
     },
     "bluesky": "#Ad Buying balls before the course with the big lake ⛳\nThe lake says thank you.\nWilson Tour Accuracy Golf Balls: £14.39 a dozen today.\nhttps://golfpriceai.com/prices/wilson-tour-accuracy-golf-balls/"
@@ -285,7 +334,15 @@
    "objective": "reach",
    "series": null,
    "ep": null,
-   "ad": true
+   "ad": true,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "19:00",
+    "YouTube Shorts": "18:00",
+    "X": "12:30",
+    "Bluesky": "12:30",
+    "Pinterest": "20:30"
+   }
   },
   {
    "id": "2026-12-01-tue",
@@ -303,7 +360,7 @@
    "sub": "Rangefinders cheaper than a month ago",
    "captions": {
     "instagram": "#Ad Rangefinders check ⛳ 12 of the 51 models we track are genuinely cheaper than a month ago, from £110. Every price checked against our own history, never a 'was' price. Link in bio.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "#Ad How many rangefinders are actually cheaper this month? ⛳ #golf #golftok #golfuk",
+    "tiktok": "#Ad Rangefinders check ⛳ 12 of the 51 models we track are genuinely cheaper than a month ago, from £110. Every price checked against our own history, never a 'was' price. Link in bio. #golf #golftok #golfuk",
     "youtube": {
      "title": "How many rangefinders are actually cheaper this month? #golf #shorts",
      "description": "#Ad Rangefinders check ⛳ 12 of the 51 models we track are genuinely cheaper than a month ago, from £110. Every price checked against our own history, never a 'was' price. \nhttps://golfpriceai.com/prices/rangefinders/\n#golf #golfuk #shorts"
@@ -325,7 +382,15 @@
    "objective": "trust",
    "series": null,
    "ep": null,
-   "ad": true
+   "ad": true,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "19:00",
+    "YouTube Shorts": "18:00",
+    "X": "12:30",
+    "Bluesky": "12:30",
+    "Pinterest": "20:30"
+   }
   },
   {
    "id": "2026-12-02-wed",
@@ -343,18 +408,18 @@
    "sub": "",
    "captions": {
     "instagram": "The Fourball, EP 2: Gaz's new driver. Kev has notes. ⛳ Send it to your four-ball group chat. Every episode is on golfpriceai.com/fourball/, with Fourball Alerts so your four-ball can watch kit prices together.\n\n#golf #golfuk #golfdeals #golfgear #golfer #TheFourball",
-    "tiktok": "The Fourball, EP 2: Gaz's new driver. Kev has notes. ⛳ #golfhumour | golf humour, golf sketch, relatable golf #golf #golftok #golfuk #TheFourball",
+    "tiktok": "The Fourball, EP 2: Gaz's new driver. Kev has notes. ⛳ Send it to your four-ball group chat. Every episode is on our site (link in bio), with Fourball Alerts so your four-ball can watch kit prices together. #golfhumour #golf #golftok #golfuk #TheFourball",
     "youtube": {
-     "title": "The Fourball: The Fourball, EP 2: Gaz's new driver. Kev has notes. ⛳ #golfhumour #golf #shorts",
+     "title": "The Fourball, EP 2: Gaz's new driver. Kev has notes. #golf #shorts",
      "description": "The Fourball, EP 2: Gaz's new driver. Kev has notes. ⛳ Send it to your four-ball group chat. Every episode is on golfpriceai.com/fourball/, with Fourball Alerts so your four-ball can watch kit prices together.\nhttps://golfpriceai.com/fourball/episodes/2/\n#golf #golfuk #shorts"
     },
-    "x": "The Fourball, EP 2: Gaz's new driver. Kev has notes. ⛳ https://golfpriceai.com/fourball/episodes/2/",
+    "x": "The Fourball, EP 2: Gaz's new driver. Kev has notes. ⛳ Https://golfpriceai.com/fourball/episodes/2/",
     "pinterest": {
-     "title": "Gaz's new driver: ",
+     "title": "Gaz's new driver",
      "description": "The Fourball, EP 2: Gaz's new driver. Kev has notes. ⛳ Send it to your four-ball group chat. Every episode is on golfpriceai.com/fourball/, with Fourball Alerts so your four-ball can watch kit prices together.",
      "link": "https://golfpriceai.com/fourball/episodes/2/"
     },
-    "bluesky": "The Fourball, EP 2: Gaz's new driver. Kev has notes. ⛳ https://golfpriceai.com/fourball/episodes/2/",
+    "bluesky": "The Fourball, EP 2: Gaz's new driver. Kev has notes. ⛳ Https://golfpriceai.com/fourball/episodes/2/",
     "whatsapp": "The Fourball, EP 2: Gaz's new driver. Kev has notes. 😂 Who's the Gaz in our group? https://golfpriceai.com/fourball/episodes/2/?utm_source=fourball&utm_medium=whatsapp&utm_campaign=episode"
    },
    "sound": null,
@@ -365,47 +430,16 @@
    "formatName": "Golf comedy sketch",
    "objective": "reach",
    "series": "The Fourball",
-   "ep": 2
-  },
-  {
-   "id": "2026-12-03-thu",
-   "date": "2026-12-03",
-   "theme": "Lowest tracked",
-   "style": "expectation",
-   "palette": "gold",
-   "hook": "Black Friday, minus the nonsense",
-   "trend": "black friday",
-   "card": "/social/cards/2026-12-03-thu.jpg",
-   "thumb": "/social/thumbs/2026-12-03-thu.jpg",
-   "video": "https://github.com/557tggwysr-ui/golfpriceai-site/releases/download/pack-2026-11-30/2026-12-03-thu.mp4",
-   "link": "https://golfpriceai.com/prices/callaway-apex-ai200-irons/",
-   "headline": "£919",
-   "sub": "Callaway Apex Ai200 Irons",
-   "captions": {
-    "instagram": "#Ad Black Friday, minus the nonsense ⛳ Good time to buy ⛳ The Callaway Apex Ai200 Irons is at the lowest price we've tracked in 81 days: £919, £450 under its tracked high. Link in bio.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "#Ad Callaway Apex Ai200 Irons: lowest price we've ever tracked ⛳ #golf #golftok #golfuk",
-    "youtube": {
-     "title": "Callaway Apex Ai200 Irons: lowest price we've ever tracked #golf #shorts",
-     "description": "#Ad Black Friday, minus the nonsense ⛳ Good time to buy ⛳ The Callaway Apex Ai200 Irons is at the lowest price we've tracked in 81 days: £919, £450 under its tracked high. \nhttps://golfpriceai.com/prices/callaway-apex-ai200-irons/\n#golf #golfuk #shorts"
-    },
-    "x": "#Ad The Callaway Apex Ai200 Irons is at the lowest price we've tracked: £919 ⛳\nhttps://golfpriceai.com/prices/callaway-apex-ai200-irons/",
-    "pinterest": {
-     "title": "£919: Callaway Apex Ai200 Irons",
-     "description": "#Ad Black Friday, minus the nonsense ⛳ Good time to buy ⛳ The Callaway Apex Ai200 Irons is at the lowest price we've tracked in 81 days: £919, £450 under its tracked high. ",
-     "link": "https://golfpriceai.com/prices/callaway-apex-ai200-irons/"
-    },
-    "bluesky": "#Ad The Callaway Apex Ai200 Irons is at the lowest price we've tracked: £919 ⛳\nhttps://golfpriceai.com/prices/callaway-apex-ai200-irons/"
-   },
-   "sound": null,
-   "trendingFormats": [],
-   "posted": {},
-   "quality": [],
-   "format": "pricedrop",
-   "formatName": "Price drop alert",
-   "objective": "conversions",
-   "series": null,
-   "ep": null,
-   "ad": true
+   "ep": 2,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "19:30",
+    "YouTube Shorts": "18:00",
+    "X": "12:30",
+    "Bluesky": "12:30",
+    "Pinterest": "20:30",
+    "WhatsApp": "19:30"
+   }
   },
   {
    "id": "2026-12-04-fri",
@@ -422,16 +456,16 @@
    "headline": "Which club would you bin first?",
    "sub": "Tell us in the comments",
    "captions": {
-    "instagram": "Which club would you bin first? ⛳ Tell us in the comments Answers in the comments, we're reading every one.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "Which club would you bin first? ⛳ answer in the comments | golf question, golfers, golf community #golf #golftok #golfuk",
+    "instagram": "Which club would you bin first? ⛳ Tell us in the comments. We're reading every one.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
+    "tiktok": "Which club would you bin first? ⛳ Tell us in the comments. We're reading every one. #golf #golftok #golfuk",
     "youtube": {
-     "title": "Which club would you bin first? ⛳ answer in the comments #golf #shorts",
-     "description": "Which club would you bin first? ⛳ Tell us in the comments Answers in the comments, we're reading every one.\nhttps://golfpriceai.com/\n#golf #golfuk #shorts"
+     "title": "Which club would you bin first? ⛳ Answer in the comments #golf #shorts",
+     "description": "Which club would you bin first? ⛳ Tell us in the comments. We're reading every one.\nhttps://golfpriceai.com/\n#golf #golfuk #shorts"
     },
     "x": "Which club would you bin first? ⛳ Tell us in the comments",
     "pinterest": {
-     "title": "Which club would you bin first?: Tell us in the comments",
-     "description": "Which club would you bin first? ⛳ Tell us in the comments Answers in the comments, we're reading every one.",
+     "title": "Which club would you bin first? Tell us in the comments",
+     "description": "Which club would you bin first? ⛳ Tell us in the comments. We're reading every one.",
      "link": "https://golfpriceai.com/"
     },
     "bluesky": "Which club would you bin first? ⛳ Tell us in the comments"
@@ -444,7 +478,15 @@
    "formatName": "Community / UGC",
    "objective": "engagement",
    "series": null,
-   "ep": null
+   "ep": null,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "17:30",
+    "YouTube Shorts": "17:00",
+    "X": "12:30",
+    "Bluesky": "12:30",
+    "Pinterest": "20:00"
+   }
   },
   {
    "id": "2026-12-05-sat",
@@ -462,14 +504,14 @@
    "sub": "Ping i540 Irons",
    "captions": {
     "instagram": "#Ad Guess the price ⛳ Ping i540 Irons: over or under £905? Answer in the comments, then play today's Par Price (link in bio).\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "#Ad Golf price guessing game: how close can you get? ⛳ #golf #golftok #golfuk",
+    "tiktok": "#Ad Guess the price ⛳ Ping i540 Irons: over or under £905? Answer in the comments, then play today's Par Price (link in bio). #golf #golftok #golfuk",
     "youtube": {
      "title": "Golf price guessing game: how close can you get? #golf #shorts",
      "description": "#Ad Guess the price ⛳ Ping i540 Irons: over or under £905? Answer in the comments, then play today's Par Price (link in bio).\nhttps://golfpriceai.com/play/par-price/\n#golf #golfuk #shorts"
     },
     "x": "#Ad Guess the price ⛳ Ping i540 Irons: over or under £905?\nPlay today's Par Price: https://golfpriceai.com/play/par-price/",
     "pinterest": {
-     "title": "Higher or lower?: Ping i540 Irons",
+     "title": "Higher or lower? Ping i540 Irons",
      "description": "#Ad Guess the price ⛳ Ping i540 Irons: over or under £905? Answer in the comments, then play today's Par Price (link in bio).",
      "link": "https://golfpriceai.com/play/par-price/"
     },
@@ -486,7 +528,15 @@
    "objective": "engagement",
    "series": null,
    "ep": null,
-   "ad": true
+   "ad": true,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "08:30",
+    "YouTube Shorts": "09:00",
+    "X": "08:30",
+    "Bluesky": "08:30",
+    "Pinterest": "20:00"
+   }
   },
   {
    "id": "2026-12-06-sun",
@@ -512,7 +562,7 @@
    "sub": "Your wallet will thank you",
    "captions": {
     "instagram": "How to stop losing so many balls ⛳ Swipe through, and save it for later.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "How to stop losing so many balls ⛳ | golf tips, golf advice, golf equipment #golf #golftok #golfuk",
+    "tiktok": "How to stop losing so many balls ⛳ Swipe through, and save it for later. #golf #golftok #golfuk",
     "youtube": {
      "title": "How to stop losing so many balls #golf #shorts",
      "description": "How to stop losing so many balls ⛳ Swipe through, and save it for later.\nhttps://golfpriceai.com/\n#golf #golfuk #shorts"
@@ -533,7 +583,15 @@
    "formatName": "Educational carousel",
    "objective": "trust",
    "series": null,
-   "ep": null
+   "ep": null,
+   "times": {
+    "Instagram": "12:30 (posts itself once ticked)",
+    "TikTok": "19:00",
+    "YouTube Shorts": "10:00",
+    "X": "09:30",
+    "Bluesky": "09:30",
+    "Pinterest": "20:30"
+   }
   }
  ]
 }
