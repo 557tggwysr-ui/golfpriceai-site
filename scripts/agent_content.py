@@ -740,7 +740,7 @@ def suggest_times(post):
     else:  # the evening side: TikTok and YouTube in the evening too
         tt = tt if tt >= "17:00" else "19:00"
         yt = yt if yt >= "17:00" else "18:00"
-    t = {"Instagram": post["slot"] + " (posts itself once ticked)", "TikTok": tt, "YouTube Shorts": yt, "X": x, "Bluesky": x, "Pinterest": pin}
+    t = {"Instagram": post["slot"] + " (posts itself once ticked)", "TikTok": tt, "YouTube Shorts": yt, "X": x, "Bluesky": post["slot"] + " (posts itself once ticked)", "Pinterest": pin}
     if (post.get("captions") or {}).get("whatsapp"):
         t["WhatsApp"] = wa
     if post.get("reactive"):  # same-day news: straight away beats the perfect hour
@@ -1046,11 +1046,107 @@ def carousel_container(uid, tok, p):
     return (json.loads(txt or "{}") or {}).get("id") if s == 200 else None
 
 
+BSKY = "https://bsky.social/xrpc/"
+
+
+def _bsky(method, body=None, token=None, raw=None, ctype="application/json", base=BSKY, get=False):
+    import urllib.request
+    data = None if get else (raw if raw is not None else json.dumps(body or {}).encode())
+    req = urllib.request.Request(base + method, data=data, method="GET" if get else "POST")
+    req.add_header("Content-Type", ctype)
+    if token:
+        req.add_header("Authorization", "Bearer " + token)
+    with urllib.request.urlopen(req, timeout=120) as r:
+        return json.loads(r.read() or b"{}")
+
+
+def _bsky_facets(text):
+    """Tappable hashtags and links (Bluesky counts in bytes)."""
+    out, b = [], text.encode("utf-8")
+    for m in re.finditer(rb"(?<![\w/])#(\w+)", b):
+        out.append({"index": {"byteStart": m.start(), "byteEnd": m.end()}, "features": [{"$type": "app.bsky.richtext.facet#tag", "tag": m.group(1).decode()}]})
+    for m in re.finditer(rb"https?://[^\s]+", b):
+        out.append({"index": {"byteStart": m.start(), "byteEnd": m.end()}, "features": [{"$type": "app.bsky.richtext.facet#link", "uri": m.group(0).decode()}]})
+    return out
+
+
+def _fetch(url):
+    import urllib.request
+    req = urllib.request.Request(url, headers={"User-Agent": "GolfPriceAI-bot"})
+    with urllib.request.urlopen(req, timeout=120) as r:
+        return r.read()
+
+
+def bluesky_post(p):
+    """The same approved post on Bluesky (John, 23 Nov 2026): the video itself (or up to 4 carousel slides),
+    with the Bluesky caption, tappable link and hashtags. Uses the BLUESKY_HANDLE / BLUESKY_APP_PASSWORD
+    secrets the price-drop poster already uses. Returns True when posted."""
+    import time
+    handle, pw = os.environ.get("BLUESKY_HANDLE"), os.environ.get("BLUESKY_APP_PASSWORD")
+    if not (handle and pw):
+        print("(no Bluesky secrets: skipped)", p["id"]); return False
+    s = _bsky("com.atproto.server.createSession", {"identifier": handle, "password": pw})
+    tok, did = s["accessJwt"], s["did"]
+    text = (p["captions"].get("bluesky") or p["captions"].get("x") or "")
+    if len(text) > 295:  # Bluesky's limit is 300 characters: keep the link, trim the words
+        link = (re.search(r"https?://\S+", text) or [None])[0]
+        words = re.sub(r"\s*https?://\S+", "", text)
+        text = (words[: 290 - (len(link) + 1 if link else 0)].rsplit(" ", 1)[0] + "…") + (("\n" + link) if link else "")
+    embed = None
+    if p.get("slides"):
+        imgs = []
+        for n, u in enumerate(p["slides"][:4]):
+            raw = _fetch(SITE + u)
+            if len(raw) > 950_000:
+                from PIL import Image
+                im = Image.open(BytesIO(raw)).convert("RGB"); im.thumbnail((1350, 1350)); buf = BytesIO(); im.save(buf, "JPEG", quality=82); raw = buf.getvalue()
+            blob = _bsky("com.atproto.repo.uploadBlob", token=tok, raw=raw, ctype="image/jpeg")["blob"]
+            imgs.append({"image": blob, "alt": f"{p.get('hook', '')}, slide {n + 1}"[:300]})
+        embed = {"$type": "app.bsky.embed.images", "images": imgs}
+    elif p.get("video"):
+        raw = _fetch(p["video"])
+        blob = None
+        try:  # Bluesky's video service: processes the video so it plays straight away
+            pds = next(x["serviceEndpoint"] for x in s.get("didDoc", {}).get("service", []) if x.get("id") == "#atproto_pds")
+            host = re.sub(r"^https?://", "", pds).rstrip("/")
+            svc = _bsky(f"com.atproto.server.getServiceAuth?aud=did:web:{host}&lxm=com.atproto.repo.uploadBlob&exp={int(time.time()) + 1800}",
+                        token=tok, get=True)["token"]
+            import urllib.error
+            try:
+                job = _bsky(f"app.bsky.video.uploadVideo?did={did}&name={p['id']}.mp4", token=svc, raw=raw, ctype="video/mp4", base="https://video.bsky.app/xrpc/")
+            except urllib.error.HTTPError as e:  # already uploaded earlier: the reply still names the job
+                job = json.loads(e.read() or b"{}")
+            jid = job.get("jobId") or (job.get("jobStatus") or {}).get("jobId")
+            for _ in range(60):
+                st = _bsky(f"app.bsky.video.getJobStatus?jobId={jid}", base="https://video.bsky.app/xrpc/", get=True).get("jobStatus", {})
+                if st.get("blob"):
+                    blob = st["blob"]; break
+                if st.get("state") == "JOB_STATE_FAILED":
+                    break
+                time.sleep(5)
+        except Exception as e:
+            print("bluesky video service:", e)
+        if not blob:  # fall back to a plain upload
+            blob = _bsky("com.atproto.repo.uploadBlob", token=tok, raw=raw, ctype="video/mp4")["blob"]
+        embed = {"$type": "app.bsky.embed.video", "video": blob, "aspectRatio": {"width": 1080, "height": 1920},
+                 "alt": (p.get("hook") or "")[:300]}
+    record = {"$type": "app.bsky.feed.post", "text": text, "facets": _bsky_facets(text), "langs": ["en-GB"],
+              "createdAt": now().strftime("%Y-%m-%dT%H:%M:%S.000Z")}
+    if embed:
+        record["embed"] = embed
+    r = _bsky("com.atproto.repo.createRecord", {"repo": did, "collection": "app.bsky.feed.post", "record": record}, token=tok)
+    p["posted"]["bluesky"] = now().strftime("%Y-%m-%dT%H:%MZ")
+    p["posted"]["bluesky_id"] = r.get("uri")
+    print("posted to bluesky:", p["id"])
+    return True
+
+
 def post_today():
     plan = load_plan()
     today = str(now().date())
     run = "12:30" if now().hour < 16 else "19:30"
-    todays = [p for p in plan["posts"] if p["date"] == today and not p["posted"].get("instagram")
+    todays = [p for p in plan["posts"] if p["date"] == today
+              and not (p["posted"].get("instagram") and p["posted"].get("bluesky"))
               and (run == "19:30" or p.get("slot", "12:30") == "12:30")]
     if not todays:
         print("nothing to post today"); return
@@ -1062,6 +1158,13 @@ def post_today():
             print("not approved:", p["id"]); continue
         if p.get("editor") or p["id"] in held:
             print("held by the editor:", p["id"], p["editor"]); continue
+        if not p["posted"].get("bluesky"):
+            try:
+                bluesky_post(p)
+            except Exception as e:  # Bluesky trouble never stops Instagram
+                print("bluesky failed:", p["id"], str(e)[:300])
+        if p["posted"].get("instagram"):
+            continue
         if not (uid and tok):
             print("(no Instagram secrets: approved post left for manual posting)", p["id"]); continue
         cid = carousel_container(uid, tok, p) if p.get("slides") else reel_container(uid, tok, p)  # carousel, or the video as a Reel
