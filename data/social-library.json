@@ -1,570 +1,746 @@
 {
-  "about": "Photos for Styles A and B and carousel covers. John generates text-free scenes with the prompt pack (assets/social/library/scene-NN.jpg); site photos with no people's faces close-up start the library. tags match the bank's tags; the engine never reuses a photo within 20 posts. Photos smaller than 900px on the short side are skipped for full-screen posts (they'd look soft); the quality gate holds any that slip through. Photos must have no words baked in (golf-ball-branded.jpg is excluded for that reason).",
-  "photos": [
-    {
-      "file": "assets/photos/putting-mat.jpg",
-      "tags": [
-        "putting",
-        "lip",
-        "nerves"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/driver-head.jpg",
-      "tags": [
-        "driver",
-        "tee",
-        "clubs"
-      ],
-      "fit": [
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/fairway-wood-head.jpg",
-      "tags": [
-        "clubs",
-        "driver"
-      ],
-      "fit": [
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/irons-head.jpg",
-      "tags": [
-        "clubs",
-        "irons"
-      ],
-      "fit": [
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/golfbag-with-clubs.jpg",
-      "tags": [
-        "bag",
-        "clubs",
-        "course"
-      ],
-      "fit": [
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/ballbag-with-balls.jpg",
-      "tags": [
-        "balls",
-        "range"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/tee-ongrass.jpg",
-      "tags": [
-        "tee",
-        "swing"
-      ],
-      "fit": [
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/rangefinder-real.jpg",
-      "tags": [
-        "tech"
-      ],
-      "fit": [
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/gps-watch-real.jpg",
-      "tags": [
-        "tech"
-      ],
-      "fit": [
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/pushcart-loaded.jpg",
-      "tags": [
-        "course",
-        "bag"
-      ],
-      "fit": [
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/golf-suit-winter-group.jpg",
-      "tags": [
-        "winter",
-        "weather",
-        "friends"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/jacket-lightgrey-bunker.jpg",
-      "tags": [
-        "bunker",
-        "weather"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/black-friday.jpg",
-      "tags": [
-        "deals"
-      ],
-      "fit": [
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/tools/fourball-square.jpg",
-      "tags": [
-        "friends",
-        "clubhouse",
-        "score"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/tools/society-hq-square.jpg",
-      "tags": [
-        "friends",
-        "clubhouse"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/tools/live-scorecard.jpg",
-      "tags": [
-        "friends",
-        "score",
-        "partner"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ]
-    },
-    {
-      "file": "assets/photos/tools/deal-tools-banner-wide.jpg",
-      "tags": [
-        "tech",
-        "deals",
-        "course"
-      ],
-      "fit": [
-        "B"
-      ]
-    },
-    {
-      "file": "assets/social/library/mates-phone-scorecard.jpg",
-      "tags": [
-        "friends",
-        "score",
-        "partner",
-        "clubhouse"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ]
-    },
-    {
-      "file": "assets/social/library/seq-dave-01-driver.jpg",
-      "tags": [
-        "big-dave",
-        "tee",
-        "driver",
-        "swing"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/seq-dave-02-rough.jpg",
-      "tags": [
-        "big-dave",
-        "rough",
-        "lost"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/seq-dave-03-tree.jpg",
-      "tags": [
-        "big-dave",
-        "tree",
-        "trouble"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/seq-dave-04-bunker.jpg",
-      "tags": [
-        "big-dave",
-        "bunker"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/seq-dave-05-putt.jpg",
-      "tags": [
-        "big-dave",
-        "putting",
-        "nerves",
-        "lip"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/seq-dave-06-tapin.jpg",
-      "tags": [
-        "big-dave",
-        "putting"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/seq-dave-07-proud.jpg",
-      "tags": [
-        "big-dave",
-        "phil",
-        "friends",
-        "score"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture",
-      "focus": [
-        0.3,
-        0.42
-      ]
-    },
-    {
-      "file": "assets/social/library/seq-dave-08-mate.jpg",
-      "tags": [
-        "phil",
-        "reaction",
-        "mate"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/seq-dave-09-abacus.jpg",
-      "tags": [
-        "big-dave",
-        "phil",
-        "friends"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/meme-dave-scorecard.jpg",
-      "tags": [
-        "counting",
-        "scorecard-dave",
-        "score",
-        "big-dave"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture",
-      "focus": [
-        0.28,
-        0.4
-      ]
-    },
-    {
-      "file": "assets/social/library/meme-steve-sideeye.jpg",
-      "tags": [
-        "phil-sideeye",
-        "reaction",
-        "mate"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture",
-      "focus": [
-        0.97,
-        0.4
-      ]
-    },
-    {
-      "file": "assets/social/library/alt-dave-driver-wide.jpg",
-      "tags": [
-        "big-dave",
-        "tee",
-        "driver",
-        "swing"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/alt-dave-four-fingers.jpg",
-      "tags": [
-        "big-dave",
-        "phil",
-        "score",
-        "friends"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture",
-      "focus": [
-        0.85,
-        0.42
-      ]
-    },
-    {
-      "file": "assets/social/library/kev-01-stifled.jpg",
-      "tags": [
-        "kev",
-        "stifled",
-        "reaction"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/kev-02-slowclap.jpg",
-      "tags": [
-        "kev",
-        "slowclap",
-        "reaction"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/kev-03-commentary.jpg",
-      "tags": [
-        "kev",
-        "commentary",
-        "reaction"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/kev-04-wince.jpg",
-      "tags": [
-        "kev",
-        "wince",
-        "reaction"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/kev-05-pointing.jpg",
-      "tags": [
-        "kev",
-        "pointing",
-        "laughing",
-        "reaction"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/gaz-01-unbox.jpg",
-      "tags": [
-        "gaz",
-        "unbox",
-        "driver"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/gaz-02-swing.jpg",
-      "tags": [
-        "gaz",
-        "swing",
-        "driver",
-        "tee"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/gaz-03-trees.jpg",
-      "tags": [
-        "gaz",
-        "trees",
-        "lost"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/gaz-04-shaft.jpg",
-      "tags": [
-        "gaz",
-        "driver"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/gaz-05-together.jpg",
-      "tags": [
-        "kev",
-        "gaz",
-        "friends"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/kev-gaz-laughing.jpg",
-      "tags": [
-        "kev",
-        "gaz",
-        "pointing",
-        "laughing",
-        "friends"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
-    },
-    {
-      "file": "assets/social/library/phil-03-phone.jpg",
-      "tags": [
-        "phil",
-        "big-dave",
-        "phone",
-        "scorecard",
-        "proof"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "focus": [
-        0.55,
-        0.42
-      ],
-      "about": "AI-generated, fictional recurring characters; phone screen shows a real capture of our live scorecard (demo round)"
-    },
-    {
-      "file": "assets/social/library/dave-03-broken.jpg",
-      "tags": [
-        "big-dave",
-        "protest",
-        "pointing"
-      ],
-      "fit": [
-        "A",
-        "B"
-      ],
-      "focus": [
-        0.4,
-        0.42
-      ],
-      "about": "AI-generated, fictional recurring characters; phone screen shows a real capture of our live scorecard (demo round)"
-    }
-  ]
+ "about": "Photos for Styles A and B and carousel covers. John generates text-free scenes with the prompt pack (assets/social/library/scene-NN.jpg); site photos with no people's faces close-up start the library. tags match the bank's tags; the engine never reuses a photo within 20 posts. Photos smaller than 900px on the short side are skipped for full-screen posts (they'd look soft); the quality gate holds any that slip through. Photos must have no words baked in (golf-ball-branded.jpg is excluded for that reason).",
+ "photos": [
+  {
+   "file": "assets/photos/putting-mat.jpg",
+   "tags": [
+    "putting",
+    "lip",
+    "nerves"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/driver-head.jpg",
+   "tags": [
+    "driver",
+    "tee",
+    "clubs"
+   ],
+   "fit": [
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/fairway-wood-head.jpg",
+   "tags": [
+    "clubs",
+    "driver"
+   ],
+   "fit": [
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/irons-head.jpg",
+   "tags": [
+    "clubs",
+    "irons"
+   ],
+   "fit": [
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/golfbag-with-clubs.jpg",
+   "tags": [
+    "bag",
+    "clubs",
+    "course"
+   ],
+   "fit": [
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/ballbag-with-balls.jpg",
+   "tags": [
+    "balls",
+    "range"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/tee-ongrass.jpg",
+   "tags": [
+    "tee",
+    "swing"
+   ],
+   "fit": [
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/rangefinder-real.jpg",
+   "tags": [
+    "tech"
+   ],
+   "fit": [
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/gps-watch-real.jpg",
+   "tags": [
+    "tech"
+   ],
+   "fit": [
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/pushcart-loaded.jpg",
+   "tags": [
+    "course",
+    "bag"
+   ],
+   "fit": [
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/golf-suit-winter-group.jpg",
+   "tags": [
+    "winter",
+    "weather",
+    "friends"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/jacket-lightgrey-bunker.jpg",
+   "tags": [
+    "bunker",
+    "weather"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/black-friday.jpg",
+   "tags": [
+    "deals"
+   ],
+   "fit": [
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/tools/fourball-square.jpg",
+   "tags": [
+    "friends",
+    "clubhouse",
+    "score"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/tools/society-hq-square.jpg",
+   "tags": [
+    "friends",
+    "clubhouse"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/tools/live-scorecard.jpg",
+   "tags": [
+    "friends",
+    "score",
+    "partner"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ]
+  },
+  {
+   "file": "assets/photos/tools/deal-tools-banner-wide.jpg",
+   "tags": [
+    "tech",
+    "deals",
+    "course"
+   ],
+   "fit": [
+    "B"
+   ]
+  },
+  {
+   "file": "assets/social/library/mates-phone-scorecard.jpg",
+   "tags": [
+    "friends",
+    "score",
+    "partner",
+    "clubhouse"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ]
+  },
+  {
+   "file": "assets/social/library/seq-dave-01-driver.jpg",
+   "tags": [
+    "big-dave",
+    "tee",
+    "driver",
+    "swing"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/seq-dave-02-rough.jpg",
+   "tags": [
+    "big-dave",
+    "rough",
+    "lost"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/seq-dave-03-tree.jpg",
+   "tags": [
+    "big-dave",
+    "tree",
+    "trouble"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/seq-dave-04-bunker.jpg",
+   "tags": [
+    "big-dave",
+    "bunker"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/seq-dave-05-putt.jpg",
+   "tags": [
+    "big-dave",
+    "putting",
+    "nerves",
+    "lip"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/seq-dave-06-tapin.jpg",
+   "tags": [
+    "big-dave",
+    "putting"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/seq-dave-07-proud.jpg",
+   "tags": [
+    "big-dave",
+    "phil",
+    "friends",
+    "score"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture",
+   "focus": [
+    0.3,
+    0.42
+   ]
+  },
+  {
+   "file": "assets/social/library/seq-dave-08-mate.jpg",
+   "tags": [
+    "phil",
+    "reaction",
+    "mate"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/seq-dave-09-abacus.jpg",
+   "tags": [
+    "big-dave",
+    "phil",
+    "friends"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/meme-dave-scorecard.jpg",
+   "tags": [
+    "counting",
+    "scorecard-dave",
+    "score",
+    "big-dave"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture",
+   "focus": [
+    0.28,
+    0.4
+   ]
+  },
+  {
+   "file": "assets/social/library/meme-steve-sideeye.jpg",
+   "tags": [
+    "phil-sideeye",
+    "reaction",
+    "mate"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture",
+   "focus": [
+    0.97,
+    0.4
+   ]
+  },
+  {
+   "file": "assets/social/library/alt-dave-driver-wide.jpg",
+   "tags": [
+    "big-dave",
+    "tee",
+    "driver",
+    "swing"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/alt-dave-four-fingers.jpg",
+   "tags": [
+    "big-dave",
+    "phil",
+    "score",
+    "friends"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional characters (Big Dave and Phil), no words in the picture",
+   "focus": [
+    0.85,
+    0.42
+   ]
+  },
+  {
+   "file": "assets/social/library/kev-01-stifled.jpg",
+   "tags": [
+    "kev",
+    "stifled",
+    "reaction"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/kev-02-slowclap.jpg",
+   "tags": [
+    "kev",
+    "slowclap",
+    "reaction"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/kev-03-commentary.jpg",
+   "tags": [
+    "kev",
+    "commentary",
+    "reaction"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/kev-04-wince.jpg",
+   "tags": [
+    "kev",
+    "wince",
+    "reaction"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/kev-05-pointing.jpg",
+   "tags": [
+    "kev",
+    "pointing",
+    "laughing",
+    "reaction"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/gaz-01-unbox.jpg",
+   "tags": [
+    "gaz",
+    "unbox",
+    "driver"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/gaz-02-swing.jpg",
+   "tags": [
+    "gaz",
+    "swing",
+    "driver",
+    "tee"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/gaz-03-trees.jpg",
+   "tags": [
+    "gaz",
+    "trees",
+    "lost"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/gaz-04-shaft.jpg",
+   "tags": [
+    "gaz",
+    "driver"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/gaz-05-together.jpg",
+   "tags": [
+    "kev",
+    "gaz",
+    "friends"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/kev-gaz-laughing.jpg",
+   "tags": [
+    "kev",
+    "gaz",
+    "pointing",
+    "laughing",
+    "friends"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture"
+  },
+  {
+   "file": "assets/social/library/phil-03-phone.jpg",
+   "tags": [
+    "phil",
+    "big-dave",
+    "phone",
+    "scorecard",
+    "proof"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "focus": [
+    0.55,
+    0.42
+   ],
+   "about": "AI-generated, fictional recurring characters; phone screen shows a real capture of our live scorecard (demo round)"
+  },
+  {
+   "file": "assets/social/library/dave-03-broken.jpg",
+   "tags": [
+    "big-dave",
+    "protest",
+    "pointing"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "focus": [
+    0.4,
+    0.42
+   ],
+   "about": "AI-generated, fictional recurring characters; phone screen shows a real capture of our live scorecard (demo round)"
+  },
+  {
+   "file": "assets/social/library/scene-01.jpg",
+   "tags": [
+    "putting",
+    "short",
+    "green",
+    "despair",
+    "lip",
+    "nerves",
+    "winter"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated scene from the photo prompt pack, fictional golfers, no words in the picture"
+  },
+  {
+   "file": "assets/social/library/scene-02.jpg",
+   "tags": [
+    "putting",
+    "lip",
+    "agony",
+    "green"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated scene from the photo prompt pack, fictional golfers, no words in the picture"
+  },
+  {
+   "file": "assets/social/library/scene-03.jpg",
+   "tags": [
+    "bunker",
+    "sand",
+    "resigned"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated scene from the photo prompt pack, fictional golfers, no words in the picture",
+   "focus": [
+    0.35,
+    0.35
+   ]
+  },
+  {
+   "file": "assets/social/library/scene-04.jpg",
+   "tags": [
+    "rough",
+    "lost",
+    "mates-laughing",
+    "friends"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated scene from the photo prompt pack, fictional golfers, no words in the picture",
+   "focus": [
+    0.6,
+    0.45
+   ]
+  },
+  {
+   "file": "assets/social/library/scene-05.jpg",
+   "tags": [
+    "water",
+    "pond",
+    "lost",
+    "despair"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated scene from the photo prompt pack, fictional golfers, no words in the picture",
+   "focus": [
+    0.35,
+    0.4
+   ]
+  },
+  {
+   "file": "assets/social/library/scene-06.jpg",
+   "tags": [
+    "rain",
+    "weather",
+    "umbrella",
+    "friends",
+    "winter"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated scene from the photo prompt pack, fictional golfers, no words in the picture"
+  },
+  {
+   "file": "assets/social/library/scene-07.jpg",
+   "tags": [
+    "swing",
+    "tee",
+    "divot",
+    "duff",
+    "mates-laughing",
+    "friends"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated scene from the photo prompt pack, fictional golfers, no words in the picture",
+   "focus": [
+    0.55,
+    0.4
+   ]
+  },
+  {
+   "file": "assets/social/library/scene-08.jpg",
+   "tags": [
+    "driver",
+    "partner",
+    "new-kit",
+    "shop",
+    "kit-addict"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated scene from the photo prompt pack, fictional golfers, no words in the picture",
+   "focus": [
+    0.45,
+    0.3
+   ]
+  },
+  {
+   "file": "assets/social/library/scene-09.jpg",
+   "tags": [
+    "bag",
+    "new-kit",
+    "secret",
+    "car-park",
+    "kit-addict"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated scene from the photo prompt pack, fictional golfers, no words in the picture",
+   "focus": [
+    0.4,
+    0.35
+   ]
+  },
+  {
+   "file": "assets/social/library/kev-06-caught.jpg",
+   "tags": [
+    "kev",
+    "phil",
+    "caught",
+    "sheepish",
+    "reaction"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Phil), no words in the picture",
+   "focus": [
+    0.6,
+    0.3
+   ]
+  }
+ ]
 }
