@@ -1,0 +1,19 @@
+{
+ "generated": "2026-11-23T15:20Z",
+ "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
+ "verdict": "ok",
+ "summary": "No Never-rule breaks in the captions, but the Wild Nine post (24 Nov) falls short of the premium visual standard and is held.",
+ "points": [
+  "2026-11-24-tue (card): the 'FREE · NO SIGN-UP' banner sits on top of the game's own UI, so 'GolfPric…' and 'GolfPrice Al…' are visibly cut off at the bottom left. Move or crop the banner so no UI text is clipped or overlapped.",
+  "2026-11-24-tue (card and thumbnail): the background is a low-resolution screenshot that has been upscaled, so it looks soft and pixelated. Re-capture it at full resolution or use clean key art, not a raw screen grab.",
+  "2026-11-24-tue (thumbnail): raw game UI is cut off at the edges ('Island Green', 'Tee', '11 mph', 'hape', 'Draw/Fade' buttons). Crop the UI out. Keep only the course and the 2 to 4 big words.",
+  "2026-11-24-tue (thumbnail): the 'Full Swing. Not full price.' text and the 'Drag back from anywhere, then release' bar are baked into the image, which SOCIAL.md says not to do. They are also too small to read at phone-grid size. The thumbnail is cluttered and not a strong thumb-stopper.",
+  "2026-11-24-tue (thumbnail): the thumbnail and card are near-identical, with the same screenshot and the same three text blocks, and it is a different crop of the same layout. Give the thumbnail its own bold treatment: 'WILD NINE' large in the middle 4:5, one clear idea, strong contrast. The three headline blocks (title, yellow banner, dark banner) compete.",
+  "2026-11-24-tue (video): I could not extract frames from the mp4 here. Check that the video matches the thumbnail, changes about every 1 to 2 seconds, and has a hook in the first second.",
+  "2026-11-24-tue (captions): the Instagram caption repeats hashtags (#golf and #golfuk appear twice, and #golfdeals/#golfgear don't fit a game post). The YouTube title is cut off mid-hashtag ('#go'). Tidy both.",
+  "2026-11-25-wed: the Pinterest title is 'Big Dave's par: ' with an empty second half. Fill it or drop the trailing colon. The YouTube title is cut off at '#go' and repeats 'The Fourball:'. No images were supplied, so the visuals are not judged.",
+  "2026-11-26-thu, 2026-11-27-fri, 2026-11-28-sat, 2026-11-29-sun: no card or frames were supplied, so the visuals are not judged. The copy is clean: no retailers, no fake urgency, and #Ad is present on the priced posts. The 27 Nov caption repeats itself ('Settle it in the comments / Answers in the comments')."
+ ],
+ "what": "Agent: content engine",
+ "postsHash": "1bbfa635d9fb273c93987d9ac46bdf1462b60e2f"
+}
