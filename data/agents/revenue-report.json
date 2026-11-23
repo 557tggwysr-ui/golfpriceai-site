@@ -1,0 +1,36 @@
+{
+ "generated": "2026-11-23T12:00Z",
+ "about": "Revenue guardian: are buy links tracked and landing on the right page? No money figures here (those go privately to the owner).",
+ "listings": 81077,
+ "untracked": [],
+ "untrackedTotal": 0,
+ "sampleChecked": 50,
+ "landingOkPct": 92,
+ "landingProblems": [
+  {
+   "name": "Limited Edition June Major Staff Bag",
+   "id": "bag-limited-edition-june-major-staff-bag-callaway",
+   "feed": "awin-callaway",
+   "problem": "landed on callawaygolf.com"
+  },
+  {
+   "name": "Limited Edition May Major Staff Bag",
+   "id": "bag-limited-edition-may-major-staff-bag-callaway",
+   "feed": "awin-callaway",
+   "problem": "landed on callawaygolf.com"
+  },
+  {
+   "name": "Never Compromise Reserve #4S Golf Putter",
+   "id": "putter-never-compromise-reserve-4s-golf-putter-scottsdalegolf",
+   "feed": "awin-scottsdalegolf",
+   "problem": "error 403"
+  },
+  {
+   "name": "Men's Chev Star Golf Shoes",
+   "id": "shoes-men-s-chev-star-golf-shoes-callaway",
+   "feed": "awin-callaway",
+   "problem": "landed on callawaygolf.com"
+  }
+ ],
+ "status": "ok"
+}
