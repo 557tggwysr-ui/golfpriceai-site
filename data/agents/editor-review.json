@@ -1,20 +1,21 @@
 {
- "generated": "2026-11-23T18:17Z",
+ "generated": "2026-11-23T18:30Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
  "verdict": "ok",
- "summary": "No Never-list breaches in the captions, but the Wild Nine post (2026-11-24-tue) falls short of the premium visual standard and is held; only that post's images were supplied, so the other 10 were reviewed on text only.",
+ "summary": "Captions are clean on the Never list, but the Wild Nine post (2026-11-24-tue) falls short of the premium visual standard and is held; I could only see images for that one post.",
  "points": [
-  "2026-11-24-tue (thumbnail): raw game screenshot with UI cut off at the edges ('Island Green', 'Tee', '11 mph', 'hape' half-visible) and a stray in-game tag ('Full Swing. Not full price.') sitting right above the title. Fix: crop tightly to the course art or rebuild on a clean background so nothing is clipped, and make the thumbnail 2-4 big words with nothing important outside the middle 4:5.",
-  "2026-11-24-tue (thumbnail and card): the in-game 'GolfPrice AI' badge is cut off and covered by the 'FREE · NO SIGN-UP' banner ('GolfPric', 'GolfPrice Al'), and the 'Par 3 / Davy Jones' panel is half hidden. Fix: crop these out of the screenshot or move the banner so no text overlaps another element.",
-  "2026-11-24-tue (card and thumbnail): the course art is a low-resolution screenshot scaled up, so it looks soft and blocky next to a big golf brand's posts. Fix: use a native-resolution capture or a clean redrawn course graphic at the full 1080 size.",
-  "2026-11-24-tue (card): the 'WILD NINE' title is jammed against the top edge and sits on top of the lake and green, and the bottom banner is crowded by the game UI. Fix: add clear margin and place the title on a calm area.",
-  "2026-11-24-tue (video): no video tooling in the review environment, so the three video frames could not be extracted or viewed. The thumbnail and card use the same screenshot, so fix them and check the video frames for the same clipped UI.",
-  "2026-11-24-tue (caption): '1 in 10,000' hole-in-one odds must come from the game's own data; confirm before it goes out. Colours are a consistent green and yellow, which is fine.",
-  "2026-11-25-wed and 2026-12-02-wed: x and bluesky captions end '⛳ Https://...' with a capital H. Fix: lower-case 'https' or drop the capital.",
-  "2026-12-05-sat: the hook 'You've got 3 seconds' is a game timer and not shopping urgency, so it is not blocked. Check that it does not read as a countdown.",
-  "2026-11-26-thu: '£450 under the highest price we've tracked' and '81 days' must match the price history. 'Good time to buy' is a little pushy; consider 'Lowest price we've tracked'.",
-  "2026-11-26-thu, 2026-11-28-sat, 2026-11-30-mon, 2026-12-01-tue, 2026-12-05-sat: card, thumbnail and frames were not supplied, so the visual standard is unverified for these. No retailers are named, '#Ad' leads every product caption, and UK spelling and £ formatting are correct."
+  "2026-11-24-tue card: the 'FREE · NO SIGN-UP' banner overlaps the in-game GolfPrice AI badge and hole panel, so the badge reads 'GolfPric' / 'GolfPrice Al' (cut off, overlapping). Fix: crop or mask the in-game HUD out of the screenshot, or move the banner clear of it.",
+  "2026-11-24-tue card and thumbnail: the game screenshot is soft and pixelated from upscaling (bushes, water edge, fairway). Fix: use a native-resolution capture or a clean rendered course graphic.",
+  "2026-11-24-tue card: 'WILD NINE' is jammed against the top edge, with its drop shadow nearly touching it, and the yellow banner bleeds off both sides. Fix: add safe margins of about 60px top and sides.",
+  "2026-11-24-tue thumbnail: raw app UI is cut off at the edges ('Island Green', 'Tee', '11 mph', 'hape', the Draw/Straight/Fade buttons, 'Drag back from anywhere...'). The tooltip 'Full Swing. Not full price.' sits above the title and mixes a price message into a free game. Fix: crop out the app chrome and the tooltip so only the course, 'WILD NINE' and one short line remain.",
+  "2026-11-24-tue thumbnail: the 4:5 grid crop would cut off the banner's 'FREE · NO SIGN-UP' strip and the product shot is cluttered. Fix: keep the title and the course in the middle 4:5 and make the course art larger and cleaner.",
+  "2026-11-24-tue: I couldn't extract video frames (no ffmpeg in this environment), so pace and cuts are not reviewed. Re-check the three frames for the same HUD cut-off and low-res problems after the fix.",
+  "2026-11-24-tue caption: '1 in 10,000' for a hole in one on Hole 10 should come from the game's own data. Confirm that before it goes out.",
+  "2026-11-25-wed and 2026-12-02-wed: X and Bluesky text starts the link with a capital 'Https://', which breaks the link. Fix: lower-case 'https://'.",
+  "All other posts (2026-11-26 to 2026-12-06): no images were supplied, so the visual standard was not checked. Captions are fine, with #Ad on product posts and no retailer names or fake urgency.",
+  "2026-11-27-fri and 2026-12-04-fri: the captions have no product, but they end with the #golfdeals #golfgear tag set. Consider dropping those tags (minor).",
+  "2026-11-26-thu and 2026-11-28-sat: the PowaKaddy and Callaway product photos were not provided, so I can't confirm the right product is shown."
  ],
  "what": "Agent: content engine",
- "postsHash": "0ae9af4dc121ca9bc87d3a936df5bbd0c5248395"
+ "postsHash": "92a1d4cd2f5c18d74f4502cf4fa67cdb3f865245"
 }
