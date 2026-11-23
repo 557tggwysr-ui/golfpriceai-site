@@ -1,0 +1,669 @@
+{
+ "generated": "2026-11-23T11:40Z",
+ "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
+ "listings": 81077,
+ "models": 3346,
+ "feeds": {
+  "awin-affordablegolf": 38729,
+  "awin-clarkesgolf": 20238,
+  "awin-majorgolf": 13609,
+  "awin-clickgolf": 3469,
+  "awin-scottsdalegolf": 3181,
+  "awin-callawaypreowned": 999,
+  "awin-callaway": 499,
+  "awin-payntr": 353
+ },
+ "feedsShrunk": [],
+ "misfiledModels": 17,
+ "misfiled": [
+  {
+   "page": "/prices/accra-fx-3-0-300-series-shaft-driver/",
+   "name": "ACCRA FX 3.0 300 Series Shaft Driver",
+   "filedAs": "driver"
+  },
+  {
+   "page": "/prices/impact-detect-practice-aid-driver/",
+   "name": "Impact Detect Practice Aid Driver",
+   "filedAs": "driver"
+  },
+  {
+   "page": "/prices/cobra-radspeed-s-shaft-irons/",
+   "name": "Cobra RADSPEED-S Shaft Irons",
+   "filedAs": "irons"
+  },
+  {
+   "page": "/prices/srixon-zxi5-gen-2-shaft-irons/",
+   "name": "Srixon ZXi5 Gen 2 Shaft Irons",
+   "filedAs": "irons"
+  },
+  {
+   "page": "/prices/srixon-zxi5-plus-gen-2-shaft-irons/",
+   "name": "Srixon ZXi5+ Gen 2 Shaft Irons",
+   "filedAs": "irons"
+  },
+  {
+   "page": "/prices/wilson-dynapwr-max-shaft-irons/",
+   "name": "Wilson Dynapwr Max Shaft Irons",
+   "filedAs": "irons"
+  },
+  {
+   "page": "/prices/wilson-dynapwr-shaft-irons/",
+   "name": "Wilson Dynapwr Shaft Irons",
+   "filedAs": "irons"
+  },
+  {
+   "page": "/prices/masters-butler-putter/",
+   "name": "Masters Butler Putter",
+   "filedAs": "putter"
+  },
+  {
+   "page": "/prices/masters-gripper-putter/",
+   "name": "Masters Gripper Putter",
+   "filedAs": "putter"
+  },
+  {
+   "page": "/prices/masters-gripper-in-eco-pack-putter/",
+   "name": "Masters Gripper in Eco Pack Putter",
+   "filedAs": "putter"
+  },
+  {
+   "page": "/prices/masters-re-gripping-tape-strips-putter/",
+   "name": "Masters Re-Gripping Tape Strips Putter",
+   "filedAs": "putter"
+  },
+  {
+   "page": "/prices/pure2improve-mini-putting-mirror-putter/",
+   "name": "Pure2Improve Mini Putting Mirror Putter",
+   "filedAs": "putter"
+  },
+  {
+   "page": "/prices/puttout-compact-mirror-putter/",
+   "name": "PuttOUT Compact Mirror Putter",
+   "filedAs": "putter"
+  },
+  {
+   "page": "/prices/nike-brasilia-9-5-training-gymsack-single-iron/",
+   "name": "Nike Brasilia 9.5 Training Gymsack Single Iron",
+   "filedAs": "single-iron"
+  },
+  {
+   "page": "/prices/wilson-dynapwr-max-shaft-irons-wedge/",
+   "name": "Wilson Dynapwr Max Shaft Irons Wedge",
+   "filedAs": "wedge"
+  },
+  {
+   "page": "/prices/adidas-cold-rdy-neck-warmer-fairway-wood/",
+   "name": "Adidas Cold.rdy Neck Warmer Fairway Wood",
+   "filedAs": "wood"
+  },
+  {
+   "page": "/prices/adidas-cold-rdy-neck-warmer-snood-fairway-wood/",
+   "name": "Adidas Cold.rdy Neck Warmer Snood Fairway Wood",
+   "filedAs": "wood"
+  }
+ ],
+ "suspectPrices": 109,
+ "pagesShowingSuspectPrice": 26,
+ "pagesToCheck": [
+  {
+   "page": "/prices/adidas-cold-rdy-neck-warmer-fairway-wood/",
+   "price": 12.95,
+   "listing": "adidas COLD.RDY Golf Neck Warmer - Putty Beige / One Size",
+   "reason": "below a sensible floor for a new wood"
+  },
+  {
+   "page": "/prices/adidas-cold-rdy-neck-warmer-snood-fairway-wood/",
+   "price": 21.99,
+   "listing": "adidas Cold.Rdy Neck Warmer Snood - Black",
+   "reason": "below a sensible floor for a new wood"
+  },
+  {
+   "page": "/prices/cleveland-rtz-2-wedge/",
+   "price": 139.0,
+   "listing": "Cleveland RTZ 2 Golf Wedge - Tour Satin",
+   "reason": "under 45% of the same model elsewhere (median £387.00)"
+  },
+  {
+   "page": "/prices/cleveland-rtz-wedge/",
+   "price": 119.0,
+   "listing": "Cleveland RTZ Golf Wedge - Black Satin",
+   "reason": "under 45% of the same model elsewhere (median £417.00)"
+  },
+  {
+   "page": "/prices/cobra-tour-trusty-wedge/",
+   "price": 89.99,
+   "listing": "Cobra Tour Trusty Golf Wedge - Steel",
+   "reason": "under 45% of the same model elsewhere (median £239.97)"
+  },
+  {
+   "page": "/prices/golf-pride-tour-velvet-360-midsize-driver/",
+   "price": 6.99,
+   "listing": "Tour Velvet 360 MidSize - white",
+   "reason": "below a sensible floor for a new driver"
+  },
+  {
+   "page": "/prices/golfway-champion-sand-wedge/",
+   "price": 14.99,
+   "listing": "Golfway Champion Sand Wedge (Ages 3-5) Right Hand / 43-46\"",
+   "reason": "below a sensible floor for a new wedge"
+  },
+  {
+   "page": "/prices/golfway-champion-youth-driver/",
+   "price": 19.99,
+   "listing": "Golfway Champion Youth Driver (Ages 16+) Right Hand / 67\"+",
+   "reason": "below a sensible floor for a new driver"
+  },
+  {
+   "page": "/prices/golfway-champion-youth-fairway-wood/",
+   "price": 19.99,
+   "listing": "Golfway Champion Youth Fairway Wood (Ages 14-16) Right Hand / 63\" - 66\"",
+   "reason": "below a sensible floor for a new wood"
+  },
+  {
+   "page": "/prices/golfway-champion-youth-hybrid/",
+   "price": 19.99,
+   "listing": "Golfway Champion Youth Hybrid (Ages 14-16) Right Hand / 63\" - 66\"",
+   "reason": "below a sensible floor for a new hybrid"
+  },
+  {
+   "page": "/prices/golfway-champion-youth-pitching-wedge/",
+   "price": 14.99,
+   "listing": "Golfway Champion Youth Pitching Wedge (Ages 14-16) Right Hand / 63\" - 66\"",
+   "reason": "below a sensible floor for a new wedge"
+  },
+  {
+   "page": "/prices/golfway-champion-youth-sand-wedge/",
+   "price": 14.99,
+   "listing": "Golfway Champion Youth Sand Wedge (Ages 14-16) Right Hand / 63\" - 66\"",
+   "reason": "below a sensible floor for a new wedge"
+  },
+  {
+   "page": "/prices/impact-detect-practice-aid-driver/",
+   "price": 9.99,
+   "listing": "Impact Detect Golf Practice Aid",
+   "reason": "below a sensible floor for a new driver"
+  },
+  {
+   "page": "/prices/longridge-airflow-practice-golf-balls/",
+   "price": 1.5,
+   "listing": "Longridge Airflow Practice Golf Balls  White",
+   "reason": "under 45% of the same model elsewhere (median £3.99)"
+  },
+  {
+   "page": "/prices/masters-butler-putter/",
+   "price": 2.49,
+   "listing": "Masters Golf Butler",
+   "reason": "below a sensible floor for a new putter"
+  },
+  {
+   "page": "/prices/masters-fairway-wood/",
+   "price": 2.49,
+   "listing": "Masters Wood Pencils with Clip & Eraser (5 Pack) in Eco Pack",
+   "reason": "below a sensible floor for a new wood"
+  },
+  {
+   "page": "/prices/masters-gripper-in-eco-pack-putter/",
+   "price": 1.99,
+   "listing": "Masters Green Gripper in Eco Pack",
+   "reason": "below a sensible floor for a new putter"
+  },
+  {
+   "page": "/prices/masters-gripper-putter/",
+   "price": 1.99,
+   "listing": "Masters Green Gripper (Regular Packaging)",
+   "reason": "below a sensible floor for a new putter"
+  },
+  {
+   "page": "/prices/masters-re-gripping-tape-strips-putter/",
+   "price": 3.99,
+   "listing": "Masters Re-Gripping Tape Strips - Pack of 10",
+   "reason": "below a sensible floor for a new putter"
+  },
+  {
+   "page": "/prices/mizuno-pro-t-1-wedge/",
+   "price": 119.0,
+   "listing": "Mizuno Pro T-1 Golf Wedge - Satin",
+   "reason": "under 45% of the same model elsewhere (median £477.00)"
+  },
+  {
+   "page": "/prices/mizuno-tour-staff-golf-bag/",
+   "price": 189.99,
+   "listing": "Mizuno Tour Staff Golf Cart Bag",
+   "reason": "under 45% of the same model elsewhere (median £449.00)"
+  },
+  {
+   "page": "/prices/ping-s259-wedge/",
+   "price": 179.0,
+   "listing": "S259 Golf Wedges - Chrome",
+   "reason": "under 45% of the same model elsewhere (median £507.00)"
+  },
+  {
+   "page": "/prices/pure2improve-mini-putting-mirror-putter/",
+   "price": 10.99,
+   "listing": "Pure2Improve Mini Golf Putting Mirror",
+   "reason": "below a sensible floor for a new putter"
+  },
+  {
+   "page": "/prices/pxg-zero-torque-putter/",
+   "price": 179.0,
+   "listing": "PXG Zero Torque Putter - Hellcat",
+   "reason": "under 45% of the same model elsewhere (median £399.00)"
+  },
+  {
+   "page": "/prices/taylormade-milled-grind-5-wedge/",
+   "price": 179.0,
+   "listing": "TaylorMade Milled Grind 5 Golf Wedge - Charcoal - 50 / SB / Right Hand",
+   "reason": "under 45% of the same model elsewhere (median £499.00)"
+  },
+  {
+   "page": "/prices/wilson-harmonized-wedge/",
+   "price": 49.99,
+   "listing": "Wilson Harmonized Wedge - Steel",
+   "reason": "under 45% of the same model elsewhere (median £119.95)"
+  }
+ ],
+ "suspectExamples": [
+  {
+   "id": "wood-adidas-cold-rdy-golf-neck-warmer-jl5654-putty-beige-one-size-clarkesgolf",
+   "name": "adidas COLD.RDY Golf Neck Warmer - Putty Beige / One Size",
+   "model": "adidas-cold-rdy-neck-warmer-fairway-wood",
+   "price": 12.95,
+   "reason": "below a sensible floor for a new wood",
+   "shownAsLowest": true,
+   "kind": "floor",
+   "both": false
+  },
+  {
+   "id": "wood-adidas-cold-rdy-neck-warmer-snood-black-clickgolf",
+   "name": "adidas Cold.Rdy Neck Warmer Snood - Black",
+   "model": "adidas-cold-rdy-neck-warmer-snood-fairway-wood",
+   "price": 21.99,
+   "reason": "below a sensible floor for a new wood",
+   "shownAsLowest": true,
+   "kind": "floor",
+   "both": false
+  },
+  {
+   "id": "wedge-cleveland-rtz-2-golf-wedge-tour-satin-clickgolf",
+   "name": "Cleveland RTZ 2 Golf Wedge - Tour Satin",
+   "model": "cleveland-rtz-2-wedge",
+   "price": 139.0,
+   "reason": "under 45% of the same model elsewhere (median £387.00)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cleveland-rtz-2-golf-wedge-black-satin-clickgolf",
+   "name": "Cleveland RTZ 2 Golf Wedge - Black Satin",
+   "model": "cleveland-rtz-2-wedge",
+   "price": 139.0,
+   "reason": "under 45% of the same model elsewhere (median £387.00)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cleveland-rtz-golf-wedge-black-satin-clickgolf",
+   "name": "Cleveland RTZ Golf Wedge - Black Satin",
+   "model": "cleveland-rtz-wedge",
+   "price": 119.0,
+   "reason": "under 45% of the same model elsewhere (median £417.00)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cleveland-rtz-golf-wedge-tour-satin-clickgolf",
+   "name": "Cleveland RTZ Golf Wedge - Tour Satin",
+   "model": "cleveland-rtz-wedge",
+   "price": 119.0,
+   "reason": "under 45% of the same model elsewhere (median £417.00)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cleveland-rtz-golf-wedge-tour-rack-clickgolf",
+   "name": "Cleveland RTZ Golf Wedge - Tour Rack",
+   "model": "cleveland-rtz-wedge",
+   "price": 119.0,
+   "reason": "under 45% of the same model elsewhere (median £417.00)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-golf-wedge-steel-clickgolf",
+   "name": "Cobra Tour Trusty Golf Wedge - Steel",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-right-hand-48-6-bounce-wedge-f-affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel Right Hand / 48* 6 Bounce / Wedge Flex - FST 115",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-right-hand-50-8-bounce-wedge-f-affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel Right Hand / 50* 8 Bounce / Wedge Flex - FST 115",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-right-hand-52-8-bounce-wedge-f-affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel Right Hand / 52* 8 Bounce / Wedge Flex - FST 115",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-right-hand-54-10-bounce-wedge--affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel Right Hand / 54* 10 Bounce / Wedge Flex - FST 115",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-right-hand-56-10-bounce-wedge--affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel Right Hand / 56* 10 Bounce / Wedge Flex - FST 115",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-right-hand-58-8-bounce-wedge-f-affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel Right Hand / 58* 8 Bounce / Wedge Flex - FST 115",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-right-hand-60-8-bounce-wedge-f-affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel Right Hand / 60* 8 Bounce / Wedge Flex - FST 115",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-left-hand-52-8-bounce-wedge-fl-affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel Left Hand / 52* 8 Bounce / Wedge Flex - FST 115",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-left-hand-56-10-bounce-wedge-f-affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel Left Hand / 56* 10 Bounce / Wedge Flex - FST 115",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "wedge-cobra-tour-trusty-wedge-steel-left-hand-60-8-bounce-wedge-fl-affordablegolf",
+   "name": "Cobra Tour Trusty Wedge - Steel Left Hand / 60* 8 Bounce / Wedge Flex - FST 115",
+   "model": "cobra-tour-trusty-wedge",
+   "price": 89.99,
+   "reason": "under 45% of the same model elsewhere (median £239.97)",
+   "shownAsLowest": true,
+   "kind": "peers",
+   "both": false
+  },
+  {
+   "id": "driver-tour-velvet-360-midsize-white-affordablegolf",
+   "name": "Tour Velvet 360 MidSize - white",
+   "model": "golf-pride-tour-velvet-360-midsize-driver",
+   "price": 6.99,
+   "reason": "below a sensible floor for a new driver",
+   "shownAsLowest": true,
+   "kind": "floor",
+   "both": false
+  },
+  {
+   "id": "wedge-golfway-champion-sand-wedge-ages-3-5-right-hand-43-46-affordablegolf",
+   "name": "Golfway Champion Sand Wedge (Ages 3-5) Right Hand / 43-46\"",
+   "model": "golfway-champion-sand-wedge",
+   "price": 14.99,
+   "reason": "below a sensible floor for a new wedge",
+   "shownAsLowest": true,
+   "kind": "floor",
+   "both": false
+  },
+  {
+   "id": "wedge-golfway-champion-sand-wedge-ages-3-5-left-hand-43-46-affordablegolf",
+   "name": "Golfway Champion Sand Wedge (Ages 3-5) Left Hand / 43-46\"",
+   "model": "golfway-champion-sand-wedge",
+   "price": 14.99,
+   "reason": "below a sensible floor for a new wedge",
+   "shownAsLowest": true,
+   "kind": "floor",
+   "both": false
+  },
+  {
+   "id": "wedge-golfway-champion-sand-wedge-ages-5-7-right-hand-47-50-affordablegolf",
+   "name": "Golfway Champion Sand Wedge (Ages 5-7) Right Hand / 47-50\"",
+   "model": "golfway-champion-sand-wedge",
+   "price": 14.99,
+   "reason": "below a sensible floor for a new wedge",
+   "shownAsLowest": true,
+   "kind": "floor",
+   "both": false
+  },
+  {
+   "id": "wedge-golfway-champion-sand-wedge-ages-5-7-left-hand-47-50-affordablegolf",
+   "name": "Golfway Champion Sand Wedge (Ages 5-7) Left Hand / 47-50\"",
+   "model": "golfway-champion-sand-wedge",
+   "price": 14.99,
+   "reason": "below a sensible floor for a new wedge",
+   "shownAsLowest": true,
+   "kind": "floor",
+   "both": false
+  },
+  {
+   "id": "wedge-golfway-champion-sand-wedge-ages-7-9-right-hand-51-54-affordablegolf",
+   "name": "Golfway Champion Sand Wedge (Ages 7–9) Right Hand / 51-54\"",
+   "model": "golfway-champion-sand-wedge",
+   "price": 14.99,
+   "reason": "below a sensible floor for a new wedge",
+   "shownAsLowest": true,
+   "kind": "floor",
+   "both": false
+  }
+ ],
+ "usedOutsidePreowned": 5,
+ "usedExamples": [
+  "Callaway Truvis Refurbished A Grade Golf Balls - Stars & Stripes - 12 Pack",
+  "Callaway Truvis Refurbished A-Grade Golf Balls - Green Clover - 12 Pack",
+  "Callaway Truvis Refurbished A Grade Golf Balls - Green/White - 12 Pack",
+  "Callaway Truvis Refurbished A-Grade Golf Balls - Red/White - 12 Pack",
+  "Cobra Forged Tec Black Single Irons - Steel (Ex-Display) Left Hand / GW 49* / Regular - KBS Taper Lite"
+ ],
+ "recycledBallsOutsidePreowned": 56,
+ "recycledExamples": [
+  "Titleist Pro V1 Grade A Recycled Golf Balls",
+  "Reload Callaway Chrome Soft Grade AA White Recycled Golf Balls",
+  "Reload Taylormade TP5 Grade AA White Recycled Golf Balls",
+  "Titleist AVX Grade A Recycled Golf Balls",
+  "Titleist Grade C Recycled Golf Balls - 24 Pack - Grade C",
+  "Titleist Pro v1 Grade C Recycled Golf Balls - 24 Pack - Grade C",
+  "TaylorMade Grade C Recycled Golf Balls - 24 Pack - Grade C",
+  "Srixon Grade C Recycled Golf Balls - 24 Pack - Grade C",
+  "Callaway Grade C Recycled Golf Balls - 24 Pack - Grade C",
+  "Nike Grade C Recycled Golf Balls - 24 Pack - Grade C"
+ ],
+ "duplicates": 664,
+ "duplicateExamples": [
+  {
+   "feed": "awin-clickgolf",
+   "name": "Callaway Opus SP Chrome Wedge - Steel",
+   "ids": [
+    "wedge-callaway-opus-sp-chrome-wedge-steel-clickgolf-ebc188",
+    "wedge-callaway-opus-sp-chrome-wedge-steel-clickgolf-08e2fc"
+   ]
+  },
+  {
+   "feed": "awin-clickgolf",
+   "name": "FootJoy Traditions Golf Shoes  - Black",
+   "ids": [
+    "shoes-footjoy-traditions-golf-shoes-black-clickgolf-bdfd9a",
+    "shoes-footjoy-traditions-golf-shoes-black-clickgolf-3a9a70"
+   ]
+  },
+  {
+   "feed": "awin-clickgolf",
+   "name": "Callaway Opus SP+ Wedge Bundle Set - Chrome",
+   "ids": [
+    "wedge-callaway-opus-sp-wedge-bundle-set-chrome-clickgolf-d2564e",
+    "wedge-callaway-opus-sp-wedge-bundle-set-chrome-clickgolf-ab3033"
+   ]
+  },
+  {
+   "feed": "awin-callaway",
+   "name": "Opus SP Chrome Wedge",
+   "ids": [
+    "wedge-opus-sp-chrome-wedge-callaway-167c07",
+    "wedge-opus-sp-chrome-wedge-callaway-6f1474"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "PowaKaddy FX CT RX GPS/Smartphone Holder",
+   "ids": [
+    "sets-powakaddy-fx-ct-rx-gps-smartphone-holder-majorgolf-5361c0",
+    "sets-powakaddy-fx-ct-rx-gps-smartphone-holder-majorgolf-47c28f"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "PowaKaddy FX CT RX Scorecard Holder 2026",
+   "ids": [
+    "sets-powakaddy-fx-ct-rx-scorecard-holder-2026-majorgolf-879d6f",
+    "sets-powakaddy-fx-ct-rx-scorecard-holder-2026-majorgolf-228f48"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "US Kids Golf Junior Ultralight Iron - 39\" Player Height / Right Hand / 7 Iron",
+   "ids": [
+    "irons-us-kids-golf-junior-ultralight-iron-39-player-height-right-h-majorgolf-85eb48",
+    "irons-us-kids-golf-junior-ultralight-iron-39-player-height-right-h-majorgolf-e7a9d1"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "US Kids Golf Junior Ultralight Iron - 39\" Player Height / Right Hand / PW",
+   "ids": [
+    "irons-us-kids-golf-junior-ultralight-iron-39-player-height-right-h-majorgolf-ccc4dd",
+    "irons-us-kids-golf-junior-ultralight-iron-39-player-height-right-h-majorgolf-0b6570"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "US Kids Golf Junior Ultralight Iron - 39\" Player Height / Left Hand / 7 Iron",
+   "ids": [
+    "irons-us-kids-golf-junior-ultralight-iron-39-player-height-left-ha-majorgolf-b39473",
+    "irons-us-kids-golf-junior-ultralight-iron-39-player-height-left-ha-majorgolf-5d2358"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "US Kids Golf Junior Ultralight Iron - 39'' Player Height / Right Hand / SW",
+   "ids": [
+    "irons-us-kids-golf-junior-ultralight-iron-39-player-height-right-h-majorgolf-f35a32",
+    "irons-us-kids-golf-junior-ultralight-iron-39-player-height-right-h-majorgolf-29b235"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "US Kids Golf Junior Ultralight Iron - 39'' Player Height / Left Hand / SW",
+   "ids": [
+    "irons-us-kids-golf-junior-ultralight-iron-39-player-height-left-ha-majorgolf-16e529",
+    "irons-us-kids-golf-junior-ultralight-iron-39-player-height-left-ha-majorgolf-9792f7"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "US Kids Golf Junior Ultralight Iron - 42\" Player Height / Right Hand / 7 iron",
+   "ids": [
+    "irons-us-kids-golf-junior-ultralight-iron-42-player-height-right-h-majorgolf-4792f2",
+    "irons-us-kids-golf-junior-ultralight-iron-42-player-height-right-h-majorgolf-98d86b"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "US Kids Golf Junior Ultralight Iron - 42\" Player Height / Right Hand / PW",
+   "ids": [
+    "irons-us-kids-golf-junior-ultralight-iron-42-player-height-right-h-majorgolf-514e70",
+    "irons-us-kids-golf-junior-ultralight-iron-42-player-height-right-h-majorgolf-86fdbb"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "US Kids Golf Junior Ultralight Iron - 42\" Player Height / Left Hand / SW",
+   "ids": [
+    "irons-us-kids-golf-junior-ultralight-iron-42-player-height-left-ha-majorgolf-f0584c",
+    "irons-us-kids-golf-junior-ultralight-iron-42-player-height-left-ha-majorgolf-61b16a"
+   ]
+  },
+  {
+   "feed": "awin-majorgolf",
+   "name": "US Kids Golf Junior Ultralight Iron - 42'' Player Height / Right Hand / SW",
+   "ids": [
+    "irons-us-kids-golf-junior-ultralight-iron-42-player-height-right-h-majorgolf-49ec70",
+    "irons-us-kids-golf-junior-ultralight-iron-42-player-height-right-h-majorgolf-2de212"
+   ]
+  }
+ ],
+ "deadListings45d": 662,
+ "unmatchedClubs": 1437,
+ "newLaunchCandidates": [],
+ "fixCheck": {
+  "rulesActive": 0,
+  "notApplied": []
+ },
+ "status": "attention"
+}
