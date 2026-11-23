@@ -1,863 +1,894 @@
 {
-  "about": "The ideas board. Every idea or suggestion goes through the loop in .github/IDEAS.md (propose, challenge, score, John approves, test, measure, learn) before it reaches the site. Targets are directions only: real numbers stay in John's private email. kind \"duty\" = an always-on responsibility (doesn't change what visitors see, so it doesn't count towards the limit of 3 tests at once); kind \"test\" = a change visitors see, tested and measured.",
-  "updated": "2026-11-21",
-  "wipLimit": 3,
-  "shortlistScore": 36,
-  "ideas": [
+ "about": "The ideas board. Every idea or suggestion goes through the loop in .github/IDEAS.md (propose, challenge, score, John approves, test, measure, learn) before it reaches the site. Targets are directions only: real numbers stay in John's private email. kind \"duty\" = an always-on responsibility (doesn't change what visitors see, so it doesn't count towards the limit of 3 tests at once); kind \"test\" = a change visitors see, tested and measured.",
+ "updated": "2026-11-21",
+ "wipLimit": 3,
+ "shortlistScore": 36,
+ "ideas": [
+  {
+   "id": "compliance-check",
+   "title": "Ads and consumer-law check on every page and post",
+   "owner": "the editor (with the claims guardian)",
+   "objective": "trust",
+   "problem": "We earn commission from links, and social posts promote deals. UK advertising rules (ASA/CAP) and consumer law (CMA, the DMCC Act) apply to affiliate content. One complaint could cost us a retailer programme.",
+   "evidence": "These rules apply to affiliate marketing in the UK. The editor already checks for fake urgency and \"was\" prices; there's no check yet for disclosure on every page with buy links, or for social captions that promote affiliate deals.",
+   "hypothesis": "If the editor checks for a clear affiliate disclosure on every page with buy links and for correct labelling in social captions, against the current ASA/CAP guidance, then the risk of a complaint or a lost programme drops to near zero, at almost no cost.",
+   "test": "Add the checks to agent_editor.py, run them over the whole site once and fix what fails in one Fix pack.",
+   "metric": "pages and posts failing the check",
+   "target": "zero, and it stays zero",
+   "windowDays": 14,
+   "effort": "S",
+   "risks": "Over-labelling could make the site feel salesy: keep the wording short and friendly. The guidance must be read from the ASA/CMA's own pages, not from memory.",
+   "challenge": "Objective: trust (it protects revenue). Evidence: the rules are public. Smallest test: one run and one Fix pack. Backfire: only if the wording is clumsy. Duplicate: no. Cost: none. Undo: remove the check.",
+   "score": {
+    "impact": 4,
+    "confidence": 4,
+    "ease": 5,
+    "total": 80
+   },
+   "stage": "approved",
+   "history": [
     {
-      "id": "compliance-check",
-      "title": "Ads and consumer-law check on every page and post",
-      "owner": "the editor (with the claims guardian)",
-      "objective": "trust",
-      "problem": "We earn commission from links, and social posts promote deals. UK advertising rules (ASA/CAP) and consumer law (CMA, the DMCC Act) apply to affiliate content. One complaint could cost us a retailer programme.",
-      "evidence": "These rules apply to affiliate marketing in the UK. The editor already checks for fake urgency and \"was\" prices; there's no check yet for disclosure on every page with buy links, or for social captions that promote affiliate deals.",
-      "hypothesis": "If the editor checks for a clear affiliate disclosure on every page with buy links and for correct labelling in social captions, against the current ASA/CAP guidance, then the risk of a complaint or a lost programme drops to near zero, at almost no cost.",
-      "test": "Add the checks to agent_editor.py, run them over the whole site once and fix what fails in one Fix pack.",
-      "metric": "pages and posts failing the check",
-      "target": "zero, and it stays zero",
-      "windowDays": 14,
-      "effort": "S",
-      "risks": "Over-labelling could make the site feel salesy: keep the wording short and friendly. The guidance must be read from the ASA/CMA's own pages, not from memory.",
-      "challenge": "Objective: trust (it protects revenue). Evidence: the rules are public. Smallest test: one run and one Fix pack. Backfire: only if the wording is clumsy. Duplicate: no. Cost: none. Undo: remove the check.",
-      "score": {
-        "impact": 4,
-        "confidence": 4,
-        "ease": 5,
-        "total": 80
-      },
-      "stage": "approved",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Proposed and challenged by Claude at John's request."
-        },
-        {
-          "date": "2026-11-20",
-          "stage": "approved",
-          "note": "John approved all nine shortlisted ideas. Built: the editor holds any page with buy links but no commission disclosure, and --audit sweeps the whole site (first sweep: every page with buy links already discloses)."
-        }
-      ],
-      "kind": "duty"
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude at John's request."
     },
     {
-      "id": "programme-health",
-      "title": "Retailer programme health watch",
-      "owner": "the revenue guardian (with the coverage hunter)",
-      "objective": "revenue",
-      "problem": "A retailer's affiliate programme can pause, close, change its commission or break its deep links without warning, and the money stops quietly.",
-      "evidence": "The revenue guardian already checks links land on the right shop and reads private Awin figures, so the data is there; nothing yet watches each programme's status, or applications still pending.",
-      "hypothesis": "If the revenue guardian flags within a day any programme that pauses, closes, changes terms or stops recording clicks, and the coverage hunter chases pending applications, then fewer buy clicks go unpaid.",
-      "test": "Add a programme-status table to the private revenue email, with an alert when a programme changes or clicks stop being recorded for 48 hours.",
-      "metric": "buy clicks that go to a programme that isn't paying",
-      "target": "down to zero within a day of any change",
-      "windowDays": 30,
-      "effort": "M",
-      "risks": "Must never change which price is shown first because of commission: the cheapest honest price always leads. Private figures stay private.",
-      "challenge": "Objective: revenue. Evidence: our own Awin data. Smallest test: an email table. Backfire: none on the site. Duplicate: extends the revenue guardian. Cost: free. Undo: remove the table.",
-      "score": {
-        "impact": 4,
-        "confidence": 4,
-        "ease": 4,
-        "total": 64
-      },
-      "stage": "approved",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Proposed and challenged by Claude."
-        },
-        {
-          "date": "2026-11-20",
-          "stage": "approved",
-          "note": "John approved all nine shortlisted ideas. Built: the revenue guardian checks daily for programmes no longer joined and for retailers whose clicks stopped being recorded, and emails John the same day."
-        }
-      ],
-      "kind": "duty"
-    },
-    {
-      "id": "launch-season",
-      "title": "New-model launch season: \"last year's model, now cheaper\" pages",
-      "owner": "the seasonal planner (with the catalogue autopilot and the moments planner)",
-      "objective": "traffic and revenue",
-      "problem": "Golf's big equipment launches come each new year, and last season's models tend to drop in price. That's exactly what GolfPrice AI is for, yet the seasonal planner has no occasion for it.",
-      "evidence": "Industry pattern (benchmark, not yet our own data); our price history will confirm or deny it model by model. Pages are built 8 weeks ahead, so the window to prepare is now.",
-      "hypothesis": "If we add a launch-season occasion (new models added fast; last year's models with their price movement shown honestly from our own history), then search visits and buy clicks rise in January to March.",
-      "test": "One occasion page plus the catalogue adding new models within a day of launch; social posts planned by the moments planner.",
-      "metric": "visits and buy clicks on the occasion page and the previous-model price pages, against the weeks before",
-      "target": "clearly up during launch season",
-      "windowDays": 60,
-      "effort": "M",
-      "risks": "Only show price falls our own data proves (no \"was\" prices, no implied saving we can't show). Never name retailers. Launch dates must be verified.",
-      "challenge": "Objective: traffic and revenue. Evidence: benchmark, confidence 3. Smallest test: one page. Backfire: claims that aren't proven, so the claims guardian checks it. Duplicate: no. Cost: free. Undo: unpublish the page.",
-      "score": {
-        "impact": 5,
-        "confidence": 3,
-        "ease": 4,
-        "total": 60
-      },
-      "stage": "approved",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Proposed and challenged by Claude. Time-sensitive: needs approving by mid-December."
-        },
-        {
-          "date": "2026-11-20",
-          "stage": "approved",
-          "note": "John approved all nine shortlisted ideas. Built: a \"Club launch season\" occasion page (clubs and balls at the lowest price we have tracked), refreshed weekly from 25 Nov; the moments planner and newsroom can point posts at it."
-        }
-      ],
-      "kind": "test"
-    },
-    {
-      "id": "measure-everything",
-      "title": "The analyst measures every test, and spots sudden drops",
-      "owner": "the performance analyst",
-      "objective": "all (the loop's backbone)",
-      "problem": "Without a before-and-after for each idea, we can't tell what worked; and a sudden drop (a broken page, a lost ranking, a dead link) can go unnoticed until the weekly review.",
-      "evidence": "The analyst already has the private counts and the button test; it doesn't yet read the ideas board or alert on sudden drops.",
-      "hypothesis": "If the analyst reads every \"testing\" idea in data/ideas.json and reports its metric against the period before, and emails John within a day when visits or buy clicks fall sharply, then decisions get faster and problems shorter.",
-      "test": "Add both to agent_performance.py and the private email.",
-      "metric": "ideas with a measured result; time from a sudden drop to John hearing of it",
-      "target": "every test measured; under a day",
-      "windowDays": 30,
-      "effort": "M",
-      "risks": "False alarms from normal weekly swings: compare like-for-like days and set a sensible threshold.",
-      "challenge": "Needed for the loop to work at all. Evidence: our own data. Cost: free. Undo: remove it.",
-      "score": {
-        "impact": 4,
-        "confidence": 4,
-        "ease": 3,
-        "total": 48
-      },
-      "stage": "approved",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Proposed and challenged by Claude."
-        },
-        {
-          "date": "2026-11-20",
-          "stage": "approved",
-          "note": "John approved all nine shortlisted ideas. Built: the analyst measures every testing idea (before vs since; directions public, numbers private), emails a sudden-drop alert the same day, and lists the top pages (order only) for the shopper."
-        }
-      ],
-      "kind": "duty"
-    },
-    {
-      "id": "free-tier-guard",
-      "title": "Free-tier and budget guard",
-      "owner": "the watchdog",
-      "objective": "efficiency",
-      "problem": "We rely on free tiers (Cloudflare Workers and D1, Brevo's daily sends, GitHub Actions) and an approved OpenMontage budget of USD 10 every two weeks. Going over a limit can stop emails or the worker without warning.",
-      "evidence": "The Cloudflare Observability email showed how easy it is to be surprised; Brevo's free plan has a daily cap.",
-      "hypothesis": "If the watchdog checks usage against each limit and warns John at 80%, then nothing stops unexpectedly and nothing is charged.",
-      "test": "Add the usage checks the free APIs allow to agent_watchdog.py; where there's no API, count our own sends and requests.",
-      "metric": "surprises (a stopped service or a charge)",
-      "target": "zero",
-      "windowDays": 30,
-      "effort": "S",
-      "risks": "None on the site.",
-      "challenge": "Objective: efficiency and trust. Evidence: our own setup. Cost: free. Undo: remove it.",
-      "score": {
-        "impact": 3,
-        "confidence": 4,
-        "ease": 4,
-        "total": 48
-      },
-      "stage": "approved",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Proposed and challenged by Claude."
-        },
-        {
-          "date": "2026-11-20",
-          "stage": "approved",
-          "note": "John approved all nine shortlisted ideas. Built: the watchdog warns at 80% of Brevo's daily emails and (with an optional Cloudflare token) Worker and D1 limits, and flags a private repo."
-        }
-      ],
-      "kind": "duty"
-    },
-    {
-      "id": "gap-pages",
-      "title": "The search-to-page engine drafts the top search gaps as pages",
-      "owner": "the search-to-page engine (with the competitor watch)",
-      "objective": "traffic",
-      "problem": "The SEO and competitor reports find searches we have no page for, but only list them.",
-      "evidence": "seo-opportunities and competitor-watch \"gaps\" (our data plus competitors). Comparison searches such as \"model A vs model B price\" suit a price site.",
-      "hypothesis": "If the engine drafts the top 3 gaps each month as genuinely useful pages (real prices from our data, honest comparison), then search visits rise on those queries.",
-      "test": "3 draft pages on a branch for John; each passes the editor; measure their search visits after 6 weeks.",
-      "metric": "search visits to the new pages",
-      "target": "each page earning visits within 6 weeks",
-      "windowDays": 42,
-      "effort": "M",
-      "risks": "Thin or near-duplicate pages count against us with Google: only build where we have real, distinct value; no doorway pages.",
-      "challenge": "Objective: traffic. Evidence: our own gap data, confidence 3. Smallest test: 3 pages. Backfire: thin content, so the editor checks usefulness. Undo: noindex or remove.",
-      "score": {
-        "impact": 4,
-        "confidence": 3,
-        "ease": 3,
-        "total": 36
-      },
-      "stage": "approved",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Proposed and challenged by Claude."
-        },
-        {
-          "date": "2026-11-20",
-          "stage": "approved",
-          "note": "John approved all nine shortlisted ideas. Built: the monthly AI and competitor check drafts the top 3 search gaps as pages on a branch each month."
-        }
-      ],
-      "kind": "test"
-    },
-    {
-      "id": "alert-signups",
-      "title": "Price-alert sign-up at the moment of interest",
-      "owner": "the email optimiser",
-      "objective": "retention and revenue",
-      "problem": "Visitors who aren't ready to buy leave with no way back. Price alerts bring them back when the price falls, which is when they buy.",
-      "evidence": "Price alerts and the weekly digest already exist; the sign-up prompt's placement hasn't been tested.",
-      "hypothesis": "If we test one extra, polite sign-up prompt at the moment of interest (after a game result, or when a visitor leaves a price page without clicking), then sign-ups rise without hurting buy clicks.",
-      "test": "One split test on price pages through the analyst's button test.",
-      "metric": "sign-ups per visit, with buy clicks as a guardrail",
-      "target": "sign-ups up, buy clicks not down",
-      "windowDays": 21,
-      "effort": "M",
-      "risks": "Pop-ups annoy people: no pop-up that blocks the page, easy to dismiss, shown once.",
-      "challenge": "Objective: retention. Evidence: hunch to benchmark. Smallest test: one split test. Guardrail: buy clicks. Undo: switch off.",
-      "score": {
-        "impact": 4,
-        "confidence": 3,
-        "ease": 3,
-        "total": 36
-      },
-      "stage": "approved",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Proposed and challenged by Claude."
-        },
-        {
-          "date": "2026-11-20",
-          "stage": "approved",
-          "note": "John approved all nine shortlisted ideas. Built: a polite, dismissible \"Not buying today?\" bar, split-tested by the analyst (sign-ups up, buy clicks as the guardrail); it starts through the Fix pack."
-        }
-      ],
-      "kind": "test",
-      "measure": {
-        "kinds": [
-          "nga",
-          "ngb"
-        ],
-        "keys": [
-          "signups",
-          "clicks"
-        ]
-      }
-    },
-    {
-      "id": "quick-answers",
-      "title": "Quick-answer lines for the questions golfers ask AI apps",
-      "owner": "the AI-answer optimiser",
-      "objective": "traffic",
-      "problem": "AI apps quote pages that answer a question directly; ours often bury the answer.",
-      "evidence": "The monthly AI-answer check measures which of 10 questions we're found for.",
-      "hypothesis": "If the most relevant page for each missing question opens with a one-sentence, visible answer, then we're found for more of them.",
-      "test": "Add quick answers to the pages for the 3 biggest gaps.",
-      "metric": "AI-style questions we're found for (out of 10)",
-      "target": "up month on month",
-      "windowDays": 60,
-      "effort": "S",
-      "risks": "Must be written for people and visible on the page (nothing aimed only at AI crawlers).",
-      "challenge": "Evidence: our own monthly check, confidence 3. Cheap. Undo: remove the lines.",
-      "score": {
-        "impact": 3,
-        "confidence": 3,
-        "ease": 4,
-        "total": 36
-      },
-      "stage": "approved",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Proposed and challenged by Claude."
-        },
-        {
-          "date": "2026-11-20",
-          "stage": "approved",
-          "note": "John approved all nine shortlisted ideas. Built: the monthly AI and competitor check writes visible quick-answer lines for the 3 biggest AI-answer gaps on a branch."
-        }
-      ],
-      "kind": "test"
-    },
-    {
-      "id": "mobile-audit",
-      "title": "Monthly mobile check of the top landing pages",
-      "owner": "the mystery shopper",
-      "objective": "revenue",
-      "problem": "Most visitors are on phones; a slow or awkward first screen loses buy clicks.",
-      "evidence": "The mystery shopper already walks the site; seo-health flags slow pages.",
-      "hypothesis": "If the shopper checks the 10 most-visited landing pages on a phone each month (speed, the price and buy button above the fold, nothing covering them), fixing what fails raises buy clicks.",
-      "test": "One audit and one Fix pack.",
-      "metric": "buy clicks per visit on the fixed pages",
-      "target": "up",
-      "windowDays": 28,
-      "effort": "S",
-      "risks": "None.",
-      "challenge": "Evidence: benchmark, confidence 3. Cheap. Undo: revert the fix.",
-      "score": {
-        "impact": 3,
-        "confidence": 3,
-        "ease": 4,
-        "total": 36
-      },
-      "stage": "approved",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Proposed and challenged by Claude."
-        },
-        {
-          "date": "2026-11-20",
-          "stage": "approved",
-          "note": "John approved all nine shortlisted ideas. Built: the mystery shopper checks the 10 most-visited price pages on a phone every night (price and buy button on the first screen, nothing covering it, big enough to tap, under 3.5 seconds)."
-        }
-      ],
-      "kind": "duty"
-    },
-    {
-      "id": "society-invites",
-      "title": "Society HQ as a word-of-mouth engine",
-      "owner": "the society connector (with the game master)",
-      "objective": "traffic and retention",
-      "problem": "Each society organiser can bring a whole group; we don't know how many invites turn into new visitors.",
-      "evidence": "Hunch so far: no invite data yet.",
-      "hypothesis": "If organisers get a one-tap invite and share card, each society brings several new regulars.",
-      "test": "First count invites and the visitors they bring for 4 weeks; then decide.",
-      "metric": "new visitors per society",
-      "target": "to be set once measured",
-      "windowDays": 28,
-      "effort": "M",
-      "risks": "No spam: invites are sent by the organiser, never by us.",
-      "challenge": "Confidence too low to build yet. Bring back when the analyst has 4 weeks of invite data.",
-      "score": {
-        "impact": 3,
-        "confidence": 2,
-        "ease": 3,
-        "total": 18
-      },
-      "stage": "parked",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "parked",
-          "note": "Needs invite data first (the analyst can count it)."
-        }
-      ]
-    },
-    {
-      "id": "golf-media-partners",
-      "title": "Press desk: golf clubs, societies, podcasts and YouTubers",
-      "owner": "the press desk",
-      "objective": "traffic",
-      "problem": "Links and mentions from golf media and clubs bring visitors and help rankings.",
-      "evidence": "Hunch to benchmark; the press desk already pitches writers.",
-      "hypothesis": "If the press desk offers free, genuinely useful things (Society HQ for club newsletters, a monthly price-trend stat for podcasts), we earn mentions and links.",
-      "test": "Pitch 5 club or society newsletters with Society HQ; count replies and mentions.",
-      "metric": "mentions and links earned",
-      "target": "at least 1 in 5",
-      "windowDays": 30,
-      "effort": "M",
-      "risks": "Never pay for links (against Google's rules); respect opt-outs.",
-      "challenge": "Low confidence and some effort; a cheap 5-pitch test would raise confidence.",
-      "score": {
-        "impact": 4,
-        "confidence": 2,
-        "ease": 2,
-        "total": 16
-      },
-      "stage": "parked",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "parked",
-          "note": "Run the 5-pitch test when the press desk has capacity."
-        }
-      ]
-    },
-    {
-      "id": "shorts-pinterest",
-      "title": "Repurpose the best Reel to YouTube Shorts and Pinterest",
-      "owner": "the content engine",
-      "objective": "traffic",
-      "problem": "Each video is made once and posted mostly to Instagram.",
-      "evidence": "Hunch: Pinterest suits gift guides, but we have no account data.",
-      "hypothesis": "Reposting the week's best Reel widens reach at no extra cost.",
-      "test": "Post manually for 4 weeks before automating.",
-      "metric": "visits from Shorts and Pinterest",
-      "target": "to be set",
-      "windowDays": 28,
-      "effort": "M",
-      "risks": "Needs new accounts and John's time.",
-      "challenge": "Costs John's time and needs accounts; park until Instagram is running smoothly.",
-      "score": {
-        "impact": 3,
-        "confidence": 2,
-        "ease": 3,
-        "total": 18
-      },
-      "stage": "parked",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "parked",
-          "note": "Revisit once Instagram posting is settled."
-        }
-      ]
-    },
-    {
-      "id": "clean-categories",
-      "title": "Keep accessories and junior clubs out of adult club categories",
-      "owner": "the catalogue autopilot",
-      "objective": "trust and revenue",
-      "problem": "Grips, shafts, practice aids, neck warmers and junior clubs are filed as drivers, woods and putters, so the price hub says \"Drivers from £24.99\" and 22 pages show a suspect price as the lowest.",
-      "evidence": "Our own catalogue report (20 Nov dry run): 17 misfiled models, 109 suspect prices, 22 pages showing one as lowest, 661 duplicates, 625 listings dead for 45 days.",
-      "hypothesis": "If the catalogue moves shafts, grips, practice aids and clothing to their own types, gives junior clubs a junior category, and never shows a flagged price as the lowest or the hub's \"from\" price, golfers trust the first price they see and click more.",
-      "test": "One Fix pack: the reclassification rules, and a guard in price_pages.py so flagged prices can't lead.",
-      "metric": "pages showing a suspect price as lowest; buy clicks per visit on club hubs",
-      "target": "zero suspect prices leading; clicks up",
-      "windowDays": 21,
-      "effort": "M",
-      "risks": "Over-filtering could hide genuine bargains: flagged prices are hidden from the lead spot, not deleted, and the claims guardian checks.",
-      "challenge": "Objective: trust first. Evidence: our own data, confidence 5. Smallest test: one Fix pack. Backfire: hiding a real deal, so flagged items stay listed lower down. No clash. Free. Undo: revert the pack.",
-      "score": {
-        "impact": 4,
-        "confidence": 5,
-        "ease": 3,
-        "total": 60
-      },
-      "kind": "test",
-      "stage": "shortlisted",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Found by Claude in the full dry run of every agent."
-        }
-      ]
-    },
-    {
-      "id": "lighter-pages",
-      "title": "Lighter pages: compress the big images",
-      "owner": "the mystery shopper (with the Fix pack)",
-      "objective": "traffic and revenue",
-      "problem": "The homepage weighs about 2.3 MB on a phone; the favicon alone was 876 KB on every page (now fixed: 106 KB). Several tile and banner photos are 150 to 180 KB each.",
-      "evidence": "Measured on 20 Nov in a phone browser. Page speed is part of Google's page experience signals and phones on slow connections feel it most.",
-      "hypothesis": "If every photo is served at the size it's shown (WebP, about 40 to 80 KB), pages load faster on phones, which helps rankings and fewer people leave before the prices load.",
-      "test": "Re-encode the 20 biggest images once; add a size check to the shopper so new ones can't creep back.",
-      "metric": "homepage weight and load time on a phone; bounce on the homepage",
-      "target": "under 1 MB; faster",
-      "windowDays": 28,
-      "effort": "S",
-      "risks": "Visible quality loss: compare side by side before shipping.",
-      "challenge": "Evidence: our own measurement. Cheap. No clash (the nudge test is on price pages). Undo: restore the files.",
-      "score": {
-        "impact": 3,
-        "confidence": 4,
-        "ease": 5,
-        "total": 60
-      },
-      "kind": "test",
-      "stage": "shortlisted",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Logo already shrunk on the branch (876 KB to 106 KB, looks identical)."
-        }
-      ]
-    },
-    {
-      "id": "retailer-coverage-push",
-      "title": "More retailers per page: match the 1,427 unmatched club listings",
-      "owner": "the coverage hunter (with the catalogue autopilot)",
-      "objective": "revenue",
-      "problem": "Most price pages show a single retailer, so there's nothing to compare: 1,427 club listings didn't match a model, and many models have one shop.",
-      "evidence": "Catalogue report \"unmatchedClubs\": 1,427 (20 Nov dry run); the coverage hunter's multiRetailerPct tracks it.",
-      "hypothesis": "If the matcher handles the common naming differences (loft, shaft flex, left-handed, colour, \"Gen 2\" vs \"2nd gen\") and the coverage hunter applies to the most-needed retailers first, more pages compare 2+ shops, which is the reason to use us and to click.",
-      "test": "Improve the matcher for drivers and irons first; measure multiRetailerPct and buy clicks on those pages.",
-      "metric": "multiRetailerPct; buy clicks per visit on matched pages",
-      "target": "both up",
-      "windowDays": 28,
-      "effort": "M",
-      "risks": "Wrong matches show the wrong product's price: the claims guardian checks every new match and only confident matches go live.",
-      "challenge": "Objective: revenue (comparison is the product). Evidence: our own data, confidence 4. Smallest test: drivers and irons only. Undo: revert the matcher.",
-      "score": {
-        "impact": 5,
-        "confidence": 4,
-        "ease": 2,
-        "total": 40
-      },
-      "kind": "test",
-      "stage": "shortlisted",
-      "history": [
-        {
-          "date": "2026-11-20",
-          "stage": "shortlisted",
-          "note": "Found by Claude in the full dry run of every agent."
-        }
-      ]
-    },
-    {
-      "id": "applovin-test",
-      "title": "Small, capped AppLovin Ads test (maybe for Wild Nine)",
-      "owner": "the channel scout (with the performance analyst)",
-      "objective": "traffic",
-      "problem": "AppLovin opened its self-serve ad platform to all advertisers in 2026 and is growing fast; its ads run inside mobile games, which could suit a free daily golf game.",
-      "evidence": "Public launch news only; we have no conversion data yet to know what a visitor is worth to us.",
-      "hypothesis": "If what we earn per visitor is higher than AppLovin's cost per visitor, a small capped test could bring profitable traffic, especially to Wild Nine.",
-      "test": "Only once we know value per visitor: a capped test with a budget John sets, sending traffic to Wild Nine.",
-      "metric": "cost per visitor against value per visitor",
-      "target": "value higher than cost",
-      "windowDays": 28,
-      "effort": "M",
-      "risks": "Costs money (outside the free-or-Pro rule unless John approves a budget); some affiliate programmes restrict paid traffic; ads inside games need brand-safe placement.",
-      "challenge": "Evidence too thin: we don't yet know value per visitor. Paid, so John must set a budget. Check each retailer programme's paid-traffic rules first.",
-      "score": {
-        "impact": 3,
-        "confidence": 1,
-        "ease": 2,
-        "total": 6
-      },
-      "kind": "test",
-      "stage": "parked",
-      "history": [
-        {
-          "date": "2026-11-21",
-          "stage": "parked",
-          "note": "John spotted it. Bring back after 3 months of conversion data from the performance analyst."
-        }
-      ]
-    },
-    {
-      "id": "paid-views",
-      "title": "Get paid for views once our social base is big enough",
-      "owner": "the performance analyst (tracking), then the content engine (Facebook Page cross-posting)",
-      "objective": "revenue",
-      "problem": "Posts that gain traction earn nothing from the views themselves, only from clicks through to the site.",
-      "evidence": "21 Nov 2026 check: Facebook Content Monetization is invite-only (pays for Reels, Stories, photos and text posts); YouTube Shorts ads need 1,000 subscribers and 10m Shorts views in 90 days, roughly doubling for new creators from 1 Feb 2027; TikTok Creator Rewards needs a personal account, 10,000 followers and videos of at least 1 minute, which doesn't fit our 8-second brand clips. One UK estimate puts TikTok at about £0.85 per 1,000 qualified views.",
-      "hypothesis": "Once the base is built, a Facebook Page fed by the same posts could earn a small extra income on top of affiliate sales.",
-      "test": "Later: add a Facebook Page as a fourth posting destination and register interest in Content Monetization. Until then, the analyst only tracks followers and views against each platform's threshold and flags when one is within reach.",
-      "metric": "followers and 90-day views against each platform's threshold",
-      "target": "within 80% of a threshold before any build work",
-      "windowDays": 90,
-      "effort": "S",
-      "risks": "Per-view pay is small; never chase views at the expense of trust or the house rules; no buying followers or engagement bait. A personal TikTok account just to qualify is not worth it.",
-      "challenge": "John (21 Nov 2026): a distant opportunity; build the base first. Clicks through to the site earn far more per view than view payments. Kept low on the board on purpose.",
-      "score": {
-        "impact": 2,
-        "confidence": 2,
-        "ease": 3,
-        "total": 12
-      },
-      "stage": "parked",
-      "history": [
-        {
-          "date": "2026-11-21",
-          "stage": "parked",
-          "note": "John: low priority, build the audience first. Bring back when the analyst says we're near a platform threshold."
-        }
-      ]
-    },
-    {
-      "id": "sketch-sequence",
-      "title": "Quick-cut mini sketches (Big Dave's par)",
-      "owner": "the content engine",
-      "objective": "traffic (reach and shares)",
-      "problem": "Single-photo memes can't tell a joke that needs a set-up, a reaction and a payoff.",
-      "evidence": "John's idea (21 Nov 2026): a character's ~6 shots cut on the beat, he claims a par, his mate offers an abacus. Multi-shot reaction formats suit the shares-and-saves goal in SOCIAL.md.",
-      "hypothesis": "A beat-cut sketch with a shot counter earns more shares and comments than a single-photo meme.",
-      "test": "Post Big Dave's par once its 9 photos exist, alongside normal memes; compare shares and comments per view over 4 weeks.",
-      "metric": "shares and comments per 1,000 views vs single-photo memes",
-      "target": "higher than the meme average",
-      "windowDays": 28,
-      "effort": "S",
-      "risks": "Needs consistent fictional characters (one ChatGPT conversation per set); never a real person; no words in photos.",
-      "challenge": "Cheapest test is one sketch; the style and storyboard already exist, so the only cost is John's photo time.",
-      "score": {
-        "impact": 4,
-        "confidence": 3,
-        "ease": 4,
-        "total": 48
-      },
-      "stage": "shortlisted",
-      "history": [
-        {
-          "date": "2026-11-21",
-          "stage": "shortlisted",
-          "note": "John asked to test it; style 'sequence' built, waiting for the 9 photos."
-        }
-      ]
-    },
-    {
-      "id": "data-journal",
-      "title": "The Clubhouse Journal: data-led articles from our own numbers",
-      "owner": "the monthly search agent (writing) with the press desk (data and angles); the Editor checks every article",
-      "objective": "traffic (search and AI-app citations), trust",
-      "problem": "We have pages that answer price questions, but few articles that earn links and citations for the bigger questions golfers ask.",
-      "evidence": "John's idea (21 Nov 2026). Google's guidance: AI-made pages without added value may break its scaled content abuse policy, so volume blogging is a risk; articles built on data only we have (price history, Par Price guesses, People's Bag, Oracle, Society League) add value nobody else can.",
-      "hypothesis": "One original, data-led article a fortnight earns more search visits, AI-app citations and links than generic blog posts would.",
-      "test": "Two pilot articles on a branch for John: e.g. 'Do new drivers really get cheaper? What our price history shows' and 'What UK golfers think kit costs (the Par Price guesses)'. Real figures only, a clear method note, John's byline after his review, linked to the price pages and tools.",
-      "metric": "search clicks and AI-app arrivals to the articles; links earned",
-      "target": "beats the average new price page after 8 weeks",
-      "windowDays": 56,
-      "effort": "M",
-      "risks": "Thin or generic posts would hurt the whole site (scaled content abuse); keep it low volume, original and human-reviewed. Overlaps with gap pages and the press report: share the data, don't duplicate topics.",
-      "challenge": "Cheaper test: turn the monthly press report into a public article first. Not a new agent: give the job to existing ones.",
-      "score": {
-        "impact": 4,
-        "confidence": 3,
-        "ease": 3,
-        "total": 36
-      },
-      "stage": "shortlisted",
-      "history": [
-        {
-          "date": "2026-11-21",
-          "stage": "shortlisted",
-          "note": "John asked whether to build a blog agent; proposed as a low-volume, data-led journal instead of a volume blog."
-        },
-        {
-          "date": "2026-11-21",
-          "stage": "shortlisted",
-          "note": "John said yes to two pilots: built on the branch (journal/ and scripts/journal_pages.py). Merging = approval; then the monthly search agent takes on one article a fortnight."
-        }
-      ]
-    },
-    {
-      "id": "paperclip",
-      "title": "Run the agents through Paperclip (open-source agent orchestration)",
-      "owner": "strategy board (review)",
-      "objective": "efficiency",
-      "problem": "Could one dashboard with an org chart, budgets and tickets run our agents better than GitHub Actions plus Claude scheduled tasks?",
-      "evidence": "22 Nov 2026 check: free MIT code, but self-hosted (a Node server and database running all the time) and every agent's model usage is billed separately; one review puts an active company at $20 to $100 a month by Paperclip's own estimate and counts 12 security advisories; reviewers say output still needs human review at every step. Our current setup already has schedules, approvals, budgets and an ideas loop, free within the Pro plan.",
-      "hypothesis": "Only worth it if coordinating our agents becomes the bottleneck.",
-      "test": "None now. Revisit if we outgrow scheduled tasks or it gains a hosted version within budget.",
-      "metric": "John's time spent coordinating agents",
-      "target": "-",
-      "windowDays": 0,
-      "effort": "L",
-      "risks": "New monthly costs, a server to keep running and secure, and a 'zero-human company' approach that clashes with John approving every change.",
-      "challenge": "Breaks the free-or-within-Pro rule and adds moving parts for little gain at our size.",
-      "score": {
-        "impact": 2,
-        "confidence": 2,
-        "ease": 1,
-        "total": 4
-      },
-      "stage": "parked",
-      "history": [
-        {
-          "date": "2026-11-22",
-          "stage": "parked",
-          "note": "John asked for an honest review; parked: our setup already covers it, free. Channel scout to keep an eye on it."
-        }
-      ]
-    },
-    {
-      "id": "foldables",
-      "title": "Layouts for unfolded foldables (iPhone Duo) and small tablets",
-      "owner": "performance analyst (measuring); Claude built the layouts",
-      "objective": "retention",
-      "problem": "On an unfolded iPhone Duo, Wild Nine stayed phone-sized in the middle of the big screen and the homepage stayed one long column.",
-      "evidence": "John's idea (22 Nov 2026). The iPhone Duo went on sale on 23 Oct 2026 (5.4-inch outer screen, unfolded display 50% larger than the 18 Pro Max). It's a premium phone, so the audience starts small; the same layouts help iPads and small tablets.",
-      "hypothesis": "Unfolded and tablet visitors play more holes of Wild Nine and stay longer when the course fills the screen.",
-      "test": "Built: Wild Nine two-panel layout (course left, controls right) on wide screens and a wider single column when unfolded upright; homepage PC-style layout from 700px; an anonymous screen-shape count (phone-small, phone, unfolded, tablet, desktop, plus 'unfold' when a screen changes shape mid-visit).",
-      "metric": "share of visits by screen shape (screensByVisits); Wild Nine rounds finished per visit on unfolded/tablet v phone",
-      "target": "decide after 8 weeks whether more foldable work is worth it",
-      "windowDays": 56,
-      "effort": "S",
-      "risks": "None to phone users: the phone layouts are unchanged. Only screen shape is counted, never the device or anything identifying.",
-      "challenge": "Cheap, safe and measurable; the count tells us whether to go further.",
-      "score": {
-        "impact": 2,
-        "confidence": 4,
-        "ease": 5,
-        "total": 40
-      },
-      "stage": "shortlisted",
-      "history": [
-        {
-          "date": "2026-11-22",
-          "stage": "shortlisted",
-          "note": "John approved building it into Sunday's zip; built on the branch. Merging = test starts."
-        }
-      ]
-    },
-    {
-      "id": "one-promise",
-      "title": "One promise, one tap: 'Is this a good price?' as the front door",
-      "owner": "the homepage plus the price check tool",
-      "objective": "traffic, revenue",
-      "problem": "The site does a lot; a first-time visitor needs one reason to come back. The sharpest promise we can keep better than anyone: tell a golfer in seconds whether a price is good.",
-      "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
-      "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
-      "test": "Put a verdict-first price check at the very top of the homepage and every price page (Buy now / Good price / Wait), backed by our price history; everything else supports it.",
-      "metric": "repeat visits and buy clicks per visitor",
-      "target": "set by the strategy board",
-      "windowDays": 56,
-      "effort": "S",
-      "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
-      "challenge": "For the strategy board to red-team on the 9th.",
-      "score": {
-        "impact": 4,
-        "confidence": 3,
-        "ease": 4,
-        "total": 48
-      },
-      "stage": "proposed",
-      "history": [
-        {
-          "date": "2026-11-22",
-          "stage": "proposed",
-          "note": "From John's 'what would Steve Jobs do' question."
-        }
-      ]
-    },
-    {
-      "id": "golf-price-index",
-      "title": "The UK Golf Price Index: the number everyone quotes",
-      "owner": "press desk + Clubhouse Journal",
-      "objective": "traffic (press, AI apps, links), trust",
-      "problem": "Journalists, AI apps and golfers need a trusted reference for 'are golf prices going up or down?'. We already have the data; it just isn't one famous number.",
-      "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
-      "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
-      "test": "Turn the monthly press report into a named, monthly index (one headline number by category) with a permanent page, an embeddable chart and a press note; AI apps and press cite it.",
-      "metric": "links, press mentions and AI-app arrivals to the index page",
-      "target": "set by the strategy board",
-      "windowDays": 56,
-      "effort": "S",
-      "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
-      "challenge": "For the strategy board to red-team on the 9th.",
-      "score": {
-        "impact": 5,
-        "confidence": 3,
-        "ease": 4,
-        "total": 60
-      },
-      "stage": "proposed",
-      "history": [
-        {
-          "date": "2026-11-22",
-          "stage": "proposed",
-          "note": "From John's 'what would Steve Jobs do' question."
-        }
-      ]
-    },
-    {
-      "id": "my-bag",
-      "title": "My Bag: your golf kit and wish list, watched for you",
-      "owner": "games lab + email optimiser",
-      "objective": "retention, revenue",
-      "problem": "Golfers own and want specific kit. If they tell us once (no sign-up, kept on their phone, email optional), we can watch every price and tell them the moment it's genuinely right to buy or sell.",
-      "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
-      "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
-      "test": "A 'My Bag' locker: add clubs you own and want; we show today's verdict, price drops, and a heads-up when a model is replaced (best time to buy last season's). Links Wild Nine's Pro Shop and the Bag Draft to the real thing.",
-      "metric": "returning visitors with a bag; alert sign-ups; buy clicks from bag items",
-      "target": "set by the strategy board",
-      "windowDays": 56,
-      "effort": "L",
-      "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
-      "challenge": "For the strategy board to red-team on the 9th.",
-      "score": {
-        "impact": 5,
-        "confidence": 3,
-        "ease": 2,
-        "total": 30
-      },
-      "stage": "proposed",
-      "history": [
-        {
-          "date": "2026-11-22",
-          "stage": "proposed",
-          "note": "From John's 'what would Steve Jobs do' question."
-        }
-      ]
-    },
-    {
-      "id": "society-network",
-      "title": "Every UK golf society runs on GolfPrice AI",
-      "owner": "society connector + press desk",
-      "objective": "traffic, retention",
-      "problem": "Each society captain brings 20 to 40 golfers. Society HQ, the live scorecard, Fourball Alerts, prize calculator and awards already exist: they're our distribution, if captains know about them.",
-      "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
-      "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
-      "test": "Package them as one free 'Society Kit' with a single link for captains, plus a captain's pack (WhatsApp messages, the scorecard for society days). The society connector reaches out to clubs and societies politely and honestly.",
-      "metric": "societies using Society HQ; scorecard rounds; Fourball Alerts groups",
-      "target": "set by the strategy board",
-      "windowDays": 56,
-      "effort": "M",
-      "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
-      "challenge": "For the strategy board to red-team on the 9th.",
-      "score": {
-        "impact": 4,
-        "confidence": 3,
-        "ease": 3,
-        "total": 36
-      },
-      "stage": "proposed",
-      "history": [
-        {
-          "date": "2026-11-22",
-          "stage": "proposed",
-          "note": "From John's 'what would Steve Jobs do' question."
-        }
-      ]
-    },
-    {
-      "id": "big-moments",
-      "title": "Two big moments a year: the Black Friday Truth Report and the Honest Gift Guide",
-      "owner": "moments planner + press desk + content engine",
-      "objective": "traffic, trust",
-      "problem": "Golfers' attention spikes at Black Friday and Christmas, and so does distrust of 'deals'. Owning those moments with the honest version (what's genuinely cheaper, what's a red sticker) makes the brand.",
-      "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
-      "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
-      "test": "Turn our Black Friday page and gift tools into two annual 'events' with a launch film, a Fourball episode, press notes, the Journal article and a WhatsApp-friendly summary. Same honest data, launched like a product.",
-      "metric": "visits and links during the two windows, year on year",
-      "target": "set by the strategy board",
-      "windowDays": 56,
-      "effort": "S",
-      "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
-      "challenge": "For the strategy board to red-team on the 9th.",
-      "score": {
-        "impact": 4,
-        "confidence": 4,
-        "ease": 4,
-        "total": 64
-      },
-      "stage": "proposed",
-      "history": [
-        {
-          "date": "2026-11-22",
-          "stage": "proposed",
-          "note": "From John's 'what would Steve Jobs do' question."
-        }
-      ]
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the editor holds any page with buy links but no commission disclosure, and --audit sweeps the whole site (first sweep: every page with buy links already discloses)."
     }
-  ],
-  "lessons": [],
-  "wipNote": "Tests start one page area at a time: launch season and the alert nudge first; quick answers and gap pages start as their monthly branches are merged, keeping at most 3 tests running."
+   ],
+   "kind": "duty"
+  },
+  {
+   "id": "programme-health",
+   "title": "Retailer programme health watch",
+   "owner": "the revenue guardian (with the coverage hunter)",
+   "objective": "revenue",
+   "problem": "A retailer's affiliate programme can pause, close, change its commission or break its deep links without warning, and the money stops quietly.",
+   "evidence": "The revenue guardian already checks links land on the right shop and reads private Awin figures, so the data is there; nothing yet watches each programme's status, or applications still pending.",
+   "hypothesis": "If the revenue guardian flags within a day any programme that pauses, closes, changes terms or stops recording clicks, and the coverage hunter chases pending applications, then fewer buy clicks go unpaid.",
+   "test": "Add a programme-status table to the private revenue email, with an alert when a programme changes or clicks stop being recorded for 48 hours.",
+   "metric": "buy clicks that go to a programme that isn't paying",
+   "target": "down to zero within a day of any change",
+   "windowDays": 30,
+   "effort": "M",
+   "risks": "Must never change which price is shown first because of commission: the cheapest honest price always leads. Private figures stay private.",
+   "challenge": "Objective: revenue. Evidence: our own Awin data. Smallest test: an email table. Backfire: none on the site. Duplicate: extends the revenue guardian. Cost: free. Undo: remove the table.",
+   "score": {
+    "impact": 4,
+    "confidence": 4,
+    "ease": 4,
+    "total": 64
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the revenue guardian checks daily for programmes no longer joined and for retailers whose clicks stopped being recorded, and emails John the same day."
+    }
+   ],
+   "kind": "duty"
+  },
+  {
+   "id": "launch-season",
+   "title": "New-model launch season: \"last year's model, now cheaper\" pages",
+   "owner": "the seasonal planner (with the catalogue autopilot and the moments planner)",
+   "objective": "traffic and revenue",
+   "problem": "Golf's big equipment launches come each new year, and last season's models tend to drop in price. That's exactly what GolfPrice AI is for, yet the seasonal planner has no occasion for it.",
+   "evidence": "Industry pattern (benchmark, not yet our own data); our price history will confirm or deny it model by model. Pages are built 8 weeks ahead, so the window to prepare is now.",
+   "hypothesis": "If we add a launch-season occasion (new models added fast; last year's models with their price movement shown honestly from our own history), then search visits and buy clicks rise in January to March.",
+   "test": "One occasion page plus the catalogue adding new models within a day of launch; social posts planned by the moments planner.",
+   "metric": "visits and buy clicks on the occasion page and the previous-model price pages, against the weeks before",
+   "target": "clearly up during launch season",
+   "windowDays": 60,
+   "effort": "M",
+   "risks": "Only show price falls our own data proves (no \"was\" prices, no implied saving we can't show). Never name retailers. Launch dates must be verified.",
+   "challenge": "Objective: traffic and revenue. Evidence: benchmark, confidence 3. Smallest test: one page. Backfire: claims that aren't proven, so the claims guardian checks it. Duplicate: no. Cost: free. Undo: unpublish the page.",
+   "score": {
+    "impact": 5,
+    "confidence": 3,
+    "ease": 4,
+    "total": 60
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude. Time-sensitive: needs approving by mid-December."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: a \"Club launch season\" occasion page (clubs and balls at the lowest price we have tracked), refreshed weekly from 25 Nov; the moments planner and newsroom can point posts at it."
+    }
+   ],
+   "kind": "test"
+  },
+  {
+   "id": "measure-everything",
+   "title": "The analyst measures every test, and spots sudden drops",
+   "owner": "the performance analyst",
+   "objective": "all (the loop's backbone)",
+   "problem": "Without a before-and-after for each idea, we can't tell what worked; and a sudden drop (a broken page, a lost ranking, a dead link) can go unnoticed until the weekly review.",
+   "evidence": "The analyst already has the private counts and the button test; it doesn't yet read the ideas board or alert on sudden drops.",
+   "hypothesis": "If the analyst reads every \"testing\" idea in data/ideas.json and reports its metric against the period before, and emails John within a day when visits or buy clicks fall sharply, then decisions get faster and problems shorter.",
+   "test": "Add both to agent_performance.py and the private email.",
+   "metric": "ideas with a measured result; time from a sudden drop to John hearing of it",
+   "target": "every test measured; under a day",
+   "windowDays": 30,
+   "effort": "M",
+   "risks": "False alarms from normal weekly swings: compare like-for-like days and set a sensible threshold.",
+   "challenge": "Needed for the loop to work at all. Evidence: our own data. Cost: free. Undo: remove it.",
+   "score": {
+    "impact": 4,
+    "confidence": 4,
+    "ease": 3,
+    "total": 48
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the analyst measures every testing idea (before vs since; directions public, numbers private), emails a sudden-drop alert the same day, and lists the top pages (order only) for the shopper."
+    }
+   ],
+   "kind": "duty"
+  },
+  {
+   "id": "free-tier-guard",
+   "title": "Free-tier and budget guard",
+   "owner": "the watchdog",
+   "objective": "efficiency",
+   "problem": "We rely on free tiers (Cloudflare Workers and D1, Brevo's daily sends, GitHub Actions) and an approved OpenMontage budget of USD 10 every two weeks. Going over a limit can stop emails or the worker without warning.",
+   "evidence": "The Cloudflare Observability email showed how easy it is to be surprised; Brevo's free plan has a daily cap.",
+   "hypothesis": "If the watchdog checks usage against each limit and warns John at 80%, then nothing stops unexpectedly and nothing is charged.",
+   "test": "Add the usage checks the free APIs allow to agent_watchdog.py; where there's no API, count our own sends and requests.",
+   "metric": "surprises (a stopped service or a charge)",
+   "target": "zero",
+   "windowDays": 30,
+   "effort": "S",
+   "risks": "None on the site.",
+   "challenge": "Objective: efficiency and trust. Evidence: our own setup. Cost: free. Undo: remove it.",
+   "score": {
+    "impact": 3,
+    "confidence": 4,
+    "ease": 4,
+    "total": 48
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the watchdog warns at 80% of Brevo's daily emails and (with an optional Cloudflare token) Worker and D1 limits, and flags a private repo."
+    }
+   ],
+   "kind": "duty"
+  },
+  {
+   "id": "gap-pages",
+   "title": "The search-to-page engine drafts the top search gaps as pages",
+   "owner": "the search-to-page engine (with the competitor watch)",
+   "objective": "traffic",
+   "problem": "The SEO and competitor reports find searches we have no page for, but only list them.",
+   "evidence": "seo-opportunities and competitor-watch \"gaps\" (our data plus competitors). Comparison searches such as \"model A vs model B price\" suit a price site.",
+   "hypothesis": "If the engine drafts the top 3 gaps each month as genuinely useful pages (real prices from our data, honest comparison), then search visits rise on those queries.",
+   "test": "3 draft pages on a branch for John; each passes the editor; measure their search visits after 6 weeks.",
+   "metric": "search visits to the new pages",
+   "target": "each page earning visits within 6 weeks",
+   "windowDays": 42,
+   "effort": "M",
+   "risks": "Thin or near-duplicate pages count against us with Google: only build where we have real, distinct value; no doorway pages.",
+   "challenge": "Objective: traffic. Evidence: our own gap data, confidence 3. Smallest test: 3 pages. Backfire: thin content, so the editor checks usefulness. Undo: noindex or remove.",
+   "score": {
+    "impact": 4,
+    "confidence": 3,
+    "ease": 3,
+    "total": 36
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the monthly AI and competitor check drafts the top 3 search gaps as pages on a branch each month."
+    }
+   ],
+   "kind": "test"
+  },
+  {
+   "id": "alert-signups",
+   "title": "Price-alert sign-up at the moment of interest",
+   "owner": "the email optimiser",
+   "objective": "retention and revenue",
+   "problem": "Visitors who aren't ready to buy leave with no way back. Price alerts bring them back when the price falls, which is when they buy.",
+   "evidence": "Price alerts and the weekly digest already exist; the sign-up prompt's placement hasn't been tested.",
+   "hypothesis": "If we test one extra, polite sign-up prompt at the moment of interest (after a game result, or when a visitor leaves a price page without clicking), then sign-ups rise without hurting buy clicks.",
+   "test": "One split test on price pages through the analyst's button test.",
+   "metric": "sign-ups per visit, with buy clicks as a guardrail",
+   "target": "sign-ups up, buy clicks not down",
+   "windowDays": 21,
+   "effort": "M",
+   "risks": "Pop-ups annoy people: no pop-up that blocks the page, easy to dismiss, shown once.",
+   "challenge": "Objective: retention. Evidence: hunch to benchmark. Smallest test: one split test. Guardrail: buy clicks. Undo: switch off.",
+   "score": {
+    "impact": 4,
+    "confidence": 3,
+    "ease": 3,
+    "total": 36
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: a polite, dismissible \"Not buying today?\" bar, split-tested by the analyst (sign-ups up, buy clicks as the guardrail); it starts through the Fix pack."
+    }
+   ],
+   "kind": "test",
+   "measure": {
+    "kinds": [
+     "nga",
+     "ngb"
+    ],
+    "keys": [
+     "signups",
+     "clicks"
+    ]
+   }
+  },
+  {
+   "id": "quick-answers",
+   "title": "Quick-answer lines for the questions golfers ask AI apps",
+   "owner": "the AI-answer optimiser",
+   "objective": "traffic",
+   "problem": "AI apps quote pages that answer a question directly; ours often bury the answer.",
+   "evidence": "The monthly AI-answer check measures which of 10 questions we're found for.",
+   "hypothesis": "If the most relevant page for each missing question opens with a one-sentence, visible answer, then we're found for more of them.",
+   "test": "Add quick answers to the pages for the 3 biggest gaps.",
+   "metric": "AI-style questions we're found for (out of 10)",
+   "target": "up month on month",
+   "windowDays": 60,
+   "effort": "S",
+   "risks": "Must be written for people and visible on the page (nothing aimed only at AI crawlers).",
+   "challenge": "Evidence: our own monthly check, confidence 3. Cheap. Undo: remove the lines.",
+   "score": {
+    "impact": 3,
+    "confidence": 3,
+    "ease": 4,
+    "total": 36
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the monthly AI and competitor check writes visible quick-answer lines for the 3 biggest AI-answer gaps on a branch."
+    }
+   ],
+   "kind": "test"
+  },
+  {
+   "id": "mobile-audit",
+   "title": "Monthly mobile check of the top landing pages",
+   "owner": "the mystery shopper",
+   "objective": "revenue",
+   "problem": "Most visitors are on phones; a slow or awkward first screen loses buy clicks.",
+   "evidence": "The mystery shopper already walks the site; seo-health flags slow pages.",
+   "hypothesis": "If the shopper checks the 10 most-visited landing pages on a phone each month (speed, the price and buy button above the fold, nothing covering them), fixing what fails raises buy clicks.",
+   "test": "One audit and one Fix pack.",
+   "metric": "buy clicks per visit on the fixed pages",
+   "target": "up",
+   "windowDays": 28,
+   "effort": "S",
+   "risks": "None.",
+   "challenge": "Evidence: benchmark, confidence 3. Cheap. Undo: revert the fix.",
+   "score": {
+    "impact": 3,
+    "confidence": 3,
+    "ease": 4,
+    "total": 36
+   },
+   "stage": "approved",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Proposed and challenged by Claude."
+    },
+    {
+     "date": "2026-11-20",
+     "stage": "approved",
+     "note": "John approved all nine shortlisted ideas. Built: the mystery shopper checks the 10 most-visited price pages on a phone every night (price and buy button on the first screen, nothing covering it, big enough to tap, under 3.5 seconds)."
+    }
+   ],
+   "kind": "duty"
+  },
+  {
+   "id": "society-invites",
+   "title": "Society HQ as a word-of-mouth engine",
+   "owner": "the society connector (with the game master)",
+   "objective": "traffic and retention",
+   "problem": "Each society organiser can bring a whole group; we don't know how many invites turn into new visitors.",
+   "evidence": "Hunch so far: no invite data yet.",
+   "hypothesis": "If organisers get a one-tap invite and share card, each society brings several new regulars.",
+   "test": "First count invites and the visitors they bring for 4 weeks; then decide.",
+   "metric": "new visitors per society",
+   "target": "to be set once measured",
+   "windowDays": 28,
+   "effort": "M",
+   "risks": "No spam: invites are sent by the organiser, never by us.",
+   "challenge": "Confidence too low to build yet. Bring back when the analyst has 4 weeks of invite data.",
+   "score": {
+    "impact": 3,
+    "confidence": 2,
+    "ease": 3,
+    "total": 18
+   },
+   "stage": "parked",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "parked",
+     "note": "Needs invite data first (the analyst can count it)."
+    }
+   ]
+  },
+  {
+   "id": "golf-media-partners",
+   "title": "Press desk: golf clubs, societies, podcasts and YouTubers",
+   "owner": "the press desk",
+   "objective": "traffic",
+   "problem": "Links and mentions from golf media and clubs bring visitors and help rankings.",
+   "evidence": "Hunch to benchmark; the press desk already pitches writers.",
+   "hypothesis": "If the press desk offers free, genuinely useful things (Society HQ for club newsletters, a monthly price-trend stat for podcasts), we earn mentions and links.",
+   "test": "Pitch 5 club or society newsletters with Society HQ; count replies and mentions.",
+   "metric": "mentions and links earned",
+   "target": "at least 1 in 5",
+   "windowDays": 30,
+   "effort": "M",
+   "risks": "Never pay for links (against Google's rules); respect opt-outs.",
+   "challenge": "Low confidence and some effort; a cheap 5-pitch test would raise confidence.",
+   "score": {
+    "impact": 4,
+    "confidence": 2,
+    "ease": 2,
+    "total": 16
+   },
+   "stage": "parked",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "parked",
+     "note": "Run the 5-pitch test when the press desk has capacity."
+    }
+   ]
+  },
+  {
+   "id": "shorts-pinterest",
+   "title": "Repurpose the best Reel to YouTube Shorts and Pinterest",
+   "owner": "the content engine",
+   "objective": "traffic",
+   "problem": "Each video is made once and posted mostly to Instagram.",
+   "evidence": "Hunch: Pinterest suits gift guides, but we have no account data.",
+   "hypothesis": "Reposting the week's best Reel widens reach at no extra cost.",
+   "test": "Post manually for 4 weeks before automating.",
+   "metric": "visits from Shorts and Pinterest",
+   "target": "to be set",
+   "windowDays": 28,
+   "effort": "M",
+   "risks": "Needs new accounts and John's time.",
+   "challenge": "Costs John's time and needs accounts; park until Instagram is running smoothly.",
+   "score": {
+    "impact": 3,
+    "confidence": 2,
+    "ease": 3,
+    "total": 18
+   },
+   "stage": "parked",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "parked",
+     "note": "Revisit once Instagram posting is settled."
+    }
+   ]
+  },
+  {
+   "id": "clean-categories",
+   "title": "Keep accessories and junior clubs out of adult club categories",
+   "owner": "the catalogue autopilot",
+   "objective": "trust and revenue",
+   "problem": "Grips, shafts, practice aids, neck warmers and junior clubs are filed as drivers, woods and putters, so the price hub says \"Drivers from £24.99\" and 22 pages show a suspect price as the lowest.",
+   "evidence": "Our own catalogue report (20 Nov dry run): 17 misfiled models, 109 suspect prices, 22 pages showing one as lowest, 661 duplicates, 625 listings dead for 45 days.",
+   "hypothesis": "If the catalogue moves shafts, grips, practice aids and clothing to their own types, gives junior clubs a junior category, and never shows a flagged price as the lowest or the hub's \"from\" price, golfers trust the first price they see and click more.",
+   "test": "One Fix pack: the reclassification rules, and a guard in price_pages.py so flagged prices can't lead.",
+   "metric": "pages showing a suspect price as lowest; buy clicks per visit on club hubs",
+   "target": "zero suspect prices leading; clicks up",
+   "windowDays": 21,
+   "effort": "M",
+   "risks": "Over-filtering could hide genuine bargains: flagged prices are hidden from the lead spot, not deleted, and the claims guardian checks.",
+   "challenge": "Objective: trust first. Evidence: our own data, confidence 5. Smallest test: one Fix pack. Backfire: hiding a real deal, so flagged items stay listed lower down. No clash. Free. Undo: revert the pack.",
+   "score": {
+    "impact": 4,
+    "confidence": 5,
+    "ease": 3,
+    "total": 60
+   },
+   "kind": "test",
+   "stage": "shortlisted",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Found by Claude in the full dry run of every agent."
+    }
+   ]
+  },
+  {
+   "id": "lighter-pages",
+   "title": "Lighter pages: compress the big images",
+   "owner": "the mystery shopper (with the Fix pack)",
+   "objective": "traffic and revenue",
+   "problem": "The homepage weighs about 2.3 MB on a phone; the favicon alone was 876 KB on every page (now fixed: 106 KB). Several tile and banner photos are 150 to 180 KB each.",
+   "evidence": "Measured on 20 Nov in a phone browser. Page speed is part of Google's page experience signals and phones on slow connections feel it most.",
+   "hypothesis": "If every photo is served at the size it's shown (WebP, about 40 to 80 KB), pages load faster on phones, which helps rankings and fewer people leave before the prices load.",
+   "test": "Re-encode the 20 biggest images once; add a size check to the shopper so new ones can't creep back.",
+   "metric": "homepage weight and load time on a phone; bounce on the homepage",
+   "target": "under 1 MB; faster",
+   "windowDays": 28,
+   "effort": "S",
+   "risks": "Visible quality loss: compare side by side before shipping.",
+   "challenge": "Evidence: our own measurement. Cheap. No clash (the nudge test is on price pages). Undo: restore the files.",
+   "score": {
+    "impact": 3,
+    "confidence": 4,
+    "ease": 5,
+    "total": 60
+   },
+   "kind": "test",
+   "stage": "shortlisted",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Logo already shrunk on the branch (876 KB to 106 KB, looks identical)."
+    }
+   ]
+  },
+  {
+   "id": "retailer-coverage-push",
+   "title": "More retailers per page: match the 1,427 unmatched club listings",
+   "owner": "the coverage hunter (with the catalogue autopilot)",
+   "objective": "revenue",
+   "problem": "Most price pages show a single retailer, so there's nothing to compare: 1,427 club listings didn't match a model, and many models have one shop.",
+   "evidence": "Catalogue report \"unmatchedClubs\": 1,427 (20 Nov dry run); the coverage hunter's multiRetailerPct tracks it.",
+   "hypothesis": "If the matcher handles the common naming differences (loft, shaft flex, left-handed, colour, \"Gen 2\" vs \"2nd gen\") and the coverage hunter applies to the most-needed retailers first, more pages compare 2+ shops, which is the reason to use us and to click.",
+   "test": "Improve the matcher for drivers and irons first; measure multiRetailerPct and buy clicks on those pages.",
+   "metric": "multiRetailerPct; buy clicks per visit on matched pages",
+   "target": "both up",
+   "windowDays": 28,
+   "effort": "M",
+   "risks": "Wrong matches show the wrong product's price: the claims guardian checks every new match and only confident matches go live.",
+   "challenge": "Objective: revenue (comparison is the product). Evidence: our own data, confidence 4. Smallest test: drivers and irons only. Undo: revert the matcher.",
+   "score": {
+    "impact": 5,
+    "confidence": 4,
+    "ease": 2,
+    "total": 40
+   },
+   "kind": "test",
+   "stage": "shortlisted",
+   "history": [
+    {
+     "date": "2026-11-20",
+     "stage": "shortlisted",
+     "note": "Found by Claude in the full dry run of every agent."
+    }
+   ]
+  },
+  {
+   "id": "applovin-test",
+   "title": "Small, capped AppLovin Ads test (maybe for Wild Nine)",
+   "owner": "the channel scout (with the performance analyst)",
+   "objective": "traffic",
+   "problem": "AppLovin opened its self-serve ad platform to all advertisers in 2026 and is growing fast; its ads run inside mobile games, which could suit a free daily golf game.",
+   "evidence": "Public launch news only; we have no conversion data yet to know what a visitor is worth to us.",
+   "hypothesis": "If what we earn per visitor is higher than AppLovin's cost per visitor, a small capped test could bring profitable traffic, especially to Wild Nine.",
+   "test": "Only once we know value per visitor: a capped test with a budget John sets, sending traffic to Wild Nine.",
+   "metric": "cost per visitor against value per visitor",
+   "target": "value higher than cost",
+   "windowDays": 28,
+   "effort": "M",
+   "risks": "Costs money (outside the free-or-Pro rule unless John approves a budget); some affiliate programmes restrict paid traffic; ads inside games need brand-safe placement.",
+   "challenge": "Evidence too thin: we don't yet know value per visitor. Paid, so John must set a budget. Check each retailer programme's paid-traffic rules first.",
+   "score": {
+    "impact": 3,
+    "confidence": 1,
+    "ease": 2,
+    "total": 6
+   },
+   "kind": "test",
+   "stage": "parked",
+   "history": [
+    {
+     "date": "2026-11-21",
+     "stage": "parked",
+     "note": "John spotted it. Bring back after 3 months of conversion data from the performance analyst."
+    }
+   ]
+  },
+  {
+   "id": "paid-views",
+   "title": "Get paid for views once our social base is big enough",
+   "owner": "the performance analyst (tracking), then the content engine (Facebook Page cross-posting)",
+   "objective": "revenue",
+   "problem": "Posts that gain traction earn nothing from the views themselves, only from clicks through to the site.",
+   "evidence": "21 Nov 2026 check: Facebook Content Monetization is invite-only (pays for Reels, Stories, photos and text posts); YouTube Shorts ads need 1,000 subscribers and 10m Shorts views in 90 days, roughly doubling for new creators from 1 Feb 2027; TikTok Creator Rewards needs a personal account, 10,000 followers and videos of at least 1 minute, which doesn't fit our 8-second brand clips. One UK estimate puts TikTok at about £0.85 per 1,000 qualified views.",
+   "hypothesis": "Once the base is built, a Facebook Page fed by the same posts could earn a small extra income on top of affiliate sales.",
+   "test": "Later: add a Facebook Page as a fourth posting destination and register interest in Content Monetization. Until then, the analyst only tracks followers and views against each platform's threshold and flags when one is within reach.",
+   "metric": "followers and 90-day views against each platform's threshold",
+   "target": "within 80% of a threshold before any build work",
+   "windowDays": 90,
+   "effort": "S",
+   "risks": "Per-view pay is small; never chase views at the expense of trust or the house rules; no buying followers or engagement bait. A personal TikTok account just to qualify is not worth it.",
+   "challenge": "John (21 Nov 2026): a distant opportunity; build the base first. Clicks through to the site earn far more per view than view payments. Kept low on the board on purpose.",
+   "score": {
+    "impact": 2,
+    "confidence": 2,
+    "ease": 3,
+    "total": 12
+   },
+   "stage": "parked",
+   "history": [
+    {
+     "date": "2026-11-21",
+     "stage": "parked",
+     "note": "John: low priority, build the audience first. Bring back when the analyst says we're near a platform threshold."
+    }
+   ]
+  },
+  {
+   "id": "sketch-sequence",
+   "title": "Quick-cut mini sketches (Big Dave's par)",
+   "owner": "the content engine",
+   "objective": "traffic (reach and shares)",
+   "problem": "Single-photo memes can't tell a joke that needs a set-up, a reaction and a payoff.",
+   "evidence": "John's idea (21 Nov 2026): a character's ~6 shots cut on the beat, he claims a par, his mate offers an abacus. Multi-shot reaction formats suit the shares-and-saves goal in SOCIAL.md.",
+   "hypothesis": "A beat-cut sketch with a shot counter earns more shares and comments than a single-photo meme.",
+   "test": "Post Big Dave's par once its 9 photos exist, alongside normal memes; compare shares and comments per view over 4 weeks.",
+   "metric": "shares and comments per 1,000 views vs single-photo memes",
+   "target": "higher than the meme average",
+   "windowDays": 28,
+   "effort": "S",
+   "risks": "Needs consistent fictional characters (one ChatGPT conversation per set); never a real person; no words in photos.",
+   "challenge": "Cheapest test is one sketch; the style and storyboard already exist, so the only cost is John's photo time.",
+   "score": {
+    "impact": 4,
+    "confidence": 3,
+    "ease": 4,
+    "total": 48
+   },
+   "stage": "shortlisted",
+   "history": [
+    {
+     "date": "2026-11-21",
+     "stage": "shortlisted",
+     "note": "John asked to test it; style 'sequence' built, waiting for the 9 photos."
+    }
+   ]
+  },
+  {
+   "id": "data-journal",
+   "title": "The Clubhouse Journal: data-led articles from our own numbers",
+   "owner": "the monthly search agent (writing) with the press desk (data and angles); the Editor checks every article",
+   "objective": "traffic (search and AI-app citations), trust",
+   "problem": "We have pages that answer price questions, but few articles that earn links and citations for the bigger questions golfers ask.",
+   "evidence": "John's idea (21 Nov 2026). Google's guidance: AI-made pages without added value may break its scaled content abuse policy, so volume blogging is a risk; articles built on data only we have (price history, Par Price guesses, People's Bag, Oracle, Society League) add value nobody else can.",
+   "hypothesis": "One original, data-led article a fortnight earns more search visits, AI-app citations and links than generic blog posts would.",
+   "test": "Two pilot articles on a branch for John: e.g. 'Do new drivers really get cheaper? What our price history shows' and 'What UK golfers think kit costs (the Par Price guesses)'. Real figures only, a clear method note, John's byline after his review, linked to the price pages and tools.",
+   "metric": "search clicks and AI-app arrivals to the articles; links earned",
+   "target": "beats the average new price page after 8 weeks",
+   "windowDays": 56,
+   "effort": "M",
+   "risks": "Thin or generic posts would hurt the whole site (scaled content abuse); keep it low volume, original and human-reviewed. Overlaps with gap pages and the press report: share the data, don't duplicate topics.",
+   "challenge": "Cheaper test: turn the monthly press report into a public article first. Not a new agent: give the job to existing ones.",
+   "score": {
+    "impact": 4,
+    "confidence": 3,
+    "ease": 3,
+    "total": 36
+   },
+   "stage": "shortlisted",
+   "history": [
+    {
+     "date": "2026-11-21",
+     "stage": "shortlisted",
+     "note": "John asked whether to build a blog agent; proposed as a low-volume, data-led journal instead of a volume blog."
+    },
+    {
+     "date": "2026-11-21",
+     "stage": "shortlisted",
+     "note": "John said yes to two pilots: built on the branch (journal/ and scripts/journal_pages.py). Merging = approval; then the monthly search agent takes on one article a fortnight."
+    }
+   ]
+  },
+  {
+   "id": "paperclip",
+   "title": "Run the agents through Paperclip (open-source agent orchestration)",
+   "owner": "strategy board (review)",
+   "objective": "efficiency",
+   "problem": "Could one dashboard with an org chart, budgets and tickets run our agents better than GitHub Actions plus Claude scheduled tasks?",
+   "evidence": "22 Nov 2026 check: free MIT code, but self-hosted (a Node server and database running all the time) and every agent's model usage is billed separately; one review puts an active company at $20 to $100 a month by Paperclip's own estimate and counts 12 security advisories; reviewers say output still needs human review at every step. Our current setup already has schedules, approvals, budgets and an ideas loop, free within the Pro plan.",
+   "hypothesis": "Only worth it if coordinating our agents becomes the bottleneck.",
+   "test": "None now. Revisit if we outgrow scheduled tasks or it gains a hosted version within budget.",
+   "metric": "John's time spent coordinating agents",
+   "target": "-",
+   "windowDays": 0,
+   "effort": "L",
+   "risks": "New monthly costs, a server to keep running and secure, and a 'zero-human company' approach that clashes with John approving every change.",
+   "challenge": "Breaks the free-or-within-Pro rule and adds moving parts for little gain at our size.",
+   "score": {
+    "impact": 2,
+    "confidence": 2,
+    "ease": 1,
+    "total": 4
+   },
+   "stage": "parked",
+   "history": [
+    {
+     "date": "2026-11-22",
+     "stage": "parked",
+     "note": "John asked for an honest review; parked: our setup already covers it, free. Channel scout to keep an eye on it."
+    }
+   ]
+  },
+  {
+   "id": "foldables",
+   "title": "Layouts for unfolded foldables (iPhone Duo) and small tablets",
+   "owner": "performance analyst (measuring); Claude built the layouts",
+   "objective": "retention",
+   "problem": "On an unfolded iPhone Duo, Wild Nine stayed phone-sized in the middle of the big screen and the homepage stayed one long column.",
+   "evidence": "John's idea (22 Nov 2026). The iPhone Duo went on sale on 23 Oct 2026 (5.4-inch outer screen, unfolded display 50% larger than the 18 Pro Max). It's a premium phone, so the audience starts small; the same layouts help iPads and small tablets.",
+   "hypothesis": "Unfolded and tablet visitors play more holes of Wild Nine and stay longer when the course fills the screen.",
+   "test": "Built: Wild Nine two-panel layout (course left, controls right) on wide screens and a wider single column when unfolded upright; homepage PC-style layout from 700px; an anonymous screen-shape count (phone-small, phone, unfolded, tablet, desktop, plus 'unfold' when a screen changes shape mid-visit).",
+   "metric": "share of visits by screen shape (screensByVisits); Wild Nine rounds finished per visit on unfolded/tablet v phone",
+   "target": "decide after 8 weeks whether more foldable work is worth it",
+   "windowDays": 56,
+   "effort": "S",
+   "risks": "None to phone users: the phone layouts are unchanged. Only screen shape is counted, never the device or anything identifying.",
+   "challenge": "Cheap, safe and measurable; the count tells us whether to go further.",
+   "score": {
+    "impact": 2,
+    "confidence": 4,
+    "ease": 5,
+    "total": 40
+   },
+   "stage": "shortlisted",
+   "history": [
+    {
+     "date": "2026-11-22",
+     "stage": "shortlisted",
+     "note": "John approved building it into Sunday's zip; built on the branch. Merging = test starts."
+    }
+   ]
+  },
+  {
+   "id": "one-promise",
+   "title": "One promise, one tap: 'Is this a good price?' as the front door",
+   "owner": "the homepage plus the price check tool",
+   "objective": "traffic, revenue",
+   "problem": "The site does a lot; a first-time visitor needs one reason to come back. The sharpest promise we can keep better than anyone: tell a golfer in seconds whether a price is good.",
+   "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
+   "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
+   "test": "Put a verdict-first price check at the very top of the homepage and every price page (Buy now / Good price / Wait), backed by our price history; everything else supports it.",
+   "metric": "repeat visits and buy clicks per visitor",
+   "target": "set by the strategy board",
+   "windowDays": 56,
+   "effort": "S",
+   "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
+   "challenge": "For the strategy board to red-team on the 9th.",
+   "score": {
+    "impact": 4,
+    "confidence": 3,
+    "ease": 4,
+    "total": 48
+   },
+   "stage": "proposed",
+   "history": [
+    {
+     "date": "2026-11-22",
+     "stage": "proposed",
+     "note": "From John's 'what would Steve Jobs do' question."
+    }
+   ]
+  },
+  {
+   "id": "golf-price-index",
+   "title": "The UK Golf Price Index: the number everyone quotes",
+   "owner": "press desk + Clubhouse Journal",
+   "objective": "traffic (press, AI apps, links), trust",
+   "problem": "Journalists, AI apps and golfers need a trusted reference for 'are golf prices going up or down?'. We already have the data; it just isn't one famous number.",
+   "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
+   "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
+   "test": "Turn the monthly press report into a named, monthly index (one headline number by category) with a permanent page, an embeddable chart and a press note; AI apps and press cite it.",
+   "metric": "links, press mentions and AI-app arrivals to the index page",
+   "target": "set by the strategy board",
+   "windowDays": 56,
+   "effort": "S",
+   "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
+   "challenge": "For the strategy board to red-team on the 9th.",
+   "score": {
+    "impact": 5,
+    "confidence": 3,
+    "ease": 4,
+    "total": 60
+   },
+   "stage": "proposed",
+   "history": [
+    {
+     "date": "2026-11-22",
+     "stage": "proposed",
+     "note": "From John's 'what would Steve Jobs do' question."
+    }
+   ]
+  },
+  {
+   "id": "my-bag",
+   "title": "My Bag: your golf kit and wish list, watched for you",
+   "owner": "games lab + email optimiser",
+   "objective": "retention, revenue",
+   "problem": "Golfers own and want specific kit. If they tell us once (no sign-up, kept on their phone, email optional), we can watch every price and tell them the moment it's genuinely right to buy or sell.",
+   "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
+   "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
+   "test": "A 'My Bag' locker: add clubs you own and want; we show today's verdict, price drops, and a heads-up when a model is replaced (best time to buy last season's). Links Wild Nine's Pro Shop and the Bag Draft to the real thing.",
+   "metric": "returning visitors with a bag; alert sign-ups; buy clicks from bag items",
+   "target": "set by the strategy board",
+   "windowDays": 56,
+   "effort": "L",
+   "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
+   "challenge": "For the strategy board to red-team on the 9th.",
+   "score": {
+    "impact": 5,
+    "confidence": 3,
+    "ease": 2,
+    "total": 30
+   },
+   "stage": "proposed",
+   "history": [
+    {
+     "date": "2026-11-22",
+     "stage": "proposed",
+     "note": "From John's 'what would Steve Jobs do' question."
+    }
+   ]
+  },
+  {
+   "id": "society-network",
+   "title": "Every UK golf society runs on GolfPrice AI",
+   "owner": "society connector + press desk",
+   "objective": "traffic, retention",
+   "problem": "Each society captain brings 20 to 40 golfers. Society HQ, the live scorecard, Fourball Alerts, prize calculator and awards already exist: they're our distribution, if captains know about them.",
+   "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
+   "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
+   "test": "Package them as one free 'Society Kit' with a single link for captains, plus a captain's pack (WhatsApp messages, the scorecard for society days). The society connector reaches out to clubs and societies politely and honestly.",
+   "metric": "societies using Society HQ; scorecard rounds; Fourball Alerts groups",
+   "target": "set by the strategy board",
+   "windowDays": 56,
+   "effort": "M",
+   "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
+   "challenge": "For the strategy board to red-team on the 9th.",
+   "score": {
+    "impact": 4,
+    "confidence": 3,
+    "ease": 3,
+    "total": 36
+   },
+   "stage": "proposed",
+   "history": [
+    {
+     "date": "2026-11-22",
+     "stage": "proposed",
+     "note": "From John's 'what would Steve Jobs do' question."
+    }
+   ]
+  },
+  {
+   "id": "big-moments",
+   "title": "Two big moments a year: the Black Friday Truth Report and the Honest Gift Guide",
+   "owner": "moments planner + press desk + content engine",
+   "objective": "traffic, trust",
+   "problem": "Golfers' attention spikes at Black Friday and Christmas, and so does distrust of 'deals'. Owning those moments with the honest version (what's genuinely cheaper, what's a red sticker) makes the brand.",
+   "evidence": "John asked (22 Nov 2026) what someone like Steve Jobs would do for visitors and revenue: focus, one great product, the whole experience, and big moments. These are the five moves from that.",
+   "hypothesis": "Doing fewer things brilliantly, around one promise, grows visits and revenue faster than adding more features.",
+   "test": "Turn our Black Friday page and gift tools into two annual 'events' with a launch film, a Fourball episode, press notes, the Journal article and a WhatsApp-friendly summary. Same honest data, launched like a product.",
+   "metric": "visits and links during the two windows, year on year",
+   "target": "set by the strategy board",
+   "windowDays": 56,
+   "effort": "S",
+   "risks": "Must keep every house rule: free, honest, no fake urgency, never ranked by commission.",
+   "challenge": "For the strategy board to red-team on the 9th.",
+   "score": {
+    "impact": 4,
+    "confidence": 4,
+    "ease": 4,
+    "total": 64
+   },
+   "stage": "proposed",
+   "history": [
+    {
+     "date": "2026-11-22",
+     "stage": "proposed",
+     "note": "From John's 'what would Steve Jobs do' question."
+    }
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "date": "2026-11-23",
+   "area": "social",
+   "lesson": "Captions must say the same thing on every platform. TikTok had a thin line plus a keyword list, and one platform claimed 'lowest ever' while Instagram said '81 days'. Fixed in code (tidy_captions); write every caption to the full Instagram message.",
+   "source": "John's review"
+  },
+  {
+   "date": "2026-11-23",
+   "area": "social",
+   "lesson": "Covers and videos should share colours, and a guessing game must never reveal its answer on the cover. Reveals work best as good news: the price comes in under the guess.",
+   "source": "John's review"
+  },
+  {
+   "date": "2026-11-23",
+   "area": "social",
+   "lesson": "Silent videos looked unfinished; original music with cuts on the beat and effects on the action landed well with John. Rotate the music so it doesn't go stale; keep The Fourball's theme tune for recognition.",
+   "source": "John's review"
+  },
+  {
+   "date": "2026-11-23",
+   "area": "social",
+   "lesson": "Carousels are stronger with a visual journey that matches the subject (winter warming up) and a real product with today's price on each tip.",
+   "source": "John's review"
+  },
+  {
+   "date": "2026-11-23",
+   "area": "social",
+   "lesson": "Don't assume a posting time: the published studies disagree (lunch, evening, small hours). Test lunchtime against evening on our own account before settling.",
+   "source": "John's review"
+  }
+ ],
+ "wipNote": "Tests start one page area at a time: launch season and the alert nudge first; quick answers and gap pages start as their monthly branches are merged, keeping at most 3 tests running."
 }
