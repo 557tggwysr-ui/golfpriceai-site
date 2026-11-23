@@ -381,7 +381,8 @@ def theme_guess(d, tr):
         return None
     m = random.Random(str(d)).choice(pool)
     price = float(m["minPrice"])
-    line = max(5, round(price * random.Random(m["slug"]).choice([0.8, 1.15, 1.25]) / 5) * 5)
+    # the guess sits above the real price, so the reveal is the good news: cheaper than you'd think (John, 23 Nov 2026)
+    line = max(5, round(price * random.Random(m["slug"]).choice([1.15, 1.2, 1.3]) / 5) * 5)
     link = f"{SITE}/play/par-price/"
     return {"theme": "Par Price", "link": link, "image": model_image(m), "name": m["name"],
             "headline": "Higher or lower?", "sub": m["name"],
@@ -606,9 +607,12 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
                 "sound": sound, "trendingFormats": [], "posted": {}, "quality": quality, **extra})
     tkind = {"spec": "punch", "thennow": "sunrise", "truth": "clean", "story": "night", "collage": "sunrise",
              "sitedemo": "punch"}.get(style, ["punch", "sunrise", "clean", "night"][sum(map(ord, pid)) % 4])
+    # a guessing game never shows the answer on its cover; the cover takes the video's own colours
     quality += CINE.thumbnail(THUMBS / f"{pid}.jpg", thumb_text(sc, style), img=img or (imgs[0] if imgs else None),
-                              price=sc.get("price"), kind=sc.get("thumb_style", tkind), tag=sc.get("thumb_tag") or theme.get("name", "")[:28],
-                              look=CINE.look_of(sc) if sc.get("look") else None)
+                              price=None if style == "guess" else sc.get("price"), kind=sc.get("thumb_style", tkind),
+                              tag=sc.get("thumb_tag") or theme.get("name", "")[:28],
+                              look=CINE.look_of(sc) if sc.get("look") else None,
+                              pal=None if (sc.get("look") or sc.get("thumb_style")) else V.PALETTES.get(palette))
     monday = day - timedelta(days=day.weekday())
     return edited({"id": pid, "date": str(day), "theme": theme["theme"], "style": style, "palette": palette, "hook": sc["hook"],
             "trend": tie["match"] if tie else None, "card": f"/social/cards/{pid}.jpg", "thumb": f"/social/thumbs/{pid}.jpg",
@@ -1267,11 +1271,11 @@ def write_pack(plan):
         cards.append(f"""<section class="post">{media}
 <div><p class="when">{DAYS[d.weekday()]} {d.day} {d.strftime('%b')} · {esc(p.get('formatName') or p['theme'])} · {esc(p.get('style', ''))} · for {esc(p.get('objective', 'reach'))}{(' · ' + esc(p['series'])) if p.get('series') else ''}{trend} <span class="done">{done}</span></p>
 {('<p class="tip" style="background:#fde8e8">⛔ Held by the Editor, won\'t auto-post: ' + esc(' '.join(p['editor'])) + '</p>') if p.get('editor') else ''}<h2>“{esc(p.get('hook', p['headline']))}”</h2><p class="sub">{esc(p['sub'])}</p>
-<p class="dl">{('<a href="' + p['video'] + '">Download video</a> · ') if p.get('video') else 'Carousel: download each slide above · '}<a href="{p.get('thumb') or p['card']}" download>Download thumbnail (cover)</a> · <a href="{p['card']}" download>Download feed image</a></p>
+<p class="dl">{('<a href="' + p['video'] + '">Download video</a> · ') if p.get('video') else ('Download slides: ' + ' · '.join(f'<a href="{u}" download>Slide {n + 1}</a>' for n, u in enumerate(p.get('slides') or [])) + ' · ')}<a href="{p.get('thumb') or p['card']}" download>Download thumbnail (cover)</a> · <a href="{p['card']}" download>Download feed image</a></p>
 {('<img src="' + p['thumb'] + '" alt="Thumbnail for ' + esc(p.get('hook', '')) + '" style="width:120px;border-radius:10px;margin:6px 0">') if p.get('thumb') else ''}
 <p class="times"><b>Suggested release times (UK){(" · timing test: the " + ("lunchtime" if p.get("slot") == "12:30" else "evening") + " side") if p.get("slot") and not (load_learning().get("slotTest") or {}).get("winner") else ""}:</b> {' · '.join(f'{esc(k)} <b>{esc(v)}</b>' for k, v in (p.get('times') or suggest_times(p)).items())}</p>
 {''.join(f'<details><summary>{k}{(" · post at " + esc((p.get("times") or suggest_times(p)).get(k.split(" (")[0].replace(" title", "").replace(" description", "").replace("YouTube", "YouTube Shorts").replace("YouTube Shorts Shorts", "YouTube Shorts"), "").split(" (")[0])) if (p.get("times") or suggest_times(p)).get(k.split(" (")[0].replace(" title", "").replace(" description", "").replace("YouTube", "YouTube Shorts").replace("YouTube Shorts Shorts", "YouTube Shorts")) else ""}</summary><textarea readonly>{esc(v)}</textarea><button onclick="copy(this)">Copy</button></details>' for k, v in blocks)}
-<p class="tip">{('Trending sound (approved for business): <b>' + esc(p['sound']) + '</b>. Search it in the app when you schedule.') if p.get('sound') else 'The video has its own music. Adding a trending sound in TikTok? Turn the original audio down there.'}{(' · Rides the trend: ' + esc(', '.join(p['trendingFormats']))) if p.get('trendingFormats') else ''}</p>
+<p class="tip">{('Trending sound (approved for business): <b>' + esc(p['sound']) + '</b>. Search it in the app when you schedule.') if p.get('sound') else ('Slides: post them as a carousel on Instagram, and in photo mode on TikTok (add a sound from the commercial library there).' if p.get('slides') else 'The video has its own music. Adding a trending sound in TikTok? Turn the original audio down there.')}{(' · Rides the trend: ' + esc(', '.join(p['trendingFormats']))) if p.get('trendingFormats') else ''}</p>
 <p class="link">Link: <a href="{p['link']}">{esc(p['link'])}</a></p></div></section>""")
     social = load_social()
     trend_html = ""

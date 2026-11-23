@@ -790,9 +790,13 @@ def _short_hook(text, n=5):
     return " ".join(words[:n]).rstrip(",.") if len(words) > n else " ".join(words)
 
 
-def thumbnail(path, hook, img=None, price=None, kind="punch", tag=None, look=None):
-    """A 1080x1920 cover. Returns the problems found (empty list = good)."""
+def thumbnail(path, hook, img=None, price=None, kind="punch", tag=None, look=None, pal=None):
+    """A 1080x1920 cover. Returns the problems found (empty list = good).
+    pal: the video's own palette (agent_video.PALETTES), so the cover matches the video (John, 23 Nov 2026)."""
     st = dict(THUMB_STYLES.get(kind, THUMB_STYLES["punch"]))
+    if pal and not look:
+        st.update({"bg": [[0, list(pal["bg"])], [1, list(pal["bg2"])]], "ink": tuple(pal["ink"]), "hi": tuple(pal["accent"]),
+                   "badge": tuple(pal["accent"]), "badge_ink": tuple(pal["bg"])})
     stops = (look or {}).get("stops") or st["bg"]
     if look and look.get("accent"):  # the moment's own colours carry through to the thumbnail
         acc = tuple(look["accent"])
