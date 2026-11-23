@@ -488,7 +488,7 @@ def contrast(a, b):
     return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
 
 
-def qc(style, palette, out_path, still, img=None, imgs=None, card=None):
+def qc(style, palette, out_path, still, img=None, imgs=None, card=None, expected=None):
     """Premium-quality checks. Returns a list of plain problems (empty = good to go)."""
     import json as _json
     probs = []
@@ -513,8 +513,9 @@ def qc(style, palette, out_path, still, img=None, imgs=None, card=None):
         if abs(float(num or 0) / float(den or 1) - FPS) > 0.5:
             probs.append(f"video frame rate is {st.get('r_frame_rate')}, not {FPS}")
         dur = float(fmt.get("duration") or 0)
-        if abs(dur - STYLES[style][1]) > 0.6:
-            probs.append(f"video is {dur:.1f}s, expected {STYLES[style][1]}s")
+        want = expected or STYLES[style][1]  # sequences vary with their shots and the outro
+        if abs(dur - want) > (1.0 if expected else 0.6):
+            probs.append(f"video is {dur:.1f}s, expected {want:.1f}s")
         if int(fmt.get("size") or 0) < 250_000:
             probs.append("video file is suspiciously small (blank or broken frames?)")
     except Exception as e:

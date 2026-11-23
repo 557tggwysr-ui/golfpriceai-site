@@ -68,7 +68,7 @@ jobs:
           python3 scripts/agent_editor.py --verdict /tmp/editor-verdict.json
           git config user.name "golfpriceai-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/agents/editor-review.json data/agents/editor-holds.json 2>/dev/null || true
+          for f in data/agents/editor-review.json data/agents/editor-holds.json; do [ -e "$f" ] && git add -A "$f"; done  # one missing file must not stop the rest
           if ! git diff --quiet --cached; then
             git commit -m "Agent: editor review"
             git pull --rebase && git push

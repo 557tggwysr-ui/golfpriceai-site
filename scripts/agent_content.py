@@ -558,7 +558,11 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
             style = "spec"
     still = V.render(style, sc, palette, VIDEOS / f"{pid}.mp4", img=img, photo=photo, imgs=imgs)
     V.feed_card(still, CARDS / f"{pid}.jpg")
-    quality = V.qc(style, palette, VIDEOS / f"{pid}.mp4", still, img=img, imgs=imgs, card=CARDS / f"{pid}.jpg")
+    want = None
+    if style == "sequence":
+        import agent_brush as _BR
+        want = _BR.seq_duration(sc)
+    quality = V.qc(style, palette, VIDEOS / f"{pid}.mp4", still, img=img, imgs=imgs, card=CARDS / f"{pid}.jpg", expected=want)
     # the thumbnail (cover) for the Reel / Short: its own design, not a frame from the video
     import agent_cine as CINE
     if style in ("humour", "headline", "sequence"):  # Styles A and B: the cover is their strongest frame
