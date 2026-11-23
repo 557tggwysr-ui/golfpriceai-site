@@ -123,6 +123,7 @@
     if (xm) { xmCount('xm_view'); xm.addEventListener('click', function (e) { if (e.target.closest('a')) xmCount('xm_tap'); }); }
     if (window.gpMyGame) window.gpMyGame.mount();
     if (location.hash === '#restore') { var rs = document.getElementById('restore'); if (rs) { rs.open = true; rs.scrollIntoView(); } }
+    if (location.hash === '#wn') { var wn = document.getElementById('wn'); if (wn) wn.scrollIntoView(); }
     // Move my Clubhouse sits beside Price alerts on wide screens.
     var mv = document.getElementById('move'), pair = box.querySelector('.mc-pair');
     if (mv && pair) pair.appendChild(mv);
@@ -153,7 +154,7 @@
     var gtabs = groups.map(function (gr) {
       return '<div class="wn-group"><h3>' + esc(gr.name) + ' <small>' + (gr.today || []).length + ' of ' + gr.members + ' played today</small></h3>' + wnTable(gr.today || []) + '</div>';
     }).join('');
-    return '<section class="mc-row-sec wn-sec"><div class="wn-felt"><div class="wn-head"><span class="wn-k">Wild Nine · course #' + day.day + '</span><h2>Today’s course league</h2>' +
+    return '<section class="mc-row-sec wn-sec" id="wn"><div class="wn-felt"><div class="wn-head"><span class="wn-k">Wild Nine · course #' + day.day + '</span><h2>Today’s course league</h2>' +
       '<a class="wn-play" href="/play/wild-nine/?utm_source=myclubhouse">' + (mine ? 'Play again' : 'Play today’s nine') + ' &rarr;</a></div>' + you +
       wnTable(gross, mine ? String(mine.gross) : '') + gtabs +
       '<p class="wn-fine">Top 10 gross. Only rounds players chose to post to the league, and only the first official round of the day counts.</p></div></section>';

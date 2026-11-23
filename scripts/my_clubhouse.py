@@ -50,7 +50,7 @@ def page():
 <script src="/js/clubhouse-key.js?v=20261101b" defer></script>
 <script src="/js/my-game.js?v=20261101a" defer></script>
 <script src="/js/wn-avatar.js?v=20261123a" defer></script>
-<script src="/js/my-clubhouse.js?v=20261123a" defer></script>
+<script src="/js/my-clubhouse.js?v=20261123b" defer></script>
 <script src="/js/move.js?v=20261101a" defer></script>"""
     return page_shell(title="My Clubhouse | GolfPrice AI",
                       description="Your golf on GolfPrice AI in one place: today’s games, your golf society, your leagues and the kit you’re watching. No sign-up.",
