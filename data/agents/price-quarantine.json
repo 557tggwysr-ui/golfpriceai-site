@@ -1,8 +1,6 @@
 {
  "about": "Listings whose price looks wrong. Reported only for now; auto-hiding comes once the checks have proved themselves.",
  "ids": [
-  "wood-adidas-cold-rdy-golf-neck-warmer-jl5654-putty-beige-one-size-clarkesgolf",
-  "wood-adidas-cold-rdy-neck-warmer-snood-black-clickgolf",
   "wedge-cleveland-rtz-2-golf-wedge-tour-satin-clickgolf",
   "wedge-cleveland-rtz-2-golf-wedge-black-satin-clickgolf",
   "wedge-cleveland-rtz-golf-wedge-black-satin-clickgolf",
@@ -47,16 +45,10 @@
   "wedge-golfway-champion-youth-sand-wedge-ages-14-16-left-hand-63-66-affordablegolf",
   "wedge-golfway-champion-youth-sand-wedge-ages-16-right-hand-67-affordablegolf",
   "wedge-golfway-champion-youth-sand-wedge-ages-16-left-hand-67-affordablegolf",
-  "driver-impact-detect-golf-practice-aid-scottsdalegolf",
   "ball-longridge-airflow-practice-golf-balls-white-affordablegolf",
   "ball-longridge-airflow-practice-golf-balls-affordablegolf",
   "ball-longridge-airflow-practice-balls-yellow-6-pack-affordablegolf",
-  "putter-masters-golf-butler-affordablegolf",
   "wood-masters-wood-pencils-with-clip-eraser-5-pack-in-eco-pack-affordablegolf",
-  "putter-masters-green-gripper-in-eco-pack-affordablegolf",
-  "putter-masters-green-gripper-regular-packaging-affordablegolf",
-  "putter-masters-re-gripping-tape-strips-pack-of-10-affordablegolf",
-  "putter-masters-re-gripping-tape-strips-pack-of-10-grey-affordablegolf",
   "wedge-mizuno-pro-t-1-golf-wedge-satin-clickgolf",
   "wedge-mizuno-pro-t-1-golf-wedge-black-ip-clickgolf",
   "wedge-mizuno-pro-t-1-golf-wedge-blue-ip-clickgolf",
@@ -64,7 +56,6 @@
   "wedge-s259-golf-wedges-chrome-clickgolf",
   "wedge-ping-s259-golf-wedges-chrome-clickgolf",
   "wedge-ping-s259-golf-wedges-midnight-clickgolf",
-  "putter-pure2improve-mini-golf-putting-mirror-clarkes-golf-clarkesgolf",
   "putter-pxg-zero-torque-putter-hellcat-affordablegolf",
   "wedge-taylormade-milled-grind-5-golf-wedge-charcoal-50-sb-right-ha-majorgolf",
   "wedge-taylormade-milled-grind-5-golf-wedge-charcoal-54-sb-right-ha-majorgolf",
@@ -112,26 +103,6 @@
   "wood-masters-wood-pencils-with-clip-and-eraser-scottsdalegolf"
  ],
  "items": [
-  {
-   "id": "wood-adidas-cold-rdy-golf-neck-warmer-jl5654-putty-beige-one-size-clarkesgolf",
-   "name": "adidas COLD.RDY Golf Neck Warmer - Putty Beige / One Size",
-   "model": "adidas-cold-rdy-neck-warmer-fairway-wood",
-   "price": 12.95,
-   "reason": "below a sensible floor for a new wood",
-   "shownAsLowest": true,
-   "kind": "floor",
-   "both": false
-  },
-  {
-   "id": "wood-adidas-cold-rdy-neck-warmer-snood-black-clickgolf",
-   "name": "adidas Cold.Rdy Neck Warmer Snood - Black",
-   "model": "adidas-cold-rdy-neck-warmer-snood-fairway-wood",
-   "price": 21.99,
-   "reason": "below a sensible floor for a new wood",
-   "shownAsLowest": true,
-   "kind": "floor",
-   "both": false
-  },
   {
    "id": "wedge-cleveland-rtz-2-golf-wedge-tour-satin-clickgolf",
    "name": "Cleveland RTZ 2 Golf Wedge - Tour Satin",
@@ -573,16 +544,6 @@
    "both": false
   },
   {
-   "id": "driver-impact-detect-golf-practice-aid-scottsdalegolf",
-   "name": "Impact Detect Golf Practice Aid",
-   "model": "impact-detect-practice-aid-driver",
-   "price": 9.99,
-   "reason": "below a sensible floor for a new driver",
-   "shownAsLowest": true,
-   "kind": "floor",
-   "both": false
-  },
-  {
    "id": "ball-longridge-airflow-practice-golf-balls-white-affordablegolf",
    "name": "Longridge Airflow Practice Golf Balls  White",
    "model": "longridge-airflow-practice-golf-balls",
@@ -613,61 +574,11 @@
    "both": false
   },
   {
-   "id": "putter-masters-golf-butler-affordablegolf",
-   "name": "Masters Golf Butler",
-   "model": "masters-butler-putter",
-   "price": 2.49,
-   "reason": "below a sensible floor for a new putter",
-   "shownAsLowest": true,
-   "kind": "floor",
-   "both": false
-  },
-  {
    "id": "wood-masters-wood-pencils-with-clip-eraser-5-pack-in-eco-pack-affordablegolf",
    "name": "Masters Wood Pencils with Clip & Eraser (5 Pack) in Eco Pack",
    "model": "masters-fairway-wood",
    "price": 2.49,
    "reason": "below a sensible floor for a new wood",
-   "shownAsLowest": true,
-   "kind": "floor",
-   "both": false
-  },
-  {
-   "id": "putter-masters-green-gripper-in-eco-pack-affordablegolf",
-   "name": "Masters Green Gripper in Eco Pack",
-   "model": "masters-gripper-in-eco-pack-putter",
-   "price": 1.99,
-   "reason": "below a sensible floor for a new putter",
-   "shownAsLowest": true,
-   "kind": "floor",
-   "both": false
-  },
-  {
-   "id": "putter-masters-green-gripper-regular-packaging-affordablegolf",
-   "name": "Masters Green Gripper (Regular Packaging)",
-   "model": "masters-gripper-putter",
-   "price": 1.99,
-   "reason": "below a sensible floor for a new putter",
-   "shownAsLowest": true,
-   "kind": "floor",
-   "both": false
-  },
-  {
-   "id": "putter-masters-re-gripping-tape-strips-pack-of-10-affordablegolf",
-   "name": "Masters Re-Gripping Tape Strips - Pack of 10",
-   "model": "masters-re-gripping-tape-strips-putter",
-   "price": 3.99,
-   "reason": "below a sensible floor for a new putter",
-   "shownAsLowest": true,
-   "kind": "floor",
-   "both": false
-  },
-  {
-   "id": "putter-masters-re-gripping-tape-strips-pack-of-10-grey-affordablegolf",
-   "name": "Masters Re-Gripping Tape Strips - Pack of 10 - Grey",
-   "model": "masters-re-gripping-tape-strips-putter",
-   "price": 3.99,
-   "reason": "below a sensible floor for a new putter",
    "shownAsLowest": true,
    "kind": "floor",
    "both": false
@@ -740,16 +651,6 @@
    "reason": "under 45% of the same model elsewhere (median £507.00)",
    "shownAsLowest": true,
    "kind": "peers",
-   "both": false
-  },
-  {
-   "id": "putter-pure2improve-mini-golf-putting-mirror-clarkes-golf-clarkesgolf",
-   "name": "Pure2Improve Mini Golf Putting Mirror",
-   "model": "pure2improve-mini-putting-mirror-putter",
-   "price": 10.99,
-   "reason": "below a sensible floor for a new putter",
-   "shownAsLowest": true,
-   "kind": "floor",
    "both": false
   },
   {
