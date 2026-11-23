@@ -337,10 +337,15 @@
 249.0,
 "wait"
 ],
-"callaway-apex-utility-fairway-wood": "5885cdafb2",
+"callaway-apex-utility-fairway-wood": "d7bf06df9e",
 "callaway-apex-uw-utility-fairway-wood": [
 "1cd7db25ee",
 299.0,
+"wait"
+],
+"callaway-carry-bag-plus-pencil-bag-stand-bag-golf-bag": [
+"77c81d8ae7",
+109.0,
 "wait"
 ],
 "callaway-carry-plus-pencil-bag-carry-bag-golf-bag": [
@@ -364,9 +369,9 @@
 "typical"
 ],
 "callaway-chase-14-cart-bag-golf-bag": [
-"36680b1b26",
-129.0,
-"typical"
+"d561c7d326",
+149.0,
+"wait"
 ],
 "callaway-chase-14-dry-cart-bag-golf-bag": "6093eeeffa",
 "callaway-chase-14-dry-waterproof-cart-bag-golf-bag": [
@@ -390,8 +395,16 @@
 199.0,
 "typical"
 ],
-"callaway-chase-dry-waterproof-stand-bag-golf-bag": "c319314a89",
-"callaway-chase-stand-bag-golf-bag": "d9f217a752",
+"callaway-chase-dry-waterproof-stand-bag-golf-bag": [
+"8db12dbf61",
+149.0,
+"wait"
+],
+"callaway-chase-stand-bag-golf-bag": [
+"91d5040476",
+129.0,
+"wait"
+],
 "callaway-chrome-soft-26-360-triple-golf-balls": [
 "63e93f456e",
 47.99,
@@ -417,7 +430,7 @@
 44.95,
 "typical"
 ],
-"callaway-chrome-soft-golf-balls": "bc37d56d66",
+"callaway-chrome-soft-golf-balls": "437b2d3aa8",
 "callaway-chrome-soft-triple-track-golf-balls": [
 "1db5191f08",
 44.95,
@@ -448,15 +461,15 @@
 49.99,
 "typical"
 ],
-"callaway-chrome-tour-360-triple-track-golf-balls": "09de838f10",
-"callaway-chrome-tour-corgi-dog-golf-balls": "ab1c680b43",
+"callaway-chrome-tour-360-triple-track-golf-balls": "3160c02eed",
+"callaway-chrome-tour-corgi-dog-golf-balls": "8da2847049",
 "callaway-chrome-tour-golf-balls": [
 "a8a7800d79",
 44.99,
 "typical"
 ],
-"callaway-chrome-tour-happy-gilmore-2-golf-balls": "c49697de9b",
-"callaway-chrome-tour-lab-dog-golf-balls": "98cb087734",
+"callaway-chrome-tour-happy-gilmore-2-golf-balls": "d5433b1f51",
+"callaway-chrome-tour-lab-dog-golf-balls": "74d0fcdb22",
 "callaway-chrome-tour-major-series-limited-edition-golf-balls": "f0fdccfb52",
 "callaway-chrome-tour-td-golf-balls": [
 "8f615545c1",
@@ -485,7 +498,7 @@
 92.0,
 "typical"
 ],
-"callaway-chrome-tour-x-360-triple-golf-balls": "8470821348",
+"callaway-chrome-tour-x-360-triple-golf-balls": "f371420cbf",
 "callaway-chrome-tour-x-golf-balls": [
 "925f7de71d",
 44.99,
@@ -595,14 +608,14 @@
 9.99,
 "typical"
 ],
-"callaway-limited-chrome-soft-flowers-golf-balls": "484e379a80",
-"callaway-limited-chrome-soft-mother-s-golf-balls": "67918a5960",
-"callaway-limited-chrome-soft-truvis-team-golf-balls": "a45004a631",
-"callaway-limited-chrome-tour-area-51-golf-balls": "2017822d28",
-"callaway-limited-chrome-tour-coastal-summer-golf-balls": "6f1a2beb00",
-"callaway-limited-chrome-tour-german-shepherd-golf-balls": "7be9d071d6",
-"callaway-limited-chrome-tour-hot-dog-golf-balls": "b04cd2131e",
-"callaway-limited-chrome-tour-luck-of-golf-balls": "1e9429748b",
+"callaway-limited-chrome-soft-flowers-golf-balls": "a0cfdfe038",
+"callaway-limited-chrome-soft-mother-s-golf-balls": "17b46a41d5",
+"callaway-limited-chrome-soft-truvis-team-golf-balls": "a0e587e6d3",
+"callaway-limited-chrome-tour-area-51-golf-balls": "1dc5dc98fc",
+"callaway-limited-chrome-tour-coastal-summer-golf-balls": "b542da89a5",
+"callaway-limited-chrome-tour-german-shepherd-golf-balls": "28d8a5889c",
+"callaway-limited-chrome-tour-hot-dog-golf-balls": "9ff48af112",
+"callaway-limited-chrome-tour-luck-of-golf-balls": "58dcb0f8f4",
 "callaway-limited-chrome-tour-panda-golf-balls": [
 "15cc93cd4e",
 55.0,
@@ -618,19 +631,17 @@
 55.0,
 "typical"
 ],
-"callaway-limited-chrome-tour-suits-golf-balls": "dc1e288bd6",
-"callaway-limited-chrome-tour-trash-talk-golf-balls": "81f37bfc19",
-"callaway-limited-chrome-tour-turnbox-golf-balls": "e5aad7087e",
-"callaway-limited-chrome-tour-ugly-sweater-golf-balls": "4c0aa94467",
-"callaway-limited-chrome-tour-wild-animals-golf-balls": "6e5e36aefc",
-"callaway-limited-chrome-tour-x-usa-golf-balls": "244eb09438",
+"callaway-limited-chrome-tour-suits-golf-balls": "ec31c08a9d",
+"callaway-limited-chrome-tour-trash-talk-golf-balls": "8e44502694",
+"callaway-limited-chrome-tour-turnbox-golf-balls": "9b8b068036",
+"callaway-limited-chrome-tour-ugly-sweater-golf-balls": "823e0b520e",
+"callaway-limited-chrome-tour-wild-animals-golf-balls": "38d96aa7d6",
+"callaway-limited-chrome-tour-x-usa-golf-balls": "6c91dc22c4",
 "callaway-limited-england-cricket-supersoft-golf-balls": [
 "4cbb92f69b",
 25.49,
 "tracking"
 ],
-"callaway-limited-june-major-staff-golf-bag": "5b5a59278f",
-"callaway-limited-may-major-staff-golf-bag": "b13d01d75f",
 "callaway-limited-supersoft-cheers-golf-balls": [
 "f785441535",
 25.49,
@@ -646,8 +657,8 @@
 29.99,
 "typical"
 ],
-"callaway-online-exclusive-mavrik-17-piece-package-set": "0cbb06c00d",
-"callaway-online-exclusive-mavrik-golf-balls": "60349ea8a0",
+"callaway-online-exclusive-mavrik-17-piece-package-set": "0b5be195b7",
+"callaway-online-exclusive-mavrik-golf-balls": "6816663e50",
 "callaway-opus-brushed-chrome-wedge": [
 "db36686bc5",
 119.0,
@@ -685,7 +696,11 @@
 "typical"
 ],
 "callaway-opus-sp-wedge": "13bfcff932",
-"callaway-org-14-cart-bag-golf-bag": "55f444451d",
+"callaway-org-14-cart-bag-golf-bag": [
+"3754c7c344",
+189.0,
+"wait"
+],
 "callaway-org-14-hd-waterproof-cart-bag-golf-bag": [
 "17e1006129",
 229.0,
@@ -697,8 +712,16 @@
 179.0,
 "typical"
 ],
-"callaway-par-3-hd-waterproof-pencil-bag-golf-bag": "b573fd7a7a",
-"callaway-par-3-hd-waterproof-stand-bag-golf-bag": "634069b4d8",
+"callaway-par-3-hd-waterproof-pencil-bag-golf-bag": [
+"1a042fe7c8",
+139.95,
+"typical"
+],
+"callaway-par-3-hd-waterproof-stand-bag-golf-bag": [
+"c1ea0bf489",
+149.0,
+"wait"
+],
 "callaway-paradym-ai-smoke-hybrid": [
 "b375510264",
 194.35,
@@ -740,7 +763,7 @@
 "callaway-quantum-max-d-fairway-wood": "8c328f2f6a",
 "callaway-quantum-max-driver": "e77bca71b8",
 "callaway-quantum-max-fairway-wood": "5913d412e2",
-"callaway-quantum-max-fast-hybrid": "51c31122b6",
+"callaway-quantum-max-fast-hybrid": "3530c584be",
 "callaway-quantum-max-hybrid": "aa3e98ed09",
 "callaway-quantum-max-irons": [
 "1c4ec47ce9",
@@ -765,7 +788,11 @@
 "typical"
 ],
 "callaway-quantum-staff-stand-bag-golf-bag": "d4472f044d",
-"callaway-quantum-staff-tour-golf-bag": "b2eca4dcfc",
+"callaway-quantum-staff-tour-golf-bag": [
+"26770935a9",
+449.0,
+"wait"
+],
 "callaway-quantum-ti-fairway-wood": "1ef82a01cd",
 "callaway-quantum-triple-diamond-driver": "00287da0cd",
 "callaway-quantum-triple-diamond-fairway-wood": "2de1d9d795",
@@ -811,8 +838,8 @@
 1299.0,
 "typical"
 ],
-"callaway-reva-rise-driver": "2d07e331de",
-"callaway-reva-rise-fairway-wood": "4f269fffaa",
+"callaway-reva-rise-driver": "b01593d5aa",
+"callaway-reva-rise-fairway-wood": "3cce32bfa3",
 "callaway-reva-rise-hybrid": [
 "af428bf4bc",
 229.0,
@@ -890,17 +917,33 @@
 399.0,
 "typical"
 ],
-"callaway-xj-5-piece-ages-3-5-junior-golf-set": "fc56e66180",
-"callaway-xj-5-piece-ages-5-8-junior-golf-set": "452c3e1acb",
+"callaway-xj-5-piece-ages-3-5-junior-golf-set": [
+"8be009f39b",
+229.0,
+"wait"
+],
+"callaway-xj-5-piece-ages-5-8-junior-golf-set": [
+"703c8246ec",
+349.0,
+"wait"
+],
 "callaway-xj-6-piece-ages-5-8-junior-golf-set": [
 "72b156081a",
 299.0,
 "wait"
 ],
-"callaway-xj-8-piece-ages-9-12-junior-golf-set": "1f69d5bbb2",
+"callaway-xj-8-piece-ages-9-12-junior-golf-set": [
+"6c17ebd80c",
+399.0,
+"wait"
+],
 "callaway-xr-13-piece-package-set": "22a8125e3a",
 "callaway-xr-13-piece-stand-bag-package-set": "28c0b8ad2b",
-"callaway-xr-2026-package-set": "b65abe47d3",
+"callaway-xr-2026-package-set": [
+"12a77c81d1",
+1099.0,
+"typical"
+],
 "callaway-xr-26-stand-bag-golf-bag": [
 "88ce48d931",
 129.95,
@@ -1201,14 +1244,14 @@
 "wait"
 ],
 "cobra-king-ages-10-12-junior-golf-set": [
-"655aa86b49",
-349.0,
-"typical"
+"4c5bf88a39",
+379.0,
+"wait"
 ],
 "cobra-king-ages-7-9-junior-golf-set": [
-"0a2dbc4751",
-329.0,
-"typical"
+"76a6d9c81b",
+349.0,
+"wait"
 ],
 "cobra-king-irons": [
 "bae18728f4",
@@ -1321,26 +1364,30 @@
 89.99,
 "typical"
 ],
-"cobra-ultradry-pro-cart-bag-golf-bag": "1fdbaad751",
+"cobra-ultradry-pro-cart-bag-golf-bag": [
+"65d807f853",
+209.0,
+"wait"
+],
 "cobra-ultradry-pro-stand-bag-golf-bag": [
 "5f197d8a7d",
 179.0,
 "typical"
 ],
 "cobra-ultralight-2-carry-bag-golf-bag": [
-"f41f6ce1f6",
-109.0,
-"typical"
+"719a799699",
+119.0,
+"wait"
 ],
 "cobra-ultralight-2-carry-bag-stand-bag-golf-bag": [
-"42bc15728d",
-109.0,
-"typical"
+"8da4beb221",
+119.0,
+"wait"
 ],
 "cobra-ultralight-2-cart-bag-golf-bag": [
-"295151d706",
-149.0,
-"typical"
+"07829fd445",
+169.0,
+"wait"
 ],
 "cobra-ultralight-2-pro-stand-bag-golf-bag": "03cf215ba6",
 "cobra-ultralight-2-stand-bag-golf-bag": [
@@ -1365,9 +1412,9 @@
 "typical"
 ],
 "cobra-x-vessel-core-tour-stand-bag-golf-bag": [
-"5d5aa4dbad",
-324.0,
-"typical"
+"cfea1ee725",
+349.0,
+"wait"
 ],
 "cobra-x-vessel-staff-tour-stand-bag-golf-bag": [
 "3f4840b9da",
@@ -1722,7 +1769,7 @@
 319.0,
 "typical"
 ],
-"macgregor-cg4000-ladies-package-set": "f09d1a4665",
+"macgregor-cg4000-ladies-package-set": "32dc2e8731",
 "macgregor-cg4000-package-set": "3ecbcb7ef4",
 "macgregor-v-foil-putter": [
 "d7d8efe189",
@@ -1760,8 +1807,16 @@
 169.99,
 "typical"
 ],
-"macgregor-v-max-ages-3-5-junior-golf-set": "9639b2d17c",
-"macgregor-v-max-ages-6-8-junior-golf-set": "faa7ec9224",
+"macgregor-v-max-ages-3-5-junior-golf-set": [
+"bd1332893e",
+129.99,
+"wait"
+],
+"macgregor-v-max-ages-6-8-junior-golf-set": [
+"97d1790b29",
+149.0,
+"wait"
+],
 "macgregor-v-max-ages-9-12-junior-golf-set": [
 "f5589036fa",
 179.0,
@@ -1824,8 +1879,16 @@
 409.0,
 "typical"
 ],
-"macgregor-zt1-ladies-package-set": "4919fefac2",
-"macgregor-zt1-package-set": "3f267ac612",
+"macgregor-zt1-ladies-package-set": [
+"6fbdfa7a5c",
+419.0,
+"wait"
+],
+"macgregor-zt1-package-set": [
+"e3a1672e45",
+419.0,
+"wait"
+],
 "macgregor-zt1-premium-ladies-package-set": "6bd0e5a5b4",
 "macgregor-zt1-premium-package-set": "94faa8ac49",
 "masters-30-distance-golf-balls": [
@@ -1989,9 +2052,9 @@
 "typical"
 ],
 "mizuno-br-dri-waterproof-stand-bag-golf-bag": [
-"cad9c6e5fe",
-169.0,
-"typical"
+"c6c86ab69b",
+189.0,
+"wait"
 ],
 "mizuno-br-dx-hybrid-stand-bag-golf-bag": "6fa9d0c106",
 "mizuno-br-dx-stand-bag-golf-bag": "a579cbadd3",
@@ -2080,16 +2143,20 @@
 34.95,
 "typical"
 ],
-"mizuno-pro-scratch-carry-bag-golf-bag": "39cd580daf",
+"mizuno-pro-scratch-carry-bag-golf-bag": [
+"cbcfa8f3ee",
+139.0,
+"wait"
+],
 "mizuno-pro-scratch-golf-bag": [
 "65362878b7",
 129.95,
 "typical"
 ],
 "mizuno-pro-stand-bag-golf-bag": [
-"42258e3bbe",
-224.0,
-"typical"
+"0673508c04",
+239.0,
+"wait"
 ],
 "mizuno-pro-t-1-ion-wedge": [
 "9ad40e5b58",
@@ -2137,7 +2204,11 @@
 "typical"
 ],
 "mizuno-st200x-fairway-wood": "b26249147c",
-"mizuno-staff-golf-bag": "521ba1c67c",
+"mizuno-staff-golf-bag": [
+"f8497c8c09",
+249.0,
+"wait"
+],
 "mizuno-tour-10-staff-golf-bag": [
 "a0db866c80",
 249.0,
@@ -2151,8 +2222,8 @@
 "typical"
 ],
 "mizuno-tour-staff-mid-golf-bag": [
-"3265bd83f9",
-199.0,
+"3a1836733e",
+299.0,
 "typical"
 ],
 "mizuno-tour-stand-bag-golf-bag": "ad536a8e8e",
@@ -2231,7 +2302,11 @@
 "typical"
 ],
 "motocaddy-lite-series-cart-bag-golf-bag": "468583a463",
-"motocaddy-m-tech-cart-bag-golf-bag": "e149596da8",
+"motocaddy-m-tech-cart-bag-golf-bag": [
+"665dae3df4",
+259.0,
+"typical"
+],
 "motocaddy-m-tech-electric-trolley": "8db54f619c",
 "motocaddy-m-tech-ultra-electric-trolley": [
 "2029f0530a",
@@ -2243,13 +2318,12 @@
 769.0,
 "typical"
 ],
-"motocaddy-m1-electric-trolley": "33de7844ba",
 "motocaddy-m1-ultra-electric-trolley": [
 "0e75b37966",
 789.0,
 "typical"
 ],
-"motocaddy-m5-dhc-electric-trolley": "6769b5aab9",
+"motocaddy-m5-dhc-electric-trolley": "5acc5a9aec",
 "motocaddy-m5-electric-trolley": "d63b4e2906",
 "motocaddy-m5-ultra-electric-trolley": [
 "64d15872fd",
@@ -2282,7 +2356,7 @@
 179.0,
 "typical"
 ],
-"motocaddy-protekta-cart-bag-golf-bag": "3e316378a6",
+"motocaddy-protekta-cart-bag-golf-bag": "c631e89a1d",
 "motocaddy-protekta-deluxe-cart-bag-golf-bag": [
 "c05a685778",
 249.0,
@@ -2373,7 +2447,7 @@
 "typical"
 ],
 "odyssey-ai-one-milled-putter": "a8d67b091d",
-"odyssey-ai-one-milled-seven-t-db-putter": "1848c3c115",
+"odyssey-ai-one-milled-seven-t-db-putter": "5c9f6469dd",
 "odyssey-ai-one-milled-two-t-putter": [
 "adb2c526a8",
 269.4,
@@ -2381,7 +2455,7 @@
 ],
 "odyssey-ai-one-putter": "1a771c94d5",
 "odyssey-ai-one-square-2-square-double-wide-putter": "084d07623f",
-"odyssey-ai-one-square-2-square-jailbird-putter": "7c2f532f7c",
+"odyssey-ai-one-square-2-square-jailbird-putter": "8208c0b34a",
 "odyssey-ai-one-square-2-square-max-putter": [
 "d8ceebb5dd",
 199.0,
@@ -2457,7 +2531,11 @@
 ],
 "ogio-fuse-stand-bag-golf-bag": "40e6957f4c",
 "ogio-shadow-stand-bag-golf-bag": "30694ab659",
-"ping-243-tour-staff-golf-bag": "94a7c6dec5",
+"ping-243-tour-staff-golf-bag": [
+"013d0bb280",
+399.0,
+"wait"
+],
 "ping-blueprint-s-irons": [
 "53f5f51433",
 1129.0,
@@ -2592,13 +2670,21 @@
 1049.0,
 "typical"
 ],
-"ping-hoofer-14-231-stand-bag-golf-bag": "e10fa4ed5f",
+"ping-hoofer-14-231-stand-bag-golf-bag": [
+"55f762358d",
+199.0,
+"wait"
+],
 "ping-hoofer-14-stand-bag-golf-bag": [
 "6b1c015c83",
 209.0,
 "typical"
 ],
-"ping-hoofer-231-stand-bag-golf-bag": "2e49a3660d",
+"ping-hoofer-231-stand-bag-golf-bag": [
+"a927cac805",
+179.0,
+"wait"
+],
 "ping-hoofer-lite-231-stand-bag-golf-bag": [
 "4d5bb47d09",
 159.0,
@@ -2631,7 +2717,11 @@
 179.95,
 "typical"
 ],
-"ping-hoofer-tour-244-stand-bag-golf-bag": "72a4cd14b5",
+"ping-hoofer-tour-244-stand-bag-golf-bag": [
+"d4eec0c2d9",
+249.0,
+"wait"
+],
 "ping-hooferlite-231-stand-bag-golf-bag": [
 "989a3379dd",
 144.0,
@@ -2668,6 +2758,11 @@
 269.0,
 "typical"
 ],
+"ping-kushin-4-putter": [
+"eb786bb133",
+269.0,
+"typical"
+],
 "ping-moonlander-244-stand-bag-golf-bag": [
 "9d7df33f78",
 114.0,
@@ -2678,12 +2773,17 @@
 125.0,
 "typical"
 ],
+"ping-mundy-putter": [
+"1c4925d8e6",
+269.0,
+"typical"
+],
 "ping-pioneer-224-cart-bag-golf-bag": [
 "bd557a7647",
 179.0,
 "typical"
 ],
-"ping-pioneer-244-cart-bag-golf-bag": "2c74f660fa",
+"ping-pioneer-244-cart-bag-golf-bag": "752b2ffeda",
 "ping-pioneer-cart-bag-golf-bag": [
 "95cb4b030b",
 199.95,
@@ -2725,7 +2825,11 @@
 84.95,
 "typical"
 ],
-"ping-reserve-stand-bag-golf-bag": "ed98b16af2",
+"ping-reserve-stand-bag-golf-bag": [
+"28d335b7a6",
+279.0,
+"wait"
+],
 "ping-s159-chrome-wedge": "634c7b6c78",
 "ping-s259-chrome-wedge": [
 "5049e2f15d",
@@ -2743,12 +2847,26 @@
 349.0,
 "typical"
 ],
+"ping-shea-putter": [
+"b6ac283e79",
+269.0,
+"typical"
+],
+"ping-tomcat-14-putter": [
+"ae30c430a7",
+269.0,
+"typical"
+],
 "ping-tour-staff-243-golf-bag": [
 "d0f576f1c2",
 399.0,
 "typical"
 ],
-"ping-traverse-244-cart-bag-golf-bag": "26ff85539a",
+"ping-traverse-244-cart-bag-golf-bag": [
+"218c2f8db0",
+169.0,
+"wait"
+],
 "ping-traverse-cart-bag-golf-bag": [
 "5877557ad7",
 169.95,
@@ -2769,8 +2887,16 @@
 199.95,
 "typical"
 ],
-"powakaddy-ct10-ebs-electric-trolley": "ce4ba02987",
-"powakaddy-ct10-electric-trolley": "0d2376638f",
+"powakaddy-ct10-ebs-electric-trolley": [
+"5f4b6b4f89",
+1029.0,
+"wait"
+],
+"powakaddy-ct10-electric-trolley": [
+"8a0f36f8d3",
+979.0,
+"wait"
+],
 "powakaddy-ct10-xl-electric-trolley": [
 "6589dc1173",
 1029.0,
@@ -2793,9 +2919,9 @@
 "typical"
 ],
 "powakaddy-ct6-ebs-electric-trolley": [
-"cd2fefa66b",
-769.0,
-"typical"
+"a9d495e645",
+799.0,
+"wait"
 ],
 "powakaddy-ct6-ebs-xl-electric-trolley": [
 "c6ac39f61e",
@@ -2803,9 +2929,9 @@
 "typical"
 ],
 "powakaddy-ct6-electric-trolley": [
-"a1696614d1",
-719.0,
-"typical"
+"d90e34e482",
+749.0,
+"wait"
 ],
 "powakaddy-ct6-xl-electric-trolley": [
 "33adf1ba8e",
@@ -2818,9 +2944,9 @@
 "typical"
 ],
 "powakaddy-ct8-ebs-gun-metal-electric-trolley": [
-"8b7182554f",
-969.0,
-"typical"
+"43ad39fc4b",
+999.0,
+"wait"
 ],
 "powakaddy-ct8-electric-trolley": "c5fd5771f3",
 "powakaddy-dri-tech-cart-bag-golf-bag": [
@@ -2853,27 +2979,31 @@
 479.0,
 "wait"
 ],
-"powakaddy-fx1-electric-trolley": "869c321cf5",
+"powakaddy-fx1-electric-trolley": "0a5e9d6ace",
 "powakaddy-fx1-xl-electric-trolley": [
 "8a088ccaec",
 545.0,
 "typical"
 ],
 "powakaddy-fx3-ebs-electric-trolley": [
-"ba83f3d01b",
-599.0,
-"typical"
+"7e5b6f132c",
+629.0,
+"wait"
 ],
-"powakaddy-fx3-electric-trolley": "97a229ccaf",
+"powakaddy-fx3-electric-trolley": [
+"2877d01d21",
+579.0,
+"wait"
+],
 "powakaddy-fx3-xl-electric-trolley": [
 "342eb4930b",
 629.0,
 "typical"
 ],
 "powakaddy-fx5-electric-trolley": [
-"347ce8cf36",
-599.0,
-"typical"
+"46e6dcd65f",
+629.0,
+"wait"
 ],
 "powakaddy-lite-cart-bag-golf-bag": [
 "4ebbb574bd",
@@ -2885,7 +3015,11 @@
 999.0,
 "typical"
 ],
-"powakaddy-rx-remote-electric-trolley": "3fc4640872",
+"powakaddy-rx-remote-electric-trolley": [
+"487a0e2896",
+999.0,
+"wait"
+],
 "powakaddy-rx10-remote-control-electric-trolley": [
 "3d1d38d9b1",
 1299.0,
@@ -2907,9 +3041,9 @@
 "typical"
 ],
 "powakaddy-rx12-remote-electric-trolley": [
-"ef4e8ca2fb",
-1449.0,
-"typical"
+"dfc503c04e",
+1499.0,
+"wait"
 ],
 "powakaddy-x-lite-cart-bag-golf-bag": [
 "f4f0cc8c0f",
@@ -3601,7 +3735,11 @@
 154.0,
 "typical"
 ],
-"taylormade-flextech-waterproof-stand-bag-golf-bag": "427e2082c0",
+"taylormade-flextech-waterproof-stand-bag-golf-bag": [
+"9ef4811f14",
+199.0,
+"wait"
+],
 "taylormade-hi-toe-4-wedge": [
 "ec38466664",
 129.95,
@@ -3617,7 +3755,11 @@
 179.0,
 "typical"
 ],
-"taylormade-kalea-cart-bag-golf-bag": "7596586e58",
+"taylormade-kalea-cart-bag-golf-bag": [
+"5c4ef5bea9",
+189.0,
+"wait"
+],
 "taylormade-kalea-hybrid": [
 "1a56c97060",
 199.0,
@@ -3675,8 +3817,11 @@
 129.95,
 "typical"
 ],
-"taylormade-pro-cart-bag-golf-bag": "85cfe4feb9",
-"taylormade-pro-stand-bag-golf-bag": "1ba9de6f6d",
+"taylormade-pro-cart-bag-golf-bag": [
+"f43da4a13a",
+139.0,
+"wait"
+],
 "taylormade-qi-max-hl-irons": [
 "348e089b17",
 849.0,
@@ -3791,7 +3936,11 @@
 1029.0,
 "typical"
 ],
-"taylormade-rbz-10-piece-ladies-package-set": "38c2d59668",
+"taylormade-rbz-10-piece-ladies-package-set": [
+"da63cc3554",
+1029.0,
+"wait"
+],
 "taylormade-rbz-11-piece-cart-bag-package-set": [
 "7e6834f588",
 999.0,
@@ -3895,7 +4044,11 @@
 209.0,
 "typical"
 ],
-"taylormade-storm-dry-waterproof-stand-bag-golf-bag": "5a0692cc53",
+"taylormade-storm-dry-waterproof-stand-bag-golf-bag": [
+"39ba6d0cfb",
+219.0,
+"wait"
+],
 "taylormade-systm2-putter": [
 "e7acecdc9e",
 219.0,
@@ -3917,9 +4070,21 @@
 449.0,
 "wait"
 ],
-"taylormade-team-tm-ages-4-6-junior-golf-set": "3fa8fd8c8c",
-"taylormade-team-tm-ages-7-9-junior-golf-set": "aca191d551",
-"taylormade-tm-cart-bag-golf-bag": "db29f73b52",
+"taylormade-team-tm-ages-4-6-junior-golf-set": [
+"bf46ac2307",
+249.0,
+"wait"
+],
+"taylormade-team-tm-ages-7-9-junior-golf-set": [
+"3fef1e7356",
+365.0,
+"wait"
+],
+"taylormade-tm-cart-bag-golf-bag": [
+"165375dc33",
+179.0,
+"wait"
+],
 "taylormade-tour-response-golf-balls": [
 "4ee73d7f04",
 28.49,
@@ -4623,7 +4788,11 @@
 225.0,
 "typical"
 ],
-"wilson-alpine-dry-waterproof-cart-bag-golf-bag": "d72aebbe7d",
+"wilson-alpine-dry-waterproof-cart-bag-golf-bag": [
+"51f0b8bc79",
+225.0,
+"wait"
+],
 "wilson-aurora-11-piece-cart-bag-ladies-package-set": [
 "2cede521c6",
 999.0,
@@ -4634,7 +4803,11 @@
 999.0,
 "typical"
 ],
-"wilson-aurora-ladies-package-set": "06c7c0e7e2",
+"wilson-aurora-ladies-package-set": [
+"65b5569a3f",
+999.0,
+"wait"
+],
 "wilson-core-pro-distance-golf-balls": [
 "e08f951fce",
 10.39,
@@ -4669,7 +4842,11 @@
 "typical"
 ],
 "wilson-dynapwr-forged-irons": "607a90c721",
-"wilson-dynapwr-hybrid": "c15cf468be",
+"wilson-dynapwr-hybrid": [
+"95a55da7b4",
+119.0,
+"wait"
+],
 "wilson-dynapwr-irons": [
 "b73d319110",
 489.0,
@@ -4692,8 +4869,16 @@
 129.0,
 "typical"
 ],
-"wilson-feather-cart-bag-golf-bag": "bcf64c9902",
-"wilson-feather-stand-bag-golf-bag": "927b8ad26f",
+"wilson-feather-cart-bag-golf-bag": [
+"26db607cec",
+109.65,
+"typical"
+],
+"wilson-feather-stand-bag-golf-bag": [
+"e1639ec852",
+124.95,
+"wait"
+],
 "wilson-harmonized-chipper-wedge": [
 "fbafdfb427",
 44.95,
@@ -4739,11 +4924,15 @@
 179.95,
 "typical"
 ],
-"wilson-i-lock-dry-organiser-waterproof-cart-bag-golf-bag": "827d01ea9e",
+"wilson-i-lock-dry-organiser-waterproof-cart-bag-golf-bag": [
+"fd0ae8c4d4",
+199.0,
+"wait"
+],
 "wilson-i-lock-organiser-cart-bag-golf-bag": [
-"5683cb8138",
-149.0,
-"typical"
+"8432aafb04",
+169.0,
+"wait"
 ],
 "wilson-infinite-putter": "f02fd38f11",
 "wilson-infinite-wedge": [
@@ -4773,7 +4962,11 @@
 599.0,
 "typical"
 ],
-"wilson-player-fit-package-set": "087a1059ae",
+"wilson-player-fit-package-set": [
+"1942e7c214",
+599.0,
+"wait"
+],
 "wilson-player-fit-premium-package-set": [
 "645f95f2ac",
 549.0,
@@ -4784,7 +4977,11 @@
 499.0,
 "typical"
 ],
-"wilson-profile-11-piece-package-set": "26552b643f",
+"wilson-profile-11-piece-package-set": [
+"f40d0224d9",
+479.0,
+"wait"
+],
 "wilson-profile-11-piece-stand-bag-package-set": [
 "ff13fa445a",
 429.0,
@@ -4821,7 +5018,11 @@
 "typical"
 ],
 "wilson-profile-ages-11-14-junior-golf-set": "a72b9d771d",
-"wilson-profile-ages-5-8-junior-golf-set": "412dca74c2",
+"wilson-profile-ages-5-8-junior-golf-set": [
+"23c6aa7ef5",
+169.15,
+"wait"
+],
 "wilson-profile-ages-8-11-junior-golf-set": "ffd48f419d",
 "wilson-profile-driver": [
 "2d0792f9b2",
@@ -4839,7 +5040,11 @@
 189.0,
 "wait"
 ],
-"wilson-profile-package-set": "b227cec861",
+"wilson-profile-package-set": [
+"91ea6293b3",
+429.0,
+"wait"
+],
 "wilson-profile-platinum-11-piece-stand-bag-package-set": [
 "c43680bc43",
 449.0,
