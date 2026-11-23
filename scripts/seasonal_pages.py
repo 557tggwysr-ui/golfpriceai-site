@@ -187,7 +187,7 @@ def _mark_lows(rows, today):
 
 
 def deals_table(rs):
-    trs = "".join(f"""<tr class="cg-item" data-tags="{TYPES[r['m']['type']][0]}">
+    trs = "".join(f"""<tr class="cg-item" data-tags="{TYPES[r['m']['type']][0]}{' low' if r.get('low') else ''}">
   <th scope="row"><a href="/prices/{r['m']['slug']}/">{esc(r['m']['name'])}</a>{'<span class="bf-low">Lowest we’ve tracked</span>' if r.get('low') else ''}<span class="pp-sub sb-type">{esc(TYPES[r['m']['type']][2])}</span></th>
   {thumb_td(r['m'].get('_image'), f"/prices/{r['m']['slug']}/")}
   <td>{money(r['base'])}{per(r['m'])}</td>
@@ -242,9 +242,9 @@ def build_black_friday(models, built, today, images=None, cyber_page=False):
     if deals:
         best = deals[0]
         stats_html = f"""<section class="pp-block bf-stats" aria-label="Black Friday at a glance">
-  <div class="pp-card bf-stat"><b>{len(deals)}</b><span>golf {'model' if len(deals) == 1 else 'models'} genuinely cheaper than in October</span></div>
-  <div class="pp-card bf-stat"><b>{lows}</b><span>at the lowest price we’ve ever tracked</span></div>
-  <div class="pp-card bf-stat"><b>{money(best['base'] - best['now']).replace('.00', '')}</b><span>biggest saving: {esc(best['m']['name'])}</span></div>
+  <a class="pp-card bf-stat" href="#bf-deals" data-go="all"><b>{len(deals)}</b><span>golf {'model' if len(deals) == 1 else 'models'} genuinely cheaper than in October</span><i aria-hidden="true">See them all &rarr;</i></a>
+  <a class="pp-card bf-stat" href="#bf-deals" data-go="low"><b>{lows}</b><span>at the lowest price we’ve ever tracked</span><i aria-hidden="true">Show just these &rarr;</i></a>
+  <a class="pp-card bf-stat" href="/prices/{best['m']['slug']}/"><b>{money(best['base'] - best['now']).replace('.00', '')}</b><span>biggest saving: {esc(best['m']['name'])}</span><i aria-hidden="true">See the price &rarr;</i></a>
 </section>"""
         counts = defaultdict(int)
         for r in deals:
@@ -254,6 +254,7 @@ def build_black_friday(models, built, today, images=None, cyber_page=False):
                       + "".join(f'<button type="button" class="pp-chip cg-chip" data-f="{TYPES[t][0]}" aria-pressed="false">'
                                 f'{esc(TYPES[t][1])} ({n})</button>'
                                 for t, n in sorted(counts.items(), key=lambda kv: -kv[1]))
+                      + (f'<button type="button" class="pp-chip cg-chip" data-f="low" aria-pressed="false">Lowest we’ve tracked ({lows})</button>' if lows else "")
                       + "</div>")
     deals_html = deals_table(deals) if deals else f'<p class="pp-card sb-empty">{deals_empty}</p>'
     share_html = """<section class="pp-block bf-share">
@@ -303,7 +304,7 @@ def build_black_friday(models, built, today, images=None, cyber_page=False):
   <p class="pp-disclose">We may earn a commission if you buy through links on these pages. It never changes what’s listed or the order.</p>
 </section>
 {stats_html}
-<section class="pp-block">
+<section class="pp-block" id="bf-deals">
   <h2>{deals_h}</h2>
   {chips_html}
   {deals_html}

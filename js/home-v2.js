@@ -40,9 +40,18 @@
       box.querySelector('.hm-deal-btn').href = '/prices/' + f.slug + '/';
     }
     var rail = document.getElementById('hm-rail');
-    if (rail) rail.innerHTML = deals.filter(function (d) { return d !== f; }).map(card).join('');
+    if (rail) rail.innerHTML = mix(deals.filter(function (d) { return d !== f; })).map(card).join('');
     filter(current);
   }).catch(function () { /* the snapshot in the page stays */ });
+
+  // "All" shows a spread: one from each group in turn (clubs, balls, tech, bags), biggest saving first within each
+  function kind(d) { return d.type === 'ball' ? 'balls' : d.group; }
+  function mix(list) {
+    var by = {}, order = [], out = [];
+    list.forEach(function (d) { var k = kind(d); if (!by[k]) { by[k] = []; order.push(k); } by[k].push(d); });
+    for (var i = 0; out.length < list.length; i++) order.forEach(function (k) { if (by[k][i]) out.push(by[k][i]); });
+    return out;
+  }
 
   // drop filters
   var current = 'all';
@@ -51,17 +60,23 @@
     clubs: function (el) { return el.dataset.group === 'clubs'; },
     balls: function (el) { return el.dataset.type === 'ball'; },
     tech: function (el) { return el.dataset.group === 'tech'; },
-    bags: function (el) { return el.dataset.type === 'bag'; }
+    bags: function (el) { return el.dataset.group === 'bags' && el.dataset.type !== 'ball'; }
   };
   function filter(key) {
     current = key;
     document.querySelectorAll('.hm-fc').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.f === key ? 'true' : 'false'); });
     var shown = 0;
-    document.querySelectorAll('#hm-rail .hm-pc').forEach(function (el) { var ok = MATCH[key](el); el.hidden = !ok; if (ok) shown++; });
+    document.querySelectorAll('#hm-rail .hm-pc').forEach(function (el) {
+      var ok = MATCH[key](el); el.hidden = !ok;
+      // the PC shows the first 4 matches, a tablet the first 3 (the CSS reads these, not the card's position)
+      el.classList.toggle('is-4', ok && shown >= 3); el.classList.toggle('is-5', ok && shown >= 4);
+      if (ok) shown++;
+    });
     var rail = document.getElementById('hm-rail');
     if (rail) rail.scrollLeft = 0;
   }
   document.querySelectorAll('.hm-fc').forEach(function (b) { b.addEventListener('click', function () { filter(b.dataset.f); }); });
+  filter('all');
 
   // seasonal banner: Black Friday 1 Nov to 1 Dec, Christmas 2 to 24 Dec, Boxing Day 25 Dec to 10 Jan,
   // winter golf in October and 11 Jan to end of Feb; hidden the rest of the year. Preview with ?season=

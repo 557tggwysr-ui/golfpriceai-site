@@ -8,7 +8,15 @@
   var more = document.querySelector('.cg-more');
   var filter = 'all', extra = 0;
 
+  // the page search (js/site.js part 6) sets window.gpFindQ: every word must appear in the item
+  function found(el) {
+    var q = window.gpFindQ;
+    if (!q || !q.length) return true;
+    var t = el.textContent.toLowerCase() + ' ' + (el.getAttribute('data-name') || '').toLowerCase() + ' ' + (el.getAttribute('data-brand') || '').toLowerCase();
+    return q.every(function (w) { return t.indexOf(w) !== -1; });
+  }
   function matches(el) {
+    if (!found(el)) return false;
     if (filter === 'all') return true;
     if (filter === 'm') return el.getAttribute('data-aud') === 'm';
     if (filter === 'w') return el.getAttribute('data-aud') === 'w';
@@ -18,6 +26,7 @@
   function render() {
     lists.forEach(function (list) {
       var limit = parseInt(list.getAttribute('data-show'), 10) || 12;
+      if (window.gpFindQ && window.gpFindQ.length) limit = 1e9;  // searching: show every match
       if (list.classList.contains('sg-grid')) limit += extra;
       var shown = 0, hiddenMatches = 0;
       list.querySelectorAll('.cg-item').forEach(function (el) {
@@ -82,5 +91,13 @@
     });
   });
   if (more) more.addEventListener('click', function () { extra += 12; render(); });
+  // the at-a-glance tiles: "See them all" / "Show just these" pick the matching chip
+  document.querySelectorAll('[data-go]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var c = document.querySelector('.cg-chip[data-f="' + a.getAttribute('data-go') + '"]');
+      if (c) c.click();
+    });
+  });
+  window.gpFindRender = function () { render(); renderBrands(); };
   render();
 })();

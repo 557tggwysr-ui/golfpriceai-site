@@ -125,6 +125,8 @@ def menu():
         "play": [
             ("The Clubhouse", "All the games, your leagues and the Hall of Fame.", "/play/",
              '<path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"></path>'),
+            ("Wild Nine", "A new golf course every day. Same nine holes for everyone.", "/play/wild-nine/",
+             '<path d="M6 21V4M6 4l11 4-11 4M3 21h8"></path><circle cx="17" cy="18" r="2"></circle>'),
             ("Par Price", "Today’s golf price game. New round every morning.", "/play/par-price/",
              '<path d="M6 21V4M6 4l11 4-11 4M3 21h8"></path>'),
             ("Higher or Lower", "Is this putter dearer than that driver? Daily run, then free play.", "/play/higher-or-lower/",
@@ -310,7 +312,7 @@ def header_html():
         <div class="gp-tools gp-tools-1">{play_home}
         </div>
         <div class="gp-play-cols">
-          <div class="gp-play-col"><span class="gp-play-k">Price games · from the sofa</span><div class="gp-tools">{play_games}
+          <div class="gp-play-col"><span class="gp-play-k">Games · from the sofa</span><div class="gp-tools">{play_games}
           </div></div>
           <div class="gp-play-col gp-play-course"><span class="gp-play-k">On the course</span><div class="gp-tools gp-tools-1">{play_course}
           </div></div>
@@ -394,7 +396,7 @@ def menu_html(m=None):
     tools = "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in m["tools"])
     acc = lambda lst: "".join(f'<a href="{u}"><span>{_esc(n)}</span><small>{_esc(line)}</small></a>' for n, line, u, _ in lst)
     play = (acc(m["play"][:1]) + '<span class="gp-acc-k">On the course</span>' + acc(m["play_course"]) +
-            '<span class="gp-acc-k">Price games · from the sofa</span>' + acc(m["play"][1:]))
+            '<span class="gp-acc-k">Games · from the sofa</span>' + acc(m["play"][1:]))
     sections.append(f"""
       <div class="gp-acc" data-section="play">
         <button type="button" class="gp-acc-btn" aria-expanded="false">Play{_svg(ICON_PLUS, 18, 'currentColor', 2.4)}</button>

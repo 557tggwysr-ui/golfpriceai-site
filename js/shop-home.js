@@ -43,6 +43,7 @@
     box.classList.remove('is-loading');
     box.innerHTML =
       '<span class="sh-feat-kick">BIGGEST GENUINE DROP TODAY</span>' +
+      (x.image ? '<span class="sh-feat-img"><img src="' + esc(x.image) + '" alt="' + esc(x.name) + '" referrerpolicy="no-referrer"></span>' : '') +
       '<b class="sh-feat-name">' + esc(x.name) + '</b>' +
       '<div class="sh-feat-price"><b>' + gbp(x.now) + '</b>' + (x.save ? '<span>−' + gbp(x.save) + '</span>' : '') + '</div>' +
       (l ? '<svg viewBox="0 0 420 110" preserveAspectRatio="none" role="img" aria-label="Price history: ' + (x.was ? gbp(x.was) + ' down to ' : '') + gbp(x.now) + '">' +

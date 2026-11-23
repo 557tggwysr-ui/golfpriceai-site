@@ -534,3 +534,14 @@ button.pp-btn svg { flex: none; }
 .cs-dl dt { font: 700 16px Poppins, sans-serif; color: var(--gp-ink); margin: 0 0 6px; }
 .cs-dl dd { margin: 0; font-size: 15px; line-height: 1.5; color: var(--gp-text-2); }
 .cs-form h2 { margin: 0; }
+/* 23 Nov: the at-a-glance tiles click through */
+a.bf-stat { color: inherit; text-decoration: none; transition: box-shadow .15s, transform .15s; }
+a.bf-stat:hover { box-shadow: 0 10px 24px rgba(20, 33, 26, .12); transform: translateY(-2px); }
+a.bf-stat i { font-style: normal; font-weight: 700; font-size: 13px; color: var(--gp-green-dark); margin-top: 6px; }
+/* 23 Nov: "Find on this page" search on price and deal pages (js/site.js part 6) */
+.gp-find { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; padding: 0 16px; height: 50px; border: 2px solid var(--gp-text-1, #16241c); border-radius: 14px; background: #fff; max-width: 560px; }
+.gp-find svg { width: 18px; height: 18px; flex: none; stroke: currentColor; fill: none; stroke-width: 2.2; }
+.gp-find input { flex: 1; border: 0; outline: 0; font: 500 16px Inter, sans-serif; background: transparent; min-width: 0; }
+.gp-find small { color: var(--gp-text-3, #5b6b60); font-size: 13px; white-space: nowrap; }
+.gp-nf { display: none !important; }
+.gp-find-none { margin: 4px 0 14px; color: var(--gp-text-3, #5b6b60); }
