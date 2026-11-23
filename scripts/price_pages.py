@@ -577,7 +577,34 @@ def related(m, all_models, limit=4):
         if len(picks) >= limit - len(brand_sibs):
             break
     out = [("Same brand", x) for x in brand_sibs] + [("Similar price", x) for x in picks]
+    # Internal linker (approved through the Fix pack): pages that need a lift get
+    # a link from their strongest related pages. data/agent-links.json
+    boost = _agent_boosts().get(m["slug"], [])
+    if boost:
+        by_slug = {x["slug"]: x for x in all_models}
+        lifts = [("Popular right now", by_slug[t]) for t in boost if t in by_slug and t != m["slug"]][:1]
+        out = lifts + [o for o in out if o[1]["slug"] not in {l[1]["slug"] for l in lifts}]
     return out[:limit]
+
+
+_BOOSTS = None
+
+
+def _agent_boosts():
+    """source slug -> [target slugs], from data/agent-links.json (empty if missing)."""
+    global _BOOSTS
+    if _BOOSTS is None:
+        _BOOSTS = {}
+        try:
+            import json as _json
+            from pathlib import Path as _Path
+            links = _json.loads((_Path(__file__).resolve().parent.parent / "data" / "agent-links.json").read_text())
+            for target, info in (links.get("boost") or {}).items():
+                for src in info.get("from", []):
+                    _BOOSTS.setdefault(src, []).append(target)
+        except Exception:
+            _BOOSTS = {}
+    return _BOOSTS
 
 
 def compare_block(model, all_models, today):
@@ -1185,6 +1212,7 @@ def build_model_page(model, all_models, built, hubs_built, today, noindex):
       <button type="button" class="pp-btn pp-btn-alt gp-share" data-text="{esc(share_text)}">{ICON_SHARE}Share this deal</button>
     </div>
     <p class="pp-disclose">We may earn a commission if you buy through these links. It never changes the prices or the verdict.</p>
+    <p class="pp-check pp-wrong"><button type="button" style="background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer" onclick="try{{navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/wp/report',JSON.stringify({{s:location.pathname.split('/')[2]}}))}}catch(e){{}}this.textContent='Thanks: we\u2019ll check that price today.';this.disabled=true">Price look wrong? Tell us</button></p>
     <div class="fb-row" hidden><button type="button" class="fb-save" aria-pressed="false">{ICON_HEART}<span>Add to four-ball shortlist</span></button><span class="fb-row-note"></span></div>
     <p class="pp-check fb-nudge" hidden>Buying with mates? <a href="#fourball">Make it a four-ball alert →</a></p>
     <p class="pp-check pp-ask"><a href="{esc(ask_url)}" target="_blank" rel="noopener">{ICON_GROUP_SM}Ask the group chat: buy now or wait?</a></p>
@@ -1708,6 +1736,12 @@ def write_sitemaps(entries, today):
         if not best[loc]:
             best[loc] = page_date(loc)
     statics = [(p, page_date(p)) for p in STATIC_PAGES]
+    # Pages the agents built (Society Day Finder, seasonal guides), approved through the Fix pack.
+    try:
+        _extra = json.loads((ROOT / "data" / "agent-pages.json").read_text()).get("pages", [])
+        statics += [(p, page_date(p)) for p in _extra if (ROOT / p / "index.html").exists() and p not in STATIC_PAGES]
+    except Exception:
+        pass
     _write(dates_file, json.dumps(known, sort_keys=True, indent=0))
     entries = list(best.items())
     _write(SITEMAP_PAGES, urlset(statics))

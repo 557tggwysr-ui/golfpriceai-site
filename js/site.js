@@ -470,7 +470,7 @@
       if (m === 'embed' || /embed/.test(s)) return 'embed';
       if (m === 'social' || m === 'share') return 'social';
     }
-    if (/chatgpt\.com|openai\.com|perplexity\.ai|claude\.ai|gemini\.google|copilot\.microsoft|you\.com|meta\.ai/.test(r)) return 'ai';
+    if (/chatgpt\.com|openai\.com|perplexity\.ai|claude\.ai|gemini\.google|copilot\.microsoft|you\.com|meta\.ai/.test(r + ' ' + s)) return 'ai';
     if (/(^|\.)(google|bing|duckduckgo|yahoo|ecosia|brave|startpage|qwant)\./.test(r)) return 'search';
     if (/bsky\.app|facebook|instagram|(^|\.)t\.co$|(^|\.)x\.com$|tiktok|pinterest|reddit|youtube|linkedin|threads\.net/.test(r)) return 'social';
     if (/whatsapp/.test(r)) return 'whatsapp';
@@ -589,3 +589,177 @@
     if (i) setTimeout(function () { i.focus({ preventScroll: true }); }, 350);
   });
 })();
+
+/* gp-funnel (performance analyst agent): on price pages, count buy-button clicks per page,
+   tag Awin links with the page they came from (clickref) so sales can be traced back to
+   pages, and run the approved button-wording test from /data/experiments.json. Anonymous:
+   counts only, no cookies; the test group is a random letter kept in this browser. */
+(function () {
+  try {
+    var slug = (location.pathname.match(/^\/prices\/([a-z0-9-]+)\/$/) || [])[1];
+    if (!slug) return;
+    var W = 'https://golfpriceai-alerts.golfpriceai.workers.dev/signal', v = '';
+    var send = function (k, m) { try { navigator.sendBeacon(W, JSON.stringify({ k: k, m: m })); } catch (e) { /* counts are a nice-to-have */ } };
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href*="awin1.com"]') : null;
+      if (!a) return;
+      if (!/[?&]clickref=/.test(a.href)) a.href += (a.href.indexOf('?') < 0 ? '?' : '&') + 'clickref=' + encodeURIComponent((slug + (v ? '~' + v : '')).slice(0, 50));
+      send('out', slug);
+      if (v) send('cta' + v, 'clicks');
+    }, true);
+    fetch('/data/experiments.json').then(function (r) { return r.ok ? r.json() : {}; }).then(function (x) {
+      var t = x && x.cta;
+      if (!t || (!t.b && !t.default)) return;
+      if (t.b) {
+        try { v = localStorage.getItem('gp-cta-' + t.id) || (Math.random() < 0.5 ? 'a' : 'b'); localStorage.setItem('gp-cta-' + t.id, v); } catch (e) { v = Math.random() < 0.5 ? 'a' : 'b'; }
+        send('cta' + v, 'views');
+      }
+      var text = v === 'b' ? t.b : t.default;
+      if (!text) return;
+      document.querySelectorAll('.pp-ctas .pp-btn:not(.pp-btn-alt)').forEach(function (b) {
+        var m = b.textContent.match(/£[\d,.]+(\s*per dozen)?/);
+        if (m) b.textContent = text.replace('{price}', m[0]);
+      });
+    }).catch(function () { /* no test running */ });
+  } catch (e) { /* never break the page */ }
+})();
+
+/* gp-games (performance analyst + games lab): which games lead to price pages and buy clicks.
+   Playing a game remembers its name for this visit only (sessionStorage); price-page visits and
+   buy clicks in the same visit are counted against it, and its Awin tag carries the game name.
+   Lab betas also count returning players (first-play date kept in this browser). Counts only. */
+(function () {
+  try {
+    var W = 'https://golfpriceai-alerts.golfpriceai.workers.dev/signal';
+    var send = function (k, m) { try { navigator.sendBeacon(W, JSON.stringify({ k: k, m: m })); } catch (e) { /* nice-to-have */ } };
+    var path = location.pathname;
+    var g = (path.match(/^\/play\/(lab\/)?([a-z0-9-]+)\/$/) || []);
+    if (g[2] && g[2] !== 's') {
+      var game = (g[1] ? 'lab-' : '') + g[2];
+      if (game !== 'lab') {
+        sessionStorage.setItem('gp-game', game);
+        send('gplay', game);
+        if (g[1]) {
+          var key = 'gp-lab-first-' + game, first = localStorage.getItem(key), today = new Date().toISOString().slice(0, 10);
+          if (!first) localStorage.setItem(key, today);
+          else if (first < today && (Date.parse(today) - Date.parse(first)) <= 7 * 864e5) send('lret', game);
+        }
+      }
+      return;
+    }
+    var from = sessionStorage.getItem('gp-game');
+    if (!from || !/^\/prices\/[a-z0-9-]+\/$/.test(path)) return;
+    send('gview', from);
+    document.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href*="awin1.com"]') : null;
+      if (!a) return;
+      send('gout', from);
+      if (!/~g-/.test(a.href)) a.href = a.href.replace(/(clickref=[^&]*)/, function (m) { return (m + '~g-' + from).slice(0, 59); });
+    }, false);
+  } catch (e) { /* never break the page */ }
+})();
+
+/* gp-ai-apps (AI-answer optimiser + performance analyst): which AI app sent this visitor.
+   One anonymous count per visit landing from ChatGPT, Perplexity, Claude, Gemini, Copilot and others. */
+(function () {
+  try {
+    if (sessionStorage.getItem('gp-ai-seen')) return;
+    var src = (new URLSearchParams(location.search).get('utm_source') || '').toLowerCase(), ref = '';
+    try { ref = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) { /* none */ }
+    var t = src + ' ' + ref, app = /chatgpt|openai/.test(t) ? 'chatgpt' : /perplexity/.test(t) ? 'perplexity' : /claude\.ai|anthropic/.test(t) ? 'claude'
+      : /gemini\.google|bard\.google/.test(t) ? 'gemini' : /copilot/.test(t) ? 'copilot' : /meta\.ai/.test(t) ? 'meta-ai' : /you\.com/.test(t) ? 'you-com'
+      : /duckduckgo.*assist|duck\.ai/.test(t) ? 'duck-ai' : '';
+    if (!app) return;
+    sessionStorage.setItem('gp-ai-seen', app);
+    navigator.sendBeacon('https://golfpriceai-alerts.golfpriceai.workers.dev/signal', JSON.stringify({ k: 'aisrc', m: app }));
+  } catch (e) { /* never break the page */ }
+})();
+
+/* gp-nudge (email optimiser + performance analyst, ideas board "alert-signups"): a polite,
+   non-blocking "Not buying today?" bar on price pages that points to the page's own price-alert
+   form. Split test from /data/experiments.json "nudge": group a sees nothing extra (control),
+   group b sees the bar once, after 25 seconds or most of the page, only if no buy click yet.
+   Dismissed = never again in this browser. Counts only (views, buy clicks, sign-ups per group). */
+(function () {
+  try {
+    var slug = (location.pathname.match(/^\/prices\/([a-z0-9-]+)\/$/) || [])[1];
+    var form = slug && document.getElementById('price-alert');
+    if (!form) return;
+    var W = 'https://golfpriceai-alerts.golfpriceai.workers.dev/signal';
+    var send = function (k, m) { try { navigator.sendBeacon(W, JSON.stringify({ k: k, m: m })); } catch (e) { /* nice-to-have */ } };
+    fetch('/data/experiments.json').then(function (r) { return r.ok ? r.json() : {}; }).then(function (x) {
+      var t = x && x.nudge;
+      if (!t || !t.id || (!t.on && !t.keep)) return;
+      var v = 'b';
+      if (t.on) {
+        try { v = localStorage.getItem('gp-nudge-' + t.id) || (Math.random() < 0.5 ? 'a' : 'b'); localStorage.setItem('gp-nudge-' + t.id, v); } catch (e) { v = Math.random() < 0.5 ? 'a' : 'b'; }
+        send('ng' + v, 'views');
+      }
+      var clicked = false, shown = false;
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href*="awin1.com"]') : null;
+        if (a && !clicked) { clicked = true; if (t.on) send('ng' + v, 'clicks'); }
+      }, true);
+      document.addEventListener('gp:alert-signup', function () { if (t.on) send('ng' + v, 'signups'); });
+      if (v !== 'b') return;
+      try { if (localStorage.getItem('gp-nudge-off')) return; } catch (e) { /* show anyway */ }
+      var show = function () {
+        if (shown || clicked || document.getElementById('cookie-consent-banner')) return;  // never stack on the cookie banner
+        var r = form.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) return;  // the form is already on screen
+        shown = true;
+        var bar = document.createElement('div');
+        bar.setAttribute('role', 'region');
+        bar.setAttribute('aria-label', 'Price alert');
+        bar.style.cssText = 'position:fixed;left:12px;right:12px;bottom:12px;z-index:50;max-width:520px;margin:0 auto;background:#fff;color:#16241c;border:2px solid #3cb43c;border-radius:14px;padding:12px 14px;display:flex;gap:10px;align-items:center;box-shadow:0 6px 24px rgba(0,0,0,.25);font:15px/1.35 system-ui,sans-serif';
+        bar.innerHTML = '<span style="flex:1">Not buying today? We can email you if the price drops.</span>'
+          + '<a href="#price-alert" style="background:#3cb43c;color:#fff;border-radius:10px;padding:8px 12px;font-weight:700;text-decoration:none;white-space:nowrap">Set an alert</a>'
+          + '<button type="button" aria-label="No thanks" style="background:none;border:0;color:#16241c;font-size:22px;line-height:1;cursor:pointer;padding:4px">&times;</button>';
+        var off = function () { try { localStorage.setItem('gp-nudge-off', '1'); } catch (e) { /* fine */ } bar.remove(); };
+        bar.querySelector('button').addEventListener('click', off);
+        bar.querySelector('a').addEventListener('click', function () { setTimeout(function () { var i = form.querySelector('input[type=email]'); if (i) i.focus(); }, 400); off(); });
+        document.body.appendChild(bar);
+      };
+      setTimeout(show, 25000);
+      window.addEventListener('scroll', function () {
+        if ((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight > 0.7) show();
+      }, { passive: true });
+    }).catch(function () { /* no test running */ });
+  } catch (e) { /* never break the page */ }
+})();
+
+/* gp-screen (performance analyst, ideas board "foldables"): one anonymous count per visit of the
+   screen SHAPE only (small phone, phone, unfolded, tablet, desktop), never the device or anything
+   that identifies anyone. If a visitor's screen changes shape mid-visit (folding or unfolding a
+   foldable such as the iPhone Duo), that's counted once as "unfold". */
+(function () {
+  try {
+    if (sessionStorage.getItem('gp-scr')) return;
+    var W = 'https://golfpriceai-alerts.golfpriceai.workers.dev/signal';
+    var shape = function () {
+      var w = window.innerWidth, h = window.innerHeight, touch = window.matchMedia && matchMedia('(pointer:coarse)').matches, r = w / Math.max(1, h);
+      if (!touch) return w >= 1024 ? 'desktop' : 'desktop-small';
+      if (w < 380) return 'phone-small';
+      if (w < 600) return 'phone';
+      if (w < 1024 && r > 0.7 && r < 1.45) return 'unfolded';
+      return 'tablet';
+    };
+    var first = shape();
+    sessionStorage.setItem('gp-scr', first);
+    navigator.sendBeacon(W, JSON.stringify({ k: 'scr', m: first }));
+    var t;
+    window.addEventListener('resize', function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        try {
+          var now = shape();
+          if (now !== first && /phone/.test(first + now) && /unfolded/.test(first + now) && !sessionStorage.getItem('gp-scr-u')) {
+            sessionStorage.setItem('gp-scr-u', '1');
+            navigator.sendBeacon(W, JSON.stringify({ k: 'scr', m: 'unfold' }));
+          }
+        } catch (e) { /* fine */ }
+      }, 600);
+    });
+  } catch (e) { /* never break the page */ }
+})();
+

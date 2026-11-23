@@ -44,6 +44,9 @@
  *                       (sent by scripts/alerts.py). Stored in BUDGETWATCH.
  *   POST /subscribe     { email, models: [a, b], list: "compare" }  "Watch both"
  *                       on a /prices/compare/ page.
+ *   /wn/...             Wild Nine group tables (see wildNine() below): groups of
+ *                       mates, one official score per player per day. Stores a
+ *                       random player id and a nickname: never an email or a name.
  *   GET  /fourball      ?c=code  { n, total }: the live "3 golfers watching
  *                       through John's invite" count, and the site-wide total.
  *   GET  /unsubscribe   ?e=email&s=signature[&m=model]  One click: stop
@@ -117,6 +120,9 @@ export default {
       if (url.pathname.startsWith('/ck/')) return await clubhouseKey(request, url, env, cors);
       if (url.pathname.startsWith('/lv/')) return await liveScoring(request, url, env, cors, ctx);
       if (url.pathname.startsWith('/pl/')) return await polls(request, url, env, cors);
+      if (url.pathname.startsWith('/wn/')) return await wildNine(request, url, env, cors);
+      if (url.pathname.startsWith('/wp/')) return await wrongPrice(request, url, env, cors);
+      if (url.pathname === '/wd/beat' && request.method === 'POST') return await watchdogBeat(request, env, cors);
       if (url.pathname === '/stats' && request.method === 'POST') return await clubStats(request, env, cors);
       if (url.pathname === '/use' && request.method === 'POST') return await useCount(request, env, cors);
       if (url.pathname === '/confirm') return await confirm(url, env);
@@ -127,6 +133,12 @@ export default {
       console.log('error', err && err.stack);
       return json({ ok: false, error: 'Something went wrong. Please try again in a minute.' }, 500, cors);
     }
+  },
+  // Watching the watchdog: runs on the worker's cron trigger (Cloudflare > the worker >
+  // Settings > Triggers > Cron, e.g. "40 */6 * * *"). If the agents' watchdog in GitHub
+  // Actions hasn't checked in for 26 hours, email the owner once a day until it does.
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(watchdogCheck(env));
   },
 };
 
@@ -2162,7 +2174,7 @@ async function clubStats(request, env, cors) {
    no IP address, no cookie, no email. The IP is used only for a moment, as a
    one-way hash in the free edge cache, so one visitor counts once per model
    per day and can't stuff the chart. */
-const SIGNAL_KINDS = { view: 1, heart: 1, search: 1, pp: 1, miss: 1, emb: 1 };
+const SIGNAL_KINDS = { view: 1, heart: 1, search: 1, pp: 1, miss: 1, emb: 1, out: 1, ctaa: 1, ctab: 1, gplay: 1, gview: 1, gout: 1, lret: 1, aisrc: 1, nga: 1, ngb: 1, scr: 1 }; // aisrc: which AI app sent a visitor // out: buy clicks per page; cta*: button-wording test; g*: game > price page > buy click; lret: lab returners
 const DEMAND_TTL = 70 * 86400;
 function cleanSearch(q) {
   const t = String(q || '').toLowerCase().replace(/[^a-z0-9 .'&+-]/g, ' ').replace(/\s+/g, ' ').trim();
@@ -4362,6 +4374,226 @@ function corsHeaders(request, env) {
     vary: 'origin',
   };
 }
+
+/* ------------------------------------------------------------- Wild Nine groups
+   Group tables for the daily game at /play/wild-nine. A player is a random id
+   the game makes on their phone (pid) plus the nickname they typed. Nothing
+   else: no email, no real name, no location.
+
+   POST /wn/new    { pid, nick, name }        -> { ok, code }   start a group
+   POST /wn/join   { pid, nick, code }        -> { ok, name }
+   POST /wn/leave  { pid, code }              -> { ok }
+   POST /wn/score  { pid, nick, day, tot, tp, grid } -> { ok, first }
+                   The first score a player posts for a day is the one that counts.
+   GET  /wn/group  ?c=CODE&day=N&pid=...      -> { ok, name, members, me, today[], week[] }
+*/
+let wnReady = false;
+const WN_CODE_RX = /^[A-HJ-NP-Z2-9]{6}$/;
+// Nicknames: letters, numbers, spaces. Obviously offensive ones become "Golfer" straight away;
+// anything subtler is flagged by the game master agent for the owner to approve.
+const WN_BAD = /(fuck|fuk|shit|cunt|wank|twat|bollock|bastard|prick|whore|slag|nazi|hitler|rape|dick|cock|piss|nonce|paedo|pedo)/i;
+const WN_NICK = s => {
+  const n = String(s || '').replace(/[^A-Za-z0-9 '\-]/g, '').trim().slice(0, 14);
+  const plain = n.toLowerCase().replace(/0/g, 'o').replace(/1/g, 'i').replace(/3/g, 'e').replace(/4/g, 'a').replace(/5/g, 's').replace(/[^a-z]/g, '');
+  return n && WN_BAD.test(plain) ? 'Golfer' : n;
+};
+// Approved moderation (data/wild-nine-moderation.json, merged through the Fix pack): hidden
+// scores and renamed nicknames. Cached for 10 minutes; if it can't load, nothing is hidden.
+let wnMod = null, wnModAt = 0;
+async function wnModeration() {
+  if (wnMod && Date.now() - wnModAt < 600000) return wnMod;
+  try {
+    const r = await fetch('https://golfpriceai.com/data/wild-nine-moderation.json', { cf: { cacheTtl: 600 } });
+    const d = r.ok ? await r.json() : {};
+    wnMod = { pids: new Set(d.hidePids || []), nicks: new Set((d.renameNicks || []).map(x => String(x).toLowerCase())) };
+  } catch (e) { wnMod = wnMod || { pids: new Set(), nicks: new Set() }; }
+  wnModAt = Date.now();
+  return wnMod;
+}
+function wnModerate(rows, mod) {
+  return (rows.results || []).filter(r => !mod.pids.has(r.pid)).map(r => (mod.nicks.has(String(r.nick || '').toLowerCase()) ? { ...r, nick: 'Golfer' } : r));
+}
+const WN_GNAME = s => String(s || '').replace(/[<>"&\\]/g, '').replace(/\s+/g, ' ').trim().slice(0, 40);
+function wnToday() { return Math.floor((Date.now() - Date.UTC(2026, 10, 1)) / 864e5) + 1; }
+async function wnSetup(env) {
+  if (wnReady) return;
+  await env.DEMAND.batch([
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wn_groups (code TEXT PRIMARY KEY, name TEXT, owner TEXT, created TEXT)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wn_members (code TEXT, pid TEXT, nick TEXT, joined TEXT, PRIMARY KEY (code, pid)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS wn_members_pid ON wn_members (pid)'),
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wn_scores (pid TEXT, day INTEGER, nick TEXT, tot INTEGER, tp INTEGER, grid TEXT, created TEXT, idx REAL, league INTEGER DEFAULT 0, PRIMARY KEY (pid, day)) WITHOUT ROWID'),
+    env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS wn_scores_day ON wn_scores (day)'),
+  ]);
+  wnReady = true;
+}
+async function wildNine(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false, error: 'Group tables are taking a short break. Please try again later.' }, 503, cors);
+  await wnSetup(env);
+  const db = env.DEMAND, path = url.pathname, now = new Date().toISOString();
+  let body = {};
+  if (request.method === 'POST') {
+    try { body = JSON.parse((await request.text()).slice(0, 2000)); } catch (e) { return json({ ok: false, error: 'Bad request.' }, 400, cors); }
+    const ip = request.headers.get('cf-connecting-ip') || '';
+    if (await tooMany('wn-' + ip, 60, 600)) return json({ ok: false, error: 'Easy, tiger. Please try again in a few minutes.' }, 429, cors);
+  }
+  const pidIn = String(body.pid || url.searchParams.get('pid') || '');
+  const pid = PID_RX.test(pidIn) ? pidIn : '';
+
+  if (path === '/wn/new' && request.method === 'POST') {
+    const name = WN_GNAME(body.name), nick = WN_NICK(body.nick);
+    if (!pid || !name || !nick) return json({ ok: false, error: 'Give the group a name and yourself a nickname.' }, 400, cors);
+    const ip = request.headers.get('cf-connecting-ip') || '';
+    if (await tooMany('wnnew-' + ip, 10, 86400)) return json({ ok: false, error: 'That is a lot of new groups for one day. Try again tomorrow.' }, 429, cors);
+    const mine = await db.prepare('SELECT COUNT(*) n FROM wn_groups WHERE owner = ?').bind(pid).first();
+    if (mine && mine.n >= 20) return json({ ok: false, error: 'You already run 20 groups.' }, 400, cors);
+    const A = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    for (let t = 0; t < 6; t++) {
+      const b = crypto.getRandomValues(new Uint8Array(6)), code = [...b].map(x => A[x % A.length]).join('');
+      const r = await db.prepare('INSERT OR IGNORE INTO wn_groups (code, name, owner, created) VALUES (?, ?, ?, ?)').bind(code, name, pid, now).run();
+      if (r.meta && r.meta.changes) {
+        await db.prepare('INSERT OR REPLACE INTO wn_members (code, pid, nick, joined) VALUES (?, ?, ?, ?)').bind(code, pid, nick, now).run();
+        return json({ ok: true, code, name }, 200, cors);
+      }
+    }
+    return json({ ok: false, error: 'Could not make a code. Please try again.' }, 500, cors);
+  }
+  if (path === '/wn/join' && request.method === 'POST') {
+    const code = String(body.code || '').toUpperCase(), nick = WN_NICK(body.nick);
+    if (!pid || !WN_CODE_RX.test(code) || !nick) return json({ ok: false, error: 'That code does not look right.' }, 400, cors);
+    const g = await db.prepare('SELECT name FROM wn_groups WHERE code = ?').bind(code).first();
+    if (!g) return json({ ok: false, error: 'No group with that code.' }, 404, cors);
+    const n = await db.prepare('SELECT COUNT(*) n FROM wn_members WHERE code = ?').bind(code).first();
+    if (n && n.n >= 300) return json({ ok: false, error: 'That group is full (300 players).' }, 400, cors);
+    const many = await db.prepare('SELECT COUNT(*) n FROM wn_members WHERE pid = ?').bind(pid).first();
+    if (many && many.n >= 30) return json({ ok: false, error: 'You are already in 30 groups.' }, 400, cors);
+    await db.prepare('INSERT OR REPLACE INTO wn_members (code, pid, nick, joined) VALUES (?, ?, ?, COALESCE((SELECT joined FROM wn_members WHERE code = ? AND pid = ?), ?))').bind(code, pid, nick, code, pid, now).run();
+    return json({ ok: true, name: g.name }, 200, cors);
+  }
+  if (path === '/wn/leave' && request.method === 'POST') {
+    const code = String(body.code || '').toUpperCase();
+    if (!pid || !WN_CODE_RX.test(code)) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    await db.prepare('DELETE FROM wn_members WHERE code = ? AND pid = ?').bind(code, pid).run();
+    return json({ ok: true }, 200, cors);
+  }
+  if (path === '/wn/score' && request.method === 'POST') {
+    const day = Number(body.day), tot = Number(body.tot), tp = Number(body.tp), grid = String(body.grid || ''), nick = WN_NICK(body.nick), today = wnToday();
+    if (!pid || !nick || !Number.isInteger(day) || Math.abs(day - today) > 1 || !Number.isInteger(tot) || tot < 9 || tot > 90 || !Number.isInteger(tp) || tp < -27 || tp > 54 || !/^[0-9a-z]{9}$/.test(grid))
+      return json({ ok: false, error: 'Bad score.' }, 400, cors);
+    const sum = [...grid].reduce((a, c) => a + parseInt(c, 36), 0);
+    if (sum !== tot) return json({ ok: false, error: 'Bad score.' }, 400, cors);
+    const idx = typeof body.idx === 'number' && isFinite(body.idx) && body.idx >= -20 && body.idx <= 54 ? Math.round(body.idx * 10) / 10 : null, league = body.league ? 1 : 0;
+    const r = await db.prepare('INSERT OR IGNORE INTO wn_scores (pid, day, nick, tot, tp, grid, created, idx, league) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)').bind(pid, day, nick, tot, tp, grid, now, idx, league).run();
+    // posting to the course league later is a yes to showing the round that already counts
+    if (league) await db.prepare('UPDATE wn_scores SET league = 1, nick = ? WHERE pid = ? AND day = ?').bind(nick, pid, day).run();
+    await db.prepare('UPDATE wn_members SET nick = ? WHERE pid = ?').bind(nick, pid).run();
+    return json({ ok: true, first: !!(r.meta && r.meta.changes) }, 200, cors);
+  }
+  if (path === '/wn/group') {
+    const code = String(url.searchParams.get('c') || '').toUpperCase(), day = Number(url.searchParams.get('day')) || wnToday();
+    if (!WN_CODE_RX.test(code)) return json({ ok: false, error: 'That code does not look right.' }, 400, cors);
+    const g = await db.prepare('SELECT name FROM wn_groups WHERE code = ?').bind(code).first();
+    if (!g) return json({ ok: false, error: 'No group with that code.' }, 404, cors);
+    const mem = await db.prepare('SELECT COUNT(*) n, SUM(pid = ?) me FROM wn_members WHERE code = ?').bind(pid || '-', code).first();
+    const today = await db.prepare('SELECT s.pid, m.nick, s.tot, s.tp, s.grid FROM wn_scores s JOIN wn_members m ON m.pid = s.pid AND m.code = ? WHERE s.day = ? ORDER BY s.tp, s.created LIMIT 300').bind(code, day).all();
+    const week = await db.prepare('SELECT s.pid, m.nick, COUNT(*) rounds, SUM(s.tp) tp FROM wn_scores s JOIN wn_members m ON m.pid = s.pid AND m.code = ? WHERE s.day > ? AND s.day <= ? GROUP BY s.pid ORDER BY (1.0 * SUM(s.tp) / COUNT(*)), COUNT(*) DESC LIMIT 300').bind(code, day - 7, day).all();
+    const mod = await wnModeration();
+    const strip = rows => wnModerate(rows, mod).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, grid: r.grid, rounds: r.rounds, me: r.pid === pid }));
+    return json({ ok: true, code, name: g.name, members: (mem && mem.n) || 0, me: !!(mem && mem.me), today: strip(today), week: strip(week) }, 200, cors);
+  }
+  if (path === '/wn/day') {
+    // the course league: one per daily course, gross and net, only players who chose to post
+    const day = Number(url.searchParams.get('day')) || wnToday();
+    if (!Number.isInteger(day) || day < 1 || day > wnToday() + 1) return json({ ok: false, error: 'No such course.' }, 400, cors);
+    const gross = await db.prepare('SELECT pid, nick, tot, tp, idx FROM wn_scores WHERE day = ? AND league = 1 ORDER BY tp, created LIMIT 25').bind(day).all();
+    const net = await db.prepare('SELECT pid, nick, tot, tp, idx, tot - CAST(ROUND(idx) AS INTEGER) AS net FROM wn_scores WHERE day = ? AND league = 1 AND idx IS NOT NULL ORDER BY net, created LIMIT 25').bind(day).all();
+    let mine = null;
+    if (pid) {
+      const me = await db.prepare('SELECT tot, tp, idx FROM wn_scores WHERE day = ? AND pid = ? AND league = 1').bind(day, pid).first();
+      if (me) {
+        const g = await db.prepare('SELECT COUNT(*) n FROM wn_scores WHERE day = ? AND league = 1 AND tp < ?').bind(day, me.tp).first();
+        let n = null;
+        if (me.idx != null) n = await db.prepare('SELECT COUNT(*) n FROM wn_scores WHERE day = ? AND league = 1 AND idx IS NOT NULL AND tot - CAST(ROUND(idx) AS INTEGER) < ?').bind(day, me.tot - Math.round(me.idx)).first();
+        mine = { gross: (g ? g.n : 0) + 1, net: n ? n.n + 1 : null };
+      }
+    }
+    const mod = await wnModeration();
+    const strip = rows => wnModerate(rows, mod).map(r => ({ nick: r.nick, tot: r.tot, tp: r.tp, idx: r.idx, net: r.net, me: r.pid === pid }));
+    return json({ ok: true, day, gross: strip(gross), net: strip(net), mine }, 200, cors);
+  }
+  if (path === '/wn/stats') {
+    // For the game master agent only (GitHub Actions, with the ALERTS_SECRET): anonymous
+    // hole-by-hole results to tune future courses, plus nicknames and outliers to moderate.
+    if (!env.ALERTS_SECRET || request.headers.get('x-agent-key') !== env.ALERTS_SECRET) return json({ ok: false, error: 'Not found.' }, 404, cors);
+    const days = Math.min(14, Math.max(1, Number(url.searchParams.get('days')) || 7)), to = wnToday();
+    const rows = await db.prepare('SELECT day, grid, tp FROM wn_scores WHERE day > ? AND day <= ? LIMIT 20000').bind(to - days, to).all();
+    const byDay = {};
+    for (const r of rows.results || []) (byDay[r.day] = byDay[r.day] || []).push(r.grid);
+    const nicks = await db.prepare('SELECT nick, COUNT(*) n FROM wn_scores WHERE day > ? AND nick IS NOT NULL GROUP BY nick ORDER BY n DESC LIMIT 2000').bind(to - days).all();
+    const odd = await db.prepare('SELECT pid, day, nick, tot, tp, grid FROM wn_scores WHERE day > ? AND (tp <= -9 OR tot <= 18) ORDER BY tp LIMIT 100').bind(to - days).all();
+    return json({ ok: true, today: to, days: Object.entries(byDay).map(([d, g]) => ({ day: Number(d), rounds: g.length, grids: g.slice(0, 3000) })),
+      nicks: nicks.results || [], outliers: odd.results || [] }, 200, cors);
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
+
+// "Price look wrong?" reports from price pages: anonymous counts per page per day, read by the
+// claims guardian agent (with the ALERTS_SECRET), which re-checks those prices first.
+async function wrongPrice(request, url, env, cors) {
+  if (!env.DEMAND) return json({ ok: false }, 503, cors);
+  const db = env.DEMAND;
+  await db.prepare('CREATE TABLE IF NOT EXISTS wp_reports (day TEXT, slug TEXT, n INTEGER, PRIMARY KEY (day, slug)) WITHOUT ROWID').run();
+  if (url.pathname === '/wp/report' && request.method === 'POST') {
+    let body = {};
+    try { body = JSON.parse((await request.text()).slice(0, 300)); } catch (e) { return json({ ok: false }, 400, cors); }
+    const slug = String(body.s || '').toLowerCase();
+    if (!/^[a-z0-9-]{3,120}$/.test(slug)) return json({ ok: false }, 400, cors);
+    const ip = request.headers.get('cf-connecting-ip') || '';
+    if (await tooMany('wp-' + ip, 10, 3600)) return json({ ok: true }, 200, cors);
+    const day = new Date().toISOString().slice(0, 10);
+    await db.prepare('INSERT INTO wp_reports (day, slug, n) VALUES (?, ?, 1) ON CONFLICT (day, slug) DO UPDATE SET n = n + 1').bind(day, slug).run();
+    return json({ ok: true }, 200, cors);
+  }
+  if (url.pathname === '/wp/list') {
+    if (!env.ALERTS_SECRET || request.headers.get('x-agent-key') !== env.ALERTS_SECRET) return json({ ok: false, error: 'Not found.' }, 404, cors);
+    const since = new Date(Date.now() - 14 * 864e5).toISOString().slice(0, 10);
+    const rows = await db.prepare('SELECT slug, SUM(n) n FROM wp_reports WHERE day >= ? GROUP BY slug ORDER BY n DESC LIMIT 200').bind(since).all();
+    return json({ ok: true, reports: rows.results || [] }, 200, cors);
+  }
+  return json({ ok: false, error: 'Not found.' }, 404, cors);
+}
+
+// The agents' watchdog (GitHub Actions) checks in here every few hours. If it goes quiet,
+// the worker's cron (above) emails the owner: the watcher of the watcher.
+async function watchdogBeat(request, env, cors) {
+  if (!env.DEMAND || !env.ALERTS_SECRET || request.headers.get('x-agent-key') !== env.ALERTS_SECRET) return json({ ok: false }, 404, cors);
+  let body = {};
+  try { body = JSON.parse((await request.text()).slice(0, 2000)); } catch (e) { body = {}; }
+  await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wd_beat (k TEXT PRIMARY KEY, at INTEGER, note TEXT) WITHOUT ROWID').run();
+  await env.DEMAND.prepare('INSERT INTO wd_beat (k, at, note) VALUES (?, ?, ?) ON CONFLICT (k) DO UPDATE SET at = excluded.at, note = excluded.note')
+    .bind('watchdog', Date.now(), String(body.note || '').slice(0, 500)).run();
+  return json({ ok: true }, 200, cors);
+}
+
+async function watchdogCheck(env) {
+  if (!env.DEMAND || !env.BREVO_API_KEY) return;
+  await env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wd_beat (k TEXT PRIMARY KEY, at INTEGER, note TEXT) WITHOUT ROWID').run();
+  const beat = await env.DEMAND.prepare("SELECT at FROM wd_beat WHERE k = 'watchdog'").first();
+  if (!beat) return; // never set up yet: nothing to watch
+  const quietHours = (Date.now() - beat.at) / 36e5;
+  if (quietHours < 26) return;
+  const last = await env.DEMAND.prepare("SELECT at FROM wd_beat WHERE k = 'emailed'").first();
+  if (last && Date.now() - last.at < 864e5) return; // at most one email a day
+  await brevo(env, 'POST', '/smtp/email', {
+    sender: { name: 'GolfPrice AI', email: env.SENDER_EMAIL || 'alerts@golfpriceai.com' },
+    to: [{ email: env.OWNER_EMAIL || 'GolfPriceAI@outlook.com' }],
+    subject: 'GolfPrice AI · the agents have gone quiet',
+    htmlContent: `<p>The agents' watchdog hasn't checked in for ${Math.round(quietHours)} hours, so the agents may have stopped running.</p>`
+      + '<p>Check the Actions tab on GitHub (golfpriceai-site): GitHub pauses scheduled workflows after 60 days without activity in the repository, and a failed run shows a red cross. '
+      + 'Re-enable or re-run "Agent: watchdog" and this email stops.</p>',
+  });
+  await env.DEMAND.prepare("INSERT INTO wd_beat (k, at, note) VALUES ('emailed', ?, '') ON CONFLICT (k) DO UPDATE SET at = excluded.at").bind(Date.now()).run();
+}
+
 function json(obj, status, headers) {
   return new Response(JSON.stringify(obj), { status, headers: Object.assign({ 'content-type': 'application/json' }, headers) });
 }

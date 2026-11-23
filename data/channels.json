@@ -1,0 +1,9 @@
+{
+ "about": "Channels the channel scout watches: apps, social platforms, forums, communities, newsletters, podcasts, marketplaces and ad networks where GolfPrice AI could spread the word. status: \"watch\" (rising, check again), \"try\" (on the ideas board for John), \"on\" (we're there), \"skip\" (not for us, with why). The scout updates this every fortnight; John approves anything that costs money or his time.",
+ "channels": [
+  {"name": "AppLovin Ads", "kind": "ad network (ads inside mobile games and apps)", "found": "2026-11-21", "status": "watch",
+   "why": "Opened its self-serve ads platform to all advertisers in 2026 and growing fast; built for advertisers with return-on-ad-spend data.",
+   "fit": "Not yet: paid, needs our own conversion data first, and some retailer programmes restrict paid traffic. Possible later angle: Wild Nine ads inside mobile games.",
+   "revisit": "2027-02-21"}
+ ]
+}

@@ -1,0 +1,12 @@
+{
+  "about": "Wild Nine development log: each improvement, why it was made and what the performance analyst should measure. The games lab adds one a month (John, 22 Nov 2026: continuous improvement).",
+  "log": [
+    {
+      "date": "2026-11-22",
+      "idea": "foldables",
+      "what": "Two-panel layout on wide screens (course left, controls right) and a wider single column when an unfolded phone is held upright",
+      "why": "On an unfolded iPhone Duo or a tablet the game stayed phone-sized",
+      "measure": "rounds finished per visit on unfolded and tablet screens v phones (screensByVisits)"
+    }
+  ]
+}

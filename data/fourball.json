@@ -1,0 +1,331 @@
+{
+  "series": "The Fourball",
+  "day": "Wed",
+  "tag": "#TheFourball",
+  "about": "A weekly comedy series about a fictional golf four-ball and friends, made from quick-cut photo sketches. Recurring characters, running gags, continuity and character development, funny outcomes. John asked for it on 21 Nov 2026.",
+  "rules": [
+    "Banter, never bullying: jokes are about golf, never anyone's looks, weight, age or anything personal.",
+    "Everyone gets a win sometimes; whoever gets ribbed this week can land the last laugh next week.",
+    "Characters are fictional, never based on or resembling a real person, never presented as real golfers or real stories.",
+    "One clear punchline per episode, a funny outcome, 8 to 12 seconds, cut on the 0.6-second beat.",
+    "No character leads two episodes in a row; Kev's reactions rotate.",
+    "Real figures only: if an episode mentions prices, only true, general statements (e.g. last season's models usually cost less) or real figures from data/.",
+    "No words, logos or brands in photos; keep each character's look identical.",
+    "About every other episode features one real tool naturally (see featureRule); the joke always comes first."
+  ],
+  "bufferEpisodes": 2,
+  "arcs": [
+    {
+      "id": "gaz-driver-count",
+      "about": "Gaz buys a new driver every few weeks; Kev keeps count. Payoff idea: Gaz finally finds his driver was fine all along, or buys last season's model for less and outdrives Kev.",
+      "status": "running",
+      "since": 2
+    },
+    {
+      "id": "dave-scorecard",
+      "about": "Big Dave's creative scoring; Phil's props escalate (abacus, then calculator, then a referee's whistle, then the rule book). EP3: Phil brings the live scorecard as proof (the prop becomes our real tool).",
+      "status": "running",
+      "since": 1
+    },
+    {
+      "id": "steve-quiet-season",
+      "about": "Steady Steve keeps quietly winning with his 20-year-old irons while everyone else blames their kit. Payoff: the society cup.",
+      "status": "planned"
+    },
+    {
+      "id": "kev-comeuppance",
+      "about": "Kev's own duffs get caught on camera; the group finally gets him back.",
+      "status": "planned"
+    },
+    {
+      "id": "christmas-dinner",
+      "about": "December: the society Christmas dinner and awards (Dave's speech, Phil's 'honest scorecard' award, Gaz's gift is a driver).",
+      "status": "planned",
+      "window": "2026-12"
+    },
+    {
+      "id": "phil-wrong",
+      "about": "Phil is never wrong... until he is. Build it slowly (he's right in EP1 and EP3), then one day a rule or a price proves him wrong, and Kev frames it.",
+      "status": "planned"
+    }
+  ],
+  "canon": [
+    "EP1: Big Dave took six on a par 4 and called it a par. Phil offered him an abacus. Kev was in the background, trying not to laugh.",
+    "EP2: Gaz unboxed another new driver in the car park and sent his first drive into the trees. Kev: 'Must need a new driver.' Gaz: 'It's the shaft, mate.'",
+    "EP3: Big Dave claimed another par; Phil showed the live scorecard (six). Dave blamed the app. It's free, Dave."
+  ],
+  "characterNotes": {
+    "big-dave": [],
+    "phil": [
+      "Know-it-all (John, 21 Nov 2026): corrects everyone, quotes rules and stats, unrequested tips; deadpan delivery; usually right, which is the joke.",
+      "Props are his punchlines, and our tools are his favourite props (he 'knows' the price history, the real score, the rule).",
+      "Give him the occasional comeuppance: when Phil is wrong, it's an event (Kev's favourite day)."
+    ],
+    "steve": [],
+    "gaz": [
+      "Kev's favourite target; gives as good as he gets."
+    ],
+    "kev": [
+      "Reaction shots are reusable stock."
+    ]
+  },
+  "episodes": [
+    {
+      "ep": 1,
+      "title": "Big Dave's par",
+      "lead": "big-dave",
+      "cast": [
+        "big-dave",
+        "phil",
+        "kev"
+      ],
+      "arcs": [
+        "dave-scorecard"
+      ],
+      "status": "ready",
+      "photos": "complete",
+      "posted": null,
+      "result": null
+    },
+    {
+      "ep": 2,
+      "title": "Gaz's new driver",
+      "lead": "gaz",
+      "cast": [
+        "gaz",
+        "kev"
+      ],
+      "arcs": [
+        "gaz-driver-count"
+      ],
+      "status": "ready",
+      "photos": "complete",
+      "posted": null,
+      "result": null
+    },
+    {
+      "ep": 3,
+      "title": "Big Dave's receipts",
+      "lead": "phil",
+      "cast": [
+        "big-dave",
+        "phil",
+        "kev"
+      ],
+      "arcs": [
+        "dave-scorecard"
+      ],
+      "status": "ready",
+      "photos": "complete",
+      "posted": null,
+      "result": null,
+      "idea": "John's idea (21 Nov 2026): Phil proves the real score with our live scorecard."
+    }
+  ],
+  "trendNotes": [],
+  "photoRequests": [
+    {
+      "ep": 3,
+      "files": [
+        "phil-03-phone.jpg",
+        "dave-03-broken.jpg"
+      ],
+      "asked": "2026-11-21",
+      "needBy": "2026-12-06",
+      "received": "2026-11-21"
+    }
+  ],
+  "featureRule": "Our tools are part of the world the characters live in. About every other episode, one real GolfPrice AI tool earns its place in the story: as Phil's prop, the proof, the twist or the punchline (EP3: the live scorecard proves Dave's six). The joke always comes first: if a tool would feel like an advert, leave it out that week. One tool per episode at most, shown truthfully (a real capture of the real page; demo data with the cast's names is fine, never a made-up interface or a feature we don't have), and the outro hands over to the same tool. Rotate tools so the series slowly shows off the whole site; deal tools and fun tools both count.",
+  "features": [
+    {
+      "id": "scorecard",
+      "name": "Live scorecard",
+      "path": "/play/scorecard/",
+      "does": "Free live Stableford, better-ball and skins scoring for a group, with a live leaderboard",
+      "angles": [
+        "Phil's proof of the real score (EP3)",
+        "Kev reads the live feed out like a commentator",
+        "Dave 'loses signal' on the bad holes"
+      ],
+      "used": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "fourball",
+      "name": "Fourball Alerts",
+      "path": "/fourball/",
+      "does": "One link in the group chat; everyone gets one email when a price genuinely drops",
+      "angles": [
+        "the whole group's phones buzz at once: the driver Gaz wants dropped",
+        "Kev sets one up for Gaz 'to save him from himself'"
+      ],
+      "used": [
+        2
+      ]
+    },
+    {
+      "id": "price-check",
+      "name": "Is this a good price?",
+      "path": "/price-check.html",
+      "does": "Checks a new or used golf price against what we track",
+      "angles": [
+        "Gaz's 'bargain' gets checked by Phil: it's the usual price",
+        "Steve checks his 20-year-old irons' used value and won't sell"
+      ]
+    },
+    {
+      "id": "price-history",
+      "name": "Price history and verdicts on every price page",
+      "path": "/prices/",
+      "does": "Each model's tracked price history and a plain verdict (good, typical, high)",
+      "angles": [
+        "Gaz's 'Black Friday steal' turns out typical",
+        "Steve waited; the chart shows he was right"
+      ]
+    },
+    {
+      "id": "black-friday",
+      "name": "Black Friday checker",
+      "path": "/prices/black-friday/",
+      "does": "What's genuinely cheaper than in October, checked",
+      "angles": [
+        "the red stickers v the real price, Phil with the receipts"
+      ],
+      "season": "late Nov"
+    },
+    {
+      "id": "back-in-stock",
+      "name": "Back In Stock Radar",
+      "path": "/back-in-stock.html",
+      "does": "Shows kit coming back in stock",
+      "angles": [
+        "Gaz refreshing for a sold-out driver all round"
+      ]
+    },
+    {
+      "id": "best-time",
+      "name": "Best Time To Buy",
+      "path": "/best-time-to-buy.html",
+      "does": "When golf kit tends to be cheapest",
+      "angles": [
+        "Steve's patience pays off",
+        "Gaz buys in March, every March"
+      ]
+    },
+    {
+      "id": "par-price",
+      "name": "Par Price",
+      "path": "/play/par-price/",
+      "does": "Daily golf price-guessing game",
+      "angles": [
+        "clubhouse showdown: Kev v Gaz guessing prices; Gaz knows every price, none of his yardages"
+      ]
+    },
+    {
+      "id": "higher-or-lower",
+      "name": "Higher or Lower",
+      "path": "/play/higher-or-lower/",
+      "does": "The golf price game",
+      "angles": [
+        "rain delay in the clubhouse, the four of them play"
+      ]
+    },
+    {
+      "id": "wild-nine",
+      "name": "Wild Nine",
+      "path": "/play/wild-nine/",
+      "does": "Daily golf course game",
+      "angles": [
+        "Dave finally gets a hole in one... in Wild Nine"
+      ]
+    },
+    {
+      "id": "aces",
+      "name": "Hole-in-One Register",
+      "path": "/play/aces/",
+      "does": "Log your ace and get a certificate",
+      "angles": [
+        "Steve's quiet ace, registered before anyone believes it (arc payoff)"
+      ]
+    },
+    {
+      "id": "bag-draft",
+      "name": "The Bag Draft",
+      "path": "/play/draft/",
+      "does": "Fantasy golf kit: draft real products, price drops score points",
+      "angles": [
+        "Gaz drafts six drivers",
+        "Steve wins the draft by picking last season's kit"
+      ]
+    },
+    {
+      "id": "society-hq",
+      "name": "Society HQ",
+      "path": "/societies/hq/",
+      "does": "Run a golf society free: fixtures, who's paid, Order of Merit",
+      "angles": [
+        "Captain Dave chasing subs; Kev 'paid last month' (he didn't)"
+      ]
+    },
+    {
+      "id": "prize-calc",
+      "name": "Prize fund calculator",
+      "path": "/societies/prize-fund-calculator/",
+      "does": "Splits society prize money",
+      "angles": [
+        "Dave's prize split somehow pays Dave"
+      ]
+    },
+    {
+      "id": "awards",
+      "name": "Society Awards",
+      "path": "/societies/awards/",
+      "does": "Free award cards, slideshow and prizes",
+      "angles": [
+        "Christmas dinner arc: Phil's 'honest scorecard' award, Kev's 'best reaction' award"
+      ],
+      "season": "Dec"
+    },
+    {
+      "id": "poll",
+      "name": "Group poll",
+      "path": "/play/poll/",
+      "does": "Pick a course or find a date in one tap",
+      "angles": [
+        "the four can't agree on a date; Phil sends a poll; Dave votes four times"
+      ]
+    },
+    {
+      "id": "handicap",
+      "name": "Handicap calculators",
+      "path": "/improve/course-handicap-calculator/",
+      "does": "Course, playing and index handicap calculators (WHS)",
+      "angles": [
+        "Dave's shots on every hole",
+        "what Gaz needs to shoot to get cut (a lot)"
+      ]
+    },
+    {
+      "id": "my-game",
+      "name": "My Game and Shot Saver",
+      "path": "/improve/my-game/",
+      "does": "Free stats: where your shots go",
+      "angles": [
+        "the stats say Dave's problem isn't his driver, it's his putting (Gaz takes notes anyway)"
+      ]
+    },
+    {
+      "id": "gift-finder",
+      "name": "What to buy a golfer",
+      "path": "/cheat-sheet/",
+      "does": "Glove hand, size and ball cheat sheet for gift buyers",
+      "angles": [
+        "Christmas: Gaz's partner (off screen) buys him another driver"
+      ],
+      "season": "Dec"
+    }
+  ],
+  "featureLog": []
+}

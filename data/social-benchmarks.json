@@ -1,0 +1,27 @@
+{
+ "about": "Reels John picked as the bar to beat (19 Nov 2026). Instagram can't be read by the agents, so each is described here. The content engine, the Editor's Claude review and the monthly scout judge our videos against these. Add new ones with what makes them work.",
+ "rule": "Learn how they're put together; never copy their footage, logos, artwork or wording. Keep our own strategy: honest prices, friendly banter.",
+ "benchmarks": [
+  {"what": "Then v now carousel riding a trending launch (GTA V 2013 v GTA VI 2026, each brand's driver from 2013 next to its 2026 model)",
+   "why": "Rides a huge trending moment with a simple, instantly readable split; ten swipeable slides, one per brand; the joke is in the pairing.",
+   "ours": "thennow style (same product, highest tracked v today) and story style for trend tie-ins, always in our own design."},
+  {"what": "Competitor price-comparison reel: big bold headline, screen recording of their site with a cursor, stat line ('20+ UK retailers priced daily')",
+   "why": "Shows the product working in seconds; clear claim; consistent brand colour.",
+   "ours": "sitedemo style: a real phone recording of golfpriceai.com with taps, shop names hidden, our honest history chart as the hero."},
+  {"what": "Launch-monitor product film: cinematic footage, huge condensed type, stat callouts (smash factor, carry), neon ball trails, a cut every second",
+   "why": "Feels like a brand ad: pace, contrast, one big number at a time.",
+   "ours": "spec style: dark cinematic, condensed type, a neon streak, one real price stat per cut."},
+  {"what": "Macro close-up: wedge clipping a ball in a bunker, shallow depth of field",
+   "why": "Real texture and slow, satisfying detail.",
+   "ours": "Needs real footage: free stock clips with no people (PEXELS_API_KEY) or John filming on his phone."},
+  {"what": "Skit: 'Preparing for my first round back after...' tipping a bucket of balls into the bag",
+   "why": "Relatable truth, one-line caption, the joke plays out visually, loops well.",
+   "ours": "truth style (balls pour in and pile up, deadpan line, real ball deal) plus weekly film-it-yourself skit ideas."},
+  {"what": "Skit: 'Realistic range session', hitting with a branch in the way",
+   "why": "Deadpan, self-deprecating, universal.",
+   "ours": "Film-it-yourself skit ideas in the content pack."},
+  {"what": "POV: a day in your golf ball's life (camera follows a ball over water, underwater, into bunkers and trees)",
+   "why": "Playful POV, emotional for the ball, beautiful course scenery, ends with 'be nice to your golf balls'.",
+   "ours": "Planned: a ball's-eye journey style built on real course footage (needs PEXELS_API_KEY), ending with the real ball deal."}
+ ]
+}

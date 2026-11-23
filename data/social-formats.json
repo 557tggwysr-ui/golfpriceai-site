@@ -1,0 +1,234 @@
+{
+  "about": "The 14 content formats from John's creative brief (21 Nov 2026, .github/SOCIAL.md). 'formats' = WHAT a post is; 'styles' = HOW it looks (engine styles). The planner keeps the 14-post mix close to 'mix', rotates formats, and leans towards formats that earn saves, shares and clicks (content-learning.json). The channel scout reviews this file every fortnight (formats and memes move fast): status 'active', 'trial' (new, given a fair go), 'tired' (used less) or 'retired' (not used), with 'review' notes.",
+  "lastReview": "2026-11-21",
+  "mix": {
+    "entertainment": 4,
+    "challenge": 2,
+    "educational": 2,
+    "deal": 2,
+    "community": 2,
+    "data": 1,
+    "bts": 1
+  },
+  "formats": [
+    {
+      "id": "meme",
+      "name": "Relatable golf meme",
+      "bucket": "entertainment",
+      "objective": "reach",
+      "styles": [
+        "humour",
+        "pov",
+        "expectation",
+        "truth"
+      ],
+      "status": "active",
+      "auto": true
+    },
+    {
+      "id": "sketch",
+      "name": "Golf comedy sketch",
+      "bucket": "entertainment",
+      "objective": "reach",
+      "styles": [
+        "sequence",
+        "humour",
+        "story"
+      ],
+      "status": "active",
+      "auto": true,
+      "note": "Text-led sketches with obviously fictional characters; real filmed skits come from John (the pack suggests two a week)."
+    },
+    {
+      "id": "challenge",
+      "name": "Golf challenge",
+      "bucket": "challenge",
+      "objective": "engagement",
+      "styles": [
+        "guess",
+        "headline",
+        "reveal"
+      ],
+      "status": "active",
+      "auto": true
+    },
+    {
+      "id": "hottake",
+      "name": "Reaction / hot take",
+      "bucket": "entertainment",
+      "objective": "engagement",
+      "styles": [
+        "headline",
+        "story"
+      ],
+      "status": "active",
+      "auto": true,
+      "note": "Opinions on launches and prices; brands may be named in opinions, retailers never; no attacks on people."
+    },
+    {
+      "id": "drama",
+      "name": "Mini golf drama",
+      "bucket": "entertainment",
+      "objective": "reach",
+      "styles": [
+        "story",
+        "humour"
+      ],
+      "status": "trial",
+      "auto": true,
+      "note": "Episodic, recurring fictional characters (see bank 'characters'); one episode a fortnight at most."
+    },
+    {
+      "id": "carousel",
+      "name": "Educational carousel",
+      "bucket": "educational",
+      "objective": "trust",
+      "styles": [
+        "carousel"
+      ],
+      "status": "active",
+      "auto": true
+    },
+    {
+      "id": "myth",
+      "name": "Myth buster",
+      "bucket": "educational",
+      "objective": "trust",
+      "styles": [
+        "carousel",
+        "headline"
+      ],
+      "status": "active",
+      "auto": true,
+      "series": "Myth or Mulligan",
+      "note": "Only myths from the vetted bank, or ones our own price data settles."
+    },
+    {
+      "id": "pricedrop",
+      "name": "Price drop alert",
+      "bucket": "deal",
+      "objective": "conversions",
+      "styles": [
+        "spec",
+        "thennow",
+        "reveal",
+        "headline"
+      ],
+      "status": "active",
+      "auto": true,
+      "series": "Price Check Friday"
+    },
+    {
+      "id": "budget",
+      "name": "Budget vs premium",
+      "bucket": "deal",
+      "objective": "conversions",
+      "styles": [
+        "headline",
+        "carousel"
+      ],
+      "status": "active",
+      "auto": true,
+      "series": "Budget or Bougie?"
+    },
+    {
+      "id": "data",
+      "name": "Data nobody noticed",
+      "bucket": "data",
+      "objective": "trust",
+      "styles": [
+        "stat",
+        "countdown",
+        "receipt",
+        "carousel"
+      ],
+      "status": "active",
+      "auto": true
+    },
+    {
+      "id": "community",
+      "name": "Community / UGC",
+      "bucket": "community",
+      "objective": "engagement",
+      "styles": [
+        "headline"
+      ],
+      "status": "active",
+      "auto": true,
+      "note": "Questions and polls only. Never invent a golfer's story, comment or review; real UGC is used only with the person's permission."
+    },
+    {
+      "id": "bts",
+      "name": "Behind the scenes / lo-fi",
+      "bucket": "bts",
+      "objective": "trust",
+      "styles": [
+        "sitedemo"
+      ],
+      "status": "active",
+      "auto": true
+    },
+    {
+      "id": "remix",
+      "name": "Trending culture remix",
+      "bucket": "challenge",
+      "objective": "reach",
+      "styles": [
+        "story",
+        "collage",
+        "humour",
+        "headline"
+      ],
+      "status": "active",
+      "auto": false,
+      "note": "Only with a real, verified trend (newsroom, moments planner or trends scout). Never invent a trend or a sound."
+    },
+    {
+      "id": "storytime",
+      "name": "Golf confession / storytime",
+      "bucket": "community",
+      "objective": "engagement",
+      "styles": [
+        "humour",
+        "headline"
+      ],
+      "status": "active",
+      "auto": false,
+      "note": "Real stories only (John's own, or followers' with permission). The engine never writes one as if it happened."
+    }
+  ],
+  "series": [
+    {
+      "name": "The Fourball",
+      "format": "sketch",
+      "day": "Wed",
+      "fixed": true,
+      "tag": "#TheFourball",
+      "about": "Weekly episode of the recurring cast (Big Dave, Phil, Steady Steve, Gaz, Kev). Episodes post in order."
+    },
+    {
+      "name": "Price Check Friday",
+      "format": "pricedrop",
+      "day": "Fri",
+      "tag": "#PriceCheckFriday"
+    },
+    {
+      "name": "Myth or Mulligan",
+      "format": "myth",
+      "every": "fortnight",
+      "tag": "#MythOrMulligan"
+    },
+    {
+      "name": "Budget or Bougie?",
+      "format": "budget",
+      "every": "fortnight",
+      "tag": "#BudgetOrBougie"
+    }
+  ],
+  "visualStyles": {
+    "humour": "Style A: golf humour. Photo, dark green brush banner set-up, yellow punchline banner with arrow.",
+    "headline": "Style B: big headline. Photo, oversized white and yellow headline, green banner.",
+    "carousel": "5 to 7 slides, 1080x1350: Style B cover, numbered green slides, yellow save slide."
+  },
+  "review": []
+}
