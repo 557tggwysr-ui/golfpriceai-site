@@ -592,3 +592,21 @@
 .pr-pic:hover { background: rgba(63,174,41,.12); }
 .pr-pic-note { margin: 8px 0 0; font-size: 14px; opacity: .75; text-align: center; }
 .ch-wn { grid-column: 1 / -1; } /* 23 Nov: Wild Nine leads the games, full width like Par Price */
+/* 23 Nov: league page uses the width on a laptop/PC. Hero across the top; Par Price on the left,
+   the league's Wild Nine table, Bag Draft and society on the right. One column on a phone. */
+.lg-cols, .lg-main, .lg-side { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.lg-wn { padding: 20px 20px 16px; border-radius: 18px; }
+.lg-wn .wn-head h2 { font-size: 22px; }
+.lg-wn-h { margin: 6px 0 0; font: 800 20px Poppins, sans-serif; color: #fff; }
+@media (min-width: 1024px) {
+  .lg-wrap { max-width: 1200px; padding-top: 20px; }
+  .lg-hero { padding: 26px 30px; }
+  .lg-hero h1 { font-size: 38px; }
+  .lg-cols { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+  .lg-awards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .lg-foot { max-width: 760px; }
+}
+@media (min-width: 700px) and (max-width: 1023px) { .lg-wrap { max-width: 860px; } }
+.lg-side .lg-soc, .lg-side .lg-soc-link { margin-top: 0; }
+.lg-game { display: block; font: 800 11px Inter, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--gp-green-dark, #2b7a1e); margin-bottom: 2px; }
+#lg-bd:empty, #lg-wn:empty { display: none; }

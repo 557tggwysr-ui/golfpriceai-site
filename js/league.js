@@ -206,8 +206,9 @@
     var tag = lead && data.members.filter(function (m) { return m.today; }).length > 1 ? esc(lead.nick) + ' is leading today and has mentioned it at least twice.'
       : lead ? esc(lead.nick) + ' has posted a score. The pressure is on.' : 'Nobody’s teed off yet today. Be the first.';
     box.innerHTML = '<div class="lg-hero"><span class="pr-kicker">League · ' + n + (n === 1 ? ' golfer' : ' golfers') + ' · Par Price #' + data.n + '</span>' +
-      '<h1>' + esc(data.name) + '</h1><p>' + tag + '</p></div>' + '<div id="lg-bd"></div>' + socPanel(me) +
-      '<section class="lg-card"><div class="lg-card-head"><h2>' + (view === 'today' ? 'Today’s round' : view === 'week' ? 'This week' : view === 'hl' ? 'Higher or Lower today' : 'All time') + '</h2>' +
+      '<h1>' + esc(data.name) + '</h1><p>' + tag + '</p></div>' +
+      '<div class="lg-cols"><div class="lg-main">' +
+      '<section class="lg-card"><div class="lg-card-head"><h2><small class="lg-game">Par Price</small>' + (view === 'today' ? 'Today’s round' : view === 'week' ? 'This week' : view === 'hl' ? 'Higher or Lower today' : 'All time') + '</h2>' +
       '<div class="lg-tabs" role="group" aria-label="Which table">' +
       [['today', 'Today'], ['week', 'Week'], ['all', 'All time'], ['hl', 'Hi-Lo']].map(function (t) { return '<button type="button" data-v="' + t[0] + '" aria-pressed="' + (view === t[0]) + '">' + t[1] + '</button>'; }).join('') +
       '</div></div><ol class="lg-rows">' + rowsHtml(view) + '</ol>' +
@@ -217,12 +218,14 @@
       (view === 'week' ? '<p class="lg-note">Weekly champion crowned Monday morning. A missed round counts as ' + fmt(data.missed) + ': golf for “should’ve turned up”.</p>'
         : view === 'hl' ? '<p class="lg-note">Today’s daily-run streaks: longest wins. Free play doesn’t count. <a href="/play/higher-or-lower/?utm_source=league">Play today’s run</a></p>'
         : view === 'all' ? '<p class="lg-note">Wins are rounds where you had the best score in the league (ties share it).</p>' : '') +
-      '</section>' + awards() +
+      '</section>' + awards() + '</div>' +
+      '<div class="lg-side"><div id="lg-wn"></div><div id="lg-bd"></div>' + socPanel(me) + '</div></div>' +
       '<div class="lg-foot"><button type="button" class="lg-invite2">Invite more golfers to the league</button>' +
       '<span>Nicknames only. No emails, no sign-up. What happens in the league stays in the league. Quiet leagues tidy themselves away after 90 days. Play on the same phone and browser each time (not a private tab) so the table knows it’s you. Got a phone and a laptop? <a href="/play/#move">Bring your player with you</a>.</span>' +
       '<button type="button" class="lg-leave">Leave this league</button></div>';
     wireSoc(me);
     paintBd();
+    paintWn(me);
     box.querySelectorAll('.lg-tabs button').forEach(function (b) { b.addEventListener('click', function () { view = b.getAttribute('data-v'); table(); }); });
     var s = box.querySelector('.lg-share'); if (s) s.addEventListener('click', shareTable);
     var nu = box.querySelector('.lg-nudge'); if (nu) nu.addEventListener('click', function () {
@@ -237,6 +240,54 @@
       if (!window.confirm('Leave ' + data.name + '? Your scores stay out of its table from now on.')) return;
       api('/pp/league/leave', { pid: pid(), id: code }).then(function () { location.href = '/play/'; });
     });
+  }
+
+  /* ---------------------------------------------------------- the league's Wild Nine table
+     Every Par Price league has its own Wild Nine table (made by the worker the first time a member opens it).
+     Opening the league puts you on it with your league nickname, and the game posts your daily round there. */
+  var wn = null, wnView = 'today', WN_API = 'https://golfpriceai-alerts.golfpriceai.workers.dev';
+  function wnPid() {
+    var p = get('wildnine-pid', '');
+    if (!/^[a-z0-9]{12,32}$/.test(p)) {
+      var a = new Uint8Array(12); window.crypto.getRandomValues(a);
+      p = Array.prototype.map.call(a, function (x) { return (x % 36).toString(36); }).join('') + Date.now().toString(36).slice(-4);
+      put('wildnine-pid', p);
+    }
+    return p;
+  }
+  function wnFetch(path, body) {
+    return fetch(WN_API + path, body ? { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) } : {}).then(function (r) { return r.json(); });
+  }
+  function paintWn(me) {
+    var el = document.getElementById('lg-wn');
+    if (!el || !me || !window.wnBoard) return;
+    if (wn) { el.innerHTML = wnHtml(); wireWn(el); return; }
+    el.innerHTML = '<section class="wn-felt lg-wn"><span class="wn-k">Wild Nine</span><h2 class="lg-wn-h">Setting up your league’s table…</h2></section>';
+    var p = wnPid();
+    wnFetch('/wn/forleague', { pid: p, ppid: pid(), l: code, nick: me.nick }).then(function (r) {
+      if (!r.ok) throw new Error(r.error);
+      var gs = get('wildnine-groups', []); if (!Array.isArray(gs)) gs = [];
+      if (!gs.some(function (g) { return g.c === r.code; })) { gs.push({ c: r.code, n: r.name }); put('wildnine-groups', gs); }
+      return wnFetch('/wn/group?c=' + r.code + '&pid=' + p);
+    }).then(function (g) {
+      if (!g || !g.ok) throw new Error();
+      wn = g; el.innerHTML = wnHtml(); wireWn(el);
+    }).catch(function () { el.innerHTML = ''; });
+  }
+  function wnHtml() {
+    var rows = wnView === 'today' ? wn.today : wn.week, myAv = get('wildnine-av', null), mine = rows.filter(function (r) { return r.me; })[0];
+    var line = wnView === 'today'
+      ? (wn.today.length ? wn.today.length + ' of ' + wn.members + ' played today’s course' : 'Nobody’s played today’s course yet.')
+      : 'This week: shots to par, added up over the rounds played.';
+    line = line.replace(/([^.])$/, '$1.');
+    return '<section class="wn-felt lg-wn"><div class="wn-head"><span class="wn-k">Wild Nine · this league’s table</span><h2>A new course every day</h2>' +
+      '<a class="wn-play" href="/play/wild-nine/?utm_source=league">' + (wnView === 'today' && mine ? 'Play again' : 'Play today’s nine') + ' &rarr;</a></div>' +
+      '<div class="wn-tabs" role="group" aria-label="Which Wild Nine table"><button type="button" data-wv="today" aria-pressed="' + (wnView === 'today') + '">Today</button><button type="button" data-wv="week" aria-pressed="' + (wnView === 'week') + '">This week</button></div>' +
+      window.wnBoard(rows, { myAv: myAv, week: wnView === 'week', empty: wnView === 'today' ? 'Nobody’s on the board yet today. Tee off first and make them chase you.' : 'No rounds this week yet.' }) +
+      '<p class="wn-fine">' + line + ' Your golfer appears as you dressed them in the game. Play on this phone or browser so your rounds land here.</p></section>';
+  }
+  function wireWn(el) {
+    el.querySelectorAll('[data-wv]').forEach(function (b) { b.addEventListener('click', function () { wnView = b.getAttribute('data-wv'); el.innerHTML = wnHtml(); wireWn(el); }); });
   }
 
   /* ---------------------------------------------------------- the league's golf society (Society HQ) */
