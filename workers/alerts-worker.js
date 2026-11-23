@@ -4425,6 +4425,8 @@ async function wnSetup(env) {
     env.DEMAND.prepare('CREATE INDEX IF NOT EXISTS wn_scores_day ON wn_scores (day)'),
     // each player's golfer look (colours and shapes only), so tables can draw everyone's golfer
     env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wn_av (pid TEXT PRIMARY KEY, av TEXT, at TEXT) WITHOUT ROWID'),
+    // a Par Price league's own Wild Nine table (one group per league, made the first time a member opens it)
+    env.DEMAND.prepare('CREATE TABLE IF NOT EXISTS wn_leaguelink (league TEXT PRIMARY KEY, code TEXT) WITHOUT ROWID'),
   ]);
   wnReady = true;
 }
@@ -4460,6 +4462,29 @@ async function wildNine(request, url, env, cors) {
   const pidIn = String(body.pid || url.searchParams.get('pid') || '');
   const pid = PID_RX.test(pidIn) ? pidIn : '';
 
+  if (path === '/wn/forleague' && request.method === 'POST') {
+    // POST { pid (Wild Nine player), ppid (Par Price player), l (league id), nick } -> { ok, code, name }
+    const l = String(body.l || ''), ppid = String(body.ppid || ''), nick = WN_NICK(body.nick);
+    if (!pid || !PID_RX.test(ppid) || !LEAGUE_RX.test(l) || !nick) return json({ ok: false, error: 'Bad request.' }, 400, cors);
+    const mem = await db.prepare('SELECT m.nick, l.name FROM pp_members m JOIN pp_leagues l ON l.id = m.league WHERE m.league = ? AND m.pid = ?').bind(l, ppid).first();
+    if (!mem) return json({ ok: false, error: 'Join the league first.' }, 403, cors);
+    let link = await db.prepare('SELECT code FROM wn_leaguelink WHERE league = ?').bind(l).first();
+    let code = link && link.code;
+    if (!code) {
+      const A = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      for (let t = 0; t < 6 && !code; t++) {
+        const b = crypto.getRandomValues(new Uint8Array(6)), c = [...b].map(x => A[x % A.length]).join('');
+        const r = await db.prepare('INSERT OR IGNORE INTO wn_groups (code, name, owner, created) VALUES (?, ?, ?, ?)').bind(c, WN_GNAME(mem.name) || 'League', pid, now).run();
+        if (r.meta && r.meta.changes) code = c;
+      }
+      if (!code) return json({ ok: false, error: 'Could not make the table. Please try again.' }, 500, cors);
+      await db.prepare('INSERT OR IGNORE INTO wn_leaguelink (league, code) VALUES (?, ?)').bind(l, code).run();
+      link = await db.prepare('SELECT code FROM wn_leaguelink WHERE league = ?').bind(l).first();  // two members at once: one table
+      code = link.code;
+    }
+    await db.prepare('INSERT OR REPLACE INTO wn_members (code, pid, nick, joined) VALUES (?, ?, ?, ?)').bind(code, pid, nick, now).run();
+    return json({ ok: true, code, name: mem.name }, 200, cors);
+  }
   if (path === '/wn/new' && request.method === 'POST') {
     const name = WN_GNAME(body.name), nick = WN_NICK(body.nick);
     if (!pid || !name || !nick) return json({ ok: false, error: 'Give the group a name and yourself a nickname.' }, 400, cors);

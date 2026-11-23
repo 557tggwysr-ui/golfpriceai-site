@@ -1,0 +1,37 @@
+/* Wild Nine scoreboards (My Clubhouse, league pages): the game's colours, felt green, gold and cream */
+.wn-sec { padding: 0; background: none; border: 0; }
+.wn-felt { background: linear-gradient(160deg, #0f3b23, #1f6a3a); background-image: repeating-linear-gradient(120deg, rgba(255,255,255,.035) 0 30px, transparent 30px 60px), linear-gradient(160deg, #0f3b23, #1f6a3a); color: #fff; border-radius: 22px; padding: 22px 20px 18px; }
+.wn-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-bottom: 14px; }
+.wn-k { display: block; width: 100%; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #e3b23c; }
+.wn-head h2 { margin: 0; font: 900 26px/1.1 Poppins, system-ui, sans-serif; color: #fff; }
+.wn-play { margin-left: auto; background: #e3b23c; color: #0f3b23; font-weight: 800; border-radius: 999px; padding: 9px 16px; text-decoration: none; white-space: nowrap; }
+.wn-play:hover { color: #0f3b23; filter: brightness(1.05); }
+.wn-me { display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,.22); border: 1px solid rgba(227,178,60,.45); border-radius: 16px; padding: 10px 14px; margin-bottom: 12px; }
+.wn-me b { display: block; font-size: 16px; }
+.wn-me small { color: #cfe3d3; font-size: 13px; }
+.wn-board { list-style: none; margin: 0; padding: 0; background: #f6f1e1; color: #16241c; border-radius: 14px; overflow: hidden; border: 3px solid #0b2a19; box-shadow: inset 0 0 0 2px #e3b23c; }
+.wn-board li { display: grid; grid-template-columns: 34px 50px 1fr auto 56px; align-items: center; gap: 8px; padding: 4px 12px 4px 8px; border-top: 1px solid #e4dcc3; font-family: Georgia, 'Times New Roman', serif; }
+.wn-board li:first-child { border-top: 0; }
+.wn-board li.is-lead .wn-pos { background: #e3b23c; color: #0f3b23; }
+.wn-board li.is-me { background: #fff6d6; box-shadow: inset 4px 0 0 #e3b23c; }
+.wn-board li.is-gap { border-top: 2px dashed #c9bf9f; }
+.wn-pos { width: 28px; height: 28px; border-radius: 50%; background: #0f3b23; color: #fff; display: flex; align-items: center; justify-content: center; font: 800 13px system-ui, sans-serif; }
+.wn-face { width: 46px; height: 46px; border-radius: 50%; background: #2a7d46; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
+.wn-face svg { width: 56px; height: auto; display: block; margin-bottom: -10px; }
+.wn-me .wn-face { width: 56px; height: 56px; flex: none; }
+.wn-me .wn-face svg { width: 68px; margin-bottom: -12px; }
+.wn-nick { font-weight: 700; font-size: 17px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wn-nick small { font: 800 10px system-ui, sans-serif; letter-spacing: .08em; text-transform: uppercase; background: #0f3b23; color: #e3b23c; border-radius: 6px; padding: 2px 6px; vertical-align: middle; }
+.wn-tot { color: #6b6450; font-size: 14px; }
+.wn-tp { font: 900 20px Georgia, serif; text-align: right; color: #16241c; }
+.wn-tp.is-red { color: #c0392b; }
+.wn-empty { background: rgba(0,0,0,.2); border-radius: 12px; padding: 14px; margin: 0; }
+.wn-group { margin-top: 16px; }
+.wn-group h3 { font: 800 17px Poppins, system-ui, sans-serif; color: #fff; margin: 0 0 8px; }
+.wn-group h3 small { font: 500 13px Inter, sans-serif; color: #cfe3d3; margin-left: 6px; }
+.wn-fine { font-size: 12px; color: #b9d3bf; margin: 12px 0 0; }
+@media (max-width: 520px) { .wn-board li { grid-template-columns: 28px 46px 1fr 48px; } .wn-tot { display: none; } .wn-play { margin-left: 0; } .wn-head h2 { font-size: 22px; } }
+.wn-tabs { display: flex; gap: 6px; margin: 0 0 10px; }
+.wn-tabs button { border: 1px solid rgba(227,178,60,.6); background: transparent; color: #f6f1e3; border-radius: 999px; padding: 6px 14px; font-weight: 700; font-size: 13px; cursor: pointer; }
+.wn-tabs button[aria-pressed="true"] { background: #e3b23c; color: #0f3b23; }
+.wn-board .wn-sub { display: block; font: 500 12px system-ui, sans-serif; color: #6b6450; }

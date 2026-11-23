@@ -67,4 +67,23 @@
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="96 76 108 132" width="' + size + '" height="' + Math.round(size * 132 / 108) + '" aria-hidden="true">' +
       torso + neck + hairBack + head + lashes + eyes + hat + '</svg>';
   };
+
+  // A scoreboard of rows { nick, tp, tot, rounds, me, av }, top 10, with your row added below if you're further down.
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function par(n) { return n === 0 ? 'E' : n > 0 ? '+' + n : String(n); }
+  function face(av) { return '<span class="wn-face">' + window.wnAvatar(av, 44) + '</span>'; }
+  window.wnBoard = function (rows, o) {
+    o = o || {};
+    if (!rows || !rows.length) return '<p class="wn-empty">' + (o.empty || 'No rounds on the board yet today. Be the first name up there.') + '</p>';
+    var top = rows.slice(0, o.max || 10), me = rows.filter(function (r) { return r.me; })[0], pos = 0, last = null;
+    var html = top.map(function (r, i) {
+      if (r.tp !== last) { pos = i + 1; last = r.tp; }
+      var right = o.week ? (r.rounds + (r.rounds === 1 ? ' round' : ' rounds')) : (r.tot || '');
+      return '<li class="' + (r.me ? 'is-me' : '') + (pos === 1 ? ' is-lead' : '') + '"><span class="wn-pos">' + pos + '</span>' + face(r.me && o.myAv ? o.myAv : r.av) +
+        '<span class="wn-nick">' + esc(r.nick) + (r.me ? ' <small>you</small>' : '') + '</span><span class="wn-tot">' + right + '</span><b class="wn-tp' + (r.tp < 0 ? ' is-red' : '') + '">' + par(r.tp) + '</b></li>';
+    }).join('');
+    if (o.mine && !top.some(function (r) { return r.me; })) html += '<li class="is-me is-gap"><span class="wn-pos">' + o.mine + '</span>' + face(o.myAv) + '<span class="wn-nick">You</span><span class="wn-tot"></span><b class="wn-tp">' + (me ? par(me.tp) : '') + '</b></li>';
+    return '<ol class="wn-board">' + html + '</ol>';
+  };
+  window.wnFace = face;
 })();

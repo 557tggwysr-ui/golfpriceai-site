@@ -3860,7 +3860,8 @@ window.WN_QUIPS = {
     if (!p) { const a = new Uint8Array(12); (crypto.getRandomValues ? crypto.getRandomValues(a) : a.forEach((_, i) => a[i] = Math.random() * 256)); p = [...a].map(x => (x % 36).toString(36)).join('') + Date.now().toString(36).slice(-4); store.set('wildnine-pid', p); }
     return p;
   }
-  const myNick = () => (wallet().name || '').replace(/[^A-Za-z0-9 '\-]/g, '').trim().slice(0, 14);
+  // the golfer's name, or the nickname used in the site's leagues, so a league's Wild Nine table gets your rounds
+  const myNick = () => (wallet().name || store.get('gpNick') || '').replace(/[^A-Za-z0-9 '\-]/g, '').trim().slice(0, 14);
   async function api(path, body) {
     const ctl = window.AbortController ? new AbortController() : null, t = ctl && setTimeout(() => ctl.abort(), 7000);
     try {

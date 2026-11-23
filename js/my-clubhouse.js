@@ -134,18 +134,8 @@
 
   // ---------------------------------------------------------------- Wild Nine: today's course league
   // A scoreboard in the game's own colours, with each player's golfer as they dressed them in the game.
-  function wnPar(n) { return n === 0 ? 'E' : n > 0 ? '+' + n : String(n); }
-  function wnFace(av) { return '<span class="wn-face">' + (window.wnAvatar ? window.wnAvatar(av, 44) : '') + '</span>'; }
-  function wnTable(rows, mineLabel) {
-    if (!rows.length) return '<p class="wn-empty">No rounds on the board yet today. Be the first name up there.</p>';
-    var top = rows.slice(0, 10), me = rows.filter(function (r) { return r.me; })[0];
-    var html = top.map(function (r, i) {
-      return '<li class="' + (r.me ? 'is-me' : '') + (i === 0 ? ' is-lead' : '') + '"><span class="wn-pos">' + (i + 1) + '</span>' + wnFace(r.me && wnAv ? wnAv : r.av) +
-        '<span class="wn-nick">' + esc(r.nick) + (r.me ? ' <small>you</small>' : '') + '</span><span class="wn-tot">' + (r.tot || '') + '</span><b class="wn-tp' + (r.tp < 0 ? ' is-red' : '') + '">' + wnPar(r.tp) + '</b></li>';
-    }).join('');
-    if (mineLabel && !top.some(function (r) { return r.me; })) html += '<li class="is-me is-gap"><span class="wn-pos">' + mineLabel + '</span>' + wnFace(wnAv) + '<span class="wn-nick">You</span><span class="wn-tot"></span><b class="wn-tp">' + (me ? wnPar(me.tp) : '') + '</b></li>';
-    return '<ol class="wn-board">' + html + '</ol>';
-  }
+  function wnFace(av) { return window.wnFace ? window.wnFace(av) : ''; }
+  function wnTable(rows, mine) { return window.wnBoard ? window.wnBoard(rows, { mine: mine, myAv: wnAv }) : ''; }
   function wildNine(day, groups) {
     if (!day || !day.ok) return '';
     var gross = day.gross || [], mine = day.mine;
