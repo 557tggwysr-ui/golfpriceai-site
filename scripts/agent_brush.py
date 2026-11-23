@@ -700,8 +700,51 @@ def thumbnail(path, style, s):
 CW, CH = 1080, 1350
 
 
-def carousel(out_dir, pid, slides, bg=None, series=None):
-    """slides: [{"title": "...", "body": "...", "kicker": "MYTH"}...]. The first is the cover, the last the save slide.
+COLD = ((12, 40, 72), (24, 82, 130))      # icy blue, top and bottom
+WARM = ((150, 48, 20), (236, 132, 40))    # fireside orange
+WARMTH = [COLD, ((44, 36, 96), (92, 66, 150)), ((118, 34, 70), (196, 84, 86)), WARM]  # ice, dusk, ember, fire
+
+
+def _mix(a, b, k):
+    return tuple(int(x + (y - x) * k) for x, y in zip(a, b))
+
+
+def _gradient(top, bottom):
+    g = Image.new("RGB", (1, 2))
+    g.putpixel((0, 0), top)
+    g.putpixel((0, 1), bottom)
+    return g.resize((CW, CH), Image.BILINEAR).convert("RGBA")
+
+
+def _product_tile(im, img, name, price, cx, top, size):
+    """A real product on the slide: white tile, its name and today's lowest price."""
+    tile = Image.new("RGBA", (size, size), (255, 255, 255, 255))
+    pic = ImageOps.contain(img.convert("RGB"), (size - 50, size - 50), Image.LANCZOS)
+    tile.paste(pic, ((size - pic.width) // 2, (size - pic.height) // 2))
+    m = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(m).rounded_rectangle([0, 0, size - 1, size - 1], 36, fill=255)
+    tile.putalpha(m)
+    sh = Image.new("RGBA", (size + 80, size + 80), (0, 0, 0, 0))
+    sh.paste((0, 0, 0, 110), (40, 56), m)
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(22)), (int(cx - size / 2 - 40), int(top - 30)))
+    im.alpha_composite(tile, (int(cx - size / 2), int(top)))
+    d = ImageDraw.Draw(im)
+    fn = font(38, "body")
+    nm = name if fn.getlength(name) < CW - 200 else name[: max(10, int(len(name) * (CW - 260) / fn.getlength(name)))].rstrip() + "…"
+    d.text((cx - fn.getlength(nm) / 2, top + size + 22), nm, font=fn, fill=WHITE + (235,))
+    if price:
+        txt = f"{price} today"
+        fp = font(46)
+        w = fp.getlength(txt) + 56
+        y = top + size + 80
+        d.rounded_rectangle([cx - w / 2, y, cx + w / 2, y + 70], 35, fill=YELLOW + (255,))
+        d.text((cx - fp.getlength(txt) / 2, y + 8), txt, font=fp, fill=INKD + (255,))
+
+
+def carousel(out_dir, pid, slides, bg=None, series=None, warmth=False):
+    """slides: [{"title": "...", "body": "...", "kicker": "MYTH", "img": PIL image, "product": {"name", "price"}}...].
+    The first is the cover, the last the save slide. warmth: the tip slides go from icy blue to fireside orange,
+    with a thermometer across the top (John, 23 Nov 2026: winter carousels "getting warmer" as you swipe).
     Writes <out_dir>/<pid>-s1.jpg ... and returns (paths, problems)."""
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -751,11 +794,28 @@ def carousel(out_dir, pid, slides, bg=None, series=None):
                     d.text(((CW - fb.getlength(r)) / 2, by2), r, font=fb, fill=GREEN + (255,))
                     by2 += 66
         else:
-            im = Image.new("RGBA", (CW, CH), GREEN + (255,))
-            d = ImageDraw.Draw(im)
+            if warmth:
+                k = (i - 1) / max(1, n - 3)
+                seg = min(len(WARMTH) - 2, int(k * (len(WARMTH) - 1)))
+                kk = k * (len(WARMTH) - 1) - seg
+                a, b2 = WARMTH[seg], WARMTH[seg + 1]
+                im = _gradient(_mix(a[0], b2[0], kk), _mix(a[1], b2[1], kk))
+                d = ImageDraw.Draw(im)
+                tx0, tx1, ty = 260, CW - 260, 64  # the thermometer: fills up slide by slide
+                d.rounded_rectangle([tx0, ty, tx1, ty + 22], 11, fill=(255, 255, 255, 70))
+                fill_to = tx0 + (tx1 - tx0) * (0.18 + 0.82 * k)
+                d.rounded_rectangle([tx0, ty, fill_to, ty + 22], 11, fill=_mix((120, 200, 255), (255, 170, 60), k) + (255,))
+                d.ellipse([tx0 - 34, ty - 23, tx0 + 34, ty + 45], fill=_mix((120, 200, 255), (255, 170, 60), k) + (255,))
+                fl = font(30, "body")
+                d.text((tx0 - fl.getlength("COLD") - 46, ty - 6), "COLD", font=fl, fill=(255, 255, 255, 200))
+                d.text((tx1 + 16, ty - 6), "TOASTY", font=fl, fill=(255, 255, 255, 200))
+            else:
+                im = Image.new("RGBA", (CW, CH), GREEN + (255,))
+                d = ImageDraw.Draw(im)
             # measure first, so the block sits in the middle of the slide
-            f, lines, sz = fit(sl.get("title", ""), CW - 160, 120, 64, 4)
-            fb = font(52, "body")
+            prod = sl.get("img") is not None
+            f, lines, sz = fit(sl.get("title", ""), CW - 160, 100 if prod else 120, 60 if prod else 64, 3 if prod else 4)
+            fb = font(44 if prod else 52, "body")
             rows, line = [], ""
             for w in (sl.get("body") or "").split():
                 if fb.getlength((line + " " + w).strip()) > CW - 160:
@@ -765,18 +825,29 @@ def carousel(out_dir, pid, slides, bg=None, series=None):
                     line = (line + " " + w).strip()
             if line:
                 rows.append(line)
-            block = 190 + sz * 1.0 * len(lines) + 40 + 72 * len(rows)
+            lh_b = 60 if prod else 72
+            block = 190 + sz * 1.0 * len(lines) + 40 + lh_b * len(rows)
             top = max(120, (CH - 120 - block) / 2)
+            if prod:  # text at the top, the product underneath
+                top = 125 if warmth else 70
             if sl.get("kicker"):
                 banner(im, sl["kicker"], 80 + 140, top + 70, 360, colour=YELLOW, ink=INKD, hi=GREEN, size=60, seed="c-k" + str(i), rot=-3)
             else:
                 d.text((80, top - 10), str(i), font=font(170), fill=YELLOW + (255,), stroke_width=6, stroke_fill=GREEN2 + (255,))
-            y = draw_words(d, lines, f, sz, CW / 2, top + 190, align="left", x0=80, lh=1.0)
-            by = y + 40
+            y = draw_words(d, lines, f, sz, CW / 2, top + (170 if prod else 190), align="left", x0=80, lh=1.0)
+            by = y + (26 if prod else 40)
             for r in rows:
                 d.text((80, by), r, font=fb, fill=WHITE + (240,))
-                by += 72
-            if by > CH - 130:
+                by += lh_b
+            if prod:
+                pr = sl.get("product") or {}
+                size = int(min(480, CH - 110 - 160 - (by + 24)))
+                if size >= 240:
+                    _product_tile(im, sl["img"], pr.get("name", ""), pr.get("price"), CW / 2, by + 24, size)
+                else:
+                    probs.append(f"slide {i + 1}: no room for the product")
+                by = by + 30 + size + 150
+            if by > CH - 110:
                 probs.append(f"slide {i + 1}: too much text for the slide")
         # progress dots and brand on every slide
         d = ImageDraw.Draw(im)
