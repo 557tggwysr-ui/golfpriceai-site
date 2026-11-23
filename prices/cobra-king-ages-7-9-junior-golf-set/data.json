@@ -6,28 +6,29 @@
  "checked": "2026-11-23",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 329.0,
+ "lowestNewPrice": 349.0,
  "lowestAt": [
+  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Clickgolf",
-   "from": 329.0,
-   "options": 1
-  },
-  {
    "name": "Clarkes Golf",
    "from": 349.0,
    "options": 2
+  },
+  {
+   "name": "Clickgolf",
+   "from": 349.0,
+   "options": 1
   }
  ],
  "history": {
   "daysTracked": 100,
   "low": 309.0,
   "high": 349.0,
-  "average": 343.3,
-  "priceChanges": 12,
+  "average": 343.5,
+  "priceChanges": 13,
   "series": [
    [
     "2026-08-16",
@@ -83,13 +84,13 @@
    ],
    [
     "2026-11-23",
-    329.0
+    349.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £40.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/91759431-7-9-Junior-Set-Side-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
