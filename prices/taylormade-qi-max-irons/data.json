@@ -6,11 +6,16 @@
  "checked": "2026-11-23",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 849.0,
+ "lowestNewPrice": 799.0,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 799.0,
+   "options": 10
+  },
   {
    "name": "Major Golf Direct",
    "from": 849.0,
@@ -22,11 +27,6 @@
    "options": 25
   },
   {
-   "name": "Clarkes Golf",
-   "from": 859.0,
-   "options": 10
-  },
-  {
    "name": "Clickgolf",
    "from": 949.0,
    "options": 2
@@ -34,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 100,
-  "low": 849.0,
+  "low": 799.0,
   "high": 949.0,
-  "average": 861.0,
-  "priceChanges": 1,
+  "average": 860.5,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -49,13 +49,13 @@
    ],
    [
     "2026-11-23",
-    849.0
+    799.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 88 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeGolfQiMAXIrons2026_2.jpg?v=1768226089",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

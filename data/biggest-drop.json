@@ -1,30 +1,30 @@
 {
- "checked": "2026-11-23T14:44+00:00",
- "fresh": 0,
- "week": 96,
+ "checked": "2026-11-23T17:57+00:00",
+ "fresh": 6,
+ "week": 101,
  "cats": {
   "clubs": {
-   "name": "Mizuno Pro S-4 Irons",
-   "slug": "mizuno-pro-s-4-irons",
-   "url": "/prices/mizuno-pro-s-4-irons/",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MizunoProS-4Irons3.jpg?v=1788532401",
-   "was": 1289.0,
-   "now": 975.0,
-   "fall": 314.0,
-   "pct": 24,
-   "date": "2026-11-19",
+   "name": "TaylorMade Qi Max HL Irons",
+   "slug": "taylormade-qi-max-hl-irons",
+   "url": "/prices/taylormade-qi-max-hl-irons/",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeGolfQiMAXHLSteelIrons2026_5.jpg?v=1768226150",
+   "was": 849.0,
+   "now": 749.0,
+   "fall": 100.0,
+   "pct": 12,
+   "date": "2026-11-23",
    "unit": ""
   },
   "accessories": {
-   "name": "Bushnell Launch Pro Launch Monitor",
-   "slug": "bushnell-launch-pro-launch-monitor",
-   "url": "/prices/bushnell-launch-pro-launch-monitor/",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BushnellLaunchPro-CircleBEdition2.jpg?v=1773171695",
-   "was": 2790.0,
-   "now": 2490.0,
-   "fall": 300.0,
+   "name": "NAVEE Birdie 3X Follow Electric Trolley",
+   "slug": "navee-birdie-3x-follow-electric-trolley",
+   "url": "/prices/navee-birdie-3x-follow-electric-trolley/",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/navee-3x-main.webp?v=1787130093",
+   "was": 1295.0,
+   "now": 1149.0,
+   "fall": 146.0,
    "pct": 11,
-   "date": "2026-11-17",
+   "date": "2026-11-23",
    "unit": ""
   },
   "apparel": {
@@ -37,5 +37,17 @@
    "fall": 100.0,
    "unit": ""
   }
+ },
+ "drop": {
+  "name": "NAVEE Birdie 3X Follow Electric Trolley",
+  "slug": "navee-birdie-3x-follow-electric-trolley",
+  "url": "/prices/navee-birdie-3x-follow-electric-trolley/",
+  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/navee-3x-main.webp?v=1787130093",
+  "was": 1295.0,
+  "now": 1149.0,
+  "fall": 146.0,
+  "pct": 11,
+  "date": "2026-11-23",
+  "unit": ""
  }
 }

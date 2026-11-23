@@ -6,14 +6,14 @@
  "checked": "2026-11-23",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 849.0,
+ "lowestNewPrice": 779.0,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 849.0,
+   "from": 779.0,
    "options": 1
   },
   {
@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 100,
-  "low": 849.0,
+  "low": 779.0,
   "high": 849.99,
-  "average": 849.74,
-  "priceChanges": 1,
+  "average": 849.04,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -39,13 +39,13 @@
    ],
    [
     "2026-11-23",
-    849.0
+    779.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 25 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/NAV_001-Navee-Birdie-3-Remote-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

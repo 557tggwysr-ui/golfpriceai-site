@@ -1,8 +1,68 @@
 {
- "checked": "2026-11-23T14:44+00:00",
+ "checked": "2026-11-23T17:57+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Mizuno Tour Staff Mid Golf Bag",
+   "model_id": "mizuno-tour-staff-mid-golf-bag",
+   "date": "2026-11-23",
+   "was": 299.0,
+   "now": 199.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-tour-staff-mid-golf-bag/"
+  },
+  {
+   "model": "TaylorMade Qi Max HL Irons",
+   "model_id": "taylormade-qi-max-hl-irons",
+   "date": "2026-11-23",
+   "was": 849.0,
+   "now": 749.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-qi-max-hl-irons/"
+  },
+  {
+   "model": "NAVEE Birdie 3X Follow Electric Trolley",
+   "model_id": "navee-birdie-3x-follow-electric-trolley",
+   "date": "2026-11-23",
+   "was": 1295.0,
+   "now": 1149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/navee-birdie-3x-follow-electric-trolley/"
+  },
+  {
+   "model": "TaylorMade Qi4D LS Driver",
+   "model_id": "taylormade-qi4d-ls-driver",
+   "date": "2026-11-23",
+   "was": 549.0,
+   "now": 495.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-qi4d-ls-driver/"
+  },
+  {
+   "model": "NAVEE Birdie 3 Remote Electric Trolley",
+   "model_id": "navee-birdie-3-remote-electric-trolley",
+   "date": "2026-11-23",
+   "was": 849.0,
+   "now": 779.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/navee-birdie-3-remote-electric-trolley/"
+  },
+  {
+   "model": "TaylorMade Qi Max Irons",
+   "model_id": "taylormade-qi-max-irons",
+   "date": "2026-11-23",
+   "was": 849.0,
+   "now": 799.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-qi-max-irons/"
+  },
   {
    "model": "Callaway Limited Chrome Soft Truvis Team Golf Balls",
    "model_id": "callaway-limited-chrome-soft-truvis-team-golf-balls",
@@ -132,16 +192,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/wilson-talus-5-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Odyssey Ai-Dual Putter",
-   "model_id": "odyssey-ai-dual-putter",
-   "date": "2026-11-20",
-   "was": 199.0,
-   "now": 169.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/odyssey-ai-dual-putter/"
   },
   {
    "model": "Motocaddy Protekta Cart Bag Golf Bag",
