@@ -433,7 +433,7 @@ def add_sound(style, script, dur, out_path):
     try:
         import agent_audio
         wav = out_path.with_suffix(".wav")
-        if not agent_audio.soundtrack(style, script, dur, wav):
+        if not agent_audio.soundtrack(style, script, dur, wav, seed=out_path.stem):
             return
         tmp = out_path.with_name(out_path.stem + ".snd.mp4")
         r = subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(out_path), "-i", str(wav), "-map", "0:v", "-map", "1:a",

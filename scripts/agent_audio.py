@@ -94,7 +94,113 @@ def _shot_sfx(label):
     return None
 
 
-def soundtrack(style, script, dur, out_wav):
+# ---- the bands: six grooves at 100 bpm (cuts still land on the beat), in five keys.
+# The Fourball keeps its own theme (the one John signed off on), so the series is recognisable;
+# everything else rotates by day, so two days running never share a groove.
+GROOVES = ["clubhouse", "bossa", "funk", "chip", "lofi", "oompah"]
+KEYS = [1.0, 2 ** (2 / 12), 2 ** (-3 / 12), 2 ** (5 / 12), 2 ** (-5 / 12)]  # G, A, E, C, D
+
+
+def groove_for(style, script, seed):
+    if style == "sequence":
+        return ("clubhouse", 1.0)
+    key = str(seed or "")
+    try:  # pid starts with the date: the groove follows the day, so neighbours always differ
+        from datetime import date
+        n = date.fromisoformat(key[:10]).toordinal()
+    except ValueError:
+        n = sum(map(ord, key))
+    rot = [g for g in GROOVES if g != "clubhouse"] + ["clubhouse"]
+    return (rot[n % len(rot)], KEYS[(n * 7 + len(key)) % len(KEYS)])
+
+
+def _tone(f, l, harm=(1, .4, .2), a=.004, d=.18, gain=.22):
+    n = int(l * SR); t = np.arange(n) / SR
+    return sum(h * np.sin(2 * np.pi * f * (k + 1) * t) for k, h in enumerate(harm)) * _env(n, a, d) * gain
+def _square(f, l, gain=.08):
+    n = int(l * SR); t = np.arange(n) / SR
+    return np.sign(np.sin(2 * np.pi * f * t)) * _env(n, .002, l / 3) * gain
+def _rhodes(f, l=1.1):
+    n = int(l * SR); t = np.arange(n) / SR
+    return (np.sin(2 * np.pi * f * t) + .25 * np.sin(2 * np.pi * f * 3 * t) * np.exp(-t * 6)) * (1 + .25 * np.sin(2 * np.pi * 5 * t)) * _env(n, .01, .5) * .16
+def _clap():
+    n = int(.2 * SR); x = np.zeros(n)
+    for i, at in enumerate((0, .012, .024)):
+        j = int(at * SR); m = n - j; x[j:] += _noise(m, 20 + i) * _env(m, .0005, .03 if i < 2 else .08) * .4
+    return x
+def _rim():
+    n = int(.05 * SR); return _tone(1700, .05, (1,), .0003, .008, .5) + _noise(n, 31) * _env(n, .0003, .005) * .3
+def _shaker():
+    n = int(.09 * SR); return _noise(n, 33) * np.sin(np.linspace(0, np.pi, n)) * .12
+def _crackle(dur):
+    n = int(dur * SR); x = np.zeros(n); r = np.random.RandomState(5)
+    for i in r.randint(0, n, int(dur * 30)): x[i] = r.uniform(-.25, .25)
+    return x + _noise(n, 6) * .006
+def _tuba(f, l=.28):
+    return _tone(f, l, (1, .6, .3, .15), .01, .12, .3)
+
+
+PROG = {  # four-bar chord loops, root notes in Hz (in G before transposing)
+    "clubhouse": [(196, 247, 294), (165, 196, 247), (131, 165, 196), (147, 185, 220)],
+    "bossa": [(196, 247, 294, 370), (220, 262, 330, 392), (147, 185, 220, 262), (196, 247, 294, 370)],
+    "funk": [(196, 233, 294), (196, 233, 294), (262, 311, 392), (233, 294, 349)],
+    "chip": [(196, 247, 294), (220, 262, 330), (175, 220, 262), (147, 185, 220)],
+    "lofi": [(165, 196, 247, 294), (131, 165, 196, 247), (147, 185, 220, 262), (110, 139, 165, 196)],
+    "oompah": [(196, 247, 294), (147, 185, 220), (196, 247, 294), (147, 185, 220)],
+}
+
+
+def band(music, dur, g, add):
+    name, key = g
+    prog = [[f * key for f in c] for c in PROG[name]]
+    k = 0
+    if name == "lofi":
+        add(music, _crackle(dur), 0)
+    while k * BEAT < dur:
+        at, c = k * BEAT, prog[(k // 2) % 4]
+        if name == "clubhouse":
+            add(music, kick() * .9 if k % 2 == 0 else snare() * .6, at); add(music, hat(), at + BEAT / 2)
+            if k % 2 == 0:
+                for j, f in enumerate(c[:3]): add(music, pluck(f), at + j * .05)
+                add(music, pluck(c[0] / 2, 1.0) * 1.2, at)
+        elif name == "bossa":
+            add(music, kick() * .6, at)
+            for off in (0, .3 * BEAT, .75 * BEAT): add(music, _rim(), at + off)
+            for off in (0, .25, .5, .75): add(music, _shaker(), at + off * BEAT)
+            if k % 2 == 0:
+                for j, f in enumerate(c): add(music, _tone(f, .5, (1, .3), .003, .2, .12), at + .35 * BEAT + j * .01)
+                add(music, _tone(c[0] / 2, .5, (1, .2), .005, .25, .35), at)
+            else:
+                add(music, _tone(c[0] * 3 / 4, .4, (1, .2), .005, .2, .3), at)
+        elif name == "funk":
+            add(music, kick(), at)
+            if k % 2: add(music, _clap() * .9, at)
+            for off in (.25, .5, .75): add(music, hat() * (1.3 if off == .5 else .8), at + off * BEAT)
+            for off, mul in ((0, 1), (.75, 1), (.5, 2)):  # a syncopated octave bass
+                add(music, _tone(c[0] / 2 * mul, .14, (1, .5, .25), .003, .06, .45), at + off * BEAT)
+            if k % 2 == 1:
+                for f in c: add(music, _tone(f * 2, .12, (1, .5, .3, .2), .002, .05, .07), at + .5 * BEAT)
+        elif name == "chip":  # an 8-bit arcade bounce, Wild Nine's world
+            add(music, kick() * .7, at) if k % 2 == 0 else add(music, _noise(int(.05 * SR), 40) * _env(int(.05 * SR), .0005, .02) * .35, at)
+            arp = [c[0], c[1], c[2], c[1] * 2]
+            for j in range(4): add(music, _square(arp[j] * 2, .14), at + j * BEAT / 4)
+            if k % 2 == 0: add(music, _square(c[0] / 2, BEAT * 1.8, .09), at)
+        elif name == "lofi":
+            add(music, kick() * .55, at) if k % 2 == 0 else add(music, snare() * .3, at + .03)
+            add(music, hat() * .5, at + BEAT / 2 + .02)
+            if k % 2 == 0:
+                for f in c: add(music, _rhodes(f), at + .02)
+                add(music, _tone(c[0] / 2, 1.0, (1, .1), .02, .5, .3), at)
+        elif name == "oompah":  # a comedy march
+            add(music, _tuba(c[0] / 2 if k % 2 == 0 else c[2] / 2), at)
+            add(music, _tone(c[1], .15, (1, .5, .3), .003, .06, .12) + 0, at + BEAT / 2)
+            add(music, snare() * .35, at + BEAT / 2)
+            if k % 8 == 7:
+                for j in range(4): add(music, snare() * .25, at + j * BEAT / 8)
+        k += 1
+
+
+def soundtrack(style, script, dur, out_wav, seed=None):
     if np is None:
         return None
     N = int(dur * SR)
@@ -128,16 +234,7 @@ def soundtrack(style, script, dur, out_wav):
     elif style in ("humour", "headline"):
         add(fx, rimshot(), 3.0, .6)
 
-    k = 0
-    while k * BEAT < dur:
-        at = k * BEAT
-        add(music, kick() * .9 if k % 2 == 0 else snare() * .6, at)
-        add(music, hat(), at + BEAT / 2)
-        if k % 2 == 0:
-            c = CHORDS[(k // 2) % 4]
-            for j, f in enumerate(c): add(music, pluck(f), at + j * .05)
-            add(music, pluck(c[0] / 2, 1.0) * 1.2, at)
-        k += 1
+    band(music, dur, groove_for(style, script, seed), add)
     for a, b in quiet:  # fade the band out and back in around the deadpan beat
         i, j, r = int(a * SR), int(b * SR), int(.08 * SR)
         music[i:j] *= 0
