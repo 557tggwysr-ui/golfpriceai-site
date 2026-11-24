@@ -991,11 +991,19 @@ def add_to_issue(post):
     if found:
         i = found[0]
         gh("PATCH", f"/issues/{i['number']}", {"body": (i.get("body") or "") + "\n" + issue_line(post)})
+        return
+    # No open pack issue (John closes them once ticked): give the post its own issue so there is always a box to tick.
+    d = date.fromisoformat(post["date"])
+    gh("POST", "/issues", {"title": f"Same-day post: {DAYS[d.weekday()]} {d.day} {d.strftime('%b')}",
+                           "body": "Tick to approve. Ticked posts go to Instagram and Bluesky at their time today. "
+                                   "If you don't tick it, nothing happens.\n"
+                                   f"Watch the video and copy captions in the pack: {SITE}/social/pack/\n\n" + issue_line(post),
+                           "labels": ["content-pack"]})
 
 
 def approved_ids():
     ids = set()
-    for i in gh("GET", "/issues?state=all&labels=content-pack&per_page=6") or []:
+    for i in gh("GET", "/issues?state=all&labels=content-pack&per_page=15") or []:
         ids.update(re.findall(r"- \[[xX]\] \*\*([\w-]+)\*\*", i.get("body") or ""))
     return ids
 
