@@ -1,13 +1,20 @@
 {
- "generated": "2026-11-24T19:08Z",
+ "generated": "2026-11-24T19:39Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
- "verdict": "ok",
- "summary": "Fix pack is clean: temporary hides for broken or mis-priced listings, internal links to existing price pages, and a refreshed llms.txt, with nothing from the Never list.",
+ "verdict": "block",
+ "summary": "Three posts held: the Cobra moment post has a misleading, overlapping thumbnail, the Doomsday post has empty headings, and the Callaway post's claim differs between platforms.",
  "points": [
-  "data/agent-pages.json: adds /fourball/episodes/1/ to the sitemap, but the page isn't in this diff or the repo (fourball/episodes/ is absent too); confirm fourball_episodes.py generates it on deploy so the sitemap doesn't list a 404.",
-  "PR notes: S1 lists four pages then '…' but the diff boosts five (incl. ping-s159-midnight-wedge); all five price pages exist, so just a wording nit.",
-  "H5-H10: the £7495.00 vs £74.95 style mismatches look like a retailer-side price-format error; hides are 3-day and temporary, which is fine."
+  "2026-11-24-moment: thumbnail says 'GUESS THE PRICE' but shows the £229 answer, and the post is a 'new low' reveal, so the thumbnail is misleading and does not match the video or caption. Rebuild it from the reveal (e.g. 'NEW LOW £229' in 2-4 big words, driver large).",
+  "2026-11-24-moment: in the thumbnail the word PRICE overlaps the tilted photo card, the bottom third is empty, and £229 sits on the card's corner with the URL jammed beside it. Re-lay it out and keep key content inside the middle 4:5.",
+  "2026-11-24-moment: feed card is cramped at the bottom: the 'NEW LOW' stamp touches £229 and the strapline sits close to the edge, with the product label small for a phone. Add spacing and enlarge the label.",
+  "2026-11-24-moment: I could not extract video frames here (no ffmpeg), so the video was not reviewed. It needs a check that its frames match the card and carry the same colours as the thumbnail.",
+  "2026-11-24-reactive1: headline and sub are empty and the Pinterest title is empty (empty headings). Fill them, e.g. 'Assemble the bag' as the headline and Pinterest title.",
+  "2026-11-26-thu: the 'in 81 days' claim appears on Instagram, TikTok, YouTube and Pinterest but not on X or Bluesky, which just say 'lowest price we've tracked'. Make the claim identical on every platform.",
+  "2026-11-26-thu (note): 'Good time to buy' leans pushy. Consider dropping it.",
+  "2026-11-24-tue (note): the YouTube description repeats #golf and #golfuk. The non-product post also carries #golfdeals and #golfgear.",
+  "2026-11-25-wed and 2026-12-02-wed (note): X and Bluesky text has a capital 'Https://'. Fix to lowercase.",
+  "No card or frames were supplied for the other posts, so only their text was reviewed. It is clean on retailer names, urgency and '#Ad'."
  ],
- "what": "Agent: fix pack",
- "postsHash": "7fb629121e37f46d9c633fa092d8718053dac165"
+ "what": "Agent: content engine",
+ "postsHash": "00204a6f2f0577bed5e8243f2f13d06d94543925"
 }
