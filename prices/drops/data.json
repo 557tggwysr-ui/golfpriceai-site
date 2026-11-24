@@ -1,8 +1,18 @@
 {
- "checked": "2026-11-24T17:04+00:00",
+ "checked": "2026-11-24T20:04+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Ping s159 Wedge",
+   "model_id": "ping-s159-wedge",
+   "date": "2026-11-24",
+   "was": 159.0,
+   "now": 99.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-s159-wedge/"
+  },
   {
    "model": "TaylorMade TP5x Stripe Golf Balls",
    "model_id": "taylormade-tp5x-stripe-golf-balls",
@@ -34,6 +44,16 @@
    "url": "https://golfpriceai.com/prices/taylormade-qi4d-tour-fairway-wood/"
   },
   {
+   "model": "Cobra X Vessel Core Stand Bag Golf Bag",
+   "model_id": "cobra-x-vessel-core-stand-bag-golf-bag",
+   "date": "2026-11-24",
+   "was": 329.0,
+   "now": 269.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-x-vessel-core-stand-bag-golf-bag/"
+  },
+  {
    "model": "Callaway Chase 14 Dry Cart Bag Golf Bag",
    "model_id": "callaway-chase-14-dry-cart-bag-golf-bag",
    "date": "2026-11-24",
@@ -42,6 +62,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-chase-14-dry-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Bushnell Phantom 3 Rangefinder",
+   "model_id": "bushnell-phantom-3-rangefinder",
+   "date": "2026-11-24",
+   "was": 129.0,
+   "now": 109.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-phantom-3-rangefinder/"
   },
   {
    "model": "Callaway Elyte Tour Certified Driver",
@@ -102,6 +132,26 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-11r-oc-putter/"
+  },
+  {
+   "model": "Cobra Ace Waterproof Cart Bag Golf Bag",
+   "model_id": "cobra-ace-waterproof-cart-bag-golf-bag",
+   "date": "2026-11-24",
+   "was": 159.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Cobra Ultralight 2 Pro Stand Bag Golf Bag",
+   "model_id": "cobra-ultralight-2-pro-stand-bag-golf-bag",
+   "date": "2026-11-24",
+   "was": 126.65,
+   "now": 119.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-ultralight-2-pro-stand-bag-golf-bag/"
   },
   {
    "model": "TaylorMade Qi35 Driver",
@@ -204,16 +254,6 @@
    "url": "https://golfpriceai.com/prices/taylormade-qi4d-ls-driver/"
   },
   {
-   "model": "NAVEE Birdie 3 Remote Electric Trolley",
-   "model_id": "navee-birdie-3-remote-electric-trolley",
-   "date": "2026-11-23",
-   "was": 849.0,
-   "now": 779.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/navee-birdie-3-remote-electric-trolley/"
-  },
-  {
    "model": "TaylorMade Qi Max Irons",
    "model_id": "taylormade-qi-max-irons",
    "date": "2026-11-23",
@@ -222,16 +262,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/taylormade-qi-max-irons/"
-  },
-  {
-   "model": "Callaway Limited Chrome Soft Truvis Team Golf Balls",
-   "model_id": "callaway-limited-chrome-soft-truvis-team-golf-balls",
-   "date": "2026-11-21",
-   "was": 55.0,
-   "now": 41.25,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-soft-truvis-team-golf-balls/"
   },
   {
    "model": "Titleist Vokey SM10 Nickel Wedge",
@@ -1102,16 +1132,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Cobra Ace Waterproof Cart Bag Golf Bag",
-   "model_id": "cobra-ace-waterproof-cart-bag-golf-bag",
-   "date": "2026-11-17",
-   "was": 169.0,
-   "now": 159.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-ace-waterproof-cart-bag-golf-bag/"
   },
   {
    "model": "Ping Hoofer Monsoon Waterproof Stand Bag Golf Bag",

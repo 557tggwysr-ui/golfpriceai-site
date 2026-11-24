@@ -1,0 +1,49 @@
+{
+ "name": "Ping s159 Wedge",
+ "brand": "Ping",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/ping-s159-wedge/",
+ "checked": "2026-11-24",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 99.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 99.0,
+   "options": 1
+  },
+  {
+   "name": "Scottsdale Golf",
+   "from": 159.0,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 82,
+  "low": 99.0,
+  "high": 159.0,
+  "average": 158.27,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-09-04",
+    159.0
+   ],
+   [
+    "2026-11-24",
+    99.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/164576.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-24"
+}

@@ -10,6 +10,7 @@
  "lowestAt": [
   "Affordable Golf",
   "Clarkes Golf",
+  "Clickgolf",
   "Major Golf Direct"
  ],
  "retailers": [
@@ -24,14 +25,14 @@
    "options": 1
   },
   {
+   "name": "Clickgolf",
+   "from": 269.0,
+   "options": 1
+  },
+  {
    "name": "Major Golf Direct",
    "from": 269.0,
    "options": 2
-  },
-  {
-   "name": "Clickgolf",
-   "from": 329.0,
-   "options": 1
   }
  ],
  "history": {
@@ -71,7 +72,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/bushnell_tour_v6_shift_laser_rangefinder_1.jpg?v=1777966902",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Tour-V6-Shift-Laser-Rangefinder.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-24"
 }

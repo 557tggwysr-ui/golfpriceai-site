@@ -31,7 +31,7 @@
   "daysTracked": 82,
   "low": 199.0,
   "high": 319.0,
-  "average": 305.59,
+  "average": 306.8,
   "priceChanges": 2,
   "series": [
    [
@@ -43,10 +43,6 @@
     299.0
    ],
    [
-    "2026-11-23",
-    199.0
-   ],
-   [
     "2026-11-24",
     199.0
    ]
@@ -54,7 +50,7 @@
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 2 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Tour-Staff-Mid-Golf-Cart-Bag.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

@@ -268,9 +268,9 @@
 37.95,
 "typical"
 ],
-"bushnell-a1-slope-laser-rangefinder": "b4ba71a094",
+"bushnell-a1-slope-laser-rangefinder": "8643d802a1",
 "bushnell-ion-elite-gps-watch": "12862636de",
-"bushnell-ion-elite-rangefinder": "bd366254eb",
+"bushnell-ion-elite-rangefinder": "4ef2d8e96a",
 "bushnell-launch-pro-indoor-launch-monitor": [
 "19ae5e6ffe",
 1890.0,
@@ -278,11 +278,7 @@
 ],
 "bushnell-launch-pro-launch-monitor": "c55bafaa50",
 "bushnell-phantom-3-handheld-rangefinder": "7c85a19088",
-"bushnell-phantom-3-rangefinder": [
-"66e840a177",
-129.0,
-"typical"
-],
+"bushnell-phantom-3-rangefinder": "ed9160b9e4",
 "bushnell-pro-x3-plus-laser-rangefinder": "20b7c1e75f",
 "bushnell-pro-xm-laser-rangefinder": [
 "f867584e06",
@@ -291,7 +287,7 @@
 ],
 "bushnell-tour-hybrid-laser-rangefinder": "cc5b78e1e3",
 "bushnell-tour-v6-laser-rangefinder": "c95377ea8d",
-"bushnell-tour-v6-shift-laser-rangefinder": "f0c75c18aa",
+"bushnell-tour-v6-shift-laser-rangefinder": "00b3dd77c5",
 "bushnell-tour-v7-shift-laser-rangefinder": "f5745464f5",
 "bushnell-v6-shift-laser-rangefinder": [
 "f5b64de213",
@@ -606,7 +602,6 @@
 ],
 "callaway-limited-chrome-soft-flowers-golf-balls": "6f6c1a911b",
 "callaway-limited-chrome-soft-mother-s-golf-balls": "f178274943",
-"callaway-limited-chrome-soft-truvis-team-golf-balls": "9c46aaa802",
 "callaway-limited-chrome-tour-area-51-golf-balls": "77166e3366",
 "callaway-limited-chrome-tour-coastal-summer-golf-balls": "7ab472a9e7",
 "callaway-limited-chrome-tour-german-shepherd-golf-balls": "3da456dacf",
@@ -1121,7 +1116,7 @@
 379.0,
 "typical"
 ],
-"cobra-ace-waterproof-cart-bag-golf-bag": "4c98355a3a",
+"cobra-ace-waterproof-cart-bag-golf-bag": "d24650eb41",
 "cobra-ace-waterproof-stand-bag-golf-bag": "c08b84193a",
 "cobra-ace-wp-stand-bag-golf-bag": [
 "c15483dc54",
@@ -1389,7 +1384,7 @@
 169.0,
 "wait"
 ],
-"cobra-ultralight-2-pro-stand-bag-golf-bag": "03cf215ba6",
+"cobra-ultralight-2-pro-stand-bag-golf-bag": "ebcd12493b",
 "cobra-ultralight-2-stand-bag-golf-bag": [
 "6cc4399bc3",
 119.0,
@@ -1405,7 +1400,7 @@
 429.0,
 "typical"
 ],
-"cobra-x-vessel-core-stand-bag-golf-bag": "38586104b7",
+"cobra-x-vessel-core-stand-bag-golf-bag": "6cd8cbe37c",
 "cobra-x-vessel-core-tour-staff-golf-bag": [
 "bc16624c8c",
 329.0,
@@ -2385,7 +2380,11 @@
 849.0,
 "typical"
 ],
-"navee-birdie-3-remote-electric-trolley": "e7624c3da2",
+"navee-birdie-3-remote-electric-trolley": [
+"4b97a8aed8",
+789.0,
+"typical"
+],
 "navee-birdie-3x-follow-electric-trolley": "ac30ba20ea",
 "navee-birdie3-follow-electric-trolley": [
 "078a312273",
@@ -2824,6 +2823,7 @@
 ],
 "ping-s159-chrome-wedge": "634c7b6c78",
 "ping-s159-midnight-wedge": "4024dd1b4c",
+"ping-s159-wedge": "13493deb14",
 "ping-s259-chrome-wedge": [
 "5049e2f15d",
 179.0,

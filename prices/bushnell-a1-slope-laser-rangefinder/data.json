@@ -10,6 +10,7 @@
  "lowestAt": [
   "Affordable Golf",
   "Clarkes Golf",
+  "Clickgolf",
   "Major Golf Direct"
  ],
  "retailers": [
@@ -24,14 +25,14 @@
    "options": 1
   },
   {
+   "name": "Clickgolf",
+   "from": 209.0,
+   "options": 1
+  },
+  {
    "name": "Major Golf Direct",
    "from": 209.0,
    "options": 3
-  },
-  {
-   "name": "Clickgolf",
-   "from": 269.0,
-   "options": 1
   }
  ],
  "history": {
@@ -75,7 +76,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/BushnellGolfA1SlopeLaserRangefinder1.jpg?v=1742570928",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Bushnell-A1-Slope-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-24"
 }

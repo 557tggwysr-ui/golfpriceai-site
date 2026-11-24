@@ -788,6 +788,8 @@ ping-s159-midnight-wedge,2026-09-04,129.00
 ping-s159-midnight-wedge,2026-09-30,119.00
 ping-s159-midnight-wedge,2026-11-18,99.95
 ping-s159-midnight-wedge,2026-11-24,99.00
+ping-s159-wedge,2026-09-04,159.00
+ping-s159-wedge,2026-11-24,99.00
 powerbilt-x-grind-satin-wedge,2026-08-28,24.95
 taylormade-hi-toe-4-wedge,2026-08-16,159.00
 taylormade-hi-toe-4-wedge,2026-09-05,129.95
@@ -1124,10 +1126,6 @@ callaway-limited-chrome-soft-flowers-golf-balls,2026-08-16,55.00
 callaway-limited-chrome-soft-flowers-golf-balls,2026-11-18,46.75
 callaway-limited-chrome-soft-mother-s-golf-balls,2026-08-16,55.00
 callaway-limited-chrome-soft-mother-s-golf-balls,2026-11-18,46.75
-callaway-limited-chrome-soft-truvis-team-golf-balls,2026-08-16,55.00
-callaway-limited-chrome-soft-truvis-team-golf-balls,2026-08-21,44.00
-callaway-limited-chrome-soft-truvis-team-golf-balls,2026-11-19,55.00
-callaway-limited-chrome-soft-truvis-team-golf-balls,2026-11-21,41.25
 callaway-limited-chrome-tour-area-51-golf-balls,2026-08-16,55.00
 callaway-limited-chrome-tour-area-51-golf-balls,2026-11-18,46.75
 callaway-limited-chrome-tour-coastal-summer-golf-balls,2026-08-16,55.00
@@ -1726,6 +1724,7 @@ cobra-ace-waterproof-cart-bag-golf-bag,2026-10-24,179.00
 cobra-ace-waterproof-cart-bag-golf-bag,2026-10-26,189.00
 cobra-ace-waterproof-cart-bag-golf-bag,2026-10-30,169.00
 cobra-ace-waterproof-cart-bag-golf-bag,2026-11-17,159.00
+cobra-ace-waterproof-cart-bag-golf-bag,2026-11-24,149.00
 cobra-core-tour-staff-golf-bag,2026-09-04,329.00
 cobra-crown-c-rolling-golf-bag,2026-09-04,148.95
 cobra-premium-stand-bag-golf-bag,2026-08-16,219.00
@@ -1849,6 +1848,7 @@ cobra-ultralight-2-cart-bag-golf-bag,2026-11-20,149.00
 cobra-ultralight-2-cart-bag-golf-bag,2026-11-23,169.00
 cobra-ultralight-2-pro-stand-bag-golf-bag,2026-08-28,139.00
 cobra-ultralight-2-pro-stand-bag-golf-bag,2026-11-02,126.65
+cobra-ultralight-2-pro-stand-bag-golf-bag,2026-11-24,119.00
 cobra-ultralight-2-stand-bag-golf-bag,2026-08-16,129.00
 cobra-ultralight-2-stand-bag-golf-bag,2026-08-17,149.00
 cobra-ultralight-2-stand-bag-golf-bag,2026-08-22,129.00
@@ -1870,6 +1870,7 @@ cobra-x-vessel-core-stand-bag-golf-bag,2026-09-04,349.00
 cobra-x-vessel-core-stand-bag-golf-bag,2026-09-22,329.00
 cobra-x-vessel-core-stand-bag-golf-bag,2026-10-01,349.00
 cobra-x-vessel-core-stand-bag-golf-bag,2026-10-30,329.00
+cobra-x-vessel-core-stand-bag-golf-bag,2026-11-24,269.00
 cobra-x-vessel-core-tour-staff-golf-bag,2026-08-16,399.00
 cobra-x-vessel-core-tour-staff-golf-bag,2026-08-17,429.00
 cobra-x-vessel-core-tour-staff-golf-bag,2026-08-22,399.00
@@ -2120,7 +2121,7 @@ mizuno-tour-staff-golf-bag,2026-08-16,399.00
 mizuno-tour-staff-golf-bag,2026-09-04,189.99
 mizuno-tour-staff-mid-golf-bag,2026-09-04,319.00
 mizuno-tour-staff-mid-golf-bag,2026-10-11,299.00
-mizuno-tour-staff-mid-golf-bag,2026-11-23,199.00
+mizuno-tour-staff-mid-golf-bag,2026-11-24,199.00
 mizuno-tour-stand-bag-golf-bag,2026-08-16,229.00
 mizuno-tour-stand-bag-golf-bag,2026-08-17,259.00
 mizuno-tour-stand-bag-golf-bag,2026-08-22,229.00
@@ -3401,6 +3402,7 @@ bushnell-phantom-3-handheld-rangefinder,2026-09-04,109.95
 bushnell-phantom-3-handheld-rangefinder,2026-09-25,129.95
 bushnell-phantom-3-handheld-rangefinder,2026-11-17,109.95
 bushnell-phantom-3-rangefinder,2026-08-16,129.00
+bushnell-phantom-3-rangefinder,2026-11-24,109.00
 bushnell-pro-x3-plus-laser-rangefinder,2026-08-16,529.00
 bushnell-pro-x3-plus-laser-rangefinder,2026-08-28,479.00
 bushnell-pro-x3-plus-laser-rangefinder,2026-09-25,529.00
@@ -3433,6 +3435,7 @@ bushnell-ion-elite-rangefinder,2026-08-16,159.00
 bushnell-ion-elite-rangefinder,2026-09-05,139.95
 bushnell-ion-elite-rangefinder,2026-10-01,159.00
 bushnell-ion-elite-rangefinder,2026-11-17,139.95
+bushnell-ion-elite-rangefinder,2026-11-24,139.00
 caddytalk-cube-laser-rangefinder,2026-08-16,249.00
 caddytalk-cube-laser-rangefinder,2026-10-15,229.00
 callaway-csi-pro-laser-rangefinder,2026-08-28,179.00
@@ -3640,7 +3643,7 @@ navee-birdie-3-remote-control-electric-trolley,2026-08-28,849.00
 navee-birdie-3-remote-electric-trolley,2026-08-16,849.99
 navee-birdie-3-remote-electric-trolley,2026-10-30,849.00
 navee-birdie-3-remote-electric-trolley,2026-11-23,779.00
-navee-birdie-3-remote-electric-trolley,2026-11-24,759.00
+navee-birdie-3-remote-electric-trolley,2026-11-24,789.00
 navee-birdie-3x-follow-electric-trolley,2026-08-28,1299.99
 navee-birdie-3x-follow-electric-trolley,2026-10-25,1295.00
 navee-birdie-3x-follow-electric-trolley,2026-11-23,1149.00

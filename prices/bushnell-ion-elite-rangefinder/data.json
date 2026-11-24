@@ -6,28 +6,28 @@
  "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 139.95,
+ "lowestNewPrice": 139.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 139.95,
+   "name": "Clickgolf",
+   "from": 139.0,
    "options": 2
   },
   {
-   "name": "Clickgolf",
-   "from": 159.0,
+   "name": "Affordable Golf",
+   "from": 139.95,
    "options": 2
   }
  ],
  "history": {
   "daysTracked": 101,
-  "low": 139.95,
+  "low": 139.0,
   "high": 159.0,
-  "average": 152.59,
-  "priceChanges": 3,
+  "average": 152.58,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -47,7 +47,7 @@
    ],
    [
     "2026-11-24",
-    139.95
+    139.0
    ]
   ]
  },
@@ -55,7 +55,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/bushnell_elite_gps_black_7.jpg?v=1777978254",
+ "image": "https://www.clickgolf.co.uk/images/product/main/iON-Elite-GPS-Rangefinder-Golf-Watch---Black-2_1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-24"
 }

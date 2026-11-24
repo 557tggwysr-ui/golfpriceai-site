@@ -6,23 +6,23 @@
  "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.0,
+ "lowestNewPrice": 109.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 129.0,
+   "from": 109.0,
    "options": 4
   }
  ],
  "history": {
   "daysTracked": 101,
-  "low": 129.0,
+  "low": 109.0,
   "high": 129.0,
-  "average": 129.0,
-  "priceChanges": 0,
+  "average": 128.8,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-24",
-    129.0
+    109.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 101 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Bushnell_Phantom_3_Golf_GPS_Rangefinder_Device_-_Orange.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
