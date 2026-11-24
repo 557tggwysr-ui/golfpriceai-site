@@ -1,35 +1,35 @@
 {
- "generated": "2026-11-23T12:00Z",
+ "generated": "2026-11-24T17:57Z",
  "about": "Revenue guardian: are buy links tracked and landing on the right page? No money figures here (those go privately to the owner).",
- "listings": 81077,
+ "listings": 81521,
  "untracked": [],
  "untrackedTotal": 0,
  "sampleChecked": 50,
  "landingOkPct": 92,
  "landingProblems": [
   {
-   "name": "Limited Edition June Major Staff Bag",
-   "id": "bag-limited-edition-june-major-staff-bag-callaway",
+   "name": "Limited Edition Chrome Soft  Truvis Team Colors Red and Blue Golf Balls 2022 (Dozen)",
+   "id": "ball-limited-edition-chrome-soft-truvis-team-colors-red-and-blue--callaway",
    "feed": "awin-callaway",
    "problem": "landed on callawaygolf.com"
   },
   {
-   "name": "Limited Edition May Major Staff Bag",
-   "id": "bag-limited-edition-may-major-staff-bag-callaway",
-   "feed": "awin-callaway",
-   "problem": "landed on callawaygolf.com"
-  },
-  {
-   "name": "Never Compromise Reserve #4S Golf Putter",
-   "id": "putter-never-compromise-reserve-4s-golf-putter-scottsdalegolf",
+   "name": "Malbon Blackbird Polo Shirt",
+   "id": "apparel-malbon-blackbird-polo-shirt-scottsdalegolf",
    "feed": "awin-scottsdalegolf",
    "problem": "error 403"
   },
   {
-   "name": "Men's Chev Star Golf Shoes",
-   "id": "shoes-men-s-chev-star-golf-shoes-callaway",
-   "feed": "awin-callaway",
-   "problem": "landed on callawaygolf.com"
+   "name": "Lamkin Crossline",
+   "id": "accessories-lamkin-crossline-scottsdalegolf",
+   "feed": "awin-scottsdalegolf",
+   "problem": "error 403"
+  },
+  {
+   "name": "Cleveland Huntington Beach Soft Milled #4 Plumber's Neck Golf Putter",
+   "id": "putter-cleveland-huntington-beach-soft-milled-4-plumber-s-neck-golf-scottsdalegolf",
+   "feed": "awin-scottsdalegolf",
+   "problem": "error 403"
   }
  ],
  "status": "ok"
