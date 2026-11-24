@@ -6,14 +6,14 @@
  "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 119.0,
+ "lowestNewPrice": 129.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 119.0,
+   "from": 129.0,
    "options": 5
   },
   {
@@ -35,9 +35,9 @@
  "history": {
   "daysTracked": 101,
   "low": 119.0,
-  "high": 119.0,
-  "average": 119.0,
-  "priceChanges": 0,
+  "high": 129.0,
+  "average": 119.1,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -45,15 +45,15 @@
    ],
    [
     "2026-11-24",
-    119.0
+    129.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 101 days"
+  "label": "wait",
+  "summary": "Wait if you can: £10.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-BR-D3-Golf-Stand-Bag-Black.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-BR-D3-Golf-Stand-Bag-Green.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-24"
 }

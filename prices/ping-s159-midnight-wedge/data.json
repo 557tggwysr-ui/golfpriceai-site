@@ -1,0 +1,57 @@
+{
+ "name": "Ping s159 Midnight Wedge",
+ "brand": "Ping",
+ "type": "wedge",
+ "url": "https://golfpriceai.com/prices/ping-s159-midnight-wedge/",
+ "checked": "2026-11-24",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 99.0,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 99.0,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 99.95,
+   "options": 7
+  }
+ ],
+ "history": {
+  "daysTracked": 82,
+  "low": 99.0,
+  "high": 129.0,
+  "average": 120.53,
+  "priceChanges": 3,
+  "series": [
+   [
+    "2026-09-04",
+    129.0
+   ],
+   [
+    "2026-09-30",
+    119.0
+   ],
+   [
+    "2026-11-18",
+    99.95
+   ],
+   [
+    "2026-11-24",
+    99.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "good",
+  "summary": "Good time to buy"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/ping-S159-midnight-wedge-hero-1000x1000.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-24"
+}

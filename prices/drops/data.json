@@ -1,8 +1,48 @@
 {
- "checked": "2026-11-24T03:53+00:00",
+ "checked": "2026-11-24T17:04+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "TaylorMade TP5x Stripe Golf Balls",
+   "model_id": "taylormade-tp5x-stripe-golf-balls",
+   "date": "2026-11-24",
+   "was": 47.95,
+   "now": 37.49,
+   "unit": "per dozen",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/taylormade-tp5x-stripe-golf-balls/"
+  },
+  {
+   "model": "Wilson DYNAPWR Forged Irons",
+   "model_id": "wilson-dynapwr-forged-irons",
+   "date": "2026-11-24",
+   "was": 599.0,
+   "now": 479.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-dynapwr-forged-irons/"
+  },
+  {
+   "model": "TaylorMade Qi4D Tour Fairway Wood",
+   "model_id": "taylormade-qi4d-tour-fairway-wood",
+   "date": "2026-11-24",
+   "was": 379.0,
+   "now": 305.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-qi4d-tour-fairway-wood/"
+  },
+  {
+   "model": "Callaway Chase 14 Dry Cart Bag Golf Bag",
+   "model_id": "callaway-chase-14-dry-cart-bag-golf-bag",
+   "date": "2026-11-24",
+   "was": 179.0,
+   "now": 149.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-chase-14-dry-cart-bag-golf-bag/"
+  },
   {
    "model": "Callaway Elyte Tour Certified Driver",
    "model_id": "callaway-elyte-tour-certified-driver",
@@ -12,6 +52,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-elyte-tour-certified-driver/"
+  },
+  {
+   "model": "Callaway Quantum Staff Stand Bag Golf Bag",
+   "model_id": "callaway-quantum-staff-stand-bag-golf-bag",
+   "date": "2026-11-24",
+   "was": 369.0,
+   "now": 329.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-quantum-staff-stand-bag-golf-bag/"
   },
   {
    "model": "Sun Mountain 3.5ls Stand Bag Golf Bag",
@@ -24,6 +74,16 @@
    "url": "https://golfpriceai.com/prices/sun-mountain-3-5ls-stand-bag-golf-bag/"
   },
   {
+   "model": "Scotty Cameron Phantom 12 Putter",
+   "model_id": "scotty-cameron-phantom-12-putter",
+   "date": "2026-11-24",
+   "was": 419.0,
+   "now": 379.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-12-putter/"
+  },
+  {
    "model": "Mizuno BR-D3 Cart Bag Golf Bag",
    "model_id": "mizuno-br-d3-cart-bag-golf-bag",
    "date": "2026-11-24",
@@ -32,6 +92,66 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/mizuno-br-d3-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Scotty Cameron Phantom 11R OC Putter",
+   "model_id": "scotty-cameron-phantom-11r-oc-putter",
+   "date": "2026-11-24",
+   "was": 449.0,
+   "now": 419.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-11r-oc-putter/"
+  },
+  {
+   "model": "TaylorMade Qi35 Driver",
+   "model_id": "taylormade-qi35-driver",
+   "date": "2026-11-24",
+   "was": 319.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-qi35-driver/"
+  },
+  {
+   "model": "Odyssey Ai-ONE Milled Putter",
+   "model_id": "odyssey-ai-one-milled-putter",
+   "date": "2026-11-24",
+   "was": 189.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-putter/"
+  },
+  {
+   "model": "Scotty Cameron Phantom 9R Putter",
+   "model_id": "scotty-cameron-phantom-9r-putter",
+   "date": "2026-11-24",
+   "was": 399.0,
+   "now": 379.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-9r-putter/"
+  },
+  {
+   "model": "Scotty Cameron Studio Style Fastback OC Putter",
+   "model_id": "scotty-cameron-studio-style-fastback-oc-putter",
+   "date": "2026-11-24",
+   "was": 439.0,
+   "now": 419.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/scotty-cameron-studio-style-fastback-oc-putter/"
+  },
+  {
+   "model": "Wilson Infinite Zero Torque Putter",
+   "model_id": "wilson-infinite-zero-torque-putter",
+   "date": "2026-11-24",
+   "was": 189.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-infinite-zero-torque-putter/"
   },
   {
    "model": "Big Max Dri Lite Silencio 2 Organiser Golf Bag",
@@ -434,16 +554,6 @@
    "url": "https://golfpriceai.com/prices/taylormade-flextech-superlite-stand-bag-golf-bag/"
   },
   {
-   "model": "TaylorMade Qi35 Driver",
-   "model_id": "taylormade-qi35-driver",
-   "date": "2026-11-20",
-   "was": 329.0,
-   "now": 319.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-qi35-driver/"
-  },
-  {
    "model": "Mizuno Pro S-4 Irons",
    "model_id": "mizuno-pro-s-4-irons",
    "date": "2026-11-19",
@@ -572,6 +682,16 @@
    "unit": "per dozen",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-golf-balls/"
+  },
+  {
+   "model": "Ping s159 Midnight Wedge",
+   "model_id": "ping-s159-midnight-wedge",
+   "date": "2026-11-18",
+   "was": 119.0,
+   "now": 99.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-s159-midnight-wedge/"
   },
   {
    "model": "Callaway Chrome Tour Corgi Dog Golf Balls",
@@ -814,16 +934,6 @@
    "url": "https://golfpriceai.com/prices/motocaddy-lite-series-cart-bag-golf-bag/"
   },
   {
-   "model": "Scotty Cameron Phantom 9R Putter",
-   "model_id": "scotty-cameron-phantom-9r-putter",
-   "date": "2026-11-18",
-   "was": 429.0,
-   "now": 399.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-9r-putter/"
-  },
-  {
    "model": "Ping G440 SFT Fairway Wood",
    "model_id": "ping-g440-sft-fairway-wood",
    "date": "2026-11-18",
@@ -842,16 +952,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/ping-g440-max-driver/"
-  },
-  {
-   "model": "Scotty Cameron Phantom 11R OC Putter",
-   "model_id": "scotty-cameron-phantom-11r-oc-putter",
-   "date": "2026-11-18",
-   "was": 469.0,
-   "now": 449.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-11r-oc-putter/"
   },
   {
    "model": "Cobra King Wedge",
@@ -1032,16 +1132,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-quantum-mini-driver/"
-  },
-  {
-   "model": "Scotty Cameron Phantom 12 Putter",
-   "model_id": "scotty-cameron-phantom-12-putter",
-   "date": "2026-11-17",
-   "was": 449.0,
-   "now": 429.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/scotty-cameron-phantom-12-putter/"
   },
   {
    "model": "Scotty Cameron Phantom 3.2 Putter",

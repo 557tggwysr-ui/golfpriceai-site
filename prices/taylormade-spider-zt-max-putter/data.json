@@ -6,22 +6,20 @@
  "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 449.0,
+ "lowestNewPrice": 439.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 439.0,
+   "options": 5
+  },
   {
    "name": "Affordable Golf",
    "from": 449.0,
    "options": 11
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 449.0,
-   "options": 5
   },
   {
    "name": "Clickgolf",
@@ -36,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 101,
-  "low": 449.0,
+  "low": 439.0,
   "high": 449.0,
-  "average": 449.0,
-  "priceChanges": 0,
+  "average": 448.9,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -47,13 +45,13 @@
    ],
    [
     "2026-11-24",
-    449.0
+    439.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 101 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/SpiderZT-Max5.jpg?v=1780042844",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

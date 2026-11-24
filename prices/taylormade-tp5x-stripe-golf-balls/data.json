@@ -6,12 +6,16 @@
  "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 47.95,
+ "lowestNewPrice": 37.49,
  "lowestAt": [
-  "Clarkes Golf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 37.49,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 47.95,
@@ -30,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 89,
-  "low": 47.95,
+  "low": 37.49,
   "high": 47.95,
-  "average": 47.95,
-  "priceChanges": 0,
+  "average": 47.83,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
@@ -41,15 +45,15 @@
    ],
    [
     "2026-11-24",
-    47.95
+    37.49
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 89 days"
+  "summary": "Typical price: steady for 1 day"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeTP5xStripeGolfBalls2026-White_4.jpg?v=1770214369",
+ "image": "https://www.clickgolf.co.uk/images/product/main/TM-TP5x-Stripe-2026-Front-4-for-3.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-24"
 }
