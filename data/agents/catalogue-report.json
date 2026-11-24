@@ -1,10 +1,10 @@
 {
- "generated": "2026-11-23T18:03Z",
+ "generated": "2026-11-24T04:00Z",
  "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
- "listings": 81079,
+ "listings": 81491,
  "models": 3331,
  "feeds": {
-  "awin-affordablegolf": 38729,
+  "awin-affordablegolf": 39141,
   "awin-clarkesgolf": 20243,
   "awin-majorgolf": 13610,
   "awin-clickgolf": 3469,
@@ -431,7 +431,7 @@
   "Callaway Grade C Recycled Golf Balls - 24 Pack - Grade C",
   "Nike Grade C Recycled Golf Balls - 24 Pack - Grade C"
  ],
- "duplicates": 664,
+ "duplicates": 670,
  "duplicateExamples": [
   {
    "feed": "awin-clickgolf",
@@ -554,8 +554,8 @@
    ]
   }
  ],
- "deadListings45d": 662,
- "unmatchedClubs": 1433,
+ "deadListings45d": 679,
+ "unmatchedClubs": 1434,
  "newLaunchCandidates": [
   {
    "brand": "Cleveland Golf",
@@ -595,6 +595,18 @@
    ]
   },
   {
+   "brand": "MacGregor",
+   "names": [
+    "MacGregor Golf ZT Plus Fairway 2026",
+    "MacGregor Golf ZT Plus Wedge 2026",
+    "MacGregor Golf Men's ZT Plus Fairway 2026",
+    "MacGregor Golf Men's ZT Plus Wedge 2026",
+    "MacGregor Golf Ladies ZT Plus Fairway 2026",
+    "MacGregor Golf ZT Plus Hybrid 2026",
+    "MacGregor Golf ZT Plus Irons 2026"
+   ]
+  },
+  {
    "brand": "PXG",
    "names": [
     "PXG Golf Zero Torque One & Done Putter 2026",
@@ -610,17 +622,6 @@
     "Odyssey TRTL DB Golf Putter 2027",
     "Odyssey TRTL Max S2S Golf Putter 2027",
     "Odyssey TRTL CH Golf Putter 2027"
-   ]
-  },
-  {
-   "brand": "MacGregor",
-   "names": [
-    "MacGregor Golf ZT Plus Fairway 2026",
-    "MacGregor Golf ZT Plus Wedge 2026",
-    "MacGregor Golf Men's ZT Plus Fairway 2026",
-    "MacGregor Golf Men's ZT Plus Wedge 2026",
-    "MacGregor Golf ZT Plus Hybrid 2026",
-    "MacGregor Golf ZT Plus Irons 2026"
    ]
   },
   {
