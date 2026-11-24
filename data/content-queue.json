@@ -1,60 +1,78 @@
 {
-  "about": "Trend tie-in posts written by Claude (moments planner, weekly review, or on request), made on their date. Each sets its own 'style' (any engine style: spec, thennow, truth, story, collage, sitedemo, reveal, guess, countdown, stat, pov, expectation, receipt) with that style's fields, and optionally a 'look'. Plus date, trend, link, ig, x, tt. Original design only.",
-  "posts": [
+ "about": "Trend tie-in posts written by Claude (moments planner, weekly review, or on request), made on their date. Each sets its own 'style' (any engine style: spec, thennow, truth, story, collage, sitedemo, reveal, guess, countdown, stat, pov, expectation, receipt) with that style's fields, and optionally a 'look'. Plus date, trend, link, ig, x, tt. Original design only.",
+ "posts": [
+  {
+   "date": "2026-11-24",
+   "trend": "Wild Nine launch",
+   "status": "queued",
+   "style": "prebuilt",
+   "file": "assets/social/launch/wild-nine-launch.mp4",
+   "cover": "assets/social/launch/wild-nine-launch-cover.jpg",
+   "hook": "A new golf course. Every day.",
+   "headline": "Wild Nine: a new golf course every day",
+   "sub": "Free, daily, no sign-up",
+   "link": "https://golfpriceai.com/play/wild-nine/?utm_source=social&utm_medium=launch&utm_campaign=wild-nine",
+   "format": "bts",
+   "ig": "A new nine-hole golf course every day ⛳ Same nine for everyone. Beat par to unlock Hole 10, where a hole in one is 1 in 10,000. Post your card and beat your mates. Free, no sign-up: link in bio.\n#golf #golfgame #golfuk #wildnine #golfbanter #golfer",
+   "x": "A new golf course every day ⛳ Same nine for everyone, beat par to unlock Hole 10. Free, no sign-up. golfpriceai.com/play/wild-nine",
+   "tt": "A new golf course every day ⛳ Beat par to unlock Hole 10 #golf #golfgame #golftok #wildnine",
+   "keywords": "golf game, daily golf game, free golf game, golf course game",
+   "why": "John asked (22 Nov 2026) for a launch video with real game footage. Made by Claude from a recorded round (real gameplay, no mock-ups)."
+  },
+  {
+   "date": "2026-11-24",
+   "trend": "Avengers: Doomsday final trailer",
+   "reactive": true,
+   "status": "queued",
+   "why": "Build-up beat: the Doomsday final trailer dropped 23 Nov (30m+ views); tied to Build Your Bag, no Marvel marks.",
+   "style": "story",
+   "look": "doom",
+   "format": "meme",
+   "hook": "Assemble the bag",
+   "beats": [
     {
-      "date": "2026-11-24",
-      "trend": "Wild Nine launch",
-      "status": "queued",
-      "style": "prebuilt",
-      "file": "assets/social/launch/wild-nine-launch.mp4",
-      "cover": "assets/social/launch/wild-nine-launch-cover.jpg",
-      "hook": "A new golf course. Every day.",
-      "headline": "Wild Nine: a new golf course every day",
-      "sub": "Free, daily, no sign-up",
-      "link": "https://golfpriceai.com/play/wild-nine/?utm_source=social&utm_medium=launch&utm_campaign=wild-nine",
-      "format": "bts",
-      "ig": "A new nine-hole golf course every day ⛳ Same nine for everyone. Beat par to unlock Hole 10, where a hole in one is 1 in 10,000. Post your card and beat your mates. Free, no sign-up: link in bio.\n#golf #golfgame #golfuk #wildnine #golfbanter #golfer",
-      "x": "A new golf course every day ⛳ Same nine for everyone, beat par to unlock Hole 10. Free, no sign-up. golfpriceai.com/play/wild-nine",
-      "tt": "A new golf course every day ⛳ Beat par to unlock Hole 10 #golf #golfgame #golftok #wildnine",
-      "keywords": "golf game, daily golf game, free golf game, golf course game",
-      "why": "John asked (22 Nov 2026) for a launch video with real game footage. Made by Claude from a recorded round (real gameplay, no mock-ups)."
+     "big": "The final trailer is out",
+     "small_top": "DOOMSDAY",
+     "accent": true
     },
     {
-      "date": "2026-11-24",
-      "trend": "Avengers: Doomsday final trailer",
-      "reactive": true,
-      "status": "queued",
-      "why": "Build-up beat: the Doomsday final trailer dropped 23 Nov (30m+ views); tied to Build Your Bag, no Marvel marks.",
-      "style": "story",
-      "look": "doom",
-      "format": "meme",
-      "hook": "Assemble the bag",
-      "beats": [
-        {
-          "big": "The final trailer is out",
-          "small_top": "DOOMSDAY",
-          "accent": true
-        },
-        {
-          "big": "Time to assemble your team",
-          "small": "Driver. Irons. Putter. Wedges."
-        },
-        {
-          "big": "Fourteen clubs, one bag",
-          "small": "Build it on one screen",
-          "streak": true
-        },
-        {
-          "big": "The real doomsday is overpaying",
-          "accent": true,
-          "size": 170
-        }
-      ],
-      "payoff": "Build your bag for less",
-      "link": "https://golfpriceai.com/build-your-bag?utm_source=social&utm_medium=reactive&utm_campaign=doomsday-trailer",
-      "ig": "The final trailer is out, so it's time to assemble the team ⛳ Build your whole bag on one screen, with prices compared across multiple UK retailers and checked every 6 hours. The real doomsday is overpaying. Link in bio.\n#golf #golfuk #golfbanter #buildyourbag #golfclubs #golfer",
-      "x": "The final trailer is out. Time to assemble your bag: driver, irons, putter, wedges, prices compared across multiple UK retailers. golfpriceai.com/build-your-bag",
-      "tt": "Assemble your bag before the final showdown ⛳ Prices checked every 6 hours #golf #golftok #golfuk #buildyourbag"
+     "big": "Time to assemble your team",
+     "small": "Driver. Irons. Putter. Wedges."
+    },
+    {
+     "big": "Fourteen clubs, one bag",
+     "small": "Build it on one screen",
+     "streak": true
+    },
+    {
+     "big": "The real doomsday is overpaying",
+     "accent": true,
+     "size": 170
     }
-  ]
+   ],
+   "payoff": "Build your bag for less",
+   "link": "https://golfpriceai.com/build-your-bag?utm_source=social&utm_medium=reactive&utm_campaign=doomsday-trailer",
+   "ig": "The final trailer is out, so it's time to assemble the team ⛳ Build your whole bag on one screen, with prices compared across multiple UK retailers and checked every 6 hours. The real doomsday is overpaying. Link in bio.\n#golf #golfuk #golfbanter #buildyourbag #golfclubs #golfer",
+   "x": "The final trailer is out. Time to assemble your bag: driver, irons, putter, wedges, prices compared across multiple UK retailers. golfpriceai.com/build-your-bag",
+   "tt": "Assemble your bag before the final showdown ⛳ Prices checked every 6 hours #golf #golftok #golfuk #buildyourbag"
+  },
+  {
+   "date": "2026-11-25",
+   "trend": "Black Friday week",
+   "status": "queued",
+   "style": "prebuilt",
+   "file": "assets/social/launch/black-friday-week.mp4",
+   "cover": "assets/social/launch/black-friday-week-cover.jpg",
+   "hook": "The golf deals that are genuinely cheaper",
+   "headline": "The golf deals that are genuinely cheaper",
+   "sub": "Over 300 models below their October price",
+   "link": "https://golfpriceai.com/prices/black-friday/?utm_source=social&utm_medium=tiein&utm_campaign=black-friday-week",
+   "format": "data",
+   "ig": "#Ad Black Friday week is here, and we've been keeping score since October 📋⛳\n\nOver 300 golf models are genuinely cheaper than their own October price right now. Biggest saving so far: £524 on the Mizuno Pro S-4 Irons.\n\nNo \"was\" prices, no guesswork. Just what it cost then, and what it costs now. Link in bio.\n\nPlaying the Bag Draft? It's double points week: every £1 your picks drop scores 2 🏌️‍♂️\n\n#golf #golfuk #blackfriday #golfdeals #golfgear #fantasygolf",
+   "tt": "#Ad Black Friday week is here, and we've been keeping score since October 📋⛳ Over 300 golf models are genuinely cheaper than their own October price right now. Biggest saving so far: £524 on the Mizuno Pro S-4 Irons. No \"was\" prices, no guesswork. Link in bio. Playing the Bag Draft? It's double points week: every £1 your picks drop scores 2 🏌️‍♂️ #golf #golftok #golfuk #blackfriday #golfdeals",
+   "x": "#Ad Black Friday week, golf edition: over 300 models genuinely cheaper than their own October price. Biggest saving: £524, Mizuno Pro S-4 Irons. golfpriceai.com/prices/black-friday/",
+   "keywords": "black friday golf deals, golf deals uk, cheap golf clubs",
+   "why": "John asked (24 Nov 2026) for the Black Friday week post to go through the content engine with its graphics. Made by Claude: animated 10.8s film with an original agent_audio groove; cover is the 9:16 graphic. Figures from the live Black Friday page on 24 Nov (337 cheaper; £524 Mizuno Pro S-4 Irons); says 'over 300' so it stays true all week."
+  }
+ ]
 }
