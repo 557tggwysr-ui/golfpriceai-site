@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g430-max-10k-driver/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 369.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 81,
+  "daysTracked": 82,
   "low": 369.0,
   "high": 449.0,
-  "average": 377.89,
+  "average": 377.78,
   "priceChanges": 2,
   "series": [
    [
@@ -47,16 +47,16 @@
     369.0
    ],
    [
-    "2026-11-23",
+    "2026-11-24",
     369.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 44 days"
+  "summary": "Typical price: steady for 45 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ping-G430-Max-10K-Golf-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

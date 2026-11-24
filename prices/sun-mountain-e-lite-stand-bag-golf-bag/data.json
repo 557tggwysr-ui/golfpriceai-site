@@ -3,26 +3,26 @@
  "brand": "Sun Mountain",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/sun-mountain-e-lite-stand-bag-golf-bag/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 159.95,
+ "lowestNewPrice": 154.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 159.95,
+   "from": 154.95,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 81,
-  "low": 159.95,
+  "daysTracked": 82,
+  "low": 154.95,
   "high": 169.95,
-  "average": 165.01,
-  "priceChanges": 1,
+  "average": 164.89,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -33,8 +33,8 @@
     159.95
    ],
    [
-    "2026-11-23",
-    159.95
+    "2026-11-24",
+    154.95
    ]
   ]
  },
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/SunMountainE-LITEStandBag-Black-White-Red1.jpg?v=1776289289",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

@@ -3,19 +3,14 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-tour-staff-mid-golf-bag/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 299.0,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
-  {
-   "name": "Major Golf Direct",
-   "from": 199.0,
-   "options": 1
-  },
   {
    "name": "Clickgolf",
    "from": 299.0,
@@ -33,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 81,
+  "daysTracked": 82,
   "low": 199.0,
   "high": 319.0,
-  "average": 306.9,
+  "average": 305.59,
   "priceChanges": 2,
   "series": [
    [
@@ -50,14 +45,18 @@
    [
     "2026-11-23",
     199.0
+   ],
+   [
+    "2026-11-24",
+    199.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 2 days"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MizunoTourStaffMidBag2025-StaffColours_1.jpg?v=1788352805",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-Tour-Staff-Mid-Golf-Cart-Bag.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

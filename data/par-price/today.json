@@ -1,66 +1,66 @@
 {
- "n": 37,
- "date": "2026-11-23",
+ "n": 38,
+ "date": "2026-11-24",
  "items": [
   {
-   "slug": "mizuno-br-d1-stand-bag-golf-bag",
-   "name": "Mizuno BR-D1 Stand Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/BRD1S2609NS-Hero.jpg",
-   "price": 199.0,
+   "slug": "ogio-featherlite-stand-bag-golf-bag",
+   "name": "Ogio Featherlite Stand Bag Golf Bag",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/ogio-golf-bags-stand-2026-featherlite-black-8747.jpg?v=1769090895",
+   "price": 139.0,
    "unit": "each",
    "type": "golf bag",
-   "low": false,
-   "url": "/prices/mizuno-br-d1-stand-bag-golf-bag/"
-  },
-  {
-   "slug": "wilson-dynapwr-driver",
-   "name": "Wilson DYNAPWR Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WG1P036501_0_DynaPWR_2_Driver_Carbon_Hero.jpg?v=1738142914",
-   "price": 239.0,
-   "unit": "each",
-   "type": "driver",
    "low": true,
-   "url": "/prices/wilson-dynapwr-driver/"
+   "url": "/prices/ogio-featherlite-stand-bag-golf-bag/"
   },
   {
-   "slug": "titleist-vokey-sm11-jet-wedge",
-   "name": "Titleist Vokey SM11 Jet Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-jet-black-wedge-hero.jpg",
-   "price": 179.0,
+   "slug": "taylormade-spider-5k-zt-putter",
+   "name": "TaylorMade Spider 5K ZT Putter",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeSpiderZTPutter2.jpg?v=1776274164",
+   "price": 399.0,
    "unit": "each",
-   "type": "wedge",
+   "type": "putter",
    "low": false,
-   "url": "/prices/titleist-vokey-sm11-jet-wedge/"
+   "url": "/prices/taylormade-spider-5k-zt-putter/"
   },
   {
-   "slug": "taylormade-qi4d-fairway-wood",
-   "name": "TaylorMade Qi4D Fairway Wood",
-   "image": "https://www.clickgolf.co.uk/images/product/main/N8401607-Qi4D-Core-Fairway-Hero.jpg",
-   "price": 319.0,
+   "slug": "titleist-gts2-fairway-wood",
+   "name": "Titleist GTS2 Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS2GolfFairwayWood_1.jpg?v=1778747084",
+   "price": 369.0,
    "unit": "each",
    "type": "fairway wood",
    "low": false,
-   "url": "/prices/taylormade-qi4d-fairway-wood/"
+   "url": "/prices/titleist-gts2-fairway-wood/"
   },
   {
-   "slug": "callaway-quantum-max-os-irons",
-   "name": "Callaway Quantum Max OS Irons",
-   "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-os-irons-main.jpg",
-   "price": 749.0,
+   "slug": "callaway-cb12-wedge",
+   "name": "Callaway CB12 Wedge",
+   "image": "https://www.clickgolf.co.uk/images/product/main/cb12-wedge-hero.jpg",
+   "price": 119.0,
+   "unit": "each",
+   "type": "wedge",
+   "low": false,
+   "url": "/prices/callaway-cb12-wedge/"
+  },
+  {
+   "slug": "srixon-zxir-irons",
+   "name": "Srixon ZXiR Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonZXiRGraphiteIrons_3.jpg?v=1763374524",
+   "price": 879.0,
    "unit": "each",
    "type": "iron set",
    "low": false,
-   "url": "/prices/callaway-quantum-max-os-irons/"
+   "url": "/prices/srixon-zxir-irons/"
   }
  ],
  "pin": {
-  "slug": "macgregor-cg4000-package-set",
-  "name": "MacGregor CG4000 Package Set",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-05T130000.179.png?v=1704460366",
-  "price": 299.0,
+  "slug": "cobra-baffler-hybrid",
+  "name": "Cobra Baffler Hybrid",
+  "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-Hybird-Hero.jpg",
+  "price": 169.0,
   "unit": "each",
-  "type": "package set",
-  "low": true,
-  "url": "/prices/macgregor-cg4000-package-set/"
+  "type": "hybrid",
+  "low": false,
+  "url": "/prices/cobra-baffler-hybrid/"
  }
 }

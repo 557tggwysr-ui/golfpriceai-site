@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-11-23",
+ "lastUpdated": "2026-11-24",
  "uncertainGroupings": [
   {
    "model": "Titleist vokey sm11",
@@ -72,13 +72,13 @@
    "listings": 1
   },
   {
-   "model": "Wilson staff duo soft",
-   "issue": "1 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
+   "model": "Titleist t350",
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
   },
   {
-   "model": "Titleist t350",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "model": "Wilson staff duo soft",
+   "issue": "1 ball listing(s) priced implausibly low per dozen; excluded until the pack size is confirmed",
    "listings": 1
   },
   {
@@ -2745,6 +2745,11 @@
   },
   {
    "name": "Bettinardi Queen B17 Putter - Centre Shaft Right Hand / 35\" / Bettinardi Jumbo Royal Navy Honeycomb Grip",
+   "from": "accessories",
+   "to": "putter"
+  },
+  {
+   "name": "Yes! C-Groove Tracy III Mens Right Hand Putter 34.5\" Blade - Mizuno",
    "from": "accessories",
    "to": "putter"
   }

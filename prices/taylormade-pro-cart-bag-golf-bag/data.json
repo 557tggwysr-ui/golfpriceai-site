@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-pro-cart-bag-golf-bag/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 139.0,
@@ -41,10 +41,10 @@
   }
  ],
  "history": {
-  "daysTracked": 100,
+  "daysTracked": 101,
   "low": 119.0,
   "high": 139.0,
-  "average": 121.7,
+  "average": 121.87,
   "priceChanges": 7,
   "series": [
    [
@@ -78,6 +78,10 @@
    [
     "2026-11-23",
     139.0
+   ],
+   [
+    "2026-11-24",
+    139.0
    ]
   ]
  },
@@ -87,5 +91,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/V9736701-TM-Pro-Cart-Golf-Bag-Navy-Red-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

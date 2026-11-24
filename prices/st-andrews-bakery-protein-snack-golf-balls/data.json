@@ -1,0 +1,44 @@
+{
+ "name": "St. Andrews Bakery Protein Snack Golf Balls",
+ "brand": "St. Andrews Bakery",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/st-andrews-bakery-protein-snack-golf-balls/",
+ "checked": "2026-11-24",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 2.99,
+ "lowestAt": [
+  "Affordable Golf"
+ ],
+ "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 2.99,
+   "options": 4
+  }
+ ],
+ "history": {
+  "daysTracked": 60,
+  "low": 2.99,
+  "high": 2.99,
+  "average": 2.99,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-09-26",
+    2.99
+   ],
+   [
+    "2026-11-24",
+    2.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 60 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/peanut_butter_hero.jpg?v=1775351800",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-24"
+}

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-3dp-x-irons/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1890.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 33,
+  "daysTracked": 34,
   "low": 1890.0,
   "high": 1899.0,
-  "average": 1892.18,
+  "average": 1892.12,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     1890.0
    ],
    [
-    "2026-11-23",
+    "2026-11-24",
     1890.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 25 days"
+  "summary": "Typical price: steady for 26 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/3DPXIrons6.jpg?v=1773177163",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

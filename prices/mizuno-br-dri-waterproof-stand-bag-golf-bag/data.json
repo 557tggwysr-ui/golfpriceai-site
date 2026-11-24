@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-br-dri-waterproof-stand-bag-golf-bag/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 189.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 100,
+  "daysTracked": 101,
   "low": 164.0,
   "high": 189.0,
-  "average": 181.65,
+  "average": 181.72,
   "priceChanges": 25,
   "series": [
    [
@@ -137,6 +137,10 @@
    [
     "2026-11-23",
     189.0
+   ],
+   [
+    "2026-11-24",
+    189.0
    ]
   ]
  },
@@ -146,5 +150,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Mizuno-BR-DRI-Waterproof-Golf-Stand-Bag---Black-Green.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

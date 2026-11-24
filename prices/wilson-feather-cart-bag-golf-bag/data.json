@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-feather-cart-bag-golf-bag/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 109.65,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 88,
+  "daysTracked": 89,
   "low": 109.0,
   "high": 129.0,
-  "average": 119.96,
+  "average": 119.84,
   "priceChanges": 22,
   "series": [
    [
@@ -125,6 +125,10 @@
    [
     "2026-11-23",
     109.65
+   ],
+   [
+    "2026-11-24",
+    109.65
    ]
   ]
  },
@@ -134,5 +138,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonGolfFeatherCartBag2025-BlackRed1.jpg?v=1740739149",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

@@ -3,26 +3,26 @@
  "brand": "Big Max",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/big-max-dri-lite-silencio-2-organiser-golf-bag/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 209.0,
+ "lowestNewPrice": 199.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 209.0,
+   "from": 199.95,
    "options": 2
   }
  ],
  "history": {
-  "daysTracked": 81,
-  "low": 209.0,
+  "daysTracked": 82,
+  "low": 199.95,
   "high": 219.0,
-  "average": 212.58,
-  "priceChanges": 1,
+  "average": 212.43,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -33,16 +33,16 @@
     209.0
    ],
    [
-    "2026-11-23",
-    209.0
+    "2026-11-24",
+    199.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 52 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/big_max_dri_lite_silencio_2_organiser_cart_bag_grey_black_10.jpg?v=1777968572",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

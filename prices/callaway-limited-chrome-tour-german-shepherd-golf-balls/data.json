@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-german-shepherd-golf-balls/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 46.75,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 100,
+  "daysTracked": 101,
   "low": 46.75,
   "high": 55.0,
-  "average": 54.51,
+  "average": 54.43,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     46.75
    ],
    [
-    "2026-11-23",
+    "2026-11-24",
     46.75
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795329598762/sits/balls-2026-chrome-tour-truvis-shepherd/balls-2026-chrome-tour-truvis-shepherd_2___1.jpg?sfrm=jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

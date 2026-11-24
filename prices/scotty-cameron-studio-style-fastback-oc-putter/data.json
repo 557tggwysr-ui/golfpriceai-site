@@ -3,7 +3,7 @@
  "brand": "Scotty Cameron",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/scotty-cameron-studio-style-fastback-oc-putter/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 439.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 100,
+  "daysTracked": 101,
   "low": 439.0,
   "high": 499.0,
-  "average": 487.4,
+  "average": 486.92,
   "priceChanges": 2,
   "series": [
    [
@@ -42,7 +42,7 @@
     439.0
    ],
    [
-    "2026-11-23",
+    "2026-11-24",
     439.0
    ]
   ]
@@ -53,5 +53,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/studio-style-oc-fb-face.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

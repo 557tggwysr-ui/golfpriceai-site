@@ -3,7 +3,7 @@
  "brand": "Odyssey",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-jailbird-mini-t-putter/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 199.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 100,
+  "daysTracked": 101,
   "low": 199.0,
   "high": 249.0,
-  "average": 214.5,
+  "average": 214.35,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     199.0
    ],
    [
-    "2026-11-23",
+    "2026-11-24",
     199.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 69 days"
+  "summary": "Typical price: steady for 70 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ai-ONE-Milled-Jailbird-Mini-T-DB-Sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

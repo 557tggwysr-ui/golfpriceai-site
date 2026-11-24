@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/cobra-ultradry-pro-cart-bag-golf-bag/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 209.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 100,
+  "daysTracked": 101,
   "low": 199.0,
   "high": 209.0,
-  "average": 205.4,
+  "average": 205.44,
   "priceChanges": 25,
   "series": [
    [
@@ -127,6 +127,10 @@
    [
     "2026-11-23",
     209.0
+   ],
+   [
+    "2026-11-24",
+    209.0
    ]
   ]
  },
@@ -136,5 +140,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-Ultradry-Pro-Golf-Cart-Bag---Quiet-Shade-Green-Gecko.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }

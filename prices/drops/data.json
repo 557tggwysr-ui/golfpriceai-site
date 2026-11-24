@@ -1,17 +1,57 @@
 {
- "checked": "2026-11-23T17:57+00:00",
+ "checked": "2026-11-24T03:53+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
   {
-   "model": "Mizuno Tour Staff Mid Golf Bag",
-   "model_id": "mizuno-tour-staff-mid-golf-bag",
-   "date": "2026-11-23",
-   "was": 299.0,
-   "now": 199.0,
+   "model": "Callaway Elyte Tour Certified Driver",
+   "model_id": "callaway-elyte-tour-certified-driver",
+   "date": "2026-11-24",
+   "was": 279.0,
+   "now": 239.0,
    "unit": "each",
    "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-tour-staff-mid-golf-bag/"
+   "url": "https://golfpriceai.com/prices/callaway-elyte-tour-certified-driver/"
+  },
+  {
+   "model": "Sun Mountain 3.5ls Stand Bag Golf Bag",
+   "model_id": "sun-mountain-3-5ls-stand-bag-golf-bag",
+   "date": "2026-11-24",
+   "was": 149.95,
+   "now": 134.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/sun-mountain-3-5ls-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Mizuno BR-D3 Cart Bag Golf Bag",
+   "model_id": "mizuno-br-d3-cart-bag-golf-bag",
+   "date": "2026-11-24",
+   "was": 119.0,
+   "now": 109.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-br-d3-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Big Max Dri Lite Silencio 2 Organiser Golf Bag",
+   "model_id": "big-max-dri-lite-silencio-2-organiser-golf-bag",
+   "date": "2026-11-24",
+   "was": 209.0,
+   "now": 199.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/big-max-dri-lite-silencio-2-organiser-golf-bag/"
+  },
+  {
+   "model": "Sun Mountain E-LITE Stand Bag Golf Bag",
+   "model_id": "sun-mountain-e-lite-stand-bag-golf-bag",
+   "date": "2026-11-24",
+   "was": 159.95,
+   "now": 154.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/sun-mountain-e-lite-stand-bag-golf-bag/"
   },
   {
    "model": "TaylorMade Qi Max HL Irons",

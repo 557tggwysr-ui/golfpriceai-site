@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-limited-supersoft-love-golf-balls/",
- "checked": "2026-11-23",
+ "checked": "2026-11-24",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 25.49,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 100,
+  "daysTracked": 101,
   "low": 25.49,
   "high": 29.99,
-  "average": 29.72,
+  "average": 29.68,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     25.49
    ],
    [
-    "2026-11-23",
+    "2026-11-24",
     25.49
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795329598762/sits/balls-2025-supersoft-valentine/balls-2025-supersoft-valentine_2___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-23"
+ "changed": "2026-11-24"
 }
