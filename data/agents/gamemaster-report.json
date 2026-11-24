@@ -1,12 +1,15 @@
 {
- "generated": "2026-11-23T13:24Z",
+ "generated": "2026-11-24T19:00Z",
  "about": "Game master: Wild Nine difficulty, fair play and nicknames over the last 7 days (anonymous).",
- "roundsAnalysed": 0,
- "averageToPar": null,
+ "roundsAnalysed": 1,
+ "averageToPar": -4,
  "target": "+2 to +4",
  "holeTypes": {},
  "aces": 0,
- "bestRound": null,
+ "bestRound": {
+  "toPar": -4,
+  "day": 23
+ },
  "tuningProposedForDays": [],
  "tuning": null,
  "scoresToHide": 0,

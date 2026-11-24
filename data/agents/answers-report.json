@@ -1,15 +1,17 @@
 {
- "generated": "2026-11-23T13:24Z",
+ "generated": "2026-11-24T19:00Z",
  "about": "AI-answer optimiser: structured data matches live prices, llms.txt links work, live facts are fresh.",
- "pricePagesChecked": 1431,
+ "pricePagesChecked": 1437,
  "staleMarkup": 0,
  "staleExamples": [],
  "missingMarkup": 0,
  "missingExamples": [],
- "llmsLinks": 104,
- "llmsDeadLinks": [],
+ "llmsLinks": 112,
+ "llmsDeadLinks": [
+  "https://golfpriceai.com/prices/callaway-elyte-sandstorm-driver/"
+ ],
  "llmsRefreshProposed": true,
- "status": "ok",
+ "status": "attention",
  "llmHealth": {
   "blocked": [],
   "liveFetch": [],
@@ -17,7 +19,7 @@
   "llmsTxt": {
    "exists": true,
    "kb": 28.7,
-   "liveBlockUpdated": "23 November 2026"
+   "liveBlockUpdated": "24 November 2026"
   },
   "indexNow": "ok",
   "status": "ok"
