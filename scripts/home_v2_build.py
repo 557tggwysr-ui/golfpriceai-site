@@ -159,7 +159,7 @@ def build():
       <form class="hm-search" action="/search.html" method="get" role="search" data-suggest>
         {ico('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>')}
         <label for="search-input" class="sr-only">Search golf gear</label>
-        <input id="search-input" name="q" type="search" placeholder="Search a club, ball or brand" autocomplete="off" enterkeyhint="search">
+        <input id="search-input" name="q" type="search" placeholder="Clubs, balls, brands…" autocomplete="off" enterkeyhint="search">
         <button type="submit">Search</button>
         <div class="gp-suggest" role="listbox" aria-label="Suggestions" hidden></div>
       </form>
