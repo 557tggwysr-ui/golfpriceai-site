@@ -1,13 +1,13 @@
 {
- "generated": "2026-11-24T04:00Z",
+ "generated": "2026-11-24T17:11Z",
  "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
- "listings": 81491,
- "models": 3331,
+ "listings": 81521,
+ "models": 3330,
  "feeds": {
   "awin-affordablegolf": 39141,
-  "awin-clarkesgolf": 20243,
-  "awin-majorgolf": 13610,
-  "awin-clickgolf": 3469,
+  "awin-clarkesgolf": 20264,
+  "awin-majorgolf": 13614,
+  "awin-clickgolf": 3474,
   "awin-scottsdalegolf": 3180,
   "awin-callawaypreowned": 999,
   "awin-callaway": 496,
@@ -555,7 +555,7 @@
   }
  ],
  "deadListings45d": 679,
- "unmatchedClubs": 1434,
+ "unmatchedClubs": 1437,
  "newLaunchCandidates": [
   {
    "brand": "Cleveland Golf",
@@ -595,15 +595,38 @@
    ]
   },
   {
+   "brand": "Odyssey",
+   "names": [
+    "Odyssey TRTL DB Golf Putter 2027",
+    "Odyssey TRTL Max S2S Golf Putter 2027",
+    "Odyssey TRTL CH Golf Putter 2027",
+    "Ai-DUAL #7 Double Bend Putter",
+    "Ai-DUAL #7 Slant Putter"
+   ]
+  },
+  {
    "brand": "MacGregor",
    "names": [
     "MacGregor Golf ZT Plus Fairway 2026",
+    "MacGregor Golf Ladies ZT Plus Fairway 2026",
     "MacGregor Golf ZT Plus Wedge 2026",
     "MacGregor Golf Men's ZT Plus Fairway 2026",
     "MacGregor Golf Men's ZT Plus Wedge 2026",
-    "MacGregor Golf Ladies ZT Plus Fairway 2026",
     "MacGregor Golf ZT Plus Hybrid 2026",
     "MacGregor Golf ZT Plus Irons 2026"
+   ]
+  },
+  {
+   "brand": "TaylorMade",
+   "names": [
+    "TaylorMade Golf Qi4D Hybrid Rescue 2026",
+    "TaylorMade Tour Response Stripe Golf Balls 2026",
+    "TaylorMade Golf Spider Tour X Slant Neck Putter",
+    "TaylorMade Golf Qi4D Max Fairway 2026",
+    "TaylorMade Golf Qi MAX Irons 2026",
+    "TaylorMade TP5 Golf Balls 2026",
+    "TaylorMade TP5x Golf Balls 2026",
+    "Taylormade 2026 Distance Plus Golf Balls | 3 For 2"
    ]
   },
   {
@@ -614,27 +637,6 @@
     "PXG 0311 P Gen 8 Golf Irons 2026",
     "PXG 0311 XP Gen 8 Golf Irons 2026",
     "PXG Golf Secret Weapon Mini Driver 2027"
-   ]
-  },
-  {
-   "brand": "Odyssey",
-   "names": [
-    "Odyssey TRTL DB Golf Putter 2027",
-    "Odyssey TRTL Max S2S Golf Putter 2027",
-    "Odyssey TRTL CH Golf Putter 2027"
-   ]
-  },
-  {
-   "brand": "TaylorMade",
-   "names": [
-    "TaylorMade Golf Qi4D Hybrid Rescue 2026",
-    "TaylorMade Tour Response Stripe Golf Balls 2026",
-    "TaylorMade Golf Qi4D Max Fairway 2026",
-    "TaylorMade Golf Qi MAX Irons 2026",
-    "TaylorMade TP5 Golf Balls 2026",
-    "TaylorMade TP5x Golf Balls 2026",
-    "Taylormade 2026 Distance Plus Golf Balls | 3 For 2",
-    "Taylormade 2026 Distance Plus Yellow Golf Balls | 3 For 2"
    ]
   },
   {
