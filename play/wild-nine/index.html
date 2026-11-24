@@ -2560,7 +2560,7 @@ window.WN_QUIPS = {
       <rect width="360" height="450" fill="url(#rg)"/><rect width="360" height="450" fill="url(#mw)"/>
       <rect x="9" y="9" width="342" height="432" rx="16" fill="none" stroke="#e3b23c" stroke-width="2"/>
       <text x="24" y="44" font-size="11" font-weight="800" letter-spacing="2.2" fill="#e3b23c">WILD NINE #${day}${c.major ? ' · SUNDAY MAJOR' : ''}</text>
-      <text x="24" y="74" font-family="Georgia,serif" font-size="25" font-weight="700" fill="#fff">${esc(c.name)}</text>
+      <text x="24" y="74" font-family="Georgia,serif" font-size="${Math.min(25, Math.floor(312 / (c.name.length * 0.6)))}" font-weight="700" fill="#fff"${c.name.length * 0.6 * 14 > 312 ? ' textLength="312" lengthAdjust="spacingAndGlyphs"' : ''}>${esc(c.name)}</text>
       <text x="24" y="94" font-size="11" fill="#fff" opacity=".7">${esc(dateLabel(day))} · ${esc(S.mode === 'solo' ? (S.cfg.official ? 'Solo' : 'Practice') : MODES[S.mode].name)} · Par ${c.par}</text>
       <text x="24" y="${S.mode === 'match' ? 168 : 182}" font-size="${S.mode === 'match' ? 44 : 78}" font-weight="900" fill="#fff">${esc(big)}</text>
       <text x="26" y="214" font-size="20" font-weight="800" fill="#e3b23c">${esc(sub)}</text>
