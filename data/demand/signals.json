@@ -1633,6 +1633,28 @@
 }
 },
 "2026-11-24": {
+"pp": {
+"callaway-cb12-wedge": [
+3,
+0.6837
+],
+"ogio-featherlite-stand-bag-golf-bag": [
+3,
+0.8903
+],
+"srixon-zxir-irons": [
+3,
+-0.76
+],
+"taylormade-spider-5k-zt-putter": [
+3,
+-0.9052
+],
+"titleist-gts2-fairway-wood": [
+3,
+-1.6857
+]
+},
 "view": {
 "bridgestone-percept-golf-balls": 1,
 "bridgestone-tour-b-rxs-golf-balls": 1,
@@ -1641,6 +1663,7 @@
 "callaway-elyte-x-driver": 2,
 "callaway-online-exclusive-mavrik-17-piece-package-set": 1,
 "callaway-paradym-ai-smoke-max-fairway-wood": 1,
+"callaway-quantum-ti-fairway-wood": 1,
 "callaway-xr-13-piece-package-set": 1,
 "cleveland-smart-sole-full-face-tour-satin-wedge": 1,
 "cobra-darkspeed-ls-driver": 1,
@@ -1649,6 +1672,7 @@
 "garmin-approach-j1-gps-watch": 1,
 "garmin-approach-s70-gps-watch": 1,
 "mizuno-pro-m-15-irons": 1,
+"mizuno-pro-s-1-irons": 1,
 "mizuno-pro-s-4-irons": 1,
 "mizuno-rb-tour-x-golf-balls": 1,
 "odyssey-ai-one-milled-seven-t-ch-putter": 1,
@@ -1671,7 +1695,7 @@
 }
 }
 },
-"fetched": "2026-11-24T17:10Z",
+"fetched": "2026-11-24T20:09Z",
 "fourball": 0,
 "search": {
 "7 wood": 1,
