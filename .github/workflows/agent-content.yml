@@ -145,5 +145,5 @@ jobs:
           for f in data/agents/content-plan.json data/agents/content-learning.json data/agents/trends.json data/agents/social-trends.json data/agents/newsroom.json data/agents/social-today.json data/content-queue.json data/moments.json social/; do [ -e "$f" ] && git add -A "$f"; done  # one missing file must not stop the rest
           if ! git diff --quiet --cached; then
             git commit -m "Agent: content engine (${{ steps.mode.outputs.m }})"
-            git pull --rebase && git push
+            for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep $((i*5)); done
           fi
