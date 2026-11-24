@@ -1,60 +1,61 @@
 {
- "generated": "2026-11-23T12:06Z",
+ "generated": "2026-11-24T12:24Z",
  "about": "Mystery shopper: a phone-sized browser walks the site each night and notes anything broken.",
- "pagesChecked": 60,
- "pagesWithProblems": 29,
+ "pagesChecked": 70,
+ "pagesWithProblems": 14,
  "findings": [
   {
-   "page": "/prices/mkids-pro-6-piece-ages-10-12-junior-golf-set/",
+   "page": "/prices/garmin-approach-s70-gps-watch/",
    "problems": [
-    "failed requests: 404 /data/experiments.json",
-    "first screen (top page): something covers the buy button (BUTTON)"
+    "first screen (top page): something covers the buy button (DIV)"
    ]
   },
   {
-   "page": "/prices/callaway-limited-chrome-soft-mother-s-golf-balls/",
+   "page": "/prices/titleist-pro-v1-golf-balls/",
    "problems": [
-    "failed requests: 404 /data/experiments.json",
-    "first screen (top page): something covers the buy button (BUTTON)"
-   ]
-  },
-  {
-   "page": "/prices/ben-sayers-m8-camo-13-piece-stand-bag-package-set/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json",
-    "first screen (top page): something covers the buy button (BUTTON)"
-   ]
-  },
-  {
-   "page": "/prices/titleist-u505-utility-irons/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json",
     "first screen (top page): something covers the buy button (SPAN)"
    ]
   },
   {
-   "page": "/prices/cobra-fly-xl-11-piece-stand-bag-package-set/",
+   "page": "/prices/callaway-online-exclusive-mavrik-17-piece-package-set/",
    "problems": [
-    "failed requests: 404 /data/experiments.json",
-    "first screen (top page): buy button not visible without scrolling (first one starts 803px down; the screen is 844px)"
+    "first screen (top page): something covers the buy button (DIV)"
    ]
   },
   {
-   "page": "/prices/drivers/",
+   "page": "/prices/cobra-darkspeed-ls-driver/",
    "problems": [
-    "failed requests: 404 /data/experiments.json"
+    "first screen (top page): something covers the buy button (DIV)"
    ]
   },
   {
-   "page": "/prices/start-golf/",
+   "page": "/prices/titleist-players-s4-stand-bag-golf-bag/",
    "problems": [
-    "failed requests: 404 /data/experiments.json"
+    "first screen (top page): something covers the buy button (BUTTON)"
    ]
   },
   {
-   "page": "/trending.html",
+   "page": "/prices/titleist-t350-irons/",
    "problems": [
-    "failed requests: 404 /data/experiments.json"
+    "first screen (top page): something covers the buy button (SPAN)"
+   ]
+  },
+  {
+   "page": "/prices/taylormade-tp5-golf-balls/",
+   "problems": [
+    "first screen (top page): something covers the buy button (SPAN)"
+   ]
+  },
+  {
+   "page": "/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/",
+   "problems": [
+    "first screen (top page): something covers the buy button (BUTTON)"
+   ]
+  },
+  {
+   "page": "/prices/bridgestone-percept-golf-balls/",
+   "problems": [
+    "first screen (top page): something covers the buy button (SPAN)"
    ]
   },
   {
@@ -89,108 +90,12 @@
    "problems": [
     "0 main headings (should be 1)"
    ]
-  },
-  {
-   "page": "/prices/titleist-avx-golf-balls/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/wilson-profile-2026-junior-golf-set/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/taylormade-stealth-irons/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/cobra-x-vessel-core-stand-bag-golf-bag/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/ping-g740-irons/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/cleveland-series-8-piece-stand-bag-ages-10-12-junior-golf-set/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/mkids-lite-6-piece-stand-bag-ages-6-8-junior-golf-set/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/masters-gx1-12-piece-package-set/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/wilson-alpine-dry-waterproof-cart-bag-golf-bag/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/ben-sayers-m1i-ages-9-11-junior-golf-set/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/scotty-cameron-studio-style-newport-2-putter/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/titleist-gt1-fairway-wood/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/masters-gx1-11-piece-ladies-package-set/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/mizuno-jpx-925-hot-metal-irons/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/prices/odyssey-ai-one-square-2-square-max-putter/",
-   "problems": [
-    "failed requests: 404 /data/experiments.json"
-   ]
-  },
-  {
-   "page": "/fairway-index.html",
-   "problems": [
-    "0 main headings (should be 1)"
-   ]
   }
  ],
- "topPagesChecked": 5,
+ "topPagesChecked": 10,
  "internalLinksChecked": 150,
  "deadLinks": [],
- "sitemapUrls": 2502,
+ "sitemapUrls": 2536,
  "sitemapChecked": 100,
  "deadInSitemap": [],
  "status": "attention"
