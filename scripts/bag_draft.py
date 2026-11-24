@@ -35,7 +35,7 @@ MAJORS = {
     1: ("The New Year’s Resolution Invitational", "#16224a", "#d9b45a", "New year, new swing, same slice."),
     2: ("The Sweetheart Scramble", "#c4153b", "#f1a7bf", "For golfers whose true love has a graphite shaft."),
     3: ("The Shamrock Shootout", "#1f6a3a", "#ffffff", "Luck of the Irish, prices of the English."),
-    4: ("The Easter Egg Hunt", "#7a5aa6", "#f3e27a", "Hunt for bargains, not balls."),
+    4: ("The Spring Blossom Open", "#2f6b3f", "#f6b8cf", "Blossom on the trees, birdies on the card."),
     5: ("The Bank Holiday Bash", "#2b6cb0", "#ffffff", "Three-day weekend, six-pick bag."),
     6: ("The Father’s Day Fourball", "#3a4a2a", "#d9b45a", "The big gift month. Dad’s watching."),
     7: ("The Heatwave Classic", "#d98e04", "#16241c", "Factor 50 and a fresh driver."),
