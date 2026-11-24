@@ -1,21 +1,13 @@
 {
- "generated": "2026-11-24T03:35Z",
+ "generated": "2026-11-24T19:08Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
- "verdict": "block",
- "summary": "Hold 2026-11-24-moment (thumbnail says 'Guess the price' but shows the £229 answer, so it's misleading and doesn't match the reveal video) and 2026-11-26-thu (the '81 days' claim is dropped on X and Bluesky, which then read as 'ever').",
+ "verdict": "ok",
+ "summary": "Fix pack is clean: temporary hides for broken or mis-priced listings, internal links to existing price pages, and a refreshed llms.txt, with nothing from the Never list.",
  "points": [
-  "2026-11-24-moment thumbnail: it reads 'GUESS THE PRICE' but the £229 badge is on it, so it gives away the answer and doesn't match the card or video, which is a 'new low' reveal. Fix: rebuild the thumbnail as a reveal, e.g. 'NEW LOW £229' or 'ROCK BOTTOM', in the card's black and gold, and drop the guessing wording.",
-  "2026-11-24-moment thumbnail: the word 'PRICE' overlaps the top of the white photo card, the badge crowds the card's corner, and the lower ~20% is empty, so the layout is unbalanced. Keep 2-4 big words and the product sharp and large within the middle 4:5, with clear space between the headline and the photo.",
-  "2026-11-24-moment card: the 'NEW LOW' stamp sits almost on top of '£229', so the price looks cramped. Add a gap between the price and the stamp.",
-  "2026-11-24-moment video: I could not extract frames (no ffmpeg in this environment), so the video frames were not checked visually. Please have someone confirm pace, hook in the first second and sound, since 'sound' is null in the diff.",
-  "2026-11-26-thu: Instagram, TikTok, YouTube and Pinterest say 'lowest price we've tracked in 81 days', but X and Bluesky say only 'lowest price we've tracked', which implies ever. Make every platform say 'in 81 days'. 'Good time to buy' is a gentle nudge, so consider cutting it.",
-  "2026-11-26-thu: '£450 under the highest price we've tracked' needs to come from the site's own price history. Confirm it, and that 'a dozen' for the Wilson balls on 2026-11-30-mon is in the data.",
-  "2026-11-25-wed and 2026-12-02-wed: X and Bluesky captions end with 'Https://' (capital H), which looks broken. Use 'https://'.",
-  "2026-11-24-reactive1: the Pinterest title is empty (empty heading). The YouTube description lists #golf #golfuk twice, a duplicated hashtag. Add a title and remove the repeat.",
-  "2026-11-24-tue: the YouTube description repeats #golf #golfuk, a duplicated hashtag. 'Hole in one is 1 in 10,000' is a game rule, so confirm it matches the game.",
-  "2026-11-27-fri and 2026-12-04-fri: both are the same 'headline' community-question layout in one week. Make sure the two covers look clearly different.",
-  "Only the 2026-11-24-moment post had images to review. The other posts were judged on text only, so their cards and thumbnails still need a visual check."
+  "data/agent-pages.json: adds /fourball/episodes/1/ to the sitemap, but the page isn't in this diff or the repo (fourball/episodes/ is absent too); confirm fourball_episodes.py generates it on deploy so the sitemap doesn't list a 404.",
+  "PR notes: S1 lists four pages then '…' but the diff boosts five (incl. ping-s159-midnight-wedge); all five price pages exist, so just a wording nit.",
+  "H5-H10: the £7495.00 vs £74.95 style mismatches look like a retailer-side price-format error; hides are 3-day and temporary, which is fine."
  ],
- "what": "Agent: content engine",
+ "what": "Agent: fix pack",
  "postsHash": "7fb629121e37f46d9c633fa092d8718053dac165"
 }
