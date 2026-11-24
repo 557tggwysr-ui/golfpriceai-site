@@ -60,7 +60,7 @@ CARDS = ROOT / "social" / "cards"
 THUMBS = ROOT / "social" / "thumbs"
 # Thumbnail headlines must read in a second: 2 to 4 words. Long hooks fall back to these.
 STYLE_THUMB = {"thennow": "Then v now", "truth": "We've all been there", "spec": "New lowest price", "story": "Golf, but make it news",
-               "collage": "Your move", "sitedemo": "Check before you buy", "reveal": "Guess the price", "guess": "Guess the price",
+               "collage": "Your move", "sitedemo": "Check before you buy", "reveal": "Today's price", "guess": "Guess the price",
                "countdown": "Top drops this week", "stat": "The numbers", "pov": "POV: you checked first", "expectation": "Expectation v reality",
                "receipt": "The receipt"}
 
@@ -665,7 +665,7 @@ def tidy_captions(post):
     """Captions read like a person wrote them, and say the same thing on every platform (John, 23 Nov):
     no keyword lists, each hashtag once, plural products take "are", one claim everywhere, TikTok as full as Instagram."""
     c = post.get("captions") or {}
-    fix = lambda t: re.sub(r"⛳ ([a-z])", lambda m: "⛳ " + m.group(1).upper(),
+    fix = lambda t: re.sub(r"⛳ ([a-z])(?!ttps?:)", lambda m: "⛳ " + m.group(1).upper(),
                            PLURAL_RX.sub(lambda m: m.group(1) + (" are" if m.group(2) == "is" else " have"),
                                          t.replace("⛳ Good time to buy ⛳ ", "⛳ Good time to buy: ").replace("under its tracked high", "under the highest price we've tracked")))
     for k, v in list(c.items()):
@@ -930,22 +930,52 @@ def moment():
     m = next((x for x in models() if x["slug"] == pick["slug"]), None)
     if not m or any(pick["slug"] in p.get("link", "") for p in plan["posts"][-10:]):
         return
-    hist = [p for _, p in m.get("history") or []] or [m["minPrice"]]
-    link = f"{SITE}/prices/{m['slug']}/"
-    theme = {"theme": "Moment", "link": link, "image": pick.get("image"), "name": m["name"], "headline": money(m["minPrice"]), "sub": m["name"],
-             "ig": f"Just now ⛳ The {m['name']} has hit the lowest price we've tracked: {money(m['minPrice'])} across multiple UK retailers. Link in bio.",
-             "x": f"Just now: the {m['name']} hit the lowest price we've tracked, {money(m['minPrice'])} ⛳\n{link}",
-             "tt": f"{m['name']} just hit its lowest price ⛳"}
-    sc = {"name": m["name"], "from": max(hist), "price": float(m["minPrice"]), "fall": max(hist) - float(m["minPrice"]),
-          "hooks": ["Just now: a new lowest price", "This one just hit rock bottom"], "stamp": "NEW LOW"}
-    rnd = random.Random(str(today))
-    sc = build_script(theme, "reveal", sc, L, rnd, None)
-    post = build_post(today, theme, "reveal", sc, rnd.choice(list(V.PALETTES)), f"{today}-moment", None)
+    post = moment_post(today, m, pick.get("image"), f"{today}-moment", L)
     plan["posts"].append(post)
     save_plan(plan)
     save_learning(L)
     write_pack(plan)
     add_to_issue(post)
+
+
+def low_since(m):
+    """The date the current lowest price was first seen (from the price history)."""
+    hist, low = m.get("history") or [], float(m["minPrice"])
+    since = None
+    for d, p in hist:
+        if float(p) <= low:
+            since = since or d
+        else:
+            since = None
+    return since
+
+
+def moment_post(day, m, image, pid, L, slot=None):
+    """A lowest-price moment. Only says "just now" / "new low" when the low is from the last two days;
+    otherwise it says what's true: the lowest price we've tracked (John's rules: no fake urgency, 24 Nov 2026)."""
+    since = low_since(m)
+    fresh = bool(since) and since >= str(day - timedelta(days=2))
+    hist = [p for _, p in m.get("history") or []] or [m["minPrice"]]
+    link = f"{SITE}/prices/{m['slug']}/"
+    lo = money(m["minPrice"])
+    if fresh:
+        ig = f"Just now ⛳ The {m['name']} has hit the lowest price we've tracked: {lo} across multiple UK retailers. Link in bio."
+        x = f"Just now: the {m['name']} hit the lowest price we've tracked, {lo} ⛳\n{link}"
+        tt, hooks, stamp, thumb = f"{m['name']} just hit its lowest price ⛳", ["Just now: a new lowest price", "This one just hit rock bottom"], "NEW LOW", "New lowest price"
+    else:
+        ig = f"Lowest we've tracked ⛳ The {m['name']} is at {lo} across multiple UK retailers, the lowest price we've tracked for it. Link in bio."
+        x = f"The {m['name']} is at {lo}, the lowest price we've tracked for it ⛳\n{link}"
+        tt, hooks, stamp, thumb = f"{m['name']}: lowest price we've tracked ⛳", ["The lowest price we've tracked"], "LOWEST WE'VE TRACKED", "Lowest we've tracked"
+    theme = {"theme": "Moment", "link": link, "image": image, "name": m["name"], "headline": lo, "sub": m["name"], "ig": ig, "x": x, "tt": tt}
+    sc = {"name": m["name"], "from": max(hist), "price": float(m["minPrice"]), "fall": max(hist) - float(m["minPrice"]),
+          "hooks": hooks, "stamp": stamp, "thumb": thumb}
+    rnd = random.Random(str(day) + m["slug"])
+    sc = build_script(theme, "reveal", sc, L, rnd, None)
+    post = build_post(day, theme, "reveal", sc, rnd.choice(list(V.PALETTES)), pid, None)
+    if slot:
+        post["slot"] = slot
+        post["times"] = suggest_times(post)
+    return post
 
 
 def gh(method, path, body=None):
@@ -1392,6 +1422,20 @@ def remake_guess():
                 elif isinstance(v, dict):
                     p["captions"][k] = {kk: vv.replace(old.group(1), new) if isinstance(vv, str) else vv for kk, vv in v.items()}
         print("remade:", p["id"], m["name"], money(price), "guess", money(line))
+    # price moments: rebuilt with today's price; dropped if it's no longer the lowest we've tracked
+    by_slug = {m["slug"]: m for m in models()}
+    L = load_learning()
+    for n, p in enumerate(plan["posts"]):
+        if p.get("theme") != "Moment" or p.get("posted", {}).get("instagram") or p["date"] < str(now().date()):
+            continue
+        m = by_slug.get(p.get("link", "").rstrip("/").split("/")[-1])
+        if not m or money(m["minPrice"]) != p.get("headline"):
+            print("moment no longer true, dropped:", p["id"]); plan["posts"][n] = {**p, "date": "2000-01-01", "dropped": True}; continue
+        img = next((d.get("image") for d in (load("home-deals.json") or {}).get("deals", []) if d.get("slug") == m["slug"]), None) or model_image(m)
+        new = moment_post(date.fromisoformat(p["date"]), m, img, p["id"], L, slot=p.get("slot"))
+        plan["posts"][n] = {**new, "posted": p.get("posted", {})}
+        print("remade moment:", p["id"], m["name"], new["hook"])
+    save_learning(L)
     # tips carousels: rebuilt from the bank, so they pick up products on the slides and the warming colours
     for p in plan["posts"]:
         if p.get("style") != "carousel" or p.get("theme") != "Tips carousel" or p.get("posted", {}).get("instagram") or p["date"] < str(now().date()):
