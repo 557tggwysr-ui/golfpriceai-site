@@ -1,12 +1,17 @@
 {
- "generated": "2026-11-25T18:15Z",
+ "generated": "2026-11-25T19:44Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
- "verdict": "ok",
- "summary": "Link additions, two temporary listing hides and the llms.txt refresh are clean and on-brand; no Never-list issues found.",
+ "verdict": "block",
+ "summary": "Two posts held: the Doomsday reactive card has cramped, touching text, and the Black Friday tie-in has a broken YouTube title; only one post came with images, so the other 12 got a copy-only review.",
  "points": [
-  "S3 (fourball/episodes): listed in the notes but no fourball files appear in the diff, so the Fourball episode page could not be reviewed; check it separately before it goes live.",
-  "llms.txt: figures (3,327 models, 140 cheaper, category counts) follow the existing generated format and cannot be re-checked against site data from the diff alone; no 'was' prices, no retailer names, UK English kept."
+  "2026-11-24-reactive1: card (4:5) - 'Compared across multiple UK retailers' sits hard against the GOLFPRICEAI.COM wordmark with no gap and crowds the green tagline beneath it. Fix: add clear space (about one line height) between wordmark, retailer line and tagline, or drop one of the two bottom lines.",
+  "2026-11-24-reactive1: the thumbnail and card have no product and no golf visual, just text on a grid. For a premium look add a sharp, large driver or iron set, or a bag silhouette, in the green palette. The Doomsday black and green colours do match, and the thumbnail matches the card.",
+  "2026-11-24-reactive1: thumbnail text is big and readable and the headline sits in the middle 4:5, but the URL falls half outside the grid crop. This is fine as it is. The video (mp4) could not be decoded here (no ffmpeg), so pace, hook and the three frames were not judged; re-check them once the card is fixed.",
+  "2026-11-25-tiein2: YouTube title is cut off mid-word ('Over 300 golf mode') and has lost its '#' ('Ad Black Friday...'). Fix: write a proper title under 100 characters, e.g. 'Black Friday golf deals: 300+ models cheaper than October'. Also the YouTube description repeats #golf #golfuk, so remove the duplicate hashtags.",
+  "2026-11-25-tiein2: 'Bag Draft double points week' is not backed by anything in the diff; confirm it is real before posting.",
+  "All posts except reactive1: no card, thumbnail or video frames were supplied, so the premium visual standard was NOT checked. Re-run the review with their images.",
+  "Copy for the other posts: no retailer names, fake urgency, 'was' prices or political content found. Product posts carry #Ad, and the Ping and PowaKaddy guessing covers do not give away the answer."
  ],
- "what": "Agent: fix pack",
- "postsHash": "76ce71197a4b8fcc6267b551a9ab7c67c3a5a036"
+ "what": "Agent: content engine",
+ "postsHash": "c0d379cd6707822b17217a7bf81871caa51e8978"
 }
