@@ -1,13 +1,13 @@
 {
- "generated": "2026-11-25T02:04Z",
+ "generated": "2026-11-25T17:01Z",
  "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
- "listings": 81533,
- "models": 3329,
+ "listings": 81563,
+ "models": 3327,
  "feeds": {
   "awin-affordablegolf": 39159,
-  "awin-clarkesgolf": 20267,
-  "awin-majorgolf": 13608,
-  "awin-clickgolf": 3475,
+  "awin-clarkesgolf": 20284,
+  "awin-majorgolf": 13620,
+  "awin-clickgolf": 3476,
   "awin-scottsdalegolf": 3177,
   "awin-callawaypreowned": 999,
   "awin-callaway": 495,
@@ -554,8 +554,8 @@
    ]
   }
  ],
- "deadListings45d": 697,
- "unmatchedClubs": 1438,
+ "deadListings45d": 696,
+ "unmatchedClubs": 1439,
  "newLaunchCandidates": [
   {
    "brand": "Cleveland Golf",
@@ -652,13 +652,14 @@
   {
    "brand": "Wilson",
    "names": [
-    "Wilson Golf Infinite Cavity Wedge",
+    "Wilson Golf Infinite The Bean Putter",
     "Wilson Staff Model X TRK360 Golf Balls 2026",
     "Wilson Staff Model XB Golf Irons 2026",
     "Wilson Staff Model CB Forged Golf Irons 2026",
     "Wilson Golf Dynapwr Forged Steel Irons 2026",
     "Wilson Dynapwr Max Plus Adjustable Golf Driver 2026",
-    "Wilson Staff Model XB CB MB Golf Irons 2026"
+    "Wilson Staff Model XB CB MB Golf Irons 2026",
+    "Wilson Golf Profile Ladies Hybrid"
    ]
   },
   {
