@@ -292,14 +292,21 @@ def act_on_verdict(path):
         rep["postsHash"] = open("/tmp/posts.hash").read().strip()
     save_report("editor-review.json", rep)
     holds = [str(x) for x in (v.get("holdPosts") or [])]
+    f = OUT / "editor-holds.json"
+    try:
+        held = json.loads(f.read_text(encoding="utf-8"))
+    except Exception:
+        held = {}
+    # John has the final say: once he has released a post, the Editor's later notes on it go in the
+    # report but don't hold it again (25 Nov 2026: Doomsday was re-held three times over design taste).
+    released = set()
+    for r in held.get("released", []):
+        released.update([r["post"]] if r.get("post") else r.get("posts", []))
+    holds = [h for h in holds if h not in released]
     if holds:
-        f = OUT / "editor-holds.json"
-        try:
-            old = json.loads(f.read_text(encoding="utf-8")).get("posts", [])
-        except Exception:
-            old = []
         f.write_text(json.dumps({"about": "Social posts the Editor held back; they won't auto-post.",
-                                 "updated": str(now().date()), "posts": sorted(set(old + holds))[-80:]}, indent=1) + "\n", encoding="utf-8")
+                                 "updated": str(now().date()), "posts": sorted(set(held.get("posts", []) + holds))[-80:],
+                                 "released": held.get("released", [])}, indent=1) + "\n", encoding="utf-8")
     pr = os.environ.get("PR")
     if pr:
         head = "⛔ **Editor: please don't merge yet.**" if verdict == "block" else "✅ **Editor: reads well.**"
