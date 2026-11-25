@@ -1186,8 +1186,15 @@ def bluesky_post(p):
 
 def post_today():
     plan = load_plan()
-    today = str(now().date())
-    run = "12:30" if now().hour < 16 else "19:30"
+    from zoneinfo import ZoneInfo
+    uk = now().astimezone(ZoneInfo("Europe/London"))
+    today = str(uk.date())
+    run = "12:30" if uk.hour < 16 else "19:30"
+    # GitHub sometimes starts a timed run hours late (a 19:30 run arrived at 03:07 on 25 Nov). A late
+    # timed run must never post in the middle of the night: only post near the slot. Manual runs always post.
+    mins = uk.hour * 60 + uk.minute
+    if os.environ.get("GITHUB_EVENT_NAME") == "schedule" and not (11 * 60 + 45 <= mins < 16 * 60 or 18 * 60 + 45 <= mins < 23 * 60):
+        print(f"timed run arrived at {uk:%H:%M} UK, outside the posting windows: not posting"); return
     todays = [p for p in plan["posts"] if p["date"] == today
               and not (p["posted"].get("instagram") and p["posted"].get("bluesky"))
               and (run == "19:30" or p.get("slot", "12:30") == "12:30")]
@@ -1200,7 +1207,7 @@ def post_today():
         if p["id"] not in ok:
             print("not approved:", p["id"]); continue
         if p.get("editor") or p["id"] in held:
-            print("held by the editor:", p["id"], p["editor"]); continue
+            print("held by the editor:", p["id"], p.get("editor") or "see editor-holds.json"); continue
         if not p["posted"].get("bluesky"):
             try:
                 bluesky_post(p)

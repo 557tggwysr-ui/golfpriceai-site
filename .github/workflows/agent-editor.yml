@@ -71,5 +71,5 @@ jobs:
           for f in data/agents/editor-review.json data/agents/editor-holds.json; do [ -e "$f" ] && git add -A "$f"; done  # one missing file must not stop the rest
           if ! git diff --quiet --cached; then
             git commit -m "Agent: editor review"
-            git pull --rebase && git push
+            for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep $((i*5)); done
           fi

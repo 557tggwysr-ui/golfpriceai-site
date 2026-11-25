@@ -35,5 +35,5 @@ jobs:
           git add data/agents/seo-opportunities.json data/agents/competitor-watch.json data/agents/seo-health.json
           if ! git diff --quiet --cached; then
             git commit -m "Agent: search opportunities"
-            git pull --rebase && git push
+            for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep $((i*5)); done
           fi
