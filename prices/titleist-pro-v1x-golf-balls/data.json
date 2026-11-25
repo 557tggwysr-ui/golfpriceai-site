@@ -3,17 +3,17 @@
  "brand": "Titleist",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/titleist-pro-v1x-golf-balls/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 43.96,
+ "lowestNewPrice": 39.96,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 43.96,
+   "from": 39.96,
    "options": 3
   },
   {
@@ -33,11 +33,11 @@
   }
  ],
  "history": {
-  "daysTracked": 101,
-  "low": 43.96,
+  "daysTracked": 102,
+  "low": 39.96,
   "high": 94.99,
-  "average": 53.84,
-  "priceChanges": 3,
+  "average": 53.71,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -56,8 +56,8 @@
     43.96
    ],
    [
-    "2026-11-24",
-    43.96
+    "2026-11-25",
+    39.96
    ]
   ]
  },
@@ -67,5 +67,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/ProV1xWhite7.jpg?v=1782292658",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

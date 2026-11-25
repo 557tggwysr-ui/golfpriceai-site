@@ -3,26 +3,26 @@
  "brand": "Cobra",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/cobra-darkspeed-fairway-wood/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.0,
+ "lowestNewPrice": 149.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 169.0,
+   "from": 149.95,
    "options": 16
   }
  ],
  "history": {
-  "daysTracked": 82,
-  "low": 169.0,
+  "daysTracked": 83,
+  "low": 149.95,
   "high": 189.0,
-  "average": 170.71,
-  "priceChanges": 1,
+  "average": 170.46,
+  "priceChanges": 2,
   "series": [
    [
     "2026-09-04",
@@ -33,16 +33,16 @@
     169.0
    ],
    [
-    "2026-11-24",
-    169.0
+    "2026-11-25",
+    149.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 75 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/cobra_darkspeed_fairway_wood_-_x_2.jpg?v=1777959969",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-elyte-x-irons/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 499.0,
@@ -29,10 +29,10 @@
   }
  ],
  "history": {
-  "daysTracked": 101,
+  "daysTracked": 102,
   "low": 109.0,
   "high": 659.0,
-  "average": 609.69,
+  "average": 608.61,
   "priceChanges": 5,
   "series": [
    [
@@ -60,7 +60,7 @@
     499.0
    ],
    [
-    "2026-11-24",
+    "2026-11-25",
     499.0
    ]
   ]
@@ -71,5 +71,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-x-iron-back.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

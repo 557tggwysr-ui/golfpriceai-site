@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-tm-cart-bag-golf-bag/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 101,
+  "daysTracked": 102,
   "low": 159.0,
   "high": 179.0,
-  "average": 172.47,
+  "average": 172.53,
   "priceChanges": 22,
   "series": [
    [
@@ -117,7 +117,7 @@
     179.0
    ],
    [
-    "2026-11-24",
+    "2026-11-25",
     179.0
    ]
   ]
@@ -128,5 +128,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-TM-Cart-Lite-Golf-Bag-Grey.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

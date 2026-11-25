@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/wilson-dynapwr-irons/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 479.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 101,
+  "daysTracked": 102,
   "low": 479.0,
   "high": 489.0,
-  "average": 488.9,
+  "average": 488.8,
   "priceChanges": 1,
   "series": [
    [
@@ -40,6 +40,10 @@
    ],
    [
     "2026-11-24",
+    479.0
+   ],
+   [
+    "2026-11-25",
     479.0
    ]
   ]
@@ -50,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WG1P037701_0_DynaPWR_GI_Iron_Hero.jpg?v=1784968172",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

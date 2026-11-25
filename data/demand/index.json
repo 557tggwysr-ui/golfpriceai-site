@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-24",
+ "date": "2026-11-25",
  "status": "live",
  "week": {
-  "from": "2026-11-18",
-  "to": "2026-11-24"
+  "from": "2026-11-19",
+  "to": "2026-11-25"
  },
  "chart": [
   {
@@ -17,21 +17,11 @@
    "type": "gps-watch",
    "price": 429.0,
    "unit": "",
-   "move": 2,
+   "move": 0,
    "url": "https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/"
   },
   {
    "rank": 2,
-   "name": "Titleist Pro V1 Golf Balls",
-   "brand": "Titleist",
-   "type": "ball",
-   "price": 43.96,
-   "unit": "per dozen",
-   "move": 0,
-   "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
-  },
-  {
-   "rank": 3,
    "name": "Cobra Fly XL Package Set",
    "brand": "Cobra",
    "type": "set",
@@ -41,17 +31,17 @@
    "url": "https://golfpriceai.com/prices/cobra-fly-xl-package-set/"
   },
   {
-   "rank": 4,
-   "name": "Bridgestone Percept Golf Balls",
-   "brand": "Bridgestone",
+   "rank": 3,
+   "name": "Titleist Pro V1 Golf Balls",
+   "brand": "Titleist",
    "type": "ball",
-   "price": 23.99,
+   "price": 39.96,
    "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/bridgestone-percept-golf-balls/"
+   "move": 0,
+   "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
   },
   {
-   "rank": 5,
+   "rank": 4,
    "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
    "brand": "Srixon",
    "type": "ball",
@@ -61,47 +51,47 @@
    "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
   },
   {
-   "rank": 6,
+   "rank": 5,
    "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
    "brand": "MacGregor",
    "type": "set",
    "price": 299.0,
    "unit": "",
-   "move": -2,
+   "move": 0,
    "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
   },
   {
-   "rank": 7,
+   "rank": 6,
    "name": "MacGregor ZT1 Ladies Package Set",
    "brand": "MacGregor",
    "type": "set",
    "price": 419.0,
    "unit": "",
-   "move": -2,
+   "move": 0,
    "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
   },
   {
-   "rank": 8,
+   "rank": 7,
    "name": "Wilson TPX Ladies Package Set",
    "brand": "Wilson",
    "type": "set",
    "price": 319.0,
    "unit": "",
-   "move": -2,
+   "move": 1,
    "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
   },
   {
-   "rank": 9,
+   "rank": 8,
    "name": "Yonex Ezone GS i-Tech Driver",
    "brand": "Yonex",
    "type": "driver",
-   "price": 179.95,
+   "price": 159.95,
    "unit": "",
-   "move": -2,
+   "move": 1,
    "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
   },
   {
-   "rank": 10,
+   "rank": 9,
    "name": "Cobra Darkspeed LS Driver",
    "brand": "Cobra",
    "type": "driver",
@@ -109,16 +99,6 @@
    "unit": "",
    "move": "new",
    "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
-  },
-  {
-   "rank": 11,
-   "name": "Ping G440 Irons",
-   "brand": "Ping",
-   "type": "irons",
-   "price": 719.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/ping-g440-irons/"
   }
  ],
  "wishfulThinking": [
@@ -130,17 +110,17 @@
   {
    "category": "Golf bags",
    "averageGuessVsRealPricePct": 18,
-   "guesses": 81
-  },
-  {
-   "category": "Hybrids",
-   "averageGuessVsRealPricePct": 16,
-   "guesses": 73
+   "guesses": 79
   },
   {
    "category": "Putters",
-   "averageGuessVsRealPricePct": -14,
-   "guesses": 44
+   "averageGuessVsRealPricePct": -15,
+   "guesses": 47
+  },
+  {
+   "category": "Hybrids",
+   "averageGuessVsRealPricePct": 14,
+   "guesses": 68
   }
  ],
  "categoryShare": [
@@ -149,16 +129,16 @@
    "pct": 36
   },
   {
-   "category": "Balls",
-   "pct": 29
+   "category": "Tech",
+   "pct": 28
   },
   {
-   "category": "Tech",
-   "pct": 24
+   "category": "Balls",
+   "pct": 22
   },
   {
    "category": "Drivers & woods",
-   "pct": 12
+   "pct": 14
   }
  ],
  "reports": [

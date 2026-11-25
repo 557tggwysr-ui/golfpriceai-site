@@ -3,26 +3,26 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-elyte-tour-certified-fairway-wood/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 149.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 179.0,
+   "from": 149.95,
    "options": 33
   }
  ],
  "history": {
-  "daysTracked": 82,
-  "low": 179.0,
+  "daysTracked": 83,
+  "low": 149.95,
   "high": 229.0,
-  "average": 211.63,
-  "priceChanges": 2,
+  "average": 210.89,
+  "priceChanges": 3,
   "series": [
    [
     "2026-09-04",
@@ -37,8 +37,8 @@
     179.0
    ],
    [
-    "2026-11-24",
-    179.0
+    "2026-11-25",
+    149.95
    ]
   ]
  },
@@ -48,5 +48,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteFairwayWood4_6c8d82b0-9094-4943-8de4-5ca2e34d0eee.jpg?v=1788274252",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

@@ -1,66 +1,66 @@
 {
- "n": 38,
- "date": "2026-11-24",
+ "n": 39,
+ "date": "2026-11-25",
  "items": [
   {
-   "slug": "ogio-featherlite-stand-bag-golf-bag",
-   "name": "Ogio Featherlite Stand Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/ogio-golf-bags-stand-2026-featherlite-black-8747.jpg?v=1769090895",
-   "price": 139.0,
-   "unit": "each",
-   "type": "golf bag",
-   "low": true,
-   "url": "/prices/ogio-featherlite-stand-bag-golf-bag/"
-  },
-  {
-   "slug": "taylormade-spider-5k-zt-putter",
-   "name": "TaylorMade Spider 5K ZT Putter",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TaylorMadeSpiderZTPutter2.jpg?v=1776274164",
-   "price": 399.0,
-   "unit": "each",
-   "type": "putter",
-   "low": false,
-   "url": "/prices/taylormade-spider-5k-zt-putter/"
-  },
-  {
-   "slug": "titleist-gts2-fairway-wood",
-   "name": "Titleist GTS2 Fairway Wood",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS2GolfFairwayWood_1.jpg?v=1778747084",
-   "price": 369.0,
+   "slug": "wilson-dynapwr-fairway-wood",
+   "name": "Wilson DYNAPWR Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DynapwrFairwayWood-Max1.jpg?v=1776297084",
+   "price": 149.95,
    "unit": "each",
    "type": "fairway wood",
    "low": false,
-   "url": "/prices/titleist-gts2-fairway-wood/"
+   "url": "/prices/wilson-dynapwr-fairway-wood/"
   },
   {
-   "slug": "callaway-cb12-wedge",
-   "name": "Callaway CB12 Wedge",
-   "image": "https://www.clickgolf.co.uk/images/product/main/cb12-wedge-hero.jpg",
-   "price": 119.0,
+   "slug": "titleist-players-s4-stand-bag-golf-bag",
+   "name": "Titleist Players S4 Stand Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX4-222-S4-Hero.jpg",
+   "price": 179.0,
+   "unit": "each",
+   "type": "golf bag",
+   "low": false,
+   "url": "/prices/titleist-players-s4-stand-bag-golf-bag/"
+  },
+  {
+   "slug": "srixon-ad333-golf-balls",
+   "name": "Srixon AD333 Golf Balls",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-04T094716.660.png?v=1704361837",
+   "price": 19.95,
+   "unit": "per dozen",
+   "type": "golf ball",
+   "low": false,
+   "url": "/prices/srixon-ad333-golf-balls/"
+  },
+  {
+   "slug": "taylormade-qi-max-irons",
+   "name": "TaylorMade Qi Max Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeGolfQiMAXIrons2026_2.jpg?v=1768226089",
+   "price": 799.0,
+   "unit": "each",
+   "type": "iron set",
+   "low": true,
+   "url": "/prices/taylormade-qi-max-irons/"
+  },
+  {
+   "slug": "callaway-opus-sp-shadow-wedge",
+   "name": "Callaway Opus SP Shadow Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/OpusSPBlackShadow1_52dbb56c-dff1-4dda-b368-8846a41715bc.jpg?v=1775360763",
+   "price": 159.95,
    "unit": "each",
    "type": "wedge",
    "low": false,
-   "url": "/prices/callaway-cb12-wedge/"
-  },
-  {
-   "slug": "srixon-zxir-irons",
-   "name": "Srixon ZXiR Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/SrixonZXiRGraphiteIrons_3.jpg?v=1763374524",
-   "price": 879.0,
-   "unit": "each",
-   "type": "iron set",
-   "low": false,
-   "url": "/prices/srixon-zxir-irons/"
+   "url": "/prices/callaway-opus-sp-shadow-wedge/"
   }
  ],
  "pin": {
-  "slug": "cobra-baffler-hybrid",
-  "name": "Cobra Baffler Hybrid",
-  "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-Hybird-Hero.jpg",
-  "price": 169.0,
+  "slug": "odyssey-ai-one-square-2-square-putter",
+  "name": "Odyssey Ai-ONE Square 2 Square Putter",
+  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Max15.jpg?v=1776287127",
+  "price": 179.0,
   "unit": "each",
-  "type": "hybrid",
+  "type": "putter",
   "low": false,
-  "url": "/prices/cobra-baffler-hybrid/"
+  "url": "/prices/odyssey-ai-one-square-2-square-putter/"
  }
 }

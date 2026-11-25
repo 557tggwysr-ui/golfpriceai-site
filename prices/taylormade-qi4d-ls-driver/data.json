@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/taylormade-qi4d-ls-driver/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 495.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 101,
+  "daysTracked": 102,
   "low": 495.0,
   "high": 549.0,
-  "average": 547.93,
+  "average": 547.41,
   "priceChanges": 1,
   "series": [
    [
@@ -43,7 +43,7 @@
     495.0
    ],
    [
-    "2026-11-24",
+    "2026-11-25",
     495.0
    ]
   ]
@@ -54,5 +54,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/N2846007-Qi4D-LS-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

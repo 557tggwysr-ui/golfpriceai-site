@@ -3,42 +3,42 @@
  "brand": "Ben Sayers",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/ben-sayers-m8-camo-13-piece-stand-bag-package-set/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 309.0,
+ "lowestNewPrice": 289.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 309.0,
+   "from": 289.0,
    "options": 2
   }
  ],
  "history": {
-  "daysTracked": 82,
-  "low": 309.0,
+  "daysTracked": 83,
+  "low": 289.0,
   "high": 309.0,
-  "average": 309.0,
-  "priceChanges": 0,
+  "average": 308.76,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     309.0
    ],
    [
-    "2026-11-24",
-    309.0
+    "2026-11-25",
+    289.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 82 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BSG7130HERO_01d0b757-1f60-4034-bdd1-bca7ace2ba3d.jpg?v=1776274074",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

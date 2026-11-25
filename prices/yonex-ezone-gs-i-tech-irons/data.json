@@ -3,17 +3,17 @@
  "brand": "Yonex",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-irons/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 429.0,
+ "lowestNewPrice": 399.0,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 429.0,
+   "from": 399.0,
    "options": 3
   },
   {
@@ -23,27 +23,27 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
-  "low": 429.0,
+  "daysTracked": 83,
+  "low": 399.0,
   "high": 429.0,
-  "average": 429.0,
-  "priceChanges": 0,
+  "average": 428.64,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     429.0
    ],
    [
-    "2026-11-24",
-    429.0
+    "2026-11-25",
+    399.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 82 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/YonexEzoneGSi-TechIrons1.jpg?v=1777942352",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

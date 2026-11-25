@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/cobra-air-x-2-0-hybrid/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 69.95,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 63,
+  "daysTracked": 64,
   "low": 69.95,
   "high": 99.95,
-  "average": 83.92,
+  "average": 83.7,
   "priceChanges": 3,
   "series": [
    [
@@ -41,7 +41,7 @@
     69.95
    ],
    [
-    "2026-11-24",
+    "2026-11-25",
     69.95
    ]
   ]
@@ -52,5 +52,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CobraAir-X2.0Hybrid2.jpg?v=1777956481",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

@@ -3,17 +3,17 @@
  "brand": "Yonex",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.95,
+ "lowestNewPrice": 159.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 179.95,
+   "from": 159.95,
    "options": 7
   },
   {
@@ -23,27 +23,27 @@
   }
  ],
  "history": {
-  "daysTracked": 82,
-  "low": 179.95,
+  "daysTracked": 83,
+  "low": 159.95,
   "high": 179.95,
-  "average": 179.95,
-  "priceChanges": 0,
+  "average": 179.71,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
     179.95
    ],
    [
-    "2026-11-24",
-    179.95
+    "2026-11-25",
+    159.95
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 82 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/YonexEzoneGSi-Tech-Driver3.jpg?v=1777942359",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

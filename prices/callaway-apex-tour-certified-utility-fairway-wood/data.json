@@ -3,26 +3,26 @@
  "brand": "Callaway",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/callaway-apex-tour-certified-utility-fairway-wood/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 179.95,
  "lowestAt": [
   "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 199.0,
+   "from": 179.95,
    "options": 11
   }
  ],
  "history": {
-  "daysTracked": 82,
-  "low": 199.0,
+  "daysTracked": 83,
+  "low": 179.95,
   "high": 229.0,
-  "average": 217.73,
-  "priceChanges": 2,
+  "average": 217.27,
+  "priceChanges": 3,
   "series": [
    [
     "2026-09-04",
@@ -37,8 +37,8 @@
     199.0
    ],
    [
-    "2026-11-24",
-    199.0
+    "2026-11-25",
+    179.95
    ]
   ]
  },
@@ -48,5 +48,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/callaway_apex_utility_fairway_wood_3_9890b23f-33ff-4ae3-bf5a-7f8b229d78f1.jpg?v=1788272669",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

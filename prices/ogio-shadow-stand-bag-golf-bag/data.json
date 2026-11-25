@@ -3,7 +3,7 @@
  "brand": "Ogio",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ogio-shadow-stand-bag-golf-bag/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 189.0,
@@ -23,7 +23,7 @@
   },
   {
    "name": "Affordable Golf",
-   "from": 279.0,
+   "from": 199.95,
    "options": 8
   },
   {
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 101,
+  "daysTracked": 102,
   "low": 189.0,
   "high": 329.0,
-  "average": 257.71,
+  "average": 257.04,
   "priceChanges": 11,
   "series": [
    [
@@ -88,7 +88,7 @@
     189.0
    ],
    [
-    "2026-11-24",
+    "2026-11-25",
     189.0
    ]
   ]
@@ -99,5 +99,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/ogio-golf-bags-stand-2026-shadow_22374___1.jpg?v=1769090391",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

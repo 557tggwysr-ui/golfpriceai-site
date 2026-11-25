@@ -3,20 +3,17 @@
  "brand": "Callaway",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/callaway-elyte-driver/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 279.0,
+ "lowestNewPrice": 249.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 279.0,
+   "from": 249.0,
    "options": 16
   },
   {
@@ -41,11 +38,11 @@
   }
  ],
  "history": {
-  "daysTracked": 101,
-  "low": 279.0,
+  "daysTracked": 102,
+  "low": 249.0,
   "high": 339.0,
-  "average": 319.99,
-  "priceChanges": 2,
+  "average": 319.29,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -60,8 +57,8 @@
     279.0
    ],
    [
-    "2026-11-24",
-    279.0
+    "2026-11-25",
+    249.0
    ]
   ]
  },
@@ -69,7 +66,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-driver-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteDriver-TD2.jpg?v=1776306346",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

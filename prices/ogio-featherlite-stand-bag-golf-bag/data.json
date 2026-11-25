@@ -3,14 +3,19 @@
  "brand": "Ogio",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ogio-featherlite-stand-bag-golf-bag/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 139.0,
+ "lowestNewPrice": 129.95,
  "lowestAt": [
-  "Clarkes Golf"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 129.95,
+   "options": 4
+  },
   {
    "name": "Clarkes Golf",
    "from": 139.0,
@@ -20,19 +25,14 @@
    "name": "Clickgolf",
    "from": 149.0,
    "options": 4
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 199.95,
-   "options": 4
   }
  ],
  "history": {
-  "daysTracked": 101,
-  "low": 139.0,
+  "daysTracked": 102,
+  "low": 129.95,
   "high": 209.0,
-  "average": 178.31,
-  "priceChanges": 17,
+  "average": 177.84,
+  "priceChanges": 18,
   "series": [
    [
     "2026-08-16",
@@ -107,8 +107,8 @@
     139.0
    ],
    [
-    "2026-11-24",
-    139.0
+    "2026-11-25",
+    129.95
    ]
   ]
  },
@@ -116,7 +116,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/ogio-golf-bags-stand-2026-featherlite-black-8747.jpg?v=1769090895",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/fe13.jpg?v=1776255926",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }

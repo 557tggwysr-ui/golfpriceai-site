@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/taylormade-qi4d-tour-fairway-wood/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 305.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 101,
+  "daysTracked": 102,
   "low": 305.0,
   "high": 379.0,
-  "average": 378.27,
+  "average": 377.55,
   "priceChanges": 1,
   "series": [
    [
@@ -35,6 +35,10 @@
    ],
    [
     "2026-11-24",
+    305.0
+   ],
+   [
+    "2026-11-25",
     305.0
    ]
   ]
@@ -45,5 +49,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/N2847307-Qi13D-Tour-Fairway-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-25"
 }
