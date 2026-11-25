@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24T19:02Z",
+ "generated": "2026-11-25T18:07Z",
  "about": "Performance analyst: pages that could work harder for golfers, ideas only. Never changes prices or their order.",
  "window": "last 28 days",
  "ideas": [],
@@ -11,24 +11,29 @@
  "tracking": "on",
  "gamesBySales": [],
  "aiAppsByVisits": [
-  "chatgpt"
+  "chatgpt",
+  "gemini"
  ],
  "screensByVisits": [
   {
    "shape": "desktop",
-   "share": 55.3
+   "share": 45.6
   },
   {
    "shape": "phone",
-   "share": 39.5
-  },
-  {
-   "shape": "desktop-small",
-   "share": 2.6
+   "share": 44.1
   },
   {
    "shape": "phone-small",
-   "share": 2.6
+   "share": 4.4
+  },
+  {
+   "shape": "desktop-small",
+   "share": 2.9
+  },
+  {
+   "shape": "tablet",
+   "share": 2.9
   }
  ],
  "ideasMeasured": [],
@@ -36,13 +41,13 @@
   "/prices/garmin-approach-s70-gps-watch/",
   "/prices/titleist-pro-v1-golf-balls/",
   "/prices/callaway-elyte-x-driver/",
-  "/prices/callaway-online-exclusive-mavrik-17-piece-package-set/",
   "/prices/cobra-darkspeed-ls-driver/",
+  "/prices/callaway-online-exclusive-mavrik-17-piece-package-set/",
   "/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/",
-  "/prices/titleist-players-s4-stand-bag-golf-bag/",
   "/prices/titleist-t350-irons/",
   "/prices/taylormade-tp5-golf-balls/",
-  "/prices/bridgestone-percept-golf-balls/"
+  "/prices/bridgestone-percept-golf-balls/",
+  "/prices/titleist-players-s4-stand-bag-golf-bag/"
  ],
  "suddenDrop": false
 }
