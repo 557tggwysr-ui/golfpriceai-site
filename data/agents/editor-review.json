@@ -1,20 +1,20 @@
 {
- "generated": "2026-11-25T01:44Z",
+ "generated": "2026-11-25T06:40Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
  "verdict": "ok",
- "summary": "No Never-list breaches in the captions, but the Doomsday reactive post (2026-11-24-reactive1) falls short of the premium visual standard and is held; video frames could not be inspected and only that post had images.",
+ "summary": "No Never-list breaches in the captions, but 2026-11-24-reactive1 falls short of the premium visual standard and is held; only that post had images to review.",
  "points": [
-  "2026-11-24-reactive1 thumbnail: no product, large empty gradient with a muddy grey-green band in the middle that lowers contrast and looks washed out, and the URL is tiny. Fix: use a strong black-and-green Doomsday-style background with a sharp, large golf bag or clubs, and 2-4 big words such as 'ASSEMBLE THE BAG' kept in the middle 4:5.",
-  "2026-11-24-reactive1 card: the artwork is narrower than the canvas, leaving lighter green side bars that look like a layout error. Fix: make the artwork fill the full width.",
-  "2026-11-24-reactive1 card: the grey 'Compared across multiple UK retailers' line and the green 'Full Swing. Not full price.' line are small and low-contrast on green, so they are hard to read on a phone. Fix: make them larger and use white or light text.",
-  "2026-11-24-reactive1: card says 'BUILD YOUR BAG FOR LESS' with a starfield and grid, but the thumbnail says 'ASSEMBLE THE BAG' on a plain gradient and the hook is 'Assemble the bag'. Make the card, thumbnail and video share one line and one look. Colours (black and green) do suit Doomsday.",
-  "2026-11-24-reactive1: could not extract video frames (no ffmpeg in this environment), so the video's pace, hook and mid-frames are not judged. Caption claim 'checked every 6 hours' should be confirmed against site data. sound is null, so the video has no sound.",
-  "All posts except 2026-11-24-reactive1: no card, thumbnail or video images were supplied, so their visuals were not checked. Re-run with images before approving.",
-  "2026-11-25-tiein2: YouTube title is cut off mid-word ('golf mode') and over 60 characters, and has '#Ad' reduced to 'Ad'. Rewrite it short. Fix the YouTube description, where #golf and #golfuk appear twice.",
-  "2026-11-25-tiein2: 'Over 300 models' and '£524 on the Mizuno Pro S-4 Irons' must match the site's own price-history data.",
-  "2026-12-05-sat: hook 'You've got 3 seconds' is a game timer, not buying pressure, so it is fine, but keep it clear that it is a game.",
-  "Several posts (11-25-wed, 12-02-wed, 11-27-fri, 12-04-fri) have a TikTok caption close to the Instagram one but no product, which is fine. Check that the TikTok variants don't carry keyword lists."
+  "2026-11-24-reactive1 (card): 'Compared across multiple UK retailers' sits almost on top of the GOLFPRICEAI.COM wordmark with no breathing room, so the bottom block is cramped. Fix: add clear space between the URL and the retailers line, or move that line up under 'Driver. Irons. Putter. Wedges.'.",
+  "2026-11-24-reactive1 (card and thumbnail): the top third is empty starfield and the whole lower half is a grid with no product or bag, so the layout is bottom-heavy and unbalanced. Fix: add a sharp, large bag or club image, or move the title block up and balance the space.",
+  "2026-11-24-reactive1 (thumbnail): only 4 words are big, with 'Driver. Irons. Putter. Wedges.' and the tagline too small at phone-grid size, and no product is visible. Fix: show the bag or a club large, and keep the big words ('ASSEMBLE THE BAG') in the middle 4:5. Black and green does match Doomsday, which is good. The card and thumbnail carry the same colours.",
+  "2026-11-24-reactive1 (video): the mp4 frames could not be extracted (no ffmpeg available), so the pace, hook in the first second and match to the thumbnail are unchecked. Please check them by eye.",
+  "Only 2026-11-24-reactive1 had images in /tmp/review-images. The other 14 posts' cards, thumbnails and video frames were not supplied, so their visuals are unreviewed. Re-run with their images before they go out.",
+  "2026-11-25-tiein2: the YouTube title is cut mid-word ('Over 300 golf mode') and starts 'Ad Black Friday...' without the '#'. Fix: write a short title under 100 characters, e.g. 'Black Friday week: golf deals genuinely cheaper than October'.",
+  "2026-11-25-tiein2: the 'over 300 models' and '£524 on the Mizuno Pro S-4 Irons' figures could not be matched in the data files I checked. Confirm they come from the site's price-history before it posts.",
+  "2026-11-27-moment and 2026-11-30-mon: they say 'across multiple UK retailers', but many catalogue items show retailerCount 1. Confirm the featured product really has more than one retailer, or reword.",
+  "2026-11-26-thu: the Callaway Apex Ai200 £919 / '81 days' claim could not be verified from the lite catalogue, where the cheapest listed variant is £1,029. Check that the price history supports it and that the right variant is shown.",
+  "2026-11-28-sat: the caption asks 'over or under £860?' and the cover says 'Higher or lower?'. That is fine as it doesn't give away the answer, but check that the on-screen price isn't shown in the opening frames."
  ],
  "what": "Agent: content engine",
- "postsHash": "a72ae52e33f4ad92701d17d376ad188b8f89ac70"
+ "postsHash": "76ce71197a4b8fcc6267b551a9ab7c67c3a5a036"
 }
