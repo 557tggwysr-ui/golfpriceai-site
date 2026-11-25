@@ -824,7 +824,7 @@ def event_tags(tags):
     """'#Doomsday' or 'Avengers Doomsday' -> '#Doomsday', '#AvengersDoomsday'."""
     out = []
     for t in tags if isinstance(tags, list) else [tags]:
-        t = "#" + re.sub(r"[^0-9A-Za-z]", "", str(t).lstrip("#").title() if " " in str(t) else str(t).lstrip("#"))
+        t = "#" + re.sub(r"[^0-9A-Za-z]", "", "".join(w[:1].upper() + w[1:] for w in str(t).lstrip("#").split()))
         if len(t) > 2 and t not in out:
             out.append(t)
     return out[:3]
