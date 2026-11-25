@@ -100,7 +100,7 @@ jobs:
             If yes: add one entry to data/content-queue.json "posts" with date = today (UTC date), "reactive": true,
             "status": "queued", "trend", "why" (one line), "style" (pick what suits THIS story and current trends from any engine
             style; don't default to one), that style's own script fields (read its function), "look" where the style takes one,
-            "link", and "ig", "x" and "tt" captions. Only real figures from data/models.json or data/home-deals.json; images only
+            "link", "ig", "x" and "tt" captions, and "tags": 1 to 3 hashtags for the story itself, the ones people are searching (for the Avengers: Doomsday trailer: ["#Doomsday", "#AvengersDoomsday"]); the engine puts them first on every platform. Only real figures from data/models.json or data/home-deals.json; images only
             from product image URLs in data/models.json or tile-photos/*.jpg; the story's name in words only (never its logo,
             artwork, characters, lettering or music); never name retailers ("multiple UK retailers"); no fake urgency; UK spelling.
             COLOURS ARE THE RECOGNITION: look up the story's own colour scheme (the film's poster and trailer palette, a team's or

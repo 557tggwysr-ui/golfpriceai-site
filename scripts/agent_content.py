@@ -673,9 +673,11 @@ def tidy_captions(post):
             c[k] = fix(v)
         elif isinstance(v, dict):
             c[k] = {kk: fix(vv) if isinstance(vv, str) else vv for kk, vv in v.items()}
+    ev = post.get("tags") or []
     ig = c.get("instagram")
     if isinstance(ig, str):
         body, tags = _tags_last(ig, 8)
+        tags = list(dict.fromkeys(ev + tags))[:8]
         c["instagram"] = body + ("\n\n" + " ".join(tags) if tags else "")
     tt = c.get("tiktok")
     if isinstance(tt, str):
@@ -686,12 +688,22 @@ def tidy_captions(post):
             if len(re.sub(r"^#Ad\s*", "", body)) < 110:  # thin: use the Instagram words, which tell the whole joke or deal
                 body = ig_body
             tags = list(dict.fromkeys(tags + [t for t in ig_tags if t in ("#TheFourball", "#wildnine")] + ["#golf", "#golftok", "#golfuk"]))[:5]
+        tags = list(dict.fromkeys(ev + tags))[:5]
         m = re.search(r"lowest price we've tracked in (\d+) days", c.get("instagram") or "")
         if m:
             body = body.replace("lowest price we've ever tracked", f"lowest price in {m.group(1)} days")
         body = re.sub(r"\bon golfpriceai\.com/\S*?(?=[,. ]|$)", "on our site (link in bio)", body)  # TikTok captions can't link
         c["tiktok"] = body + (" " + " ".join(tags) if tags else "")
+    for k in ("x", "bluesky"):  # short posts: the story tag only, if it fits
+        if ev and isinstance(c.get(k), str):
+            add = " ".join(t for t in ev[:2] if t.lower() not in c[k].lower())
+            if add and len(c[k]) + len(add) + 1 <= 280:
+                c[k] = c[k].rstrip() + " " + add
     yt = c.get("youtube")
+    if ev and isinstance(yt, dict) and isinstance(yt.get("description"), str):
+        missing = [t for t in ev if t.lower() not in yt["description"].lower()]
+        if missing:
+            yt["description"] = yt["description"].rstrip() + " " + " ".join(missing)
     if isinstance(yt, dict) and isinstance(yt.get("title"), str):
         t = re.sub(r"\s+", " ", TAG_RX.sub("", yt["title"])).strip(" ⛳#")
         t = re.sub(r"^(The [A-Z][a-z]+): \1,", r"\1,", t)  # "The Fourball: The Fourball, EP 1" -> once
@@ -792,7 +804,7 @@ def queued_post(q, day, pid, social=None, sound=None):
              "image": q.get("image"), "name": q.get("name", ""), "headline": q.get("headline", ""), "sub": q.get("sub", ""),
              "ig": q["ig"], "x": q.get("x", q["ig"]), "tt": q.get("tt", q.get("headline", "")), "format": q.get("format"),
              "keywords": q.get("keywords")}
-    meta = {"date", "trend", "status", "link", "image", "headline", "sub", "ig", "x", "tt", "style", "reactive", "source", "why", "format", "keywords"}
+    meta = {"date", "trend", "status", "link", "image", "headline", "sub", "ig", "x", "tt", "style", "reactive", "source", "why", "format", "keywords", "tags"}
     sc = {k: v for k, v in q.items() if k not in meta}
     for pnl in sc.get("panels") or []:  # panel photos: a product image URL or a site photo path
         if isinstance(pnl.get("img"), str):
@@ -801,7 +813,21 @@ def queued_post(q, day, pid, social=None, sound=None):
     first = (q.get("beats") or q.get("panels") or [{"big": q.get("headline", "")}])[0]
     sc.setdefault("hook", first.get("big") or first.get("text") or q.get("headline", ""))
     print(f"{pid}: queued {'reactive post' if q.get('reactive') else 'trend tie-in'} ({q.get('trend')}) in {qstyle}")
-    return build_post(day, theme, qstyle, sc, "gold", pid, None, social, sound)
+    post = build_post(day, theme, qstyle, sc, "gold", pid, None, social, sound)
+    if q.get("tags"):
+        post["tags"] = event_tags(q["tags"])
+        post = ad_label(tidy_captions(post))
+    return post
+
+
+def event_tags(tags):
+    """'#Doomsday' or 'Avengers Doomsday' -> '#Doomsday', '#AvengersDoomsday'."""
+    out = []
+    for t in tags if isinstance(tags, list) else [tags]:
+        t = "#" + re.sub(r"[^0-9A-Za-z]", "", "".join(w[:1].upper() + w[1:] for w in str(t).lstrip("#").split()))
+        if len(t) > 2 and t not in out:
+            out.append(t)
+    return out[:3]
 
 
 def plan_week():
