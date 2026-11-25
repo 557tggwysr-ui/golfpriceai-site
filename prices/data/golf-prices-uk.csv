@@ -194,8 +194,8 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-25,taylormade-qi4d-max-hybrid,TaylorMade Qi4D Max Hybrid,TaylorMade,hybrid,269.00,each,3,102,269.00,269.00,typical,https://golfpriceai.com/prices/taylormade-qi4d-max-hybrid/
 2026-11-25,taylormade-qi4d-max-lite-hybrid,TaylorMade Qi4D Max Lite Hybrid,TaylorMade,hybrid,269.00,each,3,102,269.00,269.00,typical,https://golfpriceai.com/prices/taylormade-qi4d-max-lite-hybrid/
 2026-11-25,taylormade-stealth-hybrid,TaylorMade Stealth Hybrid,TaylorMade,hybrid,99.95,each,3,90,99.95,229.00,typical,https://golfpriceai.com/prices/taylormade-stealth-hybrid/
-2026-11-25,titleist-gt1-hybrid,Titleist GT1 Hybrid,Titleist,hybrid,299.00,each,3,102,299.00,299.00,typical,https://golfpriceai.com/prices/titleist-gt1-hybrid/
-2026-11-25,titleist-gt2-hybrid,Titleist GT2 Hybrid,Titleist,hybrid,299.00,each,3,102,249.00,299.00,typical,https://golfpriceai.com/prices/titleist-gt2-hybrid/
+2026-11-25,titleist-gt1-hybrid,Titleist GT1 Hybrid,Titleist,hybrid,269.00,each,3,102,269.00,299.00,good,https://golfpriceai.com/prices/titleist-gt1-hybrid/
+2026-11-25,titleist-gt2-hybrid,Titleist GT2 Hybrid,Titleist,hybrid,269.00,each,3,102,249.00,299.00,typical,https://golfpriceai.com/prices/titleist-gt2-hybrid/
 2026-11-25,titleist-gt3-hybrid,Titleist GT3 Hybrid,Titleist,hybrid,229.00,each,4,102,229.00,299.00,good,https://golfpriceai.com/prices/titleist-gt3-hybrid/
 2026-11-25,wilson-dynapwr-hybrid,Wilson DYNAPWR Hybrid,Wilson,hybrid,119.00,each,4,102,109.65,199.00,wait,https://golfpriceai.com/prices/wilson-dynapwr-hybrid/
 2026-11-25,wilson-dynapower-hybrid,Wilson Dynapower Hybrid,Wilson,hybrid,69.95,each,2,83,69.95,69.95,typical,https://golfpriceai.com/prices/wilson-dynapower-hybrid/
@@ -485,8 +485,8 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-25,titleist-scotty-cameron-studio-style-newport-putter,Titleist Scotty Cameron Studio Style Newport Putter,Titleist,putter,349.00,each,1,90,349.00,449.00,good,https://golfpriceai.com/prices/titleist-scotty-cameron-studio-style-newport-putter/
 2026-11-25,us-kids-golf-ul7-putter,US Kids Golf UL7 Putter,US Kids Golf,putter,27.95,each,1,90,27.95,27.95,typical,https://golfpriceai.com/prices/us-kids-golf-ul7-putter/
 2026-11-25,wilson-harmonized-x1-putter,Wilson Harmonized X1 Putter,Wilson,putter,49.95,each,3,90,49.95,49.95,typical,https://golfpriceai.com/prices/wilson-harmonized-x1-putter/
-2026-11-25,wilson-harmonized-x2-putter,Wilson Harmonized X2 Putter,Wilson,putter,49.95,each,2,90,49.95,49.95,typical,https://golfpriceai.com/prices/wilson-harmonized-x2-putter/
-2026-11-25,wilson-harmonized-x5-putter,Wilson Harmonized X5 Putter,Wilson,putter,49.95,each,2,90,49.95,49.95,typical,https://golfpriceai.com/prices/wilson-harmonized-x5-putter/
+2026-11-25,wilson-harmonized-x2-putter,Wilson Harmonized X2 Putter,Wilson,putter,49.95,each,3,90,49.95,49.95,typical,https://golfpriceai.com/prices/wilson-harmonized-x2-putter/
+2026-11-25,wilson-harmonized-x5-putter,Wilson Harmonized X5 Putter,Wilson,putter,49.95,each,3,90,49.95,49.95,typical,https://golfpriceai.com/prices/wilson-harmonized-x5-putter/
 2026-11-25,wilson-infinite-putter,Wilson Infinite Putter,Wilson,putter,99.95,each,1,83,99.95,119.95,good,https://golfpriceai.com/prices/wilson-infinite-putter/
 2026-11-25,wilson-infinite-zero-torque-putter,Wilson Infinite Zero Torque Putter,Wilson,putter,179.00,each,2,83,179.00,199.95,good,https://golfpriceai.com/prices/wilson-infinite-zero-torque-putter/
 2026-11-25,wilson-model-putter,Wilson Model Putter,Wilson,putter,295.00,each,1,83,295.00,295.00,typical,https://golfpriceai.com/prices/wilson-model-putter/
@@ -669,7 +669,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-25,titleist-pro-v1x-dash-4-for-golf-balls,Titleist Pro V1x Dash 4 For Golf Balls,Titleist,golf ball,41.24,per dozen,1,102,41.24,41.24,typical,https://golfpriceai.com/prices/titleist-pro-v1x-dash-4-for-golf-balls/
 2026-11-25,titleist-pro-v1x-dash-aim-line-golf-balls,Titleist Pro V1x Dash AIM Line Golf Balls,Titleist,golf ball,49.99,per dozen,1,83,49.99,49.99,typical,https://golfpriceai.com/prices/titleist-pro-v1x-dash-aim-line-golf-balls/
 2026-11-25,titleist-pro-v1x-dash-aim-performance-golf-balls,Titleist Pro V1x Dash AIM Performance Golf Balls,Titleist,golf ball,49.99,per dozen,1,102,49.99,49.99,typical,https://golfpriceai.com/prices/titleist-pro-v1x-dash-aim-performance-golf-balls/
-2026-11-25,titleist-pro-v1x-dash-golf-balls,Titleist Pro V1x Dash Golf Balls,Titleist,golf ball,44.95,per dozen,4,102,43.96,94.99,typical,https://golfpriceai.com/prices/titleist-pro-v1x-dash-golf-balls/
+2026-11-25,titleist-pro-v1x-dash-golf-balls,Titleist Pro V1x Dash Golf Balls,Titleist,golf ball,43.99,per dozen,4,102,43.96,94.99,typical,https://golfpriceai.com/prices/titleist-pro-v1x-dash-golf-balls/
 2026-11-25,titleist-pro-v1x-golf-balls,Titleist Pro V1x Golf Balls,Titleist,golf ball,39.96,per dozen,4,102,39.96,94.99,good,https://golfpriceai.com/prices/titleist-pro-v1x-golf-balls/
 2026-11-25,titleist-pro-v1x-high-number-golf-balls,Titleist Pro V1x High Number Golf Balls,Titleist,golf ball,44.99,per dozen,1,69,44.99,49.99,good,https://golfpriceai.com/prices/titleist-pro-v1x-high-number-golf-balls/
 2026-11-25,titleist-titlesit-tour-soft-golf-balls,Titleist Titlesit Tour Soft Golf Balls,Titleist,golf ball,64.00,per dozen,1,102,64.00,64.00,typical,https://golfpriceai.com/prices/titleist-titlesit-tour-soft-golf-balls/
@@ -714,7 +714,8 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-25,big-max-aqua-tour-4-waterproof-golf-bag,Big Max Aqua Tour 4 Waterproof Golf Bag,Big Max,golf bag,239.00,each,1,83,239.00,239.00,typical,https://golfpriceai.com/prices/big-max-aqua-tour-4-waterproof-golf-bag/
 2026-11-25,big-max-dri-lite-hybrid-prime-stand-bag-golf-bag,Big Max Dri Lite Hybrid Prime Stand Bag Golf Bag,Big Max,golf bag,249.00,each,2,83,249.00,289.00,good,https://golfpriceai.com/prices/big-max-dri-lite-hybrid-prime-stand-bag-golf-bag/
 2026-11-25,big-max-dri-lite-hybrid-tour-2-golf-bag,Big Max Dri Lite Hybrid Tour 2 Golf Bag,Big Max,golf bag,179.00,each,3,90,179.00,209.00,good,https://golfpriceai.com/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/
-2026-11-25,big-max-dri-lite-prime-cart-bag-golf-bag,Big Max Dri Lite Prime Cart Bag Golf Bag,Big Max,golf bag,269.00,each,1,90,179.00,329.00,typical,https://golfpriceai.com/prices/big-max-dri-lite-prime-cart-bag-golf-bag/
+2026-11-25,big-max-dri-lite-prime-cart-bag-golf-bag,Big Max Dri Lite Prime Cart Bag Golf Bag,Big Max,golf bag,179.00,each,2,90,179.00,329.00,good,https://golfpriceai.com/prices/big-max-dri-lite-prime-cart-bag-golf-bag/
+2026-11-25,big-max-dri-lite-prime-hybrid-stand-bag-golf-bag,Big Max Dri Lite Prime Hybrid Stand Bag Golf Bag,Big Max,golf bag,179.00,each,1,90,179.00,299.00,good,https://golfpriceai.com/prices/big-max-dri-lite-prime-hybrid-stand-bag-golf-bag/
 2026-11-25,big-max-dri-lite-seven-g-stand-bag-golf-bag,Big Max Dri Lite Seven G Stand Bag Golf Bag,Big Max,golf bag,104.95,each,2,90,104.95,104.95,typical,https://golfpriceai.com/prices/big-max-dri-lite-seven-g-stand-bag-golf-bag/
 2026-11-25,big-max-dri-lite-silencio-2-organiser-golf-bag,Big Max Dri Lite Silencio 2 Organiser Golf Bag,Big Max,golf bag,199.95,each,1,83,199.95,219.00,good,https://golfpriceai.com/prices/big-max-dri-lite-silencio-2-organiser-golf-bag/
 2026-11-25,big-max-dri-lite-silencio-3-organiser-cart-golf-bag,Big Max Dri Lite Silencio 3 Organiser Cart Golf Bag,Big Max,golf bag,199.00,each,2,90,199.00,219.00,good,https://golfpriceai.com/prices/big-max-dri-lite-silencio-3-organiser-cart-golf-bag/
@@ -1078,8 +1079,8 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-25,garmin-approach-j1-gps-watch,Garmin Approach J1 GPS Watch,Garmin,GPS watch,259.00,each,2,102,259.00,310.00,good,https://golfpriceai.com/prices/garmin-approach-j1-gps-watch/
 2026-11-25,garmin-approach-s12-gps-watch,Garmin Approach S12 GPS Watch,Garmin,GPS watch,109.95,each,2,90,109.95,129.00,good,https://golfpriceai.com/prices/garmin-approach-s12-gps-watch/
 2026-11-25,garmin-approach-s42-gps-watch,Garmin Approach S42 GPS Watch,Garmin,GPS watch,269.99,each,1,83,269.99,269.99,typical,https://golfpriceai.com/prices/garmin-approach-s42-gps-watch/
-2026-11-25,garmin-approach-s44-gps-watch,Garmin Approach S44 GPS Watch,Garmin,GPS watch,219.00,each,3,102,219.00,239.00,good,https://golfpriceai.com/prices/garmin-approach-s44-gps-watch/
-2026-11-25,garmin-approach-s50-gps-watch,Garmin Approach S50 GPS Watch,Garmin,GPS watch,299.00,each,4,102,299.00,349.00,good,https://golfpriceai.com/prices/garmin-approach-s50-gps-watch/
+2026-11-25,garmin-approach-s44-gps-watch,Garmin Approach S44 GPS Watch,Garmin,GPS watch,169.00,each,3,102,169.00,239.00,good,https://golfpriceai.com/prices/garmin-approach-s44-gps-watch/
+2026-11-25,garmin-approach-s50-gps-watch,Garmin Approach S50 GPS Watch,Garmin,GPS watch,259.00,each,4,102,259.00,349.00,good,https://golfpriceai.com/prices/garmin-approach-s50-gps-watch/
 2026-11-25,garmin-approach-s70-gps-watch,Garmin Approach S70 GPS Watch,Garmin,GPS watch,429.00,each,3,90,429.00,529.00,good,https://golfpriceai.com/prices/garmin-approach-s70-gps-watch/
 2026-11-25,garmin-approach-s72-gps-watch,Garmin Approach S72 GPS Watch,Garmin,GPS watch,699.00,each,2,47,699.00,699.00,typical,https://golfpriceai.com/prices/garmin-approach-s72-gps-watch/
 2026-11-25,shot-scope-g5-gps-watch,Shot Scope G5 GPS Watch,Shot Scope,GPS watch,129.99,each,1,83,129.99,129.99,typical,https://golfpriceai.com/prices/shot-scope-g5-gps-watch/
@@ -1101,7 +1102,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-25,blue-tees-captain-pro-connected-laser-rangefinder,Blue Tees Captain Pro Connected Laser Rangefinder,Blue Tees,rangefinder,249.00,each,1,83,249.00,299.00,good,https://golfpriceai.com/prices/blue-tees-captain-pro-connected-laser-rangefinder/
 2026-11-25,blue-tees-series-3-max-rangefinder,Blue Tees Series 3 Max Rangefinder,Blue Tees,rangefinder,199.00,each,1,83,199.00,199.00,typical,https://golfpriceai.com/prices/blue-tees-series-3-max-rangefinder/
 2026-11-25,blue-tees-series-4-ultra-rangefinder,Blue Tees Series 4 Ultra Rangefinder,Blue Tees,rangefinder,249.00,each,1,83,249.00,269.00,typical,https://golfpriceai.com/prices/blue-tees-series-4-ultra-rangefinder/
-2026-11-25,bushnell-a1-slope-laser-rangefinder,Bushnell A1 Slope Laser Rangefinder,Bushnell,rangefinder,209.00,each,4,102,209.00,269.00,good,https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/
+2026-11-25,bushnell-a1-slope-laser-rangefinder,Bushnell A1 Slope Laser Rangefinder,Bushnell,rangefinder,175.00,each,4,102,175.00,269.00,good,https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/
 2026-11-25,bushnell-phantom-3-handheld-rangefinder,Bushnell Phantom 3 Handheld Rangefinder,Bushnell,rangefinder,109.95,each,1,83,109.95,129.95,good,https://golfpriceai.com/prices/bushnell-phantom-3-handheld-rangefinder/
 2026-11-25,bushnell-phantom-3-rangefinder,Bushnell Phantom 3 Rangefinder,Bushnell,rangefinder,109.00,each,1,102,109.00,129.00,good,https://golfpriceai.com/prices/bushnell-phantom-3-rangefinder/
 2026-11-25,bushnell-pro-x3-plus-laser-rangefinder,Bushnell Pro X3+ Laser Rangefinder,Bushnell,rangefinder,449.00,each,5,102,449.00,529.00,good,https://golfpriceai.com/prices/bushnell-pro-x3-plus-laser-rangefinder/
@@ -1382,10 +1383,10 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-25,macgregor-v-max-5-piece-stand-bag-ages-6-8-junior-golf-set,MacGregor V-MAX 5-Piece Stand Bag Ages 6-8 Junior Golf Set,MacGregor,junior golf set,129.95,each,1,83,129.95,159.95,good,https://golfpriceai.com/prices/macgregor-v-max-5-piece-stand-bag-ages-6-8-junior-golf-set/
 2026-11-25,macgregor-v-max-7-piece-stand-bag-ages-9-12-junior-golf-set,MacGregor V-MAX 7-Piece Stand Bag Ages 9-12 Junior Golf Set,MacGregor,junior golf set,179.95,each,1,83,179.95,179.95,typical,https://golfpriceai.com/prices/macgregor-v-max-7-piece-stand-bag-ages-9-12-junior-golf-set/
 2026-11-25,macgregor-v-max-8-piece-stand-bag-ages-12-14-junior-golf-set,MacGregor V-MAX 8-Piece Stand Bag Ages 12-14 Junior Golf Set,MacGregor,junior golf set,189.95,each,1,69,189.95,189.95,typical,https://golfpriceai.com/prices/macgregor-v-max-8-piece-stand-bag-ages-12-14-junior-golf-set/
-2026-11-25,macgregor-v-max-ages-12-14-junior-golf-set,MacGregor V-Max Ages 12-14 Junior Golf Set,MacGregor,junior golf set,169.99,each,2,102,169.99,169.99,typical,https://golfpriceai.com/prices/macgregor-v-max-ages-12-14-junior-golf-set/
+2026-11-25,macgregor-v-max-ages-12-14-junior-golf-set,MacGregor V-Max Ages 12-14 Junior Golf Set,MacGregor,junior golf set,189.99,each,2,102,169.99,189.99,wait,https://golfpriceai.com/prices/macgregor-v-max-ages-12-14-junior-golf-set/
 2026-11-25,macgregor-v-max-ages-3-5-junior-golf-set,MacGregor V-Max Ages 3-5 Junior Golf Set,MacGregor,junior golf set,129.99,each,2,102,99.99,129.99,wait,https://golfpriceai.com/prices/macgregor-v-max-ages-3-5-junior-golf-set/
 2026-11-25,macgregor-v-max-ages-6-8-junior-golf-set,MacGregor V-Max Ages 6-8 Junior Golf Set,MacGregor,junior golf set,149.00,each,2,102,119.00,149.00,wait,https://golfpriceai.com/prices/macgregor-v-max-ages-6-8-junior-golf-set/
-2026-11-25,macgregor-v-max-ages-9-12-junior-golf-set,MacGregor V-max Ages 9-12 Junior Golf Set,MacGregor,junior golf set,179.00,each,2,90,179.00,179.00,typical,https://golfpriceai.com/prices/macgregor-v-max-ages-9-12-junior-golf-set/
+2026-11-25,macgregor-v-max-ages-9-12-junior-golf-set,MacGregor V-Max Ages 9-12 Junior Golf Set,MacGregor,junior golf set,169.00,each,3,102,139.00,169.00,wait,https://golfpriceai.com/prices/macgregor-v-max-ages-9-12-junior-golf-set/
 2026-11-25,masters-golf-mc-j530-half-ages-5-8-junior-golf-set,Masters Golf MC-J530 Half Ages 5-8 Junior Golf Set,Masters Golf,junior golf set,109.00,each,1,90,109.00,109.00,typical,https://golfpriceai.com/prices/masters-golf-mc-j530-half-ages-5-8-junior-golf-set/
 2026-11-25,masters-golf-mc-j530-half-ages-9-12-junior-golf-set,Masters Golf MC-J530 Half Ages 9-12 Junior Golf Set,Masters Golf,junior golf set,109.00,each,1,90,109.00,109.00,typical,https://golfpriceai.com/prices/masters-golf-mc-j530-half-ages-9-12-junior-golf-set/
 2026-11-25,masters-mc-j-5-piece-stand-bag-ages-5-8-junior-golf-set,Masters MC-J 5-Piece Stand Bag Ages 5-8 Junior Golf Set,Masters,junior golf set,89.95,each,1,83,89.95,99.95,good,https://golfpriceai.com/prices/masters-mc-j-5-piece-stand-bag-ages-5-8-junior-golf-set/

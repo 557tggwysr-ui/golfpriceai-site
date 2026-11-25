@@ -6,21 +6,20 @@
  "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 299.0,
+ "lowestNewPrice": 259.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
+   "name": "Clarkes Golf",
+   "from": 259.0,
+   "options": 1
+  },
+  {
    "name": "Affordable Golf",
    "from": 299.0,
    "options": 2
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 299.0,
-   "options": 1
   },
   {
    "name": "Clickgolf",
@@ -35,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 102,
-  "low": 299.0,
+  "low": 259.0,
   "high": 349.0,
-  "average": 328.51,
-  "priceChanges": 4,
+  "average": 328.12,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -62,7 +61,7 @@
    ],
    [
     "2026-11-25",
-    299.0
+    259.0
    ]
   ]
  },
@@ -70,7 +69,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/S50_neutral_1.jpg?v=1776307261",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Garmin-Approach-S50-Golf-GPS-Watch-Black-1-Photoroom.jpg?v=1738335926",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-25"
 }

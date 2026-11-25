@@ -6,19 +6,18 @@
  "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 219.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
-  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 219.0,
+   "name": "Clarkes Golf",
+   "from": 169.0,
    "options": 2
   },
   {
-   "name": "Clarkes Golf",
+   "name": "Affordable Golf",
    "from": 219.0,
    "options": 2
   },
@@ -30,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 102,
-  "low": 219.0,
+  "low": 169.0,
   "high": 239.0,
-  "average": 234.49,
-  "priceChanges": 1,
+  "average": 234.0,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -45,7 +44,7 @@
    ],
    [
     "2026-11-25",
-    219.0
+    169.0
    ]
   ]
  },
@@ -53,7 +52,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Approach_S44_Black_9.jpg?v=1782293110",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/GarminS44Black1.jpg?v=1737550763",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-25"
 }

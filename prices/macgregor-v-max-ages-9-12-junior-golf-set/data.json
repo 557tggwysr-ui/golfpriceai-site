@@ -1,17 +1,21 @@
 {
- "name": "MacGregor V-max Ages 9-12 Junior Golf Set",
+ "name": "MacGregor V-Max Ages 9-12 Junior Golf Set",
  "brand": "MacGregor",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/macgregor-v-max-ages-9-12-junior-golf-set/",
  "checked": "2026-11-25",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 169.0,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 179.0,
@@ -24,27 +28,27 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
-  "low": 179.0,
-  "high": 179.0,
-  "average": 179.0,
-  "priceChanges": 0,
+  "daysTracked": 102,
+  "low": 139.0,
+  "high": 169.0,
+  "average": 139.29,
+  "priceChanges": 1,
   "series": [
    [
-    "2026-08-28",
-    179.0
+    "2026-08-16",
+    139.0
    ],
    [
     "2026-11-25",
-    179.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 90 days"
+  "label": "wait",
+  "summary": "Wait if you can: £30.00 above its tracked low"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/VMAX9-121.jpg?v=1728895806",
+ "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-V-Max-Junior-Package-Set-Age-9-12.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-25"
 }

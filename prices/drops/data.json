@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-25T01:58+00:00",
+ "checked": "2026-11-25T16:54+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -22,6 +22,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/macgregor-v-max-speed-fairway-wood/"
+  },
+  {
+   "model": "Garmin Approach S44 GPS Watch",
+   "model_id": "garmin-approach-s44-gps-watch",
+   "date": "2026-11-25",
+   "was": 219.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-s44-gps-watch/"
   },
   {
    "model": "MacGregor V-Max Feel Wedge",
@@ -64,6 +74,16 @@
    "url": "https://golfpriceai.com/prices/masters-gx1-reloaded-12-piece-stand-bag-package-set/"
   },
   {
+   "model": "Bushnell A1 Slope Laser Rangefinder",
+   "model_id": "bushnell-a1-slope-laser-rangefinder",
+   "date": "2026-11-25",
+   "was": 209.0,
+   "now": 175.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/"
+  },
+  {
    "model": "Callaway Elyte Fairway Wood",
    "model_id": "callaway-elyte-fairway-wood",
    "date": "2026-11-25",
@@ -92,6 +112,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/ben-sayers-m8-13-piece-cart-bag-ladies-package-set/"
+  },
+  {
+   "model": "Garmin Approach S50 GPS Watch",
+   "model_id": "garmin-approach-s50-gps-watch",
+   "date": "2026-11-25",
+   "was": 299.0,
+   "now": 259.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-s50-gps-watch/"
   },
   {
    "model": "Callaway Elyte Hybrid",
@@ -162,6 +192,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-darkspeed-fairway-wood/"
+  },
+  {
+   "model": "Titleist GT1 Hybrid",
+   "model_id": "titleist-gt1-hybrid",
+   "date": "2026-11-25",
+   "was": 299.0,
+   "now": 269.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gt1-hybrid/"
   },
   {
    "model": "TaylorMade TP Reserve Putter",
@@ -942,6 +982,26 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/taylormade-flextech-superlite-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Big Max Dri Lite Prime Cart Bag Golf Bag",
+   "model_id": "big-max-dri-lite-prime-cart-bag-golf-bag",
+   "date": "2026-11-19",
+   "was": 254.15,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/big-max-dri-lite-prime-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Big Max Dri Lite Prime Hybrid Stand Bag Golf Bag",
+   "model_id": "big-max-dri-lite-prime-hybrid-stand-bag-golf-bag",
+   "date": "2026-11-19",
+   "was": 249.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/big-max-dri-lite-prime-hybrid-stand-bag-golf-bag/"
   },
   {
    "model": "Mizuno Pro S-4 Irons",
