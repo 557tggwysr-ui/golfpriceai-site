@@ -155,3 +155,5 @@ planner, the channel scout, the joke hopper, the Editor) writes to them too.
 - Instagram and Bluesky post themselves once ticked; John posts TikTok, YouTube Shorts, X and Pinterest
   by hand from the 11:43 message.
 
+## Story hashtags (John, 25 Nov 2026)
+Posts about news, events and moments carry the story's own hashtag on every platform, first in the list (#Doomsday on the Doomsday trailer post, #BlackFriday on Black Friday posts), so people following the story find us. The newsroom gives each post a "tags" list; the engine adds them to Instagram, TikTok, YouTube, X and Bluesky.
