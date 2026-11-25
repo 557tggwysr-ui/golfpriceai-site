@@ -81,7 +81,7 @@ jobs:
           for f in data/agent-rules.json data/agent-links.json llms.txt data/model-aliases.json play/wild-nine/index.html data/wild-nine-moderation.json data/society-days.json societies/days data/courses/cards-clubs.json prices/occasions data/agent-pages.json data/email-tuning.json data/experiments.json data/games-lab.json data/agents/fix-log.json; do git add -A -- "$f" 2>/dev/null || true; done
           if ! git diff --quiet --cached; then
             git commit -m "Fix pack approved"
-            git pull --rebase && git push
+            for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep $((i*5)); done
           fi
       - name: Refresh the site now so the fixes go live
         env: { GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}" }

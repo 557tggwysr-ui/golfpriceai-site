@@ -32,5 +32,5 @@ jobs:
           git add data/agents/catalogue-report.json data/agents/catalogue-findings.json data/agents/price-quarantine.json data/agents/catalogue-state.json
           if ! git diff --quiet --cached; then
             git commit -m "Agent: catalogue autopilot report"
-            git pull --rebase && git push
+            for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep $((i*5)); done
           fi

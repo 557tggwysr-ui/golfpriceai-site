@@ -31,5 +31,5 @@ jobs:
           git add data/agents/claims-report.json data/agents/claims-findings.json
           if ! git diff --quiet --cached; then
             git commit -m "Agent: claims guardian report"
-            git pull --rebase && git push
+            for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep $((i*5)); done
           fi
