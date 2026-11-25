@@ -1,35 +1,17 @@
 {
- "generated": "2026-11-24T17:57Z",
+ "generated": "2026-11-25T17:25Z",
  "about": "Revenue guardian: are buy links tracked and landing on the right page? No money figures here (those go privately to the owner).",
- "listings": 81521,
+ "listings": 81563,
  "untracked": [],
  "untrackedTotal": 0,
  "sampleChecked": 50,
- "landingOkPct": 92,
+ "landingOkPct": 98,
  "landingProblems": [
   {
-   "name": "Limited Edition Chrome Soft  Truvis Team Colors Red and Blue Golf Balls 2022 (Dozen)",
-   "id": "ball-limited-edition-chrome-soft-truvis-team-colors-red-and-blue--callaway",
-   "feed": "awin-callaway",
-   "problem": "landed on callawaygolf.com"
-  },
-  {
-   "name": "Malbon Blackbird Polo Shirt",
-   "id": "apparel-malbon-blackbird-polo-shirt-scottsdalegolf",
-   "feed": "awin-scottsdalegolf",
-   "problem": "error 403"
-  },
-  {
-   "name": "Lamkin Crossline",
-   "id": "accessories-lamkin-crossline-scottsdalegolf",
-   "feed": "awin-scottsdalegolf",
-   "problem": "error 403"
-  },
-  {
-   "name": "Cleveland Huntington Beach Soft Milled #4 Plumber's Neck Golf Putter",
-   "id": "putter-cleveland-huntington-beach-soft-milled-4-plumber-s-neck-golf-scottsdalegolf",
-   "feed": "awin-scottsdalegolf",
-   "problem": "error 403"
+   "name": "Titleist Scotty Cameron Phantom 9.5 Putter - 34 / Right Hand",
+   "id": "putter-titleist-scotty-cameron-phantom-9-5-putter-34-right-hand-majorgolf",
+   "feed": "awin-majorgolf",
+   "problem": "error 404"
   }
  ],
  "status": "ok"
