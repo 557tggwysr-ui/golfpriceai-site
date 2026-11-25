@@ -1,62 +1,27 @@
 {
- "generated": "2026-11-23T13:03Z",
+ "generated": "2026-11-25T07:03Z",
  "about": "Claims guardian: price-page claims match live data, buy pages carry the commission disclosure, no urgency or 'was' wording, and our prices match retailers' own pages.",
- "accuracyPct": 99.6,
- "pricePagesChecked": 1431,
+ "accuracyPct": 99.9,
+ "pricePagesChecked": 1438,
  "wrongClaims": 0,
  "wrongExamples": [],
- "buyPagesChecked": 521,
+ "buyPagesChecked": 362,
  "missingDisclosure": [],
  "wordingFlags": [],
  "priceMatchChecked": 29,
  "priceMismatches": [
   {
-   "id": "apparel-adidas-ultimate365-men-s-arctic-golf-trouser-jm6524-collegia-majorgolf-9413c3",
-   "name": "adidas Ultimate365 Men's Arctic Golf Trouser - JM6524 - Collegiate Navy / W38 L30",
-   "ours": 74.95,
-   "theirs": 7495.0,
+   "id": "driver-golfway-champion-youth-driver-67-golfer-height-affordablegolf",
+   "name": "Golfway Champion Youth Driver - (67\"+ Golfer Height)",
+   "ours": 29.99,
+   "theirs": 19.99,
    "ok": false
   },
   {
-   "id": "apparel-footjoy-essentials-stretch-pique-solid-golf-polo-shirt-80131-majorgolf-9a59ca",
-   "name": "FootJoy Essentials Stretch Pique Solid Golf Polo Shirt - 80131 - Orange / L",
-   "ours": 34.95,
-   "theirs": 3495.0,
-   "ok": false
-  },
-  {
-   "id": "bag-mizuno-tour-staff-mid-bag-2025-staff-colours-white-blue-majorgolf",
-   "name": "Mizuno Tour Staff Mid Bag 2025 - Staff Colours - White / Blue",
-   "ours": 199.0,
-   "theirs": 19900.0,
-   "ok": false
-  },
-  {
-   "id": "apparel-calvin-klein-newport-1-2-zip-pullover-golf-top-2025-spicy-or-majorgolf-bcbba5",
-   "name": "Calvin Klein Newport 1/2 Zip Pullover Golf Top 2025 - Spicy Orange Marl - Spicy Orange Marl / XL",
-   "ours": 24.95,
-   "theirs": 2495.0,
-   "ok": false
-  },
-  {
-   "id": "shoes-men-s-chev-star-golf-shoes-callaway",
-   "name": "Men's Chev Star Golf Shoes",
-   "ours": 44.5,
-   "theirs": 89.0,
-   "ok": false
-  },
-  {
-   "id": "apparel-original-penguin-heritage-light-weight-packable-golf-vest-20-majorgolf-b0d6be",
-   "name": "Original Penguin Heritage Light Weight Packable Golf Vest 2026 - OGVSF010-466 - Surf The Web 466 / M",
-   "ours": 48.71,
-   "theirs": 4871.0,
-   "ok": false
-  },
-  {
-   "id": "apparel-calvin-klein-planet-sweatshirt-golf-top-2026-c10275-grey-mar-majorgolf-cbe5c9",
-   "name": "Calvin Klein Planet Sweatshirt Golf Top 2026 - C10275 - Grey Marl - Grey Marl / XL",
-   "ours": 39.95,
-   "theirs": 3995.0,
+   "id": "wood-callaway-elyte-fairway-wood-x-right-hand-5-wood-18-senior-mi-affordablegolf",
+   "name": "Callaway Elyte Fairway Wood - X Right Hand / 5 Wood 18* / Senior - Mitsubishi Chemical Vanquish 40",
+   "ours": 229.0,
+   "theirs": 169.95,
    "ok": false
   }
  ],
