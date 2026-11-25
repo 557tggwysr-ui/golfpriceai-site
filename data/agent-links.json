@@ -65,6 +65,32 @@
    "why": "new price page",
    "added": "2026-11-24",
    "until": "2027-01-23"
+  },
+  "callaway-xr-26-irons": {
+   "from": [
+    "callaway-quantum-max-irons",
+    "callaway-quantum-max-os-irons",
+    "wilson-dynapwr-forged-irons",
+    "cobra-ds-adapt-irons",
+    "ping-g430-irons",
+    "cobra-king-max-irons"
+   ],
+   "why": "new price page",
+   "added": "2026-11-25",
+   "until": "2027-01-24"
+  },
+  "ping-s159-wedge": {
+   "from": [
+    "callaway-opus-brushed-chrome-wedge",
+    "callaway-opus-platinum-chrome-wedge",
+    "cobra-king-x-wedge",
+    "cobra-king-wedge",
+    "ping-chipr-chipper-wedge",
+    "cleveland-rtz-tour-satin-wedge"
+   ],
+   "why": "new price page",
+   "added": "2026-11-25",
+   "until": "2027-01-24"
   }
  }
 }
