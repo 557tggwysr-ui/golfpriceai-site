@@ -96,7 +96,6 @@
   "driver-golfway-champion-youth-driver-67-golfer-height-affordablegolf",
   "driver-golfway-champion-youth-driver-ages-16-affordablegolf",
   "driver-golfway-champion-youth-driver-ages-16-left-hand-67-affordablegolf",
-  "wood-golfway-champion-youth-fairway-wood-63-66-golfer-height-affordablegolf",
   "wood-golfway-champion-youth-fairway-wood-67-golfer-height-affordablegolf",
   "wood-golfway-champion-youth-fairway-wood-ages-14-16-affordablegolf",
   "wood-golfway-champion-youth-fairway-wood-ages-16-affordablegolf",
@@ -1049,16 +1048,6 @@
    "model": "golfway-champion-youth-driver",
    "price": 29.99,
    "reason": "below a sensible floor for a new driver",
-   "shownAsLowest": false,
-   "kind": "floor",
-   "both": false
-  },
-  {
-   "id": "wood-golfway-champion-youth-fairway-wood-63-66-golfer-height-affordablegolf",
-   "name": "Golfway Champion Youth Fairway Wood - (63\"-66\" Golfer Height)",
-   "model": "golfway-champion-youth-fairway-wood",
-   "price": 29.99,
-   "reason": "below a sensible floor for a new wood",
    "shownAsLowest": false,
    "kind": "floor",
    "both": false

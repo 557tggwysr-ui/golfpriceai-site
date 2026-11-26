@@ -1,11 +1,11 @@
 {
- "generated": "2026-11-25T17:44Z",
+ "generated": "2026-11-26T01:46Z",
  "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
- "listings": 81563,
- "models": 3327,
+ "listings": 81621,
+ "models": 3330,
  "feeds": {
-  "awin-affordablegolf": 39159,
-  "awin-clarkesgolf": 20284,
+  "awin-affordablegolf": 39202,
+  "awin-clarkesgolf": 20299,
   "awin-majorgolf": 13620,
   "awin-clickgolf": 3476,
   "awin-scottsdalegolf": 3177,
@@ -52,7 +52,7 @@
    "filedAs": "wedge"
   }
  ],
- "suspectPrices": 100,
+ "suspectPrices": 99,
  "pagesShowingSuspectPrice": 18,
  "pagesToCheck": [
   {
@@ -431,7 +431,7 @@
   "Callaway Grade C Recycled Golf Balls - 24 Pack - Grade C",
   "Nike Grade C Recycled Golf Balls - 24 Pack - Grade C"
  ],
- "duplicates": 670,
+ "duplicates": 675,
  "duplicateExamples": [
   {
    "feed": "awin-clickgolf",
@@ -554,8 +554,8 @@
    ]
   }
  ],
- "deadListings45d": 696,
- "unmatchedClubs": 1439,
+ "deadListings45d": 711,
+ "unmatchedClubs": 1438,
  "newLaunchCandidates": [
   {
    "brand": "Cleveland Golf",
@@ -682,7 +682,7 @@
   }
  ],
  "fixCheck": {
-  "rulesActive": 30,
+  "rulesActive": 32,
   "notApplied": []
  },
  "status": "attention"
