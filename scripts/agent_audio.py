@@ -221,14 +221,20 @@ def soundtrack(style, script, dur, out_wav, seed=None):
             if k == len(shots) - 1 and "putt" in (sh.get("label") or "").lower():
                 add(fx, cup(), t0 + .35, .9)  # the tap-in drops
         lines = [p for p in plan if p[0] == "line"]
+        punch = max([k for k, p in enumerate(lines) if (p[4].get("text") or "").strip()] or [len(lines) - 1])
         for k, (_, j, t0, t1, ln) in enumerate(lines):
-            last = k == len(lines) - 1
             if k == 0 and len(lines) > 1:
                 add(fx, tada(), t0 + .05, .8)  # the claim
-            elif last:
+            elif k == punch:
                 add(fx, rimshot(), t0 + .6, .9)  # the punchline
-            else:
-                quiet.append((t0, t1))  # the mate's deadpan look: silence
+        # The music drops out for one deadpan beat only, never for a run of lines: a wordless reaction
+        # before the punchline (Kev trying not to laugh), or else the last beat before the punchline.
+        # (Until 26 Nov 2026 every middle line went silent, so longer episodes lost the band for seconds.)
+        dead = [p for p in lines[1:punch] if not (p[4].get("text") or "").strip()]
+        if dead:
+            quiet += [(p[2], p[3]) for p in dead]
+        elif 0 < punch - 1:
+            quiet.append((max(lines[punch - 1][2], lines[punch][2] - BEAT), lines[punch][2]))
         if script.get("outro"):
             add(fx, chime(), end + .1, .8)
     elif style in ("humour", "headline"):

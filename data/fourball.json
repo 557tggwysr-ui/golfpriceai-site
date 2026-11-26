@@ -97,8 +97,8 @@
       ],
       "status": "ready",
       "photos": "complete",
-      "posted": "2026-11-23",
-      "result": "Aired 23 Nov, EP1 and EP2 together before the Wednesday rhythm began. No engagement read yet: the content log has no per-post results for the series, so no character, gag or line can be called a hit or a miss. Outro hand-over only (live scorecard), no tool in the story; no fourball-tagged visits reported yet. Review again next week."
+      "posted": "2026-11-25",
+      "result": "Aired Wed 25 Nov (the first episode). No per-post results logged yet, so no read on what landed; review again next week. Outro hand-over only (live scorecard), no tool in the story."
     },
     {
       "ep": 2,
@@ -113,8 +113,9 @@
       ],
       "status": "ready",
       "photos": "complete",
-      "posted": "2026-11-23",
-      "result": "Aired 23 Nov, EP1 and EP2 together before the Wednesday rhythm began. No engagement read yet: the content log has no per-post results for the series, so no character, gag or line can be called a hit or a miss. Outro hand-over only (Fourball Alerts), no tool in the story; no fourball-tagged visits reported yet. Review again next week."
+      "posted": null,
+      "result": null,
+      "airs": "2026-12-02"
     },
     {
       "ep": 3,
@@ -132,7 +133,8 @@
       "photos": "complete",
       "posted": null,
       "result": null,
-      "idea": "John's idea (21 Nov 2026): Phil proves the real score with our live scorecard."
+      "idea": "John's idea (21 Nov 2026): Phil proves the real score with our live scorecard.",
+      "airs": "2026-12-09"
     },
     {
       "ep": 4,
@@ -151,12 +153,9 @@
       "photos": "complete",
       "posted": null,
       "result": null,
-      "airs": "2026-12-09",
+      "airs": "2026-12-16",
       "note": "Gaz's comeback after EP2; no tool in the story (joke first), outro to Fourball Alerts.",
-      "upgradePhotos": [
-        "kev-04-commentary.jpg"
-      ],
-      "upgradeNote": "John (26 Nov 2026): dedicated Phil and Kev photos instead of re-used library shots. The episode keeps airing with its current shots until these arrive; then swap them in (set bg explicitly, not a rotating reaction)."
+      "dedicatedPhotos": "complete (26 Nov 2026)"
     },
     {
       "ep": 5,
@@ -176,13 +175,9 @@
       "photos": "complete",
       "posted": null,
       "result": null,
-      "airs": "2026-12-16",
-      "note": "Screens are real captures of the Society Awards slideshow (demo kit 'The Fourball' via stubbed fetch). Christmas wording must stop after the 25th.",
-      "upgradePhotos": [
-        "phil-05-slides.jpg",
-        "kev-05-stifled.jpg"
-      ],
-      "upgradeNote": "John (26 Nov 2026): dedicated Phil and Kev photos instead of re-used library shots. The episode keeps airing with its current shots until these arrive; then swap them in (set bg explicitly, not a rotating reaction). With phil-05-slides, fill its plain screen with awards-tap-reveal.jpg (perspective fit) and drop the separate tap-to-reveal phone frame, so it runs Dave, Phil's phone, the reveal, Kev, Dave's bow."
+      "airs": "2026-12-23",
+      "note": "Screens are real captures of the Society Awards slideshow (demo kit 'The Fourball' via stubbed fetch). Christmas wording must stop after the 25th. Airs Wed 23 Dec, before Christmas.",
+      "dedicatedPhotos": "complete (26 Nov 2026)"
     },
     {
       "ep": 6,
@@ -202,14 +197,15 @@
       "posted": null,
       "result": null,
       "spare": true,
-      "note": "Library-only spare: airs automatically if EP4 or EP5 photos are late (the engine posts the first episode whose photos all exist). If it airs early, its number airs out of order; renumber next week if that matters. Lead Gaz, so it never sits next to another Gaz episode if EP4 (Kev) and EP5 (Dave) follow.",
+      "note": "Library-only spare: airs automatically if EP4 or EP5 photos are late (the engine posts the first episode whose photos all exist). If it airs early, its number airs out of order; renumber next week if that matters. Planned for Wed 30 Dec after EP5; if it airs early instead, it can sit next to EP2 (also a Gaz episode).",
       "upgradePhotos": [
         "kev-06-wince.jpg",
         "kev-06-slowclap.jpg",
         "phil-06-sideeye.jpg",
         "kev-06-stifled.jpg"
       ],
-      "upgradeNote": "John (26 Nov 2026): dedicated Phil and Kev photos instead of re-used library shots. The episode keeps airing with its current shots until these arrive; then swap them in (set bg explicitly, not a rotating reaction)."
+      "upgradeNote": "John (26 Nov 2026): dedicated Phil and Kev photos instead of re-used library shots. The episode keeps airing with its current shots until these arrive; then swap them in (set bg explicitly, not a rotating reaction).",
+      "airs": "2026-12-30"
     }
   ],
   "trendNotes": [],
@@ -232,7 +228,7 @@
         "kev-04-shaft.jpg"
       ],
       "asked": "2026-11-26",
-      "needBy": "2026-12-06",
+      "needBy": "2026-12-13",
       "received": "2026-11-26"
     },
     {
@@ -242,7 +238,7 @@
         "dave-05-bow.jpg"
       ],
       "asked": "2026-11-26",
-      "needBy": "2026-12-13",
+      "needBy": "2026-12-20",
       "received": "2026-11-26"
     },
     {
@@ -251,8 +247,9 @@
         "kev-04-commentary.jpg"
       ],
       "asked": "2026-11-26",
-      "needBy": "2026-12-06",
-      "kind": "upgrade"
+      "needBy": "2026-12-13",
+      "kind": "upgrade",
+      "received": "2026-11-26"
     },
     {
       "ep": 5,
@@ -261,8 +258,9 @@
         "kev-05-stifled.jpg"
       ],
       "asked": "2026-11-26",
-      "needBy": "2026-12-13",
-      "kind": "upgrade"
+      "needBy": "2026-12-20",
+      "kind": "upgrade",
+      "received": "2026-11-26"
     },
     {
       "ep": 6,
@@ -474,5 +472,6 @@
       "season": "Dec"
     }
   ],
-  "featureLog": []
+  "featureLog": [],
+  "scheduleNote": "Air dates follow data/agents/content-plan.json: EP1 Wed 25 Nov, EP2 Wed 2 Dec, then one each Wednesday in episode order (the content engine picks the first unposted episode whose photos all exist). content-learning.json 'fourballPosted' marks an episode once it is planned, not once it airs."
 }

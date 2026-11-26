@@ -792,13 +792,14 @@
    "top": "Kev. *Shows Gaz how.*",
    "shots": [
     {
-     "reaction": [
-      "kev",
-      "commentary"
-     ],
      "beats": 2,
      "label": "Kev",
-     "scene": "Kev on the tee doing his commentary voice into a golf ball 'mic'"
+     "scene": "Kev on the tee, golf ball as a microphone, commentator face; Gaz behind, arms folded",
+     "bg": "assets/social/library/kev-04-commentary.jpg",
+     "focus": [
+      0.45,
+      0.3
+     ]
     },
     {
      "bg": "assets/social/library/kev-04-duff.jpg",
@@ -896,18 +897,13 @@
      "who": "mate",
      "text": "Actually, *I* did the slides.",
      "beats": 2,
-     "bg": "assets/social/library/seq-dave-08-mate.jpg",
+     "bg": "assets/social/library/phil-05-slides.jpg",
      "label": "Phil",
-     "scene": "Phil deadpan, one eyebrow up"
-    },
-    {
-     "who": "mate",
-     "text": "",
-     "beats": 1,
-     "screen": "assets/social/outro/awards-tap-reveal.jpg",
-     "bg": "assets/social/library/dave-05-speech.jpg",
-     "label": "The slideshow",
-     "scene": "Our Society Awards slideshow: The Most Creative Scorecard award goes to... Tap to reveal"
+     "scene": "Phil at the dinner table in a paper crown, holding up his phone: the real Society Awards slideshow, 'Tap to reveal'",
+     "focus": [
+      0.45,
+      0.35
+     ]
     },
     {
      "who": "mate",
@@ -923,11 +919,13 @@
      "who": "kev",
      "text": "",
      "beats": 1,
-     "reaction": [
-      "kev",
-      "stifled"
+     "bg": "assets/social/library/kev-05-stifled.jpg",
+     "focus": [
+      0.5,
+      0.3
      ],
-     "optional": true
+     "label": "Kev",
+     "scene": "Kev at the dinner table trying not to laugh"
     },
     {
      "who": "him",
@@ -956,10 +954,10 @@
      0.45,
      0.25
     ],
-    "right": "assets/social/library/seq-dave-08-mate.jpg",
+    "right": "assets/social/library/phil-05-slides.jpg",
     "right_focus": [
-     0.45,
-     0.4
+     0.55,
+     0.3
     ],
     "tool": "awards",
     "outro_screen": "assets/social/outro/awards-screen.jpg",
