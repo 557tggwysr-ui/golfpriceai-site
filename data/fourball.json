@@ -153,10 +153,7 @@
       "result": null,
       "airs": "2026-12-09",
       "note": "Gaz's comeback after EP2; no tool in the story (joke first), outro to Fourball Alerts.",
-      "upgradePhotos": [
-        "kev-04-commentary.jpg"
-      ],
-      "upgradeNote": "John (26 Nov 2026): dedicated Phil and Kev photos instead of re-used library shots. The episode keeps airing with its current shots until these arrive; then swap them in (set bg explicitly, not a rotating reaction)."
+      "dedicatedPhotos": "complete (26 Nov 2026)"
     },
     {
       "ep": 5,
@@ -178,11 +175,7 @@
       "result": null,
       "airs": "2026-12-16",
       "note": "Screens are real captures of the Society Awards slideshow (demo kit 'The Fourball' via stubbed fetch). Christmas wording must stop after the 25th.",
-      "upgradePhotos": [
-        "phil-05-slides.jpg",
-        "kev-05-stifled.jpg"
-      ],
-      "upgradeNote": "John (26 Nov 2026): dedicated Phil and Kev photos instead of re-used library shots. The episode keeps airing with its current shots until these arrive; then swap them in (set bg explicitly, not a rotating reaction). With phil-05-slides, fill its plain screen with awards-tap-reveal.jpg (perspective fit) and drop the separate tap-to-reveal phone frame, so it runs Dave, Phil's phone, the reveal, Kev, Dave's bow."
+      "dedicatedPhotos": "complete (26 Nov 2026)"
     },
     {
       "ep": 6,
@@ -252,7 +245,8 @@
       ],
       "asked": "2026-11-26",
       "needBy": "2026-12-06",
-      "kind": "upgrade"
+      "kind": "upgrade",
+      "received": "2026-11-26"
     },
     {
       "ep": 5,
@@ -262,7 +256,8 @@
       ],
       "asked": "2026-11-26",
       "needBy": "2026-12-13",
-      "kind": "upgrade"
+      "kind": "upgrade",
+      "received": "2026-11-26"
     },
     {
       "ep": 6,

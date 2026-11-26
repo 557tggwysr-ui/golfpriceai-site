@@ -846,6 +846,64 @@
     0.45,
     0.3
    ]
+  },
+  {
+   "file": "assets/social/library/kev-04-commentary.jpg",
+   "tags": [
+    "kev",
+    "gaz",
+    "tee",
+    "commentary-scene",
+    "driver"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev, Gaz), no words in the picture",
+   "focus": [
+    0.6,
+    0.3
+   ]
+  },
+  {
+   "file": "assets/social/library/phil-05-slides.jpg",
+   "tags": [
+    "phil",
+    "christmas",
+    "dinner",
+    "phone",
+    "awards",
+    "clubhouse"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Phil), no words in the picture; phone shows a real capture of our Society Awards slideshow",
+   "focus": [
+    0.45,
+    0.35
+   ]
+  },
+  {
+   "file": "assets/social/library/kev-05-stifled.jpg",
+   "tags": [
+    "kev",
+    "christmas",
+    "dinner",
+    "clubhouse",
+    "stifled-dinner"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Kev), no words in the picture",
+   "focus": [
+    0.5,
+    0.3
+   ]
   }
  ]
 }
