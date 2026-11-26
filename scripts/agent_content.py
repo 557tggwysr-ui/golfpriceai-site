@@ -1320,6 +1320,62 @@ def skit_html(today):
             f"<ul>{rows}</ul></div>")
 
 
+def schedule_html(plan, today, weeks=5):
+    """The next five weeks at a glance (John, 26 Nov 2026): every planned post with its time and status,
+    the big moments, and the weekly rhythm for the weeks the content engine hasn't made yet."""
+    try:
+        approved = approved_ids()
+    except Exception:
+        approved = set()
+    held = set((load("agents/editor-holds.json") or {}).get("posts", []))
+    try:
+        moments = [m for m in json.loads((ROOT / "data" / "moments.json").read_text(encoding="utf-8")).get("moments", [])
+                   if m.get("date") and m.get("status") != "posted"]
+    except Exception:
+        moments = []
+
+    def status(p):
+        if p.get("posted", {}).get("instagram"):
+            return "posted", "✓ Posted"
+        if p["id"] in held:
+            return "held", "Held"
+        if p["id"] in approved:
+            return "ok", "Ticked"
+        return "todo", "To tick"
+
+    by_day = {}
+    for p in plan["posts"]:
+        by_day.setdefault(p["date"], []).append(p)
+    planned_to = max(by_day) if by_day else str(today)
+    # the weekly rhythm: what each weekday carried in the last planned week
+    rhythm = {}
+    for p in sorted(plan["posts"], key=lambda x: x["date"]):
+        if p["date"] > str(date.fromisoformat(planned_to) - timedelta(days=7)) and not p["id"].split("-")[-1].startswith(("moment", "reactive", "tiein")):
+            rhythm[date.fromisoformat(p["date"]).weekday()] = (p.get("slot", ""), p.get("formatName") or p["theme"], p.get("series"))
+    rows, end = [], today + timedelta(days=7 * weeks)
+    d = today
+    while d < end:
+        if d.weekday() == 0 or d == today:
+            rows.append(f"<li class='wk'>Week of {d.day} {d.strftime('%b')}</li>")
+        ds = str(d)
+        for m in [m for m in moments if m["date"] == ds]:
+            rows.append(f"<li class='mo'><span class='dt'>{DAYS[d.weekday()][:3]} {d.day}</span><span class='ti'>★ {esc(m['name'])}</span><span class='st'>{esc(m.get('kind', ''))}</span></li>")
+        if ds in by_day:
+            for p in sorted(by_day[ds], key=lambda x: x.get("slot", "")):
+                k, lbl = status(p)
+                rows.append(f"<li><a href='#{p['id']}'><span class='dt'>{DAYS[d.weekday()][:3]} {d.day}</span><span class='tm'>{esc(p.get('slot', ''))}</span>"
+                            f"<span class='ti'>{esc(p.get('hook') or p['headline'])}<small>{esc(p.get('formatName') or p['theme'])}</small></span>"
+                            f"<span class='st {k}'>{lbl}</span></a></li>")
+        elif ds > planned_to and d.weekday() in rhythm:
+            slot, name, series = rhythm[d.weekday()]
+            rows.append(f"<li class='fu'><span class='dt'>{DAYS[d.weekday()][:3]} {d.day}</span><span class='tm'>{esc(slot)}</span>"
+                        f"<span class='ti'>{esc(series or name)}<small>made the Monday before</small></span><span class='st'></span></li>")
+        d += timedelta(days=1)
+    later = [m for m in moments if m["date"] >= str(end)]
+    later_html = ("<p class='later'><b>Further ahead:</b> " + " · ".join(f"{esc(m['name'])} ({date.fromisoformat(m['date']).day} {date.fromisoformat(m['date']).strftime('%b')})" for m in later[:8]) + "</p>") if later else ""
+    return f"<details class='sched' open><summary>Schedule: the next {weeks} weeks</summary><ul>{''.join(rows)}</ul>{later_html}</details>"
+
+
 def write_pack(plan):
     today = now().date()
     upcoming = [p for p in plan["posts"] if date.fromisoformat(p["date"]) >= today - timedelta(days=1)]
@@ -1340,11 +1396,11 @@ def write_pack(plan):
         trend = f" · trend: {esc(p['trend'])}" if p.get("trend") else ""
         media = (f"<div class='slides'>" + "".join(f"<img src='{u}' alt='Slide {n + 1}' loading='lazy'>" for n, u in enumerate(p["slides"])) + "</div>"
                  if p.get("slides") else f"<video src=\"{p['video']}\" poster=\"{p['card']}\" controls playsinline preload=\"none\"></video>")
-        cards.append(f"""<section class="post">{media}
+        cover = p.get("thumb") or p["card"]
+        cards.append(f"""<section class="post" id="{p['id']}"><details class="media"><summary><img src="{cover}" alt="" loading="lazy"><span>▶ Watch</span></summary>{media}</details>
 <div><p class="when">{DAYS[d.weekday()]} {d.day} {d.strftime('%b')} · {esc(p.get('formatName') or p['theme'])} · {esc(p.get('style', ''))} · for {esc(p.get('objective', 'reach'))}{(' · ' + esc(p['series'])) if p.get('series') else ''}{trend} <span class="done">{done}</span></p>
 {('<p class="tip" style="background:#fde8e8">⛔ Held by the Editor, won\'t auto-post: ' + esc(' '.join(p['editor'])) + '</p>') if p.get('editor') else ''}<h2>“{esc(p.get('hook', p['headline']))}”</h2><p class="sub">{esc(p['sub'])}</p>
 <p class="dl">{('<a href="' + p['video'] + '">Download video</a> · ') if p.get('video') else ('Download slides: ' + ' · '.join(f'<a href="{u}" download>Slide {n + 1}</a>' for n, u in enumerate(p.get('slides') or [])) + ' · ')}<a href="{p.get('thumb') or p['card']}" download>Download thumbnail (cover)</a> · <a href="{p['card']}" download>Download feed image</a></p>
-{('<img src="' + p['thumb'] + '" alt="Thumbnail for ' + esc(p.get('hook', '')) + '" style="width:120px;border-radius:10px;margin:6px 0">') if p.get('thumb') else ''}
 <p class="times"><b>Suggested release times (UK){(" · timing test: the " + ("lunchtime" if p.get("slot") == "12:30" else "evening") + " side") if p.get("slot") and not (load_learning().get("slotTest") or {}).get("winner") else ""}:</b> {' · '.join(f'{esc(k)} <b>{esc(v)}</b>' for k, v in (p.get('times') or suggest_times(p)).items())}</p>
 {''.join(f'<details><summary>{k}{(" · post at " + esc((p.get("times") or suggest_times(p)).get(k.split(" (")[0].replace(" title", "").replace(" description", "").replace("YouTube", "YouTube Shorts").replace("YouTube Shorts Shorts", "YouTube Shorts"), "").split(" (")[0])) if (p.get("times") or suggest_times(p)).get(k.split(" (")[0].replace(" title", "").replace(" description", "").replace("YouTube", "YouTube Shorts").replace("YouTube Shorts Shorts", "YouTube Shorts")) else ""}</summary><textarea readonly>{esc(v)}</textarea><button onclick="copy(this)">Copy</button></details>' for k, v in blocks)}
 <p class="tip">{('Trending sound (approved for business): <b>' + esc(p['sound']) + '</b>. Search it in the app when you schedule.') if p.get('sound') else ('Slides: post them as a carousel on Instagram, and in photo mode on TikTok (add a sound from the commercial library there).' if p.get('slides') else 'The video has its own music. Adding a trending sound in TikTok? Turn the original audio down there.')}{(' · Rides the trend: ' + esc(', '.join(p['trendingFormats']))) if p.get('trendingFormats') else ''}</p>
@@ -1372,14 +1428,26 @@ h1{{font-size:22px}}.post{{display:grid;grid-template-columns:220px 1fr;gap:16px
 .post video{{width:100%;border-radius:10px;background:#14211a;aspect-ratio:9/16}}h2{{margin:4px 0;font-size:20px}}.when{{color:#3fae29;font-weight:700;margin:0}}
 .sub{{color:#555;margin:2px 0 8px}}.times{{background:#eef7ec;border-radius:10px;padding:8px 10px;font-size:14px;line-height:1.6}}.done{{color:#888;font-weight:400}}details{{margin:6px 0}}summary{{cursor:pointer;font-weight:600}}
 textarea{{width:100%;min-height:90px;font:14px system-ui;border-radius:8px;border:1px solid #ccc;padding:8px;box-sizing:border-box}}
-button{{background:#14211a;color:#fff;border:0;border-radius:8px;padding:6px 14px;font-weight:600}}.dl,.link,.tip{{font-size:14px}}.tip{{color:#777}}
-.trends{{background:#fff;border-radius:14px;padding:10px 14px}}.slides{{display:flex;gap:6px;overflow-x:auto}}.slides img{{width:180px;border-radius:8px}}@media(max-width:600px){{.post{{grid-template-columns:1fr}}.post video{{max-width:260px}}}}</style></head><body>
-<h1>Content pack</h1><p>Updated {now().strftime('%a %d %b %H:%M')} UTC. Approve posts by ticking them in the "Content pack" GitHub issue; ticked posts go to Instagram on their day. Download the videos for TikTok, Reels and Shorts and schedule them in each app.</p>
+button{{background:#14211a;color:#fff;border:0;border-radius:8px;padding:6px 14px;font-weight:600}}.dl,.link,.tip{{font-size:14px}}.link{{overflow-wrap:anywhere}}.tip{{color:#777}}
+.trends{{background:#fff;border-radius:14px;padding:10px 14px;margin:10px 0}}.slides{{display:flex;gap:6px;overflow-x:auto}}.slides img{{width:180px;border-radius:8px}}
+.media summary{{list-style:none;position:relative}}.media summary::-webkit-details-marker{{display:none}}.media summary img{{width:100%;border-radius:10px;display:block}}
+.media summary span{{position:absolute;left:8px;bottom:8px;background:#14211aD9;color:#fff;border-radius:999px;padding:4px 10px;font-size:13px}}.media[open] summary{{display:none}}
+.sched{{background:#fff;border-radius:14px;padding:10px 12px;margin:10px 0}}.sched ul{{list-style:none;margin:6px 0 0;padding:0}}.sched li{{border-top:1px solid #eee}}
+.sched li a,.sched li.fu,.sched li.mo{{display:grid;grid-template-columns:52px 46px 1fr auto;gap:6px;align-items:center;padding:7px 2px;color:inherit;text-decoration:none;font-size:14px}}
+.sched .wk{{border:0;padding:12px 2px 2px;font-weight:700;color:#3fae29;font-size:13px;text-transform:uppercase;letter-spacing:.04em}}
+.sched .dt{{font-weight:700}}.sched .tm{{color:#777}}.sched small{{display:block;color:#888;font-size:12px}}.sched .fu{{color:#888}}.sched .mo .ti{{grid-column:2/4;font-weight:700;color:#8a5a00}}
+.st{{font-size:12px;font-weight:700;border-radius:999px;padding:2px 8px;white-space:nowrap}}.st.posted{{background:#e6f4e2;color:#2b7a1c}}.st.ok{{background:#e8f0fb;color:#1f4f99}}.st.held{{background:#fde8e8;color:#a32020}}.st.todo{{background:#fff3d6;color:#8a5a00}}
+.later{{font-size:13px;color:#555;margin:8px 2px 2px}}
+@media(max-width:600px){{body{{padding:8px}}h1{{margin:6px 0}}.intro{{font-size:14px;margin:4px 0}}.post{{display:block;padding:10px;margin:8px 0}}.post::after{{content:"";display:block;clear:both}}
+.media{{float:left;width:96px;margin:0 10px 6px 0}}.media[open]{{float:none;width:100%;margin:0 0 8px}}.media[open] video{{max-width:100%}}.media summary span{{font-size:11px;padding:2px 7px;left:4px;bottom:4px}}
+.post h2{{font-size:17px}}.when{{font-size:13px}}.sub{{font-size:14px}}.times{{clear:both}}}}</style></head><body>
+<h1>Content pack</h1><p class="intro">Updated {now().strftime('%a %d %b %H:%M')} UTC. Tick posts in the "Content pack" GitHub issue; ticked posts go to Instagram and Bluesky at their time. Download the videos for TikTok, Shorts, X and Pinterest.</p>
+{schedule_html(plan, today)}
 {trend_html}
 {''.join(cards) or '<p>No posts planned yet.</p>'}
 {news_html()}
 {skit_html(today)}
-<script>function copy(b){{const t=b.previousElementSibling;t.select();navigator.clipboard.writeText(t.value);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)}}</script>
+<script>if(innerWidth>700)document.querySelectorAll('details.media').forEach(d=>d.open=true);function copy(b){{const t=b.previousElementSibling;t.select();navigator.clipboard.writeText(t.value);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)}}</script>
 </body></html>"""
     PACK.parent.mkdir(parents=True, exist_ok=True)
     PACK.write_text(html, encoding="utf-8")
