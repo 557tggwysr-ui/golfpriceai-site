@@ -1,16 +1,16 @@
 {
- "generated": "2026-11-26T01:46Z",
+ "generated": "2026-11-26T16:39Z",
  "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
- "listings": 81621,
- "models": 3330,
+ "listings": 81630,
+ "models": 3328,
  "feeds": {
   "awin-affordablegolf": 39202,
-  "awin-clarkesgolf": 20299,
-  "awin-majorgolf": 13620,
-  "awin-clickgolf": 3476,
+  "awin-clarkesgolf": 20304,
+  "awin-majorgolf": 13621,
+  "awin-clickgolf": 3477,
   "awin-scottsdalegolf": 3177,
   "awin-callawaypreowned": 999,
-  "awin-callaway": 495,
+  "awin-callaway": 497,
   "awin-payntr": 353
  },
  "feedsShrunk": [],
@@ -555,7 +555,7 @@
   }
  ],
  "deadListings45d": 711,
- "unmatchedClubs": 1438,
+ "unmatchedClubs": 1441,
  "newLaunchCandidates": [
   {
    "brand": "Cleveland Golf",
