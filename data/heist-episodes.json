@@ -1,0 +1,192 @@
+{
+ "about": "His & Hers episode scripts (comic series; episode 1 was the original \"Golf Heist\" video about a new driver). Panels from data/heist-panels.json. 'box' and 'to' are fractions of the panel picture (outside 0-1 = above/below a framed panel): where the bubble sits and whose mouth its tail points at. 'narr' is the commentator's line (spoken and shown).",
+ "episodes": [
+  {
+   "ep": 2,
+   "title": "The Golf Balls",
+   "cover_panel": 2,
+   "panels": [
+    {
+     "img": "assets/social/heist/ep02-1.jpg",
+     "focus": [
+      0.45,
+      0.42
+     ],
+     "narr_at": "bottom",
+     "narr": "Late evening. He's on the move. Contraband under one arm."
+    },
+    {
+     "img": "assets/social/heist/ep02-2.jpg",
+     "focus": [
+      0.5,
+      0.5
+     ],
+     "narr_at": "bottom",
+     "narr": "He's found the perfect lie. The sock drawer. Nobody checks the sock drawer."
+    },
+    {
+     "img": "assets/social/heist/ep02-3.jpg",
+     "narr_at": "above",
+     "sting": true,
+     "narr": "Oh dear. He hasn't seen the hazard behind him.",
+     "say": [
+      {
+       "who": "her",
+       "text": "Where are my socks?",
+       "box": [
+        0.27,
+        0.13
+       ],
+       "to": [
+        0.66,
+        0.33
+       ]
+      },
+      {
+       "who": "him",
+       "text": "It's a lost-ball reserve.",
+       "box": [
+        0.32,
+        1.12
+       ],
+       "to": [
+        0.27,
+        0.8
+       ]
+      }
+     ]
+    },
+    {
+     "img": "assets/social/heist/ep02-4.jpg",
+     "focus": [
+      0.5,
+      0.45
+     ],
+     "narr_at": "top",
+     "narr": "And she takes the hole.",
+     "say": [
+      {
+       "who": "her",
+       "text": "I'll take a sleeve. I'm playing Saturday.",
+       "box": [
+        0.32,
+        0.7
+       ],
+       "to": [
+        0.6,
+        0.43
+       ]
+      }
+     ]
+    }
+   ],
+   "end": {
+    "lines": [
+     "Golf balls, compared across multiple UK retailers.",
+     "Stock up for less."
+    ],
+    "path": "/prices/golf-balls/"
+   }
+  },
+  {
+   "ep": 3,
+   "title": "The Rangefinder",
+   "cover_panel": 2,
+   "panels": [
+    {
+     "img": "assets/social/heist/ep03-1.jpg",
+     "narr": "Midweek. A delivery. And he's nowhere near the tee.",
+     "say": [
+      {
+       "who": "her",
+       "text": "I'll sign for that.",
+       "box": [
+        0.8,
+        0.16
+       ],
+       "to": [
+        0.6,
+        0.32
+       ]
+      }
+     ]
+    },
+    {
+     "img": "assets/social/heist/ep03-2.jpg",
+     "narr": "She's reading the parcel like a tricky putt.",
+     "say": [
+      {
+       "who": "her",
+       "text": "Rangefinder. Definitely.",
+       "box": [
+        0.24,
+        0.17
+       ],
+       "to": [
+        0.53,
+        0.55
+       ]
+      }
+     ]
+    },
+    {
+     "img": "assets/social/heist/ep03-3.jpg",
+     "sting": true,
+     "narr": "He's back. And the box... is empty.",
+     "say": [
+      {
+       "who": "him",
+       "text": "Where's my parcel?!",
+       "box": [
+        0.76,
+        0.15
+       ],
+       "to": [
+        0.4,
+        0.25
+       ]
+      }
+     ]
+    },
+    {
+     "img": "assets/social/heist/ep03-4.jpg",
+     "narr": "Textbook. She's found the distance.",
+     "say": [
+      {
+       "who": "her",
+       "text": "Sofa's 12.4 yards. Lovely.",
+       "box": [
+        0.22,
+        0.1
+       ],
+       "to": [
+        0.17,
+        0.5
+       ]
+      },
+      {
+       "who": "him",
+       "text": "It was a surprise...",
+       "box": [
+        0.77,
+        0.08
+       ],
+       "to": [
+        0.52,
+        0.2
+       ],
+       "replace": true
+      }
+     ]
+    }
+   ],
+   "end": {
+    "lines": [
+     "Rangefinders, compared across multiple UK retailers.",
+     "Measure up for less."
+    ],
+    "path": "/prices/rangefinders/"
+   }
+  }
+ ]
+}
