@@ -1,4 +1,4 @@
-"""His & Hers: comic-panel episodes with a hushed golf-commentator voiceover (John, 24-26 Nov 2026).
+"""His & Hers: comic-panel episodes with a hushed nature-documentary voiceover (John, 24-26 Nov 2026).
 
 Him, her, and his kit habit. Golf commentary over everyday home life; she always gets the last word.
 Panels are John's ChatGPT illustrations (assets/social/heist/, listed in data/heist-panels.json);
@@ -68,20 +68,40 @@ _VOICES = {}
 
 
 def say(text, voice, out_wav):
-    """Narration to a wav; returns its length in seconds, or None (no voice model / piper missing)."""
+    """Narration to a wav; returns its length in seconds, or None (no voice model / piper missing).
+    voice is a Piper model name, optionally with "#speaker" (multi-speaker models) and "~deep"
+    (slower and lower: the hushed nature-documentary register, John 26 Nov 2026)."""
     if not voice:
         return None
-    model = Path(os.environ.get("HEIST_VOICES", ROOT / ".voices")) / f"{voice}.onnx"
+    deep = voice.endswith("~deep")
+    base = voice.replace("~deep", "")
+    base, _, speaker = base.partition("#")
+    model = Path(os.environ.get("HEIST_VOICES", ROOT / ".voices")) / f"{base}.onnx"
     if not model.exists():
         print("no voice model:", model)
         return None
     try:
         from piper import PiperVoice, SynthesisConfig
-        v = _VOICES.get(voice) or PiperVoice.load(str(model))
-        _VOICES[voice] = v
-        cfg = SynthesisConfig(length_scale=1.12, noise_scale=0.55, noise_w_scale=0.7)  # unhurried, like a commentator on the 18th
+        v = _VOICES.get(base) or PiperVoice.load(str(model))
+        _VOICES[base] = v
+        sid = None
+        if speaker:
+            meta = json.loads(Path(str(model) + ".json").read_text(encoding="utf-8"))
+            sid = (meta.get("speaker_id_map") or {}).get(speaker)
+            if sid is None and speaker.isdigit():
+                sid = int(speaker)
+        cfg = SynthesisConfig(length_scale=1.18 if deep else 1.12, noise_scale=0.5, noise_w_scale=0.6, speaker_id=sid)
         with wave.open(str(out_wav), "wb") as w:
             v.synthesize_wav(text, w, syn_config=cfg)
+        if deep:  # resample down ~8%: lower and a touch slower, like a hushed narrator in the long grass
+            import numpy as np
+            with wave.open(str(out_wav)) as w:
+                sr, x = w.getframerate(), np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(float)
+            n = int(len(x) / 0.92)
+            y = np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x)
+            with wave.open(str(out_wav), "wb") as w:
+                w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+                w.writeframes(np.clip(y, -32768, 32767).astype(np.int16).tobytes())
         with wave.open(str(out_wav)) as w:
             return w.getnframes() / w.getframerate()
     except Exception as e:
