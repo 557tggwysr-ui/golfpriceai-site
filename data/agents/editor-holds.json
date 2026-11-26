@@ -4,7 +4,6 @@
  "posts": [
   "2026-11-24-moment",
   "2026-11-25-tiein2",
-  "2026-11-26-thu",
   "2026-12-03-thu"
  ],
  "released": [
@@ -12,6 +11,11 @@
    "post": "2026-11-24-reactive1",
    "date": "2026-11-25",
    "why": "John approved it (#26); third hold was design taste (layout balance, no product image), not a rule breach."
+  },
+  {
+   "post": "2026-11-26-thu",
+   "date": "2026-11-26",
+   "why": "John approved it; the feed card now uses the cover's black-and-green design so they match. Other notes were layout taste."
   }
  ]
 }
