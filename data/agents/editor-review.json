@@ -1,13 +1,20 @@
 {
- "generated": "2026-11-26T17:58Z",
+ "generated": "2026-11-26T22:22Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
  "verdict": "ok",
- "summary": "Five temporary 3-day listing hides and an llms.txt figures refresh: nothing breaks the house style.",
+ "summary": "No Never-list breaches in the copy, but the 26 Nov Callaway card and thumbnail fall short of the premium visual standard, so that post is held.",
  "points": [
-  "S2 (fourball/episodes): listed in the PR notes but the diff contains no episode page; skip it or confirm it was meant to be included.",
-  "data/agent-rules.json H3/H4: hiding listings where our shown price was higher than the retailer's real price means a cheaper honest price is briefly off the site; fine as temporary, but the feed should be corrected so the cheaper price returns.",
-  "llms.txt: figures (3,328 models, 120 cheaper, category counts) could not be checked against the site data in this diff; they should come from the generator, not hand edits."
+  "2026-11-26-thu: thumbnail hook is 5 words ('Black Friday, minus the nonsense'); the standard is 2 to 4 big words. Fix: shorten the thumbnail text, e.g. 'BLACK FRIDAY, MINUS THE NONSENSE' becomes 'LOWEST IN 81 DAYS' or 'NO NONSENSE', and keep the full hook for the caption.",
+  "2026-11-26-thu: the £919 badge overlaps the corner of the white photo tile and covers the iron's grip/shaft end, so the product looks clipped. Fix: move the badge clear of the photo (or inside the tile edge) so the club shaft is fully visible.",
+  "2026-11-26-thu: the product sits small and tilted in a big white box on a dark green gradient, so the white box clashes with the background. In the thumbnail the bottom ~20% is empty dark space and the layout is top-heavy. Fix: make the iron larger (cut it out with no white tile, or fill the tile), and re-balance the vertical spacing.",
+  "2026-11-26-thu: on the 4:5 card the GOLFPRICEAI.COM footer sits about 25px from the bottom edge (cramped). In the thumbnail the brand pill at y~250 sits partly outside the middle 4:5 grid crop. Fix: add bottom margin to the card and move the pill inside the crop.",
+  "2026-11-26-thu: no sound is set (sound: null). Flag only: add a beat-matched track per the Sound and pace rules. I could not extract video frames here (no ffmpeg), so pace and the first-second hook are not judged. Please re-check the mp4 by eye.",
+  "2026-11-27-fri, 2026-11-27-moment, 2026-11-28-sat, 2026-11-29-hishers, 2026-11-29-sun, 2026-11-30-mon, 2026-12-01-tue, 2026-12-02-wed, 2026-12-04-fri, 2026-12-05-sat, 2026-12-06-hishers, 2026-12-06-sun: only 26 Nov had images in /tmp/review-images, so visuals for these were NOT reviewed. Copy only: no retailer names, no fake urgency and no broken output found. Please supply their cards, thumbnails and frames before they go out.",
+  "2026-11-29-hishers and 2026-12-06-hishers: the TikTok caption uses #golfhumor (US spelling) while Instagram uses #golfhumour. Flag only: use #golfhumour.",
+  "2026-12-06-sun: the ball-saving carousel has no #Ad. Flag only: if any slide shows a priced product, the caption needs #Ad.",
+  "2026-12-01-tue: '12 of 51 cheaper' and 'from £110' must match the site's own rangefinder history data. I did not verify the figures against the data files. Please check them before posting.",
+  "All posts have sound: null (no sound). Flag only."
  ],
- "what": "Agent: fix pack",
- "postsHash": "8ad7b5410e5fe495da0a10bb799f3a91cf348ac2"
+ "what": "Agent: content engine",
+ "postsHash": "afae42d0077d0798c802d952e750afb46dd5852e"
 }
