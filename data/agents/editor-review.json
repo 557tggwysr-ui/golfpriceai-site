@@ -1,17 +1,20 @@
 {
- "generated": "2026-11-25T19:44Z",
+ "generated": "2026-11-26T00:38Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
- "verdict": "block",
- "summary": "Two posts held: the Doomsday reactive card has cramped, touching text, and the Black Friday tie-in has a broken YouTube title; only one post came with images, so the other 12 got a copy-only review.",
+ "verdict": "ok",
+ "summary": "No Never-rule breaks in the captions, but Thursday's post (2026-11-26-thu) falls short of the premium visual standard and is held; only that post had images, and its video frames could not be extracted.",
  "points": [
-  "2026-11-24-reactive1: card (4:5) - 'Compared across multiple UK retailers' sits hard against the GOLFPRICEAI.COM wordmark with no gap and crowds the green tagline beneath it. Fix: add clear space (about one line height) between wordmark, retailer line and tagline, or drop one of the two bottom lines.",
-  "2026-11-24-reactive1: the thumbnail and card have no product and no golf visual, just text on a grid. For a premium look add a sharp, large driver or iron set, or a bag silhouette, in the green palette. The Doomsday black and green colours do match, and the thumbnail matches the card.",
-  "2026-11-24-reactive1: thumbnail text is big and readable and the headline sits in the middle 4:5, but the URL falls half outside the grid crop. This is fine as it is. The video (mp4) could not be decoded here (no ffmpeg), so pace, hook and the three frames were not judged; re-check them once the card is fixed.",
-  "2026-11-25-tiein2: YouTube title is cut off mid-word ('Over 300 golf mode') and has lost its '#' ('Ad Black Friday...'). Fix: write a proper title under 100 characters, e.g. 'Black Friday golf deals: 300+ models cheaper than October'. Also the YouTube description repeats #golf #golfuk, so remove the duplicate hashtags.",
-  "2026-11-25-tiein2: 'Bag Draft double points week' is not backed by anything in the diff; confirm it is real before posting.",
-  "All posts except reactive1: no card, thumbnail or video frames were supplied, so the premium visual standard was NOT checked. Re-run the review with their images.",
-  "Copy for the other posts: no retailer names, fake urgency, 'was' prices or political content found. Product posts carry #Ad, and the Ping and PowaKaddy guessing covers do not give away the answer."
+  "2026-11-26-thu card: the tilted 'LOWEST WE'VE TRACKED' stamp touches the bottom of the £919 price and crowds the URL and tagline below it. Fix: move the stamp clear of the price (or shrink it), and give the price and URL breathing room.",
+  "2026-11-26-thu thumbnail: the headline is 5 words ('Black Friday, minus the nonsense'); the standard is 2 to 4 big words. Fix: shorten to something like 'BLACK FRIDAY, MINUS NONSENSE' or lead with the price, and keep the product name out of the top strip, which is outside the 4:5 grid crop.",
+  "2026-11-26-thu thumbnail: the green £919 badge overlaps the corner of the white photo card and the iron's shaft, and the photo card is tilted and hard to read. The bottom third is empty dark green. Fix: put the badge clear of the product, straighten the card, and enlarge the iron to fill the middle 4:5.",
+  "2026-11-26-thu: the card is pale blue stripes while the thumbnail is black and neon green, so the cover and card don't match. Fix: use one palette for both (the Black Friday black and green is stronger).",
+  "2026-11-26-thu: the video's three frames were not reviewed because ffmpeg is unavailable here. Re-check pace (a change every 1-2 seconds), the hook in the first second, and that the price is not cut off.",
+  "All other posts (11-27 fri, 11-27 moment, 11-28 sat, 11-29 sun, 11-30 mon, 12-01 tue, 12-02 wed, 12-04 fri, 12-05 sat, 12-06 sun): no card, thumbnail or video images were supplied, so the visual standard is NOT verified for them. Review their images before approval.",
+  "2026-11-27-fri and 2026-12-04-fri: #golfdeals on a banter question with no deal. Minor, consider dropping.",
+  "2026-11-28-sat and 2026-12-05-sat: confirm the cover and opening of each guessing game do not show the answer. The price is not in the captions, but the images were not supplied.",
+  "2026-12-06-sun: the carousel caption has no product, but the cover (s1) is the thumbnail and was not supplied. Check it.",
+  "All captions: UK spelling and £ formatting fine; no retailer is named; 'lowest we've tracked' and the 81-day claim are consistent across platforms; #Ad leads every priced post."
  ],
  "what": "Agent: content engine",
- "postsHash": "c0d379cd6707822b17217a7bf81871caa51e8978"
+ "postsHash": "8ad7b5410e5fe495da0a10bb799f3a91cf348ac2"
 }
