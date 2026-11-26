@@ -146,12 +146,8 @@
         "gaz-driver-count"
       ],
       "tool": null,
-      "status": "awaiting photos",
-      "photos": [
-        "kev-04-duff.jpg",
-        "gaz-04-slowclap.jpg",
-        "kev-04-shaft.jpg"
-      ],
+      "status": "ready",
+      "photos": "complete",
       "posted": null,
       "result": null,
       "airs": "2026-12-09",
@@ -222,7 +218,8 @@
         "kev-04-shaft.jpg"
       ],
       "asked": "2026-11-26",
-      "needBy": "2026-12-06"
+      "needBy": "2026-12-06",
+      "received": "2026-11-26"
     },
     {
       "ep": 5,

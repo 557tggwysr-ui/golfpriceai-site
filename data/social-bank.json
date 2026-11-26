@@ -805,7 +805,11 @@
      "beats": 2,
      "hide_top": true,
      "label": "Kev",
-     "scene": "Kev mid-follow-through, a huge divot flying, the ball barely moved; Gaz behind him, hand over mouth"
+     "scene": "Kev mid-follow-through, a huge divot flying, the ball barely moved; Gaz behind him, hand over mouth",
+     "focus": [
+      0.55,
+      0.35
+     ]
     }
    ],
    "lines": [
@@ -817,8 +821,8 @@
      "label": "Gaz",
      "scene": "Gaz grinning, starting a slow clap",
      "focus": [
-      0.5,
-      0.4
+      0.45,
+      0.35
      ]
     },
     {
@@ -830,8 +834,8 @@
      "label": "Kev",
      "scene": "Kev pointing at his club's shaft, offended",
      "focus": [
-      0.5,
-      0.4
+      0.45,
+      0.35
      ]
     },
     {
@@ -843,8 +847,8 @@
      "label": "Gaz",
      "scene": "Gaz slow-clapping, delighted",
      "focus": [
-      0.5,
-      0.4
+      0.45,
+      0.35
      ]
     }
    ],
@@ -856,15 +860,15 @@
      "Kev",
      "Gaz"
     ],
-    "left": "assets/social/library/kev-04-duff.jpg",
+    "left": "assets/social/library/kev-04-shaft.jpg",
     "left_focus": [
-     0.45,
-     0.4
+     0.4,
+     0.3
     ],
     "right": "assets/social/library/gaz-04-slowclap.jpg",
     "right_focus": [
-     0.5,
-     0.4
+     0.45,
+     0.3
     ],
     "tool": "fourball"
    }
