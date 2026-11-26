@@ -32,6 +32,16 @@
   },
   {
    "rank": 3,
+   "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
+   "brand": "Srixon",
+   "type": "ball",
+   "price": 29.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
+  },
+  {
+   "rank": 4,
    "name": "Cobra Darkspeed LS Driver",
    "brand": "Cobra",
    "type": "driver",
@@ -41,7 +51,7 @@
    "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
   },
   {
-   "rank": 4,
+   "rank": 5,
    "name": "Cobra Fly XL Package Set",
    "brand": "Cobra",
    "type": "set",
@@ -49,16 +59,6 @@
    "unit": "",
    "move": "new",
    "url": "https://golfpriceai.com/prices/cobra-fly-xl-package-set/"
-  },
-  {
-   "rank": 5,
-   "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
-   "brand": "Srixon",
-   "type": "ball",
-   "price": 29.99,
-   "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
   },
   {
    "rank": 6,
@@ -102,6 +102,16 @@
   },
   {
    "rank": 10,
+   "name": "Nike Air Max Lite Stand Bag Golf Bag",
+   "brand": "Nike",
+   "type": "bag",
+   "price": 119.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/nike-air-max-lite-stand-bag-golf-bag/"
+  },
+  {
+   "rank": 11,
    "name": "TaylorMade TP5 Golf Balls",
    "brand": "TaylorMade",
    "type": "ball",
@@ -109,6 +119,16 @@
    "unit": "per dozen",
    "move": "new",
    "url": "https://golfpriceai.com/prices/taylormade-tp5-golf-balls/"
+  },
+  {
+   "rank": 12,
+   "name": "Wilson Alpine Cart Bag Golf Bag",
+   "brand": "Wilson",
+   "type": "bag",
+   "price": 139.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/wilson-alpine-cart-bag-golf-bag/"
   }
  ],
  "wishfulThinking": [
@@ -119,8 +139,8 @@
   },
   {
    "category": "Golf bags",
-   "averageGuessVsRealPricePct": 18,
-   "guesses": 79
+   "averageGuessVsRealPricePct": 17,
+   "guesses": 80
   },
   {
    "category": "Putters",
@@ -136,19 +156,23 @@
  "categoryShare": [
   {
    "category": "Irons & wedges",
-   "pct": 30
-  },
-  {
-   "category": "Tech",
    "pct": 27
   },
   {
    "category": "Balls",
-   "pct": 27
+   "pct": 25
+  },
+  {
+   "category": "Tech",
+   "pct": 24
   },
   {
    "category": "Drivers & woods",
-   "pct": 16
+   "pct": 14
+  },
+  {
+   "category": "Bags & trolleys",
+   "pct": 10
   }
  ],
  "reports": [

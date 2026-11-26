@@ -6,14 +6,14 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 94.95,
+ "lowestNewPrice": 89.95,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 94.95,
+   "from": 89.95,
    "options": 9
   },
   {
@@ -26,8 +26,8 @@
   "daysTracked": 103,
   "low": 79.0,
   "high": 109.0,
-  "average": 104.76,
-  "priceChanges": 3,
+  "average": 104.71,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -47,13 +47,13 @@
    ],
    [
     "2026-11-26",
-    94.95
+    89.95
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £15.95 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Wilson-Staff-2024-Infinite-Golf-Putter-Windy-City-5.jpg?v=1716523502",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-26T01:39+00:00",
+ "checked": "2026-11-26T16:32+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
@@ -84,6 +84,16 @@
    "url": "https://golfpriceai.com/prices/cobra-king-tour-irons/"
   },
   {
+   "model": "Wilson DYNAPWR Irons",
+   "model_id": "wilson-dynapwr-irons",
+   "date": "2026-11-26",
+   "was": 479.0,
+   "now": 429.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-dynapwr-irons/"
+  },
+  {
    "model": "Garmin Approach Z30 Laser Rangefinder",
    "model_id": "garmin-approach-z30-laser-rangefinder",
    "date": "2026-11-26",
@@ -94,6 +104,36 @@
    "url": "https://golfpriceai.com/prices/garmin-approach-z30-laser-rangefinder/"
   },
   {
+   "model": "Wilson Talus 5 Stand Bag Golf Bag",
+   "model_id": "wilson-talus-5-stand-bag-golf-bag",
+   "date": "2026-11-26",
+   "was": 135.0,
+   "now": 125.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-talus-5-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Wilson DYNAPWR Max Irons",
+   "model_id": "wilson-dynapwr-max-irons",
+   "date": "2026-11-26",
+   "was": 459.0,
+   "now": 429.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-dynapwr-max-irons/"
+  },
+  {
+   "model": "TaylorMade Stealth Irons",
+   "model_id": "taylormade-stealth-irons",
+   "date": "2026-11-26",
+   "was": 529.0,
+   "now": 499.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-stealth-irons/"
+  },
+  {
    "model": "Cobra Signature Cart Bag Golf Bag",
    "model_id": "cobra-signature-cart-bag-golf-bag",
    "date": "2026-11-26",
@@ -102,6 +142,26 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/cobra-signature-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Wilson Staff Infinite Putter",
+   "model_id": "wilson-staff-infinite-putter",
+   "date": "2026-11-26",
+   "was": 94.95,
+   "now": 89.95,
+   "unit": "each",
+   "lowest_tracked": false,
+   "url": "https://golfpriceai.com/prices/wilson-staff-infinite-putter/"
+  },
+  {
+   "model": "Bushnell A1 Slope Laser Rangefinder",
+   "model_id": "bushnell-a1-slope-laser-rangefinder",
+   "date": "2026-11-26",
+   "was": 175.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/"
   },
   {
    "model": "Ogio Featherlite Waterproof Stand Bag Golf Bag",
@@ -172,16 +232,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/masters-gx1-reloaded-12-piece-stand-bag-package-set/"
-  },
-  {
-   "model": "Bushnell A1 Slope Laser Rangefinder",
-   "model_id": "bushnell-a1-slope-laser-rangefinder",
-   "date": "2026-11-25",
-   "was": 209.0,
-   "now": 175.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/"
   },
   {
    "model": "Callaway Elyte Fairway Wood",
@@ -872,16 +922,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/odyssey-dfx-v-line-fang-db-putter/"
-  },
-  {
-   "model": "Wilson Talus 5 Stand Bag Golf Bag",
-   "model_id": "wilson-talus-5-stand-bag-golf-bag",
-   "date": "2026-11-20",
-   "was": 159.0,
-   "now": 135.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-talus-5-stand-bag-golf-bag/"
   },
   {
    "model": "Motocaddy Protekta Cart Bag Golf Bag",
