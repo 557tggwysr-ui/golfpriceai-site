@@ -1,4 +1,4 @@
-"""His & Hers: comic-panel episodes with a hushed nature-documentary voiceover (John, 24-26 Nov 2026).
+"""His & Hers: comic-panel episodes told in caption boxes and speech bubbles (no voiceover, John 26 Nov 2026) (John, 24-26 Nov 2026).
 
 Him, her, and his kit habit. Golf commentary over everyday home life; she always gets the last word.
 Panels are John's ChatGPT illustrations (assets/social/heist/, listed in data/heist-panels.json);
@@ -71,7 +71,7 @@ def say(text, voice, out_wav):
     """Narration to a wav; returns its length in seconds, or None (no voice model / piper missing).
     voice is a Piper model name, optionally with "#speaker" (multi-speaker models) and "~deep"
     (slower and lower: the hushed nature-documentary register, John 26 Nov 2026)."""
-    if not voice:
+    if not voice or voice == "none":  # John, 26 Nov 2026: no voiceover; the caption boxes tell the story
         return None
     deep = voice.endswith("~deep")
     base = voice.replace("~deep", "")

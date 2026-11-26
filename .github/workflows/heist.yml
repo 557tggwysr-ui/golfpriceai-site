@@ -8,8 +8,8 @@ on:
         description: "Episode numbers, comma-separated"
         default: "2,3"
       voices:
-        description: "Piper voices to try, comma-separated (British English)"
-        default: "en_GB-semaine-medium#obadiah~deep,en_GB-alan-medium~deep,en_GB-vctk-medium#p254~deep"
+        description: "Voiceover: none (the series has no narrator), or Piper voices to try, comma-separated"
+        default: "none"
 permissions:
   contents: write
 jobs:
@@ -28,7 +28,7 @@ jobs:
       - name: Voices
         run: |
           mkdir -p .voices
-          for v in $(echo "${{ inputs.voices }}" | tr ',' '\n' | sed 's/[#~].*//' | sort -u); do
+          for v in $(echo "${{ inputs.voices }}" | tr ',' '\n' | sed 's/[#~].*//' | grep -v '^none$' | sort -u); do
             name=$(echo "$v" | cut -d- -f2); q=$(echo "$v" | cut -d- -f3)
             base="https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_GB/$name/$q/$v"
             curl -sSfL "$base.onnx" -o ".voices/$v.onnx" && curl -sSfL "$base.onnx.json" -o ".voices/$v.onnx.json" || echo "couldn't get $v"
