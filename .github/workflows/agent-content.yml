@@ -18,7 +18,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "plan, trends, moment (includes the newsroom), post, sound (adds music and sound effects to this week's silent videos) resound (redoes this week's music) or remake (remakes this week's Higher or lower videos)"
+        description: "plan, trends, moment (includes the newsroom), post, sound (adds music and sound effects to this week's silent videos) resound (redoes this week's music) or remake (remakes this week's Higher or lower videos) or hishers (adds His & Hers episodes to the next two Sundays)"
         default: plan
 
 concurrency: { group: agents-commit, cancel-in-progress: false }

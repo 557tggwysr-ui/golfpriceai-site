@@ -1,5 +1,5 @@
 {
- "about": "His & Hers episode scripts (comic series; episode 1 was the original \"Golf Heist\" video about a new driver). Panels from data/heist-panels.json. 'box' and 'to' are fractions of the panel picture (outside 0-1 = above/below a framed panel): where the bubble sits and whose mouth its tail points at. 'narr' is the narrator's line (nature-documentary style: the golfer observed like wildlife) (spoken and shown).",
+ "about": "His & Hers episode scripts (comic series; episode 1 was the original \"Golf Heist\" video about a new driver). Panels from data/heist-panels.json. 'box' and 'to' are fractions of the panel picture (outside 0-1 = above/below a framed panel): where the bubble sits and whose mouth its tail points at. 'narr' is the narrator's line (nature-documentary style: the golfer observed like wildlife) (spoken and shown). 'hook' opens the video and leads every caption; captions ask for a send or a tag (shares are the biggest reach signal).",
  "episodes": [
   {
    "ep": 2,
@@ -86,7 +86,26 @@
      "Stock up for less."
     ],
     "path": "/prices/golf-balls/"
-   }
+   },
+   "hook": "He hid 300 golf balls in the sock drawer",
+   "ig": "He hid 300 golf balls in the sock drawer 😳 Nobody checks the sock drawer... right? His & Hers, episode 2: The Golf Balls. Send this to the one who hides golf kit around the house 👀 Golf balls compared across multiple UK retailers: link in bio.",
+   "x": "He hid 300 golf balls in the sock drawer. Nobody checks the sock drawer... right? 😳 His & Hers, EP2 ⛳",
+   "yt": "He hid 300 golf balls in the sock drawer 😳 His & Hers EP2",
+   "tags": [
+    "#HisAndHers",
+    "#golfhumour",
+    "#golfcouple",
+    "#golflife",
+    "#golfer",
+    "#golf"
+   ],
+   "tt_tags": [
+    "#HisAndHers",
+    "#golftok",
+    "#golfhumor",
+    "#couplecomedy",
+    "#golf"
+   ]
   },
   {
    "ep": 3,
@@ -186,7 +205,26 @@
      "Measure up for less."
     ],
     "path": "/prices/rangefinders/"
-   }
+   },
+   "hook": "She signed for his parcel",
+   "ig": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, episode 3: The Rangefinder. Tag the person who'd do exactly this 😂 Rangefinders compared across multiple UK retailers: link in bio.",
+   "x": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, EP3 ⛳",
+   "yt": "She signed for his golf parcel 📦 His & Hers EP3",
+   "tags": [
+    "#HisAndHers",
+    "#golfhumour",
+    "#golfcouple",
+    "#golflife",
+    "#golfer",
+    "#golf"
+   ],
+   "tt_tags": [
+    "#HisAndHers",
+    "#golftok",
+    "#golfhumor",
+    "#couplecomedy",
+    "#golf"
+   ]
   }
  ]
 }
