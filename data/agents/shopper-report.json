@@ -1,8 +1,8 @@
 {
- "generated": "2026-11-25T11:12Z",
+ "generated": "2026-11-26T10:47Z",
  "about": "Mystery shopper: a phone-sized browser walks the site each night and notes anything broken.",
  "pagesChecked": 70,
- "pagesWithProblems": 15,
+ "pagesWithProblems": 13,
  "findings": [
   {
    "page": "/prices/garmin-approach-s70-gps-watch/",
@@ -17,25 +17,19 @@
    ]
   },
   {
-   "page": "/prices/callaway-online-exclusive-mavrik-17-piece-package-set/",
-   "problems": [
-    "first screen (top page): something covers the buy button (DIV)"
-   ]
-  },
-  {
    "page": "/prices/cobra-darkspeed-ls-driver/",
    "problems": [
     "first screen (top page): something covers the buy button (DIV)"
    ]
   },
   {
-   "page": "/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/",
+   "page": "/prices/callaway-online-exclusive-mavrik-17-piece-package-set/",
    "problems": [
-    "first screen (top page): something covers the buy button (BUTTON)"
+    "first screen (top page): something covers the buy button (DIV)"
    ]
   },
   {
-   "page": "/prices/titleist-players-s4-stand-bag-golf-bag/",
+   "page": "/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/",
    "problems": [
     "first screen (top page): something covers the buy button (BUTTON)"
    ]
@@ -59,6 +53,12 @@
    ]
   },
   {
+   "page": "/prices/titleist-players-s4-stand-bag-golf-bag/",
+   "problems": [
+    "first screen (top page): something covers the buy button (BUTTON)"
+   ]
+  },
+  {
    "page": "/build-your-bag.html",
    "problems": [
     "0 main headings (should be 1)"
@@ -66,12 +66,6 @@
   },
   {
    "page": "/complete-the-look.html",
-   "problems": [
-    "0 main headings (should be 1)"
-   ]
-  },
-  {
-   "page": "/play/draft/",
    "problems": [
     "0 main headings (should be 1)"
    ]
@@ -90,18 +84,12 @@
    "problems": [
     "0 main headings (should be 1)"
    ]
-  },
-  {
-   "page": "/back-in-stock.html",
-   "problems": [
-    "0 main headings (should be 1)"
-   ]
   }
  ],
  "topPagesChecked": 10,
  "internalLinksChecked": 150,
  "deadLinks": [],
- "sitemapUrls": 2538,
+ "sitemapUrls": 2543,
  "sitemapChecked": 100,
  "deadInSitemap": [],
  "status": "attention"
