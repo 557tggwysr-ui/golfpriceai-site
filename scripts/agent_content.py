@@ -914,11 +914,89 @@ def plan_week():
         used_styles.add(style)
         last_pal = pal
         print(f"{pid}: {theme['theme']} [{S.fmt_of(theme)}] as '{style}' ({pal}) hook: {sc['hook']}")
+    try:
+        add_his_hers(plan, start, n_days)
+    except Exception as e:  # the rest of the week still goes out
+        print("His & Hers skipped:", e)
     save_plan(plan)
     save_learning(L)
     write_pack(plan)
     open_issue(plan, issue_start)
     prune_cards()
+
+
+HIS_HERS_DAY, HIS_HERS_SLOT = 6, "19:30"  # Sunday evening: couples on the sofa (John, 26 Nov 2026)
+
+
+def his_hers_post(day, ep_no, pid):
+    """A His & Hers comic episode (scripts/agent_heist.py) as a post: no voiceover, captions written for reach
+    (hook first, ask for a send or a tag, 5 or 6 targeted hashtags, #HisAndHers first everywhere)."""
+    import shutil
+    import agent_heist as HH
+    from PIL import Image as _I
+    ep = next(e for e in json.loads((ROOT / "data" / "heist-episodes.json").read_text(encoding="utf-8"))["episodes"] if e["ep"] == ep_no)
+    for d_ in (VIDEOS, THUMBS, CARDS):
+        d_.mkdir(parents=True, exist_ok=True)
+    out = HH.render(ep_no, "", VIDEOS / f"{pid}.mp4")
+    shutil.move(str(out.with_suffix(".jpg")), THUMBS / f"{pid}.jpg")
+    _I.open(THUMBS / f"{pid}.jpg").convert("RGB").crop((0, 285, 1080, 1635)).save(CARDS / f"{pid}.jpg", quality=88)
+    link = f"{SITE}{ep['end']['path']}?utm_source=social&utm_medium=hishers&utm_campaign=ep{ep_no}"
+    monday = day - timedelta(days=day.weekday())
+    tags = " ".join(ep["tags"])
+    caps = {"instagram": f"{ep['ig']}\n\n{tags}",
+            "tiktok": ep["ig"].replace("link in bio", "link in bio").rstrip() + " " + " ".join(ep["tt_tags"]),
+            "youtube": {"title": f"{ep['yt']} #shorts #golf"[:95], "description": f"{ep['ig'].replace('link in bio.', '')}\n{link}\n#HisAndHers #golf #shorts"},
+            "x": f"{ep['x']}\n{link}", "bluesky": f"{ep['x']}\n{link}",
+            "pinterest": {"title": f"His & Hers: {ep['title']} (a golf couple comic)", "description": ep["ig"].replace("link in bio.", ""), "link": link}}
+    post = {"id": pid, "date": str(day), "theme": "His & Hers", "style": "comic", "palette": "brand", "hook": ep["hook"], "trend": None,
+            "card": f"/social/cards/{pid}.jpg", "thumb": f"/social/thumbs/{pid}.jpg",
+            "video": f"https://github.com/{REPO}/releases/download/pack-{monday}/{pid}.mp4", "link": link,
+            "headline": f"His & Hers: {ep['title']}", "sub": f"Episode {ep_no}", "captions": caps, "sound": None, "trendingFormats": [],
+            "posted": {}, "quality": [], "series": "His & Hers", "format": "hishers", "formatName": "Comedy comic", "objective": "reach",
+            "hisHersEp": ep_no, "tags": ["#HisAndHers"], "slot": HIS_HERS_SLOT, "hasPrices": False}
+    return edited(post)
+
+
+def add_his_hers(plan, start, n_days):
+    """Each Sunday in the range gets the next His & Hers episode at 19:30 (any other Sunday post moves to
+    lunchtime). When the episodes run out, the pack says so, so John can make the next panels."""
+    eps = sorted(e["ep"] for e in json.loads((ROOT / "data" / "heist-episodes.json").read_text(encoding="utf-8"))["episodes"])
+    used = {p.get("hisHersEp") for p in plan["posts"] if p.get("hisHersEp")}
+    added = []
+    for k in range(n_days):
+        day = start + timedelta(days=k)
+        if day.weekday() != HIS_HERS_DAY or any(p["date"] == str(day) and p.get("series") == "His & Hers" for p in plan["posts"]):
+            continue
+        nxt = next((n for n in eps if n not in used), None)
+        if nxt is None:
+            print("His & Hers: no new episode for", day, "(John makes the next panels in ChatGPT)")
+            continue
+        for p in plan["posts"]:
+            if p["date"] == str(day) and p.get("slot") == HIS_HERS_SLOT and not p.get("posted", {}).get("instagram"):
+                p["slot"] = "12:30"
+                p["times"] = suggest_times(p)
+        post = his_hers_post(day, nxt, f"{day}-hishers")
+        plan["posts"].append(post)
+        used.add(nxt)
+        added.append(post)
+        print(f"{post['id']}: His & Hers EP{nxt} at {HIS_HERS_SLOT}")
+    plan["posts"].sort(key=lambda p: (p["date"], p.get("slot", "")))
+    return added
+
+
+def his_hers_now():
+    """Mode 'hishers': put His & Hers into the weeks already planned (the next two Sundays) and give the
+    new posts a tick box."""
+    plan = load_plan()
+    today = now().date()
+    added = add_his_hers(plan, today, 14)
+    save_plan(plan)
+    write_pack(plan)
+    if added:
+        gh("POST", "/issues", {"title": "His & Hers: tick to approve",
+                               "body": "Tick to approve. Ticked episodes go to Instagram and Bluesky on their Sunday at 19:30.\n"
+                                       f"Watch them in the pack: {SITE}/social/pack/\n\n" + "\n".join(issue_line(p) for p in added),
+                               "labels": ["content-pack"]})
 
 
 def moment():
@@ -1558,4 +1636,4 @@ def remake_guess():
 
 if __name__ == "__main__":
     mode = (sys.argv[1] if len(sys.argv) > 1 else "plan").lower()
-    {"plan": plan_week, "moment": moment, "post": post_today, "sound": add_sound_to_week, "resound": lambda: add_sound_to_week(redo=True), "remake": remake_guess}[mode]()
+    {"plan": plan_week, "moment": moment, "post": post_today, "sound": add_sound_to_week, "resound": lambda: add_sound_to_week(redo=True), "remake": remake_guess, "hishers": his_hers_now}[mode]()

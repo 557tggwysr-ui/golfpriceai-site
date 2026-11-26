@@ -307,16 +307,17 @@ def centre(d, y, text, f, fill, stroke=0):
 
 
 def title_card(ep, t, first):
+    """The first second has to hook: the episode's one-line hook, big, over the first panel."""
     im, _ = cover(first, 1.08)
     im = Image.blend(im, Image.new("RGB", (W, H), (8, 10, 22)), 0.62)
     d = ImageDraw.Draw(im)
-    a = ease_back(t / 0.5)
-    f = font("LuckiestGuy-Regular.ttf", int(150 * max(0.3, a)))
-    centre(d, 700, "HIS &", f, GOLD, 8)
-    centre(d, 860, "HERS", f, GOLD, 8)
-    if t > 0.5:
-        centre(d, 1060, f"EPISODE {ep['ep']}", font("Poppins-Bold.ttf", 44), (255, 255, 255))
-        centre(d, 1120, ep["title"].upper(), font("LuckiestGuy-Regular.ttf", 66), (255, 255, 255), 5)
+    centre(d, 520, f"HIS & HERS  ·  EP {ep['ep']}", font("LuckiestGuy-Regular.ttf", 58), GOLD, 5)
+    a = ease_back(t / 0.4)
+    f = font("LuckiestGuy-Regular.ttf", int(104 * max(0.3, a)))
+    y = 660
+    for line in wrap(d, (ep.get("hook") or ep["title"]).upper(), font("LuckiestGuy-Regular.ttf", 104), 940):
+        centre(d, y, line, f, (255, 255, 255), 7)
+        y += 120
     return im
 
 
