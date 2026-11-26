@@ -17,13 +17,13 @@
   "arcs": [
     {
       "id": "gaz-driver-count",
-      "about": "Gaz buys a new driver every few weeks; Kev keeps count. Payoff idea: Gaz finally finds his driver was fine all along, or buys last season's model for less and outdrives Kev.",
+      "about": "Gaz buys a new driver every few weeks; Kev keeps count. Payoff idea: Gaz finally finds his driver was fine all along, or buys last season's model for less and outdrives Kev. EP6 (spare): Gaz's 'new' last-season driver goes straight; Phil points out Gaz sold that exact driver in March (he bought his own old driver back).",
       "status": "running",
       "since": 2
     },
     {
       "id": "dave-scorecard",
-      "about": "Big Dave's creative scoring; Phil's props escalate (abacus, then calculator, then a referee's whistle, then the rule book). EP3: Phil brings the live scorecard as proof (the prop becomes our real tool).",
+      "about": "Big Dave's creative scoring; Phil's props escalate (abacus, then calculator, then a referee's whistle, then the rule book). EP3: Phil brings the live scorecard as proof (the prop becomes our real tool). EP5: the props reach awards night (Phil's slideshow gives Dave 'Most Creative Scorecard').",
       "status": "running",
       "since": 1
     },
@@ -34,14 +34,16 @@
     },
     {
       "id": "kev-comeuppance",
-      "about": "Kev's own duffs get caught on camera; the group finally gets him back.",
-      "status": "planned"
+      "about": "Kev's own duffs get caught on camera; the group finally gets him back. EP4: Kev duffs it in front of Gaz and borrows Gaz's own excuse ('It's the shaft, mate').",
+      "status": "running",
+      "since": 4
     },
     {
       "id": "christmas-dinner",
-      "about": "December: the society Christmas dinner and awards (Dave's speech, Phil's 'honest scorecard' award, Gaz's gift is a driver).",
-      "status": "planned",
-      "window": "2026-12"
+      "about": "December: the society Christmas dinner and awards (Dave's speech, Phil's 'honest scorecard' award, Gaz's gift is a driver). EP5: Phil runs the slideshow on our Society Awards kit; Dave expects Player of the Year and gets Most Creative Scorecard, and takes it as a compliment.",
+      "status": "running",
+      "window": "2026-12",
+      "since": 5
     },
     {
       "id": "phil-wrong",
@@ -52,21 +54,31 @@
   "canon": [
     "EP1: Big Dave took six on a par 4 and called it a par. Phil offered him an abacus. Kev was in the background, trying not to laugh.",
     "EP2: Gaz unboxed another new driver in the car park and sent his first drive into the trees. Kev: 'Must need a new driver.' Gaz: 'It's the shaft, mate.'",
-    "EP3: Big Dave claimed another par; Phil showed the live scorecard (six). Dave blamed the app. It's free, Dave."
+    "EP3: Big Dave claimed another par; Phil showed the live scorecard (six). Dave blamed the app. It's free, Dave.",
+    "EP4: Kev showed Gaz how it's done and took a divot the size of a doormat. Gaz: 'Must need a new driver, Kev.' Kev: 'It's the shaft, mate.' Gaz: 'At least mine went in the air.'",
+    "EP5: Society Christmas dinner. Dave announced Player of the Year; Phil's slideshow gave Big Dave 'Most Creative Scorecard' ('Take a bow'). Dave bowed and thanked his pencil.",
+    "EP6 (spare, may air out of order): Gaz's last-season driver finally went straight. Phil: he'd sold that exact driver in March."
   ],
   "characterNotes": {
-    "big-dave": [],
+    "big-dave": [
+      "Takes every dig as a compliment (EP5: bows for 'Most Creative Scorecard'): oblivious, never wounded; keep that, it keeps the banter kind."
+    ],
     "phil": [
       "Know-it-all (John, 21 Nov 2026): corrects everyone, quotes rules and stats, unrequested tips; deadpan delivery; usually right, which is the joke.",
       "Props are his punchlines, and our tools are his favourite props (he 'knows' the price history, the real score, the rule).",
-      "Give him the occasional comeuppance: when Phil is wrong, it's an event (Kev's favourite day)."
+      "Give him the occasional comeuppance: when Phil is wrong, it's an event (Kev's favourite day).",
+      "Props so far: abacus (EP1), live scorecard (EP3), awards slideshow (EP5). Still right every time: the 'phil-wrong' payoff gets stronger the longer it waits (aim for January)."
     ],
-    "steve": [],
+    "steve": [
+      "Not on screen yet and no photos of him exist. Plan his debut in January (steve-quiet-season arc, quiet win); ask John for his photos with that episode."
+    ],
     "gaz": [
-      "Kev's favourite target; gives as good as he gets."
+      "Kev's favourite target; gives as good as he gets.",
+      "EP4 gives him the last laugh (his comeback for EP2); EP6 gives him a straight drive. He's earning wins, keep him from being only the target."
     ],
     "kev": [
-      "Reaction shots are reusable stock."
+      "Reaction shots are reusable stock.",
+      "EP4 opens his comeuppance: when it's his turn he's no better, and reaches for Gaz's excuses. Use sparingly so Kev stays the likeable wind-up."
     ]
   },
   "episodes": [
@@ -84,8 +96,8 @@
       ],
       "status": "ready",
       "photos": "complete",
-      "posted": null,
-      "result": null
+      "posted": "2026-11-23",
+      "result": "Aired 23 Nov, EP1 and EP2 together before the Wednesday rhythm began. No engagement read yet: the content log has no per-post results for the series, so no character, gag or line can be called a hit or a miss. Outro hand-over only (live scorecard), no tool in the story; no fourball-tagged visits reported yet. Review again next week."
     },
     {
       "ep": 2,
@@ -100,8 +112,8 @@
       ],
       "status": "ready",
       "photos": "complete",
-      "posted": null,
-      "result": null
+      "posted": "2026-11-23",
+      "result": "Aired 23 Nov, EP1 and EP2 together before the Wednesday rhythm began. No engagement read yet: the content log has no per-post results for the series, so no character, gag or line can be called a hit or a miss. Outro hand-over only (Fourball Alerts), no tool in the story; no fourball-tagged visits reported yet. Review again next week."
     },
     {
       "ep": 3,
@@ -120,6 +132,67 @@
       "posted": null,
       "result": null,
       "idea": "John's idea (21 Nov 2026): Phil proves the real score with our live scorecard."
+    },
+    {
+      "ep": 4,
+      "title": "Kev's masterclass",
+      "lead": "kev",
+      "cast": [
+        "kev",
+        "gaz"
+      ],
+      "arcs": [
+        "kev-comeuppance",
+        "gaz-driver-count"
+      ],
+      "tool": null,
+      "status": "ready",
+      "photos": "complete",
+      "posted": null,
+      "result": null,
+      "airs": "2026-12-09",
+      "note": "Gaz's comeback after EP2; no tool in the story (joke first), outro to Fourball Alerts."
+    },
+    {
+      "ep": 5,
+      "title": "Big Dave's award",
+      "lead": "big-dave",
+      "cast": [
+        "big-dave",
+        "phil",
+        "kev"
+      ],
+      "arcs": [
+        "christmas-dinner",
+        "dave-scorecard"
+      ],
+      "tool": "awards",
+      "status": "ready",
+      "photos": "complete",
+      "posted": null,
+      "result": null,
+      "airs": "2026-12-16",
+      "note": "Screens are real captures of the Society Awards slideshow (demo kit 'The Fourball' via stubbed fetch). Christmas wording must stop after the 25th."
+    },
+    {
+      "ep": 6,
+      "title": "Gaz's old driver",
+      "lead": "gaz",
+      "cast": [
+        "gaz",
+        "kev",
+        "phil"
+      ],
+      "arcs": [
+        "gaz-driver-count"
+      ],
+      "tool": null,
+      "status": "ready",
+      "photos": "complete",
+      "posted": null,
+      "result": null,
+      "spare": true,
+      "note": "Library-only spare: airs automatically if EP4 or EP5 photos are late (the engine posts the first episode whose photos all exist). If it airs early, its number airs out of order; renumber next week if that matters. Lead Gaz, so it never sits next to another Gaz episode if EP4 (Kev) and EP5 (Dave) follow."
     }
   ],
   "trendNotes": [],
@@ -133,6 +206,27 @@
       "asked": "2026-11-21",
       "needBy": "2026-12-06",
       "received": "2026-11-21"
+    },
+    {
+      "ep": 4,
+      "files": [
+        "kev-04-duff.jpg",
+        "gaz-04-slowclap.jpg",
+        "kev-04-shaft.jpg"
+      ],
+      "asked": "2026-11-26",
+      "needBy": "2026-12-06",
+      "received": "2026-11-26"
+    },
+    {
+      "ep": 5,
+      "files": [
+        "dave-05-speech.jpg",
+        "dave-05-bow.jpg"
+      ],
+      "asked": "2026-11-26",
+      "needBy": "2026-12-13",
+      "received": "2026-11-26"
     }
   ],
   "featureRule": "Our tools are part of the world the characters live in. About every other episode, one real GolfPrice AI tool earns its place in the story: as Phil's prop, the proof, the twist or the punchline (EP3: the live scorecard proves Dave's six). The joke always comes first: if a tool would feel like an advert, leave it out that week. One tool per episode at most, shown truthfully (a real capture of the real page; demo data with the cast's names is fine, never a made-up interface or a feature we don't have), and the outro hands over to the same tool. Rotate tools so the series slowly shows off the whole site; deal tools and fun tools both count.",
@@ -172,7 +266,8 @@
       "does": "Checks a new or used golf price against what we track",
       "angles": [
         "Gaz's 'bargain' gets checked by Phil: it's the usual price",
-        "Steve checks his 20-year-old irons' used value and won't sell"
+        "Steve checks his 20-year-old irons' used value and won't sell",
+        "Gaz's 'sale' driver checked mid-round: the verdict says typical, Gaz says 'it's the shaft'"
       ]
     },
     {
@@ -284,9 +379,13 @@
       "path": "/societies/awards/",
       "does": "Free award cards, slideshow and prizes",
       "angles": [
-        "Christmas dinner arc: Phil's 'honest scorecard' award, Kev's 'best reaction' award"
+        "Christmas dinner arc: Phil's 'honest scorecard' award, Kev's 'best reaction' award",
+        "Phil's awards slideshow: 'Tap to reveal' and Dave expects Player of the Year (EP5)"
       ],
-      "season": "Dec"
+      "season": "Dec",
+      "used": [
+        5
+      ]
     },
     {
       "id": "poll",

@@ -783,6 +783,283 @@
     "tool": "scorecard",
     "outro_line": "The scorecard *doesn't lie*."
    }
+  },
+  {
+   "title": "Kev's *masterclass*",
+   "thumb": "Kev shows Gaz how",
+   "caption": "Kev's masterclass. Gaz has notes.",
+   "counter": false,
+   "top": "Kev. *Shows Gaz how.*",
+   "shots": [
+    {
+     "reaction": [
+      "kev",
+      "commentary"
+     ],
+     "beats": 2,
+     "label": "Kev",
+     "scene": "Kev on the tee doing his commentary voice into a golf ball 'mic'"
+    },
+    {
+     "bg": "assets/social/library/kev-04-duff.jpg",
+     "beats": 2,
+     "hide_top": true,
+     "label": "Kev",
+     "scene": "Kev mid-follow-through, a huge divot flying, the ball barely moved; Gaz behind him, hand over mouth",
+     "focus": [
+      0.55,
+      0.35
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "who": "mate",
+     "text": "Must need a *new driver*, Kev.",
+     "beats": 2,
+     "bg": "assets/social/library/gaz-04-slowclap.jpg",
+     "label": "Gaz",
+     "scene": "Gaz grinning, starting a slow clap",
+     "focus": [
+      0.45,
+      0.35
+     ]
+    },
+    {
+     "who": "him",
+     "text": "It's the *shaft*, mate.",
+     "beats": 2,
+     "pos": "bottom",
+     "bg": "assets/social/library/kev-04-shaft.jpg",
+     "label": "Kev",
+     "scene": "Kev pointing at his club's shaft, offended",
+     "focus": [
+      0.45,
+      0.35
+     ]
+    },
+    {
+     "who": "mate",
+     "text": "At least mine went *in the air*, Kev.",
+     "beats": 3,
+     "pos": "low",
+     "bg": "assets/social/library/gaz-04-slowclap.jpg",
+     "label": "Gaz",
+     "scene": "Gaz slow-clapping, delighted",
+     "focus": [
+      0.45,
+      0.35
+     ]
+    }
+   ],
+   "cover": {
+    "ep": 4,
+    "hook": "Kev's big",
+    "punch": "Lesson?!",
+    "names": [
+     "Kev",
+     "Gaz"
+    ],
+    "left": "assets/social/library/kev-04-shaft.jpg",
+    "left_focus": [
+     0.4,
+     0.3
+    ],
+    "right": "assets/social/library/gaz-04-slowclap.jpg",
+    "right_focus": [
+     0.45,
+     0.3
+    ],
+    "tool": "fourball"
+   }
+  },
+  {
+   "title": "Big Dave's *award*",
+   "thumb": "Big Dave's award",
+   "caption": "Big Dave's award. Phil did the slides.",
+   "counter": false,
+   "lines": [
+    {
+     "who": "him",
+     "text": "Player of the Year *goes to*...",
+     "beats": 2,
+     "pos": "bottom",
+     "bg": "assets/social/library/dave-05-speech.jpg",
+     "label": "Big Dave",
+     "scene": "Society Christmas dinner: Big Dave on his feet, paper crown on, glass raised, beaming",
+     "focus": [
+      0.45,
+      0.3
+     ]
+    },
+    {
+     "who": "mate",
+     "text": "Actually, *I* did the slides.",
+     "beats": 2,
+     "bg": "assets/social/library/seq-dave-08-mate.jpg",
+     "label": "Phil",
+     "scene": "Phil deadpan, one eyebrow up"
+    },
+    {
+     "who": "mate",
+     "text": "",
+     "beats": 2,
+     "screen": "assets/social/outro/awards-tap-reveal.jpg",
+     "bg": "assets/social/library/dave-05-speech.jpg",
+     "label": "The slideshow",
+     "scene": "Our Society Awards slideshow: The Most Creative Scorecard award goes to... Tap to reveal"
+    },
+    {
+     "who": "mate",
+     "text": "*Take a bow*, Dave.",
+     "beats": 2,
+     "pos": "low",
+     "screen": "assets/social/outro/awards-dave.jpg",
+     "bg": "assets/social/library/dave-05-speech.jpg",
+     "label": "The reveal",
+     "scene": "The reveal: Big Dave. Every hole a par. Apparently. Take a bow."
+    },
+    {
+     "who": "kev",
+     "text": "",
+     "beats": 1,
+     "reaction": [
+      "kev",
+      "stifled"
+     ],
+     "optional": true
+    },
+    {
+     "who": "him",
+     "text": "I'd like to thank *my pencil*.",
+     "beats": 3,
+     "pos": "bottom",
+     "bg": "assets/social/library/dave-05-bow.jpg",
+     "label": "Big Dave",
+     "scene": "Big Dave taking a grand bow, hand on chest, delighted",
+     "focus": [
+      0.45,
+      0.3
+     ]
+    }
+   ],
+   "cover": {
+    "ep": 5,
+    "hook": "Big Dave's",
+    "punch": "Award?!",
+    "names": [
+     "Big Dave",
+     "Phil"
+    ],
+    "left": "assets/social/library/dave-05-speech.jpg",
+    "left_focus": [
+     0.45,
+     0.25
+    ],
+    "right": "assets/social/library/seq-dave-08-mate.jpg",
+    "right_focus": [
+     0.45,
+     0.4
+    ],
+    "tool": "awards",
+    "outro_screen": "assets/social/outro/awards-screen.jpg",
+    "outro_tag": "Society Awards · Free",
+    "outro_url": "golfpriceai.com/societies/awards",
+    "outro_line": "Give your *Big Dave* an award."
+   }
+  },
+  {
+   "title": "Gaz's *old driver*",
+   "thumb": "Gaz bought it twice",
+   "caption": "Gaz's old driver. Phil remembers everything.",
+   "counter": false,
+   "top": "Gaz. *Last season's driver.*",
+   "shots": [
+    {
+     "bg": "assets/social/library/gaz-02-swing.jpg",
+     "beats": 2,
+     "label": "Gaz",
+     "scene": "Gaz's big swing on the tee"
+    },
+    {
+     "cutaway": true,
+     "reaction": [
+      "kev",
+      "wince"
+     ],
+     "label": "Kev",
+     "scene": "Kev bracing for the worst"
+    }
+   ],
+   "lines": [
+    {
+     "who": "kev",
+     "text": "It went *in the air*, Gaz!",
+     "beats": 2,
+     "reaction": [
+      "kev",
+      "slowclap"
+     ],
+     "label": "Kev",
+     "scene": "Kev's slow clap"
+    },
+    {
+     "who": "him",
+     "text": "Last season's. *Paid less*, mate.",
+     "beats": 3,
+     "pos": "bottom",
+     "bg": "assets/social/library/kev-gaz-laughing.jpg",
+     "label": "Gaz",
+     "scene": "Gaz grinning with his driver, Kev laughing beside him",
+     "focus": [
+      0.6,
+      0.4
+     ]
+    },
+    {
+     "who": "mate",
+     "text": "Actually, you *sold* it in March.",
+     "beats": 3,
+     "pos": "low",
+     "bg": "assets/social/library/meme-steve-sideeye.jpg",
+     "focus": [
+      0.97,
+      0.4
+     ],
+     "label": "Phil",
+     "scene": "Phil, arms folded, side-eye"
+    },
+    {
+     "who": "kev",
+     "text": "",
+     "beats": 1,
+     "reaction": [
+      "kev",
+      "stifled"
+     ],
+     "optional": true
+    }
+   ],
+   "cover": {
+    "ep": 6,
+    "hook": "Gaz bought it",
+    "punch": "Twice?!",
+    "names": [
+     "Gaz",
+     "Phil"
+    ],
+    "left": "assets/social/library/gaz-02-swing.jpg",
+    "left_focus": [
+     0.45,
+     0.35
+    ],
+    "right": "assets/social/library/seq-dave-08-mate.jpg",
+    "right_focus": [
+     0.45,
+     0.4
+    ],
+    "tool": "fourball"
+   }
   }
  ],
  "charactersAbout": "Recurring, obviously fictional characters (AI-generated photos, never based on real people). Keep looks identical in every photo; build running gags across episodes; never mean-spirited: everyone gets a win sometimes. Kev's ribbing is always friendly, and he gets his comeuppance too.",
