@@ -1,10 +1,10 @@
 {
- "about": "The Golf Heist episode scripts. Panels from data/heist-panels.json. 'box' and 'to' are fractions of the panel picture (outside 0-1 = above/below a framed panel): where the bubble sits and whose mouth its tail points at. 'narr' is the commentator's line (spoken and shown).",
+ "about": "His & Hers episode scripts (comic series; episode 1 was the original \"Golf Heist\" video about a new driver). Panels from data/heist-panels.json. 'box' and 'to' are fractions of the panel picture (outside 0-1 = above/below a framed panel): where the bubble sits and whose mouth its tail points at. 'narr' is the commentator's line (spoken and shown).",
  "episodes": [
   {
    "ep": 2,
-   "title": "The Ball Drawer",
-   "cover_panel": 3,
+   "title": "The Golf Balls",
+   "cover_panel": 2,
    "panels": [
     {
      "img": "assets/social/heist/ep02-1.jpg",
@@ -90,8 +90,8 @@
   },
   {
    "ep": 3,
-   "title": "The Delivery",
-   "cover_panel": 3,
+   "title": "The Rangefinder",
+   "cover_panel": 2,
    "panels": [
     {
      "img": "assets/social/heist/ep03-1.jpg",

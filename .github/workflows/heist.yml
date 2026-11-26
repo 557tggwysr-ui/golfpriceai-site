@@ -1,6 +1,6 @@
-name: "The Golf Heist: render episodes"
-# Renders The Golf Heist comic episodes (scripts/agent_heist.py) with a commentator voice and puts the
-# videos on the "heist-tests" release, ready to watch. Free: Piper voices are open-source and run here.
+name: "His & Hers: render episodes"
+# Renders the His & Hers comic episodes (scripts/agent_heist.py) with a commentator voice and puts the
+# videos on the "his-hers-tests" release, ready to watch. Free: Piper voices are open-source and run here.
 on:
   workflow_dispatch:
     inputs:
@@ -42,14 +42,14 @@ jobs:
           for e in $(echo "${{ inputs.episodes }}" | tr ',' ' '); do
             for v in $(echo "${{ inputs.voices }}" | tr ',' ' '); do
               short=$(echo "$v" | cut -d- -f2)
-              python scripts/agent_heist.py --ep "$e" --voice "$v" --out "out/heist-ep$(printf %02d $e)-$short.mp4"
+              python scripts/agent_heist.py --ep "$e" --voice "$v" --out "out/his-hers-ep$(printf %02d $e)-$short.mp4"
             done
           done
       - name: Publish
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release view heist-tests >/dev/null 2>&1 || gh release create heist-tests --title "The Golf Heist: test renders" --notes "Comic episodes with commentator voices, for John to choose from." --prerelease
-          gh release upload heist-tests out/*.mp4 out/*.jpg --clobber
-          echo "### The Golf Heist renders" >> $GITHUB_STEP_SUMMARY
-          for f in out/*.mp4; do echo "- [$(basename $f)](https://github.com/${{ github.repository }}/releases/download/heist-tests/$(basename $f))" >> $GITHUB_STEP_SUMMARY; done
+          gh release view his-hers-tests >/dev/null 2>&1 || gh release create his-hers-tests --title "His & Hers: test renders" --notes "Comic episodes with commentator voices, for John to choose from." --prerelease
+          gh release upload his-hers-tests out/*.mp4 out/*.jpg --clobber
+          echo "### His & Hers renders" >> $GITHUB_STEP_SUMMARY
+          for f in out/*.mp4; do echo "- [$(basename $f)](https://github.com/${{ github.repository }}/releases/download/his-hers-tests/$(basename $f))" >> $GITHUB_STEP_SUMMARY; done

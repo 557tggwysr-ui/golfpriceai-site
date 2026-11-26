@@ -1,4 +1,4 @@
-"""The Golf Heist: comic-panel episodes with a hushed golf-commentator voiceover (John, 24-26 Nov 2026).
+"""His & Hers: comic-panel episodes with a hushed golf-commentator voiceover (John, 24-26 Nov 2026).
 
 Him, her, and his kit habit. Golf commentary over everyday home life; she always gets the last word.
 Panels are John's ChatGPT illustrations (assets/social/heist/, listed in data/heist-panels.json);
@@ -149,7 +149,7 @@ def cover(img, z, fx=0.5, fy=0.5):
     return big.crop((x, y, x + W, y + H)), (lambda px, py: (px * w - x, py * h - y))
 
 
-def framed(img, z, box_w):
+def framed(img, z, box_w, top=None):
     """A landscape or square panel framed on the page; returns (page, mapper, panel box)."""
     page = page_bg()
     pw = box_w
@@ -160,7 +160,7 @@ def framed(img, z, box_w):
     inner = img.resize((int(pw * s), int(ph * s)), Image.LANCZOS)
     ox, oy = (inner.width - pw) // 2, (inner.height - ph) // 2
     inner = inner.crop((ox, oy, ox + pw, oy + ph))
-    x0, y0 = (W - pw) // 2, 330 if ph > 900 else 470
+    x0, y0 = (W - pw) // 2, top if top is not None else (330 if ph > 900 else 470)
     sh = Image.new("RGBA", (pw + 60, ph + 60), (0, 0, 0, 0))
     ImageDraw.Draw(sh).rectangle((30, 30, pw + 30, ph + 30), fill=(0, 0, 0, 160))
     page.paste(sh.filter(ImageFilter.GaussianBlur(14)), (x0 - 18, y0 - 12), sh.filter(ImageFilter.GaussianBlur(14)))
@@ -292,8 +292,8 @@ def title_card(ep, t, first):
     d = ImageDraw.Draw(im)
     a = ease_back(t / 0.5)
     f = font("LuckiestGuy-Regular.ttf", int(150 * max(0.3, a)))
-    centre(d, 700, "THE GOLF", f, GOLD, 8)
-    centre(d, 860, "HEIST", f, GOLD, 8)
+    centre(d, 700, "HIS &", f, GOLD, 8)
+    centre(d, 860, "HERS", f, GOLD, 8)
     if t > 0.5:
         centre(d, 1060, f"EPISODE {ep['ep']}", font("Poppins-Bold.ttf", 44), (255, 255, 255))
         centre(d, 1120, ep["title"].upper(), font("LuckiestGuy-Regular.ttf", 66), (255, 255, 255), 5)
@@ -343,7 +343,7 @@ def frame_at(ep, segs, t):
         top_i = i - (i % 2)
         im = page_bg()
         d = ImageDraw.Draw(im)
-        d.text((50, 110), f"THE GOLF HEIST  ·  EP {ep['ep']}", font=font("LuckiestGuy-Regular.ttf", 46), fill=GOLD)
+        d.text((50, 110), f"HIS & HERS  ·  {ep['title'].upper()}", font=font("LuckiestGuy-Regular.ttf", 46), fill=GOLD)
         pw = 1000
         ph = int(pw * img.height / img.width)
         slots = [(40, 240), (40, 240 + ph + 80)]
@@ -369,7 +369,7 @@ def frame_at(ep, segs, t):
         im, mp, box = framed(img, z * pop, 1010)
         where = box[3] + 120 if p.get("narr_at", "below") == "below" else box[1] - 120
         d = ImageDraw.Draw(im)
-        d.text((50, 120 if box[1] > 400 else 60), f"THE GOLF HEIST  ·  EP {ep['ep']}", font=font("LuckiestGuy-Regular.ttf", 44), fill=GOLD)
+        d.text((50, 120 if box[1] > 400 else 60), f"HIS & HERS  ·  {ep['title'].upper()}", font=font("LuckiestGuy-Regular.ttf", 44), fill=GOLD)
     narration(im, p.get("narr"), where, lt / 0.3)
     for bt, bdef in data["bubbles"]:
         if t >= bt:
@@ -477,13 +477,13 @@ def render(ep_no, voice, out_path):
 
 
 def thumbnail(ep):
-    """The cover: the episode's key panel, THE GOLF HEIST and the episode title, inside the 4:5 grid crop."""
+    """The cover: the episode's key panel, HIS & HERS and the episode title, inside the 4:5 grid crop."""
     p = ep["panels"][ep.get("cover_panel", len(ep["panels"]) - 1)]
     img = panel_img(p["img"])
     if img.height > img.width * 1.2:
         im, _ = cover(img, 1.02, *p.get("focus", (0.5, 0.45)))
-    else:
-        im, _, _ = framed(img, 1.0, 1010)
+    else:  # framed under the title, all inside the 4:5 grid crop (y 285 to 1635)
+        im, _, _ = framed(img, 1.0, 940 if img.height > img.width * 0.9 else 1010, top=560)
     shade = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     sd = ImageDraw.Draw(shade)
     for y in range(0, 700):
@@ -492,7 +492,7 @@ def thumbnail(ep):
     im.alpha_composite(shade)
     im = im.convert("RGB")
     d = ImageDraw.Draw(im)
-    centre(d, 330, "THE GOLF HEIST", font("LuckiestGuy-Regular.ttf", 110), GOLD, 7)
+    centre(d, 330, "HIS & HERS", font("LuckiestGuy-Regular.ttf", 120), GOLD, 7)
     centre(d, 470, ep["title"].upper(), font("LuckiestGuy-Regular.ttf", 76), (255, 255, 255), 6)
     return im
 
