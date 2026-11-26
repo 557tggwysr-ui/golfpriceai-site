@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 195.0,
+ "lowestNewPrice": 175.5,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 195.0,
+   "from": 175.5,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 195.0,
+  "low": 175.5,
   "high": 195.0,
-  "average": 195.0,
-  "priceChanges": 0,
+  "average": 194.81,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-26",
-    195.0
+    175.5
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/aspire-xd1-golf-set-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

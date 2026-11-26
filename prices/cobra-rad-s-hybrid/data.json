@@ -6,21 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 134.1,
  "lowestAt": [
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
+   "name": "Clickgolf",
+   "from": 134.1,
+   "options": 1
+  },
+  {
    "name": "Clarkes Golf",
    "from": 149.0,
    "options": 4
-  },
-  {
-   "name": "Clickgolf",
-   "from": 149.0,
-   "options": 1
   },
   {
    "name": "Affordable Golf",
@@ -30,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 149.0,
+  "low": 134.1,
   "high": 159.0,
-  "average": 151.32,
-  "priceChanges": 2,
+  "average": 151.18,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -49,13 +48,13 @@
    ],
    [
     "2026-11-26",
-    149.0
+    134.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 32 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/RAD-S-Hybrid-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

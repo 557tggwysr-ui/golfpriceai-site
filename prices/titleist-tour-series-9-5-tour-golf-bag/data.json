@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 464.99,
+ "lowestNewPrice": 418.49,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 464.99,
+   "from": 418.49,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 434.99,
+  "low": 418.49,
   "high": 464.99,
-  "average": 461.2,
-  "priceChanges": 8,
+  "average": 460.75,
+  "priceChanges": 9,
   "series": [
    [
     "2026-08-16",
@@ -62,13 +62,13 @@
    ],
    [
     "2026-11-26",
-    464.99
+    418.49
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/146762__70255.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

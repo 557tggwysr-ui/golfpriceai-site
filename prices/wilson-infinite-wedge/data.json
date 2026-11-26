@@ -6,12 +6,16 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 94.95,
+ "lowestNewPrice": 89.1,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 89.1,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 94.95,
@@ -21,19 +25,14 @@
    "name": "Clarkes Golf",
    "from": 94.95,
    "options": 7
-  },
-  {
-   "name": "Clickgolf",
-   "from": 99.0,
-   "options": 2
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 94.95,
+  "low": 89.1,
   "high": 99.0,
-  "average": 96.72,
-  "priceChanges": 1,
+  "average": 96.66,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -45,15 +44,15 @@
    ],
    [
     "2026-11-26",
-    94.95
+    89.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 58 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Infinite_Wedge_7.jpg?v=1776297230",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-Infinite-Golf-Wedge.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

@@ -32,16 +32,6 @@
   },
   {
    "rank": 3,
-   "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
-   "brand": "Srixon",
-   "type": "ball",
-   "price": 29.99,
-   "unit": "per dozen",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
-  },
-  {
-   "rank": 4,
    "name": "Cobra Darkspeed LS Driver",
    "brand": "Cobra",
    "type": "driver",
@@ -51,67 +41,57 @@
    "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
   },
   {
+   "rank": 4,
+   "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
+   "brand": "Srixon",
+   "type": "ball",
+   "price": 29.99,
+   "unit": "per dozen",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
+  },
+  {
    "rank": 5,
    "name": "Cobra Fly XL Package Set",
    "brand": "Cobra",
    "type": "set",
-   "price": 599.0,
+   "price": 539.1,
    "unit": "",
    "move": "new",
    "url": "https://golfpriceai.com/prices/cobra-fly-xl-package-set/"
   },
   {
    "rank": 6,
+   "name": "Wilson Alpine Cart Bag Golf Bag",
+   "brand": "Wilson",
+   "type": "bag",
+   "price": 139.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/wilson-alpine-cart-bag-golf-bag/"
+  },
+  {
+   "rank": 7,
    "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
    "brand": "MacGregor",
    "type": "set",
    "price": 299.0,
    "unit": "",
-   "move": 1,
+   "move": 0,
    "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
   },
   {
-   "rank": 7,
+   "rank": 8,
    "name": "MacGregor ZT1 Ladies Package Set",
    "brand": "MacGregor",
    "type": "set",
-   "price": 419.0,
+   "price": 377.1,
    "unit": "",
-   "move": 2,
+   "move": 1,
    "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
   },
   {
-   "rank": 8,
-   "name": "Wilson TPX Ladies Package Set",
-   "brand": "Wilson",
-   "type": "set",
-   "price": 319.0,
-   "unit": "",
-   "move": 5,
-   "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
-  },
-  {
    "rank": 9,
-   "name": "Yonex Ezone GS i-Tech Driver",
-   "brand": "Yonex",
-   "type": "driver",
-   "price": 159.95,
-   "unit": "",
-   "move": 6,
-   "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
-  },
-  {
-   "rank": 10,
-   "name": "Nike Air Max Lite Stand Bag Golf Bag",
-   "brand": "Nike",
-   "type": "bag",
-   "price": 119.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/nike-air-max-lite-stand-bag-golf-bag/"
-  },
-  {
-   "rank": 11,
    "name": "TaylorMade TP5 Golf Balls",
    "brand": "TaylorMade",
    "type": "ball",
@@ -121,14 +101,74 @@
    "url": "https://golfpriceai.com/prices/taylormade-tp5-golf-balls/"
   },
   {
-   "rank": 12,
-   "name": "Wilson Alpine Cart Bag Golf Bag",
+   "rank": 10,
+   "name": "Wilson TPX Ladies Package Set",
    "brand": "Wilson",
-   "type": "bag",
-   "price": 139.0,
+   "type": "set",
+   "price": 319.0,
+   "unit": "",
+   "move": 3,
+   "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
+  },
+  {
+   "rank": 11,
+   "name": "Yonex Ezone GS i-Tech Driver",
+   "brand": "Yonex",
+   "type": "driver",
+   "price": 159.95,
+   "unit": "",
+   "move": 4,
+   "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
+  },
+  {
+   "rank": 12,
+   "name": "Bridgestone Percept Golf Balls",
+   "brand": "Bridgestone",
+   "type": "ball",
+   "price": 23.99,
+   "unit": "per dozen",
+   "move": -9,
+   "url": "https://golfpriceai.com/prices/bridgestone-percept-golf-balls/"
+  },
+  {
+   "rank": 13,
+   "name": "Callaway Online Exclusive Mavrik 17-Piece Package Set",
+   "brand": "Callaway",
+   "type": "set",
+   "price": 809.1,
    "unit": "",
    "move": "new",
-   "url": "https://golfpriceai.com/prices/wilson-alpine-cart-bag-golf-bag/"
+   "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-17-piece-package-set/"
+  },
+  {
+   "rank": 14,
+   "name": "Nike Air Max Lite Stand Bag Golf Bag",
+   "brand": "Nike",
+   "type": "bag",
+   "price": 107.1,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/nike-air-max-lite-stand-bag-golf-bag/"
+  },
+  {
+   "rank": 15,
+   "name": "Titleist Players S4 Stand Bag Golf Bag",
+   "brand": "Titleist",
+   "type": "bag",
+   "price": 161.1,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/titleist-players-s4-stand-bag-golf-bag/"
+  },
+  {
+   "rank": 16,
+   "name": "Titleist T350 Irons",
+   "brand": "Titleist",
+   "type": "irons",
+   "price": 1069.0,
+   "unit": "",
+   "move": 28,
+   "url": "https://golfpriceai.com/prices/titleist-t350-irons/"
   }
  ],
  "wishfulThinking": [
@@ -156,23 +196,23 @@
  "categoryShare": [
   {
    "category": "Irons & wedges",
-   "pct": 27
+   "pct": 28
   },
   {
    "category": "Balls",
-   "pct": 25
+   "pct": 27
   },
   {
    "category": "Tech",
-   "pct": 24
-  },
-  {
-   "category": "Drivers & woods",
-   "pct": 14
+   "pct": 19
   },
   {
    "category": "Bags & trolleys",
-   "pct": 10
+   "pct": 13
+  },
+  {
+   "category": "Drivers & woods",
+   "pct": 13
   }
  ],
  "reports": [

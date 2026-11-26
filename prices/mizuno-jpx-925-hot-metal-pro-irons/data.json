@@ -6,11 +6,16 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 679.0,
+ "lowestNewPrice": 629.1,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 629.1,
+   "options": 2
+  },
   {
    "name": "Major Golf Direct",
    "from": 679.0,
@@ -20,11 +25,6 @@
    "name": "Affordable Golf",
    "from": 699.0,
    "options": 4
-  },
-  {
-   "name": "Clickgolf",
-   "from": 699.0,
-   "options": 2
   }
  ],
  "history": {
@@ -52,7 +52,7 @@
   "label": "typical",
   "summary": "Typical price: steady for 91 days"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/JPX_925_HM_PRO_1.jpg?v=1725460958",
+ "image": "https://www.clickgolf.co.uk/images/product/main/g_mizuno-jpx-925-hot-metal-pro-irons-hero-2-3.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

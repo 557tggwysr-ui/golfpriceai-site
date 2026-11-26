@@ -6,28 +6,28 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 499.0,
+ "lowestNewPrice": 476.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 476.1,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 499.0,
    "options": 4
-  },
-  {
-   "name": "Clickgolf",
-   "from": 529.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 499.0,
+  "low": 476.1,
   "high": 529.0,
-  "average": 520.84,
-  "priceChanges": 1,
+  "average": 520.62,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -39,7 +39,7 @@
    ],
    [
     "2026-11-26",
-    499.0
+    476.1
    ]
   ]
  },
@@ -47,7 +47,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-G440-SFT-HL-Golf-Driver-8.jpg?v=1733285094",
+ "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-sft-driver-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

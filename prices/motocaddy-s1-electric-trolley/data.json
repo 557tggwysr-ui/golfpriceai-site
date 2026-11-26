@@ -6,15 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 595.0,
+ "lowestNewPrice": 566.1,
  "lowestAt": [
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
   {
+   "name": "Clickgolf",
+   "from": 566.1,
+   "options": 2
+  },
+  {
    "name": "Major Golf Direct",
    "from": 595.0,
-   "options": 2
+   "options": 1
   },
   {
    "name": "Affordable Golf",
@@ -27,11 +32,6 @@
    "options": 1
   },
   {
-   "name": "Clickgolf",
-   "from": 629.0,
-   "options": 2
-  },
-  {
    "name": "Scottsdale Golf",
    "from": 629.0,
    "options": 1
@@ -39,10 +39,10 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 595.0,
+  "low": 566.1,
   "high": 629.0,
-  "average": 598.96,
-  "priceChanges": 1,
+  "average": 598.68,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -54,15 +54,15 @@
    ],
    [
     "2026-11-26",
-    595.0
+    566.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 91 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/S1ELECTRICTROLLEY20251.jpg?v=1739458354",
+ "image": "https://www.clickgolf.co.uk/images/product/main/S1-2025-Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

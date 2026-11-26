@@ -6,21 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 169.0,
  "lowestAt": [
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
+   "name": "Clickgolf",
+   "from": 169.0,
+   "options": 4
+  },
+  {
    "name": "Clarkes Golf",
    "from": 179.0,
    "options": 1
-  },
-  {
-   "name": "Clickgolf",
-   "from": 179.0,
-   "options": 4
   },
   {
    "name": "Affordable Golf",
@@ -37,8 +36,8 @@
   "daysTracked": 103,
   "low": 159.0,
   "high": 179.0,
-  "average": 178.03,
-  "priceChanges": 4,
+  "average": 177.93,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -62,13 +61,13 @@
    ],
    [
     "2026-11-26",
-    179.0
+    169.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Motocaddy-Pro-Series-Lime.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

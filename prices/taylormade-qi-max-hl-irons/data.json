@@ -17,6 +17,11 @@
    "options": 6
   },
   {
+   "name": "Clickgolf",
+   "from": 773.1,
+   "options": 3
+  },
+  {
    "name": "Major Golf Direct",
    "from": 849.0,
    "options": 1
@@ -25,11 +30,6 @@
    "name": "Affordable Golf",
    "from": 859.0,
    "options": 5
-  },
-  {
-   "name": "Clickgolf",
-   "from": 949.0,
-   "options": 3
   }
  ],
  "history": {
@@ -61,7 +61,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeGolfQiMAXHLSteelIrons2026_5.jpg?v=1768226150",
+ "image": "https://www.clickgolf.co.uk/images/product/main/qi-max-hl-irons-hero-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

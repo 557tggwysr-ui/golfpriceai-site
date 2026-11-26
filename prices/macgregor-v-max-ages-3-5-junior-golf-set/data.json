@@ -6,14 +6,14 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.99,
+ "lowestNewPrice": 116.99,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 129.99,
+   "from": 116.99,
    "options": 1
   },
   {
@@ -26,8 +26,8 @@
   "daysTracked": 103,
   "low": 99.99,
   "high": 129.99,
-  "average": 119.5,
-  "priceChanges": 25,
+  "average": 119.38,
+  "priceChanges": 26,
   "series": [
    [
     "2026-08-16",
@@ -135,13 +135,13 @@
    ],
    [
     "2026-11-26",
-    129.99
+    116.99
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/MacGregor-V-Max-Junior-Package-Set-Age-3-5.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

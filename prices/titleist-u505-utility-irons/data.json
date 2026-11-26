@@ -6,11 +6,16 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 233.1,
  "lowestAt": [
-  "Scottsdale Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 233.1,
+   "options": 1
+  },
   {
    "name": "Scottsdale Golf",
    "from": 249.0,
@@ -20,19 +25,14 @@
    "name": "Clarkes Golf",
    "from": 259.0,
    "options": 6
-  },
-  {
-   "name": "Clickgolf",
-   "from": 259.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 249.0,
+  "low": 233.1,
   "high": 259.0,
-  "average": 250.84,
-  "priceChanges": 1,
+  "average": 250.69,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -44,15 +44,15 @@
    ],
    [
     "2026-11-26",
-    249.0
+    233.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 84 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-U505-G3-utility-1.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-U505-Utility-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

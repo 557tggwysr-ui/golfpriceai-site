@@ -6,15 +6,14 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 299.0,
+ "lowestNewPrice": 269.1,
  "lowestAt": [
-  "Clickgolf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 299.0,
+   "from": 269.1,
    "options": 1
   },
   {
@@ -25,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 98,
-  "low": 299.0,
+  "low": 269.1,
   "high": 299.0,
-  "average": 299.0,
-  "priceChanges": 0,
+  "average": 298.69,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-21",
@@ -36,13 +35,13 @@
    ],
    [
     "2026-11-26",
-    299.0
+    269.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 98 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/1752709-Supernova-SB-Sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

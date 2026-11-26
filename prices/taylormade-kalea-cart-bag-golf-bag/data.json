@@ -6,19 +6,18 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 189.0,
+ "lowestNewPrice": 170.1,
  "lowestAt": [
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Clarkes Golf",
-   "from": 189.0,
+   "name": "Clickgolf",
+   "from": 170.1,
    "options": 2
   },
   {
-   "name": "Clickgolf",
+   "name": "Clarkes Golf",
    "from": 189.0,
    "options": 2
   },
@@ -32,8 +31,8 @@
   "daysTracked": 103,
   "low": 169.0,
   "high": 189.0,
-  "average": 182.59,
-  "priceChanges": 22,
+  "average": 182.41,
+  "priceChanges": 23,
   "series": [
    [
     "2026-08-16",
@@ -129,13 +128,13 @@
    ],
    [
     "2026-11-26",
-    189.0
+    170.1
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £20.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-Kalea-Gold-Golf-Cart-Bag.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

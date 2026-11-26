@@ -6,14 +6,14 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 154.0,
+ "lowestNewPrice": 152.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 154.0,
+   "from": 152.1,
    "options": 4
   },
   {
@@ -36,8 +36,8 @@
   "daysTracked": 103,
   "low": 149.95,
   "high": 164.0,
-  "average": 157.65,
-  "priceChanges": 22,
+  "average": 157.63,
+  "priceChanges": 23,
   "series": [
    [
     "2026-08-16",
@@ -133,7 +133,7 @@
    ],
    [
     "2026-11-26",
-    154.0
+    152.1
    ]
   ]
  },
@@ -141,7 +141,7 @@
   "label": "typical",
   "summary": "Typical price"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/M2341501-Flextech-Superlite-Hero.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-FlexTech-SuperLite-Golf-Stand-Bag-Black.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

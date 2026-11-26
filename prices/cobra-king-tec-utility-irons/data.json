@@ -6,22 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 169.0,
+ "lowestNewPrice": 152.1,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf",
-  "Scottsdale Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 152.1,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 169.0,
    "options": 8
-  },
-  {
-   "name": "Clickgolf",
-   "from": 169.0,
-   "options": 1
   },
   {
    "name": "Scottsdale Golf",
@@ -36,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 169.0,
+  "low": 152.1,
   "high": 169.0,
-  "average": 169.0,
-  "priceChanges": 0,
+  "average": 168.84,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -47,13 +45,13 @@
    ],
    [
     "2026-11-26",
-    169.0
+    152.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/King-Tec-Golf-Utility-Iron---Steel.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

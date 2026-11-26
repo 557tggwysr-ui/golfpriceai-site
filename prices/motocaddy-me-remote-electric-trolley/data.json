@@ -6,14 +6,14 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 949.0,
+ "lowestNewPrice": 854.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 949.0,
+   "from": 854.1,
    "options": 1
   },
   {
@@ -24,9 +24,9 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 919.0,
+  "low": 854.1,
   "high": 999.0,
-  "average": 959.87,
+  "average": 958.95,
   "priceChanges": 15,
   "series": [
    [
@@ -91,13 +91,13 @@
    ],
    [
     "2026-11-26",
-    949.0
+    854.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26MEXRM7-ME-Remote-Trolley-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

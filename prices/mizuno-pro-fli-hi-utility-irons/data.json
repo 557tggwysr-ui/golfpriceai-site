@@ -6,15 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 139.0,
+ "lowestNewPrice": 129.0,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 139.0,
-   "options": 5
+   "from": 129.0,
+   "options": 4
+  },
+  {
+   "name": "Clickgolf",
+   "from": 224.1,
+   "options": 1
   },
   {
    "name": "Scottsdale Golf",
@@ -25,19 +30,14 @@
    "name": "Affordable Golf",
    "from": 249.0,
    "options": 5
-  },
-  {
-   "name": "Clickgolf",
-   "from": 249.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 139.0,
+  "low": 129.0,
   "high": 249.0,
-  "average": 211.43,
-  "priceChanges": 3,
+  "average": 214.83,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -52,12 +52,12 @@
     169.0
    ],
    [
-    "2026-11-10",
-    139.0
+    "2026-11-20",
+    149.0
    ],
    [
     "2026-11-26",
-    139.0
+    129.0
    ]
   ]
  },
@@ -65,7 +65,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.scottsdalegolf.co.uk/uploads/mizuno-flihi-1.png",
+ "image": "https://www.clickgolf.co.uk/images/product/main/pro-fli-hi-utility-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

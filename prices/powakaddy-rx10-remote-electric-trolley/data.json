@@ -6,29 +6,28 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1299.0,
+ "lowestNewPrice": 1169.1,
  "lowestAt": [
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Clarkes Golf",
-   "from": 1299.0,
+   "name": "Clickgolf",
+   "from": 1169.1,
    "options": 1
   },
   {
-   "name": "Clickgolf",
+   "name": "Clarkes Golf",
    "from": 1299.0,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 1219.0,
+  "low": 1169.1,
   "high": 1299.0,
-  "average": 1289.78,
-  "priceChanges": 10,
+  "average": 1288.52,
+  "priceChanges": 11,
   "series": [
    [
     "2026-08-16",
@@ -76,13 +75,13 @@
    ],
    [
     "2026-11-26",
-    1299.0
+    1169.1
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £80.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/PK_RX10_GPS_Remote_Control_Electric_Golf_Trolley-XL_Plus_Lithium_01_Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

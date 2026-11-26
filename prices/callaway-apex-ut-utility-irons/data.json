@@ -6,13 +6,16 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 224.1,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 224.1,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 249.0,
@@ -22,19 +25,14 @@
    "name": "Clarkes Golf",
    "from": 249.0,
    "options": 8
-  },
-  {
-   "name": "Clickgolf",
-   "from": 249.0,
-   "options": 2
   }
  ],
  "history": {
   "daysTracked": 103,
   "low": 199.0,
   "high": 249.0,
-  "average": 223.27,
-  "priceChanges": 1,
+  "average": 223.03,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -46,13 +44,13 @@
    ],
    [
     "2026-11-26",
-    249.0
+    224.1
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £50.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/apex-ut-25-iron-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

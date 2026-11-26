@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 349.0,
+ "lowestNewPrice": 314.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 349.0,
+   "from": 314.1,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 349.0,
+  "low": 314.1,
   "high": 399.0,
-  "average": 394.73,
-  "priceChanges": 4,
+  "average": 394.39,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -46,7 +46,7 @@
    ],
    [
     "2026-11-26",
-    349.0
+    314.1
    ]
   ]
  },

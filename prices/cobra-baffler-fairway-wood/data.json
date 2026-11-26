@@ -6,22 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 189.0,
+ "lowestNewPrice": 170.1,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 170.1,
+   "options": 2
+  },
   {
    "name": "Clarkes Golf",
    "from": 189.0,
    "options": 4
-  },
-  {
-   "name": "Clickgolf",
-   "from": 189.0,
-   "options": 2
   },
   {
    "name": "Major Golf Direct",
@@ -36,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 189.0,
+  "low": 170.1,
   "high": 189.0,
-  "average": 189.0,
-  "priceChanges": 0,
+  "average": 188.82,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -47,13 +45,13 @@
    ],
    [
     "2026-11-26",
-    189.0
+    170.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-Fairway-Wood-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

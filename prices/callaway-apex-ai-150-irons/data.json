@@ -6,16 +6,11 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 859.0,
+ "lowestNewPrice": 1029.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
-  {
-   "name": "Clickgolf",
-   "from": 859.0,
-   "options": 1
-  },
   {
    "name": "Clarkes Golf",
    "from": 1029.0,
@@ -23,27 +18,27 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
-  "low": 859.0,
-  "high": 859.0,
-  "average": 859.0,
+  "daysTracked": 28,
+  "low": 1029.0,
+  "high": 1029.0,
+  "average": 1029.0,
   "priceChanges": 0,
   "series": [
    [
-    "2026-08-16",
-    859.0
+    "2026-10-30",
+    1029.0
    ],
    [
     "2026-11-26",
-    859.0
+    1029.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "label": "tracking",
+  "summary": "Tracking started"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/apex-ai-150-irons-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Apex-Ai-150-Back-001-Photoroom.jpg?v=1751976858",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

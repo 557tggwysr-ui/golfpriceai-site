@@ -6,28 +6,28 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 197.1,
  "lowestAt": [
-  "Affordable Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 197.1,
+   "options": 5
+  },
   {
    "name": "Affordable Golf",
    "from": 199.0,
    "options": 4
-  },
-  {
-   "name": "Clickgolf",
-   "from": 219.0,
-   "options": 5
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 199.0,
+  "low": 197.1,
   "high": 219.0,
-  "average": 201.91,
-  "priceChanges": 3,
+  "average": 201.89,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -47,15 +47,15 @@
    ],
    [
     "2026-11-26",
-    199.0
+    197.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 84 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/2026-Fairway-C-HD-Black-Three-quarters-right-002.jpg?v=1773183255",
+ "image": "https://www.clickgolf.co.uk/images/product/main/fairway-c-HD-yellow-right.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

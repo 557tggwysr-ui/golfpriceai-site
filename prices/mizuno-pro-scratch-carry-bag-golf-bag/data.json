@@ -6,14 +6,14 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 139.0,
+ "lowestNewPrice": 125.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 139.0,
+   "from": 125.1,
    "options": 3
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 93,
   "low": 124.0,
   "high": 139.0,
-  "average": 133.68,
-  "priceChanges": 22,
+  "average": 133.53,
+  "priceChanges": 23,
   "series": [
    [
     "2026-08-26",
@@ -118,13 +118,13 @@
    ],
    [
     "2026-11-26",
-    139.0
+    125.1
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £15.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/mizuno-grey-golf-carry-bag-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

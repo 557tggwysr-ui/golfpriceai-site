@@ -6,29 +6,28 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 269.0,
+ "lowestNewPrice": 242.1,
  "lowestAt": [
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
+   "name": "Clickgolf",
+   "from": 242.1,
+   "options": 1
+  },
+  {
    "name": "Clarkes Golf",
    "from": 269.0,
    "options": 6
-  },
-  {
-   "name": "Clickgolf",
-   "from": 269.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 269.0,
+  "low": 242.1,
   "high": 269.0,
-  "average": 269.0,
-  "priceChanges": 0,
+  "average": 268.74,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -36,13 +35,13 @@
    ],
    [
     "2026-11-26",
-    269.0
+    242.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/idi-driving-iron-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

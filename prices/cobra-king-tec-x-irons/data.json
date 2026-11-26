@@ -6,28 +6,28 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 729.0,
+ "lowestNewPrice": 719.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 719.1,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 729.0,
    "options": 3
-  },
-  {
-   "name": "Clickgolf",
-   "from": 799.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 729.0,
+  "low": 719.1,
   "high": 919.0,
-  "average": 867.35,
-  "priceChanges": 1,
+  "average": 867.25,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -39,7 +39,7 @@
    ],
    [
     "2026-11-26",
-    729.0
+    719.1
    ]
   ]
  },
@@ -47,7 +47,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/imgi_45_ak08y2cks1biu8zontck-Photoroom.jpg?v=1755771983",
+ "image": "https://www.clickgolf.co.uk/images/product/main/cobra-king-tec-x-irons-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

@@ -6,28 +6,28 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 297.5,
+ "lowestNewPrice": 287.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 287.1,
+   "options": 10
+  },
   {
    "name": "Clarkes Golf",
    "from": 297.5,
    "options": 6
-  },
-  {
-   "name": "Clickgolf",
-   "from": 319.0,
-   "options": 10
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 297.5,
+  "low": 287.1,
   "high": 350.0,
-  "average": 326.55,
-  "priceChanges": 10,
+  "average": 326.45,
+  "priceChanges": 11,
   "series": [
    [
     "2026-08-16",
@@ -75,7 +75,7 @@
    ],
    [
     "2026-11-26",
-    297.5
+    287.1
    ]
   ]
  },
@@ -83,7 +83,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Titleist-LinksLegend-Members-Golf-Stand-Bag-TB22CC-0706.jpg?v=1736568192",
+ "image": "https://www.clickgolf.co.uk/images/product/main/TB22CC2-14-Links-Legend-Stand.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

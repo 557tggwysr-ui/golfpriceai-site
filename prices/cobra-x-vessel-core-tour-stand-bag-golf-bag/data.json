@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 349.0,
+ "lowestNewPrice": 314.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 349.0,
+   "from": 314.1,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 319.0,
+  "low": 314.1,
   "high": 349.0,
-  "average": 340.12,
-  "priceChanges": 25,
+  "average": 339.78,
+  "priceChanges": 26,
   "series": [
    [
     "2026-08-16",
@@ -130,13 +130,13 @@
    ],
    [
     "2026-11-26",
-    349.0
+    314.1
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/p_cobra-stand-golf-bag-black-cream-side-1000x1000.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

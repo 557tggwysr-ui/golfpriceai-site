@@ -6,29 +6,28 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 319.0,
+ "lowestNewPrice": 287.1,
  "lowestAt": [
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
+   "name": "Clickgolf",
+   "from": 287.1,
+   "options": 2
+  },
+  {
    "name": "Clarkes Golf",
    "from": 319.0,
    "options": 6
-  },
-  {
-   "name": "Clickgolf",
-   "from": 319.0,
-   "options": 2
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 319.0,
+  "low": 287.1,
   "high": 319.0,
-  "average": 319.0,
-  "priceChanges": 0,
+  "average": 318.69,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -36,13 +35,13 @@
    ],
    [
     "2026-11-26",
-    319.0
+    287.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/N8405107-Qi4D-Max-Lite-Fairway-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

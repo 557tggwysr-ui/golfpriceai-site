@@ -6,22 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 161.1,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 161.1,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 179.0,
    "options": 51
-  },
-  {
-   "name": "Clickgolf",
-   "from": 179.0,
-   "options": 1
   },
   {
    "name": "Major Golf Direct",
@@ -31,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 179.0,
+  "low": 161.1,
   "high": 179.0,
-  "average": 179.0,
-  "priceChanges": 0,
+  "average": 178.83,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -42,13 +40,13 @@
    ],
    [
     "2026-11-26",
-    179.0
+    161.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/vokey-sm11-nickel-wedge-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

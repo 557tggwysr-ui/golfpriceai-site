@@ -6,15 +6,14 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 779.0,
+ "lowestNewPrice": 701.1,
  "lowestAt": [
-  "Clickgolf",
-  "Scottsdale Golf"
+  "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 779.0,
+   "from": 701.1,
    "options": 2
   },
   {
@@ -35,9 +34,9 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 749.0,
+  "low": 701.1,
   "high": 799.0,
-  "average": 773.66,
+  "average": 772.9,
   "priceChanges": 19,
   "series": [
    [
@@ -118,13 +117,13 @@
    ],
    [
     "2026-11-26",
-    779.0
+    701.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26M1XDMS-M1-DHC-2026-Electric-Trolley-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

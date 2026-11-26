@@ -6,20 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 429.0,
+ "lowestNewPrice": 413.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 413.1,
+   "options": 2
+  },
   {
    "name": "Clarkes Golf",
    "from": 429.0,
    "options": 7
-  },
-  {
-   "name": "Clickgolf",
-   "from": 459.0,
-   "options": 2
   },
   {
    "name": "Affordable Golf",
@@ -29,9 +29,9 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 429.0,
+  "low": 413.1,
   "high": 489.0,
-  "average": 477.64,
+  "average": 477.49,
   "priceChanges": 2,
   "series": [
    [
@@ -44,7 +44,7 @@
    ],
    [
     "2026-11-26",
-    429.0
+    413.1
    ]
   ]
  },
@@ -52,7 +52,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WG1P037901_0_DynaPWR_Max_Iron_Hero.jpg?v=1784968136",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-DYNAPWR-Max-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

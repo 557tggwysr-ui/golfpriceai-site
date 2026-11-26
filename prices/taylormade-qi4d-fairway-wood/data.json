@@ -6,14 +6,16 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 319.0,
+ "lowestNewPrice": 287.1,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 287.1,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 319.0,
@@ -25,11 +27,6 @@
    "options": 15
   },
   {
-   "name": "Clickgolf",
-   "from": 319.0,
-   "options": 1
-  },
-  {
    "name": "Major Golf Direct",
    "from": 319.0,
    "options": 10
@@ -37,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 319.0,
+  "low": 287.1,
   "high": 319.0,
-  "average": 319.0,
-  "priceChanges": 0,
+  "average": 318.69,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -48,13 +45,13 @@
    ],
    [
     "2026-11-26",
-    319.0
+    287.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/N8401607-Qi4D-Core-Fairway-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 144.0,
+ "lowestNewPrice": 143.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 144.0,
+   "from": 143.1,
    "options": 8
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 144.0,
+  "low": 143.1,
   "high": 159.0,
-  "average": 145.34,
-  "priceChanges": 4,
+  "average": 145.33,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -46,13 +46,13 @@
    ],
    [
     "2026-11-26",
-    144.0
+    143.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 91 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Hooferlite-231-Golf-Stand-Bag---Black.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

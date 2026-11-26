@@ -6,12 +6,16 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 279.0,
+ "lowestNewPrice": 269.1,
  "lowestAt": [
-  "Clarkes Golf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 269.1,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 279.0,
@@ -21,19 +25,14 @@
    "name": "Major Golf Direct",
    "from": 279.0,
    "options": 1
-  },
-  {
-   "name": "Clickgolf",
-   "from": 299.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 279.0,
+  "low": 269.1,
   "high": 349.0,
-  "average": 334.92,
-  "priceChanges": 2,
+  "average": 334.83,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -49,7 +48,7 @@
    ],
    [
     "2026-11-26",
-    279.0
+    269.1
    ]
   ]
  },
@@ -57,7 +56,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CobraGolfOPTMLSFairway2026_7.jpg?v=1765890338",
+ "image": "https://www.clickgolf.co.uk/images/product/main/OPTM-LS-Ti-Fairway-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

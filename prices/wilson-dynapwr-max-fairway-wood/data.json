@@ -6,22 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.0,
+ "lowestNewPrice": 134.1,
  "lowestAt": [
-  "Clarkes Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 134.1,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 149.0,
    "options": 7
-  },
-  {
-   "name": "Clickgolf",
-   "from": 149.0,
-   "options": 1
   },
   {
    "name": "Major Golf Direct",
@@ -31,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 149.0,
+  "low": 134.1,
   "high": 229.0,
-  "average": 162.2,
-  "priceChanges": 1,
+  "average": 162.06,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -46,13 +44,13 @@
    ],
    [
     "2026-11-26",
-    149.0
+    134.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 86 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/wilson-dynapwr-max-fairway-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 449.0,
+ "lowestNewPrice": 404.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 449.0,
+   "from": 404.1,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 419.0,
+  "low": 404.1,
   "high": 449.0,
-  "average": 439.39,
-  "priceChanges": 22,
+  "average": 438.95,
+  "priceChanges": 23,
   "series": [
    [
     "2026-08-16",
@@ -118,13 +118,13 @@
    ],
    [
     "2026-11-26",
-    449.0
+    404.1
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Quantum-Staff-Bag-Right.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

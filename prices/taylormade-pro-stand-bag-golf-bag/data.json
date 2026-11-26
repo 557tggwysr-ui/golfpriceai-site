@@ -6,11 +6,16 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 129.0,
+ "lowestNewPrice": 125.1,
  "lowestAt": [
-  "Scottsdale Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 125.1,
+   "options": 5
+  },
   {
    "name": "Scottsdale Golf",
    "from": 129.0,
@@ -20,11 +25,6 @@
    "name": "Clarkes Golf",
    "from": 139.0,
    "options": 2
-  },
-  {
-   "name": "Clickgolf",
-   "from": 139.0,
-   "options": 5
   },
   {
    "name": "Major Golf Direct",
@@ -41,8 +41,8 @@
   "daysTracked": 103,
   "low": 124.0,
   "high": 139.0,
-  "average": 128.56,
-  "priceChanges": 26,
+  "average": 128.53,
+  "priceChanges": 27,
   "series": [
    [
     "2026-08-16",
@@ -154,7 +154,7 @@
    ],
    [
     "2026-11-26",
-    129.0
+    125.1
    ]
   ]
  },
@@ -162,7 +162,7 @@
   "label": "typical",
   "summary": "Typical price"
  },
- "image": "https://www.scottsdalegolf.co.uk/uploads/taylormade-prostandbag-red.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-Pro-Stand-Bag-Black-Blue.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

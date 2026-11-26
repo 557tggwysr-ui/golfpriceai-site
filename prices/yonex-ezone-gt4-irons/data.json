@@ -6,28 +6,28 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 999.0,
+ "lowestNewPrice": 935.1,
  "lowestAt": [
-  "Affordable Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 935.1,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 999.0,
    "options": 2
-  },
-  {
-   "name": "Clickgolf",
-   "from": 1039.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 84,
-  "low": 999.0,
+  "low": 935.1,
   "high": 999.0,
-  "average": 999.0,
-  "priceChanges": 0,
+  "average": 998.24,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-04",
@@ -35,15 +35,15 @@
    ],
    [
     "2026-11-26",
-    999.0
+    935.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 84 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GT4Irons2.jpg?v=1726053791",
+ "image": "https://www.clickgolf.co.uk/images/product/main/ezone-gt4-iron-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

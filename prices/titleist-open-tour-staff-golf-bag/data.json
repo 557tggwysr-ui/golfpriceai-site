@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 399.0,
+ "lowestNewPrice": 359.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 399.0,
+   "from": 359.1,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 85,
-  "low": 399.0,
+  "low": 359.1,
   "high": 499.0,
-  "average": 439.35,
-  "priceChanges": 7,
+  "average": 438.88,
+  "priceChanges": 8,
   "series": [
    [
     "2026-09-03",
@@ -58,13 +58,13 @@
    ],
    [
     "2026-11-26",
-    399.0
+    359.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 48 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TB26SF9-BRT414-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

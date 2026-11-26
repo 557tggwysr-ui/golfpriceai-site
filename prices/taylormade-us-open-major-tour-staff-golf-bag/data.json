@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 549.0,
+ "lowestNewPrice": 539.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 549.0,
+   "from": 539.1,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 549.0,
+  "low": 539.1,
   "high": 549.0,
-  "average": 549.0,
-  "priceChanges": 0,
+  "average": 548.9,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-26",
-    549.0
+    539.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/US-Open-Staff-Bag-2025-Left.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

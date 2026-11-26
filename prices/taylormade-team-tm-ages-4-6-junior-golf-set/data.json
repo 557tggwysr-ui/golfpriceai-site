@@ -6,14 +6,14 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 249.0,
+ "lowestNewPrice": 224.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 249.0,
+   "from": 224.1,
    "options": 1
   }
  ],
@@ -21,8 +21,8 @@
   "daysTracked": 103,
   "low": 219.0,
   "high": 249.0,
-  "average": 238.51,
-  "priceChanges": 25,
+  "average": 238.27,
+  "priceChanges": 26,
   "series": [
    [
     "2026-08-16",
@@ -130,13 +130,13 @@
    ],
    [
     "2026-11-26",
-    249.0
+    224.1
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £30.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-Junior-Pacakge-Set-Size-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 549.0,
+ "lowestNewPrice": 449.0,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 549.0,
+   "from": 449.0,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 80,
-  "low": 549.0,
+  "low": 449.0,
   "high": 549.0,
-  "average": 549.0,
-  "priceChanges": 0,
+  "average": 547.75,
+  "priceChanges": 1,
   "series": [
    [
     "2026-09-08",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-26",
-    549.0
+    449.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 80 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/jm01-6-9-junior-golf-set.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

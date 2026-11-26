@@ -6,14 +6,14 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 479.0,
+ "lowestNewPrice": 431.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 479.0,
+   "from": 431.1,
    "options": 3
   },
   {
@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 479.0,
+  "low": 431.1,
   "high": 599.0,
-  "average": 560.94,
-  "priceChanges": 2,
+  "average": 560.48,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -43,7 +43,7 @@
    ],
    [
     "2026-11-26",
-    479.0
+    431.1
    ]
   ]
  },
@@ -51,7 +51,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/yonex-ezone-elite-4-irons-hero-4.jpg",
+ "image": "https://www.clickgolf.co.uk/images/product/main/yonex-ezone-elite-4-irons-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

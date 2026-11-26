@@ -6,11 +6,16 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 799.0,
+ "lowestNewPrice": 773.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 773.1,
+   "options": 2
+  },
   {
    "name": "Clarkes Golf",
    "from": 799.0,
@@ -25,19 +30,14 @@
    "name": "Affordable Golf",
    "from": 859.0,
    "options": 25
-  },
-  {
-   "name": "Clickgolf",
-   "from": 949.0,
-   "options": 2
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 799.0,
+  "low": 773.1,
   "high": 949.0,
-  "average": 858.71,
-  "priceChanges": 2,
+  "average": 858.46,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -53,7 +53,7 @@
    ],
    [
     "2026-11-26",
-    799.0
+    773.1
    ]
   ]
  },
@@ -61,7 +61,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeGolfQiMAXIrons2026_2.jpg?v=1768226089",
+ "image": "https://www.clickgolf.co.uk/images/product/main/qi-max-irons-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

@@ -6,28 +6,28 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 279.0,
+ "lowestNewPrice": 260.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
   {
-   "name": "Clarkes Golf",
-   "from": 279.0,
+   "name": "Clickgolf",
+   "from": 260.1,
    "options": 3
   },
   {
-   "name": "Clickgolf",
-   "from": 289.0,
+   "name": "Clarkes Golf",
+   "from": 279.0,
    "options": 3
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 264.0,
+  "low": 260.1,
   "high": 289.0,
-  "average": 284.83,
-  "priceChanges": 5,
+  "average": 284.64,
+  "priceChanges": 6,
   "series": [
    [
     "2026-08-16",
@@ -55,13 +55,13 @@
    ],
    [
     "2026-11-26",
-    279.0
+    260.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-Hybrid-14-StaDry-Golf-Stand-Bag-Graphite.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

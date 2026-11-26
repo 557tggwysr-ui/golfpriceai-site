@@ -6,16 +6,13 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 569.0,
+ "lowestNewPrice": 679.0,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf",
+  "Clarkes Golf",
+  "Major Golf Direct"
  ],
  "retailers": [
-  {
-   "name": "Clickgolf",
-   "from": 569.0,
-   "options": 1
-  },
   {
    "name": "Affordable Golf",
    "from": 679.0,
@@ -33,31 +30,31 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
-  "low": 559.0,
-  "high": 569.0,
-  "average": 561.23,
+  "daysTracked": 91,
+  "low": 679.0,
+  "high": 779.0,
+  "average": 753.73,
   "priceChanges": 1,
   "series": [
    [
-    "2026-08-16",
-    559.0
+    "2026-08-28",
+    779.0
    ],
    [
     "2026-11-04",
-    569.0
+    679.0
    ],
    [
     "2026-11-26",
-    569.0
+    679.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-King-Irons-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CobraGolfKINGIronSet2026.jpg?v=1765893625",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

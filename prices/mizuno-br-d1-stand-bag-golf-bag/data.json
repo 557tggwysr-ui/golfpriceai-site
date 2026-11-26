@@ -6,13 +6,16 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 199.0,
+ "lowestNewPrice": 179.1,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 179.1,
+   "options": 4
+  },
   {
    "name": "Affordable Golf",
    "from": 199.0,
@@ -22,19 +25,14 @@
    "name": "Clarkes Golf",
    "from": 199.0,
    "options": 4
-  },
-  {
-   "name": "Clickgolf",
-   "from": 199.0,
-   "options": 4
   }
  ],
  "history": {
   "daysTracked": 52,
-  "low": 199.0,
+  "low": 179.1,
   "high": 199.0,
-  "average": 199.0,
-  "priceChanges": 0,
+  "average": 198.62,
+  "priceChanges": 1,
   "series": [
    [
     "2026-10-06",
@@ -42,13 +40,13 @@
    ],
    [
     "2026-11-26",
-    199.0
+    179.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 52 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/BRD1S2609NS-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

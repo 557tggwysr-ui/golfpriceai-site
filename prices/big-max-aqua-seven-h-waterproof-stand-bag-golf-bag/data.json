@@ -6,14 +6,14 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 139.0,
+ "lowestNewPrice": 125.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 139.0,
+   "from": 125.1,
    "options": 4
   },
   {
@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 84,
-  "low": 129.95,
+  "low": 125.1,
   "high": 139.95,
-  "average": 137.62,
-  "priceChanges": 3,
+  "average": 137.45,
+  "priceChanges": 4,
   "series": [
    [
     "2026-09-04",
@@ -47,13 +47,13 @@
    ],
    [
     "2026-11-26",
-    139.0
+    125.1
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £9.05 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/3508LEH-B-Aqua-7-Black-Red-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

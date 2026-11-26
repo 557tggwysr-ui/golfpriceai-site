@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 99.0,
+ "lowestNewPrice": 89.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 99.0,
+   "from": 89.1,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 100,
-  "low": 99.0,
+  "low": 89.1,
   "high": 99.0,
-  "average": 99.0,
-  "priceChanges": 0,
+  "average": 98.9,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-19",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-26",
-    99.0
+    89.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 100 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Aspire-Junior-3-5-Year-Old-Golf-Package-Set.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

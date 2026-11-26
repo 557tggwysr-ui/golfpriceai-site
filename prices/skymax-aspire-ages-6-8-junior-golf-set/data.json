@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 119.0,
+ "lowestNewPrice": 107.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 119.0,
+   "from": 107.1,
    "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 119.0,
+  "low": 107.1,
   "high": 119.0,
-  "average": 119.0,
-  "priceChanges": 0,
+  "average": 118.88,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -30,13 +30,13 @@
    ],
    [
     "2026-11-26",
-    119.0
+    107.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Aspire-Junior-6-8-Year-Old-Golf-Package-Set.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

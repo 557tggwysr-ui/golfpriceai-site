@@ -6,23 +6,23 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 289.0,
+ "lowestNewPrice": 260.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 289.0,
+   "from": 260.1,
    "options": 4
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 264.0,
+  "low": 260.1,
   "high": 289.0,
-  "average": 285.84,
-  "priceChanges": 8,
+  "average": 285.56,
+  "priceChanges": 9,
   "series": [
    [
     "2026-08-16",
@@ -62,13 +62,13 @@
    ],
    [
     "2026-11-26",
-    289.0
+    260.1
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £25.00 above its tracked low"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX9-400-S5-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

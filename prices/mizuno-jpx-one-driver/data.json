@@ -6,16 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 399.0,
+ "lowestNewPrice": 369.0,
  "lowestAt": [
-  "Clarkes Golf",
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 399.0,
+   "from": 369.0,
    "options": 9
+  },
+  {
+   "name": "Clickgolf",
+   "from": 386.1,
+   "options": 1
   },
   {
    "name": "Major Golf Direct",
@@ -26,19 +30,14 @@
    "name": "Affordable Golf",
    "from": 429.0,
    "options": 12
-  },
-  {
-   "name": "Clickgolf",
-   "from": 429.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 103,
-  "low": 379.0,
+  "low": 369.0,
   "high": 529.0,
-  "average": 446.67,
-  "priceChanges": 5,
+  "average": 446.38,
+  "priceChanges": 6,
   "series": [
    [
     "2026-08-16",
@@ -66,15 +65,15 @@
    ],
    [
     "2026-11-26",
-    399.0
+    369.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/MizunoGolfJPXONEDriver2026_1.png?v=1764595119",
+ "image": "https://www.clickgolf.co.uk/images/product/main/jpx-one-driver-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

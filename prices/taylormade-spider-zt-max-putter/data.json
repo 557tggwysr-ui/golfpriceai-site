@@ -6,11 +6,16 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 439.0,
+ "lowestNewPrice": 404.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 404.1,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 439.0,
@@ -22,11 +27,6 @@
    "options": 11
   },
   {
-   "name": "Clickgolf",
-   "from": 449.0,
-   "options": 1
-  },
-  {
    "name": "Major Golf Direct",
    "from": 499.0,
    "options": 4
@@ -34,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 103,
-  "low": 439.0,
+  "low": 404.1,
   "high": 449.0,
-  "average": 448.71,
-  "priceChanges": 1,
+  "average": 448.37,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -49,7 +49,7 @@
    ],
    [
     "2026-11-26",
-    439.0
+    404.1
    ]
   ]
  },
@@ -57,7 +57,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/SpiderZT-Max5.jpg?v=1780042844",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Spider-ZT-Max-Putter-Rear.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

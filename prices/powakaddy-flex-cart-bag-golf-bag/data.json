@@ -6,20 +6,20 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 149.95,
+ "lowestNewPrice": 143.1,
  "lowestAt": [
-  "Affordable Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 143.1,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 149.95,
    "options": 3
-  },
-  {
-   "name": "Clickgolf",
-   "from": 159.0,
-   "options": 1
   },
   {
    "name": "Major Golf Direct",
@@ -31,8 +31,8 @@
   "daysTracked": 103,
   "low": 139.0,
   "high": 159.0,
-  "average": 149.69,
-  "priceChanges": 9,
+  "average": 149.63,
+  "priceChanges": 10,
   "series": [
    [
     "2026-08-16",
@@ -76,15 +76,15 @@
    ],
    [
     "2026-11-26",
-    149.95
+    143.1
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £10.95 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/FLEXGreyYellow6.jpg?v=1773166305",
+ "image": "https://www.clickgolf.co.uk/images/product/main/PowaKaddy-Flex-Golf-Cart-Bag-Grey-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

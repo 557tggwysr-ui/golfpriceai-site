@@ -6,16 +6,11 @@
  "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 799.0,
+ "lowestNewPrice": 949.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
-  {
-   "name": "Clickgolf",
-   "from": 799.0,
-   "options": 1
-  },
   {
    "name": "Clarkes Golf",
    "from": 949.0,
@@ -23,31 +18,27 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
-  "low": 799.0,
-  "high": 849.0,
-  "average": 828.13,
-  "priceChanges": 1,
+  "daysTracked": 28,
+  "low": 949.0,
+  "high": 949.0,
+  "average": 949.0,
+  "priceChanges": 0,
   "series": [
    [
-    "2026-08-16",
-    849.0
-   ],
-   [
-    "2026-10-15",
-    799.0
+    "2026-10-30",
+    949.0
    ],
    [
     "2026-11-26",
-    799.0
+    949.0
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "tracking",
+  "summary": "Tracking started"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/ping-g-le4-irons-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/iron-_-hybridddd.webp?v=1772529408",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }

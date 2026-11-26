@@ -9,8 +9,7 @@
  "lowestNewPrice": 1049.0,
  "lowestAt": [
   "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
@@ -25,7 +24,7 @@
   },
   {
    "name": "Clickgolf",
-   "from": 1049.0,
+   "from": 1097.1,
    "options": 2
   }
  ],
@@ -50,7 +49,7 @@
   "label": "typical",
   "summary": "Typical price: steady for 103 days"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/ping-g740-irons-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/PingG7404_3e9b9824-7a2c-41d6-afd2-149137b1f791.jpg?v=1773100064",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-26"
 }
