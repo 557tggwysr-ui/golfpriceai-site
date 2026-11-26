@@ -752,7 +752,7 @@
     "driver",
     "duff",
     "divot",
-    "stifled"
+    "gaz-stifled"
    ],
    "fit": [
     "A",
@@ -798,6 +798,52 @@
    "about": "AI-generated, fictional recurring characters (Kev), no words in the picture",
    "focus": [
     0.4,
+    0.3
+   ]
+  },
+  {
+   "file": "assets/social/library/dave-05-speech.jpg",
+   "tags": [
+    "big-dave",
+    "phil",
+    "kev",
+    "christmas",
+    "dinner",
+    "speech",
+    "clubhouse",
+    "friends"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Big Dave, Phil, Kev), no words in the picture",
+   "focus": [
+    0.45,
+    0.3
+   ]
+  },
+  {
+   "file": "assets/social/library/dave-05-bow.jpg",
+   "tags": [
+    "big-dave",
+    "phil",
+    "kev",
+    "christmas",
+    "dinner",
+    "bow",
+    "proud",
+    "clubhouse",
+    "friends",
+    "applause"
+   ],
+   "fit": [
+    "A",
+    "B"
+   ],
+   "about": "AI-generated, fictional recurring characters (Big Dave, Phil, Kev), no words in the picture",
+   "focus": [
+    0.45,
     0.3
    ]
   }
