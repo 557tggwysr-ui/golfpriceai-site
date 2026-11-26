@@ -1,0 +1,53 @@
+{
+ "about": "The Golf Heist: comic panels made by John in ChatGPT (fictional him and her). Portrait panels fill the screen; landscape ones sit as comic panels on the page.",
+ "panels": [
+  {
+   "file": "assets/social/heist/ep02-1.jpg",
+   "episode": 2,
+   "panel": 1,
+   "shape": "portrait"
+  },
+  {
+   "file": "assets/social/heist/ep02-2.jpg",
+   "episode": 2,
+   "panel": 2,
+   "shape": "portrait"
+  },
+  {
+   "file": "assets/social/heist/ep02-3.jpg",
+   "episode": 2,
+   "panel": 3,
+   "shape": "near-square"
+  },
+  {
+   "file": "assets/social/heist/ep02-4.jpg",
+   "episode": 2,
+   "panel": 4,
+   "shape": "portrait"
+  },
+  {
+   "file": "assets/social/heist/ep03-1.jpg",
+   "episode": 3,
+   "panel": 1,
+   "shape": "landscape"
+  },
+  {
+   "file": "assets/social/heist/ep03-2.jpg",
+   "episode": 3,
+   "panel": 2,
+   "shape": "landscape"
+  },
+  {
+   "file": "assets/social/heist/ep03-3.jpg",
+   "episode": 3,
+   "panel": 3,
+   "shape": "landscape"
+  },
+  {
+   "file": "assets/social/heist/ep03-4.jpg",
+   "episode": 3,
+   "panel": 4,
+   "shape": "landscape"
+  }
+ ]
+}
