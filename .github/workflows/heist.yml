@@ -1,0 +1,55 @@
+name: "The Golf Heist: render episodes"
+# Renders The Golf Heist comic episodes (scripts/agent_heist.py) with a commentator voice and puts the
+# videos on the "heist-tests" release, ready to watch. Free: Piper voices are open-source and run here.
+on:
+  workflow_dispatch:
+    inputs:
+      episodes:
+        description: "Episode numbers, comma-separated"
+        default: "2,3"
+      voices:
+        description: "Piper voices to try, comma-separated (British English)"
+        default: "en_GB-alan-medium,en_GB-northern_english_male-medium,en_GB-cori-high"
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q pillow numpy piper-tts
+      - name: Voices
+        run: |
+          mkdir -p .voices
+          for v in $(echo "${{ inputs.voices }}" | tr ',' ' '); do
+            name=$(echo "$v" | cut -d- -f2); q=$(echo "$v" | cut -d- -f3)
+            base="https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_GB/$name/$q/$v"
+            curl -sSfL "$base.onnx" -o ".voices/$v.onnx" && curl -sSfL "$base.onnx.json" -o ".voices/$v.onnx.json" || echo "couldn't get $v"
+          done
+          ls -la .voices
+      - name: Render
+        env:
+          HEIST_VOICES: .voices
+        run: |
+          mkdir -p out
+          for e in $(echo "${{ inputs.episodes }}" | tr ',' ' '); do
+            for v in $(echo "${{ inputs.voices }}" | tr ',' ' '); do
+              short=$(echo "$v" | cut -d- -f2)
+              python scripts/agent_heist.py --ep "$e" --voice "$v" --out "out/heist-ep$(printf %02d $e)-$short.mp4"
+            done
+          done
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view heist-tests >/dev/null 2>&1 || gh release create heist-tests --title "The Golf Heist: test renders" --notes "Comic episodes with commentator voices, for John to choose from." --prerelease
+          gh release upload heist-tests out/*.mp4 out/*.jpg --clobber
+          echo "### The Golf Heist renders" >> $GITHUB_STEP_SUMMARY
+          for f in out/*.mp4; do echo "- [$(basename $f)](https://github.com/${{ github.repository }}/releases/download/heist-tests/$(basename $f))" >> $GITHUB_STEP_SUMMARY; done
