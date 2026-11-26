@@ -1,20 +1,13 @@
 {
- "generated": "2026-11-26T00:38Z",
+ "generated": "2026-11-26T17:58Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
  "verdict": "ok",
- "summary": "No Never-rule breaks in the captions, but Thursday's post (2026-11-26-thu) falls short of the premium visual standard and is held; only that post had images, and its video frames could not be extracted.",
+ "summary": "Five temporary 3-day listing hides and an llms.txt figures refresh: nothing breaks the house style.",
  "points": [
-  "2026-11-26-thu card: the tilted 'LOWEST WE'VE TRACKED' stamp touches the bottom of the £919 price and crowds the URL and tagline below it. Fix: move the stamp clear of the price (or shrink it), and give the price and URL breathing room.",
-  "2026-11-26-thu thumbnail: the headline is 5 words ('Black Friday, minus the nonsense'); the standard is 2 to 4 big words. Fix: shorten to something like 'BLACK FRIDAY, MINUS NONSENSE' or lead with the price, and keep the product name out of the top strip, which is outside the 4:5 grid crop.",
-  "2026-11-26-thu thumbnail: the green £919 badge overlaps the corner of the white photo card and the iron's shaft, and the photo card is tilted and hard to read. The bottom third is empty dark green. Fix: put the badge clear of the product, straighten the card, and enlarge the iron to fill the middle 4:5.",
-  "2026-11-26-thu: the card is pale blue stripes while the thumbnail is black and neon green, so the cover and card don't match. Fix: use one palette for both (the Black Friday black and green is stronger).",
-  "2026-11-26-thu: the video's three frames were not reviewed because ffmpeg is unavailable here. Re-check pace (a change every 1-2 seconds), the hook in the first second, and that the price is not cut off.",
-  "All other posts (11-27 fri, 11-27 moment, 11-28 sat, 11-29 sun, 11-30 mon, 12-01 tue, 12-02 wed, 12-04 fri, 12-05 sat, 12-06 sun): no card, thumbnail or video images were supplied, so the visual standard is NOT verified for them. Review their images before approval.",
-  "2026-11-27-fri and 2026-12-04-fri: #golfdeals on a banter question with no deal. Minor, consider dropping.",
-  "2026-11-28-sat and 2026-12-05-sat: confirm the cover and opening of each guessing game do not show the answer. The price is not in the captions, but the images were not supplied.",
-  "2026-12-06-sun: the carousel caption has no product, but the cover (s1) is the thumbnail and was not supplied. Check it.",
-  "All captions: UK spelling and £ formatting fine; no retailer is named; 'lowest we've tracked' and the 81-day claim are consistent across platforms; #Ad leads every priced post."
+  "S2 (fourball/episodes): listed in the PR notes but the diff contains no episode page; skip it or confirm it was meant to be included.",
+  "data/agent-rules.json H3/H4: hiding listings where our shown price was higher than the retailer's real price means a cheaper honest price is briefly off the site; fine as temporary, but the feed should be corrected so the cheaper price returns.",
+  "llms.txt: figures (3,328 models, 120 cheaper, category counts) could not be checked against the site data in this diff; they should come from the generator, not hand edits."
  ],
- "what": "Agent: content engine",
+ "what": "Agent: fix pack",
  "postsHash": "8ad7b5410e5fe495da0a10bb799f3a91cf348ac2"
 }
