@@ -3,17 +3,17 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-summit-collection-stand-bag-golf-bag/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 329.0,
+ "lowestNewPrice": 295.0,
  "lowestAt": [
   "Clarkes Golf"
  ],
  "retailers": [
   {
    "name": "Clarkes Golf",
-   "from": 329.0,
+   "from": 295.0,
    "options": 2
   },
   {
@@ -28,11 +28,11 @@
   }
  ],
  "history": {
-  "daysTracked": 102,
-  "low": 324.0,
+  "daysTracked": 103,
+  "low": 295.0,
   "high": 349.0,
-  "average": 342.73,
-  "priceChanges": 3,
+  "average": 342.26,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -51,16 +51,16 @@
     329.0
    ],
    [
-    "2026-11-25",
-    329.0
+    "2026-11-26",
+    295.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/summit-stand-bag-midnight-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

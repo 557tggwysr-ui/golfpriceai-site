@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-pro-stand-bag-golf-bag/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 239.0,
@@ -34,10 +34,10 @@
   }
  ],
  "history": {
-  "daysTracked": 102,
+  "daysTracked": 103,
   "low": 219.0,
   "high": 239.0,
-  "average": 229.29,
+  "average": 229.39,
   "priceChanges": 25,
   "series": [
    [
@@ -145,7 +145,7 @@
     239.0
    ],
    [
-    "2026-11-25",
+    "2026-11-26",
     239.0
    ]
   ]
@@ -156,5 +156,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Pro-Stand-Bag-Grey-Double.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

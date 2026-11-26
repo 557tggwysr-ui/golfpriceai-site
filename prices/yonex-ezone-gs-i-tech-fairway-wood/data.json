@@ -3,7 +3,7 @@
  "brand": "Yonex",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-fairway-wood/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 99.95,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 99.95,
   "high": 119.95,
-  "average": 119.71,
+  "average": 119.47,
   "priceChanges": 1,
   "series": [
    [
@@ -35,6 +35,10 @@
    ],
    [
     "2026-11-25",
+    99.95
+   ],
+   [
+    "2026-11-26",
     99.95
    ]
   ]
@@ -45,5 +49,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/YonexEzoneGSi-Tech-FairwayWood2.jpg?v=1777942355",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

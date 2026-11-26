@@ -3,7 +3,7 @@
  "brand": "Masters",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/masters-gx1-reloaded-12-piece-stand-bag-package-set/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 249.0,
   "high": 299.0,
-  "average": 298.4,
+  "average": 297.81,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-25",
+    249.0
+   ],
+   [
+    "2026-11-26",
     249.0
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/MastersGX1StandBagPackageSetHERO.jpg?v=1777953248",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

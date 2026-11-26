@@ -3,15 +3,19 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-tour-response-stripe-golf-balls/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 28.49,
+ "lowestNewPrice": 28.46,
  "lowestAt": [
-  "Affordable Golf",
-  "Major Golf Direct"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 28.46,
+   "options": 6
+  },
   {
    "name": "Affordable Golf",
    "from": 28.49,
@@ -31,19 +35,14 @@
    "name": "Scottsdale Golf",
    "from": 29.99,
    "options": 2
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 34.95,
-   "options": 2
   }
  ],
  "history": {
-  "daysTracked": 102,
-  "low": 28.49,
+  "daysTracked": 103,
+  "low": 28.46,
   "high": 29.99,
-  "average": 28.67,
-  "priceChanges": 1,
+  "average": 28.66,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -54,16 +53,16 @@
     28.49
    ],
    [
-    "2026-11-25",
-    28.49
+    "2026-11-26",
+    28.46
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 90 days"
+  "summary": "Typical price: steady for 1 day"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeTourResponseStripeGolfBalls2026-Yellow-4FOR3OFFER.jpg?v=1784023204",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

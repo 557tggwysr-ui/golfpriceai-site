@@ -1,66 +1,66 @@
 {
- "n": 39,
- "date": "2026-11-25",
+ "n": 40,
+ "date": "2026-11-26",
  "items": [
   {
-   "slug": "wilson-dynapwr-fairway-wood",
-   "name": "Wilson DYNAPWR Fairway Wood",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DynapwrFairwayWood-Max1.jpg?v=1776297084",
-   "price": 149.95,
+   "slug": "powakaddy-ct8-electric-trolley",
+   "name": "PowaKaddy CT8 Electric Trolley",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/01_2025PowaKaddy-CT8GPS-GunMetal-StandardPlug_n_PlayLithiumBattery-Photoroom.jpg?v=1740579849",
+   "price": 849.0,
    "unit": "each",
-   "type": "fairway wood",
-   "low": false,
-   "url": "/prices/wilson-dynapwr-fairway-wood/"
+   "type": "electric trolley",
+   "low": true,
+   "url": "/prices/powakaddy-ct8-electric-trolley/"
   },
   {
-   "slug": "titleist-players-s4-stand-bag-golf-bag",
-   "name": "Titleist Players S4 Stand Bag Golf Bag",
-   "image": "https://www.clickgolf.co.uk/images/product/main/TB26SX4-222-S4-Hero.jpg",
-   "price": 179.0,
+   "slug": "titleist-players-4-stand-bag-golf-bag",
+   "name": "Titleist Players 4 Stand Bag Golf Bag",
+   "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-players4-royalgray-1.jpg",
+   "price": 159.0,
    "unit": "each",
    "type": "golf bag",
    "low": false,
-   "url": "/prices/titleist-players-s4-stand-bag-golf-bag/"
+   "url": "/prices/titleist-players-4-stand-bag-golf-bag/"
   },
   {
-   "slug": "srixon-ad333-golf-balls",
-   "name": "Srixon AD333 Golf Balls",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-04T094716.660.png?v=1704361837",
-   "price": 19.95,
+   "slug": "srixon-z-star-diamond-golf-balls",
+   "name": "Srixon Z-Star Diamond Golf Balls",
+   "image": "https://www.clickgolf.co.uk/images/product/main/z-star-diamond-white.jpg",
+   "price": 29.99,
    "unit": "per dozen",
    "type": "golf ball",
    "low": false,
-   "url": "/prices/srixon-ad333-golf-balls/"
+   "url": "/prices/srixon-z-star-diamond-golf-balls/"
   },
   {
-   "slug": "taylormade-qi-max-irons",
-   "name": "TaylorMade Qi Max Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeGolfQiMAXIrons2026_2.jpg?v=1768226089",
-   "price": 799.0,
-   "unit": "each",
-   "type": "iron set",
-   "low": true,
-   "url": "/prices/taylormade-qi-max-irons/"
-  },
-  {
-   "slug": "callaway-opus-sp-shadow-wedge",
-   "name": "Callaway Opus SP Shadow Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/OpusSPBlackShadow1_52dbb56c-dff1-4dda-b368-8846a41715bc.jpg?v=1775360763",
-   "price": 159.95,
+   "slug": "cleveland-cbz-wedge",
+   "name": "Cleveland CBZ Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CBZFullFace4.jpg?v=1775354636",
+   "price": 119.0,
    "unit": "each",
    "type": "wedge",
-   "low": false,
-   "url": "/prices/callaway-opus-sp-shadow-wedge/"
+   "low": true,
+   "url": "/prices/cleveland-cbz-wedge/"
+  },
+  {
+   "slug": "callaway-elyte-hybrid",
+   "name": "Callaway Elyte Hybrid",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteHybrid-X2.jpg?v=1776306331",
+   "price": 129.95,
+   "unit": "each",
+   "type": "hybrid",
+   "low": true,
+   "url": "/prices/callaway-elyte-hybrid/"
   }
  ],
  "pin": {
-  "slug": "odyssey-ai-one-square-2-square-putter",
-  "name": "Odyssey Ai-ONE Square 2 Square Putter",
-  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Max15.jpg?v=1776287127",
-  "price": 179.0,
+  "slug": "taylormade-r7-quad-mini-driver",
+  "name": "TaylorMade R7 Quad Mini Driver",
+  "image": "https://www.clickgolf.co.uk/images/product/main/taylormade-r7-quad-mini-driver-hero.jpg",
+  "price": 349.0,
   "unit": "each",
-  "type": "putter",
-  "low": false,
-  "url": "/prices/odyssey-ai-one-square-2-square-putter/"
+  "type": "driver",
+  "low": true,
+  "url": "/prices/taylormade-r7-quad-mini-driver/"
  }
 }

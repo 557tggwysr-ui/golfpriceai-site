@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-quantum-max-irons/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 749.0,
@@ -17,14 +17,14 @@
    "options": 1
   },
   {
+   "name": "Clarkes Golf",
+   "from": 809.0,
+   "options": 13
+  },
+  {
    "name": "Affordable Golf",
    "from": 899.0,
    "options": 53
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 899.0,
-   "options": 13
   },
   {
    "name": "Callaway Golf",
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 102,
+  "daysTracked": 103,
   "low": 149.0,
   "high": 749.0,
-  "average": 219.59,
+  "average": 218.9,
   "priceChanges": 1,
   "series": [
    [
@@ -53,16 +53,16 @@
     149.0
    ],
    [
-    "2026-11-25",
+    "2026-11-26",
     149.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 90 days"
+  "summary": "Typical price: steady for 91 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-irons-hero-3.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

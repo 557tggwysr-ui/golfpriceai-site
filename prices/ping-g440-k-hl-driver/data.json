@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/ping-g440-k-hl-driver/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 579.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 102,
+  "daysTracked": 103,
   "low": 579.0,
   "high": 599.0,
-  "average": 593.71,
+  "average": 593.56,
   "priceChanges": 1,
   "series": [
    [
@@ -38,16 +38,16 @@
     579.0
    ],
    [
-    "2026-11-25",
+    "2026-11-26",
     579.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 27 days"
+  "summary": "Typical price: steady for 28 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/g440-k-hl-driver-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

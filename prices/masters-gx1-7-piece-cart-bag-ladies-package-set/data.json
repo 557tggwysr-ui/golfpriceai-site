@@ -3,7 +3,7 @@
  "brand": "Masters",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/masters-gx1-7-piece-cart-bag-ladies-package-set/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 179.0,
   "high": 199.0,
-  "average": 198.76,
+  "average": 198.52,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-25",
+    179.0
+   ],
+   [
+    "2026-11-26",
     179.0
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/GX1_Ladies_HERO.jpg?v=1776285449",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

@@ -3,7 +3,7 @@
  "brand": "Ben Sayers",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/ben-sayers-m8-camo-13-piece-cart-bag-package-set/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 289.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 289.0,
   "high": 309.0,
-  "average": 308.76,
+  "average": 308.52,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-25",
+    289.0
+   ],
+   [
+    "2026-11-26",
     289.0
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BSG7131HERO.jpg?v=1776274088",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

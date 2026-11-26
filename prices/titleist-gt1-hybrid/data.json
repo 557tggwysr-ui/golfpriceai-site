@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/titleist-gt1-hybrid/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 102,
+  "daysTracked": 103,
   "low": 269.0,
   "high": 299.0,
-  "average": 298.71,
+  "average": 298.42,
   "priceChanges": 1,
   "series": [
    [
@@ -40,6 +40,10 @@
    ],
    [
     "2026-11-25",
+    269.0
+   ],
+   [
+    "2026-11-26",
     269.0
    ]
   ]
@@ -50,5 +54,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Titleist_GT1_Hybrid_Catalog_01_RGB-Photoroom.jpg?v=1738598787",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

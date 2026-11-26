@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ping-pioneer-224-cart-bag-golf-bag/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 102,
+  "daysTracked": 103,
   "low": 179.0,
   "high": 199.0,
-  "average": 181.35,
+  "average": 181.33,
   "priceChanges": 1,
   "series": [
    [
@@ -33,16 +33,16 @@
     179.0
    ],
    [
-    "2026-11-25",
+    "2026-11-26",
     179.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 90 days"
+  "summary": "Typical price: steady for 91 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Ping-Pioneer-224-Golf-Cart-Bag-Blue-Navy.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

@@ -3,7 +3,7 @@
  "brand": "MacGregor",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/macgregor-v-max-speed-fairway-wood/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 34.99,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 90,
+  "daysTracked": 91,
   "low": 34.99,
   "high": 69.0,
-  "average": 51.3,
+  "average": 51.12,
   "priceChanges": 2,
   "series": [
    [
@@ -40,6 +40,10 @@
    [
     "2026-11-25",
     34.99
+   ],
+   [
+    "2026-11-26",
+    34.99
    ]
   ]
  },
@@ -49,5 +53,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/V-MaxLadiesFairway1.jpg?v=1775356279",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

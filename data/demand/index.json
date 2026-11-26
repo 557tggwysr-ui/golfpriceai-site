@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-25",
+ "date": "2026-11-26",
  "status": "live",
  "week": {
-  "from": "2026-11-19",
-  "to": "2026-11-25"
+  "from": "2026-11-20",
+  "to": "2026-11-26"
  },
  "chart": [
   {
@@ -22,16 +22,6 @@
   },
   {
    "rank": 2,
-   "name": "Cobra Fly XL Package Set",
-   "brand": "Cobra",
-   "type": "set",
-   "price": 599.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/cobra-fly-xl-package-set/"
-  },
-  {
-   "rank": 3,
    "name": "Titleist Pro V1 Golf Balls",
    "brand": "Titleist",
    "type": "ball",
@@ -41,7 +31,27 @@
    "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
   },
   {
+   "rank": 3,
+   "name": "Cobra Darkspeed LS Driver",
+   "brand": "Cobra",
+   "type": "driver",
+   "price": 229.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
+  },
+  {
    "rank": 4,
+   "name": "Cobra Fly XL Package Set",
+   "brand": "Cobra",
+   "type": "set",
+   "price": 599.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/cobra-fly-xl-package-set/"
+  },
+  {
+   "rank": 5,
    "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
    "brand": "Srixon",
    "type": "ball",
@@ -51,64 +61,54 @@
    "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
   },
   {
-   "rank": 5,
+   "rank": 6,
    "name": "MacGregor CG4000 10-Piece Cart Bag Ladies Package Set",
    "brand": "MacGregor",
    "type": "set",
    "price": 299.0,
    "unit": "",
-   "move": 0,
+   "move": 1,
    "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
   },
   {
-   "rank": 6,
+   "rank": 7,
    "name": "MacGregor ZT1 Ladies Package Set",
    "brand": "MacGregor",
    "type": "set",
    "price": 419.0,
    "unit": "",
-   "move": 0,
+   "move": 2,
    "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
   },
   {
-   "rank": 7,
+   "rank": 8,
    "name": "Wilson TPX Ladies Package Set",
    "brand": "Wilson",
    "type": "set",
    "price": 319.0,
    "unit": "",
-   "move": 1,
+   "move": 5,
    "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
   },
   {
-   "rank": 8,
+   "rank": 9,
    "name": "Yonex Ezone GS i-Tech Driver",
    "brand": "Yonex",
    "type": "driver",
    "price": 159.95,
    "unit": "",
-   "move": 1,
+   "move": 6,
    "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
   },
   {
-   "rank": 9,
-   "name": "Callaway Paradym Ai Smoke Max Fairway Wood",
-   "brand": "Callaway",
-   "type": "wood",
-   "price": 199.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-fairway-wood/"
-  },
-  {
    "rank": 10,
-   "name": "Cobra Darkspeed LS Driver",
-   "brand": "Cobra",
-   "type": "driver",
-   "price": 229.0,
-   "unit": "",
+   "name": "TaylorMade TP5 Golf Balls",
+   "brand": "TaylorMade",
+   "type": "ball",
+   "price": 35.99,
+   "unit": "per dozen",
    "move": "new",
-   "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
+   "url": "https://golfpriceai.com/prices/taylormade-tp5-golf-balls/"
   }
  ],
  "wishfulThinking": [
@@ -129,26 +129,26 @@
   },
   {
    "category": "Hybrids",
-   "averageGuessVsRealPricePct": 14,
-   "guesses": 68
+   "averageGuessVsRealPricePct": 12,
+   "guesses": 64
   }
  ],
  "categoryShare": [
   {
    "category": "Irons & wedges",
-   "pct": 34
+   "pct": 30
   },
   {
    "category": "Tech",
-   "pct": 26
+   "pct": 27
   },
   {
    "category": "Balls",
-   "pct": 21
+   "pct": 27
   },
   {
    "category": "Drivers & woods",
-   "pct": 19
+   "pct": 16
   }
  ],
  "reports": [

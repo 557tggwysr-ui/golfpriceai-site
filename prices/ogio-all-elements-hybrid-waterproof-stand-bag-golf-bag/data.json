@@ -3,7 +3,7 @@
  "brand": "Ogio",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/ogio-all-elements-hybrid-waterproof-stand-bag-golf-bag/",
- "checked": "2026-11-25",
+ "checked": "2026-11-26",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 159.95,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 83,
+  "daysTracked": 84,
   "low": 159.95,
   "high": 199.0,
-  "average": 183.59,
+  "average": 183.31,
   "priceChanges": 4,
   "series": [
    [
@@ -43,6 +43,10 @@
    [
     "2026-11-25",
     159.95
+   ],
+   [
+    "2026-11-26",
+    159.95
    ]
   ]
  },
@@ -52,5 +56,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/20251016_OGIOSEUSTUDIO_03080_WEBcopy.jpg?v=1773183441",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-25"
+ "changed": "2026-11-26"
 }

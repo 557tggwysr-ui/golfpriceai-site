@@ -1,14 +1,6 @@
 {
  "about": "Which models each Par Price round used (no personal data).",
  "days": {
-  "2026-10-26": [
-   "cleveland-cbz-wedge",
-   "cobra-ds-adapt-max-irons",
-   "titleist-gts3-fairway-wood",
-   "taylormade-speedsoft-ink-golf-balls",
-   "callaway-elyte-hybrid",
-   "powakaddy-dri-tech-waterproof-cart-bag-golf-bag"
-  ],
   "2026-10-27": [
    "mizuno-br-d3-cart-bag-golf-bag",
    "wilson-profile-hybrid",
@@ -248,6 +240,14 @@
    "taylormade-qi-max-irons",
    "callaway-opus-sp-shadow-wedge",
    "odyssey-ai-one-square-2-square-putter"
+  ],
+  "2026-11-26": [
+   "powakaddy-ct8-electric-trolley",
+   "titleist-players-4-stand-bag-golf-bag",
+   "srixon-z-star-diamond-golf-balls",
+   "cleveland-cbz-wedge",
+   "callaway-elyte-hybrid",
+   "taylormade-r7-quad-mini-driver"
   ]
  }
 }

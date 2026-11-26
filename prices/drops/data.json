@@ -1,8 +1,108 @@
 {
- "checked": "2026-11-25T16:54+00:00",
+ "checked": "2026-11-26T01:39+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Garmin Approach R50 Premium Portable Launch Monitor",
+   "model_id": "garmin-approach-r50-premium-portable-launch-monitor",
+   "date": "2026-11-26",
+   "was": 4295.0,
+   "now": 3449.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-r50-premium-portable-launch-monitor/"
+  },
+  {
+   "model": "Garmin Approach J1 GPS Watch",
+   "model_id": "garmin-approach-j1-gps-watch",
+   "date": "2026-11-26",
+   "was": 259.0,
+   "now": 219.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-j1-gps-watch/"
+  },
+  {
+   "model": "Garmin Approach R10 Portable Launch Monitor",
+   "model_id": "garmin-approach-r10-portable-launch-monitor",
+   "date": "2026-11-26",
+   "was": 429.0,
+   "now": 369.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-r10-portable-launch-monitor/"
+  },
+  {
+   "model": "Cobra King Tec Irons",
+   "model_id": "cobra-king-tec-irons",
+   "date": "2026-11-26",
+   "was": 699.0,
+   "now": 599.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-tec-irons/"
+  },
+  {
+   "model": "Callaway Reva Rise Fairway Wood",
+   "model_id": "callaway-reva-rise-fairway-wood",
+   "date": "2026-11-26",
+   "was": 249.0,
+   "now": 219.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-reva-rise-fairway-wood/"
+  },
+  {
+   "model": "Callaway Org 14 Cart Bag Golf Bag",
+   "model_id": "callaway-org-14-cart-bag-golf-bag",
+   "date": "2026-11-26",
+   "was": 189.0,
+   "now": 169.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-org-14-cart-bag-golf-bag/"
+  },
+  {
+   "model": "Callaway Summit Collection Stand Bag Golf Bag",
+   "model_id": "callaway-summit-collection-stand-bag-golf-bag",
+   "date": "2026-11-26",
+   "was": 329.0,
+   "now": 295.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-summit-collection-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Cobra KING Tour Irons",
+   "model_id": "cobra-king-tour-irons",
+   "date": "2026-11-26",
+   "was": 699.0,
+   "now": 629.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-tour-irons/"
+  },
+  {
+   "model": "Garmin Approach Z30 Laser Rangefinder",
+   "model_id": "garmin-approach-z30-laser-rangefinder",
+   "date": "2026-11-26",
+   "was": 329.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/garmin-approach-z30-laser-rangefinder/"
+  },
+  {
+   "model": "Cobra Signature Cart Bag Golf Bag",
+   "model_id": "cobra-signature-cart-bag-golf-bag",
+   "date": "2026-11-26",
+   "was": 115.0,
+   "now": 109.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-signature-cart-bag-golf-bag/"
+  },
   {
    "model": "Ogio Featherlite Waterproof Stand Bag Golf Bag",
    "model_id": "ogio-featherlite-waterproof-stand-bag-golf-bag",
@@ -704,16 +804,6 @@
    "url": "https://golfpriceai.com/prices/golfway-champion-youth-hybrid/"
   },
   {
-   "model": "Golfway Champion Youth Fairway Wood",
-   "model_id": "golfway-champion-youth-fairway-wood",
-   "date": "2026-11-20",
-   "was": 29.99,
-   "now": 19.99,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/golfway-champion-youth-fairway-wood/"
-  },
-  {
    "model": "Titleist GT3 Hybrid",
    "model_id": "titleist-gt3-hybrid",
    "date": "2026-11-20",
@@ -1072,336 +1162,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/srixon-waterproof-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Callaway Paradym Ai Smoke Max Fairway Wood",
-   "model_id": "callaway-paradym-ai-smoke-max-fairway-wood",
-   "date": "2026-11-18",
-   "was": 288.04,
-   "now": 199.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-fairway-wood/"
-  },
-  {
-   "model": "Wilson Staff Duo Soft TRK360 Golf Balls",
-   "model_id": "wilson-staff-duo-soft-trk360-golf-balls",
-   "date": "2026-11-18",
-   "was": 22.99,
-   "now": 15.99,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-staff-duo-soft-trk360-golf-balls/"
-  },
-  {
-   "model": "Cobra KING X Wedge",
-   "model_id": "cobra-king-x-wedge",
-   "date": "2026-11-18",
-   "was": 129.0,
-   "now": 99.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-king-x-wedge/"
-  },
-  {
-   "model": "Ping s159 Chrome Wedge",
-   "model_id": "ping-s159-chrome-wedge",
-   "date": "2026-11-18",
-   "was": 129.0,
-   "now": 99.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ping-s159-chrome-wedge/"
-  },
-  {
-   "model": "Callaway Chrome Tour Happy Gilmore 2 Golf Balls",
-   "model_id": "callaway-chrome-tour-happy-gilmore-2-golf-balls",
-   "date": "2026-11-18",
-   "was": 60.0,
-   "now": 48.0,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-chrome-tour-happy-gilmore-2-golf-balls/"
-  },
-  {
-   "model": "Callaway Online Exclusive Mavrik Golf Balls",
-   "model_id": "callaway-online-exclusive-mavrik-golf-balls",
-   "date": "2026-11-18",
-   "was": 26.99,
-   "now": 21.59,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-golf-balls/"
-  },
-  {
-   "model": "Ping s159 Midnight Wedge",
-   "model_id": "ping-s159-midnight-wedge",
-   "date": "2026-11-18",
-   "was": 119.0,
-   "now": 99.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ping-s159-midnight-wedge/"
-  },
-  {
-   "model": "Callaway Chrome Tour Corgi Dog Golf Balls",
-   "model_id": "callaway-chrome-tour-corgi-dog-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-chrome-tour-corgi-dog-golf-balls/"
-  },
-  {
-   "model": "Callaway Chrome Tour Lab Dog Golf Balls",
-   "model_id": "callaway-chrome-tour-lab-dog-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-chrome-tour-lab-dog-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Soft Flowers Golf Balls",
-   "model_id": "callaway-limited-chrome-soft-flowers-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-soft-flowers-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Soft Mother s Golf Balls",
-   "model_id": "callaway-limited-chrome-soft-mother-s-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-soft-mother-s-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour Area 51 Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-area-51-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-area-51-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour Coastal Summer Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-coastal-summer-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-coastal-summer-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour German Shepherd Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-german-shepherd-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-german-shepherd-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour Hot Dog Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-hot-dog-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-hot-dog-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour Luck of Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-luck-of-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-luck-of-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour Suits Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-suits-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-suits-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour Trash Talk Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-trash-talk-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-trash-talk-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour Turnbox Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-turnbox-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-turnbox-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour Ugly Sweater Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-ugly-sweater-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-ugly-sweater-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour Wild Animals Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-wild-animals-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-wild-animals-golf-balls/"
-  },
-  {
-   "model": "Callaway Limited Chrome Tour X USA Golf Balls",
-   "model_id": "callaway-limited-chrome-tour-x-usa-golf-balls",
-   "date": "2026-11-18",
-   "was": 55.0,
-   "now": 46.75,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-limited-chrome-tour-x-usa-golf-balls/"
-  },
-  {
-   "model": "Motocaddy Series Cart Bag Golf Bag",
-   "model_id": "motocaddy-series-cart-bag-golf-bag",
-   "date": "2026-11-18",
-   "was": 149.0,
-   "now": 129.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/motocaddy-series-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Cobra RAD-S Fairway Wood",
-   "model_id": "cobra-rad-s-fairway-wood",
-   "date": "2026-11-18",
-   "was": 169.0,
-   "now": 149.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/cobra-rad-s-fairway-wood/"
-  },
-  {
-   "model": "Odyssey DFX 1 CH Putter",
-   "model_id": "odyssey-dfx-1-ch-putter",
-   "date": "2026-11-18",
-   "was": 129.0,
-   "now": 115.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/odyssey-dfx-1-ch-putter/"
-  },
-  {
-   "model": "Ping Pioneer 244 Cart Bag Golf Bag",
-   "model_id": "ping-pioneer-244-cart-bag-golf-bag",
-   "date": "2026-11-18",
-   "was": 199.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ping-pioneer-244-cart-bag-golf-bag/"
-  },
-  {
-   "model": "TaylorMade Spider Tour Torched X True Putter",
-   "model_id": "taylormade-spider-tour-torched-x-true-putter",
-   "date": "2026-11-18",
-   "was": 299.0,
-   "now": 269.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-spider-tour-torched-x-true-putter/"
-  },
-  {
-   "model": "Callaway Online Exclusive Mavrik 17-Piece Package Set",
-   "model_id": "callaway-online-exclusive-mavrik-17-piece-package-set",
-   "date": "2026-11-18",
-   "was": 899.0,
-   "now": 809.1,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/callaway-online-exclusive-mavrik-17-piece-package-set/"
-  },
-  {
-   "model": "TaylorMade RBZ 11-Piece Package Set",
-   "model_id": "taylormade-rbz-11-piece-package-set",
-   "date": "2026-11-18",
-   "was": 999.0,
-   "now": 899.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-rbz-11-piece-package-set/"
-  },
-  {
-   "model": "Ping G440 K Driver",
-   "model_id": "ping-g440-k-driver",
-   "date": "2026-11-18",
-   "was": 549.0,
-   "now": 499.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ping-g440-k-driver/"
-  },
-  {
-   "model": "Motocaddy Lite Series Cart Bag Golf Bag",
-   "model_id": "motocaddy-lite-series-cart-bag-golf-bag",
-   "date": "2026-11-18",
-   "was": 119.0,
-   "now": 109.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/motocaddy-lite-series-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Ping G440 SFT Fairway Wood",
-   "model_id": "ping-g440-sft-fairway-wood",
-   "date": "2026-11-18",
-   "was": 319.0,
-   "now": 299.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ping-g440-sft-fairway-wood/"
-  },
-  {
-   "model": "Ping G440 MAX Driver",
-   "model_id": "ping-g440-max-driver",
-   "date": "2026-11-18",
-   "was": 499.0,
-   "now": 479.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ping-g440-max-driver/"
   }
  ]
 }
