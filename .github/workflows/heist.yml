@@ -9,7 +9,7 @@ on:
         default: "2,3"
       voices:
         description: "Piper voices to try, comma-separated (British English)"
-        default: "en_GB-alan-medium,en_GB-northern_english_male-medium,en_GB-cori-high"
+        default: "en_GB-semaine-medium#obadiah~deep,en_GB-alan-medium~deep,en_GB-vctk-medium#p254~deep"
 permissions:
   contents: write
 jobs:
@@ -28,7 +28,7 @@ jobs:
       - name: Voices
         run: |
           mkdir -p .voices
-          for v in $(echo "${{ inputs.voices }}" | tr ',' ' '); do
+          for v in $(echo "${{ inputs.voices }}" | tr ',' '\n' | sed 's/[#~].*//' | sort -u); do
             name=$(echo "$v" | cut -d- -f2); q=$(echo "$v" | cut -d- -f3)
             base="https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_GB/$name/$q/$v"
             curl -sSfL "$base.onnx" -o ".voices/$v.onnx" && curl -sSfL "$base.onnx.json" -o ".voices/$v.onnx.json" || echo "couldn't get $v"
@@ -41,7 +41,7 @@ jobs:
           mkdir -p out
           for e in $(echo "${{ inputs.episodes }}" | tr ',' ' '); do
             for v in $(echo "${{ inputs.voices }}" | tr ',' ' '); do
-              short=$(echo "$v" | cut -d- -f2)
+              short=$(echo "$v" | sed 's/^en_GB-//; s/-medium//; s/-high//; s/[#~]/-/g')
               python scripts/agent_heist.py --ep "$e" --voice "$v" --out "out/his-hers-ep$(printf %02d $e)-$short.mp4"
             done
           done

@@ -1,5 +1,5 @@
 {
- "about": "His & Hers episode scripts (comic series; episode 1 was the original \"Golf Heist\" video about a new driver). Panels from data/heist-panels.json. 'box' and 'to' are fractions of the panel picture (outside 0-1 = above/below a framed panel): where the bubble sits and whose mouth its tail points at. 'narr' is the commentator's line (spoken and shown).",
+ "about": "His & Hers episode scripts (comic series; episode 1 was the original \"Golf Heist\" video about a new driver). Panels from data/heist-panels.json. 'box' and 'to' are fractions of the panel picture (outside 0-1 = above/below a framed panel): where the bubble sits and whose mouth its tail points at. 'narr' is the narrator's line (nature-documentary style: the golfer observed like wildlife) (spoken and shown).",
  "episodes": [
   {
    "ep": 2,
@@ -13,7 +13,7 @@
       0.42
      ],
      "narr_at": "bottom",
-     "narr": "Late evening. He's on the move. Contraband under one arm."
+     "narr": "Night falls. And the male golfer emerges... clutching his precious hoard."
     },
     {
      "img": "assets/social/heist/ep02-2.jpg",
@@ -22,13 +22,13 @@
       0.5
      ],
      "narr_at": "bottom",
-     "narr": "He's found the perfect lie. The sock drawer. Nobody checks the sock drawer."
+     "narr": "He has found the perfect nest. The sock drawer. No predator would ever think to look here."
     },
     {
      "img": "assets/social/heist/ep02-3.jpg",
      "narr_at": "above",
      "sting": true,
-     "narr": "Oh dear. He hasn't seen the hazard behind him.",
+     "narr": "But the female... is never far away.",
      "say": [
       {
        "who": "her",
@@ -63,7 +63,7 @@
       0.45
      ],
      "narr_at": "top",
-     "narr": "And she takes the hole.",
+     "narr": "And, as so often in nature... she takes the spoils.",
      "say": [
       {
        "who": "her",
@@ -95,7 +95,7 @@
    "panels": [
     {
      "img": "assets/social/heist/ep03-1.jpg",
-     "narr": "Midweek. A delivery. And he's nowhere near the tee.",
+     "narr": "Midweek. A parcel arrives at the burrow... while the male is away, foraging.",
      "say": [
       {
        "who": "her",
@@ -113,7 +113,7 @@
     },
     {
      "img": "assets/social/heist/ep03-2.jpg",
-     "narr": "She's reading the parcel like a tricky putt.",
+     "narr": "The female studies her prize. She can sense it. A rangefinder.",
      "say": [
       {
        "who": "her",
@@ -132,7 +132,7 @@
     {
      "img": "assets/social/heist/ep03-3.jpg",
      "sting": true,
-     "narr": "He's back. And the box... is empty.",
+     "narr": "The male returns to the nest. And finds it... empty.",
      "say": [
       {
        "who": "him",
@@ -150,7 +150,7 @@
     },
     {
      "img": "assets/social/heist/ep03-4.jpg",
-     "narr": "Textbook. She's found the distance.",
+     "narr": "Remarkable. She has found the distance.",
      "say": [
       {
        "who": "her",
