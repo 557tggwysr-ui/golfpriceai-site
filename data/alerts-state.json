@@ -4,29 +4,29 @@
   "driver-300": {
    "above": {
     "callaway-quantum-driver": 465.0,
-    "callaway-quantum-max-d-driver": 399.0,
-    "callaway-quantum-max-driver": 399.0,
-    "callaway-quantum-mini-driver": 349.0,
-    "callaway-quantum-triple-diamond-driver": 429.0,
-    "callaway-quantum-triple-diamond-max-driver": 429.0,
+    "callaway-quantum-max-d-driver": 379.05,
+    "callaway-quantum-max-driver": 379.05,
+    "callaway-quantum-mini-driver": 346.75,
+    "callaway-quantum-triple-diamond-driver": 407.55,
+    "callaway-quantum-triple-diamond-max-driver": 407.55,
     "callaway-reva-rise-driver": 399.0,
     "cobra-king-tec-mini-driver": 379.0,
     "cobra-optm-driver": 399.0,
-    "cobra-optm-ls-driver": 399.0,
-    "cobra-optm-max-d-driver": 399.0,
-    "cobra-optm-max-k-driver": 399.0,
-    "cobra-optm-x-driver": 399.0,
-    "mizuno-jpx-one-driver": 399.0,
-    "mizuno-jpx-one-select-driver": 429.0,
-    "ping-g430-max-10k-driver": 369.0,
-    "ping-g430-max-driver": 369.0,
+    "cobra-optm-ls-driver": 359.1,
+    "cobra-optm-max-d-driver": 359.1,
+    "cobra-optm-max-k-driver": 359.1,
+    "cobra-optm-x-driver": 359.1,
+    "mizuno-jpx-one-driver": 369.0,
+    "mizuno-jpx-one-select-driver": 369.0,
+    "ping-g430-max-10k-driver": 332.1,
+    "ping-g430-max-driver": 332.1,
     "ping-g440-driver": 479.0,
     "ping-g440-hl-driver": 499.0,
-    "ping-g440-k-driver": 499.0,
+    "ping-g440-k-driver": 494.1,
     "ping-g440-lst-driver": 499.0,
-    "ping-g440-max-driver": 479.0,
-    "ping-g440-max-hl-driver": 499.0,
-    "ping-g440-sft-driver": 499.0,
+    "ping-g440-max-driver": 476.1,
+    "ping-g440-max-hl-driver": 476.1,
+    "ping-g440-sft-driver": 476.1,
     "ping-g440-sft-hl-driver": 529.0,
     "ping-g440k-driver": 579.0,
     "ping-g440k-hl-driver": 579.0,
@@ -36,11 +36,11 @@
     "srixon-zxi-rkt-ls-driver": 529.0,
     "srixon-zxi-rkt-max-driver": 529.0,
     "taylormade-qi10-driver": 379.0,
-    "taylormade-qi4d-designer-series-shadowfall-driver": 549.0,
-    "taylormade-qi4d-driver": 549.0,
-    "taylormade-qi4d-ls-driver": 495.0,
-    "taylormade-qi4d-max-driver": 549.0,
-    "taylormade-qi4d-max-lite-driver": 549.0,
+    "taylormade-qi4d-designer-series-shadowfall-driver": 521.1,
+    "taylormade-qi4d-driver": 494.1,
+    "taylormade-qi4d-ls-driver": 494.1,
+    "taylormade-qi4d-max-driver": 494.1,
+    "taylormade-qi4d-max-lite-driver": 494.1,
     "taylormade-r7-quad-mini-driver": 349.0,
     "titleist-gt1-driver": 419.0,
     "titleist-gt2-driver": 399.0,
@@ -51,7 +51,7 @@
     "titleist-gts3-driver": 629.0,
     "titleist-gts300-mini-driver": 499.0,
     "titleist-gts4-driver": 629.0,
-    "wilson-dynapwr-max-plus-driver": 399.0
+    "wilson-dynapwr-max-plus-driver": 359.1
    },
    "under": [
     "aldila-extra-stiff-driver",
@@ -102,8 +102,8 @@
  },
  "models": {
   "cobra-fly-xl-package-set": {
-   "ref": 599.0,
-   "refDate": "2026-11-20"
+   "ref": 539.1,
+   "refDate": "2026-11-26"
   },
   "garmin-approach-s70-gps-watch": {
    "ref": 429.0,
@@ -114,7 +114,6 @@
    "refDate": "2026-11-08"
   },
   "macgregor-zt1-ladies-package-set": {
-   "aboveSince": "2026-11-23",
    "ref": 379.0,
    "refDate": "2026-11-08"
   },
@@ -137,7 +136,7 @@
  },
  "remind": "2026-11-26",
  "sent": {
-  "2026-11-26": 0
+  "2026-11-26": 1
  },
  "stock": {
   "apparel-adidas-rain-rdy-waterproof-golf-jacket-hn4128-black-m-majorgolf": {
