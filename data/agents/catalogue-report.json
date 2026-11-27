@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T16:24Z",
+ "generated": "2026-11-27T17:00Z",
  "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
  "listings": 81707,
  "models": 3297,
@@ -557,7 +557,6 @@
    "names": [
     "Cleveland Golf RTZ 2 Tour Satin Wedge 2026",
     "Cleveland Golf RTZ 2 Tour Rack Wedge 2026",
-    "Cleveland Golf CBZ Tour Satin Wedge",
     "Cleveland Golf RTZ 2 Full Face Tour Satin Wedge 2026",
     "Cleveland Golf RTZ 2 Black Satin Wedge 2026",
     "Cleveland Golf RTZ 2 Full Face Black Satin Wedge 2026",
@@ -621,19 +620,6 @@
    ]
   },
   {
-   "brand": "Cobra",
-   "names": [
-    "Cobra Golf KING TEC Mini Driver 2026",
-    "Cobra Golf King Irons 2026",
-    "Cobra Golf OPTM X Fairway 2026",
-    "Cobra Golf KING Wedge Silver 2026",
-    "Cobra Golf KING Wedge Black 2026",
-    "Cobra Golf KING X Wedge Silver 2026",
-    "Cobra Golf OPTM MAX X,K,D Driver 2026",
-    "Cobra RADSPEED-S Golf Fairway Wood"
-   ]
-  },
-  {
    "brand": "TaylorMade",
    "names": [
     "TaylorMade Golf Qi4D Hybrid Rescue 2026",
@@ -644,6 +630,18 @@
     "TaylorMade TP5x Golf Balls 2026",
     "Taylormade 2026 Distance Plus Golf Balls | 3 For 2",
     "Taylormade 2026 Distance Plus Yellow Golf Balls | 3 For 2"
+   ]
+  },
+  {
+   "brand": "Cobra",
+   "names": [
+    "Cobra Golf KING TEC Mini Driver 2026",
+    "Cobra Golf King Irons 2026",
+    "Cobra Golf OPTM X Fairway 2026",
+    "Cobra Golf KING Wedge Silver 2026",
+    "Cobra Golf KING Wedge Black 2026",
+    "Cobra Golf KING X Wedge Silver 2026",
+    "Cobra Golf OPTM MAX X,K,D Driver 2026"
    ]
   },
   {
