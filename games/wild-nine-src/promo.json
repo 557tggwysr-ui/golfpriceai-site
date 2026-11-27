@@ -1,0 +1,89 @@
+{
+ "deal": {
+  "name": "Callaway Quantum Triple Diamond Driver",
+  "url": "/prices/callaway-quantum-triple-diamond-driver/",
+  "now": 429.0,
+  "was": 485.0,
+  "pct": 12
+ },
+ "deals": {
+  "clubs": {
+   "name": "Callaway Quantum Triple Diamond Driver",
+   "url": "/prices/callaway-quantum-triple-diamond-driver/",
+   "now": 429.0,
+   "pct": 12
+  },
+  "accessories": {
+   "name": "Bushnell Launch Pro Launch Monitor",
+   "url": "/prices/bushnell-launch-pro-launch-monitor/",
+   "now": 2490.0,
+   "pct": 11
+  }
+ },
+ "major": "The Black Friday Open",
+ "next": "The Christmas Cracker Classic",
+ "joke": "The scariest thing in it is full price.",
+ "checked": "2026-11-17",
+ "majors": {
+  "01": {
+   "name": "The New Year’s Resolution Invitational",
+   "colour": "#16224a",
+   "accent": "#d9b45a"
+  },
+  "02": {
+   "name": "The Sweetheart Scramble",
+   "colour": "#c4153b",
+   "accent": "#f1a7bf"
+  },
+  "03": {
+   "name": "The Shamrock Shootout",
+   "colour": "#1f6a3a",
+   "accent": "#ffffff"
+  },
+  "04": {
+   "name": "The Spring Blossom Open",
+   "colour": "#2f6b3f",
+   "accent": "#f6b8cf"
+  },
+  "05": {
+   "name": "The Bank Holiday Bash",
+   "colour": "#2b6cb0",
+   "accent": "#ffffff"
+  },
+  "06": {
+   "name": "The Father’s Day Fourball",
+   "colour": "#3a4a2a",
+   "accent": "#d9b45a"
+  },
+  "07": {
+   "name": "The Heatwave Classic",
+   "colour": "#d98e04",
+   "accent": "#16241c"
+  },
+  "08": {
+   "name": "The Silly Season Scramble",
+   "colour": "#0e7490",
+   "accent": "#ffffff"
+  },
+  "09": {
+   "name": "The Autumn Shootout",
+   "colour": "#9a4a00",
+   "accent": "#f3c47e"
+  },
+  "10": {
+   "name": "The Halloween Hacker Open",
+   "colour": "#4c1d95",
+   "accent": "#f08a24"
+  },
+  "11": {
+   "name": "The Black Friday Open",
+   "colour": "#1b1d1c",
+   "accent": "#f08a24"
+  },
+  "12": {
+   "name": "The Christmas Cracker Classic",
+   "colour": "#b3262d",
+   "accent": "#ffffff"
+  }
+ }
+}

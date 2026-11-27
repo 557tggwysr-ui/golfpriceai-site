@@ -1,0 +1,64 @@
+GOLFPRICE AI: PHOTO LIBRARY PROMPT PACK (for ChatGPT, free)
+==========================================================
+These photos are the backgrounds for our two new post styles (A: golf humour, B: big headline).
+Our engine adds all the words, banners and arrows itself, so the photos must have NO TEXT.
+
+HOW TO USE
+1. Paste the MASTER STYLE below into ChatGPT once, then ask for each scene one at a time:
+   "Using the master style, make scene 7".
+2. Ask for PORTRAIT 1024 x 1536 (it crops to 9:16 and 4:5 nicely).
+3. Save each as scene-NN.png (01 to 30, matching the list) and send them to Claude in the chat,
+   a few at a time is fine. Claude checks each one, tags it and adds it to the library.
+4. If a face looks odd, hands look wrong, or any text or logo appears, just ask ChatGPT to redo it.
+
+MASTER STYLE (paste first)
+--------------------------
+Photorealistic, premium golf-lifestyle photograph for social media, portrait 1024 x 1536.
+Natural daylight on a UK golf course (parkland, links or heathland), rich natural greens, shallow
+depth of field, crisp detail, true-to-life skin. The people are fictional everyday amateur golfers
+(not models, not anyone famous), aged 25 to 60, a mix of men and women, expressive and funny but
+believable. Classic golf clothing in plain colours (navy, grey, olive, cream, white).
+Composition: keep the top 20% and the bottom 25% of the frame calmer (sky, grass, soft blur) so
+headlines can sit there; the main subject sits in the middle. Nothing important within 5% of the edges.
+ABSOLUTELY NO text, words, numbers, logos, brand names, watermarks or lettering anywhere: not on
+clothing, caps, gloves, balls, bags, clubs, signs or screens. No illustration or cartoon style,
+no over-saturated HDR.
+
+THE 30 SCENES
+-------------
+Humour (Style A)
+01 Golfer crouched on the green, hands on head, ball stopped one inch from the hole.
+02 Golfer lying flat on the green at eye level with a ball on the lip of the cup, pained grin.
+03 Golfer in a deep bunker, only head and club visible, sand flying, resigned face.
+04 Golfer peering into thick rough with a club, clearly lost the ball, mates laughing behind.
+05 Golfer standing at the edge of a pond staring at ripples where the ball went in.
+06 Four golfers under one umbrella in sideways rain, soaked but laughing.
+07 Golfer mid-swing on the tee, face scrunched, divot flying higher than the ball.
+08 Golfer proudly holding a shiny new driver, partner behind with arms folded, eyebrow raised.
+09 Golfer secretly hiding a new golf bag behind the car boot in a car park, looking over shoulder.
+10 Golfer counting strokes on fingers with a doubtful face while a playing partner stares.
+11 Golfer celebrating wildly with arms up, ball clearly still short of the hole.
+12 Golfer frozen over a short putt, sweat on brow, mates in the background holding their breath.
+13 Golfer looking up into a tree, ball stuck on a branch.
+14 Golfer at the 19th hole (clubhouse bar, no signs) telling a story with big hand gestures, friends unimpressed.
+15 Golfer on a frosty winter morning, breath visible, wearing every layer they own.
+
+Big headline (Style B)
+16 Close-up of a golf ball on a tee at sunrise, dew on the grass, driver head soft-focus behind.
+17 Golf bag full of clubs standing on a fairway at golden hour.
+18 Overhead flat-lay of golf gear on grass: balls, glove, tees, rangefinder (all plain, no logos).
+19 Pristine green with a flag at sunset, long shadows.
+20 Golfer's hands holding a smartphone on the course (screen a soft blank glow).
+21 Driver head close-up resting on the grass, shallow depth of field.
+22 Three golf balls in a row on a putting green, one slightly ahead.
+23 Empty misty fairway at dawn, a single golfer walking away with a trolley.
+24 Electric golf trolley parked by a tee box, autumn trees behind.
+25 Golf shoes and glove on a wooden bench in a locker room, morning light.
+26 A ball sitting in a perfect fairway lie, low angle, the green far away.
+27 Rangefinder held up to the eye, flag soft-focus in the distance.
+28 A bucket of range balls on a driving range mat, dusk lights coming on.
+29 Golf gloves and a scorecard-shaped blank card on a bench (no writing).
+30 Snow-dusted golf course with a flag, crisp blue sky.
+
+When these are in, Claude will also give you a short "top-up" pack each month so the feed never
+reuses the same photos (the agents won't use any photo twice within 20 posts).

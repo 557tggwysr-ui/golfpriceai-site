@@ -1,0 +1,27 @@
+// Wild Nine banter. Kind, self-aware, never mean about anyone but the golf.
+window.WN_QUIPS = {
+  water: ['Splash. The fish say thanks.', 'That ball now lives with the ducks.', 'Wet. Like a British summer.', 'Plop. A classic of the genre.', 'Should have packed a snorkel.', 'The ball retrieval team has been notified.'],
+  ob: ['That has gone to visit the neighbours.', 'Out of bounds, and possibly out of the county.', 'White stakes. Big feelings.', 'Lovely strike. Wrong postcode.'],
+  tree: ['Timber! The tree wins this round.', 'Nature said no.', "That oak has stood for 200 years. It isn't moving for you.", 'Fore! said the squirrel.'],
+  sand: ['Welcome to the beach. No donkeys, sadly.', 'Sand. Rake it when you are done.', 'Building sandcastles now, are we?', "Bunker. Every golfer's second home."],
+  rough: ['Bit of the cabbage there.', 'In the jungle. Bring a machete.', 'Rough. Like the coffee at the halfway hut.', 'Long grass. Long face.'],
+  bomb: ['Absolute missile.', 'The tour van is on the phone.', 'That will get a mention in the bar.', 'Did you skip the warm-up? Because that was a peach.'],
+  green: ['Pin seeking.', 'Dart. Lovely.', 'Stick that on the highlights reel.', 'Green in regulation. Who are you?'],
+  lip: ['Lipped out. Golf is cruel.', 'Round the houses and out. Ouch.', 'It had a look and said no thanks.'],
+  longputt: ['Get in! Drained it.', 'Never in doubt. (It was in doubt.)', 'Long-range assassin.', 'Somebody tell the group chat.'],
+  missshort: ['Never up, never in.', 'That was a gimme, said nobody.', 'Hit it like you mean it.'],
+  spray: ['Bit of a snap hook there, champ.', 'That swing had an opinion.', 'Overcooked it.', 'Swung out of your shoes there.'],
+  dunk: ['IN THE HOLE! Drinks are on you.', 'Straight in! Tell absolutely everyone.', 'Dunked it! Frame this one.'],
+  hook: ['Hooked it. That draw had ambitions.', 'Duck hook! It is visiting the left-hand rough.', 'Too much draw. Way too much draw.'],
+  slice: ['Sliced it. Banana ball.', 'That fade turned into a full slice.', 'Weeeeee, said the ball, heading right.'],
+  draw: ['Lovely little draw.', 'Right to left, like a tour pro.', 'Shaped it beautifully.'],
+  fade: ['A tidy fade.', 'Left to right. Textbook.', 'Held it against the wind. Lovely.'],
+  fairway: ['Fairway. Boring. Brilliant.', 'Middle of the short stuff.', 'Down the middle, like your dad taught you.'],
+  ace: ['HOLE IN ONE! Retire now. Nothing will top this.', 'ACE! The bar tab is yours. Sorry.'],
+  eagle: ['Eagle! Frame the scorecard.', 'Eagle! Act like you have been here before.'],
+  birdie: ['Birdie! Tweet tweet.', 'Birdie. Smooth operator.', 'Birdie! Somebody check your handicap.'],
+  par: ['Par. Solid, sensible, very you.', 'Par. The scorecard thanks you.', 'Par. No drama. Love it.'],
+  bogey: ['Bogey. Happens to the best of us.', 'Bogey. We go again.', "Bogey. That's golf."],
+  double: ["Double. We'll call that character-building.", 'Double bogey. Deep breaths.'],
+  worse: ['Let us never speak of this hole again.', 'That hole owes you an apology.', "Pick it up and walk. Nobody's watching. (We are.)"]
+};
