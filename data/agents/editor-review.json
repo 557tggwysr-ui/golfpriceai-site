@@ -1,20 +1,18 @@
 {
- "generated": "2026-11-26T22:22Z",
+ "generated": "2026-11-27T01:17Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
- "verdict": "ok",
- "summary": "No Never-list breaches in the copy, but the 26 Nov Callaway card and thumbnail fall short of the premium visual standard, so that post is held.",
+ "verdict": "block",
+ "summary": "Two posts held: the 27 Nov community-question card has overlapping text, and the Cobra Darkspeed LS Driver is posted twice on 27 Nov.",
  "points": [
-  "2026-11-26-thu: thumbnail hook is 5 words ('Black Friday, minus the nonsense'); the standard is 2 to 4 big words. Fix: shorten the thumbnail text, e.g. 'BLACK FRIDAY, MINUS THE NONSENSE' becomes 'LOWEST IN 81 DAYS' or 'NO NONSENSE', and keep the full hook for the caption.",
-  "2026-11-26-thu: the £919 badge overlaps the corner of the white photo tile and covers the iron's grip/shaft end, so the product looks clipped. Fix: move the badge clear of the photo (or inside the tile edge) so the club shaft is fully visible.",
-  "2026-11-26-thu: the product sits small and tilted in a big white box on a dark green gradient, so the white box clashes with the background. In the thumbnail the bottom ~20% is empty dark space and the layout is top-heavy. Fix: make the iron larger (cut it out with no white tile, or fill the tile), and re-balance the vertical spacing.",
-  "2026-11-26-thu: on the 4:5 card the GOLFPRICEAI.COM footer sits about 25px from the bottom edge (cramped). In the thumbnail the brand pill at y~250 sits partly outside the middle 4:5 grid crop. Fix: add bottom margin to the card and move the pill inside the crop.",
-  "2026-11-26-thu: no sound is set (sound: null). Flag only: add a beat-matched track per the Sound and pace rules. I could not extract video frames here (no ffmpeg), so pace and the first-second hook are not judged. Please re-check the mp4 by eye.",
-  "2026-11-27-fri, 2026-11-27-moment, 2026-11-28-sat, 2026-11-29-hishers, 2026-11-29-sun, 2026-11-30-mon, 2026-12-01-tue, 2026-12-02-wed, 2026-12-04-fri, 2026-12-05-sat, 2026-12-06-hishers, 2026-12-06-sun: only 26 Nov had images in /tmp/review-images, so visuals for these were NOT reviewed. Copy only: no retailer names, no fake urgency and no broken output found. Please supply their cards, thumbnails and frames before they go out.",
-  "2026-11-29-hishers and 2026-12-06-hishers: the TikTok caption uses #golfhumor (US spelling) while Instagram uses #golfhumour. Flag only: use #golfhumour.",
-  "2026-12-06-sun: the ball-saving carousel has no #Ad. Flag only: if any slide shows a priced product, the caption needs #Ad.",
-  "2026-12-01-tue: '12 of 51 cheaper' and 'from £110' must match the site's own rangefinder history data. I did not verify the figures against the data files. Please check them before posting.",
-  "All posts have sound: null (no sound). Flag only."
+  "2026-11-27-fri (card): the white 'FULL SWING. NOT FULL PRICE.' line and the gold golfpriceai.com sit on top of the big 'RANGEFINDER OR GPS WATCH?' headline, which makes both unreadable. The card is also dimmed to near-black, so the headline is murky and the colours look muddy. The strapline is unrelated to a community question. Fix: use the clean headline layout as in the thumbnail, with the URL in a clear footer and no strapline over the headline, and keep the card matching the video.",
+  "2026-11-27-fri: I could not extract video frames (no ffmpeg in this environment), so only the card and thumbnail were reviewed. The thumbnail itself is strong: 3 big words, a sharp subject, good contrast and a matching palette. Re-check the video end frame after the fix, since the card looks like it came from it.",
+  "2026-11-27-moment: the same product, the Cobra Darkspeed LS Driver at £229, is also in 2026-11-27-reactive3 the same day, which breaks the rule that a product must not repeat within 14 days. The two are nearly identical in message. Fix: keep reactive3, which gives the fuller proven price history, and drop or swap this one for a different product.",
+  "2026-11-27-reactive3: copy is fine. £419 on 4 Sept to £229 is backed by the site's own price history (home-deals.json). The Pinterest title is empty, so add one, e.g. 'Black Friday, checked: £229 Cobra Darkspeed LS Driver'. The YouTube title is cut off mid-word ('lowest we've tra'), so shorten it.",
+  "2026-11-29-hishers: the TikTok caption uses the US spelling hashtag #golfhumor (the others use #golfhumour). Use UK spelling.",
+  "2026-12-05-sat: the hook 'You've got 3 seconds.' is mild artificial time pressure. Consider 'No googling.' instead. Not a block.",
+  "2026-12-04-fri and 2026-11-27-fri: #golfdeals on a non-deal banter post is off-topic. Drop it.",
+  "No card, thumbnail or frames were supplied for the other posts, so they are not visually reviewed. Their captions had no retailer names, no fake urgency and no broken output."
  ],
  "what": "Agent: content engine",
- "postsHash": "afae42d0077d0798c802d952e750afb46dd5852e"
+ "postsHash": "cc02e551e3262dba0aa8d9499f67a0733b2b8263"
 }
