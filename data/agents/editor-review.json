@@ -1,19 +1,15 @@
 {
- "generated": "2026-11-27T12:45Z",
+ "generated": "2026-11-27T17:43Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
  "verdict": "block",
- "summary": "Two posts held: the 27 Nov Cobra Darkspeed LS 'moment' graphic falls short of the premium visual standard, and 'reactive3' repeats the same product on the same day.",
+ "summary": "S1 adds internal links from real fairway wood pages to six pages (Aldila, Fujikura, True Temper) that look like shaft listings filed as fairway woods at £59.99-£69.99, i.e. wrong-category products.",
  "points": [
-  "2026-11-27-moment (thumbnail): 'TRACKED' collides with the top of the photo tile, the £229 badge overlaps the photo and sits on top of 'GOLFPRICEAI.COM', and the headline runs almost edge to edge. Fix: shrink the headline to fit inside the margins, move the photo tile down so no text touches it, and give the price badge and URL their own clear space.",
-  "2026-11-27-moment (thumbnail): the product-name pill is dark green on black and hard to read, and it sits on the edge of Instagram's 4:5 grid crop. Fix: use light text on the dark pill (or a light pill) and keep the pill, price and URL inside the middle 4:5.",
-  "2026-11-27-moment (card): the tilted 'LOWEST WE'VE TRACKED' stamp crowds the £229 and nearly touches the URL. The headline wraps to leave 'tracked' alone on line two, and the same claim appears three times (headline, stamp, caption line). Fix: give the price clear space, move or shrink the stamp, and tighten the headline to one line. Show the claim once or twice at most.",
-  "2026-11-27-moment: I couldn't check the video frames (no ffmpeg/ffprobe in this environment, so I couldn't extract them). Only the card and thumbnail were reviewed. Please check the frames for the same overlap problems. The post has no sound (sound is null); add a beat-matched track or note why it has none.",
-  "2026-11-27-reactive3: Cobra Darkspeed LS Driver at £229 is also the 'moment' post on the same day (a product must not repeat within 14 days). Fix: swap in a different product, or merge the 'was £419 on 4 September' history angle into one post only. No card, thumbnail or video was supplied, so its visuals were not reviewed.",
-  "2026-11-27-reactive3: the YouTube description repeats #golf and #golfuk. Remove the duplicates. The '£419 on 4 September' price must come from our own price history.",
-  "2026-11-29-hishers: TikTok caption uses the US-spelled hashtag #golfhumor next to UK #golfhumour on the other platforms. Use #golfhumour.",
-  "2026-11-27-hero: card and thumbnail pass. Strong yellow on green, big type, clean spacing, and the content sits in the middle 4:5. The 1,398, 156 and 20% figures must match the site's own data. I couldn't see its video frames.",
-  "Not reviewed visually: 2026-11-27-fri, 11-28-sat, 11-29-hishers, 11-29-sun, 11-30-mon, 12-01-tue, 12-02-wed, 12-04-fri, 12-05-sat, 12-06-hishers and 12-06-sun. Only copy was checked, and I found no Never-rule breaks. Several have no sound set; John's checks flag that as a note."
+  "data/agent-links.json: aldila-/fujikura-/true-temper-*-fairway-wood pages are named after shaft brands and flexes (e.g. 'Aldila Regular Fairway Wood' from £59.99 at one shop), so they look like shafts mis-filed as fairway woods; linking from Callaway/Titleist/Srixon fairway wood pages promotes them. Fix: skip S1's six shaft entries (keep odyssey-trtl-ch-putter) and have the catalogue agent re-categorise or hide those pages.",
+  "data/agent-links.json: all six shaft entries use an identical 'from' list, so the same six pages get six near-duplicate links.",
+  "S3 (fourball/episodes): not in the diff and fourball/episodes does not exist in the repo, so the episode could not be reviewed; check it before merging.",
+  "llms.txt: figures (3,297 models, 323 cheaper this week, new lowest prices) cannot be verified from the diff alone; wording and £ formatting are fine.",
+  "data/agent-rules.json: hiding BOSS Infinity Long John for 3 days (403 buy link) and dropping expired rules look fine."
  ],
- "what": "Agent: content engine",
+ "what": "Agent: fix pack",
  "postsHash": "d4d0b26d0c084a26dea3ddd0813600269a06462c"
 }
