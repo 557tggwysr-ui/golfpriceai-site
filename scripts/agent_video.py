@@ -412,6 +412,10 @@ def render(style, script, palette, out_path, img=None, photo=None, imgs=None):
     cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
            "-i", "-", "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-tune", "animation", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(out_path)]
     still = None
+    still_t = dur - 1.0
+    if style in ("humour", "headline", "sequence"):  # brush styles end on a brand closing: take the frame before it
+        from agent_brush import payoff_time
+        still_t = payoff_time(style, script, dur)
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     try:
         for i in range(frames):
@@ -422,7 +426,7 @@ def render(style, script, palette, out_path, img=None, photo=None, imgs=None):
             if dx:
                 frame = ImageOps.expand(frame, border=20, fill=pal["bg"]).crop((20 - dx, 20, 20 - dx + W, 20 + H))
             proc.stdin.write(frame.tobytes())
-            if abs(t - (dur - 1.0)) < 0.5 / FPS:
+            if abs(t - still_t) < 0.5 / FPS:
                 still = frame.copy()
     finally:
         proc.stdin.close()
@@ -456,13 +460,15 @@ def _edge_busy(im, y):
     return sum(1 for v in px if abs(v - med) > 60)
 
 
-def feed_card(still, path):
+def feed_card(still, path, crop_top=None):
     """Instagram feed card (1080x1350) from the payoff frame. Never cuts through text: it finds the band
     of the frame that holds text and graphics; if that fits in 1350 pixels it crops around it, otherwise
     it shows the whole band, scaled down, on a soft blurred backdrop of the same frame."""
     path.parent.mkdir(parents=True, exist_ok=True)
     if still.size != (W, H):
         card = ImageOps.fit(still, (1080, 1350))
+    elif crop_top is not None:  # full-bleed photo styles: a straight full-width crop, no side bars
+        card = still.crop((0, crop_top, W, crop_top + 1350))
     else:
         busy = [y for y in range(0, H, 10) if _edge_busy(still, y) > 0] or [285, 1635]
         top, bot = max(0, busy[0] - 40), min(H, busy[-1] + 50)

@@ -271,52 +271,57 @@
    ]
   },
   {
-   "id": "2026-11-27-fri",
+   "id": "2026-11-27-reactive3",
    "date": "2026-11-27",
-   "theme": "Community question",
-   "style": "headline",
-   "palette": "brand",
-   "hook": "Rangefinder or GPS watch?",
+   "theme": "Reactive: Black Friday",
+   "style": "story",
+   "palette": "gold",
+   "hook": "Black Friday, checked",
    "trend": null,
-   "card": "/social/cards/2026-11-27-fri.jpg",
-   "thumb": "/social/thumbs/2026-11-27-fri.jpg",
-   "video": "https://github.com/557tggwysr-ui/golfpriceai-site/releases/download/pack-2026-11-23/2026-11-27-fri.mp4",
-   "link": "https://golfpriceai.com/",
-   "headline": "Rangefinder or GPS watch?",
-   "sub": "Settle it in the comments",
+   "card": "/social/cards/2026-11-27-reactive3.jpg",
+   "thumb": "/social/thumbs/2026-11-27-reactive3.jpg",
+   "video": "https://github.com/557tggwysr-ui/golfpriceai-site/releases/download/pack-2026-11-23/2026-11-27-reactive3.mp4",
+   "link": "https://golfpriceai.com/prices/black-friday/?utm_source=social&utm_medium=reactive&utm_campaign=black-friday-day",
+   "headline": "",
+   "sub": "",
    "captions": {
-    "instagram": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one. #golf #golftok #golfuk",
+    "instagram": "#Ad It's Black Friday, so here's one price we can actually back up 📋⛳\n\nThe Cobra Darkspeed LS Driver was £419 on 4 September. Today it's £229, the lowest price we've tracked, compared across multiple UK retailers and checked every 6 hours.\n\nNo made-up \"was\" prices. Just what it cost then and what it costs now. Link in bio.\n\n#BlackFriday #BlackFridayGolf #golf #golfuk #golfdeals #golfgear #golfer",
+    "tiktok": "#Ad It's Black Friday, so here's one price we can actually back up 📋⛳\n\nThe Cobra Darkspeed LS Driver was £419 on 4 September. Today it's £229, the lowest price we've tracked, compared across multiple UK retailers and checked every 6 hours.\n\nNo made-up \"was\" prices. Just what it cost then and what it costs now. Link in bio. #BlackFriday #BlackFridayGolf #golf #golftok #golfuk",
     "youtube": {
-     "title": "Rangefinder or GPS watch? ⛳ Answer in the comments #golf #shorts",
-     "description": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one.\nhttps://golfpriceai.com/\n#golf #golfuk #shorts"
+     "title": "Black Friday, checked 📋 Cobra Darkspeed LS: £229, lowest we've tracked #shorts",
+     "description": "#Ad It's Black Friday, so here's one price we can actually back up 📋⛳\n\nThe Cobra Darkspeed LS Driver was £419 on 4 September. Today it's £229, the lowest price we've tracked, compared across multiple UK retailers and checked every 6 hours.\n\nNo made-up \"was\" prices. Just what it cost then and what it costs now. \n\n#BlackFriday #BlackFridayGolf #golf #golfuk #golfdeals #golfgear\nhttps://golfpriceai.com/prices/black-friday/?utm_source=social&utm_medium=reactive&utm_campaign=black-friday-day\n#golf #golfuk #shorts"
     },
-    "x": "Rangefinder or GPS watch? ⛳ Settle it in the comments",
+    "x": "#Ad Black Friday: the Cobra Darkspeed LS Driver was £419 on 4 September and is £229 today, the lowest price we've tracked. Real price history, multiple UK retailers. golfpriceai.com/prices/black-friday #BlackFriday #BlackFridayGolf",
     "pinterest": {
-     "title": "Rangefinder or GPS watch? Settle it in the comments",
-     "description": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one.",
-     "link": "https://golfpriceai.com/"
+     "title": "Black Friday, checked: £229 Cobra Darkspeed LS Driver",
+     "description": "#Ad It's Black Friday, so here's one price we can actually back up 📋⛳\n\nThe Cobra Darkspeed LS Driver was £419 on 4 September. Today it's £229, the lowest price we've tracked, compared across multiple UK retailers and checked every 6 hours.\n\nNo made-up \"was\" prices. Just what it cost then and what it costs now. \n\n#BlackFriday #BlackFridayGolf #golf #golfuk #golfdeals #golfgear",
+     "link": "https://golfpriceai.com/prices/black-friday/?utm_source=social&utm_medium=reactive&utm_campaign=black-friday-day"
     },
-    "bluesky": "Rangefinder or GPS watch? ⛳ Settle it in the comments"
+    "bluesky": "#Ad Black Friday: the Cobra Darkspeed LS Driver was £419 on 4 September and is £229 today, the lowest price we've tracked. Real price history, multiple UK retailers. golfpriceai.com/prices/black-friday #BlackFriday #BlackFridayGolf"
    },
    "sound": null,
    "trendingFormats": [],
    "posted": {},
    "quality": [],
-   "format": "community",
-   "formatName": "Community / UGC",
-   "objective": "engagement",
+   "format": "data",
+   "formatName": "Data nobody noticed",
+   "objective": "trust",
    "series": null,
    "ep": null,
+   "ad": true,
+   "slot": "12:30",
    "times": {
     "Instagram": "12:30 (posts itself once ticked)",
     "TikTok": "12:30",
     "YouTube Shorts": "12:30",
     "X": "12:30",
-    "Bluesky": "12:30",
+    "Bluesky": "12:30 (posts itself once ticked)",
     "Pinterest": "20:00"
    },
-   "slot": "12:30"
+   "tags": [
+    "#BlackFriday",
+    "#BlackFridayGolf"
+   ]
   },
   {
    "id": "2026-11-27-moment",
@@ -371,45 +376,96 @@
    ]
   },
   {
-   "id": "2026-11-27-reactive3",
+   "id": "2026-11-27-hero",
    "date": "2026-11-27",
-   "theme": "Reactive: Black Friday",
-   "style": "story",
-   "palette": "gold",
-   "hook": "Black Friday, checked",
+   "theme": "Black Friday hero",
+   "style": "prebuilt",
+   "palette": "brand",
+   "hook": "Half of golf prices are the same as in September",
    "trend": null,
-   "card": "/social/cards/2026-11-27-reactive3.jpg",
-   "thumb": "/social/thumbs/2026-11-27-reactive3.jpg",
-   "video": "https://github.com/557tggwysr-ui/golfpriceai-site/releases/download/pack-2026-11-23/2026-11-27-reactive3.mp4",
-   "link": "https://golfpriceai.com/prices/black-friday/?utm_source=social&utm_medium=reactive&utm_campaign=black-friday-day",
-   "headline": "",
+   "card": "/social/cards/2026-11-27-hero.jpg",
+   "thumb": "/social/thumbs/2026-11-27-hero.jpg",
+   "video": "https://golfpriceai.com/assets/social/launch/black-friday-honestly.mp4",
+   "link": "https://golfpriceai.com/prices/black-friday/?utm_source=social&utm_medium=hero&utm_campaign=black-friday-day",
+   "headline": "Black Friday, honestly",
    "sub": "",
    "captions": {
-    "instagram": "#Ad It's Black Friday, so here's one price we can actually back up 📋⛳\n\nThe Cobra Darkspeed LS Driver was £419 on 4 September. Today it's £229, the lowest price we've tracked, compared across multiple UK retailers and checked every 6 hours.\n\nNo made-up \"was\" prices. Just what it cost then and what it costs now. Link in bio.\n\n#BlackFriday #BlackFridayGolf #golf #golfuk #golfdeals #golfgear #golfer",
-    "tiktok": "#Ad It's Black Friday, so here's one price we can actually back up 📋⛳\n\nThe Cobra Darkspeed LS Driver was £419 on 4 September. Today it's £229, the lowest price we've tracked, compared across multiple UK retailers and checked every 6 hours.\n\nNo made-up \"was\" prices. Just what it cost then and what it costs now. Link in bio. #BlackFriday #BlackFridayGolf #golf #golftok #golfuk",
+    "instagram": "#Ad Black Friday, honestly 📋\n\nWe track 1,398 golf prices. Half of them are the same today as in early September. But 156 are genuinely 20%+ cheaper, and these 5 are at the lowest price we've tracked:\n\n⛳ Cobra KING Tec Hybrid: £139.95\n⛳ Mizuno Pro Fli-Hi Utility Iron: £129\n⛳ Wilson DYNAPWR Irons 5-PW: £399\n⛳ Ogio Shadow Stand Bag: £179.10\n⛳ Garmin Approach S44: £169\n\nCompared across multiple UK retailers, checked every 6 hours. Send this to the mate who's about to panic-buy a driver. Link in bio.\n\n#BlackFriday #BlackFridayGolf #golf #golfuk #golfdeals #golfgear #golfer",
+    "tiktok": "#Ad Black Friday, honestly 📋\n\nWe track 1,398 golf prices. Half of them are the same today as in early September. But 156 are genuinely 20%+ cheaper, and these 5 are at the lowest price we've tracked:\n\n⛳ Cobra KING Tec Hybrid: £139.95\n⛳ Mizuno Pro Fli-Hi Utility Iron: £129\n⛳ Wilson DYNAPWR Irons 5-PW: £399\n⛳ Ogio Shadow Stand Bag: £179.10\n⛳ Garmin Approach S44: £169\n\nCompared across multiple UK retailers, checked every 6 hours. Send this to the mate who's about to panic-buy a driver. Link in bio. #BlackFriday #BlackFridayGolf #golf #golftok #golfuk",
     "youtube": {
-     "title": "Black Friday, checked 📋 Cobra Darkspeed LS Driver: £419 on 4 Sept, £229 today, lowest we've tra",
-     "description": "#Ad It's Black Friday, so here's one price we can actually back up 📋⛳\n\nThe Cobra Darkspeed LS Driver was £419 on 4 September. Today it's £229, the lowest price we've tracked, compared across multiple UK retailers and checked every 6 hours.\n\nNo made-up \"was\" prices. Just what it cost then and what it costs now. \n\n#BlackFriday #BlackFridayGolf #golf #golfuk #golfdeals #golfgear\nhttps://golfpriceai.com/prices/black-friday/?utm_source=social&utm_medium=reactive&utm_campaign=black-friday-day\n#golf #golfuk #shorts"
+     "title": "Black Friday, honestly: half of golf prices haven't budged 📋 #shorts",
+     "description": "#Ad Black Friday, honestly 📋\n\nWe track 1,398 golf prices. Half of them are the same today as in early September. But 156 are genuinely 20%+ cheaper, and these 5 are at the lowest price we've tracked:\n\n⛳ Cobra KING Tec Hybrid: £139.95\n⛳ Mizuno Pro Fli-Hi Utility Iron: £129\n⛳ Wilson DYNAPWR Irons 5-PW: £399\n⛳ Ogio Shadow Stand Bag: £179.10\n⛳ Garmin Approach S44: £169\n\nCompared across multiple UK retailers, checked every 6 hours. Send this to the mate who's about to panic-buy a driver.\nhttps://golfpriceai.com/prices/black-friday/?utm_source=social&utm_medium=hero&utm_campaign=black-friday-day\n#BlackFriday #golf #golfuk #shorts"
     },
-    "x": "#Ad Black Friday: the Cobra Darkspeed LS Driver was £419 on 4 September and is £229 today, the lowest price we've tracked. Real price history, multiple UK retailers. golfpriceai.com/prices/black-friday #BlackFriday #BlackFridayGolf",
+    "x": "#Ad Black Friday, honestly: half of the 1,398 golf prices we track are the same as in early September. 156 are genuinely 20%+ cheaper. The 5 best: golfpriceai.com/prices/black-friday #BlackFriday #BlackFridayGolf",
     "pinterest": {
-     "title": "",
-     "description": "#Ad It's Black Friday, so here's one price we can actually back up 📋⛳\n\nThe Cobra Darkspeed LS Driver was £419 on 4 September. Today it's £229, the lowest price we've tracked, compared across multiple UK retailers and checked every 6 hours.\n\nNo made-up \"was\" prices. Just what it cost then and what it costs now. \n\n#BlackFriday #BlackFridayGolf #golf #golfuk #golfdeals #golfgear",
-     "link": "https://golfpriceai.com/prices/black-friday/?utm_source=social&utm_medium=reactive&utm_campaign=black-friday-day"
+     "title": "Black Friday golf, honestly: 5 genuine lowest prices",
+     "description": "#Ad Black Friday, honestly 📋\n\nWe track 1,398 golf prices. Half of them are the same today as in early September. But 156 are genuinely 20%+ cheaper, and these 5 are at the lowest price we've tracked:\n\n⛳ Cobra KING Tec Hybrid: £139.95\n⛳ Mizuno Pro Fli-Hi Utility Iron: £129\n⛳ Wilson DYNAPWR Irons 5-PW: £399\n⛳ Ogio Shadow Stand Bag: £179.10\n⛳ Garmin Approach S44: £169\n\nCompared across multiple UK retailers, checked every 6 hours. Send this to the mate who's about to panic-buy a driver.",
+     "link": "https://golfpriceai.com/prices/black-friday/?utm_source=social&utm_medium=hero&utm_campaign=black-friday-day"
     },
-    "bluesky": "#Ad Black Friday: the Cobra Darkspeed LS Driver was £419 on 4 September and is £229 today, the lowest price we've tracked. Real price history, multiple UK retailers. golfpriceai.com/prices/black-friday #BlackFriday #BlackFridayGolf"
+    "bluesky": "#Ad Black Friday, honestly 📋 Half of the 1,398 golf prices we track are the same as in early September. 156 are genuinely 20%+ cheaper; these 5 are at their lowest we've tracked. #BlackFriday"
    },
-   "sound": null,
+   "sound": "original (funk groove, cut on the 0.6s beat)",
    "trendingFormats": [],
    "posted": {},
    "quality": [],
    "format": "data",
    "formatName": "Data nobody noticed",
-   "objective": "trust",
+   "objective": "conversions",
    "series": null,
    "ep": null,
-   "ad": true,
-   "slot": "12:30",
+   "tags": [
+    "#BlackFriday"
+   ],
+   "hasPrices": true,
+   "times": {
+    "Instagram": "19:30 (posts itself once ticked)",
+    "TikTok": "19:30",
+    "YouTube Shorts": "19:30",
+    "X": "19:30",
+    "Bluesky": "19:30 (posts itself once ticked)",
+    "Pinterest": "20:30"
+   },
+   "slot": "19:30",
+   "ad": true
+  },
+  {
+   "id": "2026-11-27-fri",
+   "date": "2026-11-28",
+   "theme": "Community question",
+   "style": "headline",
+   "palette": "brand",
+   "hook": "Rangefinder or GPS watch?",
+   "trend": null,
+   "card": "/social/cards/2026-11-27-fri.jpg",
+   "thumb": "/social/thumbs/2026-11-27-fri.jpg",
+   "video": "https://github.com/557tggwysr-ui/golfpriceai-site/releases/download/pack-2026-11-23/2026-11-27-fri.mp4",
+   "link": "https://golfpriceai.com/",
+   "headline": "Rangefinder or GPS watch?",
+   "sub": "Settle it in the comments",
+   "captions": {
+    "instagram": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one.\n\n#golf #golfuk #golfgear #golfer",
+    "tiktok": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one. #golf #golftok #golfuk",
+    "youtube": {
+     "title": "Rangefinder or GPS watch? ⛳ Answer in the comments #golf #shorts",
+     "description": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one.\nhttps://golfpriceai.com/\n#golf #golfuk #shorts"
+    },
+    "x": "Rangefinder or GPS watch? ⛳ Settle it in the comments",
+    "pinterest": {
+     "title": "Rangefinder or GPS watch? Settle it in the comments",
+     "description": "Rangefinder or GPS watch? ⛳ Settle it in the comments. We're reading every one.",
+     "link": "https://golfpriceai.com/"
+    },
+    "bluesky": "Rangefinder or GPS watch? ⛳ Settle it in the comments"
+   },
+   "sound": null,
+   "trendingFormats": [],
+   "posted": {},
+   "quality": [],
+   "format": "community",
+   "formatName": "Community / UGC",
+   "objective": "engagement",
+   "series": null,
+   "ep": null,
    "times": {
     "Instagram": "12:30 (posts itself once ticked)",
     "TikTok": "12:30",
@@ -418,10 +474,7 @@
     "Bluesky": "12:30 (posts itself once ticked)",
     "Pinterest": "20:00"
    },
-   "tags": [
-    "#BlackFriday",
-    "#BlackFridayGolf"
-   ]
+   "slot": "12:30"
   },
   {
    "id": "2026-11-28-sat",
@@ -473,58 +526,6 @@
     "Pinterest": "20:00"
    },
    "slot": "19:30"
-  },
-  {
-   "id": "2026-11-29-hishers",
-   "date": "2026-11-29",
-   "theme": "His & Hers",
-   "style": "comic",
-   "palette": "brand",
-   "hook": "He hid 300 golf balls in the sock drawer",
-   "trend": null,
-   "card": "/social/cards/2026-11-29-hishers.jpg",
-   "thumb": "/social/thumbs/2026-11-29-hishers.jpg",
-   "video": "https://github.com/557tggwysr-ui/golfpriceai-site/releases/download/pack-2026-11-23/2026-11-29-hishers.mp4",
-   "link": "https://golfpriceai.com/prices/golf-balls/?utm_source=social&utm_medium=hishers&utm_campaign=ep2",
-   "headline": "His & Hers: The Golf Balls",
-   "sub": "Episode 2",
-   "captions": {
-    "instagram": "He hid 300 golf balls in the sock drawer 😳 Nobody checks the sock drawer... right? His & Hers, episode 2: The Golf Balls. Send this to the one who hides golf kit around the house 👀 Golf balls compared across multiple UK retailers: link in bio.\n\n#HisAndHers #golfhumour #golfcouple #golflife #golfer #golf",
-    "tiktok": "He hid 300 golf balls in the sock drawer 😳 Nobody checks the sock drawer... right? His & Hers, episode 2: The Golf Balls. Send this to the one who hides golf kit around the house 👀 Golf balls compared across multiple UK retailers: link in bio. #HisAndHers #golftok #golfhumor #couplecomedy #golf",
-    "youtube": {
-     "title": "He hid 300 golf balls in the sock drawer 😳 His & Hers EP2 #golf #shorts",
-     "description": "He hid 300 golf balls in the sock drawer 😳 Nobody checks the sock drawer... right? His & Hers, episode 2: The Golf Balls. Send this to the one who hides golf kit around the house 👀 Golf balls compared across multiple UK retailers: \nhttps://golfpriceai.com/prices/golf-balls/?utm_source=social&utm_medium=hishers&utm_campaign=ep2\n#HisAndHers #golf #shorts"
-    },
-    "x": "He hid 300 golf balls in the sock drawer. Nobody checks the sock drawer... right? 😳 His & Hers, EP2 ⛳\nhttps://golfpriceai.com/prices/golf-balls/?utm_source=social&utm_medium=hishers&utm_campaign=ep2 #HisAndHers",
-    "bluesky": "He hid 300 golf balls in the sock drawer. Nobody checks the sock drawer... right? 😳 His & Hers, EP2 ⛳\nhttps://golfpriceai.com/prices/golf-balls/?utm_source=social&utm_medium=hishers&utm_campaign=ep2 #HisAndHers",
-    "pinterest": {
-     "title": "His & Hers: The Golf Balls (a golf couple comic)",
-     "description": "He hid 300 golf balls in the sock drawer 😳 Nobody checks the sock drawer... right? His & Hers, episode 2: The Golf Balls. Send this to the one who hides golf kit around the house 👀 Golf balls compared across multiple UK retailers: ",
-     "link": "https://golfpriceai.com/prices/golf-balls/?utm_source=social&utm_medium=hishers&utm_campaign=ep2"
-    }
-   },
-   "sound": null,
-   "trendingFormats": [],
-   "posted": {},
-   "quality": [],
-   "series": "His & Hers",
-   "format": "hishers",
-   "formatName": "Comedy comic",
-   "objective": "reach",
-   "hisHersEp": 2,
-   "tags": [
-    "#HisAndHers"
-   ],
-   "slot": "19:30",
-   "hasPrices": false,
-   "times": {
-    "Instagram": "19:30 (posts itself once ticked)",
-    "TikTok": "19:00",
-    "YouTube Shorts": "18:00",
-    "X": "09:30",
-    "Bluesky": "19:30 (posts itself once ticked)",
-    "Pinterest": "20:30"
-   }
   },
   {
    "id": "2026-11-29-sun",
@@ -583,6 +584,58 @@
    "slot": "12:30",
    "hasPrices": true,
    "ad": true
+  },
+  {
+   "id": "2026-11-29-hishers",
+   "date": "2026-11-29",
+   "theme": "His & Hers",
+   "style": "comic",
+   "palette": "brand",
+   "hook": "He hid 300 golf balls in the sock drawer",
+   "trend": null,
+   "card": "/social/cards/2026-11-29-hishers.jpg",
+   "thumb": "/social/thumbs/2026-11-29-hishers.jpg",
+   "video": "https://github.com/557tggwysr-ui/golfpriceai-site/releases/download/pack-2026-11-23/2026-11-29-hishers.mp4",
+   "link": "https://golfpriceai.com/prices/golf-balls/?utm_source=social&utm_medium=hishers&utm_campaign=ep2",
+   "headline": "His & Hers: The Golf Balls",
+   "sub": "Episode 2",
+   "captions": {
+    "instagram": "He hid 300 golf balls in the sock drawer 😳 Nobody checks the sock drawer... right? His & Hers, episode 2: The Golf Balls. Send this to the one who hides golf kit around the house 👀 Golf balls compared across multiple UK retailers: link in bio.\n\n#HisAndHers #golfhumour #golfcouple #golflife #golfer #golf",
+    "tiktok": "He hid 300 golf balls in the sock drawer 😳 Nobody checks the sock drawer... right? His & Hers, episode 2: The Golf Balls. Send this to the one who hides golf kit around the house 👀 Golf balls compared across multiple UK retailers: link in bio. #HisAndHers #golftok #golfhumor #couplecomedy #golf",
+    "youtube": {
+     "title": "He hid 300 golf balls in the sock drawer 😳 His & Hers EP2 #golf #shorts",
+     "description": "He hid 300 golf balls in the sock drawer 😳 Nobody checks the sock drawer... right? His & Hers, episode 2: The Golf Balls. Send this to the one who hides golf kit around the house 👀 Golf balls compared across multiple UK retailers: \nhttps://golfpriceai.com/prices/golf-balls/?utm_source=social&utm_medium=hishers&utm_campaign=ep2\n#HisAndHers #golf #shorts"
+    },
+    "x": "He hid 300 golf balls in the sock drawer. Nobody checks the sock drawer... right? 😳 His & Hers, EP2 ⛳\nhttps://golfpriceai.com/prices/golf-balls/?utm_source=social&utm_medium=hishers&utm_campaign=ep2 #HisAndHers",
+    "bluesky": "He hid 300 golf balls in the sock drawer. Nobody checks the sock drawer... right? 😳 His & Hers, EP2 ⛳\nhttps://golfpriceai.com/prices/golf-balls/?utm_source=social&utm_medium=hishers&utm_campaign=ep2 #HisAndHers",
+    "pinterest": {
+     "title": "His & Hers: The Golf Balls (a golf couple comic)",
+     "description": "He hid 300 golf balls in the sock drawer 😳 Nobody checks the sock drawer... right? His & Hers, episode 2: The Golf Balls. Send this to the one who hides golf kit around the house 👀 Golf balls compared across multiple UK retailers: ",
+     "link": "https://golfpriceai.com/prices/golf-balls/?utm_source=social&utm_medium=hishers&utm_campaign=ep2"
+    }
+   },
+   "sound": null,
+   "trendingFormats": [],
+   "posted": {},
+   "quality": [],
+   "series": "His & Hers",
+   "format": "hishers",
+   "formatName": "Comedy comic",
+   "objective": "reach",
+   "hisHersEp": 2,
+   "tags": [
+    "#HisAndHers"
+   ],
+   "slot": "19:30",
+   "hasPrices": false,
+   "times": {
+    "Instagram": "19:30 (posts itself once ticked)",
+    "TikTok": "19:00",
+    "YouTube Shorts": "18:00",
+    "X": "09:30",
+    "Bluesky": "19:30 (posts itself once ticked)",
+    "Pinterest": "20:30"
+   }
   },
   {
    "id": "2026-11-30-mon",
@@ -832,58 +885,6 @@
    "slot": "12:30"
   },
   {
-   "id": "2026-12-06-hishers",
-   "date": "2026-12-06",
-   "theme": "His & Hers",
-   "style": "comic",
-   "palette": "brand",
-   "hook": "She signed for his parcel",
-   "trend": null,
-   "card": "/social/cards/2026-12-06-hishers.jpg",
-   "thumb": "/social/thumbs/2026-12-06-hishers.jpg",
-   "video": "https://github.com/557tggwysr-ui/golfpriceai-site/releases/download/pack-2026-11-30/2026-12-06-hishers.mp4",
-   "link": "https://golfpriceai.com/prices/rangefinders/?utm_source=social&utm_medium=hishers&utm_campaign=ep3",
-   "headline": "His & Hers: The Rangefinder",
-   "sub": "Episode 3",
-   "captions": {
-    "instagram": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, episode 3: The Rangefinder. Tag the person who'd do exactly this 😂 Rangefinders compared across multiple UK retailers: link in bio.\n\n#HisAndHers #golfhumour #golfcouple #golflife #golfer #golf",
-    "tiktok": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, episode 3: The Rangefinder. Tag the person who'd do exactly this 😂 Rangefinders compared across multiple UK retailers: link in bio. #HisAndHers #golftok #golfhumor #couplecomedy #golf",
-    "youtube": {
-     "title": "She signed for his golf parcel 📦 His & Hers EP3 #golf #shorts",
-     "description": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, episode 3: The Rangefinder. Tag the person who'd do exactly this 😂 Rangefinders compared across multiple UK retailers: \nhttps://golfpriceai.com/prices/rangefinders/?utm_source=social&utm_medium=hishers&utm_campaign=ep3\n#HisAndHers #golf #shorts"
-    },
-    "x": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, EP3 ⛳\nhttps://golfpriceai.com/prices/rangefinders/?utm_source=social&utm_medium=hishers&utm_campaign=ep3 #HisAndHers",
-    "bluesky": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, EP3 ⛳\nhttps://golfpriceai.com/prices/rangefinders/?utm_source=social&utm_medium=hishers&utm_campaign=ep3 #HisAndHers",
-    "pinterest": {
-     "title": "His & Hers: The Rangefinder (a golf couple comic)",
-     "description": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, episode 3: The Rangefinder. Tag the person who'd do exactly this 😂 Rangefinders compared across multiple UK retailers: ",
-     "link": "https://golfpriceai.com/prices/rangefinders/?utm_source=social&utm_medium=hishers&utm_campaign=ep3"
-    }
-   },
-   "sound": null,
-   "trendingFormats": [],
-   "posted": {},
-   "quality": [],
-   "series": "His & Hers",
-   "format": "hishers",
-   "formatName": "Comedy comic",
-   "objective": "reach",
-   "hisHersEp": 3,
-   "tags": [
-    "#HisAndHers"
-   ],
-   "slot": "19:30",
-   "hasPrices": false,
-   "times": {
-    "Instagram": "19:30 (posts itself once ticked)",
-    "TikTok": "19:00",
-    "YouTube Shorts": "18:00",
-    "X": "09:30",
-    "Bluesky": "19:30 (posts itself once ticked)",
-    "Pinterest": "20:30"
-   }
-  },
-  {
    "id": "2026-12-06-sun",
    "date": "2026-12-06",
    "theme": "Tips carousel",
@@ -938,6 +939,58 @@
     "Pinterest": "20:30"
    },
    "slot": "12:30"
+  },
+  {
+   "id": "2026-12-06-hishers",
+   "date": "2026-12-06",
+   "theme": "His & Hers",
+   "style": "comic",
+   "palette": "brand",
+   "hook": "She signed for his parcel",
+   "trend": null,
+   "card": "/social/cards/2026-12-06-hishers.jpg",
+   "thumb": "/social/thumbs/2026-12-06-hishers.jpg",
+   "video": "https://github.com/557tggwysr-ui/golfpriceai-site/releases/download/pack-2026-11-30/2026-12-06-hishers.mp4",
+   "link": "https://golfpriceai.com/prices/rangefinders/?utm_source=social&utm_medium=hishers&utm_campaign=ep3",
+   "headline": "His & Hers: The Rangefinder",
+   "sub": "Episode 3",
+   "captions": {
+    "instagram": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, episode 3: The Rangefinder. Tag the person who'd do exactly this 😂 Rangefinders compared across multiple UK retailers: link in bio.\n\n#HisAndHers #golfhumour #golfcouple #golflife #golfer #golf",
+    "tiktok": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, episode 3: The Rangefinder. Tag the person who'd do exactly this 😂 Rangefinders compared across multiple UK retailers: link in bio. #HisAndHers #golftok #golfhumor #couplecomedy #golf",
+    "youtube": {
+     "title": "She signed for his golf parcel 📦 His & Hers EP3 #golf #shorts",
+     "description": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, episode 3: The Rangefinder. Tag the person who'd do exactly this 😂 Rangefinders compared across multiple UK retailers: \nhttps://golfpriceai.com/prices/rangefinders/?utm_source=social&utm_medium=hishers&utm_campaign=ep3\n#HisAndHers #golf #shorts"
+    },
+    "x": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, EP3 ⛳\nhttps://golfpriceai.com/prices/rangefinders/?utm_source=social&utm_medium=hishers&utm_campaign=ep3 #HisAndHers",
+    "bluesky": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, EP3 ⛳\nhttps://golfpriceai.com/prices/rangefinders/?utm_source=social&utm_medium=hishers&utm_campaign=ep3 #HisAndHers",
+    "pinterest": {
+     "title": "His & Hers: The Rangefinder (a golf couple comic)",
+     "description": "She signed for his parcel 📦 By the time he got home, she'd already found the distance. His & Hers, episode 3: The Rangefinder. Tag the person who'd do exactly this 😂 Rangefinders compared across multiple UK retailers: ",
+     "link": "https://golfpriceai.com/prices/rangefinders/?utm_source=social&utm_medium=hishers&utm_campaign=ep3"
+    }
+   },
+   "sound": null,
+   "trendingFormats": [],
+   "posted": {},
+   "quality": [],
+   "series": "His & Hers",
+   "format": "hishers",
+   "formatName": "Comedy comic",
+   "objective": "reach",
+   "hisHersEp": 3,
+   "tags": [
+    "#HisAndHers"
+   ],
+   "slot": "19:30",
+   "hasPrices": false,
+   "times": {
+    "Instagram": "19:30 (posts itself once ticked)",
+    "TikTok": "19:00",
+    "YouTube Shorts": "18:00",
+    "X": "09:30",
+    "Bluesky": "19:30 (posts itself once ticked)",
+    "Pinterest": "20:30"
+   }
   }
  ]
 }
