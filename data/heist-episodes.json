@@ -538,12 +538,12 @@
        "who": "him",
        "text": "Just leaving a little hint.",
        "box": [
-        0.68,
-        0.12
+        0.55,
+        0.07
        ],
        "to": [
-        0.34,
-        0.3
+        0.32,
+        0.21
        ]
       }
      ]
@@ -561,24 +561,24 @@
        "who": "her",
        "text": "Socks! For keeping your golf balls in.",
        "box": [
-        0.7,
-        0.12
+        0.5,
+        0.07
        ],
        "to": [
-        0.72,
-        0.33
+        0.78,
+        0.4
        ]
       },
       {
        "who": "him",
        "text": "Lovely. Thanks.",
        "box": [
-        0.3,
-        0.64
+        0.22,
+        0.2
        ],
        "to": [
-        0.3,
-        0.36
+        0.27,
+        0.38
        ]
       }
      ]
@@ -597,24 +597,24 @@
        "who": "her",
        "text": "Go on, then. One more.",
        "box": [
-        0.7,
-        0.12
+        0.45,
+        0.07
        ],
        "to": [
-        0.72,
-        0.33
+        0.7,
+        0.36
        ]
       },
       {
        "who": "him",
        "text": "Is that... a driver?!",
        "box": [
-        0.3,
-        0.62
+        0.2,
+        0.17
        ],
        "to": [
-        0.3,
-        0.34
+        0.22,
+        0.36
        ]
       }
      ]
@@ -632,11 +632,11 @@
        "who": "him",
        "text": "Best Christmas ever.",
        "box": [
-        0.3,
-        0.62
+        0.25,
+        0.17
        ],
        "to": [
-        0.3,
+        0.25,
         0.3
        ]
       },
@@ -644,12 +644,12 @@
        "who": "her",
        "text": "I've kept the receipt. Hit it straight.",
        "box": [
-        0.68,
-        0.1
+        0.5,
+        0.07
        ],
        "to": [
-        0.72,
-        0.28
+        0.78,
+        0.3
        ]
       }
      ]
