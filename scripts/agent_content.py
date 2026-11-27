@@ -1163,6 +1163,8 @@ def reel_container(uid, tok, p):
     d = date.fromisoformat(p["date"])
     monday = d - timedelta(days=d.weekday())
     url = f"https://github.com/{repo}/releases/download/pack-{monday}/{p['id']}.mp4"
+    if str(p.get("video", "")).startswith(SITE):  # a film hosted on the site itself (e.g. a hero made by Claude)
+        url = p["video"]
     s, _, txt = http(f"{ig_api()}/{uid}/media", method="POST",
                      body={"media_type": "REELS", "video_url": url, "caption": p["captions"]["instagram"],
                            "share_to_feed": "true", "cover_url": SITE + (p.get("thumb") or p["card"]), "access_token": tok})
