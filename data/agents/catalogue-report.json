@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-27T01:40Z",
+ "generated": "2026-11-27T13:20Z",
  "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
- "listings": 81670,
- "models": 3333,
+ "listings": 81671,
+ "models": 3297,
  "feeds": {
   "awin-affordablegolf": 39224,
   "awin-clarkesgolf": 20321,
-  "awin-majorgolf": 13620,
+  "awin-majorgolf": 13621,
   "awin-clickgolf": 3476,
   "awin-scottsdalegolf": 3178,
   "awin-callawaypreowned": 999,
@@ -14,13 +14,8 @@
   "awin-payntr": 353
  },
  "feedsShrunk": [],
- "misfiledModels": 7,
+ "misfiledModels": 6,
  "misfiled": [
-  {
-   "page": "/prices/accra-fx-3-0-300-series-shaft-driver/",
-   "name": "ACCRA FX 3.0 300 Series Shaft Driver",
-   "filedAs": "driver"
-  },
   {
    "page": "/prices/cobra-radspeed-s-shaft-irons/",
    "name": "Cobra RADSPEED-S Shaft Irons",
@@ -52,7 +47,7 @@
    "filedAs": "wedge"
   }
  ],
- "suspectPrices": 97,
+ "suspectPrices": 96,
  "pagesShowingSuspectPrice": 18,
  "pagesToCheck": [
   {
@@ -141,8 +136,8 @@
   },
   {
    "page": "/prices/ping-s259-wedge/",
-   "price": 179.0,
-   "listing": "S259 Golf Wedges - Chrome",
+   "price": 161.1,
+   "listing": "Ping S259 Golf Wedges - Chrome",
    "reason": "under 45% of the same model elsewhere (median £507.00)"
   },
   {
@@ -555,7 +550,7 @@
   }
  ],
  "deadListings45d": 718,
- "unmatchedClubs": 1454,
+ "unmatchedClubs": 1444,
  "newLaunchCandidates": [
   {
    "brand": "Cleveland Golf",
@@ -589,9 +584,9 @@
     "Titleist Golf GTS300 Mini Driver 2026",
     "Titleist Vokey SM11 Jet Black Wedge 2026",
     "Titleist Scotty Cameron Phantom 9R Golf Putter 2026",
-    "Titleist T350 Golf Irons",
-    "Titleist T250 Golf Irons",
-    "Titleist Scotty Cameron Studio Style Santa Fe Golf Putter 2026"
+    "Titleist Scotty Cameron Studio Style Santa Fe Golf Putter 2026",
+    "Titleist Golf T250·U Utility Iron 2026",
+    "Titleist Scotty Cameron Phantom 9.2R Golf Putter 2026"
    ]
   },
   {
@@ -604,19 +599,6 @@
     "MacGregor Golf Men's ZT Plus Wedge 2026",
     "MacGregor Golf ZT Plus Hybrid 2026",
     "MacGregor Golf ZT Plus Irons 2026"
-   ]
-  },
-  {
-   "brand": "TaylorMade",
-   "names": [
-    "TaylorMade Golf Qi4D Hybrid Rescue 2026",
-    "TaylorMade Tour Response Stripe Golf Balls 2026",
-    "TaylorMade P770 Golf Irons",
-    "TaylorMade Golf Qi4D Max Fairway 2026",
-    "TaylorMade Golf Qi MAX Irons 2026",
-    "TaylorMade TP5 Golf Balls 2026",
-    "TaylorMade TP5x Golf Balls 2026",
-    "Taylormade 2026 Distance Plus Golf Balls | 3 For 2"
    ]
   },
   {
@@ -646,12 +628,27 @@
     "Cobra Golf KING Wedge Silver 2026",
     "Cobra Golf KING Wedge Black 2026",
     "Cobra Golf KING X Wedge Silver 2026",
-    "Cobra Golf OPTM MAX X,K,D Driver 2026"
+    "Cobra Golf OPTM MAX X,K,D Driver 2026",
+    "Cobra RADSPEED-S Golf Adjustable Driver"
+   ]
+  },
+  {
+   "brand": "TaylorMade",
+   "names": [
+    "TaylorMade Golf Qi4D Hybrid Rescue 2026",
+    "TaylorMade Tour Response Stripe Golf Balls 2026",
+    "TaylorMade Golf Qi4D Max Fairway 2026",
+    "TaylorMade Golf Qi MAX Irons 2026",
+    "TaylorMade TP5 Golf Balls 2026",
+    "TaylorMade TP5x Golf Balls 2026",
+    "Taylormade 2026 Distance Plus Golf Balls | 3 For 2",
+    "Taylormade 2026 Distance Plus Yellow Golf Balls | 3 For 2"
    ]
   },
   {
    "brand": "Wilson",
    "names": [
+    "Wilson Golf Dynapwr Max Adjustable Driver",
     "Wilson Staff Model X TRK360 Golf Balls 2026",
     "Wilson Staff Model XB Golf Irons 2026",
     "Wilson Staff Model CB Forged Golf Irons 2026",
@@ -661,26 +658,23 @@
    ]
   },
   {
-   "brand": "Callaway",
-   "names": [
-    "Callaway Quantum Max OS Golf Irons",
-    "Callaway Apex Ti Fusion Golf Irons",
-    "Callaway Apex Ai 150 Golf Irons",
-    "Callaway Quantum Max Golf Irons"
-   ]
-  },
-  {
-   "brand": "Ping",
-   "names": [
-    "Ping G440 Golf Irons",
-    "Ping G Le4 Ladies Golf Irons"
-   ]
-  },
-  {
    "brand": "Bridgestone",
    "names": [
     "Bridgestone Tour B X Golf Balls 2026",
     "Bridgestone Tour B RXS Golf Balls 2026"
+   ]
+  },
+  {
+   "brand": "Ray Cook",
+   "names": [
+    "Ray Cook Silver Ray SR400 Black Putter 2026"
+   ]
+  },
+  {
+   "brand": "Srixon",
+   "names": [
+    "Srixon AD333 Golf Balls Double Dozen 24 Pack 2026",
+    "Srixon Golf ZXiR Irons 2026"
    ]
   }
  ],
