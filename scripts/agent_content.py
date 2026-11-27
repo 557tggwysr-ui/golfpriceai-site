@@ -1462,6 +1462,11 @@ def schedule_html(plan, today, weeks=5):
     return f"<details class='sched' open><summary>Schedule: the next {weeks} weeks</summary><ul>{''.join(rows)}</ul>{later_html}</details>"
 
 
+def _uk_now():
+    from zoneinfo import ZoneInfo
+    return now().astimezone(ZoneInfo("Europe/London")).strftime("%a %d %b %H:%M")
+
+
 def write_pack(plan):
     today = now().date()
     upcoming = [p for p in plan["posts"] if date.fromisoformat(p["date"]) >= today - timedelta(days=1)]
@@ -1524,10 +1529,11 @@ button{{background:#14211a;color:#fff;border:0;border-radius:8px;padding:6px 14p
 .sched .dt{{font-weight:700}}.sched .tm{{color:#777}}.sched small{{display:block;color:#888;font-size:12px}}.sched .fu{{color:#888}}.sched .mo .ti{{grid-column:2/4;font-weight:700;color:#8a5a00}}
 .st{{font-size:12px;font-weight:700;border-radius:999px;padding:2px 8px;white-space:nowrap}}.st.posted{{background:#e6f4e2;color:#2b7a1c}}.st.ok{{background:#e8f0fb;color:#1f4f99}}.st.held{{background:#fde8e8;color:#a32020}}.st.todo{{background:#fff3d6;color:#8a5a00}}
 .later{{font-size:13px;color:#555;margin:8px 2px 2px}}
+.bar{{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#f4f1ea;padding:6px 0}}.refresh{{flex:0 0 auto;font:700 15px/1 Inter,-apple-system,sans-serif;background:#3fae29;color:#fff;border:0;border-radius:999px;padding:11px 18px;cursor:pointer}}.refresh:active{{transform:scale(.97)}}
 @media(max-width:600px){{body{{padding:8px}}h1{{margin:6px 0}}.intro{{font-size:14px;margin:4px 0}}.post{{display:block;padding:10px;margin:8px 0}}.post::after{{content:"";display:block;clear:both}}
 .media{{float:left;width:96px;margin:0 10px 6px 0}}.media[open]{{float:none;width:100%;margin:0 0 8px}}.media[open] video{{max-width:100%}}.media summary span{{font-size:11px;padding:2px 7px;left:4px;bottom:4px}}
 .post h2{{font-size:17px}}.when{{font-size:13px}}.sub{{font-size:14px}}.times{{clear:both}}}}</style></head><body>
-<h1>Content pack</h1><p class="intro">Updated {now().strftime('%a %d %b %H:%M')} UTC. Tick posts in the "Content pack" GitHub issue; ticked posts go to Instagram and Bluesky at their time. Download the videos for TikTok, Shorts, X and Pinterest.</p>
+<div class="bar"><h1>Content pack</h1><button class="refresh" type="button" onclick="location.replace(location.pathname+'?r='+Date.now())">&#8635; Refresh</button></div><p class="intro">Updated {_uk_now()} UK time. Ticks, merges and Editor holds rebuild this page within a couple of minutes; tap Refresh to see them. Tick posts in the "Content pack" GitHub issue; ticked posts go to Instagram and Bluesky at their time. Download the videos for TikTok, Shorts, X and Pinterest.</p>
 {schedule_html(plan, today)}
 {trend_html}
 {''.join(cards) or '<p>No posts planned yet.</p>'}
@@ -1644,4 +1650,5 @@ def remake_guess():
 
 if __name__ == "__main__":
     mode = (sys.argv[1] if len(sys.argv) > 1 else "plan").lower()
-    {"plan": plan_week, "moment": moment, "post": post_today, "sound": add_sound_to_week, "resound": lambda: add_sound_to_week(redo=True), "remake": remake_guess, "hishers": his_hers_now}[mode]()
+    {"plan": plan_week, "moment": moment, "post": post_today, "sound": add_sound_to_week, "resound": lambda: add_sound_to_week(redo=True), "remake": remake_guess, "hishers": his_hers_now,
+     "pack": lambda: write_pack(load_plan())}[mode]()  # pack: just rebuild social/pack/ (ticks, merges, holds)

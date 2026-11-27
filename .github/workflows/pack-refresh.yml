@@ -1,0 +1,40 @@
+name: "Social: refresh the content pack page"
+
+# Rebuilds golfpriceai.com/social/pack/ (no videos, no posting) whenever something that
+# changes it happens: a merged change to the plan or the Editor's holds, or a tick in a
+# "content-pack" approval issue. John taps Refresh on the page to see it (added 27 Nov 2026).
+on:
+  push:
+    branches: [main]
+    paths: [data/agents/content-plan.json, data/agents/editor-holds.json, scripts/agent_content.py, .github/workflows/pack-refresh.yml]
+  issues:
+    types: [opened, edited, closed, reopened, labeled]
+  workflow_dispatch:
+
+concurrency: { group: agents-commit, cancel-in-progress: false }
+
+jobs:
+  pack:
+    if: github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'content-pack')
+    runs-on: ubuntu-latest
+    permissions: { contents: write, issues: read }
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install --quiet pillow numpy
+      - name: Rebuild the pack page
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/agent_content.py pack
+      - name: Save it
+        run: |
+          git config user.name "golfpriceai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add social/pack/index.html
+          if ! git diff --quiet --cached; then
+            git commit -m "Social: content pack page refreshed"
+            for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep $((i*5)); done
+          fi
