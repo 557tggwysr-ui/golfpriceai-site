@@ -1,5 +1,5 @@
 {
- "about": "His & Hers episode scripts (comic series; episode 1 was the original \"Golf Heist\" video about a new driver). Panels from data/heist-panels.json. 'box' and 'to' are fractions of the panel picture (outside 0-1 = above/below a framed panel): where the bubble sits and whose mouth its tail points at. 'narr' is the caption box (shown, not spoken: no voiceover). Episodes 2-3 use nature-documentary wording; from episode 4 the captions are traditional golf TV commentary laid over everyday life at home. 'hook' opens the video and leads every caption; captions ask for a send or a tag (shares are the biggest reach signal). An episode only goes into the weekly plan once all its panel pictures are in the repo.",
+ "about": "His & Hers episode scripts (comic series; episode 1 was the original \"Golf Heist\" video about a new driver). Panels from data/heist-panels.json. 'box' and 'to' are fractions of the panel picture (outside 0-1 = above/below a framed panel): where the bubble sits and whose mouth its tail points at. 'narr' is the caption box (shown, not spoken: no voiceover). Episodes 2-3 use nature-documentary wording; from episode 4 the captions are traditional golf TV commentary laid over everyday life at home. 'hook' opens the video and leads every caption; captions ask for a send or a tag (shares are the biggest reach signal). An episode only goes into the weekly plan once all its panel pictures are in the repo. 'eggs' lists the episode's Easter eggs: callbacks to earlier episodes hidden in the pictures or lines (e.g. the EP4 receipt framed on the wall, the EP2 sock-drawer golf balls); every episode from EP6 carries at least two. Running props so far: EP2 the sock-drawer golf balls, EP3 the rangefinder, EP4 the receipt and the empty irons box, EP5 her golf glove and travel mug. The commentator's sign-off from EP6: 'What a game this is.'",
  "episodes": [
   {
    "ep": 2,
@@ -512,6 +512,174 @@
     "#golfhumor",
     "#couplecomedy",
     "#wintergolf"
+   ]
+  },
+  {
+   "ep": 6,
+   "title": "The Stocking",
+   "cover_panel": 2,
+   "eggs": [
+    "EP4: the receipt, framed on the living-room wall (panels 1 and 4)",
+    "EP3: the rangefinder on the mantelpiece (panel 1)",
+    "EP2: socks 'for keeping your golf balls in' (panel 2 line)",
+    "EP4: 'I've kept the receipt' (panel 4 line)"
+   ],
+   "panels": [
+    {
+     "img": "assets/social/heist/ep06-1.jpg",
+     "focus": [
+      0.5,
+      0.45
+     ],
+     "narr_at": "bottom",
+     "narr": "Christmas Eve. He's gone long with the stocking. A very ambitious line.",
+     "say": [
+      {
+       "who": "him",
+       "text": "Just leaving a little hint.",
+       "box": [
+        0.68,
+        0.12
+       ],
+       "to": [
+        0.34,
+        0.3
+       ]
+      }
+     ]
+    },
+    {
+     "img": "assets/social/heist/ep06-2.jpg",
+     "focus": [
+      0.5,
+      0.45
+     ],
+     "narr_at": "bottom",
+     "narr": "Oh, that's come up well short. He'll be disappointed with that.",
+     "say": [
+      {
+       "who": "her",
+       "text": "Socks! For keeping your golf balls in.",
+       "box": [
+        0.7,
+        0.12
+       ],
+       "to": [
+        0.72,
+        0.33
+       ]
+      },
+      {
+       "who": "him",
+       "text": "Lovely. Thanks.",
+       "box": [
+        0.3,
+        0.64
+       ],
+       "to": [
+        0.3,
+        0.36
+       ]
+      }
+     ]
+    },
+    {
+     "img": "assets/social/heist/ep06-3.jpg",
+     "focus": [
+      0.5,
+      0.45
+     ],
+     "narr_at": "bottom",
+     "sting": true,
+     "narr": "Hang on. She's had one tucked away. Nobody saw this coming.",
+     "say": [
+      {
+       "who": "her",
+       "text": "Go on, then. One more.",
+       "box": [
+        0.7,
+        0.12
+       ],
+       "to": [
+        0.72,
+        0.33
+       ]
+      },
+      {
+       "who": "him",
+       "text": "Is that... a driver?!",
+       "box": [
+        0.3,
+        0.62
+       ],
+       "to": [
+        0.3,
+        0.34
+       ]
+      }
+     ]
+    },
+    {
+     "img": "assets/social/heist/ep06-4.jpg",
+     "focus": [
+      0.5,
+      0.45
+     ],
+     "narr_at": "bottom",
+     "narr": "A Christmas hole-in-one. What a game this is.",
+     "say": [
+      {
+       "who": "him",
+       "text": "Best Christmas ever.",
+       "box": [
+        0.3,
+        0.62
+       ],
+       "to": [
+        0.3,
+        0.3
+       ]
+      },
+      {
+       "who": "her",
+       "text": "I've kept the receipt. Hit it straight.",
+       "box": [
+        0.68,
+        0.1
+       ],
+       "to": [
+        0.72,
+        0.28
+       ]
+      }
+     ]
+    }
+   ],
+   "end": {
+    "lines": [
+     "Drivers, compared across multiple UK retailers.",
+     "Drop a hint. Pay less."
+    ],
+    "path": "/prices/drivers/"
+   },
+   "hook": "He's been hinting for a new driver all year",
+   "ig": "He's been hinting for a new driver all year 🎄 Did she finally crack? His & Hers, episode 6: The Stocking, our Christmas special. Spot the nods to earlier episodes 👀 Tag the one who needs the hint 🎁 Drivers compared across multiple UK retailers: link in bio.",
+   "x": "He's been hinting for a new driver all year 🎄 Did she finally crack? His & Hers, EP6: the Christmas special ⛳",
+   "yt": "He's been hinting for a new driver all year 🎄 His & Hers EP6",
+   "tags": [
+    "#HisAndHers",
+    "#golfhumour",
+    "#golfcouple",
+    "#golfchristmas",
+    "#golflife",
+    "#golf"
+   ],
+   "tt_tags": [
+    "#HisAndHers",
+    "#golftok",
+    "#golfhumor",
+    "#couplecomedy",
+    "#christmas"
    ]
   }
  ]
