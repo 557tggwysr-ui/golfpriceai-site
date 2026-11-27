@@ -6,11 +6,16 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 809.0,
+ "lowestNewPrice": 674.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 674.1,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 809.0,
@@ -34,30 +39,22 @@
  ],
  "history": {
   "daysTracked": 104,
-  "low": 149.0,
-  "high": 1336.0,
-  "average": 255.45,
-  "priceChanges": 4,
+  "low": 134.1,
+  "high": 749.0,
+  "average": 218.09,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
-    1002.0
-   ],
-   [
-    "2026-08-18",
-    835.0
-   ],
-   [
-    "2026-08-21",
-    1336.0
-   ],
-   [
-    "2026-08-26",
-    835.0
+    749.0
    ],
    [
     "2026-08-28",
     149.0
+   ],
+   [
+    "2026-11-26",
+    134.1
    ],
    [
     "2026-11-27",
@@ -66,10 +63,10 @@
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 92 days"
+  "label": "wait",
+  "summary": "Wait if you can: £14.90 above its tracked low"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/QuantumIrons-Max6.jpg?v=1773174955",
+ "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-irons-hero-3.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

@@ -6,20 +6,20 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1129.0,
+ "lowestNewPrice": 1057.5,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 1057.5,
+   "options": 2
+  },
   {
    "name": "Clarkes Golf",
    "from": 1129.0,
    "options": 7
-  },
-  {
-   "name": "Clickgolf",
-   "from": 1175.0,
-   "options": 2
   },
   {
    "name": "Affordable Golf",
@@ -29,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 104,
-  "low": 1129.0,
+  "low": 1057.5,
   "high": 1259.0,
-  "average": 1192.06,
-  "priceChanges": 3,
+  "average": 1191.37,
+  "priceChanges": 4,
   "series": [
    [
     "2026-08-16",
@@ -52,15 +52,15 @@
    ],
    [
     "2026-11-27",
-    1129.0
+    1057.5
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 29 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-Blueprint-S-Golf-Irons-Steel-2.jpg?v=1704341098",
+ "image": "https://www.clickgolf.co.uk/images/product/main/g_ping-blueprint-s-irons-hero-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

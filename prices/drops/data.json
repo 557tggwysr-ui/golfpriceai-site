@@ -1,8 +1,128 @@
 {
- "checked": "2026-11-27T01:33+00:00",
+ "checked": "2026-11-27T13:14+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "TaylorMade P790 Irons",
+   "model_id": "taylormade-p790-irons",
+   "date": "2026-11-27",
+   "was": 979.0,
+   "now": 809.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-p790-irons/"
+  },
+  {
+   "model": "Ping G740 Irons",
+   "model_id": "ping-g740-irons",
+   "date": "2026-11-27",
+   "was": 1049.0,
+   "now": 881.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g740-irons/"
+  },
+  {
+   "model": "Wilson Staff Model XB Irons",
+   "model_id": "wilson-staff-model-xb-irons",
+   "date": "2026-11-27",
+   "was": 854.1,
+   "now": 719.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-staff-model-xb-irons/"
+  },
+  {
+   "model": "Cobra KING TEC Mini Driver",
+   "model_id": "cobra-king-tec-mini-driver",
+   "date": "2026-11-27",
+   "was": 379.0,
+   "now": 341.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-tec-mini-driver/"
+  },
+  {
+   "model": "Ping G440 SFT HL Driver",
+   "model_id": "ping-g440-sft-hl-driver",
+   "date": "2026-11-27",
+   "was": 529.0,
+   "now": 476.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-sft-hl-driver/"
+  },
+  {
+   "model": "Ping G440 HL Hybrid",
+   "model_id": "ping-g440-hl-hybrid",
+   "date": "2026-11-27",
+   "was": 269.0,
+   "now": 242.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-hl-hybrid/"
+  },
+  {
+   "model": "Callaway Apex Ti Fusion Plated Irons",
+   "model_id": "callaway-apex-ti-fusion-plated-irons",
+   "date": "2026-11-27",
+   "was": 1669.0,
+   "now": 1502.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-apex-ti-fusion-plated-irons/"
+  },
+  {
+   "model": "Ping i240 Irons",
+   "model_id": "ping-i240-irons",
+   "date": "2026-11-27",
+   "was": 1059.0,
+   "now": 953.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-i240-irons/"
+  },
+  {
+   "model": "Titleist T250 Launch Spec Irons",
+   "model_id": "titleist-t250-launch-spec-irons",
+   "date": "2026-11-27",
+   "was": 989.0,
+   "now": 890.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-t250-launch-spec-irons/"
+  },
+  {
+   "model": "Ping i540 Irons",
+   "model_id": "ping-i540-irons",
+   "date": "2026-11-27",
+   "was": 1129.0,
+   "now": 1025.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-i540-irons/"
+  },
+  {
+   "model": "Titleist T150 Irons",
+   "model_id": "titleist-t150-irons",
+   "date": "2026-11-27",
+   "was": 1179.0,
+   "now": 1070.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-t150-irons/"
+  },
+  {
+   "model": "Cobra KING Max Irons",
+   "model_id": "cobra-king-max-irons",
+   "date": "2026-11-27",
+   "was": 559.0,
+   "now": 512.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-king-max-irons/"
+  },
   {
    "model": "Wilson DYNAPWR Irons",
    "model_id": "wilson-dynapwr-irons",
@@ -24,6 +144,16 @@
    "url": "https://golfpriceai.com/prices/ben-sayers-m8-13-piece-stand-bag-package-set/"
   },
   {
+   "model": "Ping Blueprint S Irons",
+   "model_id": "ping-blueprint-s-irons",
+   "date": "2026-11-27",
+   "was": 1129.0,
+   "now": 1057.5,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-blueprint-s-irons/"
+  },
+  {
    "model": "Ben Sayers M8 7-Piece Stand Bag Package Set",
    "model_id": "ben-sayers-m8-7-piece-stand-bag-package-set",
    "date": "2026-11-27",
@@ -32,6 +162,56 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/ben-sayers-m8-7-piece-stand-bag-package-set/"
+  },
+  {
+   "model": "Ping G440 LST Driver",
+   "model_id": "ping-g440-lst-driver",
+   "date": "2026-11-27",
+   "was": 499.0,
+   "now": 476.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-lst-driver/"
+  },
+  {
+   "model": "Ping G440 LST Fairway Wood",
+   "model_id": "ping-g440-lst-fairway-wood",
+   "date": "2026-11-27",
+   "was": 499.0,
+   "now": 476.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-lst-fairway-wood/"
+  },
+  {
+   "model": "Titleist GT280 Mini Driver",
+   "model_id": "titleist-gt280-mini-driver",
+   "date": "2026-11-27",
+   "was": 429.0,
+   "now": 413.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gt280-mini-driver/"
+  },
+  {
+   "model": "Ping Blueprint T Irons",
+   "model_id": "ping-blueprint-t-irons",
+   "date": "2026-11-27",
+   "was": 1129.0,
+   "now": 1079.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-blueprint-t-irons/"
+  },
+  {
+   "model": "Ping BunkR Wedge",
+   "model_id": "ping-bunkr-wedge",
+   "date": "2026-11-27",
+   "was": 159.0,
+   "now": 152.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-bunkr-wedge/"
   },
   {
    "model": "Garmin Approach R50 Premium Portable Launch Monitor",
@@ -902,16 +1082,6 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/callaway-apex-ut-utility-irons/"
-  },
-  {
-   "model": "Callaway Elyte X Irons",
-   "model_id": "callaway-elyte-x-irons",
-   "date": "2026-11-26",
-   "was": 499.0,
-   "now": 449.1,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/callaway-elyte-x-irons/"
   },
   {
    "model": "Callaway X Forged Irons",

@@ -6,20 +6,20 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 159.0,
+ "lowestNewPrice": 152.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 152.1,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 159.0,
    "options": 3
-  },
-  {
-   "name": "Clickgolf",
-   "from": 169.0,
-   "options": 1
   },
   {
    "name": "Affordable Golf",
@@ -29,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 104,
-  "low": 159.0,
+  "low": 152.1,
   "high": 169.0,
-  "average": 166.21,
-  "priceChanges": 1,
+  "average": 166.15,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -44,7 +44,7 @@
    ],
    [
     "2026-11-27",
-    159.0
+    152.1
    ]
   ]
  },
@@ -52,7 +52,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/BunkRcavity-Photoroom.jpg?v=1740669062",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Ping-BunkR-Wedge-Main-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

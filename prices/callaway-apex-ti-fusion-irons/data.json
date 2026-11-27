@@ -17,25 +17,34 @@
    "options": 2
   },
   {
+   "name": "Clickgolf",
+   "from": 1529.1,
+   "options": 1
+  },
+  {
    "name": "Affordable Golf",
    "from": 2319.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 85,
-  "low": 1399.0,
-  "high": 2319.0,
-  "average": 2005.12,
-  "priceChanges": 1,
+  "daysTracked": 104,
+  "low": 260.1,
+  "high": 1699.0,
+  "average": 1604.4,
+  "priceChanges": 3,
   "series": [
    [
-    "2026-09-04",
-    2319.0
+    "2026-08-16",
+    1699.0
    ],
    [
     "2026-10-30",
     1399.0
+   ],
+   [
+    "2026-11-26",
+    260.1
    ],
    [
     "2026-11-27",
@@ -44,8 +53,8 @@
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £1,138.90 above its tracked low"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Callaway-Apex-Ti-Fusion-Golf-Irons-Steel-4.jpg?v=1723262540",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

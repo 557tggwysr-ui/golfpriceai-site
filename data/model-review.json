@@ -7,14 +7,9 @@
    "listings": 93
   },
   {
-   "model": "Callaway quantum max os",
-   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 2
-  },
-  {
    "model": "Callaway quantum max",
-   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 2
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
   },
   {
    "model": "TaylorMade qi max",
@@ -30,11 +25,6 @@
    "model": "TaylorMade milled grind 5",
    "issue": "cheapest retailer \u00a3179.00 vs dearest \u00a3499.00: check for used stock or a different product",
    "listings": 35
-  },
-  {
-   "model": "Ping g440",
-   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 2
   },
   {
    "model": "Srixon soft feel",
@@ -88,8 +78,8 @@
   },
   {
    "model": "Titleist t350",
-   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 2
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
   },
   {
    "model": "Wilson staff duo soft",
@@ -107,11 +97,6 @@
    "listings": 13
   },
   {
-   "model": "Aldila stiff",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
-  },
-  {
    "model": "Srixon Z-Star Diamond Golf Balls",
    "issue": "price spread \u00a329.99 to \u00a3128.97: may mix different products",
    "listings": 12
@@ -122,19 +107,14 @@
    "listings": 11
   },
   {
-   "model": "TaylorMade p770",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
-  },
-  {
-   "model": "Titleist t250",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
-  },
-  {
    "model": "Callaway elyte",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
+  },
+  {
+   "model": "Aldila Stiff Fairway Wood",
+   "issue": "price spread \u00a339.99 to \u00a3129.99: may mix different products",
+   "listings": 10
   },
   {
    "model": "Cleveland rtz",
@@ -182,9 +162,9 @@
    "listings": 6
   },
   {
-   "model": "Callaway apex ti fusion",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
+   "model": "Ping S259 Wedge",
+   "issue": "price spread \u00a3161.10 to \u00a3507.00: may mix different products",
+   "listings": 5
   },
   {
    "model": "Cobra 3dp tour",
@@ -192,14 +172,9 @@
    "listings": 1
   },
   {
-   "model": "True Temper Driver",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 5
-  },
-  {
    "model": "Ping g le4",
-   "issue": "2 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 2
+   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
+   "listings": 1
   },
   {
    "model": "Yonex ezone gt4",
@@ -217,19 +192,9 @@
    "listings": 3
   },
   {
-   "model": "Aldila Stiff Fairway Wood",
-   "issue": "price spread \u00a339.99 to \u00a3129.99: may mix different products",
-   "listings": 3
-  },
-  {
    "model": "True Temper Extra Stiff Hybrid",
    "issue": "price spread \u00a334.99 to \u00a3109.99: may mix different products",
    "listings": 3
-  },
-  {
-   "model": "Callaway apex ai-150",
-   "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
-   "listings": 1
   },
   {
    "model": "TaylorMade Hi-Toe 5 Wedge",
@@ -247,7 +212,7 @@
    "listings": 2
   },
   {
-   "model": "Matrix Driver",
+   "model": "True Temper Driver",
    "issue": "no model name: held back until an alias names it",
    "listings": 2
   },
@@ -262,7 +227,7 @@
    "listings": 1
   },
   {
-   "model": "Aldila Hybrid",
+   "model": "Matrix Driver",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
   },
@@ -278,26 +243,6 @@
   },
   {
    "model": "UST Mamiya Fairway Wood",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 1
-  },
-  {
-   "model": "UST Mamiya Hybrid",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 1
-  },
-  {
-   "model": "KBS Hybrid",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 1
-  },
-  {
-   "model": "Mitsubishi Driver",
-   "issue": "no model name: held back until an alias names it",
-   "listings": 1
-  },
-  {
-   "model": "UST Mamiya Driver",
    "issue": "no model name: held back until an alias names it",
    "listings": 1
   }
@@ -464,6 +409,21 @@
    "to": "putter"
   },
   {
+   "name": "NV 45 L Fairway Shaft Aldila Ladies Mizuno 42.75\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Motore Speeder VC 7.0 Fairway Shaft Fujikura Extra Stiff Taylormade 1st Gen 42.75\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "KuroKage 70HY A Hybrid Shaft MITSUBISHI Senior Srixon 40\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
    "name": "Ping Gold Putter Printed Polo Shirt - Navy Multi Navy Multi / S",
    "from": "putter",
    "to": "apparel"
@@ -472,6 +432,96 @@
    "name": "Ping Gold Putter Printed Polo Shirt - Spring Blue Multi Spring Blue Multi / XXL",
    "from": "putter",
    "to": "apparel"
+  },
+  {
+   "name": "Aldila Extra Stiff - ALDILA RIP ALPHA 85 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Aldila Stiff - ALDILA RIP ALPHA 85 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Aldila Regular - ALDILA SYNERGY 50 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Aldila Stiff - ALDILA SYNERGY 50 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Aldila Regular - ALDILA SYNERGY 60 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Aldila Stiff - ALDILA SYNERGY 60 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Mitsubishi Extra Stiff - MRC KURO KAGE 80G GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Mitsubishi Regular - MCA TENSEI AV SLVR 60 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Mitsubishi Extra Stiff - MCA TENSEI AV SLVR 70 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Mitsubishi Stiff - MCA TENSEI AV SLVR 70 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "True Temper Extra Stiff - PROJECT X CATALYST 80 6.5 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "True Temper Extra Stiff - PROJECT X EVEN FLOW BLK 80 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "True Temper Extra Stiff - PROJECT X EVEN FLOW BLUE 80 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "UST Mamiya Stiff - UST ATTAS SPD 50 BLK/GLD GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "UST Mamiya Regular - UST ATTAS SPEED 50 GOLD GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "UST Mamiya Stiff - UST ATTAS SPEED 50 GOLD GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "UST Mamiya Regular - UST PROFORCE V2 GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "UST Mamiya Stiff - UST VTS 85 SILVER GRAPHITE - Hybrid Shaft .370",
+   "from": "accessories",
+   "to": "hybrid"
   },
   {
    "name": "Titleist Driver Adapter Right Hand/Left Hand .335",
@@ -644,6 +694,81 @@
    "to": "accessories"
   },
   {
+   "name": "Kurokage 45g Fairway Shaft Mitsubishi Ladies Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 41.5\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "RCH 40 Fairway Shaft Callaway Ladies Callaway 2nd Gen - XR/XR16/Rogue 43\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Bassara 60 HYB Hybrid Shaft Mitsubishi Regular Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 41\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Bassara 60 HYB Hybrid Shaft Mitsubishi Regular Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 40\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Kuro Kage 45 Hybrid Shaft Mitsubishi Ladies Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 39.75\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Kurokage Fairway Shaft Mitsubishi Regular Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 42\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Kuro Kage 65HY Hybrid Shaft Mitsubishi Stiff Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 39.75\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Motore Speeder VC 6.3 Fairway Shaft Fujikura Regular TaylorMade 2nd Gen - M1/M4/Sim/Stealth /Stealth 2/Qi10/Qi35 43\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Rogue 95 MSI White Hybrid Shaft Aldila Stiff Titleist 1st Gen - 913/915/917 39\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Denali Red 40g 4.0 Hybrid Shaft Project X Ladies Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 39.75\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Aldila Rogue Black 130 MSI 60TR Fairway Shaft Aldila Regular Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 41.75\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Rogue Black 130 MSI 60TR Fairway Shaft Aldila Regular Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 41\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Rogue Black 130 MSI 75TR Hybrid Shaft Aldila Regular Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 39\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "TZ5 Fairway Shaft Accra Extra Stiff Ping 3rd Gen- G425/G430/G430 10K/G440 40.5\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Cypher Seventy 6.0 Hybrid Shaft Project X Stiff Callaway 3rd Gen - Epic/Mavrik/Paradym/Ai Smoke/Elyte 39.75\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
    "name": "Scotty Cameron Phantom X 9.5 2022 Mens Right Hand Putter 34\" Mallet - Scotty Cameron Grip",
    "from": "accessories",
    "to": "putter"
@@ -667,6 +792,11 @@
    "name": "Scotty Cameron Special Select Newport 2.5 Mens Right Hand Putter 33\" Blade - Scotty Cameron Grip",
    "from": "accessories",
    "to": "putter"
+  },
+  {
+   "name": "Diamana HY100 Thump Hybrid Shaft Mitsubishi Extra Stiff Callaway 3rd Gen - Epic/Mavrik/Paradym/Ai Smoke/Elyte 40.25\"",
+   "from": "accessories",
+   "to": "hybrid"
   },
   {
    "name": "Scotty Cameron Special Select Flowback 5 Steel Right Hand Putter 34\" Mallet - Scotty Cameron Grip",
@@ -694,9 +824,49 @@
    "to": "putter"
   },
   {
+   "name": "Ascent 40 Hybrid Shaft Aldila Regular Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 40.5\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Speeder NX 40-L Driver Shaft Fujikura Ladies TaylorMade 2nd Gen - M1/M4/Sim/Stealth /Stealth 2/Qi10/Qi35/Qi4D 43\"",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Tour Green 75 Hybrid Shaft Aldila Extra Stiff Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 41.25\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Ascent 50HY Hybrid Shaft Aldila Regular Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 39\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Ascent 40HY Hybrid Shaft Aldila Regular Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 37.5\"",
+   "from": "accessories",
+   "to": "hybrid"
+  },
+  {
+   "name": "Tensei AV Series 70HY Blue Shaft Fairway Shaft Mitsubishi Chemical Regular Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 40\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Tensei CK Series 70HY Blue Shaft Fairway Shaft Mitsubishi Chemical Stiff Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 39\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
    "name": "Masters Cleat Master Deluxe Spike Adjustment Wrench",
    "from": "driver",
    "to": "accessories"
+  },
+  {
+   "name": "Nippon NS PRO 1150 Wedge - Stiff",
+   "from": "accessories",
+   "to": "wedge"
   },
   {
    "name": "PING Gold Putter Baseball Cap",
@@ -709,6 +879,21 @@
    "to": "apparel"
   },
   {
+   "name": "Vista Pro 55-S Fairway Shaft Fujikura Stiff Taylormade 2nd Gen - M1/M4/Sim/Stealth /Stealth 2/Qi10/Qi35/Qi4D 42.75\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Vanquish 5 R2 Fairway Shaft Mitsubishi Chemical Soft Regular Callaway 3rd Gen - Epic/Mavrik/Paradym/Ai Smoke/Elyte 42.5\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Denali Red 60 Fairway Shaft Project X Senior Titleist 2nd Gen - GT/TS/TSi/TSr/917/915/913 42\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
    "name": "MacGregor Golf V-Max Speed Ladies Fairway Wood NO Headcover - 3 Wood / Ladies Flex / Right Hand",
    "from": "accessories",
    "to": "wood"
@@ -717,6 +902,41 @@
    "name": "MacGregor Golf V-Max Speed Ladies Fairway Wood NO Headcover - 5 Wood NO Headcover / Ladies Flex / Right Hand",
    "from": "accessories",
    "to": "wood"
+  },
+  {
+   "name": "Synergy 50 Driver Shaft Aldila Regular Callaway 3rd Gen - Epic/Mavrik/Paradym/Ai Smoke/Elyte 44.5\"",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Wishon S2S White Driver Shaft - Regular",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Wishon S2S White Driver Shaft - Stiff",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "KBS Tour Driven Driver Shaft - Regular",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "KBS Tour Driven Driver Shaft - Stiff",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Adila NV Green Driver Shaft - Regular",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Adila NV Green Driver Shaft - Stiff",
+   "from": "accessories",
+   "to": "driver"
   },
   {
    "name": "Cobra Golf OPTM MAX-K Driver Mens Right Hand 10.5 Stiff Ex Demo No Cover",
@@ -832,6 +1052,11 @@
    "name": "TaylorMade Spider ZT Max Mens Right Hand Putter 38\" Mallet KBS Tour GPS - Super Stroke Zenergy Tour 3.0.17",
    "from": "accessories",
    "to": "putter"
+  },
+  {
+   "name": "HZRDUS Smoke RDX Red 80g 6.0 Hybrid Shaft Project X Stiff Ping 3rd Gen- G425/G430/G430 10K/G440 40\"",
+   "from": "accessories",
+   "to": "hybrid"
   },
   {
    "name": "Odyssey Golf DFX 25 #10 S Putter - Right Hand / Pistol Grip / 34",
@@ -2054,6 +2279,386 @@
    "to": "putter"
   },
   {
+   "name": "Aldila Regular - ALDILA QUARANTA 40 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Regular - ALDILA QUARANTA 50 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Extra Stiff - ALDILA RIP ALPHA 60 GRAPHITE- Driver/Fairway Shaft .370",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Stiff - ALDILA RIP ALPHA 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Extra Stiff - ALDILA RIP ALPHA 70 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Stiff - ALDILA RIP ALPHA 70  GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Extra Stiff - ALDILA ROGUE SILVER 70 - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Regular - ALDILA ROGUE SILVER 70 - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Regular - ALDILA ROGUE WHT MSI 130 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Regular - ALDILA ROGUE WHT MSI 130 70 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Stiff - ALDILA ROGUE WHT MSI 130 80 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Regular - ALDILA SYNERGY 50 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Stiff -  ALDILA SYNERGY 50 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Extra Stiff - ALDILA SYNERGY 60 GRAPHITE  -  Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Regular - ALDILA SYNERGY 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Stiff - ALDILA SYNERGY 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Stiff - ALDILA VOODOO 60 SVS6 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Extra Stiff - ALDILA VOODOO 60 XVS6 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Aldila Stiff - ALDILA VOODOO 70 SVS7 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Fujikura Extra Stiff  - FUJIKURA SPEEDER 565 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Fujikura Stiff - FUJIKURA MOTORE SPEEDER 661 JV - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Fujikura Stiff - WD FUJIKURA MOTORE X F1 GRAPHITE 6S - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Fujikura Extra Stiff - FUJIKURA PRO 2.0 60 TR SPEC DR GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Fujikura Extra Stiff - FUJIKURA PRO 2.0 70 TR SPEC DR GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Fujikura Stiff - FUJIKURA PRO 2.0 70 TR SPEC DR GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Fujikura Extra Stiff - FUJIKURA PRO 2.0 80 TR SPEC DR GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Fujikura Extra Stiff - FUJIKURA PRO 63  - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Fujikura Extra Stiff - FUJIKURA PRO 73 - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Grafalloy Regular - GRAFALLOY AXIS BLUE GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Grafalloy Stiff - GRAFALLOY AXIS RED GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Grafalloy Extra Stiff - GRAFALLOY BLUE (WHITE) 65 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Grafalloy Stiff - GRAFALLOY BLUE (WHITE) 65 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Grafalloy Stiff - GRAFALLOY BLUE (WHITE) 75 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Graphite Design Extra Stiff - GDI YS-6 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Graphite Design Regular - GDI YS-6+ GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Graphite Design Stiff - GDI YS-6+  GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Kinetixx Extra Stiff - PDRSN KNTIX VELOCITY D30 GRAPHITE LD - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Matrix Stiff - MATRIX 7M3 BLACK TIE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Matrix Stiff - MATRIX HD RADIX 6  - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Matrix Stiff - MATRIX HD RADIX 7 - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Mitsubishi Regular - MRC BASSARA UL HAWK 53 - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Mitsubishi Extra Stiff -  MITSU DIAMANA BLUE 83  - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Mitsubishi Stiff - MRC DIAMANA GRNBOARD M+ 50 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Mitsubishi Stiff - MITSUBISHI MMT 80 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Mitsubishi Extra Stiff - MCA TENSEI AV BLUE 70 GRAPHITE -Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Mitsubishi Regular - MCA TENSEI AV BLUE 70 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Mitsubishi Stiff - MCA TENSEI AV BLUE 70 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Stiff - GRAF PROJECT X 6.0 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Extra Stiff - GRAF PROJECT X 6.5 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Regular - PROJECT X CYPHER 40 GRAPHITE RE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Regular - PROJECT X CYPHER 50G GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Extra Stiff - PROJECT X EVEN FLOW BLUE 70 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Regular - PROJECT X EVEN FLOW BLUE 70 GRAPHITE  - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Regular - EVEN FLOW GREEN 40 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Regular - EVEN FLOW GREEN 50 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Regular - EVEN FLOW GREEN 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Stiff - EVEN FLOW GREEN 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Extra Stiff - PROJECT X EVENFLOW RIPTIDE 70 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Regular - PROJECT X EVENFLOW RIPTIDE 70 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Stiff - PROJECT X EVENFLOW RIPTIDE 70 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Stiff - TT PROJECT X HANDCRAFTED 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Extra Stiff - PROJECT X HZRDUS BLACK 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Regular - PROJECT X HZRDUS BLACK 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Stiff - PROJECT X HZRDUS BLACK 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Extra Stiff - PROJECT X HZRDUS HAND CRAFTED BLACK 75 GRAPHITE - Driver/Fairway Shaft  .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Stiff - PROJECT X HZRDUS BLACK 70 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Regular - PROJECT X HZRDUS T800 BLUE 60 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Extra Stiff - TT PROJECT X SMOKE 80 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Stiff - TT PROJECT X SMOKE 80 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Stiff - PROJECT X SMOKE IM10 50 GRAPHITE ST - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "True Temper Regular - PROJECT X SMOKE IM10 70 GRAPHITE - Driver/Fairway Shaft  .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "UST Mamiya Stiff - UST ATTAS SPD 30 BLK GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "UST Mamiya Regular - UST ATTAS SPD 40 BLK GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "UST Mamiya Stiff - UST ATTAS SPD 40 BLK GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "UST Mamiya Regular -  HELIUM 40 GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "UST Mamiya Stiff - UST VTS 67 RED  GRAPHITE - Driver/Fairway Shaft .335",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
    "name": "Odyssey Ai-One Milled Putter - 2-Ball T Left Hand / 35\" / MID Pistol Grip",
    "from": "accessories",
    "to": "putter"
@@ -2639,11 +3244,6 @@
    "to": "putter"
   },
   {
-   "name": "Ping PLD Anser 2 Satin Golf Putter - 34\" / PP58 Grip",
-   "from": "accessories",
-   "to": "putter"
-  },
-  {
    "name": "Scotty Cameron Phantom 11R OC Golf Putter - 34\" / Stock Grip",
    "from": "accessories",
    "to": "putter"
@@ -2659,6 +3259,21 @@
    "to": "wedge"
   },
   {
+   "name": "HZRDUS RDX Smoke 6.0 60g Fairway Shaft Project X Stiff PXG -0211/0311 43.5\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "HZRDUS 6.5 70g Driver Shaft Project X Extra Stiff Titleist 1st Gen - 913/915/917 44.5\"",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Tensei AV Series 65 Silver Fairway Shaft Mitsubishi Chemical Stiff Callaway 3rd Gen - Epic/Mavrik/Paradym/Ai Smoke/Elyte 42.5\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
    "name": "Odyssey Damascus Milled Putter - Jailbird Mini DB Right Hand / 34\" / Tour Pistol Grip",
    "from": "accessories",
    "to": "putter"
@@ -2667,6 +3282,31 @@
    "name": "Odyssey Damascus Milled Putter - Jailbird Mini DB Right Hand / 35\" / Tour Pistol Grip",
    "from": "accessories",
    "to": "putter"
+  },
+  {
+   "name": "KBS Tour Driven 60 Category 3 Fairway Shaft KBS Stiff Ping 3rd Gen- G425/G430/G430 10K/G440 42.25\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "Reax 50 S Driver Shaft Mitsubishi Chemical Stiff Taylormade 2nd Gen - M1/M4/Sim/Stealth /Stealth 2/Qi10/Qi35/Qi4D 44.5\"",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Denali Charcoal Red Fairway Shaft Project X Regular Titleist 2nd Gen - GTS/GT/TS/TSi/TSr/917/915/913 41.5\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "HZRDUS Black 60g Driver Shaft Project X Stiff Titleist 2nd Gen - GTS/GT/TS/TSi/TSr/917/915/913 44.5\"",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "HZDUS Smoke RDX Red 70g Fairway Shaft Project X Extra Stiff Taylormade 2nd Gen - M1/M4/Sim/Stealth /Stealth 2/Qi10/Qi35/Qi4D 43.25\"",
+   "from": "accessories",
+   "to": "wood"
   },
   {
    "name": "Yes! C-Groove Sara-12 Mens Right Hand Putter 35\" Mallet - Super Stroke",
@@ -2802,6 +3442,36 @@
    "name": "Yes! C-Groove Tracy III Mens Right Hand Putter 34.5\" Blade - Mizuno",
    "from": "accessories",
    "to": "putter"
+  },
+  {
+   "name": "Kai'Li 60S Red Driver Shaft Mitsubishi Chemical Stiff Cobra - SZ/Radspeed/Aerojet/Darkspeed 43.75\"",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Ventus Black 6-S Driver Shaft Fujikura Stiff Callaway 3rd Gen - Epic/Mavrik/Paradym/Ai Smoke/Elyte 44.5\"",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Kuro Kage Black Series 50 Driver Shaft Mitsubishi Chemical Regular Titleist 1st Gen - 913/915/917 44.5\"",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Ozik HD 7M3 Black Tie Driver Shaft Matrix Extra Stiff Mizuno - ST180/190/220/230 44.5\"",
+   "from": "accessories",
+   "to": "driver"
+  },
+  {
+   "name": "Ozik HD 7M3 Black Tie Fairway Shaft Matrix Extra Stiff Mizuno - ST180/190/220/230 42.5\"",
+   "from": "accessories",
+   "to": "wood"
+  },
+  {
+   "name": "REAX 50 Driver Shaft Mitsubishi Chemical Stiff TaylorMade 2nd Gen - M1/M4/Sim/Stealth /Stealth 2/Qi10/Qi35/Qi4D 44.5\"",
+   "from": "accessories",
+   "to": "driver"
   }
  ],
  "droppedUnpriced": [

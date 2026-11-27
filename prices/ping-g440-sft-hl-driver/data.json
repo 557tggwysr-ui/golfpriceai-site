@@ -6,29 +6,28 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 529.0,
+ "lowestNewPrice": 476.1,
  "lowestAt": [
-  "Clarkes Golf",
   "Clickgolf"
  ],
  "retailers": [
   {
+   "name": "Clickgolf",
+   "from": 476.1,
+   "options": 1
+  },
+  {
    "name": "Clarkes Golf",
    "from": 529.0,
    "options": 2
-  },
-  {
-   "name": "Clickgolf",
-   "from": 529.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 104,
-  "low": 529.0,
+  "low": 476.1,
   "high": 529.0,
-  "average": 529.0,
-  "priceChanges": 0,
+  "average": 528.49,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -36,13 +35,13 @@
    ],
    [
     "2026-11-27",
-    529.0
+    476.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 104 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/G440-SFT-HL-Driver-Sole.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

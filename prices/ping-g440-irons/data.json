@@ -6,12 +6,16 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 859.0,
+ "lowestNewPrice": 647.1,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 647.1,
+   "options": 3
+  },
   {
    "name": "Affordable Golf",
    "from": 859.0,
@@ -21,43 +25,34 @@
    "name": "Clarkes Golf",
    "from": 859.0,
    "options": 7
-  },
-  {
-   "name": "Clickgolf",
-   "from": 1009.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 104,
-  "low": 859.0,
-  "high": 1009.0,
-  "average": 904.87,
+  "low": 134.1,
+  "high": 719.0,
+  "average": 712.68,
   "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
-    1009.0
+    719.0
    ],
    [
-    "2026-09-04",
-    899.0
-   ],
-   [
-    "2026-10-22",
-    859.0
+    "2026-11-26",
+    134.1
    ],
    [
     "2026-11-27",
-    859.0
+    647.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 37 days"
+  "label": "wait",
+  "summary": "Wait if you can: £513.00 above its tracked low"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/G440Irons15.jpg?v=1776300835",
+ "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-irons-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

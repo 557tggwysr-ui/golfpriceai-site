@@ -20,7 +20,7 @@
   {
    "name": "Clickgolf",
    "from": 499.0,
-   "options": 1
+   "options": 2
   },
   {
    "name": "Clarkes Golf",
@@ -30,10 +30,10 @@
  ],
  "history": {
   "daysTracked": 104,
-  "low": 499.0,
+  "low": 99.0,
   "high": 529.0,
-  "average": 507.65,
-  "priceChanges": 1,
+  "average": 503.81,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -44,14 +44,18 @@
     499.0
    ],
    [
+    "2026-11-26",
+    99.0
+   ],
+   [
     "2026-11-27",
     499.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 74 days"
+  "label": "wait",
+  "summary": "Wait if you can: £400.00 above its tracked low"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-DS-ADAPT-Max-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

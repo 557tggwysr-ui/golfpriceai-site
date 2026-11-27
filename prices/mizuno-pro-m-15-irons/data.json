@@ -17,14 +17,14 @@
    "options": 3
   },
   {
+   "name": "Clickgolf",
+   "from": 1295.1,
+   "options": 1
+  },
+  {
    "name": "Affordable Golf",
    "from": 1379.0,
    "options": 5
-  },
-  {
-   "name": "Clickgolf",
-   "from": 1511.1,
-   "options": 1
   }
  ],
  "history": {
@@ -68,7 +68,7 @@
   "label": "typical",
   "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/M15_Herocopy.jpg?v=1773174202",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Pro-M-15-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

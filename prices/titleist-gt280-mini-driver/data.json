@@ -6,11 +6,16 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 429.0,
+ "lowestNewPrice": 413.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 413.1,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 429.0,
@@ -25,19 +30,14 @@
    "name": "Affordable Golf",
    "from": 459.0,
    "options": 4
-  },
-  {
-   "name": "Clickgolf",
-   "from": 459.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 104,
-  "low": 429.0,
+  "low": 413.1,
   "high": 459.0,
-  "average": 440.92,
-  "priceChanges": 2,
+  "average": 440.77,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -53,7 +53,7 @@
    ],
    [
     "2026-11-27",
-    429.0
+    413.1
    ]
   ]
  },
@@ -61,7 +61,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Titleist_GT280_Fairway_Catalog_01_RGB-Photoroom.jpg?v=1743426142",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-GT280-Mini-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

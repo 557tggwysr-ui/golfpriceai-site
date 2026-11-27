@@ -6,41 +6,46 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 449.1,
+ "lowestNewPrice": 399.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 399.0,
+   "options": 15
+  },
   {
    "name": "Clickgolf",
    "from": 449.1,
    "options": 2
   },
   {
-   "name": "Clarkes Golf",
-   "from": 499.0,
-   "options": 15
-  },
-  {
    "name": "Affordable Golf",
    "from": 669.0,
    "options": 2
+  },
+  {
+   "name": "Callaway Golf",
+   "from": 786.75,
+   "options": 1
   }
  ],
  "history": {
   "daysTracked": 104,
   "low": 109.0,
   "high": 659.0,
-  "average": 605.54,
-  "priceChanges": 6,
+  "average": 417.53,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
     659.0
    ],
    [
-    "2026-10-30",
-    549.0
+    "2026-10-11",
+    131.25
    ],
    [
     "2026-11-02",
@@ -52,27 +57,19 @@
    ],
    [
     "2026-11-06",
-    549.0
-   ],
-   [
-    "2026-11-17",
-    499.0
-   ],
-   [
-    "2026-11-26",
-    449.1
+    131.25
    ],
    [
     "2026-11-27",
-    449.1
+    399.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price"
+  "label": "wait",
+  "summary": "Wait if you can: £290.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/callaway-elyte-x-iron-back.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-X-Golf-Irons-Graphite-1.jpg?v=1737087065",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

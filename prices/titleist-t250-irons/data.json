@@ -6,11 +6,16 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 1179.0,
+ "lowestNewPrice": 1070.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 1070.1,
+   "options": 1
+  },
   {
    "name": "Clarkes Golf",
    "from": 1179.0,
@@ -18,27 +23,35 @@
   }
  ],
  "history": {
-  "daysTracked": 29,
-  "low": 1179.0,
-  "high": 1179.0,
-  "average": 1179.0,
-  "priceChanges": 0,
+  "daysTracked": 104,
+  "low": 179.1,
+  "high": 1189.0,
+  "average": 1175.55,
+  "priceChanges": 3,
   "series": [
+   [
+    "2026-08-16",
+    1189.0
+   ],
    [
     "2026-10-30",
     1179.0
    ],
    [
+    "2026-11-26",
+    179.1
+   ],
+   [
     "2026-11-27",
-    1179.0
+    1070.1
    ]
   ]
  },
  "verdict": {
-  "label": "tracking",
-  "summary": "Tracking started"
+  "label": "wait",
+  "summary": "Wait if you can: £891.00 above its tracked low"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/2025_Titleist_T250_Catalog01_RGB-Photoroom_1113cf1a-de64-4708-85d6-6e74420d39bb.jpg?v=1751962907",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-T250-Irons-Hero-Main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

@@ -6,14 +6,14 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 989.0,
+ "lowestNewPrice": 890.1,
  "lowestAt": [
   "Clickgolf"
  ],
  "retailers": [
   {
    "name": "Clickgolf",
-   "from": 989.0,
+   "from": 890.1,
    "options": 2
   },
   {
@@ -24,10 +24,10 @@
  ],
  "history": {
   "daysTracked": 104,
-  "low": 989.0,
+  "low": 890.1,
   "high": 989.0,
-  "average": 989.0,
-  "priceChanges": 0,
+  "average": 988.05,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -35,13 +35,13 @@
    ],
    [
     "2026-11-27",
-    989.0
+    890.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 104 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-T250-LS-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",

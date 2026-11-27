@@ -6,11 +6,16 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 759.0,
+ "lowestNewPrice": 674.1,
  "lowestAt": [
-  "Affordable Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 674.1,
+   "options": 2
+  },
   {
    "name": "Affordable Golf",
    "from": 759.0,
@@ -34,50 +39,30 @@
  ],
  "history": {
   "daysTracked": 104,
-  "low": 759.0,
-  "high": 1002.0,
-  "average": 860.92,
-  "priceChanges": 6,
+  "low": 134.1,
+  "high": 749.0,
+  "average": 742.37,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
-    1002.0
+    749.0
    ],
    [
-    "2026-08-18",
-    835.0
-   ],
-   [
-    "2026-08-21",
-    1002.0
-   ],
-   [
-    "2026-08-26",
-    835.0
-   ],
-   [
-    "2026-09-18",
-    899.0
-   ],
-   [
-    "2026-10-01",
-    1002.0
-   ],
-   [
-    "2026-10-22",
-    759.0
+    "2026-11-26",
+    134.1
    ],
    [
     "2026-11-27",
-    759.0
+    674.1
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "wait",
+  "summary": "Wait if you can: £540.00 above its tracked low"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/QuantumIrons-MaxOS5.jpg?v=1783149868",
+ "image": "https://www.clickgolf.co.uk/images/product/main/quantum-max-os-irons-main.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

@@ -6,20 +6,20 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 175.0,
  "lowestAt": [
-  "Affordable Golf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 175.0,
+   "options": 9
+  },
   {
    "name": "Affordable Golf",
    "from": 179.0,
    "options": 8
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 199.0,
-   "options": 9
   },
   {
    "name": "Scottsdale Golf",
@@ -31,8 +31,8 @@
   "daysTracked": 85,
   "low": 139.0,
   "high": 179.0,
-  "average": 157.08,
-  "priceChanges": 3,
+  "average": 157.03,
+  "priceChanges": 4,
   "series": [
    [
     "2026-09-04",
@@ -52,15 +52,15 @@
    ],
    [
     "2026-11-27",
-    179.0
+    175.0
    ]
   ]
  },
  "verdict": {
-  "label": "wait",
-  "summary": "Wait if you can: £40.00 above its tracked low"
+  "label": "typical",
+  "summary": "Typical price"
  },
- "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/qi10_rescue_hybrid_tour_3.jpg?v=1777960194",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/qi-10-hyb.jpg?v=1787041843",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

@@ -6,20 +6,20 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 559.0,
+ "lowestNewPrice": 512.1,
  "lowestAt": [
-  "Clarkes Golf"
+  "Clickgolf"
  ],
  "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 512.1,
+   "options": 2
+  },
   {
    "name": "Clarkes Golf",
    "from": 559.0,
    "options": 7
-  },
-  {
-   "name": "Clickgolf",
-   "from": 611.1,
-   "options": 2
   },
   {
    "name": "Affordable Golf",
@@ -34,10 +34,10 @@
  ],
  "history": {
   "daysTracked": 104,
-  "low": 559.0,
+  "low": 512.1,
   "high": 559.0,
-  "average": 559.0,
-  "priceChanges": 0,
+  "average": 558.55,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
@@ -45,15 +45,15 @@
    ],
    [
     "2026-11-27",
-    559.0
+    512.1
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 104 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/CobraGolfKINGMAXIronSet2026_2.jpg?v=1765893919",
+ "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-King-Max-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

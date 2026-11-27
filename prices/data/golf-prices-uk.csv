@@ -1,7 +1,4 @@
 date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,days_tracked,tracked_low_gbp,tracked_high_gbp,verdict,price_page
-2026-11-27,aldila-extra-stiff-driver,Aldila Extra Stiff Driver,Aldila,driver,49.99,each,1,85,49.99,59.99,typical,https://golfpriceai.com/prices/aldila-extra-stiff-driver/
-2026-11-27,aldila-regular-driver,Aldila Regular Driver,Aldila,driver,59.99,each,1,85,59.99,99.99,good,https://golfpriceai.com/prices/aldila-regular-driver/
-2026-11-27,aldila-stiff-driver,Aldila Stiff Driver,Aldila,driver,49.99,each,1,85,49.99,49.99,typical,https://golfpriceai.com/prices/aldila-stiff-driver/
 2026-11-27,callaway-elyte-driver,Callaway Elyte Driver,Callaway,driver,249.00,each,5,104,249.00,339.00,good,https://golfpriceai.com/prices/callaway-elyte-driver/
 2026-11-27,callaway-elyte-tour-certified-driver,Callaway Elyte Tour Certified Driver,Callaway,driver,239.00,each,1,85,239.00,329.00,good,https://golfpriceai.com/prices/callaway-elyte-tour-certified-driver/
 2026-11-27,callaway-paradym-ai-smoke-max-driver,Callaway Paradym Ai Smoke Max Driver,Callaway,driver,299.00,each,3,92,299.00,299.00,typical,https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-driver/
@@ -24,14 +21,13 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,cobra-ds-adapt-max-k-driver,Cobra DS-Adapt Max K Driver,Cobra,driver,299.00,each,2,104,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-max-k-driver/
 2026-11-27,cobra-ds-adapt-x-driver,Cobra DS-Adapt X Driver,Cobra,driver,299.00,each,3,104,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-x-driver/
 2026-11-27,cobra-darkspeed-ls-driver,Cobra Darkspeed LS Driver,Cobra,driver,229.00,each,2,85,229.00,419.00,good,https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/
-2026-11-27,cobra-king-tec-mini-driver,Cobra KING TEC Mini Driver,Cobra,driver,379.00,each,3,104,379.00,379.00,typical,https://golfpriceai.com/prices/cobra-king-tec-mini-driver/
+2026-11-27,cobra-king-tec-mini-driver,Cobra KING TEC Mini Driver,Cobra,driver,341.10,each,3,104,341.10,379.00,good,https://golfpriceai.com/prices/cobra-king-tec-mini-driver/
 2026-11-27,cobra-optm-driver,Cobra OPTM Driver,Cobra,driver,399.00,each,1,85,399.00,479.00,good,https://golfpriceai.com/prices/cobra-optm-driver/
 2026-11-27,cobra-optm-ls-driver,Cobra OPTM LS Driver,Cobra,driver,359.10,each,2,104,359.10,479.00,good,https://golfpriceai.com/prices/cobra-optm-ls-driver/
 2026-11-27,cobra-optm-max-d-driver,Cobra OPTM MAX-D Driver,Cobra,driver,359.10,each,3,104,359.10,479.00,good,https://golfpriceai.com/prices/cobra-optm-max-d-driver/
 2026-11-27,cobra-optm-max-k-driver,Cobra OPTM MAX-K Driver,Cobra,driver,359.10,each,3,104,359.10,479.00,good,https://golfpriceai.com/prices/cobra-optm-max-k-driver/
 2026-11-27,cobra-optm-x-driver,Cobra OPTM X Driver,Cobra,driver,359.10,each,3,104,359.10,479.00,good,https://golfpriceai.com/prices/cobra-optm-x-driver/
 2026-11-27,cobra-rad-s-driver,Cobra RAD-S Driver,Cobra,driver,179.10,each,3,104,179.10,249.00,good,https://golfpriceai.com/prices/cobra-rad-s-driver/
-2026-11-27,fujikura-extra-stiff-driver,Fujikura Extra Stiff Driver,Fujikura,driver,59.99,each,1,85,59.99,119.99,good,https://golfpriceai.com/prices/fujikura-extra-stiff-driver/
 2026-11-27,golfway-champion-driver,Golfway Champion Driver,Golfway,driver,19.99,each,1,85,19.99,24.99,good,https://golfpriceai.com/prices/golfway-champion-driver/
 2026-11-27,mkids-lite-driver,MKids Lite Driver,MKids,driver,34.99,each,1,83,34.99,34.99,typical,https://golfpriceai.com/prices/mkids-lite-driver/
 2026-11-27,macgregor-zt-plus-driver,MacGregor ZT Plus Driver,MacGregor,driver,129.95,each,3,92,129.95,139.00,good,https://golfpriceai.com/prices/macgregor-zt-plus-driver/
@@ -45,11 +41,11 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,ping-g440-driver,Ping G440 Driver,Ping,driver,479.00,each,1,85,479.00,529.00,good,https://golfpriceai.com/prices/ping-g440-driver/
 2026-11-27,ping-g440-hl-driver,Ping G440 HL Driver,Ping,driver,499.00,each,1,85,499.00,529.00,good,https://golfpriceai.com/prices/ping-g440-hl-driver/
 2026-11-27,ping-g440-k-driver,Ping G440 K Driver,Ping,driver,494.10,each,2,104,494.10,599.00,good,https://golfpriceai.com/prices/ping-g440-k-driver/
-2026-11-27,ping-g440-lst-driver,Ping G440 LST Driver,Ping,driver,499.00,each,2,104,499.00,529.00,good,https://golfpriceai.com/prices/ping-g440-lst-driver/
+2026-11-27,ping-g440-lst-driver,Ping G440 LST Driver,Ping,driver,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-lst-driver/
 2026-11-27,ping-g440-max-driver,Ping G440 MAX Driver,Ping,driver,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-max-driver/
 2026-11-27,ping-g440-max-hl-driver,Ping G440 MAX HL Driver,Ping,driver,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-max-hl-driver/
 2026-11-27,ping-g440-sft-driver,Ping G440 SFT Driver,Ping,driver,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-sft-driver/
-2026-11-27,ping-g440-sft-hl-driver,Ping G440 SFT HL Driver,Ping,driver,529.00,each,2,104,529.00,529.00,typical,https://golfpriceai.com/prices/ping-g440-sft-hl-driver/
+2026-11-27,ping-g440-sft-hl-driver,Ping G440 SFT HL Driver,Ping,driver,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-sft-hl-driver/
 2026-11-27,ping-g440k-driver,Ping G440K Driver,Ping,driver,579.00,each,1,85,579.00,579.00,typical,https://golfpriceai.com/prices/ping-g440k-driver/
 2026-11-27,ping-g440k-hl-driver,Ping G440K HL Driver,Ping,driver,579.00,each,1,85,579.00,579.00,typical,https://golfpriceai.com/prices/ping-g440k-hl-driver/
 2026-11-27,srixon-zxi-driver,Srixon ZXi Driver,Srixon,driver,279.65,each,4,104,279.65,499.00,good,https://golfpriceai.com/prices/srixon-zxi-driver/
@@ -68,17 +64,13 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,taylormade-r7-quad-mini-driver,TaylorMade R7 Quad Mini Driver,TaylorMade,driver,349.00,each,3,104,349.00,399.00,good,https://golfpriceai.com/prices/taylormade-r7-quad-mini-driver/
 2026-11-27,titleist-gt1-driver,Titleist GT1 Driver,Titleist,driver,419.00,each,3,104,419.00,499.00,good,https://golfpriceai.com/prices/titleist-gt1-driver/
 2026-11-27,titleist-gt2-driver,Titleist GT2 Driver,Titleist,driver,399.00,each,3,92,399.00,399.00,typical,https://golfpriceai.com/prices/titleist-gt2-driver/
-2026-11-27,titleist-gt280-mini-driver,Titleist GT280 Mini Driver,Titleist,driver,429.00,each,4,104,429.00,459.00,good,https://golfpriceai.com/prices/titleist-gt280-mini-driver/
+2026-11-27,titleist-gt280-mini-driver,Titleist GT280 Mini Driver,Titleist,driver,413.10,each,4,104,413.10,459.00,good,https://golfpriceai.com/prices/titleist-gt280-mini-driver/
 2026-11-27,titleist-gt3-driver,Titleist GT3 Driver,Titleist,driver,399.00,each,3,85,399.00,499.00,good,https://golfpriceai.com/prices/titleist-gt3-driver/
 2026-11-27,titleist-gt4-driver,Titleist GT4 Driver,Titleist,driver,399.00,each,4,104,399.00,399.00,typical,https://golfpriceai.com/prices/titleist-gt4-driver/
 2026-11-27,titleist-gts2-driver,Titleist GTS2 Driver,Titleist,driver,629.00,each,3,92,629.00,629.00,typical,https://golfpriceai.com/prices/titleist-gts2-driver/
 2026-11-27,titleist-gts3-driver,Titleist GTS3 Driver,Titleist,driver,629.00,each,3,92,629.00,629.00,typical,https://golfpriceai.com/prices/titleist-gts3-driver/
 2026-11-27,titleist-gts300-mini-driver,Titleist GTS300 Mini Driver,Titleist,driver,499.00,each,2,92,499.00,499.00,typical,https://golfpriceai.com/prices/titleist-gts300-mini-driver/
 2026-11-27,titleist-gts4-driver,Titleist GTS4 Driver,Titleist,driver,629.00,each,3,85,629.00,629.00,typical,https://golfpriceai.com/prices/titleist-gts4-driver/
-2026-11-27,true-temper-extra-stiff-driver,True Temper Extra Stiff Driver,True Temper,driver,69.99,each,1,85,69.99,99.99,good,https://golfpriceai.com/prices/true-temper-extra-stiff-driver/
-2026-11-27,true-temper-light-driver,True Temper Light Driver,True Temper,driver,44.99,each,1,85,44.99,54.99,good,https://golfpriceai.com/prices/true-temper-light-driver/
-2026-11-27,true-temper-regular-driver,True Temper Regular Driver,True Temper,driver,44.99,each,1,85,44.99,89.99,good,https://golfpriceai.com/prices/true-temper-regular-driver/
-2026-11-27,true-temper-stiff-driver,True Temper Stiff Driver,True Temper,driver,69.99,each,1,85,69.99,89.99,good,https://golfpriceai.com/prices/true-temper-stiff-driver/
 2026-11-27,us-kids-golf-ul7-driver,US Kids Golf UL7 Driver,US Kids Golf,driver,39.95,each,1,92,39.95,39.95,typical,https://golfpriceai.com/prices/us-kids-golf-ul7-driver/
 2026-11-27,wilson-dynapwr-driver,Wilson DYNAPWR Driver,Wilson,driver,239.00,each,3,104,239.00,299.00,good,https://golfpriceai.com/prices/wilson-dynapwr-driver/
 2026-11-27,wilson-dynapwr-max-driver,Wilson DYNAPWR Max Driver,Wilson,driver,224.10,each,2,104,224.10,349.00,good,https://golfpriceai.com/prices/wilson-dynapwr-max-driver/
@@ -87,6 +79,8 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,wilson-profile-driver,Wilson Profile Driver,Wilson,driver,79.95,each,2,92,79.95,79.99,typical,https://golfpriceai.com/prices/wilson-profile-driver/
 2026-11-27,yonex-ezone-elite-4-driver,Yonex Ezone Elite 4 Driver,Yonex,driver,179.10,each,2,104,179.10,249.00,good,https://golfpriceai.com/prices/yonex-ezone-elite-4-driver/
 2026-11-27,yonex-ezone-gs-i-tech-driver,Yonex Ezone GS i-Tech Driver,Yonex,driver,159.95,each,2,85,159.95,179.95,good,https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/
+2026-11-27,aldila-regular-fairway-wood,Aldila Regular Fairway Wood,Aldila,fairway wood,59.99,each,1,85,59.99,59.99,typical,https://golfpriceai.com/prices/aldila-regular-fairway-wood/
+2026-11-27,aldila-stiff-fairway-wood,Aldila Stiff Fairway Wood,Aldila,fairway wood,39.99,each,1,85,39.99,39.99,typical,https://golfpriceai.com/prices/aldila-stiff-fairway-wood/
 2026-11-27,callaway-apex-24-utility-fairway-wood,Callaway Apex 24 Utility Fairway Wood,Callaway,fairway wood,199.00,each,2,85,199.00,199.00,typical,https://golfpriceai.com/prices/callaway-apex-24-utility-fairway-wood/
 2026-11-27,callaway-apex-tour-certified-utility-fairway-wood,Callaway Apex Tour Certified Utility Fairway Wood,Callaway,fairway wood,179.95,each,1,85,179.95,229.00,good,https://golfpriceai.com/prices/callaway-apex-tour-certified-utility-fairway-wood/
 2026-11-27,callaway-apex-uw-utility-fairway-wood,Callaway Apex UW Utility Fairway Wood,Callaway,fairway wood,269.10,each,2,104,179.00,299.00,typical,https://golfpriceai.com/prices/callaway-apex-uw-utility-fairway-wood/
@@ -119,6 +113,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,cobra-optm-max-fairway-wood,Cobra OPTM Max Fairway Wood,Cobra,fairway wood,224.10,each,2,104,224.10,299.00,good,https://golfpriceai.com/prices/cobra-optm-max-fairway-wood/
 2026-11-27,cobra-optm-x-fairway-wood,Cobra OPTM X Fairway Wood,Cobra,fairway wood,224.10,each,3,104,224.10,299.00,good,https://golfpriceai.com/prices/cobra-optm-x-fairway-wood/
 2026-11-27,cobra-rad-s-fairway-wood,Cobra RAD-S Fairway Wood,Cobra,fairway wood,149.00,each,3,104,149.00,179.00,good,https://golfpriceai.com/prices/cobra-rad-s-fairway-wood/
+2026-11-27,fujikura-extra-stiff-fairway-wood,Fujikura Extra Stiff Fairway Wood,Fujikura,fairway wood,59.99,each,1,85,59.99,59.99,typical,https://golfpriceai.com/prices/fujikura-extra-stiff-fairway-wood/
 2026-11-27,golfway-champion-fairway-wood,Golfway Champion Fairway Wood,Golfway,fairway wood,19.99,each,1,85,19.99,24.99,good,https://golfpriceai.com/prices/golfway-champion-fairway-wood/
 2026-11-27,macgregor-v-max-speed-fairway-wood,MacGregor V-Max Speed Fairway Wood,MacGregor,fairway wood,34.99,each,2,92,34.99,69.00,good,https://golfpriceai.com/prices/macgregor-v-max-speed-fairway-wood/
 2026-11-27,macgregor-zt-plus-fairway-wood,MacGregor ZT Plus Fairway Wood,MacGregor,fairway wood,74.95,each,3,92,74.95,74.95,typical,https://golfpriceai.com/prices/macgregor-zt-plus-fairway-wood/
@@ -129,7 +124,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,ping-g-le4-fairway-wood,Ping G Le4 Fairway Wood,Ping,fairway wood,283.50,each,2,104,283.50,315.00,good,https://golfpriceai.com/prices/ping-g-le4-fairway-wood/
 2026-11-27,ping-g430-max-fairway-wood,Ping G430 Max Fairway Wood,Ping,fairway wood,215.10,each,3,104,215.10,239.00,good,https://golfpriceai.com/prices/ping-g430-max-fairway-wood/
 2026-11-27,ping-g440-fairway-wood,Ping G440 Fairway Wood,Ping,fairway wood,299.00,each,1,85,299.00,319.00,good,https://golfpriceai.com/prices/ping-g440-fairway-wood/
-2026-11-27,ping-g440-lst-fairway-wood,Ping G440 LST Fairway Wood,Ping,fairway wood,499.00,each,2,104,499.00,529.00,good,https://golfpriceai.com/prices/ping-g440-lst-fairway-wood/
+2026-11-27,ping-g440-lst-fairway-wood,Ping G440 LST Fairway Wood,Ping,fairway wood,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-lst-fairway-wood/
 2026-11-27,ping-g440-max-fairway-wood,Ping G440 Max Fairway Wood,Ping,fairway wood,287.10,each,2,104,287.10,319.00,good,https://golfpriceai.com/prices/ping-g440-max-fairway-wood/
 2026-11-27,ping-g440-sft-fairway-wood,Ping G440 SFT Fairway Wood,Ping,fairway wood,287.10,each,2,104,287.10,319.00,good,https://golfpriceai.com/prices/ping-g440-sft-fairway-wood/
 2026-11-27,ping-prodi-g-24-fairway-wood,Ping Prodi G 24 Fairway Wood,Ping,fairway wood,139.00,each,2,85,139.00,139.95,typical,https://golfpriceai.com/prices/ping-prodi-g-24-fairway-wood/
@@ -147,6 +142,9 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,titleist-gt3-fairway-wood,Titleist GT3 Fairway Wood,Titleist,fairway wood,239.00,each,3,85,239.00,349.00,good,https://golfpriceai.com/prices/titleist-gt3-fairway-wood/
 2026-11-27,titleist-gts2-fairway-wood,Titleist GTS2 Fairway Wood,Titleist,fairway wood,369.00,each,3,92,369.00,369.00,typical,https://golfpriceai.com/prices/titleist-gts2-fairway-wood/
 2026-11-27,titleist-gts3-fairway-wood,Titleist GTS3 Fairway Wood,Titleist,fairway wood,369.00,each,3,92,369.00,369.00,typical,https://golfpriceai.com/prices/titleist-gts3-fairway-wood/
+2026-11-27,true-temper-extra-stiff-fairway-wood,True Temper Extra Stiff Fairway Wood,True Temper,fairway wood,69.99,each,1,85,69.99,69.99,typical,https://golfpriceai.com/prices/true-temper-extra-stiff-fairway-wood/
+2026-11-27,true-temper-regular-fairway-wood,True Temper Regular Fairway Wood,True Temper,fairway wood,44.99,each,1,85,44.99,44.99,typical,https://golfpriceai.com/prices/true-temper-regular-fairway-wood/
+2026-11-27,true-temper-stiff-fairway-wood,True Temper Stiff Fairway Wood,True Temper,fairway wood,69.99,each,1,85,69.99,69.99,typical,https://golfpriceai.com/prices/true-temper-stiff-fairway-wood/
 2026-11-27,wilson-dynapwr-fairway-wood,Wilson DYNAPWR Fairway Wood,Wilson,fairway wood,149.95,each,4,104,149.95,279.00,typical,https://golfpriceai.com/prices/wilson-dynapwr-fairway-wood/
 2026-11-27,wilson-dynapwr-max-fairway-wood,Wilson DYNAPWR Max Fairway Wood,Wilson,fairway wood,134.10,each,3,104,134.10,229.00,good,https://golfpriceai.com/prices/wilson-dynapwr-max-fairway-wood/
 2026-11-27,wilson-dynapower-fairway-wood,Wilson Dynapower Fairway Wood,Wilson,fairway wood,79.95,each,2,85,79.95,89.95,typical,https://golfpriceai.com/prices/wilson-dynapower-fairway-wood/
@@ -181,12 +179,12 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,mizuno-jpx-one-hybrid,Mizuno JPX ONE Hybrid,Mizuno,hybrid,188.10,each,4,104,188.10,265.00,good,https://golfpriceai.com/prices/mizuno-jpx-one-hybrid/
 2026-11-27,ping-g-le-hybrid,Ping G Le Hybrid,Ping,hybrid,179.10,each,2,104,179.10,199.00,good,https://golfpriceai.com/prices/ping-g-le-hybrid/
 2026-11-27,ping-g430-hybrid,Ping G430 Hybrid,Ping,hybrid,188.10,each,4,104,188.10,209.00,good,https://golfpriceai.com/prices/ping-g430-hybrid/
-2026-11-27,ping-g440-hl-hybrid,Ping G440 HL Hybrid,Ping,hybrid,269.00,each,2,104,269.00,269.00,typical,https://golfpriceai.com/prices/ping-g440-hl-hybrid/
+2026-11-27,ping-g440-hl-hybrid,Ping G440 HL Hybrid,Ping,hybrid,242.10,each,2,104,242.10,269.00,good,https://golfpriceai.com/prices/ping-g440-hl-hybrid/
 2026-11-27,ping-g440-hybrid,Ping G440 Hybrid,Ping,hybrid,242.10,each,3,104,242.10,269.00,good,https://golfpriceai.com/prices/ping-g440-hybrid/
 2026-11-27,srixon-zxi-hybrid,Srixon ZXi Hybrid,Srixon,hybrid,169.00,each,3,104,169.00,249.00,typical,https://golfpriceai.com/prices/srixon-zxi-hybrid/
 2026-11-27,srixon-zxi-rkt-hybrid,Srixon ZXi RKT Hybrid,Srixon,hybrid,259.00,each,4,71,259.00,289.00,typical,https://golfpriceai.com/prices/srixon-zxi-rkt-hybrid/
 2026-11-27,taylormade-kalea-hybrid,TaylorMade Kalea Hybrid,TaylorMade,hybrid,199.00,each,2,85,199.00,199.00,typical,https://golfpriceai.com/prices/taylormade-kalea-hybrid/
-2026-11-27,taylormade-qi10-hybrid,TaylorMade Qi10 Hybrid,TaylorMade,hybrid,179.00,each,3,85,139.00,179.00,wait,https://golfpriceai.com/prices/taylormade-qi10-hybrid/
+2026-11-27,taylormade-qi10-hybrid,TaylorMade Qi10 Hybrid,TaylorMade,hybrid,175.00,each,3,85,139.00,179.00,typical,https://golfpriceai.com/prices/taylormade-qi10-hybrid/
 2026-11-27,taylormade-qi10-max-hybrid,TaylorMade Qi10 Max Hybrid,TaylorMade,hybrid,199.00,each,2,85,199.00,249.00,good,https://golfpriceai.com/prices/taylormade-qi10-max-hybrid/
 2026-11-27,taylormade-qi35-hybrid,TaylorMade Qi35 Hybrid,TaylorMade,hybrid,149.00,each,2,92,139.00,139.00,typical,https://golfpriceai.com/prices/taylormade-qi35-hybrid/
 2026-11-27,taylormade-qi4d-hybrid,TaylorMade Qi4D Hybrid,TaylorMade,hybrid,242.10,each,4,104,242.10,269.00,good,https://golfpriceai.com/prices/taylormade-qi4d-hybrid/
@@ -202,16 +200,17 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,yonex-ezone-elite-hybrid,Yonex Ezone Elite Hybrid,Yonex,hybrid,116.10,each,2,104,116.10,159.00,good,https://golfpriceai.com/prices/yonex-ezone-elite-hybrid/
 2026-11-27,yonex-ezone-gs-i-tech-hybrid,Yonex Ezone GS i-Tech Hybrid,Yonex,hybrid,89.10,each,2,104,89.10,99.00,good,https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-hybrid/
 2026-11-27,yonex-ezone-gt4-hybrid,Yonex Ezone GT4 Hybrid,Yonex,hybrid,206.10,each,2,85,206.10,299.00,good,https://golfpriceai.com/prices/yonex-ezone-gt4-hybrid/
+2026-11-27,callaway-apex-ai-150-irons,Callaway Apex Ai-150 Irons,Callaway,iron set,773.10,each,2,104,161.10,859.00,wait,https://golfpriceai.com/prices/callaway-apex-ai-150-irons/
 2026-11-27,callaway-apex-ai200-irons,Callaway Apex Ai200 Irons,Callaway,iron set,919.00,each,2,85,919.00,1369.00,good,https://golfpriceai.com/prices/callaway-apex-ai200-irons/
 2026-11-27,callaway-apex-ai300-irons,Callaway Apex Ai300 Irons,Callaway,iron set,859.00,each,2,85,859.00,1299.00,good,https://golfpriceai.com/prices/callaway-apex-ai300-irons/
-2026-11-27,callaway-apex-ti-fusion-irons,Callaway Apex Ti Fusion Irons,Callaway,iron set,1399.00,each,2,85,1399.00,2319.00,good,https://golfpriceai.com/prices/callaway-apex-ti-fusion-irons/
-2026-11-27,callaway-apex-ti-fusion-plated-irons,Callaway Apex Ti Fusion Plated Irons,Callaway,iron set,1669.00,each,2,104,1669.00,1669.00,typical,https://golfpriceai.com/prices/callaway-apex-ti-fusion-plated-irons/
+2026-11-27,callaway-apex-ti-fusion-irons,Callaway Apex Ti Fusion Irons,Callaway,iron set,1399.00,each,3,104,260.10,1699.00,wait,https://golfpriceai.com/prices/callaway-apex-ti-fusion-irons/
+2026-11-27,callaway-apex-ti-fusion-plated-irons,Callaway Apex Ti Fusion Plated Irons,Callaway,iron set,1502.10,each,2,104,1502.10,1669.00,good,https://golfpriceai.com/prices/callaway-apex-ti-fusion-plated-irons/
 2026-11-27,callaway-apex-ut-utility-irons,Callaway Apex UT Utility Irons,Callaway,iron set,224.10,each,3,104,199.00,249.00,typical,https://golfpriceai.com/prices/callaway-apex-ut-utility-irons/
 2026-11-27,callaway-elyte-hl-irons,Callaway Elyte HL Irons,Callaway,iron set,499.00,each,3,85,175.00,699.00,typical,https://golfpriceai.com/prices/callaway-elyte-hl-irons/
 2026-11-27,callaway-elyte-irons,Callaway Elyte Irons,Callaway,iron set,799.00,each,2,92,669.00,669.00,typical,https://golfpriceai.com/prices/callaway-elyte-irons/
-2026-11-27,callaway-elyte-x-irons,Callaway Elyte X Irons,Callaway,iron set,449.10,each,3,104,109.00,659.00,typical,https://golfpriceai.com/prices/callaway-elyte-x-irons/
-2026-11-27,callaway-quantum-max-irons,Callaway Quantum Max Irons,Callaway,iron set,809.00,each,4,104,149.00,1336.00,typical,https://golfpriceai.com/prices/callaway-quantum-max-irons/
-2026-11-27,callaway-quantum-max-os-irons,Callaway Quantum Max OS Irons,Callaway,iron set,759.00,each,4,104,759.00,1002.00,good,https://golfpriceai.com/prices/callaway-quantum-max-os-irons/
+2026-11-27,callaway-elyte-x-irons,Callaway Elyte X Irons,Callaway,iron set,399.00,each,4,104,109.00,659.00,wait,https://golfpriceai.com/prices/callaway-elyte-x-irons/
+2026-11-27,callaway-quantum-max-irons,Callaway Quantum Max Irons,Callaway,iron set,674.10,each,5,104,134.10,749.00,wait,https://golfpriceai.com/prices/callaway-quantum-max-irons/
+2026-11-27,callaway-quantum-max-os-irons,Callaway Quantum Max OS Irons,Callaway,iron set,674.10,each,5,104,134.10,749.00,wait,https://golfpriceai.com/prices/callaway-quantum-max-os-irons/
 2026-11-27,callaway-x-forged-irons,Callaway X Forged Irons,Callaway,iron set,1106.10,each,3,104,1106.10,1229.00,good,https://golfpriceai.com/prices/callaway-x-forged-irons/
 2026-11-27,callaway-x-forged-max-irons,Callaway X Forged Max Irons,Callaway,iron set,1049.00,each,2,104,217.00,1302.00,wait,https://golfpriceai.com/prices/callaway-x-forged-max-irons/
 2026-11-27,callaway-xr-26-irons,Callaway XR 26 Irons,Callaway,iron set,399.00,each,1,64,399.00,449.00,typical,https://golfpriceai.com/prices/callaway-xr-26-irons/
@@ -222,11 +221,11 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,cobra-3dp-x-irons,Cobra 3DP X Irons,Cobra,iron set,1890.00,each,2,37,1890.00,1899.00,typical,https://golfpriceai.com/prices/cobra-3dp-x-irons/
 2026-11-27,cobra-baffler-combo-irons,Cobra Baffler Combo Irons,Cobra,iron set,599.00,each,3,104,599.00,699.00,typical,https://golfpriceai.com/prices/cobra-baffler-combo-irons/
 2026-11-27,cobra-ds-adapt-irons,Cobra DS-Adapt Irons,Cobra,iron set,499.00,each,4,104,499.00,619.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-irons/
-2026-11-27,cobra-ds-adapt-max-irons,Cobra DS-Adapt MAX Irons,Cobra,iron set,499.00,each,3,104,499.00,529.00,typical,https://golfpriceai.com/prices/cobra-ds-adapt-max-irons/
+2026-11-27,cobra-ds-adapt-max-irons,Cobra DS-Adapt MAX Irons,Cobra,iron set,499.00,each,3,104,99.00,529.00,wait,https://golfpriceai.com/prices/cobra-ds-adapt-max-irons/
 2026-11-27,cobra-darkspeed-irons,Cobra Darkspeed Irons,Cobra,iron set,449.00,each,2,85,429.00,449.00,typical,https://golfpriceai.com/prices/cobra-darkspeed-irons/
 2026-11-27,cobra-fly-xl-2-irons,Cobra Fly XL 2 Irons,Cobra,iron set,199.00,each,2,104,199.00,299.00,good,https://golfpriceai.com/prices/cobra-fly-xl-2-irons/
-2026-11-27,cobra-king-irons,Cobra KING Irons,Cobra,iron set,679.00,each,3,92,679.00,779.00,good,https://golfpriceai.com/prices/cobra-king-irons/
-2026-11-27,cobra-king-max-irons,Cobra KING Max Irons,Cobra,iron set,559.00,each,4,104,559.00,559.00,typical,https://golfpriceai.com/prices/cobra-king-max-irons/
+2026-11-27,cobra-king-irons,Cobra KING Irons,Cobra,iron set,512.10,each,4,104,107.10,569.00,wait,https://golfpriceai.com/prices/cobra-king-irons/
+2026-11-27,cobra-king-max-irons,Cobra KING Max Irons,Cobra,iron set,512.10,each,4,104,512.10,559.00,good,https://golfpriceai.com/prices/cobra-king-max-irons/
 2026-11-27,cobra-king-tec-utility-irons,Cobra KING Tec Utility Irons,Cobra,iron set,152.10,each,4,104,152.10,169.00,good,https://golfpriceai.com/prices/cobra-king-tec-utility-irons/
 2026-11-27,cobra-king-tec-x-irons,Cobra KING Tec X Irons,Cobra,iron set,719.10,each,2,104,719.10,919.00,good,https://golfpriceai.com/prices/cobra-king-tec-x-irons/
 2026-11-27,cobra-king-tour-irons,Cobra KING Tour Irons,Cobra,iron set,629.00,each,4,104,629.00,809.00,good,https://golfpriceai.com/prices/cobra-king-tour-irons/
@@ -245,18 +244,19 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,mizuno-pro-fli-hi-utility-irons,Mizuno Pro Fli-Hi Utility Irons,Mizuno,iron set,129.00,each,4,104,129.00,249.00,good,https://golfpriceai.com/prices/mizuno-pro-fli-hi-utility-irons/
 2026-11-27,mizuno-pro-m-13-irons,Mizuno Pro M-13 Irons,Mizuno,iron set,1099.00,each,3,104,1099.00,1439.00,good,https://golfpriceai.com/prices/mizuno-pro-m-13-irons/
 2026-11-27,mizuno-pro-m-15-irons,Mizuno Pro M-15 Irons,Mizuno,iron set,1079.00,each,3,104,909.00,1439.00,typical,https://golfpriceai.com/prices/mizuno-pro-m-15-irons/
-2026-11-27,mizuno-pro-s-1-irons,Mizuno Pro S-1 Irons,Mizuno,iron set,1179.00,each,3,104,1179.00,1289.00,good,https://golfpriceai.com/prices/mizuno-pro-s-1-irons/
+2026-11-27,mizuno-pro-s-1-irons,Mizuno Pro S-1 Irons,Mizuno,iron set,1160.10,each,3,104,1160.10,1289.00,good,https://golfpriceai.com/prices/mizuno-pro-s-1-irons/
 2026-11-27,mizuno-pro-s-3-irons,Mizuno Pro S-3 Irons,Mizuno,iron set,955.00,each,3,104,955.00,1379.00,good,https://golfpriceai.com/prices/mizuno-pro-s-3-irons/
 2026-11-27,mizuno-pro-s-4-irons,Mizuno Pro S-4 Irons,Mizuno,iron set,975.00,each,3,64,975.00,1499.00,good,https://golfpriceai.com/prices/mizuno-pro-s-4-irons/
-2026-11-27,ping-blueprint-s-irons,Ping Blueprint S Irons,Ping,iron set,1129.00,each,3,104,1129.00,1259.00,typical,https://golfpriceai.com/prices/ping-blueprint-s-irons/
-2026-11-27,ping-blueprint-t-irons,Ping Blueprint T Irons,Ping,iron set,1129.00,each,3,104,1129.00,1399.00,typical,https://golfpriceai.com/prices/ping-blueprint-t-irons/
+2026-11-27,ping-blueprint-s-irons,Ping Blueprint S Irons,Ping,iron set,1057.50,each,3,104,1057.50,1259.00,good,https://golfpriceai.com/prices/ping-blueprint-s-irons/
+2026-11-27,ping-blueprint-t-irons,Ping Blueprint T Irons,Ping,iron set,1079.10,each,3,104,1079.10,1399.00,good,https://golfpriceai.com/prices/ping-blueprint-t-irons/
+2026-11-27,ping-g-le4-irons,Ping G Le4 Irons,Ping,iron set,719.10,each,2,104,143.10,849.00,wait,https://golfpriceai.com/prices/ping-g-le4-irons/
 2026-11-27,ping-g430-irons,Ping G430 Irons,Ping,iron set,529.00,each,4,104,529.00,599.00,good,https://golfpriceai.com/prices/ping-g430-irons/
-2026-11-27,ping-g440-irons,Ping G440 Irons,Ping,iron set,859.00,each,3,104,859.00,1009.00,typical,https://golfpriceai.com/prices/ping-g440-irons/
+2026-11-27,ping-g440-irons,Ping G440 Irons,Ping,iron set,647.10,each,3,104,134.10,719.00,wait,https://golfpriceai.com/prices/ping-g440-irons/
 2026-11-27,ping-g730-irons,Ping G730 Irons,Ping,iron set,1029.00,each,2,85,1029.00,1199.00,good,https://golfpriceai.com/prices/ping-g730-irons/
-2026-11-27,ping-g740-irons,Ping G740 Irons,Ping,iron set,1049.00,each,3,104,1049.00,1049.00,typical,https://golfpriceai.com/prices/ping-g740-irons/
-2026-11-27,ping-i240-irons,Ping i240 Irons,Ping,iron set,1059.00,each,3,104,1059.00,1059.00,typical,https://golfpriceai.com/prices/ping-i240-irons/
+2026-11-27,ping-g740-irons,Ping G740 Irons,Ping,iron set,881.10,each,3,104,881.10,1049.00,good,https://golfpriceai.com/prices/ping-g740-irons/
+2026-11-27,ping-i240-irons,Ping i240 Irons,Ping,iron set,953.10,each,3,104,953.10,1059.00,good,https://golfpriceai.com/prices/ping-i240-irons/
 2026-11-27,ping-i530-irons,Ping i530 Irons,Ping,iron set,1199.00,each,2,85,1199.00,1249.00,typical,https://golfpriceai.com/prices/ping-i530-irons/
-2026-11-27,ping-i540-irons,Ping i540 Irons,Ping,iron set,1129.00,each,3,104,1129.00,1139.00,typical,https://golfpriceai.com/prices/ping-i540-irons/
+2026-11-27,ping-i540-irons,Ping i540 Irons,Ping,iron set,1025.10,each,3,104,1025.10,1139.00,good,https://golfpriceai.com/prices/ping-i540-irons/
 2026-11-27,ping-i59-irons,Ping i59 Irons,Ping,iron set,999.00,each,2,85,999.00,1099.00,good,https://golfpriceai.com/prices/ping-i59-irons/
 2026-11-27,ping-idi-driving-irons,Ping iDi Driving Irons,Ping,iron set,242.10,each,2,104,242.10,269.00,good,https://golfpriceai.com/prices/ping-idi-driving-irons/
 2026-11-27,ping-idi-utility-irons,Ping iDi Utility Irons,Ping,iron set,269.00,each,1,85,269.00,269.00,typical,https://golfpriceai.com/prices/ping-idi-utility-irons/
@@ -269,8 +269,8 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,srixon-zxiu-utility-irons,Srixon ZXiU Utility Irons,Srixon,iron set,159.00,each,3,104,159.00,219.00,typical,https://golfpriceai.com/prices/srixon-zxiu-utility-irons/
 2026-11-27,taylormade-p-dhy-utility-irons,TaylorMade P DHY Utility Irons,TaylorMade,iron set,229.00,each,3,85,229.00,229.00,typical,https://golfpriceai.com/prices/taylormade-p-dhy-utility-irons/
 2026-11-27,taylormade-p-udi-utility-irons,TaylorMade P UDI Utility Irons,TaylorMade,iron set,229.00,each,3,85,229.00,229.00,typical,https://golfpriceai.com/prices/taylormade-p-udi-utility-irons/
-2026-11-27,taylormade-p770-irons,TaylorMade P770 Irons,TaylorMade,iron set,1029.00,each,3,85,1029.00,1029.00,typical,https://golfpriceai.com/prices/taylormade-p770-irons/
-2026-11-27,taylormade-p790-irons,TaylorMade P790 Irons,TaylorMade,iron set,979.00,each,4,104,979.00,1059.00,typical,https://golfpriceai.com/prices/taylormade-p790-irons/
+2026-11-27,taylormade-p770-irons,TaylorMade P770 Irons,TaylorMade,iron set,971.10,each,4,104,161.10,1249.00,wait,https://golfpriceai.com/prices/taylormade-p770-irons/
+2026-11-27,taylormade-p790-irons,TaylorMade P790 Irons,TaylorMade,iron set,809.10,each,4,104,809.10,1059.00,good,https://golfpriceai.com/prices/taylormade-p790-irons/
 2026-11-27,taylormade-p7cb-irons,TaylorMade P7CB Irons,TaylorMade,iron set,929.00,each,3,104,929.00,1249.00,good,https://golfpriceai.com/prices/taylormade-p7cb-irons/
 2026-11-27,taylormade-p7mb-irons,TaylorMade P7MB Irons,TaylorMade,iron set,1029.00,each,3,104,989.00,1029.00,typical,https://golfpriceai.com/prices/taylormade-p7mb-irons/
 2026-11-27,taylormade-qi-irons,TaylorMade Qi Irons,TaylorMade,iron set,858.00,each,2,92,858.00,939.00,typical,https://golfpriceai.com/prices/taylormade-qi-irons/
@@ -280,10 +280,11 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,titleist-620-cb-irons,Titleist 620 CB Irons,Titleist,iron set,799.00,each,4,104,799.00,942.00,typical,https://golfpriceai.com/prices/titleist-620-cb-irons/
 2026-11-27,titleist-620-mb-irons,Titleist 620 MB Irons,Titleist,iron set,939.00,each,3,104,939.00,1099.00,good,https://golfpriceai.com/prices/titleist-620-mb-irons/
 2026-11-27,titleist-t100-irons,Titleist T100 Irons,Titleist,iron set,1069.00,each,3,104,1069.00,1189.00,typical,https://golfpriceai.com/prices/titleist-t100-irons/
-2026-11-27,titleist-t150-irons,Titleist T150 Irons,Titleist,iron set,1179.00,each,2,104,1179.00,1189.00,typical,https://golfpriceai.com/prices/titleist-t150-irons/
-2026-11-27,titleist-t250-launch-spec-irons,Titleist T250 Launch Spec Irons,Titleist,iron set,989.00,each,2,104,989.00,989.00,typical,https://golfpriceai.com/prices/titleist-t250-launch-spec-irons/
+2026-11-27,titleist-t150-irons,Titleist T150 Irons,Titleist,iron set,1070.10,each,2,104,1070.10,1189.00,good,https://golfpriceai.com/prices/titleist-t150-irons/
+2026-11-27,titleist-t250-irons,Titleist T250 Irons,Titleist,iron set,1070.10,each,2,104,179.10,1189.00,wait,https://golfpriceai.com/prices/titleist-t250-irons/
+2026-11-27,titleist-t250-launch-spec-irons,Titleist T250 Launch Spec Irons,Titleist,iron set,890.10,each,2,104,890.10,989.00,good,https://golfpriceai.com/prices/titleist-t250-launch-spec-irons/
 2026-11-27,titleist-t250-utility-irons,Titleist T250 Utility Irons,Titleist,iron set,233.10,each,2,104,233.10,259.00,good,https://golfpriceai.com/prices/titleist-t250-utility-irons/
-2026-11-27,titleist-t350-irons,Titleist T350 Irons,Titleist,iron set,1069.00,each,3,104,1069.00,1269.00,typical,https://golfpriceai.com/prices/titleist-t350-irons/
+2026-11-27,titleist-t350-irons,Titleist T350 Irons,Titleist,iron set,1069.00,each,3,104,179.10,1189.00,wait,https://golfpriceai.com/prices/titleist-t350-irons/
 2026-11-27,titleist-u505-utility-irons,Titleist U505 Utility Irons,Titleist,iron set,233.10,each,3,104,233.10,259.00,good,https://golfpriceai.com/prices/titleist-u505-utility-irons/
 2026-11-27,wilson-dynapwr-forged-irons,Wilson DYNAPWR Forged Irons,Wilson,iron set,479.00,each,4,104,479.00,799.00,good,https://golfpriceai.com/prices/wilson-dynapwr-forged-irons/
 2026-11-27,wilson-dynapwr-irons,Wilson DYNAPWR Irons,Wilson,iron set,399.00,each,3,104,399.00,629.00,good,https://golfpriceai.com/prices/wilson-dynapwr-irons/
@@ -291,7 +292,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,wilson-staff-model-blade-irons,Wilson Staff Model Blade Irons,Wilson,iron set,579.00,each,3,104,579.00,849.00,good,https://golfpriceai.com/prices/wilson-staff-model-blade-irons/
 2026-11-27,wilson-staff-model-cb-irons,Wilson Staff Model CB Irons,Wilson,iron set,599.00,each,3,104,599.00,599.00,typical,https://golfpriceai.com/prices/wilson-staff-model-cb-irons/
 2026-11-27,wilson-staff-model-rb-utility-irons,Wilson Staff Model RB Utility Irons,Wilson,iron set,189.95,each,2,104,189.95,219.00,good,https://golfpriceai.com/prices/wilson-staff-model-rb-utility-irons/
-2026-11-27,wilson-staff-model-xb-irons,Wilson Staff Model XB Irons,Wilson,iron set,854.10,each,3,104,799.00,854.10,wait,https://golfpriceai.com/prices/wilson-staff-model-xb-irons/
+2026-11-27,wilson-staff-model-xb-irons,Wilson Staff Model XB Irons,Wilson,iron set,719.10,each,3,104,719.10,854.10,good,https://golfpriceai.com/prices/wilson-staff-model-xb-irons/
 2026-11-27,yonex-ezone-elite-4-irons,Yonex Ezone Elite 4 Irons,Yonex,iron set,431.10,each,2,104,431.10,599.00,good,https://golfpriceai.com/prices/yonex-ezone-elite-4-irons/
 2026-11-27,yonex-ezone-gs-i-tech-irons,Yonex Ezone GS i-Tech Irons,Yonex,iron set,399.00,each,2,85,399.00,429.00,good,https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-irons/
 2026-11-27,yonex-ezone-gt4-irons,Yonex Ezone GT4 Irons,Yonex,iron set,935.10,each,2,85,935.10,999.00,good,https://golfpriceai.com/prices/yonex-ezone-gt4-irons/
@@ -343,7 +344,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,pxg-stick-em-forged-chrome-wedge,PXG Stick em Forged Chrome Wedge,PXG,wedge,179.95,each,1,85,179.95,179.95,typical,https://golfpriceai.com/prices/pxg-stick-em-forged-chrome-wedge/
 2026-11-27,pxg-sugar-daddy-iii-chrome-wedge,PXG Sugar Daddy III Chrome Wedge,PXG,wedge,279.00,each,1,85,279.00,279.00,typical,https://golfpriceai.com/prices/pxg-sugar-daddy-iii-chrome-wedge/
 2026-11-27,pxg-sugar-daddy-iii-full-face-wedge,PXG Sugar Daddy III Full Face Wedge,PXG,wedge,279.00,each,1,85,279.00,279.00,typical,https://golfpriceai.com/prices/pxg-sugar-daddy-iii-full-face-wedge/
-2026-11-27,ping-bunkr-wedge,Ping BunkR Wedge,Ping,wedge,159.00,each,3,104,159.00,169.00,good,https://golfpriceai.com/prices/ping-bunkr-wedge/
+2026-11-27,ping-bunkr-wedge,Ping BunkR Wedge,Ping,wedge,152.10,each,3,104,152.10,169.00,good,https://golfpriceai.com/prices/ping-bunkr-wedge/
 2026-11-27,ping-chipr-chipper-wedge,Ping ChipR Chipper Wedge,Ping,wedge,129.00,each,4,104,129.00,149.00,typical,https://golfpriceai.com/prices/ping-chipr-chipper-wedge/
 2026-11-27,ping-chipr-le-chipper-wedge,Ping ChipR Le Chipper Wedge,Ping,wedge,149.00,each,3,104,149.00,159.95,good,https://golfpriceai.com/prices/ping-chipr-le-chipper-wedge/
 2026-11-27,ping-prodi-g-24-wedge,Ping Prodi G 24 Wedge,Ping,wedge,84.95,each,1,85,84.95,84.95,typical,https://golfpriceai.com/prices/ping-prodi-g-24-wedge/
