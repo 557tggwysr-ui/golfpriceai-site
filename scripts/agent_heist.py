@@ -1,6 +1,8 @@
 """His & Hers: comic-panel episodes told in caption boxes and speech bubbles (no voiceover, John 26 Nov 2026) (John, 24-26 Nov 2026).
 
 Him, her, and his kit habit. Golf commentary over everyday home life; she always gets the last word.
+Caption boxes: episodes 2-3 are nature-documentary wording; from episode 4 they're traditional golf TV
+commentary ("Lovely tempo", "He's caught that one heavy") over everyday golf-at-home moments.
 Panels are John's ChatGPT illustrations (assets/social/heist/, listed in data/heist-panels.json);
 the scripts live in data/heist-episodes.json. Portrait panels fill the screen; landscape and square
 ones sit framed on a comic page. Narration boxes and speech bubbles are drawn here (never baked in).
