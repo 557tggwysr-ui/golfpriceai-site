@@ -1,44 +1,15 @@
 {
- "generated": "2026-11-26T17:27Z",
+ "generated": "2026-11-27T17:05Z",
  "about": "Claims guardian: price-page claims match live data, buy pages carry the commission disclosure, no urgency or 'was' wording, and our prices match retailers' own pages.",
- "accuracyPct": 99.8,
- "pricePagesChecked": 1437,
+ "accuracyPct": 100.0,
+ "pricePagesChecked": 1435,
  "wrongClaims": 0,
  "wrongExamples": [],
  "buyPagesChecked": 521,
  "missingDisclosure": [],
  "wordingFlags": [],
- "priceMatchChecked": 30,
- "priceMismatches": [
-  {
-   "id": "irons-wilson-dynapwr-golf-irons-steel-clickgolf",
-   "name": "Wilson DYNAPWR Golf Irons - Steel",
-   "ours": 489.0,
-   "theirs": 521.1,
-   "ok": false
-  },
-  {
-   "id": "apparel-galvin-green-pedro-golf-shorts-navy-36-clarkes-golf-clarkesgolf",
-   "name": "Galvin Green Pedro Golf Shorts - Navy / 36",
-   "ours": 79.0,
-   "theirs": 55.3,
-   "ok": false
-  },
-  {
-   "id": "wood-golfway-champion-junior-fairway-wood-ages-5-7-affordablegolf",
-   "name": "Golfway Champion Junior Fairway Wood (Ages 5-7)",
-   "ours": 24.99,
-   "theirs": 19.99,
-   "ok": false
-  },
-  {
-   "id": "putter-ai-one-milled-one-wide-t-ch-putter-callaway",
-   "name": "Ai-ONE Milled One Wide T CH Putter",
-   "ours": 336.75,
-   "theirs": 449.0,
-   "ok": false
-  }
- ],
+ "priceMatchChecked": 28,
+ "priceMismatches": [],
  "shopperReports": [],
- "status": "attention"
+ "status": "ok"
 }
