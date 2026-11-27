@@ -197,15 +197,9 @@
       "posted": null,
       "result": null,
       "spare": true,
-      "note": "Library-only spare: airs automatically if EP4 or EP5 photos are late (the engine posts the first episode whose photos all exist). If it airs early, its number airs out of order; renumber next week if that matters. Planned for Wed 30 Dec after EP5; if it airs early instead, it can sit next to EP2 (also a Gaz episode).",
-      "upgradePhotos": [
-        "kev-06-wince.jpg",
-        "kev-06-slowclap.jpg",
-        "phil-06-sideeye.jpg",
-        "kev-06-stifled.jpg"
-      ],
-      "upgradeNote": "John (26 Nov 2026): dedicated Phil and Kev photos instead of re-used library shots. The episode keeps airing with its current shots until these arrive; then swap them in (set bg explicitly, not a rotating reaction).",
-      "airs": "2026-12-30"
+      "note": "Dedicated Kev and Phil shots (27 Nov 2026). Planned for Wed 30 Dec after EP5; still the spare: if a later episode's photos are late, it airs in that slot.",
+      "airs": "2026-12-30",
+      "dedicatedPhotos": "complete (27 Nov 2026)"
     }
   ],
   "trendNotes": [],
@@ -272,7 +266,8 @@
       ],
       "asked": "2026-11-26",
       "needBy": null,
-      "kind": "upgrade"
+      "kind": "upgrade",
+      "received": "2026-11-27"
     }
   ],
   "featureRule": "Our tools are part of the world the characters live in. About every other episode, one real GolfPrice AI tool earns its place in the story: as Phil's prop, the proof, the twist or the punchline (EP3: the live scorecard proves Dave's six). The joke always comes first: if a tool would feel like an advert, leave it out that week. One tool per episode at most, shown truthfully (a real capture of the real page; demo data with the cast's names is fine, never a made-up interface or a feature we don't have), and the outro hands over to the same tool. Rotate tools so the series slowly shows off the whole site; deal tools and fun tools both count.",
