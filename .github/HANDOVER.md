@@ -118,6 +118,7 @@ Source now in `games/wild-nine-src/` (see its README); built page `play/wild-nin
 ## 9. Known gotchas (learned the hard way)
 
 - **GitHub's scheduled runs are unreliable** (delayed hours or skipped). For important posts, check after the slot and start the run manually (Actions → content engine → post). The watchdog flags agents that are late.
+- **The clock** (27 Nov): because of that, the Cloudflare worker starts the on-time runs itself (`CLOCK_JOBS` in `workers/alerts-worker.js`: posts 12:30/19:30, price update every 6h, claims 07:00, Friday email 16:00, sale-day 07:05 email). It needs the worker secret `GH_DISPATCH_TOKEN` and a `*/5 * * * *` cron trigger. Only add jobs that are safe to run twice (GitHub's late run may still arrive).
 - **"Run workflow" needs the final green button**; John has missed it once (remake didn't run).
 - Several agents commit to `main` at once: all workflows now retry the push 5 times.
 - When a cover or card looks off, the Editor will hold the post: fix the visuals at the source (engine code), not just the file.
