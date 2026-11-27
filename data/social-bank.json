@@ -981,12 +981,13 @@
     },
     {
      "cutaway": true,
-     "reaction": [
-      "kev",
-      "wince"
-     ],
      "label": "Kev",
-     "scene": "Kev bracing for the worst"
+     "scene": "Kev bracing for the worst",
+     "bg": "assets/social/library/kev-06-wince.jpg",
+     "focus": [
+      0.45,
+      0.3
+     ]
     }
    ],
    "lines": [
@@ -994,12 +995,13 @@
      "who": "kev",
      "text": "It went *in the air*, Gaz!",
      "beats": 2,
-     "reaction": [
-      "kev",
-      "slowclap"
-     ],
      "label": "Kev",
-     "scene": "Kev's slow clap"
+     "scene": "Kev's slow clap",
+     "bg": "assets/social/library/kev-06-slowclap.jpg",
+     "focus": [
+      0.45,
+      0.3
+     ]
     },
     {
      "who": "him",
@@ -1019,10 +1021,10 @@
      "text": "Actually, you *sold* it in March.",
      "beats": 3,
      "pos": "low",
-     "bg": "assets/social/library/meme-steve-sideeye.jpg",
+     "bg": "assets/social/library/phil-06-sideeye.jpg",
      "focus": [
-      0.97,
-      0.4
+      0.4,
+      0.3
      ],
      "label": "Phil",
      "scene": "Phil, arms folded, side-eye"
@@ -1031,11 +1033,11 @@
      "who": "kev",
      "text": "",
      "beats": 1,
-     "reaction": [
-      "kev",
-      "stifled"
-     ],
-     "optional": true
+     "bg": "assets/social/library/kev-06-stifled.jpg",
+     "focus": [
+      0.45,
+      0.3
+     ]
     }
    ],
    "cover": {
@@ -1051,10 +1053,10 @@
      0.45,
      0.35
     ],
-    "right": "assets/social/library/seq-dave-08-mate.jpg",
+    "right": "assets/social/library/phil-06-sideeye.jpg",
     "right_focus": [
-     0.45,
-     0.4
+     0.4,
+     0.3
     ],
     "tool": "fourball"
    }
