@@ -6,28 +6,28 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 476.1,
+ "lowestNewPrice": 449.0,
  "lowestAt": [
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 449.0,
+   "options": 12
+  },
   {
    "name": "Clickgolf",
    "from": 476.1,
    "options": 2
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 479.0,
-   "options": 12
   }
  ],
  "history": {
   "daysTracked": 104,
-  "low": 476.1,
+  "low": 449.0,
   "high": 529.0,
-  "average": 514.33,
-  "priceChanges": 4,
+  "average": 514.07,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -51,7 +51,7 @@
    ],
    [
     "2026-11-27",
-    476.1
+    449.0
    ]
   ]
  },
@@ -59,7 +59,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-max-driver-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Ping-G440-MAX-HL-Golf-Driver-5.jpg?v=1733285106",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

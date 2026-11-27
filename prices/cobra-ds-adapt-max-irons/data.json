@@ -6,12 +6,16 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 499.0,
+ "lowestNewPrice": 399.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 399.0,
+   "options": 1
+  },
   {
    "name": "Affordable Golf",
    "from": 499.0,
@@ -21,18 +25,13 @@
    "name": "Clickgolf",
    "from": 499.0,
    "options": 2
-  },
-  {
-   "name": "Clarkes Golf",
-   "from": 579.0,
-   "options": 1
   }
  ],
  "history": {
   "daysTracked": 104,
   "low": 99.0,
   "high": 529.0,
-  "average": 503.81,
+  "average": 502.85,
   "priceChanges": 3,
   "series": [
    [
@@ -49,15 +48,15 @@
    ],
    [
     "2026-11-27",
-    499.0
+    399.0
    ]
   ]
  },
  "verdict": {
   "label": "wait",
-  "summary": "Wait if you can: £400.00 above its tracked low"
+  "summary": "Wait if you can: £300.00 above its tracked low"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Cobra-DS-ADAPT-Max-Irons-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra-DS-Adapt-Max-Golf-Irons-Graphite-1.jpg?v=1734408494",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }

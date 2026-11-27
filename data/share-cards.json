@@ -4,9 +4,24 @@
 49.99,
 "typical"
 ],
+"aldila-regular-driver": [
+"2376f3395d",
+99.99,
+"typical"
+],
+"aldila-regular-fairway-wood": [
+"e5f982dcd0",
+59.99,
+"typical"
+],
 "aldila-stiff-driver": [
 "cf880f3a27",
 49.99,
+"typical"
+],
+"aldila-stiff-fairway-wood": [
+"7375aaf819",
+39.99,
 "typical"
 ],
 "arccos-laser-rangefinder": [
@@ -236,7 +251,7 @@
 37.95,
 "typical"
 ],
-"bushnell-a1-slope-laser-rangefinder": "1eddad844b",
+"bushnell-a1-slope-laser-rangefinder": "f709b2266c",
 "bushnell-ion-elite-gps-watch": "12862636de",
 "bushnell-ion-elite-rangefinder": "4ef2d8e96a",
 "bushnell-launch-pro-indoor-launch-monitor": [
@@ -508,11 +523,7 @@
 "callaway-elyte-tour-certified-hybrid": "abc68ea117",
 "callaway-elyte-triple-diamond-fairway-wood": "20d6d6a83f",
 "callaway-elyte-x-driver": "080f9b3d7b",
-"callaway-elyte-x-fairway-wood": [
-"f53fc7c021",
-229.0,
-"typical"
-],
+"callaway-elyte-x-fairway-wood": "82200d89d1",
 "callaway-elyte-x-hybrid": "58642dd38c",
 "callaway-elyte-x-irons": [
 "d5dafcc88c",
@@ -858,11 +869,7 @@
 139.95,
 "wait"
 ],
-"callaway-xt-11-piece-junior-golf-set": [
-"55e3af18cd",
-449.1,
-"typical"
-],
+"callaway-xt-11-piece-junior-golf-set": "0011f7e51d",
 "callaway-xt-junior-golf-set": [
 "81cd0e4545",
 569.0,
@@ -1048,7 +1055,7 @@
 ],
 "cobra-ds-adapt-hybrid": "f500fca957",
 "cobra-ds-adapt-irons": "4cfe193157",
-"cobra-ds-adapt-ls-driver": "c26a1de5f4",
+"cobra-ds-adapt-ls-driver": "54ee951f7c",
 "cobra-ds-adapt-ls-fairway-wood": [
 "45c1c6a83f",
 189.0,
@@ -1056,8 +1063,8 @@
 ],
 "cobra-ds-adapt-max-d-driver": "621180d9a2",
 "cobra-ds-adapt-max-irons": [
-"e46462ca89",
-499.0,
+"53b5a586c3",
+399.0,
 "wait"
 ],
 "cobra-ds-adapt-max-k-driver": "dd320e45ef",
@@ -1199,11 +1206,7 @@
 "typical"
 ],
 "cobra-ultralight-2-pro-stand-bag-golf-bag": "ebcd12493b",
-"cobra-ultralight-2-stand-bag-golf-bag": [
-"6cc4399bc3",
-119.0,
-"typical"
-],
+"cobra-ultralight-2-stand-bag-golf-bag": "3fa8056ce6",
 "cobra-ultralight-pro-cart-bag-golf-bag": [
 "e1adf6febd",
 149.0,
@@ -1289,6 +1292,16 @@
 "ezeglide-eze-74-hybrid-stand-bag-golf-bag": [
 "bc05e49c3d",
 109.95,
+"typical"
+],
+"fujikura-extra-stiff-driver": [
+"5712a5b823",
+119.99,
+"typical"
+],
+"fujikura-extra-stiff-fairway-wood": [
+"9ea81806cc",
+59.99,
 "typical"
 ],
 "garmin-approach-g20-solar-rangefinder": [
@@ -1817,7 +1830,7 @@
 759.0,
 "typical"
 ],
-"mizuno-jpx-923-hot-metal-irons": "7c9534c0e1",
+"mizuno-jpx-923-hot-metal-irons": "4946632dc8",
 "mizuno-jpx-923-tour-irons": "6f72084458",
 "mizuno-jpx-925-fli-hi-hybrid": "5153e60d56",
 "mizuno-jpx-925-forged-irons": "eb1bb5b33a",
@@ -2031,8 +2044,8 @@
 "typical"
 ],
 "motocaddy-lite-series-cart-bag-golf-bag": "468583a463",
-"motocaddy-m-tech-cart-bag-golf-bag": "e149596da8",
-"motocaddy-m-tech-electric-trolley": "8db54f619c",
+"motocaddy-m-tech-cart-bag-golf-bag": "152f841c1b",
+"motocaddy-m-tech-electric-trolley": "94bea61bc4",
 "motocaddy-m-tech-ultra-electric-trolley": [
 "2029f0530a",
 1199.0,
@@ -2046,7 +2059,7 @@
 "typical"
 ],
 "motocaddy-m5-dhc-electric-trolley": "6769b5aab9",
-"motocaddy-m5-electric-trolley": "d63b4e2906",
+"motocaddy-m5-electric-trolley": "ab59a3eb6a",
 "motocaddy-m5-ultra-electric-trolley": [
 "64d15872fd",
 1099.0,
@@ -2103,11 +2116,7 @@
 849.0,
 "typical"
 ],
-"navee-birdie-3-remote-electric-trolley": [
-"4b97a8aed8",
-789.0,
-"typical"
-],
+"navee-birdie-3-remote-electric-trolley": "1e0cc3687c",
 "navee-birdie-3x-follow-electric-trolley": "ac30ba20ea",
 "navee-birdie3-follow-electric-trolley": [
 "078a312273",
@@ -2319,7 +2328,7 @@
 ],
 "ping-g440-lst-driver": "d102b75e2c",
 "ping-g440-lst-fairway-wood": "9cbffe71f8",
-"ping-g440-max-driver": "2b3a7d9b52",
+"ping-g440-max-driver": "cf09f348e3",
 "ping-g440-max-fairway-wood": "90a983107d",
 "ping-g440-max-hl-driver": "9411be649c",
 "ping-g440-sft-driver": "a9cb1d2ab1",
@@ -3102,7 +3111,7 @@
 169.0,
 "typical"
 ],
-"srixon-zxi-ls-driver": "80a281a925",
+"srixon-zxi-ls-driver": "24c9b2277c",
 "srixon-zxi-max-driver": "bcf5f20758",
 "srixon-zxi-rkt-driver": [
 "ca71b34500",
@@ -3722,7 +3731,7 @@
 "typical"
 ],
 "titleist-gt1-3tour-fairway-wood": "ec27fed22f",
-"titleist-gt1-driver": "9583e9e26a",
+"titleist-gt1-driver": "7d1e755be2",
 "titleist-gt1-fairway-wood": "03753890a2",
 "titleist-gt1-hybrid": "90890bb0c7",
 "titleist-gt2-driver": [
@@ -4013,6 +4022,21 @@
 119.95,
 "typical"
 ],
+"true-temper-extra-stiff-driver": [
+"7649f552bb",
+99.99,
+"typical"
+],
+"true-temper-extra-stiff-fairway-wood": [
+"0b6ab44197",
+69.99,
+"typical"
+],
+"true-temper-light-driver": [
+"15f18ee928",
+54.99,
+"typical"
+],
 "true-temper-regular-driver": [
 "3bc1e4cbc7",
 89.99,
@@ -4021,6 +4045,16 @@
 "true-temper-regular-fairway-wood": [
 "26950ebd04",
 44.99,
+"typical"
+],
+"true-temper-stiff-driver": [
+"910be1b683",
+89.99,
+"typical"
+],
+"true-temper-stiff-fairway-wood": [
+"f9eeac272a",
+69.99,
 "typical"
 ],
 "us-kids-golf-u-s-kids-ultralight-7-39-wedge": [

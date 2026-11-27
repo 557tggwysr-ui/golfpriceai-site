@@ -16,7 +16,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,cobra-baffler-driver,Cobra Baffler Driver,Cobra,driver,269.00,each,3,104,269.00,299.00,good,https://golfpriceai.com/prices/cobra-baffler-driver/
 2026-11-27,cobra-baffler-offset-driver,Cobra Baffler Offset Driver,Cobra,driver,269.10,each,3,104,269.10,299.00,good,https://golfpriceai.com/prices/cobra-baffler-offset-driver/
 2026-11-27,cobra-ds-adapt-driver,Cobra DS-Adapt Driver,Cobra,driver,299.00,each,1,85,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-driver/
-2026-11-27,cobra-ds-adapt-ls-driver,Cobra DS-Adapt LS Driver,Cobra,driver,299.00,each,3,104,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-ls-driver/
+2026-11-27,cobra-ds-adapt-ls-driver,Cobra DS-Adapt LS Driver,Cobra,driver,229.00,each,3,104,229.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-ls-driver/
 2026-11-27,cobra-ds-adapt-max-d-driver,Cobra DS-Adapt Max D Driver,Cobra,driver,299.00,each,2,104,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-max-d-driver/
 2026-11-27,cobra-ds-adapt-max-k-driver,Cobra DS-Adapt Max K Driver,Cobra,driver,299.00,each,2,104,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-max-k-driver/
 2026-11-27,cobra-ds-adapt-x-driver,Cobra DS-Adapt X Driver,Cobra,driver,299.00,each,3,104,299.00,329.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-x-driver/
@@ -42,14 +42,14 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,ping-g440-hl-driver,Ping G440 HL Driver,Ping,driver,499.00,each,1,85,499.00,529.00,good,https://golfpriceai.com/prices/ping-g440-hl-driver/
 2026-11-27,ping-g440-k-driver,Ping G440 K Driver,Ping,driver,494.10,each,2,104,494.10,599.00,good,https://golfpriceai.com/prices/ping-g440-k-driver/
 2026-11-27,ping-g440-lst-driver,Ping G440 LST Driver,Ping,driver,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-lst-driver/
-2026-11-27,ping-g440-max-driver,Ping G440 MAX Driver,Ping,driver,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-max-driver/
+2026-11-27,ping-g440-max-driver,Ping G440 MAX Driver,Ping,driver,449.00,each,2,104,449.00,529.00,good,https://golfpriceai.com/prices/ping-g440-max-driver/
 2026-11-27,ping-g440-max-hl-driver,Ping G440 MAX HL Driver,Ping,driver,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-max-hl-driver/
 2026-11-27,ping-g440-sft-driver,Ping G440 SFT Driver,Ping,driver,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-sft-driver/
 2026-11-27,ping-g440-sft-hl-driver,Ping G440 SFT HL Driver,Ping,driver,476.10,each,2,104,476.10,529.00,good,https://golfpriceai.com/prices/ping-g440-sft-hl-driver/
 2026-11-27,ping-g440k-driver,Ping G440K Driver,Ping,driver,579.00,each,1,85,579.00,579.00,typical,https://golfpriceai.com/prices/ping-g440k-driver/
 2026-11-27,ping-g440k-hl-driver,Ping G440K HL Driver,Ping,driver,579.00,each,1,85,579.00,579.00,typical,https://golfpriceai.com/prices/ping-g440k-hl-driver/
 2026-11-27,srixon-zxi-driver,Srixon ZXi Driver,Srixon,driver,279.65,each,4,104,279.65,499.00,good,https://golfpriceai.com/prices/srixon-zxi-driver/
-2026-11-27,srixon-zxi-ls-driver,Srixon ZXi LS Driver,Srixon,driver,279.65,each,3,104,279.65,499.00,good,https://golfpriceai.com/prices/srixon-zxi-ls-driver/
+2026-11-27,srixon-zxi-ls-driver,Srixon ZXi LS Driver,Srixon,driver,249.00,each,3,104,249.00,499.00,good,https://golfpriceai.com/prices/srixon-zxi-ls-driver/
 2026-11-27,srixon-zxi-max-driver,Srixon ZXi Max Driver,Srixon,driver,279.65,each,3,104,279.65,499.00,good,https://golfpriceai.com/prices/srixon-zxi-max-driver/
 2026-11-27,srixon-zxi-rkt-driver,Srixon ZXi RKT Driver,Srixon,driver,529.00,each,4,71,529.00,569.00,typical,https://golfpriceai.com/prices/srixon-zxi-rkt-driver/
 2026-11-27,srixon-zxi-rkt-ls-driver,Srixon ZXi RKT LS Driver,Srixon,driver,529.00,each,3,71,529.00,569.00,typical,https://golfpriceai.com/prices/srixon-zxi-rkt-ls-driver/
@@ -62,7 +62,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,taylormade-qi4d-max-driver,TaylorMade Qi4D Max Driver,TaylorMade,driver,494.10,each,3,104,494.10,549.00,good,https://golfpriceai.com/prices/taylormade-qi4d-max-driver/
 2026-11-27,taylormade-qi4d-max-lite-driver,TaylorMade Qi4D Max Lite Driver,TaylorMade,driver,494.10,each,2,104,494.10,549.00,good,https://golfpriceai.com/prices/taylormade-qi4d-max-lite-driver/
 2026-11-27,taylormade-r7-quad-mini-driver,TaylorMade R7 Quad Mini Driver,TaylorMade,driver,349.00,each,3,104,349.00,399.00,good,https://golfpriceai.com/prices/taylormade-r7-quad-mini-driver/
-2026-11-27,titleist-gt1-driver,Titleist GT1 Driver,Titleist,driver,419.00,each,3,104,419.00,499.00,good,https://golfpriceai.com/prices/titleist-gt1-driver/
+2026-11-27,titleist-gt1-driver,Titleist GT1 Driver,Titleist,driver,399.00,each,3,104,399.00,499.00,good,https://golfpriceai.com/prices/titleist-gt1-driver/
 2026-11-27,titleist-gt2-driver,Titleist GT2 Driver,Titleist,driver,399.00,each,3,92,399.00,399.00,typical,https://golfpriceai.com/prices/titleist-gt2-driver/
 2026-11-27,titleist-gt280-mini-driver,Titleist GT280 Mini Driver,Titleist,driver,413.10,each,4,104,413.10,459.00,good,https://golfpriceai.com/prices/titleist-gt280-mini-driver/
 2026-11-27,titleist-gt3-driver,Titleist GT3 Driver,Titleist,driver,399.00,each,3,85,399.00,499.00,good,https://golfpriceai.com/prices/titleist-gt3-driver/
@@ -88,7 +88,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,callaway-elyte-fairway-wood,Callaway Elyte Fairway Wood,Callaway,fairway wood,149.95,each,5,104,149.95,239.00,good,https://golfpriceai.com/prices/callaway-elyte-fairway-wood/
 2026-11-27,callaway-elyte-tour-certified-fairway-wood,Callaway Elyte Tour Certified Fairway Wood,Callaway,fairway wood,149.95,each,1,85,149.95,229.00,good,https://golfpriceai.com/prices/callaway-elyte-tour-certified-fairway-wood/
 2026-11-27,callaway-elyte-triple-diamond-fairway-wood,Callaway Elyte Triple Diamond Fairway Wood,Callaway,fairway wood,249.00,each,2,104,249.00,359.00,good,https://golfpriceai.com/prices/callaway-elyte-triple-diamond-fairway-wood/
-2026-11-27,callaway-elyte-x-fairway-wood,Callaway Elyte X Fairway Wood,Callaway,fairway wood,229.00,each,3,104,229.00,239.00,typical,https://golfpriceai.com/prices/callaway-elyte-x-fairway-wood/
+2026-11-27,callaway-elyte-x-fairway-wood,Callaway Elyte X Fairway Wood,Callaway,fairway wood,179.00,each,3,104,179.00,239.00,good,https://golfpriceai.com/prices/callaway-elyte-x-fairway-wood/
 2026-11-27,callaway-paradym-ai-smoke-max-d-fairway-wood,Callaway Paradym Ai Smoke Max D Fairway Wood,Callaway,fairway wood,265.30,each,2,104,179.00,379.00,typical,https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-d-fairway-wood/
 2026-11-27,callaway-paradym-ai-smoke-max-fairway-wood,Callaway Paradym Ai Smoke Max Fairway Wood,Callaway,fairway wood,199.00,each,3,104,199.00,379.00,good,https://golfpriceai.com/prices/callaway-paradym-ai-smoke-max-fairway-wood/
 2026-11-27,callaway-paradym-fairway-wood,Callaway Paradym Fairway Wood,Callaway,fairway wood,129.95,each,2,85,129.95,149.95,good,https://golfpriceai.com/prices/callaway-paradym-fairway-wood/
@@ -221,7 +221,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,cobra-3dp-x-irons,Cobra 3DP X Irons,Cobra,iron set,1890.00,each,2,37,1890.00,1899.00,typical,https://golfpriceai.com/prices/cobra-3dp-x-irons/
 2026-11-27,cobra-baffler-combo-irons,Cobra Baffler Combo Irons,Cobra,iron set,599.00,each,3,104,599.00,699.00,typical,https://golfpriceai.com/prices/cobra-baffler-combo-irons/
 2026-11-27,cobra-ds-adapt-irons,Cobra DS-Adapt Irons,Cobra,iron set,499.00,each,4,104,499.00,619.00,good,https://golfpriceai.com/prices/cobra-ds-adapt-irons/
-2026-11-27,cobra-ds-adapt-max-irons,Cobra DS-Adapt MAX Irons,Cobra,iron set,499.00,each,3,104,99.00,529.00,wait,https://golfpriceai.com/prices/cobra-ds-adapt-max-irons/
+2026-11-27,cobra-ds-adapt-max-irons,Cobra DS-Adapt MAX Irons,Cobra,iron set,399.00,each,3,104,99.00,529.00,wait,https://golfpriceai.com/prices/cobra-ds-adapt-max-irons/
 2026-11-27,cobra-darkspeed-irons,Cobra Darkspeed Irons,Cobra,iron set,449.00,each,2,85,429.00,449.00,typical,https://golfpriceai.com/prices/cobra-darkspeed-irons/
 2026-11-27,cobra-fly-xl-2-irons,Cobra Fly XL 2 Irons,Cobra,iron set,199.00,each,2,104,199.00,299.00,good,https://golfpriceai.com/prices/cobra-fly-xl-2-irons/
 2026-11-27,cobra-king-irons,Cobra KING Irons,Cobra,iron set,512.10,each,4,104,107.10,569.00,wait,https://golfpriceai.com/prices/cobra-king-irons/
@@ -234,7 +234,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,cobra-t-rail-combo-irons,Cobra T-Rail Combo Irons,Cobra,iron set,599.00,each,2,104,599.00,599.00,typical,https://golfpriceai.com/prices/cobra-t-rail-combo-irons/
 2026-11-27,macgregor-zt-plus-irons,MacGregor ZT Plus Irons,MacGregor,iron set,249.00,each,3,92,249.00,249.00,typical,https://golfpriceai.com/prices/macgregor-zt-plus-irons/
 2026-11-27,mizuno-jpx-923-forged-irons,Mizuno JPX 923 Forged Irons,Mizuno,iron set,759.00,each,2,85,759.00,759.00,typical,https://golfpriceai.com/prices/mizuno-jpx-923-forged-irons/
-2026-11-27,mizuno-jpx-923-hot-metal-irons,Mizuno JPX 923 Hot Metal Irons,Mizuno,iron set,499.00,each,3,104,499.00,599.00,good,https://golfpriceai.com/prices/mizuno-jpx-923-hot-metal-irons/
+2026-11-27,mizuno-jpx-923-hot-metal-irons,Mizuno JPX 923 Hot Metal Irons,Mizuno,iron set,479.00,each,3,104,479.00,599.00,good,https://golfpriceai.com/prices/mizuno-jpx-923-hot-metal-irons/
 2026-11-27,mizuno-jpx-923-tour-irons,Mizuno JPX 923 Tour Irons,Mizuno,iron set,699.00,each,2,85,699.00,799.00,good,https://golfpriceai.com/prices/mizuno-jpx-923-tour-irons/
 2026-11-27,mizuno-jpx-925-forged-irons,Mizuno JPX 925 Forged Irons,Mizuno,iron set,699.00,each,2,104,699.00,1099.00,good,https://golfpriceai.com/prices/mizuno-jpx-925-forged-irons/
 2026-11-27,mizuno-jpx-925-hot-metal-high-irons,Mizuno JPX 925 Hot Metal High Irons,Mizuno,iron set,699.00,each,1,92,141.50,141.50,typical,https://golfpriceai.com/prices/mizuno-jpx-925-hot-metal-high-irons/
@@ -773,7 +773,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,cobra-ultralight-2-carry-bag-stand-bag-golf-bag,Cobra Ultralight 2 Carry Bag Stand Bag Golf Bag,Cobra,golf bag,107.10,each,1,104,99.00,119.00,typical,https://golfpriceai.com/prices/cobra-ultralight-2-carry-bag-stand-bag-golf-bag/
 2026-11-27,cobra-ultralight-2-cart-bag-golf-bag,Cobra Ultralight 2 Cart Bag Golf Bag,Cobra,golf bag,152.10,each,4,104,144.00,169.00,typical,https://golfpriceai.com/prices/cobra-ultralight-2-cart-bag-golf-bag/
 2026-11-27,cobra-ultralight-2-pro-stand-bag-golf-bag,Cobra Ultralight 2 Pro Stand Bag Golf Bag,Cobra,golf bag,119.00,each,2,92,119.00,139.00,good,https://golfpriceai.com/prices/cobra-ultralight-2-pro-stand-bag-golf-bag/
-2026-11-27,cobra-ultralight-2-stand-bag-golf-bag,Cobra Ultralight 2 Stand Bag Golf Bag,Cobra,golf bag,119.00,each,3,104,119.00,149.00,typical,https://golfpriceai.com/prices/cobra-ultralight-2-stand-bag-golf-bag/
+2026-11-27,cobra-ultralight-2-stand-bag-golf-bag,Cobra Ultralight 2 Stand Bag Golf Bag,Cobra,golf bag,109.00,each,3,104,109.00,149.00,good,https://golfpriceai.com/prices/cobra-ultralight-2-stand-bag-golf-bag/
 2026-11-27,cobra-ultralight-pro-cart-bag-golf-bag,Cobra Ultralight Pro Cart Bag Golf Bag,Cobra,golf bag,149.00,each,3,104,144.00,154.00,typical,https://golfpriceai.com/prices/cobra-ultralight-pro-cart-bag-golf-bag/
 2026-11-27,cobra-ultralight-pro-stand-bag-golf-bag,Cobra Ultralight Pro Stand Bag Golf Bag,Cobra,golf bag,129.00,each,2,85,129.00,129.00,typical,https://golfpriceai.com/prices/cobra-ultralight-pro-stand-bag-golf-bag/
 2026-11-27,cobra-x-vessel-core-staff-golf-bag,Cobra X Vessel Core Staff Golf Bag,Cobra,golf bag,429.00,each,1,85,429.00,429.00,typical,https://golfpriceai.com/prices/cobra-x-vessel-core-staff-golf-bag/
@@ -839,13 +839,13 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,motocaddy-26-m-tech-cart-bag-golf-bag,Motocaddy 26 M-Tech Cart Bag Golf Bag,Motocaddy,golf bag,259.00,each,1,85,259.00,279.00,good,https://golfpriceai.com/prices/motocaddy-26-m-tech-cart-bag-golf-bag/
 2026-11-27,motocaddy-26-series-cart-bag-golf-bag,Motocaddy 26 Series Cart Bag Golf Bag,Motocaddy,golf bag,129.95,each,1,85,129.95,149.95,good,https://golfpriceai.com/prices/motocaddy-26-series-cart-bag-golf-bag/
 2026-11-27,motocaddy-dry-series-cart-bag-golf-bag,Motocaddy Dry Series Cart Bag Golf Bag,Motocaddy,golf bag,229.00,each,1,92,229.00,229.00,typical,https://golfpriceai.com/prices/motocaddy-dry-series-cart-bag-golf-bag/
-2026-11-27,motocaddy-dry-series-waterproof-cart-bag-golf-bag,Motocaddy Dry Series Waterproof Cart Bag Golf Bag,Motocaddy,golf bag,219.00,each,2,85,219.00,249.00,good,https://golfpriceai.com/prices/motocaddy-dry-series-waterproof-cart-bag-golf-bag/
+2026-11-27,motocaddy-dry-series-waterproof-cart-bag-golf-bag,Motocaddy Dry Series Waterproof Cart Bag Golf Bag,Motocaddy,golf bag,197.10,each,2,85,197.10,249.00,good,https://golfpriceai.com/prices/motocaddy-dry-series-waterproof-cart-bag-golf-bag/
 2026-11-27,motocaddy-eliteflex-hybrid-stand-bag-golf-bag,Motocaddy EliteFLEX Hybrid Stand Bag Golf Bag,Motocaddy,golf bag,199.00,each,1,85,199.00,209.00,good,https://golfpriceai.com/prices/motocaddy-eliteflex-hybrid-stand-bag-golf-bag/
 2026-11-27,motocaddy-hydroflex-stand-bag-golf-bag,Motocaddy HydroFLEX Stand Bag Golf Bag,Motocaddy,golf bag,159.00,each,2,104,159.00,159.00,typical,https://golfpriceai.com/prices/motocaddy-hydroflex-stand-bag-golf-bag/
 2026-11-27,motocaddy-hydroflex-waterproof-hybrid-stand-bag-golf-bag,Motocaddy Hydroflex Waterproof Hybrid Stand Bag Golf Bag,Motocaddy,golf bag,159.00,each,1,92,159.00,159.00,typical,https://golfpriceai.com/prices/motocaddy-hydroflex-waterproof-hybrid-stand-bag-golf-bag/
 2026-11-27,motocaddy-hydroflex-waterproof-stand-bag-golf-bag,Motocaddy Hydroflex Waterproof Stand Bag Golf Bag,Motocaddy,golf bag,159.95,each,2,85,159.95,189.99,typical,https://golfpriceai.com/prices/motocaddy-hydroflex-waterproof-stand-bag-golf-bag/
 2026-11-27,motocaddy-lite-series-cart-bag-golf-bag,Motocaddy Lite Series Cart Bag Golf Bag,Motocaddy,golf bag,109.00,each,4,92,109.00,119.00,good,https://golfpriceai.com/prices/motocaddy-lite-series-cart-bag-golf-bag/
-2026-11-27,motocaddy-m-tech-cart-bag-golf-bag,Motocaddy M-TECH Cart Bag Golf Bag,Motocaddy,golf bag,249.00,each,2,104,249.00,279.00,good,https://golfpriceai.com/prices/motocaddy-m-tech-cart-bag-golf-bag/
+2026-11-27,motocaddy-m-tech-cart-bag-golf-bag,Motocaddy M-TECH Cart Bag Golf Bag,Motocaddy,golf bag,239.00,each,2,104,239.00,279.00,good,https://golfpriceai.com/prices/motocaddy-m-tech-cart-bag-golf-bag/
 2026-11-27,motocaddy-pro-series-cart-bag-golf-bag,Motocaddy Pro Series Cart Bag Golf Bag,Motocaddy,golf bag,169.00,each,4,104,159.00,179.00,typical,https://golfpriceai.com/prices/motocaddy-pro-series-cart-bag-golf-bag/
 2026-11-27,motocaddy-pro-series-deluxe-cart-bag-golf-bag,Motocaddy Pro Series Deluxe Cart Bag Golf Bag,Motocaddy,golf bag,179.00,each,1,92,179.00,179.00,typical,https://golfpriceai.com/prices/motocaddy-pro-series-deluxe-cart-bag-golf-bag/
 2026-11-27,motocaddy-protekta-cart-bag-golf-bag,Motocaddy Protekta Cart Bag Golf Bag,Motocaddy,golf bag,209.00,each,3,104,209.00,239.00,good,https://golfpriceai.com/prices/motocaddy-protekta-cart-bag-golf-bag/
@@ -1098,7 +1098,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,blue-tees-captain-pro-connected-laser-rangefinder,Blue Tees Captain Pro Connected Laser Rangefinder,Blue Tees,rangefinder,249.00,each,1,85,249.00,299.00,good,https://golfpriceai.com/prices/blue-tees-captain-pro-connected-laser-rangefinder/
 2026-11-27,blue-tees-series-3-max-rangefinder,Blue Tees Series 3 Max Rangefinder,Blue Tees,rangefinder,199.00,each,1,85,199.00,199.00,typical,https://golfpriceai.com/prices/blue-tees-series-3-max-rangefinder/
 2026-11-27,blue-tees-series-4-ultra-rangefinder,Blue Tees Series 4 Ultra Rangefinder,Blue Tees,rangefinder,249.00,each,1,85,249.00,269.00,typical,https://golfpriceai.com/prices/blue-tees-series-4-ultra-rangefinder/
-2026-11-27,bushnell-a1-slope-laser-rangefinder,Bushnell A1 Slope Laser Rangefinder,Bushnell,rangefinder,169.00,each,4,104,169.00,269.00,good,https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/
+2026-11-27,bushnell-a1-slope-laser-rangefinder,Bushnell A1 Slope Laser Rangefinder,Bushnell,rangefinder,159.00,each,4,104,159.00,269.00,good,https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/
 2026-11-27,bushnell-phantom-3-handheld-rangefinder,Bushnell Phantom 3 Handheld Rangefinder,Bushnell,rangefinder,109.95,each,1,85,109.95,129.95,good,https://golfpriceai.com/prices/bushnell-phantom-3-handheld-rangefinder/
 2026-11-27,bushnell-phantom-3-rangefinder,Bushnell Phantom 3 Rangefinder,Bushnell,rangefinder,109.00,each,1,104,109.00,129.00,good,https://golfpriceai.com/prices/bushnell-phantom-3-rangefinder/
 2026-11-27,bushnell-pro-x3-plus-laser-rangefinder,Bushnell Pro X3+ Laser Rangefinder,Bushnell,rangefinder,449.00,each,5,104,449.00,529.00,good,https://golfpriceai.com/prices/bushnell-pro-x3-plus-laser-rangefinder/
@@ -1149,14 +1149,14 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,ben-sayers-18-hole-electric-trolley,Ben Sayers 18 Hole Electric Trolley,Ben Sayers,electric trolley,349.00,each,1,92,345.00,349.00,typical,https://golfpriceai.com/prices/ben-sayers-18-hole-electric-trolley/
 2026-11-27,ben-sayers-36-hole-electric-trolley,Ben Sayers 36 Hole Electric Trolley,Ben Sayers,electric trolley,395.00,each,1,92,395.00,395.00,typical,https://golfpriceai.com/prices/ben-sayers-36-hole-electric-trolley/
 2026-11-27,motocaddy-m-tech-ultra-electric-trolley,Motocaddy M Tech Ultra Electric Trolley,Motocaddy,electric trolley,1199.00,each,1,92,1199.00,1199.00,typical,https://golfpriceai.com/prices/motocaddy-m-tech-ultra-electric-trolley/
-2026-11-27,motocaddy-m-tech-electric-trolley,Motocaddy M-TECH Electric Trolley,Motocaddy,electric trolley,1049.00,each,3,104,1049.00,1199.00,good,https://golfpriceai.com/prices/motocaddy-m-tech-electric-trolley/
+2026-11-27,motocaddy-m-tech-electric-trolley,Motocaddy M-TECH Electric Trolley,Motocaddy,electric trolley,1023.10,each,3,104,1023.10,1199.00,good,https://golfpriceai.com/prices/motocaddy-m-tech-electric-trolley/
 2026-11-27,motocaddy-m1-dhc-electric-trolley,Motocaddy M1 DHC Electric Trolley,Motocaddy,electric trolley,701.10,each,4,104,701.10,799.00,good,https://golfpriceai.com/prices/motocaddy-m1-dhc-electric-trolley/
 2026-11-27,motocaddy-m1-electric-trolley,Motocaddy M1 Electric Trolley,Motocaddy,electric trolley,656.10,each,5,104,656.10,749.00,good,https://golfpriceai.com/prices/motocaddy-m1-electric-trolley/
 2026-11-27,motocaddy-m1-ultra-electric-trolley,Motocaddy M1 Ultra Electric Trolley,Motocaddy,electric trolley,789.00,each,1,92,789.00,789.00,typical,https://golfpriceai.com/prices/motocaddy-m1-ultra-electric-trolley/
 2026-11-27,motocaddy-m3-dhc-electric-trolley,Motocaddy M3 DHC Electric Trolley,Motocaddy,electric trolley,929.00,each,1,85,929.00,929.00,typical,https://golfpriceai.com/prices/motocaddy-m3-dhc-electric-trolley/
 2026-11-27,motocaddy-m3-electric-trolley,Motocaddy M3 Electric Trolley,Motocaddy,electric trolley,879.00,each,1,85,879.00,879.00,typical,https://golfpriceai.com/prices/motocaddy-m3-electric-trolley/
 2026-11-27,motocaddy-m5-dhc-electric-trolley,Motocaddy M5 DHC Electric Trolley,Motocaddy,electric trolley,849.00,each,5,104,849.00,1049.00,good,https://golfpriceai.com/prices/motocaddy-m5-dhc-electric-trolley/
-2026-11-27,motocaddy-m5-electric-trolley,Motocaddy M5 Electric Trolley,Motocaddy,electric trolley,849.00,each,5,104,849.00,999.00,good,https://golfpriceai.com/prices/motocaddy-m5-electric-trolley/
+2026-11-27,motocaddy-m5-electric-trolley,Motocaddy M5 Electric Trolley,Motocaddy,electric trolley,832.10,each,5,104,832.10,999.00,good,https://golfpriceai.com/prices/motocaddy-m5-electric-trolley/
 2026-11-27,motocaddy-m5-ultra-electric-trolley,Motocaddy M5 Ultra Electric Trolley,Motocaddy,electric trolley,1099.00,each,1,92,1099.00,1099.00,typical,https://golfpriceai.com/prices/motocaddy-m5-ultra-electric-trolley/
 2026-11-27,motocaddy-m7-remote-control-ultra-electric-trolley,Motocaddy M7 Remote Control Ultra Electric Trolley,Motocaddy,electric trolley,1199.00,each,1,92,1199.00,1199.00,typical,https://golfpriceai.com/prices/motocaddy-m7-remote-control-ultra-electric-trolley/
 2026-11-27,motocaddy-m7-remote-electric-trolley,Motocaddy M7 Remote Electric Trolley,Motocaddy,electric trolley,1034.10,each,2,104,1034.10,1199.00,good,https://golfpriceai.com/prices/motocaddy-m7-remote-electric-trolley/
@@ -1168,7 +1168,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,motocaddy-se-electric-trolley,Motocaddy SE Electric Trolley,Motocaddy,electric trolley,431.10,each,4,104,431.10,499.00,good,https://golfpriceai.com/prices/motocaddy-se-electric-trolley/
 2026-11-27,motocaddy-se-ultra-36-hole-electric-trolley,Motocaddy SE Ultra 36 Hole Electric Trolley,Motocaddy,electric trolley,529.00,each,1,92,529.00,529.00,typical,https://golfpriceai.com/prices/motocaddy-se-ultra-36-hole-electric-trolley/
 2026-11-27,navee-birdie-3-remote-control-electric-trolley,NAVEE Birdie 3 Remote Control Electric Trolley,NAVEE,electric trolley,849.00,each,1,92,849.00,849.00,typical,https://golfpriceai.com/prices/navee-birdie-3-remote-control-electric-trolley/
-2026-11-27,navee-birdie-3-remote-electric-trolley,NAVEE Birdie 3 Remote Electric Trolley,NAVEE,electric trolley,789.00,each,2,104,779.00,849.99,typical,https://golfpriceai.com/prices/navee-birdie-3-remote-electric-trolley/
+2026-11-27,navee-birdie-3-remote-electric-trolley,NAVEE Birdie 3 Remote Electric Trolley,NAVEE,electric trolley,749.00,each,2,104,749.00,849.99,good,https://golfpriceai.com/prices/navee-birdie-3-remote-electric-trolley/
 2026-11-27,navee-birdie-3x-follow-electric-trolley,NAVEE Birdie 3X Follow Electric Trolley,NAVEE,electric trolley,1149.00,each,1,92,1149.00,1299.99,good,https://golfpriceai.com/prices/navee-birdie-3x-follow-electric-trolley/
 2026-11-27,navee-birdie3-follow-electric-trolley,Navee Birdie3 Follow Electric Trolley,Navee,electric trolley,1299.00,each,1,85,1299.00,1299.00,typical,https://golfpriceai.com/prices/navee-birdie3-follow-electric-trolley/
 2026-11-27,navee-birdie3-remote-electric-trolley,Navee Birdie3 Remote Electric Trolley,Navee,electric trolley,849.00,each,1,85,849.00,849.00,typical,https://golfpriceai.com/prices/navee-birdie3-remote-electric-trolley/
@@ -1342,7 +1342,7 @@ date,model_id,model,brand,category,lowest_new_price_gbp,price_unit,retailers,day
 2026-11-27,callaway-xj-1-5-piecejunior-junior-golf-set,Callaway XJ-1 5-PieceJunior Junior Golf Set,Callaway,junior golf set,229.00,each,1,85,229.00,229.00,typical,https://golfpriceai.com/prices/callaway-xj-1-5-piecejunior-junior-golf-set/
 2026-11-27,callaway-xj-2-7-piece-junior-golf-set,Callaway XJ-2 7-Piece Junior Golf Set,Callaway,junior golf set,349.00,each,1,85,349.00,349.00,typical,https://golfpriceai.com/prices/callaway-xj-2-7-piece-junior-golf-set/
 2026-11-27,callaway-xj-3-8-piece-junior-golf-set,Callaway XJ-3 8-Piece Junior Golf Set,Callaway,junior golf set,399.00,each,1,85,399.00,399.00,typical,https://golfpriceai.com/prices/callaway-xj-3-8-piece-junior-golf-set/
-2026-11-27,callaway-xt-11-piece-junior-golf-set,Callaway XT 11-Piece Junior Golf Set,Callaway,junior golf set,449.10,each,2,104,449.00,499.00,typical,https://golfpriceai.com/prices/callaway-xt-11-piece-junior-golf-set/
+2026-11-27,callaway-xt-11-piece-junior-golf-set,Callaway XT 11-Piece Junior Golf Set,Callaway,junior golf set,449.00,each,2,104,449.00,499.00,good,https://golfpriceai.com/prices/callaway-xt-11-piece-junior-golf-set/
 2026-11-27,callaway-xt-junior-golf-set,Callaway XT Junior Golf Set,Callaway,junior golf set,569.00,each,1,104,569.00,569.00,typical,https://golfpriceai.com/prices/callaway-xt-junior-golf-set/
 2026-11-27,cleveland-full-ages-4-6-junior-golf-set,Cleveland Full Ages 4-6 Junior Golf Set,Cleveland,junior golf set,149.00,each,1,92,149.00,149.00,typical,https://golfpriceai.com/prices/cleveland-full-ages-4-6-junior-golf-set/
 2026-11-27,cleveland-series-4-piece-stand-bag-ages-4-6-junior-golf-set,Cleveland Series 4-Piece Stand Bag Ages 4-6 Junior Golf Set,Cleveland,junior golf set,139.00,each,1,85,129.00,139.00,wait,https://golfpriceai.com/prices/cleveland-series-4-piece-stand-bag-ages-4-6-junior-golf-set/

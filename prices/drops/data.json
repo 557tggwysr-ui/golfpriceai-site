@@ -1,8 +1,28 @@
 {
- "checked": "2026-11-27T13:14+00:00",
+ "checked": "2026-11-27T16:17+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Cobra DS-Adapt LS Driver",
+   "model_id": "cobra-ds-adapt-ls-driver",
+   "date": "2026-11-27",
+   "was": 299.0,
+   "now": 229.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-ds-adapt-ls-driver/"
+  },
+  {
+   "model": "Callaway Elyte X Fairway Wood",
+   "model_id": "callaway-elyte-x-fairway-wood",
+   "date": "2026-11-27",
+   "was": 229.0,
+   "now": 179.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/callaway-elyte-x-fairway-wood/"
+  },
   {
    "model": "TaylorMade P790 Irons",
    "model_id": "taylormade-p790-irons",
@@ -32,6 +52,26 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/wilson-staff-model-xb-irons/"
+  },
+  {
+   "model": "Srixon ZXi LS Driver",
+   "model_id": "srixon-zxi-ls-driver",
+   "date": "2026-11-27",
+   "was": 279.65,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/srixon-zxi-ls-driver/"
+  },
+  {
+   "model": "Motocaddy Dry Series Waterproof Cart Bag Golf Bag",
+   "model_id": "motocaddy-dry-series-waterproof-cart-bag-golf-bag",
+   "date": "2026-11-27",
+   "was": 219.0,
+   "now": 197.1,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-dry-series-waterproof-cart-bag-golf-bag/"
   },
   {
    "model": "Cobra KING TEC Mini Driver",
@@ -114,6 +154,16 @@
    "url": "https://golfpriceai.com/prices/titleist-t150-irons/"
   },
   {
+   "model": "Cobra Ultralight 2 Stand Bag Golf Bag",
+   "model_id": "cobra-ultralight-2-stand-bag-golf-bag",
+   "date": "2026-11-27",
+   "was": 119.0,
+   "now": 109.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-ultralight-2-stand-bag-golf-bag/"
+  },
+  {
    "model": "Cobra KING Max Irons",
    "model_id": "cobra-king-max-irons",
    "date": "2026-11-27",
@@ -144,6 +194,26 @@
    "url": "https://golfpriceai.com/prices/ben-sayers-m8-13-piece-stand-bag-package-set/"
   },
   {
+   "model": "Bushnell A1 Slope Laser Rangefinder",
+   "model_id": "bushnell-a1-slope-laser-rangefinder",
+   "date": "2026-11-27",
+   "was": 169.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/"
+  },
+  {
+   "model": "Ping G440 MAX Driver",
+   "model_id": "ping-g440-max-driver",
+   "date": "2026-11-27",
+   "was": 476.1,
+   "now": 449.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440-max-driver/"
+  },
+  {
    "model": "Ping Blueprint S Irons",
    "model_id": "ping-blueprint-s-irons",
    "date": "2026-11-27",
@@ -164,6 +234,16 @@
    "url": "https://golfpriceai.com/prices/ben-sayers-m8-7-piece-stand-bag-package-set/"
   },
   {
+   "model": "NAVEE Birdie 3 Remote Electric Trolley",
+   "model_id": "navee-birdie-3-remote-electric-trolley",
+   "date": "2026-11-27",
+   "was": 789.0,
+   "now": 749.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/navee-birdie-3-remote-electric-trolley/"
+  },
+  {
    "model": "Ping G440 LST Driver",
    "model_id": "ping-g440-lst-driver",
    "date": "2026-11-27",
@@ -172,6 +252,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/ping-g440-lst-driver/"
+  },
+  {
+   "model": "Titleist GT1 Driver",
+   "model_id": "titleist-gt1-driver",
+   "date": "2026-11-27",
+   "was": 419.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gt1-driver/"
   },
   {
    "model": "Ping G440 LST Fairway Wood",
@@ -184,6 +274,16 @@
    "url": "https://golfpriceai.com/prices/ping-g440-lst-fairway-wood/"
   },
   {
+   "model": "Motocaddy M-TECH Cart Bag Golf Bag",
+   "model_id": "motocaddy-m-tech-cart-bag-golf-bag",
+   "date": "2026-11-27",
+   "was": 249.0,
+   "now": 239.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/motocaddy-m-tech-cart-bag-golf-bag/"
+  },
+  {
    "model": "Titleist GT280 Mini Driver",
    "model_id": "titleist-gt280-mini-driver",
    "date": "2026-11-27",
@@ -192,6 +292,16 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/titleist-gt280-mini-driver/"
+  },
+  {
+   "model": "Mizuno JPX 923 Hot Metal Irons",
+   "model_id": "mizuno-jpx-923-hot-metal-irons",
+   "date": "2026-11-27",
+   "was": 499.0,
+   "now": 479.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/mizuno-jpx-923-hot-metal-irons/"
   },
   {
    "model": "Ping Blueprint T Irons",
@@ -1460,7 +1570,7 @@
    "was": 499.0,
    "now": 449.1,
    "unit": "each",
-   "lowest_tracked": false,
+   "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/callaway-xt-11-piece-junior-golf-set/"
   },
   {
@@ -2164,16 +2274,6 @@
    "url": "https://golfpriceai.com/prices/mizuno-br-d2-stand-bag-golf-bag/"
   },
   {
-   "model": "Motocaddy M-TECH Cart Bag Golf Bag",
-   "model_id": "motocaddy-m-tech-cart-bag-golf-bag",
-   "date": "2026-11-26",
-   "was": 259.0,
-   "now": 249.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/motocaddy-m-tech-cart-bag-golf-bag/"
-  },
-  {
    "model": "Scotty Cameron Studio Style Fastback OC Putter",
    "model_id": "scotty-cameron-studio-style-fastback-oc-putter",
    "date": "2026-11-26",
@@ -2222,16 +2322,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/ping-g440-sft-fairway-wood/"
-  },
-  {
-   "model": "Bushnell A1 Slope Laser Rangefinder",
-   "model_id": "bushnell-a1-slope-laser-rangefinder",
-   "date": "2026-11-26",
-   "was": 175.0,
-   "now": 169.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/bushnell-a1-slope-laser-rangefinder/"
   },
   {
    "model": "Titleist LINKSLEGEND Members Stand Bag Golf Bag",

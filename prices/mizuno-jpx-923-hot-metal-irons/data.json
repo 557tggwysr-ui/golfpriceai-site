@@ -6,20 +6,18 @@
  "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 499.0,
+ "lowestNewPrice": 479.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf"
+  "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Affordable Golf",
-   "from": 499.0,
+   "name": "Clarkes Golf",
+   "from": 479.0,
    "options": 2
   },
   {
-   "name": "Clarkes Golf",
+   "name": "Affordable Golf",
    "from": 499.0,
    "options": 2
   },
@@ -31,10 +29,10 @@
  ],
  "history": {
   "daysTracked": 104,
-  "low": 499.0,
+  "low": 479.0,
   "high": 599.0,
-  "average": 549.96,
-  "priceChanges": 1,
+  "average": 549.77,
+  "priceChanges": 2,
   "series": [
    [
     "2026-08-16",
@@ -46,7 +44,7 @@
    ],
    [
     "2026-11-27",
-    499.0
+    479.0
    ]
   ]
  },
@@ -54,7 +52,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/149244__07009.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/products/Mizuno-JPX-923-Hot-Metal-Irons-1.jpg?v=1681480466",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
  "changed": "2026-11-27"
 }
