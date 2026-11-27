@@ -560,6 +560,14 @@ def style_headline(t, s, pal, img, photo, dur=7.8):
     return im, 0
 
 
+def payoff_time(style, s, dur):
+    """When the feed-card still is taken: just before the brand closing fades in, so the
+    strapline never lands on top of the headline (Editor hold, 27 Nov 2026)."""
+    if style == "sequence" and s.get("outro"):
+        return max(0.0, dur - OUTRO - 0.3)
+    return max(0.0, dur - 2.0)  # closing starts at dur - 1.8
+
+
 BRUSH_STYLES = {"humour": (style_humour, 8.4), "headline": (style_headline, 7.8), "sequence": (style_sequence, 9.6)}
 
 
