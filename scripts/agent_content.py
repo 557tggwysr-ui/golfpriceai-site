@@ -960,7 +960,12 @@ def his_hers_post(day, ep_no, pid):
 def add_his_hers(plan, start, n_days):
     """Each Sunday in the range gets the next His & Hers episode at 19:30 (any other Sunday post moves to
     lunchtime). When the episodes run out, the pack says so, so John can make the next panels."""
-    eps = sorted(e["ep"] for e in json.loads((ROOT / "data" / "heist-episodes.json").read_text(encoding="utf-8"))["episodes"])
+    all_eps = json.loads((ROOT / "data" / "heist-episodes.json").read_text(encoding="utf-8"))["episodes"]
+    # a script can land before John's panels do: only episodes with every panel picture in the repo are used
+    eps = sorted(e["ep"] for e in all_eps if all((ROOT / p["img"]).exists() for p in e["panels"]))
+    for e in all_eps:
+        if e["ep"] not in eps:
+            print(f"His & Hers: EP{e['ep']} '{e['title']}' is waiting on its panels")
     used = {p.get("hisHersEp") for p in plan["posts"] if p.get("hisHersEp")}
     added = []
     for k in range(n_days):

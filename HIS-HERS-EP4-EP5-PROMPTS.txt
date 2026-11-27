@@ -1,0 +1,53 @@
+HIS & HERS: PANEL PROMPTS FOR EPISODES 4 AND 5 (27 Nov 2026)
+
+Use these with GOLF-HEIST-PROMPT-PACK.txt and the three reference frames, in the same ChatGPT
+conversation (or paste the pack and frames first). One picture per line, 4 per episode.
+Save them as assets/social/heist/ep04-1.jpg ... ep04-4.jpg and ep05-1.jpg ... ep05-4.jpg.
+
+NEEDED BY (the Sunday planner picks an episode up only once all 4 panels are in the repo)
+  EP4 "The Receipt"        airs Sun 13 Dec: panels in by Sun 6 Dec, before 5pm
+  EP5 "The Early Tee Time" airs Sun 20 Dec: panels in by Sun 13 Dec, before 5pm
+  (EP2 airs this Sunday, 29 Nov, and EP3 on 6 Dec; both are already planned.)
+
+FOR EVERY PANEL (so the bubbles and captions land in the right place)
+  Portrait, 1024x1536, so it fills the phone screen.
+  HIM on the LEFT half of the picture, HER on the RIGHT half, faces at about a third of the way down.
+  Keep the top fifth and the bottom quarter fairly plain (that's where the speech bubbles and
+  commentary boxes go).
+  Him: navy hoodie, beard. Her: green quarter-zip, sunglasses pushed up on her head. Same faces as the
+  reference frames.
+  NO words, letters, numbers, logos or brand names anywhere. The receipt is a long curl of blank paper
+  (faint grey lines only, nothing readable). No clock faces with numbers.
+
+EPISODE 4: THE RECEIPT
+  ep04-1  Living room, evening, warm lamp light. Him on the sofa (left), smugly tucking a long blank
+          paper receipt into his hoodie's front pocket, glancing sideways. Behind the sofa, the heads of a
+          shiny new set of irons poke out of a plain box. Her chair on the right is empty.
+  ep04-2  Utility room, daytime. Her (right) by the washing machine, holding a long crumpled blank
+          receipt up between finger and thumb, pulled from his navy hoodie in the washing basket.
+          One eyebrow raised, half a smile. He's not in this panel (keep the left side plain: the
+          laundry basket and a shelf).
+  ep04-3  Kitchen. Her (right) holding the receipt up at arm's length like a referee's card, looking
+          straight at him. Him (left) frozen mid-sip of a mug of tea, eyes wide, caught out.
+  ep04-4  Hallway by the front door. Her (right) heading out with a golf bag on her shoulder, the
+          shiny new irons in it, sunglasses still on her head, beaming. Him (left) a step behind,
+          holding the empty plain box, crestfallen.
+
+EPISODE 5: THE EARLY TEE TIME
+  Light: winter, before dawn, so cool blues and a single warm light where noted.
+  ep05-1  Bedroom, dark blue pre-dawn light. Him (left) tiptoeing towards the door in socks, golf
+          shoes held in one hand, finger to his lips. On the right, a duvet-covered shape in the bed
+          (her, face hidden).
+  ep05-2  Dark staircase. Him (left of centre) halfway down, a golf bag on his shoulder, clubs
+          clattering against the banister, wincing hard with one eye shut. A small cartoon motion
+          burst by the clubs (no letters).
+  ep05-3  Kitchen, the light just switched on, warm glow. Her (right) sitting at the kitchen table,
+          already fully dressed for golf (green quarter-zip, sunglasses on head, a golf glove on one
+          hand), calmly holding a travel mug, smiling sweetly. Him (left) in the doorway in his hoodie,
+          golf bag on his shoulder, stopped dead, jaw dropped.
+  ep05-4  First tee at dawn, frost on the grass, orange sunrise low behind trees, breath in the air.
+          Her (right) in a perfect follow-through, watching her drive fly. Him (left) standing with
+          both golf bags, one on each shoulder like a caddie, yawning in his hoodie.
+
+Send them back here and I'll check them, line up the bubbles on the real pictures and add them to
+data/heist-panels.json in a pull request.
