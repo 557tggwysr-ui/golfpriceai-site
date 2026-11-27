@@ -1,18 +1,19 @@
 {
- "generated": "2026-11-27T01:17Z",
+ "generated": "2026-11-27T12:45Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
  "verdict": "block",
- "summary": "Two posts held: the 27 Nov community-question card has overlapping text, and the Cobra Darkspeed LS Driver is posted twice on 27 Nov.",
+ "summary": "Two posts held: the 27 Nov Cobra Darkspeed LS 'moment' graphic falls short of the premium visual standard, and 'reactive3' repeats the same product on the same day.",
  "points": [
-  "2026-11-27-fri (card): the white 'FULL SWING. NOT FULL PRICE.' line and the gold golfpriceai.com sit on top of the big 'RANGEFINDER OR GPS WATCH?' headline, which makes both unreadable. The card is also dimmed to near-black, so the headline is murky and the colours look muddy. The strapline is unrelated to a community question. Fix: use the clean headline layout as in the thumbnail, with the URL in a clear footer and no strapline over the headline, and keep the card matching the video.",
-  "2026-11-27-fri: I could not extract video frames (no ffmpeg in this environment), so only the card and thumbnail were reviewed. The thumbnail itself is strong: 3 big words, a sharp subject, good contrast and a matching palette. Re-check the video end frame after the fix, since the card looks like it came from it.",
-  "2026-11-27-moment: the same product, the Cobra Darkspeed LS Driver at £229, is also in 2026-11-27-reactive3 the same day, which breaks the rule that a product must not repeat within 14 days. The two are nearly identical in message. Fix: keep reactive3, which gives the fuller proven price history, and drop or swap this one for a different product.",
-  "2026-11-27-reactive3: copy is fine. £419 on 4 Sept to £229 is backed by the site's own price history (home-deals.json). The Pinterest title is empty, so add one, e.g. 'Black Friday, checked: £229 Cobra Darkspeed LS Driver'. The YouTube title is cut off mid-word ('lowest we've tra'), so shorten it.",
-  "2026-11-29-hishers: the TikTok caption uses the US spelling hashtag #golfhumor (the others use #golfhumour). Use UK spelling.",
-  "2026-12-05-sat: the hook 'You've got 3 seconds.' is mild artificial time pressure. Consider 'No googling.' instead. Not a block.",
-  "2026-12-04-fri and 2026-11-27-fri: #golfdeals on a non-deal banter post is off-topic. Drop it.",
-  "No card, thumbnail or frames were supplied for the other posts, so they are not visually reviewed. Their captions had no retailer names, no fake urgency and no broken output."
+  "2026-11-27-moment (thumbnail): 'TRACKED' collides with the top of the photo tile, the £229 badge overlaps the photo and sits on top of 'GOLFPRICEAI.COM', and the headline runs almost edge to edge. Fix: shrink the headline to fit inside the margins, move the photo tile down so no text touches it, and give the price badge and URL their own clear space.",
+  "2026-11-27-moment (thumbnail): the product-name pill is dark green on black and hard to read, and it sits on the edge of Instagram's 4:5 grid crop. Fix: use light text on the dark pill (or a light pill) and keep the pill, price and URL inside the middle 4:5.",
+  "2026-11-27-moment (card): the tilted 'LOWEST WE'VE TRACKED' stamp crowds the £229 and nearly touches the URL. The headline wraps to leave 'tracked' alone on line two, and the same claim appears three times (headline, stamp, caption line). Fix: give the price clear space, move or shrink the stamp, and tighten the headline to one line. Show the claim once or twice at most.",
+  "2026-11-27-moment: I couldn't check the video frames (no ffmpeg/ffprobe in this environment, so I couldn't extract them). Only the card and thumbnail were reviewed. Please check the frames for the same overlap problems. The post has no sound (sound is null); add a beat-matched track or note why it has none.",
+  "2026-11-27-reactive3: Cobra Darkspeed LS Driver at £229 is also the 'moment' post on the same day (a product must not repeat within 14 days). Fix: swap in a different product, or merge the 'was £419 on 4 September' history angle into one post only. No card, thumbnail or video was supplied, so its visuals were not reviewed.",
+  "2026-11-27-reactive3: the YouTube description repeats #golf and #golfuk. Remove the duplicates. The '£419 on 4 September' price must come from our own price history.",
+  "2026-11-29-hishers: TikTok caption uses the US-spelled hashtag #golfhumor next to UK #golfhumour on the other platforms. Use #golfhumour.",
+  "2026-11-27-hero: card and thumbnail pass. Strong yellow on green, big type, clean spacing, and the content sits in the middle 4:5. The 1,398, 156 and 20% figures must match the site's own data. I couldn't see its video frames.",
+  "Not reviewed visually: 2026-11-27-fri, 11-28-sat, 11-29-hishers, 11-29-sun, 11-30-mon, 12-01-tue, 12-02-wed, 12-04-fri, 12-05-sat, 12-06-hishers and 12-06-sun. Only copy was checked, and I found no Never-rule breaks. Several have no sound set; John's checks flag that as a note."
  ],
  "what": "Agent: content engine",
- "postsHash": "cc02e551e3262dba0aa8d9499f67a0733b2b8263"
+ "postsHash": "d4d0b26d0c084a26dea3ddd0813600269a06462c"
 }
