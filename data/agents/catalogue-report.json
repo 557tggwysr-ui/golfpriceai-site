@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-27T13:20Z",
+ "generated": "2026-11-27T16:24Z",
  "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
- "listings": 81671,
+ "listings": 81707,
  "models": 3297,
  "feeds": {
   "awin-affordablegolf": 39224,
-  "awin-clarkesgolf": 20321,
-  "awin-majorgolf": 13621,
+  "awin-clarkesgolf": 20356,
+  "awin-majorgolf": 13622,
   "awin-clickgolf": 3476,
   "awin-scottsdalegolf": 3178,
   "awin-callawaypreowned": 999,
@@ -132,7 +132,7 @@
    "page": "/prices/mizuno-tour-staff-golf-bag/",
    "price": 189.99,
    "listing": "Mizuno Tour Staff Golf Cart Bag",
-   "reason": "under 45% of the same model elsewhere (median £449.00)"
+   "reason": "under 45% of the same model elsewhere (median £424.00)"
   },
   {
    "page": "/prices/ping-s259-wedge/",
@@ -550,13 +550,14 @@
   }
  ],
  "deadListings45d": 718,
- "unmatchedClubs": 1444,
+ "unmatchedClubs": 1446,
  "newLaunchCandidates": [
   {
    "brand": "Cleveland Golf",
    "names": [
     "Cleveland Golf RTZ 2 Tour Satin Wedge 2026",
     "Cleveland Golf RTZ 2 Tour Rack Wedge 2026",
+    "Cleveland Golf CBZ Tour Satin Wedge",
     "Cleveland Golf RTZ 2 Full Face Tour Satin Wedge 2026",
     "Cleveland Golf RTZ 2 Black Satin Wedge 2026",
     "Cleveland Golf RTZ 2 Full Face Black Satin Wedge 2026",
@@ -629,7 +630,7 @@
     "Cobra Golf KING Wedge Black 2026",
     "Cobra Golf KING X Wedge Silver 2026",
     "Cobra Golf OPTM MAX X,K,D Driver 2026",
-    "Cobra RADSPEED-S Golf Adjustable Driver"
+    "Cobra RADSPEED-S Golf Fairway Wood"
    ]
   },
   {
@@ -648,7 +649,6 @@
   {
    "brand": "Wilson",
    "names": [
-    "Wilson Golf Dynapwr Max Adjustable Driver",
     "Wilson Staff Model X TRK360 Golf Balls 2026",
     "Wilson Staff Model XB Golf Irons 2026",
     "Wilson Staff Model CB Forged Golf Irons 2026",
