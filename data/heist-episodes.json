@@ -244,12 +244,12 @@
        "who": "him",
        "text": "She'll never know.",
        "box": [
-        0.3,
-        0.14
+        0.7,
+        0.1
        ],
        "to": [
-        0.4,
-        0.36
+        0.3,
+        0.32
        ]
       }
      ]
@@ -267,11 +267,11 @@
        "who": "her",
        "text": "Ooh. What's this?",
        "box": [
-        0.68,
-        0.14
+        0.3,
+        0.07
        ],
        "to": [
-        0.6,
+        0.7,
         0.36
        ]
       }
@@ -291,24 +291,24 @@
        "who": "him",
        "text": "It's your Christmas present!",
        "box": [
-        0.3,
-        0.13
+        0.24,
+        0.62
        ],
        "to": [
-        0.3,
-        0.36
+        0.2,
+        0.45
        ]
       },
       {
        "who": "her",
        "text": "A set of irons? For me? Lovely.",
        "box": [
-        0.68,
-        0.66
+        0.72,
+        0.13
        ],
        "to": [
-        0.68,
-        0.45
+        0.8,
+        0.36
        ]
       }
      ]
@@ -319,31 +319,31 @@
       0.5,
       0.45
      ],
-     "narr_at": "top",
+     "narr_at": "bottom",
      "narr": "And she's taken it off the last. What a finish. You simply can't teach that.",
      "say": [
       {
        "who": "him",
        "text": "That wasn't the plan...",
        "box": [
-        0.3,
-        0.74
+        0.25,
+        0.6
        ],
        "to": [
-        0.3,
-        0.5
+        0.23,
+        0.27
        ]
       },
       {
        "who": "her",
        "text": "Keep the receipt. In case they don't suit me.",
        "box": [
-        0.66,
-        0.25
+        0.62,
+        0.06
        ],
        "to": [
         0.66,
-        0.36
+        0.2
        ]
       }
      ]
@@ -394,12 +394,12 @@
        "who": "him",
        "text": "Not a sound...",
        "box": [
-        0.3,
-        0.14
+        0.62,
+        0.08
        ],
        "to": [
-        0.42,
-        0.34
+        0.38,
+        0.25
        ]
       }
      ]
@@ -415,14 +415,14 @@
      "say": [
       {
        "who": "him",
-       "text": "Not now, three-wood!",
+       "text": "Not now, seven-iron!",
        "box": [
-        0.3,
-        0.13
+        0.32,
+        0.05
        ],
        "to": [
-        0.45,
-        0.32
+        0.58,
+        0.22
        ]
       }
      ]
@@ -441,24 +441,24 @@
        "who": "her",
        "text": "Morning. Your mate's cancelled.",
        "box": [
-        0.68,
-        0.14
+        0.72,
+        0.12
        ],
        "to": [
-        0.64,
-        0.36
+        0.76,
+        0.31
        ]
       },
       {
        "who": "him",
        "text": "So why are you dressed?",
        "box": [
-        0.3,
-        0.66
+        0.28,
+        0.56
        ],
        "to": [
-        0.3,
-        0.5
+        0.32,
+        0.25
        ]
       }
      ]
@@ -469,7 +469,7 @@
       0.5,
       0.45
      ],
-     "narr_at": "top",
+     "narr_at": "bottom",
      "narr": "And she's straight down the middle. Unbelievable scenes on the first tee.",
      "say": [
       {
@@ -477,11 +477,11 @@
        "text": "I've taken his spot. You're caddying.",
        "box": [
         0.66,
-        0.26
+        0.09
        ],
        "to": [
-        0.64,
-        0.38
+        0.7,
+        0.24
        ]
       }
      ]
