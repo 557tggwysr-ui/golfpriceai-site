@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/taylormade-spider-zt-max-putter/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 404.1,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 404.1,
   "high": 449.0,
-  "average": 448.37,
+  "average": 447.94,
   "priceChanges": 2,
   "series": [
    [
@@ -50,6 +50,10 @@
    [
     "2026-11-26",
     404.1
+   ],
+   [
+    "2026-11-27",
+    404.1
    ]
   ]
  },
@@ -59,5 +63,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Spider-ZT-Max-Putter-Rear.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

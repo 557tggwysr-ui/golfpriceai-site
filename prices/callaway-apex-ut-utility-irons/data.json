@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-apex-ut-utility-irons/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 224.1,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 199.0,
   "high": 249.0,
-  "average": 223.03,
+  "average": 223.04,
   "priceChanges": 2,
   "series": [
    [
@@ -45,6 +45,10 @@
    [
     "2026-11-26",
     224.1
+   ],
+   [
+    "2026-11-27",
+    224.1
    ]
   ]
  },
@@ -54,5 +58,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/apex-ut-25-iron-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

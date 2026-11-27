@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/mizuno-br-d1-stand-bag-golf-bag/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.1,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 52,
+  "daysTracked": 53,
   "low": 179.1,
   "high": 199.0,
-  "average": 198.62,
+  "average": 198.25,
   "priceChanges": 1,
   "series": [
    [
@@ -40,6 +40,10 @@
    ],
    [
     "2026-11-26",
+    179.1
+   ],
+   [
+    "2026-11-27",
     179.1
    ]
   ]
@@ -50,5 +54,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/BRD1S2609NS-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

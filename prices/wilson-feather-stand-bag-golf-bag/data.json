@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-feather-stand-bag-golf-bag/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 112.49,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 91,
+  "daysTracked": 92,
   "low": 109.99,
   "high": 124.95,
-  "average": 119.39,
+  "average": 119.31,
   "priceChanges": 22,
   "series": [
    [
@@ -125,6 +125,10 @@
    [
     "2026-11-26",
     112.49
+   ],
+   [
+    "2026-11-27",
+    112.49
    ]
   ]
  },
@@ -134,5 +138,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/wilson-feather-golf-stand-bag-grey-black-white-lime-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

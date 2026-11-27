@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/ping-mundy-putter/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -24,7 +24,7 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 269.0,
   "high": 269.0,
   "average": 269.0,
@@ -35,16 +35,16 @@
     269.0
    ],
    [
-    "2026-11-26",
+    "2026-11-27",
     269.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 103 days"
+  "summary": "Typical price: steady for 104 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/149954__64214.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

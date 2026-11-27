@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/callaway-opus-platinum-chrome-wedge/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 143.1,
@@ -38,10 +38,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 143.1,
   "high": 149.0,
-  "average": 148.94,
+  "average": 148.89,
   "priceChanges": 1,
   "series": [
    [
@@ -50,6 +50,10 @@
    ],
    [
     "2026-11-26",
+    143.1
+   ],
+   [
+    "2026-11-27",
     143.1
    ]
   ]
@@ -60,5 +64,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/p_callaway-opus-platinum-chrome-wedge-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

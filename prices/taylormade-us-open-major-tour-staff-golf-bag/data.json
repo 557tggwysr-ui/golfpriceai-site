@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/taylormade-us-open-major-tour-staff-golf-bag/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 539.1,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 539.1,
   "high": 549.0,
-  "average": 548.9,
+  "average": 548.81,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-26",
+    539.1
+   ],
+   [
+    "2026-11-27",
     539.1
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/US-Open-Staff-Bag-2025-Left.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

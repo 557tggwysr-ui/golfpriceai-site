@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/taylormade-team-tm-ages-4-6-junior-golf-set/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 224.1,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 219.0,
   "high": 249.0,
-  "average": 238.27,
+  "average": 238.14,
   "priceChanges": 26,
   "series": [
    [
@@ -131,6 +131,10 @@
    [
     "2026-11-26",
     224.1
+   ],
+   [
+    "2026-11-27",
+    224.1
    ]
   ]
  },
@@ -140,5 +144,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TaylorMade-Junior-Pacakge-Set-Size-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

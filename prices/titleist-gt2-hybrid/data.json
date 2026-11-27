@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/titleist-gt2-hybrid/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 249.0,
   "high": 299.0,
-  "average": 254.83,
+  "average": 254.77,
   "priceChanges": 1,
   "series": [
    [
@@ -43,16 +43,16 @@
     249.0
    ],
    [
-    "2026-11-26",
+    "2026-11-27",
     249.0
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 91 days"
+  "summary": "Typical price: steady for 92 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Titleist_GT2_Hybrid_Catalog_01_RGB-Photoroom.jpg?v=1738599051",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

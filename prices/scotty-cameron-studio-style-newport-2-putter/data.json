@@ -3,7 +3,7 @@
  "brand": "Scotty Cameron",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/scotty-cameron-studio-style-newport-2-putter/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 359.1,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 359.1,
   "high": 449.0,
-  "average": 438.81,
+  "average": 438.04,
   "priceChanges": 3,
   "series": [
    [
@@ -39,6 +39,10 @@
    [
     "2026-11-26",
     359.1
+   ],
+   [
+    "2026-11-27",
+    359.1
    ]
   ]
  },
@@ -48,5 +52,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Scotty-Cameron-Studio-Style-Newport-2-Golf-Putter-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

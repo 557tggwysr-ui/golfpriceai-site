@@ -1,66 +1,66 @@
 {
- "n": 40,
- "date": "2026-11-26",
+ "n": 41,
+ "date": "2026-11-27",
  "items": [
   {
-   "slug": "powakaddy-ct8-electric-trolley",
-   "name": "PowaKaddy CT8 Electric Trolley",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/01_2025PowaKaddy-CT8GPS-GunMetal-StandardPlug_n_PlayLithiumBattery-Photoroom.jpg?v=1740579849",
-   "price": 849.0,
-   "unit": "each",
-   "type": "electric trolley",
-   "low": true,
-   "url": "/prices/powakaddy-ct8-electric-trolley/"
-  },
-  {
-   "slug": "titleist-players-4-stand-bag-golf-bag",
-   "name": "Titleist Players 4 Stand Bag Golf Bag",
-   "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-players4-royalgray-1.jpg",
-   "price": 159.0,
+   "slug": "wilson-feather-cart-bag-golf-bag",
+   "name": "Wilson Feather Cart Bag Golf Bag",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonGolfFeatherCartBag2025-BlackRed1.jpg?v=1740739149",
+   "price": 109.65,
    "unit": "each",
    "type": "golf bag",
    "low": false,
-   "url": "/prices/titleist-players-4-stand-bag-golf-bag/"
+   "url": "/prices/wilson-feather-cart-bag-golf-bag/"
   },
   {
-   "slug": "srixon-z-star-diamond-golf-balls",
-   "name": "Srixon Z-Star Diamond Golf Balls",
-   "image": "https://www.clickgolf.co.uk/images/product/main/z-star-diamond-white.jpg",
-   "price": 29.99,
+   "slug": "callaway-elyte-driver",
+   "name": "Callaway Elyte Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteDriver-X3_459ad9f1-58c4-4502-80e9-6f24222eedb8.jpg?v=1787736931",
+   "price": 249.0,
+   "unit": "each",
+   "type": "driver",
+   "low": true,
+   "url": "/prices/callaway-elyte-driver/"
+  },
+  {
+   "slug": "taylormade-speedsoft-ink-golf-balls",
+   "name": "TaylorMade SpeedSoft Ink Golf Balls",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Speedink-Yellow-Blue-2026-Box-Front.jpg",
+   "price": 22.99,
    "unit": "per dozen",
    "type": "golf ball",
-   "low": false,
-   "url": "/prices/srixon-z-star-diamond-golf-balls/"
+   "low": true,
+   "url": "/prices/taylormade-speedsoft-ink-golf-balls/"
   },
   {
-   "slug": "cleveland-cbz-wedge",
-   "name": "Cleveland CBZ Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CBZFullFace4.jpg?v=1775354636",
-   "price": 119.0,
+   "slug": "cobra-king-wedge",
+   "name": "Cobra King Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra_KING_Golf_Wedge_1.jpg?v=1741949046",
+   "price": 99.0,
    "unit": "each",
    "type": "wedge",
    "low": true,
-   "url": "/prices/cleveland-cbz-wedge/"
+   "url": "/prices/cobra-king-wedge/"
   },
   {
-   "slug": "callaway-elyte-hybrid",
-   "name": "Callaway Elyte Hybrid",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteHybrid-X2.jpg?v=1776306331",
-   "price": 129.95,
+   "slug": "ping-g440-irons",
+   "name": "Ping G440 Irons",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/G440Irons15.jpg?v=1776300835",
+   "price": 859.0,
    "unit": "each",
-   "type": "hybrid",
-   "low": true,
-   "url": "/prices/callaway-elyte-hybrid/"
+   "type": "iron set",
+   "low": false,
+   "url": "/prices/ping-g440-irons/"
   }
  ],
  "pin": {
-  "slug": "taylormade-r7-quad-mini-driver",
-  "name": "TaylorMade R7 Quad Mini Driver",
-  "image": "https://www.clickgolf.co.uk/images/product/main/taylormade-r7-quad-mini-driver-hero.jpg",
-  "price": 349.0,
+  "slug": "titleist-gts3-fairway-wood",
+  "name": "Titleist GTS3 Fairway Wood",
+  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS3GolfFairwayWood_1.jpg?v=1778745963",
+  "price": 369.0,
   "unit": "each",
-  "type": "driver",
-  "low": true,
-  "url": "/prices/taylormade-r7-quad-mini-driver/"
+  "type": "fairway wood",
+  "low": false,
+  "url": "/prices/titleist-gts3-fairway-wood/"
  }
 }

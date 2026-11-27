@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-tour-response-stripe-golf-balls/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 28.46,
@@ -38,7 +38,7 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 28.46,
   "high": 29.99,
   "average": 28.66,
@@ -55,14 +55,18 @@
    [
     "2026-11-26",
     28.46
+   ],
+   [
+    "2026-11-27",
+    28.46
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 1 day"
+  "summary": "Typical price: steady for 2 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TaylorMadeTourResponseStripeGolfBalls2026-Yellow-4FOR3OFFER.jpg?v=1784023204",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

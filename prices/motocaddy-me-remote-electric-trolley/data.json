@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/motocaddy-me-remote-electric-trolley/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 854.1,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 854.1,
   "high": 999.0,
-  "average": 958.95,
+  "average": 957.94,
   "priceChanges": 15,
   "series": [
    [
@@ -92,6 +92,10 @@
    [
     "2026-11-26",
     854.1
+   ],
+   [
+    "2026-11-27",
+    854.1
    ]
   ]
  },
@@ -101,5 +105,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TR26MEXRM7-ME-Remote-Trolley-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

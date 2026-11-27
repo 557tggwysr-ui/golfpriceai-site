@@ -1,8 +1,38 @@
 {
- "checked": "2026-11-26T20:24+00:00",
+ "checked": "2026-11-27T01:33+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "Wilson DYNAPWR Irons",
+   "model_id": "wilson-dynapwr-irons",
+   "date": "2026-11-27",
+   "was": 429.0,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-dynapwr-irons/"
+  },
+  {
+   "model": "Ben Sayers M8 13-Piece Stand Bag Package Set",
+   "model_id": "ben-sayers-m8-13-piece-stand-bag-package-set",
+   "date": "2026-11-27",
+   "was": 269.0,
+   "now": 249.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ben-sayers-m8-13-piece-stand-bag-package-set/"
+  },
+  {
+   "model": "Ben Sayers M8 7-Piece Stand Bag Package Set",
+   "model_id": "ben-sayers-m8-7-piece-stand-bag-package-set",
+   "date": "2026-11-27",
+   "was": 179.95,
+   "now": 169.95,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ben-sayers-m8-7-piece-stand-bag-package-set/"
+  },
   {
    "model": "Garmin Approach R50 Premium Portable Launch Monitor",
    "model_id": "garmin-approach-r50-premium-portable-launch-monitor",
@@ -942,16 +972,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/titleist-t250-utility-irons/"
-  },
-  {
-   "model": "Wilson DYNAPWR Irons",
-   "model_id": "wilson-dynapwr-irons",
-   "date": "2026-11-26",
-   "was": 479.0,
-   "now": 429.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-dynapwr-irons/"
   },
   {
    "model": "Wilson DYNAPWR Max Irons",
@@ -2394,16 +2414,6 @@
    "url": "https://golfpriceai.com/prices/ben-sayers-m8-13-piece-cart-bag-package-set/"
   },
   {
-   "model": "Ben Sayers M8 13-Piece Stand Bag Package Set",
-   "model_id": "ben-sayers-m8-13-piece-stand-bag-package-set",
-   "date": "2026-11-25",
-   "was": 289.0,
-   "now": 269.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ben-sayers-m8-13-piece-stand-bag-package-set/"
-  },
-  {
    "model": "Ben Sayers M8 Camo 13-Piece Cart Bag Package Set",
    "model_id": "ben-sayers-m8-camo-13-piece-cart-bag-package-set",
    "date": "2026-11-25",
@@ -2962,76 +2972,6 @@
    "unit": "each",
    "lowest_tracked": false,
    "url": "https://golfpriceai.com/prices/taylormade-flextech-superlite-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Big Max Dri Lite Prime Hybrid Stand Bag Golf Bag",
-   "model_id": "big-max-dri-lite-prime-hybrid-stand-bag-golf-bag",
-   "date": "2026-11-19",
-   "was": 249.0,
-   "now": 179.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/big-max-dri-lite-prime-hybrid-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Mizuno Pro S-4 Irons",
-   "model_id": "mizuno-pro-s-4-irons",
-   "date": "2026-11-19",
-   "was": 1289.0,
-   "now": 975.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-pro-s-4-irons/"
-  },
-  {
-   "model": "Sun Mountain Forerunner Stand Bag Golf Bag",
-   "model_id": "sun-mountain-forerunner-stand-bag-golf-bag",
-   "date": "2026-11-19",
-   "was": 179.0,
-   "now": 142.4,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/sun-mountain-forerunner-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Mizuno Pro M-13 Irons",
-   "model_id": "mizuno-pro-m-13-irons",
-   "date": "2026-11-19",
-   "was": 1369.0,
-   "now": 1099.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-pro-m-13-irons/"
-  },
-  {
-   "model": "Mizuno Pro S-3 Irons",
-   "model_id": "mizuno-pro-s-3-irons",
-   "date": "2026-11-19",
-   "was": 1179.0,
-   "now": 975.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/mizuno-pro-s-3-irons/"
-  },
-  {
-   "model": "Odyssey Ai-ONE Milled Seven T DB Putter",
-   "model_id": "odyssey-ai-one-milled-seven-t-db-putter",
-   "date": "2026-11-19",
-   "was": 291.85,
-   "now": 269.4,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/odyssey-ai-one-milled-seven-t-db-putter/"
-  },
-  {
-   "model": "Srixon Waterproof Cart Bag Golf Bag",
-   "model_id": "srixon-waterproof-cart-bag-golf-bag",
-   "date": "2026-11-19",
-   "was": 229.0,
-   "now": 219.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/srixon-waterproof-cart-bag-golf-bag/"
   }
  ]
 }

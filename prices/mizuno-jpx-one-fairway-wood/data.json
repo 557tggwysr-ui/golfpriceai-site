@@ -3,7 +3,7 @@
  "brand": "Mizuno",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/mizuno-jpx-one-fairway-wood/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 215.1,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 215.1,
   "high": 299.0,
-  "average": 255.66,
+  "average": 255.27,
   "priceChanges": 6,
   "series": [
    [
@@ -66,6 +66,10 @@
    [
     "2026-11-26",
     215.1
+   ],
+   [
+    "2026-11-27",
+    215.1
    ]
   ]
  },
@@ -75,5 +79,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/JPX-ONE-Fairway-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

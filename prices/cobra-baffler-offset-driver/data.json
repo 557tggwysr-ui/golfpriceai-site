@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cobra-baffler-offset-driver/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 269.1,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 269.1,
   "high": 299.0,
-  "average": 298.71,
+  "average": 298.43,
   "priceChanges": 1,
   "series": [
    [
@@ -40,6 +40,10 @@
    ],
    [
     "2026-11-26",
+    269.1
+   ],
+   [
+    "2026-11-27",
     269.1
    ]
   ]
@@ -50,5 +54,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Baffler-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "wedge",
  "url": "https://golfpriceai.com/prices/cleveland-cbz-wedge/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 119.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 119.0,
   "high": 149.0,
-  "average": 138.45,
+  "average": 138.26,
   "priceChanges": 3,
   "series": [
    [
@@ -51,7 +51,7 @@
     119.0
    ],
    [
-    "2026-11-26",
+    "2026-11-27",
     119.0
    ]
   ]
@@ -62,5 +62,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/cbx-wedge-hero-2.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

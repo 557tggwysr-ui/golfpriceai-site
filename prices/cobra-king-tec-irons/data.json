@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/cobra-king-tec-irons/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 599.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 599.0,
   "high": 919.0,
-  "average": 860.55,
+  "average": 858.04,
   "priceChanges": 3,
   "series": [
    [
@@ -44,6 +44,10 @@
    [
     "2026-11-26",
     599.0
+   ],
+   [
+    "2026-11-27",
+    599.0
    ]
   ]
  },
@@ -53,5 +57,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra-KING-Tec-Golf-Irons-Steel-1.jpg?v=1736913741",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

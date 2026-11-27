@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/ping-g430-max-fairway-wood/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 215.1,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 215.1,
   "high": 239.0,
-  "average": 238.77,
+  "average": 238.54,
   "priceChanges": 1,
   "series": [
    [
@@ -40,6 +40,10 @@
    ],
    [
     "2026-11-26",
+    215.1
+   ],
+   [
+    "2026-11-27",
     215.1
    ]
   ]
@@ -50,5 +54,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/ping-g430-max-fairway-woods-hero-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

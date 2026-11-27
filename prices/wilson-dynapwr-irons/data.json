@@ -3,23 +3,23 @@
  "brand": "Wilson",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/wilson-dynapwr-irons/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 429.0,
+ "lowestNewPrice": 399.0,
  "lowestAt": [
-  "Clarkes Golf"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 399.0,
+   "options": 6
+  },
   {
    "name": "Clarkes Golf",
    "from": 429.0,
    "options": 4
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 499.0,
-   "options": 6
   },
   {
    "name": "Clickgolf",
@@ -28,11 +28,11 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
-  "low": 429.0,
+  "daysTracked": 104,
+  "low": 399.0,
   "high": 629.0,
-  "average": 575.5,
-  "priceChanges": 4,
+  "average": 573.81,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -53,6 +53,10 @@
    [
     "2026-11-26",
     429.0
+   ],
+   [
+    "2026-11-27",
+    399.0
    ]
   ]
  },
@@ -60,7 +64,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/WG1P037701_0_DynaPWR_GI_Iron_Hero.jpg?v=1784968172",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DynapwrIrons1.jpg?v=1776297087",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

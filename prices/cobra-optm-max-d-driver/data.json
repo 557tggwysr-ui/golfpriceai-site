@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cobra-optm-max-d-driver/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 359.1,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 359.1,
   "high": 479.0,
-  "average": 460.75,
+  "average": 459.77,
   "priceChanges": 2,
   "series": [
    [
@@ -45,6 +45,10 @@
    [
     "2026-11-26",
     359.1
+   ],
+   [
+    "2026-11-27",
+    359.1
    ]
   ]
  },
@@ -54,5 +58,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/OPTM-Max-D-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

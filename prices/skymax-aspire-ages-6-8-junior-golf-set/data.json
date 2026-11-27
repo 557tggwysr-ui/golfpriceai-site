@@ -3,7 +3,7 @@
  "brand": "Skymax",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/skymax-aspire-ages-6-8-junior-golf-set/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 107.1,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 107.1,
   "high": 119.0,
-  "average": 118.88,
+  "average": 118.77,
   "priceChanges": 1,
   "series": [
    [
@@ -30,6 +30,10 @@
    ],
    [
     "2026-11-26",
+    107.1
+   ],
+   [
+    "2026-11-27",
     107.1
    ]
   ]
@@ -40,5 +44,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Aspire-Junior-6-8-Year-Old-Golf-Package-Set.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

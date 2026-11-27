@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/titleist-open-tour-staff-golf-bag/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 359.1,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 359.1,
   "high": 499.0,
-  "average": 438.88,
+  "average": 437.96,
   "priceChanges": 8,
   "series": [
    [
@@ -59,6 +59,10 @@
    [
     "2026-11-26",
     359.1
+   ],
+   [
+    "2026-11-27",
+    359.1
    ]
   ]
  },
@@ -68,5 +72,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TB26SF9-BRT414-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

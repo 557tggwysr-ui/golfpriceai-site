@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-26",
+ "date": "2026-11-27",
  "status": "live",
  "week": {
-  "from": "2026-11-20",
-  "to": "2026-11-26"
+  "from": "2026-11-21",
+  "to": "2026-11-27"
  },
  "chart": [
   {
@@ -57,7 +57,7 @@
    "type": "set",
    "price": 539.1,
    "unit": "",
-   "move": "new",
+   "move": 0,
    "url": "https://golfpriceai.com/prices/cobra-fly-xl-package-set/"
   },
   {
@@ -77,7 +77,7 @@
    "type": "set",
    "price": 299.0,
    "unit": "",
-   "move": 0,
+   "move": 2,
    "url": "https://golfpriceai.com/prices/macgregor-cg4000-10-piece-cart-bag-ladies-package-set/"
   },
   {
@@ -87,7 +87,7 @@
    "type": "set",
    "price": 377.1,
    "unit": "",
-   "move": 1,
+   "move": 3,
    "url": "https://golfpriceai.com/prices/macgregor-zt1-ladies-package-set/"
   },
   {
@@ -107,7 +107,7 @@
    "type": "set",
    "price": 319.0,
    "unit": "",
-   "move": 3,
+   "move": 4,
    "url": "https://golfpriceai.com/prices/wilson-tpx-ladies-package-set/"
   },
   {
@@ -117,7 +117,7 @@
    "type": "driver",
    "price": 159.95,
    "unit": "",
-   "move": 4,
+   "move": 5,
    "url": "https://golfpriceai.com/prices/yonex-ezone-gs-i-tech-driver/"
   },
   {
@@ -174,13 +174,13 @@
  "wishfulThinking": [
   {
    "category": "Drivers",
-   "averageGuessVsRealPricePct": -19,
-   "guesses": 45
+   "averageGuessVsRealPricePct": -20,
+   "guesses": 41
   },
   {
    "category": "Golf bags",
-   "averageGuessVsRealPricePct": 17,
-   "guesses": 80
+   "averageGuessVsRealPricePct": 15,
+   "guesses": 76
   },
   {
    "category": "Putters",
@@ -188,9 +188,9 @@
    "guesses": 47
   },
   {
-   "category": "Hybrids",
-   "averageGuessVsRealPricePct": 12,
-   "guesses": 64
+   "category": "Iron sets",
+   "averageGuessVsRealPricePct": -10,
+   "guesses": 77
   }
  ],
  "categoryShare": [
@@ -204,7 +204,7 @@
   },
   {
    "category": "Tech",
-   "pct": 19
+   "pct": 18
   },
   {
    "category": "Bags & trolleys",

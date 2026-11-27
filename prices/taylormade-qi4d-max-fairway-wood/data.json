@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "fairway wood",
  "url": "https://golfpriceai.com/prices/taylormade-qi4d-max-fairway-wood/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 287.1,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 287.1,
   "high": 319.0,
-  "average": 318.69,
+  "average": 318.39,
   "priceChanges": 1,
   "series": [
    [
@@ -40,6 +40,10 @@
    ],
    [
     "2026-11-26",
+    287.1
+   ],
+   [
+    "2026-11-27",
     287.1
    ]
   ]
@@ -50,5 +54,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/N8405107-Qi4D-Max-Fairway-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }

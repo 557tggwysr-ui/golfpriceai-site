@@ -3,7 +3,7 @@
  "brand": "Wilson",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/wilson-i-lock-dry-organiser-waterproof-cart-bag-golf-bag/",
- "checked": "2026-11-26",
+ "checked": "2026-11-27",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 197.1,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 103,
+  "daysTracked": 104,
   "low": 189.0,
   "high": 199.0,
-  "average": 195.63,
+  "average": 195.65,
   "priceChanges": 26,
   "series": [
    [
@@ -131,6 +131,10 @@
    [
     "2026-11-26",
     197.1
+   ],
+   [
+    "2026-11-27",
+    197.1
    ]
   ]
  },
@@ -140,5 +144,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-I-Lock-DRY-Organiser-Waterproof-Golf-Cart-Bag---Grey-Khaki-Orange.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-26"
+ "changed": "2026-11-27"
 }
