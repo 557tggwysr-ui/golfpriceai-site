@@ -1,8 +1,8 @@
 {
- "generated": "2026-11-26T10:47Z",
+ "generated": "2026-11-27T10:48Z",
  "about": "Mystery shopper: a phone-sized browser walks the site each night and notes anything broken.",
- "pagesChecked": 70,
- "pagesWithProblems": 13,
+ "pagesChecked": 69,
+ "pagesWithProblems": 14,
  "findings": [
   {
    "page": "/prices/garmin-approach-s70-gps-watch/",
@@ -11,15 +11,15 @@
    ]
   },
   {
-   "page": "/prices/titleist-pro-v1-golf-balls/",
-   "problems": [
-    "first screen (top page): something covers the buy button (SPAN)"
-   ]
-  },
-  {
    "page": "/prices/cobra-darkspeed-ls-driver/",
    "problems": [
     "first screen (top page): something covers the buy button (DIV)"
+   ]
+  },
+  {
+   "page": "/prices/titleist-pro-v1-golf-balls/",
+   "problems": [
+    "first screen (top page): something covers the buy button (SPAN)"
    ]
   },
   {
@@ -55,7 +55,7 @@
   {
    "page": "/prices/titleist-players-s4-stand-bag-golf-bag/",
    "problems": [
-    "first screen (top page): something covers the buy button (BUTTON)"
+    "first screen (top page): something covers the buy button (DIV)"
    ]
   },
   {
@@ -66,6 +66,12 @@
   },
   {
    "page": "/complete-the-look.html",
+   "problems": [
+    "0 main headings (should be 1)"
+   ]
+  },
+  {
+   "page": "/play/draft/",
    "problems": [
     "0 main headings (should be 1)"
    ]
@@ -89,7 +95,7 @@
  "topPagesChecked": 10,
  "internalLinksChecked": 150,
  "deadLinks": [],
- "sitemapUrls": 2543,
+ "sitemapUrls": 2546,
  "sitemapChecked": 100,
  "deadInSitemap": [],
  "status": "attention"
