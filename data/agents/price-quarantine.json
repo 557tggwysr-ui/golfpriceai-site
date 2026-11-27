@@ -3,8 +3,6 @@
  "ids": [
   "wedge-cleveland-rtz-2-golf-wedge-tour-satin-clickgolf",
   "wedge-cleveland-rtz-2-golf-wedge-black-satin-clickgolf",
-  "wedge-cleveland-rtz-golf-wedge-black-satin-clickgolf",
-  "wedge-cleveland-rtz-golf-wedge-tour-satin-clickgolf",
   "wedge-cleveland-rtz-golf-wedge-tour-rack-clickgolf",
   "wedge-cobra-tour-trusty-golf-wedge-steel-clickgolf",
   "wedge-cobra-tour-trusty-wedge-steel-affordablegolf",
@@ -106,7 +104,7 @@
    "id": "wedge-cleveland-rtz-2-golf-wedge-tour-satin-clickgolf",
    "name": "Cleveland RTZ 2 Golf Wedge - Tour Satin",
    "model": "cleveland-rtz-2-wedge",
-   "price": 139.0,
+   "price": 125.1,
    "reason": "under 45% of the same model elsewhere (median £387.00)",
    "shownAsLowest": true,
    "kind": "peers",
@@ -116,28 +114,8 @@
    "id": "wedge-cleveland-rtz-2-golf-wedge-black-satin-clickgolf",
    "name": "Cleveland RTZ 2 Golf Wedge - Black Satin",
    "model": "cleveland-rtz-2-wedge",
-   "price": 139.0,
+   "price": 125.1,
    "reason": "under 45% of the same model elsewhere (median £387.00)",
-   "shownAsLowest": true,
-   "kind": "peers",
-   "both": false
-  },
-  {
-   "id": "wedge-cleveland-rtz-golf-wedge-black-satin-clickgolf",
-   "name": "Cleveland RTZ Golf Wedge - Black Satin",
-   "model": "cleveland-rtz-wedge",
-   "price": 119.0,
-   "reason": "under 45% of the same model elsewhere (median £417.00)",
-   "shownAsLowest": true,
-   "kind": "peers",
-   "both": false
-  },
-  {
-   "id": "wedge-cleveland-rtz-golf-wedge-tour-satin-clickgolf",
-   "name": "Cleveland RTZ Golf Wedge - Tour Satin",
-   "model": "cleveland-rtz-wedge",
-   "price": 119.0,
-   "reason": "under 45% of the same model elsewhere (median £417.00)",
    "shownAsLowest": true,
    "kind": "peers",
    "both": false

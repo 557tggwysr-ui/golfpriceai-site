@@ -1,16 +1,16 @@
 {
- "generated": "2026-11-26T17:22Z",
+ "generated": "2026-11-27T01:40Z",
  "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
- "listings": 81630,
- "models": 3328,
+ "listings": 81670,
+ "models": 3333,
  "feeds": {
-  "awin-affordablegolf": 39202,
-  "awin-clarkesgolf": 20304,
-  "awin-majorgolf": 13621,
-  "awin-clickgolf": 3477,
-  "awin-scottsdalegolf": 3177,
+  "awin-affordablegolf": 39224,
+  "awin-clarkesgolf": 20321,
+  "awin-majorgolf": 13620,
+  "awin-clickgolf": 3476,
+  "awin-scottsdalegolf": 3178,
   "awin-callawaypreowned": 999,
-  "awin-callaway": 497,
+  "awin-callaway": 499,
   "awin-payntr": 353
  },
  "feedsShrunk": [],
@@ -52,19 +52,19 @@
    "filedAs": "wedge"
   }
  ],
- "suspectPrices": 99,
+ "suspectPrices": 97,
  "pagesShowingSuspectPrice": 18,
  "pagesToCheck": [
   {
    "page": "/prices/cleveland-rtz-2-wedge/",
-   "price": 139.0,
+   "price": 125.1,
    "listing": "Cleveland RTZ 2 Golf Wedge - Tour Satin",
    "reason": "under 45% of the same model elsewhere (median £387.00)"
   },
   {
    "page": "/prices/cleveland-rtz-wedge/",
    "price": 119.0,
-   "listing": "Cleveland RTZ Golf Wedge - Black Satin",
+   "listing": "Cleveland RTZ Golf Wedge - Tour Rack",
    "reason": "under 45% of the same model elsewhere (median £417.00)"
   },
   {
@@ -169,7 +169,7 @@
    "id": "wedge-cleveland-rtz-2-golf-wedge-tour-satin-clickgolf",
    "name": "Cleveland RTZ 2 Golf Wedge - Tour Satin",
    "model": "cleveland-rtz-2-wedge",
-   "price": 139.0,
+   "price": 125.1,
    "reason": "under 45% of the same model elsewhere (median £387.00)",
    "shownAsLowest": true,
    "kind": "peers",
@@ -179,28 +179,8 @@
    "id": "wedge-cleveland-rtz-2-golf-wedge-black-satin-clickgolf",
    "name": "Cleveland RTZ 2 Golf Wedge - Black Satin",
    "model": "cleveland-rtz-2-wedge",
-   "price": 139.0,
+   "price": 125.1,
    "reason": "under 45% of the same model elsewhere (median £387.00)",
-   "shownAsLowest": true,
-   "kind": "peers",
-   "both": false
-  },
-  {
-   "id": "wedge-cleveland-rtz-golf-wedge-black-satin-clickgolf",
-   "name": "Cleveland RTZ Golf Wedge - Black Satin",
-   "model": "cleveland-rtz-wedge",
-   "price": 119.0,
-   "reason": "under 45% of the same model elsewhere (median £417.00)",
-   "shownAsLowest": true,
-   "kind": "peers",
-   "both": false
-  },
-  {
-   "id": "wedge-cleveland-rtz-golf-wedge-tour-satin-clickgolf",
-   "name": "Cleveland RTZ Golf Wedge - Tour Satin",
-   "model": "cleveland-rtz-wedge",
-   "price": 119.0,
-   "reason": "under 45% of the same model elsewhere (median £417.00)",
    "shownAsLowest": true,
    "kind": "peers",
    "both": false
@@ -414,6 +394,26 @@
    "shownAsLowest": true,
    "kind": "floor",
    "both": false
+  },
+  {
+   "id": "wedge-golfway-champion-sand-wedge-ages-12-14-right-hand-59-62-affordablegolf",
+   "name": "Golfway Champion Sand Wedge (Ages 12-14) Right Hand / 59-62\"",
+   "model": "golfway-champion-sand-wedge",
+   "price": 14.99,
+   "reason": "below a sensible floor for a new wedge",
+   "shownAsLowest": true,
+   "kind": "floor",
+   "both": false
+  },
+  {
+   "id": "wedge-golfway-champion-sand-wedge-ages-12-14-left-hand-59-62-affordablegolf",
+   "name": "Golfway Champion Sand Wedge (Ages 12-14) Left Hand / 59-62\"",
+   "model": "golfway-champion-sand-wedge",
+   "price": 14.99,
+   "reason": "below a sensible floor for a new wedge",
+   "shownAsLowest": true,
+   "kind": "floor",
+   "both": false
   }
  ],
  "usedOutsidePreowned": 0,
@@ -431,7 +431,7 @@
   "Callaway Grade C Recycled Golf Balls - 24 Pack - Grade C",
   "Nike Grade C Recycled Golf Balls - 24 Pack - Grade C"
  ],
- "duplicates": 675,
+ "duplicates": 681,
  "duplicateExamples": [
   {
    "feed": "awin-clickgolf",
@@ -554,8 +554,8 @@
    ]
   }
  ],
- "deadListings45d": 711,
- "unmatchedClubs": 1441,
+ "deadListings45d": 718,
+ "unmatchedClubs": 1454,
  "newLaunchCandidates": [
   {
    "brand": "Cleveland Golf",
@@ -589,9 +589,9 @@
     "Titleist Golf GTS300 Mini Driver 2026",
     "Titleist Vokey SM11 Jet Black Wedge 2026",
     "Titleist Scotty Cameron Phantom 9R Golf Putter 2026",
-    "Titleist Scotty Cameron Studio Style Santa Fe Golf Putter 2026",
-    "Titleist Golf T250·U Utility Iron 2026",
-    "Titleist Scotty Cameron Phantom 9.2R Golf Putter 2026"
+    "Titleist T350 Golf Irons",
+    "Titleist T250 Golf Irons",
+    "Titleist Scotty Cameron Studio Style Santa Fe Golf Putter 2026"
    ]
   },
   {
@@ -604,6 +604,19 @@
     "MacGregor Golf Men's ZT Plus Wedge 2026",
     "MacGregor Golf ZT Plus Hybrid 2026",
     "MacGregor Golf ZT Plus Irons 2026"
+   ]
+  },
+  {
+   "brand": "TaylorMade",
+   "names": [
+    "TaylorMade Golf Qi4D Hybrid Rescue 2026",
+    "TaylorMade Tour Response Stripe Golf Balls 2026",
+    "TaylorMade P770 Golf Irons",
+    "TaylorMade Golf Qi4D Max Fairway 2026",
+    "TaylorMade Golf Qi MAX Irons 2026",
+    "TaylorMade TP5 Golf Balls 2026",
+    "TaylorMade TP5x Golf Balls 2026",
+    "Taylormade 2026 Distance Plus Golf Balls | 3 For 2"
    ]
   },
   {
@@ -622,19 +635,6 @@
     "Odyssey TRTL DB Golf Putter 2027",
     "Odyssey TRTL Max S2S Golf Putter 2027",
     "Odyssey TRTL CH Golf Putter 2027"
-   ]
-  },
-  {
-   "brand": "TaylorMade",
-   "names": [
-    "TaylorMade Golf Qi4D Hybrid Rescue 2026",
-    "TaylorMade Tour Response Stripe Golf Balls 2026",
-    "TaylorMade Golf Qi4D Max Fairway 2026",
-    "TaylorMade Golf Qi MAX Irons 2026",
-    "TaylorMade TP5 Golf Balls 2026",
-    "TaylorMade TP5x Golf Balls 2026",
-    "Taylormade 2026 Distance Plus Golf Balls | 3 For 2",
-    "Taylormade 2026 Distance Plus Yellow Golf Balls | 3 For 2"
    ]
   },
   {
@@ -661,28 +661,31 @@
    ]
   },
   {
+   "brand": "Callaway",
+   "names": [
+    "Callaway Quantum Max OS Golf Irons",
+    "Callaway Apex Ti Fusion Golf Irons",
+    "Callaway Apex Ai 150 Golf Irons",
+    "Callaway Quantum Max Golf Irons"
+   ]
+  },
+  {
+   "brand": "Ping",
+   "names": [
+    "Ping G440 Golf Irons",
+    "Ping G Le4 Ladies Golf Irons"
+   ]
+  },
+  {
    "brand": "Bridgestone",
    "names": [
     "Bridgestone Tour B X Golf Balls 2026",
     "Bridgestone Tour B RXS Golf Balls 2026"
    ]
-  },
-  {
-   "brand": "Ray Cook",
-   "names": [
-    "Ray Cook Silver Ray SR400 Black Putter 2026"
-   ]
-  },
-  {
-   "brand": "Srixon",
-   "names": [
-    "Srixon AD333 Golf Balls Double Dozen 24 Pack 2026",
-    "Srixon Golf ZXiR Irons 2026"
-   ]
   }
  ],
  "fixCheck": {
-  "rulesActive": 32,
+  "rulesActive": 37,
   "notApplied": []
  },
  "status": "attention"
