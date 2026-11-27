@@ -344,11 +344,25 @@ def guess_category(category_name, merchant_category, name, description=None):
     return "accessories"
 
 
+SHAFT_RX = re.compile(r"\b(?:driver|fairway|wood|hybrid|rescue|utility|iron|irons|wedge)(?:/\w+)?\s+shafts?\b(?!\s+irons?\b)")
+SHAFT_MAKERS = ("aldila", "fujikura", "true temper", "project x", "mitsubishi", "ust mamiya", "ust ", "graphite design",
+                "kbs ", "nippon", "accra", "lagp", "oban ", "nunchuk")
+
+
 def apply_pre_overrides(name_text):
     """A handful of specific rules that need to run before the general
     keyword matching, because they combine multiple signals or need to
     beat a keyword that would otherwise fire first. Returns a category
     string, or None if none of these apply."""
+    # Bare shafts are components, not clubs (27 Nov 2026): "Aldila Stiff - ALDILA
+    # ROGUE 60 GRAPHITE - Driver/Fairway Shaft .335" was filed as a driver and set
+    # the "lowest price" on ~85 club pages. Two signals: the name ends on a club
+    # word followed by "shaft", or it starts with a shaft-only maker. Centre-shafted
+    # putters and "Steel Shaft Irons" sets don't match either signal.
+    if not _has_word(name_text, "putter"):
+        if SHAFT_RX.search(name_text) or name_text.startswith(SHAFT_MAKERS):
+            return "accessories"
+
     # A "driving hybrid iron" (or similarly named hybrid-style iron) is
     # functionally an iron, not a hybrid — this specific combination beats
     # the generic "hybrid" club-shape match.
