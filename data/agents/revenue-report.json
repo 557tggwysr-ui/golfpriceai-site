@@ -1,17 +1,17 @@
 {
- "generated": "2026-11-26T17:05Z",
+ "generated": "2026-11-27T16:50Z",
  "about": "Revenue guardian: are buy links tracked and landing on the right page? No money figures here (those go privately to the owner).",
- "listings": 81630,
+ "listings": 81707,
  "untracked": [],
  "untrackedTotal": 0,
  "sampleChecked": 50,
  "landingOkPct": 98,
  "landingProblems": [
   {
-   "name": "Big Max Dri Lite Prime Cart Bag - Black",
-   "id": "bag-big-max-dri-lite-prime-cart-bag-black-majorgolf",
-   "feed": "awin-majorgolf",
-   "problem": "error 404"
+   "name": "BOSS Infinity Long John",
+   "id": "apparel-boss-infinity-long-john-scottsdalegolf",
+   "feed": "awin-scottsdalegolf",
+   "problem": "error 403"
   }
  ],
  "status": "ok"
