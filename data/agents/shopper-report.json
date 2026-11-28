@@ -1,59 +1,17 @@
 {
- "generated": "2026-11-27T10:48Z",
+ "generated": "2026-11-28T10:15Z",
  "about": "Mystery shopper: a phone-sized browser walks the site each night and notes anything broken.",
- "pagesChecked": 69,
- "pagesWithProblems": 14,
+ "pagesChecked": 70,
+ "pagesWithProblems": 6,
  "findings": [
   {
-   "page": "/prices/garmin-approach-s70-gps-watch/",
-   "problems": [
-    "first screen (top page): something covers the buy button (DIV)"
-   ]
-  },
-  {
-   "page": "/prices/cobra-darkspeed-ls-driver/",
-   "problems": [
-    "first screen (top page): something covers the buy button (DIV)"
-   ]
-  },
-  {
-   "page": "/prices/titleist-pro-v1-golf-balls/",
+   "page": "/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/",
    "problems": [
     "first screen (top page): something covers the buy button (SPAN)"
    ]
   },
   {
    "page": "/prices/callaway-online-exclusive-mavrik-17-piece-package-set/",
-   "problems": [
-    "first screen (top page): something covers the buy button (DIV)"
-   ]
-  },
-  {
-   "page": "/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/",
-   "problems": [
-    "first screen (top page): something covers the buy button (BUTTON)"
-   ]
-  },
-  {
-   "page": "/prices/titleist-t350-irons/",
-   "problems": [
-    "first screen (top page): something covers the buy button (SPAN)"
-   ]
-  },
-  {
-   "page": "/prices/taylormade-tp5-golf-balls/",
-   "problems": [
-    "first screen (top page): something covers the buy button (SPAN)"
-   ]
-  },
-  {
-   "page": "/prices/bridgestone-percept-golf-balls/",
-   "problems": [
-    "first screen (top page): something covers the buy button (SPAN)"
-   ]
-  },
-  {
-   "page": "/prices/titleist-players-s4-stand-bag-golf-bag/",
    "problems": [
     "first screen (top page): something covers the buy button (DIV)"
    ]
@@ -66,12 +24,6 @@
   },
   {
    "page": "/complete-the-look.html",
-   "problems": [
-    "0 main headings (should be 1)"
-   ]
-  },
-  {
-   "page": "/play/draft/",
    "problems": [
     "0 main headings (should be 1)"
    ]
@@ -95,7 +47,7 @@
  "topPagesChecked": 10,
  "internalLinksChecked": 150,
  "deadLinks": [],
- "sitemapUrls": 2546,
+ "sitemapUrls": 2567,
  "sitemapChecked": 100,
  "deadInSitemap": [],
  "status": "attention"
