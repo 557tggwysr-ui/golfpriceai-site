@@ -71,6 +71,10 @@
  *                   until the DEMAND database below is added.
  *                   It also holds Par Price scores and leagues (pp_* tables,
  *                   see parPrice()).
+ *   GH_DISPATCH_TOKEN secret  fine-grained GitHub token (this repo only, "Actions: Read and
+ *                   write"). Lets the clock start on-time runs; see CLOCK_JOBS. Needs the
+ *                   every-5-minutes cron trigger written in CLOCK_CRON (Settings >
+ *                   Triggers > Cron Triggers).
  *   DEMAND          D1 database binding (Worker > Settings > Bindings >
  *                   D1 database, named golfpriceai-demand). The Demand
  *                   Index's exact, once-per-visitor daily counts. It sets
@@ -137,7 +141,13 @@ export default {
   // Watching the watchdog: runs on the worker's cron trigger (Cloudflare > the worker >
   // Settings > Triggers > Cron, e.g. "40 */6 * * *"). If the agents' watchdog in GitHub
   // Actions hasn't checked in for 26 hours, email the owner once a day until it does.
+  //
+  // The clock (27 Nov 2026): GitHub's own timers ran up to 15 hours late, so a second cron
+  // trigger, "*/5 * * * *", starts the runs that must happen on time (see CLOCK_JOBS).
+  // Needs the secret GH_DISPATCH_TOKEN (a fine-grained GitHub token for this repo only,
+  // permission "Actions: Read and write"). Without it the clock does nothing.
   async scheduled(event, env, ctx) {
+    if (event.cron === CLOCK_CRON) { ctx.waitUntil(clockTick(env, event.scheduledTime)); return; }
     ctx.waitUntil(watchdogCheck(env));
   },
 };
@@ -4622,6 +4632,55 @@ async function watchdogBeat(request, env, cors) {
   await env.DEMAND.prepare('INSERT INTO wd_beat (k, at, note) VALUES (?, ?, ?) ON CONFLICT (k) DO UPDATE SET at = excluded.at, note = excluded.note')
     .bind('watchdog', Date.now(), String(body.note || '').slice(0, 500)).run();
   return json({ ok: true }, 200, cors);
+}
+
+/* ------------------------------------------------------------------ the clock */
+// Each job fires on the one 5-minute tick that falls in [time, time + 5 min). Every job here
+// is safe to run twice (GitHub's own late run may still turn up): posting skips what's already
+// posted, the price update just refreshes again, the Friday email sends once a week.
+const CLOCK_CRON = '*/5 * * * *';
+const CLOCK_REPO = '557tggwysr-ui/golfpriceai-site';
+const CLOCK_JOBS = [
+  // [label, workflow file, inputs, when]  when: London time "HH:MM", optional days (0 = Sunday), optional months (1-12)
+  ['content post (lunch)', 'agent-content.yml', { mode: 'post' }, { at: '12:30' }],
+  ['content post (evening)', 'agent-content.yml', { mode: 'post' }, { at: '19:30' }],
+  ['price update', 'update-deals.yml', {}, { at: ['00:05', '06:05', '12:05', '18:05'] }],
+  ['claims guardian', 'agent-claims.yml', {}, { at: '07:00' }],
+  ['Friday email', 'friday-email.yml', {}, { at: '16:00', days: [5] }],
+  ['sale-day morning email', 'friday-email.yml', {}, { at: '07:05', days: [1, 5], months: [11, 12] }],
+];
+
+function londonParts(ms) {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', weekday: 'short', month: 'numeric', hour12: false,
+  }).formatToParts(new Date(ms)).map((p) => [p.type, p.value]));
+  const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(parts.weekday);
+  return { mins: (Number(parts.hour) % 24) * 60 + Number(parts.minute), day, month: Number(parts.month) };
+}
+
+function clockDue(when, now) {
+  if (when.days && !when.days.includes(now.day)) return false;
+  if (when.months && !when.months.includes(now.month)) return false;
+  return [].concat(when.at).some((hm) => {
+    const [h, m] = hm.split(':').map(Number);
+    const d = now.mins - (h * 60 + m);
+    return d >= 0 && d < 5;
+  });
+}
+
+async function clockTick(env, scheduledTime) {
+  if (!env.GH_DISPATCH_TOKEN) return;
+  const now = londonParts(scheduledTime || Date.now());
+  for (const [label, file, inputs, when] of CLOCK_JOBS) {
+    if (!clockDue(when, now)) continue;
+    const r = await fetch(`https://api.github.com/repos/${CLOCK_REPO}/actions/workflows/${file}/dispatches`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${env.GH_DISPATCH_TOKEN}`, Accept: 'application/vnd.github+json',
+                 'User-Agent': 'golfpriceai-clock', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ref: 'main', inputs }),
+    }).catch((e) => ({ status: 0, text: async () => String(e) }));
+    console.log('clock', label, r.status, r.status === 204 ? 'started' : (await r.text()).slice(0, 200));
+  }
 }
 
 async function watchdogCheck(env) {
