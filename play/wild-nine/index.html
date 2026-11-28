@@ -2558,7 +2558,6 @@ window.WN_QUIPS = {
       <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f3b23"/><stop offset="1" stop-color="#226f40"/></linearGradient>
         <pattern id="mw" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="12" height="24" fill="rgba(255,255,255,.035)"/></pattern></defs>
       <rect width="360" height="450" fill="url(#rg)"/><rect width="360" height="450" fill="url(#mw)"/>
-      <rect x="9" y="9" width="342" height="432" rx="16" fill="none" stroke="#e3b23c" stroke-width="2"/>
       <text x="24" y="44" font-size="11" font-weight="800" letter-spacing="2.2" fill="#e3b23c">WILD NINE #${day}${c.major ? ' · SUNDAY MAJOR' : ''}</text>
       <text x="24" y="74" font-family="Georgia,serif" font-size="${Math.min(25, Math.floor(312 / (c.name.length * 0.6)))}" font-weight="700" fill="#fff"${c.name.length * 0.6 * 14 > 312 ? ' textLength="312" lengthAdjust="spacingAndGlyphs"' : ''}>${esc(c.name)}</text>
       <text x="24" y="94" font-size="11" fill="#fff" opacity=".7">${esc(dateLabel(day))} · ${esc(S.mode === 'solo' ? (S.cfg.official ? 'Solo' : 'Practice') : MODES[S.mode].name)} · Par ${c.par}</text>
@@ -2571,11 +2570,13 @@ window.WN_QUIPS = {
       ${grid}
       ${S.mode !== 'match' ? (() => { const sc = sd.scores, n = f => sc.filter((s, i) => f(s - holes[i].par)).length; const parts = [[n(d => d <= -2), 'eagle'], [n(d => d === -1), 'birdie'], [n(d => d === 0), 'par'], [n(d => d >= 1), 'bogey']].filter(([k]) => k).map(([k, l]) => `${k} ${l}${k > 1 ? 's' : ''}`); return `<text x="180" y="${S.tenthTxt ? 362 : 352}" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" opacity=".85">${parts.join('  ·  ')}</text>`; })() : ''}
       ${S.tenthTxt ? `<text x="180" y="${306 + 36 * rows.length}" text-anchor="middle" font-size="11" fill="#e3b23c" font-weight="700">Hole 10: ${esc(S.tenthTxt)}</text>` : ''}
-      <rect x="9" y="380" width="342" height="61" fill="#0b2516"/><rect x="9" y="380" width="342" height="2" fill="#e3b23c"/>
+      <path d="M9 380H351V425A16 16 0 0 1 335 441H25A16 16 0 0 1 9 425Z" fill="#0b2516"/><rect x="9" y="380" width="342" height="2" fill="#e3b23c"/>
       <text x="24" y="408" font-size="19" font-weight="900"><tspan fill="#fff">Golf</tspan><tspan fill="#3fae29">Price</tspan><tspan fill="#fff"> AI</tspan></text>
       <text x="24" y="426" font-family="Georgia,serif" font-style="italic" font-size="11" fill="#fff" opacity=".75">Full Swing. Not full price.</text>
       <text x="336" y="406" text-anchor="end" font-size="12" font-weight="800" fill="#e3b23c">Can you beat it?</text>
-      <text x="336" y="424" text-anchor="end" font-size="11" fill="#fff">golfpriceai.com/play/wild-nine</text></svg>`;
+      <text x="336" y="424" text-anchor="end" font-size="11" fill="#fff">golfpriceai.com/play/wild-nine</text>
+      <rect x="9" y="9" width="342" height="432" rx="16" fill="none" stroke="#e3b23c" stroke-width="2"/><!-- frame drawn last, so the footer sits inside its rounded corners -->
+      </svg>`;
   }
 
 
