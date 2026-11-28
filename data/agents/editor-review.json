@@ -1,15 +1,19 @@
 {
- "generated": "2026-11-27T17:43Z",
+ "generated": "2026-11-28T00:49Z",
  "about": "The Editor's last Claude review (house style, facts, tone, premium visuals).",
- "verdict": "block",
- "summary": "S1 adds internal links from real fairway wood pages to six pages (Aldila, Fujikura, True Temper) that look like shaft listings filed as fairway woods at £59.99-£69.99, i.e. wrong-category products.",
+ "verdict": "ok",
+ "summary": "Captions are clean (UK English, #Ad where a price is featured, no retailer names, no fake urgency), but 2026-11-27-fri is held on visual standard, and only that post's images and video were available to review.",
  "points": [
-  "data/agent-links.json: aldila-/fujikura-/true-temper-*-fairway-wood pages are named after shaft brands and flexes (e.g. 'Aldila Regular Fairway Wood' from £59.99 at one shop), so they look like shafts mis-filed as fairway woods; linking from Callaway/Titleist/Srixon fairway wood pages promotes them. Fix: skip S1's six shaft entries (keep odyssey-trtl-ch-putter) and have the catalogue agent re-categorise or hide those pages.",
-  "data/agent-links.json: all six shaft entries use an identical 'from' list, so the same six pages get six near-duplicate links.",
-  "S3 (fourball/episodes): not in the diff and fourball/episodes does not exist in the repo, so the episode could not be reviewed; check it before merging.",
-  "llms.txt: figures (3,297 models, 323 cheaper this week, new lowest prices) cannot be verified from the diff alone; wording and £ formatting are fine.",
-  "data/agent-rules.json: hiding BOSS Infinity Long John for 3 days (403 buy link) and dropping expired rules look fine."
+  "2026-11-27-fri: HOLD. The card and thumbnail are a close-up photo of a laughing man in a beanie with no rangefinder or GPS watch anywhere. It doesn't show what the post is about. Replace it with a sharp, large product shot (a rangefinder beside a GPS watch) on a clean background. If the photo has to stay, confirm the face is clearly synthetic or licensed and not a real person's photo, which would be a Never.",
+  "2026-11-27-fri: the headline sits across the man's chin, hand and face, so text and subject fight each other. The dark overlay makes the maroon jumper and the green banner muddy. Put the text on a clear area, or on a solid or gradient panel, so it is crisp.",
+  "2026-11-27-fri: the thumbnail highlights 'GPS WATCH' in yellow but the feed card has all-white type, so cover and card don't match. Make them one design. Keep the key words inside the middle 4:5 crop.",
+  "2026-11-27-fri: I couldn't extract video frames. ffmpeg, cv2 and av are not installed and /tmp/review-images held only the mp4, so I couldn't check the video's pace, hook or end frames. Check that a change lands every 1-2 seconds against data/social-benchmarks.json and that there is sound (sound is null).",
+  "All other posts (2026-11-28-moment, 11-28-sat, 11-29-hishers, 11-29-sun, 11-30-mon, 12-01-tue, 12-02-wed, 12-04-fri, 12-05-sat, 12-06-hishers, 12-06-sun): no card, thumbnail or video images were supplied. I reviewed captions only. They still need a visual pass before they go out. Also check that the 12-04-fri card isn't nearly identical to the 11-27-fri card.",
+  "2026-11-29-hishers / 2026-12-06-hishers: the TikTok caption uses the US spelling hashtag #golfhumor next to the UK #golfhumour (flag).",
+  "2026-12-05-sat: hook 'You've got 3 seconds' reads as a countdown. It's fine as a game, but check the video doesn't show a ticking timer implying a price deadline (flag).",
+  "2026-12-02-wed: Instagram caption is longer than TikTok's. TikTok points to 'link in bio' and drops the URL, which is fine. The #golfdeals tag on a non-deal Fourball post is a slightly odd fit (flag).",
+  "2026-11-28-moment, 12-01-tue and 11-30-mon: claims such as 'lowest we've tracked', '12 of 51' and '£14.39 a dozen' must come from the site's price data. I can't verify them from the diff alone."
  ],
- "what": "Agent: fix pack",
- "postsHash": "d4d0b26d0c084a26dea3ddd0813600269a06462c"
+ "what": "Agent: content engine",
+ "postsHash": "ddbef4af221c3d3a735c677a1a80221d37972e46"
 }
