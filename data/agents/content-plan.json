@@ -487,6 +487,55 @@
    "slot": "12:30"
   },
   {
+   "id": "2026-11-28-moment",
+   "date": "2026-11-28",
+   "theme": "Moment",
+   "style": "reveal",
+   "palette": "sky",
+   "hook": "The lowest price we've tracked",
+   "trend": null,
+   "card": "/social/cards/2026-11-28-moment.jpg",
+   "thumb": "/social/thumbs/2026-11-28-moment.jpg",
+   "video": "https://github.com/557tggwysr-ui/golfpriceai-site/releases/download/pack-2026-11-23/2026-11-28-moment.mp4",
+   "link": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/",
+   "headline": "£229",
+   "sub": "Cobra Darkspeed LS Driver",
+   "captions": {
+    "instagram": "#Ad Lowest we've tracked ⛳ The Cobra Darkspeed LS Driver is at £229 across multiple UK retailers, the lowest price we've tracked for it. Link in bio.\n\n#golf #golfuk #golfdeals #golfgear #golfer",
+    "tiktok": "#Ad Lowest we've tracked ⛳ The Cobra Darkspeed LS Driver is at £229 across multiple UK retailers, the lowest price we've tracked for it. Link in bio. #golf #golftok #golfuk",
+    "youtube": {
+     "title": "Cobra Darkspeed LS Driver: lowest price we've tracked #golf #shorts",
+     "description": "#Ad Lowest we've tracked ⛳ The Cobra Darkspeed LS Driver is at £229 across multiple UK retailers, the lowest price we've tracked for it. \nhttps://golfpriceai.com/prices/cobra-darkspeed-ls-driver/\n#golf #golfuk #shorts"
+    },
+    "x": "#Ad The Cobra Darkspeed LS Driver is at £229, the lowest price we've tracked for it ⛳\nhttps://golfpriceai.com/prices/cobra-darkspeed-ls-driver/",
+    "pinterest": {
+     "title": "£229: Cobra Darkspeed LS Driver",
+     "description": "#Ad Lowest we've tracked ⛳ The Cobra Darkspeed LS Driver is at £229 across multiple UK retailers, the lowest price we've tracked for it. ",
+     "link": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
+    },
+    "bluesky": "#Ad The Cobra Darkspeed LS Driver is at £229, the lowest price we've tracked for it ⛳\nhttps://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
+   },
+   "sound": null,
+   "trendingFormats": [],
+   "posted": {},
+   "quality": [],
+   "format": "pricedrop",
+   "formatName": "Price drop alert",
+   "objective": "conversions",
+   "series": null,
+   "ep": null,
+   "ad": true,
+   "slot": "19:30",
+   "times": {
+    "Instagram": "19:30 (posts itself once ticked)",
+    "TikTok": "19:00",
+    "YouTube Shorts": "18:00",
+    "X": "08:30",
+    "Bluesky": "19:30 (posts itself once ticked)",
+    "Pinterest": "20:00"
+   }
+  },
+  {
    "id": "2026-11-28-sat",
    "date": "2026-11-28",
    "theme": "Par Price",
