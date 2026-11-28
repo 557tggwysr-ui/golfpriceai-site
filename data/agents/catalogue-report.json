@@ -1,16 +1,16 @@
 {
- "generated": "2026-11-27T17:00Z",
+ "generated": "2026-11-28T01:20Z",
  "about": "Catalogue autopilot: price sanity, feed health, second-hand rule, duplicates, dead listings and new launches.",
- "listings": 81707,
- "models": 3297,
+ "listings": 81757,
+ "models": 3310,
  "feeds": {
-  "awin-affordablegolf": 39224,
-  "awin-clarkesgolf": 20356,
-  "awin-majorgolf": 13622,
+  "awin-affordablegolf": 39261,
+  "awin-clarkesgolf": 20359,
+  "awin-majorgolf": 13628,
   "awin-clickgolf": 3476,
-  "awin-scottsdalegolf": 3178,
+  "awin-scottsdalegolf": 3181,
   "awin-callawaypreowned": 999,
-  "awin-callaway": 499,
+  "awin-callaway": 500,
   "awin-payntr": 353
  },
  "feedsShrunk": [],
@@ -413,7 +413,7 @@
  ],
  "usedOutsidePreowned": 0,
  "usedExamples": [],
- "recycledBallsOutsidePreowned": 56,
+ "recycledBallsOutsidePreowned": 58,
  "recycledExamples": [
   "Titleist Pro V1 Grade A Recycled Golf Balls",
   "Reload Callaway Chrome Soft Grade AA White Recycled Golf Balls",
@@ -549,8 +549,8 @@
    ]
   }
  ],
- "deadListings45d": 718,
- "unmatchedClubs": 1446,
+ "deadListings45d": 738,
+ "unmatchedClubs": 1447,
  "newLaunchCandidates": [
   {
    "brand": "Cleveland Golf",
@@ -647,6 +647,7 @@
   {
    "brand": "Wilson",
    "names": [
+    "Wilson Staff Model X Golf Balls",
     "Wilson Staff Model X TRK360 Golf Balls 2026",
     "Wilson Staff Model XB Golf Irons 2026",
     "Wilson Staff Model CB Forged Golf Irons 2026",
