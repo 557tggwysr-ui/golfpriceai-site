@@ -3,42 +3,42 @@
  "brand": "NAVEE",
  "type": "electric trolley",
  "url": "https://golfpriceai.com/prices/navee-birdie-3-remote-control-electric-trolley/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 849.0,
+ "lowestNewPrice": 749.0,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 849.0,
+   "from": 749.0,
    "options": 1
   }
  ],
  "history": {
-  "daysTracked": 92,
-  "low": 849.0,
+  "daysTracked": 93,
+  "low": 749.0,
   "high": 849.0,
-  "average": 849.0,
-  "priceChanges": 0,
+  "average": 847.92,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-28",
     849.0
    ],
    [
-    "2026-11-27",
-    849.0
+    "2026-11-28",
+    749.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 92 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/NAVEEBirdie3ElectricRemoteControlGolfTrolley-36HoleBattery_2.jpg?v=1787125124",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

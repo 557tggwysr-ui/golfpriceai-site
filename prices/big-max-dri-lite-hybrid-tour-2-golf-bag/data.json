@@ -3,17 +3,17 @@
  "brand": "Big Max",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 179.0,
+ "lowestNewPrice": 159.0,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 179.0,
+   "from": 159.0,
    "options": 5
   },
   {
@@ -28,11 +28,11 @@
   }
  ],
  "history": {
-  "daysTracked": 92,
-  "low": 179.0,
+  "daysTracked": 93,
+  "low": 159.0,
   "high": 209.0,
-  "average": 195.74,
-  "priceChanges": 2,
+  "average": 195.34,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-28",
@@ -47,8 +47,8 @@
     179.0
    ],
    [
-    "2026-11-27",
-    179.0
+    "2026-11-28",
+    159.0
    ]
   ]
  },
@@ -58,5 +58,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/HYBRIDTOUR2BLK1.jpg?v=1736515453",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

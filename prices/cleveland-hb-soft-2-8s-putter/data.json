@@ -3,7 +3,7 @@
  "brand": "Cleveland",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/cleveland-hb-soft-2-8s-putter/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 107.1,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 107.1,
   "high": 119.0,
-  "average": 110.12,
+  "average": 110.09,
   "priceChanges": 2,
   "series": [
    [
@@ -42,7 +42,7 @@
     107.1
    ],
    [
-    "2026-11-27",
+    "2026-11-28",
     107.1
    ]
   ]
@@ -53,5 +53,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/c_cleveland-HB-soft-2-8S-putter-hero-1000x1000.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

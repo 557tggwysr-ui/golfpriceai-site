@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/cobra-ds-adapt-ls-driver/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 229.0,
   "high": 329.0,
-  "average": 321.12,
+  "average": 320.24,
   "priceChanges": 2,
   "series": [
    [
@@ -45,6 +45,10 @@
    [
     "2026-11-27",
     229.0
+   ],
+   [
+    "2026-11-28",
+    229.0
    ]
   ]
  },
@@ -54,5 +58,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Cobra-DS-Adapt-LS-Golf-Driver-9.jpg?v=1734065012",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

@@ -3,7 +3,7 @@
  "brand": "Cobra",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/cobra-fly-xl-package-set/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 539.1,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 539.1,
   "high": 599.0,
-  "average": 591.31,
+  "average": 590.81,
   "priceChanges": 12,
   "series": [
    [
@@ -77,7 +77,7 @@
     539.1
    ],
    [
-    "2026-11-27",
+    "2026-11-28",
     539.1
    ]
   ]
@@ -88,5 +88,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/g_cobra-fly-xl-2-set-stand-bag-set-2-5.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/taylormade-tp5x-stripe-golf-balls/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 37.49,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 92,
+  "daysTracked": 93,
   "low": 37.49,
   "high": 47.95,
-  "average": 47.5,
+  "average": 47.39,
   "priceChanges": 1,
   "series": [
    [
@@ -48,16 +48,16 @@
     37.49
    ],
    [
-    "2026-11-27",
+    "2026-11-28",
     37.49
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 4 days"
+  "summary": "Typical price: steady for 5 days"
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TM-TP5x-Stripe-2026-Front-4-for-3.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

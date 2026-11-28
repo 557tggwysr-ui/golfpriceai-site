@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/callaway-elyte-x-irons/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 399.0,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 109.0,
   "high": 659.0,
-  "average": 417.53,
+  "average": 417.35,
   "priceChanges": 5,
   "series": [
    [
@@ -62,6 +62,10 @@
    [
     "2026-11-27",
     399.0
+   ],
+   [
+    "2026-11-28",
+    399.0
    ]
   ]
  },
@@ -71,5 +75,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Left-Handed-Callaway-Elyte-X-Golf-Irons-Graphite-1.jpg?v=1737087065",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

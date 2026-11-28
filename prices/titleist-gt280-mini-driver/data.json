@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/titleist-gt280-mini-driver/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 413.1,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 413.1,
   "high": 459.0,
-  "average": 440.77,
+  "average": 440.51,
   "priceChanges": 3,
   "series": [
    [
@@ -54,6 +54,10 @@
    [
     "2026-11-27",
     413.1
+   ],
+   [
+    "2026-11-28",
+    413.1
    ]
   ]
  },
@@ -63,5 +67,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Titleist-GT280-Mini-Driver-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

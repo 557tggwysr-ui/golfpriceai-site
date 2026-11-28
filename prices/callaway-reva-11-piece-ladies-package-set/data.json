@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/callaway-reva-11-piece-ladies-package-set/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 989.1,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 989.1,
   "high": 1099.0,
-  "average": 1072.37,
+  "average": 1071.57,
   "priceChanges": 19,
   "series": [
    [
@@ -110,7 +110,7 @@
     989.1
    ],
    [
-    "2026-11-27",
+    "2026-11-28",
     989.1
    ]
   ]
@@ -121,5 +121,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/reva-11-set-black-hero.png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

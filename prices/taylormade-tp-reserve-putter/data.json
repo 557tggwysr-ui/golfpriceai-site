@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "putter",
  "url": "https://golfpriceai.com/prices/taylormade-tp-reserve-putter/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 179.95,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 179.95,
   "high": 199.95,
-  "average": 199.24,
+  "average": 199.02,
   "priceChanges": 1,
   "series": [
    [
@@ -33,7 +33,7 @@
     179.95
    ],
    [
-    "2026-11-27",
+    "2026-11-28",
     179.95
    ]
   ]
@@ -44,5 +44,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/m33_6.jpg?v=1777964140",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

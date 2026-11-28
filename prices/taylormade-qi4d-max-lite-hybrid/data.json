@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "hybrid",
  "url": "https://golfpriceai.com/prices/taylormade-qi4d-max-lite-hybrid/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 242.1,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 242.1,
   "high": 269.0,
-  "average": 268.48,
+  "average": 268.23,
   "priceChanges": 1,
   "series": [
    [
@@ -43,7 +43,7 @@
     242.1
    ],
    [
-    "2026-11-27",
+    "2026-11-28",
     242.1
    ]
   ]
@@ -54,5 +54,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/N8406604-Qi4D-Max-Lite-Rescue-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

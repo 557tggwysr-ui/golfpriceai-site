@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-11-27",
+ "lastUpdated": "2026-11-28",
  "uncertainGroupings": [
   {
    "model": "Titleist vokey sm11",
@@ -87,11 +87,6 @@
    "listings": 1
   },
   {
-   "model": "Wilson staff model x",
-   "issue": "cheapest retailer \u00a329.99 vs dearest \u00a385.00: check for used stock or a different product",
-   "listings": 15
-  },
-  {
    "model": "Mizuno Pro T-3 Wedge",
    "issue": "price spread \u00a3119.00 to \u00a3477.00: may mix different products",
    "listings": 13
@@ -102,6 +97,11 @@
    "listings": 12
   },
   {
+   "model": "Titleist Pro V1 Golf Balls",
+   "issue": "price spread \u00a339.96 to \u00a3159.84: may mix different products",
+   "listings": 11
+  },
+  {
    "model": "Srixon Z-Star Golf Balls",
    "issue": "price spread \u00a334.99 to \u00a3128.97: may mix different products",
    "listings": 11
@@ -110,6 +110,11 @@
    "model": "Callaway elyte",
    "issue": "1 listing(s) under 40% of the model's typical price; left out as a likely feed error",
    "listings": 1
+  },
+  {
+   "model": "Titleist Pro V1x Golf Balls",
+   "issue": "price spread \u00a339.96 to \u00a3159.84: may mix different products",
+   "listings": 10
   },
   {
    "model": "Aldila Stiff Fairway Wood",
@@ -2364,11 +2369,6 @@
    "to": "wood"
   },
   {
-   "name": "Aldila Extra Stiff - ALDILA VOODOO 60 XVS6 GRAPHITE - Driver/Fairway Shaft .335",
-   "from": "accessories",
-   "to": "wood"
-  },
-  {
    "name": "Aldila Stiff - ALDILA VOODOO 70 SVS7 GRAPHITE - Driver/Fairway Shaft .335",
    "from": "accessories",
    "to": "wood"
@@ -3294,11 +3294,6 @@
    "to": "driver"
   },
   {
-   "name": "Denali Charcoal Red Fairway Shaft Project X Regular Titleist 2nd Gen - GTS/GT/TS/TSi/TSr/917/915/913 41.5\"",
-   "from": "accessories",
-   "to": "wood"
-  },
-  {
    "name": "HZRDUS Black 60g Driver Shaft Project X Stiff Titleist 2nd Gen - GTS/GT/TS/TSi/TSr/917/915/913 44.5\"",
    "from": "accessories",
    "to": "driver"
@@ -3472,6 +3467,21 @@
    "name": "REAX 50 Driver Shaft Mitsubishi Chemical Stiff TaylorMade 2nd Gen - M1/M4/Sim/Stealth /Stealth 2/Qi10/Qi35/Qi4D 44.5\"",
    "from": "accessories",
    "to": "driver"
+  },
+  {
+   "name": "Titleist T-Series T100 Irons - Steel Right Hand / 6-PW (5 Irons) / Stiff - AMT Tour White Golf Pride MCC Red Grip",
+   "from": "accessories",
+   "to": "irons"
+  },
+  {
+   "name": "Titleist T-Series T350 Single Irons - Steel Right Hand / 5 Iron / Stiff - AMT Tour White Golf Pride MCC Red Grip",
+   "from": "accessories",
+   "to": "irons"
+  },
+  {
+   "name": "Titleist T-Series T350 Single Irons - Steel Right Hand / 6 Iron / Stiff - AMT Tour White Golf Pride MCC Red Grip",
+   "from": "accessories",
+   "to": "irons"
   }
  ],
  "droppedUnpriced": [

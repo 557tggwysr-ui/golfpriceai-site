@@ -1,66 +1,66 @@
 {
- "n": 41,
- "date": "2026-11-27",
+ "n": 42,
+ "date": "2026-11-28",
  "items": [
   {
-   "slug": "wilson-feather-cart-bag-golf-bag",
-   "name": "Wilson Feather Cart Bag Golf Bag",
-   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonGolfFeatherCartBag2025-BlackRed1.jpg?v=1740739149",
-   "price": 109.65,
+   "slug": "callaway-chase-14-dry-waterproof-cart-bag-golf-bag",
+   "name": "Callaway Chase 14 Dry Waterproof Cart Bag Golf Bag",
+   "image": "https://www.clickgolf.co.uk/images/product/main/Callaway-Chase-14-Dry-Waterproof-Golf-Cart-Bag---Red.jpg",
+   "price": 169.0,
    "unit": "each",
    "type": "golf bag",
    "low": false,
-   "url": "/prices/wilson-feather-cart-bag-golf-bag/"
+   "url": "/prices/callaway-chase-14-dry-waterproof-cart-bag-golf-bag/"
   },
   {
-   "slug": "callaway-elyte-driver",
-   "name": "Callaway Elyte Driver",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CallawayElyteDriver-X3_459ad9f1-58c4-4502-80e9-6f24222eedb8.jpg?v=1787736931",
-   "price": 249.0,
-   "unit": "each",
-   "type": "driver",
-   "low": true,
-   "url": "/prices/callaway-elyte-driver/"
-  },
-  {
-   "slug": "taylormade-speedsoft-ink-golf-balls",
-   "name": "TaylorMade SpeedSoft Ink Golf Balls",
-   "image": "https://www.clickgolf.co.uk/images/product/main/Speedink-Yellow-Blue-2026-Box-Front.jpg",
-   "price": 22.99,
-   "unit": "per dozen",
-   "type": "golf ball",
-   "low": true,
-   "url": "/prices/taylormade-speedsoft-ink-golf-balls/"
-  },
-  {
-   "slug": "cobra-king-wedge",
-   "name": "Cobra King Wedge",
-   "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/Cobra_KING_Golf_Wedge_1.jpg?v=1741949046",
-   "price": 99.0,
+   "slug": "cleveland-smart-sole-full-face-tour-satin-wedge",
+   "name": "Cleveland Smart Sole Full Face Tour Satin Wedge",
+   "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Yourparagraphtext_51.jpg?v=1774538018",
+   "price": 109.0,
    "unit": "each",
    "type": "wedge",
-   "low": true,
-   "url": "/prices/cobra-king-wedge/"
+   "low": false,
+   "url": "/prices/cleveland-smart-sole-full-face-tour-satin-wedge/"
   },
   {
-   "slug": "ping-g440-irons",
-   "name": "Ping G440 Irons",
-   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/G440Irons15.jpg?v=1776300835",
-   "price": 859.0,
+   "slug": "wilson-profile-fairway-wood",
+   "name": "Wilson Profile Fairway Wood",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Profile20.jpg?v=1776296992",
+   "price": 59.95,
    "unit": "each",
-   "type": "iron set",
+   "type": "fairway wood",
+   "low": true,
+   "url": "/prices/wilson-profile-fairway-wood/"
+  },
+  {
+   "slug": "mizuno-jpx-one-hybrid",
+   "name": "Mizuno JPX ONE Hybrid",
+   "image": "https://www.clickgolf.co.uk/images/product/main/JPX-ONE-Hybrid-Hero.jpg",
+   "price": 188.1,
+   "unit": "each",
+   "type": "hybrid",
+   "low": true,
+   "url": "/prices/mizuno-jpx-one-hybrid/"
+  },
+  {
+   "slug": "titleist-gt2-driver",
+   "name": "Titleist GT2 Driver",
+   "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/TitleistGT2Driver6.jpg?v=1777950482",
+   "price": 399.0,
+   "unit": "each",
+   "type": "driver",
    "low": false,
-   "url": "/prices/ping-g440-irons/"
+   "url": "/prices/titleist-gt2-driver/"
   }
  ],
  "pin": {
-  "slug": "titleist-gts3-fairway-wood",
-  "name": "Titleist GTS3 Fairway Wood",
-  "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/TitleistGTS3GolfFairwayWood_1.jpg?v=1778745963",
-  "price": 369.0,
+  "slug": "cobra-ds-adapt-irons",
+  "name": "Cobra DS-Adapt Irons",
+  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CobraDS-AdaptIrons3.jpg?v=1776308659",
+  "price": 499.0,
   "unit": "each",
-  "type": "fairway wood",
-  "low": false,
-  "url": "/prices/titleist-gts3-fairway-wood/"
+  "type": "iron set",
+  "low": true,
+  "url": "/prices/cobra-ds-adapt-irons/"
  }
 }

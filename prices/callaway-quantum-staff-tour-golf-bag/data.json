@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/callaway-quantum-staff-tour-golf-bag/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 404.1,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 404.1,
   "high": 449.0,
-  "average": 438.62,
+  "average": 438.29,
   "priceChanges": 23,
   "series": [
    [
@@ -121,7 +121,7 @@
     404.1
    ],
    [
-    "2026-11-27",
+    "2026-11-28",
     404.1
    ]
   ]
@@ -132,5 +132,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/Quantum-Staff-Bag-Right.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

@@ -3,11 +3,11 @@
  "source": "https://golfpriceai.com/demand/",
  "about": "What UK golfers are most interested in this week, from anonymous counts of price-page views, shortlists and price alerts on GolfPrice AI. Free to use with a link to golfpriceai.com/demand/.",
  "licence": "CC BY 4.0",
- "date": "2026-11-27",
+ "date": "2026-11-28",
  "status": "live",
  "week": {
-  "from": "2026-11-21",
-  "to": "2026-11-27"
+  "from": "2026-11-22",
+  "to": "2026-11-28"
  },
  "chart": [
   {
@@ -22,16 +22,6 @@
   },
   {
    "rank": 2,
-   "name": "Cobra Darkspeed LS Driver",
-   "brand": "Cobra",
-   "type": "driver",
-   "price": 229.0,
-   "unit": "",
-   "move": "new",
-   "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
-  },
-  {
-   "rank": 3,
    "name": "Srixon Limited Z-star Diamond 2 Dozen Golf Balls",
    "brand": "Srixon",
    "type": "ball",
@@ -41,14 +31,24 @@
    "url": "https://golfpriceai.com/prices/srixon-limited-z-star-diamond-2-dozen-golf-balls/"
   },
   {
-   "rank": 4,
+   "rank": 3,
    "name": "Titleist Pro V1 Golf Balls",
    "brand": "Titleist",
    "type": "ball",
    "price": 39.96,
    "unit": "per dozen",
-   "move": -2,
+   "move": -1,
    "url": "https://golfpriceai.com/prices/titleist-pro-v1-golf-balls/"
+  },
+  {
+   "rank": 4,
+   "name": "Cobra Darkspeed LS Driver",
+   "brand": "Cobra",
+   "type": "driver",
+   "price": 229.0,
+   "unit": "",
+   "move": "new",
+   "url": "https://golfpriceai.com/prices/cobra-darkspeed-ls-driver/"
   },
   {
    "rank": 5,
@@ -208,19 +208,19 @@
    "guesses": 41
   },
   {
+   "category": "Iron sets",
+   "averageGuessVsRealPricePct": -16,
+   "guesses": 73
+  },
+  {
    "category": "Golf bags",
    "averageGuessVsRealPricePct": 15,
-   "guesses": 76
+   "guesses": 68
   },
   {
    "category": "Putters",
    "averageGuessVsRealPricePct": -15,
    "guesses": 47
-  },
-  {
-   "category": "Iron sets",
-   "averageGuessVsRealPricePct": -10,
-   "guesses": 77
   }
  ],
  "categoryShare": [
@@ -234,15 +234,15 @@
   },
   {
    "category": "Tech",
-   "pct": 17
+   "pct": 18
   },
   {
    "category": "Bags & trolleys",
-   "pct": 14
+   "pct": 15
   },
   {
    "category": "Drivers & woods",
-   "pct": 12
+   "pct": 11
   }
  ],
  "reports": [

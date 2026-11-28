@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "junior golf set",
  "url": "https://golfpriceai.com/prices/callaway-xt-11-piece-junior-golf-set/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 449.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 449.0,
   "high": 499.0,
-  "average": 481.6,
+  "average": 481.29,
   "priceChanges": 25,
   "series": [
    [
@@ -132,6 +132,10 @@
    [
     "2026-11-27",
     449.0
+   ],
+   [
+    "2026-11-28",
+    449.0
    ]
   ]
  },
@@ -141,5 +145,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/XT-Junior-Set-Bag-Black-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

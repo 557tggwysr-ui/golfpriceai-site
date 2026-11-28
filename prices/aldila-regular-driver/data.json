@@ -3,7 +3,7 @@
  "brand": "Aldila",
  "type": "driver",
  "url": "https://golfpriceai.com/prices/aldila-regular-driver/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 99.99,
@@ -18,7 +18,7 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 99.99,
   "high": 99.99,
   "average": 99.99,
@@ -29,16 +29,16 @@
     99.99
    ],
    [
-    "2026-11-27",
+    "2026-11-28",
     99.99
    ]
   ]
  },
  "verdict": {
   "label": "typical",
-  "summary": "Typical price: steady for 85 days"
+  "summary": "Typical price: steady for 86 days"
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/CA3503C22.jpg?v=1777951430",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

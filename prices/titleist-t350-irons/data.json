@@ -3,7 +3,7 @@
  "brand": "Titleist",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/titleist-t350-irons/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 1069.0,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 179.1,
   "high": 1189.0,
-  "average": 1082.37,
+  "average": 1082.24,
   "priceChanges": 3,
   "series": [
    [
@@ -49,6 +49,10 @@
    [
     "2026-11-27",
     1069.0
+   ],
+   [
+    "2026-11-28",
+    1069.0
    ]
   ]
  },
@@ -58,5 +62,5 @@
  },
  "image": "https://www.scottsdalegolf.co.uk/uploads/titleist-T350-G3-1.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

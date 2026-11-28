@@ -1,8 +1,128 @@
 {
- "checked": "2026-11-27T16:17+00:00",
+ "checked": "2026-11-28T01:12+00:00",
  "currency": "GBP",
  "rule": "Lowest new, in-stock price fell by at least \u00a35 and 3% and is still at that price",
  "drops": [
+  {
+   "model": "TaylorMade Qi10 Driver",
+   "model_id": "taylormade-qi10-driver",
+   "date": "2026-11-28",
+   "was": 379.0,
+   "now": 329.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/taylormade-qi10-driver/"
+  },
+  {
+   "model": "NAVEE Birdie 3 Remote Control Electric Trolley",
+   "model_id": "navee-birdie-3-remote-control-electric-trolley",
+   "date": "2026-11-28",
+   "was": 849.0,
+   "now": 749.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/navee-birdie-3-remote-control-electric-trolley/"
+  },
+  {
+   "model": "Bushnell V7 Shift Laser Rangefinder",
+   "model_id": "bushnell-v7-shift-laser-rangefinder",
+   "date": "2026-11-28",
+   "was": 395.0,
+   "now": 349.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-v7-shift-laser-rangefinder/"
+  },
+  {
+   "model": "Big Max Dri Lite Hybrid Tour 2 Golf Bag",
+   "model_id": "big-max-dri-lite-hybrid-tour-2-golf-bag",
+   "date": "2026-11-28",
+   "was": 179.0,
+   "now": 159.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/big-max-dri-lite-hybrid-tour-2-golf-bag/"
+  },
+  {
+   "model": "Ogio Fuse Stand Bag Golf Bag",
+   "model_id": "ogio-fuse-stand-bag-golf-bag",
+   "date": "2026-11-28",
+   "was": 129.0,
+   "now": 115.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ogio-fuse-stand-bag-golf-bag/"
+  },
+  {
+   "model": "Bushnell Tour Hybrid Laser Rangefinder",
+   "model_id": "bushnell-tour-hybrid-laser-rangefinder",
+   "date": "2026-11-28",
+   "was": 419.0,
+   "now": 379.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-tour-hybrid-laser-rangefinder/"
+  },
+  {
+   "model": "Bushnell Pro XM Laser Rangefinder",
+   "model_id": "bushnell-pro-xm-laser-rangefinder",
+   "date": "2026-11-28",
+   "was": 469.0,
+   "now": 429.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-pro-xm-laser-rangefinder/"
+  },
+  {
+   "model": "Cobra X Vessel Core Tour Staff Golf Bag",
+   "model_id": "cobra-x-vessel-core-tour-staff-golf-bag",
+   "date": "2026-11-28",
+   "was": 329.0,
+   "now": 299.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/cobra-x-vessel-core-tour-staff-golf-bag/"
+  },
+  {
+   "model": "Ping G440K Driver",
+   "model_id": "ping-g440k-driver",
+   "date": "2026-11-28",
+   "was": 579.0,
+   "now": 529.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/ping-g440k-driver/"
+  },
+  {
+   "model": "Bushnell Pro X3+ Laser Rangefinder",
+   "model_id": "bushnell-pro-x3-plus-laser-rangefinder",
+   "date": "2026-11-28",
+   "was": 449.0,
+   "now": 429.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/bushnell-pro-x3-plus-laser-rangefinder/"
+  },
+  {
+   "model": "Titleist GTS300 Mini Driver",
+   "model_id": "titleist-gts300-mini-driver",
+   "date": "2026-11-28",
+   "was": 499.0,
+   "now": 479.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/titleist-gts300-mini-driver/"
+  },
+  {
+   "model": "Wilson DYNAPWR Max Irons",
+   "model_id": "wilson-dynapwr-max-irons",
+   "date": "2026-11-28",
+   "was": 413.1,
+   "now": 399.0,
+   "unit": "each",
+   "lowest_tracked": true,
+   "url": "https://golfpriceai.com/prices/wilson-dynapwr-max-irons/"
+  },
   {
    "model": "Cobra DS-Adapt LS Driver",
    "model_id": "cobra-ds-adapt-ls-driver",
@@ -1252,16 +1372,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/titleist-t250-utility-irons/"
-  },
-  {
-   "model": "Wilson DYNAPWR Max Irons",
-   "model_id": "wilson-dynapwr-max-irons",
-   "date": "2026-11-26",
-   "was": 459.0,
-   "now": 413.1,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-dynapwr-max-irons/"
   },
   {
    "model": "Yonex Ezone Elite 4 Irons",
@@ -2992,246 +3102,6 @@
    "unit": "each",
    "lowest_tracked": true,
    "url": "https://golfpriceai.com/prices/titleist-vokey-sm10-tour-chrome-wedge/"
-  },
-  {
-   "model": "Golfway Champion Youth Hybrid",
-   "model_id": "golfway-champion-youth-hybrid",
-   "date": "2026-11-20",
-   "was": 29.99,
-   "now": 19.99,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/golfway-champion-youth-hybrid/"
-  },
-  {
-   "model": "Titleist GT3 Hybrid",
-   "model_id": "titleist-gt3-hybrid",
-   "date": "2026-11-20",
-   "was": 299.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/titleist-gt3-hybrid/"
-  },
-  {
-   "model": "TaylorMade TP Soto 1 L Neck Putter",
-   "model_id": "taylormade-tp-soto-1-l-neck-putter",
-   "date": "2026-11-20",
-   "was": 129.0,
-   "now": 99.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-tp-soto-1-l-neck-putter/"
-  },
-  {
-   "model": "Golfway Champion Driver",
-   "model_id": "golfway-champion-driver",
-   "date": "2026-11-20",
-   "was": 24.99,
-   "now": 19.99,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/golfway-champion-driver/"
-  },
-  {
-   "model": "Golfway Champion Hybrid",
-   "model_id": "golfway-champion-hybrid",
-   "date": "2026-11-20",
-   "was": 24.99,
-   "now": 19.99,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/golfway-champion-hybrid/"
-  },
-  {
-   "model": "Golfway Champion Fairway Wood",
-   "model_id": "golfway-champion-fairway-wood",
-   "date": "2026-11-20",
-   "was": 24.99,
-   "now": 19.99,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/golfway-champion-fairway-wood/"
-  },
-  {
-   "model": "Callaway Elyte HL Irons",
-   "model_id": "callaway-elyte-hl-irons",
-   "date": "2026-11-20",
-   "was": 599.0,
-   "now": 499.0,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/callaway-elyte-hl-irons/"
-  },
-  {
-   "model": "Odyssey DFX V-Line Fang DB Putter",
-   "model_id": "odyssey-dfx-v-line-fang-db-putter",
-   "date": "2026-11-20",
-   "was": 115.0,
-   "now": 94.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/odyssey-dfx-v-line-fang-db-putter/"
-  },
-  {
-   "model": "Motocaddy Protekta Cart Bag Golf Bag",
-   "model_id": "motocaddy-protekta-cart-bag-golf-bag",
-   "date": "2026-11-20",
-   "was": 239.0,
-   "now": 209.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/motocaddy-protekta-cart-bag-golf-bag/"
-  },
-  {
-   "model": "Ogio Fuse Stand Bag Golf Bag",
-   "model_id": "ogio-fuse-stand-bag-golf-bag",
-   "date": "2026-11-20",
-   "was": 149.0,
-   "now": 129.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ogio-fuse-stand-bag-golf-bag/"
-  },
-  {
-   "model": "Wilson Alpine Cart Bag Golf Bag",
-   "model_id": "wilson-alpine-cart-bag-golf-bag",
-   "date": "2026-11-20",
-   "was": 159.0,
-   "now": 139.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-alpine-cart-bag-golf-bag/"
-  },
-  {
-   "model": "TaylorMade P7CB Irons",
-   "model_id": "taylormade-p7cb-irons",
-   "date": "2026-11-20",
-   "was": 1070.0,
-   "now": 929.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-p7cb-irons/"
-  },
-  {
-   "model": "MacGregor V-MAX 5-Piece Stand Bag Ages 6-8 Junior Golf Set",
-   "model_id": "macgregor-v-max-5-piece-stand-bag-ages-6-8-junior-golf-set",
-   "date": "2026-11-20",
-   "was": 149.95,
-   "now": 129.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/macgregor-v-max-5-piece-stand-bag-ages-6-8-junior-golf-set/"
-  },
-  {
-   "model": "Ping G430 Irons",
-   "model_id": "ping-g430-irons",
-   "date": "2026-11-20",
-   "was": 599.0,
-   "now": 529.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ping-g430-irons/"
-  },
-  {
-   "model": "Motocaddy M-TECH Electric Trolley",
-   "model_id": "motocaddy-m-tech-electric-trolley",
-   "date": "2026-11-20",
-   "was": 1159.2,
-   "now": 1049.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/motocaddy-m-tech-electric-trolley/"
-  },
-  {
-   "model": "Titleist Pro V1x High Number Golf Balls",
-   "model_id": "titleist-pro-v1x-high-number-golf-balls",
-   "date": "2026-11-20",
-   "was": 49.99,
-   "now": 44.99,
-   "unit": "per dozen",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/titleist-pro-v1x-high-number-golf-balls/"
-  },
-  {
-   "model": "Ben Sayers M1i 5-Piece Stand Bag Ages 5-8 Junior Golf Set",
-   "model_id": "ben-sayers-m1i-5-piece-stand-bag-ages-5-8-junior-golf-set",
-   "date": "2026-11-20",
-   "was": 99.95,
-   "now": 89.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ben-sayers-m1i-5-piece-stand-bag-ages-5-8-junior-golf-set/"
-  },
-  {
-   "model": "Ben Sayers M1i 5-Piece Stand Bag Ages 9-11 Junior Golf Set",
-   "model_id": "ben-sayers-m1i-5-piece-stand-bag-ages-9-11-junior-golf-set",
-   "date": "2026-11-20",
-   "was": 99.95,
-   "now": 89.95,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/ben-sayers-m1i-5-piece-stand-bag-ages-9-11-junior-golf-set/"
-  },
-  {
-   "model": "TaylorMade Team 6-Piece Ages 7-9 Junior Golf Set",
-   "model_id": "taylormade-team-6-piece-ages-7-9-junior-golf-set",
-   "date": "2026-11-20",
-   "was": 365.0,
-   "now": 329.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/taylormade-team-6-piece-ages-7-9-junior-golf-set/"
-  },
-  {
-   "model": "Motocaddy M5 DHC Electric Trolley",
-   "model_id": "motocaddy-m5-dhc-electric-trolley",
-   "date": "2026-11-20",
-   "was": 929.0,
-   "now": 849.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/motocaddy-m5-dhc-electric-trolley/"
-  },
-  {
-   "model": "Bushnell Tour V6 Laser Rangefinder",
-   "model_id": "bushnell-tour-v6-laser-rangefinder",
-   "date": "2026-11-20",
-   "was": 249.0,
-   "now": 229.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/bushnell-tour-v6-laser-rangefinder/"
-  },
-  {
-   "model": "Motocaddy M5 Electric Trolley",
-   "model_id": "motocaddy-m5-electric-trolley",
-   "date": "2026-11-20",
-   "was": 891.65,
-   "now": 849.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/motocaddy-m5-electric-trolley/"
-  },
-  {
-   "model": "Wilson DYNAPWR Driver",
-   "model_id": "wilson-dynapwr-driver",
-   "date": "2026-11-20",
-   "was": 249.0,
-   "now": 239.0,
-   "unit": "each",
-   "lowest_tracked": true,
-   "url": "https://golfpriceai.com/prices/wilson-dynapwr-driver/"
-  },
-  {
-   "model": "TaylorMade FlexTech SuperLite Stand Bag Golf Bag",
-   "model_id": "taylormade-flextech-superlite-stand-bag-golf-bag",
-   "date": "2026-11-20",
-   "was": 159.0,
-   "now": 154.0,
-   "unit": "each",
-   "lowest_tracked": false,
-   "url": "https://golfpriceai.com/prices/taylormade-flextech-superlite-stand-bag-golf-bag/"
   }
  ]
 }

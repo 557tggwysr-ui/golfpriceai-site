@@ -3,22 +3,23 @@
  "brand": "Bushnell",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/bushnell-tour-v6-laser-rangefinder/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 229.0,
  "lowestAt": [
+  "Affordable Golf",
   "Clarkes Golf"
  ],
  "retailers": [
   {
-   "name": "Clarkes Golf",
+   "name": "Affordable Golf",
    "from": 229.0,
    "options": 1
   },
   {
-   "name": "Affordable Golf",
-   "from": 249.0,
+   "name": "Clarkes Golf",
+   "from": 229.0,
    "options": 1
   },
   {
@@ -33,10 +34,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 229.0,
   "high": 279.0,
-  "average": 257.56,
+  "average": 257.29,
   "priceChanges": 4,
   "series": [
    [
@@ -60,7 +61,7 @@
     229.0
    ],
    [
-    "2026-11-27",
+    "2026-11-28",
     229.0
    ]
   ]
@@ -69,7 +70,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0601/7459/8330/files/BushnellTourV6GolfLaserRangefinder-6-0.jpg?v=1713976910",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/bushnell_tour_v6_laser_rangefinder_1.jpg?v=1777966909",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

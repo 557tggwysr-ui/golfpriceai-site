@@ -3,7 +3,7 @@
  "brand": "TaylorMade",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/taylormade-p790-irons/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 809.1,
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 809.1,
   "high": 1059.0,
-  "average": 1014.39,
+  "average": 1012.43,
   "priceChanges": 4,
   "series": [
    [
@@ -58,6 +58,10 @@
    [
     "2026-11-27",
     809.1
+   ],
+   [
+    "2026-11-28",
+    809.1
    ]
   ]
  },
@@ -67,5 +71,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/TM-P790-25-Irons-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

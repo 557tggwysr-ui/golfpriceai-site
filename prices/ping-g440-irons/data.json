@@ -3,7 +3,7 @@
  "brand": "Ping",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/ping-g440-irons/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 647.1,
@@ -28,10 +28,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 134.1,
   "high": 719.0,
-  "average": 712.68,
+  "average": 712.06,
   "priceChanges": 2,
   "series": [
    [
@@ -45,6 +45,10 @@
    [
     "2026-11-27",
     647.1
+   ],
+   [
+    "2026-11-28",
+    647.1
    ]
   ]
  },
@@ -54,5 +58,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/ping-g440-irons-hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

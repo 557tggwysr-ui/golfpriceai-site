@@ -1,0 +1,58 @@
+{
+ "name": "Callaway Chrome Tour TRTL Golf Balls",
+ "brand": "Callaway",
+ "type": "golf ball",
+ "url": "https://golfpriceai.com/prices/callaway-chrome-tour-trtl-golf-balls/",
+ "checked": "2026-11-28",
+ "currency": "GBP",
+ "unit": "per dozen",
+ "lowestNewPrice": 47.99,
+ "lowestAt": [
+  "Clickgolf"
+ ],
+ "retailers": [
+  {
+   "name": "Clickgolf",
+   "from": 47.99,
+   "options": 1
+  },
+  {
+   "name": "Clarkes Golf",
+   "from": 49.95,
+   "options": 1
+  },
+  {
+   "name": "Affordable Golf",
+   "from": 49.99,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 47.99,
+  "high": 49.95,
+  "average": 48.45,
+  "priceChanges": 1,
+  "series": [
+   [
+    "2026-10-30",
+    49.95
+   ],
+   [
+    "2026-11-06",
+    47.99
+   ],
+   [
+    "2026-11-28",
+    47.99
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 23 days"
+ },
+ "image": "https://www.clickgolf.co.uk/images/product/main/2026_ChromeTour_JuneMajor_Packaging_Render_Lid.webp.jpg",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-28"
+}

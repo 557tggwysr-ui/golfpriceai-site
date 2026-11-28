@@ -3,7 +3,7 @@
  "brand": "Callaway",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/callaway-limited-chrome-soft-truvis-team-golf-balls/",
- "checked": "2026-11-24",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "per dozen",
  "lowestNewPrice": 41.25,
@@ -18,39 +18,23 @@
   }
  ],
  "history": {
-  "daysTracked": 101,
+  "daysTracked": 1,
   "low": 41.25,
-  "high": 55.0,
-  "average": 44.65,
-  "priceChanges": 3,
+  "high": 41.25,
+  "average": 41.25,
+  "priceChanges": 0,
   "series": [
    [
-    "2026-08-16",
-    55.0
-   ],
-   [
-    "2026-08-21",
-    44.0
-   ],
-   [
-    "2026-11-19",
-    55.0
-   ],
-   [
-    "2026-11-21",
-    41.25
-   ],
-   [
-    "2026-11-24",
+    "2026-11-28",
     41.25
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "tracking",
+  "summary": "Tracking started"
  },
- "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795431673999/sits/balls-2022-chrome-soft-truvis-team-red-blue/balls-2022-chrome-soft-truvis-team-red-blue_2___1.png?sfrm=png",
+ "image": "https://aadh-prd.my.commercecloud.salesforce.com/dw/image/v2/AADH_PRD/on/demandware.static/-/Sites-CGI-ItemMaster/en_GB/v1795712419002/sits/balls-2022-chrome-soft-truvis-team-red-blue/balls-2022-chrome-soft-truvis-team-red-blue_2___1.png?sfrm=png",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-24"
+ "changed": "2026-11-28"
 }

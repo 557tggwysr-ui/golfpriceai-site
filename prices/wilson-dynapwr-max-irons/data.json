@@ -3,14 +3,19 @@
  "brand": "Wilson",
  "type": "iron set",
  "url": "https://golfpriceai.com/prices/wilson-dynapwr-max-irons/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 413.1,
+ "lowestNewPrice": 399.0,
  "lowestAt": [
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
+  {
+   "name": "Affordable Golf",
+   "from": 399.0,
+   "options": 10
+  },
   {
    "name": "Clickgolf",
    "from": 413.1,
@@ -20,19 +25,14 @@
    "name": "Clarkes Golf",
    "from": 429.0,
    "options": 7
-  },
-  {
-   "name": "Affordable Golf",
-   "from": 579.0,
-   "options": 10
   }
  ],
  "history": {
-  "daysTracked": 104,
-  "low": 413.1,
+  "daysTracked": 105,
+  "low": 399.0,
   "high": 489.0,
-  "average": 476.87,
-  "priceChanges": 2,
+  "average": 476.13,
+  "priceChanges": 3,
   "series": [
    [
     "2026-08-16",
@@ -47,8 +47,8 @@
     413.1
    ],
    [
-    "2026-11-27",
-    413.1
+    "2026-11-28",
+    399.0
    ]
   ]
  },
@@ -56,7 +56,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/Wilson-DYNAPWR-Max-Irons-Hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/DynapwrMaxIrons2.jpg?v=1776297234",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

@@ -3,18 +3,17 @@
  "brand": "Bushnell",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/bushnell-pro-xm-laser-rangefinder/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 469.0,
+ "lowestNewPrice": 429.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clickgolf"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 469.0,
+   "from": 429.0,
    "options": 1
   },
   {
@@ -24,27 +23,27 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
-  "low": 469.0,
+  "daysTracked": 105,
+  "low": 429.0,
   "high": 469.0,
-  "average": 469.0,
-  "priceChanges": 0,
+  "average": 468.62,
+  "priceChanges": 1,
   "series": [
    [
     "2026-08-16",
     469.0
    ],
    [
-    "2026-11-27",
-    469.0
+    "2026-11-28",
+    429.0
    ]
   ]
  },
  "verdict": {
-  "label": "typical",
-  "summary": "Typical price: steady for 104 days"
+  "label": "good",
+  "summary": "Good time to buy"
  },
- "image": "https://www.clickgolf.co.uk/images/product/main/pro-xm-rangefinder-hero.jpg",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BushnellProXMLaserRangefinder11.jpg?v=1773167555",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

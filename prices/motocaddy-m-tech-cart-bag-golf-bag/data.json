@@ -3,7 +3,7 @@
  "brand": "Motocaddy",
  "type": "golf bag",
  "url": "https://golfpriceai.com/prices/motocaddy-m-tech-cart-bag-golf-bag/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 239.0,
@@ -23,10 +23,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 239.0,
   "high": 279.0,
-  "average": 256.98,
+  "average": 256.81,
   "priceChanges": 24,
   "series": [
    [
@@ -128,6 +128,10 @@
    [
     "2026-11-27",
     239.0
+   ],
+   [
+    "2026-11-28",
+    239.0
    ]
   ]
  },
@@ -137,5 +141,5 @@
  },
  "image": "https://www.clickgolf.co.uk/images/product/main/BG26MTBKCH-M-Tech-2026-Cart-Bag-Hero.jpg",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

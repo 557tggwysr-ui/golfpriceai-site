@@ -3,20 +3,17 @@
  "brand": "Bushnell",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/bushnell-pro-x3-plus-laser-rangefinder/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 449.0,
+ "lowestNewPrice": 429.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 449.0,
+   "from": 429.0,
    "options": 1
   },
   {
@@ -41,11 +38,11 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
-  "low": 449.0,
+  "daysTracked": 105,
+  "low": 429.0,
   "high": 529.0,
-  "average": 498.71,
-  "priceChanges": 4,
+  "average": 498.05,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -68,8 +65,8 @@
     449.0
    ],
    [
-    "2026-11-27",
-    449.0
+    "2026-11-28",
+    429.0
    ]
   ]
  },
@@ -77,7 +74,7 @@
   "label": "good",
   "summary": "Good time to buy"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/PROX3PLUS1.jpg?v=1711056821",
+ "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/BushnellProX3_LaserRangefinderHERO.jpg?v=1777956930",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

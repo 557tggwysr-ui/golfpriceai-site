@@ -3,18 +3,18 @@
  "brand": "Wilson",
  "type": "golf ball",
  "url": "https://golfpriceai.com/prices/wilson-staff-model-x-golf-balls/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "per dozen",
- "lowestNewPrice": 29.99,
+ "lowestNewPrice": 39.99,
  "lowestAt": [
   "Major Golf Direct"
  ],
  "retailers": [
   {
    "name": "Major Golf Direct",
-   "from": 29.99,
-   "options": 2
+   "from": 39.99,
+   "options": 1
   },
   {
    "name": "Clarkes Golf",
@@ -33,10 +33,10 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
+  "daysTracked": 105,
   "low": 29.99,
   "high": 85.0,
-  "average": 47.18,
+  "average": 47.02,
   "priceChanges": 3,
   "series": [
    [
@@ -56,16 +56,16 @@
     29.99
    ],
    [
-    "2026-11-27",
+    "2026-11-28",
     29.99
    ]
   ]
  },
  "verdict": {
-  "label": "good",
-  "summary": "Good time to buy"
+  "label": "typical",
+  "summary": "Typical price: steady for 3 days"
  },
- "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/Untitleddesign-2024-01-08T085841.562.png?v=1756973986",
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/WilsonStaffModelXGolfBalls2026-White_2_91941ecb-98c1-4ce5-8d24-6ec104cd30ad.jpg?v=1765284797",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

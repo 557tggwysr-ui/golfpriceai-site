@@ -3,20 +3,17 @@
  "brand": "Bushnell",
  "type": "rangefinder",
  "url": "https://golfpriceai.com/prices/bushnell-tour-hybrid-laser-rangefinder/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
- "lowestNewPrice": 419.0,
+ "lowestNewPrice": 379.0,
  "lowestAt": [
-  "Affordable Golf",
-  "Clarkes Golf",
-  "Clickgolf",
-  "Major Golf Direct"
+  "Affordable Golf"
  ],
  "retailers": [
   {
    "name": "Affordable Golf",
-   "from": 419.0,
+   "from": 379.0,
    "options": 1
   },
   {
@@ -36,11 +33,11 @@
   }
  ],
  "history": {
-  "daysTracked": 104,
-  "low": 419.0,
+  "daysTracked": 105,
+  "low": 379.0,
   "high": 479.0,
-  "average": 461.6,
-  "priceChanges": 4,
+  "average": 460.81,
+  "priceChanges": 5,
   "series": [
    [
     "2026-08-16",
@@ -63,8 +60,8 @@
     419.0
    ],
    [
-    "2026-11-27",
-    419.0
+    "2026-11-28",
+    379.0
    ]
   ]
  },
@@ -74,5 +71,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/Bushnell_Tour_Hybrid_Laser_Rangefinder_1.jpg?v=1776307286",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }

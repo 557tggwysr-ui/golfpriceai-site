@@ -1,0 +1,50 @@
+{
+ "name": "Odyssey TRTL Max S2S Putter",
+ "brand": "Odyssey",
+ "type": "putter",
+ "url": "https://golfpriceai.com/prices/odyssey-trtl-max-s2s-putter/",
+ "checked": "2026-11-28",
+ "currency": "GBP",
+ "unit": "each",
+ "lowestNewPrice": 329.0,
+ "lowestAt": [
+  "Clarkes Golf",
+  "Major Golf Direct"
+ ],
+ "retailers": [
+  {
+   "name": "Clarkes Golf",
+   "from": 329.0,
+   "options": 5
+  },
+  {
+   "name": "Major Golf Direct",
+   "from": 329.0,
+   "options": 1
+  }
+ ],
+ "history": {
+  "daysTracked": 30,
+  "low": 329.0,
+  "high": 329.0,
+  "average": 329.0,
+  "priceChanges": 0,
+  "series": [
+   [
+    "2026-10-30",
+    329.0
+   ],
+   [
+    "2026-11-28",
+    329.0
+   ]
+  ]
+ },
+ "verdict": {
+  "label": "typical",
+  "summary": "Typical price: steady for 30 days"
+ },
+ "image": "https://cdn.shopify.com/s/files/1/0605/9583/1015/files/OdysseyTRTLMaxS2SGolfPutter2027_1.jpg?v=1793352815",
+ "source": "GolfPrice AI's own price tracking, checked every 6 hours",
+ "changed": "2026-11-28"
+}

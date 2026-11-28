@@ -3,7 +3,7 @@
  "brand": "Ben Sayers",
  "type": "package set",
  "url": "https://golfpriceai.com/prices/ben-sayers-m8-13-piece-stand-bag-package-set/",
- "checked": "2026-11-27",
+ "checked": "2026-11-28",
  "currency": "GBP",
  "unit": "each",
  "lowestNewPrice": 249.0,
@@ -18,10 +18,10 @@
   }
  ],
  "history": {
-  "daysTracked": 85,
+  "daysTracked": 86,
   "low": 249.0,
   "high": 289.0,
-  "average": 288.06,
+  "average": 287.6,
   "priceChanges": 2,
   "series": [
    [
@@ -35,6 +35,10 @@
    [
     "2026-11-27",
     249.0
+   ],
+   [
+    "2026-11-28",
+    249.0
    ]
   ]
  },
@@ -44,5 +48,5 @@
  },
  "image": "https://cdn.shopify.com/s/files/1/0668/5759/9265/files/M8_Stand_Bag_Blue_HERO.jpg?v=1776285834",
  "source": "GolfPrice AI's own price tracking, checked every 6 hours",
- "changed": "2026-11-27"
+ "changed": "2026-11-28"
 }
