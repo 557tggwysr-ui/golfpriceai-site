@@ -589,8 +589,9 @@ def build_post(day, theme, style, sc, palette, pid, tie, social=None, sound=None
         else:  # no recording: fall back to the cinematic product film
             style = "spec"
     still = V.render(style, sc, palette, VIDEOS / f"{pid}.mp4", img=img, photo=photo, imgs=imgs)
-    # full-bleed photo styles: headline sits ~600-1260, sub banner to ~1600, so a crop from 300 keeps both
-    V.feed_card(still, CARDS / f"{pid}.jpg", crop_top=300 if style in ("humour", "headline") else None)
+    # headline style: text sits ~600-1260, sub banner to ~1600, so a straight crop from 300 keeps both.
+    # Memes (humour) span ~180-1580, taller than a 4:5 card, so they keep the fitted card (nothing cut off).
+    V.feed_card(still, CARDS / f"{pid}.jpg", crop_top=300 if style == "headline" else None)
     want = None
     if style == "sequence":
         import agent_brush as _BR
