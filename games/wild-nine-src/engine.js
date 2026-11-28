@@ -82,7 +82,7 @@
     mulligan: { name: 'Mulligan', desc: 'Undo your last shot. No stroke counted.', instant: true },
     tailwind: { name: 'Tailwind', desc: 'Next shot: a 15 mph wind blows straight at the flag.' },
     bigstick: { name: 'Big Stick', desc: 'Next shot carries 25% further.' },
-    laser: { name: 'Laser Line', desc: 'Next shot: see exactly where it will finish.' },
+    laser: { name: 'Laser Line', desc: 'Next shot: see exactly where it lands. Not for putts.' },
     sandwizard: { name: 'Sand Wizard', desc: 'Bunkers play like fairway for the rest of this hole.', instant: true },
     gimme: { name: 'Gimme', desc: 'Within 10 yards of the cup? Tap it in for one stroke.', instant: true },
     bounceback: { name: 'Bounce Back', desc: 'Next shot: water or out of bounds costs no penalty.' },
@@ -383,13 +383,19 @@
       pos = land;
       const t = terrainAt(h, land);
       out.landed = t;
+      // Laser Line (28 Nov 2026): it lands exactly where its line shows, so it can't also fly straight in.
+      // A laser shot onto the cup hits the flag and drops dead beside the hole: a tap-in, not a guaranteed ace.
+      if (flags.laser && dist(land, h.cup) < capR(h) * 0.9 && carry > 20) {
+        const bk = dist(land, ball) || 1, e = { x: h.cup.x + (ball.x - land.x) / bk * 1.1, y: h.cup.y + (ball.y - land.y) / bk * 1.1 };
+        out.events.push('pin'); out.path.push({ x: e.x, y: e.y, z: 0 }); out.end = e; out.finish = terrainAt(h, e); return out;
+      }
       if (!h.kick && !h.plug && dist(land, h.cup) < capR(h) * 0.9 && carry > 20) { out.result = 'holed'; out.events.push('dunk'); out.end = { x: h.cup.x, y: h.cup.y }; return out; }
       if (t === 'ob') { out.result = 'ob'; out.end = { x: ball.x, y: ball.y }; return out; }
       if (t === 'water') { out.result = 'water'; out.end = { x: ball.x, y: ball.y }; return out; }
       if (h.plug) { // soft, hidden green: the ball plugs where it lands, so it's in the air or nothing
         out.dunkR = Math.max(0.05, 0.9 * club.wind * B.wind * (carry / club.carry) * h.gustMax / 100);
         out.path.push({ x: land.x, y: land.y, z: 0 });
-        if (dist(land, h.cup) < out.dunkR) { out.result = 'holed'; out.events.push('ace'); out.end = { x: h.cup.x, y: h.cup.y }; return out; }
+        if (!flags.laser && dist(land, h.cup) < out.dunkR) { out.result = 'holed'; out.events.push('ace'); out.end = { x: h.cup.x, y: h.cup.y }; return out; }
         out.end = { x: land.x, y: land.y }; out.finish = t; return out;
       }
       const tree = h.trees.find(tr => dist(tr, land) < tr.r);

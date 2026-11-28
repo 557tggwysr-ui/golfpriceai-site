@@ -24,8 +24,11 @@ Then open a pull request (John merges).
 - `node test-birdies.mjs` plays an official round and 4 practice rounds and checks the Birdies wallet.
 - `node bot.mjs` / `node cardsim.mjs '{"drafts":[2,5],"hand":2}'` simulate hundreds of rounds to check difficulty (target average +2 to +4 for a human; the bot averages about level par with no cards).
 
+## Close putts (28 Nov 2026)
+Within 10 feet on the green the camera zooms in on the ball and the cup, and a full drag reaches about three times the distance to the hole (the bar shows feet of roll). The physics don't change: the same break, lip-outs and capture speed. Ball and flag sizes are capped in close-ups.
+
 ## Rules that must never break
 - Everyone playing a day gets the same course (the daily seed). Never change past days' courses.
 - No paid items, no loot boxes, no countdowns, no guilt-trip notifications. Cosmetics only.
 - Never change how scores are checked for fair play. `js/site.js` counts plays; add no tracking of your own.
-- Caddie cards (since 24 Nov 2026): a start card, one locker card, and the caddie offers one after holes 3 and 6 only; hand of 2. Laser Line lands exactly where its line shows. Big Stick and Tailwind can't be played on the green.
+- Caddie cards (since 24 Nov 2026): a start card, one locker card, and the caddie offers one after holes 3 and 6 only; hand of 2. Laser Line lands exactly where its line shows (since 28 Nov 2026 the line shows the flight to where it lands, not the roll; a laser shot onto the cup hits the flag and stops beside the hole instead of dropping; and it can't be used for putts). Big Stick and Tailwind can't be played on the green.

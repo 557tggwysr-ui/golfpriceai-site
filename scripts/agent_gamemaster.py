@@ -44,6 +44,8 @@ MOD = ROOT / "data" / "wild-nine-moderation.json"
 EPOCH = date(2026, 11, 1)  # worker day 1
 TARGET = (2.0, 4.0)        # a fun nine: a couple over par on average
 MIN_ROUNDS = 40            # don't tune on thin data
+FAST_ROUNDS = 15           # ...unless rounds are this many and miles off target (28 Nov 2026: avg -5.3 on 7 rounds)
+FAST_GAP = 4.0             # strokes outside the target band that count as miles off
 SUSPECT_WORDS = re.compile(r"(sex|porn|nob|knob|tit|bum|arse|ass\b|cum|jizz|spunk|willy|fanny|bellend|minge|tosser|retard|spaz|gay|homo|paki|n[i1]gg|kike|chink|coon)", re.I)
 
 
@@ -110,7 +112,8 @@ def main():
 
     # difficulty tuning for future days (2 to 8 days ahead), small steps, capped
     tuning, why = None, ""
-    if total >= MIN_ROUNDS and avg is not None:
+    far_off = avg is not None and (avg < TARGET[0] - FAST_GAP or avg > TARGET[1] + FAST_GAP)
+    if avg is not None and (total >= MIN_ROUNDS or (total >= FAST_ROUNDS and far_off)):
         g = {}
         if avg > TARGET[1]:
             g, why = {"hw": 1.06, "wind": -2, "GR": 1.05}, f"rounds are averaging +{avg}, a bit too hard"
@@ -165,7 +168,7 @@ def main():
         "about": "Game master: Wild Nine difficulty, fair play and nicknames over the last 7 days (anonymous).",
         "roundsAnalysed": total, "averageToPar": avg, "target": f"+{TARGET[0]:g} to +{TARGET[1]:g}",
         "holeTypes": dict(sorted(mod_avg.items(), key=lambda x: -x[1])),
-        "aces": aces, "bestRound": {"toPar": best[0], "day": best[1]} if best else None,
+        "aces": aces, "acesPer100Holes": round(aces * 100 / max(1, total * 9), 1), "bestRound": {"toPar": best[0], "day": best[1]} if best else None,
         "tuningProposedForDays": proposed_days, "tuning": tuning,
         "scoresToHide": len(new_hide), "nicknamesToRename": len(new_nicks),
         "status": "ok" if not (proposed_days or new_hide or new_nicks) else "attention",
