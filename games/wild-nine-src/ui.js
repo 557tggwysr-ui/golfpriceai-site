@@ -185,6 +185,20 @@
     $('#ready').onclick = once(closeOverlay);
   }
 
+  // ---------- close putts (28 Nov 2026) ----------
+  // Within 10 feet the camera zooms in on the ball and the cup, and a full drag only reaches about three
+  // times the distance to the hole, so a thumb has room to judge the strength. The physics are unchanged:
+  // the same break, the same lip-outs, the same capture speed. Easier to strike, not easier to sink.
+  const CLOSE_YD = 10 / 3;
+  function closePutt() {
+    if (!S || !S.cur || S.bonus) return 0;
+    const h = hole(), b = side().ball;
+    if (E.terrainAt(h, b) !== 'green') return 0;
+    const d = E.dist(b, h.cup);
+    return d <= CLOSE_YD ? d : 0;
+  }
+  const closeScaleYd = d => Math.max(4, d * 3); // what a full drag rolls, on a flat green
+
   // ---------- camera ----------
   let cam = { cx: 200, cy: 320, s: 1 }, camT = null;
   function liveBalls() {
@@ -198,6 +212,15 @@
     const balls = liveBalls();
     const near = balls.every(b => E.dist(b, h.green) < 120);
     let pts;
+    const tight = balls.length && balls.every(b => E.terrainAt(h, b) === 'green' && E.dist(b, h.cup) <= CLOSE_YD);
+    if (tight) { // close putt: frame the ball and the cup with a little green around them
+      const m = 7; // about 15 yards of green: enough to read the slope
+      pts = balls.concat([{ x: h.cup.x - m, y: h.cup.y - m }, { x: h.cup.x + m, y: h.cup.y + m }]);
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      for (const p of pts) { x0 = Math.min(x0, p.x); y0 = Math.min(y0, p.y); x1 = Math.max(x1, p.x); y1 = Math.max(y1, p.y); }
+      const s = Math.min(cv.width / (x1 - x0 + 3), cv.height / (y1 - y0 + 3));
+      return { cx: (x0 + x1) / 2, cy: (y0 + y1) / 2, s };
+    }
     if (near) {
       const m = h.GR + 22;
       pts = balls.concat([{ x: h.green.x - m, y: h.green.y - m }, { x: h.green.x + m, y: h.green.y + m }]);
@@ -245,7 +268,7 @@
     ctx.beginPath(); ctx.ellipse(0, 0, (e.rx + (grow || 0)) * cam.s, (e.ry + (grow || 0)) * cam.s, 0, 0, Math.PI * 2); ctx.restore();
   }
   function drawBall(p, z, col, ring) {
-    const s = cam.s, q = W2S(p), r = Math.max(4.2, 1.7 * s);
+    const s = cam.s, q = W2S(p), px = cv.width / (cv.clientWidth || cv.width), r = Math.max(4.2, Math.min(1.7 * s, 9 * px)); // capped, so a close-up never shows a beach ball
     ctx.fillStyle = 'rgba(0,0,0,0.3)'; ctx.beginPath(); ctx.ellipse(q.x + 1, q.y + 1.5, r, r * 0.7, 0, 0, 7); ctx.fill();
     const lift = z * s * 0.55;
     ctx.fillStyle = col; ctx.beginPath(); ctx.arc(q.x, q.y - lift, r * (1 + z / 120), 0, 7); ctx.fill();
@@ -417,10 +440,10 @@
       ctx.restore();
     }
     // cup and flag, with a flag shadow on the turf
-    const c = W2S(h.cup), fh = Math.max(22, 9 * s);
-    ctx.strokeStyle = 'rgba(0,0,0,0.22)'; ctx.lineWidth = Math.max(1.5, s * 0.5); ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(c.x + fh * 0.5, c.y - fh * 0.12); ctx.stroke();
+    const c = W2S(h.cup), fpx = cv.width / (cv.clientWidth || cv.width), fh = Math.max(22, Math.min(9 * s, 70 * fpx)), fw = Math.max(1.5, Math.min(s * 0.5, 3 * fpx)); // capped in close-ups
+    ctx.strokeStyle = 'rgba(0,0,0,0.22)'; ctx.lineWidth = fw; ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(c.x + fh * 0.5, c.y - fh * 0.12); ctx.stroke();
     ctx.fillStyle = '#163016'; ctx.beginPath(); ctx.arc(c.x, c.y, Math.max(3, E.capR(h) * 1.1 * s), 0, 7); ctx.fill();
-    ctx.strokeStyle = '#f4f4f4'; ctx.lineWidth = Math.max(1.5, s * 0.5);
+    ctx.strokeStyle = '#f4f4f4'; ctx.lineWidth = fw;
     ctx.beginPath(); ctx.moveTo(c.x, c.y); ctx.lineTo(c.x, c.y - fh); ctx.stroke();
     ctx.fillStyle = '#e8483b'; ctx.beginPath(); ctx.moveTo(c.x, c.y - fh); ctx.lineTo(c.x + fh * 0.55, c.y - fh * 0.82); ctx.lineTo(c.x, c.y - fh * 0.64); ctx.fill();
     if (h.ridge && !S.revealed) drawRidge(h);
@@ -711,7 +734,7 @@
 
   function shotFlags() {
     const sd = side();
-    return { ...sd.holeFlags, tailwind: sd.armed.tailwind, bigstick: sd.armed.bigstick, steady: sd.armed.steady, bounceback: sd.armed.bounceback, shape: S.club === 'putter' ? null : engShape(S.shape) };
+    return { ...sd.holeFlags, tailwind: sd.armed.tailwind, bigstick: sd.armed.bigstick, steady: sd.armed.steady, bounceback: sd.armed.bounceback, laser: !!sd.armed.laser && S.club !== 'putter', shape: S.club === 'putter' ? null : engShape(S.shape) };
   }
   function engShape(s) { return !SET.lefty || !s ? s : s === 'draw' ? 'fade' : 'draw';
   }
@@ -719,11 +742,14 @@
   function drawAim() {
     const h = hole(), a = S.aim, s = cam.s, sd = side(), P = player();
     const b = W2S(sd.ball);
-    if (sd.armed.laser) {
+    if (sd.armed.laser && S.club !== 'putter') {
+      // Laser Line shows the flight and exactly where it lands; how it runs out after that is still the golfer's read
       const pl = E.planShot(h, sd.ball, S.club, a.ang, a.power, shotFlags(), () => 0.5, P.kit);
+      const li = pl.carryEnd ? pl.path.findIndex(p => p.x === pl.carryEnd.x && p.y === pl.carryEnd.y) : -1;
+      const fl = li >= 0 ? pl.path.slice(0, li + 1) : pl.path;
       ctx.save(); ctx.strokeStyle = '#ffe14d'; ctx.lineWidth = 2; ctx.setLineDash([4, 4]);
-      ctx.beginPath(); pl.path.forEach((p, i) => { const q = W2S(p); i ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y); }); ctx.stroke();
-      const e = W2S(pl.end || pl.path[pl.path.length - 1]);
+      ctx.beginPath(); fl.forEach((p, i) => { const q = W2S(p); i ? ctx.lineTo(q.x, q.y) : ctx.moveTo(q.x, q.y); }); ctx.stroke();
+      const e = W2S(pl.carryEnd || fl[fl.length - 1]);
       ctx.setLineDash([]); ctx.beginPath(); ctx.arc(e.x, e.y, 6, 0, 7); ctx.stroke(); ctx.restore();
       return;
     }
@@ -965,25 +991,32 @@
     const dx = ev.clientX - drag.x, dy = ev.clientY - drag.y, len = Math.hypot(dx, dy);
     const full = Math.min(cv.clientWidth, cv.clientHeight) * 0.42;
     if (len < 6) { S.aim = null; updatePower(0); return; }
-    S.aim = { ang: Math.atan2(-dy, -dx), power: Math.min(1, len / full) };
-    updatePower(S.aim.power);
+    const frac = Math.min(1, len / full), cd = S.club === 'putter' ? closePutt() : 0;
+    // close putt: the same drag covers a short range, so small strengths get real thumb room
+    const power = cd ? frac * closeScaleYd(cd) / E.CLUBS.putter.putt : frac;
+    S.aim = { ang: Math.atan2(-dy, -dx), power, frac, close: !!cd };
+    updatePower(power, S.aim);
   });
   function endDrag() {
     if (!drag) return;
     drag = null;
-    if (S.aim && S.aim.power >= 0.04) takeShot(S.aim.ang, S.aim.power);
+    if (S.aim && (S.aim.frac ?? S.aim.power) >= 0.04) takeShot(S.aim.ang, S.aim.power);
     S.aim = null; updatePower(0);
   }
   cv.addEventListener('pointerup', endDrag);
   cv.addEventListener('pointercancel', () => { drag = null; if (S) S.aim = null; updatePower(0); });
 
-  function updatePower(p) {
+  function updatePower(p, aim) {
     const ss = S && S.cur ? E.sprayStart(shotFlags(), player().kit) : 0.9;
-    const hot = p > ss && !(S && S.cur && side().armed.steady);
-    $('#pfill').style.width = (p * 100).toFixed(0) + '%';
+    const close = aim ? aim.close : !!(S && S.cur && S.club === 'putter' && closePutt());
+    const hot = !close && p > ss && !(S && S.cur && side().armed.steady);
+    $('#pfill').style.width = ((close && aim ? aim.frac : p) * 100).toFixed(0) + '%';
     $('#pfill').classList.toggle('hot', hot);
     $('.power .mark').style.left = (ss * 100) + '%';
-    $('#ptext').textContent = p ? Math.round(p * 100) + '%' + (hot ? ' · risky' : '') : 'Drag back from anywhere, then release';
+    $('.power .mark').style.display = close ? 'none' : '';
+    const ft = Math.max(1, Math.round(p * E.CLUBS.putter.putt * 3)); // what it rolls on a flat green
+    $('#ptext').textContent = close ? (p ? `Close putt · ${ft} ft of roll` : 'Close putt: fine control. Drag back gently')
+      : p ? Math.round(p * 100) + '%' + (hot ? ' · risky' : '') : 'Drag back from anywhere, then release';
   }
 
   // ---------- shots ----------
@@ -992,12 +1025,12 @@
     if (S.mode !== 'scramble') sd.history.push({ ball: { ...sd.ball }, strokes: sd.strokes, swings: sd.swings });
     const flags = shotFlags();
     if (S.bonus) { const a = Math.random() * Math.PI * 2, m = Math.sqrt(Math.random()) * h.gustMax; flags.gust = { x: Math.cos(a) * m, y: Math.sin(a) * m }; }
-    const sh = E.planShot(h, sd.ball, S.club, ang, power, flags, sd.armed.laser ? () => 0.5 : Math.random, P.kit); // Laser Line: no spray, so it lands where the line showed
+    const sh = E.planShot(h, sd.ball, S.club, ang, power, flags, flags.laser ? () => 0.5 : Math.random, P.kit); // Laser Line: no spray, so it lands where the line showed
     sh.from = { ...sd.ball };
     S.shape = null; // every shot starts straight again
     sh.bounce = flags.bounceback;
     S.busy = true;
-    ['tailwind', 'bigstick', 'steady', 'laser', 'bounceback'].filter(k => sd.armed[k] && !(S.club === 'putter' && (k === 'tailwind' || k === 'bigstick'))).forEach(k => consume(sd, k));
+    ['tailwind', 'bigstick', 'steady', 'laser', 'bounceback'].filter(k => sd.armed[k] && !(S.club === 'putter' && (k === 'tailwind' || k === 'bigstick' || k === 'laser'))).forEach(k => consume(sd, k));
     sd.armed = {};
     S.anim = { path: sh.path, t0: performance.now(), rate: S.club === 'putter' ? 60 : Math.max(30, sh.path.length / 1.6), cur: { ...sd.ball }, shot: sh, holed: sh.result === 'holed', from: E.dist(sd.ball, hole().cup), start: { ...sd.ball } };
     sfx(S.club === 'putter' ? 'putt' : 'swing', power); buzz(S.club === 'putter' ? 8 : 18);
@@ -1013,6 +1046,7 @@
       if (sh.putt && E.dist(sh.from, h.cup) > 8) return pick(Q.longputt);
       return null;
     }
+    if (ev.includes('pin')) return pick(Q.pin);
     if (sh.result === 'water') return pick(Q.water);
     if (sh.result === 'ob') return pick(Q.ob);
     const hk = SET.lefty ? 'slice' : 'hook', sl = SET.lefty ? 'hook' : 'slice';
@@ -1135,6 +1169,7 @@
   function renderHud() {
     if (!S.cur) return;
     const h = hole(), sd = side(), P = player();
+    if (!S.aim) updatePower(0); // shows the close-putt hint as soon as the ball stops within 10 feet
     $('#hHole').textContent = S.bonus ? 'Hole 10 · Bonus' : `${h.num}. ${h.name}`;
     $('#hPar').textContent = `Par ${h.par} · ${h.length} yds`;
     $('#hStrokes').textContent = sd.strokes;
@@ -1181,7 +1216,7 @@
       const C = E.CARDS[id], b = document.createElement('button');
       b.className = 'card' + (sd.armed[id] ? ' armed' : '');
       b.innerHTML = `<b>${C.name}</b><span>${C.desc}</span>`;
-      b.disabled = S.busy || (id === 'mulligan' && S.mode === 'scramble') || (onGreen && (id === 'tailwind' || id === 'bigstick'));
+      b.disabled = S.busy || (id === 'mulligan' && S.mode === 'scramble') || (onGreen && (id === 'tailwind' || id === 'bigstick' || id === 'laser'));
       b.onclick = () => useCard(id);
       box.appendChild(b);
     });

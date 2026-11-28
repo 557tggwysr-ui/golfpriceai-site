@@ -12,6 +12,7 @@ window.WN_QUIPS = {
   missshort: ['Never up, never in.', 'That was a gimme, said nobody.', 'Hit it like you mean it.'],
   spray: ['Bit of a snap hook there, champ.', 'That swing had an opinion.', 'Overcooked it.', 'Swung out of your shoes there.'],
   dunk: ['IN THE HOLE! Drinks are on you.', 'Straight in! Tell absolutely everyone.', 'Dunked it! Frame this one.'],
+  pin: ['Hit the flag! The laser was spot on. Tap-in.', 'Clanged the pin. So close to the dream.', 'Off the flagstick and stone dead. Tap it in.'],
   hook: ['Hooked it. That draw had ambitions.', 'Duck hook! It is visiting the left-hand rough.', 'Too much draw. Way too much draw.'],
   slice: ['Sliced it. Banana ball.', 'That fade turned into a full slice.', 'Weeeeee, said the ball, heading right.'],
   draw: ['Lovely little draw.', 'Right to left, like a tour pro.', 'Shaped it beautifully.'],

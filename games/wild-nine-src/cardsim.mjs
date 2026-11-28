@@ -38,7 +38,7 @@ function playRound(seed, useCards) {
       if (lie === 'sand' && !hf.sandwizard && take('sandwizard')) hf.sandwizard = true;
       const flags = { ...hf }; let r = rnd;
       const approach = plan(h, ball, flags).target === h.cup && lie !== 'green' && d > 14;
-      if (approach && take('laser')) { if (RULES.laserExact !== false) r = () => 0.5; else flags.steady = true; }
+      if (approach && take('laser')) { if (RULES.laserExact !== false) { r = () => 0.5; flags.laser = true; } else flags.steady = true; }
       else if (approach && take('steady')) flags.steady = true;
       if (lie === 'tee' && h.water.length && take('bounceback')) flags.bounceback = true;
       if (lie === 'tee' && h.par === 5 && take('bigstick')) flags.bigstick = true;
